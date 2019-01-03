@@ -12,6 +12,7 @@ from header_terrain_types import *
 from header_music import *
 from header_map_icons import *
 from ID_animations import *
+from module_scripts_form import *
 from compiler import *
 
 ####################################################################################################################
@@ -482,6 +483,12 @@ scripts = [
       (try_for_range, ":party_no", centers_begin, centers_end),
         (party_set_note_available, ":party_no", 1),
       (try_end),
+
+
+  # Kham - Init New variables
+
+  (assign, "$first_time", 0), #squelch compiler warnings
+  
     ]),
 
   #script_game_quick_start
@@ -16246,7 +16253,7 @@ scripts = [
   # script_battle_tactic_init_aux
   # Input: team_no, battle_tactic
   # Output: none
-  ("battle_tactic_init_aux",
+  ("orig_battle_tactic_init_aux",
     [
       (store_script_param, ":team_no", 1),
       (store_script_param, ":battle_tactic", 2),
@@ -16608,7 +16615,7 @@ scripts = [
   # script_battle_tactic_apply_aux
   # Input: team_no, battle_tactic
   # Output: battle_tactic
-  ("battle_tactic_apply_aux",
+  ("orig_battle_tactic_apply_aux",
     [
       (store_script_param, ":team_no", 1),
       (store_script_param, ":battle_tactic", 2),
@@ -17125,6 +17132,7 @@ scripts = [
         (team_set_order_position, ":team_no", 8, pos1),
       (try_end),
     (try_end),
+    (call_script, "script_player_order_formations", ":order"),  #for formations
     (set_show_messages, 1),
   ]),  
 
@@ -47479,3 +47487,5 @@ scripts = [
 
   
 ]
+
+scripts = scripts +  formAI_scripts

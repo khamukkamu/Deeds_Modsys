@@ -6,6 +6,7 @@ from header_sounds import *
 from header_music import *
 from header_items import *
 from module_constants import *
+from module_mission_templates_form import *
 from compiler import *
 
 ####################################################################################################################
@@ -36,6 +37,20 @@ from compiler import *
 pilgrim_disguise = [itm_pilgrim_hood,itm_pilgrim_disguise,itm_practice_staff, itm_throwing_daggers]
 af_castle_lord = af_override_horse | af_override_weapons| af_require_civilian
 af_town_walker = af_override_horse | af_override_weapons
+
+## Fade to Black
+mission_fade_in =  (ti_after_mission_start, 0, 0, [],
+                     [(mission_cam_set_screen_color,        0xFF000000), 
+                      (mission_cam_animate_to_screen_color, 0x00000000, 2500)])
+
+
+deeds_common_battle_scripts = [
+  #tld_cheer_on_space_when_battle_over_press,
+  #tld_cheer_on_space_when_battle_over_release,
+  mission_fade_in,
+  #customize_armor,
+  #bright_nights
+  ] + utility_triggers + extended_battle_menu + common_division_data + division_order_processing + real_deployment + formations_triggers + AI_triggers
 
 multiplayer_server_check_belfry_movement = (
   0, 0, 0, [],
@@ -2289,7 +2304,7 @@ mission_templates = [
      (0,mtef_defenders|mtef_team_0,0,aif_start_alarmed,0,[]),
      (4,mtef_attackers|mtef_team_1,0,aif_start_alarmed,12,[]),
      (4,mtef_attackers|mtef_team_1,0,aif_start_alarmed,0,[]),
-     ],
+     ], deeds_common_battle_scripts + 
     [
       (ti_on_agent_spawn, 0, 0, [],
        [
@@ -2419,12 +2434,12 @@ mission_templates = [
 
 
       #AI Triggers
-      (0, 0, ti_once, [
-          (store_mission_timer_a,":mission_time"),(ge,":mission_time",2),
-          ],
-       [(call_script, "script_select_battle_tactic"),
-        (call_script, "script_battle_tactic_init"),
-        ]),
+      #(0, 0, ti_once, [
+      #    (store_mission_timer_a,":mission_time"),(ge,":mission_time",2),
+      #    ],
+      # [(call_script, "script_select_battle_tactic"),
+      #  (call_script, "script_battle_tactic_init"),
+      #  ]),
 
       (5, 0, 0, [
           (store_mission_timer_a,":mission_time"),
@@ -2451,7 +2466,7 @@ mission_templates = [
      (3,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),
      (1,mtef_team_0|mtef_use_exact_number,0,aif_start_alarmed, 7,[]),
      (1,mtef_visitor_source|mtef_team_0,0,aif_start_alarmed,1,[]),
-     ],
+     ], deeds_common_battle_scripts + 
     [
       common_battle_tab_press,
       common_battle_init_banner,
@@ -2514,7 +2529,7 @@ mission_templates = [
      (3,mtef_defenders|mtef_team_0,0,aif_start_alarmed,0,[]),
      (1,mtef_attackers|mtef_team_1,0,aif_start_alarmed,12,[]),
      (1,mtef_attackers|mtef_team_1,0,aif_start_alarmed,0,[]),
-     ],
+     ], deeds_common_battle_scripts + 
     [
       common_battle_tab_press,
       common_battle_init_banner,
@@ -5924,7 +5939,7 @@ mission_templates = [
       (29,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),
       (30,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),
       (31,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),
-     ],
+     ], deeds_common_battle_scripts + 
     [
       common_custom_battle_tab_press,
       common_custom_battle_question_answered,

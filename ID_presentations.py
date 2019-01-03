@@ -36,3 +36,5 @@ prsnt_budget_report = 34
 prsnt_game_before_quit = 35
 prsnt_multiplayer_duel_start_counter = 36
 prsnt_game_troop_tree = 37
+prsnt_order_display = 38
+prsnt_formation_mod_option = 39

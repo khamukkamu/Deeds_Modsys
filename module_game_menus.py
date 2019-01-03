@@ -2306,6 +2306,9 @@ Gradually, faith became such a part of your life that it was no different from t
        [(jump_to_menu, "mnu_camp_cheat"),
         ],
        ),
+      
+      ("formation_mod_option",[],"Formations mod options.", [(start_presentation, "prsnt_formation_mod_option")]),
+
       ("resume_travelling",[],"Resume travelling.",
        [
            (change_screen_return),

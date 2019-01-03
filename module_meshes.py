@@ -619,5 +619,13 @@ meshes = [
   ("mp_ui_host_maps_19", 0, "mp_ui_host_maps_e2", 0, 0, 0, 0, 0, 0, 1, 1, 1),
   ("mp_ui_host_maps_20", 0, "mp_ui_host_maps_e1", 0, 0, 0, 0, 0, 0, 1, 1, 1),
   
+  ("order_frame", 0, "mp_ui_order_button", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("flag_spears", 0, "flag_infantry", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("flag_skirmishers", 0, "flag_archers", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("flag_horsemen", 0, "flag_cavalry", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("flag_d7", 0, "flag_infantry", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("flag_d8", 0, "flag_archers", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("flag_d9", 0, "flag_cavalry", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  
   ("meshes_end", 0, "white_bg_plane_a", 0, 0, 0, 0, 0, 0, 0, 0, -1),
 ]

@@ -3226,3 +3226,6 @@ str_ui_order_8 = 3224
 str_ui_crouch = 3225
 str_s1_routed = 3226
 str_s1_rallied = 3227
+str_tactical_controls = 3228
+str_division_placement = 3229
+str_formations = 3230
