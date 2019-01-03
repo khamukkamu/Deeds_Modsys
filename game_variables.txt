@@ -651,7 +651,7 @@ party_t_upgrade_text_flags = 0x10
 party_t_upgrade_text_color = 0xFF991100
 
 party_b_troop_upgrades_position_x = 0.09 #upgrade advise.
-party_b_troop_upgrades_position_y = 0.22 #upgrade advise.#before 0.22
+party_b_troop_upgrades_position_y = 0.25 #upgrade advise.#before 0.22
 
 party_b_upgrade1_position_x = 0.008
 party_b_upgrade1_position_y = 0.18
@@ -824,7 +824,7 @@ party_b_talk_h = 0.04
 party_b_release_h = 0.035
 party_b_move_up_h = 0.03
 party_b_move_down_h = 0.03
-party_b_troop_upgrades_h = 0.030
+party_b_troop_upgrades_h = 0.033
 party_b_upgrade1_h = 0.029
 party_b_upgrade2_h = 0.029
 party_b_member_h = 0.0262

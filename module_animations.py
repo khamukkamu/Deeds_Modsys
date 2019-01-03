@@ -1827,23 +1827,23 @@ animations = [
  ],
  ["ready_overswing_musket", acf_rot_vertical_sword|acf_overswing, amf_priority_attack|amf_use_weapon_speed|amf_use_inertia|amf_keep|amf_client_owner_prediction|amf_rider_rot_thrust,
   #[ready_durn, "musket_upper_swing", 12, 24, blend_in_ready],
-  [ready_durn, "javelin_thrust_overhead", 0, 48, blend_in_ready],
+  [ready_durn, "1h_spear_thrust_overhead", 0, 20, blend_in_ready],
  ],
  ["release_overswing_musket", acf_rot_vertical_sword|acf_overswing, amf_priority_attack|amf_use_weapon_speed|amf_play|amf_continue_to_next|amf_rider_rot_thrust,
   #[0.55, "musket_upper_swing", 24, 40, blend_in_release],
-  [0.40, "javelin_thrust_overhead", 48, 78, blend_in_release],#78
+  [0.45, "1h_spear_thrust_overhead", 20, 41, blend_in_release],#78
  ],
  ["release_overswing_musket_continue", 0, amf_priority_continue|amf_use_weapon_speed|amf_play|amf_client_owner_prediction|amf_rider_rot_thrust,
   #[0.4, "musket_upper_swing", 40, 48, arf_blend_in_2],
-  [0.3, "javelin_thrust_overhead", 79, 95, arf_blend_in_2],
+  [0.3, "1h_spear_thrust_overhead", 41, 52, arf_blend_in_2],
  ],
  ["parried_overswing_musket", 0, amf_priority_parried|amf_use_weapon_speed|amf_play,
   #[attack_parried_duration, "musket_upper_swing", 34, 30, blend_in_parry],
-  [0.3, "javelin_thrust_overhead", 95, 79, blend_in_parry],
+  [0.3, "1h_spear_thrust_overhead", 26, 22, blend_in_parry],
  ],
  ["blocked_overswing_musket", 0, amf_priority_blocked|amf_use_weapon_speed|amf_play,
   #[attack_blocked_duration, "musket_upper_swing", 34, 30, blend_in_parry],
-  [0.3, "javelin_thrust_overhead", 95, 79, blend_in_parry],#95 79
+  [0.3, "1h_spear_thrust_overhead", 26, 22, blend_in_parry],#95 79
  ],
  ["ready_thrust_musket", acf_overswing, amf_priority_attack|amf_use_weapon_speed|amf_use_inertia|amf_keep|amf_client_owner_prediction,
   [ready_durn, "musket_thrust_forward", 1, 19, blend_in_ready],
