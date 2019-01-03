@@ -1015,3 +1015,4 @@ trp_sarranid_merchant = 1013
 trp_default_merchant = 1014
 trp_relative_of_merchant = 1015
 trp_looter_leader = 1016
+trp_upgrades = 1017

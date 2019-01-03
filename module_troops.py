@@ -2373,6 +2373,9 @@ troops = [
    [itm_hatchet,itm_club,itm_butchering_knife,itm_falchion,itm_rawhide_coat,itm_stones,itm_nomad_armor,itm_nomad_armor,itm_woolen_cap,itm_woolen_cap,itm_nomad_boots,itm_wrapping_boots],
    def_attrib|level(4),wp(20),knows_common,0x00000001b80032473ac49738206626b200000000001da7660000000000000000, bandit_face2],
 
+  #Lumos List Troop
+  ["upgrades", "{!}Upgrade list", "{!}List of available upgrades", tf_hero, no_scene, reserved, fac_neutral,[],level(60),wp(800),knows_lord_1,merchant_face_1, merchant_face_2],
+
 ]
 
 
