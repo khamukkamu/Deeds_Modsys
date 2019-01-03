@@ -1,4 +1,4 @@
-793
+821
 qstr_Next_Page Next_Page
 qstr_Game_Rules:^ Game_Rules:^
 qstr_0 0
@@ -792,3 +792,31 @@ qstr_{!}DEBUG____Total_pro {!}DEBUG_--_Total_production_for_{s4}:_{reg4}
 qstr_{!}DEBUG____Total_ru {!}DEBUG_--_Total_rural_production_for_{s4}_region:_{reg4}
 qstr_{!}DEBUG____Total_tr {!}DEBUG_--_Total_trade_for_{s4}:_{reg4}
 qstr_{!}DEBUG____Total_at {!}DEBUG_--_Total_attacks_for_{s4}:_{reg4}
+qstr_{s1}_of_the_{s3}_was {s1}_of_the_{s3}_was_defeated_in_battle_but_managed_to_escape.
+qstr_{!}DEBUG_:_Doing_scr {!}DEBUG_:_Doing_script_update_party_creation_random_limits
+qstr_Lame Lame
+qstr_Swaybacked Swaybacked
+qstr_Timid Timid
+qstr_Meek Meek
+qstr_Stubborn Stubborn
+qstr_Heavy Heavy
+qstr_Spirited Spirited
+qstr_Champion Champion
+qstr_Cracked Cracked
+qstr_Battered Battered
+qstr_Thick Thick
+qstr_Reinforced Reinforced
+qstr_Rusty Rusty
+qstr_Tattered Tattered
+qstr_Ragged Ragged
+qstr_Crude Crude
+qstr_Sturdy Sturdy
+qstr_Hardened Hardened
+qstr_Lordly Lordly
+qstr_Broken Broken
+qstr_Chipped Chipped
+qstr_Strong Strong
+qstr_Balanced Balanced
+qstr_Tempered Tempered
+qstr_Masterwork Masterwork
+qstr_Large_Bag_of Large_Bag_of

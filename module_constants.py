@@ -315,6 +315,19 @@ slot_center_traveler_info_faction = 97
 slot_center_tavern_bookseller     = 98
 slot_center_tavern_minstrel       = 99
 
+num_party_loot_slots    = 5
+slot_party_next_looted_item_slot  = 109
+slot_party_looted_item_1          = 110
+slot_party_looted_item_2          = 111
+slot_party_looted_item_3          = 112
+slot_party_looted_item_4          = 113
+slot_party_looted_item_5          = 114
+slot_party_looted_item_1_modifier = 115
+slot_party_looted_item_2_modifier = 116
+slot_party_looted_item_3_modifier = 117
+slot_party_looted_item_4_modifier = 118
+slot_party_looted_item_5_modifier = 119
+
 slot_port_bound_center            = 120
 slot_village_bound_center         = 120
 slot_village_market_town          = 121

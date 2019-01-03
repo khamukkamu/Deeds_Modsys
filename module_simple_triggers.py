@@ -497,7 +497,7 @@ simple_triggers = [
          (store_random_in_range, ":random_value", 0, 2),         
          (val_add, ":num_hiring_rounds", ":random_value"),
        (else_try),
-         (game_get_reduce_campaign_ai, ":reduce_campaign_ai"),
+         (options_get_campaign_ai, ":reduce_campaign_ai"),
          (try_begin),
            (eq, ":reduce_campaign_ai", 0), #hard (2x reinforcing)
            (assign, ":num_hiring_rounds", 2),
@@ -533,7 +533,7 @@ simple_triggers = [
          (eq, ":center_faction", "$players_kingdom"),        
          (assign, ":reinforcement_cost", reinforcement_cost_moderate),
        (else_try),
-         (game_get_reduce_campaign_ai, ":reduce_campaign_ai"),
+         (options_get_campaign_ai, ":reduce_campaign_ai"),
          (assign, ":reinforcement_cost", reinforcement_cost_moderate),
          (try_begin), 
            (eq, ":reduce_campaign_ai", 0), #hard (1x or 2x reinforcing)
@@ -730,7 +730,7 @@ simple_triggers = [
            (store_troop_faction, ":cur_troop_faction", ":troop_no"),
            (neq, ":cur_troop_faction", "$players_kingdom"),
            
-           (game_get_reduce_campaign_ai, ":reduce_campaign_ai"),
+           (options_get_campaign_ai, ":reduce_campaign_ai"),
            (try_begin),
              (eq, ":reduce_campaign_ai", 0), #hard (1.5x)
              (assign, ":max_accepted_random_value", 35),
@@ -764,7 +764,7 @@ simple_triggers = [
            (try_end),             
            (neq, ":cur_center_lord_faction", "$players_kingdom"),
            
-           (game_get_reduce_campaign_ai, ":reduce_campaign_ai"),
+           (options_get_campaign_ai, ":reduce_campaign_ai"),
            (try_begin),
              (eq, ":reduce_campaign_ai", 0), #hard (1.5x)
              (assign, ":max_accepted_random_value", 35),
@@ -1332,7 +1332,7 @@ simple_triggers = [
           (try_begin),
             (party_slot_eq, ":center_no", slot_town_lord, "trp_player"),
             
-            (game_get_reduce_campaign_ai, ":reduce_campaign_ai"),
+            (options_get_campaign_ai, ":reduce_campaign_ai"),
             (try_begin),
               (eq, ":reduce_campaign_ai", 0), #hard (less money from rents)
               (val_mul, ":cur_rents", 3),
@@ -1606,7 +1606,7 @@ simple_triggers = [
            (try_begin),
              (party_slot_eq, ":cur_center", slot_town_lord, "trp_player"),
              
-             (game_get_reduce_campaign_ai, ":reduce_campaign_ai"),
+             (options_get_campaign_ai, ":reduce_campaign_ai"),
              (try_begin),
                (eq, ":reduce_campaign_ai", 0), #hard (less money from tariffs)
                (assign, ":tariff_succeed_limit", 35),

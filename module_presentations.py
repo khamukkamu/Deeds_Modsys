@@ -10386,7 +10386,7 @@ presentations = [
       (overlay_set_area_size, "$g_presentation_obj_bugdet_report_container", pos1),
       (set_container_overlay, "$g_presentation_obj_bugdet_report_container"),
 
-      (game_get_reduce_campaign_ai, ":reduce_campaign_ai"),      
+      (options_get_campaign_ai, ":reduce_campaign_ai"),      
       (try_begin),
         (eq, ":reduce_campaign_ai", 0), #hard
         (assign, ":num_centers_needed_for_efficiency_loss", 2),

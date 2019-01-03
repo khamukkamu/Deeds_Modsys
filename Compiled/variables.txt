@@ -1226,3 +1226,5 @@ main_party_loot_policy
 player_battle_plan
 player_battle_order
 main_party_collected_loot
+spawn_party_max_size
+loot_value_before

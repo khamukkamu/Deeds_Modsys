@@ -7940,7 +7940,7 @@ dialogs = [
 	    (store_add, ":score", ":persuasion", "$g_talk_troop_relation"),
 		(val_add, ":score", ":willingness_to_intrigue"),
 		
-		(game_get_reduce_campaign_ai, ":reduce_campaign_ai"),
+		(options_get_campaign_ai, ":reduce_campaign_ai"),
 		(try_begin),
 		  (eq, ":reduce_campaign_ai", 0), #hard
 		  (val_sub, ":score", 5),
