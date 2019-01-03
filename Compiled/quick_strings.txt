@@ -1,4 +1,4 @@
-821
+822
 qstr_Next_Page Next_Page
 qstr_Game_Rules:^ Game_Rules:^
 qstr_0 0
@@ -820,3 +820,4 @@ qstr_Balanced Balanced
 qstr_Tempered Tempered
 qstr_Masterwork Masterwork
 qstr_Large_Bag_of Large_Bag_of
+qstr_Troop_Tree Troop_Tree

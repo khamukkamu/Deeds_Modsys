@@ -35,3 +35,4 @@ prsnt_retirement = 33
 prsnt_budget_report = 34
 prsnt_game_before_quit = 35
 prsnt_multiplayer_duel_start_counter = 36
+prsnt_game_troop_tree = 37

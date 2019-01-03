@@ -43,3 +43,4 @@ tableau_color_picker = 41
 tableau_retired_troop_alpha_mask = 42
 tableau_retired_troop_color = 43
 tableau_retirement_troop = 44
+tableau_troop_tree_pic = 45

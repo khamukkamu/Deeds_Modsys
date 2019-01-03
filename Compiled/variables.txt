@@ -1228,3 +1228,7 @@ player_battle_order
 main_party_collected_loot
 spawn_party_max_size
 loot_value_before
+troop_tree_pic_height
+troop_tree_counter
+troop_tree_pic_width
+presentation_leave_button
