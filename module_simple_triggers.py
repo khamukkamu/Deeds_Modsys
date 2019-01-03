@@ -268,10 +268,23 @@ simple_triggers = [
 	]),
    
 
-#Kingdom Caravans
+#Kingdom Caravans - Re-enable patrols + scouts - Kham
   (1,
    [(try_for_range, ":cur_kingdom", kingdoms_begin, kingdoms_end),
       (faction_slot_eq, ":cur_kingdom", slot_faction_state, sfs_active),
+
+      (try_begin),
+        (store_random_in_range, ":random_no", 0, 100),
+        (lt, ":random_no", 20),
+        (call_script, "script_create_kingdom_party_if_below_limit", ":cur_kingdom", spt_scout),
+      (try_end),
+
+      (try_begin),
+        (store_random_in_range, ":random_no", 0, 100),
+        (lt, ":random_no", 15),
+        (call_script, "script_create_kingdom_party_if_below_limit", ":cur_kingdom", spt_patrol),
+      (try_end),
+
       (try_begin),
         (store_random_in_range, ":random_no", 0, 100),
         (lt, ":random_no", 10),

@@ -1,5 +1,5 @@
 partytemplatesfile version 1
-61
+63
 pt_none none 2 0 1 7 -1 -1 -1 -1 -1 -1 
 pt_rescued_prisoners Rescued_Prisoners 2 0 1 7 -1 -1 -1 -1 -1 -1 
 pt_enemy Enemy 2 0 16 7 -1 -1 -1 -1 -1 -1 
@@ -29,6 +29,8 @@ pt_spy Ordinary_Townsman 1125899907170306 0 3 7 936 1 1 0 -1 -1 -1 -1 -1
 pt_spy_partners Unremarkable_Travellers 2814749767434242 0 3 7 937 1 1 0 24 5 11 0 -1 -1 -1 -1 
 pt_sacrificed_messenger Sacrificed_Messenger 844424930459650 0 3 7 -1 -1 -1 -1 -1 -1 
 pt_kingdom_hero_party War_Party 4259844 0 1 137 -1 -1 -1 -1 -1 -1 
+pt_scout_party Scouts 281474980904962 0 1 312 -1 -1 -1 -1 -1 -1 
+pt_patrol_party Patrol 562949957615618 0 1 137 -1 -1 -1 -1 -1 -1 
 pt_village_defenders Village_Defenders 6 0 1 7 21 10 20 0 171 0 4 0 -1 -1 -1 -1 
 pt_mercenary_reinforcements_a {!}mercenary_reinforcements_a 0 0 1 0 21 5 10 0 23 2 4 0 -1 -1 -1 -1 
 pt_mercenary_reinforcements_b {!}mercenary_reinforcements_b 0 0 1 0 25 3 6 0 24 2 4 0 -1 -1 -1 -1 

@@ -477,12 +477,16 @@ slot_center_last_reconnoitered_by_faction_time 				= 350
 spt_castle             = 2
 spt_town               = 3
 spt_village            = 4
+spt_scout              = 5
+spt_patrol             = 6
 spt_bandit_lair        = 9
+
 
 spt_kingdom_hero_party = 10
 spt_kingdom_caravan    = 11
 spt_village_farmer     = 12
 spt_cattle_herd        = 13
+
 
 spt_ship_land		   = 20
 spt_port               = 21

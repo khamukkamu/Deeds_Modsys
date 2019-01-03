@@ -8965,8 +8965,21 @@ scripts = [
       (assign, ":party_count_limit", 0),
 
       (faction_get_slot, ":num_towns", ":faction_no", slot_faction_num_towns),
+      (faction_get_slot, ":num_castles", ":faction_no", slot_faction_num_castles),
 
       (try_begin),
+        (eq, ":party_type", spt_scout), #Deeds: re-add Scout Parties
+        (assign, ":party_count_limit", ":num_castles"), # Changed from total centers to one scout per castle
+      (else_try),
+        (eq, ":party_type", spt_patrol), #Deeds: re-add Patrols
+        (store_add, ":total_centers", ":num_towns", ":num_castles"), #Changed from total centers + 10 to one per center or 5 patrols if bellow 4 centers
+        (try_begin),
+          (le, ":total_centers", 3),
+          (assign, ":party_count_limit", 5),
+        (else_try),
+          (assign, ":party_count_limit", ":total_centers"),
+        (try_end),
+      (else_try),
         (eq, ":party_type", spt_kingdom_caravan),
         (try_begin),
           (eq, ":num_towns", 0),
@@ -9001,11 +9014,19 @@ scripts = [
       (str_store_faction_name, s7, ":faction_no"),
       (assign, ":party_name_str", "str_no_string"),
       
+      (faction_get_slot, ":reinforcements_a", ":faction_no", slot_faction_reinforcements_a),
       (faction_get_slot, ":reinforcements_b", ":faction_no", slot_faction_reinforcements_b),
+      (faction_get_slot, ":reinforcements_c", ":faction_no", slot_faction_reinforcements_c),
       
       (try_begin),
         (eq, ":party_type", spt_kingdom_caravan),
         (assign, ":party_template", "pt_kingdom_caravan_party"),
+      (else_try),
+        (eq, ":party_type", spt_scout),
+        (assign, ":party_template", "pt_scout_party"),
+      (else_try),
+        (eq, ":party_type", spt_patrol),
+        (assign, ":party_template", "pt_patrol_party"),
       (try_end),
       
       (assign, ":result", -1),
@@ -9036,6 +9057,20 @@ scripts = [
         (try_end),
         
         (try_begin),
+          (eq, ":party_type", spt_scout),
+          (store_random_in_range, ":scout_end", 2, 6), #Max of 5 iterations for varying scout strengths
+          (try_for_range, ":unused", 0, ":scout_end"),
+            (party_add_template, ":result", ":reinforcements_c"),
+            (party_add_template, ":result", ":reinforcements_a"),
+          (try_end),
+        (else_try),
+          (eq, ":party_type", spt_patrol),
+          (store_random_in_range, ":patrol_end", 4, 10), #Max of 9 iterations for varying patrol strengths
+          (try_for_range, ":unused", 0, ":patrol_end"),
+            (party_add_template, ":result", ":reinforcements_a"),
+            (party_add_template, ":result", ":reinforcements_b"),
+          (try_end),
+        (else_try),
           (eq, ":party_type", spt_kingdom_caravan),
           (try_begin),
             (eq, ":faction_no", "fac_player_supporters_faction"),

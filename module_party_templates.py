@@ -70,6 +70,9 @@ party_templates = [
 
 # Kingdom Parties
   ("kingdom_hero_party","War Party",icon_flagbearer_a|pf_show_faction|pf_default_behavior,0,fac_commoners,soldier_personality,[]),
+  ("scout_party","Scouts",icon_gray_knight|carries_goods(1)|pf_show_faction,0,fac_commoners,bandit_personality,[]),
+  ("patrol_party","Patrol",icon_gray_knight|carries_goods(2)|pf_show_faction,0,fac_commoners,soldier_personality,[]),
+
 
 # Reinforcements
   # each faction includes three party templates. One is less-modernised, one is med-modernised and one is high-modernised
