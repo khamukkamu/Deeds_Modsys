@@ -1272,3 +1272,4 @@ when_f1_first_detected
 last_player_trigger
 g_division_order_processing
 player_deploy_troops
+player_cheering
