@@ -1,5 +1,5 @@
 itemsfile version 3
-642
+645
  itm_no_item INVALID_ITEM INVALID_ITEM 1  invalid_item 0  12582914 9223388529554358287 3 0 1.500000 100 0 0 0 0 0 103 0 90 0 522 528
  0
 0
@@ -2992,6 +2992,18 @@ itemsfile version 3
 
  itm_book_of_the_dead Strange_Book Strange_Book 1  book_b 0  20 0 5000 0 2.000000 100 0 0 0 0 0 0 0 0 0 0 0
  1
+ 0
+0
+
+ itm_dedal_kufel Kufel Kufel 1  dedal_kufelL 0  15 0 0 0 1.000000 100 0 0 0 0 0 0 0 0 0 0 0
+ 0
+0
+
+ itm_dedal_lutnia Lutnia Lutnia 1  dedal_lutniaL 0  15 0 0 0 1.000000 100 0 0 0 0 0 0 0 0 0 0 0
+ 0
+0
+
+ itm_dedal_lira Lira Lira 1  dedal_liraL 0  15 0 0 0 1.000000 100 0 0 0 0 0 0 0 0 0 0 0
  0
 0
 

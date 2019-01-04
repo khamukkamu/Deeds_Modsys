@@ -17849,6 +17849,14 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 ####################################################################################################################
 # [ ZL01 ] - Tavernkeeper
 #################################################################################################################### 
+  
+  ##Tavern commoner's dialog turned off
+  [anyone|plyr,"start",[(eq,"$talk_context",tc_tavern_talk),(is_between,"$g_talk_troop",walkers_begin,walkers_end)],
+   "This person looks quite busy. I think I shouldn't interrupt...","close_window",[]],
+  
+  ##Tavern random musicans dialog turned off
+  [anyone|plyr,"start",[(eq,"$talk_context",tc_tavern_talk),(is_between,"$g_talk_troop","trp_musican_male","trp_musicans_end")],
+   "This person looks quite busy. I think I shouldn't interrupt...","close_window",[]],
 
   [anyone ,"start", [(party_slot_eq,"$g_encountered_party",slot_town_tavernkeeper,"$g_talk_troop")],
    "Good day dear {sir/madam}. How can I help you?", "tavernkeeper_talk", []],

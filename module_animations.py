@@ -1866,12 +1866,31 @@ animations = [
  ["unequip_pistol_melee", 0, amf_priority_equip|amf_play|amf_restart|amf_client_prediction,
    [0.3, "equip_pistol", 0, 10, arf_blend_in_0],
  ],
- ["unused_human_anim_44", 0, 0, [1.0, "anim_human", 0, 1, 0]],
- ["unused_human_anim_45", 0, 0, [1.0, "anim_human", 0, 1, 0]],
- ["unused_human_anim_46", 0, 0, [1.0, "anim_human", 0, 1, 0]],
- ["unused_human_anim_47", 0, 0, [1.0, "anim_human", 0, 1, 0]],
- ["unused_human_anim_48", 0, 0, [1.0, "anim_human", 0, 1, 0]],
- ["unused_human_anim_49", 0, 0, [1.0, "anim_human", 0, 1, 0]],
+
+ # Daedalus  a.k.a  Slawomir of Aaarrghh Tavern Animations
+
+ ["sitting_drinking_low", acf_enforce_all, amf_priority_die|amf_play,
+   [20.0, "dedal_sitting_drinking_low", 0, 311, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],],
+ ["sitting_low", acf_enforce_all, amf_priority_die|amf_keep,
+   [18.0, "dedal_sitting_low", 3, 301, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],],
+ ["lute_sitting", acf_enforce_all, amf_priority_die|amf_play,
+   [2.05, "dedal_lute_sitting", 3, 7, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],],
+ ["lute_standing", acf_enforce_all, amf_priority_die|amf_play,
+   [2.05, "dedal_lute_standing", 3, 7, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],],
+ ["lyre_sitting", acf_enforce_all, amf_priority_die|amf_play,
+   [2.05, "dedal_lyre_sitting", 3, 7, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],],
+ ["lyre_standing", acf_enforce_all, amf_priority_die|amf_play,
+   [2.05, "dedal_lyre_standing", 3, 7, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],],
+ 
+ # Commented out for Tavern anims
+ #["unused_human_anim_44", 0, 0, [1.0, "anim_human", 0, 1, 0]],
+ #["unused_human_anim_45", 0, 0, [1.0, "anim_human", 0, 1, 0]],
+ #["unused_human_anim_46", 0, 0, [1.0, "anim_human", 0, 1, 0]],
+ #["unused_human_anim_47", 0, 0, [1.0, "anim_human", 0, 1, 0]],
+ #["unused_human_anim_48", 0, 0, [1.0, "anim_human", 0, 1, 0]],
+ #["unused_human_anim_49", 0, 0, [1.0, "anim_human", 0, 1, 0]],
+ 
+ 
  ["unused_human_anim_50", 0, 0, [1.0, "anim_human", 0, 1, 0]],
  ["unused_human_anim_51", 0, 0, [1.0, "anim_human", 0, 1, 0]],
  ["unused_human_anim_52", 0, 0, [1.0, "anim_human", 0, 1, 0]],

@@ -1364,5 +1364,11 @@ items = [
 ["mail_boots_for_tableau", "Mail Boots", [("mail_boots_a",0)], itp_type_foot_armor | itp_attach_armature  ,0, 1, weight(3)|abundance(0)|head_armor(0)|body_armor(0)|leg_armor(1) ,imodbits_armor, [], [fac_no_faction] ],
 ["book_of_the_dead","Strange Book", [("book_b",0)], itp_type_book, 0, 5000,weight(2)|abundance(0),imodbits_none, [], [fac_no_faction]],
 
+
+# Tavern Items
+["dedal_kufel","Kufel",[("dedal_kufelL",0)],	itp_type_hand_armor,0,0,weight(1),0],
+["dedal_lutnia","Lutnia",[("dedal_lutniaL",0)],	itp_type_hand_armor,0,0,weight(1),0],
+["dedal_lira","Lira",[("dedal_liraL",0)],		itp_type_hand_armor,0,0,weight(1),0],
+
 ["items_end", "Items End", [("shield_round_a",0)], 0, 0, 1, 0, 0],
 ]

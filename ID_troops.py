@@ -1016,3 +1016,6 @@ trp_default_merchant = 1014
 trp_relative_of_merchant = 1015
 trp_looter_leader = 1016
 trp_upgrades = 1017
+trp_musican_male = 1018
+trp_musican_female = 1019
+trp_musicans_end = 1020
