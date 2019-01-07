@@ -4,8 +4,12 @@ from header_items import *
 from header_mission_templates import *
 from header_music import *
 from header_terrain_types import *
-
+#SB : optional menu toggles
+# from header_sounds import sf_vol_1
+from ID_info_pages import *
+from header_triggers import key_left_shift, key_right_shift
 from module_constants import *
+from module_game_menus_diplomacy import *
 from compiler import *
 
 ####################################################################################################################
@@ -69,12 +73,31 @@ game_menus = [
 
   # Must absolutely be in position #1 - Called when starting a new game
   ("start_game_0",menu_text_color(0xFF000000)|mnf_disable_all_keys,
-    "Welcome, adventurer, to Mount and Blade: Warband. Before beginning the game you must create your character. Remember that in the traditional medieval society depicted in the game, war and politics are usually dominated by male members of the nobility. That does not however mean that you should not choose to play a female character, or one who is not of noble birth. Male nobles may have a somewhat easier start, but women and commoners can attain all of the same goals -- and in fact may have a much more interesting if more challenging early game.",
-    "none",
+  ##diplomacy begin
+    "Welcome, adventurer, to Deeds of Arms and Chivalry for Mount & Blade: Warband. Before beginning the game you must create your character. Remember that in the traditional medieval society depicted in the game, war and politics are usually dominated by male members of the nobility. That does not however mean that you should not choose to play a female character, or one who is not of noble birth. Male nobles may have a somewhat easier start, but women and commoners can attain all of the same goals -- and in fact may have a much more interesting if more challenging early game.",
+  ##diplomacy end
+  "none",
     [],
     [
      ("continue",[],"Continue...",
-       [(jump_to_menu, "mnu_start_game_1"),
+       [
+       #SB : randomized quick start
+        # (try_begin),
+          # (this_or_next|key_is_down, key_left_shift),
+          # (key_is_down, key_right_shift),
+          # (assign, "$g_disable_condescending_comments", 4),
+          # (store_random_in_range, "$character_gender", tf_male, tf_female + 1),
+          # (troop_set_type, "trp_player", "$character_gender"),
+          # (store_random_in_range, "$background_type", cb_noble, cb_priest + 1),
+          # (store_random_in_range, "$background_answer_2", cb2_page, dplmc_cb2_acolyte + 1),
+          # (store_random_in_range, "$background_answer_3", dplmc_cb3_bravo, cb3_student + 1),
+          # (store_random_in_range, "$background_answer_4", cb4_revenge, cb4_greed + 1),
+          # (str_store_string, s13, "@Perhaps you have forgotten the face of your father."),
+          # (assign, "$cheat_mode", 1),
+          # (jump_to_menu, "mnu_choose_skill"),
+        # (else_try),
+          (jump_to_menu, "mnu_start_game_1"),
+        # (try_end),
         ]
        ),
      ("skip",[(is_edit_mode_enabled)],"{!}Skip Creation...",
@@ -94,14 +117,130 @@ game_menus = [
   
   # Must absolutely be in position #2 - Called after character creation
   ("start_phase_2",mnf_disable_all_keys,
-    "You hear about Calradia, a land torn between rival kingdoms battling each other for supremacy,\
+    "Anno Domini MCDXXVIII, You start your adventure in France, a land torn between rival kingdoms battling each other for supremacy,\
  a haven for knights and mercenaries,  cutthroats and adventurers, all willing to risk their lives in pursuit of fortune, power, or glory...\
  In this land which holds great dangers and even greater opportunities, you believe you may leave your past behind and start a new life.\
  You feel that finally, you hold the key of your destiny in your hands, free to choose as you will,\
- and that whatever course you take, great adventures will await you. Drawn by the stories you hear about Calradia and its kingdoms, you...",
+ and that whatever course you take, great adventures will await you. Drawn by the stories you hear about France and its kingdoms, you...",
     "none",
-    [],
     [
+      #SB : auto-sort through inventory, get rid of duplicate armor (and add them as gold)
+      #weapons can have duplicates but are mostly a none issue, player might want to reroll anyway
+      # (set_show_messages, 0),
+      (assign, ":bonus_gold", 0),
+      (troop_get_inventory_capacity, ":capacity", "trp_player"),
+      (assign, ":helmet_score", -1),
+      (assign, ":shield_score", -1),
+      (assign, ":chest_score", -1),
+      (assign, ":boots_score", -1),
+      (assign, ":glove_score", -1),
+      # (assign, ":weapon_score", -1),
+      (try_for_range, ":i_slot", 0, ":capacity"),
+        (troop_get_inventory_slot, ":item_no", "trp_player", ":i_slot"),
+        (ge, ":item_no", 0),
+        (item_get_type, ":itp", ":item_no"),
+        # (this_or_next|is_between, ":itp", itp_type_one_handed_wpn, itp_type_goods),
+        (this_or_next|eq, ":itp", itp_type_shield),
+        (is_between, ":itp", itp_type_head_armor, itp_type_pistol), #skip horses, food, etc
+        (troop_get_inventory_slot_modifier, ":imod_no", "trp_player", ":i_slot"),
+        (call_script, "script_dplmc_troop_can_use_item", "trp_player", ":item_no", ":imod_no"),
+        (eq, reg0, 1), #only parse those we can use
+        (call_script, "script_dplmc_get_item_score_with_imod", ":item_no", ":imod_no"),
+        (assign, ":score", reg0),
+        (try_begin),
+          (eq, ":itp", itp_type_head_armor),
+          # (try_begin),
+            # (lt, ":score", ":helmet_score"),
+            # (troop_set_inventory_slot, "trp_player", ":i_slot", -1),
+            # (call_script, "script_dplmc_get_item_value_with_imod", ":item_no", ":imod_no"),
+            # (val_add, ":bonus_gold", reg0),
+          # (else_try),
+          (gt, ":score", ":helmet_score"),
+          (assign, ":helmet_score", ":score"),
+        (else_try),
+          (eq, ":itp", itp_type_body_armor),
+          (gt, ":score", ":chest_score"),
+          (assign, ":chest_score", ":score"),
+        (else_try),
+          (eq, ":itp", itp_type_foot_armor),
+          (gt, ":score", ":boots_score"),
+          (assign, ":boots_score", ":score"),
+        (else_try),
+          (eq, ":itp", itp_type_hand_armor),
+          (gt, ":score", ":glove_score"),
+          (assign, ":glove_score", ":score"),
+        (else_try),
+          (eq, ":itp", itp_type_shield),
+          (gt, ":score", ":shield_score"),
+          (assign, ":shield_score", ":score"),
+        (try_end),
+      (try_end),
+      
+      (try_for_range, ":i_slot", 0, ":capacity"),
+        (troop_get_inventory_slot, ":item_no", "trp_player", ":i_slot"),
+        (ge, ":item_no", 0),
+        (item_get_type, ":itp", ":item_no"),
+        (is_between, ":itp", itp_type_head_armor, itp_type_pistol), #skip horses, food, etc
+        (troop_get_inventory_slot_modifier, ":imod_no", "trp_player", ":i_slot"),
+        # (call_script, "script_dplmc_troop_can_use_item", "trp_player", ":item_no", ":imod_no"),
+        # (eq, reg0, 1), #only parse those we can use
+        (call_script, "script_dplmc_get_item_score_with_imod", ":item_no", ":imod_no"),
+        (assign, ":score", reg0),
+        (try_begin),
+          (eq, ":itp", itp_type_head_armor),
+          (lt, ":score", ":helmet_score"),
+          (assign, ":score", -1),
+        (else_try),
+          (eq, ":itp", itp_type_body_armor),
+          (lt, ":score", ":chest_score"),
+          (assign, ":score", -1),
+        (else_try),
+          (eq, ":itp", itp_type_foot_armor),
+          (lt, ":score", ":boots_score"),
+          (assign, ":score", -1),
+        (else_try),
+          (eq, ":itp", itp_type_hand_armor),
+          (lt, ":score", ":glove_score"),
+          (assign, ":score", -1),
+        (else_try),
+          (eq, ":itp", itp_type_shield),
+          (lt, ":score", ":shield_score"),
+          (assign, ":score", -1),
+        (try_end),
+        (eq, ":score", -1), #found a worse item
+        (troop_set_inventory_slot, "trp_player", ":i_slot", -1),
+        (call_script, "script_dplmc_get_item_value_with_imod", ":item_no", ":imod_no"),
+        (val_add, ":bonus_gold", reg0),
+      (try_end),
+      (val_div, ":bonus_gold", 2),
+      (troop_add_gold, "trp_player", ":bonus_gold"),
+      # (set_show_messages, 1),
+    ],
+
+    [##diplomacy start+ Replace "join" with "Join" in the following
+#SB : skip merchant quest
+      ("town_none",[(eq, "$cheat_mode", 1),], "boldly go where no {man/woman} has gone before..",
+       [
+         #(jump_to_menu, "mnu_start_phase_2_5"),
+         (store_random_in_range, ":destination", training_grounds_begin, training_grounds_end),
+         (party_set_flags, ":destination", pf_always_visible, 1),
+         # (store_add, ":destination", "$fac_index", "p_swadian_scouts_spawn_point"),
+         (party_relocate_near_party, "p_main_party", ":destination", 3),
+         (call_script, "script_player_arrived"),
+         (try_begin), #noble
+           (eq, "$g_player_banner_granted", 1),
+           # (gt, "$g_player_luck", 175), #50% chance
+           (troop_slot_ge, "trp_player", slot_troop_renown, 160),
+           
+           (store_random_in_range, "$g_invite_faction", npc_kingdoms_begin, npc_kingdoms_end),
+           (assign, "$g_invite_offered_center", -1),
+           (faction_get_slot, "$g_invite_faction_lord", "$g_invite_faction", slot_faction_leader),
+           (jump_to_menu, "mnu_invite_player_to_faction_without_center"),
+         (try_end),
+         (add_xp_to_troop, 5000, "trp_player"),
+
+         (change_screen_return),
+       ]),	
       ("town_1",[(eq, "$current_startup_quest_phase", 0),],"join a caravan to Praven, in the Kingdom of Swadia.",
        [ (assign, "$g_starting_town", "p_town_6"),
          (assign, "$g_journey_string", "str_journey_to_praven"),
@@ -268,6 +407,21 @@ game_menus = [
     (assign, reg6, "$player_honor"),
     (assign, reg7, ":party_size_limit"),
     (party_get_morale, reg8, "p_main_party"),
+	
+    ##diplomacy begin
+    (str_clear, s1),
+    (try_begin),
+      (gt, "$g_next_pay_time", 0),
+      (str_store_date, s1, "$g_next_pay_time"),
+      (str_store_string, s1, "@ Next pay day: {s1}"),
+    (try_end),
+
+    (try_begin),
+      (is_between, "$g_player_affiliated_troop", lords_begin, kingdom_ladies_end),
+      (str_store_troop_name, s5, "$g_player_affiliated_troop"),
+      (str_store_string, s1, "@{s1}^^Affiliated to {s5}"),
+    (try_end),
+    ##diplomacy end	
    ],
     [
       ("cheat_faction_orders",[(ge,"$cheat_mode",1)],"{!}Cheat: Faction orders.",
@@ -286,6 +440,9 @@ game_menus = [
 	   
       ("view_npc_mission_report",[],"View companion mission report.",
        [(jump_to_menu, "mnu_companion_report"),
+        #SB : we modified this, reset the global to the player so it shows up first
+        (assign, "$g_player_troop", "trp_player"),
+        #could also jump to presentation directly
         ]
        ),
 
@@ -301,22 +458,67 @@ game_menus = [
         ]
        ),
 
+##diplomacy start
       ("lord_relations",[],"View list of known lords by relation.",
        [
-		(jump_to_menu, "mnu_lord_relations"),
+         #(jump_to_menu, "mnu_lord_relations"),
+         (assign, "$g_jrider_pres_called_from_menu", 1),
+         (assign, "$g_character_presentation_type", 1),
+         (start_presentation, "prsnt_jrider_character_relation_report"),
         ]
        ),
+##diplomacy end
+
+	##diplomacy start+ see dplmc_affiliated_family_report
+     ("view_affiliated_family_report",[
+		#(this_or_next|troop_slot_ge, "trp_player", slot_troop_spouse, 1),
+        (this_or_next|ge,"$cheat_mode",1),
+		(is_between, "$g_player_affiliated_troop", kingdoms_begin, kingdoms_end),
+		], "View affiliated family member / spouse report.",
+       [
+           (jump_to_menu, "mnu_dplmc_affiliated_family_report"),
+        ]
+       ),
+	##diplomacy end+
 	   
       ("courtship_relations",[],"View courtship relations.",
        [
 		(jump_to_menu, "mnu_courtship_relations"),
         ]
        ),
+	   
+      ("status_check",[(eq,"$cheat_mode",1)],"{!}NPC status check.",
+       [
+        (try_for_range, ":npc", companions_begin, companions_end),
+            (main_party_has_troop, ":npc"),
+            (str_store_troop_name, 4, ":npc"),
+            (troop_get_slot, reg3, ":npc", slot_troop_morality_state),
+            (troop_get_slot, reg4, ":npc", slot_troop_2ary_morality_state),
+            (troop_get_slot, reg5, ":npc", slot_troop_personalityclash_state),
+            (troop_get_slot, reg6, ":npc", slot_troop_personalityclash2_state),
+            (troop_get_slot, reg7, ":npc", slot_troop_personalitymatch_state),
+            (display_message, "@{!}{s4}: M{reg3}, 2M{reg4}, PC{reg5}, 2PC{reg6}, PM{reg7}"),
+        (try_end),
+        ]
+       ),	   
 
-      ("view_faction_relations_report",[],"View faction relations report.",
-       [(jump_to_menu, "mnu_faction_relations_report"),
+	   ##diplomacy begin
+     ("view_faction_relations_report",[],"View faction relations report.",
+       [
+           # Jrider + REPORTS PRESENTATIONS 1.2, comment to hook faction report presentation
+           ##(jump_to_menu, "mnu_faction_relations_report"),
+           (start_presentation, "prsnt_jrider_faction_relations_report"),
+           # Jrider -
         ]
        ),
+       
+     ("dplmc_show_economic_report",[],"View prosperity report.",
+       [
+           (jump_to_menu, "mnu_dplmc_economic_report"),
+        ]
+       ),
+       ##diplomacy end
+	   
       ("resume_travelling",[],"Resume travelling.",
        [(change_screen_return),
         ]
@@ -377,7 +579,11 @@ game_menus = [
        [
          (troop_set_type, "trp_player", 1),
          (assign, "$character_gender", tf_female),
-         (jump_to_menu, "mnu_start_character_1"),
+##diplomacy start+
+#Jump to the prejudice-level menu instead
+#         (jump_to_menu, "mnu_start_character_1"),
+         (jump_to_menu, "mnu_dplmc_start_select_prejudice"),
+##diplomacy end+
        ]
        ),
 	  ("go_back",[],"Go back",
@@ -398,6 +604,8 @@ game_menus = [
     (str_clear,s13),
     (str_clear,s14),
     (str_clear,s15),
+    (assign, reg11, "$character_gender"), #SB : every string now uses reg11 for daughter/son boy/girl etc
+	
     ],
     [
     ("start_noble",[],"An impoverished noble.",[
@@ -817,7 +1025,7 @@ Gradually, faith became such a part of your life that it was no different from t
       ("begin_adventuring",[],"Become an adventurer and ride to your destiny.",[
            (set_show_messages, 0),
            (try_begin),
-             (eq,"$character_gender",0),
+             (eq, "$character_gender", tf_male),
              (troop_raise_attribute, "trp_player",ca_strength,1),
              (troop_raise_attribute, "trp_player",ca_charisma,1),
            (else_try),
@@ -1356,12 +1564,17 @@ Gradually, faith became such a part of your life that it was no different from t
         
      (try_for_range, ":kingdom_no", npc_kingdoms_begin, npc_kingdoms_end),
        (faction_get_slot, ":faction_morale", ":kingdom_no",  slot_faction_morale_of_player_troops),
-       (val_div, ":faction_morale", 100),
-       (neq, ":faction_morale", 0),
-       (assign, reg6, ":faction_morale"),
+       (store_div, ":value", ":faction_morale", 100),
+       (neq, ":value", 0),
+       (assign, reg6, ":value"),
+       #SB : show decimal values
+       (store_mod, reg7, ":faction_morale", 100),
+       (val_abs, reg7),
        (str_store_faction_name, s9, ":kingdom_no"),
        (str_store_string, s1, "str_s1extra_morale_for_s9_troops__reg6_"),
-     (try_end),        
+       (store_sub, ":faction_offset", ":kingdom_no", kingdoms_begin), #SB : add one to index to not override default string
+       (add_info_page_note_from_sreg, ip_morale, ":faction_offset", "@Morale for {s9} troops: {reg6}", 0),
+     (try_end),  
     ],
     [
       ("continue",[],"Continue...",
@@ -1428,36 +1641,54 @@ Gradually, faith became such a part of your life that it was no different from t
   ("lord_relations",0,
    "{s1}",
    "none",
-   [   
-    (try_for_range, ":active_npc", active_npcs_begin, active_npcs_end),
+   [
+    ##diplomacy start+
+	 #Avoid unnecessary iterations, since below we only use slto_kingdom_hero troops.
+    (assign, ":met_lord_count", 0),
+    #Add support for promoted kingdom ladies.
+    #(try_for_range, ":active_npc", active_npcs_begin, active_npcs_end),
+    (try_for_range, ":active_npc", heroes_begin, heroes_end),
+      (troop_slot_eq, ":active_npc", slot_troop_occupation, slto_kingdom_hero),
+      (troop_slot_ge, ":active_npc", slot_troop_met, 1),
+      (val_add, ":met_lord_count", 1),
+    ##diplomacy end+
 		(troop_set_slot, ":active_npc", slot_troop_temp_slot, 0),
 	(try_end),
-	
+
 	(str_clear, s1),
-    (try_for_range, ":unused", active_npcs_begin, active_npcs_end),
+    ##diplomacy start+
+    #Add support for promoted kingdom ladies.
+    #(try_for_range, ":unused", active_npcs_begin, active_npcs_end),#<- changed
+    #We counted the number of heroes, so we can cut down on the number of
+    #iterations (since expanding this from active_npcs to heroes means that
+    #a lot of them will not be lords).
+    (try_for_range, ":unused", 0, ":met_lord_count"),#<- added
 		(assign, ":score_to_beat", -100),
 		(assign, ":best_relation_remaining_npc", -1),
-		(try_for_range, ":active_npc", active_npcs_begin, active_npcs_end),
+		#Add support for promoted kingdom ladies
+		#(try_for_range, ":active_npc", active_npcs_begin, active_npcs_end),#<-changed
+		(try_for_range, ":active_npc", heroes_begin, heroes_end),#<-added
+	##diplomacy end+
 			(troop_slot_eq, ":active_npc", slot_troop_temp_slot, 0),
 			(troop_slot_eq, ":active_npc", slot_troop_occupation, slto_kingdom_hero),
 			(troop_slot_ge, ":active_npc", slot_troop_met, 1),
-	
+
 			(call_script, "script_troop_get_player_relation", ":active_npc"),
 			(assign, ":relation_with_player", reg0),
 			(ge, ":relation_with_player", ":score_to_beat"),
-			
+
 			(assign, ":score_to_beat", ":relation_with_player"),
 			(assign, ":best_relation_remaining_npc", ":active_npc"),
 		(try_end),
 		(gt, ":best_relation_remaining_npc", -1),
-		
+
 		(str_store_troop_name_link, s4, ":best_relation_remaining_npc"),
 		(assign, reg4, ":score_to_beat"),
 		(str_store_string, s1, "@{!}{s1}^{s4}: {reg4}"),
 		(troop_set_slot, ":best_relation_remaining_npc", slot_troop_temp_slot, 1),
 	(try_end),
-   
-	
+
+
     ],
     [
       ("continue",[],"Continue...",
@@ -1469,186 +1700,231 @@ Gradually, faith became such a part of your life that it was no different from t
 
 
   
+ 
   ("companion_report",0,
-   "{s7}{s1}",
+   "{s7}{s2}",
    "none",
-   [
-   (str_clear, s1),
-   (str_store_string, s7, "str_no_companions_in_service"),
-   
-   (try_begin),
-	(troop_get_slot, ":spouse_or_betrothed", "trp_player", slot_troop_spouse),
-	(try_begin),
-		(troop_get_type, ":is_female", "trp_player"),
-		(eq, ":is_female", 1),
-		(str_store_string, s8, "str_husband"),
-	(else_try),
-		(str_store_string, s8, "str_wife"),
-	(try_end),
-	
-	(try_begin),
-		(le, ":spouse_or_betrothed", 0),
-		(troop_get_slot, ":spouse_or_betrothed", "trp_player", slot_troop_betrothed),
-		(str_store_string, s8, "str_betrothed"),
-	(try_end),	
-	(gt, ":spouse_or_betrothed", 0),	
-		
-	(str_store_troop_name, s4, ":spouse_or_betrothed"),
-	(troop_get_slot, ":cur_center", ":spouse_or_betrothed", slot_troop_cur_center),
-	(try_begin),
-		(is_between, ":cur_center", centers_begin, centers_end),
-		(str_store_party_name, s5, ":cur_center"),
-	(else_try),
-		(troop_slot_eq, ":spouse_or_betrothed", slot_troop_occupation, slto_kingdom_hero),
-		(str_store_string, s5, "str_leading_party"),
-	(else_try),	
-		(str_store_string, s5, "str_whereabouts_unknown"),
+  [
+  (str_clear, s1),
+  (str_clear, s2),
+  (str_store_string, s7, "str_no_companions_in_service"),
+
+  (try_begin),
+    (troop_get_slot, ":spouse_or_betrothed", "trp_player", slot_troop_spouse),
+    (try_begin),
+      ##diplomacy start+ Test gender with script
+      #(troop_get_type, ":is_female", "trp_player"),#<- replaced
+      (call_script, "script_cf_dplmc_troop_is_female", "trp_player"),
+      #(eq, ":is_female", 1),#<- replaced
+      ##diplomacy end+
+      (str_store_string, s8, "str_husband"),
+    (else_try),
+      (str_store_string, s8, "str_wife"),
     (try_end),
-	(str_store_string, s3, "str_s4_s8_s5"),
-	(str_store_string, s2, s1),
-	(str_store_string, s1, "str_s2_s3"),
-	
-   (try_end),
-   
-   
-   (try_begin),
+
+    (try_begin),
+      (le, ":spouse_or_betrothed", 0),
+      (troop_get_slot, ":spouse_or_betrothed", "trp_player", slot_troop_betrothed),
+      (str_store_string, s8, "str_betrothed"),
+    (try_end),
+    (gt, ":spouse_or_betrothed", 0),
+
+    (str_store_troop_name, s4, ":spouse_or_betrothed"),
+    (troop_get_slot, ":cur_center", ":spouse_or_betrothed", slot_troop_cur_center),
+    (try_begin), #SB : in your party
+      (main_party_has_troop, ":spouse_or_betrothed"),
+      (str_store_string, s5, "str_in_your_party"),
+    (else_try), #shopping for bread
+      (store_num_parties_of_template, ":num_bread", "pt_dplmc_spouse"),
+      (gt, ":num_bread", 0),
+      (str_store_string, s5, "str_expected_back_imminently"),
+    (else_try),
+      (is_between, ":cur_center", centers_begin, centers_end),
+      (str_store_party_name, s5, ":cur_center"),
+    (else_try),
+      (troop_slot_eq, ":spouse_or_betrothed", slot_troop_occupation, slto_kingdom_hero),
+      (str_store_string, s5, "str_leading_party"),
+    (else_try),
+      (str_store_string, s5, "str_whereabouts_unknown"),
+    (try_end),
+    (str_store_string, s3, "str_s4_s8_s5"),
+    # (str_store_string, s2, s1),
+    (str_store_string, s2, "str_s2_s3"),
+  (try_end),
+
+
+  (try_begin),
     (ge, "$cheat_mode", 1),
-	(ge, "$npc_to_rejoin_party", 0),
+    (gt, "$npc_to_rejoin_party", 0), #SB : ge -> gt
     (str_store_troop_name, s5, "$npc_to_rejoin_party"),
-	(str_store_string, s1, "@{!}DEBUG -- {s1}^NPC in rejoin queue: {s5}^"),
-   (try_end),
-   
-   
+    (str_store_string, s1, s2),
+    (str_store_string, s2, "@{!}DEBUG -- {s1}^NPC in rejoin queue: {s5}^"),
+  (try_end),
+
+
    (try_for_range, ":companion", companions_begin, companions_end),
-		(str_clear, s2),
+		# (str_clear, s2),
 		(str_clear, s3),
 
 		(try_begin),
-			(troop_get_slot, ":days_left", ":companion", slot_troop_days_on_mission),
+			# (troop_get_slot, ":days_left", ":companion", slot_troop_days_on_mission),
 
 			(troop_slot_eq, ":companion", slot_troop_occupation, slto_player_companion),
+            #SB : replace the call
+            (call_script, "script_companion_get_mission_string", ":companion"),
 
-				
-			(str_store_troop_name, s4, ":companion"),
 
-			(try_begin),
-				(troop_slot_eq, ":companion", slot_troop_current_mission, npc_mission_kingsupport),
-				(str_store_string, s8, "str_gathering_support"),
-				(try_begin),
-					(eq, ":days_left", 1),
-					(str_store_string, s5, "str_expected_back_imminently"),
-				(else_try),	
-					(assign, reg3, ":days_left"),
-					(str_store_string, s5, "str_expected_back_in_approximately_reg3_days"),
-				(try_end),
-			(else_try),
-				(troop_slot_eq, ":companion", slot_troop_current_mission, npc_mission_gather_intel),
-				(troop_get_slot, ":town_with_contacts", ":companion", slot_troop_town_with_contacts),
-				(str_store_party_name, s11, ":town_with_contacts"),
-				
-				(str_store_string, s8, "str_gathering_intelligence"),
-				(try_begin),
-					(eq, ":days_left", 1),
-					(str_store_string, s5, "str_expected_back_imminently"),
-				(else_try),	
-					(assign, reg3, ":days_left"),
-					(str_store_string, s5, "str_expected_back_in_approximately_reg3_days"),
-				(try_end),
-			(else_try),	#This covers most diplomatic missions
-				
-				(troop_slot_ge, ":companion", slot_troop_current_mission, npc_mission_peace_request),
-				(neg|troop_slot_ge, ":companion", slot_troop_current_mission, 8),
+			# (str_store_troop_name, s4, ":companion"),
 
-				(troop_get_slot, ":faction", ":companion", slot_troop_mission_object),
-				(str_store_faction_name, s9, ":faction"),
-				(str_store_string, s8, "str_diplomatic_embassy_to_s9"),
-				(try_begin),
-					(eq, ":days_left", 1),
-					(str_store_string, s5, "str_expected_back_imminently"),
-				(else_try),	
-					(assign, reg3, ":days_left"),
-					(str_store_string, s5, "str_expected_back_in_approximately_reg3_days"),
-				(try_end),
-			(else_try),
-				(eq, ":companion", "$g_player_minister"),
-				(str_store_string, s8, "str_serving_as_minister"),
-				(try_begin),
-					(is_between, "$g_player_court", centers_begin, centers_end),
-					(str_store_party_name, s9, "$g_player_court"),
-					(str_store_string, s5, "str_in_your_court_at_s9"),
-				(else_try),	
-					(str_store_string, s5, "str_whereabouts_unknown"),
-				(try_end),	
-			(else_try),
-				(main_party_has_troop, ":companion"),
-				(str_store_string, s8, "str_under_arms"),
-				(str_store_string, s5, "str_in_your_party"),
-			(else_try),	
-				(troop_slot_eq, ":companion", slot_troop_current_mission, npc_mission_rejoin_when_possible),
-				(str_store_string, s8, "str_attempting_to_rejoin_party"),
-				(str_store_string, s5, "str_whereabouts_unknown"),
-			(else_try),	#Companions who are in a center
-				(troop_slot_ge, ":companion", slot_troop_cur_center, 1),
+			# (try_begin),
+				# (troop_slot_eq, ":companion", slot_troop_current_mission, npc_mission_kingsupport),
+				# (str_store_string, s8, "str_gathering_support"),
+				# (try_begin),
+					# (eq, ":days_left", 1),
+					# (str_store_string, s5, "str_expected_back_imminently"),
+				# (else_try),
+					# (assign, reg3, ":days_left"),
+					# (str_store_string, s5, "str_expected_back_in_approximately_reg3_days"),
+				# (try_end),
+			# (else_try),
+				# (troop_slot_eq, ":companion", slot_troop_current_mission, npc_mission_gather_intel),
+				# (troop_get_slot, ":town_with_contacts", ":companion", slot_troop_town_with_contacts),
+				# (str_store_party_name, s11, ":town_with_contacts"),
 
-				(str_store_string, s8, "str_separated_from_party"),
-				(str_store_string, s5, "str_whereabouts_unknown"),
-	        (else_try), #Excludes companions who have occupation = retirement
-                (try_begin),
-                  (check_quest_active, "qst_lend_companion"),
-                  (quest_slot_eq, "qst_lend_companion", slot_quest_target_troop, ":companion"),
-                  (str_store_string, s8, "@On loan,"), 
-                (else_try),
-                  (check_quest_active, "qst_lend_surgeon"),
-                  (quest_slot_eq, "qst_lend_surgeon", slot_quest_target_troop, ":companion"),
-                  (str_store_string, s8, "@On loan,"), 
-                (else_try),
-				  (troop_set_slot, ":companion", slot_troop_current_mission, npc_mission_rejoin_when_possible),
-                  (str_store_string, s8, "str_attempting_to_rejoin_party"),                  
-                (try_end),
-                
-	        	(str_store_string, s5, "str_whereabouts_unknown"),				
+				# (str_store_string, s8, "str_gathering_intelligence"),
+				# (try_begin),
+					# (eq, ":days_left", 1),
+					# (str_store_string, s5, "str_expected_back_imminently"),
+				# (else_try),
+					# (assign, reg3, ":days_left"),
+					# (str_store_string, s5, "str_expected_back_in_approximately_reg3_days"),
+				# (try_end),
+			# (else_try),	#This covers most diplomatic missions
+
+				# (troop_slot_ge, ":companion", slot_troop_current_mission, npc_mission_peace_request),
+				# ##diplomacy begin
+				# (neg|troop_slot_eq, ":companion", slot_troop_current_mission, npc_mission_rejoin_when_possible), #SB : replace hard constant 8
+        		# ##diplomacy end
+
+				# (troop_get_slot, ":faction", ":companion", slot_troop_mission_object),
+				# (str_store_faction_name, s9, ":faction"),
+				# (str_store_string, s8, "str_diplomatic_embassy_to_s9"),
+				# (try_begin),
+					# (eq, ":days_left", 1),
+					# (str_store_string, s5, "str_expected_back_imminently"),
+				# (else_try),
+					# (assign, reg3, ":days_left"),
+					# (str_store_string, s5, "str_expected_back_in_approximately_reg3_days"),
+				# (try_end),
+			# (else_try),
+				# (eq, ":companion", "$g_player_minister"),
+				# (str_store_string, s8, "str_serving_as_minister"),
+				# (try_begin),
+					# (is_between, "$g_player_court", centers_begin, centers_end),
+					# (str_store_party_name, s9, "$g_player_court"),
+					# (str_store_string, s5, "str_in_your_court_at_s9"),
+				# (else_try),
+					# (str_store_string, s5, "str_whereabouts_unknown"),
+				# (try_end),
+			# (else_try),
+				# (main_party_has_troop, ":companion"),
+				# (str_store_string, s8, "str_under_arms"),
+				# (str_store_string, s5, "str_in_your_party"),
+			# (else_try),
+				# (troop_slot_eq, ":companion", slot_troop_current_mission, npc_mission_rejoin_when_possible),
+				# (str_store_string, s8, "str_attempting_to_rejoin_party"),
+				# (str_store_string, s5, "str_whereabouts_unknown"),
+			# (else_try),	#Companions who are in a center
+				# (troop_slot_ge, ":companion", slot_troop_cur_center, 1),
+
+				# (str_store_string, s8, "str_separated_from_party"),
+				# (str_store_string, s5, "str_whereabouts_unknown"),
+			# (else_try), #Excludes companions who have occupation = retirement
+				# (try_begin),
+					# (check_quest_active, "qst_lend_companion"),
+					# (quest_slot_eq, "qst_lend_companion", slot_quest_target_troop, ":companion"),
+					# (str_store_string, s8, "@On loan,"), 
+				# (else_try),
+					# (check_quest_active, "qst_lend_surgeon"),
+					# (quest_slot_eq, "qst_lend_surgeon", slot_quest_target_troop, ":companion"),
+					# (str_store_string, s8, "@On loan,"), 
+				# (else_try),
+					# (troop_set_slot, ":companion", slot_troop_current_mission, npc_mission_rejoin_when_possible),
+					# (str_store_string, s8, "str_attempting_to_rejoin_party"),                  
+				# (try_end),
+				# (str_store_string, s5, "str_whereabouts_unknown"),
+
 				(try_begin),
 					(ge, "$cheat_mode", 1),
 					(troop_get_slot, reg2, ":companion", slot_troop_current_mission),
 					(troop_get_slot, reg3, ":companion", slot_troop_days_on_mission),
 					(troop_get_slot, reg4, ":companion", slot_troop_prisoner_of_party),
 					(troop_get_slot, reg4, ":companion", slot_troop_playerparty_history),
-					
+
 					(display_message, "@{!}DEBUG: {s4} current mission: {reg2}, days on mission: {reg3}, prisoner: {reg4}, pphistory: {reg5}"),
 				(try_end),
-			(try_end),	
-			
-			(str_store_string, s3, "str_s4_s8_s5"),
-				
-			(str_store_string, s2, s1),
-			(str_store_string, s1, "str_s2_s3"),
+			# (try_end),
+
+			# (str_store_string, s3, "str_s4_s8_s5"),
+
+			# (str_store_string, s2, s1),
+            (str_store_string_reg, s3, s0),
+			(str_store_string, s2, "str_s2_s3"),
 
 			(str_clear, s7), #"no companions in service"
-		(else_try),
-			(neg|troop_slot_eq, ":companion", slot_troop_occupation, slto_kingdom_hero),
-			(troop_slot_ge, ":companion", slot_troop_prisoner_of_party, centers_begin),
+		# (else_try),
+			# (neg|troop_slot_eq, ":companion", slot_troop_occupation, slto_kingdom_hero),
+			# (troop_slot_ge, ":companion", slot_troop_prisoner_of_party, centers_begin),
 
-			(str_store_troop_name, s4, ":companion"),
-			(str_store_string, s8, "str_missing_after_battle"),
-			(str_store_string, s5, "str_whereabouts_unknown"),
-			
-			(str_store_string, s3, "str_s4_s8_s5"),
-			(str_store_string, s2, s1),
-			(str_store_string, s1, "str_s2_s3"),			
-			(str_clear, s7), #"no companions in service"
-			
+			# (str_store_troop_name, s4, ":companion"),
+			# (str_store_string, s8, "str_missing_after_battle"),
+			# (str_store_string, s5, "str_whereabouts_unknown"),
+
+			# (str_store_string, s3, "str_s4_s8_s5"),
+			# (str_store_string, s2, s1),
+			# (str_store_string, s1, "str_s2_s3"),
+			# (str_clear, s7), #"no companions in service"
+
 		(try_end),
-		
+
    (try_end),
-   
+
 
     ],
     [
-      ("continue",[],"Continue...",
-       [(jump_to_menu, "mnu_reports"),
+    
+    #SB : start commander presentation
+      ("start",[],"Companion Overview...",
+       [
+        # (assign, "$g_player_troop", "trp_player"),
+        #clear troop's temp slots for presentation
+        (try_for_range, ":stack_troop", active_npcs_including_player_begin, companions_end),
+          (troop_set_slot, ":stack_troop", dplmc_slot_troop_temp_slot, 0),
+        (try_end),
+        (troop_set_slot, "trp_player", dplmc_slot_troop_temp_slot, 0),
+        #assign first companion to be selected
+        # (party_get_num_companion_stacks, ":end", "p_main_party"),
+        # (try_for_range, ":stack_no", 1, ":end"),
+          # (party_stack_get_troop_id, ":troop_no", "p_main_party", ":stack_no"),
+          # (is_between, ":troop_no", companions_begin, companions_end),
+          # (assign, "$g_player_troop", ":troop_no"),
+          # (assign, ":end", -1),
+        # (try_end),
+        # (set_player_troop, "$g_player_troop"),
+        
+        #To do : add $supported_pretender and/or spouse in two placeholder troops before active_npcs
+        (start_presentation, "prsnt_companion_overview"),
         ]
        ),
-      ]
+      
+      ("continue",[],"Continue...",
+       [(jump_to_menu, "mnu_reports"),
+        #SB : fix globals
+        (assign, "$g_player_troop", "trp_player"),
+        (set_player_troop, "$g_player_troop"),
+        ]
+       ),
+    ]
   ),
     
   ("faction_orders",0,
@@ -1697,7 +1973,7 @@ Gradually, faith became such a part of your life that it was no different from t
 				(str_store_string, s11, "@Award {s12} as fief"),
 			(else_try),	
 				(eq, ":faction_issue", 0),
-				(str_store_string, s11, "@None"),
+				(str_store_string, s11, "str_dplmc_none"),
 			(else_try),	
 				(assign, reg3, ":faction_issue"),
 				(str_store_string, s11, "@{!}Error ({reg3})"),
@@ -1837,6 +2113,15 @@ Gradually, faith became such a part of your life that it was no different from t
         ]
        ),
 	   
+       #SB : debug slots
+      ("faction_orders_slots", [],"{!}Debug slots.",
+       [
+         (assign, "$g_presentation_input", rename_kingdom),
+         (assign, "$g_presentation_state", 0),
+         (start_presentation, "prsnt_modify_slots"),
+        ]
+       ),	   
+	   
       ("faction_orders_political_collapse", [],"{!}CHEAT - Cause all lords in faction to fall out with their liege.",
        [
 	   (try_for_range, ":lord", active_npcs_begin, active_npcs_end),
@@ -1924,18 +2209,70 @@ Gradually, faith became such a part of your life that it was no different from t
         ]
        ),
 
-	   ("enable_alt_ai",[(eq, "$g_use_alternative_ai", 2),],"{!}CHEAT! - enable alternative ai",
-       [
-	   (assign, "$g_use_alternative_ai", 1),
-	   (jump_to_menu, "mnu_faction_orders"),
-       ]
-       ),	   
+	   # ("enable_alt_ai",[(eq, "$g_use_alternative_ai", 2),],"{!}CHEAT! - enable alternative ai",
+       # [
+	   # (assign, "$g_use_alternative_ai", 1),
+	   # (jump_to_menu, "mnu_faction_orders"),
+       # ]
+       # ),	   
 
-	   ("disable_alt_ai",[(eq, "$g_use_alternative_ai", 2)],"{!}CHEAT! - disable alternative ai",
+	   # ("disable_alt_ai",[(eq, "$g_use_alternative_ai", 2)],"{!}CHEAT! - disable alternative ai",
+       # [
+	   # (assign, "$g_use_alternative_ai", 0),
+	   # (jump_to_menu, "mnu_faction_orders"),
+       # ]
+       # ),	   
+	   
+       #SB : see if this works
+     ("faction_orders_pretend", [],"{!}Restore pretender.",
        [
-	   (assign, "$g_use_alternative_ai", 0),
-	   (jump_to_menu, "mnu_faction_orders"),
-       ]
+         # (call_script, "script_recalculate_ais"),
+         (store_sub, "$supported_pretender", "$g_cheat_selected_faction", npc_kingdoms_begin),
+         (val_add, "$supported_pretender", pretenders_begin),
+         (assign, "$g_talk_troop", "$supported_pretender"),
+         (party_add_members, "p_main_party", "$supported_pretender", 1),
+         # (troop_get_slot, "$supported_pretender_old_faction", "$supported_pretender", slot_troop_original_faction),
+         (assign, "$supported_pretender_old_faction", "$g_cheat_selected_faction"),
+         (troop_set_faction, "$g_talk_troop", "fac_player_supporters_faction"),
+         (faction_set_slot, "fac_player_supporters_faction", slot_faction_leader, "$supported_pretender"),
+         (assign, "$g_talk_troop_faction", "fac_player_supporters_faction"),
+
+         (quest_set_slot, "qst_rebel_against_kingdom", slot_quest_giver_troop, "$supported_pretender"),
+         (quest_set_slot, "qst_rebel_against_kingdom", slot_quest_target_faction, "$supported_pretender_old_faction"),
+
+         (str_store_faction_name_link, s14, "$supported_pretender_old_faction"),
+         (str_store_troop_name_link, s13, "$supported_pretender"),
+         (setup_quest_text,"qst_rebel_against_kingdom"),
+         (str_store_string, s2, "@You promised to help {s13} claim the throne of {s14}."),
+         (call_script, "script_start_quest", "qst_rebel_against_kingdom", "$supported_pretender"),
+         
+         #merge lords
+         (try_begin),
+           (eq, "$players_kingdom", "fac_player_supporters_faction"),
+           (call_script, "script_deactivate_player_faction"),
+           (try_for_range, ":npc", active_npcs_begin, active_npcs_end),
+              (store_faction_of_troop, ":npc_faction", ":npc"),
+              (eq, ":npc_faction", "fac_player_supporters_faction"),
+              (troop_slot_eq, ":npc", slot_troop_occupation, slto_kingdom_hero),
+              (call_script, "script_change_troop_faction", ":npc", "$g_talk_troop_faction"),
+           (try_end),
+         (try_end),
+                 
+         (try_begin),
+           (is_between, "$players_kingdom", kingdoms_begin, kingdoms_end),
+           (neq, "$players_kingdom", "fac_player_supporters_faction"),
+           (neq, "$players_kingdom", "$g_talk_troop_faction"), #ie, don't leave faction if the player is already part of the same kingdom
+
+           (faction_get_slot, ":old_leader", "$players_kingdom", slot_faction_leader),
+           (call_script, "script_add_log_entry", logent_renounced_allegiance,   "trp_player",  -1, ":old_leader", "$players_kingdom"),
+           (call_script, "script_activate_player_faction", "$g_talk_troop"),
+         (try_end),
+         
+         (call_script, "script_player_join_faction", "$g_talk_troop_faction"),
+         
+         (call_script, "script_add_notification_menu", "mnu_notification_faction_defeated", "$g_cheat_selected_faction", 0),
+         (change_screen_return),
+        ]
        ),	   
 	   
       ("faction_orders_init_econ", [],"{!}Initialize economic stats.",
@@ -1945,7 +2282,14 @@ Gradually, faith became such a part of your life that it was no different from t
         ]
        ),
 	   
-	   
+       ("action_change_policies",
+        [
+        ],
+        "{!}Change kingdom policies",
+        [
+        (assign, "$g_faction_selected", "$g_cheat_selected_faction"),
+        (start_presentation, "prsnt_dplmc_policy_management"),]
+       ),	   
 	   
       ("go_back_dot",[],"{!}Go back.",
        [(jump_to_menu, "mnu_reports"),
@@ -1969,8 +2313,8 @@ Gradually, faith became such a part of your life that it was no different from t
     (try_end),
     (assign, ":num_friends", 0),
     (assign, ":num_enemies", 0),
-    (str_store_string, s6, "@none"),
-    (str_store_string, s8, "@none"),
+    (str_store_string, s6, "str_dplmc_none"),
+    (str_store_string, s8, "str_dplmc_none"),
     (try_for_range, ":troop_no", active_npcs_begin, active_npcs_end),
 	  (this_or_next|troop_slot_eq, ":troop_no", slot_troop_occupation, slto_kingdom_hero),
 		(troop_slot_eq, ":troop_no", slot_troop_occupation, slto_inactive_pretender),
@@ -2066,6 +2410,13 @@ Gradually, faith became such a part of your life that it was no different from t
               
       (str_store_faction_name, s8, "$players_kingdom"),
       (try_begin),
+	  ##diplomacy start+ Handle player is co-ruler of NPC faction
+		(is_between, "$players_kingdom", npc_kingdoms_begin, npc_kingdoms_end),
+		(call_script, "script_dplmc_get_troop_standing_in_faction", "trp_player", "$players_kingdom"),
+		(ge, reg0, DPLMC_FACTION_STANDING_LEADER_SPOUSE),
+		(str_store_string, s9, "str_you_are_king_queen_of_s8_s9"),
+	  (else_try),
+	  ##diplomacy end+	  
         (this_or_next|is_between, "$players_kingdom", npc_kingdoms_begin, npc_kingdoms_end),
         (neg|faction_slot_eq, "fac_player_supporters_faction", slot_faction_leader, "trp_player"),
         #(str_store_string, s9, "@You are a lord of {s8}.^{s9}"),
@@ -2096,6 +2447,16 @@ Gradually, faith became such a part of your life that it was no different from t
 	   (jump_to_menu, "mnu_character_report"),
        ]
        ),
+	   
+
+	("cheat_slots",[(eq,"$cheat_mode",1),
+        (str_store_troop_name, s14, "$g_talk_troop"),
+	],"{!}CHEAT! - Access {s14} troop slots",
+       [
+	   # (assign, "$g_talk_troop", "trp_player"),
+	   (jump_to_menu, "mnu_display_troop_slots"),
+       ]
+       ),	   
 
 	   
 	("continue",[(eq,"$cheat_mode",1)],"{!}CHEAT! - increase honor",
@@ -2165,11 +2526,131 @@ Gradually, faith became such a part of your life that it was no different from t
     (else_try),
       (str_store_string, s4, "str_space"),
     (try_end),
+
+    
+    #SB : other modifiers from party_get_ideal_size, listed in order of precedence
+    (try_for_range, ":sreg", s6, s10),
+      (str_clear, ":sreg"),
+    (try_end),
+
+    (try_begin),
+      (is_between, "$players_kingdom", kingdoms_begin, kingdoms_end),
+      # (call_script, "script_dplmc_get_troop_standing_in_faction", "trp_player", "$players_kingdom"),
+      # the above script doesn't exactly work for pretender
+      (try_begin),
+        # (ge, reg0, DPLMC_FACTION_STANDING_LEADER), #exclude spouse
+        (faction_slot_eq, "$players_kingdom", slot_faction_leader, "trp_player"),
+        (store_mul, ":king_bonus", 5, "$player_right_to_rule"), #20 is "legit" ruler
+        (val_clamp, ":king_bonus", dplmc_marshal_party_bonus, dplmc_monarch_party_bonus + 1),
+        (assign, reg6, ":king_bonus"),
+        (str_store_string, s8, "@Monarch: +{reg6}^"),
+      (else_try),
+        (assign, ":king_bonus", 0),
+      (try_end),
+    
+      (try_begin),
+        (faction_slot_eq, "$players_kingdom", slot_faction_marshall, "trp_player"),
+        (assign, ":marshal_bonus", dplmc_marshal_party_bonus),
+        (assign, reg6, ":marshal_bonus"),
+        (str_store_string, s7, "@Marshal: +{reg6}^"),
+      (else_try),
+        (assign, ":marshal_bonus", 0),
+      (try_end),
+      #percentage calculation follows
+      (assign, ":faction_id", "$players_kingdom"),
+      (assign, ":percent", 100),
+      #Limit effects of policies for nascent kingdoms.
+      (assign, ":policy_min", -3),
+      (assign, ":policy_max", 4),#one greater than the maximum
+      (try_begin),
+          (this_or_next|eq, ":faction_id", "fac_player_supporters_faction"),
+          (faction_slot_eq, ":faction_id", slot_faction_leader, "trp_player"),
+          (faction_get_slot, ":policy_max", ":faction_id", slot_faction_num_towns),
+          (faction_get_slot, reg0, ":faction_id", slot_faction_num_castles),
+          (val_add, ":policy_max", reg0),
+          (val_clamp, ":policy_max", 0, 4),#0, 1, 2, 3
+          (store_mul, ":policy_min", ":policy_max", -1),
+          (val_add, ":policy_max", 1),#one greater than the maximum
+      (try_end),
+      (try_begin), #we detecting rulership using king_bonus to determine which percent to apply
+        (gt, ":king_bonus", 0),
+        (try_begin),
+          (faction_get_slot, ":centralization", ":faction_id", dplmc_slot_faction_centralization),
+          (val_clamp, ":centralization", ":policy_min", ":policy_max"),
+          (val_mul, ":centralization", 10),
+          (val_add, ":percent", ":centralization"),
+        (try_end),
+      (else_try), #player is a regular vassal
+        (try_begin),
+          (faction_get_slot, ":centralization", ":faction_id", dplmc_slot_faction_centralization),
+          (val_clamp, ":centralization", ":policy_min", ":policy_max"),
+          (val_mul, ":centralization", -3),
+          (val_add, ":percent", ":centralization"),
+        (try_end),
+        (try_begin),
+          (faction_get_slot, ":aristocracy", ":faction_id", dplmc_slot_faction_aristocracy),
+          (val_clamp, ":aristocracy", ":policy_min", ":policy_max"),
+          (val_mul, ":aristocracy", 3),
+          (val_add, ":percent", ":aristocracy"),
+        (try_end),
+        (try_begin),
+          (faction_get_slot, ":quality", ":faction_id", dplmc_slot_faction_quality),
+          (val_clamp, ":quality", ":policy_min", ":policy_max"),
+          (val_mul, ":quality", -4),
+          (val_add, ":percent", ":quality"),
+        (try_end),
+        ##diplomacy end
+      (try_end),
+      (try_begin),
+        (faction_get_slot, ":serfdom", ":faction_id", dplmc_slot_faction_serfdom),
+        (val_clamp, ":serfdom", ":policy_min", ":policy_max"),
+        (val_mul, ":serfdom", 2), #SB : no multiplier as per description
+        (val_add, ":percent", ":serfdom"),
+      (try_end),
+      #if no change from default, do not display
+      (try_begin), 
+        (eq, ":percent", 100),
+        (assign, ":percent", 0),
+      (else_try), #last new string
+        (assign, reg6, ":percent"),
+        (str_store_string, s9, "@Policy: {reg6}%^"),
+      (try_end),
+    (else_try), #not affiliated, do not show position-based bonus
+      (assign, ":king_bonus", 0),
+      (assign, ":marshal_bonus", 0),
+      (assign, ":percent", 0),
+    (try_end),
+    ## CC
+    (assign, ":center_bonus", 0),
+    (try_for_range, ":cur_center", castles_begin, castles_end),
+      (party_slot_eq, ":cur_center", slot_town_lord, "trp_player"),
+      (val_add, ":center_bonus", dplmc_castle_party_bonus),
+    (try_end),
+    (try_begin),
+      (gt, ":center_bonus", 0),
+      (assign, reg6, ":center_bonus"),
+      (str_store_string, s6, "@Castellan: +{reg6}^"),
+    (try_end),
+    ## CC
+    
+    # (assign, reg9, ":percent"),
+    # (assign, reg8, ":king_bonus"),
+    # (assign, reg7, ":marshal_bonus"),
+    # (assign, reg6, ":center_bonus"),
     (assign, reg5, ":party_size_limit"),
     (assign, reg1, ":leadership"),
     (assign, reg2, ":charisma"),
     (assign, reg3, ":renown"),
-    (str_store_string, s1, "@Current party size limit is {reg5}.^Current party size modifiers are:^^Base size:  +30^Leadership: {s2}{reg1}^Charisma: {s3}{reg2}^Renown: {s4}{reg3}^TOTAL:  {reg5}"),
+    #SB : might as well show player party size
+    (party_get_num_companions, reg10, "p_main_party"),
+    (str_store_string, s1, "@Current party size is {reg10}/{reg5}.^\
+Current party size modifiers are:^^\
+Base size:  +30^\
+Leadership: {s2}{reg1}^\
+Charisma: {s3}{reg2}^\
+Renown: {s4}{reg3}^^\
+{s8}{s7}{s6}{s9}\
+TOTAL:  {reg5}"),
     ],
     [
       ("continue",[],"Continue...",
@@ -2178,7 +2659,8 @@ Gradually, faith became such a part of your life that it was no different from t
        ),
       ]
   ),
-
+  
+  
   ("faction_relations_report",0,
    "{s1}",
    "none",
@@ -2187,67 +2669,71 @@ Gradually, faith became such a part of your life that it was no different from t
       (faction_slot_eq, ":cur_kingdom", slot_faction_state, sfs_active),
       (neq, ":cur_kingdom", "fac_player_supporters_faction"),
       (store_relation, ":cur_relation", "fac_player_supporters_faction", ":cur_kingdom"),
-      (try_begin),
-        (ge, ":cur_relation", 90),
-        (str_store_string, s3, "@Loyal"),
-      (else_try),
-        (ge, ":cur_relation", 80),
-        (str_store_string, s3, "@Devoted"),
-      (else_try),
-        (ge, ":cur_relation", 70),
-        (str_store_string, s3, "@Fond"),
-      (else_try),
-        (ge, ":cur_relation", 60),
-        (str_store_string, s3, "@Gracious"),
-      (else_try),
-        (ge, ":cur_relation", 50),
-        (str_store_string, s3, "@Friendly"),
-      (else_try),
-        (ge, ":cur_relation", 40),
-        (str_store_string, s3, "@Supportive"),
-      (else_try),
-        (ge, ":cur_relation", 30),
-        (str_store_string, s3, "@Favorable"),
-      (else_try),
-        (ge, ":cur_relation", 20),
-        (str_store_string, s3, "@Cooperative"),
-      (else_try),
-        (ge, ":cur_relation", 10),
-        (str_store_string, s3, "@Accepting"),
-      (else_try),
-        (ge, ":cur_relation", 0),
-        (str_store_string, s3, "@Indifferent"),
-      (else_try),
-        (ge, ":cur_relation", -10),
-        (str_store_string, s3, "@Suspicious"),
-      (else_try),
-        (ge, ":cur_relation", -20),
-        (str_store_string, s3, "@Grumbling"),
-      (else_try),
-        (ge, ":cur_relation", -30),
-        (str_store_string, s3, "@Hostile"),
-      (else_try),
-        (ge, ":cur_relation", -40),
-        (str_store_string, s3, "@Resentful"),
-      (else_try),
-        (ge, ":cur_relation", -50),
-        (str_store_string, s3, "@Angry"),
-      (else_try),
-        (ge, ":cur_relation", -60),
-        (str_store_string, s3, "@Hateful"),
-      (else_try),
-        (ge, ":cur_relation", -70),
-        (str_store_string, s3, "@Revengeful"),
-      (else_try),
-        (str_store_string, s3, "@Vengeful"),
-      (try_end),
+      
+      # (try_begin),
+        # (ge, ":cur_relation", 90),
+        # (str_store_string, s3, "@Loyal"),
+      # (else_try),
+        # (ge, ":cur_relation", 80),
+        # (str_store_string, s3, "@Devoted"),
+      # (else_try),
+        # (ge, ":cur_relation", 70),
+        # (str_store_string, s3, "@Fond"),
+      # (else_try),
+        # (ge, ":cur_relation", 60),
+        # (str_store_string, s3, "@Gracious"),
+      # (else_try),
+        # (ge, ":cur_relation", 50),
+        # (str_store_string, s3, "@Friendly"),
+      # (else_try),
+        # (ge, ":cur_relation", 40),
+        # (str_store_string, s3, "@Supportive"),
+      # (else_try),
+        # (ge, ":cur_relation", 30),
+        # (str_store_string, s3, "@Favorable"),
+      # (else_try),
+        # (ge, ":cur_relation", 20),
+        # (str_store_string, s3, "@Cooperative"),
+      # (else_try),
+        # (ge, ":cur_relation", 10),
+        # (str_store_string, s3, "@Accepting"),
+      # (else_try),
+        # (ge, ":cur_relation", 0),
+        # (str_store_string, s3, "@Indifferent"),
+      # (else_try),
+        # (ge, ":cur_relation", -10),
+        # (str_store_string, s3, "@Suspicious"),
+      # (else_try),
+        # (ge, ":cur_relation", -20),
+        # (str_store_string, s3, "@Grumbling"),
+      # (else_try),
+        # (ge, ":cur_relation", -30),
+        # (str_store_string, s3, "@Hostile"),
+      # (else_try),
+        # (ge, ":cur_relation", -40),
+        # (str_store_string, s3, "@Resentful"),
+      # (else_try),
+        # (ge, ":cur_relation", -50),
+        # (str_store_string, s3, "@Angry"),
+      # (else_try),
+        # (ge, ":cur_relation", -60),
+        # (str_store_string, s3, "@Hateful"),
+      # (else_try),
+        # (ge, ":cur_relation", -70),
+        # (str_store_string, s3, "@Revengeful"),
+      # (else_try),
+        # (str_store_string, s3, "@Vengeful"),
+      # (try_end),
+      #SB : fix relationship scale
+      (call_script, "script_describe_relation_to_s63", ":cur_relation"),
+      (str_store_string_reg, s3, s63),
       (str_store_faction_name, s4, ":cur_kingdom"),
       (assign, reg1, ":cur_relation"),
       (str_store_string, s2, "@{!}{s2}^{s4}: {reg1} ({s3})"),
     (try_end),
     (str_store_string, s1, "@Your relation with the factions are:^{s2}"),
 
-	
+
 
     ],
     [
@@ -2262,12 +2748,38 @@ Gradually, faith became such a part of your life that it was no different from t
 # [ Z04 ] - Camp
 ####################################################################################################################  
 
-  ("camp",mnf_scale_picture,
+  ("camp",mnf_scale_picture|mnf_enable_hot_keys,
    "You set up camp. What do you want to do?",
    "none",
    [
-     (assign, "$g_player_icon_state", pis_normal),
-     (set_background_mesh, "mesh_pic_camp"),
+    (assign, "$g_player_icon_state", pis_normal),
+    (set_background_mesh, "mesh_pic_camp"),
+     
+    ##diplomacy start+
+    #SB : do verification and update script here as well
+    (troop_get_slot, reg0, "trp_dplmc_chamberlain", dplmc_slot_troop_affiliated),
+    (call_script, "script_dplmc_version_checker"),
+    (str_clear, s0),
+    (try_begin),
+        #Print a warning message for bad version numbers
+        (neq, reg0, 0),
+        (store_mod, ":verify", reg0, 128),
+        (this_or_next|lt, reg0, 0),
+            (neq, ":verify", DPLMC_VERSION_LOW_7_BITS),
+        (display_message, "@{!}WARNING: Unexpected version value in slot dplmc_slot_troop_affiliated in trp_dplmc_chamberlain: {reg0}"),
+    (else_try),
+        #In cheat mode, print the diplomacy+ version
+        (ge, "$cheat_mode", 1),
+        (val_div, reg0, 128),
+        (display_message, "@{!}DEBUG: Internal update code for current saved game is {reg0}. Update code for the current release is "+str(DPLMC_CURRENT_VERSION_CODE)+"."),
+    (try_end),
+    ##diplomacy end+
+    
+    ##SB : enable presentation to be launched again
+    (try_begin),
+      (eq, "$g_presentation_next_presentation", "prsnt_redefine_keys"),
+      (start_presentation, "$g_presentation_next_presentation"),
+    (try_end),
     ],
     [
       ("camp_action_1",[(eq,"$cheat_mode",1)],"{!}Cheat: Walk around.",
@@ -2276,6 +2788,82 @@ Gradually, faith became such a part of your life that it was no different from t
         (change_screen_mission),
         ]
        ),
+       ##diplomacy begin
+###################################################################################
+# Autoloot: Allow item management from camp
+###################################################################################
+##nested diplomacy start+
+#Made some changes to autoloot conditions
+	("dplmc_camp_manage_inventory",
+		[
+	  #OLD:
+	  #(eq, "$g_autoloot", 1),
+      #(store_skill_level, ":inv_skill", "skl_inventory_management", "trp_player"),
+      #(gt, "$g_player_chamberlain", 0),
+      #(ge, ":inv_skill", 3),
+	  #NEW:
+	  #1. Must have companions
+	  #2. Either a hero in the party must have inventory management 3 or higher, or the player must have inventory management of 2 or higher, or the player or a hero in the party must have a looting skill of 2 or higher
+	  (call_script, "script_cf_dplmc_player_party_meets_autoloot_conditions"),
+	    ],
+	  #"Manage your party's inventory.",
+	  "Manage auto-loot settings.",
+		[
+			(try_begin),
+				#dplmc+ Add check if autoloot has not been initialized yet
+				(call_script, "script_dplmc_initialize_autoloot", 0),#argument "0" means this does nothing if deemed unnecessary
+			(try_end),
+			(troop_clear_inventory, "trp_temp_troop"),
+			##diplomacy start+
+			(assign, "$pool_troop", "trp_temp_troop"),
+			(assign, "$dplmc_return_menu", "mnu_camp"),
+			##diplomacy end+
+			(assign, "$inventory_menu_offset", 0),
+            #SB : variable resets
+			(assign, "$lord_selected", "trp_player"),
+            (str_clear, dplmc_loot_string),
+			(jump_to_menu, "mnu_dplmc_manage_loot_pool")
+		]
+	),
+
+#Alternate display: make it clear why autoloot isn't appearing
+	("dplmc_camp_manage_inventory_disabled",
+		[
+	  #Print this when the player has companions but doesn't meet
+	  #the minimum skill levels.
+		(try_begin),
+			(call_script, "script_cf_dplmc_player_party_meets_autoloot_conditions"),
+		(try_end),
+		(eq, reg0, 0),
+		(disable_menu_option),
+	    ],
+	  "Auto-loot requires Inv. Management or Looting at rank 2.",
+		[
+		]
+	),
+##nested diplomacy end+ Finished changes to autoloot conditions
+###################################################################################
+# End Autoloot
+###################################################################################
+    # ("dplmc_camp_preferences",
+        # [
+        # ],
+        # "Diplomacy preferences.",
+        # [
+            # (jump_to_menu, "mnu_dplmc_preferences"),
+            # ## SB : global initialization for redefine_keys
+            # (assign, "$g_presentation_next_presentation", -1),
+        # ]
+    # ),
+      ("dplmc_camp_preferences",[],"Diplomacy preferences.",
+       [
+           # (jump_to_menu, "mnu_dplmc_preferences"),
+           (start_presentation, "prsnt_adv_diplomacy_preferences"),
+           (assign, "$g_presentation_next_presentation", -1),
+        ]),
+
+##diplomacy end	   
+	   
       ("camp_action",[],"Take an action.",
        [(jump_to_menu, "mnu_camp_action"),
         ]
@@ -2337,33 +2925,48 @@ Gradually, faith became such a part of your life that it was no different from t
 	(try_end),  
      ],
     [
-      ("camp_cheat_find_item",[], "Find an item...",
-       [
-         (jump_to_menu, "mnu_cheat_find_item"),
-	   ]
-       ),	   
 
-      ("camp_cheat_find_item",[], "Change weather..",
+      ("camp_cheat_find_item",[], "Find an item...",
+       [(jump_to_menu, "mnu_cheat_find_item"),]
+       ),
+
+      ("camp_cheat_weather",[], "Change weather..",
+       [(jump_to_menu, "mnu_cheat_change_weather"),]
+       ),
+
+      ("camp_cheat_0",[],"{!}Increase player RTR.",
        [
-         (jump_to_menu, "mnu_cheat_change_weather"),
-	   ]
-       ),	   
-	   
-      ("camp_cheat_1",[],"{!}Increase player renown.",
-       [
-         (str_store_string, s1, "@Player renown is increased by 100. "),
-         (call_script, "script_change_troop_renown", "trp_player", 100),
-         (jump_to_menu, "mnu_camp_cheat"),
+          (try_begin),
+            (this_or_next|key_is_down, key_left_shift),
+            (key_is_down, key_right_shift),
+            (call_script, "script_change_player_right_to_rule", 25),
+          (else_try),
+            (call_script, "script_change_player_right_to_rule", 3),
+          (try_end),
         ]
        ),
 	   
-      ("camp_cheat_2",[],"{!}Increase player honor.",      
+      ("camp_cheat_1",[],"{!}Increase player renown.",
        [
-         (assign, reg7, "$player_honor"),
-         (val_add, reg7, 1),
-         (display_message, "@Player honor is increased by 1 and it is now {reg7}."),
-         (val_add, "$player_honor", 1),
-         (jump_to_menu, "mnu_camp_cheat"),
+          (try_begin),
+            (this_or_next|key_is_down, key_left_shift),
+            (key_is_down, key_right_shift),
+            (call_script, "script_change_troop_renown", "trp_player", 500),
+          (else_try),
+            (call_script, "script_change_troop_renown", "trp_player", 100),
+          (try_end),
+        ]
+       ),
+	   
+      ("camp_cheat_2",[],"{!}Increase player honor.",
+       [
+          (try_begin),
+            (this_or_next|key_is_down, key_left_shift),
+            (key_is_down, key_right_shift),
+            (call_script, "script_change_player_honor", 50),
+          (else_try),
+            (call_script, "script_change_player_honor", 5),
+          (try_end),
         ]
        ),
 
@@ -2389,11 +2992,74 @@ Gradually, faith became such a part of your life that it was no different from t
         ]
        ),	   
 	   
-      ("camp_cheat_5",[],"{!}Scramble minstrels.",
+       #SB : update tavern npcs
+      ("camp_cheat_5",[],"{!}Scramble taverngoers.",
        [
-         (call_script, "script_update_tavern_minstrels"),
+        (try_for_range, ":slots", slot_center_ransom_broker, slot_center_tavern_minstrel + 1),
+          (neq, ":slots", slot_center_traveler_info_faction),
+          #initialize
+          (try_for_range, ":towns", towns_begin, towns_end),
+            (party_set_slot, ":towns", ":slots", -1),
+          (try_end),
+
+          (try_begin), #parse
+            (eq, ":slots", slot_center_ransom_broker),
+            (assign, ":start", ransom_brokers_begin),
+            (assign, ":end", ransom_brokers_end),
+          (else_try),
+            (eq, ":slots", slot_center_tavern_traveler),
+            (assign, ":start", tavern_travelers_begin),
+            (assign, ":end", tavern_travelers_end),
+          (else_try),
+            (eq, ":slots", slot_center_tavern_minstrel),
+            (assign, ":start", tavern_minstrels_begin),
+            (assign, ":end", tavern_minstrels_end),
+          (else_try),
+            (eq, ":slots", slot_center_tavern_bookseller),
+            (assign, ":start", tavern_booksellers_begin),
+            (assign, ":end", tavern_booksellers_end),
+          (try_end),
+
+          #populate
+          (assign, ":num_towns", 0),
+          (str_store_string, s51, "@nowhere in particular"),
+          (try_for_range, ":troop_no", ":start", ":end"),
+            (troop_set_slot, ":troop_no", slot_troop_cur_center, -1),
+            (store_random_in_range, ":town_no", towns_begin, towns_end),
+            
+            (try_begin), #ensure no overlaps
+              (party_slot_ge, ":town_no", ":slots", ":start"),
+              # (assign, ":limit", towns_end),
+              # (try_for_range, ":center_no", towns_begin, ":limit"),
+                # (assign, ":town_used", 0),
+                # (try_for_range, ":other_troop", ":start", ":troop_no"),
+                  # (troop_slot_eq, ":other_troop", slot_troop_cur_center, ":center_no"),
+                  # (assign, ":town_used", 1),
+                # (try_end),
+                # (eq, ":town_used", 0), #no other troop uses this slot
+                # (party_set_slot, ":center_no", ":slots", ":troop_no"),
+                # (assign, ":limit", 1),
+              # (try_end),
+            (else_try),
+              (val_add, ":num_towns", 1),
+              (str_store_party_name_link, s50, ":town_no"),
+              (party_set_slot, ":town_no", ":slots", ":troop_no"),
+              (troop_set_slot, ":troop_no", slot_troop_cur_center, ":town_no"),
+              (try_begin),
+                (eq, ":num_towns", 1),
+                (str_store_string, s51, s50),
+              (else_try),
+                (str_store_string, s51, "str_s50_comma_s51"),
+              (try_end),
+            (try_end),
+          (try_end),
+          (str_store_troop_name_plural, s10, ":start"), #default titles "book_merchant" "ransom_broker" etc
+          (str_store_string_reg, s11, s51),
+          (display_message, "@You can find {s10}s at {s11}."),
+        (try_end),
+        (call_script, "script_update_mercenary_units_of_towns"), #might as well
         ]
-       ),	   
+       ),
 	   
       ("camp_cheat_6",[],"{!}Infinite camp",
        [
@@ -2404,34 +3070,156 @@ Gradually, faith became such a part of your life that it was no different from t
          (change_screen_return),
         ]
        ),	   
+	   ##nested diplomacy start+
+	  ("camp_cheat_7",[(troop_slot_ge, "trp_player", slot_troop_spouse, 1),],"{!}Divorce player spouse",
+       [
+	 	 (troop_get_slot, ":spouse", "trp_player", slot_troop_spouse),
+        #set this before the loop below, to avoid potential wierdness in the family relation check
+		 (troop_set_slot, ":spouse", slot_troop_spouse, -1),
+	     (troop_set_slot, "trp_player", slot_troop_spouse, -1),
 
-      ("camp_move_reference",[],"{!}Move reference point here",
-       [ (party_relocate_near_party, "p_temp_party_2", "p_main_party", 0),
+		#apply relation loss with the spouse
+		 (call_script, "script_change_player_relation_with_troop", ":spouse", -40),
+	    #change relations with family - inverse of gain from marriage
+		(try_for_range, ":family_member", heroes_begin, heroes_end),
+		    (neq, ":family_member", ":spouse"),
+			(call_script, "script_dplmc_troop_get_family_relation_to_troop", ":spouse", ":family_member"),
+			(gt, reg0, 0),
+			(val_mul, reg0, -2),
+			(val_div, reg0, 3),
+			(val_min, reg0, -1),
+			(call_script, "script_change_player_relation_with_troop", ":family_member", reg0),
+		(try_end),
         ]
-       ),	   
-	   
-      ("cheat_faction_orders",[(ge,"$cheat_mode",1)],
-	  "{!}Cheat: Set Debug messages to All.",
-       [(assign,"$cheat_mode",1),
+       ),
+	   ##nested diplomacy end+
+
+      ("cheat_faction_orders",[(neq,"$cheat_mode",0),
+      (try_begin),
+        (eq, "$cheat_mode", 1),
+        (str_store_string, s1, "@all"),
+      (else_try),
+        (eq, "$cheat_mode", 2),
+        (str_store_string, s1, "@troop"),
+      (else_try),
+        (eq, "$cheat_mode", 3),
+        (str_store_string, s1, "@economic"),
+      (else_try),
+        (eq, "$cheat_mode", 4),
+        (str_store_string, s1, "@political"),
+      (try_end),
+      ],
+      "{!}Debug messages to {s1}.",
+       [(val_add,"$cheat_mode",1),
+        (val_mod, "$cheat_mode", 5),
          (jump_to_menu, "mnu_camp_cheat"),
         ]
        ),
-      ("cheat_faction_orders",[
-	  (ge, "$cheat_mode", 1),
-	  (neq,"$cheat_mode",3)],"{!}Cheat: Set Debug messages to Econ Only.",
-       [(assign,"$cheat_mode",3),
-         (jump_to_menu, "mnu_camp_cheat"),
+      # ("cheat_faction_orders",[
+	  # (ge, "$cheat_mode", 1),
+	  # (neq,"$cheat_mode",3)],"{!}Cheat: Set Debug messages to Econ Only.",
+       # [(assign,"$cheat_mode",3),
+         # (jump_to_menu, "mnu_camp_cheat"),
+        # ]
+       # ),
+      # ("cheat_faction_orders",[
+	  # (ge, "$cheat_mode", 1),
+	  # (neq,"$cheat_mode",4)],"{!}Cheat: Set Debug messages to Political Only.",
+       # [(assign,"$cheat_mode",4),
+         # (jump_to_menu, "mnu_camp_cheat"),
+        # ]
+       # ),
+      ("camp_cheat_heal",[],"Heal party.",
+       [
+         (heal_party, "p_main_party"),
         ]
        ),
-      ("cheat_faction_orders",[
-	  (ge, "$cheat_mode", 1),
-	  (neq,"$cheat_mode",4)],"{!}Cheat: Set Debug messages to Political Only.",
-       [(assign,"$cheat_mode",4),
-         (jump_to_menu, "mnu_camp_cheat"),
+      ("camp_cheat_xp",[],"Add xp to party.",
+       [
+         (set_show_messages, 0),
+         (party_get_num_companion_stacks, ":num_stacks", "p_main_party"),
+         (try_for_range, ":stack", 0, ":num_stacks"), #include player if too lazy to ctrl+x
+            (party_stack_get_troop_id, ":id", "p_main_party", ":stack"),
+            (try_begin),
+                # (troop_is_hero, ":id"),
+                # (store_character_level, ":level", ":id"),
+                # (get_level_boundary, ":xp", ":level"),
+                # (troop_get_xp, ":cur_exp", ":id"),
+                # (val_sub, ":xp", ":cur_exp"),
+                # (add_xp_to_troop, ":xp", ":id"),
+            # (else_try),
+                (party_stack_get_size, ":size", "p_main_party", ":stack"),
+                (call_script, "script_game_get_upgrade_xp", ":id"),
+                (store_mul, ":xp", reg0, ":size"),
+                (try_begin),
+                  (troop_is_hero, ":id"),
+                  # (troop_get_xp, ":cur_exp", ":id"),
+                  # (val_sub, ":xp", ":cur_exp"),
+                  (store_character_level, ":level", ":id"),
+                  ##this is so stupid but it works (probably), but add_xp_to_troop caps out at 29999
+                  (assign, ":end", 100),
+                  (try_begin), #assign block of exp
+                    (le, ":level", 10),
+                    (assign, ":xp", 100),
+                  (else_try),
+                    (le, ":level", 25),
+                    (assign, ":xp", 1000),
+                  (else_try), #most people stop before level 30
+                    (le, ":level", 35),
+                    (assign, ":xp", 10000),
+                  (else_try),
+                    (le, ":level", 50),
+                    (assign, ":xp", 30000),
+                  (else_try),
+                    (le, ":level", 60),
+                    (assign, ":xp", 1000000),
+                  (else_try), #good luck, level caps at 63
+                    (assign, ":xp", 10000000),
+                  (try_end),
+                  # (val_mul, ":xp", ":level"),
+                  (try_for_range, ":unused", 0, ":end"),
+                    (party_add_xp_to_stack, "p_main_party", ":stack", ":xp"),
+                    (add_xp_to_troop, 1, ":id"), #this actually upgrades the level
+                    # (add_xp_as_reward, ":xp"),
+                    (store_character_level, ":cur_level", ":id"),
+                    (lt, ":level", ":cur_level"), #done
+                    (assign, ":end", 0),
+                  (try_end),
+                (else_try),
+                  (party_add_xp_to_stack, "p_main_party", ":stack", ":xp"),
+                (try_end),
+            (try_end),
+         (try_end),
+         (set_show_messages, 1),
+         # (party_upgrade_with_xp, "p_main_party", 1, 0), #random upgrade - disabled
+         # (jump_to_menu, "mnu_camp_cheat"),
         ]
        ),
-      ("cheat_battle_scene",[(ge, "$cheat_mode", 1)],"{!}Cheat: Inspect a Battle Scene.",
-       [(jump_to_menu, "mnu_camp_cheat_battle_scene")]),
+      ("camp_cheat_prisoner",[
+          (party_get_num_prisoner_stacks, ":stack", "p_main_party"),
+          (gt, ":stack", 0),
+          (try_for_range, ":i_stack", 0, ":stack"),
+            (party_prisoner_stack_get_troop_id, ":troop", "p_main_party", ":i_stack"),
+            (neg|troop_is_hero, ":troop"),
+            (assign, ":stack", 0),
+          (try_end),
+          (eq, ":stack", 0), #found one non-hero entity
+      ],"Recruit all prisoners.",
+       [ # (call_script, "script_party_add_party_prisoners"),
+         # (call_script, "script_party_remove_all_prisoners"),
+         (party_get_num_prisoner_stacks, ":num_stacks", "p_main_party"),
+         (try_for_range_backwards, ":stack", 0, ":num_stacks"),
+            (party_prisoner_stack_get_troop_id, ":troop", "p_main_party", ":stack"),
+            (neg|troop_is_hero, ":troop"),
+            (gt, ":troop", 0),
+            (party_prisoner_stack_get_size, ":amount", "p_main_party", ":stack"),
+            (party_remove_prisoners, "p_main_party", ":troop", ":amount"),
+            (party_add_members, "p_main_party", ":troop", ":amount"),
+         (try_end),
+         # (jump_to_menu, "mnu_camp_cheat"),
+        ]
+       ),
+       #do not add more cheat options, no more room in one menu
 	   
 	   
       ("back_to_camp_menu",[],"{!}Back to camp menu.",
@@ -2622,15 +3410,125 @@ Gradually, faith became such a part of your life that it was no different from t
        [(jump_to_menu, "mnu_camp_action_read_book"),
         ]
        ),
+      #SB : rename changes
+      ("camp_change_name",[],"Change the name of your party.",
+       [(assign, "$g_presentation_state", rename_party),
+       (assign, "$g_encountered_party", "p_main_party"),
+       (start_presentation, "prsnt_name_kingdom"),
+       ]
+       ),
+       # #SB : recolor from CC, call this from other presentation
+      # ("action_modify_factions_color",[],"Change the color of factions.",
+       # [
+          # (assign, "$g_presentation_state", recolor_kingdom),
+          # (try_begin),
+            # (is_between, "$players_kingdom", npc_kingdoms_begin, npc_kingdoms_end),
+            # (store_sub, "$temp", "$players_kingdom", npc_kingdoms_begin),
+            # (store_sub, "$temp", 8, "$temp"), #3 to 8 are npc kingdoms
+          # (else_try),
+            # (assign, "$temp", 9), #player faction
+          # (try_end),
+          # (start_presentation, "prsnt_change_color"),
+        # ]
+       # ),	      
       ("action_rename_kingdom",
        [
-         (eq, "$players_kingdom_name_set", 1),
-         (faction_slot_eq, "fac_player_supporters_faction", slot_faction_state, sfs_active),
-         (faction_slot_eq, "fac_player_supporters_faction", slot_faction_leader, "trp_player"),
-         ],"Rename your kingdom.",
-       [(start_presentation, "prsnt_name_kingdom"),
+         (assign, ":continue", 0),
+         #SB : use bits
+         (try_begin),
+           (store_and, ":name_set", "$players_kingdom_name_set", rename_kingdom),
+           (eq, ":name_set", rename_kingdom),
+           (faction_slot_eq, "$players_kingdom", slot_faction_state, sfs_active),
+           (faction_slot_eq, "$players_kingdom", slot_faction_leader, "trp_player"),
+           (assign, ":continue", 1),
+         (else_try),
+           (ge, "$cheat_mode", 1),
+           (assign, ":continue", 1),
+         (try_end),
+         (eq, ":continue", 1),
+         ],
+         "Rename your kingdom.",
+         [
+           #SB : explicitly state kingdom
+           (assign, "$g_presentation_state", rename_kingdom),
+           (start_presentation, "prsnt_name_kingdom"),
+         ]
+       ),
+      # ("action_recolor_troops",
+       # [
+         # ],"Recolor your troop groups.",
+       # [(assign, "$g_presentation_state", recolor_groups),
+        # (jump_to_menu, "mnu_recolor_groups"),
+        # ]
+       # ),
+      # ("action_rename_troops",
+       # [
+         # (gt, "$g_player_constable", 0),
+         # (call_script, "script_cf_has_custom_troops"),
+         # ],"Rename your custom troops.",
+       # [
+        # (jump_to_menu, "mnu_custom_troops"),
+        # ]
+       # ),
+
+      ##diplomacy begin+
+      ##Custom player kingdom vassal titles, credit Caba'drin start
+       ("action_change_vassal_title",
+        [
+        #SB : allow action if co-ruler of $players_kingdom
+          (assign, ":is_coruler", -1),
+          (try_begin),
+            (store_and, ":name_set", "$players_kingdom_name_set", rename_kingdom),
+            (eq, ":name_set", rename_kingdom),
+            (faction_slot_eq, "fac_player_supporters_faction", slot_faction_state, sfs_active),
+            (faction_slot_eq, "fac_player_supporters_faction", slot_faction_leader, "trp_player"),
+            (assign, ":is_coruler", 1),
+          (else_try),
+            (is_between, "$players_kingdom", npc_kingdoms_begin, npc_kingdoms_end),
+            (call_script, "script_dplmc_get_troop_standing_in_faction", "trp_player", "$players_kingdom"),
+            (ge, reg0, DPLMC_FACTION_STANDING_LEADER_SPOUSE),
+            (assign, ":is_coruler", 1),
+          (try_end),
+          (eq, ":is_coruler", 1),
+        ],
+        "Change titles of nobility.",
+        [(start_presentation, "prsnt_dplmc_set_vassal_title"),
         ]
        ),
+       ("action_change_policies",
+        [
+          (gt, "$cheat_mode", 0),
+          #SB : name set bits
+          (store_and, ":name_set", "$players_kingdom_name_set", rename_kingdom),
+          (eq, ":name_set", rename_kingdom),
+          (faction_slot_eq, "$players_kingdom", slot_faction_state, sfs_active),
+          (faction_slot_eq, "$players_kingdom", slot_faction_leader, "trp_player"),
+        ],
+        "{!}Cheat: Change kingdom policies",
+        [
+        (assign, "$g_faction_selected", "$players_kingdom"),
+        (start_presentation, "prsnt_dplmc_policy_management"),]
+       ),
+      ##Custom player kingdom vassal titles, credit Caba'drin end
+      ##diplomacy end+
+      ("action_modify_banner",[(this_or_next|gt, "$cheat_mode", 0),(ge, "$g_player_banner_granted", 1)],
+       "Modify your banner (Shift to change back colour).",
+       [
+        #SB : recolor mode
+        (try_begin),
+          (this_or_next|key_is_down, key_left_shift),
+          (key_is_down, key_right_shift),
+          (eq, "$g_player_banner_granted", 1),
+          (assign, "$g_presentation_state", recolor_heraldic),
+          (assign, "$g_player_troop", "trp_player"),
+          (start_presentation, "prsnt_change_color"),
+        (else_try),
+          (start_presentation, "prsnt_banner_selection"),
+           #(start_presentation, "prsnt_custom_banner"),
+        (try_end),
+        ]
+       ),	   
+	   
       ("camp_supply",[(gt,"$players_kingdom",0)],"Manage your supply train.",
        [(jump_to_menu, "mnu_camp_action_supply"),
         ]
@@ -2661,10 +3559,14 @@ Gradually, faith became such a part of your life that it was no different from t
    "You offer your prisoners freedom if they agree to join you as soldiers. {s18}",
    "none",
    [(assign, ":num_regular_prisoner_slots", 0),
+    (str_store_string, s18, "@No one accepts the offer."), # SB : store this back top
     (party_get_num_prisoner_stacks, ":num_stacks", "p_main_party"),
     (try_for_range, ":cur_stack", 0, ":num_stacks"),
       (party_prisoner_stack_get_troop_id, ":cur_troop_id", "p_main_party", ":cur_stack"),
-      (neg|troop_is_hero, ":cur_troop_id"),
+      # (neg|troop_is_hero, ":cur_troop_id"),
+      #SB : use script check
+      (call_script, "script_game_check_prisoner_can_be_sold", ":cur_troop_id"),
+      (eq, reg0, 1),
       (val_add, ":num_regular_prisoner_slots", 1),
     (try_end),
     (try_begin),
@@ -2681,17 +3583,18 @@ Gradually, faith became such a part of your life that it was no different from t
         (lt, ":rand", ":reject_chance"),
         (assign, "$g_prisoner_recruit_troop_id", -7),
       (else_try),
-        (assign, ":num_regular_prisoner_slots", 0),
-        (party_get_num_prisoner_stacks, ":num_stacks", "p_main_party"),
-        (try_for_range, ":cur_stack", 0, ":num_stacks"),
-          (party_prisoner_stack_get_troop_id, ":cur_troop_id", "p_main_party", ":cur_stack"),
-          (neg|troop_is_hero, ":cur_troop_id"),
-          (val_add, ":num_regular_prisoner_slots", 1),
-        (try_end),
+        # (assign, ":num_regular_prisoner_slots", 0),
+        # (party_get_num_prisoner_stacks, ":num_stacks", "p_main_party"),
+        # (try_for_range, ":cur_stack", 0, ":num_stacks"),
+          # (party_prisoner_stack_get_troop_id, ":cur_troop_id", "p_main_party", ":cur_stack"),
+          # (neg|troop_is_hero, ":cur_troop_id"),
+          # (val_add, ":num_regular_prisoner_slots", 1),
+        # (try_end),
         (store_random_in_range, ":random_prisoner_slot", 0, ":num_regular_prisoner_slots"),
         (try_for_range, ":cur_stack", 0, ":num_stacks"),
           (party_prisoner_stack_get_troop_id, ":cur_troop_id", "p_main_party", ":cur_stack"),
-          (neg|troop_is_hero, ":cur_troop_id"),
+          (call_script, "script_game_check_prisoner_can_be_sold", ":cur_troop_id"),
+          (eq, reg0, 1), #SB : use script call to prevent quest troops from being recruited
           (val_sub, ":random_prisoner_slot", 1),
           (lt, ":random_prisoner_slot", 0),
           (assign, ":num_stacks", 0),
@@ -2723,8 +3626,59 @@ Gradually, faith became such a part of your life that it was no different from t
       ("camp_recruit_prisoners_accept",[(gt, "$g_prisoner_recruit_troop_id", 0)],"Take them.",
        [(remove_troops_from_prisoners, "$g_prisoner_recruit_troop_id", "$g_prisoner_recruit_size"),
         (party_add_members, "p_main_party", "$g_prisoner_recruit_troop_id", "$g_prisoner_recruit_size"),
-        (store_mul, ":morale_change", -3, "$g_prisoner_recruit_size"),
+        #SB : change base morale reduction by difficulty
+        (game_get_reduce_campaign_ai, ":reduce"), #0 to 2
+        (val_sub, ":reduce", 4), #-4 to -2
+        (store_mul, ":morale_change", ":reduce", "$g_prisoner_recruit_size"),
+        (store_troop_faction, ":troop_faction", "$g_prisoner_recruit_troop_id"),
+        (store_character_level, ":troop_level", "$g_prisoner_recruit_troop_id"),
+
+        (try_for_range, ":faction", kingdoms_begin, kingdoms_end),
+          (faction_set_slot, ":faction", slot_faction_temp_slot, 0),
+        (try_end),
+        (try_begin), #give extra penalty to faction morale if we recruit high-level enemy troops
+          (this_or_next|eq, ":troop_faction", "fac_outlaws"),
+          (eq, ":troop_faction", "fac_deserters"),
+          (call_script, "script_objectionable_action", tmt_aristocratic, "str_hire_deserters"),
+        (else_try),
+          (is_between, ":troop_faction", npc_kingdoms_begin, npc_kingdoms_end),
+          # (store_character_level, ":relation", "$g_prisoner_recruit_troop_id"),
+          (try_begin), #check culture
+            (eq, "$players_kingdom", "fac_player_supporters_faction"),
+            (is_between, "$g_player_culture", npc_kingdoms_begin, npc_kingdoms_end),
+            (eq, "$g_player_culture", ":troop_faction"),
+            (assign, ":troop_faction", "$players_kingdom"),
+          (try_end),
+          (try_begin), #no penalty for same faction
+            (eq, ":troop_faction", "$players_kingdom"),
+            # (val_sub, ":relation", ":morale_change"), #bonus
+            (assign, ":morale_change", 0),
+            (assign, "$g_prisoner_recruit_troop_id", 0),
+            (assign, "$g_prisoner_recruit_size", 0),
+          (else_try), #one point per offended party
+            (party_get_num_companion_stacks, ":cap", "p_main_party"),
+            (try_for_range, ":stack", 1, ":cap"),
+              (party_stack_get_troop_id, ":troop", "p_main_party", ":stack"),
+              # (neg|troop_is_hero, ":troop"),
+              # (neq, ":troop", "$g_prisoner_recruit_troop_id"), #not just recruited
+              (store_faction_of_troop, ":stack_faction", ":troop"),
+              # (neq, ":stack_faction", ":troop_faction"),
+              (store_relation, ":faction_relation", ":troop_faction", ":stack_faction"),
+              (lt, ":faction_relation", 0),
+              (faction_get_slot, ":amount", ":stack_faction", slot_faction_temp_slot),
+              (party_stack_get_size, ":reduce", "p_main_party", ":stack"),
+              (val_sub, ":amount", ":reduce"),
+              (faction_set_slot, ":stack_faction", slot_faction_temp_slot, ":amount"),
+            (try_end),
+          (try_end),
+        (try_end),
         (call_script, "script_change_player_party_morale", ":morale_change"),
+        (try_for_range, ":faction", kingdoms_begin, kingdoms_end),
+          (faction_get_slot, ":relation", ":faction", slot_faction_temp_slot),
+          (neq, ":relation", 0),
+          (val_sub, ":relation", ":troop_level"),
+          (call_script, "script_change_faction_troop_morale", ":faction", ":relation", 1),
+        (try_end),
         (jump_to_menu, "mnu_camp"),
         ]
        ),
@@ -3560,7 +4514,28 @@ Gradually, faith became such a part of your life that it was no different from t
   ("arena_duel_fight",0,
    "You and your opponent prepare to duel.",
    "none",
-   [],
+   [
+      (troop_get_slot, ":leader_troop_faction", "$g_duel_troop", slot_troop_original_faction),
+      (try_begin),
+        (eq, ":leader_troop_faction", fac_kingdom_1),
+        (set_background_mesh, "mesh_pic_swad"),
+      (else_try),
+        (eq, ":leader_troop_faction", fac_kingdom_2),
+        (set_background_mesh, "mesh_pic_vaegir"),
+      (else_try),
+        (eq, ":leader_troop_faction", fac_kingdom_3),
+        (set_background_mesh, "mesh_pic_khergit"),
+      (else_try),
+        (eq, ":leader_troop_faction", fac_kingdom_4),
+        (set_background_mesh, "mesh_pic_nord"),
+      (else_try),
+        (eq, ":leader_troop_faction", fac_kingdom_5),
+        (set_background_mesh, "mesh_pic_rhodock"),
+      (else_try),
+        (eq, ":leader_troop_faction", fac_kingdom_6),
+        (set_background_mesh, "mesh_pic_sarranid_encounter"),
+      (try_end),
+   ],
    [
      ("continue",[],"Continue...",
       [
@@ -3707,12 +4682,12 @@ Gradually, faith became such a part of your life that it was no different from t
             (assign, "$g_encounter_type", enctype_catched_during_village_raid),
             (party_quick_attach_to_current_battle, "$g_encounter_is_in_village", 1), #attach as enemy
             (str_store_string, s1, "@Villagers"),
-            (display_message, "str_s1_joined_battle_enemy"),
-          (else_try),
+            (display_message, "str_s1_joined_battle_enemy", message_negative), #SB : colorize
+         (else_try),
             (eq, "$g_encounter_type", enctype_fighting_against_village_raid),
             (party_quick_attach_to_current_battle, "$g_encounter_is_in_village", 0), #attach as friend
             (str_store_string, s1, "@Villagers"),
-            (display_message, "str_s1_joined_battle_friend"),
+            (display_message, "str_s1_joined_battle_friend", message_positive), #SB : colorize
             # Let village party join battle at your side
           (try_end),
                     
@@ -3722,8 +4697,16 @@ Gradually, faith became such a part of your life that it was no different from t
           (assign, "$encountered_party_friendly", 0),
           (try_begin),
             (gt, "$g_encountered_party_relation", 0),
+            (try_begin), #SB : apply provocation override
+              (check_quest_active, "qst_cause_provocation"),
+              (neg|check_quest_concluded, "qst_cause_provocation"),
+              (quest_slot_eq, "qst_cause_provocation", slot_quest_target_faction, "$g_encountered_party_faction"),
+              (party_slot_eq, "$g_encountered_party", slot_party_type, spt_kingdom_caravan),
+              (assign, "$encountered_party_friendly", 0),
+            (else_try),			
             (assign, "$encountered_party_friendly", 1),
           (try_end),
+          (try_end),		  
           (try_begin),
             (lt, "$g_encountered_party_relation", 0),
             (assign, "$encountered_party_hostile", 1),
@@ -3843,8 +4826,13 @@ Gradually, faith became such a part of your life that it was no different from t
           (eq, "$g_encountered_party_template", "pt_forest_bandits"),
           (set_background_mesh, "mesh_pic_forest_bandits"),
         (else_try),
-          (eq, "$g_encountered_party_template", "pt_deserters"),
+          (this_or_next|eq, "$g_encountered_party_template", "pt_deserters"),
+          (eq, "$g_encountered_party_template", "pt_routed_warriors"),
           (set_background_mesh, "mesh_pic_deserters"),
+        #SB : dplmc party templates
+        (else_try),
+          (eq, "$g_encountered_party_template", "pt_center_reinforcements"),
+          (set_background_mesh, "mesh_pic_recruits"),		  
         (else_try),
           (eq, "$g_encountered_party_template", "pt_kingdom_hero_party"),
 		  (party_stack_get_troop_id, ":leader_troop", "$g_encountered_party", 0),
@@ -4077,6 +5065,13 @@ Gradually, faith became such a part of your life that it was no different from t
        (assign, reg3, 0),
        (str_store_troop_name, s3, ":max_skill_owner"),
      (try_end),
+	 
+    #SB : add tableau
+    (set_fixed_point_multiplier, 100),
+    (position_set_x, pos0, 70),
+    (position_set_y, pos0, 5),
+    (position_set_z, pos0, 75),
+    (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", ":max_skill_owner", pos0),	 
      ],
     [
       ("leave_behind",[],"Go on. The sacrifice of these men will save the rest.",
@@ -4090,6 +5085,14 @@ Gradually, faith became such a part of your life that it was no different from t
 		  (party_add_prisoners, "$g_encountered_party", ":lost_troop", 1),
 		(try_end),
 		(call_script, "script_change_player_party_morale", -20),
+
+           (call_script, "script_change_troop_renown", "trp_player", -7), #SB : renown change
+           (try_begin), #SB: max skill owner uses tactics
+             # (eq, reg3, 0),
+             (call_script, "script_get_max_skill_of_player_party", "skl_tactics"),
+             (is_between, reg1, companions_begin, companions_end),
+             (call_script, "script_change_troop_renown", reg1, dplmc_companion_battle_renown), #SB : renown change, less reward
+           (try_end),		
 		(jump_to_menu, "mnu_encounter_retreat"),
       ]),
       ("dont_leave_behind",[],"No. We leave no one behind.",[(jump_to_menu, "mnu_simple_encounter"),]),
@@ -4117,7 +5120,10 @@ Gradually, faith became such a part of your life that it was no different from t
         ###Troop commentary changes end
         (party_ignore_player, "$g_encountered_party", 1),
         (leave_encounter),
-		(change_screen_return)
+		(change_screen_return),
+          ##diplomacy begin
+          (assign, "$g_move_fast", 1),
+          ##diplomacy end
       ]),
     ]
   ),
@@ -4309,6 +5315,22 @@ Gradually, faith became such a part of your life that it was no different from t
      (try_begin),
        (eq, "$g_battle_result", 1),
        (call_script, "script_change_troop_renown", "trp_player", "$battle_renown_value"),
+       #SB : also distribute amount to companions, maybe pretender/spouse in party as well
+       (assign, ":amount", 0),
+       (try_for_range, ":companions", companions_begin, companions_end),
+         (main_party_has_troop, ":companions"),
+         (val_add, ":amount", 1),
+       (try_end),
+       (try_begin),
+         (gt, ":amount", 0),
+         (store_div, ":amount", "$battle_renown_value", ":amount"),
+         (val_max, ":amount", dplmc_companion_battle_renown),
+         (try_for_range, ":companions", companions_begin, companions_end),
+           (main_party_has_troop, ":companions"),
+           # (neg|troop_is_wounded, ":companions"), #survived, or stayed at the back
+           (call_script, "script_change_troop_renown", ":companions", ":amount"),
+         (try_end),
+       (try_end),	   
 
        (try_begin),  
          (ge, "$g_encountered_party", 0),
@@ -4388,14 +5410,15 @@ Gradually, faith became such a part of your life that it was no different from t
        (ge, "$g_enemy_fit_for_battle",1),
        (this_or_next|le, "$g_friend_fit_for_battle",0),
        (le, "$playerparty_postbattle_regulars", 0),
-       (str_store_string, s11, "@Battle was lost. Your forces were utterly crushed."),
+       (str_store_string, s11, "@The battle was lost. Your forces were utterly crushed."),
        (set_background_mesh, "mesh_pic_defeat"),
      (else_try),
        (eq, "$g_battle_result", -1),
        (str_store_string, s11, "@Your companions carry you away from the fighting."),
-       (troop_get_type, ":is_female", "trp_player"),
+       # (troop_get_type, ":is_female", "trp_player"),
        (try_begin),
-         (eq, ":is_female", 1),
+         #(eq, ":is_female", 1),#<- replaced
+         (eq, tf_female, "$character_gender"),#<- added
          (set_background_mesh, "mesh_pic_wounded_fem"),
        (else_try),
          (set_background_mesh, "mesh_pic_wounded"),
@@ -4454,7 +5477,7 @@ Gradually, faith became such a part of your life that it was no different from t
           
            #add new party to map (routed_warriors)
           (call_script, "script_add_routed_party"),
-        (end_try),
+        (try_end),
         		
 		(try_begin),
 			(check_quest_active, "qst_track_down_bandits"),
@@ -4468,12 +5491,35 @@ Gradually, faith became such a part of your life that it was no different from t
 				(eq, ":quest_party_attached", "$g_enemy_party"),
 			(call_script, "script_succeed_quest", "qst_track_down_bandits"),	
 		(try_end),
+		
+        #SB : pt_bandits_awaiting_ransom bandits_awaiting_remeet, give money back
+        (try_begin),
+            (check_quest_active, "qst_kidnapped_girl"),
+            (quest_slot_eq, "qst_kidnapped_girl", slot_quest_current_state, 2), #paid
+            (quest_get_slot, ":quest_target_amount", "qst_kidnapped_girl", slot_quest_target_amount),
+            (gt, ":quest_target_amount", 0), #not already given out - otherwise this menu gets called 3 times!
+            (quest_get_slot, ":quest_party", "qst_kidnapped_girl", slot_quest_target_party),
+            (party_get_attached_to, ":quest_party_attached"),
+            (this_or_next|eq, ":quest_party", "$g_enemy_party"),
+                (eq, ":quest_party_attached", "$g_enemy_party"),
+            (call_script, "script_troop_add_gold", "trp_player", ":quest_target_amount"),
+            (quest_set_slot, "qst_kidnapped_girl", slot_quest_target_amount, 0),
+        (try_end),		
 				
 		(try_begin),
 			(gt, "$g_private_battle_with_troop", 0),
 			(troop_slot_eq, "$g_private_battle_with_troop", slot_troop_leaded_party, "$g_encountered_party"),
 			(assign, "$g_private_battle_with_troop", 0),
-			(assign, "$g_disable_condescending_comments", 1),
+			##diplomacy start+
+			#g_disable_condescending_comments is also used to track the "enhanced/diminished prejudice" setting
+			(try_begin),
+				(eq, "$g_disable_condescending_comments", 0),
+				(assign, "$g_disable_condescending_comments", 1),
+			(else_try),
+				(eq, "$g_disable_condescending_comments", 2),
+				(assign, "$g_disable_condescending_comments", 3),
+			##diplomacy end+
+			(try_end),
 		(try_end),
 		
 		#new - begin
@@ -4658,7 +5704,18 @@ Gradually, faith became such a part of your life that it was no different from t
           (call_script, "script_party_calculate_loot", "p_total_enemy_casualties"), #p_encountered_party_backup changed to total_enemy_casualties
           (gt, reg0, 0),          
           (troop_sort_inventory, "trp_temp_troop"),
-          (change_screen_loot, "trp_temp_troop"),
+		  ##diplomacy start+
+		  #Here: we jump to rubik's autoloot from CC if applicable instead of using the standard loot screen
+		  (try_begin),
+			(call_script, "script_cf_dplmc_player_party_meets_autoloot_conditions"),
+			(assign, "$dplmc_return_menu", "mnu_total_victory"),
+			(assign, "$lord_selected", "trp_player"),
+			(jump_to_menu, "mnu_dplmc_manage_loot_pool"),
+		  (else_try),
+			#Old behavior:
+			(change_screen_loot, "trp_temp_troop"),
+		  (try_end),
+		  ##diplomacy end+
 		  (troop_set_slot, "trp_temp_troop", slot_troop_state, 1),
         (else_try),
           #finished all
@@ -4728,7 +5785,13 @@ Gradually, faith became such a part of your life that it was no different from t
             (leave_encounter),
             (change_screen_return),
           (else_try),            
-            (try_begin), #my kingdom       
+            (try_begin), #my kingdom    
+            ##diplomacy begin
+              (eq, "$g_next_menu", "mnu_dplmc_town_riot_removed"),
+              (jump_to_menu, "$g_next_menu"),
+            (else_try),
+            ##diplomacy end
+              #(change_screen_return),			
               (eq, "$g_next_menu", "mnu_castle_taken"),
               
               (call_script, "script_add_log_entry", logent_castle_captured_by_player, "trp_player", "$g_encountered_party", -1, "$g_encountered_party_faction"),
@@ -4736,6 +5799,37 @@ Gradually, faith became such a part of your life that it was no different from t
 			  (faction_set_slot, "$players_kingdom", slot_faction_ai_last_decisive_event, ":hours"),
 			  
               (try_begin), #player took a walled center while he is a vassal of npc kingdom.
+  			  ##diplomacy start+ Handle player is co-ruler of NPC faction
+				(assign, ":is_coruler", 0),
+                (is_between, "$players_kingdom", npc_kingdoms_begin, npc_kingdoms_end),
+                (call_script, "script_dplmc_get_troop_standing_in_faction", "trp_player", "$players_kingdom"),
+                (ge, reg0, DPLMC_FACTION_STANDING_LEADER_SPOUSE),
+				(assign, ":is_coruler", 1),
+
+				(assign, "$g_center_taken_by_player_faction", "$g_encountered_party"),
+				(faction_get_slot, ":faction_leader", "fac_player_supporters_faction", slot_faction_leader),
+				(try_begin),
+					(eq, ":faction_leader", "trp_player"),
+					(assign, ":faction_leader", heroes_end),
+					(try_for_range, ":troop_no", heroes_begin, ":faction_leader"),
+						(this_or_next|troop_slot_eq, slot_troop_spouse, "trp_player"),
+							(troop_slot_eq, "trp_player", slot_troop_spouse, ":troop_no"),
+						(neg|troop_slot_ge, ":faction_leader", slot_troop_prisoner_of_party, 0),#Not a prisoner
+						(neg|troop_slot_ge, ":faction_leader", slot_troop_occupation, slto_retirement),#Not retired, exiled, dead
+						(assign, ":faction_leader", ":troop_no"),#assign and break the loop
+					(try_end),
+				(try_end),
+
+				(is_between, ":faction_leader", heroes_begin, heroes_end),#Not the player, and not a bogus value
+				(neg|troop_slot_ge, ":faction_leader", slot_troop_prisoner_of_party, 0),#Not a prisoner
+				(neg|troop_slot_ge, ":faction_leader", slot_troop_occupation, slto_retirement),#Not retired, exiled, dead
+
+				(change_screen_return),
+				(start_map_conversation, ":faction_leader", -1),
+			  (else_try),
+			  #player took a walled center while he is a vassal of npc kingdom.
+			    (neq, ":is_coruler", 1),
+			  ##diplomacy end+			  
                 (is_between, "$players_kingdom", npc_kingdoms_begin, npc_kingdoms_end),
                 (jump_to_menu, "$g_next_menu"),
               (else_try), #player took a walled center while he is a vassal of rebels.
@@ -4744,15 +5838,59 @@ Gradually, faith became such a part of your life that it was no different from t
                 (neg|faction_slot_eq, "fac_player_supporters_faction", slot_faction_leader, "trp_player"),
                 (faction_get_slot, ":faction_leader", "fac_player_supporters_faction", slot_faction_leader),
                 (change_screen_return),              
-                (start_map_conversation, ":faction_leader", -1),
+                # (start_map_conversation, ":faction_leader", -1), #SB : script call
+                (assign, "$talk_context", tc_give_center_to_fief),
+                (call_script, "script_start_court_conversation", ":faction_leader", "$current_town"),
               (else_try), #player took a walled center for player's kingdom
+			    ##diplomacy start+ Handle player is co-ruler of faction
+				(this_or_next|eq, ":is_coruler", 1),
+				##diplomacy end+
                 (neg|is_between, "$players_kingdom", npc_kingdoms_begin, npc_kingdoms_end),                
                 (assign, "$g_center_taken_by_player_faction", "$g_encountered_party"),
                 (assign, "$talk_context", tc_give_center_to_fief),
                 (change_screen_return),              
                 
-                (assign, ":best_troop", "trp_swadian_sharpshooter"),
-                (assign, ":maximum_troop_score", 0),
+                (assign, ":best_troop", "trp_hired_blade"),
+				##diplomacy start+
+				#Trivial aesthetic change, change the default troop to be appropriate to the
+				#culture of the player kingdom (instead of defaulting always to a Swadian troop).
+				(assign, ":players_culture", "$players_kingdom"),
+				(try_begin),
+					#If not the co-ruler of an NPC kingdom, use the player faction culture.
+				   (neg|is_between, "$players_kingdom", npc_kingdoms_begin, npc_kingdoms_end),
+				   # (assign, ":best_troop", "trp_mercenary_crossbowman"),#<- while we're at it, use a mercenary default #SB : hired blade
+				   (assign, ":players_culture", "$g_player_culture"),
+				   (this_or_next|is_between, ":players_culture", npc_kingdoms_begin, npc_kingdoms_end),
+					(is_between, ":players_culture", cultures_begin, cultures_end),
+				(else_try),
+					#If not the co-ruler of an NPC kingdom, and there wasn't a valid player faction
+					#culture, try to use the faction of the player's court.
+					(neg|is_between, "$players_kingdom", npc_kingdoms_begin, npc_kingdoms_end),
+					(is_between, "$g_player_court", centers_begin, centers_end),
+					(party_slot_ge, "$g_player_court", slot_center_original_faction, 1),
+					(party_get_slot, ":players_culture", "$g_player_court", slot_center_original_faction),
+				(try_end),
+				(try_begin),
+					#Resolve from kingdom to culture if necessary
+				   (is_between, ":players_culture", kingdoms_begin, kingdoms_end),
+				   (faction_get_slot, ":players_culture", ":players_culture", slot_faction_culture),
+				(try_end),
+				(try_begin),
+					#If the final result is a culture, get the best troop if valid
+				   (is_between, ":players_culture", cultures_begin, cultures_end),
+				   # (neq, ":players_culture", "fac_culture_1"), #SB : allow swadian culture
+				   (faction_get_slot, reg0, ":players_culture", slot_faction_guard_troop),
+				   (ge, reg0, soldiers_begin),
+				   (assign, ":best_troop", reg0),
+				(try_end),
+				##diplomacy end+
+                #SB : fix this, otherwise previously calculated troop is useless
+                (try_begin),
+                  (neq, ":best_troop", "trp_hired_blade"),
+                  (store_character_level, ":maximum_troop_score", ":best_troop"),
+                (else_try),
+                  (assign, ":maximum_troop_score", 0),
+                (try_end),
                 
                 (party_get_num_companion_stacks, ":num_stacks", "p_main_party"),
                 (try_for_range, ":stack_no", 0, ":num_stacks"),
@@ -4794,7 +5932,8 @@ Gradually, faith became such a part of your life that it was no different from t
                   (try_end),
                 (try_end),                                                                
                                 
-                (start_map_conversation, ":best_troop", ":best_troop_dna"),
+                (call_script, "script_start_court_conversation", ":best_troop", "$current_town", ":best_troop_dna"),
+                # (start_map_conversation, ":best_troop", ":best_troop_dna"),
               (try_end),
             (try_end),
           (try_end),
@@ -4944,9 +6083,11 @@ Gradually, faith became such a part of your life that it was no different from t
            (str_store_string, s0, "@No matter! I will persevere!"),
          (else_try),
            (eq, ":random_no", 3),
-           (troop_get_type, ":is_female", "trp_player"),
+			  ##diplomacy start+ Don't use troop_get_type for gender
+			  #(troop_get_type, ":is_female", "trp_player"),#<- replaced
            (try_begin),
-             (eq, ":is_female", 1),
+             #(eq, ":is_female", 1),#<- replaced
+			 (eq, "$character_gender", tf_female),#<- added
              (str_store_string, s0, "@What did I do to deserve this?"),
            (else_try),
              (str_store_string, s0, "@I suppose it'll make for a good story, at least..."),
@@ -5005,14 +6146,15 @@ Gradually, faith became such a part of your life that it was no different from t
     ]
   ),
   
-  (
-    "join_battle",0,
+  (#SB : pic hotkeys
+    "join_battle",mnf_enable_hot_keys,
     "You are helping the {s2} against the {s1}. You have {reg10} troops fit for battle against the enemy's {reg11}.",
     "none",
     [                
-        (str_store_party_name, 1,"$g_enemy_party"),
-        (str_store_party_name, 2,"$g_ally_party"),
-
+        #SB : this needs to be called again at bottom
+        (str_store_party_name, s1, "$g_enemy_party"),
+        (str_store_party_name, s2, "$g_ally_party"),
+		
         (call_script, "script_encounter_calculate_fit"),                
 
         (try_begin),
@@ -5060,10 +6202,13 @@ Gradually, faith became such a part of your life that it was no different from t
           (try_end),
           
           (this_or_next|eq, ":battle_lost",1),
-          (eq,"$g_player_surrenders",1),
+          (eq,"$a",1),
           (leave_encounter),
           (change_screen_return),
         (try_end),
+        #SB : re-do strings at bottom, hopefully globals aren't clobbered
+        (str_store_party_name, s1, "$g_enemy_party"),
+        (str_store_party_name, s2, "$g_ally_party"),		
       ],
     [
       ("join_attack",
@@ -5459,9 +6604,44 @@ Gradually, faith became such a part of your life that it was no different from t
           (eq, "$new_encounter", 1),
           (assign, "$new_encounter", 0),
           (call_script, "script_let_nearby_parties_join_current_battle", 1, 0),
+		  ###diplomacy start+
+		  ##If terrain advantage is on, use siege settings for estimating strength
+          #(assign, ":save_dplmc_terrain_advantage", "$g_dplmc_terrain_advantage"),
+		  #(try_begin),
+		  #   (eq, "$g_dplmc_terrain_advantage", TERRAIN_ADVANTAGE_ENABLE),
+		  #   (assign, "$g_dplmc_terrain_advantage", TERRAIN_ADVANTAGE_FORCE_SIEGE),
+		  #(try_end),
+		  ###diplomacy end+		  
           (call_script, "script_encounter_init_variables"),
+		  ###diplomacy start+
+		  ##Revert terrain advantage settings
+		  #(assign, "$g_dplmc_terrain_advantage", ":save_dplmc_terrain_advantage"),
+		  ###diplomacy end+		  
           (assign, "$entry_to_town_forbidden",0),
-          (assign, "$sneaked_into_town",0),
+          # (assign, "$sneaked_into_town",0),
+          (try_begin),         #dckplmc: handle removing disguise here, bug with saving in-mission
+            (gt, "$sneaked_into_town", disguise_none),
+            (eq, "$g_dplmc_player_disguise", 1),
+            (display_message, "@Removing disguise...", message_alert), #SB : colorize
+            (try_begin),
+              (eq, "$g_dplmc_player_disguise", 1),
+              (set_show_messages, 0),
+              #equipment is deposited back to inventory, it starts off blank
+              (try_for_range, ":i_slot", ek_item_0, ek_food + 1),
+                (troop_get_inventory_slot, ":item", "trp_player", ":i_slot"),
+                (neq, ":item", -1),
+                (troop_get_inventory_slot_modifier, ":imod", "trp_player", ":i_slot"),
+                (troop_add_item, "trp_random_town_sequence", ":item", ":imod"),
+              (try_end),
+              #less efficient, but merge and respect original player inventory's order
+              (call_script, "script_move_inventory_and_gold", "trp_player", "trp_random_town_sequence", 0), #do not move gold
+              (call_script, "script_dplmc_copy_inventory", "trp_random_town_sequence", "trp_player"),
+              (call_script, "script_troop_transfer_gold", "trp_random_town_sequence", "trp_player", 0), #move remaining gold now
+              (set_show_messages, 1),
+            (try_end),
+            # (assign, "$sneaked_into_town", disguise_none),
+          (try_end),
+          (assign, "$sneaked_into_town", disguise_none),		  
           (assign, "$town_entered", 0),
 #          (assign, "$waiting_for_arena_fight_result", 0),
           (assign, "$encountered_party_hostile", 0),
@@ -5478,6 +6658,14 @@ Gradually, faith became such a part of your life that it was no different from t
             (assign, "$encountered_party_hostile", 1),
             (assign,"$entry_to_town_forbidden",1),
           (try_end),
+		  
+          ##diplomacy begin
+          (try_begin),
+            (party_slot_eq, "$g_encountered_party", slot_village_infested_by_bandits, "trp_peasant_woman"),
+            (assign, "$encountered_party_hostile", 1),
+            (assign,"$entry_to_town_forbidden",1),
+          (try_end),
+          ##diplomacy end		  
 
           (assign,"$cant_sneak_into_town",0),
           (try_begin),
@@ -5511,6 +6699,101 @@ Gradually, faith became such a part of your life that it was no different from t
           (str_store_troop_name,s8,":center_lord"),
           (str_store_string,s7,"@{s8} of {s9}"),
         (try_end),
+		
+        ##diplomacy start+
+        
+        #SB : move coruler variable up here
+		(assign, ":is_coruler", 0),
+		(try_begin),
+			(eq, "$g_encountered_party_faction", "$players_kingdom"),
+			(is_between, "$players_kingdom", npc_kingdoms_begin, npc_kingdoms_end),
+			(call_script, "script_dplmc_get_troop_standing_in_faction", "trp_player", "$players_kingdom"),
+			(ge, reg0, DPLMC_FACTION_STANDING_LEADER_SPOUSE),
+			(assign, ":is_coruler", 1),
+		(try_end),
+		(assign, ":save_reg0", reg0),#save variables
+		(assign, ":save_reg4", reg4),
+		(assign, ":relation", 0),
+		(assign, reg4, 0),
+		(try_begin),#If there's a relation of some kind, write it to s11 (which we'll overwrite below)
+			(lt, ":center_lord", 1),
+		(else_try),
+			#your relative
+			(call_script, "script_troop_get_family_relation_to_troop", ":center_lord", "trp_player"),#outputs to s11, ":relation", and reg4
+			(ge, ":relation", 1),#Fall through if this not a relative
+		(else_try),
+			#your current liege
+			(eq, ":center_faction", "$players_kingdom"),
+			(is_between, ":center_faction", kingdoms_begin, kingdoms_end),#include fac_player_supporters_faction for claimant quest
+			(faction_slot_eq, ":center_faction", slot_faction_leader, ":center_lord"),
+			(str_store_string, s11, "@liege"),
+			(assign, ":relation", 1),
+		(else_try),
+			#your former liege if you renounced a kingdom
+			(eq, ":center_faction", "$players_oath_renounced_against_kingdom"),
+			(is_between, ":center_faction", npc_kingdoms_begin, npc_kingdoms_end),
+			(faction_slot_eq, ":center_faction", slot_faction_leader, ":center_lord"),
+			(str_store_string, s11, "@former liege"),
+			(assign, ":relation", 1),
+		(else_try),
+			#stop here for lords you haven't met, or non-hero troops
+			(this_or_next|neg|troop_is_hero, ":center_lord"),
+			(troop_slot_eq, ":center_lord", slot_troop_met, 0),
+		(else_try),
+			#check for affiliates
+			(call_script, "script_dplmc_is_affiliated_family_member", ":center_lord"),
+			(ge, reg0, 1), #SB : substitute register
+			(assign, ":relation", 1),
+			(try_begin),
+				(ge, "$g_encountered_party_relation", 0),#don't say "ally" when you might fight them, as that's confusing
+				(str_store_string, s11, "str_dplmc_ally"),
+			(else_try),
+				(str_store_string, s11, "@affiliate"),
+			(try_end),
+		(else_try),
+			#check for friends (former companions)
+			(call_script, "script_troop_get_player_relation", ":center_lord"),
+            (assign, ":relation", reg0),
+			(is_between, ":center_lord", companions_begin, companions_end),
+			(neg|troop_slot_eq, ":center_lord", slot_troop_playerparty_history, dplmc_pp_history_nonplayer_entry),
+			(try_begin),
+			   (ge, "$g_encountered_party_relation", 0),#don't say "ally" when you might fight them, as that's confusing
+			   (ge, ":relation", 50),
+			   (str_store_string, s11, "str_dplmc_ally"),
+			(else_try),
+				(ge, "$g_encountered_party_relation", 0),
+				(ge, ":relation", 20),
+				(str_store_string, s11, "str_dplmc_friend"),
+			(else_try),
+				(str_store_string, s11, "@former companion"),
+			(try_end),
+			(assign, ":relation", 1),
+		(else_try),
+			#don't print "friend" if you might fight them
+			(lt, "$g_encountered_party_relation", 0),
+			(assign, ":relation", 0),
+		(else_try),
+			#check for friends
+			# (val_div, ":relation", 50),#right now ":relation" holds the relation with the player
+			(ge, ":relation", 50),
+			(str_store_string, s11, "str_dplmc_friend"),
+		(else_try),
+			#check for marshall
+			(eq, ":center_faction", "$players_kingdom"),
+			(faction_slot_eq, ":center_faction", slot_faction_marshall, ":center_lord"),
+			(str_store_string, s11, "@marshall"),
+		(else_try), #SB : coruler check above
+			# #check for vassal of player if nothing else to say
+			# (call_script, "script_dplmc_get_troop_standing_in_faction", "trp_player", ":center_faction"),
+			# (val_add, ":relation", 1),
+			# (val_sub, ":relation", DPLMC_FACTION_STANDING_LEADER_SPOUSE),
+			(ge, ":is_coruler", 1),
+			(str_store_string, s11, "@vassal"),
+            (assign, ":relation", 1),
+		(else_try),
+			(assign, ":relation", 0),
+		(try_end),
+		##diplomacy end+		
 
         (try_begin), # same mnu_town
           (party_slot_eq,"$current_town",slot_party_type, spt_castle),
@@ -5520,6 +6803,11 @@ Gradually, faith became such a part of your life that it was no different from t
           (else_try),
             (ge, ":center_lord", 0),
             (str_store_string,s11,"@ You see the banner of {s7} over the castle gate."),
+		  ##diplomacy start+ If ":relation" > 0, a relation string was written to {s11} above
+		  (else_try),
+			(ge, ":relation", 1),
+			(str_store_string, s11, "@ You see the banner of your {s11} {s7} over the castle gate."),
+		  ##diplomacy end+			
           (else_try),
 		    (is_between, ":center_faction", kingdoms_begin, kingdoms_end),
             (str_store_string,s11,"str__this_castle_is_temporarily_under_royal_control"),
@@ -5529,7 +6817,12 @@ Gradually, faith became such a part of your life that it was no different from t
         (else_try),
           (try_begin),
             (eq, ":center_lord", "trp_player"),
-            (str_store_string,s11,"@ Your own banner flies over the town gates."),
+            (str_store_string, s11,"@ Your own banner flies over the town gates."),
+		  ##diplomacy start+ If ":relation" > 0, a relation string was written to {s11} above
+		  (else_try),
+			(ge, ":relation", 1),
+			(str_store_string, s11, "@ You see the banner of your {s11} {s7} over the town gates."),
+		  ##diplomacy end+
           (else_try),
             (ge, ":center_lord", 0),
             (str_store_string,s11,"@ You see the banner of {s7} over the town gates."),
@@ -5541,14 +6834,26 @@ Gradually, faith became such a part of your life that it was no different from t
           (try_end),
         (try_end),
 
-        (party_get_num_companions, reg(7),"p_collective_enemy"),
+        #SB : get rid of register usage
+        (party_get_num_companions, ":num_enemies", "p_collective_enemy"),		
+        # (party_get_num_companions, reg(7),"p_collective_enemy"),
         (assign,"$castle_undefended",0),
         (str_clear, s3),
         (try_begin),
-          (eq,reg(7),0),
+	(eq, ":num_enemies", 0),		
+          # (eq,reg(7),0),
           (assign,"$castle_undefended",1),
           (str_store_string, s3, "str_castle_is_abondened"),
         (else_try),
+        ##diplomacy begin
+          (party_slot_eq, "$g_encountered_party", slot_village_infested_by_bandits, "trp_peasant_woman"),
+          (str_store_string, s3, "str_dplmc_place_is_occupied_by_insurgents"),
+          #SB : assign globals, doesn't make senes
+        (else_try),
+        ##diplomacy end
+		##diplomacy start+ Handle player is co-ruler of kingdom
+		  (this_or_next|eq, ":is_coruler", 1),
+		##diplomacy end+		
           (eq,"$g_encountered_party_faction","fac_player_supporters_faction"),
           (str_store_string, s3, "str_place_is_occupied_by_player"),
         (else_try),
@@ -5556,6 +6861,10 @@ Gradually, faith became such a part of your life that it was no different from t
           (str_store_string, s3, "str_place_is_occupied_by_enemy"),
         (else_try),
         (try_end),
+		##diplomacy start+
+		(assign, reg0, ":save_reg0"),#revert variables
+		(assign, reg4, ":save_reg4"),
+		##diplomacy end+		
 
         (try_begin),
           (eq, "$g_leave_town_outside",1),
@@ -5566,34 +6875,87 @@ Gradually, faith became such a part of your life that it was no different from t
           (check_quest_active, "qst_escort_lady"),
           (quest_slot_eq, "qst_escort_lady", slot_quest_target_center, "$g_encountered_party"),
           (quest_get_slot, ":quest_object_troop", "qst_escort_lady", slot_quest_object_troop),
-          (call_script, "script_get_meeting_scene"), (assign, ":meeting_scene", reg0),
-          (modify_visitors_at_site,":meeting_scene"),
-          (reset_visitors),
-          (set_visitor,0, "trp_player"),
-          (set_visitor,17, ":quest_object_troop"),
-          (set_jump_mission, "mt_conversation_encounter"),
-          (jump_to_scene, ":meeting_scene"),
+          # (call_script, "script_get_meeting_scene"), (assign, ":meeting_scene", reg0),
+          # (modify_visitors_at_site,":meeting_scene"),
+          # (reset_visitors),
+          # (set_visitor,0, "trp_player"),
+          # (set_visitor,17, ":quest_object_troop"),
+          # (set_jump_mission, "mt_conversation_encounter"),
+          # (jump_to_scene, ":meeting_scene"),
           (assign, "$talk_context", tc_entering_center_quest_talk),
-          (change_screen_map_conversation, ":quest_object_troop"),
+          # (change_screen_map_conversation, ":quest_object_troop"),
+          (call_script, "script_setup_troop_meeting", ":quest_object_troop", -1),		  
         (else_try),
           (check_quest_active, "qst_kidnapped_girl"),
           (quest_slot_eq, "qst_kidnapped_girl", slot_quest_giver_center, "$g_encountered_party"),
           (quest_slot_eq, "qst_kidnapped_girl", slot_quest_current_state, 3),
-          (call_script, "script_get_meeting_scene"), (assign, ":meeting_scene", reg0),
-          (modify_visitors_at_site,":meeting_scene"),
-          (reset_visitors),
-          (set_visitor,0, "trp_player"),
-          (set_visitor,17, "trp_kidnapped_girl"),
-          (set_jump_mission, "mt_conversation_encounter"),
-          (jump_to_scene, ":meeting_scene"),
+          # (call_script, "script_get_meeting_scene"), (assign, ":meeting_scene", reg0),
+          # (modify_visitors_at_site,":meeting_scene"),
+          # (reset_visitors),
+          # (set_visitor,0, "trp_player"),
+          # (set_visitor,17, "trp_kidnapped_girl"),
+          # (set_jump_mission, "mt_conversation_encounter"),
+          # (jump_to_scene, ":meeting_scene"),
           (assign, "$talk_context", tc_entering_center_quest_talk),
-          (change_screen_map_conversation, "trp_kidnapped_girl"),
+          # (change_screen_map_conversation, "trp_kidnapped_girl"),
+          (call_script, "script_setup_troop_meeting", "trp_kidnapped_girl", -1),
+        (else_try), #SB : automatically talk to caravans
+          (check_quest_active, "qst_escort_merchant_caravan"),
+          (quest_slot_eq, "qst_escort_merchant_caravan", slot_quest_current_state, 1), #not talked to already
+          (quest_get_slot, ":quest_target_party", "qst_escort_merchant_caravan", slot_quest_target_party),
+          (party_is_active, ":quest_target_party"),
+          (quest_get_slot, ":quest_target_center", "qst_escort_merchant_caravan", slot_quest_target_center),
+          (eq, "$current_town",":quest_target_center"),
+          (store_distance_to_party_from_party, ":dist", ":quest_target_center",":quest_target_party"),
+          (lt,":dist",4),
+          # (start_encounter, ":quest_target_party"),
+          (assign, "$talk_context", tc_party_encounter),
+          (assign, "$g_encountered_party", ":quest_target_party"),
+          (party_stack_get_troop_id, ":caravan_leader", ":quest_target_party", 0),
+          (party_stack_get_troop_dna, ":caravan_leader_dna", ":quest_target_party", 0),
+          (call_script, "script_setup_troop_meeting", ":caravan_leader", ":caravan_leader_dna"),
+        (else_try), #SB : should really merge these quests, this is for older savegames
+          (eq, "$caravan_escort_state",1),
+          (party_is_active, "$caravan_escort_party_id"),
+          (eq,"$current_town","$caravan_escort_destination_town"),
+          (store_distance_to_party_from_party, ":dist", "$caravan_escort_destination_town", "$caravan_escort_party_id"),
+          (lt,":dist", 5),
+          # (store_distance_to_party_from_party, ":caravan_distance_to_player","p_main_party","$caravan_escort_party_id"),
+          # (lt, ":caravan_distance_to_player", 5),
+          # (start_encounter, "$caravan_escorted_party_id"),
+
+          (assign, "$talk_context", tc_party_encounter),
+          (assign, "$g_encountered_party", "$caravan_escort_party_id"),
+          (party_stack_get_troop_id, ":caravan_leader", "$caravan_escort_party_id", 0),
+          (party_stack_get_troop_dna, ":caravan_leader_dna", "$caravan_escort_party_id", 0),
+          (call_script, "script_setup_troop_meeting", ":caravan_leader", ":caravan_leader_dna"),
+          # (start_map_conversation, ":caravan_leader", ":caravan_leader_dna"),
+          
         (else_try),
           (eq, "$g_town_visit_after_rest", 1),
           (assign, "$g_town_visit_after_rest", 0),
           (jump_to_menu,"mnu_town"),
+        ##diplomacy begin
+        (else_try),
+          (party_slot_eq, "$g_encountered_party", slot_village_infested_by_bandits, "trp_peasant_woman"),
+          (try_begin),
+            (eq, "$g_player_besiege_town", "$g_encountered_party"),
+            (jump_to_menu, "mnu_castle_besiege"),
+          (try_end),
+        ##diplomacy end		  
         (else_try),
           (party_slot_eq, "$g_encountered_party", slot_party_type, spt_castle),                    
+		  ##diplomacy start+ Handle player is co-ruler of kingdom
+		  (assign, ":is_coruler",0),
+	  	  (try_begin),
+			(eq, "$g_encountered_party_faction", "$players_kingdom"),
+			(is_between, "$players_kingdom", npc_kingdoms_begin, npc_kingdoms_end),
+			(call_script, "script_dplmc_get_troop_standing_in_faction", "trp_player", "$players_kingdom"),
+			(ge, reg0, DPLMC_FACTION_STANDING_LEADER_SPOUSE),
+			(assign, ":is_coruler", 1),
+		  (try_end),
+		  (this_or_next|eq, ":is_coruler", 1),
+		  ##diplomacy end+		  
           (this_or_next|party_slot_eq, "$g_encountered_party", slot_town_lord, "trp_player"),
           (faction_slot_eq, "$g_encountered_party_faction", slot_faction_leader, "trp_player"),          
           (jump_to_menu, "mnu_enter_your_own_castle"),
@@ -5613,50 +6975,134 @@ Gradually, faith became such a part of your life that it was no different from t
           (jump_to_menu, "mnu_castle_besiege"),
         (try_end),
 		
-		(call_script, "script_set_town_picture"),
+          ##diplomacy begin
+          (try_begin),
+            (party_slot_eq, "$g_encountered_party", slot_village_infested_by_bandits, "trp_peasant_woman"),
+            (set_background_mesh, "mesh_pic_townriot"),
+          (else_try),
+          ##diplomacy end
+            (call_script, "script_set_town_picture"),
+          ##diplomacy begin
+          (try_end),
+          ##diplomacy end
         ],
     [
       ("approach_gates",[(this_or_next|eq,"$entry_to_town_forbidden",1),
-                          (party_slot_eq,"$g_encountered_party", slot_party_type,spt_castle)],
-       "Approach the gates and hail the guard.",[(jump_to_menu, "mnu_castle_guard")]),
+                          (party_slot_eq,"$g_encountered_party", slot_party_type,spt_castle),
+                          #SB : not infested by peasants, they'd just kick you out
+                          (neg|party_slot_eq, "$g_encountered_party", slot_village_infested_by_bandits, "trp_peasant_woman"),
+                          ],
+       "Approach the gates and hail the guard.",[
+                                                  (jump_to_menu, "mnu_castle_guard"),
+##                                                   (modify_visitors_at_site,"scn_conversation_scene"),(reset_visitors),
+##                                                   (set_visitor,0,"trp_player"),
+##                                                   (store_faction_of_party, ":cur_faction", "$g_encountered_party"),
+##                                                   (faction_get_slot, ":cur_guard", ":cur_faction", slot_faction_guard_troop),
+##                                                   (set_visitor,17,":cur_guard"),
+##                                                   (set_jump_mission,"mt_conversation_encounter"),
+##                                                   (jump_to_scene,"scn_conversation_scene"),
+##                                                   (assign, "$talk_context", tc_castle_gate),
+##                                                   (change_screen_map_conversation, ":cur_guard")
+                                                   ]),
       
       ("town_sneak",
         [
           (try_begin),
             (party_slot_eq, "$g_encountered_party", slot_party_type,spt_town),
             (str_store_string, s7, "str_town"),
-          (else_try),  
+          (else_try),
             (str_store_string, s7, "str_castle"),
-          (try_end),  
-          
+          (try_end),
+
           (eq, "$entry_to_town_forbidden", 1),
-          (eq, "$cant_sneak_into_town", 0)
+          (eq, "$cant_sneak_into_town", 0),
+          #SB : do not let player in at all, because the garrison can be managed
+          (neg|party_slot_eq, "$g_encountered_party", slot_village_infested_by_bandits, "trp_peasant_woman"),
         ],
-       "Disguise yourself and try to sneak into the {s7}",
+       "Disguise yourself and try to sneak into the {s7}.", #SB : period added since we removed it from module_strings
        [
-         (faction_get_slot, ":player_alarm", "$g_encountered_party_faction", slot_faction_player_alarm),
-         (party_get_num_companions, ":num_men", "p_main_party"),
-         (party_get_num_prisoners, ":num_prisoners", "p_main_party"),
-         (val_add, ":num_men", ":num_prisoners"),
-         (val_mul, ":num_men", 2),
-         (val_div, ":num_men", 3),
-         (store_add, ":get_caught_chance", ":player_alarm", ":num_men"),
-         (store_random_in_range, ":random_chance", 0, 100),
-         (try_begin),
-           (this_or_next|ge, ":random_chance", ":get_caught_chance"),
-           (eq, "$g_last_defeated_bandits_town", "$g_encountered_party"),
-           (assign, "$g_last_defeated_bandits_town", 0),
-           (assign, "$sneaked_into_town",1),
-           (assign, "$town_entered", 1),
-           (jump_to_menu,"mnu_sneak_into_town_suceeded"),
-           (assign, "$g_mt_mode", tcm_disguised),
-         (else_try),
-           (jump_to_menu,"mnu_sneak_into_town_caught"),
-         (try_end)
+       
+         #SB : apply different disguises in new system, with outcomes
+        (try_begin),
+          (eq, "$g_dplmc_player_disguise", 1),
+          (troop_get_slot, ":player_disguise", "trp_player", slot_troop_player_disguise_sets),
+          (val_max, ":player_disguise", disguise_pilgrim),
+          (troop_set_slot, "trp_player", slot_troop_player_disguise_sets, ":player_disguise"),
+          # (assign, "$sneaked_into_town", disguise_none), #set no disguise
+          (troop_clear_inventory, "trp_random_town_sequence"), # clear items to bring
+          (try_for_range, ":i_slot", 0, ek_food + 1), #dckplmc: bugfix - clear equipped items
+            (troop_set_inventory_slot, "trp_random_town_sequence", ":i_slot", -1),
+          (try_end),
+          (store_troop_gold, ":cur_amount", "trp_random_town_sequence"),
+          (troop_remove_gold, "trp_random_town_sequence", ":cur_amount"),#clear gold
+          (jump_to_menu, "mnu_dplmc_choose_disguise"),
+        (else_try),
+          (faction_get_slot, ":player_alarm", "$g_encountered_party_faction", slot_faction_player_alarm),
+          (party_get_num_companions, ":num_men", "p_main_party"),
+          (party_get_num_prisoners, ":num_prisoners", "p_main_party"),
+          (val_add, ":num_men", ":num_prisoners"),
+          (val_mul, ":num_men", 2),
+          (val_div, ":num_men", 3),
+          (store_add, ":get_caught_chance", ":player_alarm", ":num_men"),
+          (store_random_in_range, ":random_chance", 0, 100),
+          (try_begin),
+            (this_or_next|ge, "$cheat_mode", 1),
+            (this_or_next|ge, ":random_chance", ":get_caught_chance"),
+            (eq, "$g_last_defeated_bandits_town", "$g_encountered_party"),
+            (assign, "$g_last_defeated_bandits_town", 0),
+            (assign, "$sneaked_into_town", disguise_pilgrim),
+            (assign, "$town_entered", 1),
+            (jump_to_menu,"mnu_sneak_into_town_suceeded"),
+            (assign, "$g_mt_mode", tcm_disguised),
+          (else_try),
+            (jump_to_menu,"mnu_sneak_into_town_caught"),
+          (try_end),
+        (try_end),
+        ]),
+      ##diplomacy begin
+      ("dplmc_riot_start_siege",
+       [
+           (party_slot_eq, "$g_encountered_party", slot_center_is_besieged_by, -1),
+           (party_slot_eq, "$g_encountered_party", slot_village_infested_by_bandits, "trp_peasant_woman"),
+           (lt, "$g_encountered_party_2", 1),
+           (call_script, "script_party_count_fit_for_battle","p_main_party"),
+           (gt, reg0, 5),
+           (try_begin),
+             (party_slot_eq, "$g_encountered_party", slot_party_type, spt_town),
+             (assign, reg6, 1),
+           (else_try),
+             (assign, reg6, 0),
+           (try_end),
+           ],
+       "Besiege the {reg6?town:castle} to counter the insurgency.",
+       [
+         (assign,"$g_player_besiege_town","$g_encountered_party"),
+         (jump_to_menu, "mnu_castle_besiege"),
          ]),
+       ("dplmc_riot_negotiate",
+       [
+           (party_slot_eq, "$g_encountered_party", slot_center_is_besieged_by, -1),
+           (party_slot_eq, "$g_encountered_party", slot_village_infested_by_bandits, "trp_peasant_woman"),
+           (lt, "$g_encountered_party_2", 1),
+           (call_script, "script_party_count_fit_for_battle","p_main_party"),
+           (gt, reg0, 5),
+           (try_begin),
+             (party_slot_eq, "$g_encountered_party", slot_party_type, spt_town),
+             (assign, reg6, 1),
+           (else_try),
+             (assign, reg6, 0),
+           (try_end),
+           ],
+       "Begin negotiations.",
+       [
+          (jump_to_menu, "mnu_dplmc_riot_negotiate"),
+        ]),
          
       ("castle_start_siege",
        [
+           ##diplomacy begin
+           (neg|party_slot_eq, "$g_encountered_party", slot_village_infested_by_bandits, "trp_peasant_woman"),
+           ##diplomacy end	   
            (this_or_next|party_slot_eq, "$g_encountered_party", slot_center_is_besieged_by, -1),
            (             party_slot_eq, "$g_encountered_party", slot_center_is_besieged_by, "p_main_party"),
            (store_relation, ":reln", "$g_encountered_party_faction", "fac_player_supporters_faction"),
@@ -5704,22 +7150,30 @@ Gradually, faith became such a part of your life that it was no different from t
            ]),
 
       ("castle_leave",[],"Leave.",[(change_screen_return,0)]),
-      ("castle_cheat_interior",[(eq, "$cheat_mode", 1)], "{!}CHEAT! Interior.",[(set_jump_mission,"mt_ai_training"),
-                                                       (party_get_slot, ":castle_scene", "$current_town", slot_castle_interior),
-                                                       (jump_to_scene,":castle_scene"),
-                                                       (change_screen_mission)]),
-      ("castle_cheat_exterior",[(eq, "$cheat_mode", 1)], "{!}CHEAT! Exterior.",[
-#                                                       (set_jump_mission,"mt_town_default"),
-                                                       (set_jump_mission,"mt_ai_training"),
-                                                       (party_get_slot, ":castle_scene", "$current_town", slot_castle_exterior),
-                                                       (jump_to_scene,":castle_scene"),
-                                                       (change_screen_mission)]),
-      ("castle_cheat_town_walls",[(eq, "$cheat_mode", 1),(party_slot_eq,"$current_town",slot_party_type, spt_town),], "{!}CHEAT! Town Walls.",
-       [
-         (party_get_slot, ":scene", "$current_town", slot_town_walls),
-         (set_jump_mission,"mt_ai_training"),
-         (jump_to_scene,":scene"),
-         (change_screen_mission)]),
+      #SB : the three options below are covered in cheats
+      ("castle_cheat", [(ge, "$cheat_mode", 1)], "{!}Use Cheats", [
+        # (assign, "$sneaked_into_town", disguise_pilgrim),
+        (assign, "$town_entered", 1),
+        # (assign, "$g_mt_mode", tcm_disguised),
+        (jump_to_menu, "mnu_town_cheats"),
+      ]),
+      
+      # ("castle_cheat_interior",[(eq, "$cheat_mode", 1)], "{!}CHEAT! Interior.",[(set_jump_mission,"mt_ai_training"),
+                                                       # (party_get_slot, ":castle_scene", "$current_town", slot_town_castle),
+                                                       # (jump_to_scene,":castle_scene"),
+                                                       # (change_screen_mission)]),
+      # ("castle_cheat_exterior",[(eq, "$cheat_mode", 1)], "{!}CHEAT! Exterior.",[
+# #                                                       (set_jump_mission,"mt_town_default"),
+                                                       # (set_jump_mission,"mt_ai_training"),
+                                                       # (party_get_slot, ":castle_scene", "$current_town", slot_castle_exterior),
+                                                       # (jump_to_scene,":castle_scene"),
+                                                       # (change_screen_mission)]),
+      # ("castle_cheat_town_walls",[(eq, "$cheat_mode", 1),(party_slot_eq,"$current_town",slot_party_type, spt_town),], "{!}CHEAT! Town Walls.",
+       # [
+         # (party_get_slot, ":scene", "$current_town", slot_town_walls),
+         # (set_jump_mission,"mt_ai_training"),
+         # (jump_to_scene,":scene"),
+         # (change_screen_mission)]),
 
     ]
   ),
@@ -5790,76 +7244,62 @@ Gradually, faith became such a part of your life that it was no different from t
     "castle_meeting",mnf_scale_picture,
     "With whom do you want to meet?",
     "none",
-    [
-        (assign, "$num_castle_meeting_troops", 0),
-        (try_for_range, ":troop_no", active_npcs_begin, active_npcs_end),
-          (troop_slot_eq, ":troop_no", slot_troop_occupation, slto_kingdom_hero),
-          (call_script, "script_get_troop_attached_party", ":troop_no"),
-          (eq, "$g_encountered_party", reg0),
-          (troop_set_slot, "trp_temp_array_a", "$num_castle_meeting_troops", ":troop_no"),
-          (val_add, "$num_castle_meeting_troops", 1),
-        (try_end),
-		(call_script, "script_set_town_picture"),
+    [   (party_clear, "p_temp_party"),
+        (call_script, "script_set_town_picture"),
+        (call_script, "script_get_heroes_attached_to_center_aux", "$g_encountered_party", "p_temp_party"),#recursive call
+        (party_get_num_companion_stacks, "$num_castle_meeting_troops", "p_temp_party"),
+        (assign, "$talk_context", tc_castle_gate), #SB : move this up here
     ],
-    [
-      ("guard_meet_s5",[(gt, "$num_castle_meeting_troops", 0),(troop_get_slot, ":troop_no", "trp_temp_array_a", 0),(str_store_troop_name, s5, ":troop_no")],
-       "{s5}.",[(troop_get_slot, "$castle_meeting_selected_troop", "trp_temp_array_a", 0),(jump_to_menu,"mnu_castle_meeting_selected")]),
-      ("guard_meet_s5",[(gt, "$num_castle_meeting_troops", 1),(troop_get_slot, ":troop_no", "trp_temp_array_a", 1),(str_store_troop_name, s5, ":troop_no")],
-       "{s5}.",[(troop_get_slot, "$castle_meeting_selected_troop", "trp_temp_array_a", 1),(jump_to_menu,"mnu_castle_meeting_selected")]),
-      ("guard_meet_s5",[(gt, "$num_castle_meeting_troops", 2),(troop_get_slot, ":troop_no", "trp_temp_array_a", 2),(str_store_troop_name, s5, ":troop_no")],
-       "{s5}.",[(troop_get_slot, "$castle_meeting_selected_troop", "trp_temp_array_a", 2),(jump_to_menu,"mnu_castle_meeting_selected")]),
-      ("guard_meet_s5",[(gt, "$num_castle_meeting_troops", 3),(troop_get_slot, ":troop_no", "trp_temp_array_a", 3),(str_store_troop_name, s5, ":troop_no")],
-       "{s5}.",[(troop_get_slot, "$castle_meeting_selected_troop", "trp_temp_array_a", 3),(jump_to_menu,"mnu_castle_meeting_selected")]),
-      ("guard_meet_s5",[(gt, "$num_castle_meeting_troops", 4),(troop_get_slot, ":troop_no", "trp_temp_array_a", 4),(str_store_troop_name, s5, ":troop_no")],
-       "{s5}.",[(troop_get_slot, "$castle_meeting_selected_troop", "trp_temp_array_a", 4),(jump_to_menu,"mnu_castle_meeting_selected")]),
-      ("guard_meet_s5",[(gt, "$num_castle_meeting_troops", 5),(troop_get_slot, ":troop_no", "trp_temp_array_a", 5),(str_store_troop_name, s5, ":troop_no")],
-       "{s5}.",[(troop_get_slot, "$castle_meeting_selected_troop", "trp_temp_array_a", 5),(jump_to_menu,"mnu_castle_meeting_selected")]),
-      ("guard_meet_s5",[(gt, "$num_castle_meeting_troops", 6),(troop_get_slot, ":troop_no", "trp_temp_array_a", 6),(str_store_troop_name, s5, ":troop_no")],
-       "{s5}.",[(troop_get_slot, "$castle_meeting_selected_troop", "trp_temp_array_a", 6),(jump_to_menu,"mnu_castle_meeting_selected")]),
-      ("guard_meet_s5",[(gt, "$num_castle_meeting_troops", 7),(troop_get_slot, ":troop_no", "trp_temp_array_a", 7),(str_store_troop_name, s5, ":troop_no")],
-       "{s5}.",[(troop_get_slot, "$castle_meeting_selected_troop", "trp_temp_array_a", 7),(jump_to_menu,"mnu_castle_meeting_selected")]),
-      ("guard_meet_s5",[(gt, "$num_castle_meeting_troops", 8),(troop_get_slot, ":troop_no", "trp_temp_array_a", 8),(str_store_troop_name, s5, ":troop_no")],
-       "{s5}.",[(troop_get_slot, "$castle_meeting_selected_troop", "trp_temp_array_a", 8),(jump_to_menu,"mnu_castle_meeting_selected")]),
-      ("guard_meet_s5",[(gt, "$num_castle_meeting_troops", 9),(troop_get_slot, ":troop_no", "trp_temp_array_a", 9),(str_store_troop_name, s5, ":troop_no")],
-       "{s5}.",[(troop_get_slot, "$castle_meeting_selected_troop", "trp_temp_array_a", 9),(jump_to_menu,"mnu_castle_meeting_selected")]),
-      
-      ("forget_it",[],
-       "Forget it.",
-       [(jump_to_menu,"mnu_castle_guard")]),
-    ]
+    [ ("guard_meet_"+str(x),[
+        (gt, "$num_castle_meeting_troops", x),#test this out
+        (party_stack_get_troop_id, ":troop_no", "p_temp_party", x),
+        (is_between, ":troop_no", active_npcs_begin, active_npcs_end),
+        (str_store_troop_name, s5, ":troop_no")],
+       "{s5}.",[(party_stack_get_troop_id, "$castle_meeting_selected_troop", "p_temp_party", x),
+       # (party_stack_get_troop_dna, "$temp_2", "p_temp_party", x),
+       (jump_to_menu,"mnu_castle_meeting_selected")])
+       for x in range(0, 8)
+      ]
+
+    +[("forget_it",[], "Forget it.", [(jump_to_menu,"mnu_castle_guard")]),]
   ),
+  
   (
     "castle_meeting_selected",0,
     "Your request for a meeting is relayed inside, and finally {s6} appears in the courtyard to speak with you.",
     "none",
-    [(str_store_troop_name, s6, "$castle_meeting_selected_troop")],
+    [
+    (try_begin),
+		(eq, "$g_leave_encounter", 1),
+		(change_screen_return),
+	(try_end),
+
+    (str_store_troop_name, s6, "$castle_meeting_selected_troop")],
     [
       ("continue",[],
        "Continue...",
        [(jump_to_menu, "mnu_castle_outside"),
-        (modify_visitors_at_site,"scn_conversation_scene"),(reset_visitors),
-        (set_visitor,0,"trp_player"),
-        (set_visitor,17,"$castle_meeting_selected_troop"),
-        (set_jump_mission,"mt_conversation_encounter"),
-        (jump_to_scene,"scn_conversation_scene"),
-        (assign, "$talk_context", tc_castle_gate),
-        (change_screen_map_conversation, "$castle_meeting_selected_troop"),
+        #do not set context here in case we need to use another one, set tc_castle_gate from parent menu
+        (call_script, "script_start_courtyard_conversation", "$castle_meeting_selected_troop", "$current_town"),
         ]),
     ]
   ),
 
-   (
-    "castle_besiege",mnf_scale_picture,
+   ( #SB : pic hotkeys
+    "castle_besiege",mnf_scale_picture|mnf_enable_hot_keys,
     "You are laying siege to {s1}. {s2} {s3}",
     "none",
     [
-        (troop_get_type, ":is_female", "trp_player"),
+          ##diplomacy start+ test gender with script
+        #(troop_get_type, ":is_female", "trp_player"),#<- replaced
         (try_begin),
-          (eq, ":is_female", 1),
+          #(eq, ":is_female", 1),#<- replaced
+          (eq, "$character_gender", tf_female),#<- added
           (set_background_mesh, "mesh_pic_siege_sighted_fem"),
         (else_try),
           (set_background_mesh, "mesh_pic_siege_sighted"),
         (try_end),
+          ##diplomacy end+
         (assign, "$g_siege_force_wait", 0),
         (try_begin),
           (party_slot_eq, "$g_encountered_party", slot_center_is_besieged_by, -1),
@@ -5868,6 +7308,9 @@ Gradually, faith became such a part of your life that it was no different from t
           (party_set_slot, "$g_encountered_party", slot_center_siege_begin_hours, ":cur_hours"),
           (assign, "$g_siege_method", 0),
           (assign, "$g_siege_sallied_out_once", 0),
+          #SB : also add sneak variables here
+          (assign, "$last_sneak_attempt_town", "$g_encountered_party"),
+          (assign, "$last_sneak_attempt_time", ":cur_hours"),
         (try_end),
 
         (party_get_slot, ":town_food_store", "$g_encountered_party", slot_party_food_store),
@@ -5883,7 +7326,7 @@ Gradually, faith became such a part of your life that it was no different from t
         (else_try),
           (assign, reg6, 0),
         (try_end),
-        
+
         (try_begin),
           (gt, reg3, 0),
           (str_store_string, s2, "@The {reg6?town's:castle's} food stores should last for {reg3} more days."),
@@ -5903,7 +7346,7 @@ Gradually, faith became such a part of your life that it was no different from t
               (str_store_string, s3, "@You're preparing to attack the walls, the work should finish in {reg9} hours."),
             (else_try),
               (eq, "$g_siege_method", 2),
-              (str_store_string, s3, "@Your forces are building a siege tower. They estimate another {reg9} hours to complete the build."),
+              (str_store_string, s3, "@Your forces are building a siege tower. They estimate another {reg9} hours to complete construction."), #SB : "the build -> construction"
             (try_end),
           (else_try),
             (try_begin),
@@ -5915,7 +7358,7 @@ Gradually, faith became such a part of your life that it was no different from t
             (try_end),
           (try_end),
         (try_end),
-        
+
         #Check if enemy leaves the castle to us...
         (try_begin),
           (eq, "$g_castle_left_to_player",1), #we come here after dialog. Empty the castle and send parties away.
@@ -5941,7 +7384,7 @@ Gradually, faith became such a part of your life that it was no different from t
           (change_screen_return),
           (party_collect_attachments_to_party, "$g_encountered_party", "p_collective_enemy"), #recalculate so that
           (call_script, "script_party_copy", "p_encountered_party_backup", "p_collective_enemy"), #leaving troops will not be considered as captured
-          (party_set_faction,"$g_encountered_party",":castle_faction"), 
+          (party_set_faction,"$g_encountered_party",":castle_faction"),
         (try_end),
 
         #Check for victory or defeat....
@@ -5949,7 +7392,7 @@ Gradually, faith became such a part of your life that it was no different from t
         (assign, "$g_ally_party", -1),
         (str_store_party_name, 1,"$g_encountered_party"),
         (call_script, "script_encounter_calculate_fit"),
-        
+
         (assign, reg11, "$g_enemy_fit_for_battle"),
         (assign, reg10, "$g_friend_fit_for_battle"),
 
@@ -5957,6 +7400,24 @@ Gradually, faith became such a part of your life that it was no different from t
         (try_begin),
           (eq, "$g_leave_encounter",1),
           (change_screen_return),
+        ##diplomacy begin
+        (else_try),
+          (party_slot_eq, "$g_encountered_party", slot_village_infested_by_bandits, "trp_peasant_woman"),
+          (call_script, "script_party_count_fit_regulars","p_collective_enemy"),
+          (assign, ":enemy_finished", 0),
+          (try_begin),
+            (eq, "$g_battle_result", 1),
+            (assign, ":enemy_finished", 1),
+          (else_try),
+            (le, "$g_enemy_fit_for_battle", 0),
+            (ge, "$g_friend_fit_for_battle", 1),
+            (assign, ":enemy_finished", 1),
+          (try_end),
+          (this_or_next|eq, ":enemy_finished", 1),
+          (eq, "$g_enemy_surrenders", 1),
+          (assign, "$g_next_menu", "mnu_dplmc_town_riot_removed"),
+          (jump_to_menu, "mnu_total_victory"),
+        ##diplomacy end
         (else_try),
           (call_script, "script_party_count_fit_regulars","p_collective_enemy"),
           (assign, ":enemy_finished", 0),
@@ -5971,7 +7432,7 @@ Gradually, faith became such a part of your life that it was no different from t
           (this_or_next|eq, ":enemy_finished", 1),
           (eq, "$g_enemy_surrenders", 1),
 
-          (assign, "$g_next_menu", "mnu_castle_taken"), 
+          (assign, "$g_next_menu", "mnu_castle_taken"),
           (jump_to_menu, "mnu_total_victory"),
         (else_try),
           (call_script, "script_party_count_members_with_full_health", "p_main_party"),
@@ -5989,13 +7450,15 @@ Gradually, faith became such a part of your life that it was no different from t
           (assign, "$g_castle_left_to_player",0),
           (assign, "$talk_context", tc_castle_commander),
           (party_get_num_attached_parties, ":num_attached_parties_to_castle","$g_encountered_party"),
+          #SB : use start_courtyard_conversation
           (try_begin),
             (gt, ":num_attached_parties_to_castle", 0),
             (party_get_attached_party_with_rank, ":leader_attached_party", "$g_encountered_party", 0),
-            (call_script, "script_setup_party_meeting", ":leader_attached_party"),
+            (party_stack_get_troop_id, ":leader",":leader_attached_party",0),
           (else_try),
-            (call_script, "script_setup_party_meeting", "$g_encountered_party"),
+            (party_stack_get_troop_id, ":leader","$g_encountered_party",0),
           (try_end),
+          (call_script, "script_start_courtyard_conversation", ":leader", "$g_encountered_party"),
            ]),
         
       ("wait_24_hours",[],"Wait until tomorrow.", [
@@ -6126,21 +7589,26 @@ Gradually, faith became such a part of your life that it was no different from t
     "{s1}",
     "none",
     [
-        (troop_get_type, ":is_female", "trp_player"),
-        (try_begin),
-          (eq, ":is_female", 1),
-          (set_background_mesh, "mesh_pic_siege_sighted_fem"),
-        (else_try),
-          (set_background_mesh, "mesh_pic_siege_sighted"),
-        (try_end),
+		  # ##diplomacy start+ test gender with script
+        # #(troop_get_type, ":is_female", "trp_player"),#<- replaced
+        # (try_begin),
+          # #(eq, ":is_female", 1),#<- replaced
+		  # (eq, "$character_gender", tf_female),#<- added
+          # (set_background_mesh, "mesh_pic_siege_sighted_fem"),
+        # (else_try),
+          # (set_background_mesh, "mesh_pic_siege_sighted"),
+        # (try_end),
+		  # ##diplomacy end+
+        #SB : sally picture more appropriate
+        (set_background_mesh, "mesh_pic_sally_out"),
         (assign, ":result", "$g_battle_result"),#will be reset at script_encounter_calculate_fit
         (call_script, "script_encounter_calculate_fit"),
         
 # TODO: To use for the future:
-            (str_store_string, s1, "@As a last defensive effort, you retreat to the main hall of the keep.\
- You and your remaining soldiers will put up a desperate fight here. If you are defeated, there's no other place to fall back to."),
-            (str_store_string, s1, "@You've been driven away from the walls.\
- Now the attackers are pouring into the streets. IF you can defeat them, you can perhaps turn the tide and save the day."),
+            # (str_store_string, s1, "@As a last defensive effort, you retreat to the main hall of the keep.\
+ # You and your remaining soldiers will put up a desperate fight here. If you are defeated, there's no other place to fall back to."),
+            # (str_store_string, s1, "@You've been driven away from the walls.\
+ # Now the attackers are pouring into the streets. IF you can defeat them, you can perhaps turn the tide and save the day."),
         (try_begin),
           (this_or_next|neq, ":result", 1),
           (this_or_next|le, "$g_friend_fit_for_battle", 0),
@@ -6157,15 +7625,27 @@ Gradually, faith became such a part of your life that it was no different from t
           (else_try),
             (eq, "$g_siege_battle_state", 1),
             (eq, ":result", 1),
+            (try_begin), #SB : siege strings
+              (eq, "$g_ally_party", "$g_encountered_party"),
+              (str_store_string, s1, "@You've been driven away from the walls.\
+ Now the attackers are pouring into the streets. If you can defeat them, you can perhaps turn the tide and save the day."),
+            (else_try),			
             (str_store_string, s1, "@You've breached the town walls,\
  but the stubborn defenders continue to resist you in the streets!\
  You'll have to deal with them before you can attack the keep at the heart of the town."),
+             (try_end),
           (else_try),
             (eq, "$g_siege_battle_state", 2),
             (eq, ":result", 1),
+            (try_begin), #SB : siege strings
+              (eq, "$g_ally_party", "$g_encountered_party"),
+              (str_store_string, s1, "@As a last defensive effort, you retreat to the main hall of the keep.\
+ You and your remaining soldiers will put up a desperate fight here. If you are defeated, there's no other place to fall back to."),
+            (else_try),			
             (str_store_string, s1, "@The town centre is yours,\
  but the remaining defenders have retreated to the castle.\
  It must fall before you can complete your victory."),
+            (try_end), 
           (else_try),
             (jump_to_menu, "$g_siege_final_menu"),
           (try_end),
@@ -6236,6 +7716,13 @@ Gradually, faith became such a part of your life that it was no different from t
        (assign, reg3, 0),
        (str_store_troop_name, s3, ":max_skill_owner"),
      (try_end),
+	 
+    #SB : add tableau
+    (set_fixed_point_multiplier, 100),
+    (position_set_x, pos0, 70),
+    (position_set_y, pos0, 5),
+    (position_set_z, pos0, 75),
+    (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", ":max_skill_owner", pos0),	 
     ],
     [
       ("build_ladders_cont",[],
@@ -6277,6 +7764,13 @@ Gradually, faith became such a part of your life that it was no different from t
        (assign, reg3, 0),
        (str_store_troop_name, s3, ":max_skill_owner"),
      (try_end),
+	 
+    #SB : add tableau
+    (set_fixed_point_multiplier, 100),
+    (position_set_x, pos0, 70),
+    (position_set_y, pos0, 5),
+    (position_set_z, pos0, 75),
+    (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", ":max_skill_owner", pos0),	 
     ],
     [
       ("build_siege_tower_cont",[],
@@ -6297,16 +7791,18 @@ Gradually, faith became such a part of your life that it was no different from t
   ),
 
 
-  (
-    "join_siege_outside",mnf_scale_picture,
+  (#SB : pic hotkeys
+    "join_siege_outside",mnf_scale_picture|mnf_enable_hot_keys,
     "{s1} has come under siege by {s2}.",
     "none",
     [
         (str_store_party_name, s1, "$g_encountered_party"),
         (str_store_party_name, s2, "$g_encountered_party_2"),
-        (troop_get_type, ":is_female", "trp_player"),
+		  ##diplomacy start+ Get gender from script
+        #(troop_get_type, ":is_female", "trp_player"),#<- replaced
         (try_begin),
-          (eq, ":is_female", 1),
+          #(eq, ":is_female", 1),#<- replaced
+		  (eq, "$character_gender", tf_female),#<- added
           (set_background_mesh, "mesh_pic_siege_sighted_fem"),
         (else_try),
           (set_background_mesh, "mesh_pic_siege_sighted"),
@@ -6348,8 +7844,8 @@ Gradually, faith became such a part of your life that it was no different from t
                                  (try_end)]),
       ]
   ),
-  (
-    "besiegers_camp_with_allies",0,
+  ( #SB : pic hotkeys
+    "besiegers_camp_with_allies",mnf_enable_hot_keys,
     "{s1} remains under siege. The banners of {s2} fly above the camp of the besiegers,\
  where you and your men are welcomed.",
     "none",
@@ -6363,7 +7859,20 @@ Gradually, faith became such a part of your life that it was no different from t
         (try_begin),
           (eq, "$new_encounter", 1),
           (assign, "$new_encounter", 0),
+		  ###diplomacy start+
+		  ##If terrain advantage is on, use siege settings
+          #(assign, ":save_dplmc_terrain_advantage", "$g_dplmc_terrain_advantage"),
+		  ##(assign, "$g_dplmc_terrain_advantage", ":save_dplmc_terrain_advantage"),
+		  #(try_begin),
+		  #   (eq, "$g_dplmc_terrain_advantage", TERRAIN_ADVANTAGE_ENABLE),
+		  #   (assign, "$g_dplmc_terrain_advantage", TERRAIN_ADVANTAGE_FORCE_SIEGE),
+		  #(try_end),
+		  ###diplomacy end+		  
           (call_script, "script_encounter_init_variables"),
+		  ###diplomacy start+
+		  ##Revert terrain advantage setting
+		  #(assign, "$g_dplmc_terrain_advantage", ":save_dplmc_terrain_advantage"),
+		  ###diplomacy end+		  
         (try_end),
 
         (try_begin),
@@ -6381,9 +7890,60 @@ Gradually, faith became such a part of your life that it was no different from t
           (try_end),
           (this_or_next|eq, ":enemy_finished", 1),
           (eq, "$g_enemy_surrenders", 1),
+          #SB : TODO : add prisoner train of unclaimed prisoners and such, succeed quests by proxy
+          (party_get_num_prisoner_stacks, ":num_prisoner_stacks", "$g_enemy_party"),
+          (try_for_range, ":stack_no", 0, ":num_prisoner_stacks"),
+            # (eq, ":break", 0),
+            (party_prisoner_stack_get_troop_id, ":stack_troop", "p_collective_enemy", ":stack_no"),
+            (troop_is_hero, ":stack_troop"),
+            (try_begin),
+              (check_quest_active, "qst_rescue_prisoner"),
+              (quest_slot_eq, "qst_rescue_prisoner", slot_quest_target_troop, ":stack_troop"),
+              (call_script, "script_succeed_quest", "qst_rescue_prisoner"),
+            (else_try),
+              (check_quest_active, "qst_deliver_message_to_prisoner_lord"),
+              (quest_slot_eq, "qst_deliver_message_to_prisoner_lord", slot_quest_target_troop, ":stack_troop"),
+              (call_script, "script_end_quest", "qst_deliver_message_to_prisoner_lord"),
+            (try_end),
+          (try_end),
+          (try_begin), #check if player gets a share of party prisoners, freed prisoners doesn't count
+            (store_faction_of_party, ":faction_no", "$g_ally_party"),
+            (call_script, "script_dplmc_get_troop_standing_in_faction", "trp_player", ":faction_no"),
+            (ge, reg0, DPLMC_FACTION_STANDING_MEMBER),
+            #check relation with siege leader as well
+            (party_stack_get_troop_id, ":leader","$g_encountered_party_2",0),
+            (call_script, "script_troop_get_player_relation", ":leader"),
+            (this_or_next|troop_slot_eq, ":leader", slot_lord_reputation_type, lrep_martial),
+            (ge, reg0, -10),
+            (eq, "$capture_screen_shown", 0),
+            (assign, "$capture_screen_shown", 1),
+            
+            (party_clear, "p_temp_party"),
+            (assign, "$g_move_heroes", 0),
+            (change_screen_exchange_with_party, "p_temp_party"),
+          (else_try), #check if player has seen the loot
+            (eq, "$loot_screen_shown", 0),
+            (assign, "$loot_screen_shown", 1),
+            (troop_clear_inventory, "trp_temp_troop"),
+            (call_script, "script_party_calculate_loot", "p_total_enemy_casualties"), #p_encountered_party_backup changed to total_enemy_casualties
+            (gt, reg0, 0),
+            (troop_sort_inventory, "trp_temp_troop"),
+            (try_begin),
+              (call_script, "script_cf_dplmc_player_party_meets_autoloot_conditions"),
+              (assign, "$dplmc_return_menu", "$g_siege_final_menu"),
+              (assign, "$lord_selected", "trp_player"),
+              (jump_to_menu, "mnu_dplmc_manage_loot_pool"),
+            (else_try),
+              #Old behavior:
+              (change_screen_loot, "trp_temp_troop"),
+            (try_end),
+          (else_try), #SB : increment globals, add exp
+            (call_script, "script_party_give_xp_and_gold", "p_total_enemy_casualties"),
+            (val_add, "$g_total_victories", 1),		  
           (call_script, "script_party_wound_all_members", "$g_enemy_party"),
           (leave_encounter),
           (change_screen_return),
+          (try_end),		  
         (else_try),
           (call_script, "script_party_count_members_with_full_health", "p_collective_friends"),          
           (assign, ":ally_num_soldiers", reg0),
@@ -6393,6 +7953,7 @@ Gradually, faith became such a part of your life that it was no different from t
           (change_screen_return),
         (try_end),
         ],
+		
     [
       ("talk_to_siege_commander",[],"Request a meeting with the commander.",[
                                 (call_script, "script_get_meeting_scene"), (assign, ":meeting_scene", reg0),
@@ -6405,6 +7966,7 @@ Gradually, faith became such a part of your life that it was no different from t
                                 (jump_to_scene,":meeting_scene"),
                                 (assign, "$talk_context", tc_siege_commander),
                                 (change_screen_map_conversation, ":siege_leader_id")]),
+								
       ("join_siege_with_allies",[(neg|troop_is_wounded, "trp_player")], "Join the next assault.",
        [
            (assign, "$g_joined_battle_to_help", 1), 
@@ -6418,7 +7980,10 @@ Gradually, faith became such a part of your life that it was no different from t
              (faction_get_slot, ":faction_marshall", "$players_kingdom", slot_faction_marshall),
              (str_store_troop_name_link, s9, ":faction_marshall"),
              (setup_quest_text, "qst_follow_army"),
-             (str_store_string, s2, "@{s9} wants you to follow his army until further notice."),
+             ##diplomacy start+ fix pronoun
+             (call_script, "script_dplmc_store_troop_is_female", ":faction_marshall"),
+             (str_store_string, s2, "@{s9} wants you to follow {reg0?her:his} army until further notice."),
+             ##diplomacy end+
              (call_script, "script_start_quest", "qst_follow_army", ":faction_marshall"),
              (assign, "$g_player_follow_army_warnings", 0),
            (try_end),
@@ -6462,7 +8027,10 @@ Gradually, faith became such a part of your life that it was no different from t
            (faction_get_slot, ":faction_marshall", "$players_kingdom", slot_faction_marshall),
            (str_store_troop_name_link, s9, ":faction_marshall"),
            (setup_quest_text, "qst_follow_army"),
-           (str_store_string, s2, "@{s9} wants you to follow his army until further notice."),
+           ##diplomacy start+ fix pronoun
+           (call_script, "script_dplmc_store_troop_is_female", ":faction_marshall"),
+           (str_store_string, s2, "@{s9} wants you to follow {reg0?her:his} army until further notice."),
+           ##diplomacy end+
            (call_script, "script_start_quest", "qst_follow_army", ":faction_marshall"),
            (assign, "$g_player_follow_army_warnings", 0),
          (try_end),
@@ -6480,6 +8048,15 @@ Gradually, faith became such a part of your life that it was no different from t
         (try_begin),
           (set_background_mesh, "mesh_pic_siege_attack"),
         (try_end),
+        ###diplomacy start+
+		##If terrain advantage is on, use siege settings
+        #(assign, ":save_dplmc_terrain_advantage", "$g_dplmc_terrain_advantage"),
+		##(assign, "$g_dplmc_terrain_advantage", ":save_dplmc_terrain_advantage"),
+		#(try_begin),
+		#   (eq, "$g_dplmc_terrain_advantage", TERRAIN_ADVANTAGE_ENABLE),
+		#   (assign, "$g_dplmc_terrain_advantage", TERRAIN_ADVANTAGE_FORCE_SIEGE),
+		#(try_end),
+		###diplomacy end+		
         
         (call_script, "script_party_calculate_strength", "p_main_party", 1), #skip player
         (assign, ":player_party_strength", reg0),
@@ -6512,6 +8089,10 @@ Gradually, faith became such a part of your life that it was no different from t
         (else_try),
           (str_store_string, s4, "str_attack_walls_continue"),
         (try_end),
+		##diplomacy start+
+		#Revert terrain advantage settings
+		#(assign, "$g_dplmc_terrain_advantage", ":save_dplmc_terrain_advantage"),
+		##diplomacy end+		
      ],
     [
       ("continue",[],"Continue...",[(jump_to_menu,"mnu_castle_besiege")]),
@@ -6526,6 +8107,14 @@ Gradually, faith became such a part of your life that it was no different from t
         (try_begin),
           (set_background_mesh, "mesh_pic_siege_attack"),
         (try_end),
+        ###diplomacy start+
+		##If terrain advantage is on, use siege settings
+        #(assign, ":save_dplmc_terrain_advantage", "$g_dplmc_terrain_advantage"),
+		#(try_begin),
+		#   (eq, "$g_dplmc_terrain_advantage", TERRAIN_ADVANTAGE_ENABLE),
+		#   (assign, "$g_dplmc_terrain_advantage", TERRAIN_ADVANTAGE_FORCE_SIEGE),
+		#(try_end),
+		###diplomacy end+		
 
         (call_script, "script_party_calculate_strength", "p_main_party", 1), #skip player
         (assign, ":player_party_strength", reg0),
@@ -6581,6 +8170,10 @@ Gradually, faith became such a part of your life that it was no different from t
         (else_try),
           (str_store_string, s4, "str_attack_walls_continue"),
         (try_end),
+		###diplomacy start+
+		##Revert terrain advantage settings
+		#(assign, "$g_dplmc_terrain_advantage", ":save_dplmc_terrain_advantage"),
+		###diplomacy end+		
      ],
     [
       ("continue",[],"Continue...",[(jump_to_menu,"mnu_besiegers_camp_with_allies")]),
@@ -6619,13 +8212,32 @@ Gradually, faith became such a part of your life that it was no different from t
 
   (
     "castle_taken",mnf_disable_all_keys,
-    "{s3} has fallen to your troops, and you now have full control of the {reg2?town:castle}.\
+   ##diplomacy begin
+    "{s3} has fallen to your troops, and you now have full control of the {reg2?town:castle}. You can plunder spoils of war worth {reg3} denars.\
 {reg1? You may station troops here to defend it against enemies who may try to recapture it. Also, you should select now whether you will hold the {reg2?town:castle} yourself or give it to a faithful vassal...:}",# Only visible when castle is taken without being a vassal of a kingdom.
-    "none",
+  ##diplomacy end
+  "none",
     [
         (party_clear, "$g_encountered_party"),
+        #SB : clear talk_context
+        (try_begin),
+          (eq, "$talk_context", tc_give_center_to_fief),
+          (assign, "$talk_context", tc_town_talk),
+        (try_end),
+        ##diplomacy start+ Handle player is co-ruler of kingdom
+        (assign, ":is_coruler", 0),		
 
         (try_begin),        
+            (is_between, "$players_kingdom", npc_kingdoms_begin, npc_kingdoms_end),
+            (call_script, "script_dplmc_get_troop_standing_in_faction", "trp_player", "$players_kingdom"),
+            (ge, reg0, DPLMC_FACTION_STANDING_LEADER_SPOUSE),
+            (assign, ":is_coruler", 1),
+        (try_end),
+        ##diplomacy end+
+        (try_begin),
+          ##diplomacy start+
+          (this_or_next|eq, ":is_coruler", 1),
+          ##diplomacy end+		
           (eq, "$players_kingdom", "fac_player_supporters_faction"),
           (party_get_slot, ":new_owner", "$g_encountered_party", slot_town_lord),
           (neq, ":new_owner", "trp_player"),
@@ -6640,7 +8252,24 @@ Gradually, faith became such a part of your life that it was no different from t
                         
         (party_set_slot, "$g_encountered_party", slot_center_last_taken_by_troop, "trp_player"),
         #Reduce prosperity of the center by 5
-        (call_script, "script_change_center_prosperity", "$g_encountered_party", -5),
+        ##diplomacy start+ Set last taken time
+        (store_current_hours, ":cur_hours"),
+        (party_set_slot, "$g_encountered_party", dplmc_slot_center_last_transfer_time, ":cur_hours"),
+        ##diplomacy end+
+        ##diplomacy begin
+        #Reduce prosperity of the center by 5
+        #(call_script, "script_change_center_prosperity", "$g_encountered_party", -5),
+         (try_begin),
+             (is_between, "$g_encountered_party", towns_begin, towns_end),
+             (store_random_in_range, ":random", 4000, 10000),
+         (else_try),
+           (store_random_in_range, ":random", 1000, 8000),
+         (try_end),
+         (val_div, ":random", 100),
+         (val_mul, ":random", 100),
+         (assign, "$diplomacy_var", ":random"),
+         # (assign, reg3, "$diplomacy_var"), #SB : move variable to last place
+        ##diplomacy end
 
         (call_script, "script_change_troop_renown", "trp_player", 5),		
 
@@ -6672,14 +8301,283 @@ Gradually, faith became such a part of your life that it was no different from t
           (is_between, "$g_encountered_party", towns_begin, towns_end),
           (assign, reg2, 1),
         (try_end),
+        (assign, reg3, "$diplomacy_var"), #SB : registers last		
     ],
     [
-      ("continue",[],"Continue...",
-       [         
-         (assign, "$auto_enter_town", "$g_encountered_party"),                  
+##diplomacy begin
+      ("dplmc_spoils_yourself",[],"Plunder it and keep the spoils all for yourself.",
+       [
+         #SB : spawn some looters
+         (call_script, "script_spawn_looters", "$g_encountered_party", 4),
+         #SB : apply suggested relationship penalty
+         (options_get_campaign_ai, ":penalty"),
+         (val_sub, ":penalty", 6),
+         (call_script, "script_change_player_relation_with_center", "$g_encountered_party", ":penalty"),
+         (call_script, "script_change_center_prosperity", "$g_encountered_party", -8),
+		 ##diplomacy start+
+		 (assign, ":is_kingdom_leader", 0),
+		 (try_begin),
+			(is_between, "$players_kingdom", kingdoms_begin, kingdoms_end),
+			(faction_get_slot, ":faction_leader", "$players_kingdom", slot_faction_leader),
+			(ge, ":faction_leader", 0),
+			(this_or_next|eq, ":faction_leader", "trp_player"),
+			(this_or_next|troop_slot_eq, ":faction_leader", slot_troop_spouse, "trp_player"),
+				(troop_slot_eq, "trp_player", slot_troop_spouse, ":faction_leader"),
+			(assign, ":is_kingdom_leader", 1),
+		 (else_try),
+			(eq, "$players_kingdom", "fac_player_supporters_faction"),
+			(assign, ":is_kingdom_leader", 1),
+		 (try_end),
+		 #Add support for promoted ladies
+         #(try_for_range, ":troop_no", active_npcs_begin, active_npcs_end),
+         (try_for_range, ":troop_no", heroes_begin, heroes_end),
+		 ##diplomacy end+
+           (troop_slot_eq, ":troop_no", slot_troop_occupation, slto_kingdom_hero),
+           (store_troop_faction, ":troop_faction_no", ":troop_no"),
+		   ##diplomacy start+
+		   (this_or_next|eq, "$players_kingdom", ":troop_faction_no"),
+			  (eq, "fac_player_supporters_faction", ":troop_faction_no"),
+		   (this_or_next|eq, ":is_kingdom_leader", 1),
+		   ##diplomacy end+
+           (eq, "fac_player_supporters_faction", ":troop_faction_no"),
+           (call_script, "script_change_player_relation_with_troop", ":troop_no", -2),
+         (try_end),
+         (try_begin),
+           (gt, "$g_player_chamberlain", 0),
+           (call_script, "script_dplmc_pay_into_treasury", "$diplomacy_var"),
+         (else_try),
+           (troop_add_gold, "trp_player", "$diplomacy_var"),
+         (try_end),
+         (call_script, "script_change_player_honor", -3),
+         (assign, "$auto_enter_town", "$g_encountered_party"),
          (change_screen_return),
         ]),
-    ],        
+      ("dplmc_spoils_accompanying_vassals",
+      [
+		##nested diplomacy start+
+		#Add support for being the ruler or co-ruler of an original kingdom
+          (is_between, "$players_kingdom", kingdoms_begin, kingdoms_end),
+		  (faction_get_slot, ":faction_leader", "$players_kingdom", slot_faction_leader),
+		  (this_or_next|eq, ":faction_leader", "trp_player"),
+		  (this_or_next|troop_slot_eq, ":faction_leader", slot_troop_spouse, "trp_player"),
+  		##nested diplomacy end+
+          (eq, "$players_kingdom", "fac_player_supporters_faction"),
+          (assign, ":vassal_count", 0),
+		##nested diplomacy start+ add support for kingdom ladies, and the other faction options
+        # (try_for_range, ":troop_no", active_npcs_begin, active_npcs_end),
+		 (try_for_range, ":troop_no", heroes_begin, heroes_end),
+  	    ##nested diplmacy end+
+           (troop_slot_eq, ":troop_no", slot_troop_occupation, slto_kingdom_hero),
+           (store_troop_faction, ":troop_faction_no", ":troop_no"),
+		   ##nested diplomacy start+
+		   (this_or_next|eq, "$players_kingdom", ":troop_faction_no"),
+		   ##nested diplomacy end+
+           (eq, "fac_player_supporters_faction", ":troop_faction_no"),
+           (troop_get_slot, ":party_no", ":troop_no", slot_troop_leaded_party),
+           (ge, ":party_no", 1),
+           (store_distance_to_party_from_party, ":distance","p_main_party", ":party_no"),
+           (le, ":distance", 25),
+           (val_add, ":vassal_count", 1),
+         (try_end),
+		 (gt, ":vassal_count", 0),
+      ],"Plunder it and share the spoils equally between the vassals accompanying you and yourself.",
+       [
+         (assign, ":vassal_count", 1),
+		 ##nested diplomacy start+
+		 ##OLD:
+         #(try_for_range, ":troop_no", active_npcs_begin, active_npcs_end),
+         #  (troop_slot_eq, ":troop_no", slot_troop_occupation, slto_kingdom_hero),
+         #  (store_troop_faction, ":troop_faction_no", ":troop_no"),
+         #  (eq, "fac_player_supporters_faction", ":troop_faction_no"),
+         #  (troop_get_slot, ":party_no", ":troop_no", slot_troop_leaded_party),
+         #  (ge, ":party_no", 1),
+         #  (store_distance_to_party_from_party, ":distance","p_main_party", ":party_no"),
+         #  (le, ":distance", 25),
+         #  (val_add, ":vassal_count", 1),
+         #  (call_script, "script_change_player_relation_with_troop", ":troop_no", 3),
+         #(try_end),
+		 #
+		 #NEW:
+		 #first loop through to count
+		 (try_for_range, ":troop_no", heroes_begin, heroes_end),#promoted lady support
+			(troop_slot_eq, ":troop_no", slot_troop_occupation, slto_kingdom_hero),
+			(store_troop_faction, ":troop_faction_no", ":troop_no"),
+			(this_or_next|eq, "$players_kingdom", ":troop_faction_no"),#support for other faction arrangements
+				(eq, "fac_player_supporters_faction", ":troop_faction_no"),
+			(troop_get_slot, ":party_no", ":troop_no", slot_troop_leaded_party),
+			(ge, ":party_no", 1),
+			(store_distance_to_party_from_party, ":distance","p_main_party", ":party_no"),
+			(le, ":distance", 25),
+			(val_add, ":vassal_count", 1),
+		 (try_end),
+		 (store_div, ":gold_per_lord", "$diplomacy_var", ":vassal_count"),
+		 #now loop through to add gold/relation
+		 (try_for_range, ":troop_no", heroes_begin, heroes_end),#promoted lady support
+			(troop_slot_eq, ":troop_no", slot_troop_occupation, slto_kingdom_hero),
+			(store_troop_faction, ":troop_faction_no", ":troop_no"),
+			(this_or_next|eq, "$players_kingdom", ":troop_faction_no"),#support for other faction arrangements
+				(eq, "fac_player_supporters_faction", ":troop_faction_no"),
+			(troop_get_slot, ":party_no", ":troop_no", slot_troop_leaded_party),
+			(ge, ":party_no", 1),
+			(store_distance_to_party_from_party, ":distance","p_main_party", ":party_no"),
+			(le, ":distance", 25),
+			#add gold
+			(call_script, "script_dplmc_distribute_gold_to_lord_and_holdings", ":gold_per_lord", ":troop_no"),
+			#Relation adjustment
+			(store_random_in_range, reg0, 0, 1000),
+			(val_add, reg0, ":gold_per_lord"),
+			(val_div, reg0, 1000),
+			(gt, reg0, 0),
+			(val_min, reg0, 4),
+			(assign, ":relation_change", reg0),
+			#Modify for personality
+			(try_begin),
+				#Lords who dislike raiding will be displeased by looting a town (but not a castle)
+				(party_slot_eq, "$g_encountered_party", slot_party_type, spt_town),
+				(call_script, "script_dplmc_get_troop_morality_value", ":troop_no", tmt_humanitarian),
+				(try_begin),
+					(gt, reg0, 0),#Some lords like raiding settlements less than others
+					(val_sub, ":relation_change", reg0),
+					(val_min, ":relation_change", -1),
+				(else_try),
+					(lt, reg0, 0),#Some lords like raiding settlements more than others
+					(val_sub, ":relation_change", reg0),
+					(val_min, ":relation_change", 5),
+				(else_try),
+					(this_or_next|troop_slot_eq, ":troop_no", slot_lord_reputation_type, lrep_custodian),
+					(this_or_next|troop_slot_eq, ":troop_no", slot_lord_reputation_type, lrep_benefactor),
+						(troop_slot_eq, ":troop_no", slot_lord_reputation_type, lrep_moralist),
+					(val_sub, ":relation_change", 1),
+			    (try_end),
+			(try_end),
+			(call_script, "script_change_player_relation_with_troop", ":troop_no", ":relation_change"),
+		 (try_end),
+		 ##nested diplomacy end+
+         # (store_random_in_range, ":num_looters", 0, ":vassal_count"),
+         # (val_max, ":num_looters", 3),
+         (call_script, "script_spawn_looters", "$g_encountered_party", 5), #SB : spawn some looters
+         #SB : apply suggested relationship penalty
+         (options_get_campaign_ai, ":penalty"),
+         (val_sub, ":penalty", 3),
+         (call_script, "script_change_player_relation_with_center", "$g_encountered_party", ":penalty"),
+         (val_div, "$diplomacy_var", ":vassal_count"),
+         (try_begin),
+           (gt, "$g_player_chamberlain", 0),
+           (call_script, "script_dplmc_pay_into_treasury", "$diplomacy_var"),
+         (else_try),
+           (troop_add_gold, "trp_player", "$diplomacy_var"),
+         (try_end),
+         (call_script, "script_change_center_prosperity", "$g_encountered_party", -8),
+         (call_script, "script_change_player_honor", -1),
+         (assign, "$auto_enter_town", "$g_encountered_party"),
+         (change_screen_return),
+        ]),
+      ("dplmc_spoils_all_vassals",
+        [
+          (is_between, "$players_kingdom", kingdoms_begin, kingdoms_end),
+          ##nested diplomacy start+
+          #Support for being co-ruler of an original kingdom
+          (faction_get_slot, ":faction_leader", "$players_kingdom", slot_faction_leader),
+          (this_or_next|eq, ":faction_leader", "trp_player"),
+          (this_or_next|troop_slot_eq, ":faction_leader", slot_troop_spouse, "trp_player"),
+          ##nested diplomacy end+
+          (eq, "$players_kingdom", "fac_player_supporters_faction"),
+          #SB : check if we even have any vassals
+          (assign, ":end", heroes_end),
+          (try_for_range, ":troop_no", heroes_begin, ":end"),
+            (troop_slot_eq, ":troop_no", slot_troop_occupation, slto_kingdom_hero),
+            (store_troop_faction, ":troop_faction_no", ":troop_no"),
+            (this_or_next|eq, ":troop_faction_no", "fac_player_supporters_faction"),
+            (eq, ":troop_faction_no", "$players_kingdom"),
+            (assign, ":end", heroes_begin),
+          (try_end),
+          (eq, ":end", heroes_begin),
+          
+      ],"Plunder it and share the spoils equally between your vassals and yourself.",
+       [
+         (assign, ":vassal_count", 1),
+		 ##nested diplomacy start+
+		 #OLD:
+         #(try_for_range, ":troop_no", active_npcs_begin, active_npcs_end),
+         #  (troop_slot_eq, ":troop_no", slot_troop_occupation, slto_kingdom_hero),
+         #  (store_troop_faction, ":troop_faction_no", ":troop_no"),
+         #  (eq, "fac_player_supporters_faction", ":troop_faction_no"),
+         #  (val_add, ":vassal_count", 1),
+         #  (call_script, "script_change_player_relation_with_troop", ":troop_no", 2),
+         #(try_end),
+		 #
+		 #NEW:
+		 #  1. Actually give the gold to your vassals;
+		 #  2. Support kingdom ladies as vassals
+		 #  3. Support being the ruler or co-ruler of an original kingdom
+		 #  4. The relationship gain should not exceed 1 per 1000 gold pieces.
+		 (try_for_range, ":troop_no", heroes_begin, heroes_end),
+			(troop_slot_eq, ":troop_no", slot_troop_occupation, slto_kingdom_hero),
+			(store_troop_faction, ":troop_faction_no", ":troop_no"),
+			(this_or_next|eq, ":troop_faction_no", "fac_player_supporters_faction"),
+				(eq, ":troop_faction_no", "$players_kingdom"),
+			(val_add, ":vassal_count", 1),
+		 (try_end),
+
+		 (store_div, ":gold_per_lord", "$diplomacy_var", ":vassal_count"),
+		 (try_for_range, ":troop_no", heroes_begin, heroes_end),
+			(troop_slot_eq, ":troop_no", slot_troop_occupation, slto_kingdom_hero),
+			(store_troop_faction, ":troop_faction_no", ":troop_no"),
+			(this_or_next|eq, ":troop_faction_no", "fac_player_supporters_faction"),
+				(eq, ":troop_faction_no", "$players_kingdom"),
+			(call_script, "script_dplmc_distribute_gold_to_lord_and_holdings", ":gold_per_lord", ":troop_no"),
+			#Relation adjustment
+			(store_random_in_range, reg0, 0, 1000),
+			(val_add, reg0, ":gold_per_lord"),
+			(val_div, reg0, 1000),
+			(gt, reg0, 0),
+			(val_min, reg0, 3),
+			(assign, ":relation_change", reg0),
+			#Modify for personality
+			(try_begin),
+				#Lords who dislike raiding will be displeased by looting a town (but not a castle)
+				(party_slot_eq, "$g_encountered_party", slot_party_type, spt_town),
+				(call_script, "script_dplmc_get_troop_morality_value", ":troop_no", tmt_humanitarian),
+				(try_begin),
+					(gt, reg0, 0),#Some lords like raiding settlements less than others
+					(val_sub, ":relation_change", reg0),
+					(val_min, ":relation_change", -1),
+				(else_try),
+					(lt, reg0, 0),#Some lords like raiding settlements more than others
+					(val_sub, ":relation_change", reg0),
+					(val_min, ":relation_change", 4),
+				(else_try),
+					(this_or_next|troop_slot_eq, ":troop_no", slot_lord_reputation_type, lrep_custodian),
+					(this_or_next|troop_slot_eq, ":troop_no", slot_lord_reputation_type, lrep_benefactor),
+						(troop_slot_eq, ":troop_no", slot_lord_reputation_type, lrep_moralist),
+					(val_sub, ":relation_change", 1),
+			    (try_end),
+			(call_script, "script_change_player_relation_with_troop", ":troop_no", ":relation_change"),
+ 		    (try_end),
+		 (try_end),
+		 ##nested diplomacy end+
+         (call_script, "script_spawn_looters", "$g_encountered_party", 4), #SB : spawn some looters
+         (val_div, "$diplomacy_var", ":vassal_count"),
+         (try_begin),
+           (gt, "$g_player_chamberlain", 0),
+           (call_script, "script_dplmc_pay_into_treasury", "$diplomacy_var"),
+         (else_try),
+           (troop_add_gold, "trp_player", "$diplomacy_var"),
+         (try_end),
+         (call_script, "script_change_center_prosperity", "$g_encountered_party", -8),
+         (assign, "$auto_enter_town", "$g_encountered_party"),
+         (change_screen_return),
+        ]),
+##diplomacy end
+      ("continue",[],"Continue...",
+       [
+         ##diplomacy begin
+         (call_script, "script_change_center_prosperity", "$g_encountered_party", -3),
+         ##diplomacy end
+         (assign, "$auto_enter_town", "$g_encountered_party"),
+         (change_screen_return),
+        ]),
+    ],
   ),
   (
     "castle_taken_2",mnf_disable_all_keys,
@@ -6695,10 +8593,16 @@ Gradually, faith became such a part of your life that it was no different from t
           (eq, "$player_has_homage", 0),
           (assign, reg8, 0),
           (try_begin),
-            (party_slot_eq, "$g_encountered_party", spt_town),
+		    ##diplomacy start+ FIX: Inserted missing argument
+            #(party_slot_eq, "$g_encountered_party", spt_town),
+			(party_slot_eq, "$g_encountered_party", slot_party_type, spt_town),
+			##diplomacy end+
             (assign, reg8, 1),
           (try_end),
-          (str_store_string, s5, "@However, since you are not a sworn {man/follower} of {s9}, there is no chance he would recognize you as the {lord/lady} of this {reg8?town:castle}."),
+          ##diplomacy start+ fix gender of pronoun
+          (call_script, "script_dplmc_store_troop_is_female", ":faction_leader"),
+          (str_store_string, s5, "@However, since you are not a sworn {man/follower} of {s9}, there is no chance {reg0?she:he} would recognize you as the {lord/lady} of this {reg8?town:castle}."),
+          ##diplomacy end+
         (try_end),
     ],
     [
@@ -6758,7 +8662,10 @@ Gradually, faith became such a part of your life that it was no different from t
 		(else_try),
 			(assign, reg3, 0),
 		(try_end),
-		(troop_get_type, reg4, ":faction_leader"),
+		##diplomacy start+ use script for gender
+		#(troop_get_type, reg4, ":faction_leader"),#<- OLD
+		(call_script, "script_dplmc_store_troop_is_female_reg", ":faction_leader", 4),
+		##diplomacy end+
 	 
    ],
     [
@@ -6791,7 +8698,10 @@ Gradually, faith became such a part of your life that it was no different from t
 		(else_try),
 			(assign, reg3, 0),
 		(try_end),
-		(troop_get_type, reg4, ":faction_leader"),
+		##diplomacy start+ use script for gender
+		#(troop_get_type, reg4, ":faction_leader"),#<- OLD
+		(call_script, "script_dplmc_store_troop_is_female_reg", ":faction_leader", 4),
+		##diplomacy end+
 	 
 		(troop_get_slot, ":spouse", "trp_player", slot_troop_spouse),
 		(str_store_troop_name, s11, ":spouse"), 
@@ -6833,11 +8743,27 @@ Gradually, faith became such a part of your life that it was no different from t
       ("accept_decision",[],"Accept the decision.",
        [
        (call_script, "script_troop_add_gold", "trp_player", reg6),
+        ##diplomacy start+ Remove gold spent by liege
+        (faction_get_slot, ":faction_leader", "$players_kingdom", slot_faction_leader),
+        (try_begin),
+            (gt, ":faction_leader", 0),
+            (neq, ":faction_leader", "trp_kingdom_heroes_including_player_begin"),
+            (call_script, "script_dplmc_remove_gold_from_lord_and_holdings", reg6, ":faction_leader"),
+        (try_end),
+        ##diplomacy end+
        (change_screen_return),
        ]),
 	   
        ("leave_faction",[],"You have been wronged! Renounce your oath to your liege! ",
        [
+         ##diplomacy start+ Remove gold spent by liege
+         (faction_get_slot, ":faction_leader", "$players_kingdom", slot_faction_leader),
+         (try_begin),
+            (gt, ":faction_leader", 0),
+            (neq, ":faction_leader", "trp_kingdom_heroes_including_player_begin"),
+            (call_script, "script_dplmc_remove_gold_from_lord_and_holdings", reg6, ":faction_leader"),
+         (try_end),
+         ##diplomacy end+
          (jump_to_menu, "mnu_leave_faction"),
          (call_script, "script_troop_add_gold", "trp_player", reg6),
         ]),
@@ -6847,12 +8773,14 @@ Gradually, faith became such a part of your life that it was no different from t
   
 (
     "requested_castle_granted_to_another_female",mnf_scale_picture,
+##diplomacy start+ make gender correct
     "You receive a message from your monarch, {s3}.^^\
  'I was most pleased to hear of your valiant efforts in the capture of {s2}. Your victory has gladdened all our hearts.\
- You also requested me to give ownership of the castle to your husband, but that is a favour which I fear I cannot grant,\
- as he already holds significant estates in my realm.\
+ You also requested me to give ownership of the castle to your {wife/husband}, but that is a favor which I fear I cannot grant,\
+ as {she/he} already holds significant estates in my realm.\
  Instead I have sent you {reg6} denars to cover the expenses of your campaign, but {s2} I give to {s5}.'\
  ",
+##diplomacy end+
     "none",
     [(set_background_mesh, "mesh_pic_messenger"),
      (faction_get_slot, ":faction_leader", "$players_kingdom", slot_faction_leader),
@@ -6865,7 +8793,7 @@ Gradually, faith became such a part of your life that it was no different from t
 	 (assign, "$g_castle_requested_by_player", -1),
 	 (assign, "$g_castle_requested_for_troop", -1),
     ],
-	
+
     [
 		("accept_decision",[],"Accept the decision.",
         [
@@ -6876,21 +8804,33 @@ Gradually, faith became such a part of your life that it was no different from t
 ),
   
 
-  (
-    "siege_started_defender",0,
+  ( #SB : pic hotkeys
+    "siege_started_defender",mnf_enable_hot_keys,
     "{s1} is launching an assault against the walls of {s2}. You have {reg10} troops fit for battle against the enemy's {reg11}. You decide to...",
     "none",
     [
         (select_enemy,1),
         (assign, "$g_enemy_party", "$g_encountered_party_2"),
         (assign, "$g_ally_party", "$g_encountered_party"),
-        (str_store_party_name, 1,"$g_enemy_party"),
-        (str_store_party_name, 2,"$g_ally_party"),
+        (str_store_party_name, s1, "$g_enemy_party"),
+        (str_store_party_name, s2, "$g_ally_party"),
         (call_script, "script_encounter_calculate_fit"),
         (try_begin),
           (eq, "$g_siege_first_encounter", 1),
           (call_script, "script_let_nearby_parties_join_current_battle", 0, 1),
+		  ###diplomacy start+
+		  ##If terrain advantage is on, use siege settings
+          #(assign, ":save_dplmc_terrain_advantage", "$g_dplmc_terrain_advantage"),
+		  #(try_begin),
+		  #   (eq, "$g_dplmc_terrain_advantage", TERRAIN_ADVANTAGE_ENABLE),
+		  #   (assign, "$g_dplmc_terrain_advantage", TERRAIN_ADVANTAGE_FORCE_SIEGE),
+		  #(try_end),
+		  ###diplomacy end+
           (call_script, "script_encounter_init_variables"),
+		  ###diplomacy start+
+		  ##Revert terrain advantage settings
+		  #(assign, "$g_dplmc_terrain_advantage", ":save_dplmc_terrain_advantage"),
+		  ###diplmacy end+
         (try_end),
 
         (try_begin),
@@ -6933,6 +8873,8 @@ Gradually, faith became such a part of your life that it was no different from t
             (try_begin),
             #check whether enemy retreats
               (eq, "$g_battle_result", 1),
+  ##            (store_mul, ":min_enemy_str", "$g_enemy_fit_for_battle", 2),
+  ##            (lt, ":min_enemy_str", "$g_friend_fit_for_battle"),
               (assign, ":attackers_retreat", 1),
             (else_try),
               (eq, "$g_battle_result", 0),
@@ -6957,6 +8899,7 @@ Gradually, faith became such a part of your life that it was no different from t
 
               (try_for_range, ":troop_no", active_npcs_begin, active_npcs_end),
                 (troop_slot_eq, ":troop_no", slot_troop_occupation, slto_kingdom_hero),
+                #(troop_slot_eq, ":troop_no", slot_troop_is_prisoner, 0),
                 (neg|troop_slot_ge, ":troop_no", slot_troop_prisoner_of_party, 0),
                 (troop_get_slot, ":party_no", ":troop_no", slot_troop_leaded_party),
                 (gt, ":party_no", 0),
@@ -6978,6 +8921,18 @@ Gradually, faith became such a part of your life that it was no different from t
         (assign, "$new_encounter", 0),
         ],
     [
+     ##diplomacy begin
+      ("dplmc_negotiate_with_besieger",
+      [
+        (party_slot_eq, "$current_town", slot_town_lord, "trp_player"),
+        (party_slot_ge, "$current_town", slot_center_is_besieged_by, 1),
+      ]
+       ,"Negotiate with the besieger.",
+       [
+        (jump_to_menu, "mnu_dplmc_negotiate_besieger"),
+        ]),
+     ##diplomacy end
+	 
       ("siege_defender_join_battle",
        [
          (neg|troop_is_wounded, "trp_player"),
@@ -7016,6 +8971,61 @@ Gradually, faith became such a part of your life that it was no different from t
               (assign,"$g_ally_party","$g_encountered_party"),
               (assign,"$g_siege_join", 1),
               (jump_to_menu,"mnu_siege_join_defense")]),
+              
+      #SB : add garrison management, maybe penalties if player disbands prisoners
+      ("siege_defender_manage_troops",[
+        (assign, ":player_can_draw_from_garrison", 0),
+        (str_clear, s10),
+        (party_get_slot, ":town_lord", "$g_encountered_party", slot_town_lord),
+        
+        (store_party_size_wo_prisoners, ":party_size", "$g_encountered_party"),
+        (gt, ":party_size", 0),
+        (try_begin), #option 1 - player is town lord
+          (eq, ":town_lord", "trp_player"),
+          (assign, ":player_can_draw_from_garrison", 1),
+        (else_try), #option 2 - town is unassigned and part of the player faction
+          (store_faction_of_party, ":faction", "$g_encountered_party"),
+          (eq, ":faction", "fac_player_supporters_faction"),
+          (neg|party_slot_ge, "$g_encountered_party", slot_town_lord, active_npcs_begin), #ie, zero or -1
+
+          (assign, ":player_can_draw_from_garrison", 1),
+        (else_try), #option 3 - town was captured by player
+          (lt, ":town_lord", 0), #ie, unassigned
+          (store_faction_of_party, ":castle_faction", "$g_encountered_party"),
+          (eq, "$players_kingdom", ":castle_faction"),
+
+          (eq, "$g_encountered_party", "$g_castle_requested_by_player"),
+
+          (str_store_string, s10, "str_retrieve_garrison_warning"),
+          (assign, ":player_can_draw_from_garrison", 1),
+        # (else_try),
+          # (lt, ":town_lord", 0), #ie, unassigned
+          # (store_faction_of_party, ":castle_faction", "$g_encountered_party"),
+          # (eq, "$players_kingdom", ":castle_faction"),
+
+          # (store_party_size_wo_prisoners, ":party_size", "$g_encountered_party"),
+          # (eq, ":party_size", 0),
+
+          # (str_store_string, s10, "str_retrieve_garrison_warning"),
+          # (assign, ":player_can_draw_from_garrison", 1),
+        (else_try),
+          (party_slot_ge, "$g_encountered_party", slot_town_lord, active_npcs_begin),
+          (store_faction_of_party, ":castle_faction", "$g_encountered_party"),
+          (eq, "$players_kingdom", ":castle_faction"),
+          ##diplomacy start+ can arise if using this to represent polygamy
+          (this_or_next|troop_slot_eq, ":town_lord", slot_troop_spouse, "trp_player"),
+             (troop_slot_eq, "trp_player", slot_troop_spouse, ":town_lord"),
+          (this_or_next|is_between, ":town_lord", heroes_begin, heroes_end),
+          ##diplomacy end+
+          (troop_slot_eq, "trp_player", slot_troop_spouse, ":town_lord"),
+
+          (assign, ":player_can_draw_from_garrison", 1),
+        (try_end),
+
+        (eq, ":player_can_draw_from_garrison", 1),
+      ],
+          "Manage the garrison {s10}.",[
+              (change_screen_exchange_members,1),]),
     ]
   ),
 
@@ -7024,6 +9034,16 @@ Gradually, faith became such a part of your life that it was no different from t
     "{s4}^^Your casualties: {s8}^^Allies' casualties: {s9}^^Enemy casualties: {s10}",
     "none",
     [
+	    ###diplomacy start+
+		##If terrain advantage is on, use siege settings
+        #(assign, ":save_dplmc_terrain_advantage", "$g_dplmc_terrain_advantage"),
+		##(assign, "$g_dplmc_terrain_advantage", ":save_dplmc_terrain_advantage"),
+		#(try_begin),
+		#   (eq, "$g_dplmc_terrain_advantage", TERRAIN_ADVANTAGE_ENABLE),
+		#   (assign, "$g_dplmc_terrain_advantage", TERRAIN_ADVANTAGE_FORCE_SIEGE),
+		#(try_end),
+		###diplomacy end+
+		
         (try_begin),
           (eq, "$g_siege_join", 1),
           (call_script, "script_party_calculate_strength", "p_main_party", 1), #skip player
@@ -7077,6 +9097,10 @@ Gradually, faith became such a part of your life that it was no different from t
         (else_try),
           (str_store_string, s4, "str_siege_defender_order_attack_continue"),
         (try_end),
+		###diplomacy start+
+		##Revert terrain advantage settings
+		#(assign, "$g_dplmc_terrain_advantage", ":save_dplmc_terrain_advantage"),
+		###diplomacy end+		
     ],
     [
       ("continue",[],"Continue...",[
@@ -7091,6 +9115,20 @@ Gradually, faith became such a part of your life that it was no different from t
     "none",
     [
       (try_begin),
+	  ##diplomacy start+ Add support for the player as co-ruler of an NPC faction
+	    (is_between, "$players_kingdom", kingdoms_begin, kingdoms_end),
+		(neg|is_between, "$supported_pretender", pretenders_begin, pretenders_end), #SB : exception for honorific
+		(call_script, "script_dplmc_get_troop_standing_in_faction", "trp_player", "$players_kingdom"),
+		(ge, reg0, DPLMC_FACTION_STANDING_LEADER_SPOUSE),
+		(try_begin),
+			(eq, "$character_gender", tf_female),
+			(call_script, "script_dplmc_print_cultural_word_to_sreg", "trp_player", DPLMC_CULTURAL_TERM_KING_FEMALE, s10),
+		(else_try),
+			(call_script, "script_dplmc_print_cultural_word_to_sreg", "trp_player", DPLMC_CULTURAL_TERM_KING, s10),
+		(try_end),
+		(str_store_string, s10, "@As you approach, you are spotted by the castle guards, who welcome you and open the gates for their {s10}."),
+	  (else_try),
+	  ##diplomacy end+	  
         (neg|is_between, "$players_kingdom", npc_kingdoms_begin, npc_kingdoms_end),
         (faction_get_slot, ":faction_leader", "fac_player_supporters_faction", slot_faction_leader),
         (eq, ":faction_leader", "trp_player"),
@@ -7144,13 +9182,18 @@ Gradually, faith became such a part of your life that it was no different from t
 
   (
     "give_center_to_player",mnf_scale_picture,
+##diplomacy start+ fix gender of pronoun
     "Your lord offers to extend your fiefs!\
- {s1} sends word that he is willing to grant {s2} to you in payment for your loyal service,\
+ {s1} sends word that {reg4?she:he} is willing to grant {s2} to you in payment for your loyal service,\
  adding it to your holdings. What is your answer?",
+##diplomacy end+
     "none",
     [(set_background_mesh, "mesh_pic_messenger"),
      (store_faction_of_party, ":center_faction", "$g_center_to_give_to_player"),
      (faction_get_slot, ":faction_leader", ":center_faction", slot_faction_leader),
+     ##diplomacy start+ put king's gender in reg4
+     (call_script, "script_dplmc_store_troop_is_female_reg", ":faction_leader", 4),
+     ##diplomacy end+
      (str_store_troop_name, s1, ":faction_leader"),
      (str_store_party_name, s2, "$g_center_to_give_to_player"),
     ],
@@ -7197,11 +9240,17 @@ Gradually, faith became such a part of your life that it was no different from t
 
   (
     "oath_fulfilled",0,
-    "You had a contract with {s1} to serve him for a certain duration.\
+##diplomacy start+ fix gender of pronoun
+    "You had a contract with {s1} to serve {reg4?her:him} for a certain duration.\
  Your contract has now expired. What will you do?",
+##diplomacy end+
     "none",
     [
       (faction_get_slot, ":faction_leader", "$players_kingdom", slot_faction_leader),
+      ##diplomacy start+ load king's gender into reg4
+      (call_script, "script_dplmc_store_troop_is_female", ":faction_leader"),
+      (assign, reg4, reg0),
+      ##diplomacy end+
       (str_store_troop_name, s1, ":faction_leader"),
      ],
     [
@@ -7258,18 +9307,24 @@ Gradually, faith became such a part of your life that it was no different from t
   ),
 
 
-  (
+  (  (
     "invite_player_to_faction_without_center",mnf_scale_picture,
+##diplomacy start+ fix gender of pronouns
     "You receive an offer of vassalage!^^\
- {s8} of {s9} has sent a royal herald to bring you an invititation in his own hand.\
+ {s8} of {s9} has sent a royal herald to bring you an invititation in {reg4?her:his} own hand.\
  You would be granted the honour of becoming a vassal {lord/lady} of {s9},\
- and in return {s8} asks you to swear an oath of homage to him and fight in his military campaigns,\
- although he offers you no lands or titles.\
- He will surely be offended if you do not take the offer...",
+ and in return {s8} asks you to swear an oath of homage to {reg4?her:him} and fight in {reg4?her:his} military campaigns,\
+ although {reg4?she:he} offers you no lands or titles.\
+ {reg4?She:He} will surely be offended if you do not take the offer...",
+##diplomacy end+
     "none",
     [
         (set_background_mesh, "mesh_pic_messenger"),
         (faction_get_slot, "$g_invite_faction_lord", "$g_invite_faction", slot_faction_leader),
+        ##diplomacy start+ store gender in reg4
+        (call_script, "script_dplmc_store_troop_is_female", "$g_invite_faction_lord"),
+        (assign, reg4, reg0),
+        ##diplomacy start+
         (str_store_troop_name, s8, "$g_invite_faction_lord"),
         (str_store_faction_name, s9, "$g_invite_faction"),
       ],
@@ -7283,8 +9338,9 @@ Gradually, faith became such a part of your life that it was no different from t
         (quest_set_slot, "qst_join_faction", slot_quest_giver_troop, "$g_invite_faction_lord"),
         (quest_set_slot, "qst_join_faction", slot_quest_expiration_days, 30),
 		(quest_set_slot, "qst_join_faction", slot_quest_failure_consequence, 0),
-		
-        (str_store_string, s2, "@Find and speak with {s3} of {s4} to give him your oath of homage."),
+	##diplomacy start+ fix gender of pronoun
+        (str_store_string, s2, "@Find and speak with {s3} of {s4} to give {reg4?her:him} your oath of homage."),
+        ##diplomacy end+
         (call_script, "script_start_quest", "qst_join_faction", "$g_invite_faction_lord"),
         (call_script, "script_report_quest_troop_positions", "qst_join_faction", "$g_invite_faction_lord", 3),
         (jump_to_menu, "mnu_invite_player_to_faction_accepted"),
@@ -7301,18 +9357,24 @@ Gradually, faith became such a part of your life that it was no different from t
   ),
   
 
-  (
+   (
     "invite_player_to_faction",mnf_scale_picture,
+##diplomacy start+ fix gender of pronouns
     "You receive an offer of vassalage!^^\
- {s8} of {s9} has sent a royal herald to bring you an invititation in his own hand.\
+ {s8} of {s9} has sent a royal herald to bring you an invititation in {reg4?her:his} own hand.\
  You would be granted the honour of becoming a vassal {lord/lady} of {s9},\
- and in return {s8} asks you to swear an oath of homage to him and fight in his military campaigns,\
+ and in return {s8} asks you to swear an oath of homage to {reg4?her:him} and fight in {reg4?her:his} military campaigns,\
  offering you the fief of {s2} for your loyal service.\
- He will surely be offended if you do not take the offer...",
+ {reg4?She:He} will surely be offended if you do not take the offer...",
+##diplomacy end+
     "none",
     [
         (set_background_mesh, "mesh_pic_messenger"),
         (faction_get_slot, "$g_invite_faction_lord", "$g_invite_faction", slot_faction_leader),
+        ##diplomacy start+ store gender in reg4
+        (call_script, "script_dplmc_store_troop_is_female", "$g_invite_faction_lord"),
+        (assign, reg4, reg0),
+        ##diplomacy start+
         (str_store_troop_name, s8, "$g_invite_faction_lord"),
         (str_store_faction_name, s9, "$g_invite_faction"),
         (str_store_party_name, s2, "$g_invite_offered_center"),
@@ -7326,7 +9388,9 @@ Gradually, faith became such a part of your life that it was no different from t
         (str_store_faction_name_link, s4, "$g_invite_faction"),
         (quest_set_slot, "qst_join_faction", slot_quest_giver_troop, "$g_invite_faction_lord"),
         (quest_set_slot, "qst_join_faction", slot_quest_expiration_days, 30),
-        (str_store_string, s2, "@Find and speak with {s3} of {s4} to give him your oath of homage."),
+        ##diplomacy start+ fix gender of pronoun
+        (str_store_string, s2, "@Find and speak with {s3} of {s4} to give {reg4?her:him} your oath of homage."),
+        ##diplomacy end+
         (call_script, "script_start_quest", "qst_join_faction", "$g_invite_faction_lord"),
         (call_script, "script_report_quest_troop_positions", "qst_join_faction", "$g_invite_faction_lord", 3),
         (jump_to_menu, "mnu_invite_player_to_faction_accepted"),
@@ -7343,8 +9407,10 @@ Gradually, faith became such a part of your life that it was no different from t
   
   (
     "invite_player_to_faction_accepted",0,
+##diplomacy start+ fix gender of pronouns (king's gender should already be in reg4)
     "In order to become a vassal, you must swear an oath of homage to {s3}.\
- You shall have to find him and give him your oath in person. {s5}",
+ You shall have to find {reg4?her:him} and give {reg4?her:him} your oath in person. {s5}",
+##diplomacy end+
     "none",
     [
         (call_script, "script_get_information_about_troops_position", "$g_invite_faction_lord", 0),
@@ -7358,7 +9424,7 @@ Gradually, faith became such a part of your life that it was no different from t
      ]
   ),
 
-  (
+   (
     "question_peace_offer",0,
     "You Receive a Peace Offer^^The {s1} offers you a peace agreement. What is your answer?",
     "none",
@@ -7369,6 +9435,14 @@ Gradually, faith became such a part of your life that it was no different from t
       (position_set_y, pos0, 30),
       (position_set_z, pos0, 170),
       (set_game_menu_tableau_mesh, "tableau_faction_note_mesh_banner", "$g_notification_menu_var1", pos0),
+
+      ##diplomacy begin
+      (store_relation,  ":relation", "fac_player_supporters_faction", "$g_notification_menu_var1"),
+      (try_begin),
+        (ge, ":relation", 0),
+        (change_screen_return),
+      (try_end),
+      ##diplomacy end
       ],
     [
       ("peace_offer_accept",[],"Accept",
@@ -7376,13 +9450,19 @@ Gradually, faith became such a part of your life that it was no different from t
          (call_script, "script_diplomacy_start_peace_between_kingdoms", "fac_player_supporters_faction", "$g_notification_menu_var1", 1),
          (change_screen_return),
         ]),
+        ##diplomacy begin
+      ("dplmc_peace_offer_terms",[],"Dictate the peace terms",
+       [
+        (start_presentation, "prsnt_dplmc_peace_terms"),
+        ]),
+        ##diplomacy end
       ("peace_offer_reject",[],"Reject",
        [
          (call_script, "script_change_player_relation_with_faction", "$g_notification_menu_var1", -5),
          (change_screen_return),
         ]),
      ]
-  ),  
+  ),
   
 ####################################################################################################################
 # [ Z11 ] - Villages
@@ -7462,17 +9542,111 @@ Gradually, faith became such a part of your life that it was no different from t
         (try_end),
 
         (str_clear, s11),
-        (try_begin),
-          (party_slot_eq, "$current_town", slot_village_state, svs_looted),
+        ##diplomacy start+
+		(assign, ":save_reg0", reg0),#save variables
+		(assign, ":save_reg4", reg4),
+		(assign, reg0, 0),
+		(assign, reg4, 0),
+		(try_begin),#If there's a relation of some kind, write it to s11 (which we'll overwrite below)
+			(lt, ":center_lord", 1),
+		(else_try),
+			#your relative
+			(call_script, "script_troop_get_family_relation_to_troop", ":center_lord", "trp_player"),#outputs to s11, reg0, and reg4
+			(ge, reg0, 1),#Fall through if this not a relative
+		(else_try),
+			#your current liege
+			(eq, ":center_faction", "$players_kingdom"),
+			(is_between, ":center_faction", kingdoms_begin, kingdoms_end),#include fac_player_supporters_faction for claimant quest
+			(faction_slot_eq, ":center_faction", slot_faction_leader, ":center_lord"),
+			(str_store_string, s11, "@liege"),
+			(assign, reg0, 1),
+		(else_try),
+			#your former liege if you renounced a kingdom
+			(eq, ":center_faction", "$players_oath_renounced_against_kingdom"),
+			(is_between, ":center_faction", npc_kingdoms_begin, npc_kingdoms_end),
+			(faction_slot_eq, ":center_faction", slot_faction_leader, ":center_lord"),
+			(str_store_string, s11, "@former liege"),
+			(assign, reg0, 1),
+		(else_try),
+			#stop here for lords you haven't met, or non-hero troops
+			(this_or_next|neg|troop_is_hero, ":center_lord"),
+			(troop_slot_eq, ":center_lord", slot_troop_met, 0),
+		(else_try),
+			#check for affiliates
+			(call_script, "script_dplmc_is_affiliated_family_member", ":center_lord"),
+			(ge, reg0, 1),
+			(try_begin),
+				(ge, "$g_encountered_party_relation", 0),#don't say "ally" when you might fight them, as that's confusing
+				(str_store_string, s11, "str_dplmc_ally"),
+			(else_try),
+				(str_store_string, s11, "@affiliate"),
+			(try_end),
+		(else_try),
+			#check for former companions
+			(call_script, "script_troop_get_player_relation", ":center_lord"),
+			(is_between, ":center_lord", companions_begin, companions_end),
+			(neg|troop_slot_eq, ":center_lord", slot_troop_playerparty_history, dplmc_pp_history_nonplayer_entry),
+			(try_begin),
+			   (ge, "$g_encountered_party_relation", 0),#don't say "ally" when you might fight them, as that's confusing
+			   (ge, reg0, 50),
+			   (str_store_string, s11, "str_dplmc_ally"),
+			(else_try),
+				(ge, "$g_encountered_party_relation", 0),
+				(ge, reg0, 20),
+				(str_store_string, s11, "str_dplmc_friend"),
+			(else_try),
+				(str_store_string, s11, "@former companion"),
+			(try_end),
+			(assign, reg0, 1),
+		(else_try),
+			#don't print "friend" if you might fight them
+			(lt, "$g_encountered_party_relation", 0),
+			(assign, reg0, 0),
+		(else_try), #SB : local instead of reg
+			#check for friends
+            (call_script, "script_troop_get_player_relation", ":center_lord"),
+			(store_div, ":relation", reg0, 50),#right now reg0 holds the relation with the player
+			(gt, ":relation", 1),
+			(str_store_string, s11, "str_dplmc_friend"),
+            (assign, reg0, 1),
+		(else_try),
+			#check for marshall
+			(eq, ":center_faction", "$players_kingdom"),
+			(faction_slot_eq, ":center_faction", slot_faction_marshall, ":center_lord"),
+			(str_store_string, s11, "@marshall"),
+		(else_try),
+			#check for vassal of player if nothing else to say
+			(call_script, "script_dplmc_get_troop_standing_in_faction", "trp_player", ":center_faction"),
+			(val_add, reg0, 1),
+			(val_sub, reg0, DPLMC_FACTION_STANDING_LEADER_SPOUSE),
+			(ge, reg0, 1),
+			(str_store_string, s11, "@vassal"),
         (else_try),
+			(assign, reg0, 0),
+		(try_end),
+		##diplomacy end+
+        (try_begin),
+          # (party_slot_eq, "$current_town", slot_village_state, svs_looted),
+          # #SB : cancel string clear
+          # (str_clear, s11),
+        # (else_try),		
           (eq, ":center_lord", "trp_player"),
           (str_store_string,s11,"@ This village and the surrounding lands belong to you."),
+		##diplomacy start+ If reg0 > 0, a relation string has been written into s11
+		(else_try),
+		  (ge, reg0, 1),
+		  (str_store_string,s11,"@ You remember that this village and the surrounding lands belong to your {s11} {s7}."),
+		##diplomacy end+		  
         (else_try),
           (ge, ":center_lord", 0),
           (str_store_string,s11,"@ You remember that this village and the surrounding lands belong to {s7}."),
         (else_try),
           (str_store_string,s11,"@ These lands belong to no one."),
         (try_end),
+		##diplomacy start+
+		(assign, reg0, ":save_reg0"),#revert registers
+		(assign, reg4, ":save_reg4"),
+		##diplomacy end+		
 
         (str_clear, s7),
         (try_begin),
@@ -7487,37 +9661,72 @@ Gradually, faith became such a part of your life that it was no different from t
           (party_slot_ge, "$current_town", slot_village_infested_by_bandits, 1),
           (party_get_slot, ":bandit_troop", "$current_town", slot_village_infested_by_bandits),
           (store_character_level, ":player_level", "trp_player"),
+          (val_min, ":player_level", 63),
+          ## SB : adjust bandit levels to manageable levels, reinforcements based on party size		  
           (store_add, "$qst_eliminate_bandits_infesting_village_num_bandits", ":player_level", 10),
-          (val_mul, "$qst_eliminate_bandits_infesting_village_num_bandits", 12),
-          (val_div, "$qst_eliminate_bandits_infesting_village_num_bandits", 10),
-          (store_random_in_range, "$qst_eliminate_bandits_infesting_village_num_villagers", 25, 30),
+          (val_div, "$qst_eliminate_bandits_infesting_village_num_bandits", 2),
+          (faction_get_slot, ":limit", ":center_faction", dplmc_slot_faction_serfdom),
+          (options_get_campaign_ai, ":reduced"),
+          (val_mul, ":reduced", 3), #poor ai = more base bandits
+          (val_sub, ":reduced", ":limit"),
+          (val_add, "$qst_eliminate_bandits_infesting_village_num_bandits", ":reduced"),
+          (val_mul, "$qst_eliminate_bandits_infesting_village_num_bandits", 120),
+          (val_div, "$qst_eliminate_bandits_infesting_village_num_bandits", 100),
+          (val_max, "$qst_eliminate_bandits_infesting_village_num_bandits", 1),
+          
+          # (party_get_num_companions, ":party_size", "$current_town"), #ideal size is 50
+          (call_script, "script_party_count_fit_regulars", "$current_town"),
+          (assign, ":party_size", reg0),
+          (store_div, ":lower_size", ":party_size", 3), #about 2/3rd stay back
+          (store_div, ":limit", ":center_relation", 5),
+          (val_add, ":limit", 60),
+          (store_random_in_range, "$qst_eliminate_bandits_infesting_village_num_villagers", ":lower_size", ":limit"),
+          (val_min, "$qst_eliminate_bandits_infesting_village_num_villagers", ":party_size"),
           (assign, reg8, "$qst_eliminate_bandits_infesting_village_num_bandits"),
           (str_store_troop_name_by_count, s35, ":bandit_troop", "$qst_eliminate_bandits_infesting_village_num_bandits"),
           (str_store_string, s6, "@ The village is infested by {reg8} {s35}."),
           
-          (assign, "$g_enemy_party", -1), #new, no known enemy party while saving village from bandits dfdf
-          (assign, "$g_ally_party", -1), #new, no known enemy party while saving village from bandits dfdf
+          (assign, "$g_enemy_party", -1), #new, no known enemy party while saving village from bandits
+          (assign, "$g_ally_party", -1), #new, no known enemy party while saving village from bandits
           
+          ## SB : adjust meshes as well
           (try_begin),
             (eq, ":bandit_troop", "trp_forest_bandit"),
             (set_background_mesh, "mesh_pic_forest_bandits"),
           (else_try),
-            (eq, ":bandit_troop", "trp_steppe_bandit"),
+            (this_or_next|eq, ":bandit_troop", "trp_steppe_bandit"),
+            (eq, ":bandit_troop", "trp_desert_bandit"),
             (set_background_mesh, "mesh_pic_steppe_bandits"),
           (else_try),
+            (this_or_next|eq, ":bandit_troop", "trp_steppe_bandit"),
             (eq, ":bandit_troop", "trp_taiga_bandit"),
-            (set_background_mesh, "mesh_pic_steppe_bandits"),
-          (else_try),
-            (eq, ":bandit_troop", "trp_mountain_bandit"),
             (set_background_mesh, "mesh_pic_mountain_bandits"),
           (else_try),
             (eq, ":bandit_troop", "trp_sea_raider"),
             (set_background_mesh, "mesh_pic_sea_raiders"),
           (else_try),
+            (store_faction_of_troop, ":faction_no", ":bandit_troop"),
+            (this_or_next|is_between, ":faction_no", kingdoms_begin, kingdoms_end),
+            (eq, ":faction_no", "fac_deserters"),
+            (set_background_mesh, "mesh_pic_deserters"),
+          (else_try),
+           ##diplmacy begin
+            (eq, ":bandit_troop", "trp_peasant_woman"),
+            #SB : preview actual amount of mercs
+            (party_get_num_companions, reg8, "$current_town"),
+            (party_count_members_of_type, ":amount", "$current_town", "trp_farmer"),
+            (val_sub, reg8, ":amount"),
+            (party_count_members_of_type, ":amount", "$current_town", "trp_peasant_woman"),
+            (val_sub, reg8, ":amount"),
+            (str_store_string, s6, "@ The peasants {reg8?hired {reg8} mercenaries and :}are rebelling against you."),
+            (set_background_mesh, "mesh_pic_villageriot"),
+          (else_try),
+           ##diplomacy end
             (set_background_mesh, "mesh_pic_bandits"),
           (try_end),
         (else_try),
-          (party_slot_eq, "$current_town", slot_village_state, svs_looted),
+          (this_or_next|party_slot_eq, "$current_town", slot_village_state, svs_looted),
+          (party_slot_eq, "$current_town", slot_village_state, svs_deserted),
           (str_store_string, s6, "@ The village has been looted. A handful of souls scatter as you pass through the burnt out houses."),
           (try_begin),
             (neq, "$g_player_raid_complete", 1),
@@ -7527,27 +9736,26 @@ Gradually, faith became such a part of your life that it was no different from t
         (else_try),
           (party_slot_eq, "$current_town", slot_village_state, svs_being_raided),
           (str_store_string, s6, "@ The village is being raided."),
-        (else_try),
-          (party_get_current_terrain, ":cur_terrain", "$current_town"),
-          (try_begin),
-            (this_or_next|eq, ":cur_terrain", rt_steppe),
-            (this_or_next|eq, ":cur_terrain", rt_steppe_forest),
-            (this_or_next|eq, ":cur_terrain", rt_desert),
-            (             eq, ":cur_terrain", rt_desert_forest),
-            (set_background_mesh, "mesh_pic_village_s"),
-          (else_try),
-            (this_or_next|eq, ":cur_terrain", rt_snow),
-            (             eq, ":cur_terrain", rt_snow_forest),
-            (set_background_mesh, "mesh_pic_village_w"),
-          (else_try),
-            (set_background_mesh, "mesh_pic_village_p"),
-          (try_end),
+        (else_try), #SB : script call
+          (call_script, "script_set_town_picture"),
         (try_end),
 
         (try_begin),
           (eq, "$g_player_raid_complete", 1),
+          (try_begin), #SB : branching menu
+            (party_slot_eq, "$current_town", slot_village_state, svs_looted),
+            (jump_to_menu, "mnu_village_loot_complete"),
+          (else_try), #stay on this menu
+            (party_slot_eq, "$current_town", slot_village_state, svs_deserted),
+            (jump_to_menu, "mnu_village_enslave_complete"),
+          (try_end),
           (assign, "$g_player_raid_complete", 0),
-          (jump_to_menu, "mnu_village_loot_complete"),
+          #SB : reinforce quest state
+          (try_begin),
+            (check_quest_active, "qst_hunt_down_fugitive"),
+            (quest_slot_eq, "qst_hunt_down_fugitive", slot_quest_target_center, "$current_town"),
+            (quest_set_slot, "qst_hunt_down_fugitive", slot_quest_current_state, 3),
+          (try_end),
         (else_try),
           (party_get_slot, ":raider_party", "$current_town", slot_village_raided_by),
           (gt, ":raider_party", 0),
@@ -7560,7 +9768,7 @@ Gradually, faith became such a part of your life that it was no different from t
           (change_screen_return),
         (try_end),
 
-        (try_begin), 
+        (try_begin),
           (store_time_of_day, ":cur_hour"),
           (ge, ":cur_hour", 5),
           (lt, ":cur_hour", 21),
@@ -7572,9 +9780,7 @@ Gradually, faith became such a part of your life that it was no different from t
     [
       ("village_manage",
       [
-        (neg|party_slot_eq, "$current_town", slot_village_state, svs_looted),
-        (neg|party_slot_eq, "$current_town", slot_village_state, svs_being_raided),
-        (neg|party_slot_ge, "$current_town", slot_village_infested_by_bandits, 1),
+        (call_script, "script_cf_village_normal_cond", "$current_town"), #SB : script condition
         (party_slot_eq, "$current_town", slot_town_lord, "trp_player")
         ]
        ,"Manage this village.",
@@ -7584,20 +9790,18 @@ Gradually, faith became such a part of your life that it was no different from t
         ]),
       ("recruit_volunteers",
       [
-        (call_script, "script_cf_center_recruit_volunteers_cond"),
+        (call_script, "script_cf_village_recruit_volunteers_cond"),
        ]
        ,"Recruit Volunteers.",
        [
          (try_begin),
            (call_script, "script_cf_enter_center_location_bandit_check"),
          (else_try),
-		   (assign,"$g_next_menu","mnu_village"),
            (jump_to_menu, "mnu_recruit_volunteers"),
          (try_end),
         ]),
-      ("village_center",[(neg|party_slot_eq, "$current_town", slot_village_state, svs_looted),
-                         (neg|party_slot_eq, "$current_town", slot_village_state, svs_being_raided),
-                         (neg|party_slot_ge, "$current_town", slot_village_infested_by_bandits, 1),]
+      ("village_center",[(call_script, "script_cf_village_normal_cond", "$current_town"), #SB : script condition
+       ]
        ,"Go to the village center.",
        [
          (try_begin),
@@ -7608,6 +9812,15 @@ Gradually, faith became such a part of your life that it was no different from t
            (reset_visitors),
            (party_get_slot, ":village_elder_troop", "$current_town",slot_village_elder),
            (set_visitor, 11, ":village_elder_troop"),
+            ##diplomacy begin
+            (try_begin),
+              (gt, "$g_player_chamberlain", 0),
+              (call_script, "script_dplmc_appoint_chamberlain"),  #fix for wrong troops after update
+              (party_get_slot, ":town_lord", "$current_town", slot_town_lord),
+              (eq, ":town_lord", "trp_player"),
+              (set_visitor, 9, "$g_player_chamberlain"),
+            (try_end),
+            ##diplomacy end		   
 
            (call_script, "script_init_town_walkers", "$current_town"),
 
@@ -7615,6 +9828,7 @@ Gradually, faith became such a part of your life that it was no different from t
              (check_quest_active, "qst_hunt_down_fugitive"),
              (neg|is_currently_night),
              (quest_slot_eq, "qst_hunt_down_fugitive", slot_quest_target_center, "$current_town"),
+             (neg|check_quest_concluded, "qst_hunt_down_fugitive"), #SB : other condition			 
              (neg|check_quest_succeeded, "qst_hunt_down_fugitive"),
              (neg|check_quest_failed, "qst_hunt_down_fugitive"),
              (set_visitor, 45, "trp_fugitive"),
@@ -7625,7 +9839,59 @@ Gradually, faith became such a part of your life that it was no different from t
            (change_screen_mission),
          (try_end),
         ],"Door to the village center."),
-      ("village_buy_food",[(party_slot_eq, "$current_town", slot_village_state, 0),
+       ##diplomacy begin
+      ("dplmc_village_elder_meeting",[
+         (call_script, "script_cf_village_normal_cond", "$current_town"), #SB : conditional check
+	   ##diplomacy start+
+		#rubik had a good idea: only enable this after having met the village elder
+		(party_get_slot, ":village_elder_troop", "$current_town",slot_town_elder),
+		(gt, ":village_elder_troop", 0),
+		(this_or_next|eq, "$cheat_mode", 1),#Always can jump to village elder in cheat mode
+		(this_or_next|eq, "$players_kingdom", "$g_encountered_party_faction"), #allow when member
+        (troop_slot_ge,":village_elder_troop", slot_troop_met, 1),
+		##diplomacy end+
+       ]
+       ,"Meet the Village Elder.",
+       [
+         (try_begin),
+           (call_script, "script_cf_enter_center_location_bandit_check"),
+         (else_try),
+           (party_get_slot, ":village_scene", "$current_town", slot_castle_exterior),
+           (modify_visitors_at_site,":village_scene"),
+           (reset_visitors),
+           (party_get_slot, ":village_elder_troop", "$current_town",slot_town_elder),
+           (set_visitor, 11, ":village_elder_troop"),
+           (try_begin), #SB : supporting village_elder_found_chamberlain dialog option
+              (party_slot_eq, "$current_town", slot_town_lord, "trp_player"),
+              (eq, "$g_player_chamberlain", "trp_dplmc_chamberlain"),
+              (set_visitor, 9, "$g_player_chamberlain"),
+           (try_end),
+
+           (set_jump_mission,"mt_village_center"),
+           (jump_to_scene,":village_scene"),
+           (change_screen_map_conversation, ":village_elder_troop"),
+         (try_end),
+        ]),
+      ##diplomacy end
+	##diplomacy start+
+	#If you can't jump to the village elder, explain why
+    ("dplmc_village_elder_meeting_denied",
+	[
+		#Only show this when the player would get the rest of the village menus
+        (call_script, "script_cf_village_normal_cond", "$current_town"), #SB : script condition
+	    #There is a valid village elder, and you haven't met him,
+		#and there isn't another condition that enables the jump.
+		(party_get_slot, ":village_elder_troop", "$current_town",slot_town_elder),
+		(gt, ":village_elder_troop", 0),
+		(eq, "$cheat_mode", 0),
+		(troop_slot_eq, ":village_elder_troop", slot_troop_met, 0),
+		(disable_menu_option),
+		],
+       "You have not met the village elder yet.",
+       [
+     ]),
+	 ##diplomacy end+
+      ("village_buy_food",[(party_slot_eq, "$current_town", slot_village_state, svs_normal),
                            (neg|party_slot_ge, "$current_town", slot_village_infested_by_bandits, 1),
                            ],"Buy supplies from the peasants.",
        [
@@ -7637,8 +9903,42 @@ Gradually, faith became such a part of your life that it was no different from t
            (change_screen_trade, ":merchant_troop"),
          (try_end),
          ]),
+		 
+##diplomacy start+
+#Import rubik's Auto-Sell options from Custom Commander
+      ("dplmc_village_auto_sell",
+        [
+        (party_slot_eq, "$current_town", slot_village_state, svs_normal),
+        (neg|party_slot_ge, "$current_town", slot_village_infested_by_bandits, 1),
+        (party_get_slot, ":village_elder_troop", "$current_town", slot_town_elder),
+        (ge, ":village_elder_troop", 0),
+        ],
+       "Sell items automatically.",
+       [
+          (assign, "$g_next_menu", "mnu_village"),
+          (jump_to_menu,"mnu_dplmc_trade_auto_sell_begin"),
+        ]),
 
-      ("village_attack_bandits",[(party_slot_ge, "$current_town", slot_village_infested_by_bandits, 1),],
+      ("dplmc_village_auto_buy_food",
+        [
+        (party_slot_eq, "$current_town", slot_village_state, svs_normal),
+        (neg|party_slot_ge, "$current_town", slot_village_infested_by_bandits, 1),
+        (party_get_slot, ":village_elder_troop", "$current_town", slot_town_elder),
+        (ge, ":village_elder_troop", 0),
+        ],
+       "Buy food automatically.",
+       [
+          (assign, "$g_next_menu", "mnu_village"),
+          (jump_to_menu,"mnu_dplmc_trade_auto_buy_food_begin"),
+        ]),
+##diplomacy end+
+
+      ("village_attack_bandits",[
+        (party_slot_ge, "$current_town", slot_village_infested_by_bandits, 1),
+        ##diplomacy begin
+        (neg|party_slot_eq, "$current_town", slot_village_infested_by_bandits, "trp_peasant_woman"),
+        ##diplmacy end
+        ],
        "Attack the bandits.",
        [(party_get_slot, ":bandit_troop", "$current_town", slot_village_infested_by_bandits),
         (party_get_slot, ":scene_to_use", "$current_town", slot_village_center),
@@ -7685,13 +9985,48 @@ Gradually, faith became such a part of your life that it was no different from t
 
            (change_screen_return),
           ]),
-      
-      
-      ("collect_taxes_qst",[(party_slot_eq, "$current_town", slot_village_state, 0),
+
+       ##diplomacy begin
+      ("dplmc_village_counter_insurgency",[
+        (party_slot_eq, "$current_town", slot_village_infested_by_bandits, "trp_peasant_woman"),
+        ],
+       "Counter the insurgency.",
+       [
+          (store_random_in_range, ":enmity", -10, -5),
+          (call_script, "script_change_player_relation_with_center", "$current_town", ":enmity"),
+          (call_script, "script_calculate_battle_advantage"),
+          (set_battle_advantage, reg0),
+          (set_party_battle_mode),
+          (assign, "$g_battle_result", 0),
+          (assign, "$g_village_raid_evil", 1), #check
+          (set_jump_mission,"mt_village_raid"),
+          (party_get_slot, ":scene_to_use", "$current_town", slot_castle_exterior),
+          (jump_to_scene, ":scene_to_use"),
+          (assign, "$g_next_menu", "mnu_dplmc_village_riot_result"),
+
+          # (call_script, "script_objectionable_action", tmt_humanitarian, "str_loot_village"),
+          #SB : more appropriate message for tax rebels
+          (call_script, "script_objectionable_action", tmt_humanitarian, "str_repress_farmers"),
+          (jump_to_menu, "mnu_battle_debrief"),
+          (change_screen_mission),
+        ]),
+
+      ("dplmc_village_negotiate",[
+        (party_slot_eq, "$current_town", slot_village_infested_by_bandits, "trp_peasant_woman"),
+        ],
+       "Begin negotiations.",
+       [
+          (jump_to_menu, "mnu_dplmc_riot_negotiate"),
+        ]),
+        ##diplomacy end
+
+      ("collect_taxes_qst",[(party_slot_eq, "$current_town", slot_village_state, svs_normal),
                             (neg|party_slot_ge, "$current_town", slot_village_infested_by_bandits, 1),
                             (check_quest_active, "qst_collect_taxes"),
                             (quest_get_slot, ":quest_giver_troop", "qst_collect_taxes", slot_quest_giver_troop),
                             (quest_slot_eq, "qst_collect_taxes", slot_quest_target_center, "$current_town"),
+                            #SB : add ownership/faction check here
+                            (party_slot_eq, "$current_town", slot_town_lord, ":quest_giver_troop"),							
                             (neg|quest_slot_eq, "qst_collect_taxes", slot_quest_current_state, 4),
                             (str_store_troop_name, s1, ":quest_giver_troop"),
                             (quest_get_slot, reg5, "qst_collect_taxes", slot_quest_current_state),
@@ -7700,7 +10035,7 @@ Gradually, faith became such a part of your life that it was no different from t
 
       ("train_peasants_against_bandits_qst",
        [
-         (party_slot_eq, "$current_town", slot_village_state, 0),
+         (party_slot_eq, "$current_town", slot_village_state, svs_normal),
          (check_quest_active, "qst_train_peasants_against_bandits"),
          (neg|check_quest_concluded, "qst_train_peasants_against_bandits"),
          (quest_slot_eq, "qst_train_peasants_against_bandits", slot_quest_target_center, "$current_town"),
@@ -7712,13 +10047,69 @@ Gradually, faith became such a part of your life that it was no different from t
 								 (neq, "$players_kingdom", "$g_encountered_party_faction"),
 								 ], "Take a hostile action.",
        [(jump_to_menu,"mnu_village_hostile_action"),
+           ]),      ("village_hostile_action",[(party_slot_eq, "$current_town", slot_village_state, svs_normal),
+                                 (neg|party_slot_ge, "$current_town", slot_village_infested_by_bandits, 1),
+                                 (party_slot_ge, "$current_town", slot_center_player_relation, -1), #relationship check, non-negative
+                                 (check_quest_active, "qst_hunt_down_fugitive"),
+                                 (quest_slot_eq, "qst_hunt_down_fugitive", slot_quest_target_center, "$current_town"),
+                                 (neg|check_quest_concluded, "qst_hunt_down_fugitive"), #SB : other condition
+                                 (neg|check_quest_succeeded, "qst_hunt_down_fugitive"),
+                                 (neg|check_quest_failed, "qst_hunt_down_fugitive"),
+                                 (quest_get_slot, ":quest_target_dna", "qst_hunt_down_fugitive", slot_quest_target_dna),
+                                 (call_script, "script_get_name_from_dna_to_s50", ":quest_target_dna"),
+								 ], "Demand to meet the family of {s50}.",
+       [
+       (call_script, "script_get_max_skill_of_player_party", "skl_persuasion"),
+       (store_random_in_range, ":random_no", reg0, 100),
+       #persuasion instead of straight out murdering everyone
+       (call_script, "script_party_count_members_with_full_health","p_main_party"),
+       (assign, ":player_party_size", reg0),
+       (call_script, "script_party_count_members_with_full_health","$current_town"),
+       (store_mul, ":villagers_party_size", reg0, 2), #twice the effective size
+       (try_begin),
+         (this_or_next|gt, ":random_no", 40),
+         (gt, ":player_party_size", ":villagers_party_size"),
+         (jump_to_menu, "mnu_village_hunt_down_fugitive_persuaded"),
+       (else_try),
+         (jump_to_menu,"mnu_village_start_attack"),
+       (try_end),
            ]),
-      
-      ("village_reports",[(eq, "$cheat_mode", 1),], "{!}CHEAT! Show reports.",
-       [(jump_to_menu,"mnu_center_reports"),
+
+      ("village_hostile_action",[(party_slot_eq, "$current_town", slot_village_state, svs_normal),
+                                 (neg|party_slot_ge, "$current_town", slot_village_infested_by_bandits, 1),
+								 (neq, "$players_kingdom", "$g_encountered_party_faction"),
+								 ], "Take a hostile action.",
+       [(jump_to_menu,"mnu_village_hostile_action"),
            ]),
-      ("village_leave",[],"Leave...",[(change_screen_return,0)]),
-      
+
+      # ("village_reports",[(eq, "$cheat_mode", 1),], "{!}CHEAT! Show reports.",
+       # [(jump_to_menu,"mnu_center_reports"),
+           # ]),
+      ("village_leave",[],"Leave...",[(change_screen_return,0),
+	  ##diplomacy start+
+	  ##Importing auto-purchase of food from rubik's Custom Commander
+	  (try_begin),
+		 (party_slot_eq, "$current_town", slot_village_state, svs_normal),
+		 (neg|party_slot_ge, "$current_town", slot_village_infested_by_bandits, 1),
+		 (party_get_slot, ":merchant_troop", "$current_town",slot_town_elder),
+		 (gt, ":merchant_troop", 0),
+		 (call_script, "script_dplmc_initialize_autoloot", 0),#argument "0" means this does nothing if deemed unnecessary
+		 (try_begin),
+			(eq, "$g_dplmc_buy_food_when_leaving", 1),
+			(call_script, "script_dplmc_auto_buy_food", "trp_player", ":merchant_troop"),
+		 (try_end),
+		 (try_begin),
+			(eq, "$g_dplmc_sell_items_when_leaving", 1),
+			(call_script, "script_dplmc_auto_sell", "trp_player", ":merchant_troop", "$g_dplmc_auto_sell_price_limit", all_items_begin, all_items_end, 2),
+		 (try_end),
+	  (try_end),
+	  ##diplomacy end+
+	  ]),
+      #SB : consolidated cheats
+      ("village_cheat", [(ge, "$cheat_mode", 1),],
+      "Use cheats.",
+      [(jump_to_menu, "mnu_town_cheats"),
+      ]),
     ],
   ),
 
@@ -7729,23 +10120,24 @@ Gradually, faith became such a part of your life that it was no different from t
     [],
     [
       ("village_take_food",[
-          (party_slot_eq, "$current_town", slot_village_state, 0),
+          (party_slot_eq, "$current_town", slot_village_state, svs_normal),
           (neg|party_slot_ge, "$current_town", slot_village_infested_by_bandits, 1),
-          (party_get_slot, ":merchant_troop", "$current_town", slot_village_elder),
-          (assign, ":town_stores_not_empty", 0),
-          (try_for_range, ":slot_no", num_equipment_kinds, max_inventory_items + num_equipment_kinds),
+          (party_get_slot, ":merchant_troop", "$current_town", slot_town_elder),
+          #SB : loop break
+          (assign, ":town_stores_not_empty", max_inventory_items + num_equipment_kinds),
+          (try_for_range, ":slot_no", num_equipment_kinds, ":town_stores_not_empty"),
             (troop_get_inventory_slot, ":slot_item", ":merchant_troop", ":slot_no"),
             (ge, ":slot_item", 0),
-            (assign, ":town_stores_not_empty", 1),
+            (assign, ":town_stores_not_empty", -1),
           (try_end),
-          (eq, ":town_stores_not_empty", 1),
+          (eq, ":town_stores_not_empty", -1),
           ],"Force the peasants to give you supplies.",
        [
            (jump_to_menu, "mnu_village_take_food_confirm")
         ]),
       ("village_steal_cattle",
        [
-          (party_slot_eq, "$current_town", slot_village_state, 0),
+          (party_slot_eq, "$current_town", slot_village_state, svs_normal),
           (party_slot_eq, "$current_town", slot_village_player_can_not_steal_cattle, 0),
           (neg|party_slot_ge, "$current_town", slot_village_infested_by_bandits, 1),
           (party_get_slot, ":num_cattle", "$current_town", slot_village_number_of_cattle),
@@ -7755,7 +10147,7 @@ Gradually, faith became such a part of your life that it was no different from t
        [
            (jump_to_menu, "mnu_village_steal_cattle_confirm")
         ]),
-      ("village_loot",[(party_slot_eq, "$current_town", slot_village_state, 0),
+      ("village_loot",[(party_slot_eq, "$current_town", slot_village_state, svs_normal),
                        (neg|party_slot_ge, "$current_town", slot_village_infested_by_bandits, 1),
                        (store_faction_of_party, ":center_faction", "$current_town"),
                        (store_relation, ":reln", "fac_player_supporters_faction", ":center_faction"),
@@ -7809,14 +10201,14 @@ Gradually, faith became such a part of your life that it was no different from t
      (try_end),
     ],
     [
-      ("continue_not_enough_gold",
-      [
-        (eq, reg7, 1),
-      ],
-      "I don't have enough money...",
-      [
-        (jump_to_menu,"$g_next_menu"),
-      ]),
+      # ("continue_not_enough_gold",
+      # [
+        # (eq, reg7, 1),
+      # ],
+      # "I don't have enough money...",
+      # [
+        # (jump_to_menu,"$g_next_menu"),
+      # ]),
        
       ("continue",
       [
@@ -7840,11 +10232,23 @@ Gradually, faith became such a part of your life that it was no different from t
                         
         (jump_to_menu,"$g_next_menu"),
       ]),
+	  
+      #SB : disable_menu_option
+      ("continue_not_enough_gold",
+      [
+        (eq, reg7, 1),
+        (disable_menu_option),
+      ],
+      "I don't have enough money...",
+      [
+        (jump_to_menu,"mnu_village"),
+      ]),	  
       
       ("forget_it",
       [
-        (eq, reg7, 0),
-        (gt, reg5, 0),
+      #SB : conditions now not applied
+        # (eq, reg7, 0),
+        # (gt, reg5, 0),
       ],
       "Forget it.",
       [
@@ -7859,9 +10263,61 @@ Gradually, faith became such a part of your life that it was no different from t
  Time passes. When you open your eyes again you find yourself battered and bloody,\
  but luckily none of the wounds appear to be lethal.",
     "none",
-    [],
     [
-      ("continue",[],"Continue...",[(jump_to_menu, "mnu_village"),]),
+      (call_script, "script_fail_quest", "qst_hunt_down_fugitive"),
+    ],
+    [
+      ("continue",[],"Continue...",[(jump_to_menu, "mnu_village"),
+      #SB : renown loss for single target
+      (call_script, "script_change_troop_renown", "trp_player", -2),
+      # (party_remove_members, "$current_town", "trp_fugitive", 1),
+      ]),
+    ],
+  ),
+
+  (
+    "village_hunt_down_fugitive_persuaded",0,
+ "As the party member with the highest persuasion, {reg3?you:{s3}} managed to cajole the location of {s50} from his tight-lipped relatives. Backed with superior force of arms, your just argument seemed to take effect and the villagers grudgingly participate in the manhunt for the fugitive.\
+ {reg4?But word of you arrival has reached the fugitive and he appears to have taken his own life:Within the hour, you've secured the fugitive on behalf of {s4}}.",
+    "none",
+    [   (call_script, "script_get_max_skill_of_player_party", "skl_persuasion"),
+        (assign, ":max_skill_owner", reg1),
+        (quest_get_slot, ":quest_target_dna", "qst_hunt_down_fugitive", slot_quest_target_dna),
+        (call_script, "script_get_name_from_dna_to_s50", ":quest_target_dna"),
+            
+         #SB : tableau at bottom
+         (try_begin),
+           (eq, ":max_skill_owner", "trp_player"),
+           (assign, reg3, 1),
+         (else_try),
+           (assign, reg3, 0),
+           (str_store_troop_name, s3, ":max_skill_owner"),
+           (call_script, "script_change_troop_renown", ":max_skill_owner", dplmc_companion_skill_renown),
+         (try_end),
+        
+        (set_fixed_point_multiplier, 100),
+        (position_set_x, pos0, 70),
+        (position_set_y, pos0, 5),
+        (position_set_z, pos0, 75),
+        (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", ":max_skill_owner", pos0),
+        (store_random_in_range, reg4, 0, 2), #TODO add some conditions, renown, time of day, etc
+        (try_begin),
+          (eq, reg4, 0),
+          (party_force_add_prisoners, "p_main_party", "trp_fugitive", 1),
+          (quest_get_slot, ":quest_giver_troop", "qst_hunt_down_fugitive", slot_quest_giver_troop),
+          (str_store_troop_name, s4, ":quest_giver_troop"),
+          (quest_set_slot, "qst_hunt_down_fugitive", slot_quest_current_state, 2),
+        (else_try), #killed, player can claim credit
+          (quest_set_slot, "qst_hunt_down_fugitive", slot_quest_current_state, 1),
+        (try_end),
+    ],
+    
+    [
+      ("continue",[],"Continue...",[
+        (call_script, "script_succeed_quest", "qst_hunt_down_fugitive"),
+        (jump_to_menu, "mnu_village"),
+        
+      ]),
     ],
   ),
 
@@ -7908,21 +10364,34 @@ Gradually, faith became such a part of your life that it was no different from t
   (
     "village_infestation_removed",mnf_disable_all_keys,
     "In a battle worthy of song, you and your men drive the bandits out of the village, making it safe once more.\
- The villagers have little left in the way of wealth after their ordeal,\
- but they offer you all they can find.",
+ The villagers have little left in the way of wealth after their ordeal, but they offer you {reg10?all they can find:a few heads of cattle}.",
     "none",
     [(party_get_slot, ":bandit_troop", "$g_encountered_party", slot_village_infested_by_bandits),
      (party_set_slot, "$g_encountered_party", slot_village_infested_by_bandits, 0),
      (party_clear, "p_temp_party"),
      (party_add_members, "p_temp_party", ":bandit_troop", "$qst_eliminate_bandits_infesting_village_num_bandits"),
-     (assign, "$g_strength_contribution_of_player", 50),
+     #todo actually give out some loot from the bandits
+     #SB : tweaked player contribution by whether village is the same faction
+     (try_begin),
+       (eq, "$players_kingdom", "$g_encountered_party_faction"),
+       (assign, "$g_strength_contribution_of_player", 65),
+     (else_try),
+       (assign, "$g_strength_contribution_of_player", 50),
+     (try_end),
      (call_script, "script_party_give_xp_and_gold", "p_temp_party"),
+     
+     (assign, "$g_train_peasants_against_bandits_training_succeeded", 0), #SB : use to track before ending quest
+     (party_get_slot, ":merchant_troop", "$current_town", slot_town_elder),
      (try_begin),
        (check_quest_active, "qst_eliminate_bandits_infesting_village"),
        (quest_slot_eq, "qst_eliminate_bandits_infesting_village", slot_quest_target_center, "$g_encountered_party"),
        (call_script, "script_end_quest", "qst_eliminate_bandits_infesting_village"),
        #Add quest reward
        (call_script, "script_change_player_relation_with_center", "$g_encountered_party", 5),
+       #SB : back up elder inventory
+       (call_script, "script_dplmc_copy_inventory", ":merchant_troop", "trp_temp_troop"),
+       (assign, "$g_train_peasants_against_bandits_training_succeeded", 1),
+       (assign, ":merchant_troop", "trp_temp_troop"),
      (else_try),
        (check_quest_active, "qst_deal_with_bandits_at_lords_village"),
        (quest_slot_eq, "qst_deal_with_bandits_at_lords_village", slot_quest_target_center, "$g_encountered_party"),
@@ -7932,25 +10401,56 @@ Gradually, faith became such a part of your life that it was no different from t
      #Add normal reward
        (call_script, "script_change_player_relation_with_center", "$g_encountered_party", 4),
      (try_end),
-   
-     (party_get_slot, ":merchant_troop", "$current_town", slot_village_elder),
-     (try_for_range, ":slot_no", num_equipment_kinds ,max_inventory_items + num_equipment_kinds),
+
+     #SB : calculate amount of merchandise remaining
+     (assign, ":num_items", 0),
+     (try_for_range, ":slot_no", num_equipment_kinds, max_inventory_items + num_equipment_kinds),
         (store_random_in_range, ":rand", 0, 100),
         (lt, ":rand", 70),
         (troop_set_inventory_slot, ":merchant_troop", ":slot_no", -1),
+     (else_try),
+        (troop_get_inventory_slot, ":item_no", ":merchant_troop", ":slot_no"),
+        (gt, ":item_no", 0),
+        (item_get_type, ":itp", ":item_no"),
+        (eq, ":itp", itp_type_goods),
+        (val_add, ":num_items", 1),
      (try_end),
+     #SB : check before we disappoint the player
+       # (store_free_inventory_capacity, ":capacity", ":merchant_troop"),
+       # (eq, ":capacity", max_inventory_items),
+     (assign, reg10, ":num_items"),
+     #SB : background mesh
+     (set_background_mesh, "mesh_pic_mb_warrior_3"),
     ],
+    #SB : add other option
+      # ("village_bandits_defeated_accept_cattle",[(eq, reg10, 1)],"Looks like meat's back on the menu.",[(jump_to_menu, "mnu_village"),
+                                                                         # (call_script, "script_create_cattle_herd", "$current_town", 1),
+                                                                       # ]),
     [
       ("village_bandits_defeated_accept",[],"Take it as your just due.",[(jump_to_menu, "mnu_village"),
-                                                                         (party_get_slot, ":merchant_troop", "$current_town", slot_village_elder),
+                                                                         (party_get_slot, ":merchant_troop", "$current_town", slot_town_elder),
                                                                          (troop_sort_inventory, ":merchant_troop"),
-                                                                         (change_screen_loot, ":merchant_troop"),
+                                                                         (try_begin),
+                                                                           (gt, reg10, 0),
+                                                                           (try_begin), #normal village
+                                                                             (eq, "$g_train_peasants_against_bandits_training_succeeded", 0),
+                                                                             (change_screen_loot, ":merchant_troop"),
+                                                                           (else_try), #quest village
+                                                                             (eq, "$g_train_peasants_against_bandits_training_succeeded", 1),
+                                                                             (change_screen_loot, "trp_temp_troop"),
+                                                                           (try_end),
+                                                                         (else_try), #arbitrary amount
+                                                                           (store_random_in_range, reg10, 2, 5),
+                                                                           (call_script, "script_create_cattle_herd", "$current_town", reg10),
+                                                                         (try_end),
                                                                        ]),
 																	   
-      ("village_bandits_defeated_cont",[],  "Refuse, stating that they need these items more than you do.",
-	  [	(call_script, "script_change_player_relation_with_center", "$g_encountered_party", 3),
-		(call_script, "script_change_player_honor", 1),	  
-		(jump_to_menu, "mnu_village")]),
+      #SB : string for other option
+      ("village_bandits_defeated_cont",[],  "Refuse, stating that they need these {reg10?items:livestock} more than you do.",
+      [ 
+        (call_script, "script_change_player_relation_with_center", "$g_encountered_party", 3),
+        (call_script, "script_change_player_honor", 1),
+        (jump_to_menu, "mnu_village")]),
     ],
   ),
 
@@ -7961,6 +10461,7 @@ Gradually, faith became such a part of your life that it was no different from t
     "none",
     [(assign, ":num_improvements", 0),
      (str_clear, s18),
+     #SB : spt strings	 
      (try_begin),
        (party_slot_eq, "$g_encountered_party", slot_party_type, spt_village),
        (assign, ":begin", village_improvements_begin),
@@ -7981,7 +10482,7 @@ Gradually, faith became such a part of your life that it was no different from t
        (call_script, "script_get_improvement_details", ":improvement_no"),
        (try_begin),
          (eq,  ":num_improvements", 1),
-         (str_store_string, s18, "@{!}{s0}"),
+         (str_store_string_reg, s18, s0),
        (else_try),
          (str_store_string, s18, "@{!}{s18}, {s0}"),
        (try_end),
@@ -8046,6 +10547,42 @@ Gradually, faith became such a part of your life that it was no different from t
                                        ],
        "Build a prisoner tower.",[(assign, "$g_improvement_type", slot_center_has_prisoner_tower),
                                   (jump_to_menu, "mnu_center_improve"),]),
+								  
+      #SB: cancel current improvement
+      ("center_cancel_build",[(eq, reg6, 1),],
+      "Cancel building the {s7}.",[
+        (call_script, "script_change_center_prosperity", "$current_town", -4),
+        (call_script, "script_change_player_relation_with_center", "$current_town", -2),
+        (party_set_slot, "$current_town", slot_center_current_improvement, 0),
+        (party_set_slot, "$current_town", slot_village_recover_progress, 0),
+        (party_get_slot, ":hours_left", "$current_town", slot_center_improvement_end_hour),
+
+        #reinvest in economy, not household possessions
+        # (party_get_slot, ":cur_wealth", "$current_town", slot_town_wealth),
+        (try_begin),
+          (is_between, "$current_town", towns_begin, towns_end),
+          (party_get_slot, ":merchant_troop", "$current_town", slot_town_merchant),
+          (troop_add_gold, ":merchant_troop", ":hours_left"),
+        (else_try),
+          (is_between, "$current_town", villages_begin, villages_end),
+          (party_get_slot, ":merchant_troop", "$current_town", slot_town_elder),
+        (else_try),
+          (assign, ":merchant_troop", -1),
+        (try_end),
+        
+        (store_current_hours, ":cur_hours"),
+        (val_sub, ":hours_left", ":cur_hours"),
+        (val_mul, ":hours_left", 15), #a paltry sum
+        (try_begin),
+          (gt, ":merchant_troop", 0),
+          (troop_add_gold, ":merchant_troop", ":hours_left"),
+        (else_try), #castle has no seneschal
+          (party_get_slot, ":cur_gold", "$current_town", slot_center_accumulated_tariffs),
+          (val_add, ":cur_gold", ":hours_left"),
+          (party_set_slot, "$current_town", slot_center_accumulated_tariffs, ":cur_gold"),
+        (try_end),
+        (jump_to_menu, "$g_next_menu"),
+        ]),								  
                            
       ("go_back_dot",[],"Go back.",[(jump_to_menu, "$g_next_menu")]),
     ],
@@ -8056,7 +10593,9 @@ Gradually, faith became such a part of your life that it was no different from t
     "{s19} As the party member with the highest engineer skill ({reg2}), {reg3?you reckon:{s3} reckons} that building the {s4} will cost you\
  {reg5} denars and will take {reg6} days.",
     "none",
-    [(call_script, "script_get_improvement_details", "$g_improvement_type"),
+    [#SB : town pictures
+     (call_script, "script_set_town_picture"),
+     (call_script, "script_get_improvement_details", "$g_improvement_type"),
      (assign, ":improvement_cost", reg0),
      (str_store_string, s4, s0),
      (str_store_string, s19, s1),
@@ -8075,31 +10614,65 @@ Gradually, faith became such a part of your life that it was no different from t
      (assign, reg5, ":improvement_cost"),
      (assign, reg6, ":improvement_time"),
 
+     #SB : tableau at bottom	 
      (try_begin),
        (eq, ":max_skill_owner", "trp_player"),
        (assign, reg3, 1),
      (else_try),
        (assign, reg3, 0),
        (str_store_troop_name, s3, ":max_skill_owner"),
-     (try_end),
+     (try_end),    #SB : assign globals to be safe
+    (assign, "$diplomacy_var", ":improvement_cost"),
+    (assign, "$diplomacy_var2", ":improvement_time"),
+    (assign, "$lord_selected", ":max_skill_owner"),
+    (set_fixed_point_multiplier, 100),
+    (position_set_x, pos0, 70),
+    (position_set_y, pos0, 5),
+    (position_set_z, pos0, 75),
+    (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", ":max_skill_owner", pos0),
     ],
     [
+      ##diplomacy begin
+      ("dplmc_improve_cont",
+      [
+        (gt, "$g_player_chamberlain", 0),
+        (store_troop_gold, ":cur_gold", "trp_household_possessions"),
+        (ge, ":cur_gold", "$diplomacy_var"),
+      ], "Go on. (Pay from treasury)",
+        [
+          (call_script, "script_dplmc_withdraw_from_treasury", "$diplomacy_var"),
+          # (call_script, "script_get_max_skill_of_player_party", "skl_engineer"), #SB : re-fetch skill
+          (call_script, "script_improve_center", "$g_encountered_party", "$lord_selected", "$diplomacy_var2"),
+          (jump_to_menu,"mnu_center_manage"),
+         ]
+      ),
+      ("improve_not_enough_gold",[(gt, "$g_player_chamberlain", 0),
+                                  (store_troop_gold, ":cur_gold", "trp_household_possessions"),
+                                  (lt, ":cur_gold", "$diplomacy_var"),
+                                  #SB : disable_menu_option
+                                  (disable_menu_option)],
+       "Insufficient fund in the treasury.", []),
+      ##diplomacy end
+	  
       ("improve_cont",[(store_troop_gold, ":cur_gold", "trp_player"),
-                       (ge, ":cur_gold", reg5)],
-       "Go on.", [(troop_remove_gold, "trp_player", reg5),
-                  (party_set_slot, "$g_encountered_party", slot_center_current_improvement, "$g_improvement_type"),
-                  (store_current_hours, ":cur_hours"),
-                  (store_mul, ":hours_takes", reg6, 24),
-                  (val_add, ":hours_takes", ":cur_hours"),
-                  (party_set_slot, "$g_encountered_party", slot_center_improvement_end_hour, ":hours_takes"),
+                       (ge, ":cur_gold", "$diplomacy_var")],
+       "Go on.", [
+                  (try_begin), #fast build
+                    (ge, "$cheat_mode", 1),
+                    (assign, "$diplomacy_var2", 0),
+                  (else_try),
+                    (troop_remove_gold, "trp_player", "$diplomacy_var"),
+                  (try_end),
+                  (call_script, "script_improve_center", "$g_encountered_party", "$lord_selected", "$diplomacy_var2"),
                   (jump_to_menu,"mnu_center_manage"),
                   ]),
-      ("forget_it",[(store_troop_gold, ":cur_gold", "trp_player"),
-                    (ge, ":cur_gold", reg5)],
-       "Forget it.", [(jump_to_menu,"mnu_center_manage")]),
       ("improve_not_enough_gold",[(store_troop_gold, ":cur_gold", "trp_player"),
-                                  (lt, ":cur_gold", reg5)],
-       "I don't have enough money for that.", [(jump_to_menu, "mnu_center_manage"),]),
+                                  (lt, ":cur_gold", "$diplomacy_var"),
+                                  #SB : disable_menu_option
+                                  (disable_menu_option)],
+       "I don't have enough money for that.", []),
+      ("forget_it",[], "Forget it.", [(jump_to_menu,"mnu_center_manage")]),
+
     ],
   ),
 
@@ -8127,19 +10700,23 @@ Gradually, faith became such a part of your life that it was no different from t
       (try_end),
     ],
     [
-      ("continue",[],"Continue...",[(change_screen_return)]),
+      ("continue",[],"Continue...",[(change_screen_return),
+      #SB : lose renown for easy encounters
+      (call_script, "script_change_troop_renown", "trp_player", -2),
+      ]),
     ],
   ),
 
-  (
+   (
     "town_bandits_succeeded",mnf_disable_all_keys,
-    "The bandits fall before you as wheat to a scythe! Soon you stand alone in the streets\
- while most of your attackers lie unconscious, dead or dying.\
- Searching the bodies, you find a purse which must have belonged to a previous victim of these brutes.\
- Or perhaps, it was given to them by someone who wanted to arrange a suitable ending to your life.",
+    "The {s4} fall before you as wheat to a scythe! Soon you stand alone in the streets\
+ while {reg4?most of your attackers: the bandit} lie unconscious, dead or dying.\
+ Searching the {reg4?bodies:body}, you find a purse which must have belonged to a previous victim of {reg4?these brute:this lowlife}.\
+ Or perhaps, it was {reg4?given to them:provided} by someone who wanted to arrange a suitable ending to your life.",
     "none",
     [
-      (party_set_slot, "$current_town", slot_center_has_bandits, 0),
+      # (party_set_slot, "$current_town", slot_center_has_bandits, 0), #we need this
+      (party_get_slot, ":bandit_troop", "$current_town", slot_center_has_bandits),
       (assign, "$g_last_defeated_bandits_town", "$g_encountered_party"),
       (try_begin),
         (check_quest_active, "qst_deal_with_night_bandits"),
@@ -8147,13 +10724,26 @@ Gradually, faith became such a part of your life that it was no different from t
         (quest_slot_eq, "qst_deal_with_night_bandits", slot_quest_target_center, "$g_encountered_party"),
         (call_script, "script_succeed_quest", "qst_deal_with_night_bandits"),
       (try_end),
-      (store_mul, ":xp_reward", "$num_center_bandits", 117),
+      #SB : variable rewards, since we have different bandits in play
+      (call_script, "script_game_get_join_cost", ":bandit_troop"),
+      (store_mul, ":xp_reward", "$num_center_bandits", reg0),
+      (try_begin), #reduce bonus exp, since town missions troops don't use horses
+        (troop_is_mounted, ":bandit_troop"),
+        (val_div, ":xp_reward", 2),
+      (try_end),
       (add_xp_to_troop, ":xp_reward", "trp_player"),
-      (store_mul, ":gold_reward", "$num_center_bandits", 50),
-      (call_script, "script_troop_add_gold","trp_player",":gold_reward"),
+      (call_script, "script_game_get_upgrade_cost", ":bandit_troop"), #20, 40, 80
+      (store_mul, ":gold_reward", "$num_center_bandits", reg0),
+      (call_script, "script_troop_add_gold", "trp_player", ":gold_reward"),
+      #SB : string setup
+      (str_store_troop_name_by_count,s4, ":bandit_troop", "$num_center_bandits"),
+      (store_sub, reg4, "$num_center_bandits", 1),
     ],
     [
-      ("continue",[],"Continue...",[(change_screen_return)]),
+      ("continue",[],"Continue...",[
+        (party_set_slot, "$current_town", slot_center_has_bandits, 0),
+        (change_screen_return),
+      ]),
     ],
   ),
 
@@ -8222,6 +10812,18 @@ Gradually, faith became such a part of your life that it was no different from t
         (party_get_slot, ":num_cattle", "$current_town", slot_village_number_of_cattle),
         (val_sub, ":num_cattle", ":random_value"),
         (party_set_slot, "$current_town", slot_village_number_of_cattle, ":num_cattle"),
+		
+        #SB : add lesser renown bonus
+        (try_begin),
+          (call_script, "script_get_max_skill_of_player_party", "skl_looting"),
+          (neq, reg1, "trp_player"),
+          (call_script, "script_change_troop_renown", reg1, dplmc_companion_skill_renown / 2),
+        (try_end),
+        
+        (try_begin), #SB : very minor war dmg
+          (is_between, "$players_kingdom", kingdoms_begin, kingdoms_end),
+          (call_script, "script_faction_inflict_war_damage_on_faction", "$players_kingdom", "$g_encountered_party_faction", 1),
+        (try_end),		
       (try_end),
     ],
     [
@@ -8282,14 +10884,14 @@ Gradually, faith became such a part of your life that it was no different from t
          (party_get_slot, ":village_lord", "$current_town", slot_town_lord),
          (try_begin),
            (gt,  ":village_lord", 1),
-          (call_script, "script_change_player_relation_with_troop", ":village_lord", -1),
+           (call_script, "script_change_player_relation_with_troop", ":village_lord", -1),
           (try_end),
-         (party_get_slot, ":merchant_troop", "$current_town", slot_village_elder),
+         (party_get_slot, ":merchant_troop", "$current_town", slot_town_elder),
          (party_get_skill_level, ":player_party_looting", "p_main_party", "skl_looting"),
          (val_mul, ":player_party_looting", 3),
          (store_sub, ":random_chance", 70, ":player_party_looting"), #Increases the chance of looting by 3% per skill level
          (try_for_range, ":slot_no", num_equipment_kinds ,max_inventory_items + num_equipment_kinds),
-           (store_random_in_range, ":rand", 0, 100), 
+           (store_random_in_range, ":rand", 0, 100),
            (lt, ":rand", ":random_chance"),
            (troop_set_inventory_slot, ":merchant_troop", ":slot_no", -1),
          (try_end),
@@ -8300,22 +10902,27 @@ Gradually, faith became such a part of your life that it was no different from t
 #Troop commentary changes begin
           (call_script, "script_add_log_entry", logent_village_extorted, "trp_player",  "$current_town", -1, -1),
           (store_faction_of_party,":village_faction",  "$current_town"),
-		  (call_script, "script_faction_inflict_war_damage_on_faction", "$players_kingdom", ":village_faction", 5),
-#Troop commentary changes end          
+          #SB : this war penalty should be lower for accosting farmers instead of raiding outright
+          (try_begin),
+            (is_between, "$players_kingdom", kingdoms_begin, kingdoms_end),
+            (call_script, "script_faction_inflict_war_damage_on_faction", "$players_kingdom", ":village_faction", 2),
+          (try_end),
+#Troop commentary changes end
 
+         #SB : sometimes this will actually be empty
          (jump_to_menu, "mnu_village"),
          (troop_sort_inventory, ":merchant_troop"),
-         (change_screen_loot, ":merchant_troop"),       
+         (change_screen_loot, ":merchant_troop"),
          ]),
       ("let_them_keep_it",[],"Let them keep it.",[(jump_to_menu, "mnu_village")]),
     ],
   ),
 
 
-  (
+  ( #SB : added fugitive related strings
     "village_start_attack",mnf_disable_all_keys|mnf_scale_picture,
     "Some of the angry villagers grab their tools and prepare to resist you.\
- It looks like you'll have a fight on your hands if you continue.",
+ It looks like you'll have a fight on your hands if you continue.{s1}",
     "none",
     [
        (set_background_mesh, "mesh_pic_villageriot"),
@@ -8323,9 +10930,12 @@ Gradually, faith became such a part of your life that it was no different from t
        (assign, ":player_party_size", reg0),
        (call_script, "script_party_count_members_with_full_health","$current_town"),
        (assign, ":villagers_party_size", reg0),
-       
-       (try_begin),
-         (gt, ":player_party_size", 25),
+
+       (try_begin), #SB : tweak fight avoidance parameters
+         #also if we lost but reduced their numbers, don't allow this condition to be true
+         (neq, "$g_battle_result", -1),
+         (this_or_next|le, ":villagers_party_size", 30),
+         (gt, ":player_party_size", ":villagers_party_size"),
          (jump_to_menu, "mnu_village_loot_no_resist"),
        (else_try),
          (this_or_next|eq, ":villagers_party_size", 0),
@@ -8341,8 +10951,27 @@ Gradually, faith became such a part of your life that it was no different from t
          (jump_to_menu, "mnu_village_loot_no_resist"),
        (else_try),
          (eq, "$g_battle_result", -1),
-         (jump_to_menu, "mnu_village_loot_defeat"),
+         (try_begin), #if we did not knock him out or kill him, he escapes
+           (check_quest_active, "qst_hunt_down_fugitive"),
+           (quest_slot_eq, "qst_hunt_down_fugitive", slot_quest_target_center, "$current_town"),
+           (neg|check_quest_succeeded, "qst_hunt_down_fugitive"),
+           (jump_to_menu, "mnu_village_hunt_down_fugitive_defeated"),
+         (else_try),
+           (jump_to_menu, "mnu_village_loot_defeat"),
+         (try_end),
        (try_end),
+       
+       #SB : display string indicating fugitive is here
+      (try_begin), #if we did not knock him out or kill him, he escapes
+        (check_quest_active, "qst_hunt_down_fugitive"),
+        (quest_slot_eq, "qst_hunt_down_fugitive", slot_quest_target_center, "$current_town"),
+        (neg|check_quest_succeeded, "qst_hunt_down_fugitive"),
+        (quest_get_slot, ":quest_target_dna", "qst_hunt_down_fugitive", slot_quest_target_dna),
+        (call_script, "script_get_name_from_dna_to_s50", ":quest_target_dna"),
+        (str_store_string, s1, "@ From your vantage point you see a man matching the description of {s50} arming himself with a sword during the commotion. If you do not press on the fugitive will slip away!"),
+      (else_try),
+        (str_clear, s1),
+      (try_end),
     ],
     [
       ("village_raid_attack",[],"Charge them.",[
@@ -8353,25 +10982,43 @@ Gradually, faith became such a part of your life that it was no different from t
             (gt, ":town_lord", 0),
             (call_script, "script_change_player_relation_with_troop", ":town_lord", -3),
           (try_end),
+          #SB : add fugitive as defender here
+          (try_begin),
+            (check_quest_active, "qst_hunt_down_fugitive"),
+            (quest_slot_eq, "qst_hunt_down_fugitive", slot_quest_target_center, "$current_town"),
+            (neg|check_quest_succeeded, "qst_hunt_down_fugitive"),
+            (neg|check_quest_failed, "qst_hunt_down_fugitive"),
+            (quest_set_slot, "qst_hunt_down_fugitive", slot_quest_current_state, 1), #normally this is activated in dialogs
+            (party_add_members, "$current_town", "trp_fugitive", 1),
+          (try_end),
           (call_script, "script_calculate_battle_advantage"),
           (set_battle_advantage, reg0),
           (set_party_battle_mode),
           (assign, "$g_battle_result", 0),
           (assign, "$g_village_raid_evil", 1),
           (set_jump_mission,"mt_village_raid"),
-          (party_get_slot, ":scene_to_use", "$current_town", slot_village_center),
+          (party_get_slot, ":scene_to_use", "$current_town", slot_castle_exterior),
           (jump_to_scene, ":scene_to_use"),
           (assign, "$g_next_menu", "mnu_village_start_attack"),
 
-		  (call_script, "script_diplomacy_party_attacks_neutral", "p_main_party", "$g_encountered_party"),
+          (call_script, "script_diplomacy_party_attacks_neutral", "p_main_party", "$g_encountered_party"),
 ###NPC companion changes begin
-          (call_script, "script_objectionable_action", tmt_humanitarian, "str_loot_village"),
+          # (call_script, "script_objectionable_action", tmt_humanitarian, "str_loot_village"), #SB : rolled into above script
 #NPC companion changes end
 
           (jump_to_menu, "mnu_battle_debrief"),
           (change_screen_mission),
           ]),
-      ("village_raid_leave",[],"Leave this village alone.",[(change_screen_return)]),
+      ("village_raid_leave",[],"Leave this village alone.",[(change_screen_return),
+      #SB : fail fugitive quest if player backs away from demands
+      (try_begin),
+        (check_quest_active, "qst_hunt_down_fugitive"),
+        (quest_slot_eq, "qst_hunt_down_fugitive", slot_quest_target_center, "$current_town"),
+        (neg|check_quest_concluded, "qst_hunt_down_fugitive"),
+        (call_script, "script_fail_quest", "qst_hunt_down_fugitive"),
+      (try_end),
+      
+      ]),
     ],
   ),
   
@@ -8380,44 +11027,85 @@ Gradually, faith became such a part of your life that it was no different from t
     "The villagers here are few and frightened, and they quickly scatter and run before you.\
  The village is at your mercy.",
     "none",
-    [],
+    [
+    #SB : if we just wanted to steal food, return to doing that instead of plundering
+    (try_begin),
+      (eq, "$auto_enter_menu_in_center", "mnu_village_take_food"),
+      (jump_to_menu, "$auto_enter_menu_in_center"),
+    (try_end),
+    
+    ],
     [
       ("village_loot",[], "Plunder the village, then raze it.",
-       [
+        [
           (call_script, "script_village_set_state", "$current_town", svs_being_raided),
           (party_set_slot, "$current_town", slot_village_raided_by, "p_main_party"),
           (assign,"$g_player_raiding_village","$current_town"),
-		  
-		  (try_begin),
-		    (store_faction_of_party, ":village_faction", "$current_town"),
-			(store_relation, ":relation", "$players_kingdom", ":village_faction"),
-			(ge, ":relation", 0),
-			(call_script, "script_diplomacy_party_attacks_neutral", "p_main_party", "$current_town"),
-		  (try_end),	
-		  
+
+          (try_begin),
+            (store_faction_of_party, ":village_faction", "$current_town"),
+            (store_relation, ":relation", "$players_kingdom", ":village_faction"),
+            (ge, ":relation", 0),
+            (call_script, "script_diplomacy_party_attacks_neutral", "p_main_party", "$current_town"),
+          (try_end),
+
           (rest_for_hours, 3, 5, 1), #rest while attackable (3 hours will be extended by the trigger)
+          (party_set_slot, "$current_town", slot_town_last_nearby_fire_time, 1), #raiding mode
+          # (assign, "$g_village_raid_evil", 1), #SB : to differentiate between raiding
           (change_screen_return),
-           ]),
+        ]),
+        
+        #SB : alternative option if that's your thing
+      ("village_enslave", [
+          (party_get_num_companions, ":amount", "$current_town"),
+          (gt, ":amount", 0), #if we haven't killed them all in the first charge
+          # (party_get_free_prisoners_capacity, ":capacity", "p_main_party"), #be slightly wary of this operation
+          # (gt, ":capacity", 0), #if we have room
+          (troops_can_join_as_prisoner, 1),
+        ], "Chase after the remaining villagers and enslave them.",
+        [
+          (call_script, "script_village_set_state", "$current_town", svs_being_raided), #target is deserted, not looted
+          (party_set_slot, "$current_town", slot_village_raided_by, "p_main_party"),
+          (assign,"$g_player_raiding_village","$current_town"),
+
+          (try_begin),
+            (store_faction_of_party, ":village_faction", "$current_town"),
+            (store_relation, ":relation", "$players_kingdom", ":village_faction"),
+            (ge, ":relation", 0),
+            (call_script, "script_diplomacy_party_attacks_neutral", "p_main_party", "$current_town"),
+          (try_end),
+          
+          #add a party template to represent hiding villagers so we don't go empty-handed
+          (party_add_template, "$current_town", "pt_village_defenders"),
+          #add some smoke right away
+          # (party_add_particle_system, "$current_town", "psys_map_village_fire"),
+
+          (rest_for_hours, 3, 5, 1), #rest while attackable
+          # (assign, "$g_village_raid_evil", 2),
+          (party_set_slot, "$current_town", slot_town_last_nearby_fire_time, 2), #enslavement mode
+          (assign, "$qst_eliminate_bandits_infesting_village_num_villagers", 0),
+          (change_screen_return),
+        ]),
       ("village_raid_leave",[],"Leave this village alone.",[(change_screen_return)]),
     ],
   ),
   (
     "village_loot_complete",mnf_disable_all_keys,
     "On your orders your troops sack the village, pillaging everything of any value,\
- and then put the buildings to the torch. From the coins and valuables that are found, you get your share of {reg1} denars.{s12}",
+ and then put the buildings to the torch. From the coins and valuables that are found, you get your share of {reg1} denars.",
     "none",
     [
         (get_achievement_stat, ":number_of_village_raids", ACHIEVEMENT_THE_BANDIT, 0),
         (get_achievement_stat, ":number_of_caravan_raids", ACHIEVEMENT_THE_BANDIT, 1),
         (val_add, ":number_of_village_raids", 1),
         (set_achievement_stat, ACHIEVEMENT_THE_BANDIT, 0, ":number_of_village_raids"),
-                
+
         (try_begin),
           (ge, ":number_of_village_raids", 3),
           (ge, ":number_of_caravan_raids", 3),
           (unlock_achievement, ACHIEVEMENT_THE_BANDIT),
         (try_end),
-    
+
         (party_get_slot, ":village_lord", "$current_town", slot_town_lord),
         (try_begin),
           (gt,  ":village_lord", 0),
@@ -8432,43 +11120,43 @@ Gradually, faith became such a part of your life that it was no different from t
           (lt, ":relation", 0),
           (call_script, "script_change_player_relation_with_faction", ":village_faction", -3),
         (try_end),
-                
-        (assign, ":money_gained", 50),
+
+        (assign, ":money_gained", 50), #SB : change this to be somewhat based on actual wealth
+        (party_get_slot, ":village_elder", "$current_town",slot_town_elder),
+        (try_begin),
+          (gt, ":village_elder", 0),
+          (store_troop_gold, ":money_gained", ":village_elder"),
+          (troop_remove_gold, ":village_elder", ":money_gained"),
+          (val_div, ":money_gained", 2),
+        (try_end),
+        (val_max, ":money_gained", 50),
         (party_get_slot, ":prosperity", "$current_town", slot_town_prosperity),
         (store_mul, ":prosperity_of_village_mul_5", ":prosperity", 5),
         (val_add, ":money_gained", ":prosperity_of_village_mul_5"),
         (call_script, "script_troop_add_gold", "trp_player", ":money_gained"),
-		
+
         (assign, ":morale_increase", 3),
         (store_div, ":money_gained_div_100", ":money_gained", 100),
         (val_add, ":morale_increase", ":money_gained_div_100"),
         (call_script, "script_change_player_party_morale", ":morale_increase"),
-        
-                
-        (faction_get_slot, ":faction_morale", ":village_faction",  slot_faction_morale_of_player_troops),
-        (store_mul, ":morale_increase_mul_2", ":morale_increase", 200),
-        (val_sub, ":faction_morale", ":morale_increase_mul_2"),           
-        (faction_set_slot, ":village_faction",  slot_faction_morale_of_player_troops, ":faction_morale"),
-        
-		(assign, reg12, 0),
-		(str_clear, s12),
-        (try_begin),
-          (player_has_item, "itm_book_of_the_dead"),
-		  (store_attribute_level, ":max_zombies", "trp_player", ca_intelligence),
-		  (ge, ":max_zombies", 15), # Otherwise, the player can't to use the book
-		  (store_div, ":min_zombies", ":max_zombies", 3),
-		  (call_script, "script_rand", ":min_zombies", ":max_zombies"),
-		  (assign, reg12, reg0),
-		  (str_store_string, s12, str_summoned_s12_zombies),
-        (try_end),
 
+        # (faction_get_slot, ":faction_morale", ":village_faction",  slot_faction_morale_of_player_troops),
+        (store_mul, ":morale_decrease", ":morale_increase", -200),
+        (call_script, "script_change_faction_troop_morale", ":village_faction", ":morale_decrease", 1), #SB : script call
+        # (val_sub, ":faction_morale", ":morale_increase_mul_2"),
+        # (faction_set_slot, ":village_faction",  slot_faction_morale_of_player_troops, ":faction_morale"),
+
+
+
+#NPC companion changes begin
         (call_script, "script_objectionable_action", tmt_humanitarian, "str_loot_village"),
+#NPC companion changes end
         (assign, reg1, ":money_gained"),
       ],
     [
       ("continue",[], "Continue...",
        [
-          (jump_to_menu, "mnu_close"),
+       (jump_to_menu, "mnu_close"),
           (call_script, "script_calculate_amount_of_cattle_can_be_stolen", "$current_town"),
           (assign, ":max_cattle", reg0),
           (val_mul, ":max_cattle", 3),
@@ -8485,65 +11173,134 @@ Gradually, faith became such a part of your life that it was no different from t
           (try_end),
           (troop_clear_inventory, "trp_temp_troop"),
 
-		  #begin of changes
-		  (party_get_slot, ":bound_town", slot_village_bound_center, "$current_town"),
-          (store_sub, ":item_to_price_slot", slot_town_trade_good_prices_begin, trade_goods_begin),
+          #below line changed with below lines to make plunder result more realistic. Now only items produced in bound town can be stolen after raid.
+          #(reset_item_probabilities,100),
+
+          #begin of changes
+          (party_get_slot, ":bound_town", "$current_town", slot_village_bound_center),
+          #the above line is the culprit for divide by zero
+          # (store_sub, ":item_to_price_slot", slot_town_trade_good_prices_begin, trade_goods_begin),
+          (assign, ":item_to_price_slot", slot_town_trade_good_prices_begin),
           (reset_item_probabilities,100),
-          (assign, ":total_probability", 0),
+          (assign, ":total_probability", 1), #SB  : possible div/0 if slots are reset
           (try_for_range, ":cur_goods", trade_goods_begin, trade_goods_end),
-            (store_add, ":cur_price_slot", ":cur_goods", ":item_to_price_slot"),
-            (party_get_slot, ":cur_price", ":bound_town", ":cur_price_slot"),
+            (party_get_slot, ":cur_price", ":bound_town", ":item_to_price_slot"),
+            (val_add, ":item_to_price_slot", 1),
             (call_script, "script_center_get_production", ":bound_town", ":cur_goods"),
             (assign, ":cur_probability", reg0),
             (call_script, "script_center_get_consumption", ":bound_town", ":cur_goods"),
             (val_div, reg0, 3),
             (val_add, ":cur_probability", reg0),
             (val_mul, ":cur_probability", 4),
-            (val_mul, ":cur_probability", average_price_factor),
-            (val_div, ":cur_probability", ":cur_price"),				  
-			(val_add, ":total_probability", ":cur_probability"),
+            (try_begin),
+              (neq, ":cur_price", 0),
+              (val_mul, ":cur_probability", average_price_factor),
+              (val_div, ":cur_probability", ":cur_price"), #divide by zero error here
+            (try_end),
+            #first only simulation
+            #(set_item_probability_in_merchandise,":cur_goods",":cur_probability"),
+            (val_add, ":total_probability", ":cur_probability"),
+            # (assign, reg1, ":total_probability"),
+            # (assign, reg2, ":cur_price"),
+            # (assign, reg3, ":cur_probability"),
+            # (assign, reg4, ":item_to_price_slot"),
+            # (str_store_item_name, s1, ":cur_goods"),
+            # (display_message, "@{s1} price : {reg2} in slot {reg4}, probability: {reg3};{reg1} total"),
           (try_end),
-
+          (assign, ":item_to_price_slot", slot_town_trade_good_prices_begin),
           (try_for_range, ":cur_goods", trade_goods_begin, trade_goods_end),
-            (store_add, ":cur_price_slot", ":cur_goods", ":item_to_price_slot"),
-            (party_get_slot, ":cur_price", ":bound_town", ":cur_price_slot"),
+            (party_get_slot, ":cur_price", ":bound_town", ":item_to_price_slot"),
+            (val_add, ":item_to_price_slot", 1),
             (call_script, "script_center_get_production", ":bound_town", ":cur_goods"),
             (assign, ":cur_probability", reg0),
             (call_script, "script_center_get_consumption", ":bound_town", ":cur_goods"),
             (val_div, reg0, 3),
             (val_add, ":cur_probability", reg0),
             (val_mul, ":cur_probability", 4),
-            (val_mul, ":cur_probability", average_price_factor),
-            (val_div, ":cur_probability", ":cur_price"),
+            (try_begin),
+              (neq, ":cur_price", 0),
+              (val_mul, ":cur_probability", average_price_factor),
+              (val_div, ":cur_probability", ":cur_price"), #divide by zero error here
+            (try_end),
 
-			(val_mul, ":cur_probability", num_merchandise_goods),
-			(val_mul, ":cur_probability", 100),
-			(val_div, ":cur_probability", ":total_probability"),
+            (val_mul, ":cur_probability", num_merchandise_goods),
+            (val_mul, ":cur_probability", 100),
+            (val_div, ":cur_probability", ":total_probability"),
 
-            (set_item_probability_in_merchandise,":cur_goods",":cur_probability"),						  
+            (set_item_probability_in_merchandise,":cur_goods",":cur_probability"),
           (try_end),
-		  #end of changes
+          #end of changes
 
-          (try_begin),
-            (player_has_item, "itm_book_of_the_dead"),
-		    (gt, reg12, 0),
-		    (party_add_members, "p_main_party", "trp_zombie", reg12),
-          (try_end),
           (troop_add_merchandise,"trp_temp_troop",itp_type_goods,30),
           (troop_sort_inventory, "trp_temp_troop"),
           (change_screen_loot, "trp_temp_troop"),
         ]),
     ],
   ),
+
+  (
+    "village_enslave_complete",mnf_disable_all_keys,
+    "On your orders your troops rampage through the village, dragging peasants from their hovels and stripping them of all possessions.\
+ In the span of a few hours you've rounded up {reg1} prisoners, leaving the infirm and the younglings behind. As you march the trussed-up villagers away from the cooling ember of their broken hearths, you hear a distant howl...",
+    "none",
+    [
+        (get_achievement_stat, ":number_of_village_raids", ACHIEVEMENT_THE_BANDIT, 0),
+        (get_achievement_stat, ":number_of_caravan_raids", ACHIEVEMENT_THE_BANDIT, 1),
+        (val_add, ":number_of_village_raids", 1),
+        (set_achievement_stat, ACHIEVEMENT_THE_BANDIT, 0, ":number_of_village_raids"),
+
+        (try_begin),
+          (ge, ":number_of_village_raids", 3),
+          (ge, ":number_of_caravan_raids", 3),
+          (unlock_achievement, ACHIEVEMENT_THE_BANDIT),
+        (try_end),
+        
+        (set_background_mesh, "mesh_pic_prisoner_wilderness"),
+        (call_script, "script_objectionable_action", tmt_humanitarian, "str_sell_slavery"),
+
+        # (party_get_slot, ":village_lord", "$current_town", slot_town_lord),
+        # (try_begin),
+          # (gt,  ":village_lord", 0),
+          # (call_script, "script_change_player_relation_with_troop", ":village_lord", -5),
+        # (try_end),
+        (store_random_in_range, ":enmity", -35, -25),
+        (call_script, "script_change_player_relation_with_center", "$current_town", ":enmity"),
+        
+        (party_add_particle_system, "$current_town", "psys_map_village_looted_smoke"),
+        (store_faction_of_party, ":village_faction", "$current_town"),
+        (store_relation, ":relation", ":village_faction", "fac_player_supporters_faction"),
+        (try_begin),
+          (lt, ":relation", 0),
+          (call_script, "script_change_player_relation_with_faction", ":village_faction", -2),
+        (try_end),
+
+        (store_mul, ":morale_decrease", "$qst_eliminate_bandits_infesting_village_num_villagers", -75),
+        (val_max, ":morale_decrease", "$qst_eliminate_bandits_infesting_village_num_villagers", -2000), #capped at -20 per loot
+        (call_script, "script_change_faction_troop_morale", ":village_faction", ":morale_decrease", 1), #SB : script call
+        (assign, reg1, "$qst_eliminate_bandits_infesting_village_num_villagers"),
+        
+      ],
+    [
+      ("continue",[], "Continue...",
+       [
+            (assign, "$g_leave_town", 1),
+            (jump_to_menu, "mnu_village"),
+        ]),
+    ],
+  ),
+  
   (
     "village_loot_defeat",mnf_scale_picture,
     "Fighting with courage and determination, the villagers manage to hold together and drive off your forces.",
     "none",
     [
         (set_background_mesh, "mesh_pic_villageriot"),
-	],
+    ],
     [
-      ("continue",[],"Continue...",[(change_screen_return)]),
+      ("continue",[],"Continue...",[(change_screen_return),
+      #SB : renown loss
+      (call_script, "script_change_troop_renown", "trp_player", -3),
+      ]),
     ],
   ),
   
@@ -8551,14 +11308,20 @@ Gradually, faith became such a part of your life that it was no different from t
     "village_loot_continue",0,
     "Do you wish to continue looting this village?",
     "none",
-    [],
     [
-      ("disembark_yes",[],"Yes.",[ (rest_for_hours, 3, 5, 1), #rest while attackable (3 hours will be extended by the trigger)
+    (set_background_mesh, "mesh_pic_looted_village"),
+    ],
+    [
+      ("loot_yes",[],"Yes.",[ (rest_for_hours, 3, 5, 1), #rest while attackable (3 hours will be extended by the trigger)
+                              #SB : resume hostilities
+                              (call_script, "script_diplomacy_party_attacks_neutral", "p_main_party", "$current_town"),
                               (change_screen_return),
                               ]),
-      ("disembark_no",[],"No.",[(call_script, "script_village_set_state", "$current_town", 0),
+      ("loot_no",[],"No.",[(call_script, "script_village_set_state", "$current_town", 0),
                             (party_set_slot, "$current_town", slot_village_raided_by, -1),
                             (assign, "$g_player_raiding_village", 0),
+                            (assign, "$g_village_raid_evil", 0), #SB : reset global
+                            (party_set_slot, "$current_town", slot_town_last_nearby_fire_time, 0),
                             (change_screen_return)]),
     ],
   ),
@@ -8573,7 +11336,7 @@ Gradually, faith became such a part of your life that it was no different from t
     "none",
     [    
         (try_begin),
-          (eq, "$sneaked_into_town", 1),
+          (gt, "$sneaked_into_town", disguise_none),
           (call_script, "script_music_set_situation_with_culture", mtf_sit_town_infiltrate),
         (else_try),
           (call_script, "script_music_set_situation_with_culture", mtf_sit_travel),
@@ -8626,7 +11389,7 @@ Gradually, faith became such a part of your life that it was no different from t
         (try_end),
 
         (try_begin),
-          (eq, "$g_town_assess_trade_goods_after_rest", 1),
+          (eq, "$g_town_assess_trade_goods_after_rest", "$current_town"), #SB : loop fix
           (assign, "$g_town_assess_trade_goods_after_rest", 0),
           (jump_to_menu,"mnu_town_trade_assessment"),
         (try_end),
@@ -8648,6 +11411,8 @@ Gradually, faith became such a part of your life that it was no different from t
           (change_screen_return),
         (try_end),
         
+#SB : handle disguise removal here or in trigger		
+		
         (str_store_party_name, s2, "$current_town"),
         (party_get_slot, ":center_lord", "$current_town", slot_town_lord),
         (store_faction_of_party, ":center_faction", "$current_town"),
@@ -8688,11 +11453,98 @@ Gradually, faith became such a part of your life that it was no different from t
           (str_store_string,s10,"@You are at {s2}."),
         (try_end),
         
+        ##diplomacy start+
+        (assign, ":save_reg0", reg0),#save variables
+        (assign, ":save_reg4", reg4),
+        (assign, reg0, 0),
+        (assign, reg4, 0),
+        (try_begin),#If there's a relation of some kind, write it to s11 (which we'll overwrite below)
+            (lt, ":center_lord", 1),
+        (else_try),
+            #your relative
+            (call_script, "script_troop_get_family_relation_to_troop", ":center_lord", "trp_player"),#outputs to s11, reg0, and reg4
+            (ge, reg0, 1),#Fall through if this not a relative
+        (else_try),
+            #your current liege
+            (eq, ":center_faction", "$players_kingdom"),
+            (is_between, ":center_faction", kingdoms_begin, kingdoms_end),#include fac_player_supporters_faction for claimant quest
+            (faction_slot_eq, ":center_faction", slot_faction_leader, ":center_lord"),
+            (str_store_string, s11, "@liege"),
+            (assign, reg0, 1),
+        (else_try),
+            #your former liege if you renounced a kingdom
+            (eq, ":center_faction", "$players_oath_renounced_against_kingdom"),
+            (is_between, ":center_faction", npc_kingdoms_begin, npc_kingdoms_end),
+            (faction_slot_eq, ":center_faction", slot_faction_leader, ":center_lord"),
+            (str_store_string, s11, "@former liege"),
+            (assign, reg0, 1),
+        (else_try),
+            #stop here for lords you haven't met, or non-hero troops
+            (this_or_next|neg|troop_is_hero, ":center_lord"),
+            (troop_slot_eq, ":center_lord", slot_troop_met, 0),
+        (else_try),
+            #check for affiliates
+            (call_script, "script_dplmc_is_affiliated_family_member", ":center_lord"),
+            (ge, reg0, 1),
+            (try_begin),
+                (ge, "$g_encountered_party_relation", 0),#don't say "ally" when you might fight them, as that's confusing
+                (str_store_string, s11, "str_dplmc_ally"),
+            (else_try),
+                (str_store_string, s11, "@affiliate"),
+            (try_end),
+        (else_try),
+            #check for former companions
+            (call_script, "script_troop_get_player_relation", ":center_lord"),
+            (is_between, ":center_lord", companions_begin, companions_end),
+            (neg|troop_slot_eq, ":center_lord", slot_troop_playerparty_history, dplmc_pp_history_nonplayer_entry),
+            (try_begin),
+               (ge, "$g_encountered_party_relation", 0),#don't say "ally" when you might fight them, as that's confusing
+               (ge, reg0, 50),
+               (str_store_string, s11, "str_dplmc_ally"),
+            (else_try),
+                (ge, "$g_encountered_party_relation", 0),
+                (ge, reg0, 20),
+                (str_store_string, s11, "str_dplmc_friend"),
+            (else_try),
+                (str_store_string, s11, "@former companion"),
+            (try_end),
+            (assign, reg0, 1),
+        (else_try),
+            #don't print "friend" if you might fight them
+            (lt, "$g_encountered_party_relation", 0),
+            (assign, reg0, 0),
+        (else_try),
+            #check for friends
+            (val_div, reg0, 50),#right now reg0 holds the relation with the player
+            (ge, reg0, 1),
+            (str_store_string, s11, "str_dplmc_friend"),
+        (else_try),
+            #check for marshall
+            (eq, ":center_faction", "$players_kingdom"),
+            (faction_slot_eq, ":center_faction", slot_faction_marshall, ":center_lord"),
+            (str_store_string, s11, "@marshall"),
+        (else_try),
+            #check for vassal of player if nothing else to say
+            (call_script, "script_dplmc_get_troop_standing_in_faction", "trp_player", ":center_faction"),
+            (val_add, reg0, 1),
+            (val_sub, reg0, DPLMC_FACTION_STANDING_LEADER_SPOUSE),
+            (ge, reg0, 1),
+            (str_store_string, s11, "@vassal"),
+        (else_try),
+            (assign, reg0, 0),
+        (try_end),
+        ##diplomacy end+		
+		
         (try_begin),
           (party_slot_eq,"$current_town",slot_party_type, spt_castle),
           (try_begin),
             (eq, ":center_lord", "trp_player"),
             (str_store_string,s11,"@ Your own banner flies over the castle gate."),
+          ##diplomacy start+ If reg0 > 0, a relation string was written to {s11} above
+          (else_try),
+            (ge, reg0, 1),
+            (str_store_string, s11, "@ You see the banner of your {s11} {s7} over the castle gate."),
+          ##diplomacy end+			
 		  (else_try),
 			(gt, ":center_lord", -1),
 			(troop_slot_eq, ":center_lord", slot_troop_spouse, "trp_player"),
@@ -8707,6 +11559,11 @@ Gradually, faith became such a part of your life that it was no different from t
           (try_begin),
             (eq, ":center_lord", "trp_player"),
             (str_store_string,s11,"@ Your own banner flies over the town gates."),
+          ##diplomacy start+ If reg0 > 0, a relation string was written to {s11} above
+          (else_try),
+            (ge, reg0, 1),
+            (str_store_string, s11, "@ The banner of your {s11} {s7} flies over the town gates."),
+          ##diplomacy end+			
 		  (else_try),	
 			(gt, ":center_lord", -1),
 			(troop_slot_eq, ":center_lord", slot_troop_spouse, "trp_player"),
@@ -8718,6 +11575,10 @@ Gradually, faith became such a part of your life that it was no different from t
             (str_store_string,s11,"@ This town has no garrison."),
           (try_end),
         (try_end),
+        ##diplomacy start+
+        (assign, reg0, ":save_reg0"),#revert variables
+        (assign, reg4, ":save_reg4"),
+        ##diplomacy end+		
 
         (str_clear, s12),
         (try_begin),
@@ -8737,6 +11598,28 @@ Gradually, faith became such a part of your life that it was no different from t
 		  (faction_slot_eq, ":center_faction", slot_faction_ai_object, "$current_town"),
 		  
           (str_store_string, s13, "str__the_lord_is_currently_holding_a_feast_in_his_hall"),
+        (else_try), #SB : we use this incidental information to reflect on the player's residence/court
+          (troop_get_slot, ":player_spouse", "trp_player", slot_troop_spouse),
+          (try_begin),
+            (lt, ":player_spouse", 0), #to make registers work
+            (assign, ":player_spouse", 0), 
+          (else_try),
+            (neg|troop_slot_eq, ":player_spouse", slot_troop_occupation, slto_kingdom_lady),
+            (neg|troop_slot_eq, ":player_spouse", slot_troop_cur_center, "$current_town"),
+            (assign, ":player_spouse", 0),
+          (try_end),
+          (try_begin),
+            (eq, "$g_player_court", "$current_town"),
+            (assign, reg0, ":player_spouse"),
+            (store_and, reg1, "$players_kingdom_name_set", rename_center), #check if it's "court" or "capital"
+            (str_store_troop_name, s0, ":player_spouse"),
+            (str_store_string, s13, "@ Your {reg1?capital is:court can be found} here{reg0? with your spouse, {s0} in residence:}."),
+          (else_try),
+            (neq, "$g_player_court", "$current_town"),
+            (gt, ":player_spouse", 0),
+            (troop_slot_eq, ":player_spouse", slot_troop_cur_center, "$current_town"),
+            (str_store_string, s13, "@ Your household can be found here."),
+          (try_end),		  
         (try_end),
 
         (str_clear, s15),
@@ -8793,7 +11676,7 @@ Gradually, faith became such a part of your life that it was no different from t
       [        
         (party_slot_eq,"$current_town",slot_party_type, spt_castle),        
         
-        (eq, "$sneaked_into_town", 0),         
+        (eq, "$sneaked_into_town", disguise_none),
         
         (str_clear, s1),
         (try_begin),
@@ -8802,12 +11685,21 @@ Gradually, faith became such a part of your life that it was no different from t
           (faction_slot_eq, ":center_faction", slot_faction_ai_object, "$current_town"),
           (str_store_string, s1, "str__join_the_feast"),
         (try_end),
-        ],"Go to the Lord's hall{s1}.",
+        #SB : some gender string tweaks
+        (try_begin),
+          (party_get_slot, ":town_lord", "$current_town", slot_town_lord),
+          (lt, ":town_lord", 0),
+          (assign, reg4, 0), #default to lord
+        (else_try),
+          (call_script, "script_dplmc_store_troop_is_female_reg", ":town_lord", 4),
+        (try_end),
+        #possibly replace "the" with "your"
+        ],"Go to the {reg4?Lady:Lord}'s hall{s1}.",
        [          
            (try_begin),
              (this_or_next|eq, "$all_doors_locked", 1),
-             (eq, "$sneaked_into_town", 1),           
-             (display_message,"str_door_locked",0xFFFFAAAA),
+             (gt, "$sneaked_into_town", disguise_none),
+             (display_message,"str_door_locked",message_locked),
            (else_try),
 		     (this_or_next|neq, "$players_kingdom", "$g_encountered_party_faction"),
 		     (neg|troop_slot_ge, "trp_player", slot_troop_renown, 50),
@@ -8826,10 +11718,15 @@ Gradually, faith became such a part of your life that it was no different from t
 		   (else_try),
              (assign, "$town_entered", 1),
              (call_script, "script_enter_court", "$current_town"),
+             (party_set_slot, "$current_town", slot_party_temp_slot_1, 0), #SB : visit filter			 
            (try_end),
         ], "Door to the castle."),
 		
-      ("join_tournament", [(neg|is_currently_night),(party_slot_ge, "$current_town", slot_town_has_tournament, 1),]
+      ("join_tournament", [
+        (neg|is_currently_night),
+        (party_slot_ge, "$current_town", slot_town_has_tournament, 1),
+        (eq,"$entry_to_town_forbidden",0), #SB : can't participate while disguised
+        ]
        ,"Join the tournament.",
        [   (call_script, "script_setup_town_tournament", "$current_town"),
            (jump_to_menu, "mnu_town_tournament"),
@@ -8850,8 +11747,8 @@ Gradually, faith became such a part of your life that it was no different from t
        [           
            (try_begin),
              (this_or_next|eq, "$all_doors_locked", 1),
-             (eq, "$sneaked_into_town", 1),           
-             (display_message,"str_door_locked",0xFFFFAAAA),
+             (gt, "$sneaked_into_town", disguise_none),
+             (display_message,"str_door_locked",message_locked),
            (else_try),
 		     (this_or_next|neq, "$players_kingdom", "$g_encountered_party_faction"),
 		     (neg|troop_slot_ge, "trp_player", slot_troop_renown, 50),
@@ -8870,23 +11767,213 @@ Gradually, faith became such a part of your life that it was no different from t
 			(else_try),
 			  (assign, "$town_entered", 1),              
               (call_script, "script_enter_court", "$current_town"),
+              (party_set_slot, "$current_town", slot_party_temp_slot_1, 0), #SB : visit filter			  
            (try_end),
         ], "Door to the castle."),
       
       ("town_center",
-      [                        
+      [
         (party_slot_eq, "$current_town", slot_party_type, spt_town),
         (this_or_next|eq,"$entry_to_town_forbidden",0),
-        (eq, "$sneaked_into_town",1)
+        (gt, "$sneaked_into_town", disguise_none), #SB : condition for disguise
       ],
       "Take a walk around the streets.",
-       [(call_script,"script_enter_streets","$current_town"),
+       [
+         #If the player is fighting his or her way out
+         (try_begin),
+           (eq, "$talk_context", tc_prison_break),
+           (assign, "$talk_context", tc_escape),
+           (assign, "$g_mt_mode", tcm_escape),
+           (store_faction_of_party, ":town_faction", "$current_town"),
+           (try_begin), #SB : this really shouldn't be happening but we'll check player faction center anyway
+             (neg|is_between, ":town_faction", npc_kingdoms_begin, kingdoms_end),
+             (party_get_slot, ":town_faction", "$current_town", slot_center_original_faction),
+           (try_end),
+           (faction_get_slot, ":tier_2_troop", ":town_faction", slot_faction_tier_3_troop),
+           (faction_get_slot, ":tier_3_troop", ":town_faction", slot_faction_tier_3_troop),
+           (faction_get_slot, ":tier_4_troop", ":town_faction", slot_faction_tier_4_troop),
+           (party_get_slot, ":town_scene", "$current_town", slot_town_center),
+           (modify_visitors_at_site, ":town_scene"),
+           (reset_visitors),
+           #SB : TODO : take account slot_center_has_prisoner_tower
+           #ideally we could alarm troops at locations
+           (try_begin),
+            #if guards have not gone to some other important happening at nearby villages, then spawn 4 guards. (example : fire)
+             (party_get_slot, ":last_nearby_fire_time", "$current_town", slot_town_last_nearby_fire_time),
+             (store_current_hours, ":cur_time"),
+             (store_add, ":fire_finish_time", ":last_nearby_fire_time", fire_duration),
+
+             (neg|is_between, ":cur_time", ":last_nearby_fire_time", ":fire_finish_time"),
+             (store_time_of_day, ":cur_day_hour"),
+             (try_begin), #there are 6 guards at day time (no fire ext)
+               (ge, ":cur_day_hour", 6),
+               (lt, ":cur_day_hour", 22),
+               (set_visitors, 25, ":tier_2_troop", 2),
+               (set_visitors, 26, ":tier_2_troop", 1),
+               (set_visitors, 27, ":tier_3_troop", 2),
+               (set_visitors, 28, ":tier_4_troop", 1),
+             (else_try),  #only 4 guards because of night
+               (set_visitors, 25, ":tier_2_troop", 1),
+               (set_visitors, 26, ":tier_2_troop", 1),
+               (set_visitors, 27, ":tier_3_troop", 1),
+               (set_visitors, 28, ":tier_4_troop", 1),
+             (try_end),
+           (else_try),
+            #if guards have gone to some other important happening at nearby villages, then spawn only 1 guard. (example : fire)
+             (store_time_of_day, ":cur_day_hour"),
+             (try_begin), #only 2 guard because there is a fire at one owned village
+               (ge, ":cur_day_hour", 6),
+               (lt, ":cur_day_hour", 22),
+               (set_visitors, 25, ":tier_2_troop", 1),
+               (set_visitors, 26, ":tier_2_troop", 0),
+               (set_visitors, 27, ":tier_3_troop", 1),
+               (set_visitors, 28, ":tier_4_troop", 0),
+             (else_try), #only 1 guard because both night and there is a fire at one owned village
+               (set_visitors, 25, ":tier_2_troop", 1),
+               (set_visitors, 26, ":tier_2_troop", 0),
+               (set_visitors, 27, ":tier_3_troop", 0),
+               (set_visitors, 28, ":tier_4_troop", 0),
+             (try_end),
+           (try_end),
+           (set_jump_mission,"mt_town_center"),
+           (try_begin),
+             (gt, "$sneaked_into_town", disguise_none), #setup disguise
+             (assign, ":override_state", af_override_everything),
+           
+             #SB : override disguise and set flags for entries
+             (eq, "$g_dplmc_player_disguise", 1),
+             (try_for_range, ":entry_no", 0, 8),
+               (mission_tpl_entry_set_override_flags, "mt_town_center", ":entry_no", ":override_state"),
+               (call_script, "script_set_disguise_override_items", "mt_town_center", ":entry_no", 1),
+             (try_end),
+           (try_end),
+           (jump_to_scene, ":town_scene"),
+           (change_screen_mission),
+            #If you're already at escape, then talk context will reset
+         (else_try),
+           (assign, "$talk_context", 0),
+           (call_script, "script_cf_enter_center_location_bandit_check"),
+           #All other circumstances...
+         (else_try),
+           (party_get_slot, ":town_scene", "$current_town", slot_town_center),
+           (modify_visitors_at_site, ":town_scene"),
+           (reset_visitors),
+           (assign, "$g_mt_mode", tcm_default),
+           #SB : redo guard troops with fallbacks
+           (assign, ":town_faction", "$g_encountered_party_faction"),
+           (assign, ":troop_prison_guard", -1),
+           (assign, ":troop_castle_guard", -1),
+           (assign, ":tier_2_troop", -1),
+           (assign, ":tier_3_troop", -1),
+           (try_begin),
+             (eq, ":town_faction", "fac_player_supporters_faction"),
+             (is_between, "$g_player_culture", npc_kingdoms_begin, npc_kingdoms_end),
+             (assign, ":town_faction", "$g_player_culture"), #we could copy the culture-specific settings
+           (else_try), #SB : override based on culture
+             (party_slot_eq, "$current_town", slot_town_lord, "trp_player"),
+             (eq, "$g_player_culture", 0),
+             (faction_get_slot, ":troop_prison_guard", ":town_faction", slot_faction_prison_guard_troop),
+             (faction_get_slot, ":troop_castle_guard", ":town_faction", slot_faction_castle_guard_troop),
+             # (eq, ":town_faction", "fac_player_supporters_faction"),
+             # (assign, ":town_faction", "fac_player_supporters_faction"), #do nothing
+           (else_try), #fallback
+             (neg|is_between, ":town_faction", npc_kingdoms_begin, npc_kingdoms_end),
+             (neg|is_between, ":town_faction", cultures_begin, cultures_end),
+             (party_get_slot, ":town_faction", "$current_town", slot_center_original_faction),
+           (try_end),
+           (try_begin),
+             (le, ":troop_prison_guard", 0),
+             (faction_get_slot, ":troop_prison_guard", ":town_faction", slot_faction_prison_guard_troop),
+           (try_end),
+           (try_begin),
+             (le, ":troop_castle_guard", 0),
+             (faction_get_slot, ":troop_castle_guard", ":town_faction", slot_faction_castle_guard_troop),
+           (try_end),
+           (try_begin),
+             (le, ":tier_2_troop", 0),
+             (faction_get_slot, ":tier_2_troop", ":town_faction", slot_faction_tier_2_troop),
+           (try_end),
+           (try_begin),
+             (le, ":tier_3_troop", 0),
+             (faction_get_slot, ":tier_3_troop", ":town_faction", slot_faction_tier_3_troop),
+           (try_end),
+           (try_begin), #think about this, should castle guard have to go nearby fire too? If he do not go, killing 2 armored guard is too hard for player. For now he goes too.
+             #if guards have not gone to some other important happening at nearby villages, then spawn 4 guards. (example : fire)
+             (party_get_slot, ":last_nearby_fire_time", "$current_town", slot_town_last_nearby_fire_time),
+             (store_current_hours, ":cur_time"),
+             (store_add, ":fire_finish_time", ":last_nearby_fire_time", fire_duration),
+
+             (neg|is_between, ":cur_time", ":last_nearby_fire_time", ":fire_finish_time"),
+             (set_visitor, 23, ":troop_castle_guard"),
+           (try_end),
+           (set_visitor, 24, ":troop_prison_guard"),
+
+           (try_begin),
+             (gt,":tier_2_troop", 0),
+             (assign,reg0,":tier_3_troop"),
+             (assign,reg1,":tier_3_troop"),
+             (assign,reg2,":tier_2_troop"),
+             (assign,reg3,":tier_2_troop"),
+           (else_try), #SB : wtf is this
+             (assign,reg0,"trp_vaegir_infantry"),
+             (assign,reg1,"trp_vaegir_infantry"),
+             (assign,reg2,"trp_vaegir_archer"),
+             (assign,reg3,"trp_vaegir_footman"),
+           (try_end),
+           (shuffle_range,0,4),
+
+           (try_begin),
+             #if guards have not gone to some other important happening at nearby villages, then spawn 4 guards. (example : fire)
+             (party_get_slot, ":last_nearby_fire_time", "$current_town", slot_town_last_nearby_fire_time),
+             (store_current_hours, ":cur_time"),
+             (store_add, ":fire_finish_time", ":last_nearby_fire_time", fire_duration),
+
+             (neg|is_between, ":cur_time", ":last_nearby_fire_time", ":fire_finish_time"),
+             (set_visitor,25,reg0),
+             (set_visitor,26,reg1),
+             (set_visitor,27,reg2),
+             (set_visitor,28,reg3),
+           (try_end),
+
+           (party_get_slot, ":spawned_troop", "$current_town", slot_town_armorer),
+           (set_visitor, 9, ":spawned_troop"),
+           (party_get_slot, ":spawned_troop", "$current_town", slot_town_weaponsmith),
+           (set_visitor, 10, ":spawned_troop"),
+           (party_get_slot, ":spawned_troop", "$current_town", slot_town_elder),
+           (set_visitor, 11, ":spawned_troop"),
+           (party_get_slot, ":spawned_troop", "$current_town", slot_town_horse_merchant),
+           (set_visitor, 12, ":spawned_troop"),
+           (call_script, "script_init_town_walkers"),
+           (set_jump_mission,"mt_town_center"),
+           # (assign, ":override_state", af_override_horse), #SB : dynamic entry conditions
+
+           (try_begin), #1 is first entrance, allow horses
+             (eq, "$town_entered", 0),
+             (assign, "$town_entered", 1),
+             (eq, "$town_nighttime", 0),
+             (set_jump_entry, 1),
+             (assign, ":override_state", 0),
+           (else_try),
+             (assign, ":override_state", af_override_horse),
+           (try_end),
+           (try_begin),
+             (gt, "$sneaked_into_town", disguise_none), #setup disguise
+             (assign, ":override_state", af_override_everything),
+           (try_end),
+           #SB : override disguise and set flags for entries, moved block down
+           (try_for_range, ":entry_no", 0, 8),
+             (mission_tpl_entry_set_override_flags, "mt_town_center", ":entry_no", ":override_state"),
+             (call_script, "script_set_disguise_override_items", "mt_town_center", ":entry_no", 1),
+           (try_end),
+           (jump_to_scene, ":town_scene"),
+           (change_screen_mission),
+         (try_end),
       ],"Door to the town center."),
       
       ("town_tavern",[
           (party_slot_eq,"$current_town",slot_party_type, spt_town),
           (this_or_next|eq,"$entry_to_town_forbidden",0),
-          (eq, "$sneaked_into_town",1),
+          (gt, "$sneaked_into_town", disguise_none),
 #          (party_get_slot, ":scene", "$current_town", slot_town_tavern),
 #          (scene_slot_eq, ":scene", slot_scene_visited, 1), #check if scene has been visited before to allow entry from menu. Otherwise scene will only be accessible from the town center.
           ]
@@ -8894,11 +11981,248 @@ Gradually, faith became such a part of your life that it was no different from t
        [
            (try_begin),
              (eq,"$all_doors_locked",1),
-             (display_message,"str_door_locked",0xFFFFAAAA),
+             (display_message,"str_door_locked",message_locked),
            (else_try),
              (call_script, "script_cf_enter_center_location_bandit_check"),
            (else_try),
-		     (call_script,"script_enter_tavern","$current_town"),
+             (assign, "$town_entered", 1),
+             (set_jump_mission, "mt_town_default"),
+             (mission_tpl_entry_set_override_flags, "mt_town_default", 0, af_override_horse),
+             (try_begin), #SB : adjust sneaking overrides
+               (gt, "$sneaked_into_town", disguise_none),
+               (mission_tpl_entry_set_override_flags, "mt_town_default", 0, af_override_everything),
+               (call_script, "script_set_disguise_override_items", "mt_town_default", 0, 1), #need weaposn for tavern fights
+             (try_end),
+             (party_get_slot, ":cur_scene", "$current_town", slot_town_tavern),
+             (jump_to_scene, ":cur_scene"),
+             (scene_set_slot, ":cur_scene", slot_scene_visited, 1),
+
+             (assign, "$talk_context", tc_tavern_talk),
+             (call_script, "script_initialize_tavern_variables"),
+
+             (store_random_in_range, ":randomize_attacker_placement", 0, 4),
+
+             (modify_visitors_at_site, ":cur_scene"),
+             (reset_visitors),
+
+             (assign, ":cur_entry", 17),
+
+			 #this is just a cheat right now
+             #(troop_set_slot, "trp_belligerent_drunk", slot_troop_cur_center, "$g_encountered_party"),
+			 (try_begin),
+				(eq, "$cheat_mode", 1),
+				(troop_get_slot, ":drunk_location", "trp_belligerent_drunk", slot_troop_cur_center),
+				(try_begin),
+					(eq, "$cheat_mode", 0),
+				(else_try),
+					(is_between, ":drunk_location", centers_begin, centers_end),
+					(str_store_party_name, s4, ":drunk_location"),
+					(display_message, "str_belligerent_drunk_in_s4"),
+			    (else_try),
+					(display_message, "str_belligerent_drunk_not_found"),
+				(try_end),
+
+				# (troop_get_slot, ":promoter_location", "trp_fight_promoter", slot_troop_cur_center),
+				# (try_begin),
+					# (eq, "$cheat_mode", 0),
+				# (else_try),
+					# (is_between, ":promoter_location", centers_begin, centers_end),
+					# (str_store_party_name, s4, ":promoter_location"),
+					# (display_message, "str_roughlooking_character_in_s4"),
+			    # (else_try),
+					# (display_message, "str_roughlooking_character_not_found"),
+				# (try_end),
+			 (try_end),
+
+			 #this determines whether or not a lord who dislikes you will commission an assassin
+			 (try_begin),
+				(store_current_hours, ":hours"),
+				(store_sub, ":hours_since_last_attempt", ":hours", "$g_last_assassination_attempt_time"),
+				(gt, ":hours_since_last_attempt", 168),
+				##diplomacy start+ Support ladies owning fiefs
+				#(try_for_range, ":lord", active_npcs_begin, active_npcs_end),
+				(try_for_range, ":lord", heroes_begin, heroes_end),
+					(this_or_next|is_between, ":lord", active_npcs_begin, active_npcs_end),
+						(troop_slot_eq, ":lord", slot_troop_occupation, slto_kingdom_hero),
+					#Make sure they're not retired or dead
+					(neg|troop_slot_ge, ":lord", slot_troop_occupation, slto_retirement),
+					#add support for non-noble personalities
+					(this_or_next|troop_slot_eq, ":lord", slot_lord_reputation_type, lrep_ambitious),#"Lady MacBeth"
+					(this_or_next|troop_slot_eq, ":lord", slot_lord_reputation_type, lrep_roguish),
+					##diplomacy end+
+					(troop_slot_eq, ":lord", slot_lord_reputation_type, lrep_debauched),
+					(troop_get_slot, ":led_party", ":lord", slot_troop_leaded_party),
+					(party_is_active, ":led_party"),
+					(party_get_attached_to, ":led_party_attached", ":led_party"),
+					(eq, ":led_party_attached", "$g_encountered_party"),
+					(call_script, "script_troop_get_relation_with_troop", "trp_player", ":lord"),
+					(lt, reg0, -20),
+					(assign, "$g_last_assassination_attempt_time", ":hours"),
+#					(assign, "$g_last_assassination_attempt_location", "$g_encountered_party"),
+#					(assign, "$g_last_assassination_attempt_perpetrator", ":lord"),
+
+					(troop_set_slot, "trp_hired_assassin", slot_troop_cur_center, "$g_encountered_party"),
+				(try_end),
+				##diplomacy start+
+				#"Lady MacBeth" noblewomen will also attempt to have people killed on their husbands' behalf.
+				(lt, "$g_last_assassination_attempt_time", ":hours"),
+				(neg|troop_slot_eq, "trp_hired_assassin", slot_troop_cur_center, "$g_encountered_party"),
+				(try_for_range, ":lady", kingdom_ladies_begin, kingdom_ladies_end),
+					(troop_slot_eq, ":lady", slot_troop_cur_center, "$g_encountered_party"),
+					(troop_slot_eq, ":lady", slot_lord_reputation_type, lrep_ambitious),#"Lady MacBeth"
+					(troop_slot_eq, ":lady", slot_troop_occupation, slto_kingdom_lady),
+
+					(call_script, "script_troop_get_player_relation", ":lady"),
+					(lt, reg0, 1),
+					#Will send an assassin if she doesn't like the player, and either she or her husband
+					#is at -20 or worse with the player.
+					(try_begin),
+						(ge, reg0, -20),
+						(troop_slot_ge, ":lady", slot_troop_spouse, 1),
+						(troop_get_slot, reg0, ":lady", slot_troop_spouse),
+						(call_script, "script_troop_get_player_relation", reg0),
+					(try_end),
+					(lt, reg0, -20),
+
+					(assign, "$g_last_assassination_attempt_time", ":hours"),
+					(troop_set_slot, "trp_hired_assassin", slot_troop_cur_center, "$g_encountered_party"),
+				(try_end),
+				##diplomacy end+
+			 (try_end),
+
+			 (try_begin),
+				 (eq, ":randomize_attacker_placement", 0),
+				 (call_script, "script_setup_tavern_attacker", ":cur_entry"),
+
+				 (val_add, ":cur_entry", 1),
+			 (try_end),
+
+			 # (try_begin),
+				# (eq, 1, 0),
+				# (troop_slot_eq, "trp_fight_promoter", slot_troop_cur_center, "$current_town"),
+                # (set_visitor, ":cur_entry", "trp_fight_promoter"),
+
+                # (val_add, ":cur_entry", 1),
+			 # (try_end),
+
+             (party_get_slot, ":mercenary_troop", "$current_town", slot_center_mercenary_troop_type),
+             (party_get_slot, ":mercenary_amount", "$current_town", slot_center_mercenary_troop_amount),
+             (try_begin),
+               (gt, ":mercenary_troop", 0),
+               (gt, ":mercenary_amount", 0),
+               (set_visitor, ":cur_entry", ":mercenary_troop"),
+               (val_add, ":cur_entry", 1),
+             (try_end),
+
+			 (try_begin),
+				 (eq, ":randomize_attacker_placement", 1),
+				 (call_script, "script_setup_tavern_attacker", ":cur_entry"),
+				 (val_add, ":cur_entry", 1),
+			 (try_end),
+
+             (try_for_range, ":companion_candidate", companions_begin, companions_end),
+               (troop_slot_eq, ":companion_candidate", slot_troop_occupation, 0),
+               (troop_slot_eq, ":companion_candidate", slot_troop_cur_center, "$current_town"),
+               (neg|troop_slot_ge, ":companion_candidate", slot_troop_prisoner_of_party, centers_begin),
+
+               (set_visitor, ":cur_entry", ":companion_candidate"),
+
+               (val_add, ":cur_entry", 1),
+             (try_end),
+
+			 (try_begin),
+				 (eq, ":randomize_attacker_placement", 2),
+				 (call_script, "script_setup_tavern_attacker", ":cur_entry"),
+				 (val_add, ":cur_entry", 1),
+			 (try_end),
+
+             (try_begin), #this doubles the incidence of ransom brokers and (below) minstrels
+               (party_get_slot, ":ransom_broker", "$current_town", slot_center_ransom_broker),
+               (gt, ":ransom_broker", 0),
+
+               # (assign, reg0, ":ransom_broker"),
+               # (assign, reg1, "$current_town"),
+
+               (set_visitor, ":cur_entry", ":ransom_broker"),
+               (val_add, ":cur_entry", 1),
+             (else_try), #SB : move to script call
+               # (is_between, "$g_talk_troop", ransom_brokers_begin, ransom_brokers_end), #wtf is this
+               (call_script, "script_cf_find_alternative_town_for_taverngoers", "$current_town", 9),
+               (assign, ":alternative_town", reg0),
+
+               (party_get_slot, ":ransom_broker", ":alternative_town", slot_center_ransom_broker),
+               (is_between, ":ransom_broker", ransom_brokers_begin, ransom_brokers_end), #prevent ramun and galeas from spawning other towns
+
+               (set_visitor, ":cur_entry", ":ransom_broker"),
+               (val_add, ":cur_entry", 1),
+             (try_end),
+
+             (try_begin),
+               (party_get_slot, ":tavern_traveler", "$current_town", slot_center_tavern_traveler),
+               (is_between, ":tavern_traveler", tavern_travelers_begin, tavern_travelers_end), #SB : range check
+               (set_visitor, ":cur_entry", ":tavern_traveler"),
+               (val_add, ":cur_entry", 1),
+             (try_end),
+
+             (try_begin),
+               (party_get_slot, ":tavern_minstrel", "$current_town", slot_center_tavern_minstrel),
+               (is_between, ":tavern_minstrel", tavern_minstrels_begin, tavern_minstrels_end), #SB : range check
+
+               (set_visitor, ":cur_entry", ":tavern_minstrel"),
+               (val_add, ":cur_entry", 1),
+             (else_try), #SB : move to script call
+               (call_script, "script_cf_find_alternative_town_for_taverngoers", "$current_town", 9),
+               (assign, ":alternative_town", reg0),
+               (party_get_slot, ":tavern_minstrel", ":alternative_town", slot_center_tavern_minstrel),
+               (is_between, ":tavern_minstrel", tavern_minstrels_begin, tavern_minstrels_end), #SB : range check
+
+               (set_visitor, ":cur_entry", ":tavern_minstrel"),
+               (val_add, ":cur_entry", 1),
+             (try_end),
+
+             (try_begin),
+               (party_get_slot, ":tavern_bookseller", "$current_town", slot_center_tavern_bookseller),
+               (is_between, ":tavern_bookseller", tavern_booksellers_begin, tavern_booksellers_end),
+               (set_visitor, ":cur_entry", ":tavern_bookseller"),
+               (val_add, ":cur_entry", 1),
+             (try_end),
+
+             (try_begin),
+                 (eq, ":randomize_attacker_placement", 3),
+                 (call_script, "script_setup_tavern_attacker", ":cur_entry"),
+                 (val_add, ":cur_entry", 1),
+             (try_end),
+
+             (try_begin),
+               (neg|check_quest_active, "qst_eliminate_bandits_infesting_village"),
+               (neg|check_quest_active, "qst_deal_with_bandits_at_lords_village"),
+               (assign, ":end_cond", villages_end),
+               (try_for_range, ":cur_village", villages_begin, ":end_cond"),
+                 (party_slot_eq, ":cur_village", slot_village_bound_center, "$current_town"),
+                 (party_slot_ge, ":cur_village", slot_village_infested_by_bandits, 1),
+                 (neg|party_slot_eq, ":cur_village", slot_town_lord, "trp_player"),
+                 (set_visitor, ":cur_entry", "trp_farmer_from_bandit_village"),
+                 (val_add, ":cur_entry", 1),
+                 (assign, ":end_cond", 0),
+               (try_end),
+             (try_end),
+
+             (try_begin),
+               (eq, "$g_starting_town", "$current_town"),
+
+               (this_or_next|neg|check_quest_finished, "qst_collect_men"),
+               (this_or_next|neg|check_quest_finished, "qst_learn_where_merchant_brother_is"),
+               (this_or_next|neg|check_quest_finished, "qst_save_relative_of_merchant"),
+               (this_or_next|neg|check_quest_finished, "qst_save_town_from_bandits"),
+               (eq,  "$g_do_one_more_meeting_with_merchant", 1),
+
+               #SB : offset for merchant troop
+               (call_script, "script_get_troop_of_merchant"),
+               (set_visitor, ":cur_entry", reg0),
+               (val_add, ":cur_entry", 1),
+             (try_end),
+
+             (change_screen_mission),
            (try_end),
         ],"Door to the tavern."),
                                
@@ -8907,39 +12231,45 @@ Gradually, faith became such a part of your life that it was no different from t
            (eq, 1, 0),
            (eq,"$town_nighttime",0),
            (this_or_next|eq,"$entry_to_town_forbidden",0),
-           (eq, "$sneaked_into_town",1),
+           (gt, "$sneaked_into_town", disguise_none), #SB : disguise const
+#           (party_get_slot, ":scene", "$current_town", slot_town_store),
+#           (scene_slot_eq, ":scene", slot_scene_visited, 1), #check if scene has been visited before to allow entry from menu. Otherwise scene will only be accessible from the town center.
            ],
        "Speak with the merchant.",
-       [           
+       [
            (try_begin),
              (this_or_next|eq,"$all_doors_locked",1),
              (eq,"$town_nighttime",1),
-             (display_message,"str_door_locked",0xFFFFAAAA),
+             (display_message,"str_door_locked",message_locked),
            (else_try),
              (assign, "$town_entered", 1),
              (set_jump_mission, "mt_town_default"),
              (mission_tpl_entry_set_override_flags, "mt_town_default", 0, af_override_horse),
              (try_begin),
-               (eq, "$sneaked_into_town",1),
+               (gt, "$sneaked_into_town", disguise_none),
                (mission_tpl_entry_set_override_flags, "mt_town_default", 0, af_override_all),
+               (call_script, "script_set_disguise_override_items", "mt_town_default", 0, 1), #dckplmc: need weaposn for tavern fights
+
              (try_end),
              (party_get_slot, ":cur_scene", "$current_town", slot_town_store),
              (jump_to_scene, ":cur_scene"),
              (scene_set_slot, ":cur_scene", slot_scene_visited, 1),
              (change_screen_mission),
            (try_end),
-        ],"Door to the shop."),       
-                
+        ],"Door to the shop."),
+
       ("town_arena",
        [(party_slot_eq,"$current_town",slot_party_type, spt_town),
-        (eq, "$sneaked_into_town", 0),
+        (eq, "$sneaked_into_town", disguise_none),  #SB : disguise const
+#           (party_get_slot, ":scene", "$current_town", slot_town_arena),
+#           (scene_slot_eq,  ":scene", slot_scene_visited, 1), #check if scene has been visited before to allow entry from menu. Otherwise scene will only be accessible from the town center.
            ],
        "Enter the arena.",
        [
            (try_begin),
              (this_or_next|eq,"$all_doors_locked",1),
              (eq,"$town_nighttime",1),
-             (display_message,"str_door_locked",0xFFFFAAAA),
+             (display_message,"str_door_locked",message_locked),
            (else_try),
              (assign, "$g_mt_mode", abm_visit),
              (assign, "$town_entered", 1),
@@ -8958,11 +12288,11 @@ Gradually, faith became such a part of your life that it was no different from t
       ("town_dungeon",
        [(eq, 1, 0)],
        "Never: Enter the prison.",
-       [	   
+       [
            (try_begin),
 		    (eq, "$talk_context", tc_prison_break),
 			(gt, "$g_main_attacker_agent", 0),
-			
+
 		   	(neg|agent_is_alive, "$g_main_attacker_agent"),
 
 			(agent_get_troop_id, ":agent_type", "$g_main_attacker_agent"),
@@ -8979,18 +12309,18 @@ Gradually, faith became such a part of your life that it was no different from t
 
 		   (else_try),
              (eq,"$all_doors_locked",1),
-             (display_message,"str_door_locked",0xFFFFAAAA),
+             (display_message,"str_door_locked",message_locked),
            (else_try),
              (this_or_next|party_slot_eq, "$current_town", slot_town_lord, "trp_player"),
              (eq, "$g_encountered_party_faction", "$players_kingdom"),
              (assign, "$town_entered", 1),
              (call_script, "script_enter_dungeon", "$current_town", "mt_visit_town_castle"),
            (else_try),
-             (display_message,"str_door_locked",0xFFFFAAAA),
+             (display_message,"str_door_locked",message_locked),
            (try_end),
         ],"Door to the dungeon."),
-		
-      ("castle_inspect", 
+
+      ("castle_inspect",
       [
          (party_slot_eq,"$current_town",slot_party_type, spt_castle),
       ],
@@ -8999,19 +12329,19 @@ Gradually, faith became such a part of your life that it was no different from t
          (try_begin),
            (eq, "$talk_context", tc_prison_break),
            (assign, "$talk_context", tc_escape),
-           
+
            (party_get_slot, ":cur_castle_exterior", "$current_town", slot_castle_exterior),
            (modify_visitors_at_site, ":cur_castle_exterior"),
            (reset_visitors),
-           
+
            (assign, ":guard_no", 40),
-           
+
            (party_get_num_companion_stacks, ":num_stacks", "$g_encountered_party"),
            (try_for_range, ":troop_iterator", 0, ":num_stacks"),
              #nearby fire condition start
              (party_get_slot, ":last_nearby_fire_time", "$current_town", slot_town_last_nearby_fire_time),
              (store_current_hours, ":cur_time"),
-             (store_add, ":fire_finish_time", ":last_nearby_fire_time", fire_duration),  
+             (store_add, ":fire_finish_time", ":last_nearby_fire_time", fire_duration),
              (this_or_next|eq, ":guard_no", 40),
              (neg|is_between, ":cur_time", ":last_nearby_fire_time", ":fire_finish_time"),
              #nearby fire condition end
@@ -9026,19 +12356,30 @@ Gradually, faith became such a part of your life that it was no different from t
              (party_stack_get_troop_dna,":troop_dna", "$g_encountered_party", ":troop_iterator"),
              (set_visitor, ":guard_no", ":cur_troop_id", ":troop_dna"),
              (val_add, ":guard_no", 1),
-           (try_end),                      
-           #(set_jump_entry, 1),           
-           (set_visitor, 7, "$g_player_troop"),
+           (try_end),
+           #(set_jump_entry, 1),
+           (set_visitor, 7, "trp_player"), #SB : g_player_troop back to trp_player
 
            (set_jump_mission,"mt_castle_visit"),
+           (try_begin),
+             (gt, "$sneaked_into_town", disguise_none), #setup disguise
+             (assign, ":override_state", af_override_everything),
+             #SB : override disguise and set flags for entries
+             (eq, "$g_dplmc_player_disguise", 1),
+             (try_for_range, ":entry_no", 0, 8),
+               (mission_tpl_entry_set_override_flags, "mt_castle_visit", ":entry_no", af_override_everything),
+               (call_script, "script_set_disguise_override_items", "mt_castle_visit", ":entry_no", 1),
+             (try_end),
+           (try_end),
+           
            (jump_to_scene, ":cur_castle_exterior"),
            (change_screen_mission),
-            #If you're already at escape, then talk context will reset            
-         (else_try),                   
+            #If you're already at escape, then talk context will reset
+         (else_try),
            (assign, "$talk_context", tc_town_talk),
-           
+
            (assign, "$g_mt_mode", tcm_default),
-           
+
            (party_get_slot, ":cur_castle_exterior", "$current_town", slot_castle_exterior),
            (modify_visitors_at_site,":cur_castle_exterior"),
            (reset_visitors),
@@ -9051,15 +12392,15 @@ Gradually, faith became such a part of your life that it was no different from t
              (faction_get_slot, ":troop_prison_guard", ":town_original_faction", slot_faction_prison_guard_troop),
            (try_end),
            (set_visitor, 24, ":troop_prison_guard"),
-           
+
            (assign, ":guard_no", 40),
-           
+
            (party_get_num_companion_stacks, ":num_stacks", "$g_encountered_party"),
            (try_for_range, ":troop_iterator", 0, ":num_stacks"),
              #nearby fire condition start
              (party_get_slot, ":last_nearby_fire_time", "$current_town", slot_town_last_nearby_fire_time),
              (store_current_hours, ":cur_time"),
-             (store_add, ":fire_finish_time", ":last_nearby_fire_time", fire_duration),  
+             (store_add, ":fire_finish_time", ":last_nearby_fire_time", fire_duration),
              (neg|is_between, ":cur_time", ":fire_finish_time", ":last_nearby_fire_time"),
 
              (lt, ":guard_no", 47),
@@ -9071,37 +12412,42 @@ Gradually, faith became such a part of your life that it was no different from t
              (gt, ":stack_size", 0),
              (party_stack_get_troop_dna,":troop_dna","$g_encountered_party",":troop_iterator"),
              (set_visitor, ":guard_no", ":cur_troop_id", ":troop_dna"),
-                          
+
              (val_add, ":guard_no", 1),
            (try_end),
-           
+
            (try_begin),
              (eq, "$town_entered", 0),
              (assign, "$town_entered", 1),
            (try_end),
            (set_jump_entry, 1),
 
-           (assign, ":override_state", af_override_horse),             
+           (assign, ":override_state", af_override_horse),
            (try_begin),
-             (eq, "$sneaked_into_town", 1), #setup disguise
-             (assign, ":override_state", af_override_all),
+             (gt, "$sneaked_into_town", disguise_none), #setup disguise
+             (assign, ":override_state", af_override_everything),
            (try_end),
            (set_jump_mission, "mt_castle_visit"),
 
-           (mission_tpl_entry_set_override_flags, "mt_castle_visit", 0, ":override_state"),
-           (mission_tpl_entry_set_override_flags, "mt_castle_visit", 1, ":override_state"),
-           (mission_tpl_entry_set_override_flags, "mt_castle_visit", 2, ":override_state"),
-           (mission_tpl_entry_set_override_flags, "mt_castle_visit", 3, ":override_state"),
-           (mission_tpl_entry_set_override_flags, "mt_castle_visit", 4, ":override_state"),
-           (mission_tpl_entry_set_override_flags, "mt_castle_visit", 5, ":override_state"),
-           (mission_tpl_entry_set_override_flags, "mt_castle_visit", 6, ":override_state"),
-           (mission_tpl_entry_set_override_flags, "mt_castle_visit", 7, ":override_state"),           
-           
+           #SB : populate disguise and set flags for entries
+           (try_for_range, ":entry_no", 0, 8),
+             (mission_tpl_entry_set_override_flags, "mt_castle_visit", ":entry_no", ":override_state"),
+             (call_script, "script_set_disguise_override_items", "mt_castle_visit", ":entry_no", 1),
+           (try_end),
+           # (mission_tpl_entry_set_override_flags, "mt_castle_visit", 0, ":override_state"),
+           # (mission_tpl_entry_set_override_flags, "mt_castle_visit", 1, ":override_state"),
+           # (mission_tpl_entry_set_override_flags, "mt_castle_visit", 2, ":override_state"),
+           # (mission_tpl_entry_set_override_flags, "mt_castle_visit", 3, ":override_state"),
+           # (mission_tpl_entry_set_override_flags, "mt_castle_visit", 4, ":override_state"),
+           # (mission_tpl_entry_set_override_flags, "mt_castle_visit", 5, ":override_state"),
+           # (mission_tpl_entry_set_override_flags, "mt_castle_visit", 6, ":override_state"),
+           # (mission_tpl_entry_set_override_flags, "mt_castle_visit", 7, ":override_state"),
+
            (jump_to_scene, ":cur_castle_exterior"),
            (change_screen_mission),
          (try_end),
         ], "To the castle courtyard."),
-        
+
      ("town_enterprise",
       [
         (party_slot_eq,"$current_town",slot_party_type, spt_town),
@@ -9110,11 +12456,11 @@ Gradually, faith became such a part of your life that it was no different from t
         (eq,"$entry_to_town_forbidden",0),
 		(call_script, "script_get_enterprise_name", ":item_produced"),
 		(str_store_string, s3, reg0),
-      ],	
+      ],
       "Visit your {s3}.",
       [
         (store_sub, ":town_order", "$current_town", towns_begin),
-		(store_add, ":master_craftsman", "trp_town_1_master_craftsman", ":town_order"),
+		(store_add, ":master_craftsman", craftsman_begin, ":town_order"), #SB : range const
         (party_get_slot, ":item_produced", "$current_town", slot_center_player_enterprise),
 		(assign, ":enterprise_scene", "scn_enterprise_mill"),
 		(try_begin),
@@ -9151,14 +12497,21 @@ Gradually, faith became such a part of your life that it was no different from t
         (set_visitor,17,":master_craftsman"),
         (set_jump_mission,"mt_town_default"),
         (jump_to_scene,":enterprise_scene"),
-        (change_screen_mission),
-      ],"Door to your enterprise."), 
+        (try_begin),
+          (this_or_next|key_is_down, key_left_shift),
+          (key_is_down, key_right_shift),
+          (change_screen_map_conversation, ":master_craftsman"), #SB : change_screen_map_conversation
+        (else_try),
+          (change_screen_mission),
+        (try_end),
+        
+      ],"Door to your enterprise."),
 
     ("visit_lady",
 	[
-	
+
 	(neg|troop_slot_ge, "trp_player", slot_troop_spouse, kingdom_ladies_begin),
-	
+
 	(assign, "$love_interest_in_town", 0),
 	(assign, "$love_interest_in_town_2", 0),
 	(assign, "$love_interest_in_town_3", 0),
@@ -9167,56 +12520,61 @@ Gradually, faith became such a part of your life that it was no different from t
 	(assign, "$love_interest_in_town_6", 0),
 	(assign, "$love_interest_in_town_7", 0),
 	(assign, "$love_interest_in_town_8", 0),
-	
+
 	(try_for_range, ":lady_no", kingdom_ladies_begin, kingdom_ladies_end),
 		(troop_slot_eq, ":lady_no", slot_troop_cur_center, "$current_town"),
 		(call_script, "script_get_kingdom_lady_social_determinants", ":lady_no"),
 		(assign, ":lady_guardian", reg0),
-		
+
 		(troop_slot_eq, ":lady_no", slot_troop_spouse, -1),
 		(ge, ":lady_guardian", 0), #not sure when this would not be the case
 
-		
+
 		#must have spoken to either father or lady
 		(this_or_next|troop_slot_ge, ":lady_no", slot_troop_met, 2),
 			(troop_slot_eq, ":lady_guardian", slot_lord_granted_courtship_permission, 1),
-		
+
 		(neg|troop_slot_eq, ":lady_no", slot_troop_met, 4),
-				
+
+		#must have approached father
+#		(this_or_next|troop_slot_eq, ":lady_guardian", slot_lord_granted_courtship_permission, 1),
+#			(troop_slot_eq, ":lady_guardian", slot_lord_granted_courtship_permission, -1),
+
+
 		(try_begin),
 			(eq, "$love_interest_in_town", 0),
-			(assign, "$love_interest_in_town", ":lady_no"),	
+			(assign, "$love_interest_in_town", ":lady_no"),
 		(else_try),
 			(eq, "$love_interest_in_town_2", 0),
-			(assign, "$love_interest_in_town_2", ":lady_no"),	
+			(assign, "$love_interest_in_town_2", ":lady_no"),
 		(else_try),
 			(eq, "$love_interest_in_town_3", 0),
-			(assign, "$love_interest_in_town_3", ":lady_no"),	
+			(assign, "$love_interest_in_town_3", ":lady_no"),
 		(else_try),
 			(eq, "$love_interest_in_town_4", 0),
-			(assign, "$love_interest_in_town_4", ":lady_no"),	
+			(assign, "$love_interest_in_town_4", ":lady_no"),
 		(else_try),
 			(eq, "$love_interest_in_town_5", 0),
-			(assign, "$love_interest_in_town_5", ":lady_no"),	
+			(assign, "$love_interest_in_town_5", ":lady_no"),
 		(else_try),
 			(eq, "$love_interest_in_town_6", 0),
 			(assign, "$love_interest_in_town_6", ":lady_no"),
 		(else_try),
 			(eq, "$love_interest_in_town_7", 0),
-			(assign, "$love_interest_in_town_7", ":lady_no"),		
+			(assign, "$love_interest_in_town_7", ":lady_no"),
 		(else_try),
 			(eq, "$love_interest_in_town_8", 0),
-			(assign, "$love_interest_in_town_8", ":lady_no"),		
-		(try_end),	
+			(assign, "$love_interest_in_town_8", ":lady_no"),
+		(try_end),
 	(try_end),
-	
+
 	(gt, "$love_interest_in_town", 0),
 	],
 	  "Attempt to visit a lady",
        [
         (jump_to_menu, "mnu_lady_visit"),
-        ], "Door to the garden."),										
-		
+        ], "Door to the garden."),
+
       ("trade_with_merchants",
        [
            (party_slot_eq,"$current_town",slot_party_type, spt_town)
@@ -9230,14 +12588,6 @@ Gradually, faith became such a part of your life that it was no different from t
            (try_end),
           ]),
 
-      ("visit_port",
-       [(call_script,"script_cf_get_center_port","$current_town"),
-        ],
-         "Go to the port.",
-         [ (assign, "$g_next_menu", "mnu_town"),
-           (jump_to_menu,"mnu_center_port"),
-          ]),
-		  
       ("walled_center_manage",
       [
         (neg|party_slot_eq, "$current_town", slot_village_state, svs_under_siege),
@@ -9253,43 +12603,47 @@ Gradually, faith became such a part of your life that it was no different from t
            (assign, "$g_next_menu", "mnu_town"),
            (jump_to_menu, "mnu_center_manage"),
        ]),
-      ("recruit_volunteers",
-      [(call_script, "script_cf_center_recruit_volunteers_cond"),]
-       ,"Recruit Volunteers.",
-       [
-	     (try_begin),
-           (call_script, "script_cf_enter_center_location_bandit_check"),
-         (else_try),
-		   (assign, "$g_next_menu", "mnu_town"),
-           (jump_to_menu, "mnu_recruit_volunteers"),
-         (try_end),
-        ]),
-		
+
       ("walled_center_move_court",
-      [
+      [ #SB : move conditions around
         (neg|party_slot_eq, "$current_town", slot_village_state, svs_under_siege),
-        (faction_slot_eq, "fac_player_supporters_faction", slot_faction_leader, "trp_player"),
         (party_slot_eq, "$current_town", slot_town_lord, "trp_player"),
-        (eq, "$g_encountered_party_faction", "fac_player_supporters_faction"),
+        (eq, "$g_encountered_party_faction", "$players_kingdom"),
         (neq, "$g_player_court", "$current_town"),
+        ##diplomacy start+ Handle player is co-ruler of kingdom
+        (assign, ":is_coruler", 0),
+        (try_begin),
+          (is_between, "$players_kingdom", npc_kingdoms_begin, npc_kingdoms_end),
+          (call_script, "script_dplmc_get_troop_standing_in_faction", "trp_player", "$players_kingdom"),
+          (ge, reg0, DPLMC_FACTION_STANDING_LEADER_SPOUSE),
+          (assign, ":is_coruler", 1),
+        (else_try),
+          (faction_slot_eq, "fac_player_supporters_faction", slot_faction_leader, "trp_player"),
+          (eq, "$g_encountered_party_faction", "fac_player_supporters_faction"),
+          (assign, ":is_coruler", 1),
+        (try_end),
+        (eq, ":is_coruler", 1),
+        #SB : capital not named yet
+        (store_and, ":name_set", "$players_kingdom_name_set", rename_center),
+        (neq, ":name_set", rename_center), #
       ],
       "Move your court here.",
       [
         (jump_to_menu, "mnu_establish_court"),
       ]),
-								
+
       ("castle_station_troops",
-      [	  
+      [
 		(party_get_slot, ":town_lord", "$current_town", slot_town_lord),
 	    (str_clear, s10),
-		  
-	    (assign, ":player_can_draw_from_garrison", 0), 
+
+	    (assign, ":player_can_draw_from_garrison", 0),
 		(try_begin), #option 1 - player is town lord
 		  (eq, ":town_lord", "trp_player"),
 		  (assign, ":player_can_draw_from_garrison", 1),
 		(else_try), #option 2 - town is unassigned and part of the player faction
 		  (store_faction_of_party, ":faction", "$g_encountered_party"),
-		  (eq, ":faction", "fac_player_supporters_faction"),			
+		  (eq, ":faction", "fac_player_supporters_faction"),
 		  (neg|party_slot_ge, "$g_encountered_party", slot_town_lord, active_npcs_begin), #ie, zero or -1
 
 		  (assign, ":player_can_draw_from_garrison", 1),
@@ -9297,7 +12651,7 @@ Gradually, faith became such a part of your life that it was no different from t
 		  (lt, ":town_lord", 0), #ie, unassigned
 		  (store_faction_of_party, ":castle_faction", "$g_encountered_party"),
 		  (eq, "$players_kingdom", ":castle_faction"),
-		  
+
 		  (eq, "$g_encountered_party", "$g_castle_requested_by_player"),
 
 		  (str_store_string, s10, "str_retrieve_garrison_warning"),
@@ -9306,18 +12660,22 @@ Gradually, faith became such a part of your life that it was no different from t
 		  (lt, ":town_lord", 0), #ie, unassigned
 		  (store_faction_of_party, ":castle_faction", "$g_encountered_party"),
 		  (eq, "$players_kingdom", ":castle_faction"),
-		  
+
 		  (store_party_size_wo_prisoners, ":party_size", "$g_encountered_party"),
 		  (eq, ":party_size", 0),
-			
+
 		  (str_store_string, s10, "str_retrieve_garrison_warning"),
 		  (assign, ":player_can_draw_from_garrison", 1),
 		(else_try),
 		  (party_slot_ge, "$g_encountered_party", slot_town_lord, active_npcs_begin),
 		  (store_faction_of_party, ":castle_faction", "$g_encountered_party"),
 		  (eq, "$players_kingdom", ":castle_faction"),
-		  
-		  (troop_slot_eq, "trp_player", slot_troop_spouse, ":town_lord"),		    
+		  ##diplomacy start+ can arise if using this to represent polygamy
+		  (this_or_next|troop_slot_eq, ":town_lord", slot_troop_spouse, "trp_player"),
+		     (troop_slot_eq, "trp_player", slot_troop_spouse, ":town_lord"),
+		  (this_or_next|is_between, ":town_lord", heroes_begin, heroes_end),
+		  ##diplomacy end+
+		  (troop_slot_eq, "trp_player", slot_troop_spouse, ":town_lord"),
 
 		  (assign, ":player_can_draw_from_garrison", 1),
 		(try_end),
@@ -9328,16 +12686,43 @@ Gradually, faith became such a part of your life that it was no different from t
       [
         (change_screen_exchange_members,1),
       ]),
+	  ##diplomacy start+
+	  #Other option to add troops to garrison
+      ("dplmc_castle_give_troops",
+      [
+		(party_get_slot, ":town_lord", "$current_town", slot_town_lord),
+		(store_faction_of_party, ":castle_faction", "$g_encountered_party"),
+		(is_between, ":castle_faction", kingdoms_begin, kingdoms_end),
+
+		#The player can add troops but not remove them:
+		#Not owned by the player
+		(neq, ":town_lord", "trp_player"),
+		#Not unassigned
+		(ge, ":town_lord", heroes_begin),
+		#Not owned by the player's spouse
+		(neg|troop_slot_eq, "trp_player", slot_troop_spouse, ":town_lord"),
+		(neg|troop_slot_eq, ":town_lord", slot_troop_spouse, "trp_player"),
+		#But nevertheless the owner will accept troops
+		(call_script, "script_dplmc_player_can_give_troops_to_troop", ":town_lord"),
+
+        (ge, reg0, 1),
+      ],
+      "Give troops to the garrison (cannot remove)",
+      [
+        (change_screen_give_members, "$current_town"),
+      ]),
+      ##diplomacy end+
 
       ("castle_wait",
       [
+        #(party_slot_eq,"$current_town",slot_party_type, spt_castle),
         (this_or_next|ge, "$g_encountered_party_relation", 0),
         (eq,"$castle_undefended",1),
         (assign, ":can_rest", 1),
         (str_clear, s1),
         (try_begin),
           (neg|party_slot_eq, "$current_town", slot_town_lord, "trp_player"),
-		  (troop_get_slot, ":player_spouse", "trp_player", slot_troop_spouse),
+          (troop_get_slot, ":player_spouse", "trp_player", slot_troop_spouse),
           (neg|party_slot_eq, "$current_town", slot_town_lord, ":player_spouse"),
 
           (party_slot_ge, "$current_town", slot_town_lord, "trp_player"), #can rest for free in castles and towns with unassigned lords
@@ -9366,26 +12751,70 @@ Gradually, faith became such a part of your life that it was no different from t
           (try_begin),
             (eq, ":cur_terrain", rt_desert),
             (unlock_achievement, ACHIEVEMENT_SARRANIDIAN_NIGHTS),
-          (try_end),  
-        (try_end),  
+          (try_end),
+        (try_end),
 
+        #SB : moved this to only display once
+        (party_get_slot, ":town_lord", "$g_last_rest_center", slot_town_lord),
+        (try_begin),
+          (is_between, ":town_lord", lords_begin, kingdom_ladies_end),
+          (call_script, "script_dplmc_is_affiliated_family_member", ":town_lord"),
+          (neq, reg0, 0),
+          (display_message, "@You are within the walls of an affiliated family member and don't have to pay for accommodation."), 
+        (try_end),
         (rest_for_hours_interactive, 24 * 7, 5, 0), #rest while not attackable
         (change_screen_return),
       ]),
 
-      ("town_alley",
-      [
-        (party_slot_eq,"$current_town",slot_party_type, spt_town),
-        (eq, "$cheat_mode", 1),
-      ],
-      "{!}CHEAT: Go to the alley.",
-      [
-        (party_get_slot, reg11, "$current_town", slot_town_alley),
-        (set_jump_mission, "mt_ai_training"),
-        (jump_to_scene, reg11),
-        (change_screen_mission),
-      ]),
-      
+##      ("rest_until_morning",
+##       [
+##           (this_or_next|ge, "$g_encountered_party_relation", 0),
+##           (eq,"$castle_undefended",1),
+##           (store_time_of_day,reg(1)),(neg|is_between,reg(1), 5, 18),
+##           (eq, "$g_defending_against_siege", 0),
+##        ],
+##         "Rest until morning.",
+##         [
+##           (store_time_of_day,reg(1)),
+##           (assign, reg(2), 30),
+##           (val_sub,reg(2),reg(1)),
+##           (val_mod,reg(2),24),
+##           (assign,"$auto_enter_town","$current_town"),
+##           (assign, "$g_town_visit_after_rest", 1),
+##           (rest_for_hours_interactive, reg(2)),
+##           (change_screen_return),
+##          ]),
+##
+##      ("rest_until_evening",
+##       [
+##           (this_or_next|ge, "$g_encountered_party_relation", 0),
+##           (eq,"$castle_undefended",1),
+##           (store_time_of_day,reg(1)), (is_between,reg(1), 5, 18),
+##           (eq, "$g_defending_against_siege", 0),
+##        ],
+##         "Rest until evening.",
+##         [
+##           (store_time_of_day,reg(1)),
+##           (assign, reg(2), 20),
+##           (val_sub,reg(2),reg(1)),
+##           (assign,"$auto_enter_town","$current_town"),
+##           (assign, "$g_town_visit_after_rest", 1),
+##           (rest_for_hours_interactive, reg(2)),
+##           (change_screen_return),
+##          ]),
+      # ("town_alley",
+      # [
+        # (party_slot_eq,"$current_town",slot_party_type, spt_town),
+        # (eq, "$cheat_mode", 1),
+      # ],
+      # "{!}CHEAT: Go to the alley.",
+      # [
+        # (party_get_slot, reg11, "$current_town", slot_town_alley),
+        # (set_jump_mission, "mt_ai_training"),
+        # (jump_to_scene, reg11),
+        # (change_screen_mission),
+      # ]),
+
       ("collect_taxes_qst",
       [
         (check_quest_active, "qst_collect_taxes"),
@@ -9399,110 +12828,212 @@ Gradually, faith became such a part of your life that it was no different from t
       [
         (jump_to_menu, "mnu_collect_taxes"),
       ]),
+      ##diplomacy begin
+      ("dplmc_guild_master_meeting",
+       [(party_slot_eq,"$current_town",slot_party_type, spt_town),
+	    ##nested diplomacy start+
+		#rubik had a good idea: only enable this after meeting the guild master
+		(assign, ":can_meet_guild_master", 0),
+		(try_begin),
+			#Always can jump to guild master in cheat mode.
+			(eq, "$cheat_mode", 1),
+			(assign, ":can_meet_guild_master", 1),
+		(else_try),
+			#SB : can jump when part of faction
+			(eq, "$players_kingdom", "$g_encountered_party_faction"),
+			(assign, ":can_meet_guild_master", 1),
+		(else_try),
+			#Can jump to guild master after meeting him once.
+			(party_get_slot, ":guild_master_troop", "$current_town",slot_town_elder),
+			(ge, ":guild_master_troop", 1),
+			(neg|troop_slot_eq, ":guild_master_troop", slot_troop_met, 0),
+			(assign, ":can_meet_guild_master", 1),
+		(else_try),
+			#Always enable this in Praven for the sake of playability, since
+			#the guild master there is weirdly hard to find.
+			(this_or_next|eq, "$current_town", "p_town_6"),
+			#Also enable in the starting town, to avoid confusing players into
+			#thinking the menu item doesn't exist.
+			(eq, "$g_starting_town", "$current_town"),
+			(assign, ":can_meet_guild_master", 1),
+		(try_end),
+		(neq, ":can_meet_guild_master", 0),
+		##nested diplomacy end+
+        (this_or_next|eq,"$entry_to_town_forbidden",0),
+        (gt, "$sneaked_into_town", disguise_none),
+		],
+       "Meet the Guild Master.",
+        [
+          (try_begin),
+            (call_script, "script_cf_enter_center_location_bandit_check"),
+          (else_try), #SB : unified script call
+            (call_script, "script_start_town_conversation", slot_town_elder, 11),
+           # (party_get_slot, ":town_scene", "$current_town", slot_town_center),
+           # (modify_visitors_at_site, ":town_scene"),
+           # (reset_visitors),
 
+           # (party_get_slot, ":guild_master_troop", "$current_town",slot_town_elder),
+           # (set_visitor,11,":guild_master_troop"),
+
+           # (set_jump_mission,"mt_town_center"),
+           # (jump_to_scene, ":town_scene"),
+           # (change_screen_map_conversation, ":guild_master_troop"),
+          (try_end),
+     ]),
+	##nested diplomacy start+
+	#If you can't jump to the guild master, explain why
+    ("dplmc_guild_master_meeting_denied",
+	[
+		#Only show this when the player would get the rest of the town menu
+		(party_slot_eq,"$current_town",slot_party_type, spt_town),
+		(this_or_next|eq,"$entry_to_town_forbidden",0),
+        (gt, "$sneaked_into_town", disguise_none),
+	    #There is a valid guild master, and you haven't met him,
+		#and there isn't another condition that enables the jump.
+		(party_get_slot, ":guild_master_troop", "$current_town",slot_town_elder),
+		(gt, ":guild_master_troop", 0),
+		(eq, "$cheat_mode", 0),
+		(neq, "$g_starting_town", "$current_town"),
+		(neq, "$current_town", "p_town_6"),
+		(troop_slot_eq, ":guild_master_troop", slot_troop_met, 0),
+		(neq, "$players_kingdom", "$g_encountered_party_faction"),
+		(disable_menu_option),
+		],
+       "You have not met the Guild Master yet.",
+       [
+     ]),
+	 ##nested diplomacy end+
+	  ##diplomacy end
       ("town_leave",[],"Leave...",
       [
         (assign, "$g_permitted_to_center",0),
         (change_screen_return,0),
+		##diplomacy start+
+		#Porting rubik's autobuy/autosell from Custom Commander
+		(try_begin),
+		  (eq, "$sneaked_into_town", disguise_none), #SB : disable while disguised
+		  (neg|party_slot_ge, "$current_town", slot_village_infested_by_bandits, 1),
+		  (call_script, "script_dplmc_initialize_autoloot", 0),#argument "0" means this does nothing if deemed unnecessary
+		  (try_begin),
+			(eq, "$g_dplmc_buy_food_when_leaving", 1),
+			(party_get_slot, ":merchant_troop", "$current_town", slot_town_merchant),
+			(gt, ":merchant_troop", 0),
+			(call_script, "script_dplmc_auto_buy_food", "trp_player", ":merchant_troop"),
+		  (try_end),
+		  (try_begin),
+			(eq, "$g_dplmc_sell_items_when_leaving", 1),
+			(call_script, "script_dplmc_player_auto_sell_at_center", "$current_town"),
+		  (try_end),
+		(else_try), #SB : process leaving town guard check
+          (gt, "$sneaked_into_town", disguise_none),
+        (try_end),
+		##diplomacy end+
       ],"Leave Area."),
 
-      ("castle_cheat_interior",
-      [
-        (eq, "$cheat_mode", 1),
-      ], 
-      "{!}CHEAT! Interior.",
-      [
-        (set_jump_mission,"mt_ai_training"),
-        (party_get_slot, ":castle_scene", "$current_town", slot_town_castle),
-        (jump_to_scene,":castle_scene"),
-        (change_screen_mission),
+      #SB : consolidated cheat options 
+      ("town_cheat", [(ge, "$cheat_mode", 1),],
+      "Use cheats.",
+      [(jump_to_menu, "mnu_town_cheats"),
       ]),
-                                                       
-      ("castle_cheat_town_exterior",
-      [
-        (eq, "$cheat_mode", 1),
-      ], 
-      "{!}CHEAT! Exterior.",
-      [
-        (try_begin),
-          (party_slot_eq, "$current_town",slot_party_type, spt_castle),
-          (party_get_slot, ":scene", "$current_town", slot_castle_exterior),
-        (else_try),
-          (party_get_slot, ":scene", "$current_town", slot_town_center),
-        (try_end),
-        (set_jump_mission,"mt_ai_training"),
-        (jump_to_scene,":scene"),
-        (change_screen_mission),
-      ]),
-                                                       
-      ("castle_cheat_dungeon",
-      [
-        (eq, "$cheat_mode", 1),
-      ], 
-      "{!}CHEAT! Prison.",
-      [
-        (set_jump_mission,"mt_ai_training"),
-        (party_get_slot, ":castle_scene", "$current_town", slot_town_prison),
-        (jump_to_scene,":castle_scene"),
-        (change_screen_mission),
-      ]),
-      
-      ("castle_cheat_town_walls",
-      [
-        (eq, "$cheat_mode", 1),
-        (party_slot_eq,"$current_town",slot_party_type, spt_town),
-      ], 
-      "{!}CHEAT! Town Walls.",
-      [
-        (party_get_slot, ":scene", "$current_town", slot_town_walls),
-        (set_jump_mission,"mt_ai_training"),
-        (jump_to_scene,":scene"),
-        (change_screen_mission),
-      ]),
+      # ("castle_cheat_interior",
+      # [
+        # (eq, "$cheat_mode", 1),
+      # ],
+      # "{!}CHEAT! Interior.",
+      # [
+        # (set_jump_mission,"mt_ai_training"),
+        # (party_get_slot, ":castle_scene", "$current_town", slot_town_castle),
+        # (jump_to_scene,":castle_scene"),
+        # (change_screen_mission),
+      # ]),
 
-      ("cheat_town_start_siege",
-      [
-        (eq, "$cheat_mode", 1),
-        (party_slot_eq, "$g_encountered_party", slot_center_is_besieged_by, -1),
-        (lt, "$g_encountered_party_2", 1),
-        (call_script, "script_party_count_fit_for_battle","p_main_party"),
-        (gt, reg(0), 1),
-        (try_begin),
-          (party_slot_eq, "$g_encountered_party", slot_party_type, spt_town),
-          (assign, reg6, 1),
-        (else_try),
-          (assign, reg6, 0),
-        (try_end),
-      ],
-      "{!}CHEAT: Besiege the {reg6?town:castle}...",
-      [
-        (assign,"$g_player_besiege_town","$g_encountered_party"),
-        (jump_to_menu, "mnu_castle_besiege"),
-      ]),
+      # ("castle_cheat_town_exterior",
+      # [
+        # (eq, "$cheat_mode", 1),
+      # ],
+      # "{!}CHEAT! Exterior.",
+      # [
+        # (try_begin),
+          # (party_slot_eq, "$current_town",slot_party_type, spt_castle),
+          # (party_get_slot, ":scene", "$current_town", slot_castle_exterior),
+        # (else_try),
+          # (party_get_slot, ":scene", "$current_town", slot_town_center),
+        # (try_end),
+        # (set_jump_mission,"mt_ai_training"),
+        # (jump_to_scene,":scene"),
+        # (change_screen_mission),
+      # ]),
 
-      ("center_reports",
-      [
-        (eq, "$cheat_mode", 1),
-      ], 
-      "{!}CHEAT! Show reports.",
-      [
-        (jump_to_menu,"mnu_center_reports"),
-      ]),
+      # ("castle_cheat_dungeon",
+      # [
+        # (eq, "$cheat_mode", 1),
+      # ],
+      # "{!}CHEAT! Prison.",
+      # [
+        # (set_jump_mission,"mt_ai_training"),
+        # (party_get_slot, ":castle_scene", "$current_town", slot_town_prison),
+        # (jump_to_scene,":castle_scene"),
+        # (change_screen_mission),
+      # ]),
 
-      ("sail_from_port",
-      [
-        (call_script,"script_cf_get_center_port","$current_town"),
-        (eq, "$cheat_mode", 1),
-      ],
-      "{!}CHEAT: Sail from port.",
-      [ (call_script,"script_cf_get_center_port","$current_town"),
-        (party_get_position, pos1, reg0),
-        (assign, "$g_player_icon_state", pis_ship),
-        (party_set_flags, "p_main_party", pf_is_ship, 1),
-        (map_get_water_position_around_position, pos2, pos1, 1),
-        (party_set_position, "p_main_party", pos2),
-        (change_screen_return),
-      ]),
+      # ("castle_cheat_town_walls",
+      # [
+        # (eq, "$cheat_mode", 1),
+        # (party_slot_eq,"$current_town",slot_party_type, spt_town),
+      # ],
+      # "{!}CHEAT! Town Walls.",
+      # [
+        # (party_get_slot, ":scene", "$current_town", slot_town_walls),
+        # (set_jump_mission,"mt_ai_training"),
+        # (jump_to_scene,":scene"),
+        # (change_screen_mission),
+      # ]),
+
+      # ("cheat_town_start_siege",
+      # [
+        # (eq, "$cheat_mode", 1),
+        # (party_slot_eq, "$g_encountered_party", slot_center_is_besieged_by, -1),
+        # (lt, "$g_encountered_party_2", 1),
+        # (call_script, "script_party_count_fit_for_battle","p_main_party"),
+        # (gt, reg(0), 1),
+        # (try_begin),
+          # (party_slot_eq, "$g_encountered_party", slot_party_type, spt_town),
+          # (assign, reg6, 1),
+        # (else_try),
+          # (assign, reg6, 0),
+        # (try_end),
+      # ],
+      # "{!}CHEAT: Besiege the {reg6?town:castle}...",
+      # [
+        # (assign,"$g_player_besiege_town","$g_encountered_party"),
+        # (jump_to_menu, "mnu_castle_besiege"),
+      # ]),
+
+      # ("center_reports",
+      # [
+        # (eq, "$cheat_mode", 1),
+      # ],
+      # "{!}CHEAT! Show reports.",
+      # [
+        # (jump_to_menu,"mnu_center_reports"),
+      # ]),
+
+      # ("sail_from_port",
+      # [
+        # (party_slot_eq,"$current_town",slot_party_type, spt_town),
+        # (eq, "$cheat_mode", 1),
+        # #(party_slot_eq,"$current_town",slot_town_near_shore, 1),
+      # ],
+      # "{!}CHEAT: Sail from port.",
+      # [
+        # (assign, "$g_player_icon_state", pis_ship),
+        # (party_set_flags, "p_main_party", pf_is_ship, 1),
+        # (party_get_position, pos1, "p_main_party"),
+        # (map_get_water_position_around_position, pos2, pos1, 6),
+        # (party_set_position, "p_main_party", pos2),
+        # (assign, "$g_main_ship_party", -1),
+        # (change_screen_return),
+      # ]),
 
     ]
    ),
@@ -9743,8 +13274,31 @@ Gradually, faith became such a part of your life that it was no different from t
     "town_trade",0,
     "You head towards the marketplace.",
     "none",
-    [],
     [
+    (stop_all_sounds, 1), #SB : prevent overlaps
+    ],
+    [
+      #SB : re-order dialog options for consistency, add talk instead of trade option
+		##diplomacy start+
+		#Begin auto-sell, credit rubik (Custom Commander)
+      ## CC
+      ("auto_sell",[],
+       "Sell items automatically.",
+       [
+          (assign, "$g_next_menu", "mnu_town"),
+          (jump_to_menu,"mnu_dplmc_trade_auto_sell_begin"),
+        ]),
+
+      ("auto_buy_food",[],
+       "Buy food automatically.",
+       [
+          (assign, "$g_next_menu", "mnu_town"),
+          (jump_to_menu,"mnu_dplmc_trade_auto_buy_food_begin"),
+        ]),
+
+      ## CC
+		#End auto-sell, credit rubik (Custom Commander)
+		##diplomacy start+
       ("assess_prices",
        [
          (store_faction_of_party, ":current_town_faction", "$current_town"),
@@ -9758,26 +13312,63 @@ Gradually, faith became such a part of your life that it was no different from t
       ("trade_with_arms_merchant",[(party_slot_ge, "$current_town", slot_town_weaponsmith, 1)],
        "Trade with the arms merchant.",
        [
-           (party_get_slot, ":merchant_troop", "$current_town", slot_town_weaponsmith),
-           (change_screen_trade, ":merchant_troop"),
+            (party_get_slot, ":merchant_troop", "$current_town", slot_town_weaponsmith),
+            (assign, "$g_talk_troop", ":merchant_troop"),
+            (try_begin),
+              (this_or_next|key_is_down, key_left_shift),
+              (key_is_down, key_right_shift),
+              (call_script, "script_start_town_conversation", slot_town_weaponsmith, 10),
+            (else_try),
+              (store_random_in_range, ":sound", "snd_draw_sword", "snd_put_back_other"),
+              (play_sound, ":sound"),
+              (troop_set_slot, ":merchant_troop", slot_troop_met, 1),
+              (change_screen_trade, ":merchant_troop"),
+            (try_end),
         ]),
       ("trade_with_armor_merchant",[(party_slot_ge, "$current_town", slot_town_armorer, 1)],
        "Trade with the armor merchant.",
        [
-           (party_get_slot, ":merchant_troop", "$current_town", slot_town_armorer),
-           (change_screen_trade, ":merchant_troop"),
+            (party_get_slot, ":merchant_troop", "$current_town", slot_town_armorer),
+            (assign, "$g_talk_troop", ":merchant_troop"),
+            (try_begin),
+              (this_or_next|key_is_down, key_left_shift),
+              (key_is_down, key_right_shift),
+              (call_script, "script_start_town_conversation", slot_town_armorer, 9),
+            (else_try),
+              (play_sound, "snd_distant_blacksmith"),
+              (troop_set_slot, ":merchant_troop", slot_troop_met, 1),
+              (change_screen_trade, ":merchant_troop"),
+            (try_end),
         ]),
       ("trade_with_horse_merchant",[(party_slot_ge, "$current_town", slot_town_horse_merchant, 1)],
        "Trade with the horse merchant.",
        [
-           (party_get_slot, ":merchant_troop", "$current_town", slot_town_horse_merchant),
-           (change_screen_trade, ":merchant_troop"),
+            (party_get_slot, ":merchant_troop", "$current_town", slot_town_horse_merchant),
+            (try_begin),
+              (this_or_next|key_is_down, key_left_shift),
+              (key_is_down, key_right_shift),
+              (call_script, "script_start_town_conversation", slot_town_horse_merchant, 12),
+            (else_try),
+              (play_sound, "snd_horse_snort"), #horse_low_whinny
+              (troop_set_slot, ":merchant_troop", slot_troop_met, 1),
+              (change_screen_trade, ":merchant_troop"),
+            (try_end),
         ]),
       ("trade_with_goods_merchant",[(party_slot_ge, "$current_town", slot_town_merchant, 1)],
        "Trade with the goods merchant.",
        [
-           (party_get_slot, ":merchant_troop", "$current_town", slot_town_merchant),
-           (change_screen_trade, ":merchant_troop"),
+            (party_get_slot, ":merchant_troop", "$current_town", slot_town_merchant),
+            (assign, "$g_talk_troop", ":merchant_troop"),
+            (try_begin),
+              (this_or_next|key_is_down, key_left_shift),
+              (key_is_down, key_right_shift),
+              (call_script, "script_start_town_conversation", slot_town_merchant, 9),
+            (else_try),
+              (store_random_in_range, ":sound", "snd_distant_dog_bark", "snd_distant_blacksmith"),
+              (play_sound, ":sound"),
+              (troop_set_slot, ":merchant_troop", slot_troop_met, 1),
+              (change_screen_trade, ":merchant_troop"),
+            (try_end),
         ]),
       ("back_to_town_menu",[],"Head back.",
        [
@@ -9785,6 +13376,83 @@ Gradually, faith became such a part of your life that it was no different from t
         ]),
     ]
   ),
+  
+##diplomacy start+
+##Begin auto-sell credit rubik (Custom Commander)
+##Altered to only sell items from the player's inventory, not his companions'.
+#
+#Uses global variable $g_auto_sell_price_limit changed to $g_dplmc_auto_sell_price_limit
+## CC
+  (
+    "dplmc_trade_auto_sell_begin",0,
+    "Items in your inventory whose type is marked as sellable and whose prices \
+are below {reg1} denars will be sold to the {reg2?appropriate merchants:elder} \
+in the current {reg2?town:village} automatically.  Specifically food, trade \
+goods, and books will never be sold. ^^You can change some settings here freely.",
+    "none",
+  [
+	##dplmc+ added section begin
+    (this_or_next|is_between, "$current_town", towns_begin, towns_end),
+	    (is_between, "$current_town", villages_begin, villages_end),
+	(call_script, "script_dplmc_initialize_autoloot", 0),#argument "0" means this does nothing if deemed unnecessary
+	##dplmc+ added section end
+    (assign, reg1, "$g_dplmc_auto_sell_price_limit"),
+	 (assign, reg2, 0),
+    (try_begin),
+      (is_between, "$current_town", towns_begin, towns_end),
+      (assign, reg2, 1),
+    (try_end),
+  ],
+  [
+    ("continue",[],"Continue...",
+    [
+      #(call_script, "script_auto_sell_all"),
+	  (call_script, "script_dplmc_player_auto_sell_at_center", "$current_town"),
+      (jump_to_menu, "$g_next_menu"),
+      ]),
+    ("change_settings",[],"Change settings.",[(start_presentation, "prsnt_dplmc_auto_sell_options"),]),
+    ("go_back",[],"Go back",[(jump_to_menu, "$g_next_menu")]),
+  ]
+  ),
+
+  (
+    "dplmc_trade_auto_buy_food_begin",0,
+    "You will automatically buy food according to your shopping list. Do you want to continue?^^You can view and configure the shopping list here.",
+    "none", [],
+  [
+    ("continue",[
+	  #dplmc+ added to check against weird conditions
+ 	  (assign, ":merchant_troop", -1),
+	  (try_begin),
+		  (is_between, "$current_town", towns_begin, towns_end),
+        (party_get_slot, ":merchant_troop", "$current_town", slot_town_merchant),
+     (else_try),
+		  (is_between, "$current_town", villages_begin, villages_end),
+        (party_get_slot, ":merchant_troop", "$current_town", slot_town_elder),
+     (try_end),
+	  (ge, ":merchant_troop", 1),
+	  #dplmc+ end addition
+	 ],"Continue...",
+    [
+ 	   (assign, ":merchant_troop", -1),
+	   (try_begin),
+		  (is_between, "$current_town", towns_begin, towns_end),
+        (party_get_slot, ":merchant_troop", "$current_town", slot_town_merchant),
+      (else_try),
+		  (is_between, "$current_town", villages_begin, villages_end),
+        (party_get_slot, ":merchant_troop", "$current_town", slot_town_elder),
+      (try_end),
+	   (call_script, "script_dplmc_auto_buy_food", "trp_player", ":merchant_troop"),
+      (jump_to_menu, "$g_next_menu"),
+      ]),
+
+    ("dplmc_change_shopping_list_of_food",[],"Configure your shopping list.",[(start_presentation, "prsnt_dplmc_shopping_list_of_food"),]),
+    ("go_back",[],"Go back",[(jump_to_menu, "$g_next_menu")]),
+   ]
+  ),
+## CC
+##End auto-sell credit rubik (Custom Commander)
+##diplomacy start+  
 
   (
    "town_trade_assessment_begin",0, 
@@ -9799,7 +13467,7 @@ Gradually, faith became such a part of your life that it was no different from t
       ("continue",[],"Continue...",
        [
            (assign,"$auto_enter_town", "$current_town"),
-           (assign, "$g_town_assess_trade_goods_after_rest", 1),
+           (assign, "$g_town_assess_trade_goods_after_rest", "$current_town"), #SB : save this
            (call_script, "script_get_max_skill_of_player_party", "skl_trade"),
            (val_div, reg0, 2),
            (store_sub, ":num_hours", 6, reg0),
@@ -9821,7 +13489,7 @@ Gradually, faith became such a part of your life that it was no different from t
     "none",
     [
 
-(call_script, "script_get_max_skill_of_player_party", "skl_trade"),
+	(call_script, "script_get_max_skill_of_player_party", "skl_trade"),
      (assign, ":max_skill", reg0),
      (assign, ":max_skill_owner", reg1),
 
@@ -10038,6 +13706,12 @@ Gradually, faith became such a part of your life that it was no different from t
        (le, ":num_best_results", 0),
        (str_store_string, s2, "@However, {reg3?You are:{s1} is} unable to find any trade goods that would bring a profit."),
      (else_try),
+        #SB : add lesser renown bonus
+        (try_begin),
+          (call_script, "script_get_max_skill_of_player_party", "skl_trade"),
+          (neq, reg1, "trp_player"),
+          (call_script, "script_change_troop_renown", reg1, dplmc_companion_skill_renown / 2),
+        (try_end),	 
        (try_begin),
          (ge, ":best_result_5_item", 0),
          (assign, reg6, ":best_result_5_profit"),
@@ -10087,20 +13761,28 @@ Gradually, faith became such a part of your life that it was no different from t
   
   
   
+  #SB : flavour text
   (
     "sneak_into_town_suceeded",0,
-    "Disguised in the garments of a poor pilgrim, you fool the guards and make your way into the town.",
+    "Disguised in the garments of a poor {reg1?cheater:{s1}}, you fool the guards and make your way into the town.",
     "none",
-    [],
+    [(assign, reg1, "$cheat_mode"),
+     (call_script, "script_get_disguise_string", "$sneaked_into_town", 1),
+     
+     # (try_begin),
+       # (eq, "$sneaked_into_town", disguise_pilgrim),
+       # (assign, ":string", "str_pilgrim_disguise"),
+     # (try_end),
+    ],
     [
       ("continue",[],"Continue...",
        [
-           (assign, "$sneaked_into_town",1),
+           # (assign, "$sneaked_into_town",1),
            (jump_to_menu,"mnu_town"),
         ]),
     ]
   ),
-  (
+   (
     "sneak_into_town_caught",0,
     "As you try to sneak in, one of the guards recognizes you and raises the alarm!\
  You must flee back through the gates before all the guards in the town come down on you!",
@@ -10111,26 +13793,36 @@ Gradually, faith became such a part of your life that it was no different from t
     [
       ("sneak_caught_fight",[],"Try to fight your way out!",
        [
-           (assign,"$all_doors_locked",1),
-           (party_get_slot, ":sneak_scene", "$current_town", slot_town_center), # slot_town_gate),
-           (modify_visitors_at_site,":sneak_scene"),
-           (reset_visitors),
-           
-           (try_begin),
-             (this_or_next|eq, "$talk_context", tc_escape),
-             (eq, "$talk_context", tc_prison_break),           
-             (set_jump_entry, 7),                      
-           (else_try),  
-             (party_slot_eq, "$current_town", slot_party_type, spt_town),     
-             (set_jump_entry, 0),           
-           (else_try),               
-             (set_jump_entry, 1),           
-           (try_end),
-                                 
-           (set_jump_mission,"mt_sneak_caught_fight"),
-           (set_passage_menu,"mnu_town"),
-           (jump_to_scene,":sneak_scene"),
-           (change_screen_mission),
+          (assign,"$all_doors_locked",1),
+          (party_get_slot, ":sneak_scene", "$current_town", slot_town_center), # slot_town_gate),
+          (modify_visitors_at_site,":sneak_scene"),
+          (reset_visitors),
+
+          (set_jump_mission, "mt_sneak_caught_fight"),
+          (try_begin),
+            (this_or_next|eq, "$talk_context", tc_escape),
+            (eq, "$talk_context", tc_prison_break),
+            (assign, ":entry_no", 7),
+          (else_try),
+            (party_slot_eq, "$current_town", slot_party_type, spt_town),
+            #(set_visitor,0,"trp_player"),
+            (assign, ":entry_no", 0),
+          (else_try),
+            #(set_visitor,1,"trp_player"),
+            (assign, ":entry_no", 1),
+          (try_end),
+          
+          (try_begin), #dckplmc
+            (gt, "$sneaked_into_town", disguise_none), #setup disguise
+            (assign, ":override_state", af_override_everything),
+            (mission_tpl_entry_set_override_flags, "mt_sneak_caught_fight", ":entry_no", ":override_state"),
+            #SB : script call to assign correct disguise, with weapons
+            (call_script, "script_set_disguise_override_items", "mt_sneak_caught_fight", ":entry_no", 1),
+          (try_end),
+          (set_jump_entry, ":entry_no"),
+          (set_passage_menu, "mnu_town"),
+          (jump_to_scene,":sneak_scene"),
+          (change_screen_mission),
         ]),
       ("sneak_caught_surrender",[],"Surrender.",
        [
@@ -10138,17 +13830,36 @@ Gradually, faith became such a part of your life that it was no different from t
         ]),
     ]
   ),
-  (
+   (
     "sneak_into_town_caught_dispersed_guards",0,
     "You drive off the guards and cover your trail before running off, easily losing your pursuers in the maze of streets.",
     "none",
-    [],
     [
+        #SB : show disguise again
+        (set_fixed_point_multiplier, 100),
+        (init_position, pos0),
+        (try_begin),
+          (neq, "$sneaked_into_town", disguise_none),
+          (position_set_x, pos0, 60),
+          (position_set_y, pos0, 20),
+          (position_set_z, pos0, 100),
+          (set_game_menu_tableau_mesh, "tableau_game_inventory_window", "trp_player", pos0),
+        (try_end),
+        # (troop_get_slot, "$temp_2", "trp_player", slot_troop_player_disguise_sets),
+    ],
+
+    [
+      #SB : TODO re-choose disguise, chance of dropping inventory items during fight?
       ("continue",[],"Continue...",
        [
-           (assign, "$sneaked_into_town",1),
-           (assign, "$town_entered", 1),
-           (jump_to_menu,"mnu_town"),
+          (try_begin), #dckplmc
+             (eq, "$sneaked_into_town", disguise_none),
+             (assign, "$sneaked_into_town", disguise_pilgrim),
+          (try_end),
+          (assign, "$town_entered", 1),
+           
+          
+          (jump_to_menu,"mnu_town"),
         ]),
     ]
   ),
@@ -10316,32 +14027,64 @@ Gradually, faith became such a part of your life that it was no different from t
   
 
 
+   #SB : standardize court requirements, 1x tool + 2x bolts of wool/velvet/linen cloth
   ("establish_court",mnf_disable_all_keys,
-    "To establish {s4} as your court will require a small refurbishment. In particular, you will need a set of tools and a bolt of velvet. it may also take a short while for some of your followers to relocate here. Do you wish to proceed?",
+    "To establish {s4} as your court will require a small refurbishment. In particular, you will need a set of tools and two bolts of fabric. You own {reg1} of the former and {reg0} of the latter. It may also take a short while for some of your followers to relocate here. Do you wish to proceed?",
     "none",
     [
-	(str_store_party_name, s4, "$g_encountered_party"),
-	],
-	
+      (call_script, "script_dplmc_count_item_for_court", "trp_player", -1, -1),
+      (assign, "$diplomacy_var", reg0),
+      (assign, "$diplomacy_var2", reg1),
+      (call_script, "script_dplmc_count_item_for_court", "trp_household_possessions", -1, -1),
+      (val_add, "$diplomacy_var", reg0),
+      (val_add, "$diplomacy_var2", reg1),
+      (str_store_party_name, s4, "$g_encountered_party"),
+      (assign, reg0, "$diplomacy_var"),
+      (assign, reg1, "$diplomacy_var2"),
+    ],
+
     [
       ("establish",[
-	  (player_has_item, "itm_tools"),
-	  (player_has_item, "itm_velvet"),
-	  ],"Establish {s4} as your court",
-       [         
-		(assign, "$g_player_court", "$current_town"),
-	    (troop_remove_item, "trp_player", "itm_tools"),
-	    (troop_remove_item, "trp_player", "itm_velvet"),
-        (jump_to_menu, "mnu_town"),         
-       ]),       
-	
-	
+      # (player_has_item, "itm_tools"),
+      # (player_has_item, "itm_velvet"),
+      (ge, "$diplomacy_var", 2),
+      (ge, "$diplomacy_var2", 1), #SB : one set of tools
+      # conditions already handled in parent menu
+      # (store_and, ":name_set", "$players_kingdom_name_set", rename_center),
+      # (eq, ":name_set", 0),
+      ],"Establish {s4} as your court",
+       [
+        (assign, "$g_player_court", "$current_town"),
+        # (troop_remove_item, "trp_player", "itm_tools"),
+        # (troop_remove_item, "trp_player", "itm_velvet"),
+        (call_script, "script_dplmc_count_item_for_court", "trp_household_possessions", 2, 1),
+        (call_script, "script_dplmc_count_item_for_court", "trp_player", reg0, reg1),
+        (jump_to_menu, "mnu_town"),
+       ]),
+       
+      #SB : allows checking inventory to see how much you need
+      ("check_inv",[],"Check your household inventory",
+       [
+        (change_screen_loot, "trp_household_possessions"),
+       ]),
+    # ("capital_exists",
+      # [
+        # (store_and, ":name_set", "$players_kingdom_name_set", rename_center),
+        # (ge, ":name_set", rename_center),
+        # (str_store_party_name, s1, "$g_player_court"),
+        # (disable_menu_option),
+      # ],
+       # "You cannot move the court as your capital is at {s1}.",
+       # [
+     # ]),
+
+
       ("continue",[],"Hold off...",
-       [         
-         (jump_to_menu, "mnu_town"),         
-       ]),       
+       [
+         (jump_to_menu, "mnu_town"),
+       ]),
     ]
-  ),  
+  ),
   
   
     (
@@ -10368,9 +14111,12 @@ Gradually, faith became such a part of your life that it was no different from t
   
 
   ("lost_tavern_duel",mnf_disable_all_keys,
-    "{s11}",
+    "{s11}{s12}",
     "none",
     [
+    (str_clear, s11),
+    (str_clear, s12),
+    #use s11 as primary indicator string
 	(try_begin),
 		(agent_get_troop_id, ":type", "$g_main_attacker_agent"),
 		(eq, ":type", "trp_belligerent_drunk"),
@@ -10381,12 +14127,31 @@ Gradually, faith became such a part of your life that it was no different from t
 		(str_store_string, s11, "str_lost_tavern_duel_assassin"),
 	(try_end),
 	(troop_set_slot, "trp_hired_assassin", slot_troop_cur_center, -1),
+	(troop_set_slot, "trp_belligerent_drunk", slot_troop_cur_center, -1), #remove him for now
+    
+    #use s12 for additional info like lost purse, etc
+    #SB : penalty for fighting while disguised
+    (try_begin),
+      (gt, "$sneaked_into_town", disguise_none),
+      (store_random_in_range, ":random_no", -100, 200),
+      # (ge, ":random_no", "$g_player_luck"),
+      (ge, ":random_no", 0),
+      (str_store_string, s12, "@ Unfortunately, when the guards inquired about the tavern brawl, your description was recognized and you were in no condition to fight them off."),
+    (try_end),
     ],
     [
-      ("continue",[],"Continue...",
-       [         
-         (call_script, "script_game_event_party_encounter", "$g_encountered_party", -1),      
-       ]),       
+      ("continue",[(eq, "$sneaked_into_town", disguise_none),],"Continue...",
+       [
+         (jump_to_menu, "mnu_town"),
+         (troop_set_health, "trp_player", 25),
+         #SB : renown loss, less than losing to bandits
+         (call_script, "script_change_troop_renown", "trp_player", -1),
+       ]),
+       
+      ("surrender",[(gt, "$sneaked_into_town", disguise_none),],"Surrender...",
+       [
+         (jump_to_menu, "mnu_captivity_castle_taken_prisoner"),
+       ]),
     ]
   ),
   
@@ -10428,9 +14193,24 @@ Gradually, faith became such a part of your life that it was no different from t
         (str_store_party_name, s3, "$current_town"),
         (call_script, "script_change_troop_renown", "trp_player", 20),
         (call_script, "script_change_player_relation_with_center", "$current_town", 1),   
-        (assign, reg9, 200),
+        (try_begin), #SB : slight scaling reward
+          (ge, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_MEDIUM),
+          # (store_faction_of_party, ":center_faction", "$current_town"),
+          (call_script, "script_dplmc_get_troop_standing_in_faction", "trp_player", "$g_encountered_party_faction"),
+          (store_mul, ":reward", reg0, 20), #1200 for leader, 600 for lord etc
+          (val_add, ":reward", 150),
+          (try_begin), #this is halved if it's the player's own center to prevent quest abuse?
+            (party_slot_eq, "$current_town", slot_town_lord, "trp_player"),
+            (val_mul, ":reward", 2),
+            (val_div, ":reward", 3),
+          (try_end),
+        (else_try),
+          (assign, ":reward", 200),
+        (try_end),
+        (assign, reg9, ":reward"),
+        (troop_add_gold, "trp_player", ":reward"),
         (add_xp_to_troop, 250, "trp_player"),
-        (troop_add_gold, "trp_player", reg9),
+        # (troop_add_gold, "trp_player", reg9),
         (str_clear, s8),
         (store_add, ":total_win", "$g_tournament_bet_placed", "$g_tournament_bet_win_amount"),
         (try_begin),
@@ -10450,6 +14230,13 @@ Gradually, faith became such a part of your life that it was no different from t
         (troop_add_gold, "trp_player", ":total_win"),
         (call_script, "script_play_victorious_sound"),
         (unlock_achievement, ACHIEVEMENT_MEDIEVAL_TIMES),
+        #SB : stop arena loop sound if it leaks here
+        (stop_all_sounds, 0),
+        #also add background
+        (set_background_mesh, "mesh_pic_payment"),
+        #also gives bonus faction morale
+        (call_script, "script_change_faction_troop_morale", "$g_encountered_party_faction", ":player_odds", 1),
+		
 		# Free resources!
 	    (remove_party, "$tournament_participant_party"), (assign, "$tournament_participant_party", 0),
 	    (remove_party, "$tournament_equipment_party"),   (assign, "$tournament_equipment_party", 0),
@@ -10480,8 +14267,23 @@ Gradually, faith became such a part of your life that it was no different from t
         (call_script, "script_change_troop_renown", ":winner_troop", 20),
       (else_try),
         (str_store_string, s1, "@a {s1}"), # Regular Troop; needs article
-      (try_end),
-      (troop_get_type, reg3, ":winner_troop"),
+          (try_begin),
+            (troop_slot_eq, ":winner_troop", slot_troop_occupation, slto_kingdom_hero),
+            (ge, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_MEDIUM),
+            # (call_script, "script_dplmc_distribute_gold_to_lord_and_holdings", 200, ":troop_no"),
+            (call_script, "script_dplmc_get_troop_standing_in_faction", ":winner_troop", "$g_encountered_party_faction"),
+            (store_mul, ":reward", reg0, 20), #1200 for leader, 600 for lord etc
+            (val_add, ":reward", 150),
+            (call_script, "script_dplmc_distribute_gold_to_lord_and_holdings", ":reward", ":winner_troop"), #add some wealth
+          (try_end),
+        (try_end),
+		  ##diplomacy start+ use script for gender
+        #(troop_get_type, reg3, ":winner_troop"),#<- OLD
+		(call_script, "script_dplmc_store_troop_is_female_reg", ":winner_troop", 3),
+		  ##diplomacy end+
+        #SB : stop arena sound if it leaks here
+        (stop_all_sounds, 0),
+        (set_background_mesh, "mesh_pic_payment"),
 	  # Free resources!
 	  (remove_party, "$tournament_participant_party"), (assign, "$tournament_participant_party", 0),
 	  (remove_party, "$tournament_equipment_party"),   (assign, "$tournament_equipment_party", 0),
@@ -10535,6 +14337,14 @@ Gradually, faith became such a part of your life that it was no different from t
         (try_end),
         ],
     [
+      ("host_tournament",
+      [(ge, "$cheat_mode", 1),],
+      "{!}Cheat : Win tournament",
+      [
+           (jump_to_menu, "mnu_town_tournament_won"),
+           (assign, "$g_player_eligible_feast_center_no", "$current_town"),
+		   (assign, "$g_player_tournament_placement", 100),
+      ]),	
       ("tournament_view_participants", [], "View participants.",
        [(jump_to_menu, "mnu_tournament_participants"),
         ]),
@@ -11029,19 +14839,35 @@ Gradually, faith became such a part of your life that it was no different from t
     ]
   ),
 
-  (
+   (
     "collect_taxes_complete",mnf_disable_all_keys,
-    "You've collected {reg3} denars in taxes from {s3}. {s19} will be expecting you to take the money to him.",
+    ##diplomacy start+
+    ##Replace "him" with "{reg4?her:him}"
+    "You've collected {reg3} denars in taxes from {s3}. {s19} will be expecting you to take the money to {reg4?her:him}.",
+    ##diplomacy end+
     "none",
     [(str_store_party_name, s3, "$current_town"),
      (quest_get_slot, ":quest_giver", "qst_collect_taxes", slot_quest_giver_troop),
      (str_store_troop_name, s19, ":quest_giver"),
-     (quest_get_slot, reg3, "qst_collect_taxes", slot_quest_gold_reward),
+     ##diplomacy start+
+
      (try_begin),
        (eq, "$qst_collect_taxes_halve_taxes", 0),
-       (call_script, "script_change_player_relation_with_center", "$current_town", -2),   
+       (call_script, "script_change_player_relation_with_center", "$current_town", -2),
      (try_end),
      (call_script, "script_succeed_quest", "qst_collect_taxes"),
+     
+     #SB : add renown to tax collector
+     (try_begin),
+       (call_script, "script_get_max_skill_of_player_party", "skl_trade"),
+       (neq, reg1, "trp_player"),
+       (call_script, "script_change_troop_renown", reg1, dplmc_companion_skill_renown),
+     (try_end),
+     
+     (quest_get_slot, reg3, "qst_collect_taxes", slot_quest_gold_reward),
+     ##Store quest giver gender to reg4
+     (call_script, "script_dplmc_store_troop_is_female_reg", ":quest_giver", 4), #SB : use other script
+     ##diplomacy end+
      ],
     [
       ("continue", [], "Continue...",
@@ -11066,11 +14892,25 @@ Gradually, faith became such a part of your life that it was no different from t
 
   (
     "collect_taxes_failed",mnf_disable_all_keys,
+##diplomacy start+ fix gender of pronoun
     "You could collect only {reg3} denars as tax from {s3} before the revolt broke out.\
- {s1} won't be happy, but some silver will placate him better than nothing at all...",
+ {s1} won't be happy, but some silver will placate {reg4?her:him} better than nothing at all...",
+##diplomacy end+
     "none",
-    [(str_store_party_name, s3, "$current_town"),
+    [#SB : set up picture
+     (try_begin),
+       (eq, "$character_gender", tf_male),
+       (set_background_mesh, "mesh_pic_escape_1"),
+     (else_try),
+       (eq, "$character_gender", tf_male),
+       (set_background_mesh, "mesh_pic_escape_1_fem"),
+     (try_end),
+     (str_store_party_name, s3, "$current_town"),
      (quest_get_slot, ":quest_giver", "qst_collect_taxes", slot_quest_giver_troop),
+     ##diplomacy start+ store gender of quest giver in reg4
+     (call_script, "script_dplmc_store_troop_is_female", ":quest_giver"),
+     (assign, reg4, reg0),
+     ##diplomacy end+
      (str_store_troop_name, s1, ":quest_giver"),
      (quest_get_slot, reg3, "qst_collect_taxes", slot_quest_gold_reward),
      (call_script, "script_fail_quest", "qst_collect_taxes"),
@@ -11079,7 +14919,9 @@ Gradually, faith became such a part of your life that it was no different from t
      ],
     [
       ("continue", [], "Continue...",
-       [(change_screen_map),
+        [#SB : lose renown
+          (call_script, "script_change_troop_renown", "trp_player", -2),
+          (change_screen_map),
         ]),
     ]
   ),
@@ -11093,7 +14935,9 @@ Gradually, faith became such a part of your life that it was no different from t
      ],
     [
       ("continue_collecting_taxes", [], "Ignore them and continue.",
-       [(change_screen_return),]),
+       [ #SB : objectionable action
+       (call_script, "script_objectionable_action", tmt_egalitarian, "str_repress_farmers"),
+       (change_screen_return),]),
       ("halve_taxes", [(quest_get_slot, ":quest_giver_troop", "qst_collect_taxes", slot_quest_giver_troop),
                        (str_store_troop_name, s1, ":quest_giver_troop"),],
        "Agree to reduce your collection by half. ({s1} may be upset)",
@@ -11109,10 +14953,14 @@ Gradually, faith became such a part of your life that it was no different from t
  shouting about the exorbitant taxes and waving torches and weapons. It looks like they aim to fight you!",
     "none",
     [(str_store_party_name, s3, "$current_town"),
-     (assign, reg9, 0),
+     #SB : town pictures
      (try_begin),
        (party_slot_eq, "$current_town", slot_party_type, spt_village),
        (assign, reg9, 1),
+       (set_background_mesh, "mesh_pic_villageriot"),
+     (else_try),
+       (set_background_mesh, "mesh_pic_townriot"),
+       (assign, reg9, 0),
      (try_end),
      ],
     [
@@ -11123,7 +14971,7 @@ Gradually, faith became such a part of your life that it was no different from t
           (party_slot_eq, ":target_center", slot_party_type, spt_town),
           (party_get_slot, ":town_alley", ":target_center", slot_town_alley),
         (else_try),
-          (party_get_slot, ":town_alley", ":target_center", slot_village_center),
+          (party_get_slot, ":town_alley", ":target_center", slot_castle_exterior),
         (try_end),
         (modify_visitors_at_site,":town_alley"),
         (reset_visitors),
@@ -11258,14 +15106,24 @@ Gradually, faith became such a part of your life that it was no different from t
  The elder begs that you organize your newly-trained militia and face them.",
     "none",
     [
-	(str_store_party_name, s3, "$current_town"),
+    (str_store_party_name, s3, "$current_town"),
      ],
     [
       ("peasants_against_bandits_attack_resist", [], "Prepare for a fight!",
-       [
-        (call_script, "script_get_bandit_troop_in_center", "$current_town"),
+       [ ## SB : use new bandit script
+        # (store_random_in_range, ":random_no", 0, 3),
+        # (try_begin),
+          # (eq, ":random_no", 0),
+          # (assign, ":bandit_troop", "trp_bandit"),
+        # (else_try),
+          # (eq, ":random_no", 1),
+          # (assign, ":bandit_troop", "trp_mountain_bandit"),
+        # (else_try),
+          # (assign, ":bandit_troop", "trp_forest_bandit"),
+        # (try_end),
+        (call_script, "script_center_get_bandits", "$current_town", 0),
         (assign, ":bandit_troop", reg0),
-        (party_get_slot, ":scene_to_use", "$g_encountered_party", slot_village_center),
+        (party_get_slot, ":scene_to_use", "$g_encountered_party", slot_castle_exterior),
         (modify_visitors_at_site, ":scene_to_use"),
         (reset_visitors),
         (store_character_level, ":level", "trp_player"),
@@ -11274,7 +15132,10 @@ Gradually, faith became such a part of your life that it was no different from t
         (store_add, ":max_bandits", ":min_bandits", 6),
         (store_random_in_range, ":random_no", ":min_bandits", ":max_bandits"),
         (set_visitors, 0, ":bandit_troop", ":random_no"),
-        (assign, ":num_villagers", ":max_bandits"),
+        # (assign, ":num_villagers", ":max_bandits"),
+        #SB : more accurate count
+        (party_count_members_of_type, ":num_villagers", "$current_town", "trp_farmer"), #disallow peasant woman
+        (val_min, ":num_villagers", ":max_bandits"), #dckplmc
         (set_visitors, 2, "trp_trainee_peasant", ":num_villagers"),
         (set_party_battle_mode),
         (set_battle_advantage, 0),
@@ -11323,7 +15184,7 @@ Gradually, faith became such a part of your life that it was no different from t
       ]
     ),
 
-   (
+    (
     "train_peasants_against_bandits_success",mnf_disable_all_keys,
     "The bandits are broken!\
  Those few who remain run off with their tails between their legs,\
@@ -11332,25 +15193,33 @@ Gradually, faith became such a part of your life that it was no different from t
  but they offer you all they can find to show their gratitude.",
     "none",
     [(party_clear, "p_temp_party"),
-     (call_script, "script_end_quest", "qst_train_peasants_against_bandits"),
-     (call_script, "script_change_player_relation_with_center", "$g_encountered_party", 4),
+     #SB : probably apply casualties before adding new troops?
+     (quest_get_slot, ":amount_trained", "qst_train_peasants_against_bandits", slot_quest_target_amount),
+     (store_faction_of_party, ":village_faction", "$current_town"), #assuming player trains them with local weapons
+     (faction_get_slot, ":recruit_troop", ":village_faction", slot_faction_tier_1_troop),
+     (party_add_members, "$current_town", ":recruit_troop", ":amount_trained"),
+     (party_remove_members, "$current_town", "trp_farmer", ":amount_trained"),
 
-     (party_get_slot, ":merchant_troop", "$current_town", slot_village_elder),
+     (call_script, "script_end_quest", "qst_train_peasants_against_bandits"),
+     (call_script, "script_change_player_relation_with_center", "$current_town", 4),
+
+     (party_get_slot, ":merchant_troop", "$current_town", slot_town_elder),
      (try_for_range, ":slot_no", num_equipment_kinds ,max_inventory_items + num_equipment_kinds),
         (store_random_in_range, ":rand", 0, 100),
         (lt, ":rand", 50),
         (troop_set_inventory_slot, ":merchant_troop", ":slot_no", -1),
      (try_end),
      (call_script, "script_add_log_entry", logent_helped_peasants, "trp_player",  "$current_town", -1, -1),
+     (set_background_mesh, "mesh_pic_mb_warrior_3"), #SB : background mesh
     ],
     [
       ("village_bandits_defeated_accept",[],"Take it as your just due.",[(jump_to_menu, "mnu_auto_return_to_map"),
-                                                                         (party_get_slot, ":merchant_troop", "$current_town", slot_village_elder),
+                                                                         (party_get_slot, ":merchant_troop", "$current_town", slot_town_elder),
                                                                          (troop_sort_inventory, ":merchant_troop"),
                                                                          (change_screen_loot, ":merchant_troop"),
                                                                        ]),
       ("village_bandits_defeated_cont",[],  "Refuse, stating that they need these items more than you do.",[
-	  (call_script, "script_change_player_relation_with_center", "$g_encountered_party", 3),
+      (call_script, "script_change_player_relation_with_center", "$g_encountered_party", 3),
       (call_script, "script_change_player_honor", 1),
       (change_screen_map)]),
     ],
@@ -11559,26 +15428,117 @@ Gradually, faith became such a part of your life that it was no different from t
   
   (
     "enemy_offer_ransom_for_prisoner",0,
-    "{s2} offers you a sum of {reg12} denars in silver if you are willing to sell him {s1}.",
+##diplomacy start+ Since s2 is the name of a kingdom rather than a person, change "sell him" to "sell them"
+    "{s2} offers you a sum of {reg12} denars in silver if you are willing to sell them {s1}.",
+##diplomacy end+
     "none",
-    [(call_script, "script_calculate_ransom_amount_for_troop", "$g_ransom_offer_troop"),
-     (assign, reg12, reg0),
-     (str_store_troop_name, s1, "$g_ransom_offer_troop"),
-     (store_troop_faction, ":faction_no", "$g_ransom_offer_troop"),
-     (str_store_faction_name, s2, ":faction_no"),
+    [ (call_script, "script_calculate_ransom_amount_for_troop", "$g_ransom_offer_troop"),
+      (assign, reg12, reg0),
+      (str_store_troop_name, s1, "$g_ransom_offer_troop"),
+      (store_troop_faction, ":faction_no", "$g_ransom_offer_troop"),
+      (str_store_faction_name, s2, ":faction_no"),
+     
+       #SB : add tableau
+      (set_fixed_point_multiplier, 100),
+      (position_set_x, pos0, 70),
+      (position_set_y, pos0, 5),
+      (position_set_z, pos0, 75),
+      (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", "$g_ransom_offer_troop", pos0),
      ],
     [
       ("ransom_accept",[],"Accept the offer.",
-       [(troop_add_gold, "trp_player", reg12),
-        (party_remove_prisoners, "$g_ransom_offer_party", "$g_ransom_offer_troop", 1),        
-        (call_script, "script_remove_troop_from_prison", "$g_ransom_offer_troop"),		
+       [ ##diplomacy begin
+        (try_begin),
+          (gt, "$g_player_chamberlain", 0),
+          (call_script, "script_dplmc_pay_into_treasury", reg12),
+        (else_try),
+        ##diplomacy end
+          (troop_add_gold, "trp_player", reg12),
+        ##diplomacy begin
+        (try_end),
+        ##diplomacy end
+		##diplomacy start+
+		#The enemy actually loses the gold paid.
+		(assign, ":gold_paid", reg12),
+		(assign, ":lord_who_pays", "$g_ransom_offer_troop"),
+		(store_troop_faction, ":faction_no", "$g_ransom_offer_troop"),
+		#For kingdom ladies, someone else might pay.
+		(try_begin),
+			(is_between, "$g_ransom_offer_troop", kingdom_ladies_begin, kingdom_ladies_end),
+			(neg|troop_slot_eq, "$g_ransom_offer_troop", slot_troop_occupation, slto_kingdom_hero),#I think at this step even for heroes it's 0
+			(neg|troop_slot_ge, "$g_ransom_offer_troop", slot_troop_wealth, 1),
+			(try_begin),
+				#Check spouse pays
+				(troop_get_slot, ":lord", "$g_ransom_offer_troop", slot_troop_spouse),
+				(this_or_next|is_between, ":lord", active_npcs_begin, active_npcs_end),
+					(troop_slot_eq, ":lord", slot_troop_occupation, slto_kingdom_hero),
+				(store_troop_faction, ":lord_faction", ":lord"),
+				(eq, ":faction_no", ":lord_faction"),
+				(neg|troop_slot_ge, ":lord", slot_troop_occupation, slto_retirement),
+				(assign, ":lord_who_pays", ":lord"),
+			(else_try),
+				#Check father pays
+				(troop_get_slot, ":lord", "$g_ransom_offer_troop", slot_troop_father),
+				(this_or_next|is_between, ":lord", active_npcs_begin, active_npcs_end),
+					(troop_slot_eq, ":lord", slot_troop_occupation, slto_kingdom_hero),
+				(store_troop_faction, ":lord_faction", ":lord"),
+				(eq, ":faction_no", ":lord_faction"),
+				(neg|troop_slot_ge, ":lord", slot_troop_occupation, slto_retirement),
+				(assign, ":lord_who_pays", ":lord"),
+			(else_try),
+				#Check guardian pays
+				(troop_get_slot, ":lord", "$g_ransom_offer_troop", slot_troop_guardian),
+				(this_or_next|is_between, ":lord", active_npcs_begin, active_npcs_end),
+					(troop_slot_eq, ":lord", slot_troop_occupation, slto_kingdom_hero),
+				(store_troop_faction, ":lord_faction", ":lord"),
+				(eq, ":faction_no", ":lord_faction"),
+				(neg|troop_slot_ge, ":lord", slot_troop_occupation, slto_retirement),
+				(assign, ":lord_who_pays", ":lord"),
+			(else_try),
+				#Check mother pays
+				(troop_get_slot, ":lord", "$g_ransom_offer_troop", slot_troop_mother),
+				(this_or_next|is_between, ":lord", active_npcs_begin, active_npcs_end),
+					(troop_slot_eq, ":lord", slot_troop_occupation, slto_kingdom_hero),
+				(store_troop_faction, ":lord_faction", ":lord"),
+				(eq, ":faction_no", ":lord_faction"),
+				(neg|troop_slot_ge, ":lord", slot_troop_occupation, slto_retirement),
+				(assign, ":lord_who_pays", ":lord"),
+			(try_end),
+            #SB : copy from dialogues
+            (call_script, "script_get_kingdom_lady_social_determinants", "$g_ransom_offer_troop"),
+            (assign, ":new_location", reg1),
+            (troop_set_slot, "$g_ransom_offer_troop", slot_troop_cur_center, ":new_location"),
+		(try_end),
+		(try_begin),
+			(ge, ":gold_paid", 0),
+			(ge, ":lord_who_pays", 1),
+			(troop_is_hero, ":lord_who_pays"),
+			#Remove the gold.  The lady has her own funds (e.g. from her dower)
+			#that will partially defray the expense to the lord, depending on
+			#the campaign difficulty.
+		    (game_get_reduce_campaign_ai, ":reduce_campaign_ai"),
+		    (try_begin),
+			   (eq, ":reduce_campaign_ai", 0), #hard: lord pays 50%, lady's resources pay for 50%
+			   (val_div, ":gold_paid", 2),
+		    (else_try),
+			   (eq, ":reduce_campaign_ai", 1), #medium: lord pays 75%, lady's resources pay for 25%
+			   (val_mul, ":gold_paid", 3),
+			   (val_div, ":gold_paid", 4),
+		    (try_end),#easy: lord pays 100%, lady pays nothing
+			(call_script, "script_dplmc_remove_gold_from_lord_and_holdings", ":gold_paid", ":lord_who_pays"),
+		(try_end),
+		##diplomacy end+
+        (party_remove_prisoners, "$g_ransom_offer_party", "$g_ransom_offer_troop", 1),
+        (call_script, "script_remove_troop_from_prison", "$g_ransom_offer_troop"),
         (try_begin),
             (troop_get_type, ":is_female", "trp_player"),
-            (eq, ":is_female", 1),						
-
+            (eq, ":is_female", tf_female),
+            #SB : add condition here
+            (troop_get_type, ":is_female", "$g_ransom_offer_troop"),
+            (eq, ":is_female", tf_male),
             (get_achievement_stat, ":number_of_lords_sold", ACHIEVEMENT_MAN_HANDLER, 0),
             (val_add, ":number_of_lords_sold", 1),
-            (set_achievement_stat, ACHIEVEMENT_MAN_HANDLER, 0, ":number_of_lords_sold"),			
+            (set_achievement_stat, ACHIEVEMENT_MAN_HANDLER, 0, ":number_of_lords_sold"),
 
             (eq, ":number_of_lords_sold", 3),
             (unlock_achievement, ACHIEVEMENT_MAN_HANDLER),
@@ -11588,9 +15548,169 @@ Gradually, faith became such a part of your life that it was no different from t
         ]),
       ("ransom_reject",[],"Reject the offer.",
        [
-        (call_script, "script_change_player_relation_with_troop", "$g_ransom_offer_troop", -4),
+	    ##diplomacy start+
+		#Relation loss altered by lord personality type.
+		#OLD:
+        #(call_script, "script_change_player_relation_with_troop", "$g_ransom_offer_troop", -4),
+		#NEW:
+		(try_begin),
+			(troop_slot_eq, "$g_ransom_offer_troop", slot_lord_reputation_type, lrep_quarrelsome),
+			(call_script, "script_change_player_relation_with_troop", "$g_ransom_offer_troop", -6),
+		(else_try),
+			(troop_slot_eq, "$g_ransom_offer_troop", slot_lord_reputation_type, lrep_debauched),
+			(call_script, "script_change_player_relation_with_troop", "$g_ransom_offer_troop", -5),
+		(else_try),
+			(call_script, "script_change_player_relation_with_troop", "$g_ransom_offer_troop", -4),
+		(try_end),
+		##diplomacy end+
         (call_script, "script_change_player_honor", -1),
         (assign, "$g_ransom_offer_rejected", 1),
+		##diplomacy start+
+		#TODO: Review this, it was partway through a redesign when I stopped.
+		#Also apply a negative reaction modifier to other lords
+		(assign, ":save_reg0", reg0),
+
+		(store_faction_of_troop, ":captive_faction", "$g_ransom_offer_troop"),
+		#For kingdom ladies:
+		(try_begin),
+			(is_between, "$g_ransom_offer_troop", kingdom_ladies_begin, kingdom_ladies_end),
+			#(troop_slot_eq, "$g_ransom_offer_troop", slot_troop_occupation, slto_kingdom_lady),
+			(call_script, "script_get_kingdom_lady_social_determinants", "$g_talk_troop"),
+			(assign, ":guardian", reg0),
+			(store_faction_of_troop, ":captive_faction", ":guardian"),
+
+			(try_for_range, ":troop_no", heroes_begin, heroes_end),
+				(troop_slot_ge, ":troop_no", slot_troop_occupation, slto_kingdom_hero),#lowest valid
+				(neg|troop_slot_ge, ":troop_no", slot_troop_occupation, slto_inactive_pretender),#end of valid range
+				(neq, "$g_ransom_offer_troop", ":troop_no"),
+				(store_faction_of_troop, ":troop_faction", ":troop_no"),
+
+				(assign, ":disapproval_threshold", 20),
+				(try_begin),
+					(neq, ":troop_faction", ":captive_faction"),
+					(neg|is_between, ":troop_no", kingdom_ladies_begin, kingdom_ladies_end),
+					(assign, ":disapproval_threshold", 40),
+				(try_end),
+				#(this_or_next|is_between, ":troop_no", kingdom_ladies_begin, kingdom_ladies_end),
+				#	(eq, ":troop_faction", ":captive_faction"),
+				(assign, ":relation_change", 0),
+
+				#family
+				(try_begin),
+					(this_or_next|troop_slot_eq, ":troop_no", slot_troop_spouse, "$g_ransom_offer_troop"),
+					(this_or_next|troop_slot_eq, "$g_ransom_offer_troop", slot_troop_spouse, ":troop_no"),
+					(eq, ":guardian", ":troop_no"),
+					(assign, ":relation_change", -4),
+				(else_try),
+					(eq, ":troop_no", slot_troop_betrothed, "$g_ransom_offer_troop"),
+					(assign, ":relation_change", -4),
+				(else_try),
+					(call_script, "script_troop_get_family_relation_to_troop", "$g_ransom_offer_troop", ":troop_no"),
+					(ge, reg0, 14),
+					(assign, ":relation_change", -3),
+				(else_try),
+					(ge, reg0, 10),
+					(assign, ":relation_change", -2),
+				(else_try),
+					(ge, reg0, 2),
+					(assign, ":relation_change", -1),
+				(else_try),
+					(call_script, "script_troop_get_relation_with_troop", ":troop_no", "$g_ransom_offer_troop"),
+					(ge, reg0, ":disapproval_threshold"),
+					(this_or_next|is_between, ":troop_no", kingdom_ladies_begin, kingdom_ladies_end),
+						(eq, ":troop_faction", ":captive_faction"),
+					(assign, ":relation_change", -1),
+				(else_try),
+					(ge, ":guardian", 1),
+					(call_script, "script_troop_get_relation_with_troop", ":troop_no", ":guardian"),
+					(ge, reg0, ":disapproval_threshold"),
+					(assign, ":relation_change", -1),
+				(try_end),
+
+				(lt, ":relation_change", 0),
+				(try_begin),
+					(troop_slot_eq, ":troop_no", slot_lord_reputation_type, lrep_quarrelsome),
+					(val_mul, ":relation_change", 3),#-1 to -2, -2 to -3, -3 to -5, -4 to -6
+					(val_sub, ":relation_change", 1),
+					(val_div, ":relation_change", 2),
+				(try_end),
+				(call_script, "script_change_player_relation_with_troop", ":troop_no", ":relation_change"),
+			(try_end),
+		(else_try),
+		#For others:
+			(is_between, "$g_ransom_offer_troop", active_npcs_begin, active_npcs_end),
+			(try_for_range, ":hero", heroes_begin, heroes_end),
+				(this_or_next|is_between, ":hero", active_npcs_begin, active_npcs_end),
+					(troop_slot_eq, ":hero", slot_troop_occupation, slto_kingdom_hero),
+				(neg|troop_slot_eq, ":hero", slot_troop_occupation, dplmc_slto_dead),
+				(neg|troop_slot_ge, ":hero", slot_troop_occupation, slto_retirement),
+
+				(neq, ":hero", "$g_ransom_offer_troop"),
+
+				(store_faction_of_troop, ":troop_faction", ":hero"),
+
+				(assign, ":relation_change", 0),
+
+				(call_script, "script_troop_get_family_relation_to_troop", "$g_ransom_offer_troop", ":hero"),
+				(try_begin),
+					(ge, reg0, 10),
+					(assign, ":relation_change", -1),
+				(try_end),
+
+				(call_script, "script_troop_get_relation_with_troop", ":hero", "$g_ransom_offer_troop"),
+				(try_begin),
+					(ge, reg0, 20),
+					(eq, ":troop_faction", ":captive_faction"),
+					(val_sub, ":relation_change", 1),
+				(else_try),
+					(ge, reg0, 40),
+					(val_sub, ":relation_change", 1),
+				(else_try),
+					(lt, reg0, 0),
+					(assign, ":relation_change", 0),
+				(try_end),
+
+				(lt, ":relation_change", 0),
+				(try_begin),
+					(troop_slot_eq, ":hero", slot_lord_reputation_type, lrep_quarrelsome),
+					(val_mul, ":relation_change", 3),#-1 to -2, -2 to -3, -3 to -5, -4 to -6
+					(val_sub, ":relation_change", 1),
+					(val_div, ":relation_change", 2),
+				(try_end),
+				(call_script, "script_change_player_relation_with_troop", ":hero", ":relation_change"),
+			(try_end),
+
+			(try_for_range, ":lady", kingdom_ladies_begin, kingdom_ladies_end),
+				(neg|troop_slot_eq, ":lady", slot_troop_occupation, slto_kingdom_hero),
+				(neg|troop_slot_eq, ":lady", slot_troop_occupation, dplmc_slto_dead),
+				(neg|troop_slot_ge, ":lady", slot_troop_occupation, slto_retirement),
+
+				(neq, ":lady", "$g_ransom_offer_troop"),
+
+				(assign, ":relation_change", 0),
+				(call_script, "script_troop_get_family_relation_to_troop", ":lady", "$g_ransom_offer_troop"),
+				(try_begin),
+					(ge, reg0, 14),
+					(assign, ":relation_change", -3),
+				(else_try),
+					(ge, reg0, 10),
+					(assign, ":relation_change", -2),
+				(else_try),
+					(ge, reg0, 2),
+					(assign, ":relation_change", -1),
+				(else_try),
+					(call_script, "script_troop_get_relation_with_troop", ":lady", "$g_ransom_offer_troop"),
+					(ge, reg0, 20),
+					(assign, ":relation_change", -1),
+				(try_end),
+
+				(lt, ":relation_change", 0),
+				(call_script, "script_change_player_relation_with_troop", ":lady", ":relation_change"),
+			(try_end),
+		(try_end),
+
+		(assign, reg0, ":save_reg0"),
+		##diplomacy end+
         (change_screen_return),
         ]),
     ]
@@ -11647,7 +15767,7 @@ Gradually, faith became such a part of your life that it was no different from t
        (assign, "$g_player_is_captive", 1),
        (assign,"$auto_menu",-1),
        (assign, "$capturer_party", "$g_encountered_party"),
-       
+
        (try_begin),
          (party_stack_get_troop_id, ":party_leader", "$g_encountered_party", 0),
          (is_between, ":party_leader", active_npcs_begin, active_npcs_end),
@@ -11655,68 +15775,70 @@ Gradually, faith became such a part of your life that it was no different from t
          (store_sub, ":kingdom_hero_id", ":party_leader", active_npcs_begin),
          (set_achievement_stat, ACHIEVEMENT_BARON_GOT_BACK, ":kingdom_hero_id", 1),
        (try_end),
-              
+
        (jump_to_menu, "mnu_captivity_wilderness_taken_prisoner"),
     ],
     []
   ),
+  #SB : impose various degrees of penalty through permanent wounding
   (
     "captivity_start_castle_surrender",0,
     "Stub",
     "none",
     [
-       (assign, "$g_player_is_captive", 1),
-       (assign,"$auto_menu",-1),
-       (assign, "$capturer_party", "$g_encountered_party"),
-       (jump_to_menu, "mnu_captivity_castle_taken_prisoner"),
+        (assign, "$g_player_is_captive", 1),
+        (assign,"$auto_menu",-1),
+        (assign, "$capturer_party", "$g_encountered_party"),
+        # (try_begin),
+          # (store_random_in_range, ":random_no", -100, 100),
+          # (ge, ":random_no", "$g_player_luck"),
+          # (assign, "$g_next_menu", "mnu_captivity_castle_taken_prisoner"),
+          # (jump_to_menu, "mnu_permanent_damage"),
+        # (else_try),
+          (jump_to_menu, "mnu_captivity_castle_taken_prisoner"),
+        # (try_end),
       ],
     []
   ),
-  (
+  ( #SB : defeat in castles has chance of wounding
     "captivity_start_castle_defeat",0,
     "Stub",
     "none",
     [
-       (assign, "$g_player_is_captive", 1),
-       (assign,"$auto_menu",-1),
-       (assign, "$capturer_party", "$g_encountered_party"),
-       (jump_to_menu, "mnu_captivity_castle_taken_prisoner"),
+        (assign, "$g_player_is_captive", 1),
+        (assign,"$auto_menu",-1),
+        (assign, "$capturer_party", "$g_encountered_party"),
+        (try_begin),
+          (store_random_in_range, ":random_no", -50, 100),
+          (ge, ":random_no", "$g_player_luck"),
+          (assign, "$g_next_menu", "mnu_captivity_castle_taken_prisoner"),
+          (jump_to_menu, "mnu_permanent_damage"),
+        (else_try),
+          (jump_to_menu, "mnu_captivity_castle_taken_prisoner"),
+        (try_end),
       ],
     []
   ),
-  (
+  ( #SB : defeat while defending has higher penalty
     "captivity_start_under_siege_defeat",0,
     "Your enemies take you prisoner.",
     "none",
     [
-       (assign, "$g_player_is_captive", 1),
-       (assign,"$auto_menu",-1),
-       (assign, "$capturer_party", "$g_encountered_party"),
-       (jump_to_menu, "mnu_captivity_castle_taken_prisoner"),
+        (assign, "$g_player_is_captive", 1),
+        (assign,"$auto_menu",-1),
+        (assign, "$capturer_party", "$g_encountered_party"),
+        (try_begin),
+          (store_random_in_range, ":random_no", -50, 150),
+          (ge, ":random_no", "$g_player_luck"),
+          (assign, "$g_next_menu", "mnu_captivity_castle_taken_prisoner"),
+          (jump_to_menu, "mnu_permanent_damage"),
+        (else_try),
+          (jump_to_menu, "mnu_captivity_castle_taken_prisoner"),
+        (try_end),
     ],
     []
   ),
   
-  (
-    "captivity_wilderness_taken_prisoner",mnf_scale_picture,
-    "Your enemies take you prisoner.",
-    "none",
-    [
-        (set_background_mesh, "mesh_pic_prisoner_wilderness"),
-     ],
-    [
-      ("continue",[],"Continue...",
-       [
-         (set_camera_follow_party, "$capturer_party"),
-         (assign, "$g_player_is_captive", 1),
-         (store_random_in_range, ":random_hours", 18, 30),         
-         (call_script, "script_event_player_captured_as_prisoner"),
-         (call_script, "script_stay_captive_for_hours", ":random_hours"),
-         (assign,"$auto_menu","mnu_captivity_wilderness_check"),
-         (change_screen_return),
-         ]),
-      ]
-  ),
   (
     "captivity_wilderness_check",0,
     "stub",
@@ -11730,13 +15852,16 @@ Gradually, faith became such a part of your life that it was no different from t
     "none",
     [
         (play_cue_track, "track_escape"),
-        (troop_get_type, ":is_female", "trp_player"),
+          ##diplomacy start+ test gender with script
+        #(troop_get_type, ":is_female", "trp_player"),#<- replaced
         (try_begin),
-          (eq, ":is_female", 1),
+          #(eq, ":is_female", 1),#<- replaced
+          (eq, "$character_gender", tf_female),#<- added
           (set_background_mesh, "mesh_pic_escape_1_fem"),
         (else_try),
           (set_background_mesh, "mesh_pic_escape_1"),
         (try_end),
+          ##diplomacy end+
     ],
     [
       ("continue",[],"Continue...",
@@ -11750,6 +15875,9 @@ Gradually, faith became such a part of your life that it was no different from t
            (assign, "$g_player_icon_state", pis_normal),
            (set_camera_follow_party, "p_main_party"),
            (rest_for_hours, 0, 0, 0), #stop resting
+           ##diplomacy begin
+           (assign, "$g_move_fast", 1),
+           ##diplomacy end
            (change_screen_return),
         ]),
     ]
@@ -11759,13 +15887,18 @@ Gradually, faith became such a part of your life that it was no different from t
     "You are quickly surrounded by guards who take away your weapons. With curses and insults, they throw you into the dungeon where you must while away the miserable days of your captivity.",
     "none",
     [
-        (troop_get_type, ":is_female", "trp_player"),
+          ##diplomacy start+ test gender with script
+        #(troop_get_type, ":is_female", "trp_player"),#<- replaced
         (try_begin),
-          (eq, ":is_female", 1),
+          #(eq, ":is_female", 1),#<- replaced
+          (eq, "$character_gender", tf_female),#<- added
           (set_background_mesh, "mesh_pic_prisoner_fem"),
         (else_try),
           (set_background_mesh, "mesh_pic_prisoner_man"),
         (try_end),
+          ##diplomacy end+
+        #SB : deduct relation here, probably
+        (call_script, "script_change_player_relation_with_center", "$g_encountered_party", -1),
     ],
     [
       ("continue",[],"Continue...",
@@ -11785,13 +15918,16 @@ Gradually, faith became such a part of your life that it was no different from t
  The guards are outraged and beat you savagely before throwing you back into the cell for God knows how long...",
     "none",
     [
-        (troop_get_type, ":is_female", "trp_player"),
+		  ##diplomacy start+ test gender with script
+        #(troop_get_type, ":is_female", "trp_player"),#<-replaced
         (try_begin),
-          (eq, ":is_female", 1),
+          #(eq, ":is_female", 1),#<-replaced
+		  (eq, "$character_gender", tf_female),#<- added
           (set_background_mesh, "mesh_pic_prisoner_fem"),
         (else_try),
           (set_background_mesh, "mesh_pic_prisoner_man"),
         (try_end),
+		  ##diplomacy end+
    ],
     [
       ("continue",[],"Continue...",
@@ -11810,30 +15946,86 @@ Gradually, faith became such a part of your life that it was no different from t
     "stub",
     "none",
     [
-        (store_random_in_range, reg(7), 0, 10),
+        (store_character_level, ":player_level", "trp_player"),
+        (store_mul, "$player_ransom_amount", ":player_level", 50),
+        (val_add, "$player_ransom_amount", 100),
+        #TODO scale with standing (marshal, liege etc)
+        
+        (store_troop_gold, ":player_gold", "trp_player"),
+        (store_div, ":player_gold_div_20", ":player_gold", 20),
+        (val_add, "$player_ransom_amount", ":player_gold_div_20"),
+        (store_troop_gold, ":player_treasury", "trp_household_possessions"), #hidden wealth
+        (assign, "$g_talk_troop", -1),
+        
         (try_begin),
-		  (party_is_active, "$capturer_party"),
-		  (store_faction_of_party, ":capturer_faction", "$capturer_party"),
-		  (is_between, ":capturer_faction", kingdoms_begin, kingdoms_end),
-		  (store_relation, ":relation_w_player_faction", ":capturer_faction", "fac_player_faction"),
-		  (ge, ":relation_w_player_faction", 0),
+          (troop_get_slot, ":spouse", "trp_player", slot_troop_spouse),
+          (gt, ":spouse", 0),
+          (troop_slot_eq, ":spouse", slot_troop_spouse, "trp_player"),
+        (else_try),
+          (assign, ":spouse", -1),
+        (try_end),
+        
+        
+        (try_begin), #lower chance of bad results
+          (ge, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_LOW),
+          (this_or_next|gt, ":spouse", 0),
+          (gt, "$g_player_affiliated_troop", 0),
+          (store_random_in_range, ":chance", 0, 8),
+        (else_try),
+          (store_random_in_range, ":chance", 0, 10),
+        (try_end),
+        (try_begin),
+          (party_is_active, "$capturer_party"),
+          (store_faction_of_party, ":capturer_faction", "$capturer_party"),
+          (is_between, ":capturer_faction", kingdoms_begin, kingdoms_end),
+          (store_relation, ":relation_w_player_faction", ":capturer_faction", "fac_player_faction"),
+          (ge, ":relation_w_player_faction", 0),
+          #SB : this doesn't make much sense when the player is unaffiliated
           (jump_to_menu,"mnu_captivity_end_exchanged_with_prisoner"),
-		(else_try),
-          (lt, reg(7), 4),
-                              
-          (store_character_level, ":player_level", "trp_player"),
-          (store_mul, "$player_ransom_amount", ":player_level", 50),
-          (val_add, "$player_ransom_amount", 100),                    
-          (store_troop_gold, reg3, "trp_player"),          
-          (store_div, ":player_gold_div_20", reg3, 20),
-          (val_add, "$player_ransom_amount", ":player_gold_div_20"),          
-          
-          (gt, reg3, "$player_ransom_amount"),
+        (else_try),
+          (lt, ":chance", 4),
+          #SB : add in spouse cost
+          (try_begin),
+            (main_party_has_troop, ":spouse"),
+            (store_character_level, ":spouse_ransom", ":spouse"),
+            (val_mul, ":spouse_ransom", 250),
+            (val_max, ":spouse_ransom", 1000),
+            (val_add, "$player_ransom_amount", ":spouse_ransom"),
+          (try_end),
+          (gt, ":player_gold", "$player_ransom_amount"),
           (jump_to_menu,"mnu_captivity_end_propose_ransom"),
-        (else_try),
-          (lt, reg7, 7),
+        (else_try), #spouse pays from treasury
+          (lt, ":chance", 5),
+          (ge, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_LOW),
+          (gt, ":spouse", 0),
+          (neg|main_party_has_troop, ":spouse"),
+          (assign, "$g_talk_troop", ":spouse"),
+          (gt, ":player_treasury", "$player_ransom_amount"),
+          (call_script, "script_dplmc_withdraw_from_treasury", "$player_ransom_amount"), #defray a bit depending on spouse skills?
+          (jump_to_menu,"mnu_captivity_end_exchanged_with_prisoner"),
+        (else_try), #affiliate pays from thin air
+          (lt, ":chance", 6),
+          (ge, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_LOW),
+          (gt, "$g_player_affiliated_troop", 0),
+          (game_get_reduce_campaign_ai, ":reduce_campaign_ai"),
+          (try_begin),
+            (eq, ":reduce_campaign_ai", 0), #hard: lord pays 50%, lady's resources pay for 50%
+            (val_div, "$player_ransom_amount", 2),
+          (else_try),
+            (eq, ":reduce_campaign_ai", 1), #medium: lord pays 75%, lady's resources pay for 25%
+            (val_mul, "$player_ransom_amount", 3),
+            (val_div, "$player_ransom_amount", 4),
+          (try_end),#easy: lord pays 100%, lady pays nothing
+          (assign, "$g_talk_troop", "$g_player_affiliated_troop"),
+          #TODO : add debt?
+          (call_script, "script_dplmc_remove_gold_from_lord_and_holdings", "$player_ransom_amount", "$g_player_affiliated_troop"),
           (jump_to_menu,"mnu_captivity_end_exchanged_with_prisoner"),
         (else_try),
+          (lt, ":chance", 7),
+          (assign, "$g_talk_troop", -1),
+          (jump_to_menu,"mnu_captivity_end_exchanged_with_prisoner"),
+        (else_try),
+          #SB : renown loss while imprisoned in loop?
           (jump_to_menu,"mnu_captivity_castle_remain"),
         (try_end),
     ],
@@ -11841,15 +16033,70 @@ Gradually, faith became such a part of your life that it was no different from t
   ),
   (
     "captivity_end_exchanged_with_prisoner",0,
-    "After days of imprisonment, you are finally set free when your captors exchange you with another prisoner.",
+    "After days of imprisonment, you are finally set free when your captors {reg10?receive your ransom from {s10}:exchange you with another prisoner}.",
     "none",
     [
       (play_cue_track, "track_escape"),
+      (try_begin),
+        (gt, "$g_talk_troop", -1),
+        (assign, reg10, 1),
+        (str_store_troop_name, s10, "$g_talk_troop"),
+      (else_try),
+        (assign, reg10, 0),
+      (try_end),
+      (assign, "$g_player_is_captive", 0),
+      # (call_script, "script_set_parties_around_player_ignore_player", 8, 12), #it was radius:2 and hours:12, but players make lots of complains about consequent battle losses after releases from captivity then I changed this.
+      (assign, "$g_player_icon_state", pis_normal),
+      (set_camera_follow_party, "p_main_party"),
+      (rest_for_hours, 0, 0, 0), #stop resting
       ],
     [
+    #SB : add alternatives : home court, affiliated center, faction capital
+      ("continue_court",[
+        (is_between, "$g_player_court", centers_begin, centers_end),
+      ],"Go back to your court in shame...",
+       [
+
+           (party_relocate_near_party, "p_main_party", "$g_player_court", 2),
+           # (call_script, "script_set_parties_around_player_ignore_player", 8, 12), #it was radius:2 and hours:12, but players make lots of complains about consequent battle losses after releases from captivity then I changed this.
+           (change_screen_return),
+        ]),
+
+      ("continue_ransomer",[
+        (is_between, "$g_talk_troop", heroes_begin, heroes_end),
+      ],"Return with {s10}'s escorts...",
+       [
+           (assign, ":party_no", -1),
+           (try_begin),
+             (troop_slot_eq, "$g_talk_troop", slot_troop_occupation, slto_kingdom_hero),
+             (troop_get_slot, ":leaded_party", "$g_talk_troop", slot_troop_leaded_party),
+             #TODO divert if in-combat?
+             (try_begin),
+               (gt, ":leaded_party", 0),
+               (party_is_active, ":leaded_party"),
+               (assign, ":party_no", ":leaded_party"),
+             (else_try),
+               (call_script, "script_lord_get_home_center", "$g_talk_troop"),
+               (assign, ":party_no", reg0),
+             (try_end),
+           (else_try),
+             (troop_slot_eq, "$g_talk_troop", slot_troop_occupation, slto_kingdom_lady),
+             (call_script, "script_get_kingdom_lady_social_determinants", "$g_talk_troop"),
+             (assign, ":party_no", reg1),
+           (try_end),
+           (try_begin),
+             (party_is_active, ":party_no"),
+             (party_relocate_near_party, "p_main_party", ":party_no", 2),
+           (try_end),
+           (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", -1), #annoyed?
+           (call_script, "script_set_parties_around_player_ignore_player", 8, 12), #it was radius:2 and hours:12, but players make lots of complains about consequent battle losses after releases from captivity then I changed this.
+           # (assign, "$g_player_icon_state", pis_normal),
+           # (set_camera_follow_party, "p_main_party"),
+           # (rest_for_hours, 0, 0, 0), #stop resting
+           (change_screen_return),
+        ]),
       ("continue",[],"Continue...",
        [
-           (assign, "$g_player_is_captive", 0),
            (try_begin),
              (party_is_active, "$capturer_party"),
              (party_relocate_near_party, "p_main_party", "$capturer_party", 2),
@@ -11866,12 +16113,23 @@ Gradually, faith became such a part of your life that it was no different from t
     "captivity_end_propose_ransom",0,
     "You spend long hours in the sunless dank of the dungeon, more than you can count.\
  Suddenly one of your captors enters your cell with an offer;\
- he proposes to free you in return for {reg5} denars of your hidden wealth. You decide to...",
+ he proposes to free you{reg6? and {s5}:} in return for {reg5} denars of your hidden wealth. You decide to...",
     "none",
     [
       (assign, reg5, "$player_ransom_amount"),
+      #SB : mention spouse as companion
+      (try_begin),
+        (troop_get_slot, ":spouse", "trp_player", slot_troop_spouse),
+        (gt, ":spouse", 0),
+        (main_party_has_troop, ":spouse"),
+        (str_store_troop_name, s5, ":spouse"),
+        (assign, reg6, 1),
+      (else_try),
+        (assign, reg6, 0),
+      (try_end),
     ],
     [
+      #SB : TODO add in individual companion ransoms/leave in dungeon lower relations?
       ("captivity_end_ransom_accept",
       [
         (store_troop_gold,":player_gold", "trp_player"),
@@ -11880,7 +16138,7 @@ Gradually, faith became such a part of your life that it was no different from t
       [
         (play_cue_track, "track_escape"),
         (assign, "$g_player_is_captive", 0),
-        (troop_remove_gold, "trp_player", "$player_ransom_amount"), 
+        (troop_remove_gold, "trp_player", "$player_ransom_amount"),
         (try_begin),
           (party_is_active, "$capturer_party"),
           (party_relocate_near_party, "p_main_party", "$capturer_party", 1),
@@ -11909,17 +16167,20 @@ Gradually, faith became such a part of your life that it was no different from t
  enduring the kicks and curses of the guards, watching your underfed body waste away more and more...",
     "none",
     [
-        (troop_get_type, ":is_female", "trp_player"),
+		  ##diplomacy start+ test gender with script
+        #(troop_get_type, ":is_female", "trp_player"),#<- replaced
         (try_begin),
-          (eq, ":is_female", 1),
+          #(eq, ":is_female", 1),#<- replaced
+		  (eq, "$character_gender", tf_female),#<- added
           (set_background_mesh, "mesh_pic_prisoner_fem"),
         (else_try),
           (set_background_mesh, "mesh_pic_prisoner_man"),
         (try_end),
+		  ##diplomacy end+
         (store_random_in_range, ":random_hours", 16, 22),
         (call_script, "script_stay_captive_for_hours", ":random_hours"),
         (assign,"$auto_menu", "mnu_captivity_castle_check"),
-        
+
     ],
     [
       ("continue",[],"Continue...",
@@ -11934,28 +16195,63 @@ Gradually, faith became such a part of your life that it was no different from t
 # [ Z18 ] - Training Grounds
 ####################################################################################################################  
 
-  (
-    "training_ground",0,
+   (
+    "training_ground",mnf_enable_hot_keys, #SB : enable hotkeys to check party
     "You approach a training field where you can practice your martial skills. What kind of training do you want to do?",
     "none",
     [
-      (store_add, "$g_training_ground_melee_training_scene", "scn_training_ground_ranged_melee_1", "$g_encountered_party"),
-      (val_sub, "$g_training_ground_melee_training_scene", training_grounds_begin),
-      (try_begin),
-        (ge, "$g_training_ground_training_count", 3),
-        (assign, "$g_training_ground_training_count", 0),
-        (rest_for_hours, 1, 5, 1), #rest while attackable
+      (try_begin), #SB : track slot
+        (party_get_slot, ":scene_no", slot_grounds_track, "$g_encountered_party"),
+        (le, ":scene_no", 0),
+        (store_add, ":scene_no", "scn_training_ground_horse_track_1", "$g_encountered_party"),
+        (val_sub, ":scene_no", training_grounds_begin),
+        (party_set_slot, "$g_encountered_party", slot_grounds_track, ":scene_no"),
+      (try_end),
+      (try_begin), #SB : melee/ranged slot
+        (party_get_slot, ":scene_no", slot_grounds_melee, "$g_encountered_party"),
+        (le, ":scene_no", 0),
+        (store_add, ":scene_no", "scn_training_ground_ranged_melee_1", "$g_encountered_party"),
+        (val_sub, ":scene_no", training_grounds_begin),
+        (party_set_slot, "$g_encountered_party", slot_grounds_melee, ":scene_no"),
+      (try_end),
+      (assign, "$g_training_ground_melee_training_scene", ":scene_no"),
+      
+      
+      #SB : modify this interval
+      (party_get_skill_level, ":training", "p_main_party", "skl_trainer"), #from 0 to 10
+      (try_begin), #grab trainer troop if it isn't linked
+        (party_get_slot, ":trainer_troop", "$g_encountered_party", slot_grounds_trainer),
+        (try_begin),
+          (le, ":trainer_troop", 0),
+          (store_sub, ":trainer_troop", "$g_encountered_party", training_grounds_begin),
+          (val_add, ":trainer_troop", training_ground_trainers_begin),
+          (party_set_slot, "$g_encountered_party", slot_grounds_trainer, ":trainer_troop"),
+        (try_end),
+        (troop_get_slot, ":difficulty", ":trainer_troop", slot_troop_trainer_training_difficulty), #from 0 to 4
+        (val_add, ":training", ":difficulty"), #0 to 14
+      (try_end),
+      (val_div, ":training", 2), #0 to 7
+      (val_max, ":training", 3),
+      (try_begin), #was $g_training_ground_training_count
+        (party_slot_ge, "$g_encountered_party", slot_grounds_count, ":training"),
+        (party_set_slot, "$g_encountered_party", slot_grounds_count, 0),
+        # (assign, "$g_training_ground_training_count", 0),
+        (rest_for_hours, 1, 5, 0), #rest while not attackable
         (assign, "$auto_enter_town", "$g_encountered_party"),
         (change_screen_return),
       (try_end),
+      #SB : set background mesh, player troop
+      (assign, "$g_player_troop", "trp_player"),
+      (set_background_mesh, "mesh_pic_mb_warrior_1"),
       ],
     [
       ("camp_trainer",
        [], "Speak with the trainer.",
        [
          (set_jump_mission, "mt_training_ground_trainer_talk"),
-         (modify_visitors_at_site, "$g_training_ground_melee_training_scene"),
-         (reset_visitors),
+         # no need to reset visitors, trainer is always there
+         # (modify_visitors_at_site, "$g_training_ground_melee_training_scene"),
+         # (reset_visitors),
          (set_jump_entry, 5),
          (jump_to_scene, "$g_training_ground_melee_training_scene"),
          (change_screen_mission),
@@ -11987,8 +16283,12 @@ Gradually, faith became such a part of your life that it was no different from t
       ("go_to_track",[(eq, "$cheat_mode", 1)],"{!}Cheat: Go to track.",
        [
          (set_jump_mission, "mt_ai_training"),
-         (store_add, ":scene_no", "scn_training_ground_horse_track_1", "$g_encountered_party"),
-         (val_sub, ":scene_no", training_grounds_begin),
+         (try_begin), #SB : slots
+           (party_get_slot, ":scene_no", slot_grounds_track, "$g_encountered_party"),
+           (le, ":scene_no", 0),
+           (store_add, ":scene_no", "scn_training_ground_horse_track_1", "$g_encountered_party"),
+           (val_sub, ":scene_no", training_grounds_begin),
+         (try_end),
          (jump_to_scene, ":scene_no"),
          (change_screen_mission),
         ]
@@ -12043,67 +16343,45 @@ Gradually, faith became such a part of your life that it was no different from t
   ),
 
   ("training_ground_selection_details_melee_2",0,
-   "Choose your opponent #{reg1}:",
+   "Choose your opponent:^{s1}^{reg1}:",
    "none",
-   [
-     (assign, reg1, "$temp_2"),
-     (troop_get_slot, "$temp_3", "trp_stack_selection_amounts", 0), #number of slots
-     ],
     [
-      ("s0", [(call_script, "script_cf_training_ground_sub_routine_1_for_melee_details", 1),], "{s0}",
-       [(call_script, "script_training_ground_sub_routine_2_for_melee_details", 1),]),
-      ("s0", [(call_script, "script_cf_training_ground_sub_routine_1_for_melee_details", 2),], "{s0}",
-       [(call_script, "script_training_ground_sub_routine_2_for_melee_details", 2),]),
-      ("s0", [(call_script, "script_cf_training_ground_sub_routine_1_for_melee_details", 3),], "{s0}",
-       [(call_script, "script_training_ground_sub_routine_2_for_melee_details", 3),]),
-      ("s0", [(call_script, "script_cf_training_ground_sub_routine_1_for_melee_details", 4),], "{s0}",
-       [(call_script, "script_training_ground_sub_routine_2_for_melee_details", 4),]),
-      ("s0", [(call_script, "script_cf_training_ground_sub_routine_1_for_melee_details", 5),], "{s0}",
-       [(call_script, "script_training_ground_sub_routine_2_for_melee_details", 5),]),
-      ("s0", [(call_script, "script_cf_training_ground_sub_routine_1_for_melee_details", 6),], "{s0}",
-       [(call_script, "script_training_ground_sub_routine_2_for_melee_details", 6),]),
-      ("s0", [(call_script, "script_cf_training_ground_sub_routine_1_for_melee_details", 7),], "{s0}",
-       [(call_script, "script_training_ground_sub_routine_2_for_melee_details", 7),]),
-      ("s0", [(call_script, "script_cf_training_ground_sub_routine_1_for_melee_details", 8),], "{s0}",
-       [(call_script, "script_training_ground_sub_routine_2_for_melee_details", 8),]),
-      ("s0", [(call_script, "script_cf_training_ground_sub_routine_1_for_melee_details", 9),], "{s0}",
-       [(call_script, "script_training_ground_sub_routine_2_for_melee_details", 9),]),
-      ("s0", [(call_script, "script_cf_training_ground_sub_routine_1_for_melee_details", 10),], "{s0}",
-       [(call_script, "script_training_ground_sub_routine_2_for_melee_details", 10),]),
-      ("s0", [(call_script, "script_cf_training_ground_sub_routine_1_for_melee_details", 11),], "{s0}",
-       [(call_script, "script_training_ground_sub_routine_2_for_melee_details", 11),]),
-      ("s0", [(call_script, "script_cf_training_ground_sub_routine_1_for_melee_details", 12),], "{s0}",
-       [(call_script, "script_training_ground_sub_routine_2_for_melee_details", 12),]),
-      ("s0", [(call_script, "script_cf_training_ground_sub_routine_1_for_melee_details", 13),], "{s0}",
-       [(call_script, "script_training_ground_sub_routine_2_for_melee_details", 13),]),
-      ("s0", [(call_script, "script_cf_training_ground_sub_routine_1_for_melee_details", 14),], "{s0}",
-       [(call_script, "script_training_ground_sub_routine_2_for_melee_details", 14),]),
-      ("s0", [(call_script, "script_cf_training_ground_sub_routine_1_for_melee_details", 15),], "{s0}",
-       [(call_script, "script_training_ground_sub_routine_2_for_melee_details", 15),]),
-      ("s0", [(call_script, "script_cf_training_ground_sub_routine_1_for_melee_details", 16),], "{s0}",
-       [(call_script, "script_training_ground_sub_routine_2_for_melee_details", 16),]),
-      ("s0", [(call_script, "script_cf_training_ground_sub_routine_1_for_melee_details", 17),], "{s0}",
-       [(call_script, "script_training_ground_sub_routine_2_for_melee_details", 17),]),
-      ("s0", [(call_script, "script_cf_training_ground_sub_routine_1_for_melee_details", 18),], "{s0}",
-       [(call_script, "script_training_ground_sub_routine_2_for_melee_details", 18),]),
-      ("s0", [(call_script, "script_cf_training_ground_sub_routine_1_for_melee_details", 19),], "{s0}",
-       [(call_script, "script_training_ground_sub_routine_2_for_melee_details", 19),]),
-      ("s0", [(call_script, "script_cf_training_ground_sub_routine_1_for_melee_details", 20),], "{s0}",
-       [(call_script, "script_training_ground_sub_routine_2_for_melee_details", 20),]),
+      (assign, reg1, "$temp_2"),
+      (troop_get_slot, "$temp_3", "trp_stack_selection_amounts", 0), #number of slots
+      
+      #SB : show current list
+      (str_clear, s1),
+      (store_sub, ":end", "$temp_2", 1),
+      (try_for_range, ":slot_index", 0, ":end"),
+        (store_add, reg0, ":slot_index", 1),
+        (troop_get_slot, ":troop_id", "trp_temp_array_a", ":slot_index"),
+        (gt, ":troop_id", 0),
+        (str_store_troop_name, s2, ":troop_id"),
+        (str_store_string, s1, "@{s1}^{reg0}: {s2}"),
+      # (else_try),
+        # (str_store_string, s1, "@{s1}^{reg0}:"),
+      (try_end),
+    ],
+    [
       ("training_ground_selection_details_melee_random", [], "Choose randomly.",
        [(call_script, "script_training_ground_sub_routine_2_for_melee_details", -1),]),
       ("go_back_dot",[],"Go back.",
-       [(jump_to_menu, "mnu_training_ground"),
-        ]
-       ),
-      ]
+       [(jump_to_menu, "mnu_training_ground"),]
+       ), #SB : stack built from loop
+      ]+
+      [("stack"+str(x), [(call_script, "script_cf_training_ground_sub_routine_1_for_melee_details", x),], "{s0}",
+       [(call_script, "script_training_ground_sub_routine_2_for_melee_details", x),])
+       for x in range(1, 20)]
   ),
 
 
   ("training_ground_selection_details_mounted",0,
    "What kind of weapon do you want to train with?",
    "none",
-   [],
+   [
+   #SB : background mesh
+   (set_background_mesh, "mesh_pic_mb_warrior_2"),
+   ],
     [
       ("camp_train_mounted_details_1",[], "One handed weapon.",
        [
@@ -12132,7 +16410,9 @@ Gradually, faith became such a part of your life that it was no different from t
   ("training_ground_selection_details_ranged_1",0,
    "What kind of ranged weapon do you want to train with?",
    "none",
-   [],
+   [
+   (set_background_mesh, "mesh_pic_mb_warrior_4"), #SB : background mesh
+   ],
     [
       ("camp_train_ranged_weapon_bow",[], "Bow and arrows.",
        [
@@ -12163,7 +16443,9 @@ Gradually, faith became such a part of your life that it was no different from t
   ("training_ground_selection_details_ranged_2",0,
    "What range do you want to practice at?",
    "none",
-   [],
+   [
+   (set_background_mesh, "mesh_pic_mb_warrior_4"), #SB : background mesh
+   ],
     [
       ("camp_train_ranged_details_1",[], "10 yards.",
        [
@@ -12204,7 +16486,14 @@ Gradually, faith became such a part of your life that it was no different from t
   ("training_ground_description",0,
    "{s0}",
    "none",
-   [],
+   [
+   #Sb : format string here instead of script_start_training_at_training_ground
+   (store_sub, reg0, "$g_training_ground_training_num_enemies", 1),
+   (store_sub, ":string", "$g_mt_mode", 1),
+   (val_add, ":string", "str_ctm_melee"),
+   (str_store_string, s0, ":string"),
+   
+   ],
     [
       ("continue", [], "Continue...",
        [
@@ -12246,6 +16535,8 @@ Gradually, faith became such a part of your life that it was no different from t
          (convert_to_fixed_point, ":xp_ratio_to_add"),
          (val_div, ":xp_ratio_to_add", ":divisor"),
        (try_end),
+##       (assign, reg0, ":xp_ratio_to_add"),
+##       (display_message, "@xp earn ratio: {reg0}/1000"),
        (store_mul, ":xp_ratio_to_add_with_trainer_skill", ":xp_ratio_to_add", ":trainer_skill_multiplier"),
        (val_div, ":xp_ratio_to_add_with_trainer_skill", 10),
        (party_get_num_companion_stacks, ":num_stacks", "p_main_party"),
@@ -12260,8 +16551,15 @@ Gradually, faith became such a part of your life that it was no different from t
            (assign, ":end_cond_2", 0), #break
            (call_script, "script_cf_training_ground_sub_routine_for_training_result", ":troop_id", ":stack_no", ":amount", ":xp_ratio_to_add_with_trainer_skill"),
            (str_store_troop_name_by_count, s1, ":troop_id", ":amount"),
-           (assign, reg1, ":amount"),
-           (str_store_string, s2, "@{s2}^{reg1} {s1} earned {reg0} experience."),
+           #SB : hero name count
+           (try_begin),
+             (troop_is_hero, ":troop_id"),
+             (assign, reg2, 1),
+           (else_try),
+             (assign, reg2, 0),
+             (assign, reg1, ":amount"),
+           (try_end),
+           (str_store_string, s2, "@{s2}^{reg2?:{reg1} }{s1} earned {reg0} experience."),
          (try_end),
        (try_end),
        (try_begin),
@@ -12304,7 +16602,7 @@ Gradually, faith became such a part of your life that it was no different from t
      (else_try),
        (str_store_string, s7, "@The training went perfectly."),
      (try_end),
-     
+
      ],
     [
       ("continue",[],"Continue...",
@@ -12320,10 +16618,12 @@ Gradually, faith became such a part of your life that it was no different from t
 ####################################################################################################################
 
   (
+##diplomacy end+ fix gender of pronoun
     "kingdom_army_quest_report_to_army",mnf_scale_picture,
-    "{s8} sends word that he wishes you to join {reg4?her:his} new military campaign.\
+    "{s8} sends word that {reg4?she:he} wishes you to join {reg4?her:his} new military campaign.\
  You need to bring at least {reg13} troops to the army,\
  and are instructed to raise more men with all due haste if you do not have enough.",
+##diplomacy end+
     "none",
     [
         (set_background_mesh, "mesh_pic_messenger"),
@@ -12337,7 +16637,11 @@ Gradually, faith became such a part of your life that it was no different from t
         (try_end),
         (str_store_troop_name, s8, ":quest_target_troop"),
         (assign, reg13, ":quest_target_amount"),
-		(troop_get_type, reg4, ":quest_target_troop"),
+		##diplomacy start+
+      #Set gender with script
+		#(troop_get_type, reg4, ":quest_target_troop"), #<- OLD
+		(call_script, "script_dplmc_store_troop_is_female_reg", ":quest_target_troop", 4),
+		##diplomacy end+
       ],
     [
       ("continue",[],"Continue...",
@@ -12347,7 +16651,9 @@ Gradually, faith became such a part of your life that it was no different from t
            (str_store_troop_name_link, s13, ":quest_target_troop"),
            (assign, reg13, ":quest_target_amount"),
            (setup_quest_text, "qst_report_to_army"),
-           (str_store_string, s2, "@{s13} asked you to report to him with at least {reg13} troops."),
+           ##diplomacy start+ fix gender of pronoun
+           (str_store_string, s2, "@{s13} asked you to report to {reg4?her:him} with at least {reg13} troops."),
+           ##diplomacy end+
            (call_script, "script_start_quest", "qst_report_to_army", ":quest_target_troop"),
            (call_script, "script_report_quest_troop_positions", "qst_report_to_army", ":quest_target_troop", 3),
            (change_screen_return),
@@ -12356,13 +16662,19 @@ Gradually, faith became such a part of your life that it was no different from t
   ),
 
   (
+##diplomacy start+ fix gender of pronouns
     "kingdom_army_quest_messenger",mnf_scale_picture,
-    "{s8} sends word that he wishes to speak with you about a task he needs performed.\
- He requests you to come and see him as soon as possible.",
+    "{s8} sends word that {reg4?she:he} wishes to speak with you about a task {reg4?she:he} needs performed.\
+ {reg4?She:He} requests you to come and see {reg4?her:him} as soon as possible.",
+##diplomacy end+
     "none",
     [
         (set_background_mesh, "mesh_pic_messenger"),
         (faction_get_slot, ":faction_marshall", "$players_kingdom", slot_faction_marshall),
+        ##diplomacy start+ put marshall's gender in reg4
+        (call_script, "script_dplmc_store_troop_is_female", ":faction_marshall"),
+        (assign, reg4, reg0),
+        ##diplomacy end+
         (str_store_troop_name, s8, ":faction_marshall"),
       ],
     [
@@ -12491,8 +16803,11 @@ Gradually, faith became such a part of your life that it was no different from t
       (str_store_faction_name, s2, "$g_notification_menu_var2"),
 	  (faction_get_slot, ":faction_leader", "$g_notification_menu_var1", slot_faction_leader),
       (str_store_troop_name, s3, ":faction_leader"),
-	  (troop_get_type, reg4, ":faction_leader"),
-	  
+	  ##diplomacy start+ use a script for gender
+	  #(troop_get_type, reg4, ":faction_leader"),#<- OLD
+	  (call_script, "script_dplmc_store_troop_is_female_reg", ":faction_leader", 4),
+     ##diplomacy end+
+
       (set_fixed_point_multiplier, 100),
       (position_set_x, pos0, 65),
       (position_set_y, pos0, 30),
@@ -12510,7 +16825,9 @@ Gradually, faith became such a part of your life that it was no different from t
 
   (
     "notification_lord_defects",0,
-    "Defection: {s4} has abandoned the {s5} and joined the {s7}, taking {reg4?her:his} his fiefs with him",
+##diplomacy start+ Fix gender of pronouns
+    "Defection: {s4} has abandoned the {s5} and joined the {s7}, taking {reg4?her:his} fiefs with {reg4?her:him}",
+##diplomacy end+
     "none",
 	[
 	  (assign, ":defecting_lord", "$g_notification_menu_var1"),
@@ -12519,8 +16836,11 @@ Gradually, faith became such a part of your life that it was no different from t
 	  (str_store_faction_name, s5, ":old_faction"),
 	  (store_faction_of_troop, ":new_faction", ":defecting_lord"),
 	  (str_store_faction_name, s7, ":new_faction"),
-	  (troop_get_type, reg4, ":defecting_lord"),
-	  
+	  ##diplomacy start+ get gender with script
+	  #(troop_get_type, reg4, ":defecting_lord"),#<-OLD
+	  (call_script, "script_dplmc_store_troop_is_female_reg", ":defecting_lord", 4),
+	  ##diplomacy end+
+
 	],
     [
       ("continue",[],"Continue",
@@ -12539,30 +16859,33 @@ Gradually, faith became such a part of your life that it was no different from t
 	  (assign, ":indicted_lord", "$g_notification_menu_var1"),
 	  (assign, ":former_faction", "$g_notification_menu_var2"),
 	  (faction_get_slot, ":former_faction_leader", ":former_faction", slot_faction_leader),
-	  
+
 	  #Set up string
 	  (try_begin),
 			(eq, ":indicted_lord", "trp_player"),
 			(str_store_troop_name, s7, ":former_faction_leader"),
 			(str_store_string, s9, "str_you_have_been_indicted_for_treason_to_s7_your_properties_have_been_confiscated_and_you_would_be_well_advised_to_flee_for_your_life"),
-	  (else_try),	
-			(str_store_troop_name, s4, ":indicted_lord"),
-			(str_store_faction_name, s5, ":former_faction"),
-			(str_store_troop_name, s6, ":former_faction_leader"),
-		
-			(troop_get_type, reg4, ":indicted_lord"),
+	  (else_try),
+			(str_store_troop_name_link, s4, ":indicted_lord"),
+			(str_store_faction_name_link, s5, ":former_faction"),
+			(str_store_troop_name_link, s6, ":former_faction_leader"),
+
+		   ##diplomacy start+ get gender with script
+			#(troop_get_type, reg4, ":indicted_lord"),#<-OLD
+			(call_script, "script_dplmc_store_troop_is_female_reg", ":indicted_lord", 4),
+			##diplomacy end+
 			(store_faction_of_troop, ":new_faction", ":indicted_lord"),
 			(try_begin),
 				(is_between, ":new_faction", kingdoms_begin, kingdoms_end),
-				(str_store_faction_name, s10, ":new_faction"),
+				(str_store_faction_name_link, s10, ":new_faction"),
 				(str_store_string, s11, "str_with_the_s10"),
 			(else_try),
 				(str_store_string, s11, "str_outside_calradia"),
 			(try_end),
 			(str_store_string, s9, "str_by_order_of_s6_s4_of_the_s5_has_been_indicted_for_treason_the_lord_has_been_stripped_of_all_reg4herhis_properties_and_has_fled_for_reg4herhis_life_he_is_rumored_to_have_gone_into_exile_s11"),
 		(try_end),
-	  
-	  
+
+
 	],
     [
       ("continue",[],"Continue",
@@ -12663,206 +16986,175 @@ Gradually, faith became such a part of your life that it was no different from t
       (position_set_y, pos0, 30),
       (position_set_z, pos0, 170),
       (set_game_menu_tableau_mesh, "tableau_faction_note_mesh_banner", "fac_player_supporters_faction", pos0),
-      
+
       (unlock_achievement, ACHIEVEMENT_CALRADIAN_TEA_PARTY),
       (play_track, "track_coronation"),
-	  
+
 	  (try_for_range, ":walled_center", walled_centers_begin, walled_centers_end),
 	    (lt, "$g_player_court", walled_centers_begin),
 		(store_faction_of_party, ":walled_center_faction", ":walled_center"),
 	    (eq, ":walled_center_faction", "fac_player_supporters_faction"),
 		(assign, "$g_player_court", ":walled_center"),
-		
-		(try_begin),
-			(troop_get_slot, ":spouse", "trp_player", slot_troop_spouse),
-			(is_between, ":spouse", kingdom_ladies_begin, kingdom_ladies_end),
-			(troop_set_slot, ":spouse", slot_troop_cur_center, "$g_player_court"),
+
+		##diplomacy start+
+		#OLD VERSION:
+		#(try_begin),
+		#	(troop_get_slot, ":spouse", "trp_player", slot_troop_spouse),
+		#	(is_between, ":spouse", kingdom_ladies_begin, kingdom_ladies_end),
+		#	(troop_set_slot, ":spouse", slot_troop_cur_center, "$g_player_court"),
+		#(try_end),
+		#
+		#NEW VERSION:
+		#For settings with polygamy, check all kingdom ladies to see if they are wives.
+		#Also move unmarried daughters/sisters of the player if they exist (they cannot
+		#in Native, but might in mods).
+		(try_for_range, ":lady", kingdom_ladies_begin, kingdom_ladies_end),
+			#Make sure the spouse hasn't been promoted, and is not a prisoner, and is not exiled/dead
+			(troop_slot_eq, ":lady", slot_troop_occupation, slto_kingdom_lady),
+			(neg|troop_slot_ge, ":lady", slot_troop_leaded_party, 0),
+			#Make sure the lady isn't a prisoner
+			(neg|troop_slot_ge, ":lady", slot_troop_prisoner_of_party, 0),
+			(neg|main_party_has_troop, ":lady"), #dckplmc
+			(try_begin),
+				#Check if the lady is the player's spouse
+				(this_or_next|troop_slot_eq, "trp_player", slot_troop_spouse, ":lady"),
+					(troop_slot_eq, ":lady", slot_troop_spouse, "trp_player"),
+				#Update location
+				(troop_set_slot, ":lady", slot_troop_cur_center, "$g_player_court"),
+			(else_try),
+				#If the lady is unmarried, check if she is the player's dependent.
+				(troop_slot_eq, ":lady", slot_troop_spouse, -1),
+				(this_or_next|troop_slot_eq, ":lady", slot_troop_father, "trp_player"),
+				(this_or_next|troop_slot_eq, ":lady", slot_troop_mother, "trp_player"),
+					(troop_slot_eq, ":lady", slot_troop_guardian, "trp_player"),
+				#Update location
+				(troop_set_slot, ":lady", slot_troop_cur_center, "$g_player_court"),
+			(try_end),
 		(try_end),
-		
+		##diplomacy end+
+
 		(str_store_party_name, s12, "$g_player_court"),
 	  (try_end),
-	  
+
       ],
     [
+	  ##diplomacy start+
+	  #Make compatible with polygamy
       ("appoint_spouse",[
 	  (troop_slot_ge, "trp_player", slot_troop_spouse, 1),
 	  (troop_get_slot, ":player_spouse", "trp_player", slot_troop_spouse),
 	  (neg|troop_slot_eq, ":player_spouse", slot_troop_occupation, slto_kingdom_hero),
+	  ##diplomacy start+
+	  #Also do not appoint the missing or the dead
+	  (neg|troop_slot_ge, ":player_spouse", slot_troop_occupation, slto_retirement),
+	  (call_script, "script_dplmc_store_troop_is_female", ":player_spouse"),#reg0 make gender-correct
+	  ##diplomacy end+
 	  (str_store_troop_name, s10, ":player_spouse"),
-	  ],"Appoint your wife, {s10}...",
+	  ],"Appoint your {reg0?wife:husband}, {s10}...",
        [
 	   (troop_get_slot, ":player_spouse", "trp_player", slot_troop_spouse),
 	   (assign, "$g_player_minister", ":player_spouse"),
 	   (jump_to_menu, "mnu_minister_confirm"),
 	   ]),
+	  ##diplomacy end+
 
-      ("appoint_npc1",[
-	  (main_party_has_troop, "trp_npc1"),
-	  (str_store_troop_name, s10, "trp_npc1"),
-	  ],"Appoint {s10}",
+	  ##diplomacy start+
+	  #Check for one additional spouse (polygamy may be enabled)
+      ("dplmc_appoint_spouse_plus_1",[
+	  (troop_slot_ge, "trp_player", slot_troop_spouse, 1),
+	  (assign, ":player_spouse", -1),
+	  (try_for_range_backwards, ":troop_no", heroes_begin, heroes_end),#Go backwards to ensure we end with the first match
+		(troop_slot_eq, ":troop_no", slot_troop_spouse, "trp_player"),
+		(neg|troop_slot_eq, "trp_player", slot_troop_spouse, ":troop_no"),#Not ordinary spouse
+		(neg|troop_slot_ge, ":troop_no", slot_troop_occupation, slto_retirement),#Not retired/dead/exiled
+		(neg|troop_slot_eq, ":troop_no", slot_troop_occupation, slto_kingdom_hero),#Not leading a party
+		(assign, ":player_spouse", ":troop_no"),
+	  (try_end),
+	  (ge, ":player_spouse", 1),
+	  (call_script, "script_dplmc_store_troop_is_female", ":player_spouse"),
+	  (str_store_troop_name, s10, ":player_spouse"),
+	  ],"Appoint your {reg0?wife:husband}, {s10}...",
        [
-	   (assign, "$g_player_minister", "trp_npc1"),
+	   (assign, ":player_spouse", -1),
+	   (try_for_range_backwards, ":troop_no", heroes_begin, heroes_end),#Go backwards to ensure we end with the first match
+	     (troop_slot_eq, ":troop_no", slot_troop_spouse, "trp_player"),
+		 (neg|troop_slot_eq, "trp_player", slot_troop_spouse, ":troop_no"),#Not ordinary spouse
+		 (neg|troop_slot_ge, ":troop_no", slot_troop_occupation, slto_retirement),#Not retired/dead/exiled
+		 (neg|troop_slot_eq, ":troop_no", slot_troop_occupation, slto_kingdom_hero),#Not leading a party
+		 (assign, ":player_spouse", ":troop_no"),
+	   (try_end),
+	   (try_begin),
+		  (lt, ":player_spouse", 1),#This shouldn't be possible
+		  (troop_get_slot, ":player_spouse", "trp_player", slot_troop_spouse),
+	   (try_end),
+
+	   (assign, "$g_player_minister", ":player_spouse"),
 	   (jump_to_menu, "mnu_minister_confirm"),
 	   ]),
-	   
-      ("appoint_npc2",[
-	  (main_party_has_troop, "trp_npc2"),
-	  (str_store_troop_name, s10, "trp_npc2"),],"Appoint {s10}",
-       [
-	   (assign, "$g_player_minister", "trp_npc2"),
-	   (jump_to_menu, "mnu_minister_confirm"),]),
-	   
-      ("appoint_npc3",[
-	  (main_party_has_troop, "trp_npc3"),
-	  (str_store_troop_name, s10, "trp_npc3"),
-	  ],"Appoint {s10}",
-       [
-	   (assign, "$g_player_minister", "trp_npc3"),
-	   (jump_to_menu, "mnu_minister_confirm"), ]),
-	   
-      ("appoint_npc4",[
-	  (main_party_has_troop, "trp_npc4"),
-	  (str_store_troop_name, s10, "trp_npc4"),
-	  ],"Appoint {s10}",
-       [
-	   (assign, "$g_player_minister", "trp_npc4"),
-	   (jump_to_menu, "mnu_minister_confirm"), ]),
-	   
-      ("appoint_npc5",[
-	  (main_party_has_troop, "trp_npc5"),
-	  (str_store_troop_name, s10, "trp_npc5"),
-	  ],"Appoint {s10}",
-       [
-	   (assign, "$g_player_minister", "trp_npc5"),
-	   (jump_to_menu, "mnu_minister_confirm"), ]),
-	   
-      ("appoint_npc6",[
-	  (main_party_has_troop, "trp_npc6"),
-	  (str_store_troop_name, s10, "trp_npc6"),
-	  ],"Appoint {s10}",
-       [
-	   (assign, "$g_player_minister", "trp_npc6"),
-	   (jump_to_menu, "mnu_minister_confirm"), ]),
-	   
-      ("appoint_npc7",[
-	  (main_party_has_troop, "trp_npc7"),
-	  (str_store_troop_name, s10, "trp_npc7"),
-	  ],"Appoint {s10}",
-       [
-	   (assign, "$g_player_minister", "trp_npc7"),
-	   (jump_to_menu, "mnu_minister_confirm"), ]),
-	   
-      ("appoint_npc8",[
-	  (main_party_has_troop, "trp_npc8"),
-	  (str_store_troop_name, s10, "trp_npc8"),
-	  ],"Appoint {s10}",
-       [
-	   (assign, "$g_player_minister", "trp_npc8"),
-	   (jump_to_menu, "mnu_minister_confirm"), ]),
-	   
-      ("appoint_npc9",[
-	  (main_party_has_troop, "trp_npc9"),
-	  (str_store_troop_name, s10, "trp_npc9"),
-	  ],"Appoint {s10}",
-       [
-	   (assign, "$g_player_minister", "trp_npc9"),
-	   (jump_to_menu, "mnu_minister_confirm"), ]),
-	   
-      ("appoint_npc10",[ #was npc9
-	  (main_party_has_troop, "trp_npc10"),
-	  (str_store_troop_name, s10, "trp_npc10"),
-	  ],"Appoint {s10}",
-       [
-	   (assign, "$g_player_minister", "trp_npc10"),
-	   (jump_to_menu, "mnu_minister_confirm"), ]),
-	   
-      ("appoint_npc11",[
-	  (main_party_has_troop, "trp_npc11"),
-	  (str_store_troop_name, s10, "trp_npc11"),
-	  ],"Appoint {s10}",
-       [
-	   (assign, "$g_player_minister", "trp_npc11"),
-	   (jump_to_menu, "mnu_minister_confirm"), ]),
-	   
-      ("appoint_npc12",[
-	  (main_party_has_troop, "trp_npc12"),
-	  (str_store_troop_name, s10, "trp_npc12"),
-	  ],"Appoint {s10}",
-       [
-	   (assign, "$g_player_minister", "trp_npc12"),
-	   (jump_to_menu, "mnu_minister_confirm"), ]),
-	   
-      ("appoint_npc13",[
-	  (main_party_has_troop, "trp_npc13"),
-	  (str_store_troop_name, s10, "trp_npc13"),
-	  ],"Appoint {s10}",
-       [
-	   (assign, "$g_player_minister", "trp_npc13"),
-	   (jump_to_menu, "mnu_minister_confirm"), ]),
-	   
-      ("appoint_npc14",[
-	  (main_party_has_troop, "trp_npc14"),
-	  (str_store_troop_name, s10, "trp_npc14"),
-	  ],"Appoint {s10}",
-       [
-	   (assign, "$g_player_minister", "trp_npc14"),
-	   (jump_to_menu, "mnu_minister_confirm"), ]),
-	   
-      ("appoint_npc15",[
-	  (main_party_has_troop, "trp_npc15"),
-	  (str_store_troop_name, s10, "trp_npc15"),
-	  ],"Appoint {s10}",
-       [
-	   (assign, "$g_player_minister", "trp_npc15"),
-	   (jump_to_menu, "mnu_minister_confirm"), ]),
-	   
-      ("appoint_npc16",[
-	  (main_party_has_troop, "trp_npc16"),
-	  (str_store_troop_name, s10, "trp_npc16"),
-	  ],"Appoint {s10}",
-       [
-	   (assign, "$g_player_minister", "trp_npc16"),
-	   (jump_to_menu, "mnu_minister_confirm"), ]),
-
+	  ##diplomacy end+
+      ]+
+      
+    #SB : roll into loop
+      [("appoint_npc"+str(x), [
+      (main_party_has_troop, "trp_npc"+str(x)),
+      (str_store_troop_name, s10, "trp_npc"+str(x)),
+      ],"Appoint {s10}", [
+       (assign, "$g_player_minister", "trp_npc"+str(x)),
+       (jump_to_menu, "mnu_minister_confirm"),
+      ]) for x in range (1, 17)]
+      
+    +[
       ("appoint_default",[],"Appoint a prominent citizen from the area...",
        [
 	   (assign, "$g_player_minister", "trp_temporary_minister"),
 	   (troop_set_faction, "trp_temporary_minister", "fac_player_supporters_faction"),
 	   (jump_to_menu, "mnu_minister_confirm"),
-        ]),				
+        ]),
      ]
-  ),  
+  ),
 
   (
     "minister_confirm",0,
-    "{s9}can be found at your court in {s12}. You should consult periodically, to avoid the accumulation of unresolved issues that may sap your authority...",
+    "{s9}can be found at your court in {s12}. You should consult {reg4?her:him} periodically, to avoid the accumulation of unresolved issues that may sap your authority...",
     "none",
     [
     (try_begin),
-        (eq, "$players_kingdom_name_set", 1),
+        (store_and, ":name_set", "$players_kingdom_name_set", rename_kingdom),
+        (eq, ":name_set", rename_kingdom),
         (change_screen_return),
     (try_end),
-	  
-	(try_begin),
-		(eq, "$g_player_minister", "trp_temporary_minister"),
-		(str_store_string, s9, "str_your_new_minister_"),
-	(else_try),	
-		(str_store_troop_name, s10, "$g_player_minister"),
-		(str_store_string, s9, "str_s10_is_your_new_minister_and_"),
-	(try_end),
-	
-	(try_begin),
-		(main_party_has_troop, "$g_player_minister"),
-		(remove_member_from_party, "$g_player_minister", "p_main_party"),
-	(try_end),
-	],
+
+    (try_begin),
+        (eq, "$g_player_minister", "trp_temporary_minister"),
+        (str_store_string, s9, "str_your_new_minister_"),
+    (else_try),
+        (str_store_troop_name, s10, "$g_player_minister"),
+        (str_store_string, s9, "str_s10_is_your_new_minister_and_"),
+    (try_end),
+
+    (try_begin),
+        (main_party_has_troop, "$g_player_minister"),
+        (remove_member_from_party, "$g_player_minister", "p_main_party"),
+    (try_end),
+    
+    #SB : tableau notes
+    (set_fixed_point_multiplier, 100),
+    (position_set_x, pos0, 70),
+    (position_set_y, pos0, 5),
+    (position_set_z, pos0, 75),
+    (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", "$g_player_minister", pos0),
+    #also gender string
+    (call_script, "script_dplmc_store_troop_is_female_reg", "$g_player_minister", 4),
+    ],
     [
       ("continue",[],"Continue...",
        [
+         #SB : explicitly state kingdom
+         (assign, "$g_presentation_state", rename_kingdom),
          (start_presentation, "prsnt_name_kingdom"),
         ]),
      ]
-  ),  
+  ),
     
   (
   "notification_court_lost",0,
@@ -12876,43 +17168,88 @@ Gradually, faith became such a part of your life that it was no different from t
 	(else_try),
 		(str_store_string, s10, "str_your_previous_court_some_time_ago"),
 		(str_store_string, s11, "str_your_previous_court_some_time_ago"),
-	(try_end),	
-	
-	(assign, "$g_player_court", -1),
+	(try_end),
+
+	##diplomacy start+ Handle player is co-ruler of NPC kingdom
+	(assign, ":alt_faction", "fac_player_supporters_faction"),
+	(try_begin),
+		(is_between, "$players_kingdom", npc_kingdoms_begin, npc_kingdoms_end),
+		(call_script, "script_dplmc_get_troop_standing_in_faction", "trp_player", "$players_kingdom"),
+		(ge, reg0, DPLMC_FACTION_STANDING_LEADER_SPOUSE),
+		(assign, ":alt_faction", "$players_kingdom"),
+	(try_end),
+	##diplomacy end+
+
+    (try_begin), #SB : loss of court = loss of right to rule
+      (store_and, ":name_set", "$players_kingdom_name_set", rename_center),
+      (eq, ":name_set", rename_center),
+      (call_script, "script_change_player_right_to_rule", -20),
+      #the old "capital" should be stored so that this penalty does not apply twice
+      #but we'll let the player name a new center
+      (val_sub, "$players_kingdom_name_set", rename_center),
+    (else_try), #need a court to lose one
+      (is_between, "$g_player_court", centers_begin, centers_end),
+      (call_script, "script_change_player_right_to_rule", -5),
+    (try_end),
+    (assign, "$g_player_court", -1),
 	(str_store_string, s14, "str_after_to_the_fall_of_s11_your_court_has_nowhere_to_go"),
 	(try_begin),
+		##diplomacy start+  Handle player is co-ruler of NPC kingdom
+		(this_or_next|neg|is_between, ":alt_faction", npc_kingdoms_begin, npc_kingdoms_end),
+			(neg|faction_slot_eq, ":alt_faction", slot_faction_state, sfs_active),
+		##diplomacy end+
 		(faction_slot_eq, "fac_player_supporters_faction", slot_faction_state, sfs_inactive),
 		(str_store_string, s14, "str_as_you_no_longer_maintain_an_independent_kingdom_you_no_longer_maintain_a_court"),
-	(try_end),
-	
-	(try_for_range, ":walled_center", walled_centers_begin, walled_centers_end),
-		(eq, "$g_player_court", -1),
-		(store_faction_of_party, ":walled_center_faction", ":walled_center"),
-		(eq, ":walled_center_faction", "fac_player_supporters_faction"),
-		(neg|party_slot_ge, ":walled_center", slot_town_lord, active_npcs_begin),
-		
-		(assign, "$g_player_court", ":walled_center"),
-		(try_begin),
-			(troop_get_slot, ":spouse", "trp_player", slot_troop_spouse),
-			(is_between, ":spouse", kingdom_ladies_begin, kingdom_ladies_end),
-			(troop_set_slot, ":spouse", slot_troop_cur_center, "$g_player_court"),
-			(str_store_party_name, s11, "$g_player_court"),
-		(try_end),
-		
-		(str_store_string, s14, "str_due_to_the_fall_of_s10_your_court_has_been_relocated_to_s12"),
 	(try_end),
 
 	(try_for_range, ":walled_center", walled_centers_begin, walled_centers_end),
 		(eq, "$g_player_court", -1),
-		
+    ##diplomacy begin
+        (neg|party_slot_eq, ":walled_center", slot_village_infested_by_bandits, "trp_peasant_woman"),
+    ##diplomacy end
 		(store_faction_of_party, ":walled_center_faction", ":walled_center"),
+		##diplomacy start+ Handle player is co-ruler of NPC kingdom
+		(this_or_next|eq, ":alt_faction", ":walled_center_faction"),
+		##diplomacy end+
 		(eq, ":walled_center_faction", "fac_player_supporters_faction"),
-		
+		(neg|party_slot_ge, ":walled_center", slot_town_lord, active_npcs_begin),
+
 		(assign, "$g_player_court", ":walled_center"),
-		
 		(try_begin),
 			(troop_get_slot, ":spouse", "trp_player", slot_troop_spouse),
 			(is_between, ":spouse", kingdom_ladies_begin, kingdom_ladies_end),
+			##diplomacy start+ Check that the spouse is not a hero, imprisoned (except by the player), or exiled/dead/etc.
+			(neg|troop_slot_eq, ":spouse", slot_troop_occupation, slto_kingdom_hero),
+			(neg|troop_slot_ge, ":spouse", slot_troop_occupation, slto_retirement),
+			(neg|troop_slot_ge, ":spouse", slot_troop_prisoner_of_party, 1),
+			##diplomacy end+
+			(neg|main_party_has_troop,":spouse"), #dckplmc
+			(troop_set_slot, ":spouse", slot_troop_cur_center, "$g_player_court"),
+			(str_store_party_name, s11, "$g_player_court"),
+		(try_end),
+
+		(str_store_string, s14, "str_due_to_the_fall_of_s10_your_court_has_been_relocated_to_s12"), #actually s11
+	(try_end),
+
+	(try_for_range, ":walled_center", walled_centers_begin, walled_centers_end),
+		(eq, "$g_player_court", -1),
+
+		(store_faction_of_party, ":walled_center_faction", ":walled_center"),
+		##diplomacy start+ Handle player is co-ruler of NPC kingdom
+		(this_or_next|eq, ":alt_faction", ":walled_center_faction"),
+		##diplomacy end+
+		(eq, ":walled_center_faction", "fac_player_supporters_faction"),
+
+		(assign, "$g_player_court", ":walled_center"),
+
+		(try_begin),
+			(troop_get_slot, ":spouse", "trp_player", slot_troop_spouse),
+			(is_between, ":spouse", kingdom_ladies_begin, kingdom_ladies_end),
+			##diplomacy start+ Check that the spouse is not a hero, imprisoned (except by the player), or exiled/dead/etc.
+			(neg|troop_slot_eq, ":spouse", slot_troop_occupation, slto_kingdom_hero),
+			(neg|troop_slot_ge, ":spouse", slot_troop_occupation, slto_retirement),
+			(neg|troop_slot_ge, ":spouse", slot_troop_prisoner_of_party, 1),
+			##diplomacy end+
 			(troop_set_slot, ":spouse", slot_troop_cur_center, "$g_player_court"),
 		(try_end),
 
@@ -12921,8 +17258,12 @@ Gradually, faith became such a part of your life that it was no different from t
 		(str_store_troop_name, s9, ":town_lord"),
 		(str_store_string, s14, "str_after_to_the_fall_of_s10_your_faithful_vassal_s9_has_invited_your_court_to_s11_"),
 	(try_end),
-	
+
 	(try_begin),
+		##diplomacy start+  Handle player is co-ruler of NPC kingdom
+		(this_or_next|neg|is_between, ":alt_faction", npc_kingdoms_begin, npc_kingdoms_end),
+			(neg|faction_slot_eq, ":alt_faction", slot_faction_state, sfs_active),
+		##diplomacy end+
 		(faction_slot_eq, "fac_player_supporters_faction", slot_faction_state, sfs_inactive),
 		(str_store_string, s14, "str_as_you_no_longer_maintain_an_independent_kingdom_you_no_longer_maintain_a_court"),
 	(try_end),
@@ -12949,16 +17290,16 @@ Gradually, faith became such a part of your life that it was no different from t
     [
       ("continue",[],"Continue...",
        [
-	   
-	   (try_begin),
-	   
-	   
-	   (try_end),
-	   (assign, "$g_player_minister", -1),
-	   (change_screen_return),
+        (try_begin), #SB : just in case
+         (is_between, "$g_player_minister", companions_begin, companions_end),
+         (assign, "$npc_to_rejoin_party", "$g_player_minister"),
+        (try_end),
+        (assign, "$g_player_minister", -1),
+        (change_screen_return),
         ]),
      ]
   ),
+
   
   (
     "notification_player_wedding_day",mnf_scale_picture,
@@ -13287,7 +17628,7 @@ Gradually, faith became such a part of your life that it was no different from t
       (position_set_y, pos0, 30),
       (position_set_z, pos0, 170),
       (try_begin),
-        (is_between, "$g_notification_menu_var1", "fac_kingdom_1", kingdoms_end), #Excluding player kingdom
+        (is_between, "$g_notification_menu_var1", npc_kingdoms_begin, kingdoms_end), #Excluding player kingdom
         (set_game_menu_tableau_mesh, "tableau_faction_note_mesh_for_menu", "$g_notification_menu_var1", pos0),
       (else_try),
         (set_game_menu_tableau_mesh, "tableau_faction_note_mesh_banner", "$g_notification_menu_var1", pos0),
@@ -13299,10 +17640,11 @@ Gradually, faith became such a part of your life that it was no different from t
          (try_begin),
            (is_between, "$supported_pretender", pretenders_begin, pretenders_end),
            (troop_slot_eq, "$supported_pretender", slot_troop_original_faction, "$g_notification_menu_var1"),
-		   
-		   #All rebels switch to kingdom
-           (try_for_range, ":cur_troop", active_npcs_begin, active_npcs_end),
-		     (troop_slot_eq, ":cur_troop", slot_troop_occupation, slto_kingdom_hero),
+
+           #All rebels switch to kingdom
+           (try_for_range, ":cur_troop", active_npcs_begin, active_npcs_end), #dckplmc switch kingdom ladies
+             (this_or_next|troop_slot_eq, ":cur_troop", slot_troop_occupation, slto_kingdom_hero),
+             (troop_slot_eq, ":cur_troop", slot_troop_occupation, slto_kingdom_lady),
              (store_troop_faction, ":cur_faction", ":cur_troop"),
              (eq, ":cur_faction", "fac_player_supporters_faction"),
              (troop_set_faction, ":cur_troop", "$g_notification_menu_var1"),
@@ -13312,53 +17654,66 @@ Gradually, faith became such a part of your life that it was no different from t
                (eq, "$g_notification_menu_var1", "fac_player_supporters_faction"),
                (call_script, "script_check_concilio_calradi_achievement"),
              (try_end),
-		   (else_try), #all loyal lords gain a small bonus with the player	 
-		     (troop_slot_eq, ":cur_troop", slot_troop_occupation, slto_kingdom_hero),
+           (else_try), #all loyal lords gain a small bonus with the player
+             (troop_slot_eq, ":cur_troop", slot_troop_occupation, slto_kingdom_hero),
              (store_troop_faction, ":cur_faction", ":cur_troop"),
              (eq, ":cur_faction", "$g_notification_menu_var1"),
-			 (call_script, "script_troop_change_relation_with_troop", ":cur_troop", "trp_player", 5),
+             (call_script, "script_troop_change_relation_with_troop", ":cur_troop", "trp_player", 5),
            (try_end),
-		   
+
            (try_for_parties, ":cur_party"),
              (store_faction_of_party, ":cur_faction", ":cur_party"),
              (eq, ":cur_faction", "fac_player_supporters_faction"),
              (party_set_faction, ":cur_party", "$g_notification_menu_var1"),
            (try_end),
-		   
+
            (assign, "$players_kingdom", "$g_notification_menu_var1"),
-		   (try_begin),
-			(troop_get_slot, ":spouse", "trp_player", slot_troop_spouse),
-			(is_between, ":spouse", kingdom_ladies_begin, kingdom_ladies_end),
-			(troop_set_faction, ":spouse", "$g_notification_menu_var1"),
-		   (try_end),
-		   
-		   
+           (try_begin),
+            (troop_get_slot, ":spouse", "trp_player", slot_troop_spouse),
+            (is_between, ":spouse", kingdom_ladies_begin, kingdom_ladies_end),
+            (troop_set_faction, ":spouse", "$g_notification_menu_var1"),
+           (try_end),
+
+
            (call_script, "script_add_notification_menu", "mnu_notification_rebels_switched_to_faction", "$g_notification_menu_var1", "$supported_pretender"),
-		   
+
            (faction_set_slot, "$g_notification_menu_var1", slot_faction_state, sfs_active),
            (faction_set_slot, "fac_player_supporters_faction", slot_faction_state, sfs_inactive),
-		   
+
            (faction_get_slot, ":old_leader", "$g_notification_menu_var1", slot_faction_leader),
-           (troop_set_slot, ":old_leader", slot_troop_change_to_faction, "fac_commoners"),
-		   
+           #(troop_set_slot, ":old_leader", slot_troop_change_to_faction, "fac_commoners"),
+           (call_script, "script_change_troop_faction", ":old_leader", "fac_commoners"), #dckplmc - prevent possible respawn before actual faction changes
+           #SB : renown loss of under 25%
+           (troop_get_slot, ":old_renown", ":old_leader", slot_troop_renown),
+           (store_random_in_range, ":renown_loss", 10, 25),
+           (val_mul, ":renown_loss", ":old_renown"),
+           (val_div, ":renown_loss", 100),
+           (val_sub, ":old_renown", ":renown_loss"),
+           (troop_set_slot, ":old_leader", slot_troop_renown, ":old_renown"),
+
            (faction_set_slot, "$g_notification_menu_var1", slot_faction_leader, "$supported_pretender"),
            (troop_set_faction, "$supported_pretender", "$g_notification_menu_var1"),
 
            (faction_get_slot, ":old_marshall", "$g_notification_menu_var1", slot_faction_marshall),
            (try_begin),
              (ge, ":old_marshall", 0),
-			 (troop_get_slot, ":old_marshall_party", ":old_marshall", slot_troop_leaded_party),
+             (troop_get_slot, ":old_marshall_party", ":old_marshall", slot_troop_leaded_party),
              (party_is_active, ":old_marshall_party"),
-             (party_set_marshall, ":old_marshall_party", 0),
-           (try_end),  
+             (party_set_marshal, ":old_marshall_party", 0),
+           (try_end),
 
            (faction_set_slot, "$g_notification_menu_var1", slot_faction_marshall, "trp_player"),
            (faction_set_slot, "$g_notification_menu_var1", slot_faction_ai_state, sfai_default),
            (faction_set_slot, "$g_notification_menu_var1", slot_faction_ai_object, -1),
            (troop_set_slot, "$supported_pretender", slot_troop_occupation, slto_kingdom_hero),
-		   (troop_set_slot, "$supported_pretender", slot_troop_renown, 1000),
-		   
+           (call_script, "script_change_troop_renown", "$supported_pretender", 1000), #SB : keep existing renown
+           (val_div, ":renown_loss", 2), #and add to it half of what old king lost
+           (call_script, "script_change_troop_renown", "$supported_pretender", ":renown_loss"), 
+           # (troop_set_slot, "$supported_pretender", slot_troop_renown, 1000),
+
            (party_remove_members, "p_main_party", "$supported_pretender", 1),
+           (call_script, "script_troop_set_title_according_to_faction", "$supported_pretender", "$g_notification_menu_var1"), #dckplmc title
+           (troop_set_auto_equip, "$supported_pretender",1), #SB : diplomacy suggestion: claimants
            (call_script, "script_set_player_relation_with_faction", "$g_notification_menu_var1", 0),
            (try_for_range, ":cur_kingdom", kingdoms_begin, kingdoms_end),
              (faction_slot_eq, ":cur_kingdom", slot_faction_state, sfs_active),
@@ -13369,6 +17724,7 @@ Gradually, faith became such a part of your life that it was no different from t
            (assign, "$supported_pretender", 0),
            (assign, "$supported_pretender_old_faction", 0),
            (assign, "$g_recalculate_ais", 1),
+           (call_script, "script_update_all_notes"),
          (try_end),
          (change_screen_return),
         ]),
@@ -13387,7 +17743,7 @@ Gradually, faith became such a part of your life that it was no different from t
       (position_set_y, pos0, 30),
       (position_set_z, pos0, 170),
       (try_begin),
-        (is_between, "$g_notification_menu_var1", "fac_kingdom_1", kingdoms_end), #Excluding player kingdom
+        (is_between, "$g_notification_menu_var1", npc_kingdoms_begin, kingdoms_end), #Excluding player kingdom
         (set_game_menu_tableau_mesh, "tableau_faction_note_mesh_for_menu", "$g_notification_menu_var1", pos0),
       (else_try),
         (set_game_menu_tableau_mesh, "tableau_faction_note_mesh_banner", "$g_notification_menu_var1", pos0),
@@ -13405,7 +17761,10 @@ Gradually, faith became such a part of your life that it was no different from t
 
   (
     "notification_player_should_consult",0,
-    "Your minister send words that there are problems brewing in the realm which, if left untreated, could sap your authority. You should consult with him at your earliest convenience",
+##diplomacy start+ Replace "Your minister" with "{reg0?Your minister:{s11}}" and "him" with "{reg4?her:him}".
+#Also "sends words" to "sends word"
+    "{reg0?Your minister:{s11}} send word that there are problems brewing in the realm which, if left untreated, could sap your authority. You should consult with {reg4?her:him} at your earliest convenience",
+	##diplomacy end+
     "none",
     [
       ],
@@ -13416,11 +17775,22 @@ Gradually, faith became such a part of your life that it was no different from t
 
         (str_store_troop_name, s11, "$g_player_minister"),
         (str_store_party_name, s12, "$g_player_court"),
-	   
+
 		(str_store_string, s2, "str_consult_with_s11_at_your_court_in_s12"),
 	    (call_script, "script_start_quest", "qst_consult_with_minister", -1),
-		
-		
+		##diplomacy start+ Set minister gender and reg0 for generic vs specific
+		(assign, reg4, 0),
+		(try_begin),
+			(call_script, "script_cf_dplmc_troop_is_female", "$g_player_minister"),
+			(assign, reg4, 1),
+		(try_end),
+		(assign, reg0, 1),
+		(try_begin),
+			(is_between, "$g_player_minister", heroes_begin, heroes_end),
+			(assign, reg0, 0),
+		(try_end),
+		##diplomacy end+
+
 		(quest_set_slot, "qst_consult_with_minister", slot_quest_expiration_days, 30),
 		(quest_set_slot, "qst_consult_with_minister", slot_quest_giver_troop, "$g_player_minister"),
 
@@ -13432,7 +17802,9 @@ Gradually, faith became such a part of your life that it was no different from t
 
   (
     "notification_player_feast_in_progress",0,
-    "Feast in Preparation^^Your wife has started preparations for a feast in your hall in {s11}",
+##diplomacy start+ make gender correct
+    "Feast in Preparation^^Your {wife/husband} has started preparations for a feast in your hall in {s11}",
+##diplomacy end+
     "none",
     [
     (str_store_party_name, s11, "$g_notification_menu_var1"),
@@ -13450,88 +17822,102 @@ Gradually, faith became such a part of your life that it was no different from t
     "none",
     [
 
-	  (assign, ":lady_no", "$g_notification_menu_var1"),
-	  (assign, ":center_no", "$g_notification_menu_var2"),
+      (assign, ":lady_no", "$g_notification_menu_var1"),
+      (assign, ":center_no", "$g_notification_menu_var2"),
 
       (str_store_troop_name, s15, ":lady_no"),
       (str_store_party_name, s10, ":center_no"),
-	  
-	  (store_current_hours, ":hours_since_last_visit"),
-	  (troop_get_slot, ":last_visit_hours", ":lady_no", slot_troop_last_talk_time),
-	  (val_sub, ":hours_since_last_visit", ":last_visit_hours"),
-	  
-	  (call_script, "script_get_kingdom_lady_social_determinants", ":lady_no"),
-	  (assign, ":lady_guardian", reg0),
-	  
-	  (str_store_troop_name, s16, ":lady_guardian"),
-	  (call_script, "script_troop_get_family_relation_to_troop", ":lady_guardian", ":lady_no"),
-	  
-	  (str_clear, s14), 
-	  (try_begin),
-	    (lt, ":hours_since_last_visit", 336),
-		(try_begin),
-			(troop_slot_eq, ":lady_no", slot_lord_reputation_type, lrep_otherworldly),
-			(str_store_string, s14, "str_as_brief_as_our_separation_has_been_the_longing_in_my_heart_to_see_you_has_made_it_seem_as_many_years"),
-		(else_try),
-			(str_store_string, s14, "str_although_it_has_only_been_a_short_time_since_your_departure_but_i_would_be_most_pleased_to_see_you_again"),
-		(try_end),
-	  (else_try),
-	    (ge, ":hours_since_last_visit", 336),
-		(try_begin),
-			(troop_slot_eq, ":lady_no", slot_lord_reputation_type, lrep_ambitious),
-			(str_store_string, s14, "str_although_i_have_received_no_word_from_you_for_quite_some_time_i_am_sure_that_you_must_have_been_very_busy_and_that_your_failure_to_come_see_me_in_no_way_indicates_that_your_attentions_to_me_were_insincere_"),
-		(else_try),
-			(troop_slot_eq, ":lady_no", slot_lord_reputation_type, lrep_moralist),
-			(str_store_string, s14, "str_i_trust_that_you_have_comported_yourself_in_a_manner_becoming_a_gentleman_during_our_long_separation_"),
-		(else_try),
-			(str_store_string, s14, "str_it_has_been_many_days_since_you_came_and_i_would_very_much_like_to_see_you_again"),
-	    (try_end),
-	  (try_end),
 
-	  
-	  (str_clear, s12), 
-	  (str_clear, s18),
-	  (try_begin),
-	    (troop_slot_eq, ":lady_guardian", slot_lord_granted_courtship_permission, 0),
-		(str_store_string, s12, "str__you_should_ask_my_s11_s16s_permission_but_i_have_no_reason_to_believe_that_he_will_prevent_you_from_coming_to_see_me"),
-		(str_store_string, s18, "str__you_should_first_ask_her_s11_s16s_permission"),
-	  (else_try),
-	    (troop_slot_eq, ":lady_guardian", slot_lord_granted_courtship_permission, -1),
-		(str_store_string, s12, "str__alas_as_we_know_my_s11_s16_will_not_permit_me_to_see_you_however_i_believe_that_i_can_arrange_away_for_you_to_enter_undetected"),
-	  (else_try),
-	    (troop_slot_eq, ":lady_guardian", slot_lord_granted_courtship_permission, 1),
-		(str_store_string, s12, "str__as_my_s11_s16_has_already_granted_permission_for_you_to_see_me_i_shall_expect_your_imminent_arrival"),
-	  (try_end),
+      (store_current_hours, ":hours_since_last_visit"),
+      (troop_get_slot, ":last_visit_hours", ":lady_no", slot_troop_last_talk_time),
+      (val_sub, ":hours_since_last_visit", ":last_visit_hours"),
 
+      (call_script, "script_get_kingdom_lady_social_determinants", ":lady_no"),
+      (assign, ":lady_guardian", reg0),
+
+      (str_store_troop_name, s16, ":lady_guardian"),
+      (call_script, "script_troop_get_family_relation_to_troop", ":lady_guardian", ":lady_no"),
+
+      (str_clear, s14),
+      (try_begin),
+        (lt, ":hours_since_last_visit", 336),
+        (try_begin),
+            (troop_slot_eq, ":lady_no", slot_lord_reputation_type, lrep_otherworldly),
+            (str_store_string, s14, "str_as_brief_as_our_separation_has_been_the_longing_in_my_heart_to_see_you_has_made_it_seem_as_many_years"),
+        (else_try),
+            (str_store_string, s14, "str_although_it_has_only_been_a_short_time_since_your_departure_but_i_would_be_most_pleased_to_see_you_again"),
+        (try_end),
+      (else_try),
+        (ge, ":hours_since_last_visit", 336),
+        (try_begin),
+            (troop_slot_eq, ":lady_no", slot_lord_reputation_type, lrep_ambitious),
+            (str_store_string, s14, "str_although_i_have_received_no_word_from_you_for_quite_some_time_i_am_sure_that_you_must_have_been_very_busy_and_that_your_failure_to_come_see_me_in_no_way_indicates_that_your_attentions_to_me_were_insincere_"),
+        (else_try),
+            (troop_slot_eq, ":lady_no", slot_lord_reputation_type, lrep_moralist),
+            (str_store_string, s14, "str_i_trust_that_you_have_comported_yourself_in_a_manner_becoming_a_gentleman_during_our_long_separation_"),
+        (else_try),
+            (str_store_string, s14, "str_it_has_been_many_days_since_you_came_and_i_would_very_much_like_to_see_you_again"),
+        (try_end),
+      (try_end),
+
+
+      (str_clear, s12),
+      (str_clear, s18),
+      ##diplomacy start+ Store gender in register for use below
+      (assign, ":save_reg4", reg4),
+      (call_script, "script_dplmc_store_troop_is_female_reg", ":lady_guardian", 4),
+      ##diplomacy end+
+      (try_begin),
+        (troop_slot_eq, ":lady_guardian", slot_lord_granted_courtship_permission, 0),
+        (str_store_string, s12, "str__you_should_ask_my_s11_s16s_permission_but_i_have_no_reason_to_believe_that_he_will_prevent_you_from_coming_to_see_me"),
+        (str_store_string, s18, "str__you_should_first_ask_her_s11_s16s_permission"),
+      (else_try),
+        (troop_slot_eq, ":lady_guardian", slot_lord_granted_courtship_permission, -1),
+        (str_store_string, s12, "str__alas_as_we_know_my_s11_s16_will_not_permit_me_to_see_you_however_i_believe_that_i_can_arrange_away_for_you_to_enter_undetected"),
+      (else_try),
+        (troop_slot_eq, ":lady_guardian", slot_lord_granted_courtship_permission, 1),
+        (str_store_string, s12, "str__as_my_s11_s16_has_already_granted_permission_for_you_to_see_me_i_shall_expect_your_imminent_arrival"),
+      (try_end),
+      ##diplomacy start+ Revert register
+      (assign, reg4, ":save_reg4"),
+      ##diplomacy end+
+      
+      #SB : add tableau for lady
+      (set_fixed_point_multiplier, 100),
+      (init_position, pos0),
+      (position_set_x, pos0, 60),
+      (position_set_y, pos0, 20),
+      (position_set_z, pos0, 100),
+      (set_game_menu_tableau_mesh, "tableau_dplmc_lord_profile", ":lady_no", pos0),
       ],
     [
-	
+
       ("continue",[],"Tell the woman to inform her mistress that you will come shortly",
        [
 
-     	(assign, ":lady_to_visit", "$g_notification_menu_var1"),
-	    (str_store_troop_name_link, s3, ":lady_to_visit"),
-	    (str_store_party_name_link, s4, "$g_notification_menu_var2"),
-		
-		(str_store_string, s2, "str_visit_s3_who_was_last_at_s4s18"),
-	    (call_script, "script_start_quest", "qst_visit_lady", ":lady_to_visit"),
-		(quest_set_slot, "qst_visit_lady", slot_quest_giver_troop, ":lady_to_visit"), #don't know why this is necessary
-		
-		(try_begin),
-			(eq, "$cheat_mode", 1),
-			(quest_get_slot, ":giver_troop", "qst_visit_lady", slot_quest_giver_troop),
-			(str_store_troop_name, s2, ":giver_troop"),
-			(display_message, "str_giver_troop_=_s2"),
-		(try_end),	
-		
-		(quest_set_slot, "qst_visit_lady", slot_quest_expiration_days, 30),
-	    (change_screen_return),
+        (assign, ":lady_to_visit", "$g_notification_menu_var1"),
+        (str_store_troop_name_link, s3, ":lady_to_visit"),
+        (str_store_party_name_link, s4, "$g_notification_menu_var2"),
+
+        (str_store_string, s2, "str_visit_s3_who_was_last_at_s4s18"),
+        (call_script, "script_start_quest", "qst_visit_lady", ":lady_to_visit"),
+        (quest_set_slot, "qst_visit_lady", slot_quest_giver_troop, ":lady_to_visit"), #don't know why this is necessary
+
+        (try_begin),
+            (eq, "$cheat_mode", 1),
+            (quest_get_slot, ":giver_troop", "qst_visit_lady", slot_quest_giver_troop),
+            (str_store_troop_name, s2, ":giver_troop"),
+            (display_message, "str_giver_troop_=_s2"),
+        (try_end),
+
+        (quest_set_slot, "qst_visit_lady", slot_quest_expiration_days, 30),
+        (change_screen_return),
         ]),
-	
+
       ("continue",[],"Tell the woman to inform her mistress that you are indisposed",
        [
-	    (troop_set_slot, "$g_notification_menu_var1", slot_lady_no_messages, 1),
-	    (change_screen_return),
+        (troop_set_slot, "$g_notification_menu_var1", slot_lady_no_messages, 1),
+        (change_screen_return),
         ]),
      ]
   ),
@@ -13636,9 +18022,9 @@ Gradually, faith became such a part of your life that it was no different from t
     "none",
     [
 	(assign, reg4, "$g_player_days_as_marshal"),
-	
 
-	
+
+
 	(store_div, ":renown_gain", "$g_player_days_as_marshal",4),
 	(val_min, ":renown_gain", 20),
 	(store_mul, ":denar_gain", "$g_player_days_as_marshal", 50),
@@ -13649,17 +18035,23 @@ Gradually, faith became such a part of your life that it was no different from t
 	(assign, "$g_player_days_as_marshal", 0),
 	(assign, "$g_dont_give_marshalship_to_player_days", 15),
 	(assign, reg5, ":denar_gain"),
-	
+
 	(faction_get_slot, ":faction_leader", "$players_kingdom", slot_faction_leader),
 	(str_store_troop_name, s4, ":faction_leader"),
-	(troop_get_type, reg8, ":faction_leader"),
+	##diplomacy start+ get gender with script
+	#(troop_get_type, reg8, ":faction_leader"),#<- OLD
+	(assign, ":save_reg0", reg0),
+	(call_script, "script_dplmc_store_troop_is_female", ":faction_leader"),
+	(assign, reg8, reg0),
+	(assign, reg0, ":save_reg0"),
+	##diplomacy end+
 	],
-	
+
 	 [
       ("continue",[],"Continue",
-       [         
-         (change_screen_return),         
-       ]),         
+       [
+         (change_screen_return),
+       ]),
     ]
   ),
   
@@ -13675,174 +18067,184 @@ Gradually, faith became such a part of your life that it was no different from t
     [
       (try_begin),
         (eq, "$loot_screen_shown", 1),
-		
-        (try_for_range, ":bandit_template", "pt_steppe_bandits", "pt_deserters"),
+
+        (try_for_range, ":bandit_template", bandit_party_templates_begin, bandit_party_templates_end), #SB : template range
           (party_template_slot_eq, ":bandit_template", slot_party_template_lair_party, "$g_encountered_party"),
           (party_template_set_slot, ":bandit_template", slot_party_template_lair_party, 0),
         (try_end),
-        
+
         (try_begin),
           (ge, "$g_encountered_party", 0),
           (party_is_active, "$g_encountered_party"),
-          (party_get_template_id, ":template", "$g_encountered_party"),	    
-	      (neq, ":template", "pt_looter_lair"),
+          (party_get_template_id, ":template", "$g_encountered_party"),
+          (neq, ":template", "pt_looter_lair"),
           (remove_party, "$g_encountered_party"),
-        (try_end),  
-		
+        (try_end),
+
         (assign, "$g_leave_encounter", 0),
         (change_screen_return),
-		
-      (else_try),        
+
+      (else_try),
         (party_stack_get_troop_id, ":bandit_type", "$g_encountered_party", 0),
         (str_store_troop_name_plural, s4, ":bandit_type"),
-        (str_store_string, s5, "str_bandit_approach_thickets"),
-		
+        (str_store_string, s5, "str_bandit_approach_defile"),
+
+        #SB : set pictures
         (try_begin),
           (eq, ":bandit_type", "trp_desert_bandit"),
           (str_store_string, s5, "str_bandit_approach_defile"),
         (else_try),
           (eq, ":bandit_type", "trp_mountain_bandit"),
           (str_store_string, s5, "str_bandit_approach_cliffs"),
+          (set_background_mesh, "mesh_pic_mountain_bandits"),
         (else_try),
           (eq, ":bandit_type", "trp_forest_bandit"),
           (str_store_string, s5, "str_bandit_approach_swamp"),
+          (set_background_mesh, "mesh_pic_forest_bandits"),
         (else_try),
           (eq, ":bandit_type", "trp_taiga_bandit"),
           (str_store_string, s5, "str_bandit_approach_swamp"),
+          (set_background_mesh, "mesh_pic_steppe_bandits"),
         (else_try),
           (eq, ":bandit_type", "trp_steppe_bandit"),
           (str_store_string, s5, "str_bandit_approach_thickets"),
+          (set_background_mesh, "mesh_pic_steppe_bandits"),
         (else_try),
           (eq, ":bandit_type", "trp_sea_raider"),
           (str_store_string, s5, "str_bandit_approach_cove"),
+          (set_background_mesh, "mesh_pic_sea_raiders"),
         (try_end),
-      
+
+        
         (try_begin),
           (party_slot_eq, "$g_encountered_party", slot_party_ai_substate, 0), #used in place of global variable
           (str_store_string, s3, "str_bandit_hideout_preattack"),
         (else_try),
-          (party_get_template_id, ":template", "$g_encountered_party"),	    
-	      (eq, ":template", "pt_looter_lair"),
+          (party_get_template_id, ":template", "$g_encountered_party"),
+          (eq, ":template", "pt_looter_lair"),
           (party_slot_eq, "$g_encountered_party", slot_party_ai_substate, 1), #used in place of global variable
           (str_store_string, s3, "str_lost_startup_hideout_attack"),
-		(else_try),
+        (else_try),
           (party_slot_eq, "$g_encountered_party", slot_party_ai_substate, 1), #used in place of global variable
           (str_store_string, s3, "str_bandit_hideout_failure"),
+          (set_background_mesh, "mesh_pic_wounded"),
+          (try_begin),
+            (eq, "$character_gender", tf_female),
+            (set_background_mesh, "mesh_pic_wounded_fem"),
+          (try_end),
         (else_try),
           (party_slot_eq, "$g_encountered_party", slot_party_ai_substate, 2), #used in place of global variable
           (str_store_string, s3, "str_bandit_hideout_success"),
-        (try_end),	
-      (try_end),      
+          (set_background_mesh, "mesh_pic_victory"),
+        (try_end),
+      (try_end),
     ],
     [
       ("continue_1",
       [
         (party_slot_eq, "$g_encountered_party", slot_party_ai_substate, 0), #used in place of global variable
-	  ],
-	  "Attack the hideout...",
-	  
-	  [
-	    (party_set_slot, "$g_encountered_party", slot_party_ai_substate, 1),
-	    (party_get_template_id, ":template", "$g_encountered_party"),
-	    (assign, "$g_enemy_party", "$g_encountered_party"),
-	    	    
-	    (try_begin),
-	      (eq, ":template", "pt_sea_raider_lair"),
-	      (assign, ":bandit_troop", "trp_sea_raider"),
-	      (assign, ":scene_to_use", "scn_lair_sea_raiders"),
-	    (else_try),	
-	      (eq, ":template", "pt_forest_bandit_lair"),
-	      (assign, ":bandit_troop", "trp_forest_bandit"),
-	      (assign, ":scene_to_use", "scn_lair_forest_bandits"),
-	    (else_try),
-	      (eq, ":template", "pt_desert_bandit_lair"),
-	      (assign, ":bandit_troop", "trp_desert_bandit"),
-	      (assign, ":scene_to_use", "scn_lair_desert_bandits"),
-	    (else_try),
-	      (eq, ":template", "pt_mountain_bandit_lair"),
-	      (assign, ":bandit_troop", "trp_mountain_bandit"),
-	      (assign, ":scene_to_use", "scn_lair_mountain_bandits"),
-	    (else_try),
-	      (eq, ":template", "pt_taiga_bandit_lair"),
-	      (assign, ":bandit_troop", "trp_taiga_bandit"),
-	      (assign, ":scene_to_use", "scn_lair_taiga_bandits"),
-	    (else_try),
-	      (eq, ":template", "pt_steppe_bandit_lair"),
-	      (assign, ":bandit_troop", "trp_steppe_bandit"),
-	      (assign, ":scene_to_use", "scn_lair_steppe_bandits"),
-	    (else_try),
-	      (eq, ":template", "pt_looter_lair"),
-	      (assign, ":bandit_troop", "trp_looter"),
-	      
-	      (party_get_slot, ":starting_town_faction", "$g_starting_town", slot_center_original_faction),
-           
-	      (try_begin),
-	        (eq, ":starting_town_faction", "fac_kingdom_1"), #player selected swadian city as starting town.
-	        (assign, ":scene_to_use", "scn_lair_forest_bandits"),	    
-	      (else_try),
-	        (eq, ":starting_town_faction", "fac_kingdom_2"), #player selected Vaegir city as starting town.
-	        (assign, ":scene_to_use", "scn_lair_taiga_bandits"),	    
-	      (else_try),
-	        (eq, ":starting_town_faction", "fac_kingdom_3"), #player selected Khergit city as starting town.
-	        (assign, ":scene_to_use", "scn_lair_steppe_bandits"),	    
-	      (else_try),
-	        (eq, ":starting_town_faction", "fac_kingdom_4"), #player selected Nord city as starting town.
-	        (assign, ":scene_to_use", "scn_lair_sea_raiders"),
-	      (else_try),
-	        (eq, ":starting_town_faction", "fac_kingdom_5"), #player selected Rhodok city as starting town.
-	        (assign, ":scene_to_use", "scn_lair_mountain_bandits"),
-	      (else_try),
-	        (eq, ":starting_town_faction", "fac_kingdom_6"), #player selected Sarranid city as starting town.
-	        (assign, ":scene_to_use", "scn_lair_desert_bandits"),	    
-	      (try_end),  
-	    (else_try),
-	      (assign, ":bandit_troop", "trp_bandit"),
-	      (assign, ":scene_to_use", "scn_lair_plains_bandits"),
-	    (try_end),
-	    
-	    (modify_visitors_at_site,":scene_to_use"),
-	    (reset_visitors),	    
+      ],
+      "Attack the hideout...",
 
-        (store_character_level, ":player_level", "trp_player"),                   
+      [
+        (party_set_slot, "$g_encountered_party", slot_party_ai_substate, 1),
+        (party_get_template_id, ":template", "$g_encountered_party"),
+        (assign, "$g_enemy_party", "$g_encountered_party"),
+
+        (try_begin),
+          (eq, ":template", "pt_sea_raider_lair"),
+          (assign, ":bandit_troop", "trp_sea_raider"),
+          (assign, ":scene_to_use", "scn_lair_sea_raiders"),
+        (else_try),
+          (eq, ":template", "pt_forest_bandit_lair"),
+          (assign, ":bandit_troop", "trp_forest_bandit"),
+          (assign, ":scene_to_use", "scn_lair_forest_bandits"),
+        (else_try),
+          (eq, ":template", "pt_desert_bandit_lair"),
+          (assign, ":bandit_troop", "trp_desert_bandit"),
+          (assign, ":scene_to_use", "scn_lair_desert_bandits"),
+        (else_try),
+          (eq, ":template", "pt_mountain_bandit_lair"),
+          (assign, ":bandit_troop", "trp_mountain_bandit"),
+          (assign, ":scene_to_use", "scn_lair_mountain_bandits"),
+        (else_try),
+          (eq, ":template", "pt_taiga_bandit_lair"),
+          (assign, ":bandit_troop", "trp_taiga_bandit"),
+          (assign, ":scene_to_use", "scn_lair_taiga_bandits"),
+        (else_try),
+          (eq, ":template", "pt_steppe_bandit_lair"),
+          (assign, ":bandit_troop", "trp_steppe_bandit"),
+          (assign, ":scene_to_use", "scn_lair_steppe_bandits"),
+        (else_try),
+          (eq, ":template", "pt_looter_lair"),
+          (assign, ":bandit_troop", "trp_looter"),
+
+          (store_faction_of_party, ":starting_town_faction", "$g_starting_town"),
+
+          (try_begin),
+            (eq, ":starting_town_faction", "fac_kingdom_1"), #player selected swadian city as starting town.
+            (assign, ":scene_to_use", "scn_lair_forest_bandits"),
+          (else_try),
+            (eq, ":starting_town_faction", "fac_kingdom_2"), #player selected Vaegir city as starting town.
+            (assign, ":scene_to_use", "scn_lair_taiga_bandits"),
+          (else_try),
+            (eq, ":starting_town_faction", "fac_kingdom_3"), #player selected Khergit city as starting town.
+            (assign, ":scene_to_use", "scn_lair_steppe_bandits"),
+          (else_try),
+            (eq, ":starting_town_faction", "fac_kingdom_4"), #player selected Nord city as starting town.
+            (assign, ":scene_to_use", "scn_lair_sea_raiders"),
+          (else_try),
+            (eq, ":starting_town_faction", "fac_kingdom_5"), #player selected Rhodok city as starting town.
+            (assign, ":scene_to_use", "scn_lair_mountain_bandits"),
+          (else_try),
+            (eq, ":starting_town_faction", "fac_kingdom_6"), #player selected Sarranid city as starting town.
+            (assign, ":scene_to_use", "scn_lair_desert_bandits"),
+          (try_end),
+        (try_end),
+
+        (modify_visitors_at_site,":scene_to_use"),
+        (reset_visitors),
+
+        (store_character_level, ":player_level", "trp_player"),
         (store_add, ":number_of_bandits_will_be_spawned_at_each_period", 5, ":player_level"),
         (val_div, ":number_of_bandits_will_be_spawned_at_each_period", 3),
-	    
-	    (try_for_range, ":unused", 0, ":number_of_bandits_will_be_spawned_at_each_period"),
-	      (store_random_in_range, ":random_entry_point", 2, 11),	      
-	      (set_visitor, ":random_entry_point", ":bandit_troop", 1),	      
-	    (try_end),
-	    
-	    (party_clear, "p_temp_casualties"),
-	    
-	    (set_party_battle_mode),
+
+        (try_for_range, ":unused", 0, ":number_of_bandits_will_be_spawned_at_each_period"),
+          (store_random_in_range, ":random_entry_point", 2, 11),
+          (set_visitor, ":random_entry_point", ":bandit_troop", 1),
+        (try_end),
+
+        (party_clear, "p_temp_casualties"),
+
+        (set_party_battle_mode),
         (set_battle_advantage, 0),
         (assign, "$g_battle_result", 0),
         (set_jump_mission,"mt_bandit_lair"),
-        
-        (jump_to_scene, ":scene_to_use"),        
-        (change_screen_mission),        
-	  ]),
-		
+
+        (jump_to_scene, ":scene_to_use"),
+        (change_screen_mission),
+      ]),
+
       ("leave_no_attack",
       [
-	    (party_slot_eq, "$g_encountered_party", slot_party_ai_substate, 0),
-	  ],
-	  "Leave...",
+        (party_slot_eq, "$g_encountered_party", slot_party_ai_substate, 0),
+      ],
+      "Leave...",
       [
         (change_screen_return),
-      ]),            
-		
-	  ("leave_victory",
-	  [
-	    (party_slot_eq, "$g_encountered_party", slot_party_ai_substate, 2),
-	  ],
-	  "Continue...",
-      [      
-        (try_for_range, ":bandit_template", "pt_steppe_bandits", "pt_deserters"),
+      ]),
+
+      ("leave_victory",
+      [
+        (party_slot_eq, "$g_encountered_party", slot_party_ai_substate, 2),
+      ],
+      "Continue...",
+      [
+        (try_for_range, ":bandit_template", bandit_party_templates_begin, bandit_party_templates_end), #SB : template range
           (party_template_slot_eq, ":bandit_template", slot_party_template_lair_party, "$g_encountered_party"),
           (party_template_set_slot, ":bandit_template", slot_party_template_lair_party, 0),
         (try_end),
-         
+
         (party_get_template_id, ":template", "$g_encountered_party"),
         (try_begin),
           (neq, ":template", "pt_looter_lair"),
@@ -13850,56 +18252,80 @@ Gradually, faith became such a part of your life that it was no different from t
           (quest_slot_eq, "qst_destroy_bandit_lair", slot_quest_target_party, "$g_encountered_party"),
           (call_script, "script_succeed_quest", "qst_destroy_bandit_lair"),
         (try_end),
-                 
+
         (assign, "$g_leave_encounter", 0),
         (change_screen_return),
 
         (try_begin),
           (eq, "$loot_screen_shown", 0),
           (assign, "$loot_screen_shown", 1),
+#          (try_begin),
+#            (gt, "$g_ally_party", 0),
+#            (call_script, "script_party_add_party", "$g_ally_party", "p_temp_party"), #Add remaining prisoners to ally TODO: FIX it.
+#          (else_try),
+#            (party_get_num_attached_parties, ":num_quick_attachments", "p_main_party"),
+#            (gt, ":num_quick_attachments", 0),
+#            (party_get_attached_party_with_rank, ":helper_party", "p_main_party", 0),
+#            (call_script, "script_party_add_party", ":helper_party", "p_temp_party"), #Add remaining prisoners to our reinforcements
+#          (try_end),
           (troop_clear_inventory, "trp_temp_troop"),
-          
-          (party_get_num_companion_stacks, ":num_stacks", "p_temp_casualties"), 
+
+          (party_get_num_companion_stacks, ":num_stacks", "p_temp_casualties"),
           (try_for_range, ":stack_no", 0, ":num_stacks"),
-            (party_stack_get_troop_id, ":stack_troop", "p_temp_casualties", ":stack_no"), 
-            (try_begin),              
+            (party_stack_get_troop_id, ":stack_troop", "p_temp_casualties", ":stack_no"),
+            (try_begin),
               (party_stack_get_size, ":stack_size", "p_temp_casualties", ":stack_no"),
               (party_stack_get_troop_id, ":stack_troop", "p_temp_casualties", ":stack_no"),
-              (gt, ":stack_size", 0),              
+              (gt, ":stack_size", 0),
               (party_add_members, "p_total_enemy_casualties", ":stack_troop", ":stack_size"), #addition_to_p_total_enemy_casualties
               (party_stack_get_num_wounded, ":stack_wounded_size", "p_temp_casualties", ":stack_no"),
               (gt, ":stack_wounded_size", 0),
               (party_wound_members, "p_total_enemy_casualties", ":stack_troop", ":stack_wounded_size"),
             (try_end),
           (try_end),
-                    
-          (call_script, "script_party_calculate_loot", "p_total_enemy_casualties"), #p_encountered_party_backup changed to total_enemy_casualties          
-          (gt, reg0, 0),          
+
+          (call_script, "script_party_calculate_loot", "p_total_enemy_casualties"), #p_encountered_party_backup changed to total_enemy_casualties
+          (gt, reg0, 0),
           (troop_sort_inventory, "trp_temp_troop"),
-          (change_screen_loot, "trp_temp_troop"),
-		  (troop_set_slot, "trp_temp_troop", slot_troop_state, 1),
+          ##diplomacy start+
+          ##OLD:
+          #(change_screen_loot, "trp_temp_troop"),
+          ##NEW:
+          ##jump to rubik's CC autoloot
+          (try_begin),
+            (call_script, "script_party_calculate_loot", "p_total_enemy_casualties"),
+            (assign, "$dplmc_return_menu", "mnu_bandit_lair"),
+            #SB : variable resets
+            (assign, "$lord_selected", "trp_player"),
+            (str_clear, dplmc_loot_string),
+            (jump_to_menu, "mnu_dplmc_manage_loot_pool"),
+          (else_try),
+             #Fall back to old behavior
+            (change_screen_loot, "trp_temp_troop"),
+          (try_end),
+          ##diplomacy end+
         (try_end),
-        
+
         (try_begin),
           (ge, "$g_encountered_party", 0),
           (party_is_active, "$g_encountered_party"),
-          (party_get_template_id, ":template", "$g_encountered_party"),	    
-	      (eq, ":template", "pt_looter_lair"),
+          (party_get_template_id, ":template", "$g_encountered_party"),
+          (eq, ":template", "pt_looter_lair"),
           (remove_party, "$g_encountered_party"),
-        (try_end),          
+        (try_end),
       ]),
-		
-	  ("leave_defeat",
-	  [
-	    (party_slot_eq, "$g_encountered_party", slot_party_ai_substate, 1),
-	  ],
-	  "Continue...",
+
+      ("leave_defeat",
       [
-        (try_for_range, ":bandit_template", "pt_steppe_bandits", "pt_deserters"),
+        (party_slot_eq, "$g_encountered_party", slot_party_ai_substate, 1),
+      ],
+      "Continue...",
+      [
+        (try_for_range, ":bandit_template", bandit_party_templates_begin, bandit_party_templates_end), #SB : template range
           (party_template_slot_eq, ":bandit_template", slot_party_template_lair_party, "$g_encountered_party"),
           (party_template_set_slot, ":bandit_template", slot_party_template_lair_party, 0),
         (try_end),
-        
+
         (try_begin),
           (party_get_template_id, ":template", "$g_encountered_party"),
           (neq, ":template", "pt_looter_lair"),
@@ -13907,25 +18333,25 @@ Gradually, faith became such a part of your life that it was no different from t
           (quest_slot_eq, "qst_destroy_bandit_lair", slot_quest_target_party, "$g_encountered_party"),
           (call_script, "script_fail_quest", "qst_destroy_bandit_lair"),
         (try_end),
-        
+
         (try_begin),
           (ge, "$g_encountered_party", 0),
           (party_is_active, "$g_encountered_party"),
-          (party_get_template_id, ":template", "$g_encountered_party"),	    
-	      (neq, ":template", "pt_looter_lair"),
+          (party_get_template_id, ":template", "$g_encountered_party"),
+          (neq, ":template", "pt_looter_lair"),
           (remove_party, "$g_encountered_party"),
-        (try_end),  
+        (try_end),
 
         (assign, "$g_leave_encounter", 0),
-        
-		(try_begin),
-			(party_is_active, "$g_encountered_party"),
-			(party_set_slot, "$g_encountered_party", slot_party_ai_substate, 0),
+
+        (try_begin),
+            (party_is_active, "$g_encountered_party"),
+            (party_set_slot, "$g_encountered_party", slot_party_ai_substate, 0),
         (try_end),
-		
+
         (change_screen_return),
         ]),
-		
+
      ]
   ),
 
@@ -14084,3 +18510,5 @@ Gradually, faith became such a part of your life that it was no different from t
 
   
  ]
+ 
+ game_menus = game_menus +  diplomacy_game_menus

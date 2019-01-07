@@ -507,21 +507,35 @@ tableaus = [
        ]),
 
   ("troop_profile_alpha_mask", 0, "mat_troop_portrait_mask", 1024, 1024, 0, 0, 400, 400,
-   [
-       (store_script_param, ":troop_no", 1),
-       (cur_tableau_set_background_color, 0x00888888),
-       (cur_tableau_set_ambient_light, 10,11,15),
-       (cur_tableau_render_as_alpha_mask),
-       (call_script, "script_add_troop_to_cur_tableau_for_profile", ":troop_no"),
-       ]),
+    [
+        (store_script_param, ":troop_no", 1),
+        (cur_tableau_set_background_color, 0x00888888),
+        (cur_tableau_set_ambient_light, 10,11,15),
+        (cur_tableau_render_as_alpha_mask),
+        #SB : redirect script call
+        (try_begin),
+          (this_or_next|eq, ":troop_no", "trp_multiplayer_profile_troop_male"),
+          (eq, ":troop_no", "trp_multiplayer_profile_troop_female"),
+          (call_script, "script_add_troop_to_cur_tableau_for_profile", ":troop_no"),
+        (else_try),
+          (call_script, "script_add_troop_to_cur_tableau_for_presentation", ":troop_no"),
+        (try_end),
+    ]),
 
   ("troop_profile_color", 0, "mat_troop_portrait_color", 1024, 1024, 0, 0, 400, 400,
-   [
-       (store_script_param, ":troop_no", 1),
-       (cur_tableau_set_background_color, 0xFFF9E7A8),
-       (cur_tableau_set_ambient_light, 10,11,15),
-       (call_script, "script_add_troop_to_cur_tableau_for_profile", ":troop_no"),
-       ]),
+    [
+        (store_script_param, ":troop_no", 1),
+        (cur_tableau_set_background_color, 0xFFF9E7A8),
+        (cur_tableau_set_ambient_light, 10,11,15),
+        #SB : redirect script call
+        (try_begin),
+          (this_or_next|eq, ":troop_no", "trp_multiplayer_profile_troop_male"),
+          (eq, ":troop_no", "trp_multiplayer_profile_troop_female"),
+          (call_script, "script_add_troop_to_cur_tableau_for_profile", ":troop_no"),
+        (else_try),
+          (call_script, "script_add_troop_to_cur_tableau_for_presentation", ":troop_no"),
+        (try_end),
+    ]),
 
 
   ("troop_party_alpha_mask", 0, "mat_troop_portrait_mask", 1024, 1024, 0, 0, 400, 400,
@@ -745,5 +759,22 @@ tableaus = [
     (cur_tableau_set_ambient_light, 10,11,15),
     (call_script, "script_add_troop_to_cur_tableau_for_party", ":troop_no"),
     ]),
+	
+ #SB : for presentation usage
+  ("dplmc_lord_profile", 0, "tableau_with_transparency", 1024, 1024, 0, 0, 320, 480, [
+    (store_script_param, ":troop_no", 1),
+    (cur_tableau_set_background_color, 0xFF888888),
+    (cur_tableau_set_ambient_light, 10,11,15),
+    (set_fixed_point_multiplier, 100),
+    (cur_tableau_set_camera_parameters, 0, 40, 40, 0, 100000),
+
+    (init_position, pos1),
+    (position_set_z, pos1, 100),
+    (position_set_x, pos1, -20),
+    (position_set_y, pos1, -20),
+    (cur_tableau_add_tableau_mesh, "tableau_troop_profile_color", ":troop_no", pos1, 0, 0),
+    (position_set_z, pos1, 200),
+    (cur_tableau_add_tableau_mesh, "tableau_troop_profile_alpha_mask", ":troop_no", pos1, 0, 0),
+    ]),	
   
 ]

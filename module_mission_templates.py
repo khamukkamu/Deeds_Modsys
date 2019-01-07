@@ -5,6 +5,7 @@ from header_animations import *
 from header_sounds import *
 from header_music import *
 from header_items import *
+from header_skills import *
 from module_constants import *
 from module_mission_templates_form import *
 from compiler import *
@@ -34,7 +35,16 @@ from compiler import *
 # 
 ####################################################################################################################
 
-pilgrim_disguise = [itm_pilgrim_hood,itm_pilgrim_disguise,itm_practice_staff, itm_throwing_daggers]
+#SB : add new disguise sets, make sure none of them have high difficulty
+# the new flags now also have af_override_everything, so include footwear
+pilgrim_disguise = [itm_pilgrim_hood,itm_pilgrim_disguise,itm_practice_staff, itm_throwing_daggers, itm_wrapping_boots]
+farmer_disguise = [itm_felt_hat, itm_coarse_tunic, itm_cleaver, itm_battle_fork, itm_stones, itm_nomad_boots]
+hunter_disguise = [itm_hunting_bow,itm_barbed_arrows, itm_black_hood, itm_leather_gloves, itm_light_leather, itm_sword_khergit_1, itm_light_leather_boots]
+merchant_disguise = [itm_leather_jacket,itm_woolen_hose,itm_felt_steppe_cap,itm_dagger]
+guard_disguise = [itm_mail_chausses,itm_mail_shirt,itm_mail_mittens,itm_footman_helmet,itm_tab_shield_round_c,itm_fighting_pick,itm_war_spear]
+bard_disguise = [itm_leather_boots,itm_lyre,itm_linen_tunic,itm_winged_mace]
+#note that these are usually male clothing, especially farmer_disguise, need some female ones as well
+
 af_castle_lord = af_override_horse | af_override_weapons| af_require_civilian
 af_town_walker = af_override_horse | af_override_weapons
 
@@ -750,6 +760,20 @@ common_battle_tab_press = (
       (eq, "$g_battle_won", 1),
       (call_script, "script_count_mission_casualties_from_agents"),
       (finish_mission,0),
+    ##diplomacy begin
+   (else_try),
+      (eq, "$g_dplmc_battle_continuation", 0),
+      ##diplomacy start+ Import Caba`drin's battle continuation fix
+      (this_or_next|main_hero_fallen),   #CABA EDIT/FIX FOR DEATH CAM
+      ##diplomacy end+
+      (eq, "$pin_player_fallen", 1),
+      (question_box,"str_do_you_want_to_retreat"),
+##      (call_script, "script_simulate_retreat", 5, 20),
+##      (str_store_string, s5, "str_retreat"),
+##      (call_script, "script_count_mission_casualties_from_agents"),
+##      (set_mission_result, -1),
+##      (finish_mission,0),
+    ##diplomacy end	  
     (else_try),
       (call_script, "script_cf_check_enemies_nearby"),
       (question_box,"str_do_you_want_to_retreat"),
@@ -823,7 +847,10 @@ custom_battle_check_victory_condition = (
     (ge,reg(1),10),
     (call_script, "script_battle_count_fighting_enemies"),
 	(eq, reg0, 0),
+    ##diplomacy begin
+    (this_or_next|eq, "$g_dplmc_battle_continuation", 0),
     (neg|main_hero_fallen, 0),
+    ##diplomacy end
     (set_mission_result,1),
     (display_message,"str_msg_battle_won"),
     (assign, "$g_battle_won",1),
@@ -835,10 +862,21 @@ custom_battle_check_victory_condition = (
     ])
 
 custom_battle_check_defeat_condition = (
-  1, 4, ti_once,
+  1, 4,
+##diplomacy begin
+0,
+##diplomacy end
   [
     (main_hero_fallen),
-    (assign,"$g_battle_result",-1),
+    ##diplomacy begin
+    (try_begin),
+      (call_script, "script_cf_dplmc_battle_continuation"),
+    (else_try),
+      ##diplomacy end
+      (assign,"$g_battle_result",-1),
+      ##diplomacy begin
+    (try_end),
+    ##diplomacy end
     ],
   [
     (call_script, "script_custom_battle_end"),
@@ -897,6 +935,8 @@ common_siege_init = (
     (assign,"$defender_reinforcement_stage",0),
     (assign,"$attacker_reinforcement_stage",0),
     (call_script, "script_music_set_situation_with_culture", mtf_sit_siege),
+    (call_script, "script_init_death_cam"), #SB : initialize this here
+	
     ])
 
 common_music_situation_update = (
@@ -915,7 +955,40 @@ common_siege_ai_trigger_init = (
     ], [])
 
 common_siege_ai_trigger_init_2 = (
-  0, 0, ti_once,
+  0, 1, ti_once,
+    #SB : horse archer fix
+    (try_begin),
+      (eq, "$g_dplmc_horse_speed", 0),
+      (try_for_agents, ":agent_no"),
+        (agent_is_active, ":agent_no"),
+        (agent_get_team, ":team_no", ":agent_no"),
+        (this_or_next|eq, ":team_no", "$defender_team"),
+        (eq, ":team_no", "$defender_team_2"),
+        (agent_get_troop_id, ":troop_no", ":agent_no"),
+        (neg|troop_is_hero, ":troop_no"),
+        (troop_is_guarantee_ranged, ":troop_no"),
+        (troop_is_guarantee_horse, ":troop_no"),
+        (troop_is_mounted, ":troop_no"),
+        (assign, ":weapon_slot", ek_head),
+        (try_for_range, ":slot_no", 0, ":weapon_slot"), #stupid khergits have both jav + bow
+          (agent_get_item_slot, ":item_no", ":agent_no", ":slot_no"),
+          (gt, ":item_no", -1),
+          (item_get_type, ":itp", ":item_no"),
+          (is_between, ":itp", itp_type_bow, itp_type_thrown),
+          (assign, ":weapon_slot", 0),
+          (str_store_item_name, s2, ":item_no"),
+        (try_end),
+        (str_store_agent_name, s1, ":agent_no"),
+        (display_message, "@{s1} wielding {s2}"),
+        (try_begin),
+          (eq, ":weapon_slot", 0),
+          (agent_set_division, ":agent_no", grc_archers),
+        (else_try),
+          (agent_set_division, ":agent_no", grc_infantry),
+        (try_end),
+      (try_end),
+    (try_end),
+    ],   
   [
     (set_show_messages, 0),
     (entry_point_get_position, pos10, 10),
@@ -933,7 +1006,7 @@ common_siege_ai_trigger_init_2 = (
     (team_give_order, "$defender_team_2", grc_archers, mordr_stand_ground),
     (team_set_order_position, "$defender_team_2", grc_everyone, pos10),
     (set_show_messages, 1),
-    ], [])
+    ])
 
 common_siege_ai_trigger_init_after_2_secs = (
   0, 2, ti_once, [],
@@ -1022,7 +1095,10 @@ common_battle_check_victory_condition = (
     (ge,reg(1),10),
     (call_script, "script_battle_count_fighting_enemies"),
 	(eq, reg0, 0),
-    (neg|main_hero_fallen, 0),
+    ##diplomacy begin
+    (this_or_next|eq, "$g_dplmc_battle_continuation", 0),
+    (neg|main_hero_fallen),
+    ##diplomacy end
     (set_mission_result,1),
     (display_message,"str_msg_battle_won"),
     (assign,"$g_battle_won",1),
@@ -1035,9 +1111,8 @@ common_battle_check_victory_condition = (
     ])
 
 common_battle_victory_display = (
-  10, 0, 0, [],
+  10, 0, 0, [(eq,"$g_battle_won",1),], #SB : moved conditions
   [
-    (eq,"$g_battle_won",1),
     (display_message,"str_msg_battle_won"),
     ])
 
@@ -1057,27 +1132,38 @@ common_siege_refill_ammo = (
     ])
 
 common_siege_check_defeat_condition = (
-  1, 4, ti_once,
+  1, 4,
+##diplomacy begin
+0,
+##diplomacy end
   [
     (main_hero_fallen)
     ],
   [
-    (assign, "$pin_player_fallen", 1),
-    (get_player_agent_no, ":player_agent"),
-    (agent_get_team, ":agent_team", ":player_agent"),
-    (try_begin),
-      (neq, "$attacker_team", ":agent_team"),
-      (neq, "$attacker_team_2", ":agent_team"),
-      (str_store_string, s5, "str_siege_continues"),
-      (call_script, "script_simulate_retreat", 8, 15, 0),
-    (else_try),
-      (str_store_string, s5, "str_retreat"),
-      (call_script, "script_simulate_retreat", 5, 20, 0),
-    (try_end),
-    (assign, "$g_battle_result", -1),
-    (set_mission_result,-1),
-    (call_script, "script_count_mission_casualties_from_agents"),
-    (finish_mission,0),
+    ##diplomacy begin
+      (try_begin),
+        (call_script, "script_cf_dplmc_battle_continuation"),
+      (else_try),
+        ##diplomacy end
+        (assign, "$pin_player_fallen", 1),
+        (get_player_agent_no, ":player_agent"),
+        (agent_get_team, ":agent_team", ":player_agent"),
+        (try_begin),
+          (neq, "$attacker_team", ":agent_team"),
+          (neq, "$attacker_team_2", ":agent_team"),
+          (str_store_string, s5, "str_siege_continues"),
+          (call_script, "script_simulate_retreat", 8, 15, 0),
+        (else_try),
+          (str_store_string, s5, "str_retreat"),
+          (call_script, "script_simulate_retreat", 5, 20, 0),
+        (try_end),
+        (assign, "$g_battle_result", -1),
+        (set_mission_result,-1),
+        (call_script, "script_count_mission_casualties_from_agents"),
+        (finish_mission,0),
+        ##diplomacy begin
+      (try_end),
+    ##diplomacy end
     ])
 
 simple_battle_morale_check = (
@@ -1106,17 +1192,19 @@ common_battle_morale_check = (
 	  ], [])
 	  
 common_battle_order_panel = (
-  0, 0, 0, [],
-  [
+  0, 0, 0, [
     (game_key_clicked, gk_view_orders),
     (neg|is_presentation_active, "prsnt_battle"),
+  ],
+  [
     (start_presentation, "prsnt_battle"),
     ])
 
 common_battle_order_panel_tick = (
-  0.1, 0, 0, [],
+  0.1, 0, 0, [
+  (is_presentation_active, "prsnt_battle"),
+  ],
   [
-    (is_presentation_active, "prsnt_battle"),
     (call_script, "script_update_order_panel_statistics_and_map"),
     ])
 
@@ -1220,6 +1308,9 @@ tournament_triggers = [
       (eq, "$g_mt_mode", abm_training),
       (get_player_agent_no, ":player_agent"),
       (agent_get_kill_count, "$g_arena_training_kills", ":player_agent", 1),#use this for conversation
+      #SB : deduct health here
+      (call_script, "script_agent_apply_training_health", ":player_agent"),
+	  
     (try_end),
     (finish_mission,0),
     ]),
@@ -1302,6 +1393,8 @@ tournament_triggers = [
        (set_visitor, 36, "trp_hired_blade"),
        (set_jump_entry, 50),
        (jump_to_scene, ":arena_scene"),
+       #SB : deduct health here
+       (call_script, "script_agent_apply_training_health", ":player_agent"),	   
        ]),
 
 
@@ -1344,6 +1437,8 @@ tournament_triggers = [
          (assign, ":end_cond", 0),
        (try_end),
        (add_visitors_to_current_scene, ":random_entry_point", ":added_troop", 1),
+       #SB : set this as last spawnpoint
+       (assign, "$g_player_entry_point", ":random_entry_point"),	   
        (store_add, ":new_spawned_count", "$g_arena_training_num_agents_spawned", 1),
        (store_mission_timer_a, ":cur_time"),
        (store_add, "$g_arena_training_next_spawn_time", ":cur_time", 14),
@@ -1351,7 +1446,7 @@ tournament_triggers = [
        (val_sub, "$g_arena_training_next_spawn_time", ":time_reduction"),
        ]),
 
-  (0, 0, 0,
+  (3, 0, 0,
    [
        (eq, "$g_mt_mode", abm_training)
        ],
@@ -1479,7 +1574,7 @@ mission_templates = [
         (store_current_scene, ":cur_scene"),
         (scene_set_slot, ":cur_scene", slot_scene_visited, 1),
         (try_begin),
-          (eq, "$sneaked_into_town", 1),
+          (gt, "$sneaked_into_town", disguise_none),
           (call_script, "script_music_set_situation_with_culture", mtf_sit_town_infiltrate),
         (else_try),
           (eq, "$talk_context", tc_tavern_talk),
@@ -1494,10 +1589,48 @@ mission_templates = [
         (call_script, "script_change_banners_and_chest"),
         (call_script, "script_initialize_tavern_variables"),
 	  ]),
+	  
+      #SB : minstrels equip instruments
+      (ti_on_agent_spawn, 0, 0,
+        [
+          (eq, "$talk_context", tc_tavern_talk),
+          (store_trigger_param_1, ":agent_no"),
+          (agent_get_troop_id, ":troop_no", ":agent_no"),
+          (is_between, ":troop_no", tavern_minstrels_begin, tavern_minstrels_end),
+          (this_or_next|troop_slot_eq, ":troop_no", slot_troop_cur_center, "$current_town"),
+          (party_slot_eq, "$current_town", slot_center_tavern_minstrel, ":troop_no"),
+        ],
+        #this only works for the "true" minstrel, last condition prohibits the one added from alternative_town in module_game_menus
+        [
+          (store_trigger_param_1, ":agent_no"),
+          (agent_get_troop_id, ":troop_no", ":agent_no"),
+          (assign, ":item_no", -1),
+          
+          (store_item_kind_count, ":item_count", "itm_lyre", ":troop_no"),
+          (try_begin),
+            (this_or_next|gt, ":item_count", 0),
+            (troop_has_item_equipped, ":troop_no", "itm_lyre"),
+            (assign, ":item_no", "itm_lyre"),
+          (else_try),
+            (store_item_kind_count, ":item_count", "itm_lute", ":troop_no"),
+            (this_or_next|gt, ":item_count", 0),
+            (troop_has_item_equipped, ":troop_no", "itm_lute"),
+            (assign, ":item_no", "itm_lute"),
+          (try_end),
+          (neq, ":item_no", -1),
+          (agent_equip_item, ":agent_no", ":item_no"), #equip instrument
+          (agent_set_wielded_item, ":agent_no", -1), #doff it
+        ]),	  
 
-      (ti_inventory_key_pressed, 0, 0, 
-      [
-        (set_trigger_result,1)
+      (ti_inventory_key_pressed, 0, 0,
+      [ #SB : disable inventory while attacked in taverns
+        (try_begin),
+          (this_or_next|eq, "$g_main_attacker_agent", 0),
+          (neq, "$talk_context", tc_tavern_talk),
+          (set_trigger_result, 1),
+        (else_try),
+          (display_message, "@Dispatch your opponents first!"),
+        (try_end),
       ], []),
       
       #tavern - belligerent drunk leaving/fading out
@@ -1514,12 +1647,14 @@ mission_templates = [
         (assign, "$g_belligerent_drunk_leaving", 0),
       ]),
       
-      (ti_tab_pressed, 0, 0, 
+      (ti_tab_pressed, 0, 0,
       [
         (try_begin),
           (eq, "$g_main_attacker_agent", 0),
           (set_trigger_result, 1),
-        (try_end),  
+        (else_try),
+          (display_message, "str_cannot_leave_now"), #SB : message
+        (try_end),
       ], []),
 
 	  #tavern brawl triggers - drunk
@@ -1654,52 +1789,81 @@ mission_templates = [
 	  
 	  
 	  #No shooting in the tavern
-      (1, 0, 0, 
+      (1, 0, 0,
       [
 	    (neg|conversation_screen_is_active),
 		(eq, "$talk_context", tc_tavern_talk),
 		(gt, "$g_main_attacker_agent", 0),
-		(is_between, "$g_encountered_party", towns_begin, towns_end), # In less lawful places, they don't care.
-		
+
 		(get_player_agent_no, ":player_agent"),
 		(agent_is_alive, ":player_agent"),
-		
+		## SB : move diplomacy standing check back up here in conditions
+		(call_script, "script_dplmc_get_troop_standing_in_faction", "trp_player", "$g_encountered_party_faction"),
+		(lt, reg0, DPLMC_FACTION_STANDING_MEMBER),
 		(agent_get_wielded_item, ":wielded_item", ":player_agent", 0),
-		(is_between, ":wielded_item", "itm_darts", "itm_torch"),
-		(neq, ":wielded_item", "itm_javelin_melee"),
-		(neq, ":wielded_item", "itm_throwing_spear_melee"),
-		(neq, ":wielded_item", "itm_jarid_melee"),
-		(neq, ":wielded_item", "itm_light_throwing_axes_melee"),
-		(neq, ":wielded_item", "itm_throwing_axes_melee"),
-		(neq, ":wielded_item", "itm_heavy_throwing_axes_melee"),
-      ], 
+		(gt, ":wielded_item", 0),
+		(item_get_type, ":type", ":wielded_item"),
+		(this_or_next|is_between, ":type", itp_type_bow, itp_type_goods),
+		(is_between, ":type", itp_type_pistol, itp_type_bullets),
+		# (is_between, ":wielded_item", "itm_darts", "itm_torch"),
+		# (neq, ":wielded_item", "itm_javelin_melee"),
+		# (neq, ":wielded_item", "itm_throwing_spear_melee"),
+		# (neq, ":wielded_item", "itm_jarid_melee"),
+		# (neq, ":wielded_item", "itm_light_throwing_axes_melee"),
+		# (neq, ":wielded_item", "itm_throwing_axes_melee"),
+		# (neq, ":wielded_item", "itm_heavy_throwing_axes_melee"),
+        #SB : also add these conditions
+        
+      ],
       [
 		(party_get_slot, ":tavernkeeper", "$g_encountered_party", slot_town_tavernkeeper),
-		(start_mission_conversation, ":tavernkeeper"),	 
+		# ##diplomacy start+
+		# #Turn of this !@#$%ing obnoxious and totally illogical restriction provided:
+		# (try_begin),
+			# #1) there is an actual fight
+			# (gt, "$g_main_attacker_agent", 0),
+			# (agent_is_alive, "$g_main_attacker_agent"),
+			# (neg|agent_is_wounded, "$g_main_attacker_agent"),
+			# #2) the player is the lord of this town, a mercenary captain in the kingdom's employ, or ruler of this kingdom
+			# (store_faction_of_party , ":center_faction", "$g_encountered_party"),
+			# (this_or_next|eq, ":center_faction", "$players_kingdom"),
+				# (eq, ":center_faction", "fac_player_supporters_faction"),
+		# (else_try),
+		# #Else, original behavior:
+			(start_mission_conversation, ":tavernkeeper"),
+		# (try_end),
+		##diplomacy stop+
 	  ]),
-	  	  	  
-	  #Check for weapon in hand of attacker, also, everyone gets out of the way
-      (1, 0, 0, 
+
+      #SB : drunks are totally effective fighters
+      (3, 0, 0,
       [
-		(gt, "$g_main_attacker_agent", 0),	
+       (eq, "$talk_context", tc_tavern_talk),
+       (ge, "$g_start_belligerent_drunk_fight", 1),
+       (gt, "$g_main_attacker_agent", 0),
+       (agent_is_alive, "$g_main_attacker_agent"),
+       # (eq, "$g_belligerent_drunk_leaving", 0), #don't stumble while leaving
+       (store_random_in_range, ":random_no", 0, 3),
+       (eq, ":random_no", 0),
+       ],
+      [
+      # (store_random_in_range, ":anim", "anim_strike_chest_front_stop", "anim_cheer"),
+      (store_random_in_range, ":anim", "anim_strike3_head_left", "anim_fall_face_hold"),
+      (agent_set_animation, "$g_main_attacker_agent", ":anim"),
+      (store_random_in_range, ":progress", 0, 100),
+      (agent_set_animation_progress, "$g_main_attacker_agent", ":progress"),
+      ]),
+      #Check for weapon in hand of attacker, also, everyone gets out of the way
+      (1, 0, 0,
+      [
+        (gt, "$g_main_attacker_agent", 0),
       ],
       [
         (agent_get_wielded_item, ":wielded_item", "$g_main_attacker_agent", 0),
-        (val_max, "$g_attacker_drawn_weapon", ":wielded_item"),               
-        
-        (call_script, "script_neutral_behavior_in_fight"),
-      ]),	
+        (val_max, "$g_attacker_drawn_weapon", ":wielded_item"),
 
-	  #Debriefing after fight
-      (0, 0, ti_once, 
-      [
-	    (neq, "$fistfight_result",0),
-      ],
-      [
-		(start_mission_conversation, "trp_fight_promoter"),	 
-      ]),	
-	  
-	  common_player_weapon_toggle,
+        (call_script, "script_neutral_behavior_in_fight"),
+      ]),
     ],
   ),
 
@@ -1783,6 +1947,8 @@ mission_templates = [
             (agent_get_position, pos1, ":agent_no"),            
             (agent_set_scripted_destination, ":agent_no", pos1),
           (try_end),
+        (else_try),
+          (call_script, "script_init_town_agent", ":agent_no"),		  
         (try_end),         
       ]),
 
@@ -1801,7 +1967,7 @@ mission_templates = [
         (try_end),
         (call_script, "script_init_town_walker_agents"),
         (try_begin),
-          (eq, "$sneaked_into_town", 1),
+          (gt, "$sneaked_into_town", disguise_none),
           (call_script, "script_music_set_situation_with_culture", mtf_sit_town_infiltrate),
         (else_try),
           (call_script, "script_music_set_situation_with_culture", mtf_sit_town),
@@ -2000,7 +2166,13 @@ mission_templates = [
           
        (eq, ":killer_agent_troop_no", "trp_player"),
           
-       (display_message, "@You got keys of dungeon."),
+       #SB : proper string
+       (display_message, "@You got keys to the dungeon.", message_alert),
+     (else_try), #SB : do this here instead of post-combat
+       (troop_is_hero, ":dead_agent_troop_no"),
+       (troop_slot_ge, ":dead_agent_troop_no", slot_troop_mission_participation, mp_prison_break_fight),
+       (troop_set_slot, ":dead_agent_troop_no", slot_troop_mission_participation, mp_prison_break_caught),
+
      (try_end),
    ]),     
    
@@ -2034,11 +2206,22 @@ mission_templates = [
           (call_script, "script_music_set_situation_with_culture", mtf_sit_travel),
         ]),
       (ti_before_mission_start, 0, 0, [], [(call_script, "script_change_banners_and_chest")]),
-      (ti_inventory_key_pressed, 0, 0, [(set_trigger_result,1)], []),
+      (ti_inventory_key_pressed, 0, 0, [
+      #SB : same conditions, no weapon switching mid-fight
+        (try_begin),
+          (check_quest_active, "qst_hunt_down_fugitive"),
+          (neg|check_quest_succeeded, "qst_hunt_down_fugitive"),
+          (neg|check_quest_failed, "qst_hunt_down_fugitive"),
+          (quest_slot_eq, "qst_hunt_down_fugitive", slot_quest_current_state, 1),
+          (display_message, "str_cant_use_inventory_now"),
+        (else_try),
+          (set_trigger_result,1),
+        (try_end),], []),
       (ti_tab_pressed, 0, 0, [(try_begin),
                                 (check_quest_active, "qst_hunt_down_fugitive"),
                                 (neg|check_quest_succeeded, "qst_hunt_down_fugitive"),
                                 (neg|check_quest_failed, "qst_hunt_down_fugitive"),
+		(quest_slot_eq, "qst_hunt_down_fugitive", slot_quest_target_center, "$current_town"),						
                                 (quest_slot_eq, "qst_hunt_down_fugitive", slot_quest_current_state, 1),
                                 (try_begin),
                                   (call_script, "script_cf_troop_agent_is_alive", "trp_fugitive"),
@@ -2056,31 +2239,75 @@ mission_templates = [
       (3, 0, 0, [(call_script, "script_tick_town_walkers")], []),
       (2, 0, 0, [(call_script, "script_center_ambiance_sounds")], []),
 
-      (1, 0, ti_once, [(check_quest_active, "qst_hunt_down_fugitive"),
-                       (neg|check_quest_succeeded, "qst_hunt_down_fugitive"),
-                       (neg|check_quest_failed, "qst_hunt_down_fugitive"),
-                       (quest_slot_eq, "qst_hunt_down_fugitive", slot_quest_current_state, 1),
-                       (assign, ":not_alive", 0),
-                       (try_begin),
-                         (call_script, "script_cf_troop_agent_is_alive", "trp_fugitive"),
-                       (else_try),
-                         (assign, ":not_alive", 1),
-                       (try_end),
-                       (this_or_next|main_hero_fallen),
-                       (eq, ":not_alive", 1),
-                       ],
-       [(try_begin),
-          (main_hero_fallen),
-          (jump_to_menu, "mnu_village_hunt_down_fugitive_defeated"),
-          (call_script, "script_fail_quest", "qst_hunt_down_fugitive"),
-          (finish_mission, 4),
-        (else_try),
-          (call_script, "script_change_player_relation_with_center", "$current_town", -2),
-          (call_script, "script_succeed_quest", "qst_hunt_down_fugitive"),
-        (try_end),
-        ]),
-		
-	  common_player_weapon_toggle,
+      #SB : replace with agent triggers
+      
+      # (1, 0, ti_once, [(check_quest_active, "qst_hunt_down_fugitive"),
+                       # (neg|check_quest_succeeded, "qst_hunt_down_fugitive"),
+                       # (neg|check_quest_failed, "qst_hunt_down_fugitive"),
+                       # (quest_slot_eq, "qst_hunt_down_fugitive", slot_quest_current_state, 1),
+                       # (assign, ":not_alive", 0),
+                       # (try_begin),
+                         # (call_script, "script_cf_troop_agent_is_alive", "trp_fugitive"),
+                       # (else_try),
+                         # (assign, ":not_alive", 1),
+                       # (try_end),
+                       # (this_or_next|main_hero_fallen),
+                       # (eq, ":not_alive", 1),
+                       # ],
+       # [(try_begin),
+          # (main_hero_fallen),
+          # (jump_to_menu, "mnu_village_hunt_down_fugitive_defeated"),
+          # (call_script, "script_fail_quest", "qst_hunt_down_fugitive"),
+          # (finish_mission, 4),
+        # (else_try),
+          # (call_script, "script_change_player_relation_with_center", "$current_town", -2),
+          # (call_script, "script_succeed_quest", "qst_hunt_down_fugitive"),
+        # (try_end),
+        # ]),
+        
+
+   (ti_on_agent_killed_or_wounded, 0, 0, [(check_quest_active, "qst_hunt_down_fugitive"), #not ti_once
+                       (quest_slot_eq, "qst_hunt_down_fugitive", slot_quest_target_center, "$current_town"),
+                       (neg|check_quest_succeeded, "qst_hunt_down_fugitive"),],
+   [
+    (store_trigger_param_1, ":dead_agent_no"),
+    # (store_trigger_param_2, ":killer_agent"),
+    (agent_is_human, ":dead_agent_no"),
+    (store_trigger_param_3, ":is_wounded"),
+    (get_player_agent_no, ":player_agent"),
+    (agent_get_troop_id, ":corpse", ":dead_agent_no"),
+    (try_begin),
+      (this_or_next|eq, ":dead_agent_no", ":player_agent"),
+      (main_hero_fallen),#should be same
+
+      (jump_to_menu, "mnu_village_hunt_down_fugitive_defeated"),
+      # (call_script, "script_fail_quest", "qst_hunt_down_fugitive"), #do this from menu so we can reuse it
+      (finish_mission, 4),
+    (else_try),
+      (eq, ":corpse", "trp_fugitive"),
+      (party_remove_members, "$current_town", "trp_fugitive", 1),
+      # (eq, ":killer_agent", ":player_agent"), #bodyguards, villagers also applicable
+      (try_begin),
+        (eq, ":is_wounded", 0),#killed rather than wounded
+        (call_script, "script_change_player_relation_with_center", "$current_town", -2),
+      (else_try),
+        # (display_message, "@You leave the fugitive to villager's justice.", message_positive),
+        (party_force_add_prisoners, "p_main_party", "trp_fugitive", 1),
+        (quest_set_slot, "qst_hunt_down_fugitive", slot_quest_current_state, 2), #enter phase 2 of bringing him back
+      (try_end),
+      (agent_get_wielded_item, ":item", ":dead_agent_no", 0),
+      (try_begin),
+        (gt, ":item", 0),
+        (store_random_in_range, ":imod", imod_plain, imod_fine),
+        (troop_add_item, "trp_player", ":item", ":imod"),
+        (agent_unequip_item, ":dead_agent_no", ":item"),
+      (try_end),
+      (call_script, "script_succeed_quest", "qst_hunt_down_fugitive"),
+      (call_script, "script_deactivate_tavern_attackers"),
+    (else_try), #villagers?
+      (call_script, "script_change_player_relation_with_center", "$current_town", -1),
+    (try_end),
+   ]),
     ],
   ),
 
@@ -2267,7 +2494,74 @@ mission_templates = [
 	    (set_jump_mission, "mt_sneak_caught_fight"),
 	  ]),
 	 	  
-      (0, 0, ti_once, [], [
+      (ti_after_mission_start, 0, ti_once, [], [
+        (assign, ":no_fade", 0),
+        (try_begin), #SB : reposition player agent if ruling at court
+          (eq, "$g_player_court", "$current_town"),
+          (eq, "$talk_context", tc_court_talk),
+          (this_or_next|party_slot_eq, "$current_town", slot_party_temp_slot_1, "p_temp_party"),
+          (party_slot_eq, "$current_town", slot_party_temp_slot_1, "p_temp_party_2"),
+          (get_player_agent_no, ":agent_no"),
+          (entry_point_get_position, pos1, 16),
+          (agent_is_active, ":agent_no"),
+          (agent_set_position, ":agent_no", pos1),
+          # (entry_point_get_position, pos2, 0),
+          # (agent_set_look_target_position, pos2, ":agent_no"),
+          # (agent_set_position, ":agent_no", pos1),
+        (else_try),
+          (eq, "$talk_context", tc_court_talk),
+          # (this_or_next|party_slot_eq, "$current_town", slot_town_lord, stl_unassigned),
+          (party_slot_eq, "$current_town", slot_town_lord, "trp_player"),
+          (troop_get_slot, ":employee", dplmc_employees_end, dplmc_slot_troop_affiliated),
+          (neq, ":employee", 0),
+          (assign, "$g_talk_agent", -1),
+          (assign, "$g_main_attacker_agent", -1),
+          (troop_is_hero, ":employee"),
+          (call_script, "script_dplmc_get_court_guard_troop", "$current_town"),
+          (assign, ":guard_troop", reg0),
+          (try_for_agents, ":agent_no"),
+            # (eq, "$g_talk_agent", -1),
+            (agent_is_active, ":agent_no"),
+            (agent_is_human, ":agent_no"),
+            (agent_get_troop_id, ":troop_no", ":agent_no"),
+            (try_begin),
+              (eq, ":troop_no", ":employee"),
+              (assign, "$g_talk_agent", ":agent_no"),
+            (else_try), #guard troop
+              (eq, ":troop_no", ":guard_troop"),
+              (assign, "$g_main_attacker_agent", ":agent_no"),
+            (try_end),
+          (try_end),
+          (neq, "$g_talk_agent", -1),
+          (try_begin),
+            (neq, "$g_main_attacker_agent", -1),
+            (agent_get_position, pos1, "$g_main_attacker_agent"),
+            (agent_set_visibility, "$g_main_attacker_agent", 0),
+            (agent_fade_out, "$g_main_attacker_agent"),
+            (agent_set_position, "$g_talk_agent", pos1),
+          (try_end),
+          # (get_player_agent_no, ":player_agent"),
+          # (agent_get_position, pos1, ":player_agent"),
+          # (agent_set_scripted_destination, "$g_talk_agent", pos1),
+          # (try_begin),
+            # (set_fixed_point_multiplier, 1000),
+            # (scene_prop_get_instance, ":player_chest", "spr_player_chest", 0),
+            # (ge, ":player_chest", 0),
+            # (prop_instance_get_position, pos1, ":player_chest"),
+            # (position_move_z, pos1, 500),
+            # (position_rotate_y, pos1, 180),
+            # (agent_set_position, ":player_agent", pos1),
+            # (agent_set_look_target_agent, ":player_agent", "$g_talk_agent"),
+          # (try_end),
+          (start_mission_conversation, ":employee"),
+          (assign, ":no_fade", 1),
+          # (entry_point_get_position, pos2, 0),
+          # (agent_set_look_target_position, pos2, ":agent_no"),
+          # (agent_set_position, ":agent_no", pos1),
+        (try_end),
+        
+        (try_begin),
+          (eq, ":no_fade", 0),
         (try_begin),
           (eq, "$talk_context", tc_court_talk),
           (try_begin),
@@ -2276,9 +2570,76 @@ mission_templates = [
             (faction_slot_eq, ":center_faction", slot_faction_ai_object, "$current_town"),
             (call_script, "script_music_set_situation_with_culture", mtf_sit_feast),
           (try_end),
+            (mission_cam_set_screen_color, 0xFF736252), #roughly the colour of the menu bg
+            (mission_cam_animate_to_screen_color, 0x00736252, 1500),		  
         (else_try),
+            (eq, ":no_fade", 0),
+            (mission_cam_set_screen_color, 0xFF010203), #roughly dungeon moss/lichen colours
+            (mission_cam_animate_to_screen_color, 0x00000000, 3000),		
           (call_script, "script_music_set_situation_with_culture", 0), #prison
         (try_end),
+        (try_end),
+        ]),
+        
+    #SB : chest presentation
+      ## CC
+      (1, 0, 5, [(key_is_down, key_right_mouse_button),
+        (scene_prop_get_instance, ":player_chest", "spr_player_chest", 0),
+        (ge, ":player_chest", 0),
+        (prop_instance_get_position, pos1, ":player_chest"),
+        (get_player_agent_no, ":player_agent"),
+        (agent_is_active, ":player_agent"),
+        (agent_get_position, pos2, ":player_agent"),
+        (get_distance_between_positions, ":dist", pos1, pos2),
+        (lt, ":dist", 250),],
+        [
+
+        (tutorial_message, -1),
+        (call_script, "script_get_chest_troop", "$current_town"),
+        (assign, "$pool_troop", reg0),
+        (start_presentation, "prsnt_deposit_withdraw_money"),
+      ]),
+
+      (2, 1.5, 5, [(scene_prop_get_instance, ":player_chest", "spr_player_chest", 0),
+        (ge, ":player_chest", 0),
+        (prop_instance_get_position, pos1, ":player_chest"),
+        (get_player_agent_no, ":player_agent"),
+        (agent_get_position, pos2, ":player_agent"),
+        (get_distance_between_positions, ":dist", pos1, pos2),
+        (lt, ":dist", 300),
+        # (position_has_line_of_sight_to_position, pos2, pos1),
+        (neg|position_is_behind_position, pos1, pos2),
+        (neg|is_presentation_active, "prsnt_deposit_withdraw_money"),
+        (neg|conversation_screen_is_active),
+        ],
+        [
+        (tutorial_message_set_size, 17, 17),
+        (tutorial_message_set_position, 500, 500),
+        (tutorial_message_set_center_justify, 1),
+        (tutorial_message_set_background, 1),
+        (tutorial_message, "str_chest_info"),
+      ]),
+    
+      (2, 0, 5, [(scene_prop_get_instance, ":player_chest", "spr_player_chest", 0),
+        (ge, ":player_chest", 0),
+        # (try_begin),
+          # (neq, "$g_talk_agent", -1),
+          # (get_player_agent_no, ":player_agent"),
+          # (agent_get_position, pos1, ":player_agent"),
+          # (agent_set_scripted_destination, "$g_talk_agent", pos1),
+        # (try_end),
+        (this_or_next|conversation_screen_is_active),
+        (is_presentation_active, "prsnt_deposit_withdraw_money"),
+        #TODO disable opening chest (it crashes)
+        ],
+        [
+        # (tutorial_message_set_size, 17, 17),
+        # (tutorial_message_set_position, 500, 500),
+        # (tutorial_message_set_center_justify, 1),
+        # (tutorial_message_set_background, 1),
+        (tutorial_message, -1),
+        (clear_omitted_keys),
+        # (omit_key_once, key_f), #probably prevents accidental chest opens		
         ]),
 		
 	  common_player_weapon_toggle,
@@ -2472,6 +2833,10 @@ mission_templates = [
                            (call_script, "script_place_player_banner_near_inventory"),
                            (call_script, "script_combat_music_set_situation_with_culture"),
                            (assign, "$g_defender_reinforcement_limit", 2),
+                           ##diplomacy begin
+                           (call_script, "script_init_death_cam"),
+                           # (assign, "$g_dplmc_charge_when_dead", 0),
+                           ##diplomacy end						   
                            ]),
 
       common_music_situation_update,
@@ -2524,15 +2889,28 @@ mission_templates = [
       common_battle_check_victory_condition,
       common_battle_victory_display,
 
-      (1, 4, ti_once, [(main_hero_fallen)],
+      (1, 4,
+      ##diplomacy begin
+      0,
+      ##diplomacy end
+      [(main_hero_fallen)],
           [
-              (assign, "$pin_player_fallen", 1),
-              (str_store_string, s5, "str_retreat"),
-              (call_script, "script_simulate_retreat", 10, 20, 1),
-              (assign, "$g_battle_result", -1),
-              (set_mission_result,-1),
-              (call_script, "script_count_mission_casualties_from_agents"),
-              (finish_mission,0)]),
+              ##diplomacy begin
+              (try_begin),
+                (call_script, "script_cf_dplmc_battle_continuation"),
+              (else_try),
+                ##diplomacy end
+                (assign, "$pin_player_fallen", 1),
+                (str_store_string, s5, "str_retreat"),
+                (call_script, "script_simulate_retreat", 10, 20, 1),
+                (assign, "$g_battle_result", -1),
+                (set_mission_result,-1),
+                (call_script, "script_count_mission_casualties_from_agents"),
+                (finish_mission,0),
+                ##diplomacy begin
+              (try_end),
+              ##diplomacy end
+            ]),
 
       common_battle_inventory,
 
@@ -2560,7 +2938,10 @@ mission_templates = [
 	  common_player_weapon_toggle,
 	  common_ai_weapon_toggle,
 	  common_ai_weapon_toggle_check,
-    ],
+    ]
+    ##diplomacy begin
+    + dplmc_battle_mode_triggers + dplmc_horse_cull,  #SB : horse cull
+    ##diplomacy end
   ),
 
   (
@@ -2594,6 +2975,8 @@ mission_templates = [
                            (else_try),
                              (add_reinforcements_to_entry, 1, 29),
                            (try_end),
+                           #SB : deathcam
+                           (call_script, "script_init_death_cam"),						   
                            (call_script, "script_combat_music_set_situation_with_culture"),
                            ]),
 
@@ -2602,15 +2985,28 @@ mission_templates = [
       common_battle_check_victory_condition,
       common_battle_victory_display,
 
-      (1, 4, ti_once, [(main_hero_fallen)],
+      (1, 4,
+      ##diplomacy begin
+      0,
+      ##diplomacy end
+      [(main_hero_fallen)],
           [
-              (assign, "$pin_player_fallen", 1),
-              (str_store_string, s5, "str_retreat"),
-              (call_script, "script_simulate_retreat", 10, 20, 1),
-              (assign, "$g_battle_result", -1),
-              (set_mission_result, -1),
-              (call_script, "script_count_mission_casualties_from_agents"),
-              (finish_mission, 0)]),
+              ##diplomacy begin
+              (try_begin),
+                (call_script, "script_cf_dplmc_battle_continuation"),
+              (else_try),
+                ##diplomacy end
+                (assign, "$pin_player_fallen", 1),
+                (str_store_string, s5, "str_retreat"),
+                (call_script, "script_simulate_retreat", 10, 20, 1),
+                (assign, "$g_battle_result", -1),
+                (set_mission_result, -1),
+                (call_script, "script_count_mission_casualties_from_agents"),
+                (finish_mission, 0),
+                ##diplomacy begin
+              (try_end),
+              ##diplomacy end
+              ]),
 
       #simple_battle_morale_check,
       common_battle_morale_check,
@@ -2620,7 +3016,10 @@ mission_templates = [
 	  common_player_weapon_toggle,
 	  common_ai_weapon_toggle,
 	  common_ai_weapon_toggle_check,
-    ],
+    ]
+    ##diplomacy begin
+    + dplmc_battle_mode_triggers + dplmc_horse_cull,  #SB : horse cull
+    ##diplomacy end
   ),
 
 
@@ -2651,6 +3050,8 @@ mission_templates = [
       (0, 0, ti_once, [], [(assign,"$g_battle_won",0),
                            (assign,"$defender_reinforcement_stage",0),
                            (assign,"$attacker_reinforcement_stage",0),
+                           #SB : deathcam
+                           (call_script, "script_init_death_cam"),						   
                            (call_script, "script_combat_music_set_situation_with_culture"),
                            ]),
 
@@ -2675,7 +3076,10 @@ mission_templates = [
          (store_mission_timer_a,reg(1)),
          (ge,reg(1),10),
          (all_enemies_defeated, 5),
-         (neg|main_hero_fallen, 0),
+         ##diplomacy begin
+         (this_or_next|eq, "$g_dplmc_battle_continuation", 0),
+         (neg|main_hero_fallen),
+         ##diplomacy end
          (set_mission_result,1),
          (display_message,"str_msg_battle_won"),
          (assign,"$g_battle_won",1),
@@ -2694,15 +3098,58 @@ mission_templates = [
 
       common_battle_victory_display,
 
-      (1, 4, ti_once, [(main_hero_fallen)],
+      (1, 4,
+      ##diplomacy begin
+      0,
+      ##diplomacy end
+      [(main_hero_fallen)],
           [
-              (assign, "$pin_player_fallen", 1),
-              (str_store_string, s5, "str_retreat"),
-              (call_script, "script_simulate_retreat", 10, 20, 1),
-              (assign, "$g_battle_result", -1),
-              (set_mission_result,-1),
-              (call_script, "script_count_mission_casualties_from_agents"),
-              (finish_mission,0)]),
+              ##diplomacy begin
+              (try_begin),
+                (call_script, "script_cf_dplmc_battle_continuation"),
+              (else_try),
+                ##diplomacy end
+                (assign, "$pin_player_fallen", 1),
+                (str_store_string, s5, "str_retreat"),
+                (call_script, "script_simulate_retreat", 10, 20, 1),
+                (assign, "$g_battle_result", -1),
+                (set_mission_result,-1),
+                (call_script, "script_count_mission_casualties_from_agents"),
+                (finish_mission,0),
+                ##diplomacy begin
+              (try_end),
+              ##diplomacy end
+          ]),
+          
+   #SB : handle nervous man as fugitive quest
+   (ti_on_agent_killed_or_wounded, 0, 0, [(check_quest_active, "qst_hunt_down_fugitive"), #not ti_once
+                       (neg|check_quest_succeeded, "qst_hunt_down_fugitive"),
+                       (neg|check_quest_failed, "qst_hunt_down_fugitive"),
+                       (quest_slot_eq, "qst_hunt_down_fugitive", slot_quest_target_center, "$current_town"),
+                       (quest_slot_eq, "qst_hunt_down_fugitive", slot_quest_current_state, 1),],
+   [
+    (store_trigger_param_1, ":dead_agent_no"),
+    # (store_trigger_param_2, ":killer_agent"),
+    (agent_is_human, ":dead_agent_no"),
+    (store_trigger_param_3, ":is_wounded"),
+    # (get_player_agent_no, ":player_agent"),
+    (agent_get_troop_id, ":corpse", ":dead_agent_no"),
+    (try_begin),
+      (eq, ":corpse", "trp_fugitive"),
+      # (party_remove_members, "$current_town", "trp_fugitive", 1),
+      # (eq, ":killer_agent", ":player_agent"), #bodyguards, villagers also applicable
+      (try_begin),
+        (eq, ":is_wounded", 1),#wounded, add as prisoner since normally we don't access casualties in this mission template
+        # (display_message, "@You leave the fugitive to villager's justice.", message_positive),
+        (party_force_add_prisoners, "p_main_party", "trp_fugitive", 1),
+        (quest_set_slot, "qst_hunt_down_fugitive", slot_quest_current_state, 2), #enter phase 2 of bringing him back
+      (try_end),
+      (call_script, "script_succeed_quest", "qst_hunt_down_fugitive"),
+      # (call_script, "script_deactivate_tavern_attackers"),
+    # (else_try), #villagers?
+      # (call_script, "script_change_player_relation_with_center", "$current_town", -1),
+    (try_end),
+    ]),
 
       #simple_battle_morale_check,
       common_battle_morale_check,
@@ -2712,7 +3159,10 @@ mission_templates = [
 	  common_player_weapon_toggle,
 	  common_ai_weapon_toggle,
 	  common_ai_weapon_toggle_check,
-    ],
+    ]
+    ##diplomacy begin
+    + dplmc_battle_mode_triggers + dplmc_horse_cull, #SB : horse cull
+    ##diplomacy end
   ),
 
   (
@@ -2747,6 +3197,10 @@ mission_templates = [
         ]),
         
       (0, 0, ti_once, [], [(assign,"$g_battle_won",0),
+                           ##diplomacy begin
+                           (call_script, "script_init_death_cam"),
+                           # (assign, "$g_dplmc_charge_when_dead", 1),
+                           ##diplomacy end	  
                            (call_script, "script_music_set_situation_with_culture", mtf_sit_ambushed),
                            ]),
       
@@ -2762,15 +3216,25 @@ mission_templates = [
       common_battle_check_victory_condition,
       common_battle_victory_display,
 
-      (1, 4, ti_once, [(main_hero_fallen)],
+      (1, 4,
+      ##diplomacy begin
+      0,
+      ##diplomacy end
+      [(main_hero_fallen)],
           [
+            ##diplomacy begin
+            (try_begin),
+              (call_script, "script_cf_dplmc_battle_continuation"),
+            (else_try),
               (assign, "$pin_player_fallen", 1),
               (str_store_string, s5, "str_retreat"),
               (call_script, "script_simulate_retreat", 5, 20, 0),
               (assign, "$g_battle_result", -1),
               (set_mission_result,-1),
               (call_script, "script_count_mission_casualties_from_agents"),
-              (finish_mission,0)
+              (finish_mission,0),
+            (try_end),
+            ##diplomacy end
               ]),
       
       common_battle_order_panel,
@@ -2779,7 +3243,10 @@ mission_templates = [
 	  common_player_weapon_toggle,
 	  common_ai_weapon_toggle,
 	  common_ai_weapon_toggle_check,
-    ],
+    ]
+    ##diplomacy begin
+    + dplmc_battle_mode_triggers,
+    ##diplomacy end
   ),
 
   (
@@ -2814,6 +3281,10 @@ mission_templates = [
         ]),
         
       (0, 0, ti_once, [], [(assign,"$g_battle_won",0),
+                           ##diplomacy begin
+                           (call_script, "script_init_death_cam"),
+                           # (assign, "$g_dplmc_charge_when_dead", 1),
+                           ##diplomacy end	  
                            (call_script, "script_music_set_situation_with_culture", mtf_sit_ambushed),
                            ]),
       
@@ -2829,15 +3300,28 @@ mission_templates = [
       common_battle_check_victory_condition,
       common_battle_victory_display,
 
-      (1, 4, ti_once, [(main_hero_fallen)],
+      (1, 4,
+      ##diplomacy begin
+      0,
+      ##diplomacy end
+      [(main_hero_fallen)],
           [
-              (assign, "$pin_player_fallen", 1),
-              (str_store_string, s5, "str_retreat"),
-              (call_script, "script_simulate_retreat", 5, 20, 0),
-              (assign, "$g_battle_result", -1),
-              (set_mission_result,-1),
-              (call_script, "script_count_mission_casualties_from_agents"),
-              (finish_mission,0)
+          ##diplomacy begin
+          (try_begin),
+            (call_script, "script_cf_dplmc_battle_continuation"),
+          (else_try),
+            ##diplomacy end
+            (assign, "$pin_player_fallen", 1),
+            (str_store_string, s5, "str_retreat"),
+            (call_script, "script_simulate_retreat", 5, 20, 0),
+            (assign, "$g_battle_result", -1),
+            (set_mission_result,-1),
+            (call_script, "script_count_mission_casualties_from_agents"),
+            (finish_mission,0),
+          ##diplomacy begin
+          (try_end),
+          ##diplomacy end
+
               ]),
 
       common_battle_order_panel,
@@ -2846,7 +3330,10 @@ mission_templates = [
 	  common_player_weapon_toggle,
 	  common_ai_weapon_toggle,
 	  common_ai_weapon_toggle_check,
-    ],
+    ]
+    ##diplomacy begin
+    + dplmc_battle_mode_triggers,
+    ##diplomacy end
   ),
 
   (
@@ -2908,6 +3395,10 @@ mission_templates = [
         (finish_mission,0),]),
         
       (0, 0, ti_once, [], [(assign,"$g_battle_won",0),
+                           ##diplomacy begin
+                           (call_script, "script_init_death_cam"),
+                           # (assign, "$g_dplmc_charge_when_dead", 1),
+                           ##diplomacy end
                            (call_script, "script_combat_music_set_situation_with_culture"),
                            ]),
       
@@ -2931,15 +3422,28 @@ mission_templates = [
 
       common_battle_victory_display,
 
-      (1, 4, ti_once, [(main_hero_fallen)],
+      (1, 4,
+      ##diplomacy begin
+      0,
+      ##diplomacy end
+      [(main_hero_fallen)],
           [
-              (assign, "$pin_player_fallen", 1),
-              (str_store_string, s5, "str_retreat"),
-              (call_script, "script_simulate_retreat", 5, 20, 0),
-              (assign, "$g_battle_result", -1),
-              (set_mission_result, -1),
-              (call_script, "script_count_mission_casualties_from_agents"),
-              (finish_mission,0)]),
+              ##diplomacy begin
+              (try_begin),
+                (call_script, "script_cf_dplmc_battle_continuation"),
+              (else_try),
+                ##diplomacy end
+                (assign, "$pin_player_fallen", 1),
+                (str_store_string, s5, "str_retreat"),
+                (call_script, "script_simulate_retreat", 5, 20, 0),
+                (assign, "$g_battle_result", -1),
+                (set_mission_result, -1),
+                (call_script, "script_count_mission_casualties_from_agents"),
+                (finish_mission,0),
+              ##diplomacy begin
+              (try_end),
+              ##diplomacy end
+]),
 
       common_battle_order_panel,
       common_battle_order_panel_tick,
@@ -2947,7 +3451,10 @@ mission_templates = [
 	  common_player_weapon_toggle,
 	  common_ai_weapon_toggle,
 	  common_ai_weapon_toggle_check,
-    ],
+    ]
+    ##diplomacy begin
+    + dplmc_battle_mode_triggers,
+    ##diplomacy end
   ),
 
 
@@ -3031,7 +3538,10 @@ mission_templates = [
 	  common_player_weapon_toggle,
 	  common_ai_weapon_toggle,
 	  common_ai_weapon_toggle_check,
-    ],
+    ]
+    ##diplomacy begin
+    + dplmc_battle_mode_triggers,
+    ##diplomacy end
   ),
 
   (
@@ -3099,7 +3609,10 @@ mission_templates = [
 	  common_player_weapon_toggle,
 	  common_ai_weapon_toggle,
 	  common_ai_weapon_toggle_check,
-    ],
+    ]
+    ##diplomacy begin
+    + dplmc_battle_mode_triggers,
+    ##diplomacy end
   ),
   
 
@@ -3137,12 +3650,12 @@ mission_templates = [
         (store_trigger_param_1, ":agent_no"),
         (call_script, "script_init_town_agent", ":agent_no"),
         (get_player_agent_no, ":player_agent"),
-        (try_begin),
-          (neq, ":player_agent", ":agent_no"),
-          (agent_set_team, ":agent_no", 7),
-        (try_end),
+        # (try_begin),
+          # (neq, ":player_agent", ":agent_no"),
+          # (agent_set_team, ":agent_no", 7),
+        # (try_end),
         
-        (try_begin),
+        # (try_begin),
           (this_or_next|eq, "$talk_context", tc_escape),
           (eq, "$talk_context", tc_prison_break),
           (agent_get_troop_id, ":troop_no", ":agent_no"),
@@ -3157,6 +3670,9 @@ mission_templates = [
             (agent_get_position, pos1, ":agent_no"),                        
             (agent_set_scripted_destination, ":agent_no", pos1),
           (try_end),
+        (else_try), #SB : moved down here to hopefully fix prison break?
+          (neq, ":player_agent", ":agent_no"),
+          (agent_set_team, ":agent_no", 7),		  
         (try_end),
       ]),
       
@@ -3179,7 +3695,8 @@ mission_templates = [
           
           (eq, ":killer_agent_troop_no", "trp_player"),
           
-          (display_message, "@You got keys of dungeon."),
+          #SB : colorize and redo string
+          (display_message, "@You got the keys to the dungeon.", message_alert),
         (try_end),
       ]),     
 
@@ -3213,7 +3730,13 @@ mission_templates = [
         (try_for_range, ":prisoner", active_npcs_begin, kingdom_ladies_end),
           (troop_slot_ge, ":prisoner", slot_troop_mission_participation, 1),
           
-          (str_store_troop_name, s4, ":prisoner"),
+       #SB : redo loop
+        (party_get_num_prisoner_stacks, ":cap", "$current_town"),
+        (try_for_range, ":stack", 0, ":cap"),
+          (party_prisoner_stack_get_troop_id, ":prisoner", "$current_town", ":stack"),
+          (troop_is_hero, ":prisoner"),
+          (troop_slot_ge, ":prisoner", slot_troop_mission_participation, mp_prison_break_fight),
+         (str_store_troop_name, s4, ":prisoner"),
           (display_message, "str_s4_joins_prison_break"),
           
           (store_current_scene, ":cur_scene"), #this might be a better option?
@@ -3222,9 +3745,11 @@ mission_templates = [
           #team no and group no are used in multiplayer mode only. default team in entry is used in single player mode
           (store_current_scene, ":cur_scene"),
           (modify_visitors_at_site, ":cur_scene"),
-          (assign, ":nearest_entry_no", 24),
-          (add_visitors_to_current_scene, ":nearest_entry_no", ":prisoner", 1, 0, 0),
-          (troop_set_slot, ":prisoner", slot_troop_will_join_prison_break, 1),          
+          # (assign, ":nearest_entry_no", 24),
+          (troop_set_slot, ":prisoner", slot_troop_will_join_prison_break, 1), #SB : moved up one
+          (add_visitors_to_current_scene, 24, ":prisoner", 1, 0, 0),
+          # (add_visitors_to_current_scene, ":nearest_entry_no", ":prisoner", 1, 0, 0),
+          # (troop_set_slot, ":prisoner", slot_troop_will_join_prison_break, 1),          
         (try_end),
 	  ]),
 
@@ -3353,24 +3878,92 @@ mission_templates = [
       (ti_before_mission_start, 0, 0, [], [(call_script, "script_change_banners_and_chest")]),
       
       common_arena_fight_tab_press,
+	  
+      #SB : player override items
+      (ti_on_agent_spawn, 0, ti_once, [
+        (troop_slot_ge, "$g_talk_troop", slot_troop_trainer_training_difficulty, 4),
+        (store_trigger_param_1,":agent_no"),
+        (agent_get_troop_id, ":troop_no", ":agent_no"),
+        (eq, ":troop_no", "$g_player_troop"),
+      ],
+      [
+        (store_trigger_param_1,":agent_no"),
+        # #get wpt
+        # (store_proficiency_level, ":onehands", "$g_player_troop", wpt_one_handed_weapon),
+        # (store_proficiency_level, ":twohands", "$g_player_troop", wpt_two_handed_weapon),
+        # (store_proficiency_level, ":polearms", "$g_player_troop", wpt_polearm),
+
+        # (try_begin),
+          # (ge, ":onehands", ":twohands"),
+          # (ge, ":onehands", ":polearms"),
+          # # (agent_equip_item, ":agent_no", "itm_practice_shield"),
+          # (assign, ":weapon", "itm_practice_sword"),
+        # (else_try),
+          # (ge, ":twohands", ":onehands"),
+          # (ge, ":twohands", ":polearms"),
+          # (assign, ":weapon", "itm_heavy_practice_sword"),
+        # (else_try),
+          # (ge, ":polearms", ":onehands"),
+          # (ge, ":polearms", ":twohands"),
+          # (assign, ":weapon", "itm_practice_staff"),
+        # (try_end),
+        (call_script, "script_get_proficient_melee_training_weapon", "$g_player_troop"),
+        (assign, ":weapon", reg0),
+        
+        (agent_get_wielded_item, ":item_no", ":agent_no", 0),
+        (neq, ":item_no", ":weapon"),
+        (agent_unequip_item, ":agent_no", ":item_no"),
+        (try_begin),
+          (agent_get_wielded_item, ":item_no", ":agent_no", 1),
+          (gt, ":item_no", 0),
+          (neq, ":weapon", "itm_practice_sword"),
+          (agent_unequip_item, ":agent_no", ":item_no"),
+        (else_try),
+          (eq, ":weapon", "itm_practice_sword"),
+          (eq, ":item_no", -1),
+          (agent_equip_item, ":agent_no", "itm_practice_shield"),
+          (agent_set_wielded_item, ":agent_no", "itm_practice_shield"),
+        (try_end),
+        (agent_equip_item, ":agent_no",":weapon"),
+        (agent_set_wielded_item, ":agent_no", ":weapon"),
+      ]),	  
       
       (ti_question_answered, 0, 0, [],
        [
          (store_trigger_param_1, ":answer"),
          (eq, ":answer", 0),
          (set_jump_mission, "mt_training_ground_trainer_talk"),
-         (modify_visitors_at_site, "$g_training_ground_melee_training_scene"),
+         # (try_begin),
+           # (party_get_slot, ":scene", "$g_encountered_party", slot_grounds_melee),
+           # (le, ":scene", 0),
+           # (assign, ":scene", "$g_training_ground_melee_training_scene"),
+         # (try_end),
+         (store_current_scene, ":scene"),
+         (modify_visitors_at_site, ":scene"),
          (reset_visitors),
          (set_jump_entry, 5),
-         (jump_to_scene, "$g_training_ground_melee_training_scene"),
+         (jump_to_scene, ":scene"),
          ]),
-      (1, 3, ti_once, [(main_hero_fallen,0)],
+       (1, 3, ti_once, [(main_hero_fallen,0)],
        [
          (set_jump_mission, "mt_training_ground_trainer_talk"),
-         (modify_visitors_at_site, "$g_training_ground_melee_training_scene"),
+         # (try_begin),
+           # (party_get_slot, ":scene", "$g_encountered_party", slot_grounds_melee),
+           # (le, ":scene", 0),
+           # (assign, ":scene", "$g_training_ground_melee_training_scene"),
+         # (try_end),
+         (store_current_scene, ":scene"),
+         (modify_visitors_at_site, ":scene"),
          (reset_visitors),
          (set_jump_entry, 5),
-         (jump_to_scene, "$g_training_ground_melee_training_scene"),
+         (jump_to_scene, ":scene"),
+         
+         (store_troop_health, ":hp", "$g_player_troop", 0),
+         (troop_get_slot, ":diff", "$g_talk_troop", slot_troop_trainer_training_difficulty),
+         (store_sub, ":diff", 9, ":diff"),
+         (val_mul, ":hp", ":diff"),
+         (val_div, ":hp", 10),
+         (troop_set_health, "$g_player_troop", ":hp", 0),
          ]),
       (1, 3, ti_once,
        [
@@ -3378,19 +3971,21 @@ mission_templates = [
          (ge, reg1, 1),
          (num_active_teams_le, 1),
          (neg|main_hero_fallen),
-         (assign, "$training_fight_won", 1),
+         # (assign, "$training_fight_won", 1),
+         (troop_set_slot, "$g_talk_troop", slot_troop_trainer_training_fight_won, 1),
          ],
        [
-         (set_jump_mission, "mt_training_ground_trainer_talk"),
-         (modify_visitors_at_site, "$g_training_ground_melee_training_scene"),
-         (reset_visitors),
-         (set_jump_entry, 5),
-         (jump_to_scene, "$g_training_ground_melee_training_scene"),
+       #instead of refreshing the scene we just talk on-sight
+         (get_player_agent_no, ":agent"),
+         (store_agent_hit_points, ":hp", ":agent", 0),
+         (troop_set_health, "$g_player_troop", ":hp", 0),
+         
+         (mission_enable_talk),
+         (start_mission_conversation, "$g_talk_troop"),
          ]),
       (ti_inventory_key_pressed, 0, 0, [(display_message,"str_cant_use_inventory_arena")], []),
     ],
   ),
-
 
   (
     "training_ground_training", mtf_arena_fight, -1,
@@ -3411,6 +4006,82 @@ mission_templates = [
       (15,mtef_visitor_source,af_override_weapons|af_override_horse|af_override_head,0,1,[]),
     ],
     [
+	
+    
+        #SB : set spectator randomized cheering
+        (ti_on_agent_spawn, 0, 0, [
+            (store_trigger_param_1,":agent_no"),
+            (agent_is_human, ":agent_no"),
+            (agent_get_item_slot, ":item_no", ":agent_no", ek_foot),
+            (neq, ":item_no", "itm_practice_boots"), #not equipped on spectator troops
+            # (agent_get_entry_no, ":entry_no", ":agent_no"),
+            # (assign, reg1, ":entry_no"),
+            # (str_store_agent_name, s1, ":agent_no"),
+            # (display_message, "@{s1} at {reg1}"),
+            # (gt, ":entry_no", 4),
+          ],
+          [
+            # (set_fixed_point_multiplier, 100),
+            (store_trigger_param_1,":agent_no"),
+            (agent_get_troop_id, ":troop_no", ":agent_no"),
+            # (try_begin),
+              # (call_script, "script_cf_gender_toggle", ":troop_no"),
+              # (store_random_in_range, ":gender", 0, 2),
+              # (troop_set_type, ":troop_no", ":gender"),
+            # (try_end),
+            (store_random_in_range, ":cheer", 0, 300),
+            (try_begin),
+              (is_between, ":troop_no", companions_begin, companions_end),
+              (call_script, "script_dplmc_npc_morale", ":troop_no", 0),
+            (else_try),
+              (call_script, "script_game_get_morale_of_troops_from_faction", ":troop_no"),
+            (try_end),
+            (val_add, ":cheer", reg0),
+            (try_begin), 
+              (ge, ":cheer", 150),
+              (store_random_in_range, ":stand_animation", "anim_wedding_guest", "anim_wedding_dad_stairs"),
+              (agent_set_stand_animation, ":agent_no", ":stand_animation"),
+              (agent_set_animation, ":agent_no", ":stand_animation"),
+              (store_random_in_range, ":random_no", 0, 100),
+              (agent_set_animation_progress, ":agent_no", ":random_no"),
+            (try_end),
+            #assign other cheer action when player kills in ctm_melee or hits gourds
+        ]),
+        
+        #SB : wound troops and heroes
+      (ti_on_agent_killed_or_wounded, 0, 0, [
+        (eq, "$g_mt_mode", ctm_melee),
+        ],
+       [
+       (store_trigger_param_1, ":agent_no"),
+       (store_trigger_param_2, ":killer"),
+       (agent_get_troop_id, ":troop_no", ":agent_no"),
+       #yes, there's a chance that the highest skill troop is the one getting injured, but w/e
+       (party_get_skill_level, ":first_aid", "p_main_party", "skl_first_aid"),
+       (val_mul, ":first_aid", 5), #as per skill description
+       (val_add, ":first_aid", 100),
+       (try_begin),
+         (troop_is_hero, ":troop_no"),
+         (store_troop_health, ":health", ":troop_no", 1), #this is already deducted
+         (val_mul, ":health", ":first_aid"),
+         (val_div, ":health", 100),
+         (troop_set_health, ":troop_no", ":health", 1),
+       (else_try), #regular troops
+         # (val_add, ":first_aid", 100),
+         (store_random_in_range, ":random_no", 0, ":first_aid"),
+         (lt, ":random_no", 25),
+         (party_wound_members, "p_main_party", ":troop_no", 1),
+       (try_end),
+       
+       (try_begin),
+         (get_player_agent_no, ":player_agent"),
+         (store_trigger_param_2, ":killer"),
+         (eq, ":player_agent", ":killer"),
+         (call_script, "script_agents_cheer_during_training"),
+       (try_end),
+      
+       ]),
+	   
       (ti_before_mission_start, 0, 0, [],
        [
          (assign, "$g_last_destroyed_gourds", 0),
@@ -3423,6 +4094,9 @@ mission_templates = [
          (store_trigger_param_1,":answer"),
          (eq,":answer",0),
          (assign, "$g_training_ground_training_success_ratio", 0),
+		 
+         (call_script, "script_troop_set_training_health_from_agent"), #SB : store health
+		 
          (jump_to_menu, "mnu_training_ground_training_result"),
          (finish_mission),
          ]),
@@ -3541,6 +4215,8 @@ mission_templates = [
            (store_mul, "$g_training_ground_training_success_ratio", ":dead_enemies", 100),
            (val_div, "$g_training_ground_training_success_ratio", "$g_training_ground_training_num_enemies"),
          (try_end),
+         #SB : calculate hero wounded status
+         (call_script, "script_troop_set_training_health_from_agent"),		 
          (jump_to_menu, "mnu_training_ground_training_result"),
          (finish_mission),
          ]),
@@ -3599,7 +4275,7 @@ mission_templates = [
          (try_end),
          (assign, "$g_last_destroyed_gourds", 0),
          ],
-       []),
+       [(call_script, "script_agents_cheer_during_training"),]),
     ],
   ),
 
@@ -3686,8 +4362,8 @@ mission_templates = [
         (try_begin),
           (party_get_slot, ":last_nearby_fire_time", "$current_town", slot_town_last_nearby_fire_time),                          
           (store_current_hours, ":cur_time"),
-          (store_add, ":fire_finish_time", ":last_nearby_fire_time", 4),                          
-          (is_between, ":cur_time", ":fire_finish_time", ":last_nearby_fire_time"),
+          (store_add, ":fire_finish_time", ":last_nearby_fire_time", fire_duration),
+          (is_between, ":cur_time", ":last_nearby_fire_time", ":fire_finish_time"), #SB : fix is_between that was always false
           (assign, ":num_guards", 2),
         (else_try),  
           (this_or_next|eq, "$talk_context", tc_escape),
@@ -4265,6 +4941,14 @@ mission_templates = [
          (try_end),
          (try_begin),
            (eq, "$g_wedding_state", 0),
+           #SB : head camera, store cur values and force 3rd person
+           (try_begin),
+             (is_camera_in_first_person),
+             (assign, "$g_dplmc_cam_activated", 1),
+           (else_try),
+             (assign, "$g_dplmc_cam_activated", 0),
+           (try_end),
+           (set_camera_in_first_person, 0),		   
            (mission_cam_set_mode, 1, 0, 0),
            (init_position, pos1),
            (position_rotate_z, pos1, 180),
@@ -4443,12 +5127,14 @@ mission_templates = [
          (else_try),
            (eq, "$g_wedding_state", 10),
            (ge, ":cur_time", 41),
-           (mission_cam_set_screen_color, 0x00FFFFFF),
+           (mission_cam_set_screen_color, 0xFF000000),
            (mission_cam_animate_to_screen_color, 0xFFFFFFFF, 3000),
            (val_add, "$g_wedding_state", 1),
          (else_try),
            (eq, "$g_wedding_state", 11),
            (ge, ":cur_time", 48),
+           #SB : reset camera
+           (set_camera_in_first_person, "$g_dplmc_cam_activated"),		   
            (show_object_details_overlay, 1),
            (finish_mission,0),
          (try_end),
@@ -6071,7 +6757,10 @@ mission_templates = [
 	  common_player_weapon_toggle,
 	  common_ai_weapon_toggle,
 	  common_ai_weapon_toggle_check,
-    ],
+    ]
+	##diplomacy begin
+	+ dplmc_battle_mode_triggers,
+	##diplomacy end
   ),
 
   (
@@ -6142,7 +6831,9 @@ mission_templates = [
          (assign, "$attacker_team", 1),
          (assign, "$defender_team_2", 2),
          (assign, "$attacker_team_2", 3),
-         ], []),
+         ], [
+		  (call_script, "script_init_death_cam"), #SB : add camera
+		 ]),
 
       (ti_before_mission_start, 0, 0, [],
        [
@@ -6589,7 +7280,7 @@ mission_templates = [
       (62,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),
       (63,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),
      ],
-    [
+    dplmc_horse_cull + [  
       common_battle_init_banner,
 
       multiplayer_server_check_polls,
@@ -12025,7 +12716,7 @@ mission_templates = [
            
            (assign, ":continue", 1),
          (else_try),
-           (this_or_next|neq|eq, ":template", "pt_looter_lair"),
+            (this_or_next|neq, ":template", "pt_looter_lair"), #SB : neq|eq?
            (neg|check_quest_active, "qst_save_relative_of_merchant"),
 
            (store_mission_timer_a,":cur_time"),
@@ -12244,7 +12935,7 @@ mission_templates = [
         (store_current_scene, ":cur_scene"),
         (scene_set_slot, ":cur_scene", slot_scene_visited, 1),
         (try_begin),
-          (eq, "$sneaked_into_town", 1),
+          (gt, "$sneaked_into_town", disguise_none),
           (call_script, "script_music_set_situation_with_culture", mtf_sit_town_infiltrate),
         (else_try),
           (eq, "$talk_context", tc_tavern_talk),

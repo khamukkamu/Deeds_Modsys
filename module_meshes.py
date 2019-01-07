@@ -18,7 +18,7 @@ from compiler import *
 
 meshes = [
   ("pic_bandits", 0, "pic_bandits", 0, 0, 0, 0, 0, 0, 1, 1, 1),
-  ("pic_mb_warrior_1", 0, "pic_mb_warrior_1", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("pic_mb_warrior_1", 0, "ini_pic_mb_warrior_1", 0, 0, 0, 0, 0, 0, 0.6, 1, 0.8), #SB : make this suitable for background_mesh
   ("pic_messenger", 0, "pic_messenger", 0, 0, 0, 0, 0, 0, 1, 1, 1),
   ("pic_prisoner_man", 0, "pic_prisoner_man", 0, 0, 0, 0, 0, 0, 1, 1, 1),
   ("pic_prisoner_fem", 0, "pic_prisoner_fem", 0, 0, 0, 0, 0, 0, 1, 1, 1),
@@ -618,6 +618,40 @@ meshes = [
   ("mp_ui_host_maps_18", 0, "mp_ui_host_maps_d3", 0, 0, 0, 0, 0, 0, 1, 1, 1),
   ("mp_ui_host_maps_19", 0, "mp_ui_host_maps_e2", 0, 0, 0, 0, 0, 0, 1, 1, 1),
   ("mp_ui_host_maps_20", 0, "mp_ui_host_maps_e1", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  
+##diplomacy begin
+  ("longer_button", 0, "longer_button", 0, 0, 0, 0, 0, 0, 0.4, 0.5, 0.5),
+  ("longer_button_down", 0, "longer_button_down", 0, 0, 0, 0, 0, 0, 0.4, 0.5, 0.5),
+
+  # Jrider + REPORTS PRESENTATIONS 1.0
+  ("message_window", 0, "message_window", 0, 0, 0, 0, 0, 0, 0.8, 0.5, 0.5), # in core_ui_meshes.brf, same one as in 1st presentation
+  ("face_gen_window", 0, "face_gen_window", 0, 0, 0, 0, 0, 0, 1, 1, 1), # in user_interface_b.brf, automatically loaded
+  # Jrider -
+
+##diplomacy end
+##diplomacy start+
+##Additional meshes, used by components ported from rubik's Custom Commander
+  ("options_window", 0, "options_window", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("note_window", 0, "note_window", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+
+  ("drop_button", 0, "button_drop", 0, 0, 0, 0, 0, 0, 1, 0.5, 0.5),
+  ("drop_button_down", 0, "button_drop_clicked", 0, 0, 0, 0, 0, 0, 1, 0.5, 0.5),
+  ("drop_button_hl", 0, "button_drop_hl", 0, 0, 0, 0, 0, 0, 1, 0.5, 0.5),
+  ("drop_button_child", 0, "button_drop_child", 0, 0, 0, 0, 0, 0, 1.0, 0.5, 0.5),
+  ("drop_button_child_down", 0, "button_drop_child_clicked", 0, 0, 0, 0, 0, 0, 1.0, 0.5, 0.5),
+  ("drop_button_child_hl", 0, "button_drop_child_hl", 0, 0, 0, 0, 0, 0, 1.0, 0.5, 0.5),
+  
+  ("inventory_equipment_panel", 0, "inventory_equipment_panel", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+##diplomacy start+
+    #old pictures
+  ("pic_mb_warrior_2", 0, "ini_pic_mb_warrior_2", 0, 0, 0, 0, 0, 0, 0.8, 1, 1),
+  ("pic_mb_warrior_3", 0, "ini_pic_mb_warrior_3", 0, 0, 0, 0, 0, 0, 0.4, 1, 0.5),
+  ("pic_mb_warrior_4", 0, "ini_pic_mb_warrior_4", 0, 0, 0, 0, 0, 0, 0.8, 1, 1),
+##SB : icons to represent item type meta-upgrades
+  ("icon_morningstar", 0, "ico_morningstar", 0, 0, 0, 0, 0, 0, 0.3, 0.3, 0.3),
+  ("icon_lance", 0, "ico_couchedlance", 0, 0, 0, 0, 0, 0, 0.3, 0.3, 0.3),
+  ("icon_spear", 0, "ico_spear", 0, 0, 0, 0, 0, 0, 0.3, 0.3, 0.3),
+  ("icon_bardiche", 0, "ico_axetwo", 0, 0, 0, 0, 0, 0, 0.3, 0.3, 0.3),  
   
   ("order_frame", 0, "mp_ui_order_button", 0, 0, 0, 0, 0, 0, 1, 1, 1),
   ("flag_spears", 0, "flag_infantry", 0, 0, 0, 0, 0, 0, 1, 1, 1),

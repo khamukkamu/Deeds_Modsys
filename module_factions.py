@@ -25,6 +25,7 @@ factions = [
 # Factions before this point are hardwired into the game and their order should not be changed.
 
   ("neutral","Neutral",0, 0.1,[("player_faction",0.0)], [],0xFFFFFF),
+  ("merchants","Merchants", ff_always_hide_label, 0.5,[("outlaws",-0.5),], []),
 
   ("player_faction","Player Faction",0, 0.9, [], []),
   ("player_supporters_faction","Player's Supporters",0, 0.9, [("player_faction",1.00),("outlaws",-0.05),("deserters", -0.02)], [], 0xFF4433), #changed name so that can tell difference if shows up on map
@@ -43,3 +44,8 @@ factions = [
 
   ("undeads","{!}Undeads", max_player_rating(-30), 0.5,[("commoners",-0.7),("player_faction",-0.5)], []),
 ]
+##diplomacy start+ Define these for convenience
+dplmc_factions_begin = 1 #As mentioned in the notes above, this is hardcoded and shouldn't be altered.  Deliberately excludes "no faction".
+dplmc_non_generic_factions_begin = [x[0] for x in enumerate(factions) if x[1][0] == "merchants"][0] + 1
+dplmc_factions_end   = len(factions)
+##diplomacy end+

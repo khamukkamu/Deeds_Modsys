@@ -24,6 +24,18 @@ from compiler import *
 #  10) [Optional] Factions: List of factions that item can be found as merchandise.
 ####################################################################################################################
 
+def heraldic(item_tableau):
+  return (ti_on_init_item, [(store_trigger_param_1, ":agent_no"),(store_trigger_param_2, ":troop_no"),(call_script, "script_shield_item_set_banner", item_tableau, ":agent_no", ":troop_no")])
+def add_mesh(item_meshes):
+  cur_meshes = [(store_trigger_param_1, ":agent_no"),(ge, ":agent_no", 0)]
+  for mesh in item_meshes if not isinstance(item_meshes, basestring) else [item_meshes]:
+    cur_meshes.append((str_store_string, s1, mesh))
+    cur_meshes.append((cur_item_add_mesh, s1))
+  return (ti_on_init_item, cur_meshes)
+def reskin(item_material):
+  return (ti_on_init_item, [(str_store_string, s1, item_material),(cur_item_set_material, s1, 0),])
+
+
 # Some constants for ease of use.
 imodbits_none = 0
 imodbits_horse_basic = imodbit_swaybacked|imodbit_lame|imodbit_spirited|imodbit_heavy|imodbit_stubborn
@@ -1369,6 +1381,12 @@ items = [
 ["dedal_kufel","Kufel",[("dedal_kufelL",0)],	itp_type_hand_armor,0,0,weight(1),0],
 ["dedal_lutnia","Lutnia",[("dedal_lutniaL",0)],	itp_type_hand_armor,0,0,weight(1),0],
 ["dedal_lira","Lira",[("dedal_liraL",0)],		itp_type_hand_armor,0,0,weight(1),0],
+
+##diplomacy begin
+["dplmc_coat_of_plates_red_constable", "Constable Coat of Plates", [("coat_of_plates_red",0)], itp_unique|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
+ 3828 , weight(25)|abundance(100)|head_armor(0)|body_armor(52)|leg_armor(16)|difficulty(0) ,imodbits_armor, [], []],
+##diplomacy end
+#SB : replace items_end to fit invasion items
 
 ["items_end", "Items End", [("shield_round_a",0)], 0, 0, 1, 0, 0],
 ]

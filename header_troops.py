@@ -20,6 +20,7 @@ tf_mounted           = 0x00000400 #Troop's movement speed on map is determined b
 tf_is_merchant       = 0x00001000 #When set, troop does not equip stuff he owns
 tf_randomize_face    = 0x00008000 #randomize face at the beginning of the game.
 tf_allways_fall_dead = tf_always_fall_dead # For compatibility reasons...
+tf_disable_sounds             = 0x00010000 #disable agent related sounds, but not voices. useful for animals
 
 tf_guarantee_boots            = 0x00100000
 tf_guarantee_armor            = 0x00200000
