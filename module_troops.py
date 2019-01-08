@@ -2652,6 +2652,10 @@ troops = [
    def_attrib|agi_21|int_30|cha_21|level(25),wp(130),knows_common|knows_riding_7|knows_horse_archery_5|knows_leadership_7,swadian_face_young_1, swadian_face_old_2],
 # recruiter kit end
   ##diplomacy end
+
+  #Lumos List Troop
+  ["upgrades", "{!}Upgrade list", "{!}List of available upgrades", tf_hero, no_scene, reserved, fac_neutral,[],level(60),wp(800),knows_lord_1,merchant_face_1, merchant_face_2],
+
 ]
 
 

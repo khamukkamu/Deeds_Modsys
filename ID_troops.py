@@ -1076,3 +1076,4 @@ trp_dplmc_chancellor = 1074
 trp_dplmc_messenger = 1075
 trp_dplmc_scout = 1076
 trp_dplmc_recruiter = 1077
+trp_upgrades = 1078

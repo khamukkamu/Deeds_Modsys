@@ -17705,7 +17705,7 @@ scripts = [
   
   ## END
 
-  
+
   #script_calculate_main_party_shares:
   # INPUT:
   # Returns number of player party shares in reg0
@@ -25202,6 +25202,66 @@ scripts = [
 		(call_script, "script_party_inflict_attrition", ":party_no", ":percent_under", 1),
 	  (try_end),
 
+    #### F&B begin make AI upgrade their settlements
+    (try_begin),
+      (ge, ":cur_wealth", 5000),
+      (assign, ":upgrade_possible", 0),
+      (call_script, "script_list_clear", "trp_upgrades"),
+      (try_for_range, ":center_no", centers_begin, centers_end),
+        (party_slot_eq, ":center_no", slot_town_lord, ":party_no"),
+        (party_slot_eq, ":center_no", slot_center_current_improvement, 0),
+        (call_script, "script_list_add", "trp_upgrades", ":center_no"),
+        (assign, ":upgrade_possible", 1),
+      (try_end),
+      (eq, ":upgrade_possible", 1),
+      (call_script, "script_list_random", "trp_upgrades"),
+      (assign, ":center_to_upgrade", reg1),
+      (try_begin),
+        (party_slot_eq, ":center_to_upgrade", slot_party_type, spt_village),
+        (call_script, "script_list_clear", "trp_upgrades"),
+        (assign, ":upgrade_available", 0),
+        (try_for_range, ":upgrade", village_improvements_begin, village_improvements_end),
+          (neg|party_slot_eq, ":center_to_upgrade", ":upgrade", 1),   #ignore already built upgrades
+          (call_script, "script_list_add", "trp_upgrades", ":upgrade"),
+          (assign, ":upgrade_available", 1),
+        (try_end),
+      (else_try),
+        (party_slot_eq, ":center_to_upgrade", slot_party_type, spt_castle),
+        (call_script, "script_list_clear", "trp_upgrades"),
+        (assign, ":upgrade_available", 0),
+        (try_for_range, ":upgrade", walled_center_improvements_begin, walled_center_improvements_end),
+          (neg|party_slot_eq, ":center_to_upgrade", ":upgrade", 1),
+          (call_script, "script_list_add", "trp_upgrades", ":upgrade"),
+          (assign, ":upgrade_available", 1),
+        (try_end),
+      (else_try),
+        (party_slot_eq, ":center_to_upgrade", slot_party_type, spt_town),
+        (call_script, "script_list_clear", "trp_upgrades"),
+        (assign, ":upgrade_available", 0),
+        (try_for_range, ":upgrade", walled_center_improvements_begin, walled_center_improvements_end),
+          (neg|party_slot_eq, ":center_to_upgrade", ":upgrade", 1),
+          (call_script, "script_list_add", "trp_upgrades", ":upgrade"),
+          (assign, ":upgrade_available", 1),
+        (try_end),
+      (try_end),
+      (eq, ":upgrade_available", 1),
+      (call_script, "script_list_random", "trp_upgrades"),
+      (assign, ":new_upgrade", reg1),
+      (call_script, "script_get_improvement_details", reg1),
+      (assign, ":improvement_cost", reg0),
+      (store_div, ":improvement_time", ":improvement_cost", 150),
+      (party_set_slot, ":center_to_upgrade", slot_center_current_improvement, ":new_upgrade"),
+      (store_current_hours, ":cur_hours"),
+      (store_mul, ":hours_takes", ":improvement_time", 24),
+      (val_add, ":hours_takes", ":cur_hours"),
+      (party_set_slot, ":center_to_upgrade", slot_center_improvement_end_hour, ":hours_takes"),
+      (val_sub, ":cur_wealth", ":improvement_cost"),
+      (str_store_party_name, s0, ":center_to_upgrade"),
+      #      (display_message, "@ {s0} is building an upgrade. Final wealth: {reg7}"),
+    (try_end),
+    #### F&B end make AI upgrade their settlements
+    ##############################################################################
+
 	  ##diplomacy start+
 	  #Apply gold change
 	  (try_begin),
@@ -25217,6 +25277,49 @@ scripts = [
 	  (try_end),
 	  ##diplomacy end+
   ]),
+
+
+  #-## List management by Lumos, for the above script (Kham)
+  ## The list's zero slot holds the number of current items in it
+  # script_list_random
+  # Returns a random element from the list, along with its index
+  # INPUT: none
+  # OUTPUT: reg1 - the value of the item, reg2 - its index
+  ("list_random", [
+      (store_script_param, ":list_type", 1),
+      (troop_get_slot, ":num_elements", ":list_type", 0),
+      (val_add, ":num_elements", 1),
+      (store_random_in_range, reg2, 1, ":num_elements"),
+      (troop_get_slot, reg1, ":list_type", reg2),
+  ]),
+  # script_list_add
+  # Appends an item to the list
+  # INPUT: arg1 - the value which we will add to the list
+  # OUTPUT: none
+  ("list_add", [
+      (store_script_param, ":list_type", 1),
+      (store_script_param, ":value", 2),
+      (troop_get_slot, ":num_elements", ":list_type", 0),
+      (val_add, ":num_elements", 1),
+      (troop_set_slot, ":list_type", ":num_elements", ":value"),
+      (troop_set_slot, ":list_type", 0, ":num_elements"),
+  ]),
+  # script_list_clear
+  # Clears all items from the list
+  # INPUT: ":list_type"
+  # OUTPUT: none
+  ("list_clear", [
+      (store_script_param, ":list_type", 1),
+      (troop_get_slot, ":num_elements", ":list_type", 0),
+      (val_add, ":num_elements", 1),
+      (try_for_range, ":slot", 1, ":num_elements"),
+        (troop_set_slot, ":list_type", ":slot", 0),
+      (try_end),
+      (troop_set_slot, ":list_type", 0, 0), # Reset number of elements
+  ]),
+
+  ### END Additions (Kham)
+  
 
   # script_cf_reinforce_party
   # Input: arg1 = party_no,
