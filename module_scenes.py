@@ -3,8 +3,8 @@ from header_operations import *
 from header_triggers import *
 from header_scenes import *
 from module_constants import *
-from compiler import *
 
+from compiler import *
 ####################################################################################################################
 #  Each scene record contains the following fields:
 #  1) Scene id {string}: used for referencing scenes in other files. The prefix scn_ is automatically added before each scene-id.
@@ -21,6 +21,28 @@ from compiler import *
 #     the passage's variation-no is used to select the game menu item that the passage leads to.)
 # 10) List of chest-troops used in this scene {list of strings}. You can access chests by placing them in edit mode.
 #     The chest's variation-no is used with this list for selecting which troop's inventory it will access.
+#  town_1   Sargoth     #plain
+#  town_2   Tihr        #steppe
+#  town_3   Veluca      #steppe
+#  town_4   Suno        #plain
+#  town_5   Jelkala     #plain
+#  town_6   Praven      #plain
+#  town_7   Uxkhal      #plain
+#  town_8   Reyvadin    #plain
+#  town_9   Khudan      #snow
+#  town_10  Tulga       #steppe
+#  town_11  Curaw       #snow
+#  town_12  Wercheg     #plain
+#  town_13  Rivacheg    #plain
+#  town_14  Halmar      #steppe
+#  town_15  Yalen
+#  town_16  Dhirim
+#  town_17  Ichamur
+#  town_18  Narra
+#  town_19  Shariz
+#  town_20  Durquba
+#  town_21  Ahmerrad
+#  town_22  Bariyye
 ####################################################################################################################
 
 scenes = [
@@ -50,20 +72,77 @@ scenes = [
     [],[], "outer_terrain_plain"),
   ("camp_scene_horse_track",sf_generate|sf_auto_entry_points,"none", "none", (0,0),(240,240),-0.5,"0x300028000003e8fa0000034e00004b34000059be",
     [],[], "outer_terrain_plain"),
+  ("four_ways_inn",sf_generate,"none", "none", (0,0),(120,120),-100,"0x0000000030015f2b000350d4000011a4000017ee000054af",
+    [],[], "outer_terrain_town_thir_1"),
   ("test_scene",sf_generate,"none", "none", (0,0),(120,120),-100,"0x0230817a00028ca300007f4a0000479400161992",
     [],[], "outer_terrain_plain"),
+  ("quick_battle_1",sf_generate,"none", "none", (0,0),(120,120),-100,"0x30401ee300059966000001bf0000299a0000638f", 
+    [],[], "outer_terrain_plain"),
+  ("quick_battle_2",sf_generate,"none", "none", (0,0),(120,120),-100,"0xa0425ccf0004a92a000063d600005a8a00003d9a", 
+    [],[], "outer_terrain_steppe"),
+  ("quick_battle_3",sf_generate,"none", "none", (0,0),(120,120),-100,"0x4c6024e3000691a400001b7c0000591500007b52", 
+    [],[], "outer_terrain_snow"),
+  ("quick_battle_4",sf_generate,"none", "none", (0,0),(120,120),-100,"0x00001d63c005114300006228000053bf00004eb9", 
+    [],[], "outer_terrain_plain"),
+  ("quick_battle_5",sf_generate,"none", "none", (0,0),(120,120),-100,"0x3a078bb2000589630000667200002fb90000179c", 
+    [],[], "outer_terrain_plain"),
+  ("quick_battle_6",sf_generate,"none", "none", (0,0),(120,120),-100,"0xa0425ccf0004a92a000063d600005a8a00003d9a", 
+    [],[], "outer_terrain_steppe"),
+  ("quick_battle_7",sf_generate,"none", "none", (0,0),(100,100),-100,"0x314d060900036cd70000295300002ec9000025f3",
+    [],[],"outer_terrain_plain"),
+  ("salt_mine",sf_generate,"none", "none", (-200,-200),(200,200),-100,"0x2a07b23200025896000023ee00007f9c000022a8",  
+    [],[], "outer_terrain_steppe"),
   ("novice_ground",sf_indoors,"training_house_a", "bo_training_house_a", (-100,-100),(100,100),-100,"0",
     [],[]),
+  ("zendar_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0xa0001d9300031ccb0000156f000048ba0000361c",
+    [],[], "outer_terrain_plain"),
+  ("dhorak_keep",sf_generate,"none", "none", (0,0),(120,120),-100,"0x33a7946000028ca300007f4a0000479400161992",
+    ["exit"],[]),
+  ("reserved4",sf_generate,"none", "none", (0,0),(120,120),-100,"28791",
+    [],[]),
+  ("reserved5",sf_generate,"none", "none", (0,0),(120,120),-100,"117828",
+    [],[]),
+  ("reserved6",sf_generate,"none", "none", (0,0),(100,100),-100,"6849",
+    [],[]),
+  ("reserved7",sf_generate,"none", "none", (0,0),(100,100),-100,"6849",
+    [],[]),
+  ("reserved8",sf_generate,"none", "none", (0,0),(100,100),-100,"13278",
+    [],[]),
+  ("reserved9",sf_indoors,"thirsty_lion", "bo_thirsty_lion", (-100,-100),(100,100),-100,"0",
+    [],[]),
+  ("reserved10",0,"none", "none", (-100,-100),(100,100),-100,"0",
+    [],[]),
+  ("reserved11",0,"none", "none", (-100,-100),(100,100),-100,"0",
+    [],[]),
+  ("reserved12",sf_indoors,"thirsty_lion", "bo_thirsty_lion", (-100,-100),(100,100),-100,"0",
+    [],[]),
+  ("training_ground",sf_generate,"none", "none", (0,0),(120,120),-100,"0x30000500400360d80000189f00002a8380006d91",
+    [],["tutorial_chest_1", "tutorial_chest_2"], "outer_terrain_plain_1"),
+  ("tutorial_1",sf_indoors,"tutorial_1_scene", "bo_tutorial_1_scene", (-100,-100),(100,100),-100,"0",
+    [],[]),
+##  ("tutorial_1",sf_generate,"none", "none", (0,0),(120,120),-100,"0x000000003a04ce140005e17a000030030000780e00006979",
+##    [],[], "outer_terrain_plain"),
+  ("tutorial_2",sf_indoors,"tutorial_2_scene", "bo_tutorial_2_scene", (-100,-100),(100,100),-100,"0",
+    [],[]),
+  ("tutorial_3",sf_indoors,"tutorial_3_scene", "bo_tutorial_3_scene", (-100,-100),(100,100),-100,"0",
+    [],[]),
+  ("tutorial_4",sf_generate,"none", "none", (0,0),(120,120),-100,"0x30000500400360d80000189f00002a8380006d91",
+    [],[], "outer_terrain_plain"),
+  ("tutorial_5",sf_generate,"none", "none", (0,0),(120,120),-100,"0x3a06dca80005715c0000537400001377000011fe",
+    [],[], "outer_terrain_plain"),
 
-# Training Grounds:
+
   ("training_ground_horse_track_1",sf_generate,"none", "none", (0,0),(120,120),-100,"0x00000000337553240004d53700000c0500002a0f80006267",
     [],[], "outer_terrain_plain"),
   ("training_ground_horse_track_2",sf_generate,"none", "none", (0,0),(120,120),-100,"0x00000000301553240004d5370000466000002a0f800073f1",
     [],[], "outer_terrain_plain"),
+  #Kar
   ("training_ground_horse_track_3",sf_generate,"none", "none", (0,0),(120,120),-100,"0x00000000400c12b2000515470000216b0000485e00006928",
     [],[], "outer_terrain_snow"),
+  #Steppe
   ("training_ground_horse_track_4",sf_generate,"none", "none", (0,0),(120,120),-100,"0x00000000200b60320004a5290000180d0000452f00000e90",
     [],[], "outer_terrain_steppe"),
+  #Plain
   ("training_ground_horse_track_5",sf_generate,"none", "none", (0,0),(120,120),-100,"0x000000003008208e0006419000000f730000440f00003c86",
     [],[], "outer_terrain_plain"),
 
@@ -71,49 +150,58 @@ scenes = [
     [],[], "outer_terrain_plain"),
   ("training_ground_ranged_melee_2",sf_generate,"none", "none", (0,0),(120,120),-100,"0x0000000532c8dccb0005194a000041cb00005ae800001bdd",
     [],[], "outer_terrain_plain"),
+  #Kar
   ("training_ground_ranged_melee_3",sf_generate,"none", "none", (0,0),(120,120),-100,"0x000000054327dcba0005194a00001b1d00005ae800004d63",
     [],[], "outer_terrain_snow"),
+  #Steppe
   ("training_ground_ranged_melee_4",sf_generate,"none", "none", (0,0),(120,120),-100,"0x000000012247dcba0005194a000041ef00005ae8000050af",
     [],[], "outer_terrain_steppe"),
+  #Plain
   ("training_ground_ranged_melee_5",sf_generate,"none", "none", (0,0),(120,120),-100,"0x00000001324a9cba0005194a000041ef00005ae800003c55",
     [],[], "outer_terrain_plain"),
 
-# Locations:
   ("zendar_center",sf_generate,"none", "none", (0,0),(100,100),-100,"0x300bc5430001e0780000448a0000049f00007932",
-    [],["bonus_chest_0"], "outer_terrain_plain_1"),
+    ["the_happy_boar","","zendar_merchant"],[], "outer_terrain_plain_1"),
+#  ("zendar_center",0,"sargoth_square", "bo_sargoth_square", (-24,-22),(21,13),-100,"0",
+#    ["the_happy_boar","","zendar_merchant"],[]),
   ("the_happy_boar",sf_indoors,"interior_town_house_f", "bo_interior_town_house_f", (-100,-100),(100,100),-100,"0",
-    [],[]),
+    ["zendar_center"],["zendar_chest"]),
   ("zendar_merchant",sf_indoors,"interior_town_house_i", "bo_interior_town_house_i", (-100,-100),(100,100),-100,"0",
     [],[]),
-  ("zendar_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0xa0001d9300031ccb0000156f000048ba0000361c",
-    [],[], "outer_terrain_plain"),
-  ("zendar_bodger",sf_indoors,"interior_town_house_j", "bo_interior_town_house_j", (-100,-100),(100,100),-100,"0",
-    [],[]),
-  ("fight_cellar",sf_indoors,"interior_town_house_aa", "bo_interior_town_house_aa", (-100,-100),(100,100),-100,"0",
-    [],[]),
-	
-  ("four_ways_inn",sf_generate,"none", "none", (0,0),(120,120),-100,"0x0000000030015f2b000350d4000011a4000017ee000054af",
-    [],["bonus_chest_1"], "outer_terrain_town_thir_1"),
-  ("the_smiling_fox",sf_indoors,"interior_castle_j", "bo_interior_castle_j", (-100,-100),(100,100),-100,"0",
-    [],[]),
 
-  ("salt_mine",sf_generate,"none", "none", (-200,-200),(200,200),-100,"0x2a07b23200025896000023ee00007f9c000022a8",  
-    [],["bonus_chest_2"], "outer_terrain_steppe"),
-	
-  ("dhorak_keep",sf_generate,"none", "none", (0,0),(120,120),-100,"0x000000003a052fd6000524fe000038d500005cd400002ae6",
-    ["exit"],["bonus_chest_3"], "outer_terrain_plain"),
-	
-# Towns:
+# Tvern names:
+  #the shy monkey
+  #the singing pumpkin
+  #three swords
+  #red stag
+  #the bard's corner
+
+
+#interior_tavern_a
+#  town_1   Sargoth     #plain
+#  town_2   Tihr        #plain
+#  town_3   Veluca      #steppe
+#  town_4   Suno        #plain  
+#  town_5   Jelkala     #plain
+#  town_6   Praven      #plain
+#  town_7   Uxkhal      #plain
+#  town_8   Reyvadin    #plain
+#  town_9   Khudan      #snow
+#  town_10  Tulga       #steppe
+#  town_11  Curaw       #snow
+#  town_12  Wercheg     #plain
+#  town_13  Rivacheg    #plain
+#  town_14  Halmar      #steppe
   ("town_1_center",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000003002498000035cd50000104100005e940000147b",
-    [],[],"outer_terrain_town_thir_1"),
+    [],["bonus_chest_3"],"outer_terrain_town_thir_1"),
   ("town_2_center",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030015f2b000350d4000011a4000017ee000054af",
-    [],[],"outer_terrain_town_thir_1"),
+    [],["bonus_chest_3"],"outer_terrain_town_thir_1"),
   ("town_3_center",sf_generate,"none", "none",(0,0),(100,100),-100,"0x00000000300214100003ecfb00002b930000051900002c29",
     [],[],"outer_terrain_plain"),
   ("town_4_center",sf_generate,"none", "none", (0,0),(100,100),-100,"0x30001d9300031ccb0000156f000048ba0000361c",
     [],[],"outer_terrain_plain"),
   ("town_5_center",sf_generate,"none", "none",(0,0),(100,100),-100,"0x00000000300214100003ecfb00002b930000051900002c29",
-    [],[],"outer_terrain_plain"),
+    [],["bonus_chest_2"],"outer_terrain_plain"),
   ("town_6_center",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002300491830004a529000036230000312a00003653",
     [],[],"outer_terrain_plain"),
   ("town_7_center",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001300785320004c93200002bc700005e48000008d2",
@@ -129,7 +217,7 @@ scenes = [
   ("town_12_center",sf_generate,"none", "none", (0,0),(100,100),-100,"0x3002cd340002b4ac00002ccd800026dc00000c1d",
     [],[],"outer_terrain_town_thir_1"),
   ("town_13_center",sf_generate,"none", "none",(0,0),(100,100),-100,"0x300416a600035cd600007ee80000012100003fbc",
-    [],[]),
+    [],["bonus_chest_1"]),
   ("town_14_center",sf_generate,"none", "none",(0,0),(100,100),-100,"0x00000000200016da000364d9000060f500007591000064e7",
     [],[],"outer_terrain_steppe"),
   ("town_15_center",sf_generate,"none", "none",(0,0),(100,100),-100,"0x0000000030024e108003fd0100007bd300006c31000061aa",
@@ -149,50 +237,51 @@ scenes = [
   ("town_22_center",sf_generate,"none", "none",(0,0),(100,100),-100,"0x000000025a03253200042d08000079d6000004fd00006910",
     [],[],"outer_terrain_desert"),
   
+ 
   ("town_1_castle",sf_indoors,"viking_interior_keep_a", "bo_viking_interior_keep_a", (-100,-100),(100,100),-100,"0",
-    ["exit"],["town_1_chest"]),
+    ["exit"],["town_1_seneschal"]),
   ("town_2_castle",sf_indoors,"viking_interior_keep_a", "bo_viking_interior_keep_a", (-100,-100),(100,100),-100,"0",
-    ["exit"],["town_2_chest"]),
+    ["exit"],["town_2_seneschal"]),
   ("town_3_castle",sf_indoors,"castle_h_interior_b", "bo_castle_h_interior_b", (-100,-100),(100,100),-100,"0",
-    ["exit"],["town_3_chest"]),
+    ["exit"],["town_3_seneschal"]),
   ("town_4_castle",sf_indoors, "interior_castle_q", "bo_interior_castle_q", (-100,-100),(100,100),-100,"0",
-    ["exit"],["town_4_chest"]),
+    ["exit"],["town_4_seneschal"]),
   ("town_5_castle",sf_indoors, "castle_h_interior_a", "bo_castle_h_interior_a", (-100,-100),(100,100),-100,"0",
-    ["exit"],["town_5_chest"]),
+    ["exit"],["town_5_seneschal"]),
   ("town_6_castle",sf_indoors, "interior_castle_z", "bo_interior_castle_z", (-100,-100),(100,100),-100,"0",
-    ["exit"],["town_6_chest"]),
+    ["exit"],["town_6_seneschal"]),
   ("town_7_castle",sf_indoors, "interior_castle_v", "bo_interior_castle_v", (-100,-100),(100,100),-100,"0",
-    ["exit"],["town_7_chest"]),
+    ["exit"],["town_7_seneschal"]),
   ("town_8_castle",sf_indoors, "interior_castle_w", "bo_interior_castle_w", (-100,-100),(100,100),-100,"0",
-    ["exit"],["town_8_chest"]),
+    ["exit"],["town_8_seneschal"]),
   ("town_9_castle",sf_indoors, "interior_castle_g", "bo_interior_castle_g", (-100,-100),(100,100),-100,"0",
-    ["exit"],["town_9_chest"]),
+    ["exit"],["town_9_seneschal"]),
   ("town_10_castle",sf_generate, "none", "none", (-100,-100),(100,100),-100,"0x00000007300005000002308c00004a840000624700004fda",
-    ["exit"],["town_10_chest"]),
+    ["exit"],["town_10_seneschal"]),
   ("town_11_castle",sf_indoors, "interior_castle_i", "bo_interior_castle_i", (-100,-100),(100,100),-100,"0",
-    ["exit"],["town_11_chest"]),
+    ["exit"],["town_11_seneschal"]),
   ("town_12_castle",sf_indoors, "viking_interior_keep_a", "bo_viking_interior_keep_a", (-100,-100),(100,100),-100,"0",
-    ["exit"],["town_12_chest"]),
+    ["exit"],["town_12_seneschal"]),
   ("town_13_castle",sf_indoors, "interior_castle_b", "bo_interior_castle_b", (-100,-100),(100,100),-100,"0",
-    ["exit"],["town_13_chest"]),
+    ["exit"],["town_13_seneschal"]),
   ("town_14_castle",sf_indoors, "interior_castle_g_square_keep", "bo_interior_castle_g_square_keep", (-100,-100),(100,100),-100,"0",
-    ["exit"],["town_14_chest"]),
+    ["exit"],["town_14_seneschal"]),
   ("town_15_castle",sf_indoors, "castle_h_interior_a", "bo_castle_h_interior_a", (-100,-100),(100,100),-100,"0",
-    ["exit"],["town_15_chest"]),
+    ["exit"],["town_15_seneschal"]),
   ("town_16_castle",sf_indoors, "interior_castle_n", "bo_interior_castle_n", (-100,-100),(100,100),-100,"0",
-    ["exit"],["town_16_chest"]),
+    ["exit"],["town_16_seneschal"]),
   ("town_17_castle",sf_indoors, "interior_castle_g_square_keep", "bo_interior_castle_g_square_keep", (-100,-100),(100,100),-100,"0",
-    ["exit"],["town_17_chest"]),
+    ["exit"],["town_17_seneschal"]),
   ("town_18_castle",sf_generate, "none", "none", (-100,-100),(100,100),-100,"0x00000007300005000002308c00004a840000624700004fda",
-    ["exit"],["town_18_chest"]),
+    ["exit"],["town_18_seneschal"]),
   ("town_19_castle",sf_indoors, "arabian_interior_keep_a", "bo_arabian_interior_keep_a", (-100,-100),(100,100),-100,"0",
-    ["exit"],["town_19_chest"]),
+    ["exit"],["town_19_seneschal"]),
   ("town_20_castle",sf_indoors, "arabian_interior_keep_b", "bo_arabian_interior_keep_b", (-100,-100),(100,100),-100,"0",
-    ["exit"],["town_20_chest"]),
+    ["exit"],["town_20_seneschal"]),
   ("town_21_castle",sf_indoors, "arabian_interior_keep_b", "bo_arabian_interior_keep_b", (-100,-100),(100,100),-100,"0",
-    ["exit"],["town_21_chest"]),
+    ["exit"],["town_21_seneschal"]),
   ("town_22_castle",sf_indoors, "arabian_interior_keep_a", "bo_arabian_interior_keep_a", (-100,-100),(100,100),-100,"0x00000007300005000002308c00004a840000624700004fda",
-    ["exit"],["town_22_chest"]),
+    ["exit"],["town_22_seneschal"]),
   
   ("town_1_tavern",sf_indoors,"viking_interior_tavern_a", "bo_viking_interior_tavern_a", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
@@ -464,345 +553,349 @@ scenes = [
   ("town_22_alley",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000025a00723200046d1b00003e0200001476000052ae",
     [],[],"outer_terrain_desert"),
 
+#0x30054d228004050000005a768000688400002e3b
+#0x30054da28004050000005a76800022aa00002e3b
 #Castles:
+
+#       1 Steppe
   ("castle_1_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x30054da28004050000005a76800022aa00002e3b",
     [],[],"outer_terrain_steppe"),
   ("castle_1_interior",sf_indoors, "dungeon_entry_a", "bo_dungeon_entry_a", (-100,-100),(100,100),-100,"0",
-    ["exit"],["castle_1_chest"]),
+    ["exit"],["castle_1_seneschal"]),
   ("castle_1_prison",sf_indoors,"interior_prison_a", "bo_interior_prison_a", (-100,-100),(100,100),-100,"0",
     [],[]),
-
+#       2 Plain
   ("castle_2_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0xa00363638005c16d00003c82000037e000002303",
     [],[],"outer_terrain_plain"),
   ("castle_2_interior",sf_indoors, "interior_castle_u", "bo_interior_castle_u", (-100,-100),(100,100),-100,"0",
-    ["exit"],["castle_2_chest"]),
+    ["exit"],["castle_2_seneschal"]),
   ("castle_2_prison",sf_indoors,"interior_prison_d", "bo_interior_prison_d", (-100,-100),(100,100),-100,"0",#### B bkullanilmayacak
     [],[]),
-
+#       3 Plain
   ("castle_3_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030044e900003dd02000077b20000400100005697",
     [],[],"outer_terrain_plain"),
   ("castle_3_interior",sf_indoors, "interior_castle_m", "bo_interior_castle_m", (-100,-100),(100,100),-100,"0",
-    ["exit"],["castle_3_chest"]),
+    ["exit"],["castle_3_seneschal"]),
   ("castle_3_prison",sf_indoors,"interior_prison_e", "bo_interior_prison_e", (-100,-100),(100,100),-100,"0",
     [],[]),
-
+#       4 Plain
   ("castle_4_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030044e900003dd02000077b20000400100005697",
     [],[],"outer_terrain_plain"),
   ("castle_4_interior",sf_indoors, "interior_castle_k", "bo_interior_castle_k", (-100,-100),(100,100),-100,"0",
-    ["exit"],["castle_4_chest"]),
+    ["exit"],["castle_4_seneschal"]),
   ("castle_4_prison",sf_indoors,"interior_prison_l", "bo_interior_prison_l", (-100,-100),(100,100),-100,"0",
     [],[]),
-
+#       5 Plain
   ("castle_5_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x3189dc1a000429090000619700007cbd00005ab7",
     [],[],"outer_terrain_plain"),
   ("castle_5_interior",sf_indoors, "interior_castle_j", "bo_interior_castle_j", (-100,-100),(100,100),-100,"0",
-    ["exit"],["castle_5_chest"]),
+    ["exit"],["castle_5_seneschal"]),
   ("castle_5_prison",sf_indoors,"interior_prison_l", "bo_interior_prison_l", (-100,-100),(100,100),-100,"0",
     [],[]),
-
+#       6 Plain
   ("castle_6_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000b009723200059d6800005f4f0000757f000069cd",
     [],[],"outer_terrain_plain"),
   ("castle_6_interior",sf_indoors, "interior_castle_p", "bo_interior_castle_p", (-100,-100),(100,100),-100,"0",
-    ["exit"],["castle_6_chest"]),
+    ["exit"],["castle_6_seneschal"]),
   ("castle_6_prison",sf_indoors,"interior_prison_j", "bo_interior_prison_j", (-100,-100),(100,100),-100,"0",
     [],[]),
-
+#       7 Snow
   ("castle_7_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000c007a56300047d1e00006c9100002859000028bc",
     [],[],"outer_terrain_snow"),
   ("castle_7_interior",sf_indoors, "interior_castle_o", "bo_interior_castle_o", (-100,-100),(100,100),-100,"0",
-    ["exit"],["castle_7_chest"]),
+    ["exit"],["castle_7_seneschal"]),
   ("castle_7_prison",sf_indoors,"interior_prison_i", "bo_interior_prison_i", (-100,-100),(100,100),-100,"0",
     [],[]),
-
+#       8 Plain
   ("castle_8_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x314d060900036cd70000295300002ec9000025f3",
     [],[],"outer_terrain_plain"),
   ("castle_8_interior",sf_indoors, "interior_castle_t", "bo_interior_castle_t", (-100,-100),(100,100),-100,"0",
-    ["exit"],["castle_8_chest"]),
+    ["exit"],["castle_8_seneschal"]),
   ("castle_8_prison",sf_indoors,"interior_prison_e", "bo_interior_prison_e", (-100,-100),(100,100),-100,"0",
     [],[]),
-
+#       9 Steppe
   ("castle_9_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0xa0048e000004d93700004f91000065980000229b",
     [],[],"outer_terrain_steppe"),
   ("castle_9_interior",sf_indoors, "interior_castle_l", "bo_interior_castle_l", (-100,-100),(100,100),-100,"0",
-    ["exit"],["castle_9_chest"]),
+    ["exit"],["castle_9_seneschal"]),
   ("castle_9_prison",sf_indoors,"interior_prison_d", "bo_interior_prison_d", (-100,-100),(100,100),-100,"0",
     [],[]),
-
+#       10 Steppe  
   ("castle_10_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000023007b23200049d2a00003c37000040ef000037cd",
     [],[],"outer_terrain_castle_9"),
   ("castle_10_interior",sf_indoors, "interior_castle_j", "bo_interior_castle_j", (-100,-100),(100,100),-100,"0",
-    ["exit"],["castle_10_chest"]),
+    ["exit"],["castle_10_seneschal"]),
   ("castle_10_prison",sf_indoors,"interior_prison_l", "bo_interior_prison_l", (-100,-100),(100,100),-100,"0",
     [],[]),
-
+#       11 Plain
   ("castle_11_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030044e900003dd02000077b20000400100005697",
     [],[],"outer_terrain_plain"),
   ("castle_11_interior",sf_indoors, "interior_castle_a", "bo_interior_castle_a", (-100,-100),(100,100),-100,"0",
-    ["exit"],["castle_11_chest"]),
+    ["exit"],["castle_11_seneschal"]),
   ("castle_11_prison",sf_indoors,"interior_prison_k", "bo_interior_prison_k", (-100,-100),(100,100),-100,"0",
     [],[]),
-
+#       Plain
   ("castle_12_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000230054f630005fd820000222a00003de000005f00",
     [],[],"outer_terrain_town_thir_1"),
   ("castle_12_interior",sf_indoors, "interior_castle_y", "bo_interior_castle_y", (-100,-100),(100,100),-100,"0",
-    ["exit"],["castle_12_chest"]),
+    ["exit"],["castle_12_seneschal"]),
   ("castle_12_prison",sf_indoors,"interior_prison_i", "bo_interior_prison_i", (-100,-100),(100,100),-100,"0",
     [],[]),
-
+#       Plain
   ("castle_13_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000230054f630005fd820000222a00003de000005f00",
     [],[],"outer_terrain_plain"),
   ("castle_13_interior",sf_indoors, "interior_castle_v", "bo_interior_castle_v", (-100,-100),(100,100),-100,"0",
-    ["exit"],["castle_13_chest"]),
+    ["exit"],["castle_13_seneschal"]),
   ("castle_13_prison",sf_indoors,"interior_prison_j", "bo_interior_prison_j", (-100,-100),(100,100),-100,"0",
     [],[]),
-
+#       Plain
   ("castle_14_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000023007a3b20005795e0000706d0000381800000bbc",
     [],[],"outer_terrain_plain"),
   ("castle_14_interior",sf_indoors, "interior_castle_j", "bo_interior_castle_j" , (-100,-100),(100,100),-100,"0",
-    ["exit"],["castle_14_chest"]),
+    ["exit"],["castle_14_seneschal"]),
   ("castle_14_prison",sf_indoors,"interior_prison_m", "bo_interior_prison_m", (-100,-100),(100,100),-100,"0",
     [],[]),
-
+#       Plain
   ("castle_15_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000023007941f0005415000007e650000225f00003b3e",
     [],[],"outer_terrain_plain"),
   ("castle_15_interior",sf_indoors, "interior_castle_p", "bo_interior_castle_p", (-100,-100),(100,100),-100,"0",
-    ["exit"],["castle_15_chest"]),
+    ["exit"],["castle_15_seneschal"]),
   ("castle_15_prison",sf_indoors,"interior_prison_a", "bo_interior_prison_a", (-100,-100),(100,100),-100,"0",
     [],[]),
-
+#       Plain
   ("castle_16_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000023007a3b20005795e0000706d0000381800000bbc",
     [],[],"outer_terrain_plain"),
   ("castle_16_interior",sf_indoors, "interior_castle_k", "bo_interior_castle_k", (-100,-100),(100,100),-100,"0",
-    ["exit"],["castle_16_chest"]),
+    ["exit"],["castle_16_seneschal"]),
   ("castle_16_prison",sf_indoors,"interior_prison_l", "bo_interior_prison_l", (-100,-100),(100,100),-100,"0",
     [],[]),
-
+#       Steppe
   ("castle_17_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000220045d9b0005d9760000034a00002a3e00006fbd",
     [],[],"outer_terrain_steppe"),
   ("castle_17_interior",sf_indoors, "interior_castle_l", "bo_interior_castle_l", (-100,-100),(100,100),-100,"0",
-    ["exit"],["castle_17_chest"]),
+    ["exit"],["castle_17_seneschal"]),
   ("castle_17_prison",sf_indoors,"interior_prison_a", "bo_interior_prison_a", (-100,-100),(100,100),-100,"0",
     [],[]),
-
+#      Snow
   ("castle_18_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000240079f9e0005695a0000035f00003ef400004aa8",
     [],[],"outer_terrain_snow"),
   ("castle_18_interior",sf_indoors, "interior_castle_n", "bo_interior_castle_n", (-100,-100),(100,100),-100,"0",
-    ["exit"],["castle_18_chest"]),
+    ["exit"],["castle_18_seneschal"]),
   ("castle_18_prison",sf_indoors,"interior_prison_k", "bo_interior_prison_k", (-100,-100),(100,100),-100,"0",
     [],[]),
-
+#       Snow
   ("castle_19_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000014004d81100057963000062ce0000255800004c09",
     [],[],"outer_terrain_snow"),
   ("castle_19_interior",sf_indoors, "interior_castle_c", "bo_interior_castle_c", (-100,-100),(100,100),-100,"0",
-    ["exit"],["castle_19_chest"]),
+    ["exit"],["castle_19_seneschal"]),
   ("castle_19_prison",sf_indoors,"interior_prison_e", "bo_interior_prison_e", (-100,-100),(100,100),-100,"0",
     [],[]),
-
+#       Plain
   ("castle_20_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000013006199a0004e5370000494f000028fc00006cf6",
     [],[],"outer_terrain_plain"),
   ("castle_20_interior",sf_indoors, "interior_castle_a", "bo_interior_castle_a", (-100,-100),(100,100),-100,"0",
-    ["exit"],["castle_20_chest"]),
+    ["exit"],["castle_20_seneschal"]),
   ("castle_20_prison",sf_indoors,"interior_prison_d", "bo_interior_prison_d", (-100,-100),(100,100),-100,"0",
     [],[]),
 
   ("castle_21_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000230011ab20005d57800003a2600004b7a000071ef",
     [],[],"outer_terrain_plain"),
   ("castle_21_interior",sf_indoors, "interior_castle_c", "bo_interior_castle_c", (-100,-100),(100,100),-100,"0",
-    ["exit"],["castle_21_chest"]),
+    ["exit"],["castle_21_seneschal"]),
   ("castle_21_prison",sf_indoors,"interior_prison_d", "bo_interior_prison_d", (-100,-100),(100,100),-100,"0",
     [],[]),
 
   ("castle_22_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000003000ad340004d537000024650000253c00000461",
     [],[],"outer_terrain_plain"),
   ("castle_22_interior",sf_indoors, "interior_castle_a", "bo_interior_castle_a", (-100,-100),(100,100),-100,"0",
-    ["exit"],["castle_22_chest"]),
+    ["exit"],["castle_22_seneschal"]),
   ("castle_22_prison",sf_indoors,"interior_prison_i", "bo_interior_prison_i", (-100,-100),(100,100),-100,"0",
     [],[]),
   
   ("castle_23_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002300658bc0007bded000025520000093800006114",
     [],[], "outer_terrain_plain"),
   ("castle_23_interior",sf_indoors, "interior_castle_y", "bo_interior_castle_y", (-100,-100),(100,100),-100,"0",
-    ["exit"],["castle_23_chest"]),
+    ["exit"],["castle_23_seneschal"]),
   ("castle_23_prison",sf_indoors,"interior_prison_b", "bo_interior_prison_b", (-100,-100),(100,100),-100,"0",
     [],[]),
 
   ("castle_24_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000130021f63000721ca000055be000079d90000156d",
     [],[],"outer_terrain_plain"),
   ("castle_24_interior",sf_indoors, "castle_h_interior_b", "bo_castle_h_interior_b", (-100,-100),(100,100),-100,"0",
-    ["exit"],["castle_24_chest"]),
+    ["exit"],["castle_24_seneschal"]),
   ("castle_24_prison",sf_indoors,"interior_prison_f", "bo_interior_prison_f", (-100,-100),(100,100),-100,"0",
     [],[]),
 
   ("castle_25_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000013004e0a600061989000053d50000749800005f64",
     [],[],"outer_terrain_plain"),
   ("castle_25_interior",sf_indoors, "castle_h_interior_b", "bo_castle_h_interior_b", (-100,-100),(100,100),-100,"0",
-    ["exit"],["castle_25_chest"]),
+    ["exit"],["castle_25_seneschal"]),
   ("castle_25_prison",sf_indoors,"interior_prison_a", "bo_interior_prison_a", (-100,-100),(100,100),-100,"0",
     [],[]),
 
   ("castle_26_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000013005213200077dda0000733300002edf000052ba",
     [],[],"outer_terrain_plain"),
   ("castle_26_interior",sf_indoors, "castle_h_interior_a", "bo_castle_h_interior_a", (-100,-100),(100,100),-100,"0",
-    ["exit"],["castle_26_chest"]),
+    ["exit"],["castle_26_seneschal"]),
   ("castle_26_prison",sf_indoors,"interior_prison_h", "bo_interior_prison_h", (-100,-100),(100,100),-100,"0",
     [],[]),
 
   ("castle_27_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000013007b23200070dbc000041de00000c4900003cfc",
     [],[],"outer_terrain_plain"),
   ("castle_27_interior",sf_indoors, "castle_h_interior_a", "bo_castle_h_interior_a", (-100,-100),(100,100),-100,"0",
-    ["exit"],["castle_27_chest"]),
+    ["exit"],["castle_27_seneschal"]),
   ("castle_27_prison",sf_indoors,"interior_prison_i", "bo_interior_prison_i", (-100,-100),(100,100),-100,"0",
     [],[]),
 
   ("castle_28_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000013007b232000715c50000084c00001b5b000018ec",
     [],[],"outer_terrain_plain"),
   ("castle_28_interior",sf_indoors, "castle_h_interior_a", "bo_castle_h_interior_a", (-100,-100),(100,100),-100,"0",
-    ["exit"],["castle_28_chest"]),
+    ["exit"],["castle_28_seneschal"]),
   ("castle_28_prison",sf_indoors,"interior_prison_j", "bo_interior_prison_j", (-100,-100),(100,100),-100,"0",
     [],[]),
 
   ("castle_29_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000006400796b20005053e000042ed0000199b000037cd",
     [],[],"outer_terrain_snow"),
   ("castle_29_interior",sf_indoors, "interior_castle_n", "bo_interior_castle_n", (-100,-100),(100,100),-100,"0",
-    ["exit"],["castle_29_chest"]),
+    ["exit"],["castle_29_seneschal"]),
   ("castle_29_prison",sf_indoors,"interior_prison_a", "bo_interior_prison_a", (-100,-100),(100,100),-100,"0",
     [],[]),
 
   ("castle_30_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000220035e32000611840000147f00003dac00000660",
     [],[],"outer_terrain_plain"),
   ("castle_30_interior",sf_indoors, "interior_castle_g_square_keep", "bo_interior_castle_g_square_keep", (-100,-100),(100,100),-100,"0",
-    ["exit"],["castle_30_chest"]),
+    ["exit"],["castle_30_seneschal"]),
   ("castle_30_prison",sf_indoors,"interior_prison_n", "bo_interior_prison_n", (-100,-100),(100,100),-100,"0",
     [],[]),
 
   ("castle_31_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000230025b8d0006459400006a3700002adb00007091",
     [],[],"outer_terrain_plain"),
   ("castle_31_interior",sf_indoors, "interior_castle_y", "bo_interior_castle_y", (-100,-100),(100,100),-100,"0",
-    ["exit"],["castle_31_chest"]),
+    ["exit"],["castle_31_seneschal"]),
   ("castle_31_prison",sf_indoors,"interior_prison_i", "bo_interior_prison_i", (-100,-100),(100,100),-100,"0",
     [],[]),
 
   ("castle_32_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000230041fb20005fd7d00002692000029b700007d12",
     [],[],"outer_terrain_plain"),
   ("castle_32_interior",sf_indoors, "castle_h_interior_a", "bo_castle_h_interior_a", (-100,-100),(100,100),-100,"0",
-    ["exit"],["castle_32_chest"]),
+    ["exit"],["castle_32_seneschal"]),
   ("castle_32_prison",sf_indoors,"interior_prison_j", "bo_interior_prison_j", (-100,-100),(100,100),-100,"0",
     [],[]),
 
   ("castle_33_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000230029cb2000709c200003c9500004b9b00002f4d",
     [],[],"outer_terrain_plain"),
   ("castle_33_interior",sf_indoors, "interior_castle_v", "bo_interior_castle_v", (-100,-100),(100,100),-100,"0",
-    ["exit"],["castle_33_chest"]),
+    ["exit"],["castle_33_seneschal"]),
   ("castle_33_prison",sf_indoors,"interior_prison_d", "bo_interior_prison_d", (-100,-100),(100,100),-100,"0",
     [],[]),
 
   ("castle_34_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002b007b232000715c50000084c00001b5b00006580",
     [],[],"outer_terrain_plain"),
   ("castle_34_interior",sf_indoors, "interior_castle_c", "bo_interior_castle_c", (-100,-100),(100,100),-100,"0",
-    ["exit"],["castle_34_chest"]),
+    ["exit"],["castle_34_seneschal"]),
   ("castle_34_prison",sf_indoors,"interior_prison_f", "bo_interior_prison_f", (-100,-100),(100,100),-100,"0",
     [],[]),
 
   ("castle_35_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000130031be30006f9bc00000aae00000fb80000243f",
     [],[],"outer_terrain_plain"),
   ("castle_35_interior",sf_indoors, "castle_h_interior_a", "bo_castle_h_interior_a", (-100,-100),(100,100),-100,"0",
-    ["exit"],["castle_35_chest"]),
+    ["exit"],["castle_35_seneschal"]),
   ("castle_35_prison",sf_indoors,"interior_prison_f", "bo_interior_prison_f", (-100,-100),(100,100),-100,"0",
     [],[]),
 
   ("castle_36_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000013007b2630005695c00001ebe0000028e00007e37",
     [],[],"outer_terrain_plain"),
   ("castle_36_interior",sf_indoors, "castle_h_interior_b", "bo_castle_h_interior_b", (-100,-100),(100,100),-100,"0",
-    ["exit"],["castle_36_chest"]),
+    ["exit"],["castle_36_seneschal"]),
   ("castle_36_prison",sf_indoors,"interior_prison_h", "bo_interior_prison_h", (-100,-100),(100,100),-100,"0",
     [],[]),
 
   ("castle_37_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000130025cb20006097f00005b1400000e2f00005fd9",
     [],[],"outer_terrain_plain"),
   ("castle_37_interior",sf_indoors, "interior_castle_k", "bo_interior_castle_k", (-100,-100),(100,100),-100,"0",
-    ["exit"],["castle_37_chest"]),
+    ["exit"],["castle_37_seneschal"]),
   ("castle_37_prison",sf_indoors,"interior_prison_l", "bo_interior_prison_l", (-100,-100),(100,100),-100,"0",
     [],[]),
 
   ("castle_38_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000012007985300055550000064d500005c060000759e",
     [],[],"outer_terrain_steppe"),
   ("castle_38_interior",sf_generate, "none", "none", (-100,-100),(100,100),-100,"0x00000007300005000002308c00004a840000624700004fda",
-    ["exit"],["castle_38_chest"]),
+    ["exit"],["castle_38_seneschal"]),
   ("castle_38_prison",sf_indoors,"interior_prison_o", "bo_interior_prison_o", (-100,-100),(100,100),-100,"0",
     [],[]),
 
   ("castle_39_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000014007a0320005695f0000601c00007a8800001a17",
     [],[],"outer_terrain_snow"),
   ("castle_39_interior",sf_indoors, "interior_castle_n", "bo_interior_castle_n", (-100,-100),(100,100),-100,"0",
-    ["exit"],["castle_39_chest"]),
+    ["exit"],["castle_39_seneschal"]),
   ("castle_39_prison",sf_indoors,"interior_prison_k", "bo_interior_prison_k", (-100,-100),(100,100),-100,"0",
     [],[]),
 
   ("castle_40_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000012007985300055550000064d500005c060000759e",
     [],[],"outer_terrain_steppe"),
   ("castle_40_interior",sf_indoors, "interior_castle_g_square_keep", "bo_interior_castle_g_square_keep", (-100,-100),(100,100),-100,"0",
-    ["exit"],["castle_40_chest"]),
+    ["exit"],["castle_40_seneschal"]),
   ("castle_40_prison",sf_indoors,"interior_prison_n", "bo_interior_prison_n", (-100,-100),(100,100),-100,"0",
     [],[]),
 
-
+#SB : fix seneschal references
   ("castle_41_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000005a0932320004cd3000004e7d00007d6e00006c58",
     [],[],"outer_terrain_desert"),
   ("castle_41_interior",sf_indoors, "interior_castle_y", "bo_interior_castle_y", (-100,-100),(100,100),-100,"0",
-    ["exit"],["castle_31_chest"]),
+    ["exit"],["castle_41_seneschal"]),
   ("castle_41_prison",sf_indoors,"interior_prison_i", "bo_interior_prison_i", (-100,-100),(100,100),-100,"0",
     [],[]),
 
   ("castle_42_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000005a039fb20005114400004f690000467a00004400",
     [],[],"outer_terrain_desert"),
   ("castle_42_interior",sf_indoors, "arabian_interior_keep_b", "bo_arabian_interior_keep_b", (-100,-100),(100,100),-100,"0",
-    ["exit"],["castle_32_chest"]),
+    ["exit"],["castle_42_seneschal"]),
   ("castle_42_prison",sf_indoors,"interior_prison_o", "bo_interior_prison_o", (-100,-100),(100,100),-100,"0",
     [],[]),
 
   ("castle_43_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000005a0ae6480004952400003e1800005d9f00002c7e",
     [],[],"outer_terrain_desert"),
   ("castle_43_interior",sf_indoors, "arabian_interior_keep_b", "bo_arabian_interior_keep_b", (-100,-100),(100,100),-100,"0",
-    ["exit"],["castle_33_chest"]),
+    ["exit"],["castle_43_seneschal"]),
   ("castle_43_prison",sf_indoors,"interior_prison_o", "bo_interior_prison_o", (-100,-100),(100,100),-100,"0",
     [],[]),
 
   ("castle_44_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000053e3b2320004ed3800001eb400006277000068ea",
     [],[],"outer_terrain_desert"),
   ("castle_44_interior",sf_indoors, "arabian_interior_keep_b", "bo_arabian_interior_keep_b", (-100,-100),(100,100),-100,"0",
-    ["exit"],["castle_34_chest"]),
+    ["exit"],["castle_44_seneschal"]),
   ("castle_44_prison",sf_indoors,"interior_prison_o", "bo_interior_prison_o", (-100,-100),(100,100),-100,"0",
     [],[]),
 
   ("castle_45_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000254c2ec0000042509000016da0000017200000ed3",
     [],[],"outer_terrain_desert"),
   ("castle_45_interior",sf_indoors, "arabian_interior_keep_b", "bo_arabian_interior_keep_b", (-100,-100),(100,100),-100,"0",
-    ["exit"],["castle_35_chest"]),
+    ["exit"],["castle_45_seneschal"]),
   ("castle_45_prison",sf_indoors,"interior_prison_n", "bo_interior_prison_n", (-100,-100),(100,100),-100,"0",
     [],[]),
 
   ("castle_46_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000254c2ec0000042509000016da0000017200000ed3",
     [],[],"outer_terrain_desert"),
   ("castle_46_interior",sf_indoors, "arabian_interior_keep_b", "bo_arabian_interior_keep_b", (-100,-100),(100,100),-100,"0",
-    ["exit"],["castle_36_chest"]),
+    ["exit"],["castle_46_seneschal"]),
   ("castle_46_prison",sf_indoors,"interior_prison_o", "bo_interior_prison_o", (-100,-100),(100,100),-100,"0",
     [],[]),
 
   ("castle_47_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000005a07b2320002b8ad000036c80000409d00001987",
     [],[],"outer_terrain_desert"),
   ("castle_47_interior",sf_indoors, "arabian_interior_keep_b", "bo_arabian_interior_keep_b", (-100,-100),(100,100),-100,"0",
-    ["exit"],["castle_37_chest"]),
+    ["exit"],["castle_47_seneschal"]),
   ("castle_47_prison",sf_indoors,"interior_prison_n", "bo_interior_prison_n", (-100,-100),(100,100),-100,"0",
     [],[]),
 
   ("castle_48_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000056c3da200003a0e6000002a900002d7a0000409e",
     [],[],"outer_terrain_desert"),
   ("castle_48_interior",sf_indoors, "arabian_interior_keep_b", "bo_arabian_interior_keep_b", (-100,-100),(100,100),-100,"0",
-    ["exit"],["castle_37_chest"]),
+    ["exit"],["castle_48_seneschal"]),
   ("castle_48_prison",sf_indoors,"interior_prison_o", "bo_interior_prison_o", (-100,-100),(100,100),-100,"0",
     [],[]),
 	
-# Villages:
+#!!Villages !!#
   ("village_1",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030081763000589620000338e00004f2c00005cfb",
     [],[],"outer_terrain_plain"),
   ("village_2",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000003007a21c0003ecfe000001f0000073b100000fd2",
@@ -863,7 +956,7 @@ scenes = [
     [],[],"outer_terrain_plain"),
   ("village_30",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000230025e0a0004dd3700004822000032ea0000011b",
     [],[],"outer_terrain_plain"),
-  ("village_31",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001300619e38003a8ec00004c8380005c6600001cb5",
+  ("village_31",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001300619e38003a8ec00004c8380005c6600001cb5", ##0x00000001300619e30003a8ec00004c8380007de100001cb5",
     [],[],"outer_terrain_plain"),
   ("village_32",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001300619e30003a8ec00004c8380007de100001cb5",
     [],[],"outer_terrain_plain"),
@@ -883,6 +976,7 @@ scenes = [
     [],[],"outer_terrain_plain"),
   ("village_40",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000220031f6300076dda000056f100004f6d000070b3",
     [],[],"outer_terrain_steppe"),
+
   ("village_41",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000022000a3e300062d8d0000444e0000276e00006eb1",
     [],[],"outer_terrain_steppe"),
   ("village_42",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000022007b23200062d8d000060b900003b8b00006c93",
@@ -963,6 +1057,7 @@ scenes = [
     [],[],"outer_terrain_plain"),
   ("village_80",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000013001b21e0004f13e000042b2000058e400007fce",
     [],[],"outer_terrain_plain"),
+  #################### Yeni koyler ######################
   ("village_81",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000230079ab20005fd7f0000621700007190000006df",
     [],[],"outer_terrain_plain"),
   ("village_82",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000013002541c00062d8b00000a01000068cb00006d9b",
@@ -983,48 +1078,89 @@ scenes = [
     [],[],"outer_terrain_steppe"),
   ("village_90",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000012002cd900005314c00001f6d00006d7700003493",
     [],[],"outer_terrain_steppe"),
-	# New Sarranid Villages
+	
 	("village_91",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
     [],[],"outer_terrain_desert"),
+	
 	("village_92",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
     [],[],"outer_terrain_desert"),
+	
 	("village_93",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
     [],[],"outer_terrain_desert"),
+	
 	("village_94",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
     [],[],"outer_terrain_desert"),
+	
 	("village_95",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
     [],[],"outer_terrain_desert"),
+	
 	("village_96",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
     [],[],"outer_terrain_desert"),
+	
 	("village_97",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
     [],[],"outer_terrain_desert"),
+	
 	("village_98",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
     [],[],"outer_terrain_desert"),
+	
 	("village_99",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
     [],[],"outer_terrain_desert"),
+	
 	("village_100",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
     [],[],"outer_terrain_desert"),
+	
 	("village_101",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
     [],[],"outer_terrain_desert"),
+	
 	("village_102",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
     [],[],"outer_terrain_desert"),
+	
 	("village_103",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
     [],[],"outer_terrain_desert"),
+	
 	("village_104",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
     [],[],"outer_terrain_desert"),
+	
 	("village_105",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
     [],[],"outer_terrain_desert"),
+	
 	("village_106",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
     [],[],"outer_terrain_desert"),
+	
 	("village_107",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
     [],[],"outer_terrain_desert"),
+	
 	("village_108",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
     [],[],"outer_terrain_desert"),
+	
 	("village_109",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
     [],[],"outer_terrain_desert"),
+	
 	("village_110",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
     [],[],"outer_terrain_desert"),
 	
+	
+
+
+	
+	
+  ("field_1",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000033a059a5a0009525600002005000060e300001175",
+    [],[],"outer_terrain_plain"),
+  ("field_2",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000033a079a3f000a3a8000006dfd000030a100006522",
+    [],[],"outer_terrain_steppe"),
+  ("field_3",sf_generate,"none", "none", (0,0),(100,100),-100,"0x30054da28004050000005a76800022aa00002e3b",
+    [],[],"outer_terrain_steppe"),
+  ("field_4",sf_generate,"none", "none", (0,0),(100,100),-100,"0x30054da28004050000005a76800022aa00002e3b",
+    [],[],"outer_terrain_steppe"),
+  ("field_5",sf_generate,"none", "none", (0,0),(100,100),-100,"0x30054da28004050000005a76800022aa00002e3b",
+    [],[],"outer_terrain_steppe"),
+
+  ("test2",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000b0078cb20003fd0000005e480000288c0000286f",
+    [],[],"outer_terrain_steppe"),
+
+    ("test3",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000b00511d98004b12e0000039f00004e6300005c7d",
+    [],[],"outer_terrain_plain"),
+
 # multiplayer
   ("multi_scene_1",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001300389800003a4ea000058340000637a0000399b",
     [],[],"outer_terrain_plain"),
@@ -1066,6 +1202,8 @@ scenes = [
     [],[],"outer_terrain_plain"),
   ("multi_scene_20",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000013002ab630004651800000d7a00007f3100002701",
     [],[],"outer_terrain_plain"),
+  ("multi_scene_21",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000040000c910003e8fa0000538900003e9e00005301",
+    [],[],"outer_terrain_beach_snowy"),
   
   ("random_multi_plain_medium",sf_generate|sf_randomize|sf_auto_entry_points,"none", "none", (0,0),(240,240),-0.5,"0x00000001394018dd000649920004406900002920000056d7",
     [],[], "outer_terrain_plain"),
@@ -1080,19 +1218,16 @@ scenes = [
     [],[],"outer_terrain_plain"),
 
   ("wedding",sf_indoors, "castle_h_interior_a", "bo_castle_h_interior_a", (-100,-100),(100,100),-100,"0", [],[]),
-  
-  ("lair_plains_bandits",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000003c079c3e000499280000420f0000495d000048d6",
-    [],[],"outer_terrain_plain"), # Same as Taiga Bandits, but green
   ("lair_steppe_bandits",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000200c69ac80043d0d0000556b0000768400003ea9",
     [],[],"outer_terrain_steppe"), #a box canyon with a spring? -tents...
   ("lair_taiga_bandits",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000004c079c3e000499280000420f0000495d000048d6",
-    [],[],"outer_terrain_snow"), # Hills with caves and a small hut in the snow
+    [],[],"outer_terrain_snow"),
   ("lair_desert_bandits",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000005024cd120005595400003882000037a90000673e",
-    [],[],"outer_terrain_desert"), # Oasis hidden in a canyon
+    [],[],"outer_terrain_desert"), #an encampment in the woods
   ("lair_forest_bandits",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000b00326d90003ecfb0000657e0000213500002461",
-    [],[],"outer_terrain_plain"), #an encampment in the woods
+    [],[],"outer_terrain_plain"), #a cliffside ledge or cave overlooking a valley
   ("lair_mountain_bandits",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000200434070004450c000022bf00006ad6000060ed",
-    [],[],"outer_terrain_steppe"), #a cliffside ledge or cave overlooking a valley
+    [],[],"outer_terrain_steppe"),
   ("lair_sea_raiders",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000b00562e200040900000063f40000679f00006cda",
     [],[],"sea_outer_terrain_1"), #the longships beached on a hidden cove
 
@@ -1103,23 +1238,9 @@ scenes = [
     [],[], "outer_terrain_desert_b"),
   ("quick_battle_scene_3",sf_generate,"none", "none", (0,0),(120,120),-100,"0x000000023002b76300046d2400000190000076300000692a", 
     [],[], "outer_terrain_plain"),
-  ("quick_battle_scene_4",sf_generate,"none", "none", (0,0),(120,120),-0.5,"0x30401ee300059966000001bf0000299a0000638f", 
-    [],[], "outer_terrain_plain"),
-  ("quick_battle_scene_5",sf_generate,"none", "none", (0,0),(120,120),-100,"0x4c6024e3000691a400001b7c0000591500007b52", 
-    [],[], "outer_terrain_snow"),
-  ("quick_battle_scene_6",sf_generate,"none", "none", (0,0),(120,120),-100,"0x3a078bb2000589630000667200002fb90000179c", 
-    [],[], "outer_terrain_plain"),
-  ("quick_siege_scene_1",sf_generate,"none", "none", (0,0),(120,120),-100,"0x000000025a00f23700057d5f00006d6a000050ba000036df", 
+  ("quick_battle_scene_4",sf_generate,"none", "none", (0,0),(120,120),-100,"0x000000025a00f23700057d5f00006d6a000050ba000036df", 
     [],[], "outer_terrain_desert_b"),
-  ("quick_siege_scene_2",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000012007985300055550000064d500005c060000759e",
-    [],[],"outer_terrain_plain"),
-  ("quick_siege_scene_3",sf_generate,"none", "none", (0,0),(120,120),-100,"0xa0425ccf0004a92a000063d600005a8a00003d9a", 
-    [],[], "outer_terrain_steppe"),
-  ("quick_siege_scene_3b",sf_generate,"none", "none", (0,0),(120,120),-100,"0xa0425ccf0004a92a000063d600005a8a00003d9a", 
-    [],[], "outer_terrain_steppe"),
-  ("quick_siege_scene_4",sf_generate,"none", "none", (0,0),(120,120),-100,"0x00001d63c005114300006228000053bf00004eb9", 
-    [],[], "outer_terrain_plain"),
-  ("quick_siege_scene_5",sf_generate,"none", "none", (0,0),(100,100),-100,"0x314d060900036cd70000295300002ec9000025f3",
+  ("quick_battle_scene_5",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000012007985300055550000064d500005c060000759e",
     [],[],"outer_terrain_plain"),
   ("quick_battle_maps_end",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001300389800003a4ea000058340000637a0000399b",
     [],[],"outer_terrain_plain"),
