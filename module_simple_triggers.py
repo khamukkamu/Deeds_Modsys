@@ -688,7 +688,7 @@ simple_triggers = [
          (store_random_in_range, ":random_value", 0, 2),
          (val_add, ":num_hiring_rounds", ":random_value"),
        (else_try),
-         # (game_get_reduce_campaign_ai, ":reduce_campaign_ai"),
+         # (options_get_campaign_ai, ":reduce_campaign_ai"),
          (try_begin),
            (eq, ":reduce_campaign_ai", 0), #hard (2x reinforcing)
            (assign, ":num_hiring_rounds", 2),
@@ -738,7 +738,7 @@ simple_triggers = [
           (assign, ":reinforcement_cost", reinforcement_cost_moderate),
           (assign, ":num_hiring_rounds", 1),#player's center is already excluded
         (else_try),
-         # (game_get_reduce_campaign_ai, ":reduce_campaign_ai"),
+         # (options_get_campaign_ai, ":reduce_campaign_ai"),
           (assign, ":reinforcement_cost", reinforcement_cost_moderate),
           (try_begin),
             (eq, ":reduce_campaign_ai", 0), #hard (1x or 2x reinforcing)
@@ -1033,7 +1033,7 @@ simple_triggers = [
            (store_troop_faction, ":cur_troop_faction", ":troop_no"),
            (neq, ":cur_troop_faction", "$players_kingdom"),
 
-           (game_get_reduce_campaign_ai, ":reduce_campaign_ai"),
+           (options_get_campaign_ai, ":reduce_campaign_ai"),
            (try_begin),
              (eq, ":reduce_campaign_ai", 0), #hard (1.5x)
              (assign, ":max_accepted_random_value", 35),
@@ -1067,7 +1067,7 @@ simple_triggers = [
            (try_end),
            (neq, ":cur_center_lord_faction", "$players_kingdom"),
 
-           (game_get_reduce_campaign_ai, ":reduce_campaign_ai"),
+           (options_get_campaign_ai, ":reduce_campaign_ai"),
            (try_begin),
              (eq, ":reduce_campaign_ai", 0), #hard (1.5x)
              (assign, ":max_accepted_random_value", 35),
@@ -2077,7 +2077,7 @@ simple_triggers = [
       #(try_end),
 
       #Collect taxes for another week
-      (game_get_reduce_campaign_ai, ":reduce_campaign_ai"), #SB : moved to top
+      (options_get_campaign_ai, ":reduce_campaign_ai"), #SB : moved to top
       (try_for_range, ":center_no", centers_begin, centers_end),
         (try_begin),
           (party_slot_ge, ":center_no", slot_town_lord, 0), #unassigned centers do not accumulate rents
@@ -2107,7 +2107,7 @@ simple_triggers = [
           (try_begin),
             (party_slot_eq, ":center_no", slot_town_lord, "trp_player"),
 
-            # (game_get_reduce_campaign_ai, ":reduce_campaign_ai"),
+            # (options_get_campaign_ai, ":reduce_campaign_ai"),
             (try_begin),
               (eq, ":reduce_campaign_ai", 0), #hard (less money from rents)
               (val_mul, ":cur_rents", 3),
@@ -2655,7 +2655,7 @@ simple_triggers = [
   #Troop AI: Merchants thinking
   (8,
    [
-       (game_get_reduce_campaign_ai, ":reduce_campaign_ai"), #SB : moved this up top
+       (options_get_campaign_ai, ":reduce_campaign_ai"), #SB : moved this up top
        (val_sub, ":reduce_campaign_ai", 1),
        (val_mul, ":reduce_campaign_ai", 10), #pre-calculate amount
        (try_for_parties, ":party_no"),
@@ -2680,7 +2680,7 @@ simple_triggers = [
            # (try_begin),
              # (party_slot_eq, ":cur_center", slot_town_lord, "trp_player"),
 
-             # # (game_get_reduce_campaign_ai, ":reduce_campaign_ai"),
+             # # (options_get_campaign_ai, ":reduce_campaign_ai"),
              # (try_begin),
                # (eq, ":reduce_campaign_ai", 0), #hard (less money from tariffs)
                # (assign, ":tariff_succeed_limit", 35),
@@ -5395,7 +5395,7 @@ simple_triggers = [
   #should not (at the best case) exceed an efficiency of 1000 gold per point.
   (assign, ":save_reg0", reg0),
   (assign, ":save_reg1", reg1),
-  (game_get_reduce_campaign_ai, ":reduce_campaign_ai"),#store for use below
+  (options_get_campaign_ai, ":reduce_campaign_ai"),#store for use below
   ##nested diplomacy end+
   (try_for_parties, ":party_no"),
     (party_is_active, ":party_no"),
@@ -5819,7 +5819,7 @@ simple_triggers = [
     (try_begin),
       # (ge, "$novice_training_difficulty", 1),
       (assign, ":max_distance", 50),
-      (game_get_reduce_campaign_ai, ":base_number"), #0, 1, 2
+      (options_get_campaign_ai, ":base_number"), #0, 1, 2
       # (val_add, ":cur_number", "$novice_training_difficulty"), #1 to 6
       # (val_div, ":cur_number", 2),
       # (val_max, ":cur_number", 1),
@@ -6652,7 +6652,7 @@ simple_triggers = [
       (assign, ":loss_numerator", 2),
       (assign, ":loss_denominator", 3),
 
-      (game_get_reduce_campaign_ai, ":reduce_campaign_ai"),
+      (options_get_campaign_ai, ":reduce_campaign_ai"),
       (try_begin),
         (eq, ":reduce_campaign_ai", 0), #hard, lose 5/6
         (assign, ":loss_numerator", 5),

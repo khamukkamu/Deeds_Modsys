@@ -13128,7 +13128,7 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
 	(val_mul, reg0, 2),
 (try_end),
 
-(game_get_reduce_campaign_ai, ":reduce_campaign_ai"),
+(options_get_campaign_ai, ":reduce_campaign_ai"),
 (try_begin),
    (eq, ":reduce_campaign_ai", 0),#Hard: 150%
 	(val_mul, ":total_fee", 3),
@@ -16348,7 +16348,7 @@ Here, take this purse of {reg3} denars, as I promised. I hope we can travel toge
 	(ge, "$g_ally_strength", reg0),
 
 	#Enemy must be below a certain strength to even consider giving up.
-	(game_get_reduce_campaign_ai, ":reduce_campaign_ai"),
+	(options_get_campaign_ai, ":reduce_campaign_ai"),
 	(this_or_next|lt, "$g_enemy_strength", 500),# Hard (would be described as "small bands" on the world map)
 		(ge, ":reduce_campaign_ai", 1),
 	(this_or_next|lt, "$g_enemy_strength", 1000),# Medium ("enemy patrols")
@@ -16881,7 +16881,7 @@ Here, take this purse of {reg3} denars, as I promised. I hope we can travel toge
 (val_max, ":amount", 0),
 ##diplomacy start+ Alternate calculation, since the player is effectively "ransoming himself"
 (call_script, "script_calculate_ransom_amount_for_troop", "trp_player"),
-(game_get_reduce_campaign_ai, ":reduce_campaign_ai"),
+(options_get_campaign_ai, ":reduce_campaign_ai"),
 (try_begin),
    (le, ":reduce_campaign_ai", 0),#Hard
    (val_mul, reg0, 3),
@@ -19648,7 +19648,7 @@ I'll send some men to take him to our prison with due haste.", "lord_pretalk", [
 		(this_or_next|eq, ":new_leader", "trp_player"),
 			(eq, "$players_kingdom", "fac_player_supporters_faction"),
 		(val_max, ":new_score", "$g_talk_troop_effective_relation"),
-		(game_get_reduce_campaign_ai, ":reduce_campaign_ai"),
+		(options_get_campaign_ai, ":reduce_campaign_ai"),
 		(assign, reg0, 20),#required right to rule
 		(try_begin),
 			(eq, ":reduce_campaign_ai", 0),#hard: penalty for every point below 75, bonus for every point above
@@ -21113,7 +21113,7 @@ I'll send some men to take him to our prison with due haste.", "lord_pretalk", [
 (else_try),
   (store_add, ":score", ":persuasion", "$g_talk_troop_relation"),
   (val_add, ":score", ":willingness_to_intrigue"),
-  (game_get_reduce_campaign_ai, ":reduce_campaign_ai"),
+  (options_get_campaign_ai, ":reduce_campaign_ai"),
   (try_begin),
     (eq, ":reduce_campaign_ai", 0), #hard
     (val_sub, ":score", 5),
@@ -21274,7 +21274,7 @@ I'll send some men to take him to our prison with due haste.", "lord_pretalk", [
    (faction_get_slot, ":faction_liege", "$g_talk_troop_faction", slot_faction_leader),
    (call_script, "script_troop_get_relation_with_troop", "$g_talk_troop", ":faction_liege"),
 
-   (game_get_reduce_campaign_ai, ":reduce_campaign_ai"),
+   (options_get_campaign_ai, ":reduce_campaign_ai"),
    (try_begin),
       (eq, ":reduce_campaign_ai", 0),#hard, fail if relation above -10
 	  (val_add, reg0, 10),
@@ -21317,7 +21317,7 @@ I'll send some men to take him to our prison with due haste.", "lord_pretalk", [
 			(troop_slot_eq, "$g_talk_troop", slot_troop_playerparty_history, dplmc_pp_history_nonplayer_entry),
 		(this_or_next|neg|is_between, "$g_talk_troop", pretenders_begin, pretenders_end),
 			(troop_slot_eq, "$g_talk_troop", slot_troop_playerparty_history, dplmc_pp_history_nonplayer_entry),
-		(game_get_reduce_campaign_ai, ":reduce_campaign_ai"),
+		(options_get_campaign_ai, ":reduce_campaign_ai"),
 		(try_begin),
 			(eq, ":reduce_campaign_ai", 0),#hard
 			(assign, ":liege_bonus", 75),
@@ -24482,7 +24482,7 @@ I will use this to make amends to those you have wronged, and I will let it be k
 [anyone,"lord_give_troops", [
 	(call_script, "script_party_get_ideal_size", "$g_talk_troop_party"),
 	(assign, ":limit", reg0),
-	(game_get_reduce_campaign_ai, ":reduce_campaign_ai"),
+	(options_get_campaign_ai, ":reduce_campaign_ai"),
 	(try_begin),
 		(le, ":reduce_campaign_ai", 0),#Hard: maximum is 150% of normal size
 		(val_mul, ":limit", 3),

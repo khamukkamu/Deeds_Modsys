@@ -14977,7 +14977,7 @@ presentations = [
 			 (val_add, ":other_players", 1),
 		  (try_end),
 		  #Improve the AI's decision-making somewhat.
-		  (game_get_reduce_campaign_ai, ":reduce_campaign_ai"),
+		  (options_get_campaign_ai, ":reduce_campaign_ai"),
 		  (val_clamp, ":reduce_campaign_ai", 0, 3),#0 is hard, 1 is medium, 2 is easy
 		  (try_begin),
             #This should never be reached.

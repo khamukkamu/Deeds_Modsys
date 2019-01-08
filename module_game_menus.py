@@ -4264,7 +4264,7 @@ TOTAL:  {reg5}"),
        [(remove_troops_from_prisoners, "$g_prisoner_recruit_troop_id", "$g_prisoner_recruit_size"),
         (party_add_members, "p_main_party", "$g_prisoner_recruit_troop_id", "$g_prisoner_recruit_size"),
         #SB : change base morale reduction by difficulty
-        (game_get_reduce_campaign_ai, ":reduce"), #0 to 2
+        (options_get_campaign_ai, ":reduce"), #0 to 2
         (val_sub, ":reduce", 4), #-4 to -2
         (store_mul, ":morale_change", ":reduce", "$g_prisoner_recruit_size"),
         (store_troop_faction, ":troop_faction", "$g_prisoner_recruit_troop_id"),
@@ -15085,7 +15085,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 			#Remove the gold.  The lady has her own funds (e.g. from her dower)
 			#that will partially defray the expense to the lord, depending on
 			#the campaign difficulty.
-		    (game_get_reduce_campaign_ai, ":reduce_campaign_ai"),
+		    (options_get_campaign_ai, ":reduce_campaign_ai"),
 		    (try_begin),
 			   (eq, ":reduce_campaign_ai", 0), #hard: lord pays 50%, lady's resources pay for 50%
 			   (val_div, ":gold_paid", 2),
@@ -16101,7 +16101,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
           (lt, ":chance", 6),
           (ge, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_LOW),
           (gt, "$g_player_affiliated_troop", 0),
-          (game_get_reduce_campaign_ai, ":reduce_campaign_ai"),
+          (options_get_campaign_ai, ":reduce_campaign_ai"),
           (try_begin),
             (eq, ":reduce_campaign_ai", 0), #hard: lord pays 50%, lady's resources pay for 50%
             (val_div, "$player_ransom_amount", 2),
