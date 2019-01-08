@@ -781,3 +781,6 @@ script_dplmc_mayor_wealth_comparison = 779
 script_dplmc_init_quest_delegate_states = 780
 script_cf_dplmc_calculate_tax_inefficiency = 781
 script_dplmc_init_faction_gender_ratio = 782
+script_game_troop_upgrades_button_clicked = 783
+script_troop_tree_precurse = 784
+script_troop_tree_recurse = 785

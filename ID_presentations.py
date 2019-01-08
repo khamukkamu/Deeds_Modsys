@@ -61,3 +61,4 @@ prsnt_coop_assign_drop_to_group_member = 59
 prsnt_multiplayer_ccoop_next_wave_time_counter = 60
 prsnt_multiplayer_ccoop_victory_message = 61
 prsnt_adv_diplomacy_preferences = 62
+prsnt_game_troop_tree = 63

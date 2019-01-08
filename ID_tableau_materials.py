@@ -54,3 +54,4 @@ tableau_coop_companion_select_alpha_mask = 52
 tableau_coop_companion_select_color = 53
 tableau_coop_companion_select_0 = 54
 tableau_dplmc_lord_profile = 55
+tableau_troop_tree_pic = 56

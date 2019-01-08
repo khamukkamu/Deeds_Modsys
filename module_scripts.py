@@ -25319,7 +25319,7 @@ scripts = [
   ]),
 
   ### END Additions (Kham)
-  
+
 
   # script_cf_reinforce_party
   # Input: arg1 = party_no,
@@ -74203,5 +74203,167 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       # (try_end),
     # ),
     # ]),
+
+  #script_game_troop_upgrades_button_clicked
+  # This script is called from the game engine when the player clicks on said button from the party screen
+  # INPUT: arg1 = troop_id
+  ("game_troop_upgrades_button_clicked", [
+      (store_script_param, reg0, 1),
+      (start_presentation, "prsnt_game_troop_tree"),
+  ]),
+
+  # Troop Tree Scripts
+  # script_troop_tree_precurse
+  # Input: troop, number of upgrade, number of upgrade2
+  # Output: reg0 number upgrade, reg1 upgrade2
+  ("troop_tree_precurse", [(store_script_param, ":troop", 1),
+      (store_script_param, ":ret_val_0", 2),
+      (store_script_param, ":ret_val_1", 3),
+      
+      (assign, ":max_branch_0", ":ret_val_0"),
+      (troop_get_upgrade_troop, ":next_troop", ":troop", 0),
+      (try_begin),
+        (gt, ":next_troop", 0),
+        (store_add, ":max_branch_0", ":ret_val_0", 1),
+        (call_script, "script_troop_tree_precurse", ":next_troop", ":max_branch_0", ":ret_val_1"),
+        (val_max, ":max_branch_0", reg0),
+        (val_max, ":ret_val_1", reg1),
+      (try_end),
+      
+      (troop_get_upgrade_troop, ":next_troop", ":troop", 1),
+      (try_begin),
+        (gt, ":next_troop", 0),
+        (val_add, ":ret_val_0", 1),
+        (val_add, ":ret_val_1", 1),
+        (call_script, "script_troop_tree_precurse", ":next_troop", ":ret_val_0", ":ret_val_1"),
+        (val_max, ":ret_val_0", reg0),
+        (val_max, ":ret_val_1", reg1),
+      (try_end),
+      
+      (val_max, ":ret_val_0", ":max_branch_0"),
+      (assign, reg0, ":ret_val_0"),
+      (assign, reg1, ":ret_val_1"),]),
+  
+  # script_troop_tree_recurse
+  # Input: troop, x_pos, y_pos
+  # Output: reg0 augmented y_pos
+  ("troop_tree_recurse", [(store_script_param, ":troop", 1),
+      (store_script_param, ":x_pos", 2),
+      (store_script_param, ":y_pos", 3),
+      (store_script_param, ":next_y", 3),
+      
+      # Fix height of pic - VC-2379
+      (val_min, "$troop_tree_pic_height", 272),
+      
+      (store_div, ":scaler", Troop_Tree_Area_Height, "$troop_tree_pic_height"),
+      (store_div, ":scaled_width", Troop_Tree_Tableau_Width, ":scaler"),
+      (store_div, ":scaled_height", Troop_Tree_Tableau_Height, ":scaler"),
+      
+      (store_mul, reg2, ":troop", 2), #picture with weapons (see script_add_troop_to_cur_tableau_for_party)
+      (create_mesh_overlay_with_tableau_material, reg1, -1, "tableau_troop_tree_pic", reg2),
+      
+      # START Troop Detail: saves data to array - VC-2379
+      (val_add, "$troop_tree_counter", 1),
+      (troop_set_slot, "trp_temp_array_a", "$troop_tree_counter", reg1), # overlay id
+      (troop_set_slot, "trp_temp_array_b", "$troop_tree_counter", ":troop"), # troop_id
+      # END Troop Detail: saves data to array
+      
+      (store_div, reg3, ":scaled_width", 3),  #half too much for some reason
+      (store_sub, reg2, ":x_pos", reg3),
+      (position_set_x, pos1, reg2),
+      (position_set_y, pos1, ":y_pos"),
+      (overlay_set_position, reg1, pos1),
+      
+      (position_set_x, pos1, ":scaled_width"),
+      (position_set_y, pos1, ":scaled_height"),
+      (overlay_set_size, reg1, pos1),
+      
+      # (overlay_set_additional_render_height, reg1, 10), #float over lines MOTO
+      # doesn't help
+      
+      (str_store_troop_name, s0, ":troop"),
+      (create_text_overlay, reg1, "@{s0}", tf_center_justify),
+      (position_set_x, pos1, ":x_pos"),
+      (position_set_y, pos1, ":y_pos"),
+      (overlay_set_position, reg1, pos1),
+      
+      (store_div, ":text_scaler", Troop_Tree_Area_Width, "$troop_tree_pic_width"),
+      (val_max, ":text_scaler", ":scaler"),
+      (store_div, reg2, 3500 * Screen_Undistort_Width_Num / Screen_Undistort_Width_Den, ":text_scaler"),
+      (position_set_x, pos1, reg2),
+      (store_div, reg2, 3500, ":text_scaler"),
+      (position_set_y, pos1, reg2),
+      (overlay_set_size, reg1, pos1),
+      
+      (store_div, reg3, ":scaled_height", 2),
+      (store_sub, reg2, ":y_pos", reg3),
+      (store_div, ":height_adjust", "$troop_tree_pic_height", 2),
+      
+      (store_add, ":next_x", ":x_pos", "$troop_tree_pic_width"),
+      (troop_get_upgrade_troop, ":next_troop", ":troop", 0),
+      (try_begin),
+        (gt, ":next_troop", 0),
+        (create_mesh_overlay, reg1, "mesh_white_plane"),
+        (position_set_x, pos1, ":x_pos"),
+        (store_add, reg2, ":y_pos", ":height_adjust"),
+        (position_set_y, pos1, reg2),
+        (overlay_set_position, reg1, pos1),
+        
+        (store_mul, reg2, "$troop_tree_pic_width", 50),
+        (position_set_x, pos1, reg2),
+        (position_set_y, pos1, 50 * 4),
+        (overlay_set_size, reg1, pos1),
+        
+        (overlay_set_color, reg1, Troop_Tree_Line_Color),
+        
+        (call_script, "script_troop_tree_recurse", ":next_troop", ":next_x", ":next_y"),
+        (assign, ":next_y", reg0),
+      (try_end),
+      
+      (troop_get_upgrade_troop, ":next_troop", ":troop", 1),
+      (try_begin),
+        (gt, ":next_troop", 0),
+        (val_sub, ":next_y", "$troop_tree_pic_height"),
+        
+        #half length horizontal, moved halfway
+        (create_mesh_overlay, reg1, "mesh_white_plane"),
+        (store_div, reg2, "$troop_tree_pic_width", 2),
+        (val_add, reg2, ":x_pos"),
+        (position_set_x, pos1, reg2),
+        (store_add, reg2, ":next_y", ":height_adjust"),
+        (position_set_y, pos1, reg2),
+        (overlay_set_position, reg1, pos1),
+        
+        (store_mul, reg2, "$troop_tree_pic_width", 50),
+        (val_div, reg2, 2),
+        (position_set_x, pos1, reg2),
+        (position_set_y, pos1, 50 * 4),
+        (overlay_set_size, reg1, pos1),
+        
+        (overlay_set_color, reg1, Troop_Tree_Line_Color),
+        
+        #vertical to connect
+        (create_mesh_overlay, reg1, "mesh_white_plane"),
+        (store_div, reg2, "$troop_tree_pic_width", 2),
+        (val_add, reg2, ":x_pos"),
+        (position_set_x, pos1, reg2),
+        (store_add, reg2, ":next_y", ":height_adjust"),
+        (position_set_y, pos1, reg2),
+        (overlay_set_position, reg1, pos1),
+        
+        (position_set_x, pos1, 50 * 3), #3/4 to undistort in wide screens
+        (store_sub, reg2, ":y_pos", ":next_y"),
+        (val_mul, reg2, 50),
+        (position_set_y, pos1, reg2),
+        (overlay_set_size, reg1, pos1),
+        
+        (overlay_set_color, reg1, Troop_Tree_Line_Color),
+        
+        (call_script, "script_troop_tree_recurse", ":next_troop", ":next_x", ":next_y"),
+        (assign, ":next_y", reg0),
+      (try_end),
+      
+      (assign, reg0, ":next_y"),]),
+  
 
 ]
