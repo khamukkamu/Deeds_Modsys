@@ -1243,6 +1243,8 @@ items = [
 ##diplomacy end
 #SB : replace items_end to fit invasion items
 
+["items_end", "Items End", [("shield_round_a",0)], 0, 0, 1, 0, 0],
+
 ##INVASION MODE START #SB : reintroduce some old graphical assets
 ["javelin_bow",         "Javelin Bow", [("war_bow",0),("war_bow_carry",ixmesh_carry)],itp_type_bow|itp_primary|itp_two_handed ,itcf_shoot_bow|itcf_carry_bow_back, 
 0 , weight(1.5)|difficulty(0)|spd_rtng(84) | shoot_speed(59) | thrust_damage(25 ,pierce), 0, [(ti_on_weapon_attack, [(play_sound,"snd_throw_javelin")])] ],

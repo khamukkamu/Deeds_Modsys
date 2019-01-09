@@ -12,3 +12,6 @@ ip_courtship = 10
 ip_politics = 11
 ip_character_backgrounds = 12
 ip_military_campaigns = 13
+ip_tactical_controls = 14
+ip_division_placement = 15
+ip_formations = 16

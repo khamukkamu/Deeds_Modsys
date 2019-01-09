@@ -7,6 +7,7 @@ from header_music import *
 from header_items import *
 from header_skills import *
 from module_constants import *
+from module_mission_templates_form import *
 
 from compiler import *
 ####################################################################################################################
@@ -740,6 +741,23 @@ dplmc_death_camera = (
     (try_end),
   ])
 
+
+
+## Fade to Black
+mission_fade_in =  (ti_after_mission_start, 0, 0, [],
+                     [(mission_cam_set_screen_color,        0xFF000000), 
+                      (mission_cam_animate_to_screen_color, 0x00000000, 2500)])
+
+
+deeds_common_battle_scripts = [
+  #tld_cheer_on_space_when_battle_over_press,
+  #tld_cheer_on_space_when_battle_over_release,
+  mission_fade_in,
+  #customize_armor,
+  #bright_nights
+  ] + utility_triggers + extended_battle_menu + common_division_data + division_order_processing + real_deployment + formations_triggers + AI_triggers
+
+
 ##SB : new camera triggers
 dplmc_battle_mode_triggers = [
     dplmc_random_mixed_gender,
@@ -747,7 +765,7 @@ dplmc_battle_mode_triggers = [
     common_move_deathcam, common_rotate_deathcam,
     custom_commander_camera, deathcam_cycle_forwards, deathcam_cycle_backwards,
     dplmc_death_camera,
-  ]
+  ] + deeds_common_battle_scripts
 ##diplomacy end
 
 multiplayer_server_check_belfry_movement = (
@@ -3550,13 +3568,13 @@ mission_templates = [
 
 
       #AI Triggers
-      (0, 0, ti_once, [
-          (store_mission_timer_a,":mission_time"),(ge,":mission_time",2),
-          ],
-       [(call_script, "script_select_battle_tactic"),
-        (call_script, "script_battle_tactic_init"),
-        #(call_script, "script_battle_calculate_initial_powers"), #deciding run away method changed and that line is erased
-        ]),
+     # (0, 0, ti_once, [
+     #     (store_mission_timer_a,":mission_time"),(ge,":mission_time",2),
+     #     ],
+     #  [(call_script, "script_select_battle_tactic"),
+     #   (call_script, "script_battle_tactic_init"),
+     #   #(call_script, "script_battle_calculate_initial_powers"), #deciding run away method changed and that line is erased
+     #   ]),
 
       (3, 0, 0, [
           (call_script, "script_apply_effect_of_other_people_on_courage_scores"),
@@ -3572,13 +3590,13 @@ mission_templates = [
           (try_end),
               ], []), #controlling courage score and if needed deciding to run away for each agent
 
-      (5, 0, 0, [
-          (store_mission_timer_a,":mission_time"),
+    #  (5, 0, 0, [
+    #      (store_mission_timer_a,":mission_time"),
 
-          (ge,":mission_time",3),
+    #      (ge,":mission_time",3),
 
-          (call_script, "script_battle_tactic_apply"),
-          ], []), #applying battle tactic
+    #      (call_script, "script_battle_tactic_apply"),
+    #      ], []), #applying battle tactic
 
       common_battle_order_panel,
       common_battle_order_panel_tick,

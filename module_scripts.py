@@ -2,7 +2,6 @@
 from header_common import *
 from header_operations import *
 from module_constants import *
-from module_constants import *
 from header_parties import *
 from header_skills import *
 from header_mission_templates import *
@@ -23,6 +22,9 @@ from ID_info_pages import *
 from header_presentations import tf_left_align
   #### Autoloot improved by rubik begin
 from module_items import *
+from module_scripts_form import *
+
+from compiler import *
 
 ## deprecated due to 1.165 operations
 # ibf_item_type_mask = 0x000000ff
@@ -1197,6 +1199,11 @@ scripts = [
         (party_set_slot, ":grounds", slot_grounds_count, 0),
         (troop_set_slot, ":npc", slot_troop_cur_center, ":grounds"),
     (try_end),
+
+    #Kham - Init variables
+
+    (assign, "$first_time", 0), #squelch compiler warnings
+
     ]),
 
   #script_game_get_use_string
@@ -32111,7 +32118,7 @@ scripts = [
   # script_battle_tactic_init_aux
   # Input: team_no, battle_tactic
   # Output: none
-  ("battle_tactic_init_aux",
+  ("orig_battle_tactic_init_aux",
     [
       (store_script_param, ":team_no", 1),
       (store_script_param, ":battle_tactic", 2),
@@ -32634,7 +32641,7 @@ scripts = [
   # script_battle_tactic_apply_aux
   # Input: team_no, battle_tactic
   # Output: battle_tactic
-  ("battle_tactic_apply_aux",
+  ("orig_battle_tactic_apply_aux",
     [
       (store_script_param, ":team_no", 1),
       (store_script_param, ":battle_tactic", 2),
@@ -36341,6 +36348,7 @@ scripts = [
         (team_set_order_position, ":team_no", 8, pos1),
       (try_end),
     (try_end),
+    (call_script, "script_player_order_formations", ":order"),  #for formations
     (set_show_messages, 1),
   ]),
 
@@ -74367,3 +74375,5 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
   
 
 ]
+
+scripts = scripts + formAI_scripts
