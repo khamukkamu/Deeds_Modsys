@@ -748,14 +748,50 @@ mission_fade_in =  (ti_after_mission_start, 0, 0, [],
                      [(mission_cam_set_screen_color,        0xFF000000), 
                       (mission_cam_animate_to_screen_color, 0x00000000, 2500)])
 
+#TLD cheer instead of jump on space if battle is won  (mtarini)
+
+tld_cheer_on_space_when_battle_over_press = (0,1.5,0,[
+    (game_key_clicked, gk_jump),
+    (all_enemies_defeated, 2),
+    (get_player_agent_no, reg10),
+    (agent_is_alive, reg10),
+    (try_begin),(agent_get_horse, reg12, reg10),(ge, reg12, 0),
+      (agent_set_animation, reg10, "anim_cheer_player_ride"),
+      (agent_set_animation, reg12, "anim_horse_cancel_ani"), # to remove horse jump
+    (else_try),
+      (agent_set_animation, reg10, "anim_cheer_player"),
+    (try_end),
+    (agent_get_troop_id, reg11, reg10),
+    (try_begin),
+      (eq,"$player_cheering",0), # don't reshout if just shouted
+      (call_script, "script_troop_get_cheer_sound", reg11),
+      (gt, reg1, -1), #MV fix
+      (agent_play_sound, reg10, reg1),
+    (try_end),
+    (assign,"$player_cheering",1),
+  ],
+  [(assign,"$player_cheering",2), # after 1 sec, can end ani
+])
+
+tld_cheer_on_space_when_battle_over_release = (0,0,0,[(eq,"$player_cheering",2),(neg|game_key_is_down, gk_jump)],[
+    (get_player_agent_no, reg10),
+    (agent_get_horse, reg12, reg10),
+    (try_begin),(ge, reg12, 0),(agent_set_animation, reg10, "anim_cancel_ani_ride"),
+    (else_try),               (agent_set_animation, reg10, "anim_cancel_ani_stand"),
+    (try_end),
+    (assign,"$player_cheering",0),
+])
+
+# END TLD
+
 
 deeds_common_battle_scripts = [
-  #tld_cheer_on_space_when_battle_over_press,
-  #tld_cheer_on_space_when_battle_over_release,
+  tld_cheer_on_space_when_battle_over_press,
+  tld_cheer_on_space_when_battle_over_release,
   mission_fade_in,
   #customize_armor,
   #bright_nights
-  ] + utility_triggers + extended_battle_menu + common_division_data + division_order_processing + real_deployment + formations_triggers + AI_triggers
+  ] + battle_panel_triggers + utility_triggers + extended_battle_menu + common_division_data + division_order_processing + real_deployment + formations_triggers + AI_triggers
 
 
 ##SB : new camera triggers
@@ -3598,7 +3634,7 @@ mission_templates = [
     #      (call_script, "script_battle_tactic_apply"),
     #      ], []), #applying battle tactic
 
-      common_battle_order_panel,
+      #common_battle_order_panel,
       common_battle_order_panel_tick,
 
     ]
@@ -3672,7 +3708,7 @@ mission_templates = [
               ]),
 
       common_battle_inventory,
-      common_battle_order_panel,
+      #common_battle_order_panel,
       common_battle_order_panel_tick,
 
     ]
@@ -3811,7 +3847,7 @@ mission_templates = [
     ]),
 
       common_battle_inventory,
-      common_battle_order_panel,
+      #common_battle_order_panel,
       common_battle_order_panel_tick,
 
 ##      #AI Tiggers
@@ -4060,7 +4096,7 @@ mission_templates = [
             ##diplomacy end
               ]),
 
-      common_battle_order_panel,
+      #common_battle_order_panel,
       common_battle_order_panel_tick,
       common_battle_inventory,
     ]
@@ -4144,7 +4180,7 @@ mission_templates = [
 
               ]),
 
-      common_battle_order_panel,
+      #common_battle_order_panel,
       common_battle_order_panel_tick,
       common_battle_inventory,
     ]
@@ -4263,7 +4299,7 @@ mission_templates = [
               ##diplomacy end
 ]),
 
-      common_battle_order_panel,
+      #common_battle_order_panel,
       common_battle_order_panel_tick,
       common_battle_inventory,
     ]
@@ -4344,7 +4380,7 @@ mission_templates = [
       common_battle_victory_display,
       common_siege_refill_ammo,
       common_siege_check_defeat_condition,
-      common_battle_order_panel,
+      #common_battle_order_panel,
       common_battle_order_panel_tick,
       common_inventory_not_available,
       common_siege_init_ai_and_belfry,
@@ -4394,7 +4430,7 @@ mission_templates = [
       common_battle_victory_display,
       common_siege_refill_ammo,
       common_siege_check_defeat_condition,
-      common_battle_order_panel,
+      #common_battle_order_panel,
       common_battle_order_panel_tick,
       common_inventory_not_available,
 

@@ -74373,7 +74373,17 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       
       (assign, reg0, ":next_y"),]),
   
+ #Kham - TLD Script to get cheer sound
+  ("troop_get_cheer_sound", [
+      (store_script_param_1, ":trp"),
+      (troop_get_type, ":race",":trp"),
+      (try_begin),(eq,":race",0x0),(assign,reg1,"snd_man_victory"),
+      (else_try), (eq,":race",0x1),(assign,reg1,"snd_woman_yell"), # woman
+      (else_try),(assign,reg1,"snd_man_victory"),
+      (try_end),
+  ]),
 
+  
 ]
 
 scripts = scripts + formAI_scripts
