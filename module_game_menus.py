@@ -38,8 +38,39 @@ from compiler import *
 #
 # Note: The first Menu is the initial character creation menu.
 ####################################################################################################################
+# Table of Contents:
+#
+# [ Z01 ] - Hardcoded Menus
+# [ Z02 ] - Character Generation
+# [ Z03 ] - Reports
+# [ Z04 ] - Camp
+# [ Z05 ] - Cattle Herds
+# [ Z06 ] - Duels
+# [ Z07 ] - Encounters
+# [ Z08 ] - Locations
+# [ Z09 ] - Castles and Sieges
+# [ Z10 ] - Faction Politics
+# [ Z11 ] - Villages
+# [ Z12 ] - Towns
+# [ Z13 ] - Tournaments
+# [ Z14 ] - Tax Collection Quest
+# [ Z15 ] - Train Peasants Quest
+# [ Z16 ] - Ships
+# [ Z17 ] - Prisoners
+# [ Z18 ] - Training Grounds
+# [ Z19 ] - Marshal Quests
+# [ Z20 ] - Notifications
+# [ Z21 ] - Bandit Lair
+# [ Z22 ] - Intro Quest
+# [ Z23 ] - Diplomacy Menus
+
 
 game_menus = [
+
+####################################################################################################################
+# [ Z01 ] - Hardcoded Menus
+####################################################################################################################
+
   ("start_game_0",menu_text_color(0xFF000000)|mnf_disable_all_keys,
   ##diplomacy begin
     "Welcome, adventurer, to Diplomacy for Mount & Blade: Warband. Before beginning the game you must create your character. Remember that in the traditional medieval society depicted in the game, war and politics are usually dominated by male members of the nobility. That does not however mean that you should not choose to play a female character, or one who is not of noble birth. Male nobles may have a somewhat easier start, but women and commoners can attain all of the same goals -- and in fact may have a much more interesting if more challenging early game.",
@@ -1111,6 +1142,12 @@ game_menus = [
        ),
     ]
   ),
+  
+  
+####################################################################################################################
+# [ Z02 ] - Character Generation
+####################################################################################################################
+  
 
   ("start_game_1",menu_text_color(0xFF000000)|mnf_disable_all_keys,
     "Select your character's gender.",
@@ -2192,6 +2229,12 @@ game_menus = [
     [
     ]
   ),
+  
+####################################################################################################################
+# [ Z03 ] - Reports
+####################################################################################################################
+  
+  
   ("morale_report",0,
    "{s1}",
    "none",
@@ -3443,6 +3486,10 @@ TOTAL:  {reg5}"),
       ]
   ),
 
+####################################################################################################################
+# [ Z04 ] - Camp
+####################################################################################################################  
+  
 
   ("camp",mnf_scale_picture|mnf_enable_hot_keys,
    "You set up camp. What do you want to do?",
@@ -4472,6 +4519,11 @@ TOTAL:  {reg5}"),
        ),
       ]
   ),
+  
+####################################################################################################################
+# [ Z05 ] - Cattle Herds
+####################################################################################################################   
+  
 
   ("cattle_herd",mnf_scale_picture,
    "You encounter a herd of cattle.",
@@ -4585,7 +4637,11 @@ TOTAL:  {reg5}"),
       ]
   ),
 
+####################################################################################################################
+# [ Z06 ] - Duels
+####################################################################################################################   
 
+  
   ("arena_duel_fight",0,
    "You and your opponent prepare to duel.",
    "none",
@@ -4770,6 +4826,10 @@ TOTAL:  {reg5}"),
       ]
   ),
 
+####################################################################################################################
+# [ Z07 ] - Encounters
+####################################################################################################################   
+  
 
   (
     "simple_encounter",mnf_enable_hot_keys|mnf_scale_picture,
@@ -5649,6 +5709,15 @@ TOTAL:  {reg5}"),
             (try_end),
             (call_script,"script_change_player_relation_with_troop", ":ally_leader", ":rel_boost"),
           (try_end),
+### Autolykos Begin
+          (try_begin), # Relation boost from saving a villager party
+		    (party_slot_eq, "$g_ally_party", slot_party_type, spt_village_farmer),
+		    (party_get_slot, ":home_village", "$g_ally_party", slot_party_home_center),
+			(is_between, ":home_village", villages_begin, villages_end),
+			(store_add, ":village_reln_boost", ":faction_reln_boost", 1), # It should always be worth something...
+			(call_script, "script_change_player_relation_with_center", ":home_village", ":village_reln_boost"),
+          (try_end),
+### Autolykos End		  
           (assign, "$talk_context", tc_ally_thanks),
           (call_script, "script_setup_troop_meeting", ":ally_leader", ":ally_leader_dna"),
         (else_try),
@@ -6430,6 +6499,10 @@ TOTAL:  {reg5}"),
     ]
   ),
 
+####################################################################################################################
+# [ Z08 ] - Locations
+####################################################################################################################
+    
 
 # Towns
   (
@@ -6520,30 +6593,10 @@ TOTAL:  {reg5}"),
     ]
   ),
 
-##  (
-##    "center_under_attack_while_resting",0,
-##    "{s1} has been besieged by {s2}, and the enemy seems to be preparing for an assault!\
-## What will you do?",
-##    "none",
-##    [
-##        (party_get_battle_opponent, ":besieger_party", "$auto_enter_town"),
-##        (str_store_party_name, s1, "$auto_enter_town"),
-##        (str_store_party_name, s2, ":besieger_party"),
-##    ],
-##    [
-##      ("defend_against_siege", [],"Help the defenders of {s1}!",
-##       [
-##           (assign, "$g_last_player_do_nothing_against_siege_next_check", 0),
-##           (rest_for_hours, 0, 0, 0),
-##           (change_screen_return),
-##           (start_encounter, "$auto_enter_town"),
-##           ]),
-##      ("do_not_defend_against_siege",[],"Find a secure place and wait there.",
-##       [
-##           (change_screen_return),
-##           ]),
-##    ]
-##  ),
+####################################################################################################################
+# [ Z09 ] - Castles and Sieges
+####################################################################################################################  
+
 
   (#SB : pic hotkeys
     "join_siege_outside",mnf_scale_picture|mnf_enable_hot_keys,
@@ -8882,6 +8935,9 @@ TOTAL:  {reg5}"),
 ),
 
 
+####################################################################################################################
+# [ Z10 ] - Faction Politics
+####################################################################################################################
 
 
   (
@@ -9500,6 +9556,11 @@ TOTAL:  {reg5}"),
         ]),
     ],
   ),
+  
+####################################################################################################################
+# [ Z11 ] - Villages
+####################################################################################################################  
+   
 
   (
     "village",mnf_enable_hot_keys,
@@ -11366,6 +11427,11 @@ TOTAL:  {reg5}"),
       ],
     [],
   ),
+  
+####################################################################################################################
+# [ Z12 ] - Towns
+####################################################################################################################   
+  
 
   (
     "town",mnf_enable_hot_keys|mnf_scale_picture,
@@ -13165,1031 +13231,8 @@ TOTAL:  {reg5}"),
 
     ]
 	),
-
-
-  (
-    "town_tournament_lost",0,
-    "You have been eliminated from the tournament.{s8}",
-    "none",
-    [
-	(str_clear, s8),
-	(try_begin),
-		(this_or_next|neq, "$players_kingdom", "$g_encountered_party_faction"),
-			(neg|troop_slot_ge, "trp_player", slot_troop_renown, 50),
-		(neg|troop_slot_ge, "trp_player", slot_troop_renown, 125),
-		(gt, "$g_player_tournament_placement", 4),
-		(faction_slot_eq, "$g_encountered_party_faction", slot_faction_ai_state, sfai_feast),
-		(faction_slot_eq, "$g_encountered_party_faction", slot_faction_ai_object, "$g_encountered_party"),
-		(str_store_string, s8, "str__however_you_have_sufficiently_distinguished_yourself_to_be_invited_to_attend_the_ongoing_feast_in_the_lords_castle"),
-	(try_end),
-
-        ],
-    [
-      ("continue", [], "Continue...",
-       [(jump_to_menu, "mnu_town_tournament_won_by_another"),
-        ]),
-    ]
-  ),
-
-  (
-    "town_tournament_won",mnf_disable_all_keys,
-    "You have won the tournament of {s3}! You are filled with pride as the crowd cheers your name.\
- In addition to honour, fame and glory, you earn a prize of {reg9} denars. {s8}",
-    "none",
-    [
-        (str_store_party_name, s3, "$current_town"),
-        (call_script, "script_change_troop_renown", "trp_player", 20),
-        (call_script, "script_change_player_relation_with_center", "$current_town", 1),
-        (try_begin), #SB : slight scaling reward
-          (ge, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_MEDIUM),
-          # (store_faction_of_party, ":center_faction", "$current_town"),
-          (call_script, "script_dplmc_get_troop_standing_in_faction", "trp_player", "$g_encountered_party_faction"),
-          (store_mul, ":reward", reg0, 20), #1200 for leader, 600 for lord etc
-          (val_add, ":reward", 150),
-          (try_begin), #this is halved if it's the player's own center to prevent quest abuse?
-            (party_slot_eq, "$current_town", slot_town_lord, "trp_player"),
-            (val_mul, ":reward", 2),
-            (val_div, ":reward", 3),
-          (try_end),
-        (else_try),
-          (assign, ":reward", 200),
-        (try_end),
-        (assign, reg9, ":reward"),
-        (troop_add_gold, "trp_player", ":reward"),
-        (add_xp_to_troop, 250, "trp_player"),
-        (str_clear, s8),
-        (store_add, ":total_win", "$g_tournament_bet_placed", "$g_tournament_bet_win_amount"),
-        (try_begin),
-          (gt, "$g_tournament_bet_win_amount", 0),
-          (assign, reg8, ":total_win"),
-          (str_store_string, s8, "@Moreover, you earn {reg8} denars from the clever bets you placed on yourself..."),
-        (try_end),
-		(try_begin),
-			(this_or_next|neq, "$players_kingdom", "$g_encountered_party_faction"),
-				(neg|troop_slot_ge, "trp_player", slot_troop_renown, 70),
-			(neg|troop_slot_ge, "trp_player", slot_troop_renown, 145),
-
-			(faction_slot_eq, "$g_encountered_party_faction", slot_faction_ai_state, sfai_feast),
-			(faction_slot_eq, "$g_encountered_party_faction", slot_faction_ai_object, "$g_encountered_party"),
-			(str_store_string, s8, "str_s8_you_are_also_invited_to_attend_the_ongoing_feast_in_the_castle"),
-		(try_end),
-        (troop_add_gold, "trp_player", ":total_win"),
-        (assign, ":player_odds_sub", 0),
-        (store_div, ":player_odds_sub", "$g_tournament_bet_win_amount", 5),
-        (party_get_slot, ":player_odds", "$current_town", slot_town_player_odds),
-        (val_sub, ":player_odds", ":player_odds_sub"),
-        (val_max, ":player_odds", 250),
-
-        (party_set_slot, "$current_town", slot_town_player_odds, ":player_odds"),
-        (call_script, "script_play_victorious_sound"),
-
-        (unlock_achievement, ACHIEVEMENT_MEDIEVAL_TIMES),
-        #SB : stop arena loop sound if it leaks here
-        (stop_all_sounds, 0),
-        #also add background
-        (set_background_mesh, "mesh_pic_payment"),
-        #also gives bonus faction morale
-        (call_script, "script_change_faction_troop_morale", "$g_encountered_party_faction", ":player_odds", 1),
-        ],
-    [
-      ("continue", [], "Continue...",
-       [(jump_to_menu, "mnu_town"),
-        ]),
-    ]
-  ),
-
-  (
-    "town_tournament_won_by_another",mnf_disable_all_keys,
-    "As the only {reg3?fighter:man} to remain undefeated this day, {s1} wins the lists and the glory of this tournament.",
-    "none",
-    [
-      (call_script, "script_get_num_tournament_participants"),
-      (store_sub, ":needed_to_remove_randomly", reg0, 1),
-      (try_begin),
-        (troop_slot_eq, "trp_tournament_participants", 0, 0), #delete player from the participants
-        (troop_set_slot, "trp_tournament_participants", 0, -1),
-        (val_sub, ":needed_to_remove_randomly", 1),
-      (try_end),
-        (call_script, "script_remove_tournament_participants_randomly", ":needed_to_remove_randomly"),
-        (call_script, "script_sort_tournament_participant_troops"),
-        (troop_get_slot, ":winner_troop", "trp_tournament_participants", 0),
-        (str_store_troop_name, s1, ":winner_troop"),
-        (try_begin),
-          (troop_is_hero, ":winner_troop"),
-          (call_script, "script_change_troop_renown", ":winner_troop", 20),
-          (try_begin),
-            (troop_slot_eq, ":winner_troop", slot_troop_occupation, slto_kingdom_hero),
-            (ge, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_MEDIUM),
-            # (call_script, "script_dplmc_distribute_gold_to_lord_and_holdings", 200, ":troop_no"),
-            (call_script, "script_dplmc_get_troop_standing_in_faction", ":winner_troop", "$g_encountered_party_faction"),
-            (store_mul, ":reward", reg0, 20), #1200 for leader, 600 for lord etc
-            (val_add, ":reward", 150),
-            (call_script, "script_dplmc_distribute_gold_to_lord_and_holdings", ":reward", ":winner_troop"), #add some wealth
-          (try_end),
-        (try_end),
-		  ##diplomacy start+ use script for gender
-        #(troop_get_type, reg3, ":winner_troop"),#<- OLD
-		(call_script, "script_dplmc_store_troop_is_female_reg", ":winner_troop", 3),
-		  ##diplomacy end+
-        #SB : stop arena sound if it leaks here
-        (stop_all_sounds, 0),
-        (set_background_mesh, "mesh_pic_payment"),
-        ],
-    [
-      ("continue", [], "Continue...",
-       [(jump_to_menu, "mnu_town"),
-        ]),
-    ]
-  ),
-
-  (
-    "town_tournament",mnf_disable_all_keys,
-    "{s1}You are at tier {reg0} of the tournament, with {reg1} participants remaining. In the next round, there will be {reg2} teams with {reg3} {reg4?fighters:fighter} each.",
-    "none",
-    [
-        (party_set_slot, "$current_town", slot_town_has_tournament, 0), #No way to return back if this menu is left
-        (call_script, "script_sort_tournament_participant_troops"),#Moving trp_player to the top of the list
-        (call_script, "script_get_num_tournament_participants"),
-        (assign, ":num_participants", reg0),
-        (try_begin),
-          (neg|troop_slot_eq, "trp_tournament_participants", 0, 0),#Player is defeated
-
-          (assign, ":player_odds_add", 0),
-          (store_div, ":player_odds_add", "$g_tournament_bet_placed", 5),
-          (party_get_slot, ":player_odds", "$current_town", slot_town_player_odds),
-          (val_add, ":player_odds", ":player_odds_add"),
-          (val_min, ":player_odds", 4000),
-          (party_set_slot, "$current_town", slot_town_player_odds, ":player_odds"),
-
-          (jump_to_menu, "mnu_town_tournament_lost"),
-        (else_try),
-          (eq, ":num_participants", 1),#Tournament won
-          (jump_to_menu, "mnu_town_tournament_won"),
-        (else_try),
-          (try_begin),
-            (le, "$g_tournament_next_num_teams", 0),
-            (call_script, "script_get_random_tournament_team_amount_and_size"),
-            (assign, "$g_tournament_next_num_teams", reg0),
-            (assign, "$g_tournament_next_team_size", reg1),
-          (try_end),
-          (assign, reg2, "$g_tournament_next_num_teams"),
-          (assign, reg3, "$g_tournament_next_team_size"),
-          (store_sub, reg4, reg3, 1),
-          (str_clear, s1),
-          (try_begin),
-            (eq, "$g_tournament_player_team_won", 1),
-            (str_store_string, s1, "@Victory is yours! You have won this melee, but now you must prepare yourself for the next round. "),
-          (else_try),
-            (eq, "$g_tournament_player_team_won", 0),
-            (str_store_string, s1, "@You have been bested in this melee, but the master of ceremonies declares a recognition of your skill and bravery, allowing you to take part in the next round. "),
-          (try_end),
-          (assign, reg1, ":num_participants"),
-          (store_add, reg0, "$g_tournament_cur_tier", 1),
-        (try_end),
-        ],
-    [
-      ("host_tournament",
-      [(ge, "$cheat_mode", 1),],
-      "{!}Cheat : Win tournament",
-      [
-           (jump_to_menu, "mnu_town_tournament_won"),
-           (assign, "$g_player_eligible_feast_center_no", "$current_town"),
-		   (assign, "$g_player_tournament_placement", 100),
-      ]),
-      ("tournament_view_participants", [], "View participants.",
-       [(jump_to_menu, "mnu_tournament_participants"),
-        ]),
-      ("tournament_bet", [(neq, "$g_tournament_cur_tier", "$g_tournament_last_bet_tier")], "Place a bet on yourself.",
-       [(jump_to_menu, "mnu_tournament_bet"),
-        ]),
-      ("tournament_join_next_fight", [], "Fight in the next round.",
-       [
-           (party_get_slot, ":arena_scene", "$current_town", slot_town_arena),
-           (modify_visitors_at_site, ":arena_scene"),
-           (reset_visitors),
-           #Assuming that there are enough participants for the teams
-		   (assign, "$g_player_tournament_placement", "$g_tournament_cur_tier"),
-		   (try_begin),
-		     (gt, "$g_player_tournament_placement", 4),
-		     (assign, "$g_player_eligible_feast_center_no", "$current_town"),
-		   (try_end),
-           (val_add, "$g_tournament_cur_tier", 1),
-
-           (store_mul, "$g_tournament_num_participants_for_fight", "$g_tournament_next_num_teams", "$g_tournament_next_team_size"),
-           (troop_set_slot, "trp_tournament_participants", 0, -1),#Removing trp_player from the list
-           (troop_set_slot, "trp_temp_array_a", 0, "trp_player"),
-           (try_for_range, ":slot_no", 1, "$g_tournament_num_participants_for_fight"),
-             (call_script, "script_get_random_tournament_participant"),
-             (troop_set_slot, "trp_temp_array_a", ":slot_no", reg0),
-           (try_end),
-           (call_script, "script_shuffle_troop_slots", "trp_temp_array_a", 0, "$g_tournament_num_participants_for_fight"),
-
-
-           (try_for_range, ":slot_no", 0, 4),#shuffle teams
-             (troop_set_slot, "trp_temp_array_b", ":slot_no", ":slot_no"),
-           (try_end),
-           (call_script, "script_shuffle_troop_slots", "trp_temp_array_b", 0, 4),
-
-           (assign, ":cur_slot", 0),
-           (assign, ":player_slot", -1), #SB : find player's slot
-           (try_for_range, ":cur_team_offset", 0, "$g_tournament_next_num_teams"),
-             (troop_get_slot, ":cur_team", "trp_temp_array_b", ":cur_team_offset"),
-
-             (try_for_range, ":slot_no", 0, 8),#shuffle entry_points
-               (troop_set_slot, "trp_temp_array_c", ":slot_no", ":slot_no"),
-             (try_end),
-             (call_script, "script_shuffle_troop_slots", "trp_temp_array_c", 0, 8),
-
-             (try_for_range, ":cur_index", 0, "$g_tournament_next_team_size"),
-               (store_mul, ":cur_entry_point", ":cur_team", 8),
-               (troop_get_slot, ":entry_offset", "trp_temp_array_c", ":cur_index"),
-               (val_add, ":cur_entry_point", ":entry_offset"),
-               (troop_get_slot, ":troop_no", "trp_temp_array_a", ":cur_slot"),
-               (set_visitor, ":cur_entry_point", ":troop_no"),
-               (try_begin), #SB : set player's slot
-                 (eq, ":troop_no", "trp_player"),
-                 (assign, ":player_slot", ":cur_entry_point"),
-               (try_end),
-               (val_add, ":cur_slot", 1),
-             (try_end),
-           (try_end),
-
-           (assign, "$g_tournament_next_num_teams", 0),
-           (assign, "$g_tournament_next_team_size", 0),
-
-           (assign, "$g_mt_mode", abm_tournament),
-           #SB : pass on as global
-           (try_begin),
-             (call_script, "script_dplmc_get_troop_standing_in_faction", "trp_player", "$g_encountered_party_faction"),
-             (this_or_next|ge, reg0, DPLMC_FACTION_STANDING_MEMBER),
-             (party_slot_ge, "$current_town", slot_center_player_relation, 15),
-             (assign, "$g_player_entry_point", ":player_slot"),
-           (else_try),
-             (assign, "$g_player_entry_point", -1),
-           (try_end),
-
-           (party_get_slot, ":town_original_faction", "$current_town", slot_center_original_faction),
-           (assign, ":town_index_within_faction", 0),
-           (assign, ":end_cond", towns_end),
-           (try_for_range, ":cur_town", towns_begin, ":end_cond"),
-             (try_begin),
-               (eq, ":cur_town", "$current_town"),
-               (assign, ":end_cond", 0), #break
-             (else_try),
-               (party_slot_eq, ":cur_town", slot_center_original_faction, ":town_original_faction"),
-               (val_add, ":town_index_within_faction", 1),
-             (try_end),
-           (try_end),
-
-           (set_jump_mission, "mt_arena_melee_fight"),
-
-           (try_begin),
-             (eq, ":town_original_faction", "fac_kingdom_1"),
-             #Swadia
-             (store_mod, ":mod", ":town_index_within_faction", 4),
-             (try_begin),
-               (eq, ":mod", 0),
-               (call_script, "script_set_items_for_tournament", 40, 80, 50, 20, 0, 0, 0, 0, "itm_arena_armor_red", "itm_tourney_helm_red"),
-             (else_try),
-               (eq, ":mod", 1),
-               (call_script, "script_set_items_for_tournament", 100, 100, 0, 0, 0, 0, 0, 0, "itm_arena_armor_red", "itm_tourney_helm_red"),
-             (else_try),
-               (eq, ":mod", 2),
-               (call_script, "script_set_items_for_tournament", 100, 0, 100, 0, 0, 0, 0, 0, "itm_arena_armor_red", "itm_tourney_helm_red"),
-             (else_try),
-               (eq, ":mod", 3),
-               (call_script, "script_set_items_for_tournament", 40, 80, 50, 20, 40, 0, 0, 0, "itm_arena_armor_red", "itm_tourney_helm_red"),
-             (try_end),
-           (else_try),
-             (eq, ":town_original_faction", "fac_kingdom_2"),
-             #Vaegirs
-             (store_mod, ":mod", ":town_index_within_faction", 4),
-             (try_begin),
-               (eq, ":mod", 0),
-               (call_script, "script_set_items_for_tournament", 40, 80, 50, 20, 0, 0, 0, 0, "itm_arena_armor_red", "itm_steppe_helmet_red"),
-             (else_try),
-               (eq, ":mod", 1),
-               (call_script, "script_set_items_for_tournament", 100, 50, 0, 0, 0, 20, 30, 0, "itm_arena_armor_red", "itm_steppe_helmet_red"),
-             (else_try),
-               (eq, ":mod", 2),
-               (call_script, "script_set_items_for_tournament", 100, 0, 50, 0, 0, 20, 30, 0, "itm_arena_armor_red", "itm_steppe_helmet_red"),
-             (else_try),
-               (eq, ":mod", 3),
-               (call_script, "script_set_items_for_tournament", 40, 80, 50, 20, 30, 0, 60, 0, "itm_arena_armor_red", "itm_steppe_helmet_red"),
-             (try_end),
-           (else_try),
-             (eq, ":town_original_faction", "fac_kingdom_3"),
-             #Khergit
-             (store_mod, ":mod", ":town_index_within_faction", 2),
-             (try_begin),
-               (eq, ":mod", 0),
-               (call_script, "script_set_items_for_tournament", 100, 0, 0, 0, 0, 40, 60, 0, "itm_arena_tunic_red", "itm_steppe_helmet_red"),
-             (else_try),
-               (eq, ":mod", 1),
-               (call_script, "script_set_items_for_tournament", 100, 50, 25, 0, 0, 30, 50, 0, "itm_arena_tunic_red", "itm_steppe_helmet_red"),
-             (try_end),
-           (else_try),
-             (eq, ":town_original_faction", "fac_kingdom_4"),
-             #Nords
-             (store_mod, ":mod", ":town_index_within_faction", 3),
-             (try_begin),
-               (eq, ":mod", 0),
-               (call_script, "script_set_items_for_tournament", 0, 0, 50, 80, 0, 0, 0, 0, "itm_arena_armor_red", -1),
-             (else_try),
-               (eq, ":mod", 1),
-               (call_script, "script_set_items_for_tournament", 0, 0, 50, 80, 50, 0, 0, 0, "itm_arena_armor_red", -1),
-             (else_try),
-               (eq, ":mod", 2),
-               (call_script, "script_set_items_for_tournament", 40, 0, 0, 100, 0, 0, 0, 0, "itm_arena_armor_red", -1),
-             (try_end),
-           (else_try),
-             #Rhodoks
-             (eq, ":town_original_faction", "fac_kingdom_5"),
-             (call_script, "script_set_items_for_tournament", 25, 100, 60, 0, 30, 0, 30, 50, "itm_arena_tunic_red", "itm_arena_helmet_red"),
-           (else_try),
-             #Sarranids
-             (store_mod, ":mod", ":town_index_within_faction", 2),
-             (try_begin),
-               (eq, ":mod", 0),
-               (call_script, "script_set_items_for_tournament", 100, 40, 60, 0, 30, 30, 0, 0, "itm_arena_tunic_red", "itm_arena_turban_red"),
-             (else_try),
-               (call_script, "script_set_items_for_tournament", 50, 0, 60, 0, 30, 30, 0, 0, "itm_arena_tunic_red", "itm_arena_turban_red"),
-             (try_end),
-           (try_end),
-           (jump_to_scene, ":arena_scene"),
-           (change_screen_mission),
-        ]),
-      ("leave_tournament",[],"Withdraw from the tournament.",
-       [
-           (jump_to_menu, "mnu_tournament_withdraw_verify"),
-        ]),
-    ]
-  ),
-
-  (
-    "tournament_withdraw_verify",0,
-    "Are you sure you want to withdraw from the tournament?",
-    "none",
-    [],
-    [
-      ("tournament_withdraw_yes", [], "Yes. This is a pointless affectation.",
-       [(jump_to_menu, "mnu_town_tournament_won_by_another"),
-        ]),
-      ("tournament_withdraw_no", [], "No, not as long as there is a chance of victory!",
-       [(jump_to_menu, "mnu_town_tournament"),
-        ]),
-    ]
-  ),
-
-  (
-    "tournament_bet",0,
-    "The odds against you are {reg5} to {reg6}.{reg1? You have already bet {reg1} denars on yourself, and if you win, you will earn {reg2} denars.:} How much do you want to bet?",
-    "none",
-    [
-      (assign, reg1, "$g_tournament_bet_placed"),
-      (store_add, reg2, "$g_tournament_bet_win_amount", "$g_tournament_bet_placed"),
-      (call_script, "script_get_win_amount_for_tournament_bet"),
-      (assign, ":player_odds", reg0),
-      (assign, ":min_dif", 100000),
-      (assign, ":min_dif_divisor", 1),
-      (assign, ":min_dif_multiplier", 1),
-      (try_for_range, ":cur_multiplier", 1, 50),
-        (try_for_range, ":cur_divisor", 1, 50),
-          (store_mul, ":result", 100, ":cur_multiplier"),
-          (val_div, ":result", ":cur_divisor"),
-          (store_sub, ":difference", ":player_odds", ":result"),
-          (val_abs, ":difference"),
-          (lt, ":difference", ":min_dif"),
-          (assign, ":min_dif", ":difference"),
-          (assign, ":min_dif_divisor", ":cur_divisor"),
-          (assign, ":min_dif_multiplier", ":cur_multiplier"),
-        (try_end),
-      (try_end),
-      (assign, reg5, ":min_dif_multiplier"),
-      (assign, reg6, ":min_dif_divisor"),
-      ],
-    [
-      ("bet_100_denars", [(store_troop_gold, ":gold", "trp_player"),
-                          (ge, ":gold", 100)
-                          ],
-       "100 denars.",
-       [
-         (assign, "$temp", 100),
-         (jump_to_menu, "mnu_tournament_bet_confirm"),
-        ]),
-      ("bet_50_denars", [(store_troop_gold, ":gold", "trp_player"),
-                         (ge, ":gold", 50)
-                         ],
-       "50 denars.",
-       [
-         (assign, "$temp", 50),
-         (jump_to_menu, "mnu_tournament_bet_confirm"),
-        ]),
-      ("bet_20_denars", [(store_troop_gold, ":gold", "trp_player"),
-                         (ge, ":gold", 20)
-                         ],
-       "20 denars.",
-       [
-         (assign, "$temp", 20),
-         (jump_to_menu, "mnu_tournament_bet_confirm"),
-        ]),
-      ("bet_10_denars", [(store_troop_gold, ":gold", "trp_player"),
-                         (ge, ":gold", 10)
-                         ],
-       "10 denars.",
-       [
-         (assign, "$temp", 10),
-         (jump_to_menu, "mnu_tournament_bet_confirm"),
-        ]),
-      ("bet_5_denars", [(store_troop_gold, ":gold", "trp_player"),
-                        (ge, ":gold", 5)
-                        ],
-       "5 denars.",
-       [
-         (assign, "$temp", 5),
-         (jump_to_menu, "mnu_tournament_bet_confirm"),
-        ]),
-      ("go_back_dot", [], "Go back.",
-       [
-         (jump_to_menu, "mnu_town_tournament"),
-        ]),
-    ]
-  ),
-
-  (
-    "tournament_bet_confirm",0,
-    "If you bet {reg1} denars, you will earn {reg2} denars if you win the tournament. Is that all right?",
-    "none",
-    [
-      (call_script, "script_get_win_amount_for_tournament_bet"),
-      (assign, ":win_amount", reg0),
-      (val_mul, ":win_amount", "$temp"),
-      (val_div, ":win_amount", 100),
-      (assign, reg1, "$temp"),
-      (assign, reg2, ":win_amount"),
-      ],
-    [
-      ("tournament_bet_accept", [],
-       "Go ahead.",
-       [
-         (call_script, "script_tournament_place_bet", "$temp"),
-         (jump_to_menu, "mnu_town_tournament"),
-         ]),
-      ("tournament_bet_cancel", [],
-       "Forget it.",
-       [
-         (jump_to_menu, "mnu_tournament_bet"),
-         ]),
-    ]
-  ),
-
-  (
-    "tournament_participants",0,
-    "You ask one of the criers for the names of the tournament participants. They are:^{s11}",
-    "none",
-    [
-        (str_clear, s11),
-        (call_script, "script_sort_tournament_participant_troops"),
-        (call_script, "script_get_num_tournament_participants"),
-        (assign, ":num_participants", reg0),
-        (try_for_range, ":cur_slot", 0, ":num_participants"),
-          (troop_get_slot, ":troop_no", "trp_tournament_participants", ":cur_slot"),
-          (str_store_troop_name, s12, ":troop_no"),
-          (str_store_string, s11, "@{!}{s11}^{s12}"),
-        (try_end),
-        ],
-    [
-      ("go_back_dot", [], "Go back.",
-       [(jump_to_menu, "mnu_town_tournament"),
-        ]),
-    ]
-  ),
-
-
-  (
-    "collect_taxes",mnf_disable_all_keys,
-    "As the party member with the highest trade skill ({reg2}), {reg3?you expect:{s1} expects} that collecting taxes from here will take {reg4} days...",
-    "none",
-    [(call_script, "script_get_max_skill_of_player_party", "skl_trade"),
-     (assign, ":max_skill", reg0),
-     (assign, reg2, reg0),
-     (assign, ":max_skill_owner", reg1),
-     (try_begin),
-       (eq, ":max_skill_owner", "trp_player"),
-       (assign, reg3, 1),
-     (else_try),
-       (assign, reg3, 0),
-       (str_store_troop_name, s1, ":max_skill_owner"),
-     (try_end),
-     (assign, ":tax_quest_expected_revenue", 3000),
-     (try_begin),
-       (party_slot_eq, "$current_town", slot_party_type, spt_town),
-       (assign, ":tax_quest_expected_revenue", 6000),
-     (try_end),
-
-     (try_begin),
-       (quest_slot_eq, "qst_collect_taxes", slot_quest_current_state, 0),
-       (store_add, ":max_skill_plus_thirty", ":max_skill", 30),
-       (try_begin),
-         (party_slot_eq, "$current_town", slot_party_type, spt_town),
-         (store_div, "$qst_collect_taxes_total_hours", 24* 7 * 30, ":max_skill_plus_thirty"),
-       (else_try),
-         #Village
-         (store_div, "$qst_collect_taxes_total_hours", 24 * 3 * 30, ":max_skill_plus_thirty"),
-       (try_end),
-
-       (call_script, "script_party_count_fit_for_battle", "p_main_party"),
-       (val_add, reg0, 20),
-       (val_mul, "$qst_collect_taxes_total_hours", 20),
-       (val_div, "$qst_collect_taxes_total_hours", reg0),
-
-
-       (quest_set_slot, "qst_collect_taxes", slot_quest_target_amount, "$qst_collect_taxes_total_hours"),
-       (store_div, ":menu_begin_time", "$qst_collect_taxes_total_hours", 20),#between %5-%25
-       (store_div, ":menu_end_time", "$qst_collect_taxes_total_hours", 4),
-       (assign, ":unrest_begin_time", ":menu_end_time"),#between %25-%75
-       (store_mul, ":unrest_end_time", "$qst_collect_taxes_total_hours", 3),
-       (val_div, ":unrest_end_time", 4),
-
-       (val_mul, ":tax_quest_expected_revenue", 2),
-       (store_div, "$qst_collect_taxes_hourly_income", ":tax_quest_expected_revenue", "$qst_collect_taxes_total_hours"),
-
-       (store_random_in_range, "$qst_collect_taxes_menu_counter", ":menu_begin_time", ":menu_end_time"),
-       (store_random_in_range, "$qst_collect_taxes_unrest_counter", ":unrest_begin_time", ":unrest_end_time"),
-       (assign, "$qst_collect_taxes_halve_taxes", 0),
-     (try_end),
-     (quest_get_slot, ":target_hours", "qst_collect_taxes", slot_quest_target_amount),
-     (store_div, ":target_days", ":target_hours", 24),
-     (val_mul, ":target_days", 24),
-     (try_begin),
-       (lt, ":target_days", ":target_hours"),
-       (val_add, ":target_days", 24),
-     (try_end),
-     (val_div, ":target_days", 24),
-     (assign, reg4, ":target_days"),
-     ],
-    [
-      ("start_collecting", [], "Start collecting.",
-       [(assign, "$qst_collect_taxes_currently_collecting", 1),
-        (try_begin),
-          (quest_slot_eq, "qst_collect_taxes", slot_quest_current_state, 0),
-          (quest_set_slot, "qst_collect_taxes", slot_quest_current_state, 1),
-        (try_end),
-        (rest_for_hours_interactive, 1000, 5, 0), #rest while not attackable
-        (assign,"$auto_enter_town","$current_town"),
-        (assign, "$g_town_visit_after_rest", 1),
-        (change_screen_return),
-        ]),
-      ("collect_later", [], "Put it off until later.",
-       [(try_begin),
-          (party_slot_eq, "$current_town", slot_party_type, spt_town),
-          (jump_to_menu, "mnu_town"),
-        (else_try),
-          (jump_to_menu, "mnu_village"),
-        (try_end),
-        ]),
-    ]
-  ),
-
-  (
-    "collect_taxes_complete",mnf_disable_all_keys,
-    ##diplomacy start+
-    ##Replace "him" with "{reg4?her:him}"
-    "You've collected {reg3} denars in taxes from {s3}. {s19} will be expecting you to take the money to {reg4?her:him}.",
-    ##diplomacy end+
-    "none",
-    [(str_store_party_name, s3, "$current_town"),
-     (quest_get_slot, ":quest_giver", "qst_collect_taxes", slot_quest_giver_troop),
-     (str_store_troop_name, s19, ":quest_giver"),
-     ##diplomacy start+
-
-     (try_begin),
-       (eq, "$qst_collect_taxes_halve_taxes", 0),
-       (call_script, "script_change_player_relation_with_center", "$current_town", -2),
-     (try_end),
-     (call_script, "script_succeed_quest", "qst_collect_taxes"),
-     
-     #SB : add renown to tax collector
-     (try_begin),
-       (call_script, "script_get_max_skill_of_player_party", "skl_trade"),
-       (neq, reg1, "trp_player"),
-       (call_script, "script_change_troop_renown", reg1, dplmc_companion_skill_renown),
-     (try_end),
-     
-     (quest_get_slot, reg3, "qst_collect_taxes", slot_quest_gold_reward),
-     ##Store quest giver gender to reg4
-     (call_script, "script_dplmc_store_troop_is_female_reg", ":quest_giver", 4), #SB : use other script
-     ##diplomacy end+
-     ],
-    [
-      ("continue", [], "Continue...",
-       [(change_screen_return),
-        ]),
-    ]
-  ),
-
-  (
-    "collect_taxes_rebels_killed",0,
-    "Your quick action and strong arm have successfully put down the revolt.\
- Surely, anyone with a mind to rebel against you will think better of it after this.",
-    "none",
-    [
-    ],
-    [
-      ("continue", [], "Continue...",
-       [(change_screen_map),
-        ]),
-    ]
-  ),
-
-  (
-    "collect_taxes_failed",mnf_disable_all_keys,
-##diplomacy start+ fix gender of pronoun
-    "You could collect only {reg3} denars as tax from {s3} before the revolt broke out.\
- {s1} won't be happy, but some silver will placate {reg4?her:him} better than nothing at all...",
-##diplomacy end+
-    "none",
-    [#SB : set up picture
-     (try_begin),
-       (eq, "$character_gender", tf_male),
-       (set_background_mesh, "mesh_pic_escape_1"),
-     (else_try),
-       (eq, "$character_gender", tf_male),
-       (set_background_mesh, "mesh_pic_escape_1_fem"),
-     (try_end),
-     (str_store_party_name, s3, "$current_town"),
-     (quest_get_slot, ":quest_giver", "qst_collect_taxes", slot_quest_giver_troop),
-     ##diplomacy start+ store gender of quest giver in reg4
-     (call_script, "script_dplmc_store_troop_is_female", ":quest_giver"),
-     (assign, reg4, reg0),
-     ##diplomacy end+
-     (str_store_troop_name, s1, ":quest_giver"),
-     (quest_get_slot, reg3, "qst_collect_taxes", slot_quest_gold_reward),
-     (call_script, "script_fail_quest", "qst_collect_taxes"),
-     (quest_set_slot, "qst_collect_taxes", slot_quest_current_state, 4),
-     (rest_for_hours, 0, 0, 0), #stop resting
-     ],
-    [
-      ("continue", [], "Continue...",
-        [#SB : lose renown
-          (call_script, "script_change_troop_renown", "trp_player", -2),
-          (change_screen_map),
-        ]),
-    ]
-  ),
-
-  (
-    "collect_taxes_revolt_warning",0,
-    "The people of {s3} are outraged at your demands and decry it as nothing more than extortion.\
- They're getting very restless, and they may react badly if you keep pressing them.",
-    "none",
-    [(str_store_party_name, s3, "$current_town"),
-     ],
-    [
-      ("continue_collecting_taxes", [], "Ignore them and continue.",
-       [ #SB : objectionable action
-       (call_script, "script_objectionable_action", tmt_egalitarian, "str_repress_farmers"),
-       (change_screen_return),]),
-      ("halve_taxes", [(quest_get_slot, ":quest_giver_troop", "qst_collect_taxes", slot_quest_giver_troop),
-                       (str_store_troop_name, s1, ":quest_giver_troop"),],
-       "Agree to reduce your collection by half. ({s1} may be upset)",
-       [(assign, "$qst_collect_taxes_halve_taxes", 1),
-        (change_screen_return),
-        ]),
-    ]
-  ),
-
-  (
-    "collect_taxes_revolt",0,
-    "You are interrupted while collecting the taxes at {s3}. A large band of angry {reg9?peasants:townsmen} is marching nearer,\
- shouting about the exorbitant taxes and waving torches and weapons. It looks like they aim to fight you!",
-    "none",
-    [(str_store_party_name, s3, "$current_town"),
-     #SB : town pictures
-     (try_begin),
-       (party_slot_eq, "$current_town", slot_party_type, spt_village),
-       (assign, reg9, 1),
-       (set_background_mesh, "mesh_pic_villageriot"),
-     (else_try),
-       (set_background_mesh, "mesh_pic_townriot"),
-       (assign, reg9, 0),
-     (try_end),
-     ],
-    [
-      ("continue", [], "Continue...",
-       [(set_jump_mission,"mt_back_alley_revolt"),
-        (quest_get_slot, ":target_center", "qst_collect_taxes", slot_quest_target_center),
-        (try_begin),
-          (party_slot_eq, ":target_center", slot_party_type, spt_town),
-          (party_get_slot, ":town_alley", ":target_center", slot_town_alley),
-        (else_try),
-          (party_get_slot, ":town_alley", ":target_center", slot_castle_exterior),
-        (try_end),
-        (modify_visitors_at_site,":town_alley"),
-        (reset_visitors),
-        (assign, ":num_rebels", 6),
-        (store_character_level, ":level", "trp_player"),
-        (val_div, ":level", 5),
-        (val_add, ":num_rebels", ":level"),
-        (set_visitors, 1, "trp_tax_rebel", ":num_rebels"),
-        (jump_to_scene,":town_alley"),
-        (change_screen_mission),
-        ]),
-    ]
-  ),
-
-# They must learn field discipline and the steadiness to follow orders in combat before they can be thought to use arms.",
-  (
-    "train_peasants_against_bandits",0,
-    "As the party member with the highest training skill ({reg2}), {reg3?you expect:{s1} expects} that getting some peasants ready for practice will take {reg4} hours.",
-    "none",
-    [(call_script, "script_get_max_skill_of_player_party", "skl_trainer"),
-     (assign, ":max_skill", reg0),
-     (assign, reg2, reg0),
-     (assign, ":max_skill_owner", reg1),
-     (try_begin),
-       (eq, ":max_skill_owner", "trp_player"),
-       (assign, reg3, 1),
-     (else_try),
-       (assign, reg3, 0),
-       (str_store_troop_name, s1, ":max_skill_owner"),
-     (try_end),
-     (store_sub, ":needed_hours", 20, ":max_skill"),
-     (val_mul, ":needed_hours", 3),
-     (val_div, ":needed_hours", 5),
-     (store_sub, reg4, ":needed_hours", "$qst_train_peasants_against_bandits_num_hours_trained"),
-     ],
-    [
-      ("make_preparation", [], "Train them.",
-       [
-         (assign, "$qst_train_peasants_against_bandits_currently_training", 1),
-         (rest_for_hours_interactive, 1000, 5, 0), #rest while not attackable
-         (assign, "$auto_enter_town", "$current_town"),
-         (assign, "$g_town_visit_after_rest", 1),
-         (change_screen_return),
-         ]),
-      ("train_later", [], "Put it off until later.",
-       [
-         (jump_to_menu, "mnu_village"),
-        ]),
-    ]
-  ),
-
-  (
-    "train_peasants_against_bandits_ready",0,
-    "You put the peasants through the basics of soldiering, discipline and obedience.\
- You think {reg0} of them {reg1?have:has} fully grasped the training and {reg1?are:is} ready for some practice.",
-    "none",
-    [
-      (store_character_level, ":level", "trp_player"),
-      (val_div, ":level", 10),
-      (val_add, ":level", 1),
-      (quest_get_slot, ":quest_target_amount", "qst_train_peasants_against_bandits", slot_quest_target_amount),
-      (quest_get_slot, ":quest_current_state", "qst_train_peasants_against_bandits", slot_quest_current_state),
-      (val_sub, ":quest_target_amount", ":quest_current_state"),
-      (assign, ":max_random", ":level"),
-      (val_min, ":max_random", ":quest_target_amount"),
-      (val_add, ":max_random", 1),
-      (store_random_in_range, ":random_number", 1, ":max_random"),
-      (assign, "$g_train_peasants_against_bandits_num_peasants", ":random_number"),
-      (assign, reg0, ":random_number"),
-      (store_sub, reg1, ":random_number", 1),
-      (str_store_troop_name_by_count, s0, "trp_trainee_peasant", ":random_number"),
-     ],
-    [
-      ("peasant_start_practice", [], "Start the practice fight.",
-       [
-         (set_jump_mission,"mt_village_training"),
-         (quest_get_slot, ":target_center", "qst_train_peasants_against_bandits", slot_quest_target_center),
-         (party_get_slot, ":village_scene", ":target_center", slot_castle_exterior),
-         (modify_visitors_at_site, ":village_scene"),
-         (reset_visitors),
-         (set_visitor, 0, "trp_player"),
-         (set_visitors, 1, "trp_trainee_peasant", "$g_train_peasants_against_bandits_num_peasants"),
-         (set_jump_entry, 11),
-         (jump_to_scene, ":village_scene"),
-         (jump_to_menu, "mnu_train_peasants_against_bandits_training_result"),
-         (music_set_situation, 0),
-         (change_screen_mission),
-         ]),
-      ]
-    ),
-
-  (
-    "train_peasants_against_bandits_training_result",mnf_disable_all_keys,
-    "{s0}",
-    "none",
-    [
-      (assign, reg5, "$g_train_peasants_against_bandits_num_peasants"),
-      (str_store_troop_name_by_count, s0, "trp_trainee_peasant", "$g_train_peasants_against_bandits_num_peasants"),
-      (try_begin),
-        (eq, "$g_train_peasants_against_bandits_training_succeeded", 0),
-        (str_store_string, s0, "@You were beaten. The peasants are heartened by their success, but the lesson you wanted to teach them probably didn't get through..."),
-      (else_try),
-        (str_store_string, s0, "@After beating your last opponent, you explain to the peasants how to better defend themselves against such an attack. Hopefully they'll take the experience on board and will be prepared next time."),
-        (quest_get_slot, ":quest_current_state", "qst_train_peasants_against_bandits", slot_quest_current_state),
-        (val_add, ":quest_current_state", "$g_train_peasants_against_bandits_num_peasants"),
-        (quest_set_slot, "qst_train_peasants_against_bandits", slot_quest_current_state, ":quest_current_state"),
-      (try_end),
-     ],
-    [
-      ("continue", [], "Continue...",
-       [
-         (try_begin),
-           (quest_get_slot, ":quest_current_state", "qst_train_peasants_against_bandits", slot_quest_current_state),
-           (quest_slot_eq, "qst_train_peasants_against_bandits", slot_quest_target_amount, ":quest_current_state"),
-           (jump_to_menu, "mnu_train_peasants_against_bandits_attack"),
-         (else_try),
-           (change_screen_map),
-         (try_end),
-         ]),
-      ]
-    ),
-
-  (
-    "train_peasants_against_bandits_attack",0,
-    "As you get ready to continue the training, a sentry from the village runs up to you, shouting alarums.\
- The bandits have been spotted on the horizon, riding hard for {s3}.\
- The elder begs that you organize your newly-trained militia and face them.",
-    "none",
-    [
-    (str_store_party_name, s3, "$current_town"),
-     ],
-    [
-      ("peasants_against_bandits_attack_resist", [], "Prepare for a fight!",
-       [ ## SB : use new bandit script
-        # (store_random_in_range, ":random_no", 0, 3),
-        # (try_begin),
-          # (eq, ":random_no", 0),
-          # (assign, ":bandit_troop", "trp_bandit"),
-        # (else_try),
-          # (eq, ":random_no", 1),
-          # (assign, ":bandit_troop", "trp_mountain_bandit"),
-        # (else_try),
-          # (assign, ":bandit_troop", "trp_forest_bandit"),
-        # (try_end),
-        (call_script, "script_center_get_bandits", "$current_town", 0),
-        (assign, ":bandit_troop", reg0),
-        (party_get_slot, ":scene_to_use", "$g_encountered_party", slot_castle_exterior),
-        (modify_visitors_at_site, ":scene_to_use"),
-        (reset_visitors),
-        (store_character_level, ":level", "trp_player"),
-        (val_div, ":level", 2),
-        (store_add, ":min_bandits", ":level", 16),
-        (store_add, ":max_bandits", ":min_bandits", 6),
-        (store_random_in_range, ":random_no", ":min_bandits", ":max_bandits"),
-        (set_visitors, 0, ":bandit_troop", ":random_no"),
-        # (assign, ":num_villagers", ":max_bandits"),
-        #SB : more accurate count
-        (party_count_members_of_type, ":num_villagers", "$current_town", "trp_farmer"), #disallow peasant woman
-        (val_min, ":num_villagers", ":max_bandits"), #dckplmc
-        (set_visitors, 2, "trp_trainee_peasant", ":num_villagers"),
-        (set_party_battle_mode),
-        (set_battle_advantage, 0),
-        (assign, "$g_battle_result", 0),
-        (set_jump_mission,"mt_village_attack_bandits"),
-        (jump_to_scene, ":scene_to_use"),
-        (assign, "$g_next_menu", "mnu_train_peasants_against_bandits_attack_result"),
-        (jump_to_menu, "mnu_battle_debrief"),
-        (assign, "$g_mt_mode", vba_after_training),
-        (change_screen_mission),
-        ]),
-      ]
-    ),
-
-  (
-    "train_peasants_against_bandits_attack_result",mnf_scale_picture|mnf_disable_all_keys,
-    "{s9}",
-    "none",
-    [
-      (try_begin),
-        (eq, "$g_battle_result", 1),
-        (str_store_string, s9, "@The bandits are broken!\
- Those few who remain alive and conscious run off with their tails between their legs,\
- terrified of the peasants and their new champion."),
-        (call_script, "script_succeed_quest", "qst_train_peasants_against_bandits"),
-        (jump_to_menu, "mnu_train_peasants_against_bandits_success"),
-      (else_try),
-        (call_script, "script_fail_quest", "qst_train_peasants_against_bandits"),
-        (str_store_string, s9, "@Try as you might, you could not defeat the bandits.\
- Infuriated, they raze the village to the ground to punish the peasants,\
- and then leave the burning wasteland behind to find greener pastures to plunder."),
-        (set_background_mesh, "mesh_pic_looted_village"),
-      (try_end),
-     ],
-    [
-      ("continue", [], "Continue...",
-       [(try_begin),
-          (call_script, "script_village_set_state",  "$current_town", svs_looted),
-          (party_set_slot, "$current_town", slot_village_raid_progress, 0),
-          (party_set_slot, "$current_town", slot_village_recover_progress, 0),
-          (call_script, "script_change_player_relation_with_center", "$g_encountered_party", -3),
-          (call_script, "script_end_quest", "qst_train_peasants_against_bandits"),
-        (try_end),
-        (change_screen_map),
-    ]),
-      ]
-    ),
-
-   (
-    "train_peasants_against_bandits_success",mnf_disable_all_keys,
-    "The bandits are broken!\
- Those few who remain run off with their tails between their legs,\
- terrified of the peasants and their new champion.\
- The villagers have little left in the way of wealth after their ordeal,\
- but they offer you all they can find to show their gratitude.",
-    "none",
-    [(party_clear, "p_temp_party"),
-     #SB : probably apply casualties before adding new troops?
-     (quest_get_slot, ":amount_trained", "qst_train_peasants_against_bandits", slot_quest_target_amount),
-     (store_faction_of_party, ":village_faction", "$current_town"), #assuming player trains them with local weapons
-     (faction_get_slot, ":recruit_troop", ":village_faction", slot_faction_tier_1_troop),
-     (party_add_members, "$current_town", ":recruit_troop", ":amount_trained"),
-     (party_remove_members, "$current_town", "trp_farmer", ":amount_trained"),
-
-     (call_script, "script_end_quest", "qst_train_peasants_against_bandits"),
-     (call_script, "script_change_player_relation_with_center", "$current_town", 4),
-
-     (party_get_slot, ":merchant_troop", "$current_town", slot_town_elder),
-     (try_for_range, ":slot_no", num_equipment_kinds ,max_inventory_items + num_equipment_kinds),
-        (store_random_in_range, ":rand", 0, 100),
-        (lt, ":rand", 50),
-        (troop_set_inventory_slot, ":merchant_troop", ":slot_no", -1),
-     (try_end),
-     (call_script, "script_add_log_entry", logent_helped_peasants, "trp_player",  "$current_town", -1, -1),
-     (set_background_mesh, "mesh_pic_mb_warrior_3"), #SB : background mesh
-    ],
-    [
-      ("village_bandits_defeated_accept",[],"Take it as your just due.",[(jump_to_menu, "mnu_auto_return_to_map"),
-                                                                         (party_get_slot, ":merchant_troop", "$current_town", slot_town_elder),
-                                                                         (troop_sort_inventory, ":merchant_troop"),
-                                                                         (change_screen_loot, ":merchant_troop"),
-                                                                       ]),
-      ("village_bandits_defeated_cont",[],  "Refuse, stating that they need these items more than you do.",[
-      (call_script, "script_change_player_relation_with_center", "$g_encountered_party", 3),
-      (call_script, "script_change_player_honor", 1),
-      (change_screen_map)]),
-    ],
-  ),
-
-
-  (
-    "disembark",0,
-    "Do you wish to disembark?",
-    "none",
-    [],
-    [
-      ("disembark_yes", [], "Yes.",
-       [(assign, "$g_player_icon_state", pis_normal),
-        (party_set_flags, "p_main_party", pf_is_ship, 0),
-        (party_get_position, pos1, "p_main_party"),
-        (party_set_position, "p_main_party", pos0),
-        (try_begin),
-          (le, "$g_main_ship_party", 0),
-          (set_spawn_radius, 0),
-          (spawn_around_party, "p_main_party", "pt_none"),
-          (assign, "$g_main_ship_party", reg0),
-          (party_set_flags, "$g_main_ship_party", pf_is_static|pf_always_visible|pf_hide_defenders|pf_is_ship, 1),
-          (str_store_troop_name, s1, "trp_player"),
-          (party_set_name, "$g_main_ship_party", "@{s1}'s Ship"),
-          (party_set_icon, "$g_main_ship_party", "icon_ship"),
-          (party_set_slot, "$g_main_ship_party", slot_party_type, spt_ship),
-        (try_end),
-        (enable_party, "$g_main_ship_party"),
-        (party_set_position, "$g_main_ship_party", pos0),
-        (party_set_icon, "$g_main_ship_party", "icon_ship_on_land"),
-        (assign, "$g_main_ship_party", -1),
-        (change_screen_return),
-        ]),
-      ("disembark_no", [], "No.",
-       [(change_screen_return),
-        ]),
-    ]
-  ),
-
-  (
-    "ship_reembark",0,
-    "Do you wish to embark?",
-    "none",
-    [],
-    [
-      ("reembark_yes", [], "Yes.",
-       [(assign, "$g_player_icon_state", pis_ship),
-        (party_set_flags, "p_main_party", pf_is_ship, 1),
-        (party_get_position, pos1, "p_main_party"),
-        (map_get_water_position_around_position, pos2, pos1, 6),
-        (party_set_position, "p_main_party", pos2),
-        (assign, "$g_main_ship_party", "$g_encountered_party"),
-        (disable_party, "$g_encountered_party"),
-        (change_screen_return),
-        ]),
-      ("reembark_no", [], "No.",
-       [(change_screen_return),
-        ]),
-    ]
-  ),
-
-  (
+	
+ (
     "center_reports",0,
     "Town Name: {s1}^Rent Income: {reg1} denars^Tariff Income: {reg2} denars^Food Stock: for {reg3} days",
     "none",
@@ -14992,7 +14035,1289 @@ goods, and books will never be sold. ^^You can change some settings here freely.
            (change_screen_return),
         ]),
     ]
+  ),	
+  
+  ( #pre lady visit
+    "garden",0,
+    "{s12}",
+    "none",
+    [
+
+    (call_script, "script_get_kingdom_lady_social_determinants", "$love_interest_in_town"),
+	(assign, ":guardian_lord", reg0),
+	(str_store_troop_name, s11, "$love_interest_in_town"),
+
+	(try_begin),
+		(call_script, "script_npc_decision_checklist_male_guardian_assess_suitor", ":guardian_lord", "trp_player"),
+		(lt, reg0, 0),
+		(troop_set_slot, ":guardian_lord", slot_lord_granted_courtship_permission, -1),
+	(try_end),
+
+	(assign, "$nurse_assists_entry", 0),
+	(try_begin),
+		(troop_slot_eq, ":guardian_lord", slot_lord_granted_courtship_permission, 1),
+		(str_store_string, s12, "str_the_guards_at_the_gate_have_been_ordered_to_allow_you_through_you_might_be_imagining_things_but_you_think_one_of_them_may_have_given_you_a_wink"),
+	(else_try), #the circumstances under which the lady arranges for a surreptitious entry
+		(call_script, "script_troop_get_relation_with_troop", "trp_player", "$love_interest_in_town"),
+		(gt, reg0, 0),
+
+		(assign, ":player_completed_quest", 0),
+		(try_begin),
+			(check_quest_active, "qst_visit_lady"),
+			(quest_slot_eq, "qst_visit_lady", slot_quest_giver_troop, "$love_interest_in_town"),
+			(assign, ":player_completed_quest", 1),
+		(else_try),
+			(check_quest_active, "qst_formal_marriage_proposal"),
+			(quest_slot_eq, "qst_formal_marriage_proposal", slot_quest_giver_troop, "$love_interest_in_town"),
+			(this_or_next|check_quest_succeeded, "qst_formal_marriage_proposal"),
+				(check_quest_failed, "qst_formal_marriage_proposal"),
+			(assign, ":player_completed_quest", 1),
+		(else_try),
+			(check_quest_active, "qst_duel_courtship_rival"),
+			(quest_slot_eq, "qst_duel_courtship_rival", slot_quest_giver_troop, "$love_interest_in_town"),
+			(this_or_next|check_quest_succeeded, "qst_duel_courtship_rival"),
+				(check_quest_failed, "qst_duel_courtship_rival"),
+			(assign, ":player_completed_quest", 1),
+		(try_end),
+
+		(try_begin),
+			(store_current_hours, ":hours_since_last_visit"),
+			(troop_get_slot, ":last_visit_time", "$love_interest_in_town", slot_troop_last_talk_time),
+			(val_sub, ":hours_since_last_visit", ":last_visit_time"),
+			(this_or_next|ge, ":hours_since_last_visit", 96), #at least four days
+				(eq, ":player_completed_quest", 1),
+
+			(try_begin),
+				(is_between, "$g_encountered_party", towns_begin, towns_end),
+				(str_store_string, s12, "str_the_guards_glare_at_you_and_you_know_better_than_to_ask_permission_to_enter_however_as_you_walk_back_towards_your_lodgings_an_elderly_lady_dressed_in_black_approaches_you_i_am_s11s_nurse_she_whispers_urgently_don_this_dress_and_throw_the_hood_over_your_face_i_will_smuggle_you_inside_the_castle_to_meet_her_in_the_guise_of_a_skullery_maid__the_guards_will_not_look_too_carefully_but_i_beg_you_for_all_of_our_sakes_be_discrete"),
+				(assign, "$nurse_assists_entry", 1),
+			(else_try),
+				(str_store_string, s12, "str_the_guards_glare_at_you_and_you_know_better_than_to_ask_permission_to_enter_however_as_you_walk_back_towards_your_lodgings_an_elderly_lady_dressed_in_black_approaches_you_i_am_s11s_nurse_she_whispers_urgently_wait_for_a_while_by_the_spring_outside_the_walls_i_will_smuggle_her_ladyship_out_to_meet_you_dressed_in_the_guise_of_a_shepherdess_but_i_beg_you_for_all_of_our_sakes_be_discrete"),
+				(assign, "$nurse_assists_entry", 2),
+			(try_end),
+		(else_try),
+			(str_store_string, s12, "str_the_guards_glare_at_you_and_you_know_better_than_to_ask_permission_to_enter_however_as_you_walk_back_towards_your_lodgings_an_elderly_lady_dressed_in_black_approaches_you_i_am_s11s_nurse_she_whispers_urgently_her_ladyship_asks_me_to_say_that_yearns_to_see_you_but_that_you_should_bide_your_time_a_bit_her_ladyship_says_that_to_arrange_a_clandestine_meeting_so_soon_after_your_last_encounter_would_be_too_dangerous"),
+		(try_end),
+	(else_try),
+		(str_store_string, s12, "str_the_guards_glare_at_you_and_you_know_better_than_to_ask_permission_to_enter"),
+	(try_end),
+
+	],
+    [
+
+	("enter",
+	[
+    (call_script, "script_get_kingdom_lady_social_determinants", "$love_interest_in_town"),
+	(troop_slot_eq, reg0, slot_lord_granted_courtship_permission, 1)
+	], "Enter",
+	[
+	(jump_to_menu, "mnu_town"),
+	(call_script, "script_setup_meet_lady", "$love_interest_in_town", "$g_encountered_party"),
+	]
+	),
+
+	("nurse",
+	[
+    (eq, "$nurse_assists_entry", 1),
+	], "Go with the nurse",
+	[
+	(jump_to_menu, "mnu_town"),
+	(call_script, "script_setup_meet_lady", "$love_interest_in_town", "$g_encountered_party"),
+	]
+	),
+
+
+	("nurse",
+	[
+    (eq, "$nurse_assists_entry", 2),
+	], "Wait by the spring",
+	[
+	(jump_to_menu, "mnu_town"),
+	(call_script, "script_setup_meet_lady", "$love_interest_in_town", "$g_encountered_party"),
+	]
+	),
+
+	("leave",
+	[],
+	"Leave",
+	[(jump_to_menu, "mnu_town")]),
+
+    ]
   ),
+
+  #SB : standardize court requirements, 1x tool + 2x bolts of wool/velvet/linen cloth
+  ("establish_court",mnf_disable_all_keys,
+    "To establish {s4} as your court will require a small refurbishment. In particular, you will need a set of tools and two bolts of fabric. You own {reg1} of the former and {reg0} of the latter. It may also take a short while for some of your followers to relocate here. Do you wish to proceed?",
+    "none",
+    [
+      (call_script, "script_dplmc_count_item_for_court", "trp_player", -1, -1),
+      (assign, "$diplomacy_var", reg0),
+      (assign, "$diplomacy_var2", reg1),
+      (call_script, "script_dplmc_count_item_for_court", "trp_household_possessions", -1, -1),
+      (val_add, "$diplomacy_var", reg0),
+      (val_add, "$diplomacy_var2", reg1),
+      (str_store_party_name, s4, "$g_encountered_party"),
+      (assign, reg0, "$diplomacy_var"),
+      (assign, reg1, "$diplomacy_var2"),
+    ],
+
+    [
+      ("establish",[
+      # (player_has_item, "itm_tools"),
+      # (player_has_item, "itm_velvet"),
+      (ge, "$diplomacy_var", 2),
+      (ge, "$diplomacy_var2", 1), #SB : one set of tools
+      # conditions already handled in parent menu
+      # (store_and, ":name_set", "$players_kingdom_name_set", rename_center),
+      # (eq, ":name_set", 0),
+      ],"Establish {s4} as your court",
+       [
+        (assign, "$g_player_court", "$current_town"),
+        # (troop_remove_item, "trp_player", "itm_tools"),
+        # (troop_remove_item, "trp_player", "itm_velvet"),
+        (call_script, "script_dplmc_count_item_for_court", "trp_household_possessions", 2, 1),
+        (call_script, "script_dplmc_count_item_for_court", "trp_player", reg0, reg1),
+        (jump_to_menu, "mnu_town"),
+       ]),
+       
+      #SB : allows checking inventory to see how much you need
+      ("check_inv",[],"Check your household inventory",
+       [
+        (change_screen_loot, "trp_household_possessions"),
+       ]),
+    # ("capital_exists",
+      # [
+        # (store_and, ":name_set", "$players_kingdom_name_set", rename_center),
+        # (ge, ":name_set", rename_center),
+        # (str_store_party_name, s1, "$g_player_court"),
+        # (disable_menu_option),
+      # ],
+       # "You cannot move the court as your capital is at {s1}.",
+       # [
+     # ]),
+
+
+      ("continue",[],"Hold off...",
+       [
+         (jump_to_menu, "mnu_town"),
+       ]),
+    ]
+  ),  
+  
+    (
+    "kill_local_merchant_begin",0,
+    "You spot your victim and follow him, observing as he turns a corner into a dark alley.\
+ This will surely be your best opportunity to attack him.",
+    "none",
+    [
+    ],
+    [
+      ("continue",[],"Continue...",
+       [(set_jump_mission,"mt_back_alley_kill_local_merchant"),
+        (party_get_slot, ":town_alley", "$qst_kill_local_merchant_center", slot_town_alley),
+        (modify_visitors_at_site,":town_alley"),
+        (reset_visitors),
+        (set_visitor, 0, "trp_player"),
+        (set_visitor, 1, "trp_local_merchant"),
+        (jump_to_menu, "mnu_town"),
+        (jump_to_scene,":town_alley"),
+        (change_screen_mission),
+        ]),
+     ]
+  ),  
+  
+  ("lost_tavern_duel",mnf_disable_all_keys,
+    "{s11}{s12}",
+    "none",
+    [
+    (str_clear, s11),
+    (str_clear, s12),
+    #use s11 as primary indicator string
+	(try_begin),
+		(agent_get_troop_id, ":type", "$g_main_attacker_agent"),
+		(eq, ":type", "trp_belligerent_drunk"),
+		(str_store_string, s11, "str_lost_tavern_duel_ordinary"),
+	(else_try),
+		(agent_get_troop_id, ":type", "$g_main_attacker_agent"),
+		(eq, ":type", "trp_hired_assassin"),
+		(str_store_string, s11, "str_lost_tavern_duel_assassin"),
+	(try_end),
+	(troop_set_slot, "trp_hired_assassin", slot_troop_cur_center, -1),
+	(troop_set_slot, "trp_belligerent_drunk", slot_troop_cur_center, -1), #remove him for now
+    
+    #use s12 for additional info like lost purse, etc
+    #SB : penalty for fighting while disguised
+    (try_begin),
+      (gt, "$sneaked_into_town", disguise_none),
+      (store_random_in_range, ":random_no", -100, 200),
+      # (ge, ":random_no", "$g_player_luck"),
+      (ge, ":random_no", 0),
+      (str_store_string, s12, "@ Unfortunately, when the guards inquired about the tavern brawl, your description was recognized and you were in no condition to fight them off."),
+    (try_end),
+    ],
+    [
+      ("continue",[(eq, "$sneaked_into_town", disguise_none),],"Continue...",
+       [
+         (jump_to_menu, "mnu_town"),
+         (troop_set_health, "trp_player", 25),
+         #SB : renown loss, less than losing to bandits
+         (call_script, "script_change_troop_renown", "trp_player", -1),
+       ]),
+       
+      ("surrender",[(gt, "$sneaked_into_town", disguise_none),],"Surrender...",
+       [
+         (jump_to_menu, "mnu_captivity_castle_taken_prisoner"),
+       ]),
+    ]
+  ),  
+	
+	
+####################################################################################################################
+# [ Z13 ] - Tournaments
+####################################################################################################################  
+
+
+  (
+    "town_tournament_lost",0,
+    "You have been eliminated from the tournament.{s8}",
+    "none",
+    [
+	(str_clear, s8),
+	(try_begin),
+		(this_or_next|neq, "$players_kingdom", "$g_encountered_party_faction"),
+			(neg|troop_slot_ge, "trp_player", slot_troop_renown, 50),
+		(neg|troop_slot_ge, "trp_player", slot_troop_renown, 125),
+		(gt, "$g_player_tournament_placement", 4),
+		(faction_slot_eq, "$g_encountered_party_faction", slot_faction_ai_state, sfai_feast),
+		(faction_slot_eq, "$g_encountered_party_faction", slot_faction_ai_object, "$g_encountered_party"),
+		(str_store_string, s8, "str__however_you_have_sufficiently_distinguished_yourself_to_be_invited_to_attend_the_ongoing_feast_in_the_lords_castle"),
+	(try_end),
+
+        ],
+    [
+      ("continue", [], "Continue...",
+       [(jump_to_menu, "mnu_town_tournament_won_by_another"),
+        ]),
+    ]
+  ),
+
+  (
+    "town_tournament_won",mnf_disable_all_keys,
+    "You have won the tournament of {s3}! You are filled with pride as the crowd cheers your name.\
+ In addition to honour, fame and glory, you earn a prize of {reg9} denars. {s8}",
+    "none",
+    [
+        (str_store_party_name, s3, "$current_town"),
+        (call_script, "script_change_troop_renown", "trp_player", 20),
+        (call_script, "script_change_player_relation_with_center", "$current_town", 1),
+        (try_begin), #SB : slight scaling reward
+          (ge, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_MEDIUM),
+          # (store_faction_of_party, ":center_faction", "$current_town"),
+          (call_script, "script_dplmc_get_troop_standing_in_faction", "trp_player", "$g_encountered_party_faction"),
+          (store_mul, ":reward", reg0, 20), #1200 for leader, 600 for lord etc
+          (val_add, ":reward", 150),
+          (try_begin), #this is halved if it's the player's own center to prevent quest abuse?
+            (party_slot_eq, "$current_town", slot_town_lord, "trp_player"),
+            (val_mul, ":reward", 2),
+            (val_div, ":reward", 3),
+          (try_end),
+        (else_try),
+          (assign, ":reward", 200),
+        (try_end),
+        (assign, reg9, ":reward"),
+        (troop_add_gold, "trp_player", ":reward"),
+        (add_xp_to_troop, 250, "trp_player"),
+        (str_clear, s8),
+        (store_add, ":total_win", "$g_tournament_bet_placed", "$g_tournament_bet_win_amount"),
+        (try_begin),
+          (gt, "$g_tournament_bet_win_amount", 0),
+          (assign, reg8, ":total_win"),
+          (str_store_string, s8, "@Moreover, you earn {reg8} denars from the clever bets you placed on yourself..."),
+        (try_end),
+		(try_begin),
+			(this_or_next|neq, "$players_kingdom", "$g_encountered_party_faction"),
+				(neg|troop_slot_ge, "trp_player", slot_troop_renown, 70),
+			(neg|troop_slot_ge, "trp_player", slot_troop_renown, 145),
+
+			(faction_slot_eq, "$g_encountered_party_faction", slot_faction_ai_state, sfai_feast),
+			(faction_slot_eq, "$g_encountered_party_faction", slot_faction_ai_object, "$g_encountered_party"),
+			(str_store_string, s8, "str_s8_you_are_also_invited_to_attend_the_ongoing_feast_in_the_castle"),
+		(try_end),
+        (troop_add_gold, "trp_player", ":total_win"),
+        (assign, ":player_odds_sub", 0),
+        (store_div, ":player_odds_sub", "$g_tournament_bet_win_amount", 5),
+        (party_get_slot, ":player_odds", "$current_town", slot_town_player_odds),
+        (val_sub, ":player_odds", ":player_odds_sub"),
+        (val_max, ":player_odds", 250),
+
+        (party_set_slot, "$current_town", slot_town_player_odds, ":player_odds"),
+        (call_script, "script_play_victorious_sound"),
+
+        (unlock_achievement, ACHIEVEMENT_MEDIEVAL_TIMES),
+        #SB : stop arena loop sound if it leaks here
+        (stop_all_sounds, 0),
+        #also add background
+        (set_background_mesh, "mesh_pic_payment"),
+        #also gives bonus faction morale
+        (call_script, "script_change_faction_troop_morale", "$g_encountered_party_faction", ":player_odds", 1),
+        ],
+    [
+      ("continue", [], "Continue...",
+       [(jump_to_menu, "mnu_town"),
+        ]),
+    ]
+  ),
+
+  (
+    "town_tournament_won_by_another",mnf_disable_all_keys,
+    "As the only {reg3?fighter:man} to remain undefeated this day, {s1} wins the lists and the glory of this tournament.",
+    "none",
+    [
+      (call_script, "script_get_num_tournament_participants"),
+      (store_sub, ":needed_to_remove_randomly", reg0, 1),
+      (try_begin),
+        (troop_slot_eq, "trp_tournament_participants", 0, 0), #delete player from the participants
+        (troop_set_slot, "trp_tournament_participants", 0, -1),
+        (val_sub, ":needed_to_remove_randomly", 1),
+      (try_end),
+        (call_script, "script_remove_tournament_participants_randomly", ":needed_to_remove_randomly"),
+        (call_script, "script_sort_tournament_participant_troops"),
+        (troop_get_slot, ":winner_troop", "trp_tournament_participants", 0),
+        (str_store_troop_name, s1, ":winner_troop"),
+        (try_begin),
+          (troop_is_hero, ":winner_troop"),
+          (call_script, "script_change_troop_renown", ":winner_troop", 20),
+          (try_begin),
+            (troop_slot_eq, ":winner_troop", slot_troop_occupation, slto_kingdom_hero),
+            (ge, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_MEDIUM),
+            # (call_script, "script_dplmc_distribute_gold_to_lord_and_holdings", 200, ":troop_no"),
+            (call_script, "script_dplmc_get_troop_standing_in_faction", ":winner_troop", "$g_encountered_party_faction"),
+            (store_mul, ":reward", reg0, 20), #1200 for leader, 600 for lord etc
+            (val_add, ":reward", 150),
+            (call_script, "script_dplmc_distribute_gold_to_lord_and_holdings", ":reward", ":winner_troop"), #add some wealth
+          (try_end),
+        (try_end),
+		  ##diplomacy start+ use script for gender
+        #(troop_get_type, reg3, ":winner_troop"),#<- OLD
+		(call_script, "script_dplmc_store_troop_is_female_reg", ":winner_troop", 3),
+		  ##diplomacy end+
+        #SB : stop arena sound if it leaks here
+        (stop_all_sounds, 0),
+        (set_background_mesh, "mesh_pic_payment"),
+        ],
+    [
+      ("continue", [], "Continue...",
+       [(jump_to_menu, "mnu_town"),
+        ]),
+    ]
+  ),
+
+  (
+    "town_tournament",mnf_disable_all_keys,
+    "{s1}You are at tier {reg0} of the tournament, with {reg1} participants remaining. In the next round, there will be {reg2} teams with {reg3} {reg4?fighters:fighter} each.",
+    "none",
+    [
+        (party_set_slot, "$current_town", slot_town_has_tournament, 0), #No way to return back if this menu is left
+        (call_script, "script_sort_tournament_participant_troops"),#Moving trp_player to the top of the list
+        (call_script, "script_get_num_tournament_participants"),
+        (assign, ":num_participants", reg0),
+        (try_begin),
+          (neg|troop_slot_eq, "trp_tournament_participants", 0, 0),#Player is defeated
+
+          (assign, ":player_odds_add", 0),
+          (store_div, ":player_odds_add", "$g_tournament_bet_placed", 5),
+          (party_get_slot, ":player_odds", "$current_town", slot_town_player_odds),
+          (val_add, ":player_odds", ":player_odds_add"),
+          (val_min, ":player_odds", 4000),
+          (party_set_slot, "$current_town", slot_town_player_odds, ":player_odds"),
+
+          (jump_to_menu, "mnu_town_tournament_lost"),
+        (else_try),
+          (eq, ":num_participants", 1),#Tournament won
+          (jump_to_menu, "mnu_town_tournament_won"),
+        (else_try),
+          (try_begin),
+            (le, "$g_tournament_next_num_teams", 0),
+            (call_script, "script_get_random_tournament_team_amount_and_size"),
+            (assign, "$g_tournament_next_num_teams", reg0),
+            (assign, "$g_tournament_next_team_size", reg1),
+          (try_end),
+          (assign, reg2, "$g_tournament_next_num_teams"),
+          (assign, reg3, "$g_tournament_next_team_size"),
+          (store_sub, reg4, reg3, 1),
+          (str_clear, s1),
+          (try_begin),
+            (eq, "$g_tournament_player_team_won", 1),
+            (str_store_string, s1, "@Victory is yours! You have won this melee, but now you must prepare yourself for the next round. "),
+          (else_try),
+            (eq, "$g_tournament_player_team_won", 0),
+            (str_store_string, s1, "@You have been bested in this melee, but the master of ceremonies declares a recognition of your skill and bravery, allowing you to take part in the next round. "),
+          (try_end),
+          (assign, reg1, ":num_participants"),
+          (store_add, reg0, "$g_tournament_cur_tier", 1),
+        (try_end),
+        ],
+    [
+      ("host_tournament",
+      [(ge, "$cheat_mode", 1),],
+      "{!}Cheat : Win tournament",
+      [
+           (jump_to_menu, "mnu_town_tournament_won"),
+           (assign, "$g_player_eligible_feast_center_no", "$current_town"),
+		   (assign, "$g_player_tournament_placement", 100),
+      ]),
+      ("tournament_view_participants", [], "View participants.",
+       [(jump_to_menu, "mnu_tournament_participants"),
+        ]),
+      ("tournament_bet", [(neq, "$g_tournament_cur_tier", "$g_tournament_last_bet_tier")], "Place a bet on yourself.",
+       [(jump_to_menu, "mnu_tournament_bet"),
+        ]),
+      ("tournament_join_next_fight", [], "Fight in the next round.",
+       [
+           (party_get_slot, ":arena_scene", "$current_town", slot_town_arena),
+           (modify_visitors_at_site, ":arena_scene"),
+           (reset_visitors),
+           #Assuming that there are enough participants for the teams
+		   (assign, "$g_player_tournament_placement", "$g_tournament_cur_tier"),
+		   (try_begin),
+		     (gt, "$g_player_tournament_placement", 4),
+		     (assign, "$g_player_eligible_feast_center_no", "$current_town"),
+		   (try_end),
+           (val_add, "$g_tournament_cur_tier", 1),
+
+           (store_mul, "$g_tournament_num_participants_for_fight", "$g_tournament_next_num_teams", "$g_tournament_next_team_size"),
+           (troop_set_slot, "trp_tournament_participants", 0, -1),#Removing trp_player from the list
+           (troop_set_slot, "trp_temp_array_a", 0, "trp_player"),
+           (try_for_range, ":slot_no", 1, "$g_tournament_num_participants_for_fight"),
+             (call_script, "script_get_random_tournament_participant"),
+             (troop_set_slot, "trp_temp_array_a", ":slot_no", reg0),
+           (try_end),
+           (call_script, "script_shuffle_troop_slots", "trp_temp_array_a", 0, "$g_tournament_num_participants_for_fight"),
+
+
+           (try_for_range, ":slot_no", 0, 4),#shuffle teams
+             (troop_set_slot, "trp_temp_array_b", ":slot_no", ":slot_no"),
+           (try_end),
+           (call_script, "script_shuffle_troop_slots", "trp_temp_array_b", 0, 4),
+
+           (assign, ":cur_slot", 0),
+           (assign, ":player_slot", -1), #SB : find player's slot
+           (try_for_range, ":cur_team_offset", 0, "$g_tournament_next_num_teams"),
+             (troop_get_slot, ":cur_team", "trp_temp_array_b", ":cur_team_offset"),
+
+             (try_for_range, ":slot_no", 0, 8),#shuffle entry_points
+               (troop_set_slot, "trp_temp_array_c", ":slot_no", ":slot_no"),
+             (try_end),
+             (call_script, "script_shuffle_troop_slots", "trp_temp_array_c", 0, 8),
+
+             (try_for_range, ":cur_index", 0, "$g_tournament_next_team_size"),
+               (store_mul, ":cur_entry_point", ":cur_team", 8),
+               (troop_get_slot, ":entry_offset", "trp_temp_array_c", ":cur_index"),
+               (val_add, ":cur_entry_point", ":entry_offset"),
+               (troop_get_slot, ":troop_no", "trp_temp_array_a", ":cur_slot"),
+               (set_visitor, ":cur_entry_point", ":troop_no"),
+               (try_begin), #SB : set player's slot
+                 (eq, ":troop_no", "trp_player"),
+                 (assign, ":player_slot", ":cur_entry_point"),
+               (try_end),
+               (val_add, ":cur_slot", 1),
+             (try_end),
+           (try_end),
+
+           (assign, "$g_tournament_next_num_teams", 0),
+           (assign, "$g_tournament_next_team_size", 0),
+
+           (assign, "$g_mt_mode", abm_tournament),
+           #SB : pass on as global
+           (try_begin),
+             (call_script, "script_dplmc_get_troop_standing_in_faction", "trp_player", "$g_encountered_party_faction"),
+             (this_or_next|ge, reg0, DPLMC_FACTION_STANDING_MEMBER),
+             (party_slot_ge, "$current_town", slot_center_player_relation, 15),
+             (assign, "$g_player_entry_point", ":player_slot"),
+           (else_try),
+             (assign, "$g_player_entry_point", -1),
+           (try_end),
+
+           (party_get_slot, ":town_original_faction", "$current_town", slot_center_original_faction),
+           (assign, ":town_index_within_faction", 0),
+           (assign, ":end_cond", towns_end),
+           (try_for_range, ":cur_town", towns_begin, ":end_cond"),
+             (try_begin),
+               (eq, ":cur_town", "$current_town"),
+               (assign, ":end_cond", 0), #break
+             (else_try),
+               (party_slot_eq, ":cur_town", slot_center_original_faction, ":town_original_faction"),
+               (val_add, ":town_index_within_faction", 1),
+             (try_end),
+           (try_end),
+
+           (set_jump_mission, "mt_arena_melee_fight"),
+
+           (try_begin),
+             (eq, ":town_original_faction", "fac_kingdom_1"),
+             #Swadia
+             (store_mod, ":mod", ":town_index_within_faction", 4),
+             (try_begin),
+               (eq, ":mod", 0),
+               (call_script, "script_set_items_for_tournament", 40, 80, 50, 20, 0, 0, 0, 0, "itm_arena_armor_red", "itm_tourney_helm_red"),
+             (else_try),
+               (eq, ":mod", 1),
+               (call_script, "script_set_items_for_tournament", 100, 100, 0, 0, 0, 0, 0, 0, "itm_arena_armor_red", "itm_tourney_helm_red"),
+             (else_try),
+               (eq, ":mod", 2),
+               (call_script, "script_set_items_for_tournament", 100, 0, 100, 0, 0, 0, 0, 0, "itm_arena_armor_red", "itm_tourney_helm_red"),
+             (else_try),
+               (eq, ":mod", 3),
+               (call_script, "script_set_items_for_tournament", 40, 80, 50, 20, 40, 0, 0, 0, "itm_arena_armor_red", "itm_tourney_helm_red"),
+             (try_end),
+           (else_try),
+             (eq, ":town_original_faction", "fac_kingdom_2"),
+             #Vaegirs
+             (store_mod, ":mod", ":town_index_within_faction", 4),
+             (try_begin),
+               (eq, ":mod", 0),
+               (call_script, "script_set_items_for_tournament", 40, 80, 50, 20, 0, 0, 0, 0, "itm_arena_armor_red", "itm_steppe_helmet_red"),
+             (else_try),
+               (eq, ":mod", 1),
+               (call_script, "script_set_items_for_tournament", 100, 50, 0, 0, 0, 20, 30, 0, "itm_arena_armor_red", "itm_steppe_helmet_red"),
+             (else_try),
+               (eq, ":mod", 2),
+               (call_script, "script_set_items_for_tournament", 100, 0, 50, 0, 0, 20, 30, 0, "itm_arena_armor_red", "itm_steppe_helmet_red"),
+             (else_try),
+               (eq, ":mod", 3),
+               (call_script, "script_set_items_for_tournament", 40, 80, 50, 20, 30, 0, 60, 0, "itm_arena_armor_red", "itm_steppe_helmet_red"),
+             (try_end),
+           (else_try),
+             (eq, ":town_original_faction", "fac_kingdom_3"),
+             #Khergit
+             (store_mod, ":mod", ":town_index_within_faction", 2),
+             (try_begin),
+               (eq, ":mod", 0),
+               (call_script, "script_set_items_for_tournament", 100, 0, 0, 0, 0, 40, 60, 0, "itm_arena_tunic_red", "itm_steppe_helmet_red"),
+             (else_try),
+               (eq, ":mod", 1),
+               (call_script, "script_set_items_for_tournament", 100, 50, 25, 0, 0, 30, 50, 0, "itm_arena_tunic_red", "itm_steppe_helmet_red"),
+             (try_end),
+           (else_try),
+             (eq, ":town_original_faction", "fac_kingdom_4"),
+             #Nords
+             (store_mod, ":mod", ":town_index_within_faction", 3),
+             (try_begin),
+               (eq, ":mod", 0),
+               (call_script, "script_set_items_for_tournament", 0, 0, 50, 80, 0, 0, 0, 0, "itm_arena_armor_red", -1),
+             (else_try),
+               (eq, ":mod", 1),
+               (call_script, "script_set_items_for_tournament", 0, 0, 50, 80, 50, 0, 0, 0, "itm_arena_armor_red", -1),
+             (else_try),
+               (eq, ":mod", 2),
+               (call_script, "script_set_items_for_tournament", 40, 0, 0, 100, 0, 0, 0, 0, "itm_arena_armor_red", -1),
+             (try_end),
+           (else_try),
+             #Rhodoks
+             (eq, ":town_original_faction", "fac_kingdom_5"),
+             (call_script, "script_set_items_for_tournament", 25, 100, 60, 0, 30, 0, 30, 50, "itm_arena_tunic_red", "itm_arena_helmet_red"),
+           (else_try),
+             #Sarranids
+             (store_mod, ":mod", ":town_index_within_faction", 2),
+             (try_begin),
+               (eq, ":mod", 0),
+               (call_script, "script_set_items_for_tournament", 100, 40, 60, 0, 30, 30, 0, 0, "itm_arena_tunic_red", "itm_arena_turban_red"),
+             (else_try),
+               (call_script, "script_set_items_for_tournament", 50, 0, 60, 0, 30, 30, 0, 0, "itm_arena_tunic_red", "itm_arena_turban_red"),
+             (try_end),
+           (try_end),
+           (jump_to_scene, ":arena_scene"),
+           (change_screen_mission),
+        ]),
+      ("leave_tournament",[],"Withdraw from the tournament.",
+       [
+           (jump_to_menu, "mnu_tournament_withdraw_verify"),
+        ]),
+    ]
+  ),
+
+  (
+    "tournament_withdraw_verify",0,
+    "Are you sure you want to withdraw from the tournament?",
+    "none",
+    [],
+    [
+      ("tournament_withdraw_yes", [], "Yes. This is a pointless affectation.",
+       [(jump_to_menu, "mnu_town_tournament_won_by_another"),
+        ]),
+      ("tournament_withdraw_no", [], "No, not as long as there is a chance of victory!",
+       [(jump_to_menu, "mnu_town_tournament"),
+        ]),
+    ]
+  ),
+
+  (
+    "tournament_bet",0,
+    "The odds against you are {reg5} to {reg6}.{reg1? You have already bet {reg1} denars on yourself, and if you win, you will earn {reg2} denars.:} How much do you want to bet?",
+    "none",
+    [
+      (assign, reg1, "$g_tournament_bet_placed"),
+      (store_add, reg2, "$g_tournament_bet_win_amount", "$g_tournament_bet_placed"),
+      (call_script, "script_get_win_amount_for_tournament_bet"),
+      (assign, ":player_odds", reg0),
+      (assign, ":min_dif", 100000),
+      (assign, ":min_dif_divisor", 1),
+      (assign, ":min_dif_multiplier", 1),
+      (try_for_range, ":cur_multiplier", 1, 50),
+        (try_for_range, ":cur_divisor", 1, 50),
+          (store_mul, ":result", 100, ":cur_multiplier"),
+          (val_div, ":result", ":cur_divisor"),
+          (store_sub, ":difference", ":player_odds", ":result"),
+          (val_abs, ":difference"),
+          (lt, ":difference", ":min_dif"),
+          (assign, ":min_dif", ":difference"),
+          (assign, ":min_dif_divisor", ":cur_divisor"),
+          (assign, ":min_dif_multiplier", ":cur_multiplier"),
+        (try_end),
+      (try_end),
+      (assign, reg5, ":min_dif_multiplier"),
+      (assign, reg6, ":min_dif_divisor"),
+      ],
+    [
+      ("bet_100_denars", [(store_troop_gold, ":gold", "trp_player"),
+                          (ge, ":gold", 100)
+                          ],
+       "100 denars.",
+       [
+         (assign, "$temp", 100),
+         (jump_to_menu, "mnu_tournament_bet_confirm"),
+        ]),
+      ("bet_50_denars", [(store_troop_gold, ":gold", "trp_player"),
+                         (ge, ":gold", 50)
+                         ],
+       "50 denars.",
+       [
+         (assign, "$temp", 50),
+         (jump_to_menu, "mnu_tournament_bet_confirm"),
+        ]),
+      ("bet_20_denars", [(store_troop_gold, ":gold", "trp_player"),
+                         (ge, ":gold", 20)
+                         ],
+       "20 denars.",
+       [
+         (assign, "$temp", 20),
+         (jump_to_menu, "mnu_tournament_bet_confirm"),
+        ]),
+      ("bet_10_denars", [(store_troop_gold, ":gold", "trp_player"),
+                         (ge, ":gold", 10)
+                         ],
+       "10 denars.",
+       [
+         (assign, "$temp", 10),
+         (jump_to_menu, "mnu_tournament_bet_confirm"),
+        ]),
+      ("bet_5_denars", [(store_troop_gold, ":gold", "trp_player"),
+                        (ge, ":gold", 5)
+                        ],
+       "5 denars.",
+       [
+         (assign, "$temp", 5),
+         (jump_to_menu, "mnu_tournament_bet_confirm"),
+        ]),
+      ("go_back_dot", [], "Go back.",
+       [
+         (jump_to_menu, "mnu_town_tournament"),
+        ]),
+    ]
+  ),
+
+  (
+    "tournament_bet_confirm",0,
+    "If you bet {reg1} denars, you will earn {reg2} denars if you win the tournament. Is that all right?",
+    "none",
+    [
+      (call_script, "script_get_win_amount_for_tournament_bet"),
+      (assign, ":win_amount", reg0),
+      (val_mul, ":win_amount", "$temp"),
+      (val_div, ":win_amount", 100),
+      (assign, reg1, "$temp"),
+      (assign, reg2, ":win_amount"),
+      ],
+    [
+      ("tournament_bet_accept", [],
+       "Go ahead.",
+       [
+         (call_script, "script_tournament_place_bet", "$temp"),
+         (jump_to_menu, "mnu_town_tournament"),
+         ]),
+      ("tournament_bet_cancel", [],
+       "Forget it.",
+       [
+         (jump_to_menu, "mnu_tournament_bet"),
+         ]),
+    ]
+  ),
+
+  (
+    "tournament_participants",0,
+    "You ask one of the criers for the names of the tournament participants. They are:^{s11}",
+    "none",
+    [
+        (str_clear, s11),
+        (call_script, "script_sort_tournament_participant_troops"),
+        (call_script, "script_get_num_tournament_participants"),
+        (assign, ":num_participants", reg0),
+        (try_for_range, ":cur_slot", 0, ":num_participants"),
+          (troop_get_slot, ":troop_no", "trp_tournament_participants", ":cur_slot"),
+          (str_store_troop_name, s12, ":troop_no"),
+          (str_store_string, s11, "@{!}{s11}^{s12}"),
+        (try_end),
+        ],
+    [
+      ("go_back_dot", [], "Go back.",
+       [(jump_to_menu, "mnu_town_tournament"),
+        ]),
+    ]
+  ),
+  
+  
+####################################################################################################################
+# [ Z14 ] - Tax Collection Quest
+####################################################################################################################  
+
+
+  (
+    "collect_taxes",mnf_disable_all_keys,
+    "As the party member with the highest trade skill ({reg2}), {reg3?you expect:{s1} expects} that collecting taxes from here will take {reg4} days...",
+    "none",
+    [(call_script, "script_get_max_skill_of_player_party", "skl_trade"),
+     (assign, ":max_skill", reg0),
+     (assign, reg2, reg0),
+     (assign, ":max_skill_owner", reg1),
+     (try_begin),
+       (eq, ":max_skill_owner", "trp_player"),
+       (assign, reg3, 1),
+     (else_try),
+       (assign, reg3, 0),
+       (str_store_troop_name, s1, ":max_skill_owner"),
+     (try_end),
+     (assign, ":tax_quest_expected_revenue", 3000),
+     (try_begin),
+       (party_slot_eq, "$current_town", slot_party_type, spt_town),
+       (assign, ":tax_quest_expected_revenue", 6000),
+     (try_end),
+
+     (try_begin),
+       (quest_slot_eq, "qst_collect_taxes", slot_quest_current_state, 0),
+       (store_add, ":max_skill_plus_thirty", ":max_skill", 30),
+       (try_begin),
+         (party_slot_eq, "$current_town", slot_party_type, spt_town),
+         (store_div, "$qst_collect_taxes_total_hours", 24* 7 * 30, ":max_skill_plus_thirty"),
+       (else_try),
+         #Village
+         (store_div, "$qst_collect_taxes_total_hours", 24 * 3 * 30, ":max_skill_plus_thirty"),
+       (try_end),
+
+       (call_script, "script_party_count_fit_for_battle", "p_main_party"),
+       (val_add, reg0, 20),
+       (val_mul, "$qst_collect_taxes_total_hours", 20),
+       (val_div, "$qst_collect_taxes_total_hours", reg0),
+
+
+       (quest_set_slot, "qst_collect_taxes", slot_quest_target_amount, "$qst_collect_taxes_total_hours"),
+       (store_div, ":menu_begin_time", "$qst_collect_taxes_total_hours", 20),#between %5-%25
+       (store_div, ":menu_end_time", "$qst_collect_taxes_total_hours", 4),
+       (assign, ":unrest_begin_time", ":menu_end_time"),#between %25-%75
+       (store_mul, ":unrest_end_time", "$qst_collect_taxes_total_hours", 3),
+       (val_div, ":unrest_end_time", 4),
+
+       (val_mul, ":tax_quest_expected_revenue", 2),
+       (store_div, "$qst_collect_taxes_hourly_income", ":tax_quest_expected_revenue", "$qst_collect_taxes_total_hours"),
+
+       (store_random_in_range, "$qst_collect_taxes_menu_counter", ":menu_begin_time", ":menu_end_time"),
+       (store_random_in_range, "$qst_collect_taxes_unrest_counter", ":unrest_begin_time", ":unrest_end_time"),
+       (assign, "$qst_collect_taxes_halve_taxes", 0),
+     (try_end),
+     (quest_get_slot, ":target_hours", "qst_collect_taxes", slot_quest_target_amount),
+     (store_div, ":target_days", ":target_hours", 24),
+     (val_mul, ":target_days", 24),
+     (try_begin),
+       (lt, ":target_days", ":target_hours"),
+       (val_add, ":target_days", 24),
+     (try_end),
+     (val_div, ":target_days", 24),
+     (assign, reg4, ":target_days"),
+     ],
+    [
+      ("start_collecting", [], "Start collecting.",
+       [(assign, "$qst_collect_taxes_currently_collecting", 1),
+        (try_begin),
+          (quest_slot_eq, "qst_collect_taxes", slot_quest_current_state, 0),
+          (quest_set_slot, "qst_collect_taxes", slot_quest_current_state, 1),
+        (try_end),
+        (rest_for_hours_interactive, 1000, 5, 0), #rest while not attackable
+        (assign,"$auto_enter_town","$current_town"),
+        (assign, "$g_town_visit_after_rest", 1),
+        (change_screen_return),
+        ]),
+      ("collect_later", [], "Put it off until later.",
+       [(try_begin),
+          (party_slot_eq, "$current_town", slot_party_type, spt_town),
+          (jump_to_menu, "mnu_town"),
+        (else_try),
+          (jump_to_menu, "mnu_village"),
+        (try_end),
+        ]),
+    ]
+  ),
+
+  (
+    "collect_taxes_complete",mnf_disable_all_keys,
+    ##diplomacy start+
+    ##Replace "him" with "{reg4?her:him}"
+    "You've collected {reg3} denars in taxes from {s3}. {s19} will be expecting you to take the money to {reg4?her:him}.",
+    ##diplomacy end+
+    "none",
+    [(str_store_party_name, s3, "$current_town"),
+     (quest_get_slot, ":quest_giver", "qst_collect_taxes", slot_quest_giver_troop),
+     (str_store_troop_name, s19, ":quest_giver"),
+     ##diplomacy start+
+
+     (try_begin),
+       (eq, "$qst_collect_taxes_halve_taxes", 0),
+       (call_script, "script_change_player_relation_with_center", "$current_town", -2),
+     (try_end),
+     (call_script, "script_succeed_quest", "qst_collect_taxes"),
+     
+     #SB : add renown to tax collector
+     (try_begin),
+       (call_script, "script_get_max_skill_of_player_party", "skl_trade"),
+       (neq, reg1, "trp_player"),
+       (call_script, "script_change_troop_renown", reg1, dplmc_companion_skill_renown),
+     (try_end),
+     
+     (quest_get_slot, reg3, "qst_collect_taxes", slot_quest_gold_reward),
+     ##Store quest giver gender to reg4
+     (call_script, "script_dplmc_store_troop_is_female_reg", ":quest_giver", 4), #SB : use other script
+     ##diplomacy end+
+     ],
+    [
+      ("continue", [], "Continue...",
+       [(change_screen_return),
+        ]),
+    ]
+  ),
+
+  (
+    "collect_taxes_rebels_killed",0,
+    "Your quick action and strong arm have successfully put down the revolt.\
+ Surely, anyone with a mind to rebel against you will think better of it after this.",
+    "none",
+    [
+    ],
+    [
+      ("continue", [], "Continue...",
+       [(change_screen_map),
+        ]),
+    ]
+  ),
+
+  (
+    "collect_taxes_failed",mnf_disable_all_keys,
+##diplomacy start+ fix gender of pronoun
+    "You could collect only {reg3} denars as tax from {s3} before the revolt broke out.\
+ {s1} won't be happy, but some silver will placate {reg4?her:him} better than nothing at all...",
+##diplomacy end+
+    "none",
+    [#SB : set up picture
+     (try_begin),
+       (eq, "$character_gender", tf_male),
+       (set_background_mesh, "mesh_pic_escape_1"),
+     (else_try),
+       (eq, "$character_gender", tf_male),
+       (set_background_mesh, "mesh_pic_escape_1_fem"),
+     (try_end),
+     (str_store_party_name, s3, "$current_town"),
+     (quest_get_slot, ":quest_giver", "qst_collect_taxes", slot_quest_giver_troop),
+     ##diplomacy start+ store gender of quest giver in reg4
+     (call_script, "script_dplmc_store_troop_is_female", ":quest_giver"),
+     (assign, reg4, reg0),
+     ##diplomacy end+
+     (str_store_troop_name, s1, ":quest_giver"),
+     (quest_get_slot, reg3, "qst_collect_taxes", slot_quest_gold_reward),
+     (call_script, "script_fail_quest", "qst_collect_taxes"),
+     (quest_set_slot, "qst_collect_taxes", slot_quest_current_state, 4),
+     (rest_for_hours, 0, 0, 0), #stop resting
+     ],
+    [
+      ("continue", [], "Continue...",
+        [#SB : lose renown
+          (call_script, "script_change_troop_renown", "trp_player", -2),
+          (change_screen_map),
+        ]),
+    ]
+  ),
+
+  (
+    "collect_taxes_revolt_warning",0,
+    "The people of {s3} are outraged at your demands and decry it as nothing more than extortion.\
+ They're getting very restless, and they may react badly if you keep pressing them.",
+    "none",
+    [(str_store_party_name, s3, "$current_town"),
+     ],
+    [
+      ("continue_collecting_taxes", [], "Ignore them and continue.",
+       [ #SB : objectionable action
+       (call_script, "script_objectionable_action", tmt_egalitarian, "str_repress_farmers"),
+       (change_screen_return),]),
+      ("halve_taxes", [(quest_get_slot, ":quest_giver_troop", "qst_collect_taxes", slot_quest_giver_troop),
+                       (str_store_troop_name, s1, ":quest_giver_troop"),],
+       "Agree to reduce your collection by half. ({s1} may be upset)",
+       [(assign, "$qst_collect_taxes_halve_taxes", 1),
+        (change_screen_return),
+        ]),
+    ]
+  ),
+
+  (
+    "collect_taxes_revolt",0,
+    "You are interrupted while collecting the taxes at {s3}. A large band of angry {reg9?peasants:townsmen} is marching nearer,\
+ shouting about the exorbitant taxes and waving torches and weapons. It looks like they aim to fight you!",
+    "none",
+    [(str_store_party_name, s3, "$current_town"),
+     #SB : town pictures
+     (try_begin),
+       (party_slot_eq, "$current_town", slot_party_type, spt_village),
+       (assign, reg9, 1),
+       (set_background_mesh, "mesh_pic_villageriot"),
+     (else_try),
+       (set_background_mesh, "mesh_pic_townriot"),
+       (assign, reg9, 0),
+     (try_end),
+     ],
+    [
+      ("continue", [], "Continue...",
+       [(set_jump_mission,"mt_back_alley_revolt"),
+        (quest_get_slot, ":target_center", "qst_collect_taxes", slot_quest_target_center),
+        (try_begin),
+          (party_slot_eq, ":target_center", slot_party_type, spt_town),
+          (party_get_slot, ":town_alley", ":target_center", slot_town_alley),
+        (else_try),
+          (party_get_slot, ":town_alley", ":target_center", slot_castle_exterior),
+        (try_end),
+        (modify_visitors_at_site,":town_alley"),
+        (reset_visitors),
+        (assign, ":num_rebels", 6),
+        (store_character_level, ":level", "trp_player"),
+        (val_div, ":level", 5),
+        (val_add, ":num_rebels", ":level"),
+        (set_visitors, 1, "trp_tax_rebel", ":num_rebels"),
+        (jump_to_scene,":town_alley"),
+        (change_screen_mission),
+        ]),
+    ]
+  ),
+  
+
+####################################################################################################################
+# [ Z15 ] - Train Peasants Quest
+####################################################################################################################    
+  
+
+# They must learn field discipline and the steadiness to follow orders in combat before they can be thought to use arms.",
+  (
+    "train_peasants_against_bandits",0,
+    "As the party member with the highest training skill ({reg2}), {reg3?you expect:{s1} expects} that getting some peasants ready for practice will take {reg4} hours.",
+    "none",
+    [(call_script, "script_get_max_skill_of_player_party", "skl_trainer"),
+     (assign, ":max_skill", reg0),
+     (assign, reg2, reg0),
+     (assign, ":max_skill_owner", reg1),
+     (try_begin),
+       (eq, ":max_skill_owner", "trp_player"),
+       (assign, reg3, 1),
+     (else_try),
+       (assign, reg3, 0),
+       (str_store_troop_name, s1, ":max_skill_owner"),
+     (try_end),
+     (store_sub, ":needed_hours", 20, ":max_skill"),
+     (val_mul, ":needed_hours", 3),
+     (val_div, ":needed_hours", 5),
+     (store_sub, reg4, ":needed_hours", "$qst_train_peasants_against_bandits_num_hours_trained"),
+     ],
+    [
+      ("make_preparation", [], "Train them.",
+       [
+         (assign, "$qst_train_peasants_against_bandits_currently_training", 1),
+         (rest_for_hours_interactive, 1000, 5, 0), #rest while not attackable
+         (assign, "$auto_enter_town", "$current_town"),
+         (assign, "$g_town_visit_after_rest", 1),
+         (change_screen_return),
+         ]),
+      ("train_later", [], "Put it off until later.",
+       [
+         (jump_to_menu, "mnu_village"),
+        ]),
+    ]
+  ),
+
+  (
+    "train_peasants_against_bandits_ready",0,
+    "You put the peasants through the basics of soldiering, discipline and obedience.\
+ You think {reg0} of them {reg1?have:has} fully grasped the training and {reg1?are:is} ready for some practice.",
+    "none",
+    [
+      (store_character_level, ":level", "trp_player"),
+      (val_div, ":level", 10),
+      (val_add, ":level", 1),
+      (quest_get_slot, ":quest_target_amount", "qst_train_peasants_against_bandits", slot_quest_target_amount),
+      (quest_get_slot, ":quest_current_state", "qst_train_peasants_against_bandits", slot_quest_current_state),
+      (val_sub, ":quest_target_amount", ":quest_current_state"),
+      (assign, ":max_random", ":level"),
+      (val_min, ":max_random", ":quest_target_amount"),
+      (val_add, ":max_random", 1),
+      (store_random_in_range, ":random_number", 1, ":max_random"),
+      (assign, "$g_train_peasants_against_bandits_num_peasants", ":random_number"),
+      (assign, reg0, ":random_number"),
+      (store_sub, reg1, ":random_number", 1),
+      (str_store_troop_name_by_count, s0, "trp_trainee_peasant", ":random_number"),
+     ],
+    [
+      ("peasant_start_practice", [], "Start the practice fight.",
+       [
+         (set_jump_mission,"mt_village_training"),
+         (quest_get_slot, ":target_center", "qst_train_peasants_against_bandits", slot_quest_target_center),
+         (party_get_slot, ":village_scene", ":target_center", slot_castle_exterior),
+         (modify_visitors_at_site, ":village_scene"),
+         (reset_visitors),
+         (set_visitor, 0, "trp_player"),
+         (set_visitors, 1, "trp_trainee_peasant", "$g_train_peasants_against_bandits_num_peasants"),
+         (set_jump_entry, 11),
+         (jump_to_scene, ":village_scene"),
+         (jump_to_menu, "mnu_train_peasants_against_bandits_training_result"),
+         (music_set_situation, 0),
+         (change_screen_mission),
+         ]),
+      ]
+    ),
+
+  (
+    "train_peasants_against_bandits_training_result",mnf_disable_all_keys,
+    "{s0}",
+    "none",
+    [
+      (assign, reg5, "$g_train_peasants_against_bandits_num_peasants"),
+      (str_store_troop_name_by_count, s0, "trp_trainee_peasant", "$g_train_peasants_against_bandits_num_peasants"),
+      (try_begin),
+        (eq, "$g_train_peasants_against_bandits_training_succeeded", 0),
+        (str_store_string, s0, "@You were beaten. The peasants are heartened by their success, but the lesson you wanted to teach them probably didn't get through..."),
+      (else_try),
+        (str_store_string, s0, "@After beating your last opponent, you explain to the peasants how to better defend themselves against such an attack. Hopefully they'll take the experience on board and will be prepared next time."),
+        (quest_get_slot, ":quest_current_state", "qst_train_peasants_against_bandits", slot_quest_current_state),
+        (val_add, ":quest_current_state", "$g_train_peasants_against_bandits_num_peasants"),
+        (quest_set_slot, "qst_train_peasants_against_bandits", slot_quest_current_state, ":quest_current_state"),
+      (try_end),
+     ],
+    [
+      ("continue", [], "Continue...",
+       [
+         (try_begin),
+           (quest_get_slot, ":quest_current_state", "qst_train_peasants_against_bandits", slot_quest_current_state),
+           (quest_slot_eq, "qst_train_peasants_against_bandits", slot_quest_target_amount, ":quest_current_state"),
+           (jump_to_menu, "mnu_train_peasants_against_bandits_attack"),
+         (else_try),
+           (change_screen_map),
+         (try_end),
+         ]),
+      ]
+    ),
+
+  (
+    "train_peasants_against_bandits_attack",0,
+    "As you get ready to continue the training, a sentry from the village runs up to you, shouting alarums.\
+ The bandits have been spotted on the horizon, riding hard for {s3}.\
+ The elder begs that you organize your newly-trained militia and face them.",
+    "none",
+    [
+    (str_store_party_name, s3, "$current_town"),
+     ],
+    [
+      ("peasants_against_bandits_attack_resist", [], "Prepare for a fight!",
+       [ ## SB : use new bandit script
+        # (store_random_in_range, ":random_no", 0, 3),
+        # (try_begin),
+          # (eq, ":random_no", 0),
+          # (assign, ":bandit_troop", "trp_bandit"),
+        # (else_try),
+          # (eq, ":random_no", 1),
+          # (assign, ":bandit_troop", "trp_mountain_bandit"),
+        # (else_try),
+          # (assign, ":bandit_troop", "trp_forest_bandit"),
+        # (try_end),
+        (call_script, "script_center_get_bandits", "$current_town", 0),
+        (assign, ":bandit_troop", reg0),
+        (party_get_slot, ":scene_to_use", "$g_encountered_party", slot_castle_exterior),
+        (modify_visitors_at_site, ":scene_to_use"),
+        (reset_visitors),
+        (store_character_level, ":level", "trp_player"),
+        (val_div, ":level", 2),
+        (store_add, ":min_bandits", ":level", 16),
+        (store_add, ":max_bandits", ":min_bandits", 6),
+        (store_random_in_range, ":random_no", ":min_bandits", ":max_bandits"),
+        (set_visitors, 0, ":bandit_troop", ":random_no"),
+        # (assign, ":num_villagers", ":max_bandits"),
+        #SB : more accurate count
+        (party_count_members_of_type, ":num_villagers", "$current_town", "trp_farmer"), #disallow peasant woman
+        (val_min, ":num_villagers", ":max_bandits"), #dckplmc
+        (set_visitors, 2, "trp_trainee_peasant", ":num_villagers"),
+        (set_party_battle_mode),
+        (set_battle_advantage, 0),
+        (assign, "$g_battle_result", 0),
+        (set_jump_mission,"mt_village_attack_bandits"),
+        (jump_to_scene, ":scene_to_use"),
+        (assign, "$g_next_menu", "mnu_train_peasants_against_bandits_attack_result"),
+        (jump_to_menu, "mnu_battle_debrief"),
+        (assign, "$g_mt_mode", vba_after_training),
+        (change_screen_mission),
+        ]),
+      ]
+    ),
+
+  (
+    "train_peasants_against_bandits_attack_result",mnf_scale_picture|mnf_disable_all_keys,
+    "{s9}",
+    "none",
+    [
+      (try_begin),
+        (eq, "$g_battle_result", 1),
+        (str_store_string, s9, "@The bandits are broken!\
+ Those few who remain alive and conscious run off with their tails between their legs,\
+ terrified of the peasants and their new champion."),
+        (call_script, "script_succeed_quest", "qst_train_peasants_against_bandits"),
+        (jump_to_menu, "mnu_train_peasants_against_bandits_success"),
+      (else_try),
+        (call_script, "script_fail_quest", "qst_train_peasants_against_bandits"),
+        (str_store_string, s9, "@Try as you might, you could not defeat the bandits.\
+ Infuriated, they raze the village to the ground to punish the peasants,\
+ and then leave the burning wasteland behind to find greener pastures to plunder."),
+        (set_background_mesh, "mesh_pic_looted_village"),
+      (try_end),
+     ],
+    [
+      ("continue", [], "Continue...",
+       [(try_begin),
+          (call_script, "script_village_set_state",  "$current_town", svs_looted),
+          (party_set_slot, "$current_town", slot_village_raid_progress, 0),
+          (party_set_slot, "$current_town", slot_village_recover_progress, 0),
+          (call_script, "script_change_player_relation_with_center", "$g_encountered_party", -3),
+          (call_script, "script_end_quest", "qst_train_peasants_against_bandits"),
+        (try_end),
+        (change_screen_map),
+    ]),
+      ]
+    ),
+
+   (
+    "train_peasants_against_bandits_success",mnf_disable_all_keys,
+    "The bandits are broken!\
+ Those few who remain run off with their tails between their legs,\
+ terrified of the peasants and their new champion.\
+ The villagers have little left in the way of wealth after their ordeal,\
+ but they offer you all they can find to show their gratitude.",
+    "none",
+    [(party_clear, "p_temp_party"),
+     #SB : probably apply casualties before adding new troops?
+     (quest_get_slot, ":amount_trained", "qst_train_peasants_against_bandits", slot_quest_target_amount),
+     (store_faction_of_party, ":village_faction", "$current_town"), #assuming player trains them with local weapons
+     (faction_get_slot, ":recruit_troop", ":village_faction", slot_faction_tier_1_troop),
+     (party_add_members, "$current_town", ":recruit_troop", ":amount_trained"),
+     (party_remove_members, "$current_town", "trp_farmer", ":amount_trained"),
+
+     (call_script, "script_end_quest", "qst_train_peasants_against_bandits"),
+     (call_script, "script_change_player_relation_with_center", "$current_town", 4),
+
+     (party_get_slot, ":merchant_troop", "$current_town", slot_town_elder),
+     (try_for_range, ":slot_no", num_equipment_kinds ,max_inventory_items + num_equipment_kinds),
+        (store_random_in_range, ":rand", 0, 100),
+        (lt, ":rand", 50),
+        (troop_set_inventory_slot, ":merchant_troop", ":slot_no", -1),
+     (try_end),
+     (call_script, "script_add_log_entry", logent_helped_peasants, "trp_player",  "$current_town", -1, -1),
+     (set_background_mesh, "mesh_pic_mb_warrior_3"), #SB : background mesh
+    ],
+    [
+      ("village_bandits_defeated_accept",[],"Take it as your just due.",[(jump_to_menu, "mnu_auto_return_to_map"),
+                                                                         (party_get_slot, ":merchant_troop", "$current_town", slot_town_elder),
+                                                                         (troop_sort_inventory, ":merchant_troop"),
+                                                                         (change_screen_loot, ":merchant_troop"),
+                                                                       ]),
+      ("village_bandits_defeated_cont",[],  "Refuse, stating that they need these items more than you do.",[
+      (call_script, "script_change_player_relation_with_center", "$g_encountered_party", 3),
+      (call_script, "script_change_player_honor", 1),
+      (change_screen_map)]),
+    ],
+  ),
+
+
+####################################################################################################################
+# [ Z16 ] - Ships
+####################################################################################################################   
+
+  
+  (
+    "disembark",0,
+    "Do you wish to disembark?",
+    "none",
+    [],
+    [
+      ("disembark_yes", [], "Yes.",
+       [(assign, "$g_player_icon_state", pis_normal),
+        (party_set_flags, "p_main_party", pf_is_ship, 0),
+        (party_get_position, pos1, "p_main_party"),
+        (party_set_position, "p_main_party", pos0),
+        (try_begin),
+          (le, "$g_main_ship_party", 0),
+          (set_spawn_radius, 0),
+          (spawn_around_party, "p_main_party", "pt_none"),
+          (assign, "$g_main_ship_party", reg0),
+          (party_set_flags, "$g_main_ship_party", pf_is_static|pf_always_visible|pf_hide_defenders|pf_is_ship, 1),
+          (str_store_troop_name, s1, "trp_player"),
+          (party_set_name, "$g_main_ship_party", "@{s1}'s Ship"),
+          (party_set_icon, "$g_main_ship_party", "icon_ship"),
+          (party_set_slot, "$g_main_ship_party", slot_party_type, spt_ship),
+        (try_end),
+        (enable_party, "$g_main_ship_party"),
+        (party_set_position, "$g_main_ship_party", pos0),
+        (party_set_icon, "$g_main_ship_party", "icon_ship_on_land"),
+        (assign, "$g_main_ship_party", -1),
+        (change_screen_return),
+        ]),
+      ("disembark_no", [], "No.",
+       [(change_screen_return),
+        ]),
+    ]
+  ),
+
+  (
+    "ship_reembark",0,
+    "Do you wish to embark?",
+    "none",
+    [],
+    [
+      ("reembark_yes", [], "Yes.",
+       [(assign, "$g_player_icon_state", pis_ship),
+        (party_set_flags, "p_main_party", pf_is_ship, 1),
+        (party_get_position, pos1, "p_main_party"),
+        (map_get_water_position_around_position, pos2, pos1, 6),
+        (party_set_position, "p_main_party", pos2),
+        (assign, "$g_main_ship_party", "$g_encountered_party"),
+        (disable_party, "$g_encountered_party"),
+        (change_screen_return),
+        ]),
+      ("reembark_no", [], "No.",
+       [(change_screen_return),
+        ]),
+    ]
+  ),
+
+####################################################################################################################
+# [ Z17 ] - Prisoners
+####################################################################################################################     
 
 
   (
@@ -15284,484 +15609,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         ]),
     ]
   ),
-
-
-  (
-    "training_ground",mnf_enable_hot_keys, #SB : enable hotkeys to check party
-    "You approach a training field where you can practice your martial skills. What kind of training do you want to do?",
-    "none",
-    [
-      (try_begin), #SB : track slot
-        (party_get_slot, ":scene_no", slot_grounds_track, "$g_encountered_party"),
-        (le, ":scene_no", 0),
-        (store_add, ":scene_no", "scn_training_ground_horse_track_1", "$g_encountered_party"),
-        (val_sub, ":scene_no", training_grounds_begin),
-        (party_set_slot, "$g_encountered_party", slot_grounds_track, ":scene_no"),
-      (try_end),
-      (try_begin), #SB : melee/ranged slot
-        (party_get_slot, ":scene_no", slot_grounds_melee, "$g_encountered_party"),
-        (le, ":scene_no", 0),
-        (store_add, ":scene_no", "scn_training_ground_ranged_melee_1", "$g_encountered_party"),
-        (val_sub, ":scene_no", training_grounds_begin),
-        (party_set_slot, "$g_encountered_party", slot_grounds_melee, ":scene_no"),
-      (try_end),
-      (assign, "$g_training_ground_melee_training_scene", ":scene_no"),
-      
-      
-      #SB : modify this interval
-      (party_get_skill_level, ":training", "p_main_party", "skl_trainer"), #from 0 to 10
-      (try_begin), #grab trainer troop if it isn't linked
-        (party_get_slot, ":trainer_troop", "$g_encountered_party", slot_grounds_trainer),
-        (try_begin),
-          (le, ":trainer_troop", 0),
-          (store_sub, ":trainer_troop", "$g_encountered_party", training_grounds_begin),
-          (val_add, ":trainer_troop", training_ground_trainers_begin),
-          (party_set_slot, "$g_encountered_party", slot_grounds_trainer, ":trainer_troop"),
-        (try_end),
-        (troop_get_slot, ":difficulty", ":trainer_troop", slot_troop_trainer_training_difficulty), #from 0 to 4
-        (val_add, ":training", ":difficulty"), #0 to 14
-      (try_end),
-      (val_div, ":training", 2), #0 to 7
-      (val_max, ":training", 3),
-      (try_begin), #was $g_training_ground_training_count
-        (party_slot_ge, "$g_encountered_party", slot_grounds_count, ":training"),
-        (party_set_slot, "$g_encountered_party", slot_grounds_count, 0),
-        # (assign, "$g_training_ground_training_count", 0),
-        (rest_for_hours, 1, 5, 0), #rest while not attackable
-        (assign, "$auto_enter_town", "$g_encountered_party"),
-        (change_screen_return),
-      (try_end),
-      #SB : set background mesh, player troop
-      (assign, "$g_player_troop", "trp_player"),
-      (set_background_mesh, "mesh_pic_mb_warrior_1"),
-      ],
-    [
-      ("camp_trainer",
-       [], "Speak with the trainer.",
-       [
-         (set_jump_mission, "mt_training_ground_trainer_talk"),
-         # no need to reset visitors, trainer is always there
-         # (modify_visitors_at_site, "$g_training_ground_melee_training_scene"),
-         # (reset_visitors),
-         (set_jump_entry, 5),
-         (jump_to_scene, "$g_training_ground_melee_training_scene"),
-         (change_screen_mission),
-         (music_set_situation, 0),
-         ]),
-      ("camp_train_melee",
-       [
-         (neg|troop_is_wounded, "trp_player"),
-         (call_script, "script_party_count_fit_for_battle", "p_main_party"),
-         (gt, reg0, 1),
-         ], "Sparring practice.",
-       [
-         (assign, "$g_mt_mode", ctm_melee),
-         (jump_to_menu, "mnu_training_ground_selection_details_melee_1"),
-         (music_set_situation, 0),
-         ]),
-      ("camp_train_archery",[], "Ranged weapon practice.",
-       [
-         (jump_to_menu, "mnu_training_ground_selection_details_ranged_1"),
-         (music_set_situation, 0),
-         ]),
-      ("camp_train_mounted",[], "Horseback practice.",
-       [
-         (assign, "$g_mt_mode", ctm_mounted),
-         (jump_to_menu, "mnu_training_ground_selection_details_mounted"),
-         (music_set_situation, 0),
-         ]),
-
-      ("go_to_track",[(eq, "$cheat_mode", 1)],"{!}Cheat: Go to track.",
-       [
-         (set_jump_mission, "mt_ai_training"),
-         (try_begin), #SB : slots
-           (party_get_slot, ":scene_no", slot_grounds_track, "$g_encountered_party"),
-           (le, ":scene_no", 0),
-           (store_add, ":scene_no", "scn_training_ground_horse_track_1", "$g_encountered_party"),
-           (val_sub, ":scene_no", training_grounds_begin),
-         (try_end),
-         (jump_to_scene, ":scene_no"),
-         (change_screen_mission),
-        ]
-       ),
-      ("go_to_range",[(eq, "$cheat_mode", 1)],"{!}Cheat: Go to range.",
-       [
-         (set_jump_mission, "mt_ai_training"),
-         (jump_to_scene, "$g_training_ground_melee_training_scene"),
-         (change_screen_mission),
-        ]
-       ),
-      ("leave",[],"Leave.",
-       [(change_screen_return),
-        ]),
-    ]
-  ),
-
-  ("training_ground_selection_details_melee_1",0,
-   "How many opponents will you go against?",
-   "none",
-   [
-     (call_script, "script_write_fit_party_members_to_stack_selection", "p_main_party", 1),
-     (troop_get_slot, "$temp", "trp_stack_selection_amounts", 1), #number of men fit
-     (assign, "$temp_2", 1),
-     ],
-    [
-      ("camp_train_melee_num_men_1",[(ge, "$temp", 1)], "One.",
-       [
-         (assign, "$temp", 1),
-         (jump_to_menu, "mnu_training_ground_selection_details_melee_2"),
-         ]),
-      ("camp_train_melee_num_men_2",[(ge, "$temp", 2)], "Two.",
-       [
-         (assign, "$temp", 2),
-         (jump_to_menu, "mnu_training_ground_selection_details_melee_2"),
-         ]),
-      ("camp_train_melee_num_men_3",[(ge, "$temp", 3)], "Three.",
-       [
-         (assign, "$temp", 3),
-         (jump_to_menu, "mnu_training_ground_selection_details_melee_2"),
-         ]),
-      ("camp_train_melee_num_men_4",[(ge, "$temp", 4)], "Four.",
-       [
-         (assign, "$temp", 4),
-         (jump_to_menu, "mnu_training_ground_selection_details_melee_2"),
-         ]),
-      ("go_back_dot",[],"Cancel.",
-       [
-         (jump_to_menu, "mnu_training_ground"),
-        ]),
-      ]
-  ),
-
-  ("training_ground_selection_details_melee_2",0,
-   "Choose your opponent:^{s1}^{reg1}:",
-   "none",
-    [
-      (assign, reg1, "$temp_2"),
-      (troop_get_slot, "$temp_3", "trp_stack_selection_amounts", 0), #number of slots
-      
-      #SB : show current list
-      (str_clear, s1),
-      (store_sub, ":end", "$temp_2", 1),
-      (try_for_range, ":slot_index", 0, ":end"),
-        (store_add, reg0, ":slot_index", 1),
-        (troop_get_slot, ":troop_id", "trp_temp_array_a", ":slot_index"),
-        (gt, ":troop_id", 0),
-        (str_store_troop_name, s2, ":troop_id"),
-        (str_store_string, s1, "@{s1}^{reg0}: {s2}"),
-      # (else_try),
-        # (str_store_string, s1, "@{s1}^{reg0}:"),
-      (try_end),
-    ],
-    [
-      ("training_ground_selection_details_melee_random", [], "Choose randomly.",
-       [(call_script, "script_training_ground_sub_routine_2_for_melee_details", -1),]),
-      ("go_back_dot",[],"Go back.",
-       [(jump_to_menu, "mnu_training_ground"),]
-       ), #SB : stack built from loop
-      ]+
-      [("stack"+str(x), [(call_script, "script_cf_training_ground_sub_routine_1_for_melee_details", x),], "{s0}",
-       [(call_script, "script_training_ground_sub_routine_2_for_melee_details", x),])
-       for x in range(1, 20)]
-  ),
-
-
-
-  ("training_ground_selection_details_mounted",0,
-   "What kind of weapon do you want to train with?",
-   "none",
-   [
-   #SB : background mesh
-   (set_background_mesh, "mesh_pic_mb_warrior_2"),
-   ],
-    [
-      ("camp_train_mounted_details_1",[], "One handed weapon.",
-       [
-         (call_script, "script_start_training_at_training_ground", itp_type_one_handed_wpn, 0),
-         ]),
-      ("camp_train_mounted_details_2",[], "Polearm.",
-       [
-         (call_script, "script_start_training_at_training_ground", itp_type_polearm, 0),
-         ]),
-      ("camp_train_mounted_details_3",[], "Bow.",
-       [
-         (call_script, "script_start_training_at_training_ground", itp_type_bow, 0),
-         ]),
-      ("camp_train_mounted_details_4",[], "Thrown weapon.",
-       [
-         (call_script, "script_start_training_at_training_ground", itp_type_thrown, 0),
-         ]),
-      ("go_back_dot",[],"Go back.",
-       [(jump_to_menu, "mnu_training_ground"),
-        ]
-       ),
-      ]
-  ),
-
-
-  ("training_ground_selection_details_ranged_1",0,
-   "What kind of ranged weapon do you want to train with?",
-   "none",
-   [
-   (set_background_mesh, "mesh_pic_mb_warrior_4"), #SB : background mesh
-   ],
-    [
-      ("camp_train_ranged_weapon_bow",[], "Bow and arrows.",
-       [
-         (assign, "$g_mt_mode", ctm_ranged),
-         (assign, "$temp", itp_type_bow),
-         (jump_to_menu, "mnu_training_ground_selection_details_ranged_2"),
-         ]),
-      ("camp_train_ranged_weapon_crossbow",[], "Crossbow.",
-       [
-         (assign, "$g_mt_mode", ctm_ranged),
-         (assign, "$temp", itp_type_crossbow),
-         (jump_to_menu, "mnu_training_ground_selection_details_ranged_2"),
-         ]),
-      ("camp_train_ranged_weapon_thrown",[], "Throwing Knives.",
-       [
-         (assign, "$g_mt_mode", ctm_ranged),
-         (assign, "$temp", itp_type_thrown),
-         (jump_to_menu, "mnu_training_ground_selection_details_ranged_2"),
-         ]),
-      ("go_back_dot",[],"Go back.",
-       [(jump_to_menu, "mnu_training_ground"),
-        ]
-       ),
-      ]
-  ),
-
-
-  ("training_ground_selection_details_ranged_2",0,
-   "What range do you want to practice at?",
-   "none",
-   [
-   (set_background_mesh, "mesh_pic_mb_warrior_4"), #SB : background mesh
-   ],
-    [
-      ("camp_train_ranged_details_1",[], "10 yards.",
-       [
-         (call_script, "script_start_training_at_training_ground", "$temp", 10),
-         ]),
-      ("camp_train_ranged_details_2",[], "20 yards.",
-       [
-         (call_script, "script_start_training_at_training_ground", "$temp", 20),
-         ]),
-      ("camp_train_ranged_details_3",[], "30 yards.",
-       [
-         (call_script, "script_start_training_at_training_ground", "$temp", 30),
-         ]),
-      ("camp_train_ranged_details_4",[], "40 yards.",
-       [
-         (call_script, "script_start_training_at_training_ground", "$temp", 40),
-         ]),
-      ("camp_train_ranged_details_5",[(eq, "$g_mt_mode", ctm_ranged),], "50 yards.",
-       [
-         (call_script, "script_start_training_at_training_ground", "$temp", 50),
-         ]),
-      ("camp_train_ranged_details_6",[(eq, "$g_mt_mode", ctm_ranged),], "60 yards.",
-       [
-         (call_script, "script_start_training_at_training_ground", "$temp", 60),
-         ]),
-      ("camp_train_ranged_details_7",[(eq, "$g_mt_mode", ctm_ranged),], "70 yards.",
-       [
-         (call_script, "script_start_training_at_training_ground", "$temp", 70),
-         ]),
-      ("go_back_dot",[],"Go back.",
-       [(jump_to_menu, "mnu_training_ground"),
-        ]
-       ),
-      ]
-  ),
-
-
-  ("training_ground_description",0,
-   "{s0}",
-   "none",
-   [
-   #Sb : format string here instead of script_start_training_at_training_ground
-   (store_sub, reg0, "$g_training_ground_training_num_enemies", 1),
-   (store_sub, ":string", "$g_mt_mode", 1),
-   (val_add, ":string", "str_ctm_melee"),
-   (str_store_string, s0, ":string"),
-   
-   ],
-    [
-      ("continue", [], "Continue...",
-       [
-         (jump_to_scene, "$g_training_ground_training_scene"),
-         (change_screen_mission),
-        ]
-       ),
-      ]
-  ),
-
-  ("training_ground_training_result",mnf_disable_all_keys,
-   "{s7}{s2}",
-   "none",
-   [
-     (store_skill_level, ":trainer_skill", "skl_trainer", "trp_player"),
-     (store_add, ":trainer_skill_multiplier", 5, ":trainer_skill"),
-     (call_script, "script_write_fit_party_members_to_stack_selection", "p_main_party", 1),
-     (str_clear, s2),
-     (troop_get_slot, ":num_fit", "trp_stack_selection_amounts", 1),
-     (troop_get_slot, ":num_slots", "trp_stack_selection_amounts", 0),
-     (try_begin),
-       (gt, "$g_training_ground_training_success_ratio", 0),
-       (store_mul, ":xp_ratio_to_add", "$g_training_ground_training_success_ratio", "$g_training_ground_training_success_ratio"),
-       (try_begin),
-         (eq, "$g_training_ground_training_success_ratio", 100),
-         (val_mul, ":xp_ratio_to_add", 2), #2x when perfect
-       (try_end),
-       (try_begin),
-         (eq, "$g_mt_mode", ctm_melee),
-         (val_div, ":xp_ratio_to_add", 2),
-       (try_end),
-       (val_div, ":xp_ratio_to_add", 10), # value over 1000
-       (try_begin),
-         (gt, ":num_fit", 8),
-         (val_mul, ":xp_ratio_to_add", 3),
-         (assign, ":divisor", ":num_fit"),
-         (convert_to_fixed_point, ":divisor"),
-         (store_sqrt, ":divisor", ":divisor"),
-         (convert_to_fixed_point, ":xp_ratio_to_add"),
-         (val_div, ":xp_ratio_to_add", ":divisor"),
-       (try_end),
-##       (assign, reg0, ":xp_ratio_to_add"),
-##       (display_message, "@xp earn ratio: {reg0}/1000"),
-       (store_mul, ":xp_ratio_to_add_with_trainer_skill", ":xp_ratio_to_add", ":trainer_skill_multiplier"),
-       (val_div, ":xp_ratio_to_add_with_trainer_skill", 10),
-       (party_get_num_companion_stacks, ":num_stacks", "p_main_party"),
-       (store_add, ":end_cond", ":num_slots", 2),
-       (try_for_range, ":i_slot", 2, ":end_cond"),
-         (troop_get_slot, ":amount", "trp_stack_selection_amounts", ":i_slot"),
-         (troop_get_slot, ":troop_id", "trp_stack_selection_ids", ":i_slot"),
-         (assign, ":end_cond_2", ":num_stacks"),
-         (try_for_range, ":stack_no", 0, ":end_cond_2"),
-           (party_stack_get_troop_id, ":stack_troop", "p_main_party", ":stack_no"),
-           (eq, ":stack_troop", ":troop_id"),
-           (assign, ":end_cond_2", 0), #break
-           (call_script, "script_cf_training_ground_sub_routine_for_training_result", ":troop_id", ":stack_no", ":amount", ":xp_ratio_to_add_with_trainer_skill"),
-           (str_store_troop_name_by_count, s1, ":troop_id", ":amount"),
-           #SB : hero name count
-           (try_begin),
-             (troop_is_hero, ":troop_id"),
-             (assign, reg2, 1),
-           (else_try),
-             (assign, reg2, 0),
-             (assign, reg1, ":amount"),
-           (try_end),
-           (str_store_string, s2, "@{s2}^{reg2?:{reg1} }{s1} earned {reg0} experience."),
-         (try_end),
-       (try_end),
-       (try_begin),
-         (eq, "$g_mt_mode", ctm_melee),
-         (store_mul, ":special_xp_ratio_to_add", ":xp_ratio_to_add", 3),
-         (val_div, ":special_xp_ratio_to_add", 2),
-         (try_for_range, ":enemy_index", 0, "$g_training_ground_training_num_enemies"),
-           (troop_get_slot, ":troop_id", "trp_temp_array_a", ":enemy_index"),
-           (assign, ":end_cond_2", ":num_stacks"),
-           (try_for_range, ":stack_no", 0, ":end_cond_2"),
-             (party_stack_get_troop_id, ":stack_troop", "p_main_party", ":stack_no"),
-             (eq, ":stack_troop", ":troop_id"),
-             (assign, ":end_cond_2", 0), #break
-             (call_script, "script_cf_training_ground_sub_routine_for_training_result", ":troop_id", ":stack_no", 1, ":special_xp_ratio_to_add"),
-             (str_store_troop_name, s1, ":troop_id"),
-             (str_store_string, s2, "@{s2}^{s1} earned an additional {reg0} experience."),
-           (try_end),
-         (try_end),
-       (try_end),
-       (try_begin),
-         (call_script, "script_cf_training_ground_sub_routine_for_training_result", "trp_player", -1, 1, ":xp_ratio_to_add"),
-         (str_store_string, s2, "@^You earned {reg0} experience.{s2}"),
-       (try_end),
-     (try_end),
-     (try_begin),
-       (eq, "$g_training_ground_training_success_ratio", 0),
-       (str_store_string, s7, "@The training didn't go well at all."),
-     (else_try),
-       (lt, "$g_training_ground_training_success_ratio", 25),
-       (str_store_string, s7, "@The training didn't go well at all."),
-     (else_try),
-       (lt, "$g_training_ground_training_success_ratio", 50),
-       (str_store_string, s7, "@The training didn't go very well."),
-     (else_try),
-       (lt, "$g_training_ground_training_success_ratio", 75),
-       (str_store_string, s7, "@The training went quite well."),
-     (else_try),
-       (lt, "$g_training_ground_training_success_ratio", 99),
-       (str_store_string, s7, "@The training went very well."),
-     (else_try),
-       (str_store_string, s7, "@The training went perfectly."),
-     (try_end),
-
-     ],
-    [
-      ("continue",[],"Continue...",
-       [(jump_to_menu, "mnu_training_ground"),
-        ]
-       ),
-      ]
-   ),
-
-  ("marshall_selection_candidate_ask",0,
-   "{s15} will soon select a new marshall for {s23}. Some of the lords have suggested your name as a likely candidate.",
-   "none",
-   [
-     (try_begin),
-       (eq, "$g_presentation_marshall_selection_ended", 1),
-       (change_screen_return),
-     (try_end),
-     (faction_get_slot, ":king", "$players_kingdom", slot_faction_leader),
-     (str_store_troop_name, s15, ":king"),
-     (str_store_faction_name, s23, "$players_kingdom"),
-     ],
-    [
-      ("marshall_candidate_accept", [], "Let {s15} learn that you are willing to serve as marshall.",
-       [
-         (start_presentation, "prsnt_marshall_selection"),
-        ]
-       ),
-      ("marshall_candidate_reject", [], "Tell everyone that you are too busy these days.",
-       [
-         (try_begin),
-           (eq, "$g_presentation_marshall_selection_max_renown_2_troop", "trp_player"),
-           (assign, "$g_presentation_marshall_selection_max_renown_2", "$g_presentation_marshall_selection_max_renown_3"),
-           (assign, "$g_presentation_marshall_selection_max_renown_2_troop", "$g_presentation_marshall_selection_max_renown_3_troop"),
-         (else_try),
-           (assign, "$g_presentation_marshall_selection_max_renown_1", "$g_presentation_marshall_selection_max_renown_2"),
-           (assign, "$g_presentation_marshall_selection_max_renown_1_troop", "$g_presentation_marshall_selection_max_renown_2_troop"),
-           (assign, "$g_presentation_marshall_selection_max_renown_2", "$g_presentation_marshall_selection_max_renown_3"),
-           (assign, "$g_presentation_marshall_selection_max_renown_2_troop", "$g_presentation_marshall_selection_max_renown_3_troop"),
-         (try_end),
-         (start_presentation, "prsnt_marshall_selection"),
-        ]
-       ),
-      ]
-  ),
-
-
-
-
-##    [
-##      ("renew_oath",[],"Renew your oath to {s1} for another month.",[
-##          (store_current_day, ":cur_day"),
-##          (store_add, "$g_oath_end_day", ":cur_day", 30),
-##          (change_screen_return)]),
-##      ("dont_renew_oath",[],"Become free of your bond.",[
-##          (assign, "$players_kingdom",0),
-##          (assign, "$g_player_permitted_castles", 0),
-##          (change_screen_return)]),
-##    ]
-##  ),
-
-
-#####################################################################
-## Captivity....
-#####################################################################
-#####################################################################
-#####################################################################
-#####################################################################
+  
   (
     "captivity_avoid_wilderness",0,
     "Suddenly all the world goes black around you.\
@@ -16283,6 +16131,472 @@ goods, and books will never be sold. ^^You can change some settings here freely.
            (change_screen_return),
         ]),
     ]
+  ),  
+  
+  
+####################################################################################################################
+# [ Z18 ] - Training Grounds
+####################################################################################################################  
+
+
+  (
+    "training_ground",mnf_enable_hot_keys, #SB : enable hotkeys to check party
+    "You approach a training field where you can practice your martial skills. What kind of training do you want to do?",
+    "none",
+    [
+      (try_begin), #SB : track slot
+        (party_get_slot, ":scene_no", slot_grounds_track, "$g_encountered_party"),
+        (le, ":scene_no", 0),
+        (store_add, ":scene_no", "scn_training_ground_horse_track_1", "$g_encountered_party"),
+        (val_sub, ":scene_no", training_grounds_begin),
+        (party_set_slot, "$g_encountered_party", slot_grounds_track, ":scene_no"),
+      (try_end),
+      (try_begin), #SB : melee/ranged slot
+        (party_get_slot, ":scene_no", slot_grounds_melee, "$g_encountered_party"),
+        (le, ":scene_no", 0),
+        (store_add, ":scene_no", "scn_training_ground_ranged_melee_1", "$g_encountered_party"),
+        (val_sub, ":scene_no", training_grounds_begin),
+        (party_set_slot, "$g_encountered_party", slot_grounds_melee, ":scene_no"),
+      (try_end),
+      (assign, "$g_training_ground_melee_training_scene", ":scene_no"),
+      
+      
+      #SB : modify this interval
+      (party_get_skill_level, ":training", "p_main_party", "skl_trainer"), #from 0 to 10
+      (try_begin), #grab trainer troop if it isn't linked
+        (party_get_slot, ":trainer_troop", "$g_encountered_party", slot_grounds_trainer),
+        (try_begin),
+          (le, ":trainer_troop", 0),
+          (store_sub, ":trainer_troop", "$g_encountered_party", training_grounds_begin),
+          (val_add, ":trainer_troop", training_ground_trainers_begin),
+          (party_set_slot, "$g_encountered_party", slot_grounds_trainer, ":trainer_troop"),
+        (try_end),
+        (troop_get_slot, ":difficulty", ":trainer_troop", slot_troop_trainer_training_difficulty), #from 0 to 4
+        (val_add, ":training", ":difficulty"), #0 to 14
+      (try_end),
+      (val_div, ":training", 2), #0 to 7
+      (val_max, ":training", 3),
+      (try_begin), #was $g_training_ground_training_count
+        (party_slot_ge, "$g_encountered_party", slot_grounds_count, ":training"),
+        (party_set_slot, "$g_encountered_party", slot_grounds_count, 0),
+        # (assign, "$g_training_ground_training_count", 0),
+        (rest_for_hours, 1, 5, 0), #rest while not attackable
+        (assign, "$auto_enter_town", "$g_encountered_party"),
+        (change_screen_return),
+      (try_end),
+      #SB : set background mesh, player troop
+      (assign, "$g_player_troop", "trp_player"),
+      (set_background_mesh, "mesh_pic_mb_warrior_1"),
+      ],
+    [
+      ("camp_trainer",
+       [], "Speak with the trainer.",
+       [
+         (set_jump_mission, "mt_training_ground_trainer_talk"),
+         # no need to reset visitors, trainer is always there
+         # (modify_visitors_at_site, "$g_training_ground_melee_training_scene"),
+         # (reset_visitors),
+         (set_jump_entry, 5),
+         (jump_to_scene, "$g_training_ground_melee_training_scene"),
+         (change_screen_mission),
+         (music_set_situation, 0),
+         ]),
+      ("camp_train_melee",
+       [
+         (neg|troop_is_wounded, "trp_player"),
+         (call_script, "script_party_count_fit_for_battle", "p_main_party"),
+         (gt, reg0, 1),
+         ], "Sparring practice.",
+       [
+         (assign, "$g_mt_mode", ctm_melee),
+         (jump_to_menu, "mnu_training_ground_selection_details_melee_1"),
+         (music_set_situation, 0),
+         ]),
+      ("camp_train_archery",[], "Ranged weapon practice.",
+       [
+         (jump_to_menu, "mnu_training_ground_selection_details_ranged_1"),
+         (music_set_situation, 0),
+         ]),
+      ("camp_train_mounted",[], "Horseback practice.",
+       [
+         (assign, "$g_mt_mode", ctm_mounted),
+         (jump_to_menu, "mnu_training_ground_selection_details_mounted"),
+         (music_set_situation, 0),
+         ]),
+
+      ("go_to_track",[(eq, "$cheat_mode", 1)],"{!}Cheat: Go to track.",
+       [
+         (set_jump_mission, "mt_ai_training"),
+         (try_begin), #SB : slots
+           (party_get_slot, ":scene_no", slot_grounds_track, "$g_encountered_party"),
+           (le, ":scene_no", 0),
+           (store_add, ":scene_no", "scn_training_ground_horse_track_1", "$g_encountered_party"),
+           (val_sub, ":scene_no", training_grounds_begin),
+         (try_end),
+         (jump_to_scene, ":scene_no"),
+         (change_screen_mission),
+        ]
+       ),
+      ("go_to_range",[(eq, "$cheat_mode", 1)],"{!}Cheat: Go to range.",
+       [
+         (set_jump_mission, "mt_ai_training"),
+         (jump_to_scene, "$g_training_ground_melee_training_scene"),
+         (change_screen_mission),
+        ]
+       ),
+      ("leave",[],"Leave.",
+       [(change_screen_return),
+        ]),
+    ]
+  ),
+
+  ("training_ground_selection_details_melee_1",0,
+   "How many opponents will you go against?",
+   "none",
+   [
+     (call_script, "script_write_fit_party_members_to_stack_selection", "p_main_party", 1),
+     (troop_get_slot, "$temp", "trp_stack_selection_amounts", 1), #number of men fit
+     (assign, "$temp_2", 1),
+     ],
+    [
+      ("camp_train_melee_num_men_1",[(ge, "$temp", 1)], "One.",
+       [
+         (assign, "$temp", 1),
+         (jump_to_menu, "mnu_training_ground_selection_details_melee_2"),
+         ]),
+      ("camp_train_melee_num_men_2",[(ge, "$temp", 2)], "Two.",
+       [
+         (assign, "$temp", 2),
+         (jump_to_menu, "mnu_training_ground_selection_details_melee_2"),
+         ]),
+      ("camp_train_melee_num_men_3",[(ge, "$temp", 3)], "Three.",
+       [
+         (assign, "$temp", 3),
+         (jump_to_menu, "mnu_training_ground_selection_details_melee_2"),
+         ]),
+      ("camp_train_melee_num_men_4",[(ge, "$temp", 4)], "Four.",
+       [
+         (assign, "$temp", 4),
+         (jump_to_menu, "mnu_training_ground_selection_details_melee_2"),
+         ]),
+      ("go_back_dot",[],"Cancel.",
+       [
+         (jump_to_menu, "mnu_training_ground"),
+        ]),
+      ]
+  ),
+
+  ("training_ground_selection_details_melee_2",0,
+   "Choose your opponent:^{s1}^{reg1}:",
+   "none",
+    [
+      (assign, reg1, "$temp_2"),
+      (troop_get_slot, "$temp_3", "trp_stack_selection_amounts", 0), #number of slots
+      
+      #SB : show current list
+      (str_clear, s1),
+      (store_sub, ":end", "$temp_2", 1),
+      (try_for_range, ":slot_index", 0, ":end"),
+        (store_add, reg0, ":slot_index", 1),
+        (troop_get_slot, ":troop_id", "trp_temp_array_a", ":slot_index"),
+        (gt, ":troop_id", 0),
+        (str_store_troop_name, s2, ":troop_id"),
+        (str_store_string, s1, "@{s1}^{reg0}: {s2}"),
+      # (else_try),
+        # (str_store_string, s1, "@{s1}^{reg0}:"),
+      (try_end),
+    ],
+    [
+      ("training_ground_selection_details_melee_random", [], "Choose randomly.",
+       [(call_script, "script_training_ground_sub_routine_2_for_melee_details", -1),]),
+      ("go_back_dot",[],"Go back.",
+       [(jump_to_menu, "mnu_training_ground"),]
+       ), #SB : stack built from loop
+      ]+
+      [("stack"+str(x), [(call_script, "script_cf_training_ground_sub_routine_1_for_melee_details", x),], "{s0}",
+       [(call_script, "script_training_ground_sub_routine_2_for_melee_details", x),])
+       for x in range(1, 20)]
+  ),
+
+
+
+  ("training_ground_selection_details_mounted",0,
+   "What kind of weapon do you want to train with?",
+   "none",
+   [
+   #SB : background mesh
+   (set_background_mesh, "mesh_pic_mb_warrior_2"),
+   ],
+    [
+      ("camp_train_mounted_details_1",[], "One handed weapon.",
+       [
+         (call_script, "script_start_training_at_training_ground", itp_type_one_handed_wpn, 0),
+         ]),
+      ("camp_train_mounted_details_2",[], "Polearm.",
+       [
+         (call_script, "script_start_training_at_training_ground", itp_type_polearm, 0),
+         ]),
+      ("camp_train_mounted_details_3",[], "Bow.",
+       [
+         (call_script, "script_start_training_at_training_ground", itp_type_bow, 0),
+         ]),
+      ("camp_train_mounted_details_4",[], "Thrown weapon.",
+       [
+         (call_script, "script_start_training_at_training_ground", itp_type_thrown, 0),
+         ]),
+      ("go_back_dot",[],"Go back.",
+       [(jump_to_menu, "mnu_training_ground"),
+        ]
+       ),
+      ]
+  ),
+
+
+  ("training_ground_selection_details_ranged_1",0,
+   "What kind of ranged weapon do you want to train with?",
+   "none",
+   [
+   (set_background_mesh, "mesh_pic_mb_warrior_4"), #SB : background mesh
+   ],
+    [
+      ("camp_train_ranged_weapon_bow",[], "Bow and arrows.",
+       [
+         (assign, "$g_mt_mode", ctm_ranged),
+         (assign, "$temp", itp_type_bow),
+         (jump_to_menu, "mnu_training_ground_selection_details_ranged_2"),
+         ]),
+      ("camp_train_ranged_weapon_crossbow",[], "Crossbow.",
+       [
+         (assign, "$g_mt_mode", ctm_ranged),
+         (assign, "$temp", itp_type_crossbow),
+         (jump_to_menu, "mnu_training_ground_selection_details_ranged_2"),
+         ]),
+      ("camp_train_ranged_weapon_thrown",[], "Throwing Knives.",
+       [
+         (assign, "$g_mt_mode", ctm_ranged),
+         (assign, "$temp", itp_type_thrown),
+         (jump_to_menu, "mnu_training_ground_selection_details_ranged_2"),
+         ]),
+      ("go_back_dot",[],"Go back.",
+       [(jump_to_menu, "mnu_training_ground"),
+        ]
+       ),
+      ]
+  ),
+
+
+  ("training_ground_selection_details_ranged_2",0,
+   "What range do you want to practice at?",
+   "none",
+   [
+   (set_background_mesh, "mesh_pic_mb_warrior_4"), #SB : background mesh
+   ],
+    [
+      ("camp_train_ranged_details_1",[], "10 yards.",
+       [
+         (call_script, "script_start_training_at_training_ground", "$temp", 10),
+         ]),
+      ("camp_train_ranged_details_2",[], "20 yards.",
+       [
+         (call_script, "script_start_training_at_training_ground", "$temp", 20),
+         ]),
+      ("camp_train_ranged_details_3",[], "30 yards.",
+       [
+         (call_script, "script_start_training_at_training_ground", "$temp", 30),
+         ]),
+      ("camp_train_ranged_details_4",[], "40 yards.",
+       [
+         (call_script, "script_start_training_at_training_ground", "$temp", 40),
+         ]),
+      ("camp_train_ranged_details_5",[(eq, "$g_mt_mode", ctm_ranged),], "50 yards.",
+       [
+         (call_script, "script_start_training_at_training_ground", "$temp", 50),
+         ]),
+      ("camp_train_ranged_details_6",[(eq, "$g_mt_mode", ctm_ranged),], "60 yards.",
+       [
+         (call_script, "script_start_training_at_training_ground", "$temp", 60),
+         ]),
+      ("camp_train_ranged_details_7",[(eq, "$g_mt_mode", ctm_ranged),], "70 yards.",
+       [
+         (call_script, "script_start_training_at_training_ground", "$temp", 70),
+         ]),
+      ("go_back_dot",[],"Go back.",
+       [(jump_to_menu, "mnu_training_ground"),
+        ]
+       ),
+      ]
+  ),
+
+
+  ("training_ground_description",0,
+   "{s0}",
+   "none",
+   [
+   #Sb : format string here instead of script_start_training_at_training_ground
+   (store_sub, reg0, "$g_training_ground_training_num_enemies", 1),
+   (store_sub, ":string", "$g_mt_mode", 1),
+   (val_add, ":string", "str_ctm_melee"),
+   (str_store_string, s0, ":string"),
+   
+   ],
+    [
+      ("continue", [], "Continue...",
+       [
+         (jump_to_scene, "$g_training_ground_training_scene"),
+         (change_screen_mission),
+        ]
+       ),
+      ]
+  ),
+
+  ("training_ground_training_result",mnf_disable_all_keys,
+   "{s7}{s2}",
+   "none",
+   [
+     (store_skill_level, ":trainer_skill", "skl_trainer", "trp_player"),
+     (store_add, ":trainer_skill_multiplier", 5, ":trainer_skill"),
+     (call_script, "script_write_fit_party_members_to_stack_selection", "p_main_party", 1),
+     (str_clear, s2),
+     (troop_get_slot, ":num_fit", "trp_stack_selection_amounts", 1),
+     (troop_get_slot, ":num_slots", "trp_stack_selection_amounts", 0),
+     (try_begin),
+       (gt, "$g_training_ground_training_success_ratio", 0),
+       (store_mul, ":xp_ratio_to_add", "$g_training_ground_training_success_ratio", "$g_training_ground_training_success_ratio"),
+       (try_begin),
+         (eq, "$g_training_ground_training_success_ratio", 100),
+         (val_mul, ":xp_ratio_to_add", 2), #2x when perfect
+       (try_end),
+       (try_begin),
+         (eq, "$g_mt_mode", ctm_melee),
+         (val_div, ":xp_ratio_to_add", 2),
+       (try_end),
+       (val_div, ":xp_ratio_to_add", 10), # value over 1000
+       (try_begin),
+         (gt, ":num_fit", 8),
+         (val_mul, ":xp_ratio_to_add", 3),
+         (assign, ":divisor", ":num_fit"),
+         (convert_to_fixed_point, ":divisor"),
+         (store_sqrt, ":divisor", ":divisor"),
+         (convert_to_fixed_point, ":xp_ratio_to_add"),
+         (val_div, ":xp_ratio_to_add", ":divisor"),
+       (try_end),
+##       (assign, reg0, ":xp_ratio_to_add"),
+##       (display_message, "@xp earn ratio: {reg0}/1000"),
+       (store_mul, ":xp_ratio_to_add_with_trainer_skill", ":xp_ratio_to_add", ":trainer_skill_multiplier"),
+       (val_div, ":xp_ratio_to_add_with_trainer_skill", 10),
+       (party_get_num_companion_stacks, ":num_stacks", "p_main_party"),
+       (store_add, ":end_cond", ":num_slots", 2),
+       (try_for_range, ":i_slot", 2, ":end_cond"),
+         (troop_get_slot, ":amount", "trp_stack_selection_amounts", ":i_slot"),
+         (troop_get_slot, ":troop_id", "trp_stack_selection_ids", ":i_slot"),
+         (assign, ":end_cond_2", ":num_stacks"),
+         (try_for_range, ":stack_no", 0, ":end_cond_2"),
+           (party_stack_get_troop_id, ":stack_troop", "p_main_party", ":stack_no"),
+           (eq, ":stack_troop", ":troop_id"),
+           (assign, ":end_cond_2", 0), #break
+           (call_script, "script_cf_training_ground_sub_routine_for_training_result", ":troop_id", ":stack_no", ":amount", ":xp_ratio_to_add_with_trainer_skill"),
+           (str_store_troop_name_by_count, s1, ":troop_id", ":amount"),
+           #SB : hero name count
+           (try_begin),
+             (troop_is_hero, ":troop_id"),
+             (assign, reg2, 1),
+           (else_try),
+             (assign, reg2, 0),
+             (assign, reg1, ":amount"),
+           (try_end),
+           (str_store_string, s2, "@{s2}^{reg2?:{reg1} }{s1} earned {reg0} experience."),
+         (try_end),
+       (try_end),
+       (try_begin),
+         (eq, "$g_mt_mode", ctm_melee),
+         (store_mul, ":special_xp_ratio_to_add", ":xp_ratio_to_add", 3),
+         (val_div, ":special_xp_ratio_to_add", 2),
+         (try_for_range, ":enemy_index", 0, "$g_training_ground_training_num_enemies"),
+           (troop_get_slot, ":troop_id", "trp_temp_array_a", ":enemy_index"),
+           (assign, ":end_cond_2", ":num_stacks"),
+           (try_for_range, ":stack_no", 0, ":end_cond_2"),
+             (party_stack_get_troop_id, ":stack_troop", "p_main_party", ":stack_no"),
+             (eq, ":stack_troop", ":troop_id"),
+             (assign, ":end_cond_2", 0), #break
+             (call_script, "script_cf_training_ground_sub_routine_for_training_result", ":troop_id", ":stack_no", 1, ":special_xp_ratio_to_add"),
+             (str_store_troop_name, s1, ":troop_id"),
+             (str_store_string, s2, "@{s2}^{s1} earned an additional {reg0} experience."),
+           (try_end),
+         (try_end),
+       (try_end),
+       (try_begin),
+         (call_script, "script_cf_training_ground_sub_routine_for_training_result", "trp_player", -1, 1, ":xp_ratio_to_add"),
+         (str_store_string, s2, "@^You earned {reg0} experience.{s2}"),
+       (try_end),
+     (try_end),
+     (try_begin),
+       (eq, "$g_training_ground_training_success_ratio", 0),
+       (str_store_string, s7, "@The training didn't go well at all."),
+     (else_try),
+       (lt, "$g_training_ground_training_success_ratio", 25),
+       (str_store_string, s7, "@The training didn't go well at all."),
+     (else_try),
+       (lt, "$g_training_ground_training_success_ratio", 50),
+       (str_store_string, s7, "@The training didn't go very well."),
+     (else_try),
+       (lt, "$g_training_ground_training_success_ratio", 75),
+       (str_store_string, s7, "@The training went quite well."),
+     (else_try),
+       (lt, "$g_training_ground_training_success_ratio", 99),
+       (str_store_string, s7, "@The training went very well."),
+     (else_try),
+       (str_store_string, s7, "@The training went perfectly."),
+     (try_end),
+
+     ],
+    [
+      ("continue",[],"Continue...",
+       [(jump_to_menu, "mnu_training_ground"),
+        ]
+       ),
+      ]
+   ),
+
+   
+####################################################################################################################
+# [ Z19 ] - Marshal Quests
+####################################################################################################################
+
+   
+  ("marshall_selection_candidate_ask",0,
+   "{s15} will soon select a new marshall for {s23}. Some of the lords have suggested your name as a likely candidate.",
+   "none",
+   [
+     (try_begin),
+       (eq, "$g_presentation_marshall_selection_ended", 1),
+       (change_screen_return),
+     (try_end),
+     (faction_get_slot, ":king", "$players_kingdom", slot_faction_leader),
+     (str_store_troop_name, s15, ":king"),
+     (str_store_faction_name, s23, "$players_kingdom"),
+     ],
+    [
+      ("marshall_candidate_accept", [], "Let {s15} learn that you are willing to serve as marshall.",
+       [
+         (start_presentation, "prsnt_marshall_selection"),
+        ]
+       ),
+      ("marshall_candidate_reject", [], "Tell everyone that you are too busy these days.",
+       [
+         (try_begin),
+           (eq, "$g_presentation_marshall_selection_max_renown_2_troop", "trp_player"),
+           (assign, "$g_presentation_marshall_selection_max_renown_2", "$g_presentation_marshall_selection_max_renown_3"),
+           (assign, "$g_presentation_marshall_selection_max_renown_2_troop", "$g_presentation_marshall_selection_max_renown_3_troop"),
+         (else_try),
+           (assign, "$g_presentation_marshall_selection_max_renown_1", "$g_presentation_marshall_selection_max_renown_2"),
+           (assign, "$g_presentation_marshall_selection_max_renown_1_troop", "$g_presentation_marshall_selection_max_renown_2_troop"),
+           (assign, "$g_presentation_marshall_selection_max_renown_2", "$g_presentation_marshall_selection_max_renown_3"),
+           (assign, "$g_presentation_marshall_selection_max_renown_2_troop", "$g_presentation_marshall_selection_max_renown_3_troop"),
+         (try_end),
+         (start_presentation, "prsnt_marshall_selection"),
+        ]
+       ),
+      ]
   ),
 
   (
@@ -16555,7 +16869,50 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         ]),
      ]
   ),
+  
+  
+####################################################################################################################
+# [ Z20 ] - Notifications
+####################################################################################################################    
+   
+  ("notification_relieved_as_marshal", mnf_disable_all_keys,
+    "{s4} wishes to inform you that your services as marshal are no longer required. In honor of valiant efforts on behalf of the realm over the last {reg4} days, however, {reg8?she:he} offers you a purse of {reg5} denars.",
+    "none",
+    [
+	(assign, reg4, "$g_player_days_as_marshal"),
 
+
+
+	(store_div, ":renown_gain", "$g_player_days_as_marshal",4),
+	(val_min, ":renown_gain", 20),
+	(store_mul, ":denar_gain", "$g_player_days_as_marshal", 50),
+	(val_max, ":denar_gain", 200),
+	(val_min, ":denar_gain", 4000),
+	(troop_add_gold, "trp_player", ":denar_gain"),
+	(call_script, "script_change_troop_renown", "trp_player", ":renown_gain"),
+	(assign, "$g_player_days_as_marshal", 0),
+	(assign, "$g_dont_give_marshalship_to_player_days", 15),
+	(assign, reg5, ":denar_gain"),
+
+	(faction_get_slot, ":faction_leader", "$players_kingdom", slot_faction_leader),
+	(str_store_troop_name, s4, ":faction_leader"),
+	##diplomacy start+ get gender with script
+	#(troop_get_type, reg8, ":faction_leader"),#<- OLD
+	(assign, ":save_reg0", reg0),
+	(call_script, "script_dplmc_store_troop_is_female", ":faction_leader"),
+	(assign, reg8, reg0),
+	(assign, reg0, ":save_reg0"),
+	##diplomacy end+
+	],
+
+	 [
+      ("continue",[],"Continue",
+       [
+         (change_screen_return),
+       ]),
+    ]
+  ),
+   
   (
     "notification_truce_expired",0,
     "Truce Has Expired^^The truce between {s1} and {s2} has expired.",
@@ -17785,141 +18142,6 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   ),
 
 
-
-  ( #pre lady visit
-    "garden",0,
-    "{s12}",
-    "none",
-    [
-
-    (call_script, "script_get_kingdom_lady_social_determinants", "$love_interest_in_town"),
-	(assign, ":guardian_lord", reg0),
-	(str_store_troop_name, s11, "$love_interest_in_town"),
-
-	(try_begin),
-		(call_script, "script_npc_decision_checklist_male_guardian_assess_suitor", ":guardian_lord", "trp_player"),
-		(lt, reg0, 0),
-		(troop_set_slot, ":guardian_lord", slot_lord_granted_courtship_permission, -1),
-	(try_end),
-
-	(assign, "$nurse_assists_entry", 0),
-	(try_begin),
-		(troop_slot_eq, ":guardian_lord", slot_lord_granted_courtship_permission, 1),
-		(str_store_string, s12, "str_the_guards_at_the_gate_have_been_ordered_to_allow_you_through_you_might_be_imagining_things_but_you_think_one_of_them_may_have_given_you_a_wink"),
-	(else_try), #the circumstances under which the lady arranges for a surreptitious entry
-		(call_script, "script_troop_get_relation_with_troop", "trp_player", "$love_interest_in_town"),
-		(gt, reg0, 0),
-
-		(assign, ":player_completed_quest", 0),
-		(try_begin),
-			(check_quest_active, "qst_visit_lady"),
-			(quest_slot_eq, "qst_visit_lady", slot_quest_giver_troop, "$love_interest_in_town"),
-			(assign, ":player_completed_quest", 1),
-		(else_try),
-			(check_quest_active, "qst_formal_marriage_proposal"),
-			(quest_slot_eq, "qst_formal_marriage_proposal", slot_quest_giver_troop, "$love_interest_in_town"),
-			(this_or_next|check_quest_succeeded, "qst_formal_marriage_proposal"),
-				(check_quest_failed, "qst_formal_marriage_proposal"),
-			(assign, ":player_completed_quest", 1),
-		(else_try),
-			(check_quest_active, "qst_duel_courtship_rival"),
-			(quest_slot_eq, "qst_duel_courtship_rival", slot_quest_giver_troop, "$love_interest_in_town"),
-			(this_or_next|check_quest_succeeded, "qst_duel_courtship_rival"),
-				(check_quest_failed, "qst_duel_courtship_rival"),
-			(assign, ":player_completed_quest", 1),
-		(try_end),
-
-		(try_begin),
-			(store_current_hours, ":hours_since_last_visit"),
-			(troop_get_slot, ":last_visit_time", "$love_interest_in_town", slot_troop_last_talk_time),
-			(val_sub, ":hours_since_last_visit", ":last_visit_time"),
-			(this_or_next|ge, ":hours_since_last_visit", 96), #at least four days
-				(eq, ":player_completed_quest", 1),
-
-			(try_begin),
-				(is_between, "$g_encountered_party", towns_begin, towns_end),
-				(str_store_string, s12, "str_the_guards_glare_at_you_and_you_know_better_than_to_ask_permission_to_enter_however_as_you_walk_back_towards_your_lodgings_an_elderly_lady_dressed_in_black_approaches_you_i_am_s11s_nurse_she_whispers_urgently_don_this_dress_and_throw_the_hood_over_your_face_i_will_smuggle_you_inside_the_castle_to_meet_her_in_the_guise_of_a_skullery_maid__the_guards_will_not_look_too_carefully_but_i_beg_you_for_all_of_our_sakes_be_discrete"),
-				(assign, "$nurse_assists_entry", 1),
-			(else_try),
-				(str_store_string, s12, "str_the_guards_glare_at_you_and_you_know_better_than_to_ask_permission_to_enter_however_as_you_walk_back_towards_your_lodgings_an_elderly_lady_dressed_in_black_approaches_you_i_am_s11s_nurse_she_whispers_urgently_wait_for_a_while_by_the_spring_outside_the_walls_i_will_smuggle_her_ladyship_out_to_meet_you_dressed_in_the_guise_of_a_shepherdess_but_i_beg_you_for_all_of_our_sakes_be_discrete"),
-				(assign, "$nurse_assists_entry", 2),
-			(try_end),
-		(else_try),
-			(str_store_string, s12, "str_the_guards_glare_at_you_and_you_know_better_than_to_ask_permission_to_enter_however_as_you_walk_back_towards_your_lodgings_an_elderly_lady_dressed_in_black_approaches_you_i_am_s11s_nurse_she_whispers_urgently_her_ladyship_asks_me_to_say_that_yearns_to_see_you_but_that_you_should_bide_your_time_a_bit_her_ladyship_says_that_to_arrange_a_clandestine_meeting_so_soon_after_your_last_encounter_would_be_too_dangerous"),
-		(try_end),
-	(else_try),
-		(str_store_string, s12, "str_the_guards_glare_at_you_and_you_know_better_than_to_ask_permission_to_enter"),
-	(try_end),
-
-	],
-    [
-
-	("enter",
-	[
-    (call_script, "script_get_kingdom_lady_social_determinants", "$love_interest_in_town"),
-	(troop_slot_eq, reg0, slot_lord_granted_courtship_permission, 1)
-	], "Enter",
-	[
-	(jump_to_menu, "mnu_town"),
-	(call_script, "script_setup_meet_lady", "$love_interest_in_town", "$g_encountered_party"),
-	]
-	),
-
-	("nurse",
-	[
-    (eq, "$nurse_assists_entry", 1),
-	], "Go with the nurse",
-	[
-	(jump_to_menu, "mnu_town"),
-	(call_script, "script_setup_meet_lady", "$love_interest_in_town", "$g_encountered_party"),
-	]
-	),
-
-
-	("nurse",
-	[
-    (eq, "$nurse_assists_entry", 2),
-	], "Wait by the spring",
-	[
-	(jump_to_menu, "mnu_town"),
-	(call_script, "script_setup_meet_lady", "$love_interest_in_town", "$g_encountered_party"),
-	]
-	),
-
-	("leave",
-	[],
-	"Leave",
-	[(jump_to_menu, "mnu_town")]),
-
-    ]
-
-
-  ),
-
-
-    (
-    "kill_local_merchant_begin",0,
-    "You spot your victim and follow him, observing as he turns a corner into a dark alley.\
- This will surely be your best opportunity to attack him.",
-    "none",
-    [
-    ],
-    [
-      ("continue",[],"Continue...",
-       [(set_jump_mission,"mt_back_alley_kill_local_merchant"),
-        (party_get_slot, ":town_alley", "$qst_kill_local_merchant_center", slot_town_alley),
-        (modify_visitors_at_site,":town_alley"),
-        (reset_visitors),
-        (set_visitor, 0, "trp_player"),
-        (set_visitor, 1, "trp_local_merchant"),
-        (jump_to_menu, "mnu_town"),
-        (jump_to_scene,":town_alley"),
-        (change_screen_mission),
-        ]),
-     ]
-  ),
-
-
     (
     "debug_alert_from_s65",0,
     "DEBUG ALERT: {s65}",
@@ -17942,6 +18164,11 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     [(change_screen_map)],
     []
   ),
+  
+####################################################################################################################
+# [ Z21 ] - Bandit Lair
+####################################################################################################################
+  
 
     (
     "bandit_lair",0,
@@ -18329,6 +18556,12 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         ]),
     ]
   ),
+  
+  
+####################################################################################################################
+# [ Z22 ] - Intro Quest
+####################################################################################################################
+  
 
   ("start_phase_2_5",mnf_disable_all_keys,
     "{!}{s16}",
@@ -18492,149 +18725,9 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   ),
 
 
-  ("lost_tavern_duel",mnf_disable_all_keys,
-    "{s11}{s12}",
-    "none",
-    [
-    (str_clear, s11),
-    (str_clear, s12),
-    #use s11 as primary indicator string
-	(try_begin),
-		(agent_get_troop_id, ":type", "$g_main_attacker_agent"),
-		(eq, ":type", "trp_belligerent_drunk"),
-		(str_store_string, s11, "str_lost_tavern_duel_ordinary"),
-	(else_try),
-		(agent_get_troop_id, ":type", "$g_main_attacker_agent"),
-		(eq, ":type", "trp_hired_assassin"),
-		(str_store_string, s11, "str_lost_tavern_duel_assassin"),
-	(try_end),
-	(troop_set_slot, "trp_hired_assassin", slot_troop_cur_center, -1),
-	(troop_set_slot, "trp_belligerent_drunk", slot_troop_cur_center, -1), #remove him for now
-    
-    #use s12 for additional info like lost purse, etc
-    #SB : penalty for fighting while disguised
-    (try_begin),
-      (gt, "$sneaked_into_town", disguise_none),
-      (store_random_in_range, ":random_no", -100, 200),
-      # (ge, ":random_no", "$g_player_luck"),
-      (ge, ":random_no", 0),
-      (str_store_string, s12, "@ Unfortunately, when the guards inquired about the tavern brawl, your description was recognized and you were in no condition to fight them off."),
-    (try_end),
-    ],
-    [
-      ("continue",[(eq, "$sneaked_into_town", disguise_none),],"Continue...",
-       [
-         (jump_to_menu, "mnu_town"),
-         (troop_set_health, "trp_player", 25),
-         #SB : renown loss, less than losing to bandits
-         (call_script, "script_change_troop_renown", "trp_player", -1),
-       ]),
-       
-      ("surrender",[(gt, "$sneaked_into_town", disguise_none),],"Surrender...",
-       [
-         (jump_to_menu, "mnu_captivity_castle_taken_prisoner"),
-       ]),
-    ]
-  ),
-
-
-  #SB : standardize court requirements, 1x tool + 2x bolts of wool/velvet/linen cloth
-  ("establish_court",mnf_disable_all_keys,
-    "To establish {s4} as your court will require a small refurbishment. In particular, you will need a set of tools and two bolts of fabric. You own {reg1} of the former and {reg0} of the latter. It may also take a short while for some of your followers to relocate here. Do you wish to proceed?",
-    "none",
-    [
-      (call_script, "script_dplmc_count_item_for_court", "trp_player", -1, -1),
-      (assign, "$diplomacy_var", reg0),
-      (assign, "$diplomacy_var2", reg1),
-      (call_script, "script_dplmc_count_item_for_court", "trp_household_possessions", -1, -1),
-      (val_add, "$diplomacy_var", reg0),
-      (val_add, "$diplomacy_var2", reg1),
-      (str_store_party_name, s4, "$g_encountered_party"),
-      (assign, reg0, "$diplomacy_var"),
-      (assign, reg1, "$diplomacy_var2"),
-    ],
-
-    [
-      ("establish",[
-      # (player_has_item, "itm_tools"),
-      # (player_has_item, "itm_velvet"),
-      (ge, "$diplomacy_var", 2),
-      (ge, "$diplomacy_var2", 1), #SB : one set of tools
-      # conditions already handled in parent menu
-      # (store_and, ":name_set", "$players_kingdom_name_set", rename_center),
-      # (eq, ":name_set", 0),
-      ],"Establish {s4} as your court",
-       [
-        (assign, "$g_player_court", "$current_town"),
-        # (troop_remove_item, "trp_player", "itm_tools"),
-        # (troop_remove_item, "trp_player", "itm_velvet"),
-        (call_script, "script_dplmc_count_item_for_court", "trp_household_possessions", 2, 1),
-        (call_script, "script_dplmc_count_item_for_court", "trp_player", reg0, reg1),
-        (jump_to_menu, "mnu_town"),
-       ]),
-       
-      #SB : allows checking inventory to see how much you need
-      ("check_inv",[],"Check your household inventory",
-       [
-        (change_screen_loot, "trp_household_possessions"),
-       ]),
-    # ("capital_exists",
-      # [
-        # (store_and, ":name_set", "$players_kingdom_name_set", rename_center),
-        # (ge, ":name_set", rename_center),
-        # (str_store_party_name, s1, "$g_player_court"),
-        # (disable_menu_option),
-      # ],
-       # "You cannot move the court as your capital is at {s1}.",
-       # [
-     # ]),
-
-
-      ("continue",[],"Hold off...",
-       [
-         (jump_to_menu, "mnu_town"),
-       ]),
-    ]
-  ),
-
-  ("notification_relieved_as_marshal", mnf_disable_all_keys,
-    "{s4} wishes to inform you that your services as marshal are no longer required. In honor of valiant efforts on behalf of the realm over the last {reg4} days, however, {reg8?she:he} offers you a purse of {reg5} denars.",
-    "none",
-    [
-	(assign, reg4, "$g_player_days_as_marshal"),
-
-
-
-	(store_div, ":renown_gain", "$g_player_days_as_marshal",4),
-	(val_min, ":renown_gain", 20),
-	(store_mul, ":denar_gain", "$g_player_days_as_marshal", 50),
-	(val_max, ":denar_gain", 200),
-	(val_min, ":denar_gain", 4000),
-	(troop_add_gold, "trp_player", ":denar_gain"),
-	(call_script, "script_change_troop_renown", "trp_player", ":renown_gain"),
-	(assign, "$g_player_days_as_marshal", 0),
-	(assign, "$g_dont_give_marshalship_to_player_days", 15),
-	(assign, reg5, ":denar_gain"),
-
-	(faction_get_slot, ":faction_leader", "$players_kingdom", slot_faction_leader),
-	(str_store_troop_name, s4, ":faction_leader"),
-	##diplomacy start+ get gender with script
-	#(troop_get_type, reg8, ":faction_leader"),#<- OLD
-	(assign, ":save_reg0", reg0),
-	(call_script, "script_dplmc_store_troop_is_female", ":faction_leader"),
-	(assign, reg8, reg0),
-	(assign, reg0, ":save_reg0"),
-	##diplomacy end+
-	],
-
-	 [
-      ("continue",[],"Continue",
-       [
-         (change_screen_return),
-       ]),
-    ]
-  ),
-
+####################################################################################################################
+# [ Z23 ] - Diplomacy Menus
+####################################################################################################################
 
   ##diplomacy begin
 ########################################################
