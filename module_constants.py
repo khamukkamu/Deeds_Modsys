@@ -136,6 +136,8 @@ slot_faction_tier_2_troop         = 42
 slot_faction_tier_3_troop         = 43
 slot_faction_tier_4_troop         = 44
 slot_faction_tier_5_troop         = 45
+slot_faction_tier_6_troop         = 46
+slot_faction_tier_1_archer     = 47
 
 slot_faction_deserter_troop       = 48
 slot_faction_guard_troop          = 49
@@ -172,7 +174,7 @@ slot_faction_political_issue_time 						 = 65 #Now is used
 
 
 #slot_faction_deserter_party_template       = 62
-
+slot_faction_reinforcements_d        = 76
 slot_faction_reinforcements_a        = 77
 slot_faction_reinforcements_b        = 78
 slot_faction_reinforcements_c        = 79
@@ -411,6 +413,7 @@ slot_center_mercenary_troop_type  = 90
 slot_center_mercenary_troop_amount= 91
 slot_center_volunteer_troop_type  = 92
 slot_center_volunteer_troop_amount= 93
+slot_center_volunteer_troop_type_ranged  = 94 ### DAC Seek: Added for the ranged units tree
 
 #slot_center_companion_candidate   = 94
 slot_center_ransom_broker         = 95
@@ -1801,16 +1804,16 @@ readable_books_begin = "itm_book_tactics"
 readable_books_end   = reference_books_begin
 books_begin = readable_books_begin
 books_end = reference_books_end
-horses_begin = "itm_sumpter_horse"
-horses_end = "itm_arrows"
-weapons_begin = "itm_wooden_stick"
-weapons_end = "itm_wooden_shield"
-ranged_weapons_begin = "itm_darts"
-ranged_weapons_end = "itm_torch"
-armors_begin = "itm_leather_gloves"
-armors_end = "itm_wooden_stick"
-shields_begin = "itm_wooden_shield"
-shields_end = ranged_weapons_begin
+horses_begin = "itm_ho_sumpter_1"
+horses_end = "itm_h_bascinet_great"
+weapons_begin = "itm_w_dagger_bollock"
+weapons_end = "itm_dedal_kufel"
+ranged_weapons_begin = "itm_w_short_bow_ash"
+ranged_weapons_end = "itm_dedal_kufel"
+armors_begin = "itm_a_gambeson_black"
+armors_end = "itm_a_churburg_narf_mail"
+shields_begin = "itm_s_battle_shield_charles"
+shields_end = "itm_h_bascinet_fi_hood_custom"
 
 
 #INVASION MODE START
@@ -2714,4 +2717,46 @@ Outfit_Thorax_Length = 60  #length dark ages human thorax
 Outfit_Fast_Weapon_Speed = 100
 
 mission_tpl_are_all_agents_spawned     = 1943   # (mission_tpl_are_all_agents_spawned), #agents >300 may keep spawning after ti_after_mission_start (still fires .1 second too early)
+
+#Debug mode - Turn off before deploying to production
+debug_mode = 1
+
+armor_cloth                   = 0
+armor_armor                   = 1
+armor_plate                   = 2
+
+custom_armor_maximum_submaterial = 7 #armor_plate + 4, thanks platemail
+slot_item_materials_begin = 81
+slot_item_materials_end = 82
+slot_item_num_components = 83
+slot_item_init_script = 84
+#mandatory + optional | color
+slot_item_player_slots_begin = 85
+slot_item_player_slots_end = slot_item_player_slots_begin + custom_armor_maximum_submaterial
+slot_item_player_color = slot_item_player_slots_end
+
+# HYW Seek: Added slots for faction specific colors
+slot_item_france_materials_begin	=	93
+slot_item_france_materials_end		=	94
+slot_item_english_materials_begin	=	95
+slot_item_english_materials_end		=	96
+slot_item_burgundy_materials_begin	=	97
+slot_item_burgundy_materials_end	=	98
+slot_item_breton_materials_begin	=	99
+slot_item_breton_materials_end		=	100
+slot_item_flemish_materials_begin	=	101
+slot_item_flemish_materials_end		=	102
+slot_item_rebel_materials_begin	=	103
+slot_item_rebel_materials_end		=	104
+# slot_item_ironskulls_materials_begin	=	105
+# slot_item_ironskulls_materials_end		=	106
+# HYW Seek end
+
+custom_item_color_mask = 0xf
+custom_item_color_bits = 4
+
+# TLD color-coded messages
+color_good_news    = 0x50FF50
+color_bad_news     = 0xFF5050
+color_neutral_news = 0xFFAA00
 

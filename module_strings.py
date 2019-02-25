@@ -328,16 +328,16 @@ strings = [
   ("other_party_lost_morale",   "{s1} loses {reg1} morale."),
 
   ("qst_follow_spy_noticed_you", "The spy has spotted you! He's making a run for it!"),
-  ("father", "father"),
-  ("husband", "husband"),
-  ("wife", "wife"),
-  ("daughter", "daughter"),
-  ("mother", "mother"),
-  ("son", "son"),
-  ("brother", "brother"),
-  ("sister", "sister"),
-  ("he", "He"),
-  ("she", "She"),
+  # ("father", "father"),
+  # ("husband", "husband"),
+  # ("wife", "wife"),
+  # ("daughter", "daughter"),
+  # ("mother", "mother"),
+  # ("son", "son"),
+  # ("brother", "brother"),
+  # ("sister", "sister"),
+  # ("he", "He"),
+  # ("she", "She"),
   ("s3s_s2", "{s3}'s {s2}"),
   ("s5_is_s51", "{s5} is {s51}."),
   ("s5_is_the_ruler_of_s51", "{s5} is the ruler of {s51}. "),
@@ -2691,7 +2691,7 @@ We apologize sincerely if you contributed your suggestions and feedback but were
   ("choose_number_of_bots_for_team_reg0", "Choose number of bots for team {reg0}:"),
   ("spectator", "Spectator"),
   ("spectators", "Spectators"),
-  ("score", "Score"),
+  # ("score", "Score"),
   ("command", "Command:"),
   ("profile_banner_selection_text", "Choose a banner for your profile:"),
   ("use_default_banner", "Use Faction's Banner"),
@@ -2787,7 +2787,7 @@ We apologize sincerely if you contributed your suggestions and feedback but were
   ("reg4_killed_reg5_routed", "{reg4} killed, {reg5} routed"),
   ("reg4_killed_reg5_wounded", "{reg4} killed, {reg5} wounded"),
   ("reg4_wounded_reg5_routed", "{reg4} wounded, {reg5} routed"),
-  ("routed", "routed"),
+  # ("routed", "routed"),
   ("caravan_in_s10_considers_s11_total_price_dif_=_reg3", "{!}Caravan in {s10} considers {s11}, total price dif = {reg3}"),
   ("test__caravan_in_s3_selects_for_s4_trade_score_reg3", "{!}TEST - Caravan in {s3} selects for {s4}, trade score: {reg3}"),
   ("prisoner_relative_is_reg0", "{!}prisoner relative is {reg0}"),
@@ -4222,7 +4222,7 @@ We apologize sincerely if you contributed your suggestions and feedback but were
   ##diplomacy end+
   ("attempting_to_rejoin_party", "Attempting to rejoin party,"),
   ("separated_from_party", "Separated from party,"),
-  ("whereabouts_unknown", "whereabouts unknown"),
+  # ("whereabouts_unknown", "whereabouts unknown"),
 
   ("none_yet_gathered", "{!}None yet gathered"),
 
@@ -5163,6 +5163,354 @@ One may memorize the placement of selected divisions relative to the player by p
 - SQUARE in no particular order^\
 - NO FORMATION^^\
 Even in the last case, the player can make formations up to four lines by ordering Stand Closer enough times."),
+
+# Kham - Armor Customization Strings
+# English colors: Red | White
+# French colors: Blue | White
+# Burgundian colors: Red | Dark Blue | White
+# Breton colors: Black | White 
+
+## Padded Cloth 
+# French 
+("a_padded_cloth_blue", "a_padded_cloth_blue"),
+("a_padded_cloth_half_blue", "a_padded_cloth_half_blue"),
+("a_padded_cloth_white", "a_padded_cloth_white"),
+# English
+("a_padded_cloth_english", "a_padded_cloth_english"),
+("a_padded_cloth_half_red", "a_padded_cloth_half_red"),
+("a_padded_cloth_red", "a_padded_cloth_red"),
+# Burgundian
+("a_padded_cloth_brown", "a_padded_cloth_brown"),
+("a_padded_cloth_half_brown", "a_padded_cloth_half_brown"),
+# Breton
+("a_padded_cloth_half_black", "a_padded_cloth_half_black"),
+("a_padded_cloth_black", "a_padded_cloth_black"),
+# Flemish
+("a_padded_cloth_yellow", "a_padded_cloth_yellow"),
+("a_padded_cloth_yellow_black", "a_padded_cloth_yellow_black"),
+# Rebels
+("a_padded_cloth_green", "a_padded_cloth_green"),
+("a_padded_cloth_half_green", "a_padded_cloth_half_green"),
+# Ironskulls
+("a_padded_cloth_ironskull", "a_padded_cloth_ironskull"),
+("a_padded_cloth_ironskull_2", "a_padded_cloth_ironskull_2"),
+("a_padded_cloth_end", "a_padded_cloth_end"),
+
+## Peasant Clothes
+# French 
+("a_peasant_man_blue", "a_peasant_man_blue"),  
+("a_peasant_man_blue_2", "a_peasant_man_blue_2"),   
+("a_peasant_man_green", "a_peasant_man_green"),   
+# English
+("a_peasant_man_green_2", "a_peasant_man_green_2"),  
+("a_peasant_man_yellow", "a_peasant_man_yellow"),  
+("a_peasant_man_yellow_2", "a_peasant_man_yellow_2"),  
+# Burgundian
+("a_peasant_man_brown", "a_peasant_man_brown"),  
+("a_peasant_man_brown_3", "a_peasant_man_brown_3"),  
+("a_peasant_man_brown_2", "a_peasant_man_brown_2"),  
+# Breton
+("a_peasant_man_black_3", "a_peasant_man_black_3"),  
+("a_peasant_man_white", "a_peasant_man_white"),  
+# Flemish
+("a_peasant_man_black", "a_peasant_man_black"),  
+("a_peasant_man_black_2", "a_peasant_man_black_2"),  
+("a_peasant_man_end", "a_peasant_man_end"),
+
+## Native Gambeson
+# French 
+("a_gambeson_blue", "a_gambeson_blue"),  
+("a_gambeson_white", "a_gambeson_white"),  
+# English
+("a_gambeson_red", "a_gambeson_red"),  
+# Burgundian
+("a_gambeson_brown", "a_gambeson_brown"),  
+# Breton
+("a_gambeson_white_2", "a_gambeson_white"),  
+("a_gambeson_black", "a_gambeson_black"),  
+# Rebel
+("a_gambeson_green", "a_gambeson_green"),  
+("a_gambeson_end", "a_gambeson_end"),
+
+## Padded Armor
+# French 
+("a_padded_armor_blue", "a_padded_armor_blue"),  
+("a_padded_armor_white", "a_padded_armor_white"),  
+# English
+("a_padded_armor_red", "a_padded_armor_red"),  
+# Burgundian
+("a_padded_armor_brown", "a_padded_armor_brown"),  
+# Breton
+("a_padded_armor_white_2", "a_padded_armor_white"),  
+("a_padded_armor_black", "a_padded_armor_black"),  
+# Rebel
+("a_padded_armor_green", "a_padded_armor_green"),  
+("a_padded_armor_end", "a_padded_armor_end"),
+
+## Narf Gambeson
+# French 
+("a_gambeson_narf_blue", "a_gambeson_narf_blue"),  
+("a_gambeson_narf_half_blue", "a_gambeson_narf_half_blue"),  
+("a_gambeson_narf", "a_gambeson_narf"),  
+# English
+("a_gambeson_narf_english", "a_gambeson_narf_english"),  
+("a_gambeson_narf_red", "a_gambeson_narf_red"),  
+# Burgundian
+("a_gambeson_narf_brown", "a_gambeson_narf_brown"),  
+("a_gambeson_narf_half_yellow", "a_gambeson_narf_half_yellow"),  
+# Breton
+("a_gambeson_narf_half_black", "a_gambeson_narf_half_black"),  
+("a_gambeson_narf_black", "a_gambeson_narf_black"),  
+# Flemish
+("a_gambeson_narf_yellow_black", "a_gambeson_narf_yellow_black"),  
+("a_gambeson_narf_yellow", "a_gambeson_narf_yellow"),  
+# Rebel
+("a_gambeson_narf_green", "a_gambeson_narf_green"),  
+("a_gambeson_narf_half_green", "a_gambeson_narf_half_green"),  
+# Ironskulls
+("a_gambeson_narf_ironskull", "a_gambeson_narf_ironskull"),  
+("a_gambeson_narf_ironskull_2", "a_gambeson_narf_ironskull_2"),  
+("a_gambeson_narf_end", "a_gambeson_narf_end"),
+
+## Bogmir Brigandine
+# French 
+("a_brigandine_french", "a_brigandine_french"),  
+("a_brigandine_french_2", "a_brigandine_french_2"),  
+("a_brigandine_french_3", "a_brigandine_french_3"),  
+("a_brigandine_blue", "a_brigandine_blue"),  
+("a_brigandine_white", "a_brigandine_white"), 
+# English
+("a_brigandine_english", "a_brigandine_english"),  
+("a_brigandine_english_2", "a_brigandine_english_2"),  
+("a_brigandine_english_3", "a_brigandine_english_3"),  
+("a_brigandine_red", "a_brigandine_red"),  
+# Burgundian
+ ("a_brigandine_brown", "a_brigandine_brown"), 
+# Breton
+("a_brigandine_black", "a_brigandine_black"), 
+("a_brigandine_white_2", "a_brigandine_white"), 
+("a_brigandine_end", "a_brigandine_end"),
+
+## Narf Brigandine
+# French 
+("a_brigandine_narf_blue", "a_brigandine_narf_blue"),   
+("a_brigandine_narf_blue_white", "a_brigandine_narf_blue_white"),   
+("a_brigandine_narf_blue_yellow", "a_brigandine_narf_blue_yellow"),   
+("a_brigandine_narf_french", "a_brigandine_narf_french"),   
+("a_brigandine_narf_white", "a_brigandine_narf_white"),  
+# English
+("a_brigandine_narf_english", "a_brigandine_narf_english"),  
+("a_brigandine_narf_yellow_red", "a_brigandine_narf_yellow_red"),  
+("a_brigandine_narf_red", "a_brigandine_narf_red"),  
+("a_brigandine_narf_white_red", "a_brigandine_narf_white_red"),  
+# Burgundian
+("a_brigandine_narf_brown", "a_brigandine_narf_brown"),  
+# Breton
+("a_brigandine_narf_black_white", "a_brigandine_narf_black_white"),  
+("a_brigandine_narf_white_2", "a_brigandine_narf_white"),  
+("a_brigandine_narf_black", "a_brigandine_narf_black"),  
+# Flemish
+("a_brigandine_narf_yellow_black", "a_brigandine_narf_yellow_black"),  
+("a_brigandine_narf_yellow", "a_brigandine_narf_yellow"),  
+# Ironskull
+("a_brigandine_narf_ironskull", "a_brigandine_narf_ironskull"),  
+("a_brigandine_narf_ironskull_2", "a_brigandine_narf_ironskull_2"),  
+("a_brigandine_narf_end", "a_brigandine_narf_end"),
+
+## Narf Aketon
+# French 
+("a_aketon_narf_blue", "a_aketon_narf_blue"),  
+("a_aketon_narf_half_blue", "a_aketon_narf_half_blue"),  
+("a_aketon_narf", "a_aketon_narf"),  
+# English
+("a_aketon_narf_english", "a_aketon_narf_english"),  
+("a_aketon_narf_english_2", "a_aketon_narf_english_2"),  
+("a_aketon_narf_red", "a_aketon_narf_red"),  
+# Burgundian
+("a_aketon_narf_brown", "a_aketon_narf_brown"),  
+("a_aketon_narf_half_brown", "a_aketon_narf_half_brown"),  
+("a_aketon_narf_2", "a_aketon_narf"),  
+# Breton
+("a_aketon_narf_half_black", "a_aketon_narf_half_black"),  
+("a_aketon_narf_black", "a_aketon_narf_black"),  
+# Flemish
+("a_aketon_narf_yellow_black", "a_aketon_narf_yellow_black"),  
+("a_aketon_narf_yellow", "a_aketon_narf_yellow"),  
+("a_aketon_narf_end", "a_aketon_narf_end"),
+
+## Padded Over Mail
+# French 
+("a_padded_over_mail_blue", "a_padded_over_mail_blue"),  
+("a_padded_over_mail", "a_padded_over_mail"),  
+# English
+("a_padded_over_mail_red", "a_padded_over_mail_red"),  
+# Burgundian
+("a_padded_over_mail_brown", "a_padded_over_mail_brown"),  
+("a_padded_over_mail_2", "a_padded_over_mail"),  
+# Breton
+("a_padded_over_mail_black", "a_padded_over_mail_black"),  
+("a_padded_over_mail_end", "a_padded_over_mail_end"),
+
+## Coat of Plates
+# French 
+("a_coat_of_plates_french_1", "a_coat_of_plates_french_1"),  
+("a_coat_of_plates_french_2", "a_coat_of_plates_french_2"),  
+("a_coat_of_plates_french_3", "a_coat_of_plates_french_3"),  
+# English
+("a_coat_of_plates_english_1", "a_coat_of_plates_english_1"),  
+("a_coat_of_plates_english_2", "a_coat_of_plates_english_2"),  
+("a_coat_of_plates_english_3", "a_coat_of_plates_english_3"),  
+("a_coat_of_plates_end", "a_coat_of_plates_end"),
+
+## Surcoat over Mail
+# French 
+("a_surcoat_over_mail_french_1", "a_surcoat_over_mail_french_1"),  
+("a_surcoat_over_mail_french_2", "a_surcoat_over_mail_french_2"),  
+# English
+("a_surcoat_over_mail_english_1", "a_surcoat_over_mail_english_1"),  
+("a_surcoat_over_mail_english_2", "a_surcoat_over_mail_english_2"),  
+# Breton
+("a_surcoat_over_mail_breton_1", "a_surcoat_over_mail_breton_1"),  
+("a_surcoat_over_mail_end", "a_surcoat_over_mail_end"),
+
+## Churburg
+# French 
+("a_churburg_blue", "a_churburg_blue"),  
+("a_churburg_white", "a_churburg_white"),  
+# English
+("a_churburg_red", "a_churburg_red"),  
+# Burgundian
+("a_churburg_brown", "a_churburg_brown"),  
+# Breton  
+("a_churburg_white_2", "a_churburg_white"),
+("a_churburg_black", "a_churburg_black"),  
+# Flemish  
+("a_churburg_yellow_black", "a_churburg_yellow_black"),  
+("a_churburg_yellow", "a_churburg_yellow"),
+# Ironskulls  
+("a_churburg_ironskull", "a_churburg_ironskull"),  
+("a_churburg_ironskull_2", "a_churburg_ironskull_2"),
+("a_churburg_end", "a_churburg_end"),
+
+## Churburg Brass
+# French 
+("a_churburg_brass_blue", "a_churburg_brass_blue"),  
+("a_churburg_brass_white", "a_churburg_brass_white"),  
+# English
+("a_churburg_brass_red", "a_churburg_brass_red"),  
+# Burgundian
+("a_churburg_brass_brown", "a_churburg_brass_brown"),  
+# Breton  
+("a_churburg_brass_black", "a_churburg_brass_black"),  
+("a_churburg_brass_white_2", "a_churburg_brass_white"),
+("a_churburg_brass_end", "a_churburg_brass_end"),
+
+## Corrazina
+# French 
+("a_corrazina_blue", "a_corrazina_blue"),  
+("a_corrazina_white", "a_corrazina_white"),  
+# English
+("a_corrazina_red", "a_corrazina_red"),  
+# Burgundian
+("a_corrazina_brown", "a_corrazina_brown"),  
+# Breton    
+("a_corrazina_white_2", "a_corrazina_white"),
+("a_corrazina_black", "a_corrazina_black"),
+# Flemish  
+("a_corrazina_yellow_black", "a_corrazina_yellow_black"),  
+("a_corrazina_yellow", "a_corrazina_yellow"),
+("a_corrazina_end", "a_corrazina_end"),
+
+## Early Transitional Plate
+# French 
+("a_early_transitional_french_1", "a_early_transitional_french_1"),  
+("a_early_transitional_french_2", "a_early_transitional_french_2"),  
+("a_early_transitional_white", "a_early_transitional_white"),  
+# English
+("a_early_transitional_english_1", "a_early_transitional_english_1"),  
+("a_early_transitional_english_2", "a_early_transitional_english_2"),  
+# Burgundian
+("a_early_transitional_burgundian", "a_early_transitional_burgundian"),  
+# Breton  
+("a_early_transitional_breton", "a_early_transitional_breton"),  
+("a_early_transitional_white_2", "a_early_transitional_white"),
+# Flemish
+("a_early_transitional_black", "a_early_transitional_black"),
+("a_early_transitional_yellow", "a_early_transitional_yellow"),
+("a_early_transitional_yellow_black", "a_early_transitional_yellow_black"),
+# Ironskulls
+("a_early_transitional_ironskull", "a_early_transitional_ironskull"),
+("a_early_transitional_ironskull_2", "a_early_transitional_ironskull_2"),
+("a_early_transitional_end", "a_early_transitional_end"),
+
+## Narf Hoods for the Helmets
+# French 
+("h_hood_narf_blue", "h_hood_narf_blue"),  
+("h_hood_narf_blue_white", "h_hood_narf_blue_white"),  
+("h_hood_narf_white", "h_hood_narf_white"),  
+("h_hood_narf_brown", "h_hood_narf_brown"),  
+# English
+("h_hood_narf_red", "h_hood_narf_red"),  
+("h_hood_narf_red_white", "h_hood_narf_red_white"),  
+# Burgundian
+("h_hood_narf_yellow_blue", "h_hood_narf_yellow_blue"),  
+# Breton  
+("h_hood_narf_white_2", "h_hood_narf_white"),  
+("h_hood_narf_brown_2", "h_hood_narf_brown"),
+("h_hood_narf_black_white", "h_hood_narf_black_white"),
+("h_hood_narf_black", "h_hood_narf_black"),  
+# Flemish
+("h_hood_narf_yellow_black", "h_hood_narf_yellow_black"),  
+("h_hood_narf_yellow", "h_hood_narf_yellow"),  
+# Rebel
+("h_hood_narf_green", "h_hood_narf_green"),  
+("h_hood_narf_green_white", "h_hood_narf_green_white"),  
+("h_hood_narf_end", "h_hood_narf_end"),
+
+###################################################################################################### HYW CUSTOM ARMORS VERTEX COLORED
+
+## Vertex Coloured Leather Vest
+# French 
+("a_leather_vest_arms_blue", "a_leather_vest_arms_blue"),
+("a_leather_vest_arms_white", "a_leather_vest_arms_white"),
+# English
+("a_leather_vest_arms_red", "a_leather_vest_arms_red"),
+# Burgundian
+("a_leather_vest_arms_brown", "a_leather_vest_arms_brown"),
+# Breton
+("a_leather_vest_arms_black", "a_leather_vest_arms_black"),  
+# Rebel
+("a_leather_vest_arms_green", "a_leather_vest_arms_green"),  
+("a_leather_vest_arms_end", "a_leather_vest_arms_end"),
+
+## Vertex Coloured Leather Armor
+# French 
+("a_leather_armor_arms_blue", "a_leather_armor_arms_blue"),
+("a_leather_armor_arms_white", "a_leather_armor_arms_white"),
+# English
+("a_leather_armor_arms_red", "a_leather_armor_arms_red"),
+# Burgundian
+("a_leather_armor_arms_brown", "a_leather_armor_arms_brown"),
+# Breton
+("a_leather_armor_arms_black", "a_leather_armor_arms_black"),  
+# Rebel
+("a_leather_armor_arms_green", "a_leather_armor_arms_green"), 
+("a_leather_armor_arms_end", "a_leather_armor_arms_end"),
+
+## Vertex Coloured Mail Shirt
+# French 
+("a_mail_shirt_arms_blue", "a_mail_shirt_arms_blue"),
+("a_mail_shirt_arms_white", "a_mail_shirt_arms_white"),
+# English
+("a_mail_shirt_arms_red", "a_mail_shirt_arms_red"),
+# Burgundian
+("a_mail_shirt_arms_brown", "a_mail_shirt_arms_brown"),
+# Breton
+("a_mail_shirt_arms_black", "a_mail_shirt_arms_black"),  
+# Rebel
+("a_mail_shirt_arms_green", "a_mail_shirt_arms_green"),  
+("a_mail_shirt_arms_end", "a_mail_shirt_arms_end"),
+
   
 #utility for skill names
 ]+[

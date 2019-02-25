@@ -162,41 +162,49 @@ scripts = [
       (try_end),
 
       # Cultures:
-      (faction_set_slot, "fac_culture_1",  slot_faction_tier_1_troop, "trp_swadian_recruit"),
-      (faction_set_slot, "fac_culture_1",  slot_faction_tier_2_troop, "trp_swadian_militia"),
-      (faction_set_slot, "fac_culture_1",  slot_faction_tier_3_troop, "trp_swadian_footman"),
-      (faction_set_slot, "fac_culture_1",  slot_faction_tier_4_troop, "trp_swadian_infantry"),
-      (faction_set_slot, "fac_culture_1",  slot_faction_tier_5_troop, "trp_swadian_knight"),
+      (faction_set_slot, "fac_culture_1",  slot_faction_tier_1_troop, "trp_french_peasant"),
+      (faction_set_slot, "fac_culture_1",  slot_faction_tier_2_troop, "trp_french_militia"),
+      (faction_set_slot, "fac_culture_1",  slot_faction_tier_3_troop, "trp_french_voulgier"),
+      (faction_set_slot, "fac_culture_1",  slot_faction_tier_4_troop, "trp_french_man_at_arms"),
+      (faction_set_slot, "fac_culture_1",  slot_faction_tier_5_troop, "trp_french_captain"),
+      (faction_set_slot, "fac_culture_1",  slot_faction_tier_6_troop, "trp_french_squire"),
+      (faction_set_slot, "fac_culture_1",  slot_faction_tier_1_archer, "trp_french_peasant_archer"),
+      
+      (faction_set_slot, "fac_culture_2", slot_faction_tier_1_troop, "trp_english_peasant"),
+      (faction_set_slot, "fac_culture_2", slot_faction_tier_2_troop, "trp_english_yeoman"),
+      (faction_set_slot, "fac_culture_2", slot_faction_tier_3_troop, "trp_english_spearman"),
+      (faction_set_slot, "fac_culture_2", slot_faction_tier_4_troop, "trp_english_heavy_infantry"),
+      (faction_set_slot, "fac_culture_2", slot_faction_tier_5_troop, "trp_english_captain"),
+      (faction_set_slot, "fac_culture_2", slot_faction_tier_6_troop, "trp_english_squire"),
+      (faction_set_slot, "fac_culture_2",  slot_faction_tier_1_archer, "trp_english_peasant_archer"),
+      
+      (faction_set_slot, "fac_culture_3", slot_faction_tier_1_troop, "trp_burgundian_peasant"),
+      (faction_set_slot, "fac_culture_3", slot_faction_tier_2_troop, "trp_burgundian_militia"),
+      (faction_set_slot, "fac_culture_3", slot_faction_tier_3_troop, "trp_burgundian_pikeman"),
+      (faction_set_slot, "fac_culture_3", slot_faction_tier_4_troop, "trp_burgundian_halberdier"),
+      (faction_set_slot, "fac_culture_3", slot_faction_tier_5_troop, "trp_burgundian_captain"),
+      (faction_set_slot, "fac_culture_3", slot_faction_tier_6_troop, "trp_burgundian_squire"),
+      (faction_set_slot, "fac_culture_3",  slot_faction_tier_1_archer, "trp_burgundian_militia_archer"),
+      
+      (faction_set_slot, "fac_culture_4", slot_faction_tier_1_troop, "trp_breton_peasant"),
+      (faction_set_slot, "fac_culture_4", slot_faction_tier_2_troop, "trp_breton_militia"),
+      (faction_set_slot, "fac_culture_4", slot_faction_tier_3_troop, "trp_breton_infantry"),
+      (faction_set_slot, "fac_culture_4", slot_faction_tier_4_troop, "trp_breton_man_at_arms"),
+      (faction_set_slot, "fac_culture_4", slot_faction_tier_5_troop, "trp_breton_captain"),
+      (faction_set_slot, "fac_culture_4", slot_faction_tier_6_troop, "trp_breton_squire"),
+      (faction_set_slot, "fac_culture_4",  slot_faction_tier_1_archer, "trp_breton_peasant_archer"),
 
-      (faction_set_slot, "fac_culture_2", slot_faction_tier_1_troop, "trp_vaegir_recruit"),
-      (faction_set_slot, "fac_culture_2", slot_faction_tier_2_troop, "trp_vaegir_footman"),
-      (faction_set_slot, "fac_culture_2", slot_faction_tier_3_troop, "trp_vaegir_veteran"),
-      (faction_set_slot, "fac_culture_2", slot_faction_tier_4_troop, "trp_vaegir_infantry"),
-      (faction_set_slot, "fac_culture_2", slot_faction_tier_5_troop, "trp_vaegir_knight"),
+      # (faction_set_slot, "fac_culture_5", slot_faction_tier_1_troop, "trp_rhodok_tribesman"),
+      # (faction_set_slot, "fac_culture_5", slot_faction_tier_2_troop, "trp_rhodok_spearman"),
+      # (faction_set_slot, "fac_culture_5", slot_faction_tier_3_troop, "trp_rhodok_trained_spearman"),
+      # (faction_set_slot, "fac_culture_5", slot_faction_tier_4_troop, "trp_rhodok_veteran_spearman"),
+      # (faction_set_slot, "fac_culture_5", slot_faction_tier_5_troop, "trp_rhodok_sergeant"),
 
-      (faction_set_slot, "fac_culture_3", slot_faction_tier_1_troop, "trp_khergit_tribesman"),
-      (faction_set_slot, "fac_culture_3", slot_faction_tier_2_troop, "trp_khergit_skirmisher"),
-      (faction_set_slot, "fac_culture_3", slot_faction_tier_3_troop, "trp_khergit_horseman"),
-      (faction_set_slot, "fac_culture_3", slot_faction_tier_4_troop, "trp_khergit_horse_archer"),
-      (faction_set_slot, "fac_culture_3", slot_faction_tier_5_troop, "trp_khergit_veteran_horse_archer"),
-
-      (faction_set_slot, "fac_culture_4", slot_faction_tier_1_troop, "trp_nord_recruit"),
-      (faction_set_slot, "fac_culture_4", slot_faction_tier_2_troop, "trp_nord_footman"),
-      (faction_set_slot, "fac_culture_4", slot_faction_tier_3_troop, "trp_nord_trained_footman"),
-      (faction_set_slot, "fac_culture_4", slot_faction_tier_4_troop, "trp_nord_warrior"),
-      (faction_set_slot, "fac_culture_4", slot_faction_tier_5_troop, "trp_nord_veteran"),
-
-      (faction_set_slot, "fac_culture_5", slot_faction_tier_1_troop, "trp_rhodok_tribesman"),
-      (faction_set_slot, "fac_culture_5", slot_faction_tier_2_troop, "trp_rhodok_spearman"),
-      (faction_set_slot, "fac_culture_5", slot_faction_tier_3_troop, "trp_rhodok_trained_spearman"),
-      (faction_set_slot, "fac_culture_5", slot_faction_tier_4_troop, "trp_rhodok_veteran_spearman"),
-      (faction_set_slot, "fac_culture_5", slot_faction_tier_5_troop, "trp_rhodok_sergeant"),
-
-      (faction_set_slot, "fac_culture_6", slot_faction_tier_1_troop, "trp_sarranid_recruit"),
-      (faction_set_slot, "fac_culture_6", slot_faction_tier_2_troop, "trp_sarranid_footman"),
-      (faction_set_slot, "fac_culture_6", slot_faction_tier_3_troop, "trp_sarranid_archer"),
-      (faction_set_slot, "fac_culture_6", slot_faction_tier_4_troop, "trp_sarranid_horseman"),
-      (faction_set_slot, "fac_culture_6", slot_faction_tier_5_troop, "trp_sarranid_mamluke"),
+      # (faction_set_slot, "fac_culture_6", slot_faction_tier_1_troop, "trp_sarranid_recruit"),
+      # (faction_set_slot, "fac_culture_6", slot_faction_tier_2_troop, "trp_sarranid_footman"),
+      # (faction_set_slot, "fac_culture_6", slot_faction_tier_3_troop, "trp_sarranid_archer"),
+      # (faction_set_slot, "fac_culture_6", slot_faction_tier_4_troop, "trp_sarranid_horseman"),
+      # (faction_set_slot, "fac_culture_6", slot_faction_tier_5_troop, "trp_sarranid_mamluke"),
 
       (faction_set_slot, "fac_culture_1", slot_faction_town_walker_male_troop, "trp_town_walker_1"),
       (faction_set_slot, "fac_culture_1", slot_faction_town_walker_female_troop, "trp_town_walker_2"),
@@ -263,13 +271,13 @@ scripts = [
       (faction_set_slot, "fac_kingdom_4",  slot_faction_leader, "trp_kingdom_4_lord"),
       (troop_set_slot, "trp_kingdom_4_lord", slot_troop_renown, 1200),
 
-      (faction_set_slot, "fac_kingdom_5",  slot_faction_culture, "fac_culture_5"),
-      (faction_set_slot, "fac_kingdom_5",  slot_faction_leader, "trp_kingdom_5_lord"),
-      (troop_set_slot, "trp_kingdom_5_lord", slot_troop_renown, 1200),
+      # (faction_set_slot, "fac_kingdom_5",  slot_faction_culture, "fac_culture_5"),
+      # (faction_set_slot, "fac_kingdom_5",  slot_faction_leader, "trp_kingdom_5_lord"),
+      # (troop_set_slot, "trp_kingdom_5_lord", slot_troop_renown, 1200),
 
-      (faction_set_slot, "fac_kingdom_6",  slot_faction_culture, "fac_culture_6"),
-      (faction_set_slot, "fac_kingdom_6",  slot_faction_leader, "trp_kingdom_6_lord"),
-      (troop_set_slot, "trp_kingdom_6_lord", slot_troop_renown, 1200),
+      # (faction_set_slot, "fac_kingdom_6",  slot_faction_culture, "fac_culture_6"),
+      # (faction_set_slot, "fac_kingdom_6",  slot_faction_leader, "trp_kingdom_6_lord"),
+      # (troop_set_slot, "trp_kingdom_6_lord", slot_troop_renown, 1200),
 
       (assign, ":player_faction_culture", "fac_culture_1"),
       (faction_set_slot, "fac_player_supporters_faction",  slot_faction_culture, ":player_faction_culture"),
@@ -467,8 +475,8 @@ scripts = [
       (faction_set_slot, "fac_kingdom_2", slot_faction_banner, "mesh_banner_kingdom_b"),
       (faction_set_slot, "fac_kingdom_3", slot_faction_banner, "mesh_banner_kingdom_c"),
       (faction_set_slot, "fac_kingdom_4", slot_faction_banner, "mesh_banner_kingdom_a"),
-      (faction_set_slot, "fac_kingdom_5", slot_faction_banner, "mesh_banner_kingdom_d"),
-      (faction_set_slot, "fac_kingdom_6", slot_faction_banner, "mesh_banner_kingdom_e"),
+      # (faction_set_slot, "fac_kingdom_5", slot_faction_banner, "mesh_banner_kingdom_d"),
+      # (faction_set_slot, "fac_kingdom_6", slot_faction_banner, "mesh_banner_kingdom_e"),
 
       (try_for_range, ":cur_faction", npc_kingdoms_begin, npc_kingdoms_end),
         (faction_get_slot, ":cur_faction_king", ":cur_faction", slot_faction_leader),
@@ -477,8 +485,8 @@ scripts = [
         (val_add, ":cur_faction_banner", banner_scene_props_begin),
         (troop_set_slot, ":cur_faction_king", slot_troop_banner_scene_prop, ":cur_faction_banner"),
       (try_end),
-      (assign, ":num_khergit_lords_assigned", 0),
-      (assign, ":num_sarranid_lords_assigned", 0),
+      # (assign, ":num_khergit_lords_assigned", 0),
+      # (assign, ":num_sarranid_lords_assigned", 0),
       (assign, ":num_other_lords_assigned", 0),
 
       (try_for_range, ":kingdom_hero", active_npcs_begin, active_npcs_end),
@@ -488,29 +496,29 @@ scripts = [
         (store_troop_faction, ":kingdom_hero_faction", ":kingdom_hero"),
         (neg|faction_slot_eq, ":kingdom_hero_faction", slot_faction_leader, ":kingdom_hero"),
         (try_begin),
-          (eq, ":kingdom_hero_faction", "fac_kingdom_3"), #Khergit Khanate
-          (store_add, ":kingdom_3_banners_begin", banner_scene_props_begin, khergit_banners_begin_offset),
-          (store_add, ":banner_id", ":kingdom_3_banners_begin", ":num_khergit_lords_assigned"),
-          (troop_set_slot, ":kingdom_hero", slot_troop_banner_scene_prop, ":banner_id"),
-          (val_add, ":num_khergit_lords_assigned", 1),
-        (else_try),
-          (eq, ":kingdom_hero_faction", "fac_kingdom_6"), #Sarranid Sultanate
-          (store_add, ":kingdom_6_banners_begin", banner_scene_props_begin, sarranid_banners_begin_offset),
-          (store_add, ":banner_id", ":kingdom_6_banners_begin", ":num_sarranid_lords_assigned"),
-          (troop_set_slot, ":kingdom_hero", slot_troop_banner_scene_prop, ":banner_id"),
-          (val_add, ":num_sarranid_lords_assigned", 1),
-        (else_try),
+          # (eq, ":kingdom_hero_faction", "fac_kingdom_3"), #Khergit Khanate
+          # (store_add, ":kingdom_3_banners_begin", banner_scene_props_begin, khergit_banners_begin_offset),
+          # (store_add, ":banner_id", ":kingdom_3_banners_begin", ":num_khergit_lords_assigned"),
+          # (troop_set_slot, ":kingdom_hero", slot_troop_banner_scene_prop, ":banner_id"),
+          # (val_add, ":num_khergit_lords_assigned", 1),
+        # (else_try),
+          # (eq, ":kingdom_hero_faction", "fac_kingdom_6"), #Sarranid Sultanate
+          # (store_add, ":kingdom_6_banners_begin", banner_scene_props_begin, sarranid_banners_begin_offset),
+          # (store_add, ":banner_id", ":kingdom_6_banners_begin", ":num_sarranid_lords_assigned"),
+          # (troop_set_slot, ":kingdom_hero", slot_troop_banner_scene_prop, ":banner_id"),
+          # (val_add, ":num_sarranid_lords_assigned", 1),
+        # (else_try),
           (assign, ":hero_offset", ":num_other_lords_assigned"),
-          (try_begin),
-            (gt, ":hero_offset", khergit_banners_begin_offset),#Do not add khergit banners to other lords
-            (val_add, ":hero_offset", khergit_banners_end_offset),
-            (val_sub, ":hero_offset", khergit_banners_begin_offset),
-          (try_end),
-          (try_begin),
-            (gt, ":hero_offset", sarranid_banners_begin_offset),#Do not add sarranid banners to other lords
-            (val_add, ":hero_offset", sarranid_banners_end_offset),
-            (val_sub, ":hero_offset", sarranid_banners_begin_offset),
-          (try_end),
+          # (try_begin),
+            # (gt, ":hero_offset", khergit_banners_begin_offset),#Do not add khergit banners to other lords
+            # (val_add, ":hero_offset", khergit_banners_end_offset),
+            # (val_sub, ":hero_offset", khergit_banners_begin_offset),
+          # (try_end),
+          # (try_begin),
+            # (gt, ":hero_offset", sarranid_banners_begin_offset),#Do not add sarranid banners to other lords
+            # (val_add, ":hero_offset", sarranid_banners_end_offset),
+            # (val_sub, ":hero_offset", sarranid_banners_begin_offset),
+          # (try_end),
           (store_add, ":banner_id", banner_scene_props_begin, ":hero_offset"),
           (troop_set_slot, ":kingdom_hero", slot_troop_banner_scene_prop, ":banner_id"),
           (val_add, ":num_other_lords_assigned", 1),
@@ -557,140 +565,358 @@ scripts = [
       (try_end),
 
 	  #Give centers to factions first, to ensure more equal distributions
-	  (call_script, "script_give_center_to_faction_aux", "p_town_1", "fac_kingdom_4"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_2", "fac_kingdom_4"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_3", "fac_kingdom_5"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_1", "fac_kingdom_1"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_2", "fac_kingdom_1"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_3", "fac_kingdom_1"),
 	  (call_script, "script_give_center_to_faction_aux", "p_town_4", "fac_kingdom_1"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_5", "fac_kingdom_5"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_5", "fac_kingdom_1"),
 	  (call_script, "script_give_center_to_faction_aux", "p_town_6", "fac_kingdom_1"),
 	  (call_script, "script_give_center_to_faction_aux", "p_town_7", "fac_kingdom_1"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_8", "fac_kingdom_2"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_9", "fac_kingdom_2"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_10", "fac_kingdom_3"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_11", "fac_kingdom_2"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_12", "fac_kingdom_4"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_13", "fac_kingdom_2"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_14", "fac_kingdom_3"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_15", "fac_kingdom_5"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_8", "fac_kingdom_1"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_9", "fac_kingdom_1"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_10", "fac_kingdom_1"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_11", "fac_kingdom_1"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_12", "fac_kingdom_1"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_13", "fac_kingdom_1"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_14", "fac_kingdom_1"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_15", "fac_kingdom_1"),
 	  (call_script, "script_give_center_to_faction_aux", "p_town_16", "fac_kingdom_1"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_17", "fac_kingdom_3"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_18", "fac_kingdom_3"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_19", "fac_kingdom_6"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_20", "fac_kingdom_6"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_21", "fac_kingdom_6"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_22", "fac_kingdom_6"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_17", "fac_kingdom_1"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_18", "fac_kingdom_1"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_19", "fac_kingdom_1"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_20", "fac_kingdom_1"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_21", "fac_kingdom_1"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_22", "fac_kingdom_1"),
+	  
+	  (call_script, "script_give_center_to_faction_aux", "p_town_23", "fac_kingdom_2"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_24", "fac_kingdom_2"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_25", "fac_kingdom_2"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_26", "fac_kingdom_2"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_27", "fac_kingdom_2"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_28", "fac_kingdom_2"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_29", "fac_kingdom_2"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_30", "fac_kingdom_2"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_31", "fac_kingdom_2"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_32", "fac_kingdom_2"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_33", "fac_kingdom_2"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_34", "fac_kingdom_2"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_35", "fac_kingdom_2"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_36", "fac_kingdom_2"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_37", "fac_kingdom_2"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_38", "fac_kingdom_2"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_39", "fac_kingdom_2"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_40", "fac_kingdom_2"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_41", "fac_kingdom_2"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_42", "fac_kingdom_2"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_43", "fac_kingdom_2"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_44", "fac_kingdom_2"),	  
+	  
+	  (call_script, "script_give_center_to_faction_aux", "p_town_45", "fac_kingdom_3"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_46", "fac_kingdom_3"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_47", "fac_kingdom_3"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_48", "fac_kingdom_3"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_49", "fac_kingdom_3"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_50", "fac_kingdom_3"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_51", "fac_kingdom_3"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_52", "fac_kingdom_3"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_53", "fac_kingdom_3"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_54", "fac_kingdom_3"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_55", "fac_kingdom_3"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_56", "fac_kingdom_3"),
+	  
+	  (call_script, "script_give_center_to_faction_aux", "p_town_57", "fac_kingdom_4"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_58", "fac_kingdom_4"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_59", "fac_kingdom_4"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_60", "fac_kingdom_4"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_61", "fac_kingdom_4"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_62", "fac_kingdom_4"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_63", "fac_kingdom_4"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_64", "fac_kingdom_4"),
 
-      (call_script, "script_give_center_to_faction_aux", "p_castle_1", "fac_kingdom_5"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_2", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_3", "fac_kingdom_2"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_4", "fac_kingdom_2"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_5", "fac_kingdom_4"),
+
+      (call_script, "script_give_center_to_faction_aux", "p_castle_1", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_2", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_3", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_4", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_5", "fac_kingdom_1"),
       (call_script, "script_give_center_to_faction_aux", "p_castle_6", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_7", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_8", "fac_kingdom_2"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_9", "fac_kingdom_5"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_10", "fac_kingdom_4"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_11", "fac_kingdom_4"),
-
-      (call_script, "script_give_center_to_faction_aux", "p_castle_12", "fac_kingdom_4"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_7", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_8", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_9", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_10", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_11", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_12", "fac_kingdom_1"),
       (call_script, "script_give_center_to_faction_aux", "p_castle_13", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_14", "fac_kingdom_5"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_15", "fac_kingdom_5"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_16", "fac_kingdom_5"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_17", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_18", "fac_kingdom_2"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_19", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_14", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_15", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_16", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_17", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_18", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_19", "fac_kingdom_1"),
       (call_script, "script_give_center_to_faction_aux", "p_castle_20", "fac_kingdom_1"),
-
-      (call_script, "script_give_center_to_faction_aux", "p_castle_21", "fac_kingdom_5"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_22", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_23", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_24", "fac_kingdom_1"),
-
-      (call_script, "script_give_center_to_faction_aux", "p_castle_25", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_26", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_27", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_28", "fac_kingdom_5"),
-
+      (call_script, "script_give_center_to_faction_aux", "p_castle_21", "fac_kingdom_1"),
+	  
+      (call_script, "script_give_center_to_faction_aux", "p_castle_22", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_23", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_24", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_25", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_26", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_27", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_28", "fac_kingdom_2"),
       (call_script, "script_give_center_to_faction_aux", "p_castle_29", "fac_kingdom_2"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_30", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_31", "fac_kingdom_1"),
-
-      (call_script, "script_give_center_to_faction_aux", "p_castle_32", "fac_kingdom_4"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_33", "fac_kingdom_5"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_34", "fac_kingdom_4"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_35", "fac_kingdom_1"),
-
-      (call_script, "script_give_center_to_faction_aux", "p_castle_36", "fac_kingdom_4"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_37", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_30", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_31", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_32", "fac_kingdom_2"),
+	  
+      (call_script, "script_give_center_to_faction_aux", "p_castle_33", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_34", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_35", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_36", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_37", "fac_kingdom_3"),
       (call_script, "script_give_center_to_faction_aux", "p_castle_38", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_39", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_39", "fac_kingdom_3"),
       (call_script, "script_give_center_to_faction_aux", "p_castle_40", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_41", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_42", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_43", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_44", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_45", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_46", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_47", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_48", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_49", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_50", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_51", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_52", "fac_kingdom_3"),
+	  
+      (call_script, "script_give_center_to_faction_aux", "p_castle_53", "fac_kingdom_4"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_54", "fac_kingdom_4"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_55", "fac_kingdom_4"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_56", "fac_kingdom_4"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_57", "fac_kingdom_4"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_58", "fac_kingdom_4"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_59", "fac_kingdom_4"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_60", "fac_kingdom_4"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_61", "fac_kingdom_4"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_62", "fac_kingdom_4"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_63", "fac_kingdom_4"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_64", "fac_kingdom_4"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_65", "fac_kingdom_4"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_66", "fac_kingdom_4"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_67", "fac_kingdom_4"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_68", "fac_kingdom_4"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_69", "fac_kingdom_4"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_70", "fac_kingdom_4"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_71", "fac_kingdom_4"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_72", "fac_kingdom_4"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_73", "fac_kingdom_4"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_74", "fac_kingdom_4"),	  
 
-      (call_script, "script_give_center_to_faction_aux", "p_castle_41", "fac_kingdom_6"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_42", "fac_kingdom_6"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_43", "fac_kingdom_6"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_44", "fac_kingdom_6"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_45", "fac_kingdom_6"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_46", "fac_kingdom_6"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_47", "fac_kingdom_6"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_48", "fac_kingdom_6"),
 
 
-	  #Now give towns to great lords
-	  ##diplomacy+ notes added, otherwise unchanged
-      (call_script, "script_give_center_to_lord", "p_town_1",  "trp_kingdom_4_lord", 0),# Sargoth - King Ragnar
-      (call_script, "script_give_center_to_lord", "p_town_2",  "trp_knight_4_1", 0),#Tihr - Jarl Aedin
-      (call_script, "script_give_center_to_lord", "p_town_3",  "trp_knight_5_1", 0),#Veluca - Count Matheas
-      (call_script, "script_give_center_to_lord", "p_town_4",  "trp_knight_1_1", 0),#Suno - Count Klargus
-      (call_script, "script_give_center_to_lord", "p_town_5",  "trp_kingdom_5_lord", 0),# Jelkala - King Graveth
-      (call_script, "script_give_center_to_lord", "p_town_6",  "trp_kingdom_1_lord", 0),# Praven - King Harlaus
-      (call_script, "script_give_center_to_lord", "p_town_7",  "trp_knight_1_2", 0),#Uxkhal - Count Delinard
+##################################################################################################################################################################################################################################################################################################################
+###################################################################################################### DAC TOWN DISTRIBUTION #####################################################################################################################################################################################
+##################################################################################################################################################################################################################################################################################################################
 
-      (call_script, "script_give_center_to_lord", "p_town_8",  "trp_kingdom_2_lord", 0),# Reyvadin - King Yaroglek
-      (call_script, "script_give_center_to_lord", "p_town_9",  "trp_knight_2_1", 0),#Khudan -Boyar Vuldrat
-      (call_script, "script_give_center_to_lord", "p_town_10", "trp_kingdom_3_lord", 0),# Tulga - Sanjar Khan
-      (call_script, "script_give_center_to_lord", "p_town_11", "trp_knight_2_2", 0),#Curaw - Boyar Naldera
-      (call_script, "script_give_center_to_lord", "p_town_12", "trp_knight_4_2", 0),#Wercheg - Jarl Irya
-      (call_script, "script_give_center_to_lord", "p_town_13", "trp_knight_2_3", 0),#Rivacheg - Boyar Meriga
-      (call_script, "script_give_center_to_lord", "p_town_14", "trp_knight_3_1", 0),#Halmar -Alagur Noyan
+	  
+# French towns	  
+      (call_script, "script_give_center_to_lord", "p_town_1",  "trp_kingdom_1_lord", 0),# Bourges - Charles_VII
+      (call_script, "script_give_center_to_lord", "p_town_2",  "trp_knight_1_9", 0),# Orléans - Jean de Dunois, Comte de Dunois
+      (call_script, "script_give_center_to_lord", "p_town_3",  "trp_knight_1_8", 0),# Tours - Pierre d'Amboise, Seigneur de Chaumont
+      (call_script, "script_give_center_to_lord", "p_town_4",  "trp_kingdom_1_lord", 0),# Poitiers - Charles_VII
+      (call_script, "script_give_center_to_lord", "p_town_5",  "trp_kingdom_1_lord", 0),# La_Rochelle - Charles_VII
+      (call_script, "script_give_center_to_lord", "p_town_6",  "trp_knight_1_17", 0),# Clermont - Louis I de Bourbon, Comte de Montpensier
+      (call_script, "script_give_center_to_lord", "p_town_7",  "trp_knight_1_16", 0),# Moulins - Charles I de Bourbon, Comte de Clermont
+      (call_script, "script_give_center_to_lord", "p_town_8",  "trp_knight_1_16", 0),# Aurillac - Charles I de Bourbon, Comte de Clermont
+      (call_script, "script_give_center_to_lord", "p_town_9",  "trp_knight_1_16", 0),# Lyon - Charles I de Bourbon, Comte de Clermont
+      (call_script, "script_give_center_to_lord", "p_town_10", "trp_knight_1_53", 0),# Le_Puy - Guillaume-Armand de Polignac, Vicomte de Polignac, Gouverneur du Velay
+	  
+      (call_script, "script_give_center_to_lord", "p_town_11", "trp_knight_1_6", 0),# Cahors - Jean Poton de Xaintrailles
+      (call_script, "script_give_center_to_lord", "p_town_12", "trp_knight_1_22", 0),# Rodez - Jean IV d'Armagnac
+      (call_script, "script_give_center_to_lord", "p_town_13", "trp_knight_1_22", 0),# Lectoure - Jean IV d'Armagnac
+      (call_script, "script_give_center_to_lord", "p_town_14", "trp_knight_1_18", 0),# Tarbes - Arnault Guilhem de Barbazan
+      (call_script, "script_give_center_to_lord", "p_town_15", "trp_kingdom_1_lord", 0),# Toulouse - Charles_VII
+      (call_script, "script_give_center_to_lord", "p_town_16", "trp_kingdom_1_lord", 0),# Carcassonne - Charles_VII
+      (call_script, "script_give_center_to_lord", "p_town_17", "trp_kingdom_1_lord", 0),# Montpellier - Charles_VII
+      (call_script, "script_give_center_to_lord", "p_town_18", "trp_knight_1_31", 0),# Valence - Charles II de Poitiers, Seigneur de Saint-Vallier
+      (call_script, "script_give_center_to_lord", "p_town_19", "trp_knight_1_7", 0),# Thouars - Louis d'Amboise, Vicomte de Thouars
+      (call_script, "script_give_center_to_lord", "p_town_20", "trp_kingdom_1_lord", 0),# Tournai - Charles_VII
+	  
+      (call_script, "script_give_center_to_lord", "p_town_21", "trp_knight_1_9", 0),# Gien - Jean de Dunois, Comte de Dunois
+      (call_script, "script_give_center_to_lord", "p_town_22", "trp_knight_1_52", 0),# Montargis-le-Franc - Denis de Chailly, Seigneur de Chailly
 
-      (call_script, "script_give_center_to_lord", "p_town_15", "trp_knight_5_2", 0),#Yalen -Count Gutlans
-      (call_script, "script_give_center_to_lord", "p_town_16", "trp_knight_1_4", 0),#Dhirim - Count Clais #changed from 1_3 (Count Harringoth)
-      (call_script, "script_give_center_to_lord", "p_town_17", "trp_knight_3_2", 0),#Ichamur - Tonju Noyan
-      (call_script, "script_give_center_to_lord", "p_town_18", "trp_knight_3_3", 0),#Narra - Belir Noyan
+# English Towns
+      (call_script, "script_give_center_to_lord", "p_town_23",  "trp_knight_2_21", 0), # Paris - Thomas Montacute, Earl of Salisbury
+      (call_script, "script_give_center_to_lord", "p_town_24",  "trp_knight_2_17", 0), # Bergerac - Bertrand III de Montferrand
+      (call_script, "script_give_center_to_lord", "p_town_25",  "trp_knight_2_17", 0), # Périgueux - Bertrand III de Montferrand
+      (call_script, "script_give_center_to_lord", "p_town_26",  "trp_knight_2_3", 0), # Nemours - William de la Pole, Duke of Suffolk
+      (call_script, "script_give_center_to_lord", "p_town_27",  "trp_knight_2_20", 0), # Angoulême - Richard de Beauchamp, Earl of Warwick
+      (call_script, "script_give_center_to_lord", "p_town_28",  "trp_knight_2_22", 0), # Limoges - John Holland, Duke of Exeter
+      (call_script, "script_give_center_to_lord", "p_town_29",  "trp_knight_2_17", 0), # Bordeaux - Bertrand III de Montferrand
+      (call_script, "script_give_center_to_lord", "p_town_30",  "trp_knight_2_5", 0), # Albret - Baron John Tiptoft
 
-      (call_script, "script_give_center_to_lord", "p_town_19", "trp_kingdom_6_lord", 0),#Shariz - Sultan Hakim
-      (call_script, "script_give_center_to_lord", "p_town_20", "trp_knight_6_1", 0),#Durquba - Emir Uqais
-      (call_script, "script_give_center_to_lord", "p_town_21", "trp_knight_6_2", 0),#Ahmerrad - Emir Hamezan
-      (call_script, "script_give_center_to_lord", "p_town_22", "trp_knight_6_3", 0),#Bariyye - Emir Atis
-	  ##diplomacy end+
+      (call_script, "script_give_center_to_lord", "p_town_31",  "trp_knight_2_17", 0), # Bayonne - Bertrand III de Montferrand
+      (call_script, "script_give_center_to_lord", "p_town_32",  "trp_knight_2_5", 0), # Tartas - Baron John Tiptoft
+      (call_script, "script_give_center_to_lord", "p_town_33",  "trp_knight_2_1", 0), # Laval - John Talbot, Earl of Shrewsbury
+      (call_script, "script_give_center_to_lord", "p_town_34",  "trp_knight_2_1", 0), # Le_Mans - John Talbot, Earl of Shrewsbury
+      (call_script, "script_give_center_to_lord", "p_town_35",  "trp_knight_2_2", 0), # Angers - John Fastolf, Governor of Anjou
+      (call_script, "script_give_center_to_lord", "p_town_36",  "trp_knight_2_19", 0), # Chartres - Baron Walter Hungerford
+      (call_script, "script_give_center_to_lord", "p_town_37",  "trp_kingdom_2_lord", 0), # Rouen - John of Lancaster, 
+      (call_script, "script_give_center_to_lord", "p_town_38",  "trp_knight_2_16", 0), # Caen - Baron Thomas Stanley
+      (call_script, "script_give_center_to_lord", "p_town_39",  "trp_knight_2_2", 0), # Harfleur - John Fastolf, Governor of Anjou
+      (call_script, "script_give_center_to_lord", "p_town_40",  "trp_knight_2_12", 0), # Cherbourg - John Mowbray, Duke of Norfolk
+      (call_script, "script_give_center_to_lord", "p_town_41",  "trp_knight_2_11", 0), # Bayeux - Richard of York, Duke of York
+      (call_script, "script_give_center_to_lord", "p_town_42",  "trp_kingdom_2_lord", 0), # Calais - John of Lancaster,
+      (call_script, "script_give_center_to_lord", "p_town_43",  "trp_knight_2_10", 0), # Alençon - Edmund Beaufort, Earl of Dorset
+      (call_script, "script_give_center_to_lord", "p_town_44",  "trp_knight_2_7", 0), # Argentan - John Beaufort, Earl of Somerset
+	  
+# Burgundian Towns
+      (call_script, "script_give_center_to_lord", "p_town_45",  "trp_kingdom_3_lord", 0), # Dijon - Philippe the Good, Duke of Burgundy
+      (call_script, "script_give_center_to_lord", "p_town_46",  "trp_knight_3_20", 0), # Besançon - Thibaud VI de Rougemont, Vicomte de Besançon et Seigneur de Rougemont
+      (call_script, "script_give_center_to_lord", "p_town_47",  "trp_knight_3_3", 0), # Nevers - Charles de Bourgogne, Comte de Nevers et de Rethel
+      (call_script, "script_give_center_to_lord", "p_town_48",  "trp_kingdom_3_lord", 0), # Auxerre - Philippe the Good, Duke of Burgundy
+      (call_script, "script_give_center_to_lord", "p_town_49",  "trp_kingdom_3_lord", 0), # Troyes - Philippe the Good, Duke of Burgundy
+      (call_script, "script_give_center_to_lord", "p_town_50",  "trp_knight_3_10", 0), # Compiègne - Jean de Villiers de l'Isle-Adam, Seigneur de L'Isle-Adam
 
-      # Give family castles to certain nobles.
-      (call_script, "script_give_center_to_lord", "p_castle_29", "trp_knight_2_10", 0), #Nelag_Castle
-      (call_script, "script_give_center_to_lord", "p_castle_30", "trp_knight_3_4", 0), #Asugan_Castle
-      (call_script, "script_give_center_to_lord", "p_castle_35", "trp_knight_1_3", 0), #Haringoth_Castle
-      ##diplomacy start+
-      (call_script, "script_give_center_to_lord", "p_castle_33", "trp_knight_5_11", 0), #Etrosq Castle -- why wasn't this being done already?
+      (call_script, "script_give_center_to_lord", "p_town_51",  "trp_knight_3_19", 0), # Bruges - Roland d'Uytkerke, Seigneur d'Uytkerke
+      (call_script, "script_give_center_to_lord", "p_town_52",  "trp_kingdom_3_lord", 0), # Gand - Philippe the Good, Duke of Burgundy
+      (call_script, "script_give_center_to_lord", "p_town_53",  "trp_kingdom_3_lord", 0), # Malines - Philippe the Good, Duke of Burgundy
+      (call_script, "script_give_center_to_lord", "p_town_54",  "trp_kingdom_3_lord", 0), # Boulogne - Philippe the Good, Duke of Burgundy
+      (call_script, "script_give_center_to_lord", "p_town_55",  "trp_knight_3_3", 0), # Châlons-en-Champagne - Charles de Bourgogne, Comte de Nevers et de Rethel
+      (call_script, "script_give_center_to_lord", "p_town_56",  "trp_knight_3_3", 0), # Reims - Charles de Bourgogne, Comte de Nevers et de Rethel
+	  
+# Breton Towns
+      (call_script, "script_give_center_to_lord", "p_town_57",  "trp_kingdom_4_lord", 0), # Rennes - Jean V de Montfort, Duke of Brittany
+      (call_script, "script_give_center_to_lord", "p_town_58",  "trp_kingdom_4_lord", 0), # Nantes - Jean V de Montfort, Duke of Brittany
+      (call_script, "script_give_center_to_lord", "p_town_59",  "trp_kingdom_4_lord", 0), # Vannes - Jean V de Montfort, Duke of Brittany
+      (call_script, "script_give_center_to_lord", "p_town_60",  "trp_knight_4_13", 0), # Kemper - Guillaume de Rosmadec, Baron de Rosmadec
+
+      (call_script, "script_give_center_to_lord", "p_town_61",  "trp_knight_4_14", 0), # Saint-Malo - Pierre de Rochefort, Seigneur de Rieux et de Rochefort
+      (call_script, "script_give_center_to_lord", "p_town_62",  "trp_kingdom_4_lord", 0), # Saint-Brieuc - Jean V de Montfort, Duke of Brittany
+      (call_script, "script_give_center_to_lord", "p_town_63",  "trp_knight_4_10", 0), # Saint-Pol-de-Léon - Alain X de Rohan, Vicomte de Léon
+      (call_script, "script_give_center_to_lord", "p_town_64",  "trp_knight_4_9", 0), # Rohan - Alain IX de Rohan, Vicomte de Rohan
+	  
+
+
+##################################################################################################################################################################################################################################################################################################################
+###################################################################################################### DAC CASTLE DISTRIBUTION ###################################################################################################################################################################################
+##################################################################################################################################################################################################################################################################################################################
+
+### French Castles
+      (call_script, "script_give_center_to_lord", "p_castle_1", "trp_kingdom_1_lord", 0), # Forteresse_de_Chinon - Charles_VII
+      (call_script, "script_give_center_to_lord", "p_castle_2", "trp_knight_1_39", 0), # Châteauroux - Guy III de Chauvigny, Baron de Châteauroux
+      (call_script, "script_give_center_to_lord", "p_castle_3", "trp_kingdom_1_lord", 0), # Rochefort - Charles_VII
+      (call_script, "script_give_center_to_lord", "p_castle_4", "trp_knight_1_24", 0), # Tour_de_Termes - Jean IV de Termes d’Armagnac, Seigneur de Termes
+      # (call_script, "script_give_center_to_lord", "p_castle_5", "trp_", 0), # Château_de_Murol - LORD
+      (call_script, "script_give_center_to_lord", "p_castle_6", "trp_knight_1_53", 0), # Château_de_Polignac - Guillaume-Armand de Polignac
+      (call_script, "script_give_center_to_lord", "p_castle_7", "trp_knight_1_10", 0), # Château_de_Culant - Louis de Culant
+      (call_script, "script_give_center_to_lord", "p_castle_8", "trp_knight_1_8", 0), # Château_de_Montbazon - Pierre d'Amboise
+      (call_script, "script_give_center_to_lord", "p_castle_9", "trp_knight_1_15", 0), # Château_de_Boussac - Jean de Brosse
+      (call_script, "script_give_center_to_lord", "p_castle_10", "trp_knight_1_33", 0), # Yèvre-le-Châtel - Nicolas de Giresme
+	  
+      (call_script, "script_give_center_to_lord", "p_castle_11", "trp_knight_1_42", 0), # Château_de_La_Fayette - Gilbert Motier de La Fayette
+      (call_script, "script_give_center_to_lord", "p_castle_12", "trp_knight_1_43", 0), # La_Tour_d'Auvergne - Bertrand V de La Tour d'Auvergne
+      (call_script, "script_give_center_to_lord", "p_castle_13", "trp_knight_1_20", 0), # Château_de_Val - Antoine de Chabannes
+      (call_script, "script_give_center_to_lord", "p_castle_14", "trp_knight_1_17", 0), # Château_de_Sancerre - Louis I de Bourbon
+      (call_script, "script_give_center_to_lord", "p_castle_15", "trp_knight_1_4", 0), # Castelnau_Tursan - Charles II d'Albret
+      (call_script, "script_give_center_to_lord", "p_castle_16", "trp_knight_1_23", 0), # Forteresse_d'Auch - Bernard VIII D'Armagnac
+      (call_script, "script_give_center_to_lord", "p_castle_17", "trp_kingdom_1_lord", 0), # Mont-St-Michel - Charles_VII
+      (call_script, "script_give_center_to_lord", "p_castle_18", "trp_knight_1_19", 0), # Château_de_Turenne - Jacques de Chabannes
+      (call_script, "script_give_center_to_lord", "p_castle_19", "trp_knight_1_46", 0), # Sévérac-le-Château -Théaulde de Valpergue
+      (call_script, "script_give_center_to_lord", "p_castle_20", "trp_knight_1_45", 0), # Château_de_Sarzay - Jean Foucault
+	  
+      (call_script, "script_give_center_to_lord", "p_castle_21", "trp_knight_1_17", 0), # Château_de_Virieu - Louis I de Bourbon
+	  
+### English Castles	  
+      (call_script, "script_give_center_to_lord", "p_castle_22", "trp_knight_2_17", 0), # Château_de_Castelnaud - Bertrand III de Montferrand, Baron of Guyenne
+      (call_script, "script_give_center_to_lord", "p_castle_23", "trp_knight_2_17", 0), # Forteresse_de_Rauzan - Bertrand III de Montferrand, Baron of Guyenne
+      (call_script, "script_give_center_to_lord", "p_castle_24", "trp_knight_2_17", 0), # Château_de_Montréal - Bertrand III de Montferrand
+      (call_script, "script_give_center_to_lord", "p_castle_25", "trp_knight_2_4", 0), # Château_du_Lude - Thomas de Scales, Baron de Scales
+      (call_script, "script_give_center_to_lord", "p_castle_26", "trp_knight_2_17", 0), # Château_de_Nérac - Bertrand III de Montferrand, Baron of Guyenne
+      (call_script, "script_give_center_to_lord", "p_castle_27", "trp_knight_2_14", 0), # Château_de_Falaise - Reginald Grey, Baron Grey de Ruthyn
+      (call_script, "script_give_center_to_lord", "p_castle_28", "trp_knight_2_7", 0), # Château-Gaillard - John Beaufort, Earl of Somerset
+      (call_script, "script_give_center_to_lord", "p_castle_29", "trp_knight_2_1", 0), # Château_de_Vendôme - John Talbot, Earl of Shrewsbury
+      (call_script, "script_give_center_to_lord", "p_castle_30", "trp_knight_2_2", 0), # Château_de_Beauvau - John Fastolf, Governor of Anjou
+	  
+      (call_script, "script_give_center_to_lord", "p_castle_31", "trp_knight_2_10", 0), # Château_Gontier - Edmund Beaufort, Earl of Dorset
+      (call_script, "script_give_center_to_lord", "p_castle_32", "trp_knight_2_9", 0), # Château_de_Verneuil - Thomas Beaufort, Count of Perche
+	  
+### Burgundian Castles	  
+      (call_script, "script_give_center_to_lord", "p_castle_33", "trp_kingdom_3_lord", 0), # Château_de_Tonerre - Philippe Le Bon
+      (call_script, "script_give_center_to_lord", "p_castle_34", "trp_kingdom_3_lord", 0), # Forteresse_d'Avallon - Philippe Le Bon
+      (call_script, "script_give_center_to_lord", "p_castle_35", "trp_knight_3_16", 0), # Château_de_Varenne-lès-Mâcon - Guillaume IV de Vienne
+      (call_script, "script_give_center_to_lord", "p_castle_36", "trp_knight_3_1", 0), # Château_de_Toulongeon - Antoine de Toulongeon
+      (call_script, "script_give_center_to_lord", "p_castle_37", "trp_knight_3_4", 0), # Château_de_Ligny-en-Barrois - Pierre Ier de Luxembourg
+      (call_script, "script_give_center_to_lord", "p_castle_38", "trp_knight_3_13", 0), # Château_de_Jonvelle - Jean de La Trémoille
+      (call_script, "script_give_center_to_lord", "p_castle_39", "trp_knight_3_7", 0), # Forteresse_de_Noyelles - Baudot de Noyelles
+      (call_script, "script_give_center_to_lord", "p_castle_40", "trp_knight_3_8", 0), # Château_de_Montfort - Pierre de Bauffremont
+	  
+      (call_script, "script_give_center_to_lord", "p_castle_41", "trp_knight_3_9", 0), # Forteresse_de_La_Rochepot - Régnier Pot
+      (call_script, "script_give_center_to_lord", "p_castle_42", "trp_knight_3_14", 0), # Château_de_Vergy - Antoine de Vergy
+      (call_script, "script_give_center_to_lord", "p_castle_43", "trp_knight_3_12", 0), # Château_de_Brimeu - Jacques de Brimeu
+      (call_script, "script_give_center_to_lord", "p_castle_44", "trp_knight_3_11", 0), # Château_de_Bellemotte - David de Brimeu
+      (call_script, "script_give_center_to_lord", "p_castle_45", "trp_knight_3_19", 0), # Forteresse_d'Uytkerke - Roland d'Uytkerke
+      (call_script, "script_give_center_to_lord", "p_castle_46", "trp_knight_3_3", 0), # Château_de_La_Charité-sur-Loire - Charles de Bourgogne
+      (call_script, "script_give_center_to_lord", "p_castle_47", "trp_knight_3_10", 0), # Forteresse_de_L'Isle_Adam - Jean de Villiers de l'Isle-Adam
+      (call_script, "script_give_center_to_lord", "p_castle_48", "trp_kingdom_3_lord", 0), # Château_de_Senlis - Philippe Le Bon
+      (call_script, "script_give_center_to_lord", "p_castle_49", "trp_knight_3_17", 0), # Château_de_Montcornet - Antoine I de Croÿ
+      (call_script, "script_give_center_to_lord", "p_castle_50", "trp_knight_3_18", 0), # Château_de_Chimay - Jean II de Croÿ
+	  
+      (call_script, "script_give_center_to_lord", "p_castle_51", "trp_knight_3_10", 0), # Amiens - Jean de Villiers de l'Isle-Adam
+      (call_script, "script_give_center_to_lord", "p_castle_52", "trp_knight_3_10", 0), # Peronne - Jean de Villiers de l'Isle-Adam
+	  
+### Breton Castles	  
+      (call_script, "script_give_center_to_lord", "p_castle_53", "trp_knight_4_1", 0), # Château_de_Fougères - Arthur de Richemont
+      (call_script, "script_give_center_to_lord", "p_castle_54", "trp_knight_4_15", 0), # Châteaubriant - Bertrand de Dinan
+      (call_script, "script_give_center_to_lord", "p_castle_55", "trp_knight_4_16", 0), # Château_de_Dinan - Jacques de Dinan
+      (call_script, "script_give_center_to_lord", "p_castle_56", "trp_knight_4_2", 0), # Château_de_Clisson - Richard de Montfort
+      (call_script, "script_give_center_to_lord", "p_castle_57", "trp_knight_4_9", 0), # Château_de_Josselin - Alain IX de Rohan
+      (call_script, "script_give_center_to_lord", "p_castle_58", "trp_knight_4_9", 0), # Forteresse_de_Roch'Morvan - Alain IX de Rohan
+      (call_script, "script_give_center_to_lord", "p_castle_59", "trp_knight_4_11", 0), # Château_de_Guéméné - Charles de Rohan-Guéméné
+      (call_script, "script_give_center_to_lord", "p_castle_60", "trp_knight_4_14", 0), # Château_de_Rochefort - Pierre de Rochefort, Seigneur de Rieux et de Rochefort
+	  
+      (call_script, "script_give_center_to_lord", "p_castle_61", "trp_knight_4_18", 0), # Château_de_Tonquédec - Rolland III de Coëtmen
+      (call_script, "script_give_center_to_lord", "p_castle_62", "trp_knight_4_13", 0), # Château_de_Rosmadec - Guillaume de Rosmadec
+      (call_script, "script_give_center_to_lord", "p_castle_63", "trp_knight_4_5", 0), # Château_de_Coëtivy - Prigent VII de Coëtivy
+      (call_script, "script_give_center_to_lord", "p_castle_64", "trp_knight_4_4", 0), # Château_de_Trémazan - Tanneguy III Du Chastel
+      (call_script, "script_give_center_to_lord", "p_castle_65", "trp_knight_4_6", 0), # Château_de_Kermoysan - Tugdual de Kermoysan
+      (call_script, "script_give_center_to_lord", "p_castle_66", "trp_knight_4_17", 0), # Château_de_Coëtquen - Raoul V de Coëtquen
+      (call_script, "script_give_center_to_lord", "p_castle_67", "trp_knight_4_3", 0), # Château_de_Penhoët - Jean de Penhoët
+      (call_script, "script_give_center_to_lord", "p_castle_68", "trp_knight_4_7", 0), # Château_de_Penmarc'h - Henri Penmarc'h
+      (call_script, "script_give_center_to_lord", "p_castle_69", "trp_knight_4_13", 0), # Forteresse_de_Kemperlé - Guillaume de Rosmadec
+      (call_script, "script_give_center_to_lord", "p_castle_70", "trp_knight_4_12", 0), # Château_d'Hen_Bont - Louis I de Rohan-Guéméné
+	  
+      (call_script, "script_give_center_to_lord", "p_castle_71", "trp_knight_4_14", 0), # Château_de_Derval - Pierre de Rochefort
+      (call_script, "script_give_center_to_lord", "p_castle_72", "trp_knight_4_1", 0), # Château_de_Suscinio - Arthur de Richemont
+      (call_script, "script_give_center_to_lord", "p_castle_73", "trp_knight_4_10", 0), # Forteresse_de_Roch'an - Alain X de Rohan
+      (call_script, "script_give_center_to_lord", "p_castle_74", "trp_knight_4_1", 0), # Forteresse_de_Dol - Arthur de Richemont
+	  
+	  
+	  
+	  
+	  
+	  
 	  #Add home centers for claimants
-	  (troop_set_slot, "trp_kingdom_1_pretender", slot_troop_home, "p_town_4"),#Lady Isolle - Suno
-	  (troop_set_slot, "trp_kingdom_2_pretender", slot_troop_home, "p_town_11"),#Prince Valdym - Curaw
-      (troop_set_slot, "trp_kingdom_3_pretender", slot_troop_home, "p_town_18"),#Dustum Khan - Narra
-      (troop_set_slot, "trp_kingdom_4_pretender", slot_troop_home, "p_town_12"),#Lethwin Far-Seeker - Wercheg
-      (troop_set_slot, "trp_kingdom_5_pretender", slot_troop_home, "p_town_3"),#Lord Kastor - Veluca
-	  (troop_set_slot, "trp_kingdom_6_pretender", slot_troop_home, "p_town_20"),#Arwa the Pearled One - Durquba
+	  # (troop_set_slot, "trp_kingdom_1_pretender", slot_troop_home, "p_town_4"),#Lady Isolle - Suno
+	  # (troop_set_slot, "trp_kingdom_2_pretender", slot_troop_home, "p_town_11"),#Prince Valdym - Curaw
+      # (troop_set_slot, "trp_kingdom_3_pretender", slot_troop_home, "p_town_18"),#Dustum Khan - Narra
+      # (troop_set_slot, "trp_kingdom_4_pretender", slot_troop_home, "p_town_12"),#Lethwin Far-Seeker - Wercheg
+      # (troop_set_slot, "trp_kingdom_5_pretender", slot_troop_home, "p_town_3"),#Lord Kastor - Veluca
+	  # (troop_set_slot, "trp_kingdom_6_pretender", slot_troop_home, "p_town_20"),#Arwa the Pearled One - Durquba
  	  #add ancestral fiefs to home slots (mods not using standard NPCs should remove this)
-      (troop_set_slot, "trp_knight_2_10", slot_troop_home, "p_castle_29"), #Nelag_Castle
-      (troop_set_slot, "trp_knight_3_4", slot_troop_home, "p_castle_30"), #Asugan_Castle
-      (troop_set_slot, "trp_knight_1_3", slot_troop_home, "p_castle_35"), #Haringoth_Castle
-      (troop_set_slot, "trp_knight_5_11", slot_troop_home, "p_castle_33"), #Etrosq_Castle
+      # (troop_set_slot, "trp_knight_2_10", slot_troop_home, "p_castle_29"), #Nelag_Castle
+      # (troop_set_slot, "trp_knight_3_4", slot_troop_home, "p_castle_30"), #Asugan_Castle
+      # (troop_set_slot, "trp_knight_1_3", slot_troop_home, "p_castle_35"), #Haringoth_Castle
+      # (troop_set_slot, "trp_knight_5_11", slot_troop_home, "p_castle_33"), #Etrosq_Castle
 	  #Also the primary six towns:
-	  (troop_set_slot, "trp_kingdom_1_lord", slot_troop_home, "p_town_6"),#King Harlaus to Praven
-	  (troop_set_slot, "trp_kingdom_2_lord", slot_troop_home, "p_town_8"),#King Yaroglek to Reyvadin
-	  (troop_set_slot, "trp_kingdom_3_lord", slot_troop_home, "p_town_10"),#Sanjar Khan to Tulga
-	  (troop_set_slot, "trp_kingdom_4_lord", slot_troop_home, "p_town_1"),#King Ragnar to Sargoth
-	  (troop_set_slot, "trp_kingdom_5_lord", slot_troop_home, "p_town_5"),#King Graveth to Jelkala
-	  (troop_set_slot, "trp_kingdom_6_lord", slot_troop_home, "p_town_19"),#Sultan Hakim to Shariz
+	  # (troop_set_slot, "trp_kingdom_1_lord", slot_troop_home, "p_town_6"),#King Harlaus to Praven
+	  # (troop_set_slot, "trp_kingdom_2_lord", slot_troop_home, "p_town_8"),#King Yaroglek to Reyvadin
+	  # (troop_set_slot, "trp_kingdom_3_lord", slot_troop_home, "p_town_10"),#Sanjar Khan to Tulga
+	  # (troop_set_slot, "trp_kingdom_4_lord", slot_troop_home, "p_town_1"),#King Ragnar to Sargoth
+	  # (troop_set_slot, "trp_kingdom_5_lord", slot_troop_home, "p_town_5"),#King Graveth to Jelkala
+	  # (troop_set_slot, "trp_kingdom_6_lord", slot_troop_home, "p_town_19"),#Sultan Hakim to Shariz
+	  
+	  
       ##Also set home slots for starting quest merchants (merchant of praven, merchant of reyvadin, etc.)
       (try_for_range, ":npc", kings_begin, kings_end),
          (troop_get_slot, ":center_no", ":npc", slot_troop_home),
@@ -733,16 +959,16 @@ scripts = [
       (try_end),
 
 	  #set territorial disputes/outstanding border issues
-	  (party_set_slot, "p_castle_10", slot_center_ex_faction, "fac_kingdom_2"), #vaegirs claim nord-held alburq
-	  (party_set_slot, "p_castle_13", slot_center_ex_faction, "fac_kingdom_4"), #nords claim swadian-held kelredan
-	  (party_set_slot, "p_castle_15", slot_center_ex_faction, "fac_kingdom_1"), #swadians claim rhodok-held ergelon
-	  (party_set_slot, "p_castle_46", slot_center_ex_faction, "fac_kingdom_5"), #rhodoks claim sarranid-held weyyah
-	  (party_set_slot, "p_castle_40", slot_center_ex_faction, "fac_kingdom_6"), #sarranids claim khergit-held uhhun
-	  (party_set_slot, "p_town_11",   slot_center_ex_faction, "fac_kingdom_3"), #Khergits claim vaegir-held curaw
+	  # (party_set_slot, "p_castle_10", slot_center_ex_faction, "fac_kingdom_2"), #vaegirs claim nord-held alburq
+	  # (party_set_slot, "p_castle_13", slot_center_ex_faction, "fac_kingdom_4"), #nords claim swadian-held kelredan
+	  # (party_set_slot, "p_castle_15", slot_center_ex_faction, "fac_kingdom_1"), #swadians claim rhodok-held ergelon
+	  # (party_set_slot, "p_castle_46", slot_center_ex_faction, "fac_kingdom_5"), #rhodoks claim sarranid-held weyyah
+	  # (party_set_slot, "p_castle_40", slot_center_ex_faction, "fac_kingdom_6"), #sarranids claim khergit-held uhhun
+	  # (party_set_slot, "p_town_11",   slot_center_ex_faction, "fac_kingdom_3"), #Khergits claim vaegir-held curaw
 
 	  #Swadians, being in the middle, will have additional claims on two of their neighhbors
-	  (party_set_slot, "p_castle_15", slot_center_ex_faction, "fac_kingdom_1"), #swadians claim vaegir-held tilbault
-	  (party_set_slot, "p_castle_22", slot_center_ex_faction, "fac_kingdom_1"), #swadians claim khergit-held unuzdaq
+	  # (party_set_slot, "p_castle_15", slot_center_ex_faction, "fac_kingdom_1"), #swadians claim vaegir-held tilbault
+	  # (party_set_slot, "p_castle_22", slot_center_ex_faction, "fac_kingdom_1"), #swadians claim khergit-held unuzdaq
 
       (call_script, "script_update_village_market_towns"),
 
@@ -1121,8 +1347,8 @@ scripts = [
 	  (faction_set_slot, "fac_kingdom_2", slot_faction_adjective, "str_kingdom_2_adjective"),
 	  (faction_set_slot, "fac_kingdom_3", slot_faction_adjective, "str_kingdom_3_adjective"),
 	  (faction_set_slot, "fac_kingdom_4", slot_faction_adjective, "str_kingdom_4_adjective"),
-	  (faction_set_slot, "fac_kingdom_5", slot_faction_adjective, "str_kingdom_5_adjective"),
-	  (faction_set_slot, "fac_kingdom_6", slot_faction_adjective, "str_kingdom_6_adjective"),
+	  # (faction_set_slot, "fac_kingdom_5", slot_faction_adjective, "str_kingdom_5_adjective"),
+	  # (faction_set_slot, "fac_kingdom_6", slot_faction_adjective, "str_kingdom_6_adjective"),
 
 ##      (assign, "$players_kingdom", "fac_kingdom_1"),
 ##      (call_script, "script_give_center_to_lord", "p_town_7", "trp_player", 0),
@@ -1203,6 +1429,394 @@ scripts = [
     #Kham - Init variables
 
     (assign, "$first_time", 0), #squelch compiler warnings
+	
+##################################################################################################################################################################################################################################################################################################################
+###################################################################################################### HYW CUSTOM ARMORS #########################################################################################################################################################################################
+##################################################################################################################################################################################################################################################################################################################
+		
+
+
+## Padded Cloth
+      (item_set_slot, "itm_a_padded_cloth_custom", slot_item_materials_begin, "str_a_padded_cloth_blue"),
+      (item_set_slot, "itm_a_padded_cloth_custom", slot_item_materials_end, "str_a_padded_cloth_end"),
+# France
+      (item_set_slot, "itm_a_padded_cloth_custom", slot_item_france_materials_begin, "str_a_padded_cloth_blue"),
+      (item_set_slot, "itm_a_padded_cloth_custom", slot_item_france_materials_end, "str_a_padded_cloth_english"),
+# England
+      (item_set_slot, "itm_a_padded_cloth_custom", slot_item_english_materials_begin, "str_a_padded_cloth_white"),
+      (item_set_slot, "itm_a_padded_cloth_custom", slot_item_english_materials_end, "str_a_padded_cloth_brown"),
+# Burgundy
+      (item_set_slot, "itm_a_padded_cloth_custom", slot_item_burgundy_materials_begin, "str_a_padded_cloth_red"),
+      (item_set_slot, "itm_a_padded_cloth_custom", slot_item_burgundy_materials_end, "str_a_padded_cloth_half_black"),
+# Brittany		
+      (item_set_slot, "itm_a_padded_cloth_custom", slot_item_breton_materials_begin, "str_a_padded_cloth_half_black"),
+      (item_set_slot, "itm_a_padded_cloth_custom", slot_item_breton_materials_end, "str_a_padded_cloth_yellow"),
+# Flemish Mercenaries		
+      (item_set_slot, "itm_a_padded_cloth_custom", slot_item_flemish_materials_begin, "str_a_padded_cloth_black"),
+      (item_set_slot, "itm_a_padded_cloth_custom", slot_item_flemish_materials_end, "str_a_padded_cloth_green"),	
+# Rebels	
+      (item_set_slot, "itm_a_padded_cloth_custom", slot_item_rebel_materials_begin, "str_a_padded_cloth_green"),
+      (item_set_slot, "itm_a_padded_cloth_custom", slot_item_rebel_materials_end, "str_a_padded_cloth_ironskull"),			
+      (item_set_slot, "itm_a_padded_cloth_custom", slot_item_num_components, 1),
+      
+## Peasant Clothes
+       (item_set_slot, "itm_a_peasant_man_custom", slot_item_materials_begin, "str_a_peasant_man_blue"),
+      (item_set_slot, "itm_a_peasant_man_custom", slot_item_materials_end, "str_a_peasant_man_end"),
+# France
+      (item_set_slot, "itm_a_peasant_man_custom", slot_item_france_materials_begin, "str_a_peasant_man_blue"),
+      (item_set_slot, "itm_a_peasant_man_custom", slot_item_france_materials_end, "str_a_peasant_man_green_2"),
+# England
+      (item_set_slot, "itm_a_peasant_man_custom", slot_item_english_materials_begin, "str_a_peasant_man_green"),
+      (item_set_slot, "itm_a_peasant_man_custom", slot_item_english_materials_end, "str_a_peasant_man_brown"),
+# Burgundy
+      (item_set_slot, "itm_a_peasant_man_custom", slot_item_burgundy_materials_begin, "str_a_peasant_man_yellow_2"),
+      (item_set_slot, "itm_a_peasant_man_custom", slot_item_burgundy_materials_end, "str_a_peasant_man_black_3"),
+# Brittany		
+      (item_set_slot, "itm_a_peasant_man_custom", slot_item_breton_materials_begin, "str_a_peasant_man_brown_2"),
+      (item_set_slot, "itm_a_peasant_man_custom", slot_item_breton_materials_end, "str_a_peasant_man_black"),	
+# Flemish Mercenaries		
+      (item_set_slot, "itm_a_peasant_man_custom", slot_item_flemish_materials_begin, "str_a_peasant_man_black"),
+      (item_set_slot, "itm_a_peasant_man_custom", slot_item_flemish_materials_end, "str_a_peasant_man_end"),			
+      (item_set_slot, "itm_a_peasant_man_custom", slot_item_num_components, 1),    
+				
+## Gambeson
+      (item_set_slot, "itm_a_gambeson_custom", slot_item_materials_begin, "str_a_gambeson_blue"),
+      (item_set_slot, "itm_a_gambeson_custom", slot_item_materials_end, "str_a_gambeson_end"),
+# France
+      (item_set_slot, "itm_a_gambeson_custom", slot_item_france_materials_begin, "str_a_gambeson_blue"),
+      (item_set_slot, "itm_a_gambeson_custom", slot_item_france_materials_end, "str_a_gambeson_red"),
+# England
+      (item_set_slot, "itm_a_gambeson_custom", slot_item_english_materials_begin, "str_a_gambeson_white"),
+      (item_set_slot, "itm_a_gambeson_custom", slot_item_english_materials_end, "str_a_gambeson_brown"),
+# Burgundy
+      (item_set_slot, "itm_a_gambeson_custom", slot_item_burgundy_materials_begin, "str_a_gambeson_red"),
+      (item_set_slot, "itm_a_gambeson_custom", slot_item_burgundy_materials_end, "str_a_gambeson_black"),
+# Brittany		
+      (item_set_slot, "itm_a_gambeson_custom", slot_item_breton_materials_begin, "str_a_gambeson_brown"),
+      (item_set_slot, "itm_a_gambeson_custom", slot_item_breton_materials_end, "str_a_gambeson_green"),	
+# Rebels		
+      (item_set_slot, "itm_a_gambeson_custom", slot_item_rebel_materials_begin, "str_a_gambeson_green"),
+      (item_set_slot, "itm_a_gambeson_custom", slot_item_rebel_materials_end, "str_a_gambeson_end"),			
+      (item_set_slot, "itm_a_gambeson_custom", slot_item_num_components, 1),    		
+		
+## Padded Armor
+      (item_set_slot, "itm_a_padded_armor_custom", slot_item_materials_begin, "str_a_padded_armor_blue"),
+      (item_set_slot, "itm_a_padded_armor_custom", slot_item_materials_end, "str_a_padded_armor_end"),
+# France
+      (item_set_slot, "itm_a_padded_armor_custom", slot_item_france_materials_begin, "str_a_padded_armor_blue"),
+      (item_set_slot, "itm_a_padded_armor_custom", slot_item_france_materials_end, "str_a_padded_armor_red"),
+# England
+      (item_set_slot, "itm_a_padded_armor_custom", slot_item_english_materials_begin, "str_a_padded_armor_white"),
+      (item_set_slot, "itm_a_padded_armor_custom", slot_item_english_materials_end, "str_a_padded_armor_brown"),
+# Burgundy
+      (item_set_slot, "itm_a_padded_armor_custom", slot_item_burgundy_materials_begin, "str_a_padded_armor_red"),
+      (item_set_slot, "itm_a_padded_armor_custom", slot_item_burgundy_materials_end, "str_a_padded_armor_black"),
+# Brittany		
+      (item_set_slot, "itm_a_padded_armor_custom", slot_item_breton_materials_begin, "str_a_padded_armor_brown"),
+      (item_set_slot, "itm_a_padded_armor_custom", slot_item_breton_materials_end, "str_a_padded_armor_green"),	
+# Rebels		
+      (item_set_slot, "itm_a_padded_armor_custom", slot_item_rebel_materials_begin, "str_a_padded_armor_green"),
+      (item_set_slot, "itm_a_padded_armor_custom", slot_item_rebel_materials_end, "str_a_padded_armor_end"),			
+      (item_set_slot, "itm_a_padded_armor_custom", slot_item_num_components, 1),    				
+		
+## Narf Gambeson 
+      (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_materials_begin, "str_a_gambeson_narf_blue"),
+      (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_materials_end, "str_a_gambeson_narf_end"),
+# France
+      (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_france_materials_begin, "str_a_gambeson_narf_blue"),
+      (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_france_materials_end, "str_a_gambeson_narf_english"),
+# England
+      (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_english_materials_begin, "str_a_gambeson_narf"),
+      (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_english_materials_end, "str_a_gambeson_narf_brown"),
+# Burgundy
+      (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_burgundy_materials_begin, "str_a_gambeson_narf_red"),
+      (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_burgundy_materials_end, "str_a_gambeson_narf_black"),
+# Brittany		
+      (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_breton_materials_begin, "str_a_gambeson_narf_half_black"),
+      (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_breton_materials_end, "str_a_gambeson_narf_yellow_black"),	
+# Flemish Mercenaries		
+      (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_flemish_materials_begin, "str_a_gambeson_narf_black"),
+      (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_flemish_materials_end, "str_a_gambeson_narf_green"),	
+# Rebels		
+      (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_rebel_materials_begin, "str_a_gambeson_narf_green"),
+      (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_rebel_materials_end, "str_a_gambeson_narf_ironskull"),			
+      (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_num_components, 1),   
+
+## Bogmir Brigandine 
+      (item_set_slot, "itm_a_brigandine_bogmir_custom", slot_item_materials_begin, "str_a_brigandine_french"),
+      (item_set_slot, "itm_a_brigandine_bogmir_custom", slot_item_materials_end, "str_a_brigandine_end"),
+# France
+      (item_set_slot, "itm_a_brigandine_bogmir_custom", slot_item_france_materials_begin, "str_a_brigandine_french"),
+      (item_set_slot, "itm_a_brigandine_bogmir_custom", slot_item_france_materials_end, "str_a_brigandine_english"),
+# England
+      (item_set_slot, "itm_a_brigandine_bogmir_custom", slot_item_english_materials_begin, "str_a_brigandine_english"),
+      (item_set_slot, "itm_a_brigandine_bogmir_custom", slot_item_english_materials_end, "str_a_brigandine_brown"),
+# Burgundy
+      (item_set_slot, "itm_a_brigandine_bogmir_custom", slot_item_burgundy_materials_begin, "str_a_brigandine_red"),
+      (item_set_slot, "itm_a_brigandine_bogmir_custom", slot_item_burgundy_materials_end, "str_a_brigandine_black"),
+# Brittany		
+      (item_set_slot, "itm_a_brigandine_bogmir_custom", slot_item_breton_materials_begin, "str_a_brigandine_brown"),
+      (item_set_slot, "itm_a_brigandine_bogmir_custom", slot_item_breton_materials_end, "str_a_brigandine_end"),			
+      (item_set_slot, "itm_a_brigandine_bogmir_custom", slot_item_num_components, 1),   	
+		
+## Padded Over Mail (Mail Hauberk)
+      (item_set_slot, "itm_a_padded_over_mail_custom", slot_item_materials_begin, "str_a_padded_over_mail_blue"),
+      (item_set_slot, "itm_a_padded_over_mail_custom", slot_item_materials_end, "str_a_padded_over_mail_end"),
+# France
+      (item_set_slot, "itm_a_padded_over_mail_custom", slot_item_france_materials_begin, "str_a_padded_over_mail_blue"),
+      (item_set_slot, "itm_a_padded_over_mail_custom", slot_item_france_materials_end, "str_a_padded_over_mail_red"),
+# England
+      (item_set_slot, "itm_a_padded_over_mail_custom", slot_item_english_materials_begin, "str_a_padded_over_mail"),
+      (item_set_slot, "itm_a_padded_over_mail_custom", slot_item_english_materials_end, "str_a_padded_over_mail_brown"),
+# Burgundy
+      (item_set_slot, "itm_a_padded_over_mail_custom", slot_item_burgundy_materials_begin, "str_a_padded_over_mail_red"),
+      (item_set_slot, "itm_a_padded_over_mail_custom", slot_item_burgundy_materials_end, "str_a_padded_over_mail_black"),
+# Brittany		
+      (item_set_slot, "itm_a_padded_over_mail_custom", slot_item_breton_materials_begin, "str_a_padded_over_mail_brown"),
+      (item_set_slot, "itm_a_padded_over_mail_custom", slot_item_breton_materials_end, "str_a_padded_over_mail_end"),			
+      (item_set_slot, "itm_a_padded_over_mail_custom", slot_item_num_components, 1),   		
+		
+## Coat of Plates
+      (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_materials_begin, "str_a_coat_of_plates_french_1"),
+      (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_materials_end, "str_a_coat_of_plates_end"),
+# France
+      (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_france_materials_begin, "str_a_coat_of_plates_french_1"),
+      (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_france_materials_end, "str_a_coat_of_plates_english_1"),
+# England
+      (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_english_materials_begin, "str_a_coat_of_plates_english_1"),
+      (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_english_materials_end, "str_a_coat_of_plates_end"),	
+      (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_num_components, 1),   			
+
+## Surcoat Over Mail
+      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_materials_begin, "str_a_surcoat_over_mail_french_1"),
+      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_materials_end, "str_a_surcoat_over_mail_end"),
+# France
+      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_france_materials_begin, "str_a_surcoat_over_mail_french_1"),
+      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_france_materials_end, "str_a_surcoat_over_mail_english_1"),
+# England
+      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_english_materials_begin, "str_a_surcoat_over_mail_english_1"),
+      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_english_materials_end, "str_a_surcoat_over_mail_breton_1"),	
+# Brittany		
+      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_breton_materials_begin, "str_a_surcoat_over_mail_breton_1"),
+      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_breton_materials_end, "str_a_surcoat_over_mail_end"),			
+      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_num_components, 1),   	
+		
+## Churburg
+      (item_set_slot, "itm_a_churburg_narf_custom", slot_item_materials_begin, "str_a_churburg_blue"),
+      (item_set_slot, "itm_a_churburg_narf_custom", slot_item_materials_end, "str_a_churburg_end"),
+# France
+      (item_set_slot, "itm_a_churburg_narf_custom", slot_item_france_materials_begin, "str_a_churburg_blue"),
+      (item_set_slot, "itm_a_churburg_narf_custom", slot_item_france_materials_end, "str_a_churburg_red"),
+# England
+      (item_set_slot, "itm_a_churburg_narf_custom", slot_item_english_materials_begin, "str_a_churburg_white"),
+      (item_set_slot, "itm_a_churburg_narf_custom", slot_item_english_materials_end, "str_a_churburg_brown"),	
+# Burgundy
+      (item_set_slot, "itm_a_churburg_narf_custom", slot_item_burgundy_materials_begin, "str_a_churburg_red"),
+      (item_set_slot, "itm_a_churburg_narf_custom", slot_item_burgundy_materials_end, "str_a_churburg_white_2"),		
+# Brittany		
+      (item_set_slot, "itm_a_churburg_narf_custom", slot_item_breton_materials_begin, "str_a_churburg_white_2"),
+      (item_set_slot, "itm_a_churburg_narf_custom", slot_item_breton_materials_end, "str_a_churburg_yellow_black"),	
+# Flemish Mercenaries		
+      (item_set_slot, "itm_a_churburg_narf_custom", slot_item_flemish_materials_begin, "str_a_churburg_black"),
+      (item_set_slot, "itm_a_churburg_narf_custom", slot_item_flemish_materials_end, "str_a_churburg_ironskull"),		
+      (item_set_slot, "itm_a_churburg_narf_custom", slot_item_num_components, 1),   	
+		
+## Churburg Brass
+      (item_set_slot, "itm_a_churburg_brass_narf_custom", slot_item_materials_begin, "str_a_churburg_brass_blue"),
+      (item_set_slot, "itm_a_churburg_brass_narf_custom", slot_item_materials_end, "str_a_churburg_brass_end"),
+# France
+      (item_set_slot, "itm_a_churburg_brass_narf_custom", slot_item_france_materials_begin, "str_a_churburg_brass_blue"),
+      (item_set_slot, "itm_a_churburg_brass_narf_custom", slot_item_france_materials_end, "str_a_churburg_brass_red"),
+# England
+      (item_set_slot, "itm_a_churburg_brass_narf_custom", slot_item_english_materials_begin, "str_a_churburg_brass_white"),
+      (item_set_slot, "itm_a_churburg_brass_narf_custom", slot_item_english_materials_end, "str_a_churburg_brass_brown"),	
+# Burgundy
+      (item_set_slot, "itm_a_churburg_brass_narf_custom", slot_item_burgundy_materials_begin, "str_a_churburg_brass_red"),
+      (item_set_slot, "itm_a_churburg_brass_narf_custom", slot_item_burgundy_materials_end, "str_a_churburg_brass_black"),		
+# Brittany		
+      (item_set_slot, "itm_a_churburg_brass_narf_custom", slot_item_breton_materials_begin, "str_a_churburg_brass_black"),
+      (item_set_slot, "itm_a_churburg_brass_narf_custom", slot_item_breton_materials_end, "str_a_churburg_brass_end"),			
+      (item_set_slot, "itm_a_churburg_brass_narf_custom", slot_item_num_components, 1),   		
+				
+## Corrazina
+      (item_set_slot, "itm_a_corrazina_narf_custom", slot_item_materials_begin, "str_a_corrazina_blue"),
+      (item_set_slot, "itm_a_corrazina_narf_custom", slot_item_materials_end, "str_a_corrazina_end"),
+# France
+      (item_set_slot, "itm_a_corrazina_narf_custom", slot_item_france_materials_begin, "str_a_corrazina_blue"),
+      (item_set_slot, "itm_a_corrazina_narf_custom", slot_item_france_materials_end, "str_a_corrazina_red"),
+# England
+      (item_set_slot, "itm_a_corrazina_narf_custom", slot_item_english_materials_begin, "str_a_corrazina_white"),
+      (item_set_slot, "itm_a_corrazina_narf_custom", slot_item_english_materials_end, "str_a_corrazina_brown"),	
+# Burgundy
+      (item_set_slot, "itm_a_corrazina_narf_custom", slot_item_burgundy_materials_begin, "str_a_corrazina_red"),
+      (item_set_slot, "itm_a_corrazina_narf_custom", slot_item_burgundy_materials_end, "str_a_corrazina_black"),		
+# Brittany		
+      (item_set_slot, "itm_a_corrazina_narf_custom", slot_item_breton_materials_begin, "str_a_corrazina_white_2"),
+      (item_set_slot, "itm_a_corrazina_narf_custom", slot_item_breton_materials_end, "str_a_corrazina_yellow_black"),		
+# Flemish Mercenaries		
+      (item_set_slot, "itm_a_corrazina_narf_custom", slot_item_flemish_materials_begin, "str_a_corrazina_black"),
+      (item_set_slot, "itm_a_corrazina_narf_custom", slot_item_flemish_materials_end, "str_a_corrazina_end"),			
+      (item_set_slot, "itm_a_corrazina_narf_custom", slot_item_num_components, 1),   
+		
+## Early Transitional Plate
+      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_materials_begin, "str_a_early_transitional_french_1"),
+      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_materials_end, "str_a_early_transitional_end"),
+# France
+      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_france_materials_begin, "str_a_early_transitional_french_1"),
+      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_france_materials_end, "str_a_early_transitional_english_1"),
+# England
+      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_english_materials_begin, "str_a_early_transitional_white"),
+      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_english_materials_end, "str_a_early_transitional_english_2"),	
+# Burgundy
+      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_burgundy_materials_begin, "str_a_early_transitional_burgundian"),
+      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_burgundy_materials_end, "str_a_early_transitional_breton"),		
+# Brittany		
+      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_breton_materials_begin, "str_a_early_transitional_breton"),
+      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_breton_materials_end, "str_a_early_transitional_black"),		
+# Flemish Mercenaries		
+      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_flemish_materials_begin, "str_a_early_transitional_black"),
+      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_flemish_materials_end, "str_a_early_transitional_ironskull"),
+      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_num_components, 1),   		
+				
+## Narf Brigandine 
+      (try_for_range, ":item_no", "itm_a_brigandine_narf_padded_custom", "itm_a_churburg_narf_custom"), # Seek: All the Brigandines share the same base
+			(item_set_slot, ":item_no", slot_item_materials_begin, "str_a_brigandine_narf_blue"),
+			(item_set_slot, ":item_no", slot_item_materials_end, "str_a_brigandine_narf_end"),
+	# France
+			(item_set_slot, ":item_no", slot_item_france_materials_begin, "str_a_brigandine_narf_blue"),
+			(item_set_slot, ":item_no", slot_item_france_materials_end, "str_a_brigandine_narf_english"),
+	# England
+			(item_set_slot, ":item_no", slot_item_english_materials_begin, "str_a_brigandine_narf_white"),
+			(item_set_slot, ":item_no", slot_item_english_materials_end, "str_a_brigandine_narf_brown"),
+	# Burgundy
+			(item_set_slot, ":item_no", slot_item_burgundy_materials_begin, "str_a_brigandine_narf_red"),
+			(item_set_slot, ":item_no", slot_item_burgundy_materials_end, "str_a_brigandine_narf_black_white"),
+	# Brittany		
+			(item_set_slot, ":item_no", slot_item_breton_materials_begin, "str_a_brigandine_narf_brown"),
+			(item_set_slot, ":item_no", slot_item_breton_materials_end, "str_a_brigandine_narf_yellow_black"),	
+	# Flemish Mercenaries		
+			(item_set_slot, ":item_no", slot_item_flemish_materials_begin, "str_a_brigandine_narf_black"),
+			(item_set_slot, ":item_no", slot_item_flemish_materials_end, "str_a_brigandine_narf_ironskull"),				
+			(item_set_slot, ":item_no", slot_item_num_components, 1),   	
+      (try_end),
+		
+## Narf Aketon 
+      (try_for_range, ":item_no", "itm_a_aketon_narf_custom", "itm_a_brigandine_bogmir_custom"), # Seek: All the Aketons share the same base
+			(item_set_slot, ":item_no", slot_item_materials_begin, "str_a_aketon_narf_blue"),
+			(item_set_slot, ":item_no", slot_item_materials_end, "str_a_aketon_narf_end"),
+	# France
+			(item_set_slot, ":item_no", slot_item_france_materials_begin, "str_a_aketon_narf_blue"),
+			(item_set_slot, ":item_no", slot_item_france_materials_end, "str_a_aketon_narf_english"),
+	# England
+			(item_set_slot, ":item_no", slot_item_english_materials_begin, "str_a_aketon_narf"),
+			(item_set_slot, ":item_no", slot_item_english_materials_end, "str_a_aketon_narf_brown"),
+	# Burgundy
+			(item_set_slot, ":item_no", slot_item_burgundy_materials_begin, "str_a_aketon_narf_red"),
+			(item_set_slot, ":item_no", slot_item_burgundy_materials_end, "str_a_aketon_narf_black"),
+	# Brittany		
+			(item_set_slot, ":item_no", slot_item_breton_materials_begin, "str_a_aketon_narf_brown"),
+			(item_set_slot, ":item_no", slot_item_breton_materials_end, "str_a_aketon_narf_yellow_black"),	
+	# Flemish		
+			(item_set_slot, ":item_no", slot_item_flemish_materials_begin, "str_a_aketon_narf_black"),
+			(item_set_slot, ":item_no", slot_item_flemish_materials_end, "str_a_aketon_narf_end"),				
+			(item_set_slot, ":item_no", slot_item_num_components, 1),   	
+      (try_end),
+
+## Custom Hoods for the helmets
+      (try_for_range, ":item_no", "itm_h_bascinet_fi_hood_custom", "itm_a_peasant_man_custom"), # Seek: All the Helmets share the same base
+			(item_set_slot, ":item_no", slot_item_materials_begin, "str_h_hood_narf_blue"),
+			(item_set_slot, ":item_no", slot_item_materials_end, "str_h_hood_narf_end"),
+	# France
+			(item_set_slot, ":item_no", slot_item_france_materials_begin, "str_h_hood_narf_blue"),
+			(item_set_slot, ":item_no", slot_item_france_materials_end, "str_h_hood_narf_red"),
+	# England
+			(item_set_slot, ":item_no", slot_item_english_materials_begin, "str_h_hood_narf_white"),
+			(item_set_slot, ":item_no", slot_item_english_materials_end, "str_h_hood_narf_yellow_blue"),
+	# Burgundy
+			(item_set_slot, ":item_no", slot_item_burgundy_materials_begin, "str_h_hood_narf_white"),
+			(item_set_slot, ":item_no", slot_item_burgundy_materials_end, "str_h_hood_narf_white_2"),
+	# Brittany		
+			(item_set_slot, ":item_no", slot_item_breton_materials_begin, "str_h_hood_narf_white_2"),
+			(item_set_slot, ":item_no", slot_item_breton_materials_end, "str_h_hood_narf_yellow_black"),		
+	# Flemish Mercenaries	
+			(item_set_slot, ":item_no", slot_item_flemish_materials_begin, "str_h_hood_narf_black"),
+			(item_set_slot, ":item_no", slot_item_flemish_materials_end, "str_h_hood_narf_green"),
+	# Rebels	
+			(item_set_slot, ":item_no", slot_item_rebel_materials_begin, "str_h_hood_narf_green"),
+			(item_set_slot, ":item_no", slot_item_rebel_materials_end, "str_h_hood_narf_end"),				
+			(item_set_slot, ":item_no", slot_item_num_components, 1),   	
+      (try_end),			
+		
+###################################################################################################### HYW CUSTOM ARMORS VERTEX COLORED
+		
+## Vertex Coloured Leather Vest
+      (item_set_slot, "itm_a_leather_vest_custom", slot_item_materials_begin, "str_a_leather_vest_arms_blue"),
+      (item_set_slot, "itm_a_leather_vest_custom", slot_item_materials_end, "str_a_leather_vest_arms_end"),
+# France
+      (item_set_slot, "itm_a_leather_vest_custom", slot_item_france_materials_begin, "str_a_leather_vest_arms_blue"),
+      (item_set_slot, "itm_a_leather_vest_custom", slot_item_france_materials_end, "str_a_leather_vest_arms_red"),
+# England
+      (item_set_slot, "itm_a_leather_vest_custom", slot_item_english_materials_begin, "str_a_leather_vest_arms_white"),
+      (item_set_slot, "itm_a_leather_vest_custom", slot_item_english_materials_end, "str_a_leather_vest_arms_brown"),
+# Burgundy
+      (item_set_slot, "itm_a_leather_vest_custom", slot_item_burgundy_materials_begin, "str_a_leather_vest_arms_red"),
+      (item_set_slot, "itm_a_leather_vest_custom", slot_item_burgundy_materials_end, "str_a_leather_vest_arms_black"),
+# Brittany		
+      (item_set_slot, "itm_a_leather_vest_custom", slot_item_breton_materials_begin, "str_a_leather_vest_arms_black"),
+      (item_set_slot, "itm_a_leather_vest_custom", slot_item_breton_materials_end, "str_a_leather_vest_arms_green"),	
+# Rebels		
+      (item_set_slot, "itm_a_leather_vest_custom", slot_item_rebel_materials_begin, "str_a_leather_vest_arms_green"),
+      (item_set_slot, "itm_a_leather_vest_custom", slot_item_rebel_materials_end, "str_a_leather_vest_arms_end"),			
+      (item_set_slot, "itm_a_leather_vest_custom", slot_item_num_components, 1),      
+		
+## Vertex Coloured Leather Armor
+      (item_set_slot, "itm_a_leather_armor_custom", slot_item_materials_begin, "str_a_leather_armor_arms_blue"),
+      (item_set_slot, "itm_a_leather_armor_custom", slot_item_materials_end, "str_a_leather_armor_arms_end"),
+# France
+      (item_set_slot, "itm_a_leather_armor_custom", slot_item_france_materials_begin, "str_a_leather_armor_arms_blue"),
+      (item_set_slot, "itm_a_leather_armor_custom", slot_item_france_materials_end, "str_a_leather_armor_arms_red"),
+# England
+      (item_set_slot, "itm_a_leather_armor_custom", slot_item_english_materials_begin, "str_a_leather_armor_arms_white"),
+      (item_set_slot, "itm_a_leather_armor_custom", slot_item_english_materials_end, "str_a_leather_armor_arms_brown"),
+# Burgundy
+      (item_set_slot, "itm_a_leather_armor_custom", slot_item_burgundy_materials_begin, "str_a_leather_armor_arms_red"),
+      (item_set_slot, "itm_a_leather_armor_custom", slot_item_burgundy_materials_end, "str_a_leather_armor_arms_black"),
+# Brittany		
+      (item_set_slot, "itm_a_leather_armor_custom", slot_item_breton_materials_begin, "str_a_leather_armor_arms_black"),
+      (item_set_slot, "itm_a_leather_armor_custom", slot_item_breton_materials_end, "str_a_leather_armor_arms_green"),	
+# Rebels		
+      (item_set_slot, "itm_a_leather_armor_custom", slot_item_rebel_materials_begin, "str_a_leather_armor_arms_green"),
+      (item_set_slot, "itm_a_leather_armor_custom", slot_item_rebel_materials_end, "str_a_leather_armor_arms_end"),			
+      (item_set_slot, "itm_a_leather_armor_custom", slot_item_num_components, 1),     
+
+## Vertex Coloured Mail shirt
+      (item_set_slot, "itm_a_mail_shirt_custom", slot_item_materials_begin, "str_a_mail_shirt_arms_blue"),
+      (item_set_slot, "itm_a_mail_shirt_custom", slot_item_materials_end, "str_a_mail_shirt_arms_end"),
+# France
+      (item_set_slot, "itm_a_mail_shirt_custom", slot_item_france_materials_begin, "str_a_mail_shirt_arms_blue"),
+      (item_set_slot, "itm_a_mail_shirt_custom", slot_item_france_materials_end, "str_a_mail_shirt_arms_red"),
+# England
+      (item_set_slot, "itm_a_mail_shirt_custom", slot_item_english_materials_begin, "str_a_mail_shirt_arms_white"),
+      (item_set_slot, "itm_a_mail_shirt_custom", slot_item_english_materials_end, "str_a_mail_shirt_arms_brown"),
+# Burgundy
+      (item_set_slot, "itm_a_mail_shirt_custom", slot_item_burgundy_materials_begin, "str_a_mail_shirt_arms_red"),
+      (item_set_slot, "itm_a_mail_shirt_custom", slot_item_burgundy_materials_end, "str_a_mail_shirt_arms_black"),
+# Brittany		
+      (item_set_slot, "itm_a_mail_shirt_custom", slot_item_breton_materials_begin, "str_a_mail_shirt_arms_black"),
+      (item_set_slot, "itm_a_mail_shirt_custom", slot_item_breton_materials_end, "str_a_mail_shirt_arms_green"),	
+# Rebels		
+      (item_set_slot, "itm_a_mail_shirt_custom", slot_item_rebel_materials_begin, "str_a_mail_shirt_arms_green"),
+      (item_set_slot, "itm_a_mail_shirt_custom", slot_item_rebel_materials_end, "str_a_mail_shirt_arms_end"),			
+      (item_set_slot, "itm_a_mail_shirt_custom", slot_item_num_components, 1),     		
+
+      #Init Custom Armors
+      (try_for_range, ":item_no", "itm_h_bascinet_fi_hood_custom", "itm_items_end"), # Seek: Changed the range
+          (item_get_slot, ":materials_begin", ":item_no", slot_item_materials_begin),
+          (item_get_slot, ":materials_end", ":item_no", slot_item_materials_end),
+          (store_random_in_range, ":random_material", ":materials_begin", ":materials_end"),
+          (item_set_slot, ":item_no", slot_item_player_color, ":random_material"), # Kham: Set to a Random Colour.
+          (item_set_slot, ":item_no", slot_item_num_components, 1), #allows it to be customized
+      (try_end),	
 
     ]),
 
@@ -1332,42 +1946,46 @@ scripts = [
       (faction_set_slot, "fac_outlaws", slot_faction_quick_battle_tier_2_archer, "trp_taiga_bandit"),
       (faction_set_slot, "fac_outlaws", slot_faction_quick_battle_tier_1_cavalry, "trp_steppe_bandit"),
       (faction_set_slot, "fac_outlaws", slot_faction_quick_battle_tier_2_cavalry, "trp_desert_bandit"),
-      (faction_set_slot, "fac_kingdom_1", slot_faction_quick_battle_tier_1_infantry, "trp_swadian_footman"),
-      (faction_set_slot, "fac_kingdom_1", slot_faction_quick_battle_tier_2_infantry, "trp_swadian_infantry"),
-      (faction_set_slot, "fac_kingdom_1", slot_faction_quick_battle_tier_1_archer, "trp_swadian_skirmisher"),
-      (faction_set_slot, "fac_kingdom_1", slot_faction_quick_battle_tier_2_archer, "trp_swadian_crossbowman"),
-      (faction_set_slot, "fac_kingdom_1", slot_faction_quick_battle_tier_1_cavalry, "trp_swadian_man_at_arms"),
-      (faction_set_slot, "fac_kingdom_1", slot_faction_quick_battle_tier_2_cavalry, "trp_swadian_knight"),
-      (faction_set_slot, "fac_kingdom_2", slot_faction_quick_battle_tier_1_infantry, "trp_vaegir_footman"),
-      (faction_set_slot, "fac_kingdom_2", slot_faction_quick_battle_tier_2_infantry, "trp_vaegir_infantry"),
-      (faction_set_slot, "fac_kingdom_2", slot_faction_quick_battle_tier_1_archer, "trp_vaegir_skirmisher"),
-      (faction_set_slot, "fac_kingdom_2", slot_faction_quick_battle_tier_2_archer, "trp_vaegir_archer"),
-      (faction_set_slot, "fac_kingdom_2", slot_faction_quick_battle_tier_1_cavalry, "trp_vaegir_horseman"),
-      (faction_set_slot, "fac_kingdom_2", slot_faction_quick_battle_tier_2_cavalry, "trp_vaegir_knight"),
-      (faction_set_slot, "fac_kingdom_3", slot_faction_quick_battle_tier_1_infantry, "trp_khergit_dismounted_lancer_multiplayer_ai"),
-      (faction_set_slot, "fac_kingdom_3", slot_faction_quick_battle_tier_2_infantry, "trp_khergit_dismounted_lancer_multiplayer_ai"),
-      (faction_set_slot, "fac_kingdom_3", slot_faction_quick_battle_tier_1_archer, "trp_khergit_horse_archer"),
-      (faction_set_slot, "fac_kingdom_3", slot_faction_quick_battle_tier_2_archer, "trp_khergit_veteran_horse_archer"),
-      (faction_set_slot, "fac_kingdom_3", slot_faction_quick_battle_tier_1_cavalry, "trp_khergit_lancer"),
-      (faction_set_slot, "fac_kingdom_3", slot_faction_quick_battle_tier_2_cavalry, "trp_khergit_lancer"),
-      (faction_set_slot, "fac_kingdom_4", slot_faction_quick_battle_tier_1_infantry, "trp_nord_warrior"),
-      (faction_set_slot, "fac_kingdom_4", slot_faction_quick_battle_tier_2_infantry, "trp_nord_champion"),
-      (faction_set_slot, "fac_kingdom_4", slot_faction_quick_battle_tier_1_archer, "trp_nord_archer"),
-      (faction_set_slot, "fac_kingdom_4", slot_faction_quick_battle_tier_2_archer, "trp_nord_veteran_archer"),
-      (faction_set_slot, "fac_kingdom_4", slot_faction_quick_battle_tier_1_cavalry, "trp_nord_scout_multiplayer_ai"),
-      (faction_set_slot, "fac_kingdom_4", slot_faction_quick_battle_tier_2_cavalry, "trp_nord_scout_multiplayer_ai"),
-      (faction_set_slot, "fac_kingdom_5", slot_faction_quick_battle_tier_1_infantry, "trp_rhodok_veteran_spearman"),
-      (faction_set_slot, "fac_kingdom_5", slot_faction_quick_battle_tier_2_infantry, "trp_rhodok_sergeant"),
-      (faction_set_slot, "fac_kingdom_5", slot_faction_quick_battle_tier_1_archer, "trp_rhodok_crossbowman"),
-      (faction_set_slot, "fac_kingdom_5", slot_faction_quick_battle_tier_2_archer, "trp_rhodok_veteran_crossbowman"),
-      (faction_set_slot, "fac_kingdom_5", slot_faction_quick_battle_tier_1_cavalry, "trp_rhodok_scout_multiplayer_ai"),
-      (faction_set_slot, "fac_kingdom_5", slot_faction_quick_battle_tier_2_cavalry, "trp_rhodok_scout_multiplayer_ai"),
-      (faction_set_slot, "fac_kingdom_6", slot_faction_quick_battle_tier_1_infantry, "trp_sarranid_veteran_footman"),
-      (faction_set_slot, "fac_kingdom_6", slot_faction_quick_battle_tier_2_infantry, "trp_sarranid_infantry"),
-      (faction_set_slot, "fac_kingdom_6", slot_faction_quick_battle_tier_1_archer, "trp_sarranid_skirmisher"),
-      (faction_set_slot, "fac_kingdom_6", slot_faction_quick_battle_tier_2_archer, "trp_sarranid_archer"),
-      (faction_set_slot, "fac_kingdom_6", slot_faction_quick_battle_tier_1_cavalry, "trp_sarranid_horseman"),
-      (faction_set_slot, "fac_kingdom_6", slot_faction_quick_battle_tier_2_cavalry, "trp_sarranid_mamluke"),
+	  
+      (faction_set_slot, "fac_kingdom_1", slot_faction_quick_battle_tier_1_infantry, "trp_french_infantry"),
+      (faction_set_slot, "fac_kingdom_1", slot_faction_quick_battle_tier_2_infantry, "trp_french_voulgier"),
+      (faction_set_slot, "fac_kingdom_1", slot_faction_quick_battle_tier_1_archer, "trp_french_archer"),
+      (faction_set_slot, "fac_kingdom_1", slot_faction_quick_battle_tier_2_archer, "trp_french_crossbowman"),
+      (faction_set_slot, "fac_kingdom_1", slot_faction_quick_battle_tier_1_cavalry, "trp_french_knight_bachelier"),
+      (faction_set_slot, "fac_kingdom_1", slot_faction_quick_battle_tier_2_cavalry, "trp_french_chevalier_banneret"),
+		
+      (faction_set_slot, "fac_kingdom_2", slot_faction_quick_battle_tier_1_infantry, "trp_english_spearman"),
+      (faction_set_slot, "fac_kingdom_2", slot_faction_quick_battle_tier_2_infantry, "trp_english_billman"),
+      (faction_set_slot, "fac_kingdom_2", slot_faction_quick_battle_tier_1_archer, "trp_english_longbowman"),
+      (faction_set_slot, "fac_kingdom_2", slot_faction_quick_battle_tier_2_archer, "trp_english_retinue_longbowman"),
+      (faction_set_slot, "fac_kingdom_2", slot_faction_quick_battle_tier_1_cavalry, "trp_english_squire"),
+      (faction_set_slot, "fac_kingdom_2", slot_faction_quick_battle_tier_2_cavalry, "trp_english_knight"),
+      
+      (faction_set_slot, "fac_kingdom_3", slot_faction_quick_battle_tier_1_infantry, "trp_burgundian_pikeman"),
+      (faction_set_slot, "fac_kingdom_3", slot_faction_quick_battle_tier_2_infantry, "trp_burgundian_halberdier"),
+      (faction_set_slot, "fac_kingdom_3", slot_faction_quick_battle_tier_1_archer, "trp_burgundian_militia_crossbowman"),
+      (faction_set_slot, "fac_kingdom_3", slot_faction_quick_battle_tier_2_archer, "trp_burgundian_longbowman"),
+      (faction_set_slot, "fac_kingdom_3", slot_faction_quick_battle_tier_1_cavalry, "trp_burgundian_heavy_knight"),
+      (faction_set_slot, "fac_kingdom_3", slot_faction_quick_battle_tier_2_cavalry, "trp_burgundian_knight"),
+      
+      (faction_set_slot, "fac_kingdom_4", slot_faction_quick_battle_tier_1_infantry, "trp_breton_infantry"),
+      (faction_set_slot, "fac_kingdom_4", slot_faction_quick_battle_tier_2_infantry, "trp_breton_man_at_arms"),
+      (faction_set_slot, "fac_kingdom_4", slot_faction_quick_battle_tier_1_archer, "trp_breton_militia_archer"),
+      (faction_set_slot, "fac_kingdom_4", slot_faction_quick_battle_tier_2_archer, "trp_breton_archer"),
+      (faction_set_slot, "fac_kingdom_4", slot_faction_quick_battle_tier_1_cavalry, "trp_breton_squire"),
+      (faction_set_slot, "fac_kingdom_4", slot_faction_quick_battle_tier_2_cavalry, "trp_breton_knight"),
+      # (faction_set_slot, "fac_kingdom_5", slot_faction_quick_battle_tier_1_infantry, "trp_rhodok_veteran_spearman"),
+      # (faction_set_slot, "fac_kingdom_5", slot_faction_quick_battle_tier_2_infantry, "trp_rhodok_sergeant"),
+      # (faction_set_slot, "fac_kingdom_5", slot_faction_quick_battle_tier_1_archer, "trp_rhodok_crossbowman"),
+      # (faction_set_slot, "fac_kingdom_5", slot_faction_quick_battle_tier_2_archer, "trp_rhodok_veteran_crossbowman"),
+      # (faction_set_slot, "fac_kingdom_5", slot_faction_quick_battle_tier_1_cavalry, "trp_rhodok_scout_multiplayer_ai"),
+      # (faction_set_slot, "fac_kingdom_5", slot_faction_quick_battle_tier_2_cavalry, "trp_rhodok_scout_multiplayer_ai"),
+      # (faction_set_slot, "fac_kingdom_6", slot_faction_quick_battle_tier_1_infantry, "trp_sarranid_veteran_footman"),
+      # (faction_set_slot, "fac_kingdom_6", slot_faction_quick_battle_tier_2_infantry, "trp_sarranid_infantry"),
+      # (faction_set_slot, "fac_kingdom_6", slot_faction_quick_battle_tier_1_archer, "trp_sarranid_skirmisher"),
+      # (faction_set_slot, "fac_kingdom_6", slot_faction_quick_battle_tier_2_archer, "trp_sarranid_archer"),
+      # (faction_set_slot, "fac_kingdom_6", slot_faction_quick_battle_tier_1_cavalry, "trp_sarranid_horseman"),
+      # (faction_set_slot, "fac_kingdom_6", slot_faction_quick_battle_tier_2_cavalry, "trp_sarranid_mamluke"),
 
       #for multiplayer mode
       (assign, "$g_multiplayer_selected_map", multiplayer_scenes_begin),
@@ -1419,8 +2037,8 @@ scripts = [
       (faction_set_slot, "fac_kingdom_2", slot_faction_banner, "mesh_banner_kingdom_b"),
       (faction_set_slot, "fac_kingdom_3", slot_faction_banner, "mesh_banner_kingdom_c"),
       (faction_set_slot, "fac_kingdom_4", slot_faction_banner, "mesh_banner_kingdom_a"),
-      (faction_set_slot, "fac_kingdom_5", slot_faction_banner, "mesh_banner_kingdom_d"),
-      (faction_set_slot, "fac_kingdom_6", slot_faction_banner, "mesh_banner_kingdom_e"),
+      # (faction_set_slot, "fac_kingdom_5", slot_faction_banner, "mesh_banner_kingdom_d"),
+      # (faction_set_slot, "fac_kingdom_6", slot_faction_banner, "mesh_banner_kingdom_e"),
 
       (try_for_range, ":cur_item", all_items_begin, all_items_end),
         (try_for_range, ":cur_faction", npc_kingdoms_begin, npc_kingdoms_end),
@@ -1437,294 +2055,294 @@ scripts = [
       (val_add, ":khergit_price_slot", slot_item_multiplayer_faction_price_multipliers_begin),
       (store_sub, ":nord_price_slot", "fac_kingdom_4", npc_kingdoms_begin),
       (val_add, ":nord_price_slot", slot_item_multiplayer_faction_price_multipliers_begin),
-      (store_sub, ":rhodok_price_slot", "fac_kingdom_5", npc_kingdoms_begin),
-      (val_add, ":rhodok_price_slot", slot_item_multiplayer_faction_price_multipliers_begin),
-      (store_sub, ":sarranid_price_slot", "fac_kingdom_6", npc_kingdoms_begin),
-      (val_add, ":sarranid_price_slot", slot_item_multiplayer_faction_price_multipliers_begin),
+      # (store_sub, ":rhodok_price_slot", "fac_kingdom_5", npc_kingdoms_begin),
+      # (val_add, ":rhodok_price_slot", slot_item_multiplayer_faction_price_multipliers_begin),
+      # (store_sub, ":sarranid_price_slot", "fac_kingdom_6", npc_kingdoms_begin),
+      # (val_add, ":sarranid_price_slot", slot_item_multiplayer_faction_price_multipliers_begin),
 
-      (item_set_slot, "itm_awlpike", ":swadian_price_slot", 80),
-      (item_set_slot, "itm_awlpike_long", ":swadian_price_slot", 90),
-      (item_set_slot, "itm_sword_medieval_a", ":swadian_price_slot", 80),
-      (item_set_slot, "itm_sword_medieval_b", ":swadian_price_slot", 80),
-      (item_set_slot, "itm_sword_medieval_b_small", ":swadian_price_slot", 80),
-      (item_set_slot, "itm_sword_medieval_c", ":swadian_price_slot", 80),
-      (item_set_slot, "itm_sword_medieval_c_small", ":swadian_price_slot", 80),
-      (item_set_slot, "itm_leather_boots", ":swadian_price_slot", 90),
-      (item_set_slot, "itm_mail_chausses", ":swadian_price_slot", 80),
-      (item_set_slot, "itm_splinted_greaves", ":swadian_price_slot", 80),
-      (item_set_slot, "itm_plate_boots", ":swadian_price_slot", 80),
-      (item_set_slot, "itm_courser", ":swadian_price_slot", 90),
-      (item_set_slot, "itm_hunter", ":swadian_price_slot", 75),
-      (item_set_slot, "itm_norman_helmet", ":swadian_price_slot", 75),
-      (item_set_slot, "itm_helmet_with_neckguard", ":swadian_price_slot", 75),
-      (item_set_slot, "itm_red_gambeson", ":swadian_price_slot", 75),
-      (item_set_slot, "itm_darts", ":swadian_price_slot", 50),
-      (item_set_slot, "itm_war_darts", ":swadian_price_slot", 50),
-      (item_set_slot, "itm_tab_shield_heater_d", ":swadian_price_slot", 80),
-      (item_set_slot, "itm_brigandine_red", ":swadian_price_slot", 75),
-      (item_set_slot, "itm_bastard_sword_b", ":swadian_price_slot", 65),
-      (item_set_slot, "itm_bastard_sword_a", ":swadian_price_slot", 85),
+      # (item_set_slot, "itm_awlpike", ":swadian_price_slot", 80),
+      # (item_set_slot, "itm_awlpike_long", ":swadian_price_slot", 90),
+      # (item_set_slot, "itm_sword_medieval_a", ":swadian_price_slot", 80),
+      # (item_set_slot, "itm_sword_medieval_b", ":swadian_price_slot", 80),
+      # (item_set_slot, "itm_sword_medieval_b_small", ":swadian_price_slot", 80),
+      # (item_set_slot, "itm_sword_medieval_c", ":swadian_price_slot", 80),
+      # (item_set_slot, "itm_sword_medieval_c_small", ":swadian_price_slot", 80),
+      # (item_set_slot, "itm_leather_boots", ":swadian_price_slot", 90),
+      # (item_set_slot, "itm_mail_chausses", ":swadian_price_slot", 80),
+      # (item_set_slot, "itm_splinted_greaves", ":swadian_price_slot", 80),
+      # (item_set_slot, "itm_plate_boots", ":swadian_price_slot", 80),
+      # (item_set_slot, "itm_courser", ":swadian_price_slot", 90),
+      # (item_set_slot, "itm_hunter", ":swadian_price_slot", 75),
+      # (item_set_slot, "itm_norman_helmet", ":swadian_price_slot", 75),
+      # (item_set_slot, "itm_helmet_with_neckguard", ":swadian_price_slot", 75),
+      # (item_set_slot, "itm_red_gambeson", ":swadian_price_slot", 75),
+      # (item_set_slot, "itm_darts", ":swadian_price_slot", 50),
+      # (item_set_slot, "itm_war_darts", ":swadian_price_slot", 50),
+      # (item_set_slot, "itm_tab_shield_heater_d", ":swadian_price_slot", 80),
+      # (item_set_slot, "itm_brigandine_red", ":swadian_price_slot", 75),
+      # (item_set_slot, "itm_bastard_sword_b", ":swadian_price_slot", 65),
+      # (item_set_slot, "itm_bastard_sword_a", ":swadian_price_slot", 85),
 
-      (item_set_slot, "itm_steppe_horse", ":khergit_price_slot", 120),
-      (item_set_slot, "itm_courser", ":khergit_price_slot", 80),
-      (item_set_slot, "itm_hunter", ":khergit_price_slot", 80),
-      (item_set_slot, "itm_warhorse_steppe", ":khergit_price_slot", 120),
-      (item_set_slot, "itm_one_handed_war_axe_a", ":khergit_price_slot", 300),
-      (item_set_slot, "itm_tribal_warrior_outfit", ":khergit_price_slot", 140),
+      # (item_set_slot, "itm_steppe_horse", ":khergit_price_slot", 120),
+      # (item_set_slot, "itm_courser", ":khergit_price_slot", 80),
+      # (item_set_slot, "itm_hunter", ":khergit_price_slot", 80),
+      # (item_set_slot, "itm_warhorse_steppe", ":khergit_price_slot", 120),
+      # (item_set_slot, "itm_one_handed_war_axe_a", ":khergit_price_slot", 300),
+      # (item_set_slot, "itm_tribal_warrior_outfit", ":khergit_price_slot", 140),
 
-      (item_set_slot, "itm_leather_gloves", ":sarranid_price_slot", 50),
-      (item_set_slot, "itm_short_bow", ":sarranid_price_slot", 50),
-      (item_set_slot, "itm_barbed_arrows", ":sarranid_price_slot", 80),
-      (item_set_slot, "itm_jarid", ":sarranid_price_slot", 85),
-      (item_set_slot, "itm_javelin", ":sarranid_price_slot", 85),
+      # (item_set_slot, "itm_leather_gloves", ":sarranid_price_slot", 50),
+      # (item_set_slot, "itm_short_bow", ":sarranid_price_slot", 50),
+      # (item_set_slot, "itm_barbed_arrows", ":sarranid_price_slot", 80),
+      # (item_set_slot, "itm_jarid", ":sarranid_price_slot", 85),
+      # (item_set_slot, "itm_javelin", ":sarranid_price_slot", 85),
 
-      (item_set_slot, "itm_lamellar_vest", ":vaegir_price_slot", 130),
-      (item_set_slot, "itm_awlpike", ":vaegir_price_slot", 150),
-      (item_set_slot, "itm_scimitar", ":vaegir_price_slot", 130),
-      (item_set_slot, "itm_scimitar_b", ":vaegir_price_slot", 150),
-      (item_set_slot, "itm_tab_shield_kite_a", ":vaegir_price_slot", 120),
-      (item_set_slot, "itm_tab_shield_kite_b", ":vaegir_price_slot", 120),
-      (item_set_slot, "itm_tab_shield_kite_c", ":vaegir_price_slot", 120),
-      (item_set_slot, "itm_tab_shield_kite_d", ":vaegir_price_slot", 120),
-      (item_set_slot, "itm_javelin", ":vaegir_price_slot", 120),
+      # (item_set_slot, "itm_lamellar_vest", ":vaegir_price_slot", 130),
+      # (item_set_slot, "itm_awlpike", ":vaegir_price_slot", 150),
+      # (item_set_slot, "itm_scimitar", ":vaegir_price_slot", 130),
+      # (item_set_slot, "itm_scimitar_b", ":vaegir_price_slot", 150),
+      # (item_set_slot, "itm_tab_shield_kite_a", ":vaegir_price_slot", 120),
+      # (item_set_slot, "itm_tab_shield_kite_b", ":vaegir_price_slot", 120),
+      # (item_set_slot, "itm_tab_shield_kite_c", ":vaegir_price_slot", 120),
+      # (item_set_slot, "itm_tab_shield_kite_d", ":vaegir_price_slot", 120),
+      # (item_set_slot, "itm_javelin", ":vaegir_price_slot", 120),
 
       #arrows
-      (item_set_slot, "itm_arrows", slot_item_multiplayer_item_class, multi_item_class_type_arrow),
-      (item_set_slot, "itm_barbed_arrows", slot_item_multiplayer_item_class, multi_item_class_type_arrow),
-      (item_set_slot, "itm_bodkin_arrows", slot_item_multiplayer_item_class, multi_item_class_type_arrow),
-      (item_set_slot, "itm_khergit_arrows", slot_item_multiplayer_item_class, multi_item_class_type_arrow),
+      # (item_set_slot, "itm_arrows", slot_item_multiplayer_item_class, multi_item_class_type_arrow),
+      # (item_set_slot, "itm_barbed_arrows", slot_item_multiplayer_item_class, multi_item_class_type_arrow),
+      # (item_set_slot, "itm_bodkin_arrows", slot_item_multiplayer_item_class, multi_item_class_type_arrow),
+      # (item_set_slot, "itm_khergit_arrows", slot_item_multiplayer_item_class, multi_item_class_type_arrow),
       #bolts
-      (item_set_slot, "itm_bolts", slot_item_multiplayer_item_class, multi_item_class_type_bolt),
-      (item_set_slot, "itm_steel_bolts", slot_item_multiplayer_item_class, multi_item_class_type_bolt),
+      # (item_set_slot, "itm_bolts", slot_item_multiplayer_item_class, multi_item_class_type_bolt),
+      # (item_set_slot, "itm_steel_bolts", slot_item_multiplayer_item_class, multi_item_class_type_bolt),
       #bows
-      (item_set_slot, "itm_crossbow", slot_item_multiplayer_item_class, multi_item_class_type_bow),
-      (item_set_slot, "itm_heavy_crossbow", slot_item_multiplayer_item_class, multi_item_class_type_bow),
-      (item_set_slot, "itm_sniper_crossbow", slot_item_multiplayer_item_class, multi_item_class_type_bow),
-      (item_set_slot, "itm_nomad_bow", slot_item_multiplayer_item_class, multi_item_class_type_bow),
-      (item_set_slot, "itm_khergit_bow", slot_item_multiplayer_item_class, multi_item_class_type_bow),
-      (item_set_slot, "itm_strong_bow", slot_item_multiplayer_item_class, multi_item_class_type_bow),
-      (item_set_slot, "itm_war_bow", slot_item_multiplayer_item_class, multi_item_class_type_bow),
-      (item_set_slot, "itm_short_bow", slot_item_multiplayer_item_class, multi_item_class_type_bow),
-      (item_set_slot, "itm_long_bow", slot_item_multiplayer_item_class, multi_item_class_type_bow),
-      (item_set_slot, "itm_light_crossbow", slot_item_multiplayer_item_class, multi_item_class_type_bow),
-      #swords
-      (item_set_slot, "itm_sword_medieval_a", slot_item_multiplayer_item_class, multi_item_class_type_sword),
-      (item_set_slot, "itm_sword_medieval_b", slot_item_multiplayer_item_class, multi_item_class_type_sword),
-      (item_set_slot, "itm_sword_medieval_b_small", slot_item_multiplayer_item_class, multi_item_class_type_sword),
-      (item_set_slot, "itm_sword_medieval_c", slot_item_multiplayer_item_class, multi_item_class_type_sword),
-      (item_set_slot, "itm_sword_medieval_c_small", slot_item_multiplayer_item_class, multi_item_class_type_sword),
-      (item_set_slot, "itm_scimitar", slot_item_multiplayer_item_class, multi_item_class_type_sword),
-      (item_set_slot, "itm_scimitar_b", slot_item_multiplayer_item_class, multi_item_class_type_sword),
-      (item_set_slot, "itm_dagger", slot_item_multiplayer_item_class, multi_item_class_type_sword),
-      (item_set_slot, "itm_sword_khergit_1", slot_item_multiplayer_item_class, multi_item_class_type_sword),
-      (item_set_slot, "itm_sword_khergit_2", slot_item_multiplayer_item_class, multi_item_class_type_sword),
-      (item_set_slot, "itm_sword_khergit_3", slot_item_multiplayer_item_class, multi_item_class_type_sword),
-      (item_set_slot, "itm_sword_khergit_4", slot_item_multiplayer_item_class, multi_item_class_type_sword),
-      (item_set_slot, "itm_sword_viking_1", slot_item_multiplayer_item_class, multi_item_class_type_sword),
-      (item_set_slot, "itm_sword_viking_2", slot_item_multiplayer_item_class, multi_item_class_type_sword),
-      (item_set_slot, "itm_sword_viking_2_small", slot_item_multiplayer_item_class, multi_item_class_type_sword),
-      (item_set_slot, "itm_sword_viking_3", slot_item_multiplayer_item_class, multi_item_class_type_sword),
-      (item_set_slot, "itm_sword_viking_3_small", slot_item_multiplayer_item_class, multi_item_class_type_sword),
-      (item_set_slot, "itm_bastard_sword_a", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_sword),
-      (item_set_slot, "itm_bastard_sword_b", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_sword),
-      (item_set_slot, "itm_sword_two_handed_a", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_sword),
-      (item_set_slot, "itm_sword_two_handed_b", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_sword),
-      (item_set_slot, "itm_arabian_sword_a", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_sword),
-      (item_set_slot, "itm_arabian_sword_b", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_sword),
-      (item_set_slot, "itm_sarranid_cavalry_sword", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_sword),
-      (item_set_slot, "itm_arabian_sword_d", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_sword),
+      # (item_set_slot, "itm_crossbow", slot_item_multiplayer_item_class, multi_item_class_type_bow),
+      # (item_set_slot, "itm_heavy_crossbow", slot_item_multiplayer_item_class, multi_item_class_type_bow),
+      # (item_set_slot, "itm_sniper_crossbow", slot_item_multiplayer_item_class, multi_item_class_type_bow),
+      # (item_set_slot, "itm_nomad_bow", slot_item_multiplayer_item_class, multi_item_class_type_bow),
+      # (item_set_slot, "itm_khergit_bow", slot_item_multiplayer_item_class, multi_item_class_type_bow),
+      # (item_set_slot, "itm_strong_bow", slot_item_multiplayer_item_class, multi_item_class_type_bow),
+      # (item_set_slot, "itm_war_bow", slot_item_multiplayer_item_class, multi_item_class_type_bow),
+      # (item_set_slot, "itm_short_bow", slot_item_multiplayer_item_class, multi_item_class_type_bow),
+      # (item_set_slot, "itm_long_bow", slot_item_multiplayer_item_class, multi_item_class_type_bow),
+      # (item_set_slot, "itm_light_crossbow", slot_item_multiplayer_item_class, multi_item_class_type_bow),
+      # swords
+      # (item_set_slot, "itm_sword_medieval_a", slot_item_multiplayer_item_class, multi_item_class_type_sword),
+      # (item_set_slot, "itm_sword_medieval_b", slot_item_multiplayer_item_class, multi_item_class_type_sword),
+      # (item_set_slot, "itm_sword_medieval_b_small", slot_item_multiplayer_item_class, multi_item_class_type_sword),
+      # (item_set_slot, "itm_sword_medieval_c", slot_item_multiplayer_item_class, multi_item_class_type_sword),
+      # (item_set_slot, "itm_sword_medieval_c_small", slot_item_multiplayer_item_class, multi_item_class_type_sword),
+      # (item_set_slot, "itm_scimitar", slot_item_multiplayer_item_class, multi_item_class_type_sword),
+      # (item_set_slot, "itm_scimitar_b", slot_item_multiplayer_item_class, multi_item_class_type_sword),
+      # (item_set_slot, "itm_dagger", slot_item_multiplayer_item_class, multi_item_class_type_sword),
+      # (item_set_slot, "itm_sword_khergit_1", slot_item_multiplayer_item_class, multi_item_class_type_sword),
+      # (item_set_slot, "itm_sword_khergit_2", slot_item_multiplayer_item_class, multi_item_class_type_sword),
+      # (item_set_slot, "itm_sword_khergit_3", slot_item_multiplayer_item_class, multi_item_class_type_sword),
+      # (item_set_slot, "itm_sword_khergit_4", slot_item_multiplayer_item_class, multi_item_class_type_sword),
+      # (item_set_slot, "itm_sword_viking_1", slot_item_multiplayer_item_class, multi_item_class_type_sword),
+      # (item_set_slot, "itm_sword_viking_2", slot_item_multiplayer_item_class, multi_item_class_type_sword),
+      # (item_set_slot, "itm_sword_viking_2_small", slot_item_multiplayer_item_class, multi_item_class_type_sword),
+      # (item_set_slot, "itm_sword_viking_3", slot_item_multiplayer_item_class, multi_item_class_type_sword),
+      # (item_set_slot, "itm_sword_viking_3_small", slot_item_multiplayer_item_class, multi_item_class_type_sword),
+      # (item_set_slot, "itm_bastard_sword_a", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_sword),
+      # (item_set_slot, "itm_bastard_sword_b", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_sword),
+      # (item_set_slot, "itm_sword_two_handed_a", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_sword),
+      # (item_set_slot, "itm_sword_two_handed_b", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_sword),
+      # (item_set_slot, "itm_arabian_sword_a", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_sword),
+      # (item_set_slot, "itm_arabian_sword_b", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_sword),
+      # (item_set_slot, "itm_sarranid_cavalry_sword", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_sword),
+      # (item_set_slot, "itm_arabian_sword_d", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_sword),
 
       #axe
-      (item_set_slot, "itm_axe", slot_item_multiplayer_item_class, multi_item_class_type_axe),
-      (item_set_slot, "itm_battle_axe", slot_item_multiplayer_item_class, multi_item_class_type_axe),
-      (item_set_slot, "itm_one_handed_war_axe_a", slot_item_multiplayer_item_class, multi_item_class_type_axe),
-      (item_set_slot, "itm_one_handed_war_axe_b", slot_item_multiplayer_item_class, multi_item_class_type_axe),
-      (item_set_slot, "itm_one_handed_battle_axe_a", slot_item_multiplayer_item_class, multi_item_class_type_axe),
-      (item_set_slot, "itm_one_handed_battle_axe_b", slot_item_multiplayer_item_class, multi_item_class_type_axe),
-      (item_set_slot, "itm_one_handed_battle_axe_c", slot_item_multiplayer_item_class, multi_item_class_type_axe),
+      # (item_set_slot, "itm_axe", slot_item_multiplayer_item_class, multi_item_class_type_axe),
+      # (item_set_slot, "itm_battle_axe", slot_item_multiplayer_item_class, multi_item_class_type_axe),
+      # (item_set_slot, "itm_one_handed_war_axe_a", slot_item_multiplayer_item_class, multi_item_class_type_axe),
+      # (item_set_slot, "itm_one_handed_war_axe_b", slot_item_multiplayer_item_class, multi_item_class_type_axe),
+      # (item_set_slot, "itm_one_handed_battle_axe_a", slot_item_multiplayer_item_class, multi_item_class_type_axe),
+      # (item_set_slot, "itm_one_handed_battle_axe_b", slot_item_multiplayer_item_class, multi_item_class_type_axe),
+      # (item_set_slot, "itm_one_handed_battle_axe_c", slot_item_multiplayer_item_class, multi_item_class_type_axe),
 
-      (item_set_slot, "itm_two_handed_axe", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_axe),
-      (item_set_slot, "itm_two_handed_battle_axe_2", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_axe),
-      (item_set_slot, "itm_shortened_voulge", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_axe),
-      (item_set_slot, "itm_bardiche", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_axe),
-      (item_set_slot, "itm_great_axe", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_axe),
-      (item_set_slot, "itm_great_bardiche", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_axe),
-      (item_set_slot, "itm_long_axe", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_axe),
-      (item_set_slot, "itm_long_axe_b", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_axe),
-      (item_set_slot, "itm_long_axe_c", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_axe),
-      (item_set_slot, "itm_voulge", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_axe),
-      (item_set_slot, "itm_long_bardiche", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_axe),
-      (item_set_slot, "itm_great_long_bardiche", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_axe),
+      # (item_set_slot, "itm_two_handed_axe", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_axe),
+      # (item_set_slot, "itm_two_handed_battle_axe_2", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_axe),
+      # (item_set_slot, "itm_shortened_voulge", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_axe),
+      # (item_set_slot, "itm_bardiche", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_axe),
+      # (item_set_slot, "itm_great_axe", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_axe),
+      # (item_set_slot, "itm_great_bardiche", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_axe),
+      # (item_set_slot, "itm_long_axe", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_axe),
+      # (item_set_slot, "itm_long_axe_b", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_axe),
+      # (item_set_slot, "itm_long_axe_c", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_axe),
+      # (item_set_slot, "itm_voulge", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_axe),
+      # (item_set_slot, "itm_long_bardiche", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_axe),
+      # (item_set_slot, "itm_great_long_bardiche", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_axe),
 
       #blunt
-      (item_set_slot, "itm_mace_1", slot_item_multiplayer_item_class, multi_item_class_type_blunt),
-      (item_set_slot, "itm_mace_2", slot_item_multiplayer_item_class, multi_item_class_type_blunt),
-      (item_set_slot, "itm_mace_3", slot_item_multiplayer_item_class, multi_item_class_type_blunt),
-      (item_set_slot, "itm_mace_4", slot_item_multiplayer_item_class, multi_item_class_type_blunt),
-      (item_set_slot, "itm_long_spiked_club", slot_item_multiplayer_item_class, multi_item_class_type_blunt),
-      (item_set_slot, "itm_long_hafted_spiked_mace", slot_item_multiplayer_item_class, multi_item_class_type_blunt),
+      # (item_set_slot, "itm_mace_1", slot_item_multiplayer_item_class, multi_item_class_type_blunt),
+      # (item_set_slot, "itm_mace_2", slot_item_multiplayer_item_class, multi_item_class_type_blunt),
+      # (item_set_slot, "itm_mace_3", slot_item_multiplayer_item_class, multi_item_class_type_blunt),
+      # (item_set_slot, "itm_mace_4", slot_item_multiplayer_item_class, multi_item_class_type_blunt),
+      # (item_set_slot, "itm_long_spiked_club", slot_item_multiplayer_item_class, multi_item_class_type_blunt),
+      # (item_set_slot, "itm_long_hafted_spiked_mace", slot_item_multiplayer_item_class, multi_item_class_type_blunt),
 
-      (item_set_slot, "itm_maul", slot_item_multiplayer_item_class, multi_item_class_type_blunt),
-      (item_set_slot, "itm_sledgehammer", slot_item_multiplayer_item_class, multi_item_class_type_blunt),
-      (item_set_slot, "itm_warhammer", slot_item_multiplayer_item_class, multi_item_class_type_blunt),
-      (item_set_slot, "itm_morningstar", slot_item_multiplayer_item_class, multi_item_class_type_blunt),
+      # (item_set_slot, "itm_maul", slot_item_multiplayer_item_class, multi_item_class_type_blunt),
+      # (item_set_slot, "itm_sledgehammer", slot_item_multiplayer_item_class, multi_item_class_type_blunt),
+      # (item_set_slot, "itm_warhammer", slot_item_multiplayer_item_class, multi_item_class_type_blunt),
+      # (item_set_slot, "itm_morningstar", slot_item_multiplayer_item_class, multi_item_class_type_blunt),
       #picks
-      (item_set_slot, "itm_military_sickle_a", slot_item_multiplayer_item_class, multi_item_class_type_war_picks),
-      (item_set_slot, "itm_fighting_pick", slot_item_multiplayer_item_class, multi_item_class_type_war_picks),
-      (item_set_slot, "itm_military_pick", slot_item_multiplayer_item_class, multi_item_class_type_war_picks),
-      (item_set_slot, "itm_club_with_spike_head", slot_item_multiplayer_item_class, multi_item_class_type_war_picks),
+      # (item_set_slot, "itm_military_sickle_a", slot_item_multiplayer_item_class, multi_item_class_type_war_picks),
+      # (item_set_slot, "itm_fighting_pick", slot_item_multiplayer_item_class, multi_item_class_type_war_picks),
+      # (item_set_slot, "itm_military_pick", slot_item_multiplayer_item_class, multi_item_class_type_war_picks),
+      # (item_set_slot, "itm_club_with_spike_head", slot_item_multiplayer_item_class, multi_item_class_type_war_picks),
 
 	  #Cleavers
-	  (item_set_slot, "itm_falchion", slot_item_multiplayer_item_class, multi_item_class_type_cleavers),
-      (item_set_slot, "itm_military_cleaver_b", slot_item_multiplayer_item_class, multi_item_class_type_cleavers),
-      (item_set_slot, "itm_military_cleaver_c", slot_item_multiplayer_item_class, multi_item_class_type_cleavers),
-      (item_set_slot, "itm_two_handed_cleaver", slot_item_multiplayer_item_class, multi_item_class_type_cleavers),
-      (item_set_slot, "itm_hafted_blade_a", slot_item_multiplayer_item_class, multi_item_class_type_cleavers),
-      (item_set_slot, "itm_hafted_blade_b", slot_item_multiplayer_item_class, multi_item_class_type_cleavers),
-      (item_set_slot, "itm_shortened_military_scythe", slot_item_multiplayer_item_class, multi_item_class_type_cleavers),
+      # (item_set_slot, "itm_falchion", slot_item_multiplayer_item_class, multi_item_class_type_cleavers),
+      # (item_set_slot, "itm_military_cleaver_b", slot_item_multiplayer_item_class, multi_item_class_type_cleavers),
+      # (item_set_slot, "itm_military_cleaver_c", slot_item_multiplayer_item_class, multi_item_class_type_cleavers),
+      # (item_set_slot, "itm_two_handed_cleaver", slot_item_multiplayer_item_class, multi_item_class_type_cleavers),
+      # (item_set_slot, "itm_hafted_blade_a", slot_item_multiplayer_item_class, multi_item_class_type_cleavers),
+      # (item_set_slot, "itm_hafted_blade_b", slot_item_multiplayer_item_class, multi_item_class_type_cleavers),
+      # (item_set_slot, "itm_shortened_military_scythe", slot_item_multiplayer_item_class, multi_item_class_type_cleavers),
 
-      (item_set_slot, "itm_sarranid_mace_1", slot_item_multiplayer_item_class, multi_item_class_type_blunt),
-      (item_set_slot, "itm_sarranid_axe_a", slot_item_multiplayer_item_class, multi_item_class_type_blunt),
-      (item_set_slot, "itm_sarranid_axe_b", slot_item_multiplayer_item_class, multi_item_class_type_blunt),
-      (item_set_slot, "itm_sarranid_two_handed_axe_a", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_axe),
-      (item_set_slot, "itm_sarranid_two_handed_axe_b", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_axe),
-      (item_set_slot, "itm_sarranid_two_handed_mace_1", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_axe),
-      (item_set_slot, "itm_bamboo_spear", slot_item_multiplayer_item_class, multi_item_class_type_spear),
+      # (item_set_slot, "itm_sarranid_mace_1", slot_item_multiplayer_item_class, multi_item_class_type_blunt),
+      # (item_set_slot, "itm_sarranid_axe_a", slot_item_multiplayer_item_class, multi_item_class_type_blunt),
+      # (item_set_slot, "itm_sarranid_axe_b", slot_item_multiplayer_item_class, multi_item_class_type_blunt),
+      # (item_set_slot, "itm_sarranid_two_handed_axe_a", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_axe),
+      # (item_set_slot, "itm_sarranid_two_handed_axe_b", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_axe),
+      # (item_set_slot, "itm_sarranid_two_handed_mace_1", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_axe),
+      # (item_set_slot, "itm_bamboo_spear", slot_item_multiplayer_item_class, multi_item_class_type_spear),
 
 
 
       #spears
-      (item_set_slot, "itm_double_sided_lance", slot_item_multiplayer_item_class, multi_item_class_type_spear),
-      (item_set_slot, "itm_glaive", slot_item_multiplayer_item_class, multi_item_class_type_spear),
-      (item_set_slot, "itm_poleaxe", slot_item_multiplayer_item_class, multi_item_class_type_spear),
-      (item_set_slot, "itm_polehammer", slot_item_multiplayer_item_class, multi_item_class_type_spear),
-      (item_set_slot, "itm_staff", slot_item_multiplayer_item_class, multi_item_class_type_spear),
-      (item_set_slot, "itm_quarter_staff", slot_item_multiplayer_item_class, multi_item_class_type_spear),
-      (item_set_slot, "itm_iron_staff", slot_item_multiplayer_item_class, multi_item_class_type_spear),
+      # (item_set_slot, "itm_double_sided_lance", slot_item_multiplayer_item_class, multi_item_class_type_spear),
+      # (item_set_slot, "itm_glaive", slot_item_multiplayer_item_class, multi_item_class_type_spear),
+      # (item_set_slot, "itm_poleaxe", slot_item_multiplayer_item_class, multi_item_class_type_spear),
+      # (item_set_slot, "itm_polehammer", slot_item_multiplayer_item_class, multi_item_class_type_spear),
+      # (item_set_slot, "itm_staff", slot_item_multiplayer_item_class, multi_item_class_type_spear),
+      # (item_set_slot, "itm_quarter_staff", slot_item_multiplayer_item_class, multi_item_class_type_spear),
+      # (item_set_slot, "itm_iron_staff", slot_item_multiplayer_item_class, multi_item_class_type_spear),
 
-      (item_set_slot, "itm_shortened_spear", slot_item_multiplayer_item_class, multi_item_class_type_spear),
-      (item_set_slot, "itm_spear", slot_item_multiplayer_item_class, multi_item_class_type_spear),
-      (item_set_slot, "itm_war_spear", slot_item_multiplayer_item_class, multi_item_class_type_spear),
-      (item_set_slot, "itm_military_scythe", slot_item_multiplayer_item_class, multi_item_class_type_spear),
-      (item_set_slot, "itm_pike", slot_item_multiplayer_item_class, multi_item_class_type_spear),
-      (item_set_slot, "itm_ashwood_pike", slot_item_multiplayer_item_class, multi_item_class_type_spear),
-      (item_set_slot, "itm_awlpike", slot_item_multiplayer_item_class, multi_item_class_type_spear),
-      (item_set_slot, "itm_awlpike_long", slot_item_multiplayer_item_class, multi_item_class_type_spear),
+      # (item_set_slot, "itm_shortened_spear", slot_item_multiplayer_item_class, multi_item_class_type_spear),
+      # (item_set_slot, "itm_spear", slot_item_multiplayer_item_class, multi_item_class_type_spear),
+      # (item_set_slot, "itm_war_spear", slot_item_multiplayer_item_class, multi_item_class_type_spear),
+      # (item_set_slot, "itm_military_scythe", slot_item_multiplayer_item_class, multi_item_class_type_spear),
+      # (item_set_slot, "itm_pike", slot_item_multiplayer_item_class, multi_item_class_type_spear),
+      # (item_set_slot, "itm_ashwood_pike", slot_item_multiplayer_item_class, multi_item_class_type_spear),
+      # (item_set_slot, "itm_awlpike", slot_item_multiplayer_item_class, multi_item_class_type_spear),
+      # (item_set_slot, "itm_awlpike_long", slot_item_multiplayer_item_class, multi_item_class_type_spear),
       #lance
-      (item_set_slot, "itm_light_lance", slot_item_multiplayer_item_class, multi_item_class_type_lance),
-      (item_set_slot, "itm_lance", slot_item_multiplayer_item_class, multi_item_class_type_lance),
-      (item_set_slot, "itm_heavy_lance", slot_item_multiplayer_item_class, multi_item_class_type_lance),
-      (item_set_slot, "itm_great_lance", slot_item_multiplayer_item_class, multi_item_class_type_lance),
+      # (item_set_slot, "itm_light_lance", slot_item_multiplayer_item_class, multi_item_class_type_lance),
+      # (item_set_slot, "itm_lance", slot_item_multiplayer_item_class, multi_item_class_type_lance),
+      # (item_set_slot, "itm_heavy_lance", slot_item_multiplayer_item_class, multi_item_class_type_lance),
+      # (item_set_slot, "itm_great_lance", slot_item_multiplayer_item_class, multi_item_class_type_lance),
       #shields
 
-      (item_set_slot, "itm_tab_shield_round_a", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_tab_shield_round_b", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_tab_shield_round_c", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_tab_shield_round_d", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_tab_shield_round_e", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_tab_shield_kite_a", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_tab_shield_kite_b", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_tab_shield_kite_c", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_tab_shield_kite_d", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_tab_shield_kite_cav_a", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_tab_shield_kite_cav_b", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_tab_shield_heater_a", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_tab_shield_heater_b", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_tab_shield_heater_c", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_tab_shield_heater_d", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_tab_shield_heater_cav_a", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_tab_shield_heater_cav_b", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_tab_shield_pavise_a", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_tab_shield_pavise_b", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_tab_shield_pavise_c", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_tab_shield_pavise_d", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_tab_shield_small_round_a", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_tab_shield_small_round_b", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_tab_shield_small_round_c", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_spear", slot_item_multiplayer_item_class, multi_item_class_type_spear),
+      # (item_set_slot, "itm_tab_shield_round_a", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_tab_shield_round_b", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_tab_shield_round_c", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_tab_shield_round_d", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_tab_shield_round_e", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_tab_shield_kite_a", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_tab_shield_kite_b", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_tab_shield_kite_c", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_tab_shield_kite_d", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_tab_shield_kite_cav_a", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_tab_shield_kite_cav_b", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_tab_shield_heater_a", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_tab_shield_heater_b", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_tab_shield_heater_c", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_tab_shield_heater_d", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_tab_shield_heater_cav_a", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_tab_shield_heater_cav_b", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_tab_shield_pavise_a", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_tab_shield_pavise_b", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_tab_shield_pavise_c", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_tab_shield_pavise_d", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_tab_shield_small_round_a", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_tab_shield_small_round_b", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_tab_shield_small_round_c", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_spear", slot_item_multiplayer_item_class, multi_item_class_type_spear),
       #throwing
-      (item_set_slot, "itm_darts", slot_item_multiplayer_item_class, multi_item_class_type_throwing),
-      (item_set_slot, "itm_war_darts", slot_item_multiplayer_item_class, multi_item_class_type_throwing),
-      (item_set_slot, "itm_javelin", slot_item_multiplayer_item_class, multi_item_class_type_throwing),
-      (item_set_slot, "itm_jarid", slot_item_multiplayer_item_class, multi_item_class_type_throwing),
-      (item_set_slot, "itm_throwing_spears", slot_item_multiplayer_item_class, multi_item_class_type_throwing),
+      # (item_set_slot, "itm_darts", slot_item_multiplayer_item_class, multi_item_class_type_throwing),
+      # (item_set_slot, "itm_war_darts", slot_item_multiplayer_item_class, multi_item_class_type_throwing),
+      # (item_set_slot, "itm_javelin", slot_item_multiplayer_item_class, multi_item_class_type_throwing),
+      # (item_set_slot, "itm_jarid", slot_item_multiplayer_item_class, multi_item_class_type_throwing),
+      # (item_set_slot, "itm_throwing_spears", slot_item_multiplayer_item_class, multi_item_class_type_throwing),
 
-      (item_set_slot, "itm_throwing_axes", slot_item_multiplayer_item_class, multi_item_class_type_throwing_axe),
-      (item_set_slot, "itm_light_throwing_axes", slot_item_multiplayer_item_class, multi_item_class_type_throwing_axe),
-      (item_set_slot, "itm_heavy_throwing_axes", slot_item_multiplayer_item_class, multi_item_class_type_throwing_axe),
+      # (item_set_slot, "itm_throwing_axes", slot_item_multiplayer_item_class, multi_item_class_type_throwing_axe),
+      # (item_set_slot, "itm_light_throwing_axes", slot_item_multiplayer_item_class, multi_item_class_type_throwing_axe),
+      # (item_set_slot, "itm_heavy_throwing_axes", slot_item_multiplayer_item_class, multi_item_class_type_throwing_axe),
        #armors
-      (item_set_slot, "itm_red_shirt", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
-      (item_set_slot, "itm_red_tunic", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
-      (item_set_slot, "itm_aketon_green", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
-      (item_set_slot, "itm_padded_cloth", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
-      (item_set_slot, "itm_red_gambeson", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
-      (item_set_slot, "itm_leather_armor", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
-      (item_set_slot, "itm_haubergeon", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
-      (item_set_slot, "itm_coat_of_plates_red", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
-      (item_set_slot, "itm_brigandine_red", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
-      (item_set_slot, "itm_mail_with_surcoat", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
-      (item_set_slot, "itm_linen_tunic", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
-      (item_set_slot, "itm_leather_vest", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
-      (item_set_slot, "itm_leather_jerkin", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
-      (item_set_slot, "itm_studded_leather_coat", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
-      (item_set_slot, "itm_lamellar_vest", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
-      (item_set_slot, "itm_lamellar_armor", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
-      (item_set_slot, "itm_coarse_tunic", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
-      (item_set_slot, "itm_tribal_warrior_outfit", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
-      (item_set_slot, "itm_khergit_guard_armor", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
-      (item_set_slot, "itm_blue_tunic", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
-      (item_set_slot, "itm_mail_hauberk", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
-      (item_set_slot, "itm_mail_shirt", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
-      (item_set_slot, "itm_byrnie", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
-	  (item_set_slot, "itm_lamellar_vest_khergit", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
-	  (item_set_slot, "itm_steppe_armor", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
+      # (item_set_slot, "itm_red_shirt", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
+      # (item_set_slot, "itm_red_tunic", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
+      # (item_set_slot, "itm_aketon_green", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
+      # (item_set_slot, "itm_padded_cloth", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
+      # (item_set_slot, "itm_red_gambeson", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
+      # (item_set_slot, "itm_leather_armor", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
+      # (item_set_slot, "itm_haubergeon", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
+      # (item_set_slot, "itm_coat_of_plates_red", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
+      # (item_set_slot, "itm_brigandine_red", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
+      # (item_set_slot, "itm_mail_with_surcoat", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
+      # (item_set_slot, "itm_linen_tunic", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
+      # (item_set_slot, "itm_leather_vest", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
+      # (item_set_slot, "itm_leather_jerkin", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
+      # (item_set_slot, "itm_studded_leather_coat", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
+      # (item_set_slot, "itm_lamellar_vest", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
+      # (item_set_slot, "itm_lamellar_armor", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
+      # (item_set_slot, "itm_coarse_tunic", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
+      # (item_set_slot, "itm_tribal_warrior_outfit", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
+      # (item_set_slot, "itm_khergit_guard_armor", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
+      # (item_set_slot, "itm_blue_tunic", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
+      # (item_set_slot, "itm_mail_hauberk", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
+      # (item_set_slot, "itm_mail_shirt", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
+      # (item_set_slot, "itm_byrnie", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
+	  # (item_set_slot, "itm_lamellar_vest_khergit", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
+	  # (item_set_slot, "itm_steppe_armor", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
 
 
-      (item_set_slot, "itm_banded_armor", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
-      (item_set_slot, "itm_cuir_bouilli", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
-      (item_set_slot, "itm_scale_armor", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
+      # (item_set_slot, "itm_banded_armor", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
+      # (item_set_slot, "itm_cuir_bouilli", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
+      # (item_set_slot, "itm_scale_armor", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
 
-      (item_set_slot, "itm_padded_leather", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
-      (item_set_slot, "itm_green_tunic", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
-      (item_set_slot, "itm_tunic_with_green_cape", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
-      (item_set_slot, "itm_aketon_green", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
-      (item_set_slot, "itm_ragged_outfit", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
-      (item_set_slot, "itm_surcoat_over_mail", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
+      # (item_set_slot, "itm_padded_leather", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
+      # (item_set_slot, "itm_green_tunic", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
+      # (item_set_slot, "itm_tunic_with_green_cape", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
+      # (item_set_slot, "itm_aketon_green", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
+      # (item_set_slot, "itm_ragged_outfit", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
+      # (item_set_slot, "itm_surcoat_over_mail", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
 
-      (item_set_slot, "itm_sarranid_elite_armor", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
-      (item_set_slot, "itm_skirmisher_armor", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
-      (item_set_slot, "itm_archers_vest", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
-      (item_set_slot, "itm_sarranid_leather_armor", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
-      (item_set_slot, "itm_sarranid_cloth_robe", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
-      (item_set_slot, "itm_sarranid_mail_shirt", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
-      (item_set_slot, "itm_sarranid_cavalry_robe", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
-      (item_set_slot, "itm_arabian_armor_b", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
-      (item_set_slot, "itm_mamluke_mail", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
-      (item_set_slot, "itm_khergit_elite_armor", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
-      (item_set_slot, "itm_vaegir_elite_armor", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
-	  (item_set_slot, "itm_khergit_armor", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
+      # (item_set_slot, "itm_sarranid_elite_armor", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
+      # (item_set_slot, "itm_skirmisher_armor", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
+      # (item_set_slot, "itm_archers_vest", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
+      # (item_set_slot, "itm_sarranid_leather_armor", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
+      # (item_set_slot, "itm_sarranid_cloth_robe", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
+      # (item_set_slot, "itm_sarranid_mail_shirt", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
+      # (item_set_slot, "itm_sarranid_cavalry_robe", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
+      # (item_set_slot, "itm_arabian_armor_b", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
+      # (item_set_slot, "itm_mamluke_mail", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
+      # (item_set_slot, "itm_khergit_elite_armor", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
+      # (item_set_slot, "itm_vaegir_elite_armor", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
+	  # (item_set_slot, "itm_khergit_armor", slot_item_multiplayer_item_class, multi_item_class_type_light_armor),
 
 
 
 
 
       #boots
-      (item_set_slot, "itm_hide_boots", slot_item_multiplayer_item_class, multi_item_class_type_light_foot),
-      (item_set_slot, "itm_ankle_boots", slot_item_multiplayer_item_class, multi_item_class_type_light_foot),
-      (item_set_slot, "itm_nomad_boots", slot_item_multiplayer_item_class, multi_item_class_type_light_foot),
-      (item_set_slot, "itm_leather_boots", slot_item_multiplayer_item_class, multi_item_class_type_light_foot),
-      (item_set_slot, "itm_splinted_leather_greaves", slot_item_multiplayer_item_class, multi_item_class_type_light_foot),
-      (item_set_slot, "itm_mail_chausses", slot_item_multiplayer_item_class, multi_item_class_type_light_foot),
-      (item_set_slot, "itm_splinted_leather_greaves", slot_item_multiplayer_item_class, multi_item_class_type_light_foot),
-      (item_set_slot, "itm_splinted_greaves", slot_item_multiplayer_item_class, multi_item_class_type_light_foot),
-      (item_set_slot, "itm_mail_boots", slot_item_multiplayer_item_class, multi_item_class_type_light_foot),
-      (item_set_slot, "itm_iron_greaves", slot_item_multiplayer_item_class, multi_item_class_type_light_foot),
-      (item_set_slot, "itm_sarranid_boots_b", slot_item_multiplayer_item_class, multi_item_class_type_light_foot),
-      (item_set_slot, "itm_sarranid_boots_c", slot_item_multiplayer_item_class, multi_item_class_type_light_foot),
-      (item_set_slot, "itm_sarranid_boots_d", slot_item_multiplayer_item_class, multi_item_class_type_light_foot),
-	  (item_set_slot, "itm_plate_boots", slot_item_multiplayer_item_class, multi_item_class_type_light_foot),
-	  (item_set_slot, "itm_khergit_leather_boots", slot_item_multiplayer_item_class, multi_item_class_type_light_foot),
-	  (item_set_slot, "itm_khergit_guard_boots", slot_item_multiplayer_item_class, multi_item_class_type_light_foot),
+      # (item_set_slot, "itm_hide_boots", slot_item_multiplayer_item_class, multi_item_class_type_light_foot),
+      # (item_set_slot, "itm_ankle_boots", slot_item_multiplayer_item_class, multi_item_class_type_light_foot),
+      # (item_set_slot, "itm_nomad_boots", slot_item_multiplayer_item_class, multi_item_class_type_light_foot),
+      # (item_set_slot, "itm_leather_boots", slot_item_multiplayer_item_class, multi_item_class_type_light_foot),
+      # (item_set_slot, "itm_splinted_leather_greaves", slot_item_multiplayer_item_class, multi_item_class_type_light_foot),
+      # (item_set_slot, "itm_mail_chausses", slot_item_multiplayer_item_class, multi_item_class_type_light_foot),
+      # (item_set_slot, "itm_splinted_leather_greaves", slot_item_multiplayer_item_class, multi_item_class_type_light_foot),
+      # (item_set_slot, "itm_splinted_greaves", slot_item_multiplayer_item_class, multi_item_class_type_light_foot),
+      # (item_set_slot, "itm_mail_boots", slot_item_multiplayer_item_class, multi_item_class_type_light_foot),
+      # (item_set_slot, "itm_iron_greaves", slot_item_multiplayer_item_class, multi_item_class_type_light_foot),
+      # (item_set_slot, "itm_sarranid_boots_b", slot_item_multiplayer_item_class, multi_item_class_type_light_foot),
+      # (item_set_slot, "itm_sarranid_boots_c", slot_item_multiplayer_item_class, multi_item_class_type_light_foot),
+      # (item_set_slot, "itm_sarranid_boots_d", slot_item_multiplayer_item_class, multi_item_class_type_light_foot),
+	  # (item_set_slot, "itm_plate_boots", slot_item_multiplayer_item_class, multi_item_class_type_light_foot),
+	  # (item_set_slot, "itm_khergit_leather_boots", slot_item_multiplayer_item_class, multi_item_class_type_light_foot),
+	  # (item_set_slot, "itm_khergit_guard_boots", slot_item_multiplayer_item_class, multi_item_class_type_light_foot),
 
 
 
@@ -1736,193 +2354,193 @@ scripts = [
       #helmets
 
 
-      (item_set_slot, "itm_leather_steppe_cap_a", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
-      (item_set_slot, "itm_leather_steppe_cap_b", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
-      (item_set_slot, "itm_steppe_cap", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
-      (item_set_slot, "itm_khergit_war_helmet", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
-      (item_set_slot, "itm_khergit_guard_helmet", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+      # (item_set_slot, "itm_leather_steppe_cap_a", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+      # (item_set_slot, "itm_leather_steppe_cap_b", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+      # (item_set_slot, "itm_steppe_cap", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+      # (item_set_slot, "itm_khergit_war_helmet", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+      # (item_set_slot, "itm_khergit_guard_helmet", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
 
 
 
-      (item_set_slot, "itm_arming_cap", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
-      (item_set_slot, "itm_padded_coif", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
-      (item_set_slot, "itm_mail_coif", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
-      (item_set_slot, "itm_footman_helmet", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
-      (item_set_slot, "itm_norman_helmet", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
-      (item_set_slot, "itm_kettle_hat", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
-      (item_set_slot, "itm_helmet_with_neckguard", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+      # (item_set_slot, "itm_arming_cap", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+      # (item_set_slot, "itm_padded_coif", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+      # (item_set_slot, "itm_mail_coif", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+      # (item_set_slot, "itm_footman_helmet", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+      # (item_set_slot, "itm_norman_helmet", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+      # (item_set_slot, "itm_kettle_hat", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+      # (item_set_slot, "itm_helmet_with_neckguard", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
 
-	  (item_set_slot, "itm_bascinet_2", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
-	  (item_set_slot, "itm_bascinet_3", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+	  # (item_set_slot, "itm_bascinet_2", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+	  # (item_set_slot, "itm_bascinet_3", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
 
 
 
-      (item_set_slot, "itm_flat_topped_helmet", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
-      (item_set_slot, "itm_guard_helmet", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
-      (item_set_slot, "itm_full_helm", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
-      (item_set_slot, "itm_great_helmet", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
-      (item_set_slot, "itm_nomad_cap_b", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
-      (item_set_slot, "itm_skullcap", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
-      (item_set_slot, "itm_leather_cap", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+      # (item_set_slot, "itm_flat_topped_helmet", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+      # (item_set_slot, "itm_guard_helmet", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+      # (item_set_slot, "itm_full_helm", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+      # (item_set_slot, "itm_great_helmet", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+      # (item_set_slot, "itm_nomad_cap_b", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+      # (item_set_slot, "itm_skullcap", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+      # (item_set_slot, "itm_leather_cap", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
 
-      (item_set_slot, "itm_spiked_helmet", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+      # (item_set_slot, "itm_spiked_helmet", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
 #      (item_set_slot, "itm_nasal_helmet", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
-      (item_set_slot, "itm_nordic_archer_helmet", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
-      (item_set_slot, "itm_nordic_veteran_archer_helmet", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
-      (item_set_slot, "itm_nordic_footman_helmet", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
-      (item_set_slot, "itm_nordic_fighter_helmet", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
-      (item_set_slot, "itm_nordic_huscarl_helmet", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
-      (item_set_slot, "itm_nordic_warlord_helmet", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+      # (item_set_slot, "itm_nordic_archer_helmet", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+      # (item_set_slot, "itm_nordic_veteran_archer_helmet", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+      # (item_set_slot, "itm_nordic_footman_helmet", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+      # (item_set_slot, "itm_nordic_fighter_helmet", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+      # (item_set_slot, "itm_nordic_huscarl_helmet", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+      # (item_set_slot, "itm_nordic_warlord_helmet", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
 
-      (item_set_slot, "itm_sarranid_helmet1", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
-      (item_set_slot, "itm_sarranid_horseman_helmet", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
-      (item_set_slot, "itm_sarranid_felt_hat", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
-      (item_set_slot, "itm_sarranid_veiled_helmet", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
-      (item_set_slot, "itm_turban", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
-      (item_set_slot, "itm_desert_turban", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
-      (item_set_slot, "itm_sarranid_warrior_cap", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
-      (item_set_slot, "itm_sarranid_mail_coif", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+      # (item_set_slot, "itm_sarranid_helmet1", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+      # (item_set_slot, "itm_sarranid_horseman_helmet", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+      # (item_set_slot, "itm_sarranid_felt_hat", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+      # (item_set_slot, "itm_sarranid_veiled_helmet", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+      # (item_set_slot, "itm_turban", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+      # (item_set_slot, "itm_desert_turban", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+      # (item_set_slot, "itm_sarranid_warrior_cap", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+      # (item_set_slot, "itm_sarranid_mail_coif", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
 
-      (item_set_slot, "itm_vaegir_fur_cap", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
-      (item_set_slot, "itm_vaegir_fur_helmet", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
-      (item_set_slot, "itm_vaegir_spiked_helmet", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
-      (item_set_slot, "itm_vaegir_lamellar_helmet", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
-      (item_set_slot, "itm_vaegir_noble_helmet", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
-      (item_set_slot, "itm_vaegir_war_helmet", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
-      (item_set_slot, "itm_vaegir_mask", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+      # (item_set_slot, "itm_vaegir_fur_cap", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+      # (item_set_slot, "itm_vaegir_fur_helmet", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+      # (item_set_slot, "itm_vaegir_spiked_helmet", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+      # (item_set_slot, "itm_vaegir_lamellar_helmet", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+      # (item_set_slot, "itm_vaegir_noble_helmet", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+      # (item_set_slot, "itm_vaegir_war_helmet", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+      # (item_set_slot, "itm_vaegir_mask", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
 
 
 	  #gloves
-      (item_set_slot, "itm_leather_gloves", slot_item_multiplayer_item_class, multi_item_class_type_glove),
-      (item_set_slot, "itm_mail_mittens", slot_item_multiplayer_item_class, multi_item_class_type_glove),
-      (item_set_slot, "itm_scale_gauntlets", slot_item_multiplayer_item_class, multi_item_class_type_glove),
-	  (item_set_slot, "itm_lamellar_gauntlets", slot_item_multiplayer_item_class, multi_item_class_type_glove),
-	  (item_set_slot, "itm_gauntlets", slot_item_multiplayer_item_class, multi_item_class_type_glove),
+      # (item_set_slot, "itm_leather_gloves", slot_item_multiplayer_item_class, multi_item_class_type_glove),
+      # (item_set_slot, "itm_mail_mittens", slot_item_multiplayer_item_class, multi_item_class_type_glove),
+      # (item_set_slot, "itm_scale_gauntlets", slot_item_multiplayer_item_class, multi_item_class_type_glove),
+	  # (item_set_slot, "itm_lamellar_gauntlets", slot_item_multiplayer_item_class, multi_item_class_type_glove),
+	  # (item_set_slot, "itm_gauntlets", slot_item_multiplayer_item_class, multi_item_class_type_glove),
 
       #horses
-      (item_set_slot, "itm_saddle_horse", slot_item_multiplayer_item_class, multi_item_class_type_horse),
-      (item_set_slot, "itm_hunter", slot_item_multiplayer_item_class, multi_item_class_type_horse),
-      (item_set_slot, "itm_courser", slot_item_multiplayer_item_class, multi_item_class_type_horse),
-      (item_set_slot, "itm_hunter", slot_item_multiplayer_item_class, multi_item_class_type_horse),
-      (item_set_slot, "itm_warhorse", slot_item_multiplayer_item_class, multi_item_class_type_horse),
-      (item_set_slot, "itm_charger", slot_item_multiplayer_item_class, multi_item_class_type_horse),
-      (item_set_slot, "itm_steppe_horse", slot_item_multiplayer_item_class, multi_item_class_type_horse),
-      (item_set_slot, "itm_arabian_horse_a", slot_item_multiplayer_item_class, multi_item_class_type_horse),
-      (item_set_slot, "itm_arabian_horse_b", slot_item_multiplayer_item_class, multi_item_class_type_horse),
-	  (item_set_slot, "itm_warhorse_steppe", slot_item_multiplayer_item_class, multi_item_class_type_horse),
-	  (item_set_slot, "itm_warhorse_sarranid", slot_item_multiplayer_item_class, multi_item_class_type_horse),
+      # (item_set_slot, "itm_saddle_horse", slot_item_multiplayer_item_class, multi_item_class_type_horse),
+      # (item_set_slot, "itm_hunter", slot_item_multiplayer_item_class, multi_item_class_type_horse),
+      # (item_set_slot, "itm_courser", slot_item_multiplayer_item_class, multi_item_class_type_horse),
+      # (item_set_slot, "itm_hunter", slot_item_multiplayer_item_class, multi_item_class_type_horse),
+      # (item_set_slot, "itm_warhorse", slot_item_multiplayer_item_class, multi_item_class_type_horse),
+      # (item_set_slot, "itm_charger", slot_item_multiplayer_item_class, multi_item_class_type_horse),
+      # (item_set_slot, "itm_steppe_horse", slot_item_multiplayer_item_class, multi_item_class_type_horse),
+      # (item_set_slot, "itm_arabian_horse_a", slot_item_multiplayer_item_class, multi_item_class_type_horse),
+      # (item_set_slot, "itm_arabian_horse_b", slot_item_multiplayer_item_class, multi_item_class_type_horse),
+	  # (item_set_slot, "itm_warhorse_steppe", slot_item_multiplayer_item_class, multi_item_class_type_horse),
+	  # (item_set_slot, "itm_warhorse_sarranid", slot_item_multiplayer_item_class, multi_item_class_type_horse),
 
 
       #1-Swadian Warriors
       #1a-Swadian Crossbowman
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_bolts", "trp_swadian_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_steel_bolts", "trp_swadian_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_crossbow", "trp_swadian_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_heavy_crossbow", "trp_swadian_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sniper_crossbow", "trp_swadian_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_medieval_a", "trp_swadian_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_medieval_b", "trp_swadian_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_medieval_b_small", "trp_swadian_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_heater_a", "trp_swadian_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_heater_b", "trp_swadian_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_heater_c", "trp_swadian_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_bolts", "trp_swadian_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_steel_bolts", "trp_swadian_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_crossbow", "trp_swadian_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_heavy_crossbow", "trp_swadian_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sniper_crossbow", "trp_swadian_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_medieval_a", "trp_swadian_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_medieval_b", "trp_swadian_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_medieval_b_small", "trp_swadian_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_heater_a", "trp_swadian_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_heater_b", "trp_swadian_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_heater_c", "trp_swadian_crossbowman_multiplayer"),
 
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_red_shirt", "trp_swadian_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_padded_cloth", "trp_swadian_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_armor", "trp_swadian_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_haubergeon", "trp_swadian_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_ankle_boots", "trp_swadian_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_boots", "trp_swadian_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_chausses", "trp_swadian_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_gloves", "trp_swadian_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_red_shirt", "trp_swadian_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_padded_cloth", "trp_swadian_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_armor", "trp_swadian_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_haubergeon", "trp_swadian_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_ankle_boots", "trp_swadian_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_boots", "trp_swadian_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_chausses", "trp_swadian_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_gloves", "trp_swadian_crossbowman_multiplayer"),
 
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_arming_cap", "trp_swadian_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_norman_helmet", "trp_swadian_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_helmet_with_neckguard", "trp_swadian_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_flat_topped_helmet", "trp_swadian_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_guard_helmet", "trp_swadian_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_arming_cap", "trp_swadian_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_norman_helmet", "trp_swadian_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_helmet_with_neckguard", "trp_swadian_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_flat_topped_helmet", "trp_swadian_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_guard_helmet", "trp_swadian_crossbowman_multiplayer"),
 
       #1b-Swadian Infantry
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_awlpike", "trp_swadian_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_awlpike_long", "trp_swadian_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_medieval_a", "trp_swadian_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_medieval_b", "trp_swadian_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_medieval_b_small", "trp_swadian_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_medieval_c", "trp_swadian_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_medieval_c_small", "trp_swadian_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_bastard_sword_a", "trp_swadian_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_bastard_sword_b", "trp_swadian_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_two_handed_a", "trp_swadian_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_two_handed_b", "trp_swadian_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_darts", "trp_swadian_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_war_darts", "trp_swadian_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_heater_a", "trp_swadian_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_heater_b", "trp_swadian_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_heater_c", "trp_swadian_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_heater_d", "trp_swadian_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_red_tunic", "trp_swadian_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_red_gambeson", "trp_swadian_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_armor", "trp_swadian_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_haubergeon", "trp_swadian_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_brigandine_red", "trp_swadian_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_ankle_boots", "trp_swadian_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_boots", "trp_swadian_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_chausses", "trp_swadian_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_splinted_greaves", "trp_swadian_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_arming_cap", "trp_swadian_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_norman_helmet", "trp_swadian_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_helmet_with_neckguard", "trp_swadian_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_flat_topped_helmet", "trp_swadian_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_guard_helmet", "trp_swadian_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_great_helmet", "trp_swadian_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_gloves", "trp_swadian_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_mittens", "trp_swadian_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_scale_gauntlets", "trp_swadian_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_gauntlets", "trp_swadian_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_awlpike", "trp_swadian_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_awlpike_long", "trp_swadian_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_medieval_a", "trp_swadian_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_medieval_b", "trp_swadian_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_medieval_b_small", "trp_swadian_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_medieval_c", "trp_swadian_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_medieval_c_small", "trp_swadian_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_bastard_sword_a", "trp_swadian_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_bastard_sword_b", "trp_swadian_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_two_handed_a", "trp_swadian_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_two_handed_b", "trp_swadian_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_darts", "trp_swadian_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_war_darts", "trp_swadian_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_heater_a", "trp_swadian_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_heater_b", "trp_swadian_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_heater_c", "trp_swadian_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_heater_d", "trp_swadian_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_red_tunic", "trp_swadian_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_red_gambeson", "trp_swadian_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_armor", "trp_swadian_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_haubergeon", "trp_swadian_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_brigandine_red", "trp_swadian_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_ankle_boots", "trp_swadian_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_boots", "trp_swadian_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_chausses", "trp_swadian_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_splinted_greaves", "trp_swadian_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_arming_cap", "trp_swadian_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_norman_helmet", "trp_swadian_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_helmet_with_neckguard", "trp_swadian_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_flat_topped_helmet", "trp_swadian_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_guard_helmet", "trp_swadian_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_great_helmet", "trp_swadian_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_gloves", "trp_swadian_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_mittens", "trp_swadian_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_scale_gauntlets", "trp_swadian_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_gauntlets", "trp_swadian_infantry_multiplayer"),
 
       #1c-Swadian Man At Arms
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_darts", "trp_swadian_man_at_arms_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_war_darts", "trp_swadian_man_at_arms_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_lance", "trp_swadian_man_at_arms_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_heavy_lance", "trp_swadian_man_at_arms_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_great_lance", "trp_swadian_man_at_arms_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_medieval_a", "trp_swadian_man_at_arms_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_medieval_b", "trp_swadian_man_at_arms_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_medieval_b_small", "trp_swadian_man_at_arms_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_medieval_c", "trp_swadian_man_at_arms_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_medieval_c_small", "trp_swadian_man_at_arms_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_bastard_sword_a", "trp_swadian_man_at_arms_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_bastard_sword_b", "trp_swadian_man_at_arms_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_heater_a", "trp_swadian_man_at_arms_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_heater_b", "trp_swadian_man_at_arms_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_heater_c", "trp_swadian_man_at_arms_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_heater_d", "trp_swadian_man_at_arms_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_red_tunic", "trp_swadian_man_at_arms_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_padded_cloth", "trp_swadian_man_at_arms_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_armor", "trp_swadian_man_at_arms_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_with_surcoat", "trp_swadian_man_at_arms_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_coat_of_plates_red", "trp_swadian_man_at_arms_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_ankle_boots", "trp_swadian_man_at_arms_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_boots", "trp_swadian_man_at_arms_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_chausses", "trp_swadian_man_at_arms_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_splinted_greaves", "trp_swadian_man_at_arms_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_plate_boots", "trp_swadian_man_at_arms_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_darts", "trp_swadian_man_at_arms_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_war_darts", "trp_swadian_man_at_arms_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_lance", "trp_swadian_man_at_arms_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_heavy_lance", "trp_swadian_man_at_arms_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_great_lance", "trp_swadian_man_at_arms_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_medieval_a", "trp_swadian_man_at_arms_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_medieval_b", "trp_swadian_man_at_arms_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_medieval_b_small", "trp_swadian_man_at_arms_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_medieval_c", "trp_swadian_man_at_arms_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_medieval_c_small", "trp_swadian_man_at_arms_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_bastard_sword_a", "trp_swadian_man_at_arms_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_bastard_sword_b", "trp_swadian_man_at_arms_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_heater_a", "trp_swadian_man_at_arms_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_heater_b", "trp_swadian_man_at_arms_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_heater_c", "trp_swadian_man_at_arms_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_heater_d", "trp_swadian_man_at_arms_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_red_tunic", "trp_swadian_man_at_arms_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_padded_cloth", "trp_swadian_man_at_arms_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_armor", "trp_swadian_man_at_arms_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_with_surcoat", "trp_swadian_man_at_arms_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_coat_of_plates_red", "trp_swadian_man_at_arms_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_ankle_boots", "trp_swadian_man_at_arms_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_boots", "trp_swadian_man_at_arms_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_chausses", "trp_swadian_man_at_arms_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_splinted_greaves", "trp_swadian_man_at_arms_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_plate_boots", "trp_swadian_man_at_arms_multiplayer"),
 
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_arming_cap", "trp_swadian_man_at_arms_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_norman_helmet", "trp_swadian_man_at_arms_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_helmet_with_neckguard", "trp_swadian_man_at_arms_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_flat_topped_helmet", "trp_swadian_man_at_arms_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_guard_helmet", "trp_swadian_man_at_arms_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_great_helmet", "trp_swadian_man_at_arms_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_gloves", "trp_swadian_man_at_arms_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_mittens", "trp_swadian_man_at_arms_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_scale_gauntlets", "trp_swadian_man_at_arms_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_gauntlets", "trp_swadian_man_at_arms_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_saddle_horse", "trp_swadian_man_at_arms_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_courser", "trp_swadian_man_at_arms_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_hunter", "trp_swadian_man_at_arms_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_warhorse", "trp_swadian_man_at_arms_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_charger", "trp_swadian_man_at_arms_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_arming_cap", "trp_swadian_man_at_arms_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_norman_helmet", "trp_swadian_man_at_arms_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_helmet_with_neckguard", "trp_swadian_man_at_arms_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_flat_topped_helmet", "trp_swadian_man_at_arms_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_guard_helmet", "trp_swadian_man_at_arms_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_great_helmet", "trp_swadian_man_at_arms_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_gloves", "trp_swadian_man_at_arms_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_mittens", "trp_swadian_man_at_arms_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_scale_gauntlets", "trp_swadian_man_at_arms_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_gauntlets", "trp_swadian_man_at_arms_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_saddle_horse", "trp_swadian_man_at_arms_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_courser", "trp_swadian_man_at_arms_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_hunter", "trp_swadian_man_at_arms_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_warhorse", "trp_swadian_man_at_arms_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_charger", "trp_swadian_man_at_arms_multiplayer"),
 
       # #1d-Swadian Mounted Crossbowman
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_bolts", "trp_swadian_mounted_crossbowman_multiplayer"),
@@ -1950,572 +2568,564 @@ scripts = [
 
       #2-Vaegir Warriors
       #2a-Vaegir Archer
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_arrows", "trp_vaegir_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_barbed_arrows", "trp_vaegir_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mace_1", "trp_vaegir_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mace_2", "trp_vaegir_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_falchion", "trp_vaegir_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nomad_bow", "trp_vaegir_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_khergit_bow", "trp_vaegir_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_strong_bow", "trp_vaegir_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_war_bow", "trp_vaegir_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_linen_tunic", "trp_vaegir_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_jerkin", "trp_vaegir_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_vest", "trp_vaegir_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_lamellar_vest", "trp_vaegir_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_hide_boots", "trp_vaegir_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nomad_boots", "trp_vaegir_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_splinted_leather_greaves", "trp_vaegir_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nomad_cap", "trp_vaegir_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_vaegir_fur_cap", "trp_vaegir_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_vaegir_fur_helmet", "trp_vaegir_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_vaegir_spiked_helmet", "trp_vaegir_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_vaegir_lamellar_helmet", "trp_vaegir_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_arrows", "trp_vaegir_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_barbed_arrows", "trp_vaegir_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mace_1", "trp_vaegir_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mace_2", "trp_vaegir_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_falchion", "trp_vaegir_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nomad_bow", "trp_vaegir_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_khergit_bow", "trp_vaegir_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_strong_bow", "trp_vaegir_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_war_bow", "trp_vaegir_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_linen_tunic", "trp_vaegir_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_jerkin", "trp_vaegir_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_vest", "trp_vaegir_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_lamellar_vest", "trp_vaegir_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_hide_boots", "trp_vaegir_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nomad_boots", "trp_vaegir_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_splinted_leather_greaves", "trp_vaegir_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nomad_cap", "trp_vaegir_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_vaegir_fur_cap", "trp_vaegir_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_vaegir_fur_helmet", "trp_vaegir_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_vaegir_spiked_helmet", "trp_vaegir_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_vaegir_lamellar_helmet", "trp_vaegir_archer_multiplayer"),
 
       #2b-Vaegir Spearman
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_spear", "trp_vaegir_spearman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_war_spear", "trp_vaegir_spearman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_awlpike", "trp_vaegir_spearman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_a", "trp_vaegir_spearman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_b", "trp_vaegir_spearman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_c", "trp_vaegir_spearman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_d", "trp_vaegir_spearman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mace_1", "trp_vaegir_spearman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mace_2", "trp_vaegir_spearman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mace_3", "trp_vaegir_spearman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mace_4", "trp_vaegir_spearman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_long_hafted_spiked_mace", "trp_vaegir_spearman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_long_spiked_club", "trp_vaegir_spearman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_scimitar", "trp_vaegir_spearman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_scimitar_b", "trp_vaegir_spearman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_bardiche", "trp_vaegir_spearman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_great_bardiche", "trp_vaegir_spearman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_long_bardiche", "trp_vaegir_spearman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_great_long_bardiche", "trp_vaegir_spearman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_javelin", "trp_vaegir_spearman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_linen_tunic", "trp_vaegir_spearman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_jerkin", "trp_vaegir_spearman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_vest", "trp_vaegir_spearman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_lamellar_vest", "trp_vaegir_spearman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_lamellar_armor", "trp_vaegir_spearman_multiplayer"),
-	  (call_script, "script_multiplayer_set_item_available_for_troop", "itm_vaegir_elite_armor", "trp_vaegir_spearman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_hide_boots", "trp_vaegir_spearman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nomad_boots", "trp_vaegir_spearman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_splinted_leather_greaves", "trp_vaegir_spearman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_splinted_greaves", "trp_vaegir_spearman_multiplayer"),
-#      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_spiked_helmet", "trp_vaegir_spearman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_vaegir_fur_cap", "trp_vaegir_spearman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_vaegir_fur_helmet", "trp_vaegir_spearman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_vaegir_spiked_helmet", "trp_vaegir_spearman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_vaegir_lamellar_helmet", "trp_vaegir_spearman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_vaegir_noble_helmet", "trp_vaegir_spearman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_vaegir_war_helmet", "trp_vaegir_spearman_multiplayer"),
-	  #      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nasal_helmet", "trp_vaegir_spearman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_gloves", "trp_vaegir_spearman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_mittens", "trp_vaegir_spearman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_scale_gauntlets", "trp_vaegir_spearman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_spear", "trp_vaegir_spearman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_war_spear", "trp_vaegir_spearman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_awlpike", "trp_vaegir_spearman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_a", "trp_vaegir_spearman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_b", "trp_vaegir_spearman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_c", "trp_vaegir_spearman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_d", "trp_vaegir_spearman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mace_1", "trp_vaegir_spearman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mace_2", "trp_vaegir_spearman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mace_3", "trp_vaegir_spearman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mace_4", "trp_vaegir_spearman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_long_hafted_spiked_mace", "trp_vaegir_spearman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_long_spiked_club", "trp_vaegir_spearman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_scimitar", "trp_vaegir_spearman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_scimitar_b", "trp_vaegir_spearman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_bardiche", "trp_vaegir_spearman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_great_bardiche", "trp_vaegir_spearman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_long_bardiche", "trp_vaegir_spearman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_great_long_bardiche", "trp_vaegir_spearman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_javelin", "trp_vaegir_spearman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_linen_tunic", "trp_vaegir_spearman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_jerkin", "trp_vaegir_spearman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_vest", "trp_vaegir_spearman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_lamellar_vest", "trp_vaegir_spearman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_lamellar_armor", "trp_vaegir_spearman_multiplayer"),
+	  # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_vaegir_elite_armor", "trp_vaegir_spearman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_hide_boots", "trp_vaegir_spearman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nomad_boots", "trp_vaegir_spearman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_splinted_leather_greaves", "trp_vaegir_spearman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_splinted_greaves", "trp_vaegir_spearman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_vaegir_fur_cap", "trp_vaegir_spearman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_vaegir_fur_helmet", "trp_vaegir_spearman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_vaegir_spiked_helmet", "trp_vaegir_spearman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_vaegir_lamellar_helmet", "trp_vaegir_spearman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_vaegir_noble_helmet", "trp_vaegir_spearman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_vaegir_war_helmet", "trp_vaegir_spearman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_gloves", "trp_vaegir_spearman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_mittens", "trp_vaegir_spearman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_scale_gauntlets", "trp_vaegir_spearman_multiplayer"),
 
       #2c-Vaegir Horseman
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_darts", "trp_vaegir_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_war_darts", "trp_vaegir_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_bardiche", "trp_vaegir_horseman_multiplayer"),
-#      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_great_bardiche", "trp_vaegir_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_scimitar", "trp_vaegir_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_scimitar_b", "trp_vaegir_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_lance", "trp_vaegir_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_heavy_lance", "trp_vaegir_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_cav_a", "trp_vaegir_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_cav_b", "trp_vaegir_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_c", "trp_vaegir_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_d", "trp_vaegir_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_linen_tunic", "trp_vaegir_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_vest", "trp_vaegir_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_lamellar_vest", "trp_vaegir_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_studded_leather_coat", "trp_vaegir_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_lamellar_armor", "trp_vaegir_horseman_multiplayer"),
-	  (call_script, "script_multiplayer_set_item_available_for_troop", "itm_vaegir_elite_armor", "trp_vaegir_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_hide_boots", "trp_vaegir_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nomad_boots", "trp_vaegir_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_splinted_leather_greaves", "trp_vaegir_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_splinted_greaves", "trp_vaegir_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_plate_boots", "trp_vaegir_horseman_multiplayer"),
-#      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_spiked_helmet", "trp_vaegir_horseman_multiplayer"),
-#      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nasal_helmet", "trp_vaegir_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_vaegir_fur_cap", "trp_vaegir_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_vaegir_fur_helmet", "trp_vaegir_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_vaegir_spiked_helmet", "trp_vaegir_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_vaegir_lamellar_helmet", "trp_vaegir_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_vaegir_noble_helmet", "trp_vaegir_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_vaegir_war_helmet", "trp_vaegir_horseman_multiplayer"),
-	  (call_script, "script_multiplayer_set_item_available_for_troop", "itm_vaegir_mask", "trp_vaegir_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_gloves", "trp_vaegir_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_mittens", "trp_vaegir_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_scale_gauntlets", "trp_vaegir_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_saddle_horse", "trp_vaegir_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_courser", "trp_vaegir_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_hunter", "trp_vaegir_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_warhorse_steppe", "trp_vaegir_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_darts", "trp_vaegir_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_war_darts", "trp_vaegir_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_bardiche", "trp_vaegir_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_scimitar", "trp_vaegir_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_scimitar_b", "trp_vaegir_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_lance", "trp_vaegir_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_heavy_lance", "trp_vaegir_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_cav_a", "trp_vaegir_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_cav_b", "trp_vaegir_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_c", "trp_vaegir_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_d", "trp_vaegir_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_linen_tunic", "trp_vaegir_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_vest", "trp_vaegir_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_lamellar_vest", "trp_vaegir_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_studded_leather_coat", "trp_vaegir_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_lamellar_armor", "trp_vaegir_horseman_multiplayer"),
+	  # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_vaegir_elite_armor", "trp_vaegir_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_hide_boots", "trp_vaegir_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nomad_boots", "trp_vaegir_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_splinted_leather_greaves", "trp_vaegir_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_splinted_greaves", "trp_vaegir_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_plate_boots", "trp_vaegir_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_vaegir_fur_cap", "trp_vaegir_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_vaegir_fur_helmet", "trp_vaegir_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_vaegir_spiked_helmet", "trp_vaegir_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_vaegir_lamellar_helmet", "trp_vaegir_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_vaegir_noble_helmet", "trp_vaegir_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_vaegir_war_helmet", "trp_vaegir_horseman_multiplayer"),
+	  # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_vaegir_mask", "trp_vaegir_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_gloves", "trp_vaegir_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_mittens", "trp_vaegir_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_scale_gauntlets", "trp_vaegir_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_saddle_horse", "trp_vaegir_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_courser", "trp_vaegir_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_hunter", "trp_vaegir_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_warhorse_steppe", "trp_vaegir_horseman_multiplayer"),
 
       #3-Khergit Warriors
       #3a-Khergit Veteran Horse Archer
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_khergit_1", "trp_khergit_veteran_horse_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_khergit_2", "trp_khergit_veteran_horse_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_khergit_3", "trp_khergit_veteran_horse_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_khergit_4", "trp_khergit_veteran_horse_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nomad_bow", "trp_khergit_veteran_horse_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_khergit_bow", "trp_khergit_veteran_horse_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_strong_bow", "trp_khergit_veteran_horse_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_arrows", "trp_khergit_veteran_horse_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_khergit_arrows", "trp_khergit_veteran_horse_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_steppe_cap_a", "trp_khergit_veteran_horse_archer_multiplayer"),
-	  (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nomad_cap_b", "trp_khergit_veteran_horse_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_steppe_cap_b", "trp_khergit_veteran_horse_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_steppe_cap", "trp_khergit_veteran_horse_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_khergit_armor", "trp_khergit_veteran_horse_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_steppe_armor", "trp_khergit_veteran_horse_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tribal_warrior_outfit", "trp_khergit_veteran_horse_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_lamellar_vest_khergit", "trp_khergit_veteran_horse_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_hide_boots", "trp_khergit_veteran_horse_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nomad_boots", "trp_khergit_veteran_horse_archer_multiplayer"),
-	  (call_script, "script_multiplayer_set_item_available_for_troop", "itm_khergit_leather_boots", "trp_khergit_veteran_horse_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_splinted_leather_greaves", "trp_khergit_veteran_horse_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_splinted_greaves", "trp_khergit_veteran_horse_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_steppe_horse", "trp_khergit_veteran_horse_archer_multiplayer"),
-	  (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_gloves", "trp_khergit_veteran_horse_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_khergit_1", "trp_khergit_veteran_horse_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_khergit_2", "trp_khergit_veteran_horse_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_khergit_3", "trp_khergit_veteran_horse_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_khergit_4", "trp_khergit_veteran_horse_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nomad_bow", "trp_khergit_veteran_horse_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_khergit_bow", "trp_khergit_veteran_horse_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_strong_bow", "trp_khergit_veteran_horse_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_arrows", "trp_khergit_veteran_horse_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_khergit_arrows", "trp_khergit_veteran_horse_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_steppe_cap_a", "trp_khergit_veteran_horse_archer_multiplayer"),
+	  # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nomad_cap_b", "trp_khergit_veteran_horse_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_steppe_cap_b", "trp_khergit_veteran_horse_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_steppe_cap", "trp_khergit_veteran_horse_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_khergit_armor", "trp_khergit_veteran_horse_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_steppe_armor", "trp_khergit_veteran_horse_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tribal_warrior_outfit", "trp_khergit_veteran_horse_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_lamellar_vest_khergit", "trp_khergit_veteran_horse_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_hide_boots", "trp_khergit_veteran_horse_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nomad_boots", "trp_khergit_veteran_horse_archer_multiplayer"),
+	  # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_khergit_leather_boots", "trp_khergit_veteran_horse_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_splinted_leather_greaves", "trp_khergit_veteran_horse_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_splinted_greaves", "trp_khergit_veteran_horse_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_steppe_horse", "trp_khergit_veteran_horse_archer_multiplayer"),
+	  # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_gloves", "trp_khergit_veteran_horse_archer_multiplayer"),
       #3a-Khergit Dismounted Lancer
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_javelin", "trp_khergit_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_jarid", "trp_khergit_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_khergit_1", "trp_khergit_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_khergit_2", "trp_khergit_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_khergit_3", "trp_khergit_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_khergit_4", "trp_khergit_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_small_round_a", "trp_khergit_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_small_round_b", "trp_khergit_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_small_round_c", "trp_khergit_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_round_b", "trp_khergit_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_round_c", "trp_khergit_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_spear", "trp_khergit_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_hafted_blade_a", "trp_khergit_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_hafted_blade_b", "trp_khergit_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mace_1", "trp_khergit_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mace_2", "trp_khergit_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mace_3", "trp_khergit_infantry_multiplayer"),
-	  (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nomad_cap_b", "trp_khergit_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_steppe_cap_b", "trp_khergit_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_steppe_cap", "trp_khergit_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_khergit_war_helmet", "trp_khergit_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_khergit_guard_helmet", "trp_khergit_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_steppe_armor", "trp_khergit_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tribal_warrior_outfit", "trp_khergit_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_lamellar_armor", "trp_khergit_infantry_multiplayer"),
-	  (call_script, "script_multiplayer_set_item_available_for_troop", "itm_khergit_elite_armor", "trp_khergit_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_hide_boots", "trp_khergit_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nomad_boots", "trp_khergit_infantry_multiplayer"),
-	  (call_script, "script_multiplayer_set_item_available_for_troop", "itm_khergit_leather_boots", "trp_khergit_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_splinted_leather_greaves", "trp_khergit_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_splinted_greaves", "trp_khergit_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_gloves", "trp_khergit_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_mittens", "trp_khergit_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_scale_gauntlets", "trp_khergit_infantry_multiplayer"),
-	  (call_script, "script_multiplayer_set_item_available_for_troop", "itm_lamellar_gauntlets", "trp_khergit_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_javelin", "trp_khergit_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_jarid", "trp_khergit_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_khergit_1", "trp_khergit_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_khergit_2", "trp_khergit_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_khergit_3", "trp_khergit_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_khergit_4", "trp_khergit_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_small_round_a", "trp_khergit_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_small_round_b", "trp_khergit_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_small_round_c", "trp_khergit_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_round_b", "trp_khergit_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_round_c", "trp_khergit_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_spear", "trp_khergit_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_hafted_blade_a", "trp_khergit_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_hafted_blade_b", "trp_khergit_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mace_1", "trp_khergit_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mace_2", "trp_khergit_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mace_3", "trp_khergit_infantry_multiplayer"),
+	  # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nomad_cap_b", "trp_khergit_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_steppe_cap_b", "trp_khergit_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_steppe_cap", "trp_khergit_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_khergit_war_helmet", "trp_khergit_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_khergit_guard_helmet", "trp_khergit_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_steppe_armor", "trp_khergit_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tribal_warrior_outfit", "trp_khergit_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_lamellar_armor", "trp_khergit_infantry_multiplayer"),
+	  # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_khergit_elite_armor", "trp_khergit_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_hide_boots", "trp_khergit_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nomad_boots", "trp_khergit_infantry_multiplayer"),
+	  # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_khergit_leather_boots", "trp_khergit_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_splinted_leather_greaves", "trp_khergit_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_splinted_greaves", "trp_khergit_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_gloves", "trp_khergit_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_mittens", "trp_khergit_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_scale_gauntlets", "trp_khergit_infantry_multiplayer"),
+	  # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_lamellar_gauntlets", "trp_khergit_infantry_multiplayer"),
       #3a-Khergit Lancer
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_javelin", "trp_khergit_lancer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_khergit_1", "trp_khergit_lancer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_khergit_2", "trp_khergit_lancer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_khergit_3", "trp_khergit_lancer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_khergit_4", "trp_khergit_lancer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_small_round_a", "trp_khergit_lancer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_small_round_b", "trp_khergit_lancer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_small_round_c", "trp_khergit_lancer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_lance", "trp_khergit_lancer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_heavy_lance", "trp_khergit_lancer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_hafted_blade_a", "trp_khergit_lancer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_hafted_blade_b", "trp_khergit_lancer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_one_handed_war_axe_a", "trp_khergit_lancer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_steppe_cap_a", "trp_khergit_lancer_multiplayer"),
-	  (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nomad_cap_b", "trp_khergit_lancer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_steppe_cap_b", "trp_khergit_lancer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_steppe_cap", "trp_khergit_lancer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_khergit_war_helmet", "trp_khergit_lancer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_khergit_armor", "trp_khergit_lancer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_steppe_armor", "trp_khergit_lancer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tribal_warrior_outfit", "trp_khergit_lancer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_lamellar_armor", "trp_khergit_lancer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_hide_boots", "trp_khergit_lancer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nomad_boots", "trp_khergit_lancer_multiplayer"),
-	  (call_script, "script_multiplayer_set_item_available_for_troop", "itm_khergit_leather_boots", "trp_khergit_lancer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_splinted_leather_greaves", "trp_khergit_lancer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_splinted_greaves", "trp_khergit_lancer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_gloves", "trp_khergit_lancer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_mittens", "trp_khergit_lancer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_scale_gauntlets", "trp_khergit_lancer_multiplayer"),
-	  (call_script, "script_multiplayer_set_item_available_for_troop", "itm_lamellar_gauntlets", "trp_khergit_lancer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_steppe_horse", "trp_khergit_lancer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_courser", "trp_khergit_lancer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_hunter", "trp_khergit_lancer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_warhorse_steppe", "trp_khergit_lancer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_javelin", "trp_khergit_lancer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_khergit_1", "trp_khergit_lancer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_khergit_2", "trp_khergit_lancer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_khergit_3", "trp_khergit_lancer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_khergit_4", "trp_khergit_lancer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_small_round_a", "trp_khergit_lancer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_small_round_b", "trp_khergit_lancer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_small_round_c", "trp_khergit_lancer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_lance", "trp_khergit_lancer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_heavy_lance", "trp_khergit_lancer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_hafted_blade_a", "trp_khergit_lancer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_hafted_blade_b", "trp_khergit_lancer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_one_handed_war_axe_a", "trp_khergit_lancer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_steppe_cap_a", "trp_khergit_lancer_multiplayer"),
+	  # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nomad_cap_b", "trp_khergit_lancer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_steppe_cap_b", "trp_khergit_lancer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_steppe_cap", "trp_khergit_lancer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_khergit_war_helmet", "trp_khergit_lancer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_khergit_armor", "trp_khergit_lancer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_steppe_armor", "trp_khergit_lancer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tribal_warrior_outfit", "trp_khergit_lancer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_lamellar_armor", "trp_khergit_lancer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_hide_boots", "trp_khergit_lancer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nomad_boots", "trp_khergit_lancer_multiplayer"),
+	  # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_khergit_leather_boots", "trp_khergit_lancer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_splinted_leather_greaves", "trp_khergit_lancer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_splinted_greaves", "trp_khergit_lancer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_gloves", "trp_khergit_lancer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_mittens", "trp_khergit_lancer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_scale_gauntlets", "trp_khergit_lancer_multiplayer"),
+	  # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_lamellar_gauntlets", "trp_khergit_lancer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_steppe_horse", "trp_khergit_lancer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_courser", "trp_khergit_lancer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_hunter", "trp_khergit_lancer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_warhorse_steppe", "trp_khergit_lancer_multiplayer"),
 
       #Nord Warriors
 
       #4c-Nord Archer
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_arrows", "trp_nord_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_barbed_arrows", "trp_nord_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_bodkin_arrows", "trp_nord_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_viking_1", "trp_nord_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_viking_2", "trp_nord_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_viking_2_small", "trp_nord_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_viking_3", "trp_nord_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_viking_3_small", "trp_nord_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_one_handed_war_axe_a", "trp_nord_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_one_handed_war_axe_b", "trp_nord_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_two_handed_axe", "trp_nord_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_short_bow", "trp_nord_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_long_bow", "trp_nord_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_blue_tunic", "trp_nord_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_jerkin", "trp_nord_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_byrnie", "trp_nord_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_boots", "trp_nord_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_splinted_leather_greaves", "trp_nord_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_chausses", "trp_nord_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_boots", "trp_nord_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nordic_archer_helmet", "trp_nord_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nordic_veteran_archer_helmet", "trp_nord_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nordic_footman_helmet", "trp_nord_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nordic_fighter_helmet", "trp_nord_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_arrows", "trp_nord_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_barbed_arrows", "trp_nord_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_bodkin_arrows", "trp_nord_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_viking_1", "trp_nord_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_viking_2", "trp_nord_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_viking_2_small", "trp_nord_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_viking_3", "trp_nord_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_viking_3_small", "trp_nord_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_one_handed_war_axe_a", "trp_nord_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_one_handed_war_axe_b", "trp_nord_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_two_handed_axe", "trp_nord_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_short_bow", "trp_nord_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_long_bow", "trp_nord_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_blue_tunic", "trp_nord_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_jerkin", "trp_nord_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_byrnie", "trp_nord_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_boots", "trp_nord_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_splinted_leather_greaves", "trp_nord_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_chausses", "trp_nord_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_boots", "trp_nord_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nordic_archer_helmet", "trp_nord_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nordic_veteran_archer_helmet", "trp_nord_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nordic_footman_helmet", "trp_nord_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nordic_fighter_helmet", "trp_nord_archer_multiplayer"),
 
       #4a-Nord Veteran
-#      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_darts", "trp_nord_veteran_multiplayer"),
-#      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_war_darts", "trp_nord_veteran_multiplayer"),
-#      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_javelin", "trp_nord_veteran_multiplayer"),
-#      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_throwing_spears", "trp_nord_veteran_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_viking_1", "trp_nord_veteran_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_viking_2", "trp_nord_veteran_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_viking_2_small", "trp_nord_veteran_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_viking_3", "trp_nord_veteran_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_viking_3_small", "trp_nord_veteran_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_one_handed_war_axe_a", "trp_nord_veteran_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_one_handed_war_axe_b", "trp_nord_veteran_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_one_handed_battle_axe_a", "trp_nord_veteran_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_one_handed_battle_axe_b", "trp_nord_veteran_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_one_handed_battle_axe_c", "trp_nord_veteran_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_two_handed_axe", "trp_nord_veteran_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_two_handed_battle_axe_2", "trp_nord_veteran_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_great_axe", "trp_nord_veteran_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_long_axe", "trp_nord_veteran_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_long_axe_b", "trp_nord_veteran_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_long_axe_c", "trp_nord_veteran_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_spear", "trp_nord_veteran_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_war_spear", "trp_nord_veteran_multiplayer"),
 
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_round_a", "trp_nord_veteran_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_round_b", "trp_nord_veteran_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_round_c", "trp_nord_veteran_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_round_d", "trp_nord_veteran_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_round_e", "trp_nord_veteran_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_light_throwing_axes", "trp_nord_veteran_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_throwing_axes", "trp_nord_veteran_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_heavy_throwing_axes", "trp_nord_veteran_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nordic_veteran_archer_helmet", "trp_nord_veteran_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nordic_footman_helmet", "trp_nord_veteran_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nordic_fighter_helmet", "trp_nord_veteran_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nordic_huscarl_helmet", "trp_nord_veteran_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nordic_warlord_helmet", "trp_nord_veteran_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_viking_1", "trp_nord_veteran_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_viking_2", "trp_nord_veteran_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_viking_2_small", "trp_nord_veteran_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_viking_3", "trp_nord_veteran_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_viking_3_small", "trp_nord_veteran_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_one_handed_war_axe_a", "trp_nord_veteran_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_one_handed_war_axe_b", "trp_nord_veteran_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_one_handed_battle_axe_a", "trp_nord_veteran_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_one_handed_battle_axe_b", "trp_nord_veteran_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_one_handed_battle_axe_c", "trp_nord_veteran_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_two_handed_axe", "trp_nord_veteran_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_two_handed_battle_axe_2", "trp_nord_veteran_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_great_axe", "trp_nord_veteran_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_long_axe", "trp_nord_veteran_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_long_axe_b", "trp_nord_veteran_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_long_axe_c", "trp_nord_veteran_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_spear", "trp_nord_veteran_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_war_spear", "trp_nord_veteran_multiplayer"),
 
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_blue_tunic", "trp_nord_veteran_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_jerkin", "trp_nord_veteran_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_shirt", "trp_nord_veteran_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_hauberk", "trp_nord_veteran_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_banded_armor", "trp_nord_veteran_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_boots", "trp_nord_veteran_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_splinted_leather_greaves", "trp_nord_veteran_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_chausses", "trp_nord_veteran_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_boots", "trp_nord_veteran_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_gloves", "trp_nord_veteran_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_mittens", "trp_nord_veteran_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_scale_gauntlets", "trp_nord_veteran_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_round_a", "trp_nord_veteran_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_round_b", "trp_nord_veteran_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_round_c", "trp_nord_veteran_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_round_d", "trp_nord_veteran_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_round_e", "trp_nord_veteran_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_light_throwing_axes", "trp_nord_veteran_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_throwing_axes", "trp_nord_veteran_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_heavy_throwing_axes", "trp_nord_veteran_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nordic_veteran_archer_helmet", "trp_nord_veteran_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nordic_footman_helmet", "trp_nord_veteran_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nordic_fighter_helmet", "trp_nord_veteran_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nordic_huscarl_helmet", "trp_nord_veteran_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nordic_warlord_helmet", "trp_nord_veteran_multiplayer"),
+
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_blue_tunic", "trp_nord_veteran_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_jerkin", "trp_nord_veteran_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_shirt", "trp_nord_veteran_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_hauberk", "trp_nord_veteran_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_banded_armor", "trp_nord_veteran_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_boots", "trp_nord_veteran_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_splinted_leather_greaves", "trp_nord_veteran_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_chausses", "trp_nord_veteran_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_boots", "trp_nord_veteran_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_gloves", "trp_nord_veteran_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_mittens", "trp_nord_veteran_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_scale_gauntlets", "trp_nord_veteran_multiplayer"),
 
       #4b-Nord Scout
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_darts", "trp_nord_scout_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_war_darts", "trp_nord_scout_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_javelin", "trp_nord_scout_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_throwing_spears", "trp_nord_scout_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_light_throwing_axes", "trp_nord_scout_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_throwing_axes", "trp_nord_scout_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_viking_1", "trp_nord_scout_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_viking_2", "trp_nord_scout_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_viking_3", "trp_nord_scout_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_two_handed_axe", "trp_nord_scout_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_two_handed_battle_axe_2", "trp_nord_scout_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_shortened_voulge", "trp_nord_scout_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_darts", "trp_nord_scout_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_war_darts", "trp_nord_scout_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_javelin", "trp_nord_scout_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_throwing_spears", "trp_nord_scout_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_light_throwing_axes", "trp_nord_scout_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_throwing_axes", "trp_nord_scout_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_viking_1", "trp_nord_scout_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_viking_2", "trp_nord_scout_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_viking_3", "trp_nord_scout_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_two_handed_axe", "trp_nord_scout_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_two_handed_battle_axe_2", "trp_nord_scout_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_shortened_voulge", "trp_nord_scout_multiplayer"),
 
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_spear", "trp_nord_scout_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_war_spear", "trp_nord_scout_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_light_lance", "trp_nord_scout_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_lance", "trp_nord_scout_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_small_round_a", "trp_nord_scout_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_small_round_b", "trp_nord_scout_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_small_round_c", "trp_nord_scout_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nordic_archer_helmet", "trp_nord_scout_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nordic_veteran_archer_helmet", "trp_nord_scout_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nordic_footman_helmet", "trp_nord_scout_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nordic_fighter_helmet", "trp_nord_scout_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nordic_huscarl_helmet", "trp_nord_scout_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_spear", "trp_nord_scout_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_war_spear", "trp_nord_scout_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_light_lance", "trp_nord_scout_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_lance", "trp_nord_scout_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_small_round_a", "trp_nord_scout_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_small_round_b", "trp_nord_scout_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_small_round_c", "trp_nord_scout_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nordic_archer_helmet", "trp_nord_scout_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nordic_veteran_archer_helmet", "trp_nord_scout_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nordic_footman_helmet", "trp_nord_scout_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nordic_fighter_helmet", "trp_nord_scout_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nordic_huscarl_helmet", "trp_nord_scout_multiplayer"),
 
 
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_blue_tunic", "trp_nord_scout_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_jerkin", "trp_nord_scout_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_shirt", "trp_nord_scout_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_hauberk", "trp_nord_scout_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_boots", "trp_nord_scout_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_splinted_leather_greaves", "trp_nord_scout_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_chausses", "trp_nord_scout_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_boots", "trp_nord_scout_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_gloves", "trp_nord_scout_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_mittens", "trp_nord_scout_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_scale_gauntlets", "trp_nord_scout_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_saddle_horse", "trp_nord_scout_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_courser", "trp_nord_scout_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_hunter", "trp_nord_scout_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_blue_tunic", "trp_nord_scout_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_jerkin", "trp_nord_scout_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_shirt", "trp_nord_scout_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_hauberk", "trp_nord_scout_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_boots", "trp_nord_scout_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_splinted_leather_greaves", "trp_nord_scout_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_chausses", "trp_nord_scout_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_boots", "trp_nord_scout_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_gloves", "trp_nord_scout_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_mittens", "trp_nord_scout_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_scale_gauntlets", "trp_nord_scout_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_saddle_horse", "trp_nord_scout_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_courser", "trp_nord_scout_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_hunter", "trp_nord_scout_multiplayer"),
 
 
       #5-Rhodok Warriors
       #5a-Rhodok Veteran Crossbowman
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_crossbow", "trp_rhodok_veteran_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_heavy_crossbow", "trp_rhodok_veteran_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sniper_crossbow", "trp_rhodok_veteran_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_bolts", "trp_rhodok_veteran_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_steel_bolts", "trp_rhodok_veteran_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_fighting_pick", "trp_rhodok_veteran_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_military_pick", "trp_rhodok_veteran_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_club_with_spike_head", "trp_rhodok_veteran_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_maul", "trp_rhodok_veteran_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sledgehammer", "trp_rhodok_veteran_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_medieval_a", "trp_rhodok_veteran_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_medieval_b", "trp_rhodok_veteran_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_medieval_b_small", "trp_rhodok_veteran_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_pavise_a", "trp_rhodok_veteran_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_pavise_b", "trp_rhodok_veteran_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_pavise_c", "trp_rhodok_veteran_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_pavise_d", "trp_rhodok_veteran_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_cap", "trp_rhodok_veteran_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_padded_coif", "trp_rhodok_veteran_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_footman_helmet", "trp_rhodok_veteran_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_kettle_hat", "trp_rhodok_veteran_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tunic_with_green_cape", "trp_rhodok_veteran_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_aketon_green", "trp_rhodok_veteran_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_armor", "trp_rhodok_veteran_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_ankle_boots", "trp_rhodok_veteran_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_boots", "trp_rhodok_veteran_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_splinted_greaves", "trp_rhodok_veteran_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_gloves", "trp_rhodok_veteran_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_crossbow", "trp_rhodok_veteran_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_heavy_crossbow", "trp_rhodok_veteran_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sniper_crossbow", "trp_rhodok_veteran_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_bolts", "trp_rhodok_veteran_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_steel_bolts", "trp_rhodok_veteran_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_fighting_pick", "trp_rhodok_veteran_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_military_pick", "trp_rhodok_veteran_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_club_with_spike_head", "trp_rhodok_veteran_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_maul", "trp_rhodok_veteran_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sledgehammer", "trp_rhodok_veteran_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_medieval_a", "trp_rhodok_veteran_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_medieval_b", "trp_rhodok_veteran_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_medieval_b_small", "trp_rhodok_veteran_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_pavise_a", "trp_rhodok_veteran_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_pavise_b", "trp_rhodok_veteran_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_pavise_c", "trp_rhodok_veteran_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_pavise_d", "trp_rhodok_veteran_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_cap", "trp_rhodok_veteran_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_padded_coif", "trp_rhodok_veteran_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_footman_helmet", "trp_rhodok_veteran_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_kettle_hat", "trp_rhodok_veteran_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tunic_with_green_cape", "trp_rhodok_veteran_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_aketon_green", "trp_rhodok_veteran_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_armor", "trp_rhodok_veteran_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_ankle_boots", "trp_rhodok_veteran_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_boots", "trp_rhodok_veteran_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_splinted_greaves", "trp_rhodok_veteran_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_gloves", "trp_rhodok_veteran_crossbowman_multiplayer"),
 
 	  #5b-Rhodok Sergeant
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_darts", "trp_rhodok_sergeant_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_war_darts", "trp_rhodok_sergeant_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_javelin", "trp_rhodok_sergeant_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_fighting_pick", "trp_rhodok_sergeant_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_military_pick", "trp_rhodok_sergeant_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_morningstar", "trp_rhodok_sergeant_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_club_with_spike_head", "trp_rhodok_sergeant_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_military_cleaver_b", "trp_rhodok_sergeant_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_military_cleaver_c", "trp_rhodok_sergeant_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_two_handed_cleaver", "trp_rhodok_sergeant_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_military_sickle_a", "trp_rhodok_sergeant_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_maul", "trp_rhodok_sergeant_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sledgehammer", "trp_rhodok_sergeant_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_warhammer", "trp_rhodok_sergeant_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_spear", "trp_rhodok_sergeant_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_pike", "trp_rhodok_sergeant_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_ashwood_pike", "trp_rhodok_sergeant_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_war_spear", "trp_rhodok_sergeant_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_glaive", "trp_rhodok_sergeant_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_pavise_a", "trp_rhodok_sergeant_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_pavise_b", "trp_rhodok_sergeant_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_pavise_c", "trp_rhodok_sergeant_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_pavise_d", "trp_rhodok_sergeant_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_cap", "trp_rhodok_sergeant_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_padded_coif", "trp_rhodok_sergeant_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_footman_helmet", "trp_rhodok_sergeant_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_kettle_hat", "trp_rhodok_sergeant_multiplayer"),
-	  (call_script, "script_multiplayer_set_item_available_for_troop", "itm_bascinet_2", "trp_rhodok_sergeant_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_full_helm", "trp_rhodok_sergeant_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_green_tunic", "trp_rhodok_sergeant_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_aketon_green", "trp_rhodok_sergeant_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_ragged_outfit", "trp_rhodok_sergeant_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_armor", "trp_rhodok_sergeant_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_surcoat_over_mail", "trp_rhodok_sergeant_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_ankle_boots", "trp_rhodok_sergeant_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_boots", "trp_rhodok_sergeant_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_splinted_greaves", "trp_rhodok_sergeant_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_iron_greaves", "trp_rhodok_sergeant_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_gloves", "trp_rhodok_sergeant_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_mittens", "trp_rhodok_sergeant_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_scale_gauntlets", "trp_rhodok_sergeant_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_gauntlets", "trp_rhodok_sergeant_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_darts", "trp_rhodok_sergeant_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_war_darts", "trp_rhodok_sergeant_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_javelin", "trp_rhodok_sergeant_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_fighting_pick", "trp_rhodok_sergeant_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_military_pick", "trp_rhodok_sergeant_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_morningstar", "trp_rhodok_sergeant_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_club_with_spike_head", "trp_rhodok_sergeant_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_military_cleaver_b", "trp_rhodok_sergeant_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_military_cleaver_c", "trp_rhodok_sergeant_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_two_handed_cleaver", "trp_rhodok_sergeant_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_military_sickle_a", "trp_rhodok_sergeant_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_maul", "trp_rhodok_sergeant_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sledgehammer", "trp_rhodok_sergeant_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_warhammer", "trp_rhodok_sergeant_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_spear", "trp_rhodok_sergeant_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_pike", "trp_rhodok_sergeant_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_ashwood_pike", "trp_rhodok_sergeant_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_war_spear", "trp_rhodok_sergeant_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_glaive", "trp_rhodok_sergeant_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_pavise_a", "trp_rhodok_sergeant_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_pavise_b", "trp_rhodok_sergeant_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_pavise_c", "trp_rhodok_sergeant_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_pavise_d", "trp_rhodok_sergeant_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_cap", "trp_rhodok_sergeant_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_padded_coif", "trp_rhodok_sergeant_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_footman_helmet", "trp_rhodok_sergeant_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_kettle_hat", "trp_rhodok_sergeant_multiplayer"),
+	  # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_bascinet_2", "trp_rhodok_sergeant_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_full_helm", "trp_rhodok_sergeant_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_green_tunic", "trp_rhodok_sergeant_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_aketon_green", "trp_rhodok_sergeant_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_ragged_outfit", "trp_rhodok_sergeant_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_armor", "trp_rhodok_sergeant_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_surcoat_over_mail", "trp_rhodok_sergeant_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_ankle_boots", "trp_rhodok_sergeant_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_boots", "trp_rhodok_sergeant_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_splinted_greaves", "trp_rhodok_sergeant_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_iron_greaves", "trp_rhodok_sergeant_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_gloves", "trp_rhodok_sergeant_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_mittens", "trp_rhodok_sergeant_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_scale_gauntlets", "trp_rhodok_sergeant_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_gauntlets", "trp_rhodok_sergeant_multiplayer"),
 
 	  #5c-Rhodok Horseman
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_darts", "trp_rhodok_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_war_darts", "trp_rhodok_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_javelin", "trp_rhodok_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_medieval_a", "trp_rhodok_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_medieval_b", "trp_rhodok_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_medieval_c", "trp_rhodok_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_fighting_pick", "trp_rhodok_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_military_pick", "trp_rhodok_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_morningstar", "trp_rhodok_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_military_cleaver_b", "trp_rhodok_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_military_cleaver_c", "trp_rhodok_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_two_handed_cleaver", "trp_rhodok_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_shortened_military_scythe", "trp_rhodok_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_light_lance", "trp_rhodok_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_lance", "trp_rhodok_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_heavy_lance", "trp_rhodok_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_heater_cav_a", "trp_rhodok_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_heater_cav_b", "trp_rhodok_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_padded_coif", "trp_rhodok_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_footman_helmet", "trp_rhodok_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_kettle_hat", "trp_rhodok_horseman_multiplayer"),
-	  (call_script, "script_multiplayer_set_item_available_for_troop", "itm_bascinet_3", "trp_rhodok_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_green_tunic", "trp_rhodok_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_aketon_green", "trp_rhodok_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_ragged_outfit", "trp_rhodok_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_armor", "trp_rhodok_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_surcoat_over_mail", "trp_rhodok_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_ankle_boots", "trp_rhodok_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_boots", "trp_rhodok_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_splinted_greaves", "trp_rhodok_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_plate_boots", "trp_rhodok_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_gloves", "trp_rhodok_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_mittens", "trp_rhodok_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_scale_gauntlets", "trp_rhodok_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_gauntlets", "trp_rhodok_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_saddle_horse", "trp_rhodok_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_courser", "trp_rhodok_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_hunter", "trp_rhodok_horseman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_warhorse", "trp_rhodok_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_darts", "trp_rhodok_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_war_darts", "trp_rhodok_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_javelin", "trp_rhodok_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_medieval_a", "trp_rhodok_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_medieval_b", "trp_rhodok_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_medieval_c", "trp_rhodok_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_fighting_pick", "trp_rhodok_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_military_pick", "trp_rhodok_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_morningstar", "trp_rhodok_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_military_cleaver_b", "trp_rhodok_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_military_cleaver_c", "trp_rhodok_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_two_handed_cleaver", "trp_rhodok_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_shortened_military_scythe", "trp_rhodok_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_light_lance", "trp_rhodok_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_lance", "trp_rhodok_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_heavy_lance", "trp_rhodok_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_heater_cav_a", "trp_rhodok_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_heater_cav_b", "trp_rhodok_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_padded_coif", "trp_rhodok_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_footman_helmet", "trp_rhodok_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_kettle_hat", "trp_rhodok_horseman_multiplayer"),
+	  # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_bascinet_3", "trp_rhodok_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_green_tunic", "trp_rhodok_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_aketon_green", "trp_rhodok_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_ragged_outfit", "trp_rhodok_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_armor", "trp_rhodok_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_surcoat_over_mail", "trp_rhodok_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_ankle_boots", "trp_rhodok_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_boots", "trp_rhodok_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_splinted_greaves", "trp_rhodok_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_plate_boots", "trp_rhodok_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_gloves", "trp_rhodok_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_mittens", "trp_rhodok_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_scale_gauntlets", "trp_rhodok_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_gauntlets", "trp_rhodok_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_saddle_horse", "trp_rhodok_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_courser", "trp_rhodok_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_hunter", "trp_rhodok_horseman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_warhorse", "trp_rhodok_horseman_multiplayer"),
 
 
 
       #6-Sarranid Warriors
       #5a-Sarranid archer
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_cloth_robe", "trp_sarranid_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_skirmisher_armor", "trp_sarranid_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_archers_vest", "trp_sarranid_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_arabian_armor_b", "trp_sarranid_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_felt_hat", "trp_sarranid_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_turban", "trp_sarranid_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_desert_turban", "trp_sarranid_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_mail_coif", "trp_sarranid_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_horseman_helmet", "trp_sarranid_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_warrior_cap", "trp_sarranid_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_boots_b", "trp_sarranid_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_boots_c", "trp_sarranid_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_cloth_robe", "trp_sarranid_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_skirmisher_armor", "trp_sarranid_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_archers_vest", "trp_sarranid_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_arabian_armor_b", "trp_sarranid_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_felt_hat", "trp_sarranid_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_turban", "trp_sarranid_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_desert_turban", "trp_sarranid_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_mail_coif", "trp_sarranid_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_horseman_helmet", "trp_sarranid_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_warrior_cap", "trp_sarranid_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_boots_b", "trp_sarranid_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_boots_c", "trp_sarranid_archer_multiplayer"),
 
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_short_bow", "trp_sarranid_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nomad_bow", "trp_sarranid_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_arrows", "trp_sarranid_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_barbed_arrows", "trp_sarranid_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_scimitar", "trp_sarranid_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mace_1", "trp_sarranid_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_arabian_sword_a", "trp_sarranid_archer_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_arabian_sword_b", "trp_sarranid_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_short_bow", "trp_sarranid_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nomad_bow", "trp_sarranid_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_arrows", "trp_sarranid_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_barbed_arrows", "trp_sarranid_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_scimitar", "trp_sarranid_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mace_1", "trp_sarranid_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_arabian_sword_a", "trp_sarranid_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_arabian_sword_b", "trp_sarranid_archer_multiplayer"),
 
-	  (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_gloves", "trp_sarranid_archer_multiplayer"),
+	  # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_gloves", "trp_sarranid_archer_multiplayer"),
 
 
 
 	  #Sarranid footman
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_cloth_robe", "trp_sarranid_footman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_skirmisher_armor", "trp_sarranid_footman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_archers_vest", "trp_sarranid_footman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_leather_armor", "trp_sarranid_footman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_arabian_armor_b", "trp_sarranid_footman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_cloth_robe", "trp_sarranid_footman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_skirmisher_armor", "trp_sarranid_footman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_archers_vest", "trp_sarranid_footman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_leather_armor", "trp_sarranid_footman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_arabian_armor_b", "trp_sarranid_footman_multiplayer"),
 
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_elite_armor", "trp_sarranid_footman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_felt_hat", "trp_sarranid_footman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_turban", "trp_sarranid_footman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_desert_turban", "trp_sarranid_footman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_mail_coif", "trp_sarranid_footman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_warrior_cap", "trp_sarranid_footman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_veiled_helmet", "trp_sarranid_footman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_boots_b", "trp_sarranid_footman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_boots_c", "trp_sarranid_footman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_boots_d", "trp_sarranid_footman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_elite_armor", "trp_sarranid_footman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_felt_hat", "trp_sarranid_footman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_turban", "trp_sarranid_footman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_desert_turban", "trp_sarranid_footman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_mail_coif", "trp_sarranid_footman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_warrior_cap", "trp_sarranid_footman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_veiled_helmet", "trp_sarranid_footman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_boots_b", "trp_sarranid_footman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_boots_c", "trp_sarranid_footman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_boots_d", "trp_sarranid_footman_multiplayer"),
 
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_arabian_sword_a", "trp_sarranid_footman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_arabian_sword_b", "trp_sarranid_footman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_arabian_sword_d", "trp_sarranid_footman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_arabian_sword_a", "trp_sarranid_footman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_arabian_sword_b", "trp_sarranid_footman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_arabian_sword_d", "trp_sarranid_footman_multiplayer"),
 
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_mace_1", "trp_sarranid_footman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_axe_a", "trp_sarranid_footman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_axe_b", "trp_sarranid_footman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_two_handed_axe_a", "trp_sarranid_footman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_two_handed_axe_b", "trp_sarranid_footman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_two_handed_mace_1", "trp_sarranid_footman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_bamboo_spear", "trp_sarranid_footman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_mace_1", "trp_sarranid_footman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_axe_a", "trp_sarranid_footman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_axe_b", "trp_sarranid_footman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_two_handed_axe_a", "trp_sarranid_footman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_two_handed_axe_b", "trp_sarranid_footman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_two_handed_mace_1", "trp_sarranid_footman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_bamboo_spear", "trp_sarranid_footman_multiplayer"),
 
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_spear", "trp_sarranid_footman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_jarid", "trp_sarranid_footman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_javelin", "trp_sarranid_footman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_spear", "trp_sarranid_footman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_jarid", "trp_sarranid_footman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_javelin", "trp_sarranid_footman_multiplayer"),
 
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_a", "trp_sarranid_footman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_b", "trp_sarranid_footman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_c", "trp_sarranid_footman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_d", "trp_sarranid_footman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_a", "trp_sarranid_footman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_b", "trp_sarranid_footman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_c", "trp_sarranid_footman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_d", "trp_sarranid_footman_multiplayer"),
 
-	  (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_gloves", "trp_sarranid_footman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_mittens", "trp_sarranid_footman_multiplayer"),
-	  (call_script, "script_multiplayer_set_item_available_for_troop", "itm_scale_gauntlets", "trp_sarranid_footman_multiplayer"),
+	  # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_gloves", "trp_sarranid_footman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_mittens", "trp_sarranid_footman_multiplayer"),
+	  # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_scale_gauntlets", "trp_sarranid_footman_multiplayer"),
 
 
 
 
 	  #Sarranid mamluke
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_cloth_robe", "trp_sarranid_mamluke_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_skirmisher_armor", "trp_sarranid_mamluke_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_archers_vest", "trp_sarranid_mamluke_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_mail_shirt", "trp_sarranid_mamluke_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_cavalry_robe", "trp_sarranid_mamluke_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mamluke_mail", "trp_sarranid_mamluke_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_elite_armor", "trp_sarranid_mamluke_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_cloth_robe", "trp_sarranid_mamluke_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_skirmisher_armor", "trp_sarranid_mamluke_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_archers_vest", "trp_sarranid_mamluke_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_mail_shirt", "trp_sarranid_mamluke_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_cavalry_robe", "trp_sarranid_mamluke_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mamluke_mail", "trp_sarranid_mamluke_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_elite_armor", "trp_sarranid_mamluke_multiplayer"),
 
 
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_turban", "trp_sarranid_mamluke_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_desert_turban", "trp_sarranid_mamluke_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_horseman_helmet", "trp_sarranid_mamluke_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_mail_coif", "trp_sarranid_mamluke_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_veiled_helmet", "trp_sarranid_mamluke_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_boots_b", "trp_sarranid_mamluke_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_boots_c", "trp_sarranid_mamluke_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_boots_d", "trp_sarranid_mamluke_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_turban", "trp_sarranid_mamluke_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_desert_turban", "trp_sarranid_mamluke_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_horseman_helmet", "trp_sarranid_mamluke_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_mail_coif", "trp_sarranid_mamluke_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_veiled_helmet", "trp_sarranid_mamluke_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_boots_b", "trp_sarranid_mamluke_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_boots_c", "trp_sarranid_mamluke_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_boots_d", "trp_sarranid_mamluke_multiplayer"),
 
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_arabian_sword_a", "trp_sarranid_mamluke_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_arabian_sword_b", "trp_sarranid_mamluke_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_cavalry_sword", "trp_sarranid_mamluke_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_arabian_sword_d", "trp_sarranid_mamluke_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_mace_1", "trp_sarranid_mamluke_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_axe_a", "trp_sarranid_mamluke_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_axe_b", "trp_sarranid_mamluke_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_two_handed_axe_a", "trp_sarranid_mamluke_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_arabian_sword_a", "trp_sarranid_mamluke_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_arabian_sword_b", "trp_sarranid_mamluke_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_cavalry_sword", "trp_sarranid_mamluke_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_arabian_sword_d", "trp_sarranid_mamluke_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_mace_1", "trp_sarranid_mamluke_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_axe_a", "trp_sarranid_mamluke_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_axe_b", "trp_sarranid_mamluke_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sarranid_two_handed_axe_a", "trp_sarranid_mamluke_multiplayer"),
 
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_lance", "trp_sarranid_mamluke_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_heavy_lance", "trp_sarranid_mamluke_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_lance", "trp_sarranid_mamluke_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_heavy_lance", "trp_sarranid_mamluke_multiplayer"),
 
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_jarid", "trp_sarranid_mamluke_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_javelin", "trp_sarranid_mamluke_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_jarid", "trp_sarranid_mamluke_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_javelin", "trp_sarranid_mamluke_multiplayer"),
 
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_small_round_a", "trp_sarranid_mamluke_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_small_round_b", "trp_sarranid_mamluke_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_small_round_c", "trp_sarranid_mamluke_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_small_round_a", "trp_sarranid_mamluke_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_small_round_b", "trp_sarranid_mamluke_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_small_round_c", "trp_sarranid_mamluke_multiplayer"),
 
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_saddle_horse", "trp_sarranid_mamluke_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_arabian_horse_a", "trp_sarranid_mamluke_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_arabian_horse_b", "trp_sarranid_mamluke_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_warhorse_sarranid", "trp_sarranid_mamluke_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_saddle_horse", "trp_sarranid_mamluke_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_arabian_horse_a", "trp_sarranid_mamluke_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_arabian_horse_b", "trp_sarranid_mamluke_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_warhorse_sarranid", "trp_sarranid_mamluke_multiplayer"),
 
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_gloves", "trp_sarranid_mamluke_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_mittens", "trp_sarranid_mamluke_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_scale_gauntlets", "trp_sarranid_mamluke_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_gloves", "trp_sarranid_mamluke_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mail_mittens", "trp_sarranid_mamluke_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_scale_gauntlets", "trp_sarranid_mamluke_multiplayer"),
       #INVASION MODE START
       (scene_set_slot, "scn_multi_scene_11", slot_scene_ccoop_disallow_horses, 1),
       (scene_set_slot, "scn_multi_scene_12", slot_scene_ccoop_disallow_horses, 1),
@@ -4946,6 +5556,8 @@ scripts = [
     [
       (store_script_param_1, ":troop_id"),
       (store_script_param_2, ":unused"), #party id
+	  
+      (val_mul, ":unused", 1), ### DAC Seek: Stopping the compiler from complaining
 
       (assign,":wage", 0),
       (try_begin),
@@ -7030,7 +7642,7 @@ scripts = [
 		#(eq, ":cur_troop", "trp_kingdom_5_lord"),#<-- There was no reason for this to be in the loop, so moved it out.
 		#(troop_set_slot, ":cur_troop", slot_troop_age, 47),
 	  (try_end),
-	  (troop_set_slot, "trp_kingdom_5_lord", slot_troop_age, 47),#<-- Moved from above
+	  # (troop_set_slot, "trp_kingdom_5_lord", slot_troop_age, 47),#<-- Moved from above
 	  ##diplomacy end+
 
 	  #The first thing - family structure
@@ -7067,19 +7679,19 @@ scripts = [
 			(assign, ":ancestor_seed", 13),
 
 		(else_try),
-			(is_between, ":cur_troop", "trp_knight_4_1", "trp_knight_5_1"),
+			(is_between, ":cur_troop", "trp_knight_4_1", "trp_kingdom_1_pretender"),
 			(store_sub, ":npc_seed", ":cur_troop", "trp_knight_4_1"),
 			(assign, ":ancestor_seed", 19),
 
-		(else_try),
-			(is_between, ":cur_troop", "trp_knight_5_1", "trp_knight_6_1"),
-			(store_sub, ":npc_seed", ":cur_troop", "trp_knight_5_1"),
-			(assign, ":ancestor_seed", 25),
+		# (else_try),
+			# (is_between, ":cur_troop", "trp_knight_5_1", "trp_knight_6_1"),
+			# (store_sub, ":npc_seed", ":cur_troop", "trp_knight_5_1"),
+			# (assign, ":ancestor_seed", 25),
 
-		(else_try),
-			(is_between, ":cur_troop", "trp_knight_6_1", "trp_kingdom_1_pretender"),
-			(store_sub, ":npc_seed", ":cur_troop", "trp_knight_6_1"),
-			(assign, ":ancestor_seed", 31),
+		# (else_try),
+			# (is_between, ":cur_troop", "trp_knight_6_1", "trp_kingdom_1_pretender"),
+			# (store_sub, ":npc_seed", ":cur_troop", "trp_knight_6_1"),
+			# (assign, ":ancestor_seed", 31),
 
 		(try_end),
 
@@ -7328,7 +7940,7 @@ scripts = [
 		# (eq, ":cur_troop", "trp_kingdom_5_pretender"),
 		# (troop_set_slot, ":cur_troop", slot_troop_age, 45),
 	  (try_end),
-	  (troop_set_slot, "trp_kingdom_5_pretender", slot_troop_age, 45),
+	  # (troop_set_slot, "trp_kingdom_5_pretender", slot_troop_age, 45),
 	]),
 
 
@@ -7512,73 +8124,81 @@ scripts = [
         (faction_set_slot, ":faction_no",  slot_faction_tier_4_troop, ":troop"),
         (faction_get_slot, ":troop", ":culture",  slot_faction_tier_5_troop),
         (faction_set_slot, ":faction_no",  slot_faction_tier_5_troop, ":troop"),
+        (faction_get_slot, ":troop", ":culture",  slot_faction_tier_6_troop),
+        (faction_set_slot, ":faction_no",  slot_faction_tier_6_troop, ":troop"),		
 
-        (try_begin),
+       (try_begin),
           (faction_slot_eq, ":faction_no", slot_faction_culture, "fac_culture_1"),
-
+          
           (faction_set_slot, ":faction_no",  slot_faction_deserter_troop, "trp_swadian_deserter"),
-          (faction_set_slot, ":faction_no",  slot_faction_guard_troop, "trp_swadian_sergeant"),
+          (faction_set_slot, ":faction_no",  slot_faction_guard_troop, "trp_french_infantry"),
           (faction_set_slot, ":faction_no",  slot_faction_messenger_troop, "trp_swadian_messenger"),
           (faction_set_slot, ":faction_no",  slot_faction_prison_guard_troop, "trp_swadian_prison_guard"),
           (faction_set_slot, ":faction_no",  slot_faction_castle_guard_troop, "trp_swadian_castle_guard"),
           (faction_set_slot, ":faction_no",  slot_faction_reinforcements_a, "pt_kingdom_1_reinforcements_a"),
           (faction_set_slot, ":faction_no",  slot_faction_reinforcements_b, "pt_kingdom_1_reinforcements_b"),
           (faction_set_slot, ":faction_no",  slot_faction_reinforcements_c, "pt_kingdom_1_reinforcements_c"),
+          (faction_set_slot, ":faction_no",  slot_faction_reinforcements_d, "pt_kingdom_1_reinforcements_d"),
         (else_try),
           (faction_slot_eq, ":faction_no", slot_faction_culture, "fac_culture_2"),
-
+          
           (faction_set_slot, ":faction_no", slot_faction_deserter_troop, "trp_vaegir_deserter"),
-          (faction_set_slot, ":faction_no", slot_faction_guard_troop, "trp_vaegir_guard"),
+          (faction_set_slot, ":faction_no", slot_faction_guard_troop, "trp_english_infantry"),
           (faction_set_slot, ":faction_no", slot_faction_messenger_troop, "trp_vaegir_messenger"),
           (faction_set_slot, ":faction_no", slot_faction_prison_guard_troop, "trp_vaegir_prison_guard"),
           (faction_set_slot, ":faction_no", slot_faction_castle_guard_troop, "trp_vaegir_castle_guard"),
           (faction_set_slot, ":faction_no",  slot_faction_reinforcements_a, "pt_kingdom_2_reinforcements_a"),
           (faction_set_slot, ":faction_no",  slot_faction_reinforcements_b, "pt_kingdom_2_reinforcements_b"),
           (faction_set_slot, ":faction_no",  slot_faction_reinforcements_c, "pt_kingdom_2_reinforcements_c"),
+          (faction_set_slot, ":faction_no",  slot_faction_reinforcements_d, "pt_kingdom_2_reinforcements_d"),
+          
         (else_try),
           (faction_slot_eq, ":faction_no", slot_faction_culture, "fac_culture_3"),
-
-          (faction_set_slot, ":faction_no", slot_faction_deserter_troop, "trp_khergit_deserter"),
-          (faction_set_slot, ":faction_no", slot_faction_guard_troop, "trp_khergit_horseman"),
-          (faction_set_slot, ":faction_no", slot_faction_messenger_troop, "trp_khergit_messenger"),
-          (faction_set_slot, ":faction_no", slot_faction_prison_guard_troop, "trp_khergit_prison_guard"),
-          (faction_set_slot, ":faction_no", slot_faction_castle_guard_troop, "trp_khergit_castle_guard"),
+          
+          (faction_set_slot, ":faction_no", slot_faction_deserter_troop, "trp_bourg_deserter"),
+          (faction_set_slot, ":faction_no", slot_faction_guard_troop, "trp_burgundian_guard"),
+          (faction_set_slot, ":faction_no", slot_faction_messenger_troop, "trp_bourg_messenger"),
+          (faction_set_slot, ":faction_no", slot_faction_prison_guard_troop, "trp_bourg_prison_guard"),
+          (faction_set_slot, ":faction_no", slot_faction_castle_guard_troop, "trp_bourg_castle_guard"),
           (faction_set_slot, ":faction_no",  slot_faction_reinforcements_a, "pt_kingdom_3_reinforcements_a"),
           (faction_set_slot, ":faction_no",  slot_faction_reinforcements_b, "pt_kingdom_3_reinforcements_b"),
           (faction_set_slot, ":faction_no",  slot_faction_reinforcements_c, "pt_kingdom_3_reinforcements_c"),
+          (faction_set_slot, ":faction_no",  slot_faction_reinforcements_d, "pt_kingdom_3_reinforcements_d"),
+          
         (else_try),
           (faction_slot_eq, ":faction_no", slot_faction_culture, "fac_culture_4"),
-
-          (faction_set_slot, ":faction_no", slot_faction_deserter_troop, "trp_nord_deserter"),
-          (faction_set_slot, ":faction_no", slot_faction_guard_troop, "trp_nord_warrior"),
-          (faction_set_slot, ":faction_no", slot_faction_messenger_troop, "trp_nord_messenger"),
-          (faction_set_slot, ":faction_no", slot_faction_prison_guard_troop, "trp_nord_prison_guard"),
-          (faction_set_slot, ":faction_no", slot_faction_castle_guard_troop, "trp_nord_castle_guard"),
+          
+          (faction_set_slot, ":faction_no", slot_faction_deserter_troop, "trp_breton_deserter"),
+          (faction_set_slot, ":faction_no", slot_faction_guard_troop, "trp_breton_infantry"),
+          (faction_set_slot, ":faction_no", slot_faction_messenger_troop, "trp_breton_messenger"),
+          (faction_set_slot, ":faction_no", slot_faction_prison_guard_troop, "trp_breton_prison_guard"),
+          (faction_set_slot, ":faction_no", slot_faction_castle_guard_troop, "trp_breton_castle_guard"),
           (faction_set_slot, ":faction_no",  slot_faction_reinforcements_a, "pt_kingdom_4_reinforcements_a"),
           (faction_set_slot, ":faction_no",  slot_faction_reinforcements_b, "pt_kingdom_4_reinforcements_b"),
           (faction_set_slot, ":faction_no",  slot_faction_reinforcements_c, "pt_kingdom_4_reinforcements_c"),
-        (else_try),
-          (faction_slot_eq, ":faction_no", slot_faction_culture, "fac_culture_5"),
+          (faction_set_slot, ":faction_no",  slot_faction_reinforcements_d, "pt_kingdom_4_reinforcements_d"),
+        # (else_try),
+          # (faction_slot_eq, ":faction_no", slot_faction_culture, "fac_culture_5"),
 
-          (faction_set_slot, ":faction_no", slot_faction_deserter_troop, "trp_rhodok_deserter"),
-          (faction_set_slot, ":faction_no", slot_faction_guard_troop, "trp_rhodok_veteran_spearman"),
-          (faction_set_slot, ":faction_no", slot_faction_messenger_troop, "trp_rhodok_messenger"),
-          (faction_set_slot, ":faction_no", slot_faction_prison_guard_troop, "trp_rhodok_prison_guard"),
-          (faction_set_slot, ":faction_no", slot_faction_castle_guard_troop, "trp_rhodok_castle_guard"),
-          (faction_set_slot, ":faction_no",  slot_faction_reinforcements_a, "pt_kingdom_5_reinforcements_a"),
-          (faction_set_slot, ":faction_no",  slot_faction_reinforcements_b, "pt_kingdom_5_reinforcements_b"),
-          (faction_set_slot, ":faction_no",  slot_faction_reinforcements_c, "pt_kingdom_5_reinforcements_c"),
-        (else_try),
-          (faction_slot_eq, ":faction_no", slot_faction_culture, "fac_culture_6"),
+          # (faction_set_slot, ":faction_no", slot_faction_deserter_troop, "trp_rhodok_deserter"),
+          # (faction_set_slot, ":faction_no", slot_faction_guard_troop, "trp_rhodok_veteran_spearman"),
+          # (faction_set_slot, ":faction_no", slot_faction_messenger_troop, "trp_rhodok_messenger"),
+          # (faction_set_slot, ":faction_no", slot_faction_prison_guard_troop, "trp_rhodok_prison_guard"),
+          # (faction_set_slot, ":faction_no", slot_faction_castle_guard_troop, "trp_rhodok_castle_guard"),
+          # (faction_set_slot, ":faction_no",  slot_faction_reinforcements_a, "pt_kingdom_5_reinforcements_a"),
+          # (faction_set_slot, ":faction_no",  slot_faction_reinforcements_b, "pt_kingdom_5_reinforcements_b"),
+          # (faction_set_slot, ":faction_no",  slot_faction_reinforcements_c, "pt_kingdom_5_reinforcements_c"),
+        # (else_try),
+          # (faction_slot_eq, ":faction_no", slot_faction_culture, "fac_culture_6"),
 
-          (faction_set_slot, ":faction_no", slot_faction_deserter_troop, "trp_sarranid_deserter"),
-          (faction_set_slot, ":faction_no", slot_faction_guard_troop, "trp_sarranid_guard"), #SB : fix this
-          (faction_set_slot, ":faction_no", slot_faction_messenger_troop, "trp_sarranid_messenger"),
-          (faction_set_slot, ":faction_no", slot_faction_prison_guard_troop, "trp_sarranid_prison_guard"),
-          (faction_set_slot, ":faction_no", slot_faction_castle_guard_troop, "trp_sarranid_castle_guard"),
-          (faction_set_slot, ":faction_no",  slot_faction_reinforcements_a, "pt_kingdom_6_reinforcements_a"),
-          (faction_set_slot, ":faction_no",  slot_faction_reinforcements_b, "pt_kingdom_6_reinforcements_b"),
-          (faction_set_slot, ":faction_no",  slot_faction_reinforcements_c, "pt_kingdom_6_reinforcements_c"),
+          # (faction_set_slot, ":faction_no", slot_faction_deserter_troop, "trp_sarranid_deserter"),
+          # (faction_set_slot, ":faction_no", slot_faction_guard_troop, "trp_sarranid_guard"), #SB : fix this
+          # (faction_set_slot, ":faction_no", slot_faction_messenger_troop, "trp_sarranid_messenger"),
+          # (faction_set_slot, ":faction_no", slot_faction_prison_guard_troop, "trp_sarranid_prison_guard"),
+          # (faction_set_slot, ":faction_no", slot_faction_castle_guard_troop, "trp_sarranid_castle_guard"),
+          # (faction_set_slot, ":faction_no",  slot_faction_reinforcements_a, "pt_kingdom_6_reinforcements_a"),
+          # (faction_set_slot, ":faction_no",  slot_faction_reinforcements_b, "pt_kingdom_6_reinforcements_b"),
+          # (faction_set_slot, ":faction_no",  slot_faction_reinforcements_c, "pt_kingdom_6_reinforcements_c"),
         (try_end),
       (try_end),
 	]),
@@ -9021,12 +9641,12 @@ scripts = [
          (else_try),
            (eq, ":team_faction_no", "fac_kingdom_4"),
            (assign, "$team_1_flag_scene_prop", "spr_ctf_flag_kingdom_4"),
-         (else_try),
-           (eq, ":team_faction_no", "fac_kingdom_5"),
-           (assign, "$team_1_flag_scene_prop", "spr_ctf_flag_kingdom_5"),
-         (else_try),
-           (eq, ":team_faction_no", "fac_kingdom_6"),
-           (assign, "$team_1_flag_scene_prop", "spr_ctf_flag_kingdom_6"),
+         # (else_try),
+           # (eq, ":team_faction_no", "fac_kingdom_5"),
+           # (assign, "$team_1_flag_scene_prop", "spr_ctf_flag_kingdom_5"),
+         # (else_try),
+           # (eq, ":team_faction_no", "fac_kingdom_6"),
+           # (assign, "$team_1_flag_scene_prop", "spr_ctf_flag_kingdom_6"),
          (try_end),
        (else_try),
          (team_get_faction, ":team_faction_no", 1),
@@ -9042,12 +9662,12 @@ scripts = [
          (else_try),
            (eq, ":team_faction_no", "fac_kingdom_4"),
            (assign, "$team_2_flag_scene_prop", "spr_ctf_flag_kingdom_4"),
-         (else_try),
-           (eq, ":team_faction_no", "fac_kingdom_5"),
-           (assign, "$team_2_flag_scene_prop", "spr_ctf_flag_kingdom_5"),
-         (else_try),
-           (eq, ":team_faction_no", "fac_kingdom_6"),
-           (assign, "$team_2_flag_scene_prop", "spr_ctf_flag_kingdom_6"),
+         # (else_try),
+           # (eq, ":team_faction_no", "fac_kingdom_5"),
+           # (assign, "$team_2_flag_scene_prop", "spr_ctf_flag_kingdom_5"),
+         # (else_try),
+           # (eq, ":team_faction_no", "fac_kingdom_6"),
+           # (assign, "$team_2_flag_scene_prop", "spr_ctf_flag_kingdom_6"),
          (try_end),
 
          (try_begin),
@@ -9072,12 +9692,12 @@ scripts = [
          (else_try),
            (eq, ":team_faction_no", "fac_kingdom_4"),
            (assign, "$team_1_flag_scene_prop", "spr_headquarters_flag_nord"),
-         (else_try),
-           (eq, ":team_faction_no", "fac_kingdom_5"),
-           (assign, "$team_1_flag_scene_prop", "spr_headquarters_flag_rhodok"),
-         (else_try),
-           (eq, ":team_faction_no", "fac_kingdom_6"),
-           (assign, "$team_1_flag_scene_prop", "spr_headquarters_flag_sarranid"),
+         # (else_try),
+           # (eq, ":team_faction_no", "fac_kingdom_5"),
+           # (assign, "$team_1_flag_scene_prop", "spr_headquarters_flag_rhodok"),
+         # (else_try),
+           # (eq, ":team_faction_no", "fac_kingdom_6"),
+           # (assign, "$team_1_flag_scene_prop", "spr_headquarters_flag_sarranid"),
          (try_end),
        (else_try),
          (team_get_faction, ":team_faction_no", 1),
@@ -9093,12 +9713,12 @@ scripts = [
          (else_try),
            (eq, ":team_faction_no", "fac_kingdom_4"),
            (assign, "$team_2_flag_scene_prop", "spr_headquarters_flag_nord"),
-         (else_try),
-           (eq, ":team_faction_no", "fac_kingdom_5"),
-           (assign, "$team_2_flag_scene_prop", "spr_headquarters_flag_rhodok"),
-         (else_try),
-           (eq, ":team_faction_no", "fac_kingdom_6"),
-           (assign, "$team_2_flag_scene_prop", "spr_headquarters_flag_sarranid"),
+         # (else_try),
+           # (eq, ":team_faction_no", "fac_kingdom_5"),
+           # (assign, "$team_2_flag_scene_prop", "spr_headquarters_flag_rhodok"),
+         # (else_try),
+           # (eq, ":team_faction_no", "fac_kingdom_6"),
+           # (assign, "$team_2_flag_scene_prop", "spr_headquarters_flag_sarranid"),
          (try_end),
 
          (try_begin),
@@ -13048,37 +13668,38 @@ scripts = [
    [
      (store_script_param_1, ":troop_no"),
      (assign, ":troop_class", multi_troop_class_other),
-     (try_begin),
-       (this_or_next|eq, ":troop_no", "trp_vaegir_archer_multiplayer"),
-       (this_or_next|eq, ":troop_no", "trp_nord_archer_multiplayer"),
-       (eq, ":troop_no", "trp_sarranid_archer_multiplayer"),
-       (assign, ":troop_class", multi_troop_class_archer),
-     (else_try),
-       (this_or_next|eq, ":troop_no", "trp_swadian_man_at_arms_multiplayer"),
-       (this_or_next|eq, ":troop_no", "trp_nord_scout_multiplayer"),
-       (this_or_next|eq, ":troop_no", "trp_rhodok_horseman_multiplayer"),
-       (this_or_next|eq, ":troop_no", "trp_sarranid_mamluke_multiplayer"),
-       (eq, ":troop_no", "trp_vaegir_horseman_multiplayer"),
-       (assign, ":troop_class", multi_troop_class_cavalry),
-     (else_try),
-       (eq, ":troop_no", "trp_khergit_veteran_horse_archer_multiplayer"),
-       (assign, ":troop_class", multi_troop_class_mounted_archer),
+      (val_mul, ":troop_no", 1), ### DAC Seek: Stopping the compiler from complaining	 
+     # (try_begin),
+       # (this_or_next|eq, ":troop_no", "trp_vaegir_archer_multiplayer"),
+       # (eq, ":troop_no", "trp_nord_archer_multiplayer"),
+       # (eq, ":troop_no", "trp_sarranid_archer_multiplayer"),
+       # (assign, ":troop_class", multi_troop_class_archer),
+     # (else_try),
+       # (this_or_next|eq, ":troop_no", "trp_swadian_man_at_arms_multiplayer"),
+       # (this_or_next|eq, ":troop_no", "trp_nord_scout_multiplayer"),
+       # (this_or_next|eq, ":troop_no", "trp_rhodok_horseman_multiplayer"),
+       # (this_or_next|eq, ":troop_no", "trp_sarranid_mamluke_multiplayer"),
+       # (eq, ":troop_no", "trp_vaegir_horseman_multiplayer"),
+       # (assign, ":troop_class", multi_troop_class_cavalry),
+     # (else_try),
+       # (eq, ":troop_no", "trp_khergit_veteran_horse_archer_multiplayer"),
+       # (assign, ":troop_class", multi_troop_class_mounted_archer),
 #     (else_try),
 #       (eq, ":troop_no", "trp_swadian_mounted_crossbowman_multiplayer"),
 #       (assign, ":troop_class", multi_troop_class_mounted_crossbowman),
-     (else_try),
-       (this_or_next|eq, ":troop_no", "trp_swadian_crossbowman_multiplayer"),
-       (eq, ":troop_no", "trp_rhodok_veteran_crossbowman_multiplayer"),
-       (assign, ":troop_class", multi_troop_class_crossbowman),
-     (else_try),
-       (this_or_next|eq, ":troop_no", "trp_swadian_infantry_multiplayer"),
-       (this_or_next|eq, ":troop_no", "trp_sarranid_footman_multiplayer"),
-       (eq, ":troop_no", "trp_nord_veteran_multiplayer"),
-       (assign, ":troop_class", multi_troop_class_infantry),
-     (else_try),
-       (eq, ":troop_no", "trp_vaegir_spearman_multiplayer"),
-       (assign, ":troop_class", multi_troop_class_spearman),
-     (try_end),
+     # (else_try),
+       # (eq, ":troop_no", "trp_swadian_crossbowman_multiplayer"),
+       # (eq, ":troop_no", "trp_rhodok_veteran_crossbowman_multiplayer"),
+       # (assign, ":troop_class", multi_troop_class_crossbowman),
+     # (else_try),
+       # (this_or_next|eq, ":troop_no", "trp_swadian_infantry_multiplayer"),
+       # (this_or_next|eq, ":troop_no", "trp_sarranid_footman_multiplayer"),
+       # (eq, ":troop_no", "trp_nord_veteran_multiplayer"),
+       # (assign, ":troop_class", multi_troop_class_infantry),
+     # (else_try),
+       # (eq, ":troop_no", "trp_vaegir_spearman_multiplayer"),
+       # (assign, ":troop_class", multi_troop_class_spearman),
+     # (try_end),
      (assign, reg0, ":troop_class"),
      ]),
 
@@ -13517,47 +14138,47 @@ scripts = [
          (try_end),
          #SHISH_KEBAB achievement end
          #CHOPPY_CHOP_CHOP achievement
-         (try_begin),
-           (this_or_next|eq, ":my_item_class", multi_item_class_type_sword),
-           (this_or_next|eq, ":my_item_class", multi_item_class_type_axe),
-           (this_or_next|eq, ":my_item_class", multi_item_class_type_cleavers),
-           (this_or_next|eq, ":my_item_class", multi_item_class_type_two_handed_sword),
-           (this_or_next|eq, ":my_item_class", multi_item_class_type_two_handed_axe),
-           (this_or_next|eq, ":my_wielded_item", "itm_sarranid_axe_a"), #sarranid item exception
-           (eq, ":my_wielded_item", "itm_sarranid_axe_b"), #sarranid item exception
-           (neq, ":my_wielded_item", "itm_sarranid_two_handed_mace_1"), #sarranid item exception
-           (get_achievement_stat, ":achievement_stat", ACHIEVEMENT_CHOPPY_CHOP_CHOP, 0),
-           (lt, ":achievement_stat", 50),
-           (val_add, ":achievement_stat", 1),
-           (set_achievement_stat, ACHIEVEMENT_CHOPPY_CHOP_CHOP, 0, ":achievement_stat"),
-           (ge, ":achievement_stat", 50),
-           (unlock_achievement, ACHIEVEMENT_CHOPPY_CHOP_CHOP),
-         (try_end),
+         # (try_begin),
+           # (this_or_next|eq, ":my_item_class", multi_item_class_type_sword),
+           # (this_or_next|eq, ":my_item_class", multi_item_class_type_axe),
+           # (this_or_next|eq, ":my_item_class", multi_item_class_type_cleavers),
+           # (this_or_next|eq, ":my_item_class", multi_item_class_type_two_handed_sword),
+           # (this_or_next|eq, ":my_item_class", multi_item_class_type_two_handed_axe),
+           # (this_or_next|eq, ":my_wielded_item", "itm_sarranid_axe_a"), #sarranid item exception
+           # (eq, ":my_wielded_item", "itm_sarranid_axe_b"), #sarranid item exception
+           # (neq, ":my_wielded_item", "itm_sarranid_two_handed_mace_1"), #sarranid item exception
+           # (get_achievement_stat, ":achievement_stat", ACHIEVEMENT_CHOPPY_CHOP_CHOP, 0),
+           # (lt, ":achievement_stat", 50),
+           # (val_add, ":achievement_stat", 1),
+           # (set_achievement_stat, ACHIEVEMENT_CHOPPY_CHOP_CHOP, 0, ":achievement_stat"),
+           # (ge, ":achievement_stat", 50),
+           # (unlock_achievement, ACHIEVEMENT_CHOPPY_CHOP_CHOP),
+         # (try_end),
          #CHOPPY_CHOP_CHOP achievement end
          #MACE_IN_YER_FACE achievement
-         (try_begin),
-           (this_or_next|eq, ":my_item_class", multi_item_class_type_blunt),
-           (eq, ":my_wielded_item", "itm_sarranid_two_handed_mace_1"), #sarranid item exception
-           (neq, ":my_wielded_item", "itm_sarranid_axe_b"), #sarranid item exception
-           (neq, ":my_wielded_item", "itm_sarranid_axe_a"), #sarranid item exception
-           (get_achievement_stat, ":achievement_stat", ACHIEVEMENT_MACE_IN_YER_FACE, 0),
-           (lt, ":achievement_stat", 25),
-           (val_add, ":achievement_stat", 1),
-           (set_achievement_stat, ACHIEVEMENT_MACE_IN_YER_FACE, 0, ":achievement_stat"),
-           (ge, ":achievement_stat", 25),
-           (unlock_achievement, ACHIEVEMENT_MACE_IN_YER_FACE),
-         (try_end),
+         # (try_begin),
+           # (this_or_next|eq, ":my_item_class", multi_item_class_type_blunt),
+           # (eq, ":my_wielded_item", "itm_sarranid_two_handed_mace_1"), #sarranid item exception
+           # (neq, ":my_wielded_item", "itm_sarranid_axe_b"), #sarranid item exception
+           # (neq, ":my_wielded_item", "itm_sarranid_axe_a"), #sarranid item exception
+           # (get_achievement_stat, ":achievement_stat", ACHIEVEMENT_MACE_IN_YER_FACE, 0),
+           # (lt, ":achievement_stat", 25),
+           # (val_add, ":achievement_stat", 1),
+           # (set_achievement_stat, ACHIEVEMENT_MACE_IN_YER_FACE, 0, ":achievement_stat"),
+           # (ge, ":achievement_stat", 25),
+           # (unlock_achievement, ACHIEVEMENT_MACE_IN_YER_FACE),
+         # (try_end),
          #MACE_IN_YER_FACE achievement end
          #THE_HUSCARL achievement
-         (try_begin),
-           (eq, ":my_item_class", multi_item_class_type_throwing_axe),
-           (get_achievement_stat, ":achievement_stat", ACHIEVEMENT_THE_HUSCARL, 0),
-           (lt, ":achievement_stat", 50),
-           (val_add, ":achievement_stat", 1),
-           (set_achievement_stat, ACHIEVEMENT_THE_HUSCARL, 0, ":achievement_stat"),
-           (ge, ":achievement_stat", 50),
-           (unlock_achievement, ACHIEVEMENT_THE_HUSCARL),
-         (try_end),
+         # (try_begin),
+           # (eq, ":my_item_class", multi_item_class_type_throwing_axe),
+           # (get_achievement_stat, ":achievement_stat", ACHIEVEMENT_THE_HUSCARL, 0),
+           # (lt, ":achievement_stat", 50),
+           # (val_add, ":achievement_stat", 1),
+           # (set_achievement_stat, ACHIEVEMENT_THE_HUSCARL, 0, ":achievement_stat"),
+           # (ge, ":achievement_stat", 50),
+           # (unlock_achievement, ACHIEVEMENT_THE_HUSCARL),
+         # (try_end),
          #THE_HUSCARL achievement end
        (try_end),
      (try_end),
@@ -13776,8 +14397,8 @@ scripts = [
      (assign, ":default_item", 0),
      (try_begin),
        (neg|is_between, ":item_no", horses_begin, horses_end),
-       (neq, ":item_no", "itm_warhorse_sarranid"),
-       (neq, ":item_no", "itm_warhorse_steppe"),
+       # (neq, ":item_no", "itm_warhorse_sarranid"),
+       # (neq, ":item_no", "itm_warhorse_steppe"),
 
        (troop_get_inventory_capacity, ":end_cond", ":troop_no"), #troop no can come -1 here error occured at friday
        (try_for_range, ":i_slot", 0, ":end_cond"),
@@ -15370,6 +15991,16 @@ scripts = [
           (set_result_string, "@+1 to {s1} while in inventory"),
           (set_trigger_result, 0xFFEEDD),
         (try_end),
+### HYW KHAM: Customizable string for custom items		  
+      (else_try),
+        (is_between, ":item_no", "itm_h_bascinet_fi_hood_custom", "itm_items_end"),
+        (try_begin),
+          (eq, ":extra_text_id", 0),
+          (str_store_string, s1, "@Customizable"),
+          (set_result_string, "@{s1}"),
+          (set_trigger_result, color_good_news),
+        (try_end),
+### HYW			
       (else_try),
 
       # sb : debug
@@ -15382,7 +16013,7 @@ scripts = [
           (store_div, reg1, ":value", 100),
           (set_result_string, "@item score:{reg0}, value:{reg1}"),
           (set_trigger_result, 0x0DDEEE),
-        (try_end),
+        (try_end),			
 
         (try_begin), #SB : display this block when in item pool mode
           (eq, ":extra_text_id", 2),
@@ -17179,9 +17810,9 @@ scripts = [
           (is_between, ":item_id", trade_goods_begin, trade_goods_end),
           (assign, ":randomness", 20),
         (else_try),
-          (this_or_next|is_between, ":item_id", horses_begin, horses_end),
-          (this_or_next|eq, ":item_id", "itm_warhorse_sarranid"),
-          (eq, ":item_id", "itm_warhorse_steppe"),
+          (is_between, ":item_id", horses_begin, horses_end),
+          # (this_or_next|eq, ":item_id", "itm_warhorse_sarranid"),
+          # (eq, ":item_id", "itm_warhorse_steppe"),
           (assign, ":randomness", 15),
         (else_try),
           (this_or_next|is_between, ":item_id", weapons_begin, weapons_end),
@@ -17189,7 +17820,7 @@ scripts = [
           (assign, ":randomness", 5),
         (else_try),
           (this_or_next|is_between, ":item_id", armors_begin, armors_end),
-		  (this_or_next|eq, ":item_id", "itm_plate_boots"), #added to the end because of not breaking the save games
+		  # (this_or_next|eq, ":item_id", "itm_plate_boots"), #added to the end because of not breaking the save games
           (is_between, ":item_id", shields_begin, shields_end),
           (assign, ":randomness", 5),
         (try_end),
@@ -24234,13 +24865,13 @@ scripts = [
 		#Currently this is just Bunduk, but others could be added.
 		(try_begin),
 			(str_store_troop_name, s1, ":troop_no"),#s1 is overwritten below
-			#For dialogue reasons, this should be enabled even when the player
-			#is co-ruler of an NPC kingdom.
+			# For dialogue reasons, this should be enabled even when the player
+			# is co-ruler of an NPC kingdom.
 			(this_or_next|eq, ":faction_no", "fac_player_supporters_faction"),
 				(eq, ":faction_no", "$players_kingdom"),
 			(this_or_next|troop_slot_eq, ":troop_no", slot_lord_reputation_type, lrep_benefactor),
 				(troop_slot_eq, ":troop_no", slot_lord_reputation_type, lrep_custodian),
-			(troop_slot_eq, ":troop_no", slot_troop_original_faction, "fac_kingdom_5"),
+			# (troop_slot_eq, ":troop_no", slot_troop_original_faction, "fac_kingdom_5"),
 			(assign, ":is_coruler", 0),
 			(try_begin),
 				(is_between, "$players_kingdom", npc_kingdoms_begin, npc_kingdoms_end),
@@ -25399,6 +26030,7 @@ scripts = [
       (faction_get_slot, ":party_template_a", ":party_faction", slot_faction_reinforcements_a),
       (faction_get_slot, ":party_template_b", ":party_faction", slot_faction_reinforcements_b),
       (faction_get_slot, ":party_template_c", ":party_faction", slot_faction_reinforcements_c),
+      (faction_get_slot, ":party_template_d", ":party_faction", slot_faction_reinforcements_d),	  
 
       (assign, ":party_template", 0),
       (store_random_in_range, ":rand", 0, 100),
@@ -25418,21 +26050,27 @@ scripts = [
         (this_or_next|eq, ":party_type", spt_town),
         (eq, ":party_type", spt_castle),  #CASTLE OR TOWN
         (try_begin),
-          (lt, ":rand", 65),
+          (lt, ":rand", 60),
           (assign, ":party_template", ":party_template_a"),
         (else_try),
+          (lt, ":rand", 80),		
           (assign, ":party_template", ":party_template_b"),
+        (else_try),
+          (assign, ":party_template", ":party_template_c"),		  
         (try_end),
       (else_try),
         (eq, ":party_type", spt_kingdom_hero_party),
         (try_begin),
-          (lt, ":rand", 50),
+          (lt, ":rand", 45),
           (assign, ":party_template", ":party_template_a"),
         (else_try),
-          (lt, ":rand", 75),
+          (lt, ":rand", 70),
           (assign, ":party_template", ":party_template_b"),
         (else_try),
+          (lt, ":rand", 85),
           (assign, ":party_template", ":party_template_c"),
+        (else_try),
+          (assign, ":party_template", ":party_template_d"),
         (try_end),
       (else_try),
 	  ##diplomacy start+ Reinforcements for patrols
@@ -31563,7 +32201,7 @@ scripts = [
         #SB : different disguises
         (call_script, "script_set_disguise_override_items", ":mission_template_no", 0, 0), #no weapons
         # (mission_tpl_entry_add_override_item, ":mission_template_no", 0, "itm_pilgrim_hood"),
-        # (mission_tpl_entry_add_override_item, ":mission_template_no", 0, "itm_wrapping_boots"), #SB add boots
+        # (mission_tpl_entry_add_override_item, ":mission_template_no", 0, "itm_b_wrapping_boots"), #SB add boots
         # (mission_tpl_entry_add_override_item, ":mission_template_no", 0, "itm_pilgrim_disguise"),
         # (mission_tpl_entry_add_override_item, ":mission_template_no", 0, "itm_practice_staff"),
         # (mission_tpl_entry_add_override_item, ":mission_template_no", 0, "itm_throwing_daggers"),
@@ -35058,7 +35696,7 @@ scripts = [
          (eq,":walker_type", walkert_spy),
          (faction_get_slot, ":original_walker", ":center_culture", ":original_walker_slot"),
          # restore spy inventory
-         (try_for_range,":item_no","itm_horse_meat","itm_wooden_stick"),
+         (try_for_range,":item_no","itm_w_dagger_bollock","itm_w_onehanded_flachion_italian"),
             (store_item_kind_count,":num_items",":item_no",":original_walker"),
             (ge,":num_items",1),
             (store_item_kind_count,":num_items",":item_no",":walker_troop_id"),
@@ -35068,7 +35706,7 @@ scripts = [
          # determine spy recognition item
          (store_random_in_range,":spy_item_type",itp_type_head_armor,itp_type_hand_armor),
          (assign,":num",0),
-         (try_for_range,":item_no","itm_horse_meat","itm_wooden_stick"),
+         (try_for_range,":item_no","itm_w_dagger_bollock","itm_w_onehanded_flachion_italian"),
             (store_item_kind_count,":num_items",":item_no",":walker_troop_id"),
             (ge,":num_items",1),
             (item_get_type, ":itp", ":item_no"),
@@ -35078,7 +35716,7 @@ scripts = [
          (try_end),
          (store_random_in_range,":random_item",0,":num"),
          (assign,":num",-1),
-         (try_for_range,":item_no","itm_horse_meat","itm_wooden_stick"),
+         (try_for_range,":item_no","itm_w_dagger_bollock","itm_w_onehanded_flachion_italian"),
             (store_item_kind_count,":num_items",":item_no",":original_walker"),
             (ge,":num_items",1),
             (item_get_type, ":itp", ":item_no"),
@@ -38390,6 +39028,7 @@ scripts = [
 ##	   (try_end),
 
        (faction_get_slot, ":volunteer_troop", ":center_culture", slot_faction_tier_1_troop),
+      (faction_get_slot, ":volunteer_troop_ranged", ":center_culture", slot_faction_tier_1_archer),	   
        (assign, ":volunteer_troop_tier", 1),
        (store_div, ":tier_upgrades", ":player_relation", 10),
        (try_for_range, ":unused", 0, ":tier_upgrades"),
@@ -38469,6 +39108,7 @@ scripts = [
 
        (store_random_in_range, ":amount", 0, ":upper_limit"),
        (party_set_slot, ":center_no", slot_center_volunteer_troop_type, ":volunteer_troop"),
+      (party_set_slot, ":center_no", slot_center_volunteer_troop_type_ranged, ":volunteer_troop_ranged"),	   
        (party_set_slot, ":center_no", slot_center_volunteer_troop_amount, ":amount"),
      ]),
 
@@ -39804,34 +40444,35 @@ scripts = [
            (eq, "$sneaked_into_town", disguise_pilgrim),
            (cur_tableau_add_override_item, "itm_pilgrim_hood"),
            (cur_tableau_add_override_item, "itm_pilgrim_disguise"),
-           (cur_tableau_add_override_item, "itm_wrapping_boots"),
+           (cur_tableau_add_override_item, "itm_b_wrapping_boots"),
          (else_try),
            (eq, "$sneaked_into_town", disguise_farmer),
-           (cur_tableau_add_override_item, "itm_felt_hat"),
-           (cur_tableau_add_override_item, "itm_coarse_tunic"),
-           (cur_tableau_add_override_item, "itm_nomad_boots"),
+           (cur_tableau_add_override_item, "itm_h_felt_hat_b_brown"),
+           (cur_tableau_add_override_item, "itm_a_farmer_tunic"),
+           (cur_tableau_add_override_item, "itm_b_ankle_boots"),
          (else_try),
            (eq, "$sneaked_into_town", disguise_hunter),
-           (cur_tableau_add_override_item, "itm_black_hood"),
-           (cur_tableau_add_override_item, "itm_leather_gloves"),
-           (cur_tableau_add_override_item, "itm_light_leather"),
-           (cur_tableau_add_override_item, "itm_light_leather_boots"),
+           (cur_tableau_add_override_item, "itm_h_hood_black"),
+           (cur_tableau_add_override_item, "itm_g_leather_gauntlet"),
+           (cur_tableau_add_override_item, "itm_a_hunter_coat"),
+           (cur_tableau_add_override_item, "itm_b_wrapping_boots"),
          (else_try),
            (eq, "$sneaked_into_town", disguise_merchant),
-           (cur_tableau_add_override_item, "itm_leather_jacket"),
-           (cur_tableau_add_override_item, "itm_woolen_hose"),
-           (cur_tableau_add_override_item, "itm_felt_steppe_cap"),
+           (cur_tableau_add_override_item, "itm_a_merchant_outfit"),
+           (cur_tableau_add_override_item, "itm_b_hosen_shoes_custom"),
+           (cur_tableau_add_override_item, "itm_h_highlander_beret_red_2"),
          (else_try),
            (eq, "$sneaked_into_town", disguise_guard),
-           (cur_tableau_add_override_item, "itm_footman_helmet"),
-           (cur_tableau_add_override_item, "itm_mail_mittens"),
-           (cur_tableau_add_override_item, "itm_mail_shirt"),
-           (cur_tableau_add_override_item, "itm_leather_jerkin"), #dckplmc civilian armor
-           (cur_tableau_add_override_item, "itm_mail_chausses"),
+           (cur_tableau_add_override_item, "itm_h_mail_coif"),
+           (cur_tableau_add_override_item, "itm_g_mail_gauntlets"),
+           (cur_tableau_add_override_item, "itm_a_mail_shirt_custom"),
+           # (cur_tableau_add_override_item, "itm_leather_jerkin"), #dckplmc civilian armor
+           (cur_tableau_add_override_item, "itm_b_mail_chausses"),
          (else_try),
            (eq, "$sneaked_into_town", disguise_bard),
-           (cur_tableau_add_override_item, "itm_linen_tunic"),
-           (cur_tableau_add_override_item, "itm_leather_boots"),
+           (cur_tableau_add_override_item, "itm_h_highlander_beret_green_2"),		   
+           (cur_tableau_add_override_item, "itm_a_noble_shirt_green"),
+           (cur_tableau_add_override_item, "itm_b_hosen_shoes_custom"),
          (try_end),
        (try_end),
        (init_position, pos2),
@@ -40030,74 +40671,59 @@ scripts = [
     (try_end),
 
     (try_begin),
-      (eq, ":type", 0),
-      (cur_tableau_add_override_item, "itm_pilgrim_hood"),
-      (cur_tableau_add_override_item, "itm_pilgrim_disguise"),
-      (cur_tableau_add_override_item, "itm_wrapping_boots"),
-      (assign, ":animation", "anim_pose_1"),
-    (else_try),
-      (eq, ":type", 1),
-      (cur_tableau_add_override_item, "itm_pilgrim_hood"),
-      (cur_tableau_add_override_item, "itm_red_tunic"),
-      (cur_tableau_add_override_item, "itm_wrapping_boots"),
-      (cur_tableau_add_override_item, "itm_dagger"),
-      (assign, ":animation", "anim_pose_1"),
-    (else_try),
-      (eq, ":type", 2),
-      (cur_tableau_add_override_item, "itm_linen_tunic"),
-      (cur_tableau_add_override_item, "itm_wrapping_boots"),
-      (assign, ":animation", "anim_pose_2"),
-    (else_try),
-      (eq, ":type", 3),
-      (cur_tableau_add_override_item, "itm_nomad_vest"),
-      (cur_tableau_add_override_item, "itm_nomad_boots"),
-      (assign, ":animation", "anim_pose_2"),
-    (else_try),
-      (eq, ":type", 4),
-      (cur_tableau_add_override_item, "itm_leather_apron"),
-      (cur_tableau_add_override_item, "itm_leather_boots"),
-      (assign, ":animation", "anim_pose_3"),
-    (else_try),
-      (eq, ":type", 5),
-      (cur_tableau_add_override_item, "itm_red_shirt"),
-      (cur_tableau_add_override_item, "itm_woolen_hose"),
-      (cur_tableau_add_override_item, "itm_fur_hat"),
-      (assign, ":animation", "anim_pose_3"),
-    (else_try),
-      (eq, ":type", 6),
-      (cur_tableau_add_override_item, "itm_red_gambeson"),
-      (cur_tableau_add_override_item, "itm_leather_boots"),
-      (cur_tableau_add_override_item, "itm_sword_medieval_c"),
-      (assign, ":animation", "anim_pose_4"),
-    (else_try),
-      (eq, ":type", 7),
-      (cur_tableau_add_override_item, "itm_nobleman_outfit"),
-      (cur_tableau_add_override_item, "itm_blue_hose"),
-      (cur_tableau_add_override_item, "itm_sword_medieval_c"),
-      (assign, ":animation", "anim_pose_4"),
-    (else_try),
-      (eq, ":type", 8),
-      (cur_tableau_add_override_item, "itm_courtly_outfit"),
-      (cur_tableau_add_override_item, "itm_woolen_hose"),
-      (cur_tableau_add_override_item, "itm_sword_medieval_c"),
-      (assign, ":animation", "anim_pose_4"),
-    (else_try),
-      (eq, ":type", 9),
-      (cur_tableau_add_override_item, "itm_heraldic_mail_with_surcoat_for_tableau"),
-      (cur_tableau_add_override_item, "itm_mail_boots_for_tableau"),
-      (cur_tableau_add_override_item, "itm_sword_medieval_c"),
-      (assign, ":animation", "anim_pose_5"),
-    (try_end),
+        (eq, ":type", 0),
+        (cur_tableau_add_override_item, "itm_h_hood_black"),
+        (cur_tableau_add_override_item, "itm_a_peasant_man_custom"),
+        (cur_tableau_add_override_item, "itm_b_hosen_poulaines_custom"),
+        (assign, ":animation", "anim_pose_1"),
+      (else_try),
+        (eq, ":type", 1),
+        (cur_tableau_add_override_item, "itm_a_noble_shirt_black"),
+        (cur_tableau_add_override_item, "itm_b_hosen_poulaines_custom"),
+        (assign, ":animation", "anim_pose_1"),
+      (else_try),
+        (eq, ":type", 2),
+        (cur_tableau_add_override_item, "itm_a_noble_shirt_brown"),
+        (cur_tableau_add_override_item, "itm_b_hosen_shoes_custom"),
+        (assign, ":animation", "anim_pose_2"),
+      (else_try),
+        (eq, ":type", 3),
+        (cur_tableau_add_override_item, "itm_a_noble_shirt_red"),
+        (cur_tableau_add_override_item, "itm_b_hosen_shoes_custom"),
+        (assign, ":animation", "anim_pose_2"),
+      (else_try),
+        (eq, ":type", 4),
+        (cur_tableau_add_override_item, "itm_a_noble_shirt_white"),
+        (cur_tableau_add_override_item, "itm_b_leather_boots"),
+        (assign, ":animation", "anim_pose_3"),
+      (else_try),
+        (eq, ":type", 5),
+        (cur_tableau_add_override_item, "itm_a_noble_shirt_green"),
+        (cur_tableau_add_override_item, "itm_b_hosen_shoes_custom"),
+        (assign, ":animation", "anim_pose_3"),
+      (else_try),
+        (eq, ":type", 6),
+        (cur_tableau_add_override_item, "itm_a_gambeson_white"),
+        (cur_tableau_add_override_item, "itm_b_leather_boots"),
+        (assign, ":animation", "anim_pose_4"),
+      (else_try),
+        (eq, ":type", 7),
+        (cur_tableau_add_override_item, "itm_a_tabard"),
+        (cur_tableau_add_override_item, "itm_b_hosen_poulaines_custom"),
+        (assign, ":animation", "anim_pose_4"),
+      (else_try),
+        (eq, ":type", 8),
+        (cur_tableau_add_override_item, "itm_a_leather_jerkin"),
+        (cur_tableau_add_override_item, "itm_b_hosen_poulaines_custom"),
+        (assign, ":animation", "anim_pose_4"),
+      (else_try),
+        (cur_tableau_add_override_item, "itm_heraldic_early_transitional"),
+        (cur_tableau_add_override_item, "itm_b_steel_greaves"),
+        # (cur_tableau_add_override_item, "itm_sword_medieval_c"),
+        (assign, ":animation", "anim_pose_5"),
+      (try_end),
 
-##    (set_fixed_point_multiplier, 100),
-##    (cur_tableau_set_background_color, 0x00000000),
-##    (cur_tableau_set_ambient_light, 10,11,15),
 
-##     (init_position, pos8),
-##     (position_set_x, pos8, -210),
-##     (position_set_y, pos8, 200),
-##     (position_set_z, pos8, 300),
-##     (cur_tableau_add_point_light, pos8, 550,500,450),
 
 
     (set_fixed_point_multiplier, 100),
@@ -40740,6 +41366,23 @@ scripts = [
      (store_mul, ":cost", ":volunteer_amount", 10),#10 denars per man
      (troop_remove_gold, "trp_player", ":cost"),
      ]),
+	 
+   #script_village_recruit_volunteers_recruit_ranged
+  # INPUT: none
+  # OUTPUT: none
+  ("village_recruit_volunteers_recruit_ranged",
+    [(party_get_slot, ":volunteer_troop", "$current_town", slot_center_volunteer_troop_type_ranged),
+      (party_get_slot, ":volunteer_amount", "$current_town", slot_center_volunteer_troop_amount),
+      (party_get_free_companions_capacity, ":free_capacity", "p_main_party"),
+      (val_min, ":volunteer_amount", ":free_capacity"),
+      (store_troop_gold, ":gold", "trp_player"),
+      (store_div, ":gold_capacity", ":gold", 25),#25 denars per man
+      (val_min, ":volunteer_amount", ":gold_capacity"),
+      (party_add_members, "p_main_party", ":volunteer_troop", ":volunteer_amount"),
+      (party_set_slot, "$current_town", slot_center_volunteer_troop_amount, -1),
+      (store_mul, ":cost", ":volunteer_amount", 25),#25 denars per man
+      (troop_remove_gold, "trp_player", ":cost"),
+  ]), 	 
 
   #script_get_troop_item_amount
   # INPUT: arg1 = troop_no, arg2 = item_no
@@ -41138,7 +41781,7 @@ scripts = [
 		(troop_set_slot, "trp_npc10", slot_troop_kingsupport_argument, argument_ruler),
 		(troop_set_slot, "trp_npc10", slot_troop_kingsupport_opponent, "trp_npc7"), #nizar
 		(troop_set_slot, "trp_npc10", slot_troop_town_with_contacts, "p_town_5"), #jelkala
-		(troop_set_slot, "trp_npc10", slot_troop_original_faction, "fac_kingdom_5"), #rhodoks
+		(troop_set_slot, "trp_npc10", slot_troop_original_faction, "fac_kingdom_1"), #rhodoks
 		(troop_set_slot, "trp_npc10", slot_lord_reputation_type, lrep_benefactor), #
 
 
@@ -41271,8 +41914,8 @@ scripts = [
         (troop_set_slot, "trp_kingdom_2_pretender",  slot_troop_original_faction, "fac_kingdom_2"),
         (troop_set_slot, "trp_kingdom_3_pretender",  slot_troop_original_faction, "fac_kingdom_3"),
         (troop_set_slot, "trp_kingdom_4_pretender",  slot_troop_original_faction, "fac_kingdom_4"),
-        (troop_set_slot, "trp_kingdom_5_pretender",  slot_troop_original_faction, "fac_kingdom_5"),
-        (troop_set_slot, "trp_kingdom_6_pretender",  slot_troop_original_faction, "fac_kingdom_6"),
+        # (troop_set_slot, "trp_kingdom_5_pretender",  slot_troop_original_faction, "fac_kingdom_5"),
+        # (troop_set_slot, "trp_kingdom_6_pretender",  slot_troop_original_faction, "fac_kingdom_6"),
 
     #        (troop_set_slot, "trp_kingdom_1_pretender", slot_troop_support_base,     "p_town_4"), #suno
     #        (troop_set_slot, "trp_kingdom_2_pretender", slot_troop_support_base,     "p_town_11"), #curaw
@@ -41280,12 +41923,12 @@ scripts = [
     #        (troop_set_slot, "trp_kingdom_4_pretender", slot_troop_support_base,     "p_town_12"), #wercheg
     #        (troop_set_slot, "trp_kingdom_5_pretender", slot_troop_support_base,     "p_town_3"), #veluca
         ##diplomacy start+
-        (troop_set_slot, "trp_kingdom_1_pretender", slot_troop_home, "p_town_4"),#Lady Isolle - Suno
-        (troop_set_slot, "trp_kingdom_2_pretender", slot_troop_home, "p_town_11"),#Prince Valdym - Curaw
-        (troop_set_slot, "trp_kingdom_3_pretender", slot_troop_home, "p_town_18"),#Dustum Khan - Narra
-        (troop_set_slot, "trp_kingdom_4_pretender", slot_troop_home, "p_town_12"),#Lethwin Far-Seeker - Wercheg
-        (troop_set_slot, "trp_kingdom_5_pretender", slot_troop_home, "p_town_3"),#Lord Kastor - Veluca
-        (troop_set_slot, "trp_kingdom_6_pretender", slot_troop_home, "p_town_20"),#Arwa the Pearled One - Durquba
+        # (troop_set_slot, "trp_kingdom_1_pretender", slot_troop_home, "p_town_4"),#Lady Isolle - Suno
+        # (troop_set_slot, "trp_kingdom_2_pretender", slot_troop_home, "p_town_11"),#Prince Valdym - Curaw
+        # (troop_set_slot, "trp_kingdom_3_pretender", slot_troop_home, "p_town_18"),#Dustum Khan - Narra
+        # (troop_set_slot, "trp_kingdom_4_pretender", slot_troop_home, "p_town_12"),#Lethwin Far-Seeker - Wercheg
+        # (troop_set_slot, "trp_kingdom_5_pretender", slot_troop_home, "p_town_3"),#Lord Kastor - Veluca
+        # (troop_set_slot, "trp_kingdom_6_pretender", slot_troop_home, "p_town_20"),#Arwa the Pearled One - Durquba
         ##diplomacy end+
         (try_for_range, ":pretender", pretenders_begin, pretenders_end),
             (troop_set_slot, ":pretender", slot_lord_reputation_type, lrep_none),
@@ -45624,12 +46267,12 @@ scripts = [
 			(else_try),
 				(eq, ":faction_object", "fac_kingdom_4"),
 				(str_store_string, s39, "str_nords"),
-			(else_try),
-				(eq, ":faction_object", "fac_kingdom_5"),
-				(str_store_string, s39, "str_rhodoks"),
-			(else_try),
-				(eq, ":faction_object", "fac_kingdom_6"),
-				(str_store_string, s39, "str_sarranids"),
+			# (else_try),
+				# (eq, ":faction_object", "fac_kingdom_5"),
+				# (str_store_string, s39, "str_rhodoks"),
+			# (else_try),
+				# (eq, ":faction_object", "fac_kingdom_6"),
+				# (str_store_string, s39, "str_sarranids"),
 			(else_try),
 				(eq, ":faction_object", "fac_player_supporters_faction"),
 				(str_store_string, s39, "str_your_followers"),
@@ -46292,12 +46935,12 @@ scripts = [
       (else_try),
         (eq, ":faction_no", "fac_kingdom_4"),
         (assign, ":result", mtf_culture_4),
-      (else_try),
-        (eq, ":faction_no", "fac_kingdom_5"),
-        (assign, ":result", mtf_culture_5),
-      (else_try),
-        (eq, ":faction_no", "fac_kingdom_6"),
-        (assign, ":result", mtf_culture_6),
+      # (else_try),
+        # (eq, ":faction_no", "fac_kingdom_5"),
+        # (assign, ":result", mtf_culture_5),
+      # (else_try),
+        # (eq, ":faction_no", "fac_kingdom_6"),
+        # (assign, ":result", mtf_culture_6),
       (else_try),
         (this_or_next|eq, ":faction_no", "fac_outlaws"),
         (this_or_next|eq, ":faction_no", "fac_peasant_rebels"),
@@ -46743,8 +47386,8 @@ scripts = [
   # Output: none
   ("debug_variables",
     [
-      (store_script_param, ":unused", 1),
-      (store_script_param, ":unused_2", 2),
+      # (store_script_param, ":unused", 1),
+      # (store_script_param, ":unused_2", 2),
     ]),
 
 #lord recruitment scripts begin
@@ -49196,57 +49839,57 @@ scripts = [
 		(try_begin),
 			(eq, ":faction_no", "fac_kingdom_2"),
 			(lt, ":random", 4),
-			(troop_add_item, ":lady_no", "itm_fur_coat", 0),
+			(troop_add_item, ":lady_no", "itm_a_woman_court_dress_5", 0),
 		(else_try),
 			(eq, ":faction_no", "fac_kingdom_3"),
 			(lt, ":random", 3),
-			(troop_add_item, ":lady_no", "itm_nomad_robe", 0),
+			(troop_add_item, ":lady_no", "itm_a_woman_court_dress_4", 0),
 		(else_try),
-			(troop_add_item, ":lady_no", "itm_nomad_vest", 0),
+			(troop_add_item, ":lady_no", "itm_a_woman_court_dress_6", 0),
 		(try_end),
 	(else_try),
 		(eq, ":faction_no", "fac_kingdom_1"),
 		(try_begin),
 			(lt, ":random", 2),
-			(troop_add_item, ":lady_no", "itm_lady_dress_ruby", 0),
+			(troop_add_item, ":lady_no", "itm_a_woman_court_dress_1", 0),
 		(else_try),
 			(lt, ":random", 4),
-			(troop_add_item, ":lady_no", "itm_lady_dress_green", 0),
+			(troop_add_item, ":lady_no", "itm_a_woman_court_dress_2", 0),
 		(else_try),
-			(troop_add_item, ":lady_no", "itm_lady_dress_blue", 0),
+			(troop_add_item, ":lady_no", "itm_a_woman_court_dress_3", 0),
 		(try_end),
 	(else_try),
 		(eq, ":faction_no", "fac_kingdom_2"),
 		(try_begin),
 			(eq, ":random", 0),
-			(troop_add_item, ":lady_no", "itm_blue_dress", 0),
+			(troop_add_item, ":lady_no", "itm_a_woman_court_dress_6", 0),
 		(else_try),
 			(eq, ":random", 1),
-			(troop_add_item, ":lady_no", "itm_lady_dress_green", 0),
+			(troop_add_item, ":lady_no", "itm_a_woman_court_dress_4", 0),
 		(else_try),
 			(eq, ":random", 2),
-			(troop_add_item, ":lady_no", "itm_lady_dress_blue", 0),
+			(troop_add_item, ":lady_no", "itm_a_woman_court_dress_5", 0),
 		(else_try),
 			(lt, ":random", 5),
 			(neg|troop_slot_eq, ":lady_no", slot_lord_reputation_type, lrep_conventional),
 			(neg|troop_slot_eq, ":lady_no", slot_lord_reputation_type, lrep_ambitious),
-			(troop_add_item, ":lady_no", "itm_peasant_dress", 0),
+			(troop_add_item, ":lady_no", "itm_a_tabard", 0),
 		(else_try),
 			(lt, ":random", 5),
-			(troop_add_item, ":lady_no", "itm_lady_dress_ruby", 0),
+			(troop_add_item, ":lady_no", "itm_a_woman_court_dress_2", 0),
 		(else_try),
-			(troop_add_item, ":lady_no", "itm_court_dress", 0),
+			(troop_add_item, ":lady_no", "itm_a_woman_court_dress_1", 0),
 		(try_end),
 
 	(else_try),
 		(eq, ":faction_no", "fac_kingdom_3"),
-		(troop_add_item, ":lady_no", "itm_khergit_lady_dress", 0),
+		(troop_add_item, ":lady_no", "itm_a_woman_court_dress_3", 0),
 
 	(else_try),
 		(eq, ":faction_no", "fac_kingdom_4"),
 
-	(else_try),
-		(eq, ":faction_no", "fac_kingdom_5"),
+	# (else_try),
+		# (eq, ":faction_no", "fac_kingdom_5"),
 
 
 	(try_end),
@@ -49260,64 +49903,64 @@ scripts = [
 	#western tang costume (p105, china's golden age)
 	#kipchak woman from russia book
 
-	(try_begin), #assign headguear matched to item
-		(this_or_next|troop_has_item_equipped, ":lady_no", "itm_nomad_vest"),
-		(this_or_next|troop_has_item_equipped, ":lady_no", "itm_fur_coat"),
-			(troop_has_item_equipped, ":lady_no", "itm_nomad_robe"),
+	# (try_begin), #assign headguear matched to item
+		# (this_or_next|troop_has_item_equipped, ":lady_no", "itm_nomad_vest"),
+		# (this_or_next|troop_has_item_equipped, ":lady_no", "itm_fur_coat"),
+			# (troop_has_item_equipped, ":lady_no", "itm_a_tabard"),
 
 		#assign no headgear
-	(else_try),
-		(this_or_next|troop_slot_eq, ":lady_no", slot_lord_reputation_type, lrep_moralist),
-		(this_or_next|troop_slot_eq, ":lady_no", slot_lord_reputation_type, lrep_conventional),
-			(lt, ":random", 2),
+	# (else_try),
+		# (this_or_next|troop_slot_eq, ":lady_no", slot_lord_reputation_type, lrep_moralist),
+		# (this_or_next|troop_slot_eq, ":lady_no", slot_lord_reputation_type, lrep_conventional),
+			# (lt, ":random", 2),
 
 
-		(try_begin),
-			(troop_has_item_equipped, ":lady_no", "itm_khergit_lady_dress"),
-			(troop_add_item, ":lady_no", "itm_khergit_lady_hat", 0),
+		# (try_begin),
+			# (troop_has_item_equipped, ":lady_no", "itm_khergit_lady_dress"),
+			# (troop_add_item, ":lady_no", "itm_khergit_lady_hat", 0),
 
-		(else_try),
-			(troop_has_item_equipped, ":lady_no", "itm_lady_dress_ruby"),
-			(troop_add_item, ":lady_no", "itm_turret_hat_ruby", 0),
+		# (else_try),
+			# (troop_has_item_equipped, ":lady_no", "itm_lady_dress_ruby"),
+			# (troop_add_item, ":lady_no", "itm_turret_hat_ruby", 0),
 
-			(str_store_troop_name, s4, ":lady_no"),
+			# (str_store_troop_name, s4, ":lady_no"),
 #			(display_message, "@Giving ruby turret hat to {s4}"),
-		(else_try),
-			(troop_has_item_equipped, ":lady_no", "itm_lady_dress_blue"),
-			(troop_add_item, ":lady_no", "itm_turret_hat_blue", 0),
+		# (else_try),
+			# (troop_has_item_equipped, ":lady_no", "itm_lady_dress_blue"),
+			# (troop_add_item, ":lady_no", "itm_turret_hat_blue", 0),
 
-			(str_store_troop_name, s4, ":lady_no"),
+			# (str_store_troop_name, s4, ":lady_no"),
 #			(display_message, "@Giving blue turret hat to {s4}"),
-		(else_try),
-			(troop_has_item_equipped, ":lady_no", "itm_lady_dress_green"),
-			(troop_add_item, ":lady_no", "itm_turret_hat_green", 0),
+		# (else_try),
+			# (troop_has_item_equipped, ":lady_no", "itm_lady_dress_green"),
+			# (troop_add_item, ":lady_no", "itm_turret_hat_green", 0),
 
-			(str_store_troop_name, s4, ":lady_no"),
+			# (str_store_troop_name, s4, ":lady_no"),
 #			(display_message, "@Giving green turret hat to {s4}"),
-		(else_try),
-			(troop_has_item_equipped, ":lady_no", "itm_green_dress"),
-			(troop_add_item, ":lady_no", "itm_wimple_with_veil", 0),
+		# (else_try),
+			# (troop_has_item_equipped, ":lady_no", "itm_green_dress"),
+			# (troop_add_item, ":lady_no", "itm_wimple_with_veil", 0),
 
-			(str_store_troop_name, s4, ":lady_no"),
+			# (str_store_troop_name, s4, ":lady_no"),
 #			(display_message, "@Giving green-lined wimple to {s4}"),
-		(else_try),
-			(neq, ":faction_no", "fac_kingdom_3"),
-			(neq, ":faction_no", "fac_kingdom_6"),
-			(troop_add_item, ":lady_no", "itm_wimple_a", 0),
+		# (else_try),
+			# (neq, ":faction_no", "fac_kingdom_3"),
+			# (neq, ":faction_no", "fac_kingdom_6"),
+			# (troop_add_item, ":lady_no", "itm_wimple_a", 0),
 
-			(str_store_troop_name, s4, ":lady_no"),
+			# (str_store_troop_name, s4, ":lady_no"),
 #			(display_message, "@Giving red-lined wimple to {s4}"),
-		(else_try),
-			(eq, ":faction_no", "fac_kingdom_6"),
-			(try_begin),
-				(troop_has_item_equipped, ":lady_no", "itm_sarranid_lady_dress"),
-				(troop_add_item, ":lady_no", "itm_sarranid_head_cloth", 0),
-			(else_try),
-				(troop_add_item, ":lady_no", "itm_sarranid_head_cloth_b", 0),
-			(try_end),
-		(try_end),
-	(try_end),
-	(troop_equip_items, ":lady_no"),
+		# (else_try),
+			# (eq, ":faction_no", "fac_kingdom_6"),
+			# (try_begin),
+				# (troop_has_item_equipped, ":lady_no", "itm_sarranid_lady_dress"),
+				# (troop_add_item, ":lady_no", "itm_sarranid_head_cloth", 0),
+			# (else_try),
+				# (troop_add_item, ":lady_no", "itm_sarranid_head_cloth_b", 0),
+			# (try_end),
+		# (try_end),
+	# (try_end),
+	# (troop_equip_items, ":lady_no"),
 	##diplomacy start+
 	##Save personal items of kingdom ladies
 	(call_script, "script_dplmc_save_civilian_clothing", ":lady_no"),
@@ -52767,18 +53410,18 @@ scripts = [
         (val_mul, ":threat_score", ":distance_score"),
         (val_div, ":threat_score", 10000),
 
-        (try_begin),
-		  (ge, "$cheat_mode", 1),
-          (gt, ":threat_score", 0),
-          (eq, ":faction_no", "fac_kingdom_6"),
-          (assign, reg0, ":threat_score"),
-          (str_store_party_name, s32, ":cur_center"),
-          (assign, reg1,  ":total_prosperity_score"),
-          (assign, reg2, ":enemy_strength_nearby_score"),
-          (assign, reg3, ":threat_importance"),
-          (assign, reg4, ":distance_score"),
+        # (try_begin),
+		  # (ge, "$cheat_mode", 1),
+          # (gt, ":threat_score", 0),
+          # (eq, ":faction_no", "fac_kingdom_6"),
+          # (assign, reg0, ":threat_score"),
+          # (str_store_party_name, s32, ":cur_center"),
+          # (assign, reg1,  ":total_prosperity_score"),
+          # (assign, reg2, ":enemy_strength_nearby_score"),
+          # (assign, reg3, ":threat_importance"),
+          # (assign, reg4, ":distance_score"),
           #(display_message, "@{!}DEBUG : defend of {s32} is {reg0}, prosperity:{reg1}, enemy nearby:{reg2}, threat importance:{reg3}, distance: {reg4}"),
-        (try_end),
+        # (try_end),
 
         (gt, ":threat_score", ":maximum_threat_score"),
 
@@ -54616,7 +55259,8 @@ scripts = [
 ##diplomacy start+
 	(store_script_param, ":unused", 3), #1 = desertion, 2 = sickness
 ##diplomacy end+
-
+      (val_mul, ":unused", 1), ### DAC Seek: Stopping the compiler from complaining
+	  
     (party_clear, "p_temp_casualties"),
 
 	(party_get_num_companion_stacks, ":num_stacks", ":party"),
@@ -55998,7 +56642,7 @@ scripts = [
       (store_script_param, ":item_no", 1),
       (assign, ":result", 0),
       (try_begin),
-        (this_or_next|eq, ":item_no", "itm_quarter_staff"),
+        (this_or_next|eq, ":item_no", "itm_practice_staff"),
         (eq, ":item_no", "itm_practice_sword"),
         (assign, ":result", 1),
       (try_end),
@@ -57584,10 +58228,10 @@ scripts = [
           (store_random_in_range, ":r", 0,2),
           (try_begin),
             (eq, ":r", 0), #dagger
-            (store_random_in_range, ":item_no", "itm_sickle", "itm_falchion"),
+            (store_random_in_range, ":item_no", "itm_w_dagger_bollock", "itm_w_onehanded_flachion_italian"),
             (mission_tpl_entry_add_override_item, "mt_town_fight", ":entry_no", ":item_no"),
           (else_try), #club
-            (store_random_in_range, ":item_no", "itm_wooden_stick", "itm_winged_mace"),
+            (store_random_in_range, ":item_no", "itm_w_spiked_club", "itm_w_mace_winged"),
             (mission_tpl_entry_add_override_item, "mt_town_fight", ":entry_no", ":item_no"),
           (try_end),
          
@@ -57628,7 +58272,7 @@ scripts = [
 
       #dckplmc weapons
       (mission_tpl_entry_set_override_flags, "mt_town_fight", 3, af_override_weapons),
-      (store_random_in_range, ":item_no", "itm_sword_medieval_a", "itm_mace_1"), #random sword
+      (store_random_in_range, ":item_no", "itm_w_onehanded_flachion_italian", "itm_w_bastard_sword_a"), #random sword
       (mission_tpl_entry_add_override_item, "mt_town_fight", 3, ":item_no"),
       (set_visitors, 3, ":troop_of_merchant", 1),
 
@@ -61504,8 +62148,8 @@ scripts = [
   ("dplmc_appoint_chamberlain",
   [
     (troop_set_auto_equip, "trp_dplmc_chamberlain", 0),
-    (troop_set_inventory_slot, "trp_dplmc_chamberlain", ek_body, "itm_tabard"),
-    (troop_set_inventory_slot, "trp_dplmc_chamberlain", ek_foot, "itm_leather_boots"),
+    (troop_set_inventory_slot, "trp_dplmc_chamberlain", ek_body, "itm_a_tabard"),
+    (troop_set_inventory_slot, "trp_dplmc_chamberlain", ek_foot, "itm_b_leather_boots"),
     (assign, "$g_player_chamberlain", "trp_dplmc_chamberlain"),
     #SB : grab all gold from chest troops (seneschals)
     (try_for_range, ":center_no", walled_centers_begin, walled_centers_end),
@@ -61521,8 +62165,8 @@ scripts = [
   ("dplmc_appoint_chancellor",
   [
     (troop_set_auto_equip, "trp_dplmc_chancellor", 0),
-    (troop_set_inventory_slot, "trp_dplmc_chancellor", ek_body, "itm_nobleman_outfit"),
-    (troop_set_inventory_slot, "trp_dplmc_chancellor", ek_foot, "itm_leather_boots"),
+    (troop_set_inventory_slot, "trp_dplmc_chancellor", ek_body, "itm_a_noble_shirt_black"),
+    (troop_set_inventory_slot, "trp_dplmc_chancellor", ek_foot, "itm_b_leather_boots"),
     (assign, "$g_player_chancellor", "trp_dplmc_chancellor"),
   ]),
 
@@ -61530,7 +62174,7 @@ scripts = [
   [
     (troop_set_auto_equip, "trp_dplmc_constable", 0),
     (troop_set_inventory_slot, "trp_dplmc_constable", ek_body, "itm_dplmc_coat_of_plates_red_constable"),
-    (troop_set_inventory_slot, "trp_dplmc_constable", ek_foot, "itm_leather_boots"),
+    (troop_set_inventory_slot, "trp_dplmc_constable", ek_foot, "itm_b_leather_boots"),
     (assign, "$g_player_constable", "trp_dplmc_constable"),
   ]),
 
@@ -65092,9 +65736,9 @@ scripts = [
 	   #Translate raiders into the equivalent kingdoms
 	   (is_between, ":speaker", bandits_begin, bandits_end),
          (try_begin),
-			(eq, ":speaker", "trp_mountain_bandit"),#Mountain bandits
-			(assign, ":speaker_faction", "fac_kingdom_5"),#Rhodoks
-		 (else_try),
+			# (eq, ":speaker", "trp_mountain_bandit"),#Mountain bandits
+			# (assign, ":speaker_faction", "fac_kingdom_5"),#Rhodoks
+		 # (else_try),
 			(eq, ":speaker", "trp_forest_bandit"),#Forest bandits
 			(assign, ":speaker_faction", "fac_kingdom_1"),#Swadian
 		 (else_try),
@@ -65106,9 +65750,9 @@ scripts = [
 		 (else_try),
 			(eq, ":speaker", "trp_taiga_bandit"),#Taiga bandits
 			(assign, ":speaker_faction", "fac_kingdom_2"),#Vaegir
-		 (else_try),
-			(eq, ":speaker", "trp_desert_bandit"),#Desert bandits
-			(assign, ":speaker_faction", "fac_kingdom_6"),#Sarranid
+		 # (else_try),
+			# (eq, ":speaker", "trp_desert_bandit"),#Desert bandits
+			# (assign, ":speaker_faction", "fac_kingdom_6"),#Sarranid
 		 (try_end),
 		 (ge, ":speaker_faction", dplmc_non_generic_factions_begin),
     (else_try),
@@ -65169,9 +65813,9 @@ scripts = [
            (this_or_next|eq, ":speaker_faction", "fac_kingdom_4"),#Nords
            (eq, ":speaker_faction", "fac_kingdom_2"),#Vaegirs
            (str_store_string, ":string_register", "@axe"),
-        (else_try),
-           (eq, ":speaker_faction", "fac_kingdom_5"),#Rhodoks
-           (str_store_string, ":string_register", "@spear"),
+        # (else_try),
+           # (eq, ":speaker_faction", "fac_kingdom_5"),#Rhodoks
+           # (str_store_string, ":string_register", "@spear"),
         (else_try),
            (eq, ":speaker_faction", "fac_kingdom_3"),#Khergits
            (str_store_string, ":string_register", "@bow"),
@@ -65187,9 +65831,9 @@ scripts = [
            (this_or_next|eq, ":speaker_faction", "fac_kingdom_4"),#Nords
            (eq, ":speaker_faction", "fac_kingdom_2"),#Vaegirs
            (str_store_string, ":string_register", "@axes"),
-        (else_try),
-           (eq, ":speaker_faction", "fac_kingdom_5"),#Rhodoks
-           (str_store_string, ":string_register", "@spears"),
+        # (else_try),
+           # (eq, ":speaker_faction", "fac_kingdom_5"),#Rhodoks
+           # (str_store_string, ":string_register", "@spears"),
         (else_try),
            (eq, ":speaker_faction", "fac_kingdom_3"),#Khergits
            (str_store_string, ":string_register", "@bows"),
@@ -65206,9 +65850,9 @@ scripts = [
            (eq, ":speaker_faction", "fac_kingdom_4"),#Nords
            (eq, ":speaker_faction", "fac_kingdom_2"),#Vaegirs
            (str_store_string, ":string_register", "@swing my axe"),
-        (else_try),
-           (eq, ":speaker_faction", "fac_kingdom_5"),#Rhodoks
-           (str_store_string, ":string_register", "@lift my spear"),
+        # (else_try),
+           # (eq, ":speaker_faction", "fac_kingdom_5"),#Rhodoks
+           # (str_store_string, ":string_register", "@lift my spear"),
         (else_try),
            (eq, ":speaker_faction", "fac_kingdom_3"),#Khergits
            (str_store_string, ":string_register", "@loose my arrows"),
@@ -65223,9 +65867,9 @@ scripts = [
 		(try_begin),
 		   (eq, ":speaker_faction", "fac_kingdom_3"),#Khergit
 		   (str_store_string, ":string_register", "str_khan"),
-		(else_try),
-		   (eq, ":speaker_faction", "fac_kingdom_6"),#Sarranid
-		   (str_store_string, ":string_register", "@sultan"),
+		# (else_try),
+		   # (eq, ":speaker_faction", "fac_kingdom_6"),#Sarranid
+		   # (str_store_string, ":string_register", "@sultan"),
 		(else_try),
 		   #Default: Swadia, Rhodok, Nord, Vaegir, others
 		   (str_store_string, ":string_register", "str_king"),
@@ -65238,9 +65882,9 @@ scripts = [
 		(try_begin),
 		   (eq, ":speaker_faction", "fac_kingdom_3"),#Khergit
 		   (str_store_string, ":string_register", "@khans"),
-		(else_try),
-		   (eq, ":speaker_faction", "fac_kingdom_6"),#Sarranid
-		   (str_store_string, ":string_register", "@sultans"),
+		# (else_try),
+		   # (eq, ":speaker_faction", "fac_kingdom_6"),#Sarranid
+		   # (str_store_string, ":string_register", "@sultans"),
 		(else_try),
  		   #Default: Swadia, Rhodok, Nord, Vaegir, others
 		   (str_store_string, ":string_register", "@kings"),
@@ -65281,14 +65925,14 @@ scripts = [
         (else_try),
 		      (str_store_string, ":string_register", "@shepherd {boy/girl}"),
 		   (try_end),
-		(else_try),
-		   (eq, ":speaker_faction", "fac_kingdom_6"),#Sarranids
-		   (try_begin),
-		      (eq, ":mode", 0),
-		      (str_store_string, ":string_register", "@goatherd"),
-		   (else_try),
-		      (str_store_string, ":string_register", "@shepherd {boy/girl}"),
-		   (try_end),
+		# (else_try),
+		   # (eq, ":speaker_faction", "fac_kingdom_6"),#Sarranids
+		   # (try_begin),
+		      # (eq, ":mode", 0),
+		      # (str_store_string, ":string_register", "@goatherd"),
+		   # (else_try),
+		      # (str_store_string, ":string_register", "@shepherd {boy/girl}"),
+		   # (try_end),
         (else_try),
            #Swadia, Rhodok, Nord, others
            (str_store_string, ":string_register", "@swineherd"),
@@ -67694,6 +68338,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
     ("calculate_improvement_limit", [
         (store_script_param_1, ":troop_no"),
         (store_script_param_2, ":unused_2"),
+        (val_mul, ":unused_2", 1), ### DAC Seek: Stopping the compiler from complaining		
         (assign, ":limit", dplmc_improvement_limit),
         (troop_get_slot, ":personality", ":troop_no", slot_lord_reputation_type),
         (try_begin), #bad personality, unlikely to ever build property
@@ -67785,12 +68430,12 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
         (store_add, ":bandit_troop","trp_looter",":random_no"),
       (else_try), #regional bandits, 40% (should be terrain based though)
         (try_begin),
-          (eq, ":faction", "fac_kingdom_6"),
-          (assign, ":bandit_troop", "trp_desert_bandit"),
-        (else_try),
-          (eq, ":faction", "fac_kingdom_5"),
-          (assign, ":bandit_troop", "trp_mountain_bandit"),
-        (else_try),
+          # (eq, ":faction", "fac_kingdom_6"),
+          # (assign, ":bandit_troop", "trp_desert_bandit"),
+        # (else_try),
+          # (eq, ":faction", "fac_kingdom_5"),
+          # (assign, ":bandit_troop", "trp_mountain_bandit"),
+        # (else_try),
           (eq, ":faction", "fac_kingdom_4"),
           (assign, ":bandit_troop", "trp_sea_raider"),
         (else_try),
@@ -67988,9 +68633,9 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
   #check if weapons are wholly inappropriate for actual combat
   ("cf_melee_weapon_is_civilian", [
     (store_script_param, ":item", 1),
-    (this_or_next|is_between, ":item", "itm_sickle", "itm_dagger"),
-    (this_or_next|is_between, ":item", "itm_scythe", "itm_military_fork"),
-    (this_or_next|eq, ":item", "itm_wooden_stick"),
+    (this_or_next|is_between, ":item", "itm_w_fork_1", "itm_w_glaive_1"),
+    # (this_or_next|is_between, ":item", "itm_scythe", "itm_military_fork"),
+    (this_or_next|eq, ":item", "itm_w_wooden_stick"),
     (eq, ":item", "itm_torch"),
     # (eq, ":item", "itm_stones"),
      #include arena weapons here as well
@@ -69400,65 +70045,65 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
             (eq, ":direction", 1),
             (store_sub, ":result", startup_merchants_begin, ":direction"),
           (try_end),
-        (else_try), #sarranids
-          (is_between, ":troop_no", "trp_sarranid_recruit", "trp_looter"),
-          (str_store_string, ":sreg", "str_kingdom_6_adjective"),
+        # (else_try), #sarranids
+          # (is_between, ":troop_no", "trp_sarranid_recruit", "trp_looter"),
+          # (str_store_string, ":sreg", "str_kingdom_6_adjective"),
+          # (try_begin),
+            # (eq, ":direction", -1),
+            # (assign, ":result", "trp_sarranid_recruit"),
+          # (else_try),
+            # (eq, ":direction", 1),
+            # (store_sub, ":result", "trp_looter", ":direction"),
+          # (try_end),
+        # (else_try), #rhodoks
+          # (is_between, ":troop_no", "trp_rhodok_tribesman", "trp_sarranid_recruit"),
+          # (str_store_string, ":sreg", "str_kingdom_5_adjective"),
+          # (try_begin),
+            # (eq, ":direction", -1),
+            # (assign, ":result", "trp_rhodok_tribesman"),
+          # (else_try),
+            # (eq, ":direction", 1),
+            # (store_sub, ":result", "trp_sarranid_recruit", ":direction"),
+          # (try_end),
+        (else_try), #bretons
+          (is_between, ":troop_no", "trp_breton_peasant_archer", "trp_looter"),
+          (str_store_string, ":sreg", "str_kingdom_4_adjective"),
           (try_begin),
             (eq, ":direction", -1),
-            (assign, ":result", "trp_sarranid_recruit"),
+            (assign, ":result", "trp_breton_peasant_archer"),
           (else_try),
             (eq, ":direction", 1),
             (store_sub, ":result", "trp_looter", ":direction"),
           (try_end),
-        (else_try), #rhodoks
-          (is_between, ":troop_no", "trp_rhodok_tribesman", "trp_sarranid_recruit"),
-          (str_store_string, ":sreg", "str_kingdom_5_adjective"),
-          (try_begin),
-            (eq, ":direction", -1),
-            (assign, ":result", "trp_rhodok_tribesman"),
-          (else_try),
-            (eq, ":direction", 1),
-            (store_sub, ":result", "trp_sarranid_recruit", ":direction"),
-          (try_end),
-        (else_try), #nords
-          (is_between, ":troop_no", "trp_nord_recruit", "trp_rhodok_tribesman"),
-          (str_store_string, ":sreg", "str_kingdom_4_adjective"),
-          (try_begin),
-            (eq, ":direction", -1),
-            (assign, ":result", "trp_nord_recruit"),
-          (else_try),
-            (eq, ":direction", 1),
-            (store_sub, ":result", "trp_rhodok_tribesman", ":direction"),
-          (try_end),
-        (else_try), #khergits
-          (is_between, ":troop_no", "trp_khergit_tribesman", "trp_nord_recruit"),
+        (else_try), #burgundians
+          (is_between, ":troop_no", "trp_burgundian_militia_archer", "trp_breton_peasant_archer"),
           (str_store_string, ":sreg", "str_kingdom_3_adjective"),
           (try_begin),
             (eq, ":direction", -1),
-            (assign, ":result", "trp_khergit_tribesman"),
+            (assign, ":result", "trp_burgundian_militia_archer"),
           (else_try),
             (eq, ":direction", 1),
-            (store_sub, ":result", "trp_nord_recruit", ":direction"),
+            (store_sub, ":result", "trp_breton_peasant_archer", ":direction"),
           (try_end),
-        (else_try), #vaegirs
-          (is_between, ":troop_no", "trp_vaegir_recruit", "trp_khergit_tribesman"),
+        (else_try), #English
+          (is_between, ":troop_no", "trp_english_peasant_archer", "trp_burgundian_militia_archer"),
           (str_store_string, ":sreg", "str_kingdom_2_adjective"),
           (try_begin),
             (eq, ":direction", -1),
-            (assign, ":result", "trp_vaegir_recruit"),
+            (assign, ":result", "trp_english_peasant_archer"),
           (else_try),
             (eq, ":direction", 1),
-            (store_sub, ":result", "trp_khergit_tribesman", ":direction"),
+            (store_sub, ":result", "trp_burgundian_militia_archer", ":direction"),
           (try_end),
-        (else_try), #swadians
-          (is_between, ":troop_no", "trp_swadian_recruit", "trp_vaegir_recruit"),
+        (else_try), #French
+          (is_between, ":troop_no", "trp_french_peasant_archer", "trp_english_peasant_archer"),
           (str_store_string, ":sreg", "str_kingdom_1_adjective"),
           (try_begin),
             (eq, ":direction", -1),
-            (assign, ":result", "trp_swadian_recruit"),
+            (assign, ":result", "trp_french_peasant_archer"),
           (else_try),
             (eq, ":direction", 1),
-            (store_sub, ":result", "trp_vaegir_recruit", ":direction"),
+            (store_sub, ":result", "trp_english_peasant_archer", ":direction"),
           (try_end),
         (try_end),
         (this_or_next|eq, ":direction", 0),
@@ -69625,64 +70270,65 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
         (eq, "$sneaked_into_town", disguise_pilgrim),
         (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_pilgrim_disguise"),
         (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_pilgrim_hood"),
-        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_wrapping_boots"),
+        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_b_wrapping_boots"),
         (try_begin),
           (eq, ":with_weapon", 1),
           (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_practice_staff"),
           (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_throwing_daggers"),
         (try_end),
       (else_try),
-        (eq, "$sneaked_into_town", disguise_farmer),
-        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_felt_hat"),
-        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_coarse_tunic"),
-        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_nomad_boots"),
+        (eq, "$sneaked_into_town", disguise_farmer),	
+        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_h_felt_hat_b_brown"),
+        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_a_farmer_tunic"),
+        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_b_ankle_boots"),
         (try_begin),
           (eq, ":with_weapon", 1),
-          (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_battle_fork"),
-          (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_cleaver"),
-          (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_stones"),
+          (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_w_fork_2"),
+          (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_w_onehanded_war_axe"),
+          # (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_stones"),
         (try_end),
       (else_try),
         (eq, "$sneaked_into_town", disguise_hunter),
-        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_black_hood"),
-        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_leather_gloves"),
-        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_light_leather"),
-        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_light_leather_boots"),
+        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_h_hood_black"),
+        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_g_leather_gauntlet"),
+        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_a_hunter_coat"),
+        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_b_wrapping_boots"),
         (try_begin),
           (eq, ":with_weapon", 1),
-          (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_sword_khergit_1"),
-          (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_hunting_bow"),
+          (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_w_archer_hatchet"),
+          (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_w_hunting_bow_elm"),
           (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_barbed_arrows"),
         (try_end),
       (else_try),
         (eq, "$sneaked_into_town", disguise_merchant),
-        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_leather_jacket"),
-        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_woolen_hose"),
-        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_felt_steppe_cap"),
+        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_a_merchant_outfit"),
+        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_b_hosen_shoes_custom"),
+        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_h_highlander_beret_red_2"),
         (try_begin),
           (eq, ":with_weapon", 1),
-          (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_dagger"),
+          (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_w_dagger_italian"),
         (try_end),
       (else_try),
         (eq, "$sneaked_into_town", disguise_guard),
-        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_footman_helmet"),
-        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_mail_mittens"),
-        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_mail_shirt"),
-        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_leather_jerkin"), #dckplmc
-        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_mail_chausses"),
+        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_h_mail_coif"),
+        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_g_mail_gauntlets"),
+        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_a_mail_shirt_custom"),
+        # (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_leather_jerkin"), #dckplmc
+        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_b_mail_chausses"),
         (try_begin),
           (eq, ":with_weapon", 1),
-          (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_fighting_pick"),
+          (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_w_warhammer_1"),
           (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_tab_shield_round_c"),
-          (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_war_spear"),
+          (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_w_spear_7"),
         (try_end),
       (else_try),
         (eq, "$sneaked_into_town", disguise_bard),
-        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_linen_tunic"),
-        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_leather_boots"),
+        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_h_highlander_beret_green_2"),
+        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_a_noble_shirt_green"),
+        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_b_hosen_shoes_custom"),
         (try_begin),
           (eq, ":with_weapon", 1),
-          (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_winged_mace"),
+          (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_w_mace_winged"),
           (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_lyre"),
         (try_end),
       (try_end),
@@ -72738,24 +73384,24 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (lt, ":diplomacy_version_code", 1),
 
       #Add home centers for claimants (mods not using standard NPCs or map may wish to remove this)
-      (troop_set_slot, "trp_kingdom_1_pretender", slot_troop_home, "p_town_4"),#Lady Isolle - Suno
-      (troop_set_slot, "trp_kingdom_2_pretender", slot_troop_home, "p_town_11"),#Prince Valdym - Curaw
-      (troop_set_slot, "trp_kingdom_3_pretender", slot_troop_home, "p_town_18"),#Dustum Khan - Narra
-      (troop_set_slot, "trp_kingdom_4_pretender", slot_troop_home, "p_town_12"),#Lethwin Far-Seeker - Wercheg
-      (troop_set_slot, "trp_kingdom_5_pretender", slot_troop_home, "p_town_3"),#Lord Kastor - Veluca
-      (troop_set_slot, "trp_kingdom_6_pretender", slot_troop_home, "p_town_20"),#Arwa the Pearled One - Durquba
+      # (troop_set_slot, "trp_kingdom_1_pretender", slot_troop_home, "p_town_4"),#Lady Isolle - Suno
+      # (troop_set_slot, "trp_kingdom_2_pretender", slot_troop_home, "p_town_11"),#Prince Valdym - Curaw
+      # (troop_set_slot, "trp_kingdom_3_pretender", slot_troop_home, "p_town_18"),#Dustum Khan - Narra
+      # (troop_set_slot, "trp_kingdom_4_pretender", slot_troop_home, "p_town_12"),#Lethwin Far-Seeker - Wercheg
+      # (troop_set_slot, "trp_kingdom_5_pretender", slot_troop_home, "p_town_3"),#Lord Kastor - Veluca
+      # (troop_set_slot, "trp_kingdom_6_pretender", slot_troop_home, "p_town_20"),#Arwa the Pearled One - Durquba
       #add ancestral fiefs to home slots (mods not using standard NPCs or map should remove this)
-      (troop_set_slot, "trp_knight_2_10", slot_troop_home, "p_castle_29"), #Nelag_Castle
-      (troop_set_slot, "trp_knight_3_4", slot_troop_home, "p_castle_30"), #Asugan_Castle
-      (troop_set_slot, "trp_knight_1_3", slot_troop_home, "p_castle_35"), #Haringoth_Castle
-      (troop_set_slot, "trp_knight_5_11", slot_troop_home, "p_castle_33"), #Etrosq_Castle
+      # (troop_set_slot, "trp_knight_2_10", slot_troop_home, "p_castle_29"), #Nelag_Castle
+      # (troop_set_slot, "trp_knight_3_4", slot_troop_home, "p_castle_30"), #Asugan_Castle
+      # (troop_set_slot, "trp_knight_1_3", slot_troop_home, "p_castle_35"), #Haringoth_Castle
+      # (troop_set_slot, "trp_knight_5_11", slot_troop_home, "p_castle_33"), #Etrosq_Castle
       #Also the primary six towns (mods not using standard NPCs or map may wish to remove this)
-      (troop_set_slot, "trp_kingdom_1_lord", slot_troop_home, "p_town_6"),#King Harlaus to Praven
-      (troop_set_slot, "trp_kingdom_2_lord", slot_troop_home, "p_town_8"),#King Yaroglek to Reyvadin
-      (troop_set_slot, "trp_kingdom_3_lord", slot_troop_home, "p_town_10"),#Sanjar Khan to Tulga
-      (troop_set_slot, "trp_kingdom_4_lord", slot_troop_home, "p_town_1"),#King Ragnar to Sargoth
-      (troop_set_slot, "trp_kingdom_5_lord", slot_troop_home, "p_town_5"),#King Graveth to Jelkala
-      (troop_set_slot, "trp_kingdom_6_lord", slot_troop_home, "p_town_19"),#Sultan Hakim to Shariz
+      # (troop_set_slot, "trp_kingdom_1_lord", slot_troop_home, "p_town_6"),#King Harlaus to Praven
+      # (troop_set_slot, "trp_kingdom_2_lord", slot_troop_home, "p_town_8"),#King Yaroglek to Reyvadin
+      # (troop_set_slot, "trp_kingdom_3_lord", slot_troop_home, "p_town_10"),#Sanjar Khan to Tulga
+      # (troop_set_slot, "trp_kingdom_4_lord", slot_troop_home, "p_town_1"),#King Ragnar to Sargoth
+      # (troop_set_slot, "trp_kingdom_5_lord", slot_troop_home, "p_town_5"),#King Graveth to Jelkala
+      # (troop_set_slot, "trp_kingdom_6_lord", slot_troop_home, "p_town_19"),#Sultan Hakim to Shariz
 
       (call_script, "script_dplmc_init_domestic_policy"),
        #Set the "original lord" values corresponding to the above.
@@ -72763,7 +73409,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
         (this_or_next|eq, ":troop_no", "trp_knight_2_10"),#Nelag
         (this_or_next|eq, ":troop_no", "trp_knight_3_4"),#Asugan
         (this_or_next|eq, ":troop_no", "trp_knight_1_3"),#Haringoth
-        (this_or_next|eq, ":troop_no", "trp_knight_5_11"),#Etrosq
+        # (this_or_next|eq, ":troop_no", "trp_knight_5_11"),#Etrosq
         (this_or_next|is_between, ":troop_no", kings_begin, kings_end),
         (is_between, ":troop_no", pretenders_begin, pretenders_end),
 
@@ -73314,63 +73960,63 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (troop_set_slot, "trp_player", slot_troop_player_disguise_sets, ":disguise"),
 
       #equip voulges
-      (troop_add_item, "trp_fighter_woman", "itm_shortened_voulge"),
-      (troop_add_item, "trp_swadian_sergeant", "itm_awlpike_long"),
-      (troop_add_item, "trp_swadian_deserter", "itm_shortened_voulge"),
-      (troop_add_item, "trp_swadian_deserter", "itm_long_voulge"),
-      (troop_add_item, "trp_swadian_crossbowman", "itm_shortened_voulge"),
-      (troop_add_item, "trp_swadian_sharpshooter", "itm_long_voulge"),
-      (troop_add_item, "trp_vaegir_guard", "itm_two_handed_battle_axe_2"),
-      (troop_add_item, "trp_vaegir_guard", "itm_long_bardiche"),
-      (troop_add_item, "trp_vaegir_infantry", "itm_two_handed_battle_axe_2"),
-      (troop_remove_item, "trp_vaegir_infantry", "itm_battle_axe"),
+      # (troop_add_item, "trp_fighter_woman", "itm_shortened_voulge"),
+      # (troop_add_item, "trp_swadian_sergeant", "itm_awlpike_long"),
+      # (troop_add_item, "trp_swadian_deserter", "itm_shortened_voulge"),
+      # (troop_add_item, "trp_swadian_deserter", "itm_long_voulge"),
+      # (troop_add_item, "trp_swadian_crossbowman", "itm_shortened_voulge"),
+      # (troop_add_item, "trp_swadian_sharpshooter", "itm_long_voulge"),
+      # (troop_add_item, "trp_vaegir_guard", "itm_two_handed_battle_axe_2"),
+      # (troop_add_item, "trp_vaegir_guard", "itm_long_bardiche"),
+      # (troop_add_item, "trp_vaegir_infantry", "itm_two_handed_battle_axe_2"),
+      # (troop_remove_item, "trp_vaegir_infantry", "itm_battle_axe"),
 
       #add coloured tunics to messengers, remove leather_jerkin
-      (troop_remove_item, "trp_swadian_messenger", "itm_leather_jerkin"),
-      (troop_remove_item, "trp_vaegir_messenger", "itm_leather_jerkin"),
-      (troop_remove_item, "trp_vaegir_messenger", "itm_sword_medieval_b"),
-      (troop_remove_item, "trp_khergit_messenger", "itm_leather_jerkin"),
-      (troop_remove_item, "trp_khergit_messenger", "itm_short_bow"),
-      (troop_remove_item, "trp_khergit_messenger", "itm_arrows"),
-      (troop_remove_item, "trp_nord_messenger", "itm_leather_jerkin"),
-      (troop_remove_item, "trp_nord_messenger", "itm_short_bow"),
-      (troop_remove_item, "trp_rhodok_messenger", "itm_leather_jerkin"),
-      (troop_remove_item, "trp_rhodok_messenger", "itm_short_bow"),
-      (troop_remove_item, "trp_rhodok_messenger", "itm_arrows"),
+      # (troop_remove_item, "trp_swadian_messenger", "itm_leather_jerkin"),
+      # (troop_remove_item, "trp_vaegir_messenger", "itm_leather_jerkin"),
+      # (troop_remove_item, "trp_vaegir_messenger", "itm_sword_medieval_b"),
+      # (troop_remove_item, "trp_khergit_messenger", "itm_leather_jerkin"),
+      # (troop_remove_item, "trp_khergit_messenger", "itm_short_bow"),
+      # (troop_remove_item, "trp_khergit_messenger", "itm_arrows"),
+      # (troop_remove_item, "trp_nord_messenger", "itm_leather_jerkin"),
+      # (troop_remove_item, "trp_nord_messenger", "itm_short_bow"),
+      # (troop_remove_item, "trp_rhodok_messenger", "itm_leather_jerkin"),
+      # (troop_remove_item, "trp_rhodok_messenger", "itm_short_bow"),
+      # (troop_remove_item, "trp_rhodok_messenger", "itm_arrows"),
       #sarranid messenger already copied from horseman
       #but we need to reassign them
-      (troop_set_faction, "trp_sarranid_messenger", "fac_kingdom_6"),
-      (troop_set_faction, "trp_sarranid_prison_guard", "fac_kingdom_6"),
-      (troop_set_faction, "trp_sarranid_castle_guard", "fac_kingdom_6"),
-      (troop_add_item, "trp_swadian_messenger", "itm_arena_tunic_red"),
-      (troop_add_item, "trp_vaegir_messenger", "itm_fighting_axe"),
-      (troop_add_item, "trp_vaegir_messenger", "itm_studded_leather_coat"),
-      (troop_add_item, "trp_khergit_messenger", "itm_khergit_bow"),
-      (troop_add_item, "trp_khergit_messenger", "itm_khergit_arrows"),
-      (troop_add_item, "trp_khergit_messenger", "itm_nomad_robe"),
-      (troop_add_item, "trp_nord_messenger", "itm_long_bow"),
-      (troop_add_item, "trp_nord_messenger", "itm_arena_tunic_blue"),
-      (troop_add_item, "trp_rhodok_messenger", "itm_light_crossbow"),
-      (troop_add_item, "trp_rhodok_messenger", "itm_steel_bolts"),
-      (troop_add_item, "trp_rhodok_messenger", "itm_arena_tunic_green"),
+      # (troop_set_faction, "trp_sarranid_messenger", "fac_kingdom_6"),
+      # (troop_set_faction, "trp_sarranid_prison_guard", "fac_kingdom_6"),
+      # (troop_set_faction, "trp_sarranid_castle_guard", "fac_kingdom_6"),
+      # (troop_add_item, "trp_swadian_messenger", "itm_arena_tunic_red"),
+      # (troop_add_item, "trp_vaegir_messenger", "itm_fighting_axe"),
+      # (troop_add_item, "trp_vaegir_messenger", "itm_studded_leather_coat"),
+      # (troop_add_item, "trp_khergit_messenger", "itm_khergit_bow"),
+      # (troop_add_item, "trp_khergit_messenger", "itm_khergit_arrows"),
+      # (troop_add_item, "trp_khergit_messenger", "itm_nomad_robe"),
+      # (troop_add_item, "trp_nord_messenger", "itm_long_bow"),
+      # (troop_add_item, "trp_nord_messenger", "itm_arena_tunic_blue"),
+      # (troop_add_item, "trp_rhodok_messenger", "itm_light_crossbow"),
+      # (troop_add_item, "trp_rhodok_messenger", "itm_steel_bolts"),
+      # (troop_add_item, "trp_rhodok_messenger", "itm_arena_tunic_green"),
 
       #equip tavern drunks/assassin (could be done as easily in trigger)
-      (troop_add_item, "trp_belligerent_drunk","itm_sword_medieval_a"),
-      (troop_add_item, "trp_belligerent_drunk","itm_sword_khergit_1"),
-      (troop_add_item, "trp_belligerent_drunk","itm_arabian_sword_a"),
-      (troop_remove_item, "trp_hired_assassin","itm_sword_medieval_a"),
-      (troop_add_item, "trp_hired_assassin","itm_sword_viking_3"),
-      (troop_add_item, "trp_hired_assassin","itm_sword_medieval_d_long"),
-      (troop_add_item, "trp_hired_assassin","itm_sword_khergit_4"),
-      (troop_add_item, "trp_hired_assassin","itm_arabian_sword_d"),
-      (troop_add_item, "trp_hired_assassin","itm_strange_sword"),
+      # (troop_add_item, "trp_belligerent_drunk","itm_sword_medieval_a"),
+      # (troop_add_item, "trp_belligerent_drunk","itm_sword_khergit_1"),
+      # (troop_add_item, "trp_belligerent_drunk","itm_arabian_sword_a"),
+      # (troop_remove_item, "trp_hired_assassin","itm_sword_medieval_a"),
+      # (troop_add_item, "trp_hired_assassin","itm_sword_viking_3"),
+      # (troop_add_item, "trp_hired_assassin","itm_sword_medieval_d_long"),
+      # (troop_add_item, "trp_hired_assassin","itm_sword_khergit_4"),
+      # (troop_add_item, "trp_hired_assassin","itm_arabian_sword_d"),
+      # (troop_add_item, "trp_hired_assassin","itm_strange_sword"),
 
       #sarranid "castle" guard replace with regular troop
-      (try_for_range, ":faction_no", kingdoms_begin, kingdoms_end),
-        (faction_slot_eq, ":faction_no", slot_faction_culture, "fac_culture_6"),
-        (faction_slot_eq, ":faction_no", slot_faction_guard_troop, "trp_sarranid_castle_guard"),
-        (faction_set_slot, ":faction_no", slot_faction_guard_troop, "trp_sarranid_guard"),
-      (try_end),
+      # (try_for_range, ":faction_no", kingdoms_begin, kingdoms_end),
+        # (faction_slot_eq, ":faction_no", slot_faction_culture, "fac_culture_6"),
+        # (faction_slot_eq, ":faction_no", slot_faction_guard_troop, "trp_sarranid_castle_guard"),
+        # (faction_set_slot, ":faction_no", slot_faction_guard_troop, "trp_sarranid_guard"),
+      # (try_end),
       #rivacheg strange bonus chest
       (store_random_in_range, ":imod", imod_rusty, imod_strong),
       (troop_add_item, "trp_bonus_chest_1","itm_strange_sword", ":imod"),
@@ -73386,11 +74032,11 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (troop_add_item, "trp_bonus_chest_2","itm_bride_shoes", imod_smelling),
       (troop_add_item, "trp_bonus_chest_2","itm_torch", imod_old),
 
-      (troop_add_item, "trp_bonus_chest_3","itm_black_armor", imod_lordly),
-      (troop_add_item, "trp_bonus_chest_3","itm_black_greaves", imod_lordly),
-      (troop_add_item, "trp_bonus_chest_3","itm_black_helmet", imod_lordly),
-      (troop_add_item, "trp_bonus_chest_3","itm_steel_shield", imod_lordly),
-      (troop_add_item, "trp_bonus_chest_3","itm_charger", imod_lordly), #charger_plate_1
+      (troop_add_item, "trp_bonus_chest_3","itm_b_steel_greaves_full", imod_lordly),
+      (troop_add_item, "trp_bonus_chest_3","itm_a_gothic_armour_narf", imod_lordly),
+      (troop_add_item, "trp_bonus_chest_3","itm_h_bascinet_great", imod_lordly),
+      # (troop_add_item, "trp_bonus_chest_3","itm_steel_shield", imod_lordly),
+      (troop_add_item, "trp_bonus_chest_3","itm_h_bascinet_great", imod_lordly), #charger_plate_1
 
       #training ground variables based on global
       (try_for_range, ":npc", training_ground_trainers_begin, training_ground_trainers_end),
@@ -73707,10 +74353,12 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
      (try_end),
      (party_get_num_companion_stacks, reg0, ":party_no_to_collect_heroes"),
   ]),
+  
   ("enter_court_staff", [
       (store_script_param_1, ":center_no"),
       (store_script_param_2, ":party_no_to_collect_heroes"),
       (party_clear, ":party_no_to_collect_heroes"),
+      (val_mul, ":center_no", 1), ### DAC Seek: Stopping the compiler from complaining	  
       (try_begin),
         (gt, "$g_player_minister", 0),
         (party_add_members, ":party_no_to_collect_heroes", "$g_player_minister", 1),
@@ -73728,6 +74376,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
         (party_add_members, ":party_no_to_collect_heroes", "$g_player_chamberlain", 1),
       (try_end),
   ]),
+  
 ("enter_court_female", [
   (store_script_param_1, ":center_no"),
   (store_script_param_2, ":party_no_to_collect_heroes"),
@@ -74068,9 +74717,9 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
     ]),
     
   ("dplmc_init_faction_gender_ratio", [
-    (store_script_param, ":reset_troops", 1),
+    (store_script_param, ":reset_troops", 1), 
     (try_begin), #SB : reset this for non-native
-      (eq, ":reset_troops", 1),
+      (eq, ":reset_troops", 2), ### DAC Seek: Disabled
       (try_for_range, ":troop_no", regular_troops_begin, regular_troops_end),
         (is_between, ":troop_no", "trp_follower_woman", "trp_caravan_master"), #always female
         (troop_set_type, ":troop_no", tf_female),
@@ -74078,18 +74727,18 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
         (troop_set_type, ":troop_no", tf_male),
       (try_end),
     (try_end),
-    (faction_set_slot, "fac_kingdom_1", slot_faction_gender_ratio, 20),
-    (faction_set_slot, "fac_kingdom_2", slot_faction_gender_ratio, 30),
-    (faction_set_slot, "fac_kingdom_3", slot_faction_gender_ratio, 50),
-    (faction_set_slot, "fac_kingdom_4", slot_faction_gender_ratio, 60),
-    (faction_set_slot, "fac_kingdom_5", slot_faction_gender_ratio, 40),
-    (faction_set_slot, "fac_kingdom_6", slot_faction_gender_ratio, 0),
+    (faction_set_slot, "fac_kingdom_1", slot_faction_gender_ratio, 0),
+    (faction_set_slot, "fac_kingdom_2", slot_faction_gender_ratio, 0),
+    (faction_set_slot, "fac_kingdom_3", slot_faction_gender_ratio, 0),
+    (faction_set_slot, "fac_kingdom_4", slot_faction_gender_ratio, 0),
+    # (faction_set_slot, "fac_kingdom_5", slot_faction_gender_ratio, 40),
+    # (faction_set_slot, "fac_kingdom_6", slot_faction_gender_ratio, 0),
 
-    (faction_set_slot, "fac_player_faction", slot_faction_gender_ratio, 50),
-    (faction_set_slot, "fac_player_supporters_faction", slot_faction_gender_ratio, 50),
-    (faction_set_slot, "fac_commoners", slot_faction_gender_ratio, 50),
-    (faction_set_slot, "fac_neutral", slot_faction_gender_ratio, 100),
-    (faction_set_slot, "fac_outlaws", slot_faction_gender_ratio, 10),
+    (faction_set_slot, "fac_player_faction", slot_faction_gender_ratio, 0),
+    (faction_set_slot, "fac_player_supporters_faction", slot_faction_gender_ratio, 0),
+    (faction_set_slot, "fac_commoners", slot_faction_gender_ratio, 0),
+    (faction_set_slot, "fac_neutral", slot_faction_gender_ratio, 0),
+    (faction_set_slot, "fac_outlaws", slot_faction_gender_ratio, 0),
     ]
   ),
     # #script_cf_dplmc_disguise_evaluate_contraband
@@ -74372,6 +75021,66 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (try_end),
       
       (assign, reg0, ":next_y"),]),
+	  
+ #script_add_troop_to_custom_armor_tableau
+  # INPUT: troop_no, item (g_current_opened_item_details), side (g_custom_armor_angle)
+  # OUTPUT: none
+  ("add_troop_to_custom_armor_tableau",
+    [
+       (store_script_param, ":troop_no",1),
+       (store_mul, ":side", "$g_custom_armor_angle", 60), #add some more sides
+       
+       (set_fixed_point_multiplier, 100),
+
+       (cur_tableau_clear_override_items),
+       (item_get_type, ":type", "$g_current_opened_item_details"),
+
+       (try_begin),
+        (eq, ":type", itp_type_body_armor),
+        (cur_tableau_set_override_flags, af_override_weapons|af_override_body),
+       (else_try),
+        (eq, ":type", itp_type_head_armor),
+        (cur_tableau_set_override_flags, af_override_weapons|af_override_head),
+       (else_try),
+        (cur_tableau_set_override_flags, af_override_weapons),
+       (try_end),
+
+       (cur_tableau_add_override_item, "$g_current_opened_item_details"),
+
+       (init_position, pos2),
+       (position_rotate_z, pos2, ":side"),
+       (cur_tableau_set_camera_parameters, 1, 4, 6, 10, 10000),
+
+       (init_position, pos5),
+       (assign, ":cam_height", 105),
+#       (val_mod, ":camera_distance", 5),
+       (assign, ":camera_distance", 380),
+       (assign, ":camera_yaw", -15),
+       (assign, ":camera_pitch", -18),
+       (val_clamp, "$g_custom_armor_angle", 0, anim_walk_forward_crouch - anim_walk_backward),
+       (store_add, ":animation", "$g_custom_armor_angle", "anim_walk_backward"),
+
+       (position_set_z, pos5, ":cam_height"),
+
+       # camera looks towards -z axis
+       (position_rotate_x, pos5, -90),
+       (position_rotate_z, pos5, 180),
+
+       # now apply yaw and pitch
+       (position_rotate_y, pos5, ":camera_yaw"),
+       (position_rotate_x, pos5, ":camera_pitch"),
+       (position_move_z, pos5, ":camera_distance", 0),
+       (position_move_x, pos5, 5, 0),
+       
+       (cur_tableau_add_troop, ":troop_no", pos2, ":animation", -1),
+       (cur_tableau_set_camera_position, pos5),
+
+       (copy_position, pos8, pos5),
+       (position_rotate_x, pos8, -90), #y axis aligned with camera now. z is up
+       (position_rotate_z, pos8, 30),
+       (position_rotate_x, pos8, -60),
+       (cur_tableau_add_sun_light, pos8, 155,155,155),
+     ]),	  
   
 
 ]

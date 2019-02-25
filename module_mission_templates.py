@@ -37,12 +37,12 @@ from compiler import *
 
 #SB : add new disguise sets, make sure none of them have high difficulty
 # the new flags now also have af_override_everything, so include footwear
-pilgrim_disguise = [itm_pilgrim_hood,itm_pilgrim_disguise,itm_practice_staff, itm_throwing_daggers, itm_wrapping_boots]
-farmer_disguise = [itm_felt_hat, itm_coarse_tunic, itm_cleaver, itm_battle_fork, itm_stones, itm_nomad_boots]
-hunter_disguise = [itm_hunting_bow,itm_barbed_arrows, itm_black_hood, itm_leather_gloves, itm_light_leather, itm_sword_khergit_1, itm_light_leather_boots]
-merchant_disguise = [itm_leather_jacket,itm_woolen_hose,itm_felt_steppe_cap,itm_dagger]
-guard_disguise = [itm_mail_chausses,itm_mail_shirt,itm_mail_mittens,itm_footman_helmet,itm_tab_shield_round_c,itm_fighting_pick,itm_war_spear]
-bard_disguise = [itm_leather_boots,itm_lyre,itm_linen_tunic,itm_winged_mace]
+pilgrim_disguise = [itm_pilgrim_hood,itm_pilgrim_disguise,itm_practice_staff, itm_throwing_daggers, itm_b_wrapping_boots]
+farmer_disguise = [itm_h_felt_hat_b_brown, itm_a_farmer_tunic, itm_b_ankle_boots, itm_w_fork_2, itm_w_onehanded_war_axe]
+hunter_disguise = [itm_h_hood_black,itm_g_leather_gauntlet, itm_a_hunter_coat, itm_w_archer_hatchet, itm_w_hunting_bow_elm, itm_barbed_arrows, itm_b_wrapping_boots]
+merchant_disguise = [itm_a_merchant_outfit,itm_b_hosen_shoes_custom,itm_h_highlander_beret_red_2,itm_w_dagger_italian]
+guard_disguise = [itm_h_mail_coif,itm_g_mail_gauntlets,itm_a_mail_shirt_custom,itm_b_mail_chausses,itm_tab_shield_round_c,itm_w_warhammer_1,itm_w_spear_7]
+bard_disguise = [itm_h_highlander_beret_green_2,itm_a_noble_shirt_green,itm_b_hosen_shoes_custom,itm_w_mace_winged,itm_lyre]
 #note that these are usually male clothing, especially farmer_disguise, need some female ones as well
 
 af_castle_lord = af_override_horse | af_override_weapons| af_require_civilian
@@ -2789,10 +2789,10 @@ mission_templates = [
      (try_begin),
        (this_or_next|eq, ":dead_agent_troop_no", "trp_swadian_prison_guard"),
        (this_or_next|eq, ":dead_agent_troop_no", "trp_vaegir_prison_guard"),
-       (this_or_next|eq, ":dead_agent_troop_no", "trp_khergit_prison_guard"),
-       (this_or_next|eq, ":dead_agent_troop_no", "trp_nord_prison_guard"),
-       (this_or_next|eq, ":dead_agent_troop_no", "trp_rhodok_prison_guard"),
-       (eq, ":dead_agent_troop_no", "trp_sarranid_prison_guard"),
+       (this_or_next|eq, ":dead_agent_troop_no", "trp_bourg_prison_guard"),
+       (eq, ":dead_agent_troop_no", "trp_breton_prison_guard"),
+       # (this_or_next|eq, ":dead_agent_troop_no", "trp_rhodok_prison_guard"),
+       # (eq, ":dead_agent_troop_no", "trp_sarranid_prison_guard"),
 
        (eq, ":killer_agent_troop_no", "trp_player"),
 
@@ -3342,7 +3342,7 @@ mission_templates = [
   (
     "back_alley_revolt",mtf_battle_mode,charge,
     "You lead your men to battle.",
-    [(0,mtef_team_0|mtef_use_exact_number,af_override_horse|af_override_weapons|af_override_head,aif_start_alarmed,4,[itm_quarter_staff]),
+    [(0,mtef_team_0|mtef_use_exact_number,af_override_horse|af_override_weapons|af_override_head,aif_start_alarmed,4,[itm_practice_staff]),
      (3,mtef_visitor_source|mtef_team_1,af_override_horse,aif_start_alarmed,1,[]),
      ],
     [
@@ -4541,12 +4541,12 @@ mission_templates = [
         (agent_get_troop_id, ":killer_agent_troop_no", ":killer_agent_no"),
 
         (try_begin),
-          (this_or_next|eq, ":dead_agent_troop_no", "trp_swadian_prison_guard"),
-          (this_or_next|eq, ":dead_agent_troop_no", "trp_vaegir_prison_guard"),
-          (this_or_next|eq, ":dead_agent_troop_no", "trp_khergit_prison_guard"),
-          (this_or_next|eq, ":dead_agent_troop_no", "trp_nord_prison_guard"),
-          (this_or_next|eq, ":dead_agent_troop_no", "trp_rhodok_prison_guard"),
-          (eq, ":dead_agent_troop_no", "trp_sarranid_prison_guard"),
+       (this_or_next|eq, ":dead_agent_troop_no", "trp_swadian_prison_guard"),
+       (this_or_next|eq, ":dead_agent_troop_no", "trp_vaegir_prison_guard"),
+       (this_or_next|eq, ":dead_agent_troop_no", "trp_bourg_prison_guard"),
+       (eq, ":dead_agent_troop_no", "trp_breton_prison_guard"),
+          # (this_or_next|eq, ":dead_agent_troop_no", "trp_rhodok_prison_guard"),
+          # (eq, ":dead_agent_troop_no", "trp_sarranid_prison_guard"),
 
           (eq, ":killer_agent_troop_no", "trp_player"),
 
@@ -5460,8 +5460,8 @@ mission_templates = [
       (53, mtef_scene_source,af_override_horse,0,1,[]),(54, mtef_scene_source,af_override_horse,0,1,[]),(55, mtef_scene_source,af_override_horse,0,1,[]),
 #used for tournament master scene
 
-      (56, mtef_visitor_source|mtef_team_0, af_override_all, aif_start_alarmed, 1, [itm_practice_sword, itm_practice_shield, itm_padded_cloth, itm_segmented_helmet]),
-      (57, mtef_visitor_source|mtef_team_0, af_override_all, aif_start_alarmed, 1, [itm_practice_sword, itm_practice_shield, itm_padded_cloth, itm_segmented_helmet]),
+      (56, mtef_visitor_source|mtef_team_0, af_override_all, aif_start_alarmed, 1, [itm_practice_sword, itm_practice_shield]),
+      (57, mtef_visitor_source|mtef_team_0, af_override_all, aif_start_alarmed, 1, [itm_practice_sword, itm_practice_shield]),
     ],
     tournament_triggers
   ),
@@ -5538,11 +5538,11 @@ mission_templates = [
     "duel_with_lord",mtf_arena_fight|mtf_commit_casualties,-1,
     "You enter a melee fight in the arena.",
     [
-      (0, mtef_visitor_source|mtef_team_0,af_override_all,aif_start_alarmed,1,[itm_sword_medieval_a,itm_arena_tunic_blue]),
-      (16, mtef_visitor_source|mtef_team_1,af_override_all,aif_start_alarmed,1,[itm_sword_medieval_a,itm_arena_tunic_blue]),
+      (0, mtef_visitor_source|mtef_team_0,af_override_all,aif_start_alarmed,1,[itm_w_bastard_sword_a,itm_a_aketon_narf_custom]),
+      (16, mtef_visitor_source|mtef_team_1,af_override_all,aif_start_alarmed,1,[itm_w_bastard_sword_a,itm_a_aketon_narf_custom]),
       #SB : use these for castle courtyard duels
-      (23, mtef_visitor_source|mtef_team_0,af_override_all,aif_start_alarmed,1,[itm_arena_sword,itm_heraldic_mail_with_tunic]),
-      (24, mtef_visitor_source|mtef_team_1,af_override_all,aif_start_alarmed,1,[itm_arena_sword,itm_heraldic_mail_with_tunic_b]),
+      (23, mtef_visitor_source|mtef_team_0,af_override_all,aif_start_alarmed,1,[itm_w_bastard_sword_a,itm_a_aketon_narf_custom]),
+      (24, mtef_visitor_source|mtef_team_1,af_override_all,aif_start_alarmed,1,[itm_w_bastard_sword_a,itm_a_aketon_narf_custom]),
       
     ],
     [
@@ -5860,10 +5860,10 @@ mission_templates = [
     "wedding",0,-1,
     "Wedding",
     [
-        (0,mtef_visitor_source,af_override_everything,0,1,[itm_tabard, itm_ankle_boots]),
+        (0,mtef_visitor_source,af_override_everything,0,1,[itm_a_tabard, itm_b_ankle_boots]),
         (1,mtef_visitor_source,af_override_everything,0,1,[itm_bride_dress, itm_bride_crown, itm_bride_shoes]),
         (2,mtef_visitor_source,af_castle_lord,0,1,[]),
-        (3,mtef_visitor_source,af_override_everything,0,1,[itm_courtly_outfit, itm_blue_hose]),
+        (3,mtef_visitor_source,af_override_everything,0,1,[itm_a_noble_shirt_white, itm_b_leather_boots]),
         (4,mtef_visitor_source,af_castle_lord,0,1,[]),
         (5,mtef_visitor_source,af_castle_lord,0,1,[]),
         (6,mtef_visitor_source,af_castle_lord,0,1,[]),
@@ -7772,7 +7772,7 @@ mission_templates = [
     "tutorial_1",0,-1,
     "You enter the training ground.",
     [
-        (0,mtef_leader_only,af_override_everything,0,1,[itm_tutorial_shield,itm_tutorial_sword,itm_tutorial_short_bow,itm_tutorial_arrows,itm_leather_jerkin,itm_leather_boots]), #af_override_weapons
+        (0,mtef_leader_only,af_override_everything,0,1,[itm_tutorial_shield,itm_tutorial_sword,itm_tutorial_short_bow,itm_tutorial_arrows,itm_a_leather_jerkin,itm_b_leather_boots]), #af_override_weapons
      ],
     [
       (ti_tab_pressed, 0, 0, [],
@@ -7980,7 +7980,7 @@ mission_templates = [
     "tutorial_2",mtf_arena_fight,-1,
     "You enter the training ground.",
     [
-        (0,mtef_leader_only|mtef_team_0,af_override_everything,0,1,[itm_tutorial_shield,itm_leather_jerkin,itm_leather_boots]),
+        (0,mtef_leader_only|mtef_team_0,af_override_everything,0,1,[itm_tutorial_shield,itm_a_leather_jerkin,itm_b_leather_boots]),
         (2,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),
         (4,mtef_visitor_source|mtef_team_1,0,0,1,[]),
      ],
@@ -8265,7 +8265,7 @@ mission_templates = [
     "tutorial_3",mtf_arena_fight,-1,
     "You enter the training ground.",
     [
-        (0,mtef_leader_only|mtef_team_0,af_override_everything,0,1,[itm_leather_jerkin,itm_leather_boots]),
+        (0,mtef_leader_only|mtef_team_0,af_override_everything,0,1,[itm_a_leather_jerkin,itm_b_leather_boots]),
         (3,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),
         (5,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),
      ],
@@ -8522,7 +8522,7 @@ mission_templates = [
     "tutorial_3_2",mtf_arena_fight,-1,
     "You enter the training ground.",
     [
-        (0,mtef_leader_only|mtef_team_0,af_override_everything,0,1,[itm_tutorial_staff,itm_leather_jerkin,itm_leather_boots]),
+        (0,mtef_leader_only|mtef_team_0,af_override_everything,0,1,[itm_tutorial_staff,itm_a_leather_jerkin,itm_b_leather_boots]),
         (4,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),
         (6,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),
      ],
@@ -8676,7 +8676,7 @@ mission_templates = [
     "tutorial_4",mtf_arena_fight,-1,
     "You enter the training ground.",
     [
-        (0,mtef_leader_only|mtef_team_0,af_override_everything,0,1,[itm_tutorial_sword,itm_tutorial_short_bow,itm_tutorial_arrows,itm_leather_jerkin,itm_leather_boots]), #af_override_weapons
+        (0,mtef_leader_only|mtef_team_0,af_override_everything,0,1,[itm_tutorial_sword,itm_tutorial_short_bow,itm_tutorial_arrows,itm_a_leather_jerkin,itm_b_leather_boots]), #af_override_weapons
      ],
     [
       (ti_tab_pressed, 0, 0, [],
@@ -8891,7 +8891,7 @@ mission_templates = [
     "tutorial_5",mtf_arena_fight,-1,
     "You enter the training ground.",
     [
-        (0,mtef_visitor_source|mtef_team_0,af_override_everything,0,1,[itm_tutorial_sword,itm_tutorial_shield,itm_tutorial_short_bow,itm_tutorial_arrows,itm_tutorial_saddle_horse,itm_leather_jerkin,itm_leather_boots]),
+        (0,mtef_visitor_source|mtef_team_0,af_override_everything,0,1,[itm_tutorial_sword,itm_tutorial_shield,itm_tutorial_short_bow,itm_tutorial_arrows,itm_tutorial_saddle_horse,itm_a_leather_jerkin,itm_b_leather_boots]),
         (1,mtef_visitor_source|mtef_team_0,0,aif_start_alarmed,1,[]),
         (2,mtef_visitor_source|mtef_team_0,0,aif_start_alarmed,1,[]),
         (3,mtef_visitor_source|mtef_team_0,0,aif_start_alarmed,1,[]),
@@ -9011,9 +9011,9 @@ mission_templates = [
                    (val_add, "$tutorial_5_state", 1),
                    (modify_visitors_at_site,"scn_tutorial_5"),
                    (reset_visitors),
-                   (set_visitor,5,"trp_vaegir_archer"),
-                   (set_visitor,6,"trp_vaegir_archer"),
-                   (set_visitor,7,"trp_vaegir_archer"),
+                   (set_visitor,5,"trp_english_longbowman"),
+                   (set_visitor,6,"trp_english_longbowman"),
+                   (set_visitor,7,"trp_english_longbowman"),
                    (entry_point_get_position, pos1, 11),
                    (scene_prop_get_instance, ":flag_object", "spr_tutorial_flag_yellow", 0),
                    (prop_instance_animate_to_position, ":flag_object", pos1, 1),
@@ -12560,9 +12560,9 @@ mission_templates = [
            (assign, ":player_is_horseman", 0),
            (player_get_item_id, ":item_id", ":player_no", ek_horse),
            (try_begin),
-             (this_or_next|is_between, ":item_id", horses_begin, horses_end),
-             (this_or_next|eq, ":item_id", "itm_warhorse_sarranid"),
-             (eq, ":item_id", "itm_warhorse_steppe"),
+             (is_between, ":item_id", horses_begin, horses_end),
+             # (this_or_next|eq, ":item_id", "itm_warhorse_sarranid"),
+             # (eq, ":item_id", "itm_warhorse_steppe"),
              (assign, ":player_is_horseman", 1),
            (try_end),
 
@@ -15987,21 +15987,21 @@ mission_templates = [
                   (assign, ":sound_id", "snd_encounter_steppe_bandits"),
                 (try_end),
               (else_try), #SB : prison guards
-                (this_or_next|is_between, ":attacker_troop_id", "trp_swadian_prison_guard", "trp_swadian_recruit"),
-                (this_or_next|is_between, ":attacker_troop_id", "trp_vaegir_prison_guard", "trp_khergit_tribesman"),
-                (this_or_next|is_between, ":attacker_troop_id", "trp_khergit_prison_guard", "trp_nord_recruit"),
-                (this_or_next|is_between, ":attacker_troop_id", "trp_nord_prison_guard", "trp_rhodok_tribesman"),
-                (this_or_next|is_between, ":attacker_troop_id", "trp_rhodok_prison_guard", "trp_sarranid_recruit"),
-                (is_between, ":attacker_troop_id", "trp_sarranid_prison_guard", "trp_looter"),
+                # (this_or_next|is_between, ":attacker_troop_id", "trp_swadian_prison_guard", "trp_swadian_recruit"),
+                # (this_or_next|is_between, ":attacker_troop_id", "trp_vaegir_prison_guard", "trp_khergit_tribesman"),
+                # (this_or_next|is_between, ":attacker_troop_id", "trp_khergit_prison_guard", "trp_nord_recruit"),
+                # (this_or_next|is_between, ":attacker_troop_id", "trp_nord_prison_guard", "trp_rhodok_tribesman"),
+                # (this_or_next|is_between, ":attacker_troop_id", "trp_rhodok_prison_guard", "trp_sarranid_recruit"),
+                # (is_between, ":attacker_troop_id", "trp_sarranid_prison_guard", "trp_looter"),
                 # (store_random_in_range, ":random", 0, 60),
                 (try_begin),
                   (eq, ":random", 0),
                   (assign, ":sound_id", "snd_sneak_town_halt"),
                 (try_end),
               (else_try), #SB : encounter_vaegir, use for high-level knights
-                (this_or_next|eq, ":attacker_troop_id", "trp_vaegir_knight"),
-                (this_or_next|eq, ":attacker_troop_id", "trp_swadian_knight"),
-                (eq, ":attacker_troop_id", "trp_sarranid_mamluke"),
+                (this_or_next|eq, ":attacker_troop_id", "trp_english_knight"),
+                (this_or_next|eq, ":attacker_troop_id", "trp_french_knight_bachelier"),
+                (eq, ":attacker_troop_id", "trp_burgundian_knight"),
                 (is_between, ":attacker_troop_id", bandits_begin, bandits_end),
                 # (store_random_in_range, ":random", 0, 60),
                 (try_begin),
@@ -16547,12 +16547,12 @@ mission_templates = [
            (else_try),
              (eq, ":starting_town_faction", "fac_kingdom_4"),
              (assign, ":troop_of_merchant", "trp_relative_of_merchant"),
-           (else_try),
-             (eq, ":starting_town_faction", "fac_kingdom_5"),
-             (assign, ":troop_of_merchant", "trp_relative_of_merchant"),
-           (else_try),
-             (eq, ":starting_town_faction", "fac_kingdom_6"),
-             (assign, ":troop_of_merchant", "trp_relative_of_merchant"),
+           # (else_try),
+             # (eq, ":starting_town_faction", "fac_kingdom_5"),
+             # (assign, ":troop_of_merchant", "trp_relative_of_merchant"),
+           # (else_try),
+             # (eq, ":starting_town_faction", "fac_kingdom_6"),
+             # (assign, ":troop_of_merchant", "trp_relative_of_merchant"),
            (try_end),
 
            (get_player_agent_no, ":player_agent"),

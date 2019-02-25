@@ -1748,7 +1748,7 @@ but I do insist they be breathing when I buy them.", "ramun_ask_about_capturing_
 [trp_ramun_the_slave_trader,"ramun_have_blunt_weapon_no", [],
 "No? Heh, well, this must be your lucky day. I've got an old club lying around that I was going to throw away.\
 It a bit battered, but still good enough bash someone until he stops moving.\
-Here, have it.","ramun_have_blunt_weapon_no_2",[(troop_add_item, "trp_player","itm_club",imod_cracked)]],
+Here, have it.","ramun_have_blunt_weapon_no_2",[(troop_add_item, "trp_player","itm_w_mace_knobbed",imod_cracked)]],
 [trp_ramun_the_slave_trader|plyr,"ramun_have_blunt_weapon_no_2", [],
 "Thanks, Ramun. Perhaps I may try my hand at it.", "ramun_have_blunt_weapon_yes",[]],
 [trp_ramun_the_slave_trader,"ramun_ask_about_capturing", [],
@@ -3139,6 +3139,8 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
   (gt, "$diplomacy_var", 0),
   (store_item_kind_count, ":item_count", "$diplomacy_var"),
   (item_get_max_ammo, ":item_size", "$diplomacy_var"),
+  (val_add, ":item_count", 0),  ### DAC Seek : For the compiler to stop bothering
+  (val_add, ":item_size", 0),  ### DAC Seek
   ],
 "Of course, take care with these.", "member_delegate_quest_assess_for_items", [
   
@@ -4126,12 +4128,12 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
    ##from the Rhodok lands, instead of just Bunduk.  Currently there are no others
    ##besides him, but other mods may add them.
    #(eq, "$g_talk_troop", "trp_npc10"),
-   (this_or_next|troop_slot_eq, "$g_talk_troop", slot_lord_reputation_type, lrep_benefactor),
-      (troop_slot_eq, "$g_talk_troop", slot_lord_reputation_type, lrep_custodian),
-   (troop_slot_eq, "$g_talk_troop", slot_troop_original_faction, "fac_kingdom_5"),
+   # (this_or_next|troop_slot_eq, "$g_talk_troop", slot_lord_reputation_type, lrep_benefactor),
+      # (troop_slot_eq, "$g_talk_troop", slot_lord_reputation_type, lrep_custodian),
+   # (troop_slot_eq, "$g_talk_troop", slot_troop_original_faction, "fac_kingdom_5"),
    ##diplomacy end+
-   (str_store_string, s14, "str_tribune_s12"),
-(else_try),
+   # (str_store_string, s14, "str_tribune_s12"),
+# (else_try),
    (eq, ":is_female", 1),
    (str_store_string, s14, "str_lady_s12"),
 (else_try),
@@ -4176,7 +4178,7 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
     (call_script, "script_dplmc_get_item_score_with_imod", ":cur_armor", ":imod"),
   (try_end),
   (lt, reg0, 66 + 6 + 6), #base heraldic armor + lordly*2
-  (store_random_in_range, ":item_no","itm_heraldic_mail_with_surcoat", "itm_turret_hat_ruby"),
+  (store_random_in_range, ":item_no","itm_mail_long_surcoat_new_heraldic", "itm_b_wrapping_boots"),
   # (troop_add_item, "$g_talk_troop", ":armor", imod_lordly),
   # (store_item_value, ":item_cost", ":item_no"),
   # (ge, ":initial_gold", ":item_cost"),
@@ -4190,11 +4192,11 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 (try_begin),
   (troop_slot_eq, "$g_talk_troop", dplmc_slot_upgrade_horse, 1),
   #SB : add a random lance
-  (store_random_in_range, ":item_no", "itm_light_lance", "itm_great_lance"),
+  (store_random_in_range, ":item_no", "itm_w_light_lance", "itm_w_lance_6"),
   (troop_add_item, "$g_talk_troop", ":item_no", imod_balanced),
   (troop_get_inventory_slot, ":cur_horse", "$g_talk_troop", ek_horse),
   (eq, ":cur_horse", -1),
-  (store_random_in_range, ":item_no","itm_arabian_horse_a", "itm_charger"),
+  (store_random_in_range, ":item_no","itm_ho_sumpter_1", "itm_ho_horse_barded_white_chamfrom"),
   # (troop_add_item, "$g_talk_troop", ":armor", imod_spirited),
   (troop_set_inventory_slot, "$g_talk_troop", ek_horse, ":item_no"),
   (store_random_in_range, ":imod", imod_stubborn, imod_fresh),
@@ -4206,23 +4208,23 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 #SB : add a faction-appropriate tableau shield
 (troop_get_slot, ":faction_no", "$g_talk_troop", slot_troop_original_faction),
 #this slot is set even if it was 0 before from the fief_culture
-(assign, ":item_no", "itm_shield_heater_c"), #brown lion shield
+(assign, ":item_no", "itm_tab_shield_heater_d"), #brown lion shield
 (try_begin),
   (eq, ":faction_no", "fac_kingdom_1"),#heater for swadian/rhodok
   (assign, ":item_no", "itm_tab_shield_heater_cav_b"),
-(else_try),
-  (eq, ":faction_no", "fac_kingdom_5"),  #heater for swadian/rhodok
-  (assign, ":item_no", "itm_tab_shield_heater_d"),
+# (else_try),
+  # (eq, ":faction_no", "fac_kingdom_5"),  #heater for swadian/rhodok
+  # (assign, ":item_no", "itm_tab_shield_heater_d"),
 (else_try),
   (eq, ":faction_no", "fac_kingdom_2"),  #kite for vaegir
   (assign, ":item_no", "itm_tab_shield_kite_cav_b"),
-(else_try),
-  (this_or_next|eq, ":faction_no", "fac_kingdom_3"),
-  (eq, ":faction_no", "fac_kingdom_6"),  #cav for khergit/sarranid
-  (assign, ":item_no", "itm_tab_shield_small_round_c"),
+# (else_try),
+  # (this_or_next|eq, ":faction_no", "fac_kingdom_3"),
+  # (eq, ":faction_no", "fac_kingdom_6"),  #cav for khergit/sarranid
+  # (assign, ":item_no", "itm_tab_shield_small_round_c"),
 (else_try),
   (eq, ":faction_no", "fac_kingdom_4"),  #huscarl for nord
-  (assign, ":item_no", "itm_tab_shield_round_e"),
+  (assign, ":item_no", "itm_tab_shield_kite_cav_b"),
 (try_end),
 (store_random_in_range, ":imod", imod_sturdy, imod_superb),
 (troop_add_item, "$g_talk_troop", ":item_no", ":imod"),
@@ -8202,11 +8204,11 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
 [
  (store_party_size_wo_prisoners, ":garrison_size", "p_main_party"),
  (le, ":garrison_size", 0),
- (party_add_members, "p_main_party", "trp_swadian_militia", 1), #zerilius included otherwise gives errors
+ (party_add_members, "p_main_party", "trp_french_militia", 1), #zerilius included otherwise gives errors
 ],
 "You didn't choose any soldiers. Seems like you changed your mind.", "dplmc_constable_pretalk",
 [
-(party_remove_members, "p_main_party", "trp_swadian_militia", 1),
+(party_remove_members, "p_main_party", "trp_french_militia", 1),
 (call_script, "script_party_add_party", "p_main_party", "p_temp_party"),
 (assign, "$g_move_heroes", 0),
 ]],
@@ -8691,7 +8693,7 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
   (troop_get_inventory_slot, ":item_no", "$g_talk_troop", ":slots"),
   (gt, ":item_no", 0), #item found
   (neq, ":item_no", "itm_dplmc_coat_of_plates_red_constable"), #item found
-  (neq, ":item_no", "itm_leather_boots"), #item found
+  (neq, ":item_no", "itm_b_leather_boots"), #item found
   (assign, ":cap", -1), #break
 (try_end),
 (eq, ":cap", -1),
@@ -9747,8 +9749,8 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
 (try_for_range, ":slots", ek_food + 1, ":cap"),
   (troop_get_inventory_slot, ":item_no", "$g_talk_troop", ":slots"),
   (gt, ":item_no", 0), #item found
-  (neq, ":item_no", "itm_tabard"), #item found
-  (neq, ":item_no", "itm_leather_boots"), #item found
+  (neq, ":item_no", "itm_a_tabard"), #item found
+  (neq, ":item_no", "itm_b_leather_boots"), #item found
   (assign, ":cap", -1), #break
 (try_end),
 (eq, ":cap", -1),
@@ -26960,23 +26962,23 @@ I will use this to make amends to those you have wronged, and I will let it be k
 ], "Have no fear, I have no intention of changing my mind.  We will be married as soon as there is an opportunity worthy of the august event.", "lord_pretalk", []],
 
 ## Propose marriage to claimant: Arwa version
-[anyone,"lord_talk_ask_marriage_1", [
-(eq, "$g_talk_troop", "trp_kingdom_6_pretender"),#is Arwa
-(faction_slot_eq, "$g_talk_troop_faction", slot_faction_leader, "$g_talk_troop"),
-(is_between, "$g_talk_troop", pretenders_begin, pretenders_end),
-(neg|troop_slot_eq, "$g_talk_troop", slot_troop_playerparty_history, dplmc_pp_history_nonplayer_entry),
+# [anyone,"lord_talk_ask_marriage_1", [
+# (eq, "$g_talk_troop", "trp_kingdom_6_pretender"),#is Arwa
+# (faction_slot_eq, "$g_talk_troop_faction", slot_faction_leader, "$g_talk_troop"),
+# (is_between, "$g_talk_troop", pretenders_begin, pretenders_end),
+# (neg|troop_slot_eq, "$g_talk_troop", slot_troop_playerparty_history, dplmc_pp_history_nonplayer_entry),
 
-(this_or_next|ge, "$g_disable_condescending_comments", 2),#allow same-sex marriage if "reduced prejudice" is enabled
-	(neq, reg65, "$character_gender"),
-(try_begin),
-	(troop_get_slot, ":original_faction", "$g_talk_troop", slot_troop_original_faction),
-	(is_between, ":original_faction", kingdoms_begin, kingdoms_end),
-	(str_store_faction_name, s0, ":original_faction"),
-(else_try),
-	(str_store_faction_name, s0, "$g_talk_troop_faction"),
-(try_end),
-],
-"I do not forget that it was your strong right arm that placed me on this throne. Do you aim to take Baybak's place as my {husband/wife}, to rule the {s0} with me as Commander of the Armies even as I am Mother of the Realm?", "dplmc_claimant_marriage_proposal_pc_confirm", []],
+# (this_or_next|ge, "$g_disable_condescending_comments", 2),#allow same-sex marriage if "reduced prejudice" is enabled
+	# (neq, reg65, "$character_gender"),
+# (try_begin),
+	# (troop_get_slot, ":original_faction", "$g_talk_troop", slot_troop_original_faction),
+	# (is_between, ":original_faction", kingdoms_begin, kingdoms_end),
+	# (str_store_faction_name, s0, ":original_faction"),
+# (else_try),
+	# (str_store_faction_name, s0, "$g_talk_troop_faction"),
+# (try_end),
+# ],
+# "I do not forget that it was your strong right arm that placed me on this throne. Do you aim to take Baybak's place as my {husband/wife}, to rule the {s0} with me as Commander of the Armies even as I am Mother of the Realm?", "dplmc_claimant_marriage_proposal_pc_confirm", []],
 
 ## Propose marriage to claimant: general version A
 [anyone,"lord_talk_ask_marriage_1", [
@@ -31307,12 +31309,12 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
         (troop_get_slot, ":encountered_town", "$g_talk_troop", slot_troop_first_encountered),
         (neg|is_between, ":encountered_town", centers_begin, centers_end),
         # let's add some objects to this adventurous wife
-        (troop_add_item, "$g_talk_troop","itm_hunter", imod_spirited),
-        (troop_add_item, "$g_talk_troop","itm_tribal_warrior_outfit", imod_lordly),
-        (troop_add_item, "$g_talk_troop","itm_leather_boots", imod_lordly),
-        (troop_add_item, "$g_talk_troop","itm_leather_gloves", imod_lordly),
+        (troop_add_item, "$g_talk_troop","itm_ho_rouncey_5", imod_spirited),
+        (troop_add_item, "$g_talk_troop","itm_a_tabard", imod_lordly),
+        (troop_add_item, "$g_talk_troop","itm_b_leather_boots", imod_lordly),
+        (troop_add_item, "$g_talk_troop","itm_g_leather_gauntlet", imod_lordly),
         # (troop_add_item, "$g_talk_troop","itm_female_hood", imod_lordly),
-        (troop_add_item, "$g_talk_troop","itm_hunting_bow", imod_masterwork),
+        (troop_add_item, "$g_talk_troop","itm_w_hunting_bow_elm", imod_masterwork),
         (troop_add_item, "$g_talk_troop","itm_arrows", imod_large_bag),
         
         # ..and some proficiencies
@@ -31369,9 +31371,9 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
         (neg|is_between, ":encountered_town", centers_begin, centers_end),
         # let's add some objects to this otherworldly wife
         (troop_add_item, "$g_talk_troop","itm_saddle_horse", imod_spirited),
-        (troop_add_item, "$g_talk_troop","itm_lady_dress_ruby", imod_lordly),
-        (troop_add_item, "$g_talk_troop","itm_light_leather_boots", imod_lordly),
-        (troop_add_item, "$g_talk_troop","itm_female_hood", imod_lordly),
+        (troop_add_item, "$g_talk_troop","itm_a_woman_court_dress_1", imod_lordly),
+        (troop_add_item, "$g_talk_troop","itm_b_leather_boots", imod_lordly),
+        # (troop_add_item, "$g_talk_troop","itm_female_hood", imod_lordly),
         
         # ..and some proficiencies
         (troop_raise_attribute, "$g_talk_troop", ca_strength, 2),
@@ -31415,7 +31417,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
     (try_begin),
       (troop_get_slot, ":encountered_town", "$g_talk_troop", slot_troop_first_encountered),
       (neg|is_between, ":encountered_town", centers_begin, centers_end), #if we did not distribute equipment already
-      (troop_add_item, "$g_talk_troop","itm_courser", imod_old), #add at least 1 horse
+      (troop_add_item, "$g_talk_troop","itm_ho_courser_2", imod_old), #add at least 1 horse
         
        # ..and some proficiencies
       (troop_raise_attribute, "$g_talk_troop", ca_strength, 2),
@@ -40683,10 +40685,10 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [anyone,"mayor_war_description_1",[ (faction_get_slot, ":faction_leader","$g_encountered_party_faction",slot_faction_leader),
 								(str_store_troop_name, s10, ":faction_leader"),
 								(str_store_string, s22, "str_the"),
-								(try_begin),
-									(eq, "$g_encountered_party_faction", "fac_kingdom_5"),
-									(str_store_string, s22, "str_we"),
-								(try_end),
+								# (try_begin),
+									# (eq, "$g_encountered_party_faction", "fac_kingdom_5"),
+									# (str_store_string, s22, "str_we"),
+								# (try_end),
 								(val_max, "$g_mayor_given_political_dialog", 1),
 
   ], "Well, to answer your question generally, each monarch claims to be the rightful heir to the old Calradic emperors. Some of these claims are based on forgotten dynastic marriages and others are based on obscure promises, while {s22} Rhodoks invoke the empire's unwritten constitution. So in theory, any one realm has the right to declare war on any other realm at any time.", "mayor_war_description_2",[]],

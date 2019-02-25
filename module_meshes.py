@@ -234,13 +234,30 @@ meshes = [
   ("tableau_mesh_shield_heater_2", 0, "tableau_mesh_shield_heater_2",  0, 0, 0, 0, 0, 0, 10, 10, 10),
   ("tableau_mesh_shield_pavise_1", 0, "tableau_mesh_shield_pavise_1",  0, 0, 0, 0, 0, 0, 10, 10, 10),
   ("tableau_mesh_shield_pavise_2", 0, "tableau_mesh_shield_pavise_2",  0, 0, 0, 0, 0, 0, 10, 10, 10),
-
+  ("tableau_mesh_shield_pavise_3", 0, "tableau_mesh_shield_pavise_3", 0, 0, 0, 0, 0, 0, 10, 10, 10),   #HYW Restored
+  
   ("heraldic_armor_bg", 0, "heraldic_armor_bg",  0, 0, 0, 0, 0, 0, 10, 10, 10),
 
   ("tableau_mesh_heraldic_armor_a", 0, "tableau_mesh_heraldic_armor_a",  0, 0, 0, 0, 0, 0, 1, 1, 1),
   ("tableau_mesh_heraldic_armor_b", 0, "tableau_mesh_heraldic_armor_b",  0, 0, 0, 0, 0, 0, 1, 1, 1),
   ("tableau_mesh_heraldic_armor_c", 0, "tableau_mesh_heraldic_armor_c",  0, 0, 0, 0, 0, 0, 1, 1, 1),
   ("tableau_mesh_heraldic_armor_d", 0, "tableau_mesh_heraldic_armor_d",  0, 0, 0, 0, 0, 0, 1, 1, 1),
+  
+ ### HYW Heraldic Armors Begin
+  ("tableau_mesh_heraldic_churburg_13_tabard_banner", 0, "tableau_mesh_heraldic_churburg_13_tabard_banner",  0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("tableau_mesh_heraldic_churburg_13_tabard", 0, "tableau_mesh_heraldic_churburg_13_tabard",  0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("tableau_mesh_heraldic_churburg_13_brass_tabard_banner", 0, "tableau_mesh_heraldic_churburg_13_brass_tabard_banner",  0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("tableau_mesh_heraldic_churburg_13_brass_tabard", 0, "tableau_mesh_heraldic_churburg_13_brass_tabard",  0, 0, 0, 0, 0, 0, 1, 1, 1),
+  
+  ("tableau_mesh_early_transitional_heraldic_banner", 0, "tableau_mesh_early_transitional_heraldic_banner",  0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("tableau_mesh_early_transitional_heraldic", 0, "tableau_mesh_early_transitional_heraldic",  0, 0, 0, 0, 0, 0, 1, 1, 1),
+
+  ("tableau_mesh_mail_long_surcoat_new_heraldic", 0, "tableau_mesh_mail_long_surcoat_new_heraldic",  0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("tableau_mesh_brigandine_b_heraldic", 0, "tableau_mesh_brigandine_b_heraldic",  0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("tableau_mesh_heraldic_tunic_new", 0, "tableau_mesh_heraldic_tunic_new",  0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("tableau_mesh_tabard_b_heraldic", 0, "tableau_mesh_tabard_b_heraldic",  0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("tableau_mesh_heraldic_plate", 0, "tableau_mesh_heraldic_plate",  0, 0, 0, 0, 0, 0, 1, 1, 1),
+ ### HYW Heraldic Armors End  
 
   ("outer_terrain_plain_1", 0, "ter_border_a", -90, 0, 0, 0, 0, 0, 1, 1, 1),
   ("banner_a01", 0, "banner_a01", 0, 0, 0, -90, 0, 0, 1, 1, 1),
@@ -653,5 +670,9 @@ meshes = [
   ("flag_d7", 0, "flag_infantry", 0, 0, 0, 0, 0, 0, 1, 1, 1),
   ("flag_d8", 0, "flag_archers", 0, 0, 0, 0, 0, 0, 1, 1, 1),
   ("flag_d9", 0, "flag_cavalry", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  
+###VC presentations
+    ("pic_troop_trees", 0, "meeting_window", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+    ("pic_units_details", 0, "meeting_window", 0, 0, 0, 0, 0, 0, 1, 1, 1),  
   
 ]
