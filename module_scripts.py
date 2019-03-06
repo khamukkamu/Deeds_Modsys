@@ -565,6 +565,7 @@ scripts = [
       (try_end),
 
 	  #Give centers to factions first, to ensure more equal distributions
+### French Towns
 	  (call_script, "script_give_center_to_faction_aux", "p_town_1", "fac_kingdom_1"),
 	  (call_script, "script_give_center_to_faction_aux", "p_town_2", "fac_kingdom_1"),
 	  (call_script, "script_give_center_to_faction_aux", "p_town_3", "fac_kingdom_1"),
@@ -575,6 +576,7 @@ scripts = [
 	  (call_script, "script_give_center_to_faction_aux", "p_town_8", "fac_kingdom_1"),
 	  (call_script, "script_give_center_to_faction_aux", "p_town_9", "fac_kingdom_1"),
 	  (call_script, "script_give_center_to_faction_aux", "p_town_10", "fac_kingdom_1"),
+	  
 	  (call_script, "script_give_center_to_faction_aux", "p_town_11", "fac_kingdom_1"),
 	  (call_script, "script_give_center_to_faction_aux", "p_town_12", "fac_kingdom_1"),
 	  (call_script, "script_give_center_to_faction_aux", "p_town_13", "fac_kingdom_1"),
@@ -585,17 +587,20 @@ scripts = [
 	  (call_script, "script_give_center_to_faction_aux", "p_town_18", "fac_kingdom_1"),
 	  (call_script, "script_give_center_to_faction_aux", "p_town_19", "fac_kingdom_1"),
 	  (call_script, "script_give_center_to_faction_aux", "p_town_20", "fac_kingdom_1"),
+	  
 	  (call_script, "script_give_center_to_faction_aux", "p_town_21", "fac_kingdom_1"),
 	  (call_script, "script_give_center_to_faction_aux", "p_town_22", "fac_kingdom_1"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_23", "fac_kingdom_1"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_24", "fac_kingdom_1"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_25", "fac_kingdom_1"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_26", "fac_kingdom_1"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_27", "fac_kingdom_1"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_28", "fac_kingdom_1"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_29", "fac_kingdom_1"),
 	  
-	  (call_script, "script_give_center_to_faction_aux", "p_town_23", "fac_kingdom_2"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_24", "fac_kingdom_2"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_25", "fac_kingdom_2"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_26", "fac_kingdom_2"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_27", "fac_kingdom_2"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_28", "fac_kingdom_2"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_29", "fac_kingdom_2"),
+### English Towns	  
 	  (call_script, "script_give_center_to_faction_aux", "p_town_30", "fac_kingdom_2"),
+	  
 	  (call_script, "script_give_center_to_faction_aux", "p_town_31", "fac_kingdom_2"),
 	  (call_script, "script_give_center_to_faction_aux", "p_town_32", "fac_kingdom_2"),
 	  (call_script, "script_give_center_to_faction_aux", "p_town_33", "fac_kingdom_2"),
@@ -606,34 +611,50 @@ scripts = [
 	  (call_script, "script_give_center_to_faction_aux", "p_town_38", "fac_kingdom_2"),
 	  (call_script, "script_give_center_to_faction_aux", "p_town_39", "fac_kingdom_2"),
 	  (call_script, "script_give_center_to_faction_aux", "p_town_40", "fac_kingdom_2"),
+	  
 	  (call_script, "script_give_center_to_faction_aux", "p_town_41", "fac_kingdom_2"),
 	  (call_script, "script_give_center_to_faction_aux", "p_town_42", "fac_kingdom_2"),
 	  (call_script, "script_give_center_to_faction_aux", "p_town_43", "fac_kingdom_2"),
 	  (call_script, "script_give_center_to_faction_aux", "p_town_44", "fac_kingdom_2"),	  
+	  (call_script, "script_give_center_to_faction_aux", "p_town_45", "fac_kingdom_2"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_46", "fac_kingdom_2"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_47", "fac_kingdom_2"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_48", "fac_kingdom_2"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_49", "fac_kingdom_2"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_50", "fac_kingdom_2"),
 	  
-	  (call_script, "script_give_center_to_faction_aux", "p_town_45", "fac_kingdom_3"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_46", "fac_kingdom_3"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_47", "fac_kingdom_3"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_48", "fac_kingdom_3"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_49", "fac_kingdom_3"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_50", "fac_kingdom_3"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_51", "fac_kingdom_3"),
+	  
+	  (call_script, "script_give_center_to_faction_aux", "p_town_51", "fac_kingdom_2"),
+	
+### Burgundian Towns	
 	  (call_script, "script_give_center_to_faction_aux", "p_town_52", "fac_kingdom_3"),
 	  (call_script, "script_give_center_to_faction_aux", "p_town_53", "fac_kingdom_3"),
 	  (call_script, "script_give_center_to_faction_aux", "p_town_54", "fac_kingdom_3"),
 	  (call_script, "script_give_center_to_faction_aux", "p_town_55", "fac_kingdom_3"),
 	  (call_script, "script_give_center_to_faction_aux", "p_town_56", "fac_kingdom_3"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_57", "fac_kingdom_3"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_58", "fac_kingdom_3"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_59", "fac_kingdom_3"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_60", "fac_kingdom_3"),
 	  
-	  (call_script, "script_give_center_to_faction_aux", "p_town_57", "fac_kingdom_4"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_58", "fac_kingdom_4"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_59", "fac_kingdom_4"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_60", "fac_kingdom_4"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_61", "fac_kingdom_4"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_62", "fac_kingdom_4"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_63", "fac_kingdom_4"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_64", "fac_kingdom_4"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_61", "fac_kingdom_3"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_62", "fac_kingdom_3"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_63", "fac_kingdom_3"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_64", "fac_kingdom_3"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_65", "fac_kingdom_3"),
 
+### Breton Towns
+	  (call_script, "script_give_center_to_faction_aux", "p_town_66", "fac_kingdom_4"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_67", "fac_kingdom_4"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_68", "fac_kingdom_4"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_69", "fac_kingdom_4"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_70", "fac_kingdom_4"),
+	  
+	  (call_script, "script_give_center_to_faction_aux", "p_town_71", "fac_kingdom_4"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_72", "fac_kingdom_4"),
+	  (call_script, "script_give_center_to_faction_aux", "p_town_73", "fac_kingdom_4"),	  
 
+### French Castles	  
       (call_script, "script_give_center_to_faction_aux", "p_castle_1", "fac_kingdom_1"),
       (call_script, "script_give_center_to_faction_aux", "p_castle_2", "fac_kingdom_1"),
       (call_script, "script_give_center_to_faction_aux", "p_castle_3", "fac_kingdom_1"),
@@ -644,6 +665,7 @@ scripts = [
       (call_script, "script_give_center_to_faction_aux", "p_castle_8", "fac_kingdom_1"),
       (call_script, "script_give_center_to_faction_aux", "p_castle_9", "fac_kingdom_1"),
       (call_script, "script_give_center_to_faction_aux", "p_castle_10", "fac_kingdom_1"),
+	  
       (call_script, "script_give_center_to_faction_aux", "p_castle_11", "fac_kingdom_1"),
       (call_script, "script_give_center_to_faction_aux", "p_castle_12", "fac_kingdom_1"),
       (call_script, "script_give_center_to_faction_aux", "p_castle_13", "fac_kingdom_1"),
@@ -654,64 +676,87 @@ scripts = [
       (call_script, "script_give_center_to_faction_aux", "p_castle_18", "fac_kingdom_1"),
       (call_script, "script_give_center_to_faction_aux", "p_castle_19", "fac_kingdom_1"),
       (call_script, "script_give_center_to_faction_aux", "p_castle_20", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_21", "fac_kingdom_1"),
 	  
-      (call_script, "script_give_center_to_faction_aux", "p_castle_22", "fac_kingdom_2"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_23", "fac_kingdom_2"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_24", "fac_kingdom_2"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_25", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_21", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_22", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_23", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_24", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_25", "fac_kingdom_1"),
+
+### English Castles		  
       (call_script, "script_give_center_to_faction_aux", "p_castle_26", "fac_kingdom_2"),
       (call_script, "script_give_center_to_faction_aux", "p_castle_27", "fac_kingdom_2"),
       (call_script, "script_give_center_to_faction_aux", "p_castle_28", "fac_kingdom_2"),
       (call_script, "script_give_center_to_faction_aux", "p_castle_29", "fac_kingdom_2"),
       (call_script, "script_give_center_to_faction_aux", "p_castle_30", "fac_kingdom_2"),
+	  
       (call_script, "script_give_center_to_faction_aux", "p_castle_31", "fac_kingdom_2"),
       (call_script, "script_give_center_to_faction_aux", "p_castle_32", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_33", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_34", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_35", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_36", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_37", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_38", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_39", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_40", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_41", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_42", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_43", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_44", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_45", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_46", "fac_kingdom_2"),
 	  
-      (call_script, "script_give_center_to_faction_aux", "p_castle_33", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_34", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_35", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_36", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_37", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_38", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_39", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_40", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_41", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_42", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_43", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_44", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_45", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_46", "fac_kingdom_3"),
+### Burgundian Castles	 	  
       (call_script, "script_give_center_to_faction_aux", "p_castle_47", "fac_kingdom_3"),
       (call_script, "script_give_center_to_faction_aux", "p_castle_48", "fac_kingdom_3"),
       (call_script, "script_give_center_to_faction_aux", "p_castle_49", "fac_kingdom_3"),
       (call_script, "script_give_center_to_faction_aux", "p_castle_50", "fac_kingdom_3"),
+	  
       (call_script, "script_give_center_to_faction_aux", "p_castle_51", "fac_kingdom_3"),
       (call_script, "script_give_center_to_faction_aux", "p_castle_52", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_53", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_54", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_55", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_56", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_57", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_58", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_59", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_60", "fac_kingdom_3"),
 	  
-      (call_script, "script_give_center_to_faction_aux", "p_castle_53", "fac_kingdom_4"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_54", "fac_kingdom_4"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_55", "fac_kingdom_4"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_56", "fac_kingdom_4"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_57", "fac_kingdom_4"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_58", "fac_kingdom_4"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_59", "fac_kingdom_4"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_60", "fac_kingdom_4"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_61", "fac_kingdom_4"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_62", "fac_kingdom_4"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_63", "fac_kingdom_4"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_64", "fac_kingdom_4"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_61", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_62", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_63", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_64", "fac_kingdom_3"),
+
+### Breton Castles		  
       (call_script, "script_give_center_to_faction_aux", "p_castle_65", "fac_kingdom_4"),
       (call_script, "script_give_center_to_faction_aux", "p_castle_66", "fac_kingdom_4"),
       (call_script, "script_give_center_to_faction_aux", "p_castle_67", "fac_kingdom_4"),
       (call_script, "script_give_center_to_faction_aux", "p_castle_68", "fac_kingdom_4"),
       (call_script, "script_give_center_to_faction_aux", "p_castle_69", "fac_kingdom_4"),
       (call_script, "script_give_center_to_faction_aux", "p_castle_70", "fac_kingdom_4"),
+	  
       (call_script, "script_give_center_to_faction_aux", "p_castle_71", "fac_kingdom_4"),
       (call_script, "script_give_center_to_faction_aux", "p_castle_72", "fac_kingdom_4"),
       (call_script, "script_give_center_to_faction_aux", "p_castle_73", "fac_kingdom_4"),
       (call_script, "script_give_center_to_faction_aux", "p_castle_74", "fac_kingdom_4"),	  
+      (call_script, "script_give_center_to_faction_aux", "p_castle_75", "fac_kingdom_4"),	  
+      (call_script, "script_give_center_to_faction_aux", "p_castle_76", "fac_kingdom_4"),	  
+      (call_script, "script_give_center_to_faction_aux", "p_castle_77", "fac_kingdom_4"),	  
+      (call_script, "script_give_center_to_faction_aux", "p_castle_78", "fac_kingdom_4"),	  
+      (call_script, "script_give_center_to_faction_aux", "p_castle_79", "fac_kingdom_4"),	  
+      (call_script, "script_give_center_to_faction_aux", "p_castle_80", "fac_kingdom_4"),	  
 
+      (call_script, "script_give_center_to_faction_aux", "p_castle_81", "fac_kingdom_4"),	  
+      (call_script, "script_give_center_to_faction_aux", "p_castle_82", "fac_kingdom_4"),	  
+      (call_script, "script_give_center_to_faction_aux", "p_castle_83", "fac_kingdom_4"),	  
+      (call_script, "script_give_center_to_faction_aux", "p_castle_84", "fac_kingdom_4"),	  
+      (call_script, "script_give_center_to_faction_aux", "p_castle_85", "fac_kingdom_4"),	  
+      (call_script, "script_give_center_to_faction_aux", "p_castle_86", "fac_kingdom_4"),	  
+      # (call_script, "script_give_center_to_faction_aux", "p_castle_87", "fac_kingdom_4"),	  
+      # (call_script, "script_give_center_to_faction_aux", "p_castle_88", "fac_kingdom_4"),	  
+	  
 
 
 ##################################################################################################################################################################################################################################################################################################################
@@ -721,80 +766,91 @@ scripts = [
 	  
 # French towns	  
       (call_script, "script_give_center_to_lord", "p_town_1",  "trp_kingdom_1_lord", 0),# Bourges - Charles_VII
-      (call_script, "script_give_center_to_lord", "p_town_2",  "trp_knight_1_9", 0),# Orléans - Jean de Dunois, Comte de Dunois
+      (call_script, "script_give_center_to_lord", "p_town_2",  "trp_knight_1_9", 0),# Orléans - Jean D'Orléans, Le Bâtard  
       (call_script, "script_give_center_to_lord", "p_town_3",  "trp_knight_1_8", 0),# Tours - Pierre d'Amboise, Seigneur de Chaumont
       (call_script, "script_give_center_to_lord", "p_town_4",  "trp_kingdom_1_lord", 0),# Poitiers - Charles_VII
       (call_script, "script_give_center_to_lord", "p_town_5",  "trp_kingdom_1_lord", 0),# La_Rochelle - Charles_VII
-      (call_script, "script_give_center_to_lord", "p_town_6",  "trp_knight_1_17", 0),# Clermont - Louis I de Bourbon, Comte de Montpensier
-      (call_script, "script_give_center_to_lord", "p_town_7",  "trp_knight_1_16", 0),# Moulins - Charles I de Bourbon, Comte de Clermont
-      (call_script, "script_give_center_to_lord", "p_town_8",  "trp_knight_1_16", 0),# Aurillac - Charles I de Bourbon, Comte de Clermont
-      (call_script, "script_give_center_to_lord", "p_town_9",  "trp_knight_1_16", 0),# Lyon - Charles I de Bourbon, Comte de Clermont
-      (call_script, "script_give_center_to_lord", "p_town_10", "trp_knight_1_53", 0),# Le_Puy - Guillaume-Armand de Polignac, Vicomte de Polignac, Gouverneur du Velay
+      (call_script, "script_give_center_to_lord", "p_town_6",  "trp_knight_1_17", 0),# Clermont - Louis I de Bourbon, Comte de Clermont
+      (call_script, "script_give_center_to_lord", "p_town_7",  "trp_knight_1_16", 0),# Moulins - Charles I de Bourbon, Duc de Bourbon et d'Auvergne
+      (call_script, "script_give_center_to_lord", "p_town_8",  "trp_knight_1_16", 0),# Aurillac - Charles I de Bourbon, Duc de Bourbon et d'Auvergne
+      (call_script, "script_give_center_to_lord", "p_town_9",  "trp_knight_1_16", 0),# Lyon - Charles I de Bourbon, Duc de Bourbon et d'Auvergne
+      (call_script, "script_give_center_to_lord", "p_town_10", "trp_knight_1_53", 0),# Le_Puy - Louis-Armand XII de Polignac, Vicomte de Polignac, Gouverneur du Velay
 	  
-      (call_script, "script_give_center_to_lord", "p_town_11", "trp_knight_1_6", 0),# Cahors - Jean Poton de Xaintrailles
+      (call_script, "script_give_center_to_lord", "p_town_11", "trp_kingdom_1_lord", 0),# Cahors - Charles VII
       (call_script, "script_give_center_to_lord", "p_town_12", "trp_knight_1_22", 0),# Rodez - Jean IV d'Armagnac
       (call_script, "script_give_center_to_lord", "p_town_13", "trp_knight_1_22", 0),# Lectoure - Jean IV d'Armagnac
-      (call_script, "script_give_center_to_lord", "p_town_14", "trp_knight_1_18", 0),# Tarbes - Arnault Guilhem de Barbazan
+      (call_script, "script_give_center_to_lord", "p_town_14", "trp_knight_1_46", 0),# Tarbes - Jean de Grailly, Comte de Foix et de Bigorre, Vicomte de Béarn et de Marsan
       (call_script, "script_give_center_to_lord", "p_town_15", "trp_kingdom_1_lord", 0),# Toulouse - Charles_VII
       (call_script, "script_give_center_to_lord", "p_town_16", "trp_kingdom_1_lord", 0),# Carcassonne - Charles_VII
-      (call_script, "script_give_center_to_lord", "p_town_17", "trp_kingdom_1_lord", 0),# Montpellier - Charles_VII
+      (call_script, "script_give_center_to_lord", "p_town_17", "trp_knight_1_48", 0),# Montpellier - Raymond de Villars, Sénéchal de Beaucaire et Nîmes
       (call_script, "script_give_center_to_lord", "p_town_18", "trp_knight_1_31", 0),# Valence - Charles II de Poitiers, Seigneur de Saint-Vallier
       (call_script, "script_give_center_to_lord", "p_town_19", "trp_knight_1_7", 0),# Thouars - Louis d'Amboise, Vicomte de Thouars
       (call_script, "script_give_center_to_lord", "p_town_20", "trp_kingdom_1_lord", 0),# Tournai - Charles_VII
 	  
-      (call_script, "script_give_center_to_lord", "p_town_21", "trp_knight_1_9", 0),# Gien - Jean de Dunois, Comte de Dunois
-      (call_script, "script_give_center_to_lord", "p_town_22", "trp_knight_1_52", 0),# Montargis-le-Franc - Denis de Chailly, Seigneur de Chailly
+      (call_script, "script_give_center_to_lord", "p_town_21", "trp_knight_1_9", 0),# Gien - Jean D'Orleans
+      (call_script, "script_give_center_to_lord", "p_town_22", "trp_kingdom_1_lord", 0),# Montargis-le-Franc - Charles_VII
+      (call_script, "script_give_center_to_lord", "p_town_23",  "trp_knight_1_4", 0), # Albret - Charles II d'Albret, Sire d'Albret, Vicomte de Tartas
+      (call_script, "script_give_center_to_lord", "p_town_24",  "trp_knight_1_9", 0), # Bergerac - Jean D'Orléans, le Bâtard  	 
+      (call_script, "script_give_center_to_lord", "p_town_25",  "trp_knight_1_9", 0), # Périgueux - Jean D'Orléans, le Bâtard 
+      (call_script, "script_give_center_to_lord", "p_town_26",  "trp_knight_1_9", 0), # Angoulême - Jean D'Orléans, le Bâtard 	  
+      (call_script, "script_give_center_to_lord", "p_town_27",  "trp_kingdom_1_lord", 0), # Limoges - Charles VII
+      (call_script, "script_give_center_to_lord", "p_town_28",  "trp_knight_1_37", 0), # Angers - Louis III d'Anjou, Duc d'Anjou	  
+      (call_script, "script_give_center_to_lord", "p_town_29", "trp_knight_1_46", 0),# Foix Jean de Grailly, Comte de Foix et de Bigorre, Vicomte de Béarn et de Marsan
+
 
 # English Towns
-      (call_script, "script_give_center_to_lord", "p_town_23",  "trp_knight_2_21", 0), # Paris - Thomas Montacute, Earl of Salisbury
-      (call_script, "script_give_center_to_lord", "p_town_24",  "trp_knight_2_17", 0), # Bergerac - Bertrand III de Montferrand
-      (call_script, "script_give_center_to_lord", "p_town_25",  "trp_knight_2_17", 0), # Périgueux - Bertrand III de Montferrand
-      (call_script, "script_give_center_to_lord", "p_town_26",  "trp_knight_2_3", 0), # Nemours - William de la Pole, Duke of Suffolk
-      (call_script, "script_give_center_to_lord", "p_town_27",  "trp_knight_2_20", 0), # Angoulême - Richard de Beauchamp, Earl of Warwick
-      (call_script, "script_give_center_to_lord", "p_town_28",  "trp_knight_2_22", 0), # Limoges - John Holland, Duke of Exeter
-      (call_script, "script_give_center_to_lord", "p_town_29",  "trp_knight_2_17", 0), # Bordeaux - Bertrand III de Montferrand
-      (call_script, "script_give_center_to_lord", "p_town_30",  "trp_knight_2_5", 0), # Albret - Baron John Tiptoft
+      (call_script, "script_give_center_to_lord", "p_town_30",  "trp_kingdom_2_lord", 0), # Paris - John of Lancaster, Duc de Bedford
+      (call_script, "script_give_center_to_lord", "p_town_31",  "trp_knight_2_43", 0), # Bayonne - Bertrand III de Montferrand
+      (call_script, "script_give_center_to_lord", "p_town_32",  "trp_knight_2_3", 0), # Nemours - William de la Pole, Earl of Suffolk
+      (call_script, "script_give_center_to_lord", "p_town_33",  "trp_knight_2_1", 0), # Laval - John Talbot, Baron Talbot and Furnival
+      (call_script, "script_give_center_to_lord", "p_town_34",  "trp_knight_2_1", 0), # Le_Mans - John Talbot, Baron Talbot and Furnival
+      (call_script, "script_give_center_to_lord", "p_town_35",  "trp_knight_2_43", 0), # Bordeaux - Bertrand III de Montferrand
+      (call_script, "script_give_center_to_lord", "p_town_36",  "trp_knight_2_4", 0), # Chartres - Thomas de Scales, Baron de Scales
+      (call_script, "script_give_center_to_lord", "p_town_37",  "trp_kingdom_2_lord", 0), # Rouen - John of Lancaster, Duc de Bedford
+      (call_script, "script_give_center_to_lord", "p_town_38",  "trp_knight_2_47", 0), # Caen - Sir Robert de Vere, Captain of Caen
+      (call_script, "script_give_center_to_lord", "p_town_39",  "trp_knight_2_2", 0), # Harfleur - John Fastolf, Lieutenant-general of Normandy
+      (call_script, "script_give_center_to_lord", "p_town_40",  "trp_knight_2_18", 0), # Cherbourg - Sir Walter Hungerford
 
-      (call_script, "script_give_center_to_lord", "p_town_31",  "trp_knight_2_17", 0), # Bayonne - Bertrand III de Montferrand
-      (call_script, "script_give_center_to_lord", "p_town_32",  "trp_knight_2_5", 0), # Tartas - Baron John Tiptoft
-      (call_script, "script_give_center_to_lord", "p_town_33",  "trp_knight_2_1", 0), # Laval - John Talbot, Earl of Shrewsbury
-      (call_script, "script_give_center_to_lord", "p_town_34",  "trp_knight_2_1", 0), # Le_Mans - John Talbot, Earl of Shrewsbury
-      (call_script, "script_give_center_to_lord", "p_town_35",  "trp_knight_2_2", 0), # Angers - John Fastolf, Governor of Anjou
-      (call_script, "script_give_center_to_lord", "p_town_36",  "trp_knight_2_19", 0), # Chartres - Baron Walter Hungerford
-      (call_script, "script_give_center_to_lord", "p_town_37",  "trp_kingdom_2_lord", 0), # Rouen - John of Lancaster, 
-      (call_script, "script_give_center_to_lord", "p_town_38",  "trp_knight_2_16", 0), # Caen - Baron Thomas Stanley
-      (call_script, "script_give_center_to_lord", "p_town_39",  "trp_knight_2_2", 0), # Harfleur - John Fastolf, Governor of Anjou
-      (call_script, "script_give_center_to_lord", "p_town_40",  "trp_knight_2_12", 0), # Cherbourg - John Mowbray, Duke of Norfolk
-      (call_script, "script_give_center_to_lord", "p_town_41",  "trp_knight_2_11", 0), # Bayeux - Richard of York, Duke of York
-      (call_script, "script_give_center_to_lord", "p_town_42",  "trp_kingdom_2_lord", 0), # Calais - John of Lancaster,
-      (call_script, "script_give_center_to_lord", "p_town_43",  "trp_knight_2_10", 0), # Alençon - Edmund Beaufort, Earl of Dorset
-      (call_script, "script_give_center_to_lord", "p_town_44",  "trp_knight_2_7", 0), # Argentan - John Beaufort, Earl of Somerset
+      (call_script, "script_give_center_to_lord", "p_town_41",  "trp_kingdom_2_lord", 0), # Bayeux - John of Lancaster, Duc de Bedford
+      (call_script, "script_give_center_to_lord", "p_town_42",  "trp_knight_2_21", 0), # Calais - Richard Woodville, Baron Wodville, Lieutenant of Calais
+      (call_script, "script_give_center_to_lord", "p_town_43",  "trp_knight_2_7", 0), # Alençon - Thomas Beaufort, Count of Perche
+      (call_script, "script_give_center_to_lord", "p_town_44",  "trp_knight_2_27", 0), # Argentan - Sir William Oldhall	  
+      (call_script, "script_give_center_to_lord", "p_town_45",  "trp_knight_2_44", 0), # Tartas - François de Montferrand, Gouverneur de Dax
+      (call_script, "script_give_center_to_lord", "p_town_46",  "trp_knight_2_44", 0), # Dax - François de Montferrand, Gouverneur de Dax
+      (call_script, "script_give_center_to_lord", "p_town_47",  "trp_knight_2_16", 0), # Libourne - Sir John Radcliffe
+      (call_script, "script_give_center_to_lord", "p_town_48",  "trp_knight_2_10", 0), # Saint-Lô - Richard Beauchamp
+      (call_script, "script_give_center_to_lord", "p_town_49",  "trp_knight_2_39", 0), # Eu - Henry Bourchier, Count of Eu
+      (call_script, "script_give_center_to_lord", "p_town_50",  "trp_knight_2_9", 0), # Avranches - John Mowbray, Earl of Norfolk
+
+      (call_script, "script_give_center_to_lord", "p_town_51",  "trp_knight_2_1", 0), # Coutances - John Talbot, Baron Talbot and Furnival
 	  
 # Burgundian Towns
-      (call_script, "script_give_center_to_lord", "p_town_45",  "trp_kingdom_3_lord", 0), # Dijon - Philippe the Good, Duke of Burgundy
-      (call_script, "script_give_center_to_lord", "p_town_46",  "trp_knight_3_20", 0), # Besançon - Thibaud VI de Rougemont, Vicomte de Besançon et Seigneur de Rougemont
-      (call_script, "script_give_center_to_lord", "p_town_47",  "trp_knight_3_3", 0), # Nevers - Charles de Bourgogne, Comte de Nevers et de Rethel
-      (call_script, "script_give_center_to_lord", "p_town_48",  "trp_kingdom_3_lord", 0), # Auxerre - Philippe the Good, Duke of Burgundy
-      (call_script, "script_give_center_to_lord", "p_town_49",  "trp_kingdom_3_lord", 0), # Troyes - Philippe the Good, Duke of Burgundy
-      (call_script, "script_give_center_to_lord", "p_town_50",  "trp_knight_3_10", 0), # Compiègne - Jean de Villiers de l'Isle-Adam, Seigneur de L'Isle-Adam
+      (call_script, "script_give_center_to_lord", "p_town_52",  "trp_kingdom_3_lord", 0), # Dijon - Philippe the Good, Duke of Burgundy
+      (call_script, "script_give_center_to_lord", "p_town_53",  "trp_knight_3_20", 0), # Besançon - Thibaud VI de Rougemont, Vicomte de Besançon et Seigneur de Rougemont
+      (call_script, "script_give_center_to_lord", "p_town_54",  "trp_knight_3_3", 0), # Nevers - Charles de Bourgogne, Comte de Nevers et de Rethel
+      (call_script, "script_give_center_to_lord", "p_town_55",  "trp_kingdom_3_lord", 0), # Auxerre - Philippe the Good, Duke of Burgundy
+      (call_script, "script_give_center_to_lord", "p_town_56",  "trp_kingdom_3_lord", 0), # Troyes - Philippe the Good, Duke of Burgundy
+      (call_script, "script_give_center_to_lord", "p_town_57",  "trp_knight_3_10", 0), # Compiègne - Jean de Villiers de l'Isle-Adam, Seigneur de L'Isle-Adam
+      (call_script, "script_give_center_to_lord", "p_town_58",  "trp_knight_3_19", 0), # Bruges - Roland d'Uytkerke, Seigneur d'Uytkerke
+      (call_script, "script_give_center_to_lord", "p_town_59",  "trp_kingdom_3_lord", 0), # Gand - Philippe the Good, Duke of Burgundy
+      (call_script, "script_give_center_to_lord", "p_town_60",  "trp_kingdom_3_lord", 0), # Malines - Philippe the Good, Duke of Burgundy
 
-      (call_script, "script_give_center_to_lord", "p_town_51",  "trp_knight_3_19", 0), # Bruges - Roland d'Uytkerke, Seigneur d'Uytkerke
-      (call_script, "script_give_center_to_lord", "p_town_52",  "trp_kingdom_3_lord", 0), # Gand - Philippe the Good, Duke of Burgundy
-      (call_script, "script_give_center_to_lord", "p_town_53",  "trp_kingdom_3_lord", 0), # Malines - Philippe the Good, Duke of Burgundy
-      (call_script, "script_give_center_to_lord", "p_town_54",  "trp_kingdom_3_lord", 0), # Boulogne - Philippe the Good, Duke of Burgundy
-      (call_script, "script_give_center_to_lord", "p_town_55",  "trp_knight_3_3", 0), # Châlons-en-Champagne - Charles de Bourgogne, Comte de Nevers et de Rethel
-      (call_script, "script_give_center_to_lord", "p_town_56",  "trp_knight_3_3", 0), # Reims - Charles de Bourgogne, Comte de Nevers et de Rethel
-	  
+      (call_script, "script_give_center_to_lord", "p_town_61",  "trp_kingdom_3_lord", 0), # Boulogne - Philippe the Good, Duke of Burgundy
+      (call_script, "script_give_center_to_lord", "p_town_62",  "trp_knight_3_3", 0), # Châlons-en-Champagne - Charles de Bourgogne, Comte de Nevers et de Rethel
+      (call_script, "script_give_center_to_lord", "p_town_63",  "trp_knight_3_3", 0), # Reims - Charles de Bourgogne, Comte de Nevers et de Rethel
+      (call_script, "script_give_center_to_lord", "p_town_64", "trp_knight_3_10", 0), # Amiens - Jean de Villiers de l'Isle-Adam
+      (call_script, "script_give_center_to_lord", "p_town_65", "trp_knight_3_10", 0), # Peronne - Jean de Villiers de l'Isle-Adam
+	 	  
 # Breton Towns
-      (call_script, "script_give_center_to_lord", "p_town_57",  "trp_kingdom_4_lord", 0), # Rennes - Jean V de Montfort, Duke of Brittany
-      (call_script, "script_give_center_to_lord", "p_town_58",  "trp_kingdom_4_lord", 0), # Nantes - Jean V de Montfort, Duke of Brittany
-      (call_script, "script_give_center_to_lord", "p_town_59",  "trp_kingdom_4_lord", 0), # Vannes - Jean V de Montfort, Duke of Brittany
-      (call_script, "script_give_center_to_lord", "p_town_60",  "trp_knight_4_13", 0), # Kemper - Guillaume de Rosmadec, Baron de Rosmadec
+      (call_script, "script_give_center_to_lord", "p_town_66",  "trp_kingdom_4_lord", 0), # Rennes - Jean V de Montfort, Duke of Brittany
+      (call_script, "script_give_center_to_lord", "p_town_67",  "trp_kingdom_4_lord", 0), # Nantes - Jean V de Montfort, Duke of Brittany
+      (call_script, "script_give_center_to_lord", "p_town_68",  "trp_kingdom_4_lord", 0), # Vannes - Jean V de Montfort, Duke of Brittany
+      (call_script, "script_give_center_to_lord", "p_town_69",  "trp_knight_4_13", 0), # Kemper - Guillaume de Rosmadec, Baron de Rosmadec
+      (call_script, "script_give_center_to_lord", "p_town_70",  "trp_knight_4_14", 0), # Saint-Malo - Pierre de Rochefort, Seigneur de Rieux et de Rochefort
 
-      (call_script, "script_give_center_to_lord", "p_town_61",  "trp_knight_4_14", 0), # Saint-Malo - Pierre de Rochefort, Seigneur de Rieux et de Rochefort
-      (call_script, "script_give_center_to_lord", "p_town_62",  "trp_kingdom_4_lord", 0), # Saint-Brieuc - Jean V de Montfort, Duke of Brittany
-      (call_script, "script_give_center_to_lord", "p_town_63",  "trp_knight_4_10", 0), # Saint-Pol-de-Léon - Alain X de Rohan, Vicomte de Léon
-      (call_script, "script_give_center_to_lord", "p_town_64",  "trp_knight_4_9", 0), # Rohan - Alain IX de Rohan, Vicomte de Rohan
+      (call_script, "script_give_center_to_lord", "p_town_71",  "trp_kingdom_4_lord", 0), # Saint-Brieuc - Jean V de Montfort, Duke of Brittany
+      (call_script, "script_give_center_to_lord", "p_town_72",  "trp_knight_4_10", 0), # Saint-Pol-de-Léon - Alain X de Rohan, Vicomte de Léon
+      (call_script, "script_give_center_to_lord", "p_town_73",  "trp_knight_4_9", 0), # Rohan - Alain IX de Rohan, Vicomte de Rohan
 	  
 
 
@@ -807,92 +863,103 @@ scripts = [
       (call_script, "script_give_center_to_lord", "p_castle_2", "trp_knight_1_39", 0), # Châteauroux - Guy III de Chauvigny, Baron de Châteauroux
       (call_script, "script_give_center_to_lord", "p_castle_3", "trp_kingdom_1_lord", 0), # Rochefort - Charles_VII
       (call_script, "script_give_center_to_lord", "p_castle_4", "trp_knight_1_24", 0), # Tour_de_Termes - Jean IV de Termes d’Armagnac, Seigneur de Termes
-      # (call_script, "script_give_center_to_lord", "p_castle_5", "trp_", 0), # Château_de_Murol - LORD
-      (call_script, "script_give_center_to_lord", "p_castle_6", "trp_knight_1_53", 0), # Château_de_Polignac - Guillaume-Armand de Polignac
-      (call_script, "script_give_center_to_lord", "p_castle_7", "trp_knight_1_10", 0), # Château_de_Culant - Louis de Culant
+      (call_script, "script_give_center_to_lord", "p_castle_5", "trp_knight_1_28", 0), # Château_de_Murol - Jean d'Apchon de Murol
+      (call_script, "script_give_center_to_lord", "p_castle_6", "trp_knight_1_53", 0), # Château_de_Polignac - Louis-Armand XII de Chalençon-Polignac
+      (call_script, "script_give_center_to_lord", "p_castle_7", "trp_knight_1_11", 0), # Château_de_Culant - Louis de Culant
       (call_script, "script_give_center_to_lord", "p_castle_8", "trp_knight_1_8", 0), # Château_de_Montbazon - Pierre d'Amboise
       (call_script, "script_give_center_to_lord", "p_castle_9", "trp_knight_1_15", 0), # Château_de_Boussac - Jean de Brosse
       (call_script, "script_give_center_to_lord", "p_castle_10", "trp_knight_1_33", 0), # Yèvre-le-Châtel - Nicolas de Giresme
 	  
       (call_script, "script_give_center_to_lord", "p_castle_11", "trp_knight_1_42", 0), # Château_de_La_Fayette - Gilbert Motier de La Fayette
       (call_script, "script_give_center_to_lord", "p_castle_12", "trp_knight_1_43", 0), # La_Tour_d'Auvergne - Bertrand V de La Tour d'Auvergne
-      (call_script, "script_give_center_to_lord", "p_castle_13", "trp_knight_1_20", 0), # Château_de_Val - Antoine de Chabannes
+      (call_script, "script_give_center_to_lord", "p_castle_13", "trp_knight_1_20", 0), # chateaux de Charlus - Antoine de Chabannes 
       (call_script, "script_give_center_to_lord", "p_castle_14", "trp_knight_1_17", 0), # Château_de_Sancerre - Louis I de Bourbon
       (call_script, "script_give_center_to_lord", "p_castle_15", "trp_knight_1_4", 0), # Castelnau_Tursan - Charles II d'Albret
       (call_script, "script_give_center_to_lord", "p_castle_16", "trp_knight_1_23", 0), # Forteresse_d'Auch - Bernard VIII D'Armagnac
-      (call_script, "script_give_center_to_lord", "p_castle_17", "trp_kingdom_1_lord", 0), # Mont-St-Michel - Charles_VII
-      (call_script, "script_give_center_to_lord", "p_castle_18", "trp_knight_1_19", 0), # Château_de_Turenne - Jacques de Chabannes
-      (call_script, "script_give_center_to_lord", "p_castle_19", "trp_knight_1_46", 0), # Sévérac-le-Château -Théaulde de Valpergue
-      (call_script, "script_give_center_to_lord", "p_castle_20", "trp_knight_1_45", 0), # Château_de_Sarzay - Jean Foucault
+      (call_script, "script_give_center_to_lord", "p_castle_17", "trp_knight_1_50", 0), # Mont-St-Michel - Louis d’Estouteville, Seigneur d'Estouteville et de Valmont
+      (call_script, "script_give_center_to_lord", "p_castle_18", "trp_knight_1_32", 0), # Château_de_Turenne - Pierre de Beaufort de Turenne, Comte de Beaufort, Vicomte de Turenne
+      (call_script, "script_give_center_to_lord", "p_castle_19", "trp_knight_1_23", 0), # Sévérac-le-Château - Bernard VIII d’Armagnac
+      (call_script, "script_give_center_to_lord", "p_castle_20", "trp_knight_1_45", 0), # Saint-Germain Beaupré - Jean Foucault, seigneur de St- germain
 	  
       (call_script, "script_give_center_to_lord", "p_castle_21", "trp_knight_1_17", 0), # Château_de_Virieu - Louis I de Bourbon
-	  
+      (call_script, "script_give_center_to_lord", "p_castle_22", "trp_knight_1_19", 0), # Château de La Palice - Jacques de Chabannes, Seigneur de La Palice
+      (call_script, "script_give_center_to_lord", "p_castle_23", "trp_knight_1_29", 0), # Château du Cheylard - Hugues de Cubières du Cheylard
+      (call_script, "script_give_center_to_lord", "p_castle_24", "trp_kingdom_1_lord", 0), # Château de Vaucouleurs - Charles VII 
+      (call_script, "script_give_center_to_lord", "p_castle_25", "trp_knight_1_10", 0), # La Tour De Marmande - (dans le Poitou) Jean V de Bueil
+
+
 ### English Castles	  
-      (call_script, "script_give_center_to_lord", "p_castle_22", "trp_knight_2_17", 0), # Château_de_Castelnaud - Bertrand III de Montferrand, Baron of Guyenne
-      (call_script, "script_give_center_to_lord", "p_castle_23", "trp_knight_2_17", 0), # Forteresse_de_Rauzan - Bertrand III de Montferrand, Baron of Guyenne
-      (call_script, "script_give_center_to_lord", "p_castle_24", "trp_knight_2_17", 0), # Château_de_Montréal - Bertrand III de Montferrand
-      (call_script, "script_give_center_to_lord", "p_castle_25", "trp_knight_2_4", 0), # Château_du_Lude - Thomas de Scales, Baron de Scales
-      (call_script, "script_give_center_to_lord", "p_castle_26", "trp_knight_2_17", 0), # Château_de_Nérac - Bertrand III de Montferrand, Baron of Guyenne
-      (call_script, "script_give_center_to_lord", "p_castle_27", "trp_knight_2_14", 0), # Château_de_Falaise - Reginald Grey, Baron Grey de Ruthyn
-      (call_script, "script_give_center_to_lord", "p_castle_28", "trp_knight_2_7", 0), # Château-Gaillard - John Beaufort, Earl of Somerset
-      (call_script, "script_give_center_to_lord", "p_castle_29", "trp_knight_2_1", 0), # Château_de_Vendôme - John Talbot, Earl of Shrewsbury
-      (call_script, "script_give_center_to_lord", "p_castle_30", "trp_knight_2_2", 0), # Château_de_Beauvau - John Fastolf, Governor of Anjou
-	  
-      (call_script, "script_give_center_to_lord", "p_castle_31", "trp_knight_2_10", 0), # Château_Gontier - Edmund Beaufort, Earl of Dorset
-      (call_script, "script_give_center_to_lord", "p_castle_32", "trp_knight_2_9", 0), # Château_de_Verneuil - Thomas Beaufort, Count of Perche
-	  
+      # (call_script, "script_give_center_to_lord", "p_castle_26", "trp_", 0), # Château_de_Castelnaud [Forteresses de routier] - à retirer de la faction anglaise ?
+      (call_script, "script_give_center_to_lord", "p_castle_27", "trp_knight_2_43", 0), # Forteresse_de_Rauzan - Bertrand III de Montferrand, Baron of Guyenne
+      # (call_script, "script_give_center_to_lord", "p_castle_28", "trp_", 0), # Château_de_Montréal [Forteresses de routier] - à retirer de la faction anglaise ?
+      (call_script, "script_give_center_to_lord", "p_castle_29", "trp_knight_2_4", 0), # Château_du_Lude - Thomas de Scales, Baron de Scales
+      (call_script, "script_give_center_to_lord", "p_castle_30", "trp_knight_2_43", 0), # Château_de_Nérac - Bertrand III de Montferrand, Baron of Guyenne
+
+      (call_script, "script_give_center_to_lord", "p_castle_31", "trp_knight_2_13", 0), # Château_de_Falaise - Reginald Grey, Baron Grey de Ruthyn
+      (call_script, "script_give_center_to_lord", "p_castle_32", "trp_kingdom_2_lord", 0), # Château-Gaillard - John of Lancaster, duc de Bedford
+      (call_script, "script_give_center_to_lord", "p_castle_33", "trp_knight_2_34", 0), # Château_de_Vendôme - Robert Willoughby, Lord Willoughby of Eresby
+      (call_script, "script_give_center_to_lord", "p_castle_34", "trp_knight_2_2", 0), # Château_de_Beauvau - John Fastolf, Governor of Anjou
+      (call_script, "script_give_center_to_lord", "p_castle_35", "trp_knight_2_30", 0), # Château_Gontier - Edmund Beaufort, Earl of Dorset
+      (call_script, "script_give_center_to_lord", "p_castle_36", "trp_knight_2_7", 0), # Château_de_Verneuil - Thomas Beaufort, Count of Perche
+      (call_script, "script_give_center_to_lord", "p_castle_37", "trp_knight_2_30", 0), # Château de Mortain - Edmund Beaufort, Count of Mortain
+      (call_script, "script_give_center_to_lord", "p_castle_38", "trp_knight_2_45", 0), # Château de Langoiran - Jean de Montferrand, Seigneur de Langoiran
+      (call_script, "script_give_center_to_lord", "p_castle_39", "trp_knight_2_46", 0), # Forteresse de Landiras - Pierre II de Montferrant, Seigneur de Landiras
+      (call_script, "script_give_center_to_lord", "p_castle_40", "trp_knight_2_16", 0), # Château de Fronsac - Sir John Radcliffe, Seneschal of Guyenne, Captain of Fronsac
+
+      (call_script, "script_give_center_to_lord", "p_castle_41", "trp_knight_2_43", 0), # Château de Montferrand - Bertrand III de Montferrand
+      (call_script, "script_give_center_to_lord", "p_castle_42", "trp_knight_2_28", 0), # Forteresse de Blaye - John Holland, Earl of Huntingdon, Amiral
+      (call_script, "script_give_center_to_lord", "p_castle_43", "trp_knight_2_9", 0), # Château de Montbray - John Mowbray, Earl of Norfolk
+      (call_script, "script_give_center_to_lord", "p_castle_44", "trp_knight_2_6", 0), # Château de Gacé - Thomas Rempston, Baron Rempston and Gacé
+      (call_script, "script_give_center_to_lord", "p_castle_45", "trp_knight_2_1", 0), # Château de Sainte-Suzanne - John Talbot, Baron Talbot and Furnival
+      (call_script, "script_give_center_to_lord", "p_castle_46", "trp_knight_2_2", 0), # Château de Durtal - John Fastolf
+  
 ### Burgundian Castles	  
-      (call_script, "script_give_center_to_lord", "p_castle_33", "trp_kingdom_3_lord", 0), # Château_de_Tonerre - Philippe Le Bon
-      (call_script, "script_give_center_to_lord", "p_castle_34", "trp_kingdom_3_lord", 0), # Forteresse_d'Avallon - Philippe Le Bon
-      (call_script, "script_give_center_to_lord", "p_castle_35", "trp_knight_3_16", 0), # Château_de_Varenne-lès-Mâcon - Guillaume IV de Vienne
-      (call_script, "script_give_center_to_lord", "p_castle_36", "trp_knight_3_1", 0), # Château_de_Toulongeon - Antoine de Toulongeon
-      (call_script, "script_give_center_to_lord", "p_castle_37", "trp_knight_3_4", 0), # Château_de_Ligny-en-Barrois - Pierre Ier de Luxembourg
-      (call_script, "script_give_center_to_lord", "p_castle_38", "trp_knight_3_13", 0), # Château_de_Jonvelle - Jean de La Trémoille
-      (call_script, "script_give_center_to_lord", "p_castle_39", "trp_knight_3_7", 0), # Forteresse_de_Noyelles - Baudot de Noyelles
-      (call_script, "script_give_center_to_lord", "p_castle_40", "trp_knight_3_8", 0), # Château_de_Montfort - Pierre de Bauffremont
-	  
-      (call_script, "script_give_center_to_lord", "p_castle_41", "trp_knight_3_9", 0), # Forteresse_de_La_Rochepot - Régnier Pot
-      (call_script, "script_give_center_to_lord", "p_castle_42", "trp_knight_3_14", 0), # Château_de_Vergy - Antoine de Vergy
-      (call_script, "script_give_center_to_lord", "p_castle_43", "trp_knight_3_12", 0), # Château_de_Brimeu - Jacques de Brimeu
-      (call_script, "script_give_center_to_lord", "p_castle_44", "trp_knight_3_11", 0), # Château_de_Bellemotte - David de Brimeu
-      (call_script, "script_give_center_to_lord", "p_castle_45", "trp_knight_3_19", 0), # Forteresse_d'Uytkerke - Roland d'Uytkerke
-      (call_script, "script_give_center_to_lord", "p_castle_46", "trp_knight_3_3", 0), # Château_de_La_Charité-sur-Loire - Charles de Bourgogne
-      (call_script, "script_give_center_to_lord", "p_castle_47", "trp_knight_3_10", 0), # Forteresse_de_L'Isle_Adam - Jean de Villiers de l'Isle-Adam
-      (call_script, "script_give_center_to_lord", "p_castle_48", "trp_kingdom_3_lord", 0), # Château_de_Senlis - Philippe Le Bon
-      (call_script, "script_give_center_to_lord", "p_castle_49", "trp_knight_3_17", 0), # Château_de_Montcornet - Antoine I de Croÿ
-      (call_script, "script_give_center_to_lord", "p_castle_50", "trp_knight_3_18", 0), # Château_de_Chimay - Jean II de Croÿ
-	  
-      (call_script, "script_give_center_to_lord", "p_castle_51", "trp_knight_3_10", 0), # Amiens - Jean de Villiers de l'Isle-Adam
-      (call_script, "script_give_center_to_lord", "p_castle_52", "trp_knight_3_10", 0), # Peronne - Jean de Villiers de l'Isle-Adam
-	  
+      (call_script, "script_give_center_to_lord", "p_castle_47", "trp_kingdom_3_lord", 0), # Château_de_Tonerre - Philippe Le Bon
+      (call_script, "script_give_center_to_lord", "p_castle_48", "trp_kingdom_3_lord", 0), # Forteresse_d'Avallon - Philippe Le Bon
+      (call_script, "script_give_center_to_lord", "p_castle_49", "trp_knight_3_16", 0), # Château_de_Varenne-lès-Mâcon - Guillaume IV de Vienne
+      (call_script, "script_give_center_to_lord", "p_castle_50", "trp_knight_3_1", 0), # Château_de_Toulongeon - Antoine de Toulongeon
+
+      (call_script, "script_give_center_to_lord", "p_castle_51", "trp_knight_3_4", 0), # Château_de_Ligny-en-Barrois - Pierre Ier de Luxembourg
+      (call_script, "script_give_center_to_lord", "p_castle_52", "trp_knight_3_13", 0), # Château_de_Jonvelle - Jean de La Trémoille
+      (call_script, "script_give_center_to_lord", "p_castle_53", "trp_knight_3_7", 0), # Forteresse_de_Noyelles - Baudot de Noyelles
+      (call_script, "script_give_center_to_lord", "p_castle_54", "trp_knight_3_8", 0), # Château_de_Montfort - Pierre de Bauffremont
+      (call_script, "script_give_center_to_lord", "p_castle_55", "trp_knight_3_9", 0), # Forteresse_de_La_Rochepot - Régnier Pot
+      (call_script, "script_give_center_to_lord", "p_castle_56", "trp_knight_3_14", 0), # Château_de_Vergy - Antoine de Vergy
+      (call_script, "script_give_center_to_lord", "p_castle_57", "trp_knight_3_12", 0), # Château_de_Brimeu - Jacques de Brimeu
+      (call_script, "script_give_center_to_lord", "p_castle_58", "trp_knight_3_11", 0), # Château_de_Bellemotte - David de Brimeu
+      (call_script, "script_give_center_to_lord", "p_castle_59", "trp_knight_3_19", 0), # Forteresse_d'Uytkerke - Roland d'Uytkerke
+      (call_script, "script_give_center_to_lord", "p_castle_60", "trp_knight_3_3", 0), # Château_de_La_Charité-sur-Loire - Charles de Bourgogne
+
+      (call_script, "script_give_center_to_lord", "p_castle_61", "trp_knight_3_10", 0), # Forteresse_de_L'Isle_Adam - Jean de Villiers de l'Isle-Adam
+      (call_script, "script_give_center_to_lord", "p_castle_62", "trp_kingdom_3_lord", 0), # Château_de_Senlis - Philippe Le Bon
+      (call_script, "script_give_center_to_lord", "p_castle_63", "trp_knight_3_17", 0), # Château_de_Montcornet - Antoine I de Croÿ
+      (call_script, "script_give_center_to_lord", "p_castle_64", "trp_knight_3_18", 0), # Château_de_Chimay - Jean II de Croÿ  
+ 
 ### Breton Castles	  
-      (call_script, "script_give_center_to_lord", "p_castle_53", "trp_knight_4_1", 0), # Château_de_Fougères - Arthur de Richemont
-      (call_script, "script_give_center_to_lord", "p_castle_54", "trp_knight_4_15", 0), # Châteaubriant - Bertrand de Dinan
-      (call_script, "script_give_center_to_lord", "p_castle_55", "trp_knight_4_16", 0), # Château_de_Dinan - Jacques de Dinan
-      (call_script, "script_give_center_to_lord", "p_castle_56", "trp_knight_4_2", 0), # Château_de_Clisson - Richard de Montfort
-      (call_script, "script_give_center_to_lord", "p_castle_57", "trp_knight_4_9", 0), # Château_de_Josselin - Alain IX de Rohan
-      (call_script, "script_give_center_to_lord", "p_castle_58", "trp_knight_4_9", 0), # Forteresse_de_Roch'Morvan - Alain IX de Rohan
-      (call_script, "script_give_center_to_lord", "p_castle_59", "trp_knight_4_11", 0), # Château_de_Guéméné - Charles de Rohan-Guéméné
-      (call_script, "script_give_center_to_lord", "p_castle_60", "trp_knight_4_14", 0), # Château_de_Rochefort - Pierre de Rochefort, Seigneur de Rieux et de Rochefort
-	  
-      (call_script, "script_give_center_to_lord", "p_castle_61", "trp_knight_4_18", 0), # Château_de_Tonquédec - Rolland III de Coëtmen
-      (call_script, "script_give_center_to_lord", "p_castle_62", "trp_knight_4_13", 0), # Château_de_Rosmadec - Guillaume de Rosmadec
-      (call_script, "script_give_center_to_lord", "p_castle_63", "trp_knight_4_5", 0), # Château_de_Coëtivy - Prigent VII de Coëtivy
-      (call_script, "script_give_center_to_lord", "p_castle_64", "trp_knight_4_4", 0), # Château_de_Trémazan - Tanneguy III Du Chastel
-      (call_script, "script_give_center_to_lord", "p_castle_65", "trp_knight_4_6", 0), # Château_de_Kermoysan - Tugdual de Kermoysan
-      (call_script, "script_give_center_to_lord", "p_castle_66", "trp_knight_4_17", 0), # Château_de_Coëtquen - Raoul V de Coëtquen
-      (call_script, "script_give_center_to_lord", "p_castle_67", "trp_knight_4_3", 0), # Château_de_Penhoët - Jean de Penhoët
-      (call_script, "script_give_center_to_lord", "p_castle_68", "trp_knight_4_7", 0), # Château_de_Penmarc'h - Henri Penmarc'h
-      (call_script, "script_give_center_to_lord", "p_castle_69", "trp_knight_4_13", 0), # Forteresse_de_Kemperlé - Guillaume de Rosmadec
-      (call_script, "script_give_center_to_lord", "p_castle_70", "trp_knight_4_12", 0), # Château_d'Hen_Bont - Louis I de Rohan-Guéméné
-	  
-      (call_script, "script_give_center_to_lord", "p_castle_71", "trp_knight_4_14", 0), # Château_de_Derval - Pierre de Rochefort
-      (call_script, "script_give_center_to_lord", "p_castle_72", "trp_knight_4_1", 0), # Château_de_Suscinio - Arthur de Richemont
-      (call_script, "script_give_center_to_lord", "p_castle_73", "trp_knight_4_10", 0), # Forteresse_de_Roch'an - Alain X de Rohan
-      (call_script, "script_give_center_to_lord", "p_castle_74", "trp_knight_4_1", 0), # Forteresse_de_Dol - Arthur de Richemont
-	  
-	  
-	  
+      (call_script, "script_give_center_to_lord", "p_castle_65", "trp_knight_4_1", 0), # Château_de_Fougères - Arthur de Richemont
+      (call_script, "script_give_center_to_lord", "p_castle_66", "trp_knight_4_15", 0), # Châteaubriant - Bertrand de Dinan
+      (call_script, "script_give_center_to_lord", "p_castle_67", "trp_knight_4_16", 0), # Château_de_Dinan - Jacques de Dinan
+      (call_script, "script_give_center_to_lord", "p_castle_68", "trp_knight_4_2", 0), # Château_de_Clisson - Richard de Montfort
+      (call_script, "script_give_center_to_lord", "p_castle_69", "trp_knight_4_9", 0), # Château_de_Josselin - Alain IX de Rohan
+      (call_script, "script_give_center_to_lord", "p_castle_70", "trp_knight_4_9", 0), # Forteresse_de_Roch'Morvan - Alain IX de Rohan
+
+      (call_script, "script_give_center_to_lord", "p_castle_71", "trp_knight_4_11", 0), # Château_de_Guéméné - Charles de Rohan-Guéméné
+      (call_script, "script_give_center_to_lord", "p_castle_72", "trp_knight_4_14", 0), # Château_de_Rochefort - Pierre de Rochefort, Seigneur de Rieux et de Rochefort	  
+      (call_script, "script_give_center_to_lord", "p_castle_73", "trp_knight_4_18", 0), # Château_de_Tonquédec - Rolland III de Coëtmen
+      (call_script, "script_give_center_to_lord", "p_castle_74", "trp_knight_4_13", 0), # Château_de_Rosmadec - Guillaume de Rosmadec
+      (call_script, "script_give_center_to_lord", "p_castle_75", "trp_knight_4_5", 0), # Château_de_Coëtivy - Prigent VII de Coëtivy
+      (call_script, "script_give_center_to_lord", "p_castle_76", "trp_knight_4_4", 0), # Château_de_Trémazan - Tanneguy III Du Chastel
+      (call_script, "script_give_center_to_lord", "p_castle_77", "trp_knight_4_6", 0), # Château_de_Kermoysan - Tugdual de Kermoysan
+      (call_script, "script_give_center_to_lord", "p_castle_78", "trp_knight_4_17", 0), # Château_de_Coëtquen - Raoul V de Coëtquen
+      (call_script, "script_give_center_to_lord", "p_castle_79", "trp_knight_4_3", 0), # Château_de_Penhoët - Jean de Penhoët
+
+      (call_script, "script_give_center_to_lord", "p_castle_80", "trp_knight_4_7", 0), # Château_de_Penmarc'h - Henri Penmarc'h
+      (call_script, "script_give_center_to_lord", "p_castle_81", "trp_knight_4_1", 0), # Forteresse_de_Kemperlé - Arthur de Richemont
+      (call_script, "script_give_center_to_lord", "p_castle_82", "trp_knight_4_12", 0), # Château_d'Hen_Bont - Louis I de Rohan-Guéméné	  
+      (call_script, "script_give_center_to_lord", "p_castle_83", "trp_knight_4_14", 0), # Château_de_Derval - Pierre de Rochefort
+      (call_script, "script_give_center_to_lord", "p_castle_84", "trp_knight_4_1", 0), # Château_de_Suscinio - Arthur de Richemont
+      (call_script, "script_give_center_to_lord", "p_castle_85", "trp_knight_4_10", 0), # Forteresse_de_Roch'an - Alain X de Rohan
+      (call_script, "script_give_center_to_lord", "p_castle_86", "trp_knight_4_1", 0), # Forteresse_de_Dol - Arthur de Richemont             
 	  
 	  
 	  

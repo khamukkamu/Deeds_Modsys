@@ -104,23 +104,21 @@ parties = [
   
   ("town_21","Gien", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(44.02, 18.15),[], 320),                              
   ("town_22","Montargis-le-Franc", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(49.83, 33.71),[], 43),
-
+  ("town_23","Albret", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-42.07, -120.44),[], 207),      
+  ("town_24","Bergerac", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-20.1, -98.04),[], 335),           
+  ("town_25","Périgueux", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-12.59, -78),[], 53),      
+  ("town_26","Angoulême", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-34.54, -51.46),[], 152),    
+  ("town_27","Limoges", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-0.04, -55.84),[], 122),           
+  ("town_28","Angers", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-46.28, 13.61),[], 317),     
+  ("town_29","Foix", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65, -115),[], 318),      ### NEW           
  ### DAC English Towns
  
-  ("town_23","Paris", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(30.81, 75.01),[], 318),
-  ("town_24","Bergerac", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-20.1, -98.04),[], 335),                        
-  ("town_25","Périgueux", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-12.59, -78),[], 53),                       
-  ("town_26","Nemours", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(52.63, 51.8),[], 150),                           
-  ("town_27","Angoulême", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-34.54, -51.46),[], 152),                      
-  ("town_28","Limoges", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-0.04, -55.84),[], 122),                          
-  ("town_29","Bordeaux", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-44.24, -104.72),[], 141),
-  ("town_30","Albret", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-42.07, -120.44),[], 207),                         
-  
-  ("town_31","Bayonne", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-73.8, -141.97),[], 255),
-  ("town_32","Tartas", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-55.77, -130.2),[], 211),                         
+  ("town_30","Paris", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(30.81, 75.01),[], 318),                    
+  ("town_31","Bayonne", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-73.8, -141.97),[], 255),  
+  ("town_32","Nemours", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(52.63, 51.8),[], 150),                                                      
   ("town_33","Laval", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-44.39, 44.14),[], 217),                           
-  ("town_34","Le_Mans", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-16.47, 35.38),[], 151),                          
-  ("town_35","Angers", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-46.28, 13.61),[], 317),                           
+  ("town_34","Le_Mans", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-16.47, 35.38),[], 151),               
+  ("town_35","Bordeaux", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-44.24, -104.72),[], 141),    
   ("town_36","Chartres", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(19.96, 52.74),[], 38),                          
   ("town_37","Rouen", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(1.02, 92.18),[], 145),                               
   ("town_38","Caen", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-37.69, 88.63),[], 216),                             
@@ -130,33 +128,43 @@ parties = [
   ("town_41","Bayeux", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-50.45, 93.53),[], 140),                           
   ("town_42","Calais", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(26.75, 147.18),[], 211),
   ("town_43","Alençon", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-18, 55.51),[], 225),                         
-  ("town_44","Argentan", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-25.3, 66.17),[], 225),                        
+  ("town_44","Argentan", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-25.3, 66.17),[], 225),                  
+  ("town_45","Tartas", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-55.77, -130.2),[], 211),       
+  ("town_46","Dax", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65, -115),[], 318),      ### NEW           
+  ("town_47","Libourne", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65, -115),[], 318),      ### NEW           
+  ("town_48","Saint-Lô", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65, -115),[], 318),      ### NEW           
+  ("town_49","Eu", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65, -115),[], 318),      ### NEW           
+  ("town_50","Avranches", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65, -115),[], 318),      ### NEW           
  
- ### DAC Burgundian Towns
-   ("town_45","Dijon", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(109.33, 15.28),[], 225),
-   ("town_46","Besançon", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(140.92, 10.74),[], 194),                       
-   ("town_47","Nevers", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(72.58, -9.08),[], 230),                            
-   ("town_48","Auxerre", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(83.05, 20.62),[], 225),                          
-   ("town_49","Troyes", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(93.71, 49.03),[], 225),                        
-   ("town_50","Compiègne", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(49.38, 92),[], 147),                        
-   
-   ("town_51","Bruges", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(68.64, 146.38),[], 225),                         
-   ("town_52","Gand", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(82.1, 140.47),[], 155),                             
-   ("town_53","Malines", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(101.37, 141.87),[], 225),                       
-   ("town_54","Boulogne", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(18.99, 133.68),[], 225),                       
-   ("town_55","Châlons-en-Champagne", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(103.62, 76.41),[], 209),           
-   ("town_56","Reims", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(82.19, 88.61),[], 225),                            
+ ("town_51","Coutances", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65, -115),[], 318),      ### NEW           
 
+ ### DAC Burgundian Towns
+   ("town_52","Dijon", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(109.33, 15.28),[], 225),
+   ("town_53","Besançon", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(140.92, 10.74),[], 194),                       
+   ("town_54","Nevers", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(72.58, -9.08),[], 230),                            
+   ("town_55","Auxerre", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(83.05, 20.62),[], 225),                          
+   ("town_56","Troyes", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(93.71, 49.03),[], 225),                        
+   ("town_57","Compiègne", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(49.38, 92),[], 147),                        
+   ("town_58","Bruges", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(68.64, 146.38),[], 225),                         
+   ("town_59","Gand", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(82.1, 140.47),[], 155),                             
+   ("town_60","Malines", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(101.37, 141.87),[], 225),               
+   
+   ("town_61","Boulogne", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(18.99, 133.68),[], 225),                       
+   ("town_62","Châlons-en-Champagne", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(103.62, 76.41),[], 209),           
+   ("town_63","Reims", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(82.19, 88.61),[], 225),                            
+   ("town_64","Amiens",icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(40.44, 108.18),[],45),
+   ("town_65","Peronne",icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(62.45, 108.32),[],45),
+ 
 ### DAC Breton Towns
-   ("town_57","Rennes", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-66.54, 46.77),[], 225),                          
-   ("town_58","Nantes", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-69.76, 13.39),[], 225),                          
-    ("town_59","Vannes", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-91.03, 29.52),[], 225),                          
-    ("town_60","Kemper", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-132.03, 50.66),[], 225),
+   ("town_66","Rennes", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-66.54, 46.77),[], 225),                          
+   ("town_67","Nantes", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-69.76, 13.39),[], 225),                          
+   ("town_68","Vannes", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-91.03, 29.52),[], 225),                          
+   ("town_69","Kemper", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-132.03, 50.66),[], 225),
+   ("town_70","Saint-Malo", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-82.75, 68.66),[], 217),          
 	
-    ("town_61","Saint-Malo", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-82.75, 68.66),[], 217),                     
-    ("town_62","Saint-Brieuc", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-95.42, 66.42),[], 159),                  
-    ("town_63","Saint-Pol-de-Léon", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-127.39, 76.05),[], 225),            
-    ("town_64","Rohan", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-100.98, 53.81),[], 225),                          
+    ("town_71","Saint-Brieuc", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-95.42, 66.42),[], 159),                  
+    ("town_72","Saint-Pol-de-Léon", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-127.39, 76.05),[], 225),            
+    ("town_73","Rohan", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-100.98, 53.81),[], 225),                          
 
    
 ##################################################################################################################################################################################################################################################################################################################
@@ -165,93 +173,108 @@ parties = [
 
 ### DAC French Castles
   ("castle_1","Forteresse_de_Chinon",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-16.25, -3.67),[],120),        
-  ("castle_2","Châteauroux",icon_castle_b|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(18.83, -15.04),[],312),                
+  ("castle_2","Châteauroux",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(18.83, -15.04),[],312),                
   ("castle_3","Rochefort",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-59.31, -44.12),[],225),
-  ("castle_4","La Tour_de_Termes",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-13.95, -134.85),[],210),        
-  ("castle_5","Château_de_Murol",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(55.12, -62.97),[],90),            
+  ("castle_4","La Tour_de_Termes",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-13.95, -134.85),[],210),        
+  ("castle_5","Château_de_Murol",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(55.12, -62.97),[],90),            
   ("castle_6","Château_de_Polignac",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(80.03, -81.04),[],190),           
   ("castle_7","Château_de_Culant",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(43.69, -23.41),[],30),           
   ("castle_8","Château_de_Montbazon",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-4.59, -1.53),[],31),        
   ("castle_9","Château_de_Boussac",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(36.9, -31.4),[],64),           
   ("castle_10","Yèvre-le-Châtel",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(31.18, 44.27),[],209),   
   
-  ("castle_11","Château_de_La_Fayette",icon_castle_b|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(86.43, -47.5),[],95),
+  ("castle_11","Château_de_La_Fayette",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(86.43, -47.5),[],95),
   ("castle_12","La_Tour_d'Auvergne",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(41.4, -47.86),[],213),          
-  ("castle_13","Château_de_Val",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(43.96, -73.51),[],213),            
+  ("castle_13","Château_de_Charlus",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65, -105),[],46),      ### NEW
   ("castle_14","Château_de_Sancerre",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(50.57, 6.35),[],182),        
-  ("castle_15","Castelnau_Tursan",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-33.55, -136.67),[],220),          
-  ("castle_16","Forteresse_d'Auch",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(1.17, -137.73),[],39),           
-  ("castle_17","Mont-St-Michel",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-64.48, 67.82),[],196),             
-  ("castle_18","Château_de_Turenne",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(7.34, -97.35),[],69),          
-  ("castle_19","Sévérac-le-Château",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(40.47, -121.12),[],98),      
-  ("castle_20","Château_de_Sarzay",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(21.49, -26.4),[],55),          
+  ("castle_15","Castelnau_Tursan",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-33.55, -136.67),[],220),          
+  ("castle_16","Forteresse_d'Auch",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(1.17, -137.73),[],39),           
+  ("castle_17","Mont-St-Michel",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-64.48, 67.82),[],196),             
+  ("castle_18","Château_de_Turenne",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(7.34, -97.35),[],69),          
+  ("castle_19","Sévérac-le-Château",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(40.47, -121.12),[],98),      
+  ("castle_20","Château_de_Saint_Germain_Beaupré",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65, -105),[],46),       ### NEW     
   
-  ("castle_21","Château_de_Virieu",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(124.62, -47.9),[],46),      
+  ("castle_21","Château_de_Virieu",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(124.62, -47.9),[],46),      
+  ("castle_22","Château_de_La_Palice",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65, -105),[],46),       ### NEW     
+  ("castle_23","Château_du_Cheylard",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65, -105),[],46),       ### NEW     
+  ("castle_24","Château_de_Vaucouleurs",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65, -105),[],46),       ### NEW     
+  ("castle_25","Château_La_Tour_de_Marmande",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65, -105),[],46),       ### NEW     
+ 
+ # ("castle_20","Château_de_Sarzay",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(21.49, -26.4),[],55),          
+   # ("castle_13","Château_de_Val",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(43.96, -73.51),[],213),            
 
 ### DAC English Castles
-  ("castle_22","Château_de_Castelnaud",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-11.48, -103.33),[],15),      
-  ("castle_23","Forteresse_de_Rauzan",icon_castle_snow_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-31.02, -100.74),[],300), 
-  ("castle_24","Château_de_Montréal",icon_castle_snow_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-26.85, -84.87),[],280),   
-  ("castle_25","Château_du_Lude",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-26.42, 22.44),[],260),          
-  ("castle_26","Château_de_Nérac",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-19.05, -119.04),[],260),         
-  ("castle_27","Château_de_Falaise",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-33.07, 78.24),[],80),        
-  ("castle_28","Château-Gaillard",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(13.21, 86.59),[],260),         
-  ("castle_29","Château_de_Vendôme",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-2.06, 26.59),[],260),
-  ("castle_30","Château_de_Beauvau",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-33.73, 16.73),[],260),
-  
-  ("castle_31","Château_Gontier",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-42.52, 28.97),[],260),
-  ("castle_32","Château_de_Verneuil",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(4.13, 66.97),[],45),
+  ("castle_26","Château_de_Castelnaud",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-11.48, -103.33),[],15),      
+  ("castle_27","Forteresse_de_Rauzan",icon_castle_snow_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-31.02, -100.74),[],300), 
+  ("castle_28","Château_de_Montréal",icon_castle_snow_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-26.85, -84.87),[],280),   
+  ("castle_29","Château_du_Lude",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-26.42, 22.44),[],260),          
+  ("castle_30","Château_de_Nérac",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-19.05, -119.04),[],260),         
+
+  ("castle_31","Château_de_Falaise",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-33.07, 78.24),[],80),        
+  ("castle_32","Château-Gaillard",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(13.21, 86.59),[],260),         
+  ("castle_33","Château_de_Vendôme",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-2.06, 26.59),[],260),
+  ("castle_34","Château_de_Beauvau",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-33.73, 16.73),[],260),
+  ("castle_35","Château_Gontier",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-42.52, 28.97),[],260),
+  ("castle_36","Château_de_Verneuil",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(4.13, 66.97),[],45),
+  ("castle_37","Château_de_Mortain",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65, -105),[],46),       ### NEW     
+  ("castle_38","Château_de_Langoiran",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65, -105),[],46),       ### NEW     
+  ("castle_39","Forteresse_de_Landiras",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65, -105),[],46),       ### NEW     
+  ("castle_40","Château_de_Fronsac",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65, -105),[],46),       ### NEW     
+
+  ("castle_41","Château_de_Montferrand",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65, -105),[],46),       ### NEW     
+  ("castle_42","Château_des_Rudel",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65, -105),[],46),       ### NEW     
+  ("castle_43","Château_de_Montbray",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65, -105),[],46),       ### NEW     
+  ("castle_44","Château_de_Gacé",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65, -105),[],46),       ### NEW     
+  ("castle_45","Château_de_Sainte-Suzanne",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65, -105),[],46),       ### NEW     
+  ("castle_46","Château_de_Durtal",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65, -105),[],46),       ### NEW     
 
 ### DAC Burgundian Castles  
-  ("castle_33","Château_de_Tonerre",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(95.01, 24.01),[],45),
-  ("castle_34","Forteresse_d'Avallon",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(84.24, 9.63),[],45),
-  ("castle_35","Château_de_Varenne-lès-Mâcon",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(107.32, -26.99),[],45),
-  ("castle_36","Château_de_Toulongeon",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(96.56, -15.55),[],45),
-  ("castle_37","Château_de_Ligny-en-Barrois",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(112.5, 67.88),[],45),
-  ("castle_38","Château_de_Jonvelle",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(140.58, 34.5),[],45),
-  ("castle_39","Forteresse_de_Noyelles",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(52.81, 125.36),[],45),
-  ("castle_40","Château_de_Montfort",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(97.27, 17.37),[],45),
-  
-  ("castle_41","Forteresse_de_La_Rochepot",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(101.62, 2.56),[],45),
-  ("castle_42","Château_de_Vergy",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(108.04, 9.31),[],45),
-  ("castle_43","Château_de_Brimeu",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(18.67, 123.1),[],45),
-  ("castle_44","Château_de_Bellemotte",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(58.6, 118.84),[],45),
-  ("castle_45","Forteresse_d'Uytkerke",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(63.97, 152.06),[],45),
-  ("castle_46","Château_de_La_Charité-sur-Loire",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(61.82, 0.09),[],45),
-  ("castle_47","Forteresse_de_L'Isle_Adam",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(27.06, 81.68),[],45),
-  ("castle_48","Château_de_Senlis",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(44.14, 85.53),[],45),
-  ("castle_49","Château_de_Montcornet",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(89.15, 106.48),[],45),
-  ("castle_50","Château_de_Chimay",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(93.03, 112.74),[],45),
-  
-  ("castle_51","Amiens",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(40.44, 108.18),[],45),
-  ("castle_52","Peronne",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(62.45, 108.32),[],45),
- 
-### DAC Breton Castles
-  ("castle_53","Château_de_Fougères",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-55.11, 55.35),[],45),
-  ("castle_54","Châteaubriant",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-57.82, 28.32),[],45),
-  ("castle_55","Château_de_Dinan",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-84.53, 61.42),[],45),
-  ("castle_56","Château_de_Clisson",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-65.6, 3.91),[],45),
-  ("castle_57","Château_de_Josselin",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-86.79, 42.82),[],45),
-  ("castle_58","Forteresse_de_Roch'Morvan",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-131.16, 62.5),[],45),
-  ("castle_59","Château_de_Guéméné",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-113.16, 52.53),[],45),
-  ("castle_60","Château_de_Rochefort",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-74.85, 33.63),[],45),
-  
-  ("castle_61","Château_de_Tonquédec",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-104.83, 73.75),[],45),
-  ("castle_62","Château_de_Rosmadec",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-136.72, 54.94),[],45),
-  ("castle_63","Château_de_Coëtivy",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-137.71, 66.68),[],45),
-  ("castle_64","Château_de_Trémazan",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-145.29, 71.28),[],45),
-  ("castle_65","Château_de_Kermoysan",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-113.78, 70.24),[],45),
-  ("castle_66","Château_de_Coëtquen",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-80.26, 63.3),[],45),
-  ("castle_67","Château_de_Penhoët",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-121.89, 66.17),[],45),
-  ("castle_68","Château_de_Penmarc'h",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-129.67, 70.87),[],45),
-  ("castle_69","Forteresse_de_Kemperlé",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-119.2, 45.44),[],45),
-  ("castle_70","Château_d'Hen_Bont",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-106.59, 41.22),[],45),
-  
-  ("castle_71","Château_de_Derval",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-70.97, 23.22),[],45),
-  ("castle_72","Château_de_Suscinio",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-86.38, 24.88),[],45),
-  ("castle_73","Forteresse_de_Roch'an",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-104.35, 49.78),[],45),
-  ("castle_74","Forteresse_de_Dol",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-69.94, 62.88),[],45),
+  ("castle_47","Château_de_Tonerre",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(95.01, 24.01),[],45),
+  ("castle_48","Forteresse_d'Avallon",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(84.24, 9.63),[],45),
+  ("castle_49","Château_de_Varenne-lès-Mâcon",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(107.32, -26.99),[],45),
+  ("castle_50","Château_de_Toulongeon",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(96.56, -15.55),[],45),
 
+  ("castle_51","Château_de_Ligny-en-Barrois",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(112.5, 67.88),[],45),
+  ("castle_52","Château_de_Jonvelle",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(140.58, 34.5),[],45),
+  ("castle_53","Forteresse_de_Noyelles",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(52.81, 125.36),[],45),
+  ("castle_54","Château_de_Montfort",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(97.27, 17.37),[],45),
+  ("castle_55","Forteresse_de_La_Rochepot",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(101.62, 2.56),[],45),
+  ("castle_56","Château_de_Vergy",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(108.04, 9.31),[],45),
+  ("castle_57","Château_de_Brimeu",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(18.67, 123.1),[],45),
+  ("castle_58","Château_de_Bellemotte",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(58.6, 118.84),[],45),
+  ("castle_59","Forteresse_d'Uytkerke",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(63.97, 152.06),[],45),
+  ("castle_60","Château_de_La_Charité-sur-Loire",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(61.82, 0.09),[],45),
+
+  ("castle_61","Forteresse_de_L'Isle_Adam",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(27.06, 81.68),[],45),
+  ("castle_62","Château_de_Senlis",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(44.14, 85.53),[],45),
+  ("castle_63","Château_de_Montcornet",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(89.15, 106.48),[],45),
+  ("castle_64","Château_de_Chimay",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(93.03, 112.74),[],45),
+
+ ### DAC Breton Castles 
+  ("castle_65","Château_de_Fougères",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-55.11, 55.35),[],45),
+  ("castle_66","Châteaubriant",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-57.82, 28.32),[],45),
+  ("castle_67","Château_de_Dinan",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-84.53, 61.42),[],45),
+  ("castle_68","Château_de_Clisson",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-65.6, 3.91),[],45),
+  ("castle_69","Château_de_Josselin",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-86.79, 42.82),[],45),
+  ("castle_70","Forteresse_de_Roch'Morvan",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-131.16, 62.5),[],45),
+ 
+  ("castle_71","Château_de_Guéméné",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-113.16, 52.53),[],45),
+  ("castle_72","Château_de_Rochefort",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-74.85, 33.63),[],45),
+  ("castle_73","Château_de_Tonquédec",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-104.83, 73.75),[],45),
+  ("castle_74","Château_de_Rosmadec",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-136.72, 54.94),[],45),
+  ("castle_75","Château_de_Coëtivy",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-137.71, 66.68),[],45),
+  ("castle_76","Château_de_Trémazan",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-145.29, 71.28),[],45),
+  ("castle_77","Château_de_Kermoysan",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-113.78, 70.24),[],45),
+  ("castle_78","Château_de_Coëtquen",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-80.26, 63.3),[],45),
+  ("castle_79","Château_de_Penhoët",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-121.89, 66.17),[],45),
+
+  ("castle_80","Château_de_Penmarc'h",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-129.67, 70.87),[],45),
+  ("castle_81","Forteresse_de_Kemperlé",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-119.2, 45.44),[],45),
+  ("castle_82","Château_d'Hen_Bont",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-106.59, 41.22),[],45),
+  ("castle_83","Château_de_Derval",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-70.97, 23.22),[],45),
+  ("castle_84","Château_de_Suscinio",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-86.38, 24.88),[],45),
+  ("castle_85","Forteresse_de_Roch'an",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-104.35, 49.78),[],45),
+  ("castle_86","Forteresse_de_Dol",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-69.94, 62.88),[],45),
 
 
 ##################################################################################################################################################################################################################################################################################################################
