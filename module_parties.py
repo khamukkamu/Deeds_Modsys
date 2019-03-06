@@ -85,7 +85,7 @@ parties = [
   ("town_3","Tours",   icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-10.16, 6.72),[], 70),                             
   ("town_4","Poitiers",     icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-31.44, -30.13),[], 60),                     
   ("town_5","La_Rochelle",  icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-64.38, -31.27),[], 274),                   
-  ("town_6","Clermont",   icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(53.94, -41.87),[], 41),
+  ("town_6","Clermont",   icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(52.97, -42.83),[], 41),
   ("town_7","Moulins",   icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(72.66, -27.99),[], 48),                         
   ("town_8","Aurillac", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(26.69, -103.17),[], 48),                          
   ("town_9","Lyon",   icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(114.4, -38.87),[], 36),
@@ -107,21 +107,21 @@ parties = [
   ("town_23","Albret", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-42.07, -120.44),[], 207),      
   ("town_24","Bergerac", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-20.1, -98.04),[], 335),           
   ("town_25","Périgueux", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-12.59, -78),[], 53),      
-  ("town_26","Angoulême", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-34.54, -51.46),[], 152),    
-  ("town_27","Limoges", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-0.04, -55.84),[], 122),           
+  ("town_26","Angoulême", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-37.97, -64.35),[], 152),    
+  ("town_27","Limoges", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-1.06, -51.49),[], 122),           
   ("town_28","Angers", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-46.28, 13.61),[], 317),     
-  ("town_29","Foix", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65, -115),[], 318),      ### NEW           
+  ("town_29","Foix", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(6.59, -149),[], 318),      ### NEW           
  ### DAC English Towns
  
   ("town_30","Paris", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(30.81, 75.01),[], 318),                    
   ("town_31","Bayonne", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-73.8, -141.97),[], 255),  
   ("town_32","Nemours", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(52.63, 51.8),[], 150),                                                      
   ("town_33","Laval", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-44.39, 44.14),[], 217),                           
-  ("town_34","Le_Mans", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-16.47, 35.38),[], 151),               
+  ("town_34","Le_Mans", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-17.98, 39.05),[], 151),               
   ("town_35","Bordeaux", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-44.24, -104.72),[], 141),    
   ("town_36","Chartres", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(19.96, 52.74),[], 38),                          
   ("town_37","Rouen", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(1.02, 92.18),[], 145),                               
-  ("town_38","Caen", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-37.69, 88.63),[], 216),                             
+  ("town_38","Caen", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-34.72, 90.02),[], 216),                             
   ("town_39","Harfleur", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-32.86, 100.66),[], 235),                        
   ("town_40","Cherbourg", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-68.67, 118.74),[], 175),                     
   
@@ -130,13 +130,13 @@ parties = [
   ("town_43","Alençon", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-18, 55.51),[], 225),                         
   ("town_44","Argentan", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-25.3, 66.17),[], 225),                  
   ("town_45","Tartas", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-55.77, -130.2),[], 211),       
-  ("town_46","Dax", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65, -115),[], 318),      ### NEW           
-  ("town_47","Libourne", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65, -115),[], 318),      ### NEW           
-  ("town_48","Saint-Lô", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65, -115),[], 318),      ### NEW           
-  ("town_49","Eu", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65, -115),[], 318),      ### NEW           
-  ("town_50","Avranches", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65, -115),[], 318),      ### NEW           
+  ("town_46","Dax", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-61.46, -134.43),[], 318),      ### NEW           
+  ("town_47","Libourne", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-29.63, -96.65),[], 318),      ### NEW           
+  ("town_48","Saint-Lô", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-52.3, 87.53),[], 318),      ### NEW           
+  ("town_49","Eu", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(0.38, 114.45),[], 318),      ### NEW           
+  ("town_50","Avranches", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-62.46, 72.94),[], 318),      ### NEW           
  
- ("town_51","Coutances", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65, -115),[], 318),      ### NEW           
+ ("town_51","Coutances", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-66.63, 84.74),[], 318),      ### NEW           
 
  ### DAC Burgundian Towns
    ("town_52","Dijon", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(109.33, 15.28),[], 225),
@@ -184,21 +184,21 @@ parties = [
   ("castle_10","Yèvre-le-Châtel",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(31.18, 44.27),[],209),   
   
   ("castle_11","Château_de_La_Fayette",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(86.43, -47.5),[],95),
-  ("castle_12","La_Tour_d'Auvergne",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(41.4, -47.86),[],213),          
-  ("castle_13","Château_de_Charlus",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65, -105),[],46),      ### NEW
+  ("castle_12","La_Tour_d'Auvergne",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(43.77, -55.36),[],213),          
+  ("castle_13","Château_de_Charlus",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(31.55, -57.43),[],46),      ### NEW
   ("castle_14","Château_de_Sancerre",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(50.57, 6.35),[],182),        
   ("castle_15","Castelnau_Tursan",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-33.55, -136.67),[],220),          
   ("castle_16","Forteresse_d'Auch",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(1.17, -137.73),[],39),           
-  ("castle_17","Mont-St-Michel",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-64.48, 67.82),[],196),             
+  ("castle_17","Mont-St-Michel",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-66.16, 67.25),[],196),             
   ("castle_18","Château_de_Turenne",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(7.34, -97.35),[],69),          
   ("castle_19","Sévérac-le-Château",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(40.47, -121.12),[],98),      
-  ("castle_20","Château_de_Saint_Germain_Beaupré",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65, -105),[],46),       ### NEW     
+  ("castle_20","Château_de_Saint_Germain_Beaupré",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(16.4, -33.14),[],46),       ### NEW     
   
   ("castle_21","Château_de_Virieu",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(124.62, -47.9),[],46),      
-  ("castle_22","Château_de_La_Palice",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65, -105),[],46),       ### NEW     
-  ("castle_23","Château_du_Cheylard",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65, -105),[],46),       ### NEW     
-  ("castle_24","Château_de_Vaucouleurs",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65, -105),[],46),       ### NEW     
-  ("castle_25","Château_La_Tour_de_Marmande",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65, -105),[],46),       ### NEW     
+  ("castle_22","Château_de_La_Palice",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(75.9, -36.12),[],46),       ### NEW     
+  ("castle_23","Château_du_Cheylard",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(102.73, -96.1),[],46),       ### NEW     
+  ("castle_24","Château_de_Vaucouleurs",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(136.55, 59.08),[],46),       ### NEW     
+  ("castle_25","La_Tour_de_Marmande",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-21.9, -15.74),[],46),       ### NEW     
  
  # ("castle_20","Château_de_Sarzay",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(21.49, -26.4),[],55),          
    # ("castle_13","Château_de_Val",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(43.96, -73.51),[],213),            
@@ -216,22 +216,22 @@ parties = [
   ("castle_34","Château_de_Beauvau",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-33.73, 16.73),[],260),
   ("castle_35","Château_Gontier",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-42.52, 28.97),[],260),
   ("castle_36","Château_de_Verneuil",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(4.13, 66.97),[],45),
-  ("castle_37","Château_de_Mortain",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65, -105),[],46),       ### NEW     
-  ("castle_38","Château_de_Langoiran",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65, -105),[],46),       ### NEW     
-  ("castle_39","Forteresse_de_Landiras",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65, -105),[],46),       ### NEW     
-  ("castle_40","Château_de_Fronsac",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65, -105),[],46),       ### NEW     
+  ("castle_37","Château_de_Mortain",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-49.7, 67.9),[],46),       ### NEW     
+  ("castle_38","Château_de_Langoiran",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-30.36, -111.97),[],46),       ### NEW     
+  ("castle_39","Forteresse_de_Landiras",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-35.25, -115.58),[],46),       ### NEW     
+  ("castle_40","Château_de_Fronsac",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-33.51, -94.72),[],46),       ### NEW     
 
-  ("castle_41","Château_de_Montferrand",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65, -105),[],46),       ### NEW     
-  ("castle_42","Château_des_Rudel",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65, -105),[],46),       ### NEW     
-  ("castle_43","Château_de_Montbray",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65, -105),[],46),       ### NEW     
-  ("castle_44","Château_de_Gacé",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65, -105),[],46),       ### NEW     
-  ("castle_45","Château_de_Sainte-Suzanne",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65, -105),[],46),       ### NEW     
-  ("castle_46","Château_de_Durtal",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65, -105),[],46),       ### NEW     
+  ("castle_41","Château_de_Montferrand",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-41.08, -100.6),[],46),       ### NEW     
+  ("castle_42","Château_des_Rudel",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-51.59, -83.76),[],46),       ### NEW     
+  ("castle_43","Château_de_Montbray",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-53.98, 79.71),[],46),       ### NEW     
+  ("castle_44","Château_de_Gacé",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-9.9, 70.4),[],46),       ### NEW     
+  ("castle_45","Château_de_Sainte-Suzanne",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-29.34, 43.23),[],46),       ### NEW     
+  ("castle_46","Château_de_Durtal",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-37.95, 19.07),[],46),       ### NEW     
 
 ### DAC Burgundian Castles  
   ("castle_47","Château_de_Tonerre",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(95.01, 24.01),[],45),
   ("castle_48","Forteresse_d'Avallon",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(84.24, 9.63),[],45),
-  ("castle_49","Château_de_Varenne-lès-Mâcon",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(107.32, -26.99),[],45),
+  ("castle_49","Château_de_Varenne-lès-Mâcon",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(108.06, -30.12),[],45),
   ("castle_50","Château_de_Toulongeon",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(96.56, -15.55),[],45),
 
   ("castle_51","Château_de_Ligny-en-Barrois",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(112.5, 67.88),[],45),
@@ -295,7 +295,7 @@ parties = [
   ("village_10", "Angoulins",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-61.9, -33.82),[], 100),
   
   ("village_11", "Riom",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(56.15, -34.65),[], 100),
-  ("village_12", "Aubières",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(52.73, -43.74),[], 100),
+  ("village_12", "Aubières",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(53.13, -45.09),[], 100),
   ("village_13", "Chemilly",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(69.45, -32.17),[], 100),
   ("village_14", "Montilly",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(69.02, -28.14),[], 100),
   ("village_15", "Jussac",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(29.38, -98.16),[], 100),
@@ -343,11 +343,11 @@ parties = [
   ("village_53", "Boussac",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(37.6, -29.21),[], 100),
   ("village_54", "Yèvre",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(32.03, 41.21),[], 100),
   ("village_55", "Aix",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(87.63, -50.14),[], 100),
-  ("village_56", "Tauves",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(38.52, -45.96),[], 100),
+  ("village_56", "Tauves",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(41.26, -53.65),[], 100),
   ("village_57", "Bue",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(48.01, 4.61),[], 100),
   ("village_58", "Geaune",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-31.41, -138.89),[], 100),
   ("village_59", "Pavie",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(1.37, -141),[], 100),
-  ("village_60", "Le Val-Saint-Père",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-63.4, 69.89),[], 100),
+  ("village_60", "Le Val-Saint-Père",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-63.76, 69.03),[], 100),
   
   ("village_61", "Ligneyrac",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(11, -96.6),[], 100),
   ("village_62", "Chambon",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(53.03, -64.22),[], 100),
@@ -363,10 +363,10 @@ parties = [
   ("village_69", "Chancelade",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-18.29, -76.25),[], 100),
   ("village_70", "Trélissac",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-8, -75.07),[], 100),
   
-  ("village_71", "Champniers",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-30.26, -45.38),[], 100),
-  ("village_72", "La Couronne",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-38.9, -54.86),[], 100),
-  ("village_73", "Rochechouart",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-10.48, -58.26),[], 100),
-  ("village_74", "Couzeix",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-4.92, -53.53),[], 100),
+  ("village_71", "Champniers",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-35.86, -59.57),[], 100),
+  ("village_72", "La Couronne",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-39.64, -67.42),[], 100),
+  ("village_73", "Rochechouart",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-8.97, -55.21),[], 100),
+  ("village_74", "Couzeix",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-4.36, -49.9),[], 100),
   ("village_75", "Mérignac",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-48.97, -105.03),[], 100),
   ("village_76", "Pessac",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-46.55, -108.08),[], 100),
   ("village_77", "Labrit",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-45.09, -118.99),[], 100),
@@ -374,14 +374,14 @@ parties = [
   ("village_79", "Anglet",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-72.2, -139.34),[], 100),
   ("village_80", "Biarritz",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-76.54, -144.77),[], 100),
   
-  ("village_81", "Dax",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-60.87, -134.47),[], 100),
+  ("village_81", "Dax",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-62.6, -131.89),[], 100),
   ("village_82", "Rion",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-58.51, -127.68),[], 100),
   ("village_83", "Entrammes",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-42.97, 40.43),[], 100),
   ("village_84", "Argentré",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-41.02, 46.38),[], 100),
-  ("village_85", "Allonnes",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-17.55, 32.55),[], 100),
-  ("village_86", "Mulsannes",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-14.03, 31.07),[], 100),
+  ("village_85", "Allonnes",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-20.38, 36.07),[], 100),
+  ("village_86", "Mulsannes",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-14.65, 35.14),[], 100),
   ("village_87", "Le Lion-d'Angers",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-49.78, 18.89),[], 100),
-  ("village_88", "Durtal",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-37.63, 19.16),[], 100),
+  ("village_88", "Durtal",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-38.36, 21.3),[], 100),
   ("village_89", "Chailly",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(54.88, 62.67),[], 100),
   ("village_90", "Ury",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(53.1, 57.19),[], 100),
   
@@ -389,8 +389,8 @@ parties = [
   ("village_92", "Luisant",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(17.76, 50.23),[], 100),
   ("village_93", "Barentin",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-2.15, 95.14),[], 100),
   ("village_94", "Quevilly",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(0.97, 88.35),[], 100),
-  ("village_95", "Rots",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-40.7, 90.32),[], 100),
-  ("village_96", "Ifs",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-36.86, 85.23),[], 100),
+  ("village_95", "Rots",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-38.36, 89.87),[], 100),
+  ("village_96", "Ifs",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-33.89, 86.72),[], 100),
   ("village_97", "Honfleur",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-37.24, 94.22),[], 100),
   ("village_98", "Étretat",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-30.66, 107.1),[], 100),
   ("village_99", "Barfleur",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-61.36, 114.78),[], 100),
@@ -403,7 +403,7 @@ parties = [
   ("village_105", "Arçonnay",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-17.57, 52.71),[], 100),
   ("village_106", "Valframbert",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-16.01, 58.81),[], 100),
   ("village_107", "Nonant",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-47.02, 91.89),[], 100),
-  ("village_108", "Balleroy",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-54.48, 89.28),[], 100),
+  ("village_108", "Balleroy",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-56.21, 90.9),[], 100),
   ("village_109", "Bailleul",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-24.04, 70),[], 100),
   ("village_110", "Ecouché",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-29.05, 63.99),[], 100),
   
@@ -419,7 +419,7 @@ parties = [
   ("village_120", "Vendôme",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-2.43, 24.73),[], 100),
   
   ("village_121", "Beauvau",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-32.3, 14.45),[], 100),
-  ("village_122", "Langoiran",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-28.1, -113.29),[], 100),
+  ("village_122", "Langoiran",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-32.15, -110.32),[], 100),
   
 ### DAC Burgundian Villages
 
@@ -455,7 +455,7 @@ parties = [
   ("village_150", "Ancy-le-Franc",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(97.7, 22.39),[], 100),
   
   ("village_151", "Magny",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(87.71, 8.29),[], 100),
-  ("village_152", "Macôn",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(110.76, -23.33),[], 100),
+  ("village_152", "Macôn",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(109.7, -26.83),[], 100),
   ("village_153", "Toulongeon",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(98.06, -13.4),[], 100),
   ("village_154", "Givrauval",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(113.61, 65.45),[], 100),
   ("village_155", "Jonvelle",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(140.53, 32.5),[], 100),
