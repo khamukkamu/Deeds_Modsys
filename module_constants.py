@@ -1095,6 +1095,9 @@ cb_nomad = 5
 cb_thief = 6
 cb_priest = 7
 
+#DAC
+cb_merc = cb_priest
+
 #SB : these should be moved up by one
 cb2_page = 0
 cb2_apprentice = 1

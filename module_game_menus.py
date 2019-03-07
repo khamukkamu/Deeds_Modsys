@@ -95,7 +95,7 @@ game_menus = [
           (assign, "$cheat_mode", 1),
           (jump_to_menu, "mnu_choose_skill"),
         (else_try),
-          (jump_to_menu, "mnu_start_game_1"),
+          (jump_to_menu, "mnu_dac_start_character_background"),
         (try_end),
         ]
        ),
@@ -2226,6 +2226,144 @@ game_menus = [
     "none",
     [(change_screen_return, 0)],
     [
+    ]
+  ),
+
+
+### DAC Character Creation
+
+(
+    "dac_start_character_background",mnf_disable_all_keys,
+    "Choose Your Background",
+    "none",
+    [
+    (assign, reg11, "$character_gender"), #SB : every string now uses reg11 for daughter/son boy/girl etc
+    ],
+    [
+    ("dac_start_noble",[],"An impoverished noble.",[
+        (assign,"$background_type",cb_noble),
+        #(str_store_string,s10,"str_story_parent_noble"),
+        (jump_to_menu,"mnu_dac_choose_skill"),
+    ]),
+    ("dac_start_merchant",[],"A travelling merchant.",[
+        (assign,"$background_type",cb_merchant),
+        #(str_store_string,s10,"str_story_parent_merchant"),
+        (jump_to_menu,"mnu_dac_choose_skill"),
+    ]),
+    ("dac_start_soldier",[],"A veteran soldier.",[
+        (assign,"$background_type",cb_guard),
+        #(str_store_string,s10,"str_story_parent_guard"),
+        (jump_to_menu,"mnu_dac_choose_skill"),
+    ]),
+    ("dac_start_hunter",[],"A hunter.",[
+        (assign,"$background_type",cb_forester),
+        #(str_store_string,s10,"str_story_parent_forester"),
+        (jump_to_menu,"mnu_dac_choose_skill"),
+    ]),
+  
+    ("dac_start_mercenary",[],"A rugged mercenary.",[
+        (assign,"$background_type",cb_merc),
+        #(str_store_string,s10,"str_story_parent_priest"),
+        (jump_to_menu,"mnu_dac_choose_skill"),
+    ]),
+
+    #DAC-Kham: Quick Scene Chooser for Dev
+    ("choose_scene",[],"Scene Chooser",
+      [(jump_to_menu, "mnu_choose_scenes_0"),]
+    ),
+
+    ("go_back",[],"Go back",
+     [(jump_to_menu,"mnu_start_game_1"),
+    ]),
+    ]
+  ),
+
+(
+    "dac_choose_skill",mnf_disable_all_keys,
+    "Onwards, to France!",
+    "none",
+    [], #DAC-Kham: We may need to fill up the Description above based on the choice player makes.
+        #DAC-Kham: See "choose_skill" to see how it is done on Native
+    [
+##      
+      ("begin_adventuring",[],"Become an adventurer and ride to your destiny.",[
+          #(set_show_messages, 0),
+           
+          (try_begin),
+            (eq, "$character_gender", tf_male),
+            (troop_raise_attribute, "trp_player",ca_strength,1),
+            (troop_raise_attribute, "trp_player",ca_charisma,1),
+          (else_try),
+            (troop_raise_attribute, "trp_player",ca_agility,1),
+            (troop_raise_attribute, "trp_player",ca_intelligence,1),
+          (try_end),
+
+          (troop_raise_attribute, "trp_player",ca_strength,1),
+          (troop_raise_attribute, "trp_player",ca_agility,1),
+          (troop_raise_attribute, "trp_player",ca_charisma,1),
+
+          (troop_raise_skill, "trp_player","skl_leadership",1),
+          (troop_raise_skill, "trp_player","skl_riding",1),
+      
+          (try_begin),
+            (eq,"$background_type",cb_noble),
+            (call_script, "script_start_as_noble"),
+          (else_try),
+            (eq,"$background_type",cb_merchant),
+            (call_script, "script_start_as_merchant"),
+          (else_try),
+            (eq,"$background_type",cb_guard),
+            (call_script, "script_start_as_warrior"),
+          (else_try),
+            (eq,"$background_type",cb_forester),
+            (call_script, "script_start_as_hunter"),
+          (else_try),
+           (eq,"$background_type",cb_merc),
+           (call_script, "script_start_as_merc"),
+          (try_end),
+
+      #SB : pre-allocate disguises
+      (try_begin),
+        (assign, ":disguise", disguise_pilgrim), #always available
+        #farmer, acquired from not picking inappropriate noble/priestly options
+        (try_begin),
+          (neq, "$background_type", cb_noble),
+          (val_add, ":disguise", disguise_farmer),
+        (try_end),
+        (try_begin),
+          (eq, "$background_type", cb_forester),
+          (val_add, ":disguise", disguise_hunter),
+        (try_end),
+        (try_begin),
+          (eq, "$background_type", cb_merchant),
+          (val_add, ":disguise", disguise_merchant),
+        (try_end),
+        (try_begin),
+          (this_or_next|eq, "$background_type", cb_guard),
+          (eq, "$background_type", cb_merc),
+          (val_add, ":disguise", disguise_guard),
+        (try_end),
+        (try_begin),
+          (eq, "$background_answer_2", cb_noble),
+          (val_add, ":disguise", disguise_bard),
+        (try_end),
+      (try_end),
+      (troop_set_slot, "trp_player", slot_troop_player_disguise_sets, ":disguise"),
+
+      (try_begin),
+        (eq, "$background_type", cb_noble),
+        (jump_to_menu, "mnu_auto_return"),
+#normal_banner_begin
+        (start_presentation, "prsnt_banner_selection"),
+      (else_try),
+        (change_screen_return, 0),
+      (try_end),
+      #(set_show_messages, 1),
+        ]),
+
+      ("go_back_dot",[],"Go back.",[
+        (jump_to_menu,"mnu_dac_start_character_background"),
+        ]),
     ]
   ),
   
@@ -22010,3 +22148,26 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     # ]
   # ),
  ]
+
+import header_scenes
+from template_tools import *
+from module_scenes import scenes
+
+sorted_scenes = sorted(scenes)
+for i in xrange(len(sorted_scenes)):
+  current_scene = list(sorted_scenes[i])
+  current_scene[1] = get_flags_from_bitmap(header_scenes, "sf_", current_scene[1])
+  sorted_scenes[i] = tuple(current_scene)
+
+choose_scene_template = Game_Menu_Template(
+  id="choose_scenes_",
+  text="Choose a scene: (Page {current_page} of {num_pages})",
+  optn_id="choose_scene_",
+  optn_text="{list_item[0]}{list_item[1]}",
+  optn_consq = [
+    (jump_to_scene, "scn_{list_item[0]}"),
+    (change_screen_mission)
+  ]
+)
+
+game_menus += choose_scene_template.generate_menus(sorted_scenes)

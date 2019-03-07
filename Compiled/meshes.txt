@@ -1,4 +1,4 @@
-582
+596
 mesh_pic_bandits 0 pic_bandits 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 1.000000 1.000000
 mesh_pic_mb_warrior_1 0 ini_pic_mb_warrior_1 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.600000 1.000000 0.800000
 mesh_pic_messenger 0 pic_messenger 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 1.000000 1.000000
@@ -205,11 +205,23 @@ mesh_tableau_mesh_shield_heater_1 0 tableau_mesh_shield_heater_1 0.000000 0.0000
 mesh_tableau_mesh_shield_heater_2 0 tableau_mesh_shield_heater_2 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 10.000000 10.000000 10.000000
 mesh_tableau_mesh_shield_pavise_1 0 tableau_mesh_shield_pavise_1 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 10.000000 10.000000 10.000000
 mesh_tableau_mesh_shield_pavise_2 0 tableau_mesh_shield_pavise_2 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 10.000000 10.000000 10.000000
+mesh_tableau_mesh_shield_pavise_3 0 tableau_mesh_shield_pavise_3 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 10.000000 10.000000 10.000000
 mesh_heraldic_armor_bg 0 heraldic_armor_bg 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 10.000000 10.000000 10.000000
 mesh_tableau_mesh_heraldic_armor_a 0 tableau_mesh_heraldic_armor_a 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 1.000000 1.000000
 mesh_tableau_mesh_heraldic_armor_b 0 tableau_mesh_heraldic_armor_b 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 1.000000 1.000000
 mesh_tableau_mesh_heraldic_armor_c 0 tableau_mesh_heraldic_armor_c 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 1.000000 1.000000
 mesh_tableau_mesh_heraldic_armor_d 0 tableau_mesh_heraldic_armor_d 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 1.000000 1.000000
+mesh_tableau_mesh_heraldic_churburg_13_tabard_banner 0 tableau_mesh_heraldic_churburg_13_tabard_banner 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 1.000000 1.000000
+mesh_tableau_mesh_heraldic_churburg_13_tabard 0 tableau_mesh_heraldic_churburg_13_tabard 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 1.000000 1.000000
+mesh_tableau_mesh_heraldic_churburg_13_brass_tabard_banner 0 tableau_mesh_heraldic_churburg_13_brass_tabard_banner 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 1.000000 1.000000
+mesh_tableau_mesh_heraldic_churburg_13_brass_tabard 0 tableau_mesh_heraldic_churburg_13_brass_tabard 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 1.000000 1.000000
+mesh_tableau_mesh_early_transitional_heraldic_banner 0 tableau_mesh_early_transitional_heraldic_banner 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 1.000000 1.000000
+mesh_tableau_mesh_early_transitional_heraldic 0 tableau_mesh_early_transitional_heraldic 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 1.000000 1.000000
+mesh_tableau_mesh_mail_long_surcoat_new_heraldic 0 tableau_mesh_mail_long_surcoat_new_heraldic 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 1.000000 1.000000
+mesh_tableau_mesh_brigandine_b_heraldic 0 tableau_mesh_brigandine_b_heraldic 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 1.000000 1.000000
+mesh_tableau_mesh_heraldic_tunic_new 0 tableau_mesh_heraldic_tunic_new 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 1.000000 1.000000
+mesh_tableau_mesh_tabard_b_heraldic 0 tableau_mesh_tabard_b_heraldic 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 1.000000 1.000000
+mesh_tableau_mesh_heraldic_plate 0 tableau_mesh_heraldic_plate 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 1.000000 1.000000
 mesh_outer_terrain_plain_1 0 ter_border_a -90.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 1.000000 1.000000
 mesh_banner_a01 0 banner_a01 0.000000 0.000000 0.000000 -90.000000 0.000000 0.000000 1.000000 1.000000 1.000000
 mesh_banner_a02 0 banner_a02 0.000000 0.000000 0.000000 -90.000000 0.000000 0.000000 1.000000 1.000000 1.000000
@@ -581,3 +593,5 @@ mesh_flag_horsemen 0 flag_cavalry 0.000000 0.000000 0.000000 0.000000 0.000000 0
 mesh_flag_d7 0 flag_infantry 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 1.000000 1.000000
 mesh_flag_d8 0 flag_archers 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 1.000000 1.000000
 mesh_flag_d9 0 flag_cavalry 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 1.000000 1.000000
+mesh_pic_troop_trees 0 meeting_window 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 1.000000 1.000000
+mesh_pic_units_details 0 meeting_window 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 1.000000 1.000000

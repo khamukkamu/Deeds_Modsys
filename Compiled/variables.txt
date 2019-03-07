@@ -1425,3 +1425,7 @@ g_multiplayer_ccoop_victory_subtitle_overlay
 dplmc_return_menu
 inventory_menu_offset
 a
+g_custom_armor_angle
+g_custom_armor_param_count
+g_custom_armor_mandatory
+custom_armour_current_colour
