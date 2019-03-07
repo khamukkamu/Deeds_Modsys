@@ -259,7 +259,7 @@ meshes = [
   ("tableau_mesh_heraldic_plate", 0, "tableau_mesh_heraldic_plate",  0, 0, 0, 0, 0, 0, 1, 1, 1),
  ### HYW Heraldic Armors End  
 
-  ("outer_terrain_plain_1", 0, "ter_border_a", -90, 0, 0, 0, 0, 0, 1, 1, 1),
+  # ("outer_terrain_plain_1", 0, "ter_border_a", -90, 0, 0, 0, 0, 0, 1, 1, 1),
   ("banner_a01", 0, "banner_a01", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("banner_a02", 0, "banner_a02", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("banner_a03", 0, "banner_a03", 0, 0, 0, -90, 0, 0, 1, 1, 1),
