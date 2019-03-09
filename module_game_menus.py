@@ -209,7 +209,7 @@ game_menus = [
 
     [##diplomacy start+ Replace "join" with "Join" in the following
 #SB : skip merchant quest
-      ("town_none",[(eq, "$cheat_mode", 1),], "boldly go where no {man/woman} has gone before..",
+      ("town_none",[], "Start your adventure..",
        [
          #(jump_to_menu, "mnu_start_phase_2_5"),
          (store_random_in_range, ":destination", training_grounds_begin, training_grounds_end),
@@ -217,79 +217,78 @@ game_menus = [
          # (store_add, ":destination", "$fac_index", "p_swadian_scouts_spawn_point"),
          (party_relocate_near_party, "p_main_party", ":destination", 3),
          (call_script, "script_player_arrived"),
-         (try_begin), #noble
-           (eq, "$g_player_banner_granted", 1),
-           # (gt, "$g_player_luck", 175), #50% chance
-           (troop_slot_ge, "trp_player", slot_troop_renown, 160),
+         # (try_begin), #noble
+           # (eq, "$g_player_banner_granted", 1),
+           # (troop_slot_ge, "trp_player", slot_troop_renown, 160),
            
-           (store_random_in_range, "$g_invite_faction", npc_kingdoms_begin, npc_kingdoms_end),
-           (assign, "$g_invite_offered_center", -1),
-           (faction_get_slot, "$g_invite_faction_lord", "$g_invite_faction", slot_faction_leader),
-           (jump_to_menu, "mnu_invite_player_to_faction_without_center"),
-         (try_end),
-         (add_xp_to_troop, 5000, "trp_player"),
+           # (store_random_in_range, "$g_invite_faction", npc_kingdoms_begin, npc_kingdoms_end),
+           # (assign, "$g_invite_offered_center", -1),
+           # (faction_get_slot, "$g_invite_faction_lord", "$g_invite_faction", slot_faction_leader),
+           # (jump_to_menu, "mnu_invite_player_to_faction_without_center"),
+         # (try_end),
+         # (add_xp_to_troop, 5000, "trp_player"),
 
          (change_screen_return),
        ]),
-      ("town_1",[(eq, "$current_startup_quest_phase", 0),],"Join a caravan to Praven, in the Kingdom of Swadia.",
-       [
-         (assign, "$current_town", "p_town_6"),
-         (assign, "$g_starting_town", "$current_town"),
-         (assign, "$g_journey_string", "str_journey_to_praven"),
-		 (jump_to_menu, "mnu_start_phase_2_5"),
-#         (party_relocate_near_party, "p_main_party", "$g_starting_town", 2),
-#         (change_screen_return),
-       ]),
+      # ("town_1",[(eq, "$current_startup_quest_phase", 0),],"Join a caravan to Praven, in the Kingdom of Swadia.",
+       # [
+         # (assign, "$current_town", "p_town_6"),
+         # (assign, "$g_starting_town", "$current_town"),
+         # (assign, "$g_journey_string", "str_journey_to_praven"),
+		 # (jump_to_menu, "mnu_start_phase_2_5"),
+##         (party_relocate_near_party, "p_main_party", "$g_starting_town", 2),
+##         (change_screen_return),
+       # ]),
 
-      ("town_2",[(eq, "$current_startup_quest_phase", 0),],"Join a caravan to Reyvadin, in the Kingdom of the Vaegirs.",
-       [
-         (assign, "$current_town", "p_town_8"),
-         (assign, "$g_starting_town", "$current_town"),
-         (assign, "$g_journey_string", "str_journey_to_reyvadin"),
-		 (jump_to_menu, "mnu_start_phase_2_5"),
-#         (party_relocate_near_party, "p_main_party", "$g_starting_town", 2),
-#         (change_screen_return),
-       ]),
+      # ("town_2",[(eq, "$current_startup_quest_phase", 0),],"Join a caravan to Reyvadin, in the Kingdom of the Vaegirs.",
+       # [
+         # (assign, "$current_town", "p_town_8"),
+         # (assign, "$g_starting_town", "$current_town"),
+         # (assign, "$g_journey_string", "str_journey_to_reyvadin"),
+		 # (jump_to_menu, "mnu_start_phase_2_5"),
+##         (party_relocate_near_party, "p_main_party", "$g_starting_town", 2),
+##         (change_screen_return),
+       # ]),
 
-      ("town_3",[(eq, "$current_startup_quest_phase", 0),],"Join a caravan to Tulga, in the Khergit Khanate.",
-       [
-         (assign, "$current_town", "p_town_10"),
-         (assign, "$g_starting_town", "$current_town"),
-         (assign, "$g_journey_string", "str_journey_to_tulga"),
-		 (jump_to_menu, "mnu_start_phase_2_5"),
-#         (party_relocate_near_party, "p_main_party", "$g_starting_town", 2),
-#         (change_screen_return),
-       ]),
+      # ("town_3",[(eq, "$current_startup_quest_phase", 0),],"Join a caravan to Tulga, in the Khergit Khanate.",
+       # [
+         # (assign, "$current_town", "p_town_10"),
+         # (assign, "$g_starting_town", "$current_town"),
+         # (assign, "$g_journey_string", "str_journey_to_tulga"),
+		 # (jump_to_menu, "mnu_start_phase_2_5"),
+##         (party_relocate_near_party, "p_main_party", "$g_starting_town", 2),
+##         (change_screen_return),
+       # ]),
 
-      ("town_4",[(eq, "$current_startup_quest_phase", 0),],"Take a ship to Sargoth, in the Kingdom of the Nords.",
-       [
-         (assign, "$current_town", "p_town_1"),
-         (assign, "$g_starting_town", "$current_town"),
-         (assign, "$g_journey_string", "str_journey_to_sargoth"),
-		 (jump_to_menu, "mnu_start_phase_2_5"),
-#         (party_relocate_near_party, "p_main_party", "$g_starting_town", 2),
-#         (change_screen_return),
-       ]),
+      # ("town_4",[(eq, "$current_startup_quest_phase", 0),],"Take a ship to Sargoth, in the Kingdom of the Nords.",
+       # [
+         # (assign, "$current_town", "p_town_1"),
+         # (assign, "$g_starting_town", "$current_town"),
+         # (assign, "$g_journey_string", "str_journey_to_sargoth"),
+		 # (jump_to_menu, "mnu_start_phase_2_5"),
+##         (party_relocate_near_party, "p_main_party", "$g_starting_town", 2),
+##         (change_screen_return),
+       # ]),
 
-      ("town_5",[(eq, "$current_startup_quest_phase", 0),],"Take a ship to Jelkala, in the Kingdom of the Rhodoks.",
-       [
-         (assign, "$current_town", "p_town_5"),
-         (assign, "$g_starting_town", "$current_town"),
-         (assign, "$g_journey_string", "str_journey_to_jelkala"),
-		 (jump_to_menu, "mnu_start_phase_2_5"),
-#         (party_relocate_near_party, "p_main_party", "$g_starting_town", 2),
-#         (change_screen_return),
-       ]),
+      # ("town_5",[(eq, "$current_startup_quest_phase", 0),],"Take a ship to Jelkala, in the Kingdom of the Rhodoks.",
+       # [
+         # (assign, "$current_town", "p_town_5"),
+         # (assign, "$g_starting_town", "$current_town"),
+         # (assign, "$g_journey_string", "str_journey_to_jelkala"),
+		 # (jump_to_menu, "mnu_start_phase_2_5"),
+##         (party_relocate_near_party, "p_main_party", "$g_starting_town", 2),
+##         (change_screen_return),
+       # ]),
 
-      ("town_6",[(eq, "$current_startup_quest_phase", 0),],"Join a caravan to Shariz, in the Sarranid Sultanate.",
-       [
-         (assign, "$current_town", "p_town_19"),
-         (assign, "$g_starting_town", "$current_town"),
-         (assign, "$g_journey_string", "str_journey_to_shariz"),
-		 (jump_to_menu, "mnu_start_phase_2_5"),
-#         (party_relocate_near_party, "p_main_party", "$g_starting_town", 2),
-#         (change_screen_return),
-       ]),
+      # ("town_6",[(eq, "$current_startup_quest_phase", 0),],"Join a caravan to Shariz, in the Sarranid Sultanate.",
+       # [
+         # (assign, "$current_town", "p_town_19"),
+         # (assign, "$g_starting_town", "$current_town"),
+         # (assign, "$g_journey_string", "str_journey_to_shariz"),
+		 # (jump_to_menu, "mnu_start_phase_2_5"),
+##         (party_relocate_near_party, "p_main_party", "$g_starting_town", 2),
+##         (change_screen_return),
+       # ]),
 ##diplomacy end+ (replaced "join" with "Join")
 
       ("tutorial_cheat",[(eq,1,0)],"{!}CHEAT!",

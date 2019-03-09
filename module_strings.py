@@ -5191,9 +5191,6 @@ Even in the last case, the player can make formations up to four lines by orderi
 # Rebels
 ("a_padded_cloth_green", "a_padded_cloth_green"),
 ("a_padded_cloth_half_green", "a_padded_cloth_half_green"),
-# Ironskulls
-("a_padded_cloth_ironskull", "a_padded_cloth_ironskull"),
-("a_padded_cloth_ironskull_2", "a_padded_cloth_ironskull_2"),
 ("a_padded_cloth_end", "a_padded_cloth_end"),
 
 ## Peasant Clothes
@@ -5216,6 +5213,40 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("a_peasant_man_black", "a_peasant_man_black"),  
 ("a_peasant_man_black_2", "a_peasant_man_black_2"),  
 ("a_peasant_man_end", "a_peasant_man_end"),
+
+## Native Woman Common Dress
+("a_woman_common_dress_black", "a_woman_common_dress_black"),  
+("a_woman_common_dress_brown", "a_woman_common_dress_brown"),  
+("a_woman_common_dress_green", "a_woman_common_dress_green"),  
+("a_woman_common_dress_red", "a_woman_common_dress_red"),  
+("a_woman_common_dress_white", "a_woman_common_dress_white"),  
+("a_woman_common_dress_end", "a_woman_common_dress_end"),
+
+## Native Woman Common Dress 2
+("a_woman_common_dress_2_blue", "a_woman_common_dress_2_blue"),  
+("a_woman_common_dress_2_green", "a_woman_common_dress_2_green"),  
+("a_woman_common_dress_2_red", "a_woman_common_dress_2_red"),  
+("a_woman_common_dress_2_white", "a_woman_common_dress_2_white"),  
+("a_woman_common_dress_2_end", "a_woman_common_dress_2_end"),
+
+## Native Shirt
+("a_shirt_black", "a_shirt_black"),  
+("a_shirt_blue", "a_shirt_blue"),  
+("a_shirt_green", "a_shirt_green"),  
+("a_shirt_red", "a_shirt_red"),  
+("a_shirt_white", "a_shirt_white"),
+("a_shirt_end", "a_shirt_end"),
+
+## Native Nobleman Court Outfit
+# French 
+("a_nobleman_outfit_french", "a_nobleman_outfit_french"),  
+# English
+("a_nobleman_outfit_english", "a_nobleman_outfit_english"),  
+# Burgundian
+("a_nobleman_outfit_burgundian", "a_nobleman_outfit_burgundian"),  
+# Breton
+("a_nobleman_outfit_breton", "a_nobleman_outfit_breton"),  
+("a_nobleman_outfit_end", "a_nobleman_outfit_end"),
 
 ## Native Gambeson
 # French 
@@ -5267,9 +5298,6 @@ Even in the last case, the player can make formations up to four lines by orderi
 # Rebel
 ("a_gambeson_narf_green", "a_gambeson_narf_green"),  
 ("a_gambeson_narf_half_green", "a_gambeson_narf_half_green"),  
-# Ironskulls
-("a_gambeson_narf_ironskull", "a_gambeson_narf_ironskull"),  
-("a_gambeson_narf_ironskull_2", "a_gambeson_narf_ironskull_2"),  
 ("a_gambeson_narf_end", "a_gambeson_narf_end"),
 
 ## Bogmir Brigandine
@@ -5312,9 +5340,6 @@ Even in the last case, the player can make formations up to four lines by orderi
 # Flemish
 ("a_brigandine_narf_yellow_black", "a_brigandine_narf_yellow_black"),  
 ("a_brigandine_narf_yellow", "a_brigandine_narf_yellow"),  
-# Ironskull
-("a_brigandine_narf_ironskull", "a_brigandine_narf_ironskull"),  
-("a_brigandine_narf_ironskull_2", "a_brigandine_narf_ironskull_2"),  
 ("a_brigandine_narf_end", "a_brigandine_narf_end"),
 
 ## Narf Aketon
@@ -5387,9 +5412,6 @@ Even in the last case, the player can make formations up to four lines by orderi
 # Flemish  
 ("a_churburg_yellow_black", "a_churburg_yellow_black"),  
 ("a_churburg_yellow", "a_churburg_yellow"),
-# Ironskulls  
-("a_churburg_ironskull", "a_churburg_ironskull"),  
-("a_churburg_ironskull_2", "a_churburg_ironskull_2"),
 ("a_churburg_end", "a_churburg_end"),
 
 ## Churburg Brass
@@ -5438,9 +5460,6 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("a_early_transitional_black", "a_early_transitional_black"),
 ("a_early_transitional_yellow", "a_early_transitional_yellow"),
 ("a_early_transitional_yellow_black", "a_early_transitional_yellow_black"),
-# Ironskulls
-("a_early_transitional_ironskull", "a_early_transitional_ironskull"),
-("a_early_transitional_ironskull_2", "a_early_transitional_ironskull_2"),
 ("a_early_transitional_end", "a_early_transitional_end"),
 
 ## Narf Hoods for the Helmets

@@ -1523,7 +1523,7 @@ scripts = [
       (item_set_slot, "itm_a_padded_cloth_custom", slot_item_flemish_materials_end, "str_a_padded_cloth_green"),	
 # Rebels	
       (item_set_slot, "itm_a_padded_cloth_custom", slot_item_rebel_materials_begin, "str_a_padded_cloth_green"),
-      (item_set_slot, "itm_a_padded_cloth_custom", slot_item_rebel_materials_end, "str_a_padded_cloth_ironskull"),			
+      (item_set_slot, "itm_a_padded_cloth_custom", slot_item_rebel_materials_end, "str_a_padded_cloth_end"),			
       (item_set_slot, "itm_a_padded_cloth_custom", slot_item_num_components, 1),
       
 ## Peasant Clothes
@@ -1545,7 +1545,39 @@ scripts = [
       (item_set_slot, "itm_a_peasant_man_custom", slot_item_flemish_materials_begin, "str_a_peasant_man_black"),
       (item_set_slot, "itm_a_peasant_man_custom", slot_item_flemish_materials_end, "str_a_peasant_man_end"),			
       (item_set_slot, "itm_a_peasant_man_custom", slot_item_num_components, 1),    
-				
+		
+## Native Woman Common Dress
+      (item_set_slot, "itm_a_woman_common_dress_1_custom", slot_item_materials_begin, "str_a_woman_common_dress_black"),
+      (item_set_slot, "itm_a_woman_common_dress_1_custom", slot_item_materials_end, "str_a_woman_common_dress_end"),	
+      (item_set_slot, "itm_a_woman_common_dress_1_custom", slot_item_num_components, 1),    
+	  
+## Native Woman Common Dress 2
+      (item_set_slot, "itm_a_woman_common_dress_2_custom", slot_item_materials_begin, "str_a_woman_common_dress_2_blue"),
+      (item_set_slot, "itm_a_woman_common_dress_2_custom", slot_item_materials_end, "str_a_woman_common_dress_2_end"),	
+      (item_set_slot, "itm_a_woman_common_dress_2_custom", slot_item_num_components, 1),    
+
+## Native shirt
+      (item_set_slot, "itm_a_peasant_shirt_custom", slot_item_materials_begin, "str_a_shirt_black"),
+      (item_set_slot, "itm_a_peasant_shirt_custom", slot_item_materials_end, "str_a_shirt_end"),	
+      (item_set_slot, "itm_a_peasant_shirt_custom", slot_item_num_components, 1),    	  
+	  
+## Nobleman Court Outfit
+      (item_set_slot, "itm_a_nobleman_court_outfit_custom", slot_item_materials_begin, "str_a_nobleman_outfit_french"),
+      (item_set_slot, "itm_a_nobleman_court_outfit_custom", slot_item_materials_end, "str_a_nobleman_outfit_end"),
+# France
+      (item_set_slot, "itm_a_nobleman_court_outfit_custom", slot_item_france_materials_begin, "str_a_nobleman_outfit_french"),
+      (item_set_slot, "itm_a_nobleman_court_outfit_custom", slot_item_france_materials_end, "str_a_nobleman_outfit_english"),
+# England
+      (item_set_slot, "itm_a_nobleman_court_outfit_custom", slot_item_english_materials_begin, "str_a_nobleman_outfit_english"),
+      (item_set_slot, "itm_a_nobleman_court_outfit_custom", slot_item_english_materials_end, "str_a_nobleman_outfit_burgundian"),
+# Burgundy
+      (item_set_slot, "itm_a_nobleman_court_outfit_custom", slot_item_burgundy_materials_begin, "str_a_nobleman_outfit_burgundian"),
+      (item_set_slot, "itm_a_nobleman_court_outfit_custom", slot_item_burgundy_materials_end, "str_a_nobleman_outfit_breton"),
+# Brittany		
+      (item_set_slot, "itm_a_nobleman_court_outfit_custom", slot_item_breton_materials_begin, "str_a_nobleman_outfit_breton"),
+      (item_set_slot, "itm_a_nobleman_court_outfit_custom", slot_item_breton_materials_end, "str_a_nobleman_outfit_end"),		
+      (item_set_slot, "itm_a_nobleman_court_outfit_custom", slot_item_num_components, 1),    	
+	  
 ## Gambeson
       (item_set_slot, "itm_a_gambeson_custom", slot_item_materials_begin, "str_a_gambeson_blue"),
       (item_set_slot, "itm_a_gambeson_custom", slot_item_materials_end, "str_a_gambeson_end"),
@@ -1606,7 +1638,7 @@ scripts = [
       (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_flemish_materials_end, "str_a_gambeson_narf_green"),	
 # Rebels		
       (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_rebel_materials_begin, "str_a_gambeson_narf_green"),
-      (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_rebel_materials_end, "str_a_gambeson_narf_ironskull"),			
+      (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_rebel_materials_end, "str_a_gambeson_narf_end"),			
       (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_num_components, 1),   
 
 ## Bogmir Brigandine 
@@ -1685,7 +1717,7 @@ scripts = [
       (item_set_slot, "itm_a_churburg_narf_custom", slot_item_breton_materials_end, "str_a_churburg_yellow_black"),	
 # Flemish Mercenaries		
       (item_set_slot, "itm_a_churburg_narf_custom", slot_item_flemish_materials_begin, "str_a_churburg_black"),
-      (item_set_slot, "itm_a_churburg_narf_custom", slot_item_flemish_materials_end, "str_a_churburg_ironskull"),		
+      (item_set_slot, "itm_a_churburg_narf_custom", slot_item_flemish_materials_end, "str_a_churburg_end"),		
       (item_set_slot, "itm_a_churburg_narf_custom", slot_item_num_components, 1),   	
 		
 ## Churburg Brass
@@ -1742,7 +1774,7 @@ scripts = [
       (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_breton_materials_end, "str_a_early_transitional_black"),		
 # Flemish Mercenaries		
       (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_flemish_materials_begin, "str_a_early_transitional_black"),
-      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_flemish_materials_end, "str_a_early_transitional_ironskull"),
+      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_flemish_materials_end, "str_a_early_transitional_end"),
       (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_num_components, 1),   		
 				
 ## Narf Brigandine 
@@ -1763,7 +1795,7 @@ scripts = [
 			(item_set_slot, ":item_no", slot_item_breton_materials_end, "str_a_brigandine_narf_yellow_black"),	
 	# Flemish Mercenaries		
 			(item_set_slot, ":item_no", slot_item_flemish_materials_begin, "str_a_brigandine_narf_black"),
-			(item_set_slot, ":item_no", slot_item_flemish_materials_end, "str_a_brigandine_narf_ironskull"),				
+			(item_set_slot, ":item_no", slot_item_flemish_materials_end, "str_a_brigandine_narf_end"),				
 			(item_set_slot, ":item_no", slot_item_num_components, 1),   	
       (try_end),
 		
@@ -5874,13 +5906,13 @@ scripts = [
         (val_add, ":ransom_max", 5),
       (else_try),
         (this_or_next|eq, ":troop_id", "trp_farmer"),
-        (this_or_next|eq, ":troop_id", "trp_follower_woman"),
+        # (this_or_next|eq, ":troop_id", "trp_follower_woman"),
         (eq, ":troop_id", "trp_peasant_woman"),
         (store_mul, ":ransom_max", ":troop_level", 2),
         (val_add, ":ransom_max", 3),
       (else_try),
         (neq, ":troop_id", "trp_farmer"),
-        (neq, ":troop_id", "trp_follower_woman"),
+        # (neq, ":troop_id", "trp_follower_woman"),
         (neq, ":troop_id", "trp_peasant_woman"),
         (store_mul, ":ransom_max", ":troop_level", 5),
         (val_div, ":ransom_max", 2),
@@ -74787,12 +74819,12 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
     (store_script_param, ":reset_troops", 1), 
     (try_begin), #SB : reset this for non-native
       (eq, ":reset_troops", 2), ### DAC Seek: Disabled
-      (try_for_range, ":troop_no", regular_troops_begin, regular_troops_end),
-        (is_between, ":troop_no", "trp_follower_woman", "trp_caravan_master"), #always female
-        (troop_set_type, ":troop_no", tf_female),
-      (else_try),
-        (troop_set_type, ":troop_no", tf_male),
-      (try_end),
+      # (try_for_range, ":troop_no", regular_troops_begin, regular_troops_end),
+        # (is_between, ":troop_no", "trp_follower_woman", "trp_caravan_master"), #always female
+        # (troop_set_type, ":troop_no", tf_female),
+      # (else_try),
+        # (troop_set_type, ":troop_no", tf_male),
+      # (try_end),
     (try_end),
     (faction_set_slot, "fac_kingdom_1", slot_faction_gender_ratio, 0),
     (faction_set_slot, "fac_kingdom_2", slot_faction_gender_ratio, 0),

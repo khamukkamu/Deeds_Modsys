@@ -111,7 +111,7 @@ dplmc_random_mixed_gender = (ti_on_agent_spawn, 0, 0, [
   (agent_is_human, ":agent_no"),
   (agent_get_troop_id, ":troop_no", ":agent_no"),
   (neg|troop_is_hero, ":troop_no"),
-  (neg|is_between, ":troop_no", "trp_follower_woman", "trp_caravan_master"), #always female
+  # (neg|is_between, ":troop_no", "trp_follower_woman", "trp_caravan_master"), #always female
   #SB : check non-native troop genders
 
   #get individual faction chances
