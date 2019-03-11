@@ -415,6 +415,13 @@ simple_triggers = [
       (try_end),
     ]),
 
+
+# Refresh Merchants (used to be a regular trigger)
+  (24 * 7,
+   [
+    (call_script, "script_refresh_center_inventories"), # All merchants!
+  ]),
+
   #Pay day.
   (24 * 7,
    [

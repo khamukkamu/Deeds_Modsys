@@ -1226,7 +1226,6 @@ slot_party_template_lair_spawnpoint_begin  = 5
 slot_party_template_lair_spawnpoint_end    = 6
 
 
-
 # Ryan END
 
 
@@ -1823,6 +1822,8 @@ weapons_begin = "itm_w_dagger_bollock"
 weapons_end = "itm_dedal_kufel"
 ranged_weapons_begin = "itm_w_short_bow_ash"
 ranged_weapons_end = "itm_dedal_kufel"
+ammo_begin = "itm_arrows"
+ammo_end = "itm_w_short_bow_ash"
 armors_begin = "itm_a_gambeson_black"
 armors_end = "itm_a_churburg_narf_mail"
 shields_begin = "itm_s_battle_shield_charles"

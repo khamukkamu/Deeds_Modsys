@@ -33,31 +33,6 @@ triggers = [
 # Tutorial:
   (0.1, 0, ti_once, [(map_free,0)], [(dialog_box,"str_tutorial_map1")]),
 
-# Refresh Merchants
-  (0.0, 0, 168.0, [],
-  [
-    (call_script, "script_refresh_center_inventories"),
-                     ]),
-
-# Refresh Armor sellers
-  (0.0, 0, 168.0, [],
-  [
-    (call_script, "script_refresh_center_armories"),
-                     ]),
-
-# Refresh Weapon sellers
-  (0.0, 0, 168.0, [],
-  [
-    (call_script, "script_refresh_center_weaponsmiths"),
-                     ]),
-
-# Refresh Horse sellers
-  (0.0, 0, 168.0, [],
-  [
-    (call_script, "script_refresh_center_stables"),
-                     ]),
-
-
 #############
 
 #Captivity:

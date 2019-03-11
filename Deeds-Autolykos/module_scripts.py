@@ -7458,7 +7458,25 @@ scripts = [
       (troop_ensure_inventory_space, ":cur_merchant", 20),
       (troop_sort_inventory, ":cur_merchant"),
       (store_troop_gold, ":cur_gold",":cur_merchant"),
-      (try_begin), 	
+      ##diplomacy start+
+      #Option: scaling gold additions by the prosperity of the town.
+      (try_begin),
+        (ge, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_LOW),#this must be explicitly enabled
+          (party_get_slot, ":prosperity_75", ":cur_center", slot_town_prosperity),
+        (val_add, ":prosperity_75", 75),
+        (store_mul, ":target_gold", ":prosperity_75", 1500),
+        (val_add, ":target_gold", 62),
+        (val_div, ":target_gold", 125),#average 1500
+        (lt, ":cur_gold", ":target_gold"),
+        (store_random_in_range,":new_gold",500,1000),
+        (val_mul, ":new_gold", ":prosperity_75"),
+        (val_add, ":new_gold", 62),
+        (val_div, ":new_gold", 125),
+        (call_script, "script_troop_add_gold", ":cur_merchant", ":new_gold"),
+      (else_try),
+        (lt, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_LOW),
+        #fall through to default behavior
+        ##diplomacy end+ 	
         (lt,":cur_gold",1500),
         (store_random_in_range,":new_gold",500,1000),
         (call_script, "script_troop_add_gold", ":cur_merchant", ":new_gold"),
@@ -7498,12 +7516,28 @@ scripts = [
 	(troop_ensure_inventory_space, ":merchant", merchant_inventory_space),
 	(troop_sort_inventory, ":merchant"),
 	(store_troop_gold, reg6, ":merchant"),
-    (try_begin),
+  ##diplomacy start+
+  #Option: scaling gold additions by the prosperity of the town.
+  (try_begin),
+    (ge, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_LOW),#this must be explicitly enabled
+    (party_get_slot, ":prosperity_75", ":cur_town", slot_town_prosperity),
+    (val_add, ":prosperity_75", 75),
+    (store_mul, ":target_gold", ":prosperity_75", 900),
+    (val_add, ":target_gold", 62),
+    (val_div, ":target_gold", 125),#average 900
+    (lt, reg(6), ":target_gold"),
+    (store_random_in_range,":new_gold",200,400),
+    (val_mul, ":new_gold", ":prosperity_75"),
+    (val_add, ":new_gold", 62),
+    (val_div, ":new_gold", 125),
+    (call_script, "script_troop_add_gold", ":cur_merchant", ":new_gold"),
+  (else_try),
+    (lt, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_LOW),
 	  (lt, reg6, 1000),
 	  (store_random_in_range, ":new_gold", 250, 500),
 	  (call_script, "script_troop_add_gold", ":merchant", ":new_gold"),
-    (try_end),
-  ]),
+  (try_end),
+]),
 
   # script_refresh_center_weaponsmith
   ("refresh_center_weaponsmith",
@@ -7522,15 +7556,33 @@ scripts = [
     (troop_ensure_inventory_space, ":merchant", merchant_inventory_space),
     (troop_sort_inventory, ":merchant"), 
     (store_troop_gold, ":cur_gold", ":merchant"),
+  ##diplomacy start+
+    #Option: scaling gold additions by the prosperity of the town.
     (try_begin),
+      (ge, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_LOW),#this must be explicitly enabled
+        (party_get_slot, ":prosperity_75", ":cur_town", slot_town_prosperity),
+      (val_add, ":prosperity_75", 75),
+      (store_mul, ":target_gold", ":prosperity_75", 900),
+      (val_add, ":target_gold", 62),
+      (val_div, ":target_gold", 125),#average 900
+      (lt, ":cur_gold", ":target_gold"),
+      (store_random_in_range,":new_gold",200,400),
+      (val_mul, ":new_gold", ":prosperity_75"),
+      (val_add, ":new_gold", 62),
+      (val_div, ":new_gold", 125),
+      (call_script, "script_troop_add_gold", ":cur_merchant", ":new_gold"),
+    (else_try),
+      (lt, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_LOW),
+       #fall through to default behavior
+       ##diplomacy end+
       (lt, ":cur_gold", 1000),
       (store_random_in_range, ":new_gold", 250, 500),
       (call_script, "script_troop_add_gold", ":merchant", ":new_gold"),
     (try_end),
   ]),
 
-  # script_refresh_center_horse_merchant
-  ("refresh_center_horse_merchant",
+# script_refresh_center_horse_merchant
+("refresh_center_horse_merchant",
   [ (store_script_param, ":center", 1),
     (store_script_param, ":merchant", 2),
 	(party_get_slot, ":prosperity", ":center", slot_town_prosperity),
@@ -7540,15 +7592,33 @@ scripts = [
 	(call_script, "script_add_matching_items_from_troop_tree", ":merchant", ":root_troop", "script_cf_item_sold_by_horse_merchant", 3, ":prosperity"),
 	(party_get_slot, "$temp", ":center", slot_center_original_faction),  
 	(call_script, "script_add_matching_items_from_range", ":merchant", horses_begin, horses_end, "script_cf_item_sold_by_temp_faction", 6, ":prosperity"),
-    (troop_ensure_inventory_space, ":merchant", 64), # was 65
-    (troop_sort_inventory, ":merchant"),
-    (store_troop_gold, ":cur_gold", ":merchant"),
-    (try_begin),
-      (lt, ":cur_gold", 600),
-      (store_random_in_range, ":new_gold", 250, 500),
-      (call_script, "script_troop_add_gold", ":merchant", ":new_gold"),
-    (try_end),
-  ]),
+  (troop_ensure_inventory_space, ":merchant", 64), # was 65
+  (troop_sort_inventory, ":merchant"),
+  (store_troop_gold, ":cur_gold", ":merchant"),
+##diplomacy start+
+  #Option: scaling gold additions by the prosperity of the town.
+  (try_begin),
+    (ge, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_LOW),#this must be explicitly enabled
+      (party_get_slot, ":prosperity_75", ":cur_town", slot_town_prosperity),
+    (val_add, ":prosperity_75", 75),
+    (store_mul, ":target_gold", ":prosperity_75", 600),
+    (val_add, ":target_gold", 62),
+    (val_div, ":target_gold", 125),#average 600
+    (lt, ":cur_gold", ":target_gold"),
+    (store_random_in_range,":new_gold",200,400),
+    (val_mul, ":new_gold", ":prosperity_75"),
+    (val_add, ":new_gold", 62),
+    (val_div, ":new_gold", 125),
+    (call_script, "script_troop_add_gold", ":cur_merchant", ":new_gold"),
+  (else_try),
+    (lt, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_LOW),
+    #fall through to default behavior
+    ##diplomacy end+
+    (lt, ":cur_gold", 600),
+    (store_random_in_range, ":new_gold", 250, 500),
+    (call_script, "script_troop_add_gold", ":merchant", ":new_gold"),
+  (try_end),
+]),
 
   # script_refresh_locations
   ("refresh_locations",

@@ -84,6 +84,8 @@ scripts = [
       (faction_set_slot, "fac_player_supporters_faction", slot_faction_state, sfs_inactive),
 
       (assign, "$g_player_luck", 200),
+      (assign,"$rand_seed",0), # To get rid of the warnings...
+      (store_random_in_range,"$rand_seed",0,1024*1024*1024),
       (troop_set_slot, "trp_player", slot_troop_occupation, slto_kingdom_hero),
       (store_random_in_range, ":starting_training_ground", training_grounds_begin, training_grounds_end),
       (party_relocate_near_party, "p_main_party", ":starting_training_ground", 3),
@@ -530,8 +532,7 @@ scripts = [
       #we are adding looter parties around each village with 1/5 probability.
       (set_spawn_radius, 5),
       (try_for_range, ":cur_village", villages_begin, villages_end),
-        (store_random_in_range, ":random_value", 0, 5),
-        (eq, ":random_value", 0),
+        (call_script, "script_rand", 0, 5), (eq, reg0, 0),
         (spawn_around_party, ":cur_village", "pt_looters"),
       (try_end),
 
@@ -541,6 +542,7 @@ scripts = [
       (call_script, "script_update_tavern_travellers"),
       (call_script, "script_update_tavern_minstrels"),
       (call_script, "script_update_booksellers"),
+      (call_script, "script_refresh_center_inventories"),
 
       (try_for_range, ":village_no", villages_begin, villages_end),
         (call_script, "script_update_volunteer_troops_in_village", ":village_no"),
@@ -57595,250 +57597,246 @@ scripts = [
    (try_end),
   ]),
 
-  # script_refresh_center_inventories
+  # script_refresh_center_inventories - Autolykos version
   ("refresh_center_inventories",
-  [
-  (set_merchandise_modifier_quality,150),
-  (reset_item_probabilities,100),
+  [     
+    (set_merchandise_modifier_quality,150),
+    (reset_item_probabilities,100),     
 
-  # Add trade goods to merchant inventories
-  (try_for_range,":cur_center",towns_begin,towns_end),
-    (party_get_slot,":cur_merchant",":cur_center",slot_town_merchant),
-    (reset_item_probabilities,100),
+    # Add trade goods to merchant inventories
+    (try_for_range,":cur_center",towns_begin, towns_end),
+      (party_get_slot,":cur_merchant",":cur_center",slot_town_merchant),
+      (reset_item_probabilities,100),
       (assign, ":total_production", 0),
-    (try_for_range, ":cur_goods", trade_goods_begin, trade_goods_end),
+      (try_for_range, ":cur_goods", trade_goods_begin, trade_goods_end),
         (call_script, "script_center_get_production", ":cur_center", ":cur_goods"),
-		(assign, ":cur_production", reg0),
+    (assign, ":cur_production", reg0),
 
         (try_for_range, ":cur_village", villages_begin, villages_end),
-		  (party_slot_eq, ":cur_village", slot_village_bound_center, ":cur_center"),
+      (party_slot_eq, ":cur_village", slot_village_bound_center, ":cur_center"),
           (call_script, "script_center_get_production", ":cur_village", ":cur_goods"),
-		  (val_div, reg0, 3),
-		  (val_add, ":cur_production", reg0),
-		(try_end),
+      (val_div, reg0, 3),
+      (val_add, ":cur_production", reg0),
+    (try_end),    
 
-		(val_max, ":cur_production", 1),
-		(val_mul, ":cur_production", 4),
+    (val_max, ":cur_production", 1),
+    (val_mul, ":cur_production", 4),
 
-		(val_add, ":total_production", ":cur_production"),
+    (val_add, ":total_production", ":cur_production"),
       (try_end),
 
-	  (party_get_slot, ":town_prosperity", ":cur_center", slot_town_prosperity),
-	  (assign, ":number_of_items_in_town", 25),
+    (party_get_slot, ":town_prosperity", ":cur_center", slot_town_prosperity),
+    (assign, ":number_of_items_in_town", 25),
 
-	  (try_begin), #1.0x - 2.0x (50 - 100 prosperity)
-	    (ge, ":town_prosperity", 50),
-		(store_sub, ":ratio", ":town_prosperity", 50),
-		(val_mul, ":ratio", 2),
-		(val_add, ":ratio", 100),
-		(val_mul, ":number_of_items_in_town", ":ratio"),
-		(val_div, ":number_of_items_in_town", 100),
-	  (else_try), #0.5x - 1.0x (0 - 50 prosperity)
-		(store_sub, ":ratio", ":town_prosperity", 50),
-		(val_add, ":ratio", 100),
-		(val_mul, ":number_of_items_in_town", ":ratio"),
-		(val_div, ":number_of_items_in_town", 100),
-	  (try_end),
+    (try_begin), #1.0x - 2.0x (50 - 100 prosperity)
+      (ge, ":town_prosperity", 50),
+    (store_sub, ":ratio", ":town_prosperity", 50),
+    (val_mul, ":ratio", 2),
+    (val_add, ":ratio", 100),
+    (val_mul, ":number_of_items_in_town", ":ratio"),
+    (val_div, ":number_of_items_in_town", 100),
+    (else_try), #0.5x - 1.0x (0 - 50 prosperity)
+    (store_sub, ":ratio", ":town_prosperity", 50),
+    (val_add, ":ratio", 100),
+    (val_mul, ":number_of_items_in_town", ":ratio"),
+    (val_div, ":number_of_items_in_town", 100),
+    (try_end),
 
-	  (val_clamp, ":number_of_items_in_town", 10, 40),
+    (val_clamp, ":number_of_items_in_town", 10, 40),  
 
-	  (try_begin),
-	    (is_between, ":cur_center", castles_begin, castles_end),
-	    (val_div, ":number_of_items_in_town", 2),
+    (try_begin),
+      (is_between, ":cur_center", castles_begin, castles_end),
+      (val_div, ":number_of_items_in_town", 2),
       (try_end),
 
       (try_for_range, ":cur_goods", trade_goods_begin, trade_goods_end),
-	  (call_script, "script_center_get_production", ":cur_center", ":cur_goods"),
-		(assign, ":cur_production", reg0),
+        (call_script, "script_center_get_production", ":cur_center", ":cur_goods"),
+    (assign, ":cur_production", reg0),
 
         (try_for_range, ":cur_village", villages_begin, villages_end),
-		  (party_slot_eq, ":cur_village", slot_village_bound_center, ":cur_center"),
+      (party_slot_eq, ":cur_village", slot_village_bound_center, ":cur_center"),
           (call_script, "script_center_get_production", ":cur_village", ":cur_goods"),
-		  (val_div, reg0, 3),
-		  (val_add, ":cur_production", reg0),
-		(try_end),
+      (val_div, reg0, 3),
+      (val_add, ":cur_production", reg0),
+    (try_end),    
 
-		(val_max, ":cur_production", 1),
-		(val_mul, ":cur_production", 4),
+    (val_max, ":cur_production", 1),
+    (val_mul, ":cur_production", 4),
 
         (val_mul, ":cur_production", ":number_of_items_in_town"),
-		(val_mul, ":cur_production", 100),
-		(val_div, ":cur_production", ":total_production"),
-        (set_item_probability_in_merchandise, ":cur_goods", ":cur_production"),
-    (try_end),
+    (val_mul, ":cur_production", 100),
+    (val_div, ":cur_production", ":total_production"),
+        (set_item_probability_in_merchandise, ":cur_goods", ":cur_production"),             
+      (try_end),
 
-	  (troop_clear_inventory, ":cur_merchant"),
+    (troop_clear_inventory, ":cur_merchant"),
       (troop_add_merchandise, ":cur_merchant", itp_type_goods, ":number_of_items_in_town"),
 
       (troop_ensure_inventory_space, ":cur_merchant", 20),
-    (troop_sort_inventory, ":cur_merchant"),
-    (store_troop_gold, ":cur_gold",":cur_merchant"),
-    ##diplomacy start+
-	#Option: scaling gold additions by the prosperity of the town.
-	(try_begin),
-		(ge, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_LOW),#this must be explicitly enabled
-	    (party_get_slot, ":prosperity_75", ":cur_center", slot_town_prosperity),
-		(val_add, ":prosperity_75", 75),
-		(store_mul, ":target_gold", ":prosperity_75", 1500),
-		(val_add, ":target_gold", 62),
-		(val_div, ":target_gold", 125),#average 1500
-		(lt, ":cur_gold", ":target_gold"),
-		(store_random_in_range,":new_gold",500,1000),
-		(val_mul, ":new_gold", ":prosperity_75"),
-		(val_add, ":new_gold", 62),
-		(val_div, ":new_gold", 125),
-		(call_script, "script_troop_add_gold", ":cur_merchant", ":new_gold"),
-	(else_try),
-		(lt, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_LOW),
-	    #fall through to default behavior
-	    ##diplomacy end+
-    (lt,":cur_gold",1500),
-    (store_random_in_range,":new_gold",500,1000),
-    (call_script, "script_troop_add_gold", ":cur_merchant", ":new_gold"),
-    ##diplomacy start+
-    (try_end),
-	##diplomacy end+
-  (try_end),
-  ]),
+      (troop_sort_inventory, ":cur_merchant"),
+      (store_troop_gold, ":cur_gold",":cur_merchant"),
+      ##diplomacy start+
+      #Option: scaling gold additions by the prosperity of the town.
+      (try_begin),
+        (ge, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_LOW),#this must be explicitly enabled
+          (party_get_slot, ":prosperity_75", ":cur_center", slot_town_prosperity),
+        (val_add, ":prosperity_75", 75),
+        (store_mul, ":target_gold", ":prosperity_75", 1500),
+        (val_add, ":target_gold", 62),
+        (val_div, ":target_gold", 125),#average 1500
+        (lt, ":cur_gold", ":target_gold"),
+        (store_random_in_range,":new_gold",500,1000),
+        (val_mul, ":new_gold", ":prosperity_75"),
+        (val_add, ":new_gold", 62),
+        (val_div, ":new_gold", 125),
+        (call_script, "script_troop_add_gold", ":cur_merchant", ":new_gold"),
+      (else_try),
+        (lt, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_LOW),
+        #fall through to default behavior
+        ##diplomacy end+  
+        (lt,":cur_gold",1500),
+        (store_random_in_range,":new_gold",500,1000),
+        (call_script, "script_troop_add_gold", ":cur_merchant", ":new_gold"),
+      (try_end),  
+    
+      (reset_item_probabilities, 100),
+      (set_merchandise_modifier_quality, 150),
+    (party_get_slot, ":armorer", ":cur_center", slot_town_armorer),
+    (party_get_slot, ":weaponsmith", ":cur_center", slot_town_weaponsmith),
+    (party_get_slot, ":horse_merchant", ":cur_center", slot_town_horse_merchant),
+      (try_begin),  
+      (gt, ":armorer", 0),
+      (call_script, "script_refresh_center_armories", ":cur_center", ":armorer"),
+      (try_end),  
+      (try_begin),  
+      (gt, ":weaponsmith", 0),
+      (call_script, "script_refresh_center_weaponsmiths", ":cur_center", ":weaponsmith"),
+      (try_end),  
+      (try_begin),  
+      (gt, ":horse_merchant", 0),
+      (call_script, "script_refresh_center_stables", ":cur_center", ":horse_merchant"),
+      (try_end),  
+    (try_end),  
+  ]), 
+
 
   # script_refresh_center_armories
   ("refresh_center_armories",
-  [
-	  (reset_item_probabilities,100),
-	  (set_merchandise_modifier_quality,150),
-	  (try_for_range, ":cur_merchant", armor_merchants_begin, armor_merchants_end),
-		(store_sub, ":cur_town", ":cur_merchant", armor_merchants_begin),
-		(val_add, ":cur_town", towns_begin),
-		(troop_clear_inventory, ":cur_merchant"),
-		(party_get_slot, ":cur_faction", ":cur_town", slot_center_original_faction),
-		(troop_add_merchandise_with_faction, ":cur_merchant", ":cur_faction", itp_type_body_armor, 16),
-		(troop_add_merchandise_with_faction, ":cur_merchant", ":cur_faction", itp_type_head_armor, 16),
-		(troop_add_merchandise_with_faction, ":cur_merchant", ":cur_faction", itp_type_foot_armor, 8),
-		(troop_add_merchandise_with_faction, ":cur_merchant", ":cur_faction", itp_type_hand_armor, 4),
-		(troop_ensure_inventory_space, ":cur_merchant", merchant_inventory_space),
-		(troop_sort_inventory, ":cur_merchant"),
-		(store_troop_gold, reg6, ":cur_merchant"),
-
-	    ##diplomacy start+
-		#Option: scaling gold additions by the prosperity of the town.
-		(try_begin),
-			(ge, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_LOW),#this must be explicitly enabled
-		    (party_get_slot, ":prosperity_75", ":cur_town", slot_town_prosperity),
-			(val_add, ":prosperity_75", 75),
-			(store_mul, ":target_gold", ":prosperity_75", 900),
-			(val_add, ":target_gold", 62),
-			(val_div, ":target_gold", 125),#average 900
-			(lt, reg(6), ":target_gold"),
-			(store_random_in_range,":new_gold",200,400),
-			(val_mul, ":new_gold", ":prosperity_75"),
-			(val_add, ":new_gold", 62),
-			(val_div, ":new_gold", 125),
-			(call_script, "script_troop_add_gold", ":cur_merchant", ":new_gold"),
-		(else_try),
-			(lt, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_LOW),
-		    #fall through to default behavior
-		    ##diplomacy end+
-	    (lt,reg6,1000),
-	    (store_random_in_range,":new_gold",250,500),
-	    (call_script, "script_troop_add_gold", ":cur_merchant", ":new_gold"),
-		##diplomacy start+
-		(try_end),
-		##diplomacy end+
-	  (end_try),
-  ]),
+  [ (store_script_param, ":center", 1),
+    (store_script_param, ":merchant", 2),
+  (party_get_slot, ":prosperity", ":center", slot_town_prosperity),
+  (troop_clear_inventory, ":merchant"),
+  (store_faction_of_party, ":owner", ":center"),
+  (faction_get_slot, ":root_troop", ":owner", slot_faction_tier_1_troop),
+  (call_script, "script_add_matching_items_from_troop_tree", ":merchant", ":root_troop", "script_cf_item_sold_by_armorer", 20, ":prosperity"),
+  (party_get_slot, "$temp", ":center", slot_center_original_faction),
+  (call_script, "script_add_matching_items_from_range", ":merchant", armors_begin, armors_end, "script_cf_item_sold_by_temp_faction", 20, ":prosperity"),
+  (troop_ensure_inventory_space, ":merchant", merchant_inventory_space),
+  (troop_sort_inventory, ":merchant"),
+  (store_troop_gold, reg6, ":merchant"),
+  ##diplomacy start+
+  #Option: scaling gold additions by the prosperity of the town.
+  (try_begin),
+    (ge, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_LOW),#this must be explicitly enabled
+    (party_get_slot, ":prosperity_75", ":center", slot_town_prosperity),
+    (val_add, ":prosperity_75", 75),
+    (store_mul, ":target_gold", ":prosperity_75", 900),
+    (val_add, ":target_gold", 62),
+    (val_div, ":target_gold", 125),#average 900
+    (lt, reg(6), ":target_gold"),
+    (store_random_in_range,":new_gold",200,400),
+    (val_mul, ":new_gold", ":prosperity_75"),
+    (val_add, ":new_gold", 62),
+    (val_div, ":new_gold", 125),
+    (call_script, "script_troop_add_gold", ":merchant", ":new_gold"),
+  (else_try),
+    (lt, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_LOW),
+    (lt, reg6, 1000),
+    (store_random_in_range, ":new_gold", 250, 500),
+    (call_script, "script_troop_add_gold", ":merchant", ":new_gold"),
+  (try_end),
+]),
 
   # script_refresh_center_weaponsmiths
   ("refresh_center_weaponsmiths",
-  [
-	  (reset_item_probabilities,100),
-	  (set_merchandise_modifier_quality,150),
-    (try_for_range, ":cur_merchant", weapon_merchants_begin, weapon_merchants_end),
-	  (store_sub, ":cur_town", ":cur_merchant", weapon_merchants_begin),
-	    (val_add, ":cur_town", towns_begin),
-	  (troop_clear_inventory, ":cur_merchant"),
-	    (party_get_slot, ":cur_faction", ":cur_town", slot_center_original_faction),
-      (troop_add_merchandise_with_faction, ":cur_merchant", ":cur_faction", itp_type_one_handed_wpn, 5),
-      (troop_add_merchandise_with_faction, ":cur_merchant", ":cur_faction", itp_type_two_handed_wpn, 5),
-      (troop_add_merchandise_with_faction, ":cur_merchant", ":cur_faction", itp_type_polearm, 5),
-      (troop_add_merchandise_with_faction, ":cur_merchant", ":cur_faction", itp_type_shield, 6),
-      (troop_add_merchandise_with_faction, ":cur_merchant", ":cur_faction", itp_type_bow, 4),
-      (troop_add_merchandise_with_faction, ":cur_merchant", ":cur_faction", itp_type_crossbow, 3),
-      (troop_add_merchandise_with_faction, ":cur_merchant", ":cur_faction", itp_type_thrown, 5),
-      (troop_add_merchandise_with_faction, ":cur_merchant", ":cur_faction", itp_type_arrows, 2),
-      (troop_add_merchandise_with_faction, ":cur_merchant", ":cur_faction", itp_type_bolts, 2),
-      (troop_ensure_inventory_space, ":cur_merchant", merchant_inventory_space),
-      (troop_sort_inventory, ":cur_merchant"),
-      (store_troop_gold, reg6, ":cur_merchant"),
-
-	    ##diplomacy start+
-		#Option: scaling gold additions by the prosperity of the town.
-		(try_begin),
-			(ge, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_LOW),#this must be explicitly enabled
-		    (party_get_slot, ":prosperity_75", ":cur_town", slot_town_prosperity),
-			(val_add, ":prosperity_75", 75),
-			(store_mul, ":target_gold", ":prosperity_75", 900),
-			(val_add, ":target_gold", 62),
-			(val_div, ":target_gold", 125),#average 900
-			(lt, reg6, ":target_gold"),
-			(store_random_in_range,":new_gold",200,400),
-			(val_mul, ":new_gold", ":prosperity_75"),
-			(val_add, ":new_gold", 62),
-			(val_div, ":new_gold", 125),
-			(call_script, "script_troop_add_gold", ":cur_merchant", ":new_gold"),
-		(else_try),
-			(lt, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_LOW),
-		    #fall through to default behavior
-		    ##diplomacy end+
-	    (lt,reg6,1000),
-	    (store_random_in_range,":new_gold",250,500),
-	  (call_script, "script_troop_add_gold", ":cur_merchant", ":new_gold"),
-	  ##diplomacy start+
-	  (try_end),
-	  ##diplomacy end+
-	  (try_end),
+  [ (store_script_param, ":center", 1),
+    (store_script_param, ":merchant", 2),
+  (party_get_slot, ":prosperity", ":center", slot_town_prosperity),
+  (troop_clear_inventory, ":merchant"),
+  (store_faction_of_party, ":owner", ":center"),
+  (faction_get_slot, ":root_troop", ":owner", slot_faction_tier_1_troop),
+  (call_script, "script_add_matching_items_from_troop_tree", ":merchant", ":root_troop", "script_cf_item_sold_by_weaponsmith", 20, ":prosperity"),
+  (party_get_slot, "$temp", ":center", slot_center_original_faction),
+  (call_script, "script_add_matching_items_from_range", ":merchant", ammo_begin, ammo_end, "script_cf_item_sold_by_temp_faction", 2, ":prosperity"),
+  (call_script, "script_add_matching_items_from_range", ":merchant", weapons_begin, weapons_end, "script_cf_item_sold_by_temp_faction", 8, ":prosperity"),
+  (call_script, "script_add_matching_items_from_range", ":merchant", shields_begin, shields_end, "script_cf_item_sold_by_temp_faction", 4, ":prosperity"),
+  (call_script, "script_add_matching_items_from_range", ":merchant", ranged_weapons_begin, ranged_weapons_end, "script_cf_item_sold_by_temp_faction", 6, ":prosperity"),
+    (troop_ensure_inventory_space, ":merchant", merchant_inventory_space),
+    (troop_sort_inventory, ":merchant"), 
+    (store_troop_gold, ":cur_gold", ":merchant"),
+  ##diplomacy start+
+    #Option: scaling gold additions by the prosperity of the town.
+    (try_begin),
+      (ge, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_LOW),#this must be explicitly enabled
+        (party_get_slot, ":prosperity_75", ":center", slot_town_prosperity),
+      (val_add, ":prosperity_75", 75),
+      (store_mul, ":target_gold", ":prosperity_75", 900),
+      (val_add, ":target_gold", 62),
+      (val_div, ":target_gold", 125),#average 900
+      (lt, ":cur_gold", ":target_gold"),
+      (store_random_in_range,":new_gold",200,400),
+      (val_mul, ":new_gold", ":prosperity_75"),
+      (val_add, ":new_gold", 62),
+      (val_div, ":new_gold", 125),
+      (call_script, "script_troop_add_gold", ":merchant", ":new_gold"),
+    (else_try),
+      (lt, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_LOW),
+       #fall through to default behavior
+       ##diplomacy end+
+      (lt, ":cur_gold", 1000),
+      (store_random_in_range, ":new_gold", 250, 500),
+      (call_script, "script_troop_add_gold", ":merchant", ":new_gold"),
+    (try_end),
   ]),
 
   # script_refresh_center_stables
   ("refresh_center_stables",
-  [
-      (reset_item_probabilities,100),
-      (set_merchandise_modifier_quality,150),
-      (try_for_range,":cur_merchant",horse_merchants_begin,horse_merchants_end),
-	  (troop_clear_inventory, ":cur_merchant"),
-      (store_sub, ":cur_town", ":cur_merchant", horse_merchants_begin),
-      (val_add, ":cur_town", towns_begin),
-      (party_get_slot, ":cur_faction", ":cur_town", slot_center_original_faction),
-      (troop_add_merchandise_with_faction,":cur_merchant", ":cur_faction",itp_type_horse,5),
-      (troop_ensure_inventory_space,":cur_merchant",65),
-      (troop_sort_inventory, ":cur_merchant"),
-      (store_troop_gold, ":cur_gold",":cur_merchant"),
-	##diplomacy start+
-	#Option: scaling gold additions by the prosperity of the town.
-	(try_begin),
-		(ge, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_LOW),#this must be explicitly enabled
-	    (party_get_slot, ":prosperity_75", ":cur_town", slot_town_prosperity),
-		(val_add, ":prosperity_75", 75),
-		(store_mul, ":target_gold", ":prosperity_75", 600),
-		(val_add, ":target_gold", 62),
-		(val_div, ":target_gold", 125),#average 600
-		(lt, ":cur_gold", ":target_gold"),
-		(store_random_in_range,":new_gold",200,400),
-		(val_mul, ":new_gold", ":prosperity_75"),
-		(val_add, ":new_gold", 62),
-		(val_div, ":new_gold", 125),
-		(call_script, "script_troop_add_gold", ":cur_merchant", ":new_gold"),
-	(else_try),
-		(lt, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_LOW),
-	    #fall through to default behavior
-	    ##diplomacy end+
-    (lt,":cur_gold",600),
-    (store_random_in_range, ":new_gold", 250, 500),
-    (call_script, "script_troop_add_gold", ":cur_merchant", ":new_gold"),
-    ##diplomacy start+
-    (try_end),
+ [ (store_script_param, ":center", 1),
+    (store_script_param, ":merchant", 2),
+  (party_get_slot, ":prosperity", ":center", slot_town_prosperity),
+  (troop_clear_inventory, ":merchant"),
+  (store_faction_of_party, ":owner", ":center"),
+  (faction_get_slot, ":root_troop", ":owner", slot_faction_tier_1_troop),
+  (call_script, "script_add_matching_items_from_troop_tree", ":merchant", ":root_troop", "script_cf_item_sold_by_horse_merchant", 3, ":prosperity"),
+  (party_get_slot, "$temp", ":center", slot_center_original_faction),  
+  (call_script, "script_add_matching_items_from_range", ":merchant", horses_begin, horses_end, "script_cf_item_sold_by_temp_faction", 6, ":prosperity"),
+  (troop_ensure_inventory_space, ":merchant", 64), # was 65
+  (troop_sort_inventory, ":merchant"),
+  (store_troop_gold, ":cur_gold", ":merchant"),
+##diplomacy start+
+  #Option: scaling gold additions by the prosperity of the town.
+  (try_begin),
+    (ge, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_LOW),#this must be explicitly enabled
+      (party_get_slot, ":prosperity_75", ":center", slot_town_prosperity),
+    (val_add, ":prosperity_75", 75),
+    (store_mul, ":target_gold", ":prosperity_75", 600),
+    (val_add, ":target_gold", 62),
+    (val_div, ":target_gold", 125),#average 600
+    (lt, ":cur_gold", ":target_gold"),
+    (store_random_in_range,":new_gold",200,400),
+    (val_mul, ":new_gold", ":prosperity_75"),
+    (val_add, ":new_gold", 62),
+    (val_div, ":new_gold", 125),
+    (call_script, "script_troop_add_gold", ":merchant", ":new_gold"),
+  (else_try),
+    (lt, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_LOW),
+    #fall through to default behavior
     ##diplomacy end+
+    (lt, ":cur_gold", 600),
+    (store_random_in_range, ":new_gold", 250, 500),
+    (call_script, "script_troop_add_gold", ":merchant", ":new_gold"),
   (try_end),
-  ]),
+]),
 
 ##diplomacy begin
   #recruiter kit begin
@@ -75453,6 +75451,1318 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
           (item_set_slot, ":item_no", slot_item_num_components, 1), #allows it to be customized
       (try_end),  
 ]),
+
+
+### Alternative Merchandise System ###   by Autolykos
+  
+  # script_add_matching_items_from_range
+  # Meant to replace "troop_add_merchandise_with_faction"
+  ("add_matching_items_from_range",
+  [ (store_script_param, ":merchant", 1),
+    (store_script_param, ":item_range_begin", 2),
+    (store_script_param, ":item_range_end", 3),
+    (store_script_param, ":cf_condition", 4),
+    (store_script_param, ":number_of_items", 5),
+    (store_script_param, ":quality_mod", 6),
+  
+  (call_script, "script_warp_array_init_range", "p_temp_party", ":item_range_begin", ":item_range_end"),
+  (call_script, "script_warp_array_filter", "p_temp_party", ":cf_condition"),
+  (call_script, "script_add_items_from_array_party", ":merchant", "p_temp_party", ":number_of_items", ":quality_mod"),
+  ]),
+  
+  # script_add_matching_items_from_troop_tree
+  # Meant to replace "troop_add_merchandise_with_faction"
+  ("add_matching_items_from_troop_tree",
+  [ (store_script_param, ":merchant", 1),
+    (store_script_param, ":root_troop", 2),
+    (store_script_param, ":cf_condition", 3),
+    (store_script_param, ":number_of_items", 4),
+    (store_script_param, ":quality_mod", 5),
+  
+  (call_script, "script_warp_array_clear", "p_temp_party"),
+  (call_script, "script_collect_matching_items", "p_temp_party", ":root_troop", ":cf_condition", 10), # no more than 10 upgrades deep
+  (call_script, "script_add_items_from_array_party", ":merchant", "p_temp_party", ":number_of_items", ":quality_mod"),
+  ]),
+  
+  # script_add_items_from_array_party
+  ("add_items_from_array_party",
+  [ (store_script_param, ":merchant", 1),
+    (store_script_param, ":array_party", 2),
+    (store_script_param, ":number_of_items", 3),
+    (store_script_param, ":prosperity", 4),
+  
+  (call_script, "script_warp_array_sum_map", ":array_party", "script_item_abundance"),
+  (assign, ":total_abundance", reg0),
+  (try_for_range, ":unused", 0, ":number_of_items"),
+    (call_script, "script_rand", 0, ":total_abundance"),
+    (assign, ":stop_at", reg0),
+    (assign, ":added", 0),
+    (call_script, "script_warp_array_length", ":array_party"),
+    (store_add, ":last_index", reg0, 1),
+    (try_for_range, ":index", 1, ":last_index"),
+      (eq, ":added", 0),
+      (call_script, "script_cf_warp_array_get", ":array_party", ":index"),
+      (assign, ":cur_item", reg0),
+    (item_get_abundance, ":abundance", ":cur_item"),
+    (val_sub, ":stop_at", ":abundance"),
+    (lt, ":stop_at", 0),
+      (assign, ":added", 1),
+      (call_script, "script_randomize_item_quality", ":cur_item", ":prosperity"),
+      (troop_add_item, ":merchant", ":cur_item", reg0),
+    (try_end),
+    (try_end),
+  ]),
+  
+  # script_collect_matching_items
+  # Recursively collects matching items from a troop and its upgrades
+  ("collect_matching_items",
+  [ (store_script_param, ":array_party", 1),
+    (store_script_param, ":root_troop", 2),
+    (store_script_param, ":cf_condition", 3),
+    (store_script_param, ":recursion_depth", 4),
+  
+  (try_begin),
+    (gt, ":root_troop", 0),
+    (neg|troop_is_hero, ":root_troop"),
+    (troop_get_inventory_capacity, ":total_slots", ":root_troop"),
+    (try_for_range, ":slot", 0, ":total_slots"),
+      (troop_get_inventory_slot, ":item", ":root_troop", ":slot"),
+      (gt, ":item", 0),
+      (call_script, ":cf_condition", ":item"),
+      (call_script, "script_warp_array_push", ":array_party", ":item"),
+    (try_end),
+    #(call_script, "script_warp_array_unique", ":array_party"),
+    (gt, ":recursion_depth", 0),
+    (val_sub, ":recursion_depth", 1),
+    (troop_get_upgrade_troop, ":upgrade_0", ":root_troop", 0),
+    (call_script, "script_collect_matching_items", ":array_party", ":upgrade_0", ":cf_condition", ":recursion_depth"),
+    (troop_get_upgrade_troop, ":upgrade_1", ":root_troop", 1),
+    (call_script, "script_collect_matching_items", ":array_party", ":upgrade_1", ":cf_condition", ":recursion_depth"),
+  (try_end),
+  ]),
+  
+  # script_randomize_item_quality
+  # arg1: item_no, arg2: prosperity
+  # reg0: item_modifier
+  # Generates a valid item quality using this town's prosperity (0..100)
+  ("randomize_item_quality",
+  [ (store_script_param_1, ":item_no"),
+    (store_script_param_2, ":prosperity"),
+  
+  (val_add, ":prosperity", 50), # 50..150
+  (val_mul, ":prosperity", 10), # 500..1500
+  # 2 rolls, triangular distribution
+  (call_script, "script_rand", 0, ":prosperity"),
+  (assign, ":item_quality", reg0),
+  (call_script, "script_rand", 0, ":prosperity"),
+  (val_add, ":item_quality", reg0),
+  
+  (assign, ":modifier", imod_plain),
+  (item_get_type, ":item_type", ":item_no"),
+  
+  # Formula: 2000 * (100+cost%)/(200+cost%)
+  (try_begin), # First, try to assign negative modifiers from bottom to top
+    (lt, ":item_quality", 571),
+    (eq, ":item_type", itp_type_horse),
+    (item_has_modifier, ":item_no", imod_lame), # -60% cost
+    (assign, ":modifier", imod_lame),
+    (else_try),
+    (lt, ":item_quality", 667),
+    (item_has_modifier, ":item_no", imod_cracked), # -50% cost (-40% for shields)
+    (assign, ":modifier", imod_cracked),
+    (else_try),
+    (lt, ":item_quality", 667),
+    (item_has_modifier, ":item_no", imod_tattered), # -50% cost
+    (assign, ":modifier", imod_tattered),
+    (else_try),
+    (lt, ":item_quality", 710),
+    (item_has_modifier, ":item_no", imod_rusty), # -45% cost
+    (assign, ":modifier", imod_rusty),
+    (else_try),
+    (lt, ":item_quality", 750),
+    (eq, ":item_type", itp_type_horse),
+    (item_has_modifier, ":item_no", imod_swaybacked), # -40% cost
+    (assign, ":modifier", imod_swaybacked),
+    (else_try),
+    (lt, ":item_quality", 788),
+    (item_has_modifier, ":item_no", imod_bent), # -35% cost
+    (assign, ":modifier", imod_bent),
+    (else_try),
+    (lt, ":item_quality", 824),
+    (item_has_modifier, ":item_no", imod_ragged), # -30% cost
+    (assign, ":modifier", imod_ragged),
+    (else_try),
+    (lt, ":item_quality", 837),
+    (item_has_modifier, ":item_no", imod_chipped), # -28% cost
+    (assign, ":modifier", imod_chipped),
+    (else_try),
+    (lt, ":item_quality", 857),
+    (item_has_modifier, ":item_no", imod_battered), # -25% cost (-15% for shields)
+    (assign, ":modifier", imod_battered),
+    (else_try),
+    (lt, ":item_quality", 907),
+    (item_has_modifier, ":item_no", imod_crude), # -17% cost
+    (assign, ":modifier", imod_crude),
+    (else_try),
+    (lt, ":item_quality", 947),
+    (item_has_modifier, ":item_no", imod_stubborn), # -10% cost
+    (assign, ":modifier", imod_stubborn),
+    (else_try), # Then, try to assign positive modifiers from top to bottom
+    (gt, ":item_quality", 1892),
+    (item_has_modifier, ":item_no", imod_masterwork), # +1650% cost
+    (assign, ":modifier", imod_masterwork),
+    (else_try),
+    (gt, ":item_quality", 1871),
+    (eq, ":item_type", itp_type_horse),
+    (item_has_modifier, ":item_no", imod_champion), # +1350% cost
+    (assign, ":modifier", imod_champion),
+    (else_try),
+    (gt, ":item_quality", 1840),
+    (item_has_modifier, ":item_no", imod_lordly), # +1050% cost
+    (assign, ":modifier", imod_lordly),
+    (else_try),
+    (gt, ":item_quality", 1770),
+    (item_has_modifier, ":item_no", imod_tempered), # +670% cost
+    (assign, ":modifier", imod_tempered),
+    (else_try),
+    (gt, ":item_quality", 1733),
+    (item_has_modifier, ":item_no", imod_reinforced), # +550% cost (+110% for shields)
+    (assign, ":modifier", imod_reinforced),
+    (else_try),
+    (gt, ":item_quality", 1733),
+    (eq, ":item_type", itp_type_horse),
+    (item_has_modifier, ":item_no", imod_spirited), # +550% cost
+    (assign, ":modifier", imod_spirited),
+    (else_try),
+    (gt, ":item_quality", 1643),
+    (item_has_modifier, ":item_no", imod_strong), # +360% cost
+    (assign, ":modifier", imod_strong),
+    (else_try),
+    (gt, ":item_quality", 1592),
+    (item_has_modifier, ":item_no", imod_hardened), # +290% cost
+    (assign, ":modifier", imod_hardened),
+    (else_try),
+    (gt, ":item_quality", 1556),
+    (item_has_modifier, ":item_no", imod_balanced), # +250% cost
+    (assign, ":modifier", imod_balanced),
+    (else_try),
+    (gt, ":item_quality", 1444),
+    (item_has_modifier, ":item_no", imod_thick), # +160% cost
+    (assign, ":modifier", imod_thick),
+    (else_try),
+    (gt, ":item_quality", 1310),
+    (item_has_modifier, ":item_no", imod_large_bag), # +90% cost
+    (neg|item_has_modifier, ":item_no", imod_heavy), # both are at the same level, and may apply to the same items
+    (assign, ":modifier", imod_large_bag),
+    (else_try),
+    (gt, ":item_quality", 1310),
+    (item_has_modifier, ":item_no", imod_large_bag), # +90% cost
+    (store_random_in_range, ":is_heavy", 0, 2),
+    (eq, ":is_heavy", 0),
+    (assign, ":modifier", imod_large_bag),
+    (else_try),
+    (gt, ":item_quality", 1310),
+    (item_has_modifier, ":item_no", imod_heavy), # +90% cost
+    (assign, ":modifier", imod_heavy),
+    (else_try),
+    (gt, ":item_quality", 1259),
+    (item_has_modifier, ":item_no", imod_sturdy), # +70% cost
+    (assign, ":modifier", imod_sturdy),
+    (try_end), # nothing applies, modifier stays "imod_plain"
+  
+  (assign, reg0, ":modifier"),
+  ]),
+
+  # script_item_price_with_quality
+  # arg1: item_id
+  # arg2: item_modifier
+  # reg0: item price
+  # reg1: price factor (in percent)
+  ("item_price_with_quality",
+  [ (store_script_param_1, ":item_id"),  
+    (store_script_param_2, ":item_mod"),  
+  (item_get_type, ":item_type", ":item_id"),
+  (assign, ":price_factor", 100),
+  (try_begin),
+    (eq, ":item_mod", imod_masterwork),
+    (assign, ":price_factor", 1750),
+  (else_try),
+    (eq, ":item_mod", imod_champion),
+    (eq, ":item_type", itp_type_horse),
+    (assign, ":price_factor", 1450),
+  (else_try),
+    (eq, ":item_mod", imod_lordly),
+    (assign, ":price_factor", 1150),
+  (else_try),
+    (eq, ":item_mod", imod_tempered),
+    (assign, ":price_factor", 770),
+  (else_try),
+    (eq, ":item_mod", imod_reinforced),
+    (eq, ":item_type", itp_type_shield),
+    (assign, ":price_factor", 210),
+  (else_try),
+    (eq, ":item_mod", imod_reinforced),
+    (assign, ":price_factor", 650),
+  (else_try),
+    (eq, ":item_mod", imod_spirited),
+    (eq, ":item_type", itp_type_horse),
+    (assign, ":price_factor", 650),
+  (else_try),
+    (eq, ":item_mod", imod_strong),
+    (assign, ":price_factor", 460),
+  (else_try),
+    (eq, ":item_mod", imod_hardened),
+    (assign, ":price_factor", 390),
+  (else_try),
+    (eq, ":item_mod", imod_balanced),
+    (assign, ":price_factor", 350),
+  (else_try),
+    (eq, ":item_mod", imod_thick),
+    (eq, ":item_type", itp_type_shield),
+    (assign, ":price_factor", 160),
+  (else_try),
+    (eq, ":item_mod", imod_thick),
+    (assign, ":price_factor", 260),
+  (else_try),
+    (eq, ":item_mod", imod_heavy),
+    (assign, ":price_factor", 190),
+  (else_try),
+    (eq, ":item_mod", imod_large_bag),
+    (assign, ":price_factor", 190),
+  (else_try),
+    (eq, ":item_mod", imod_sturdy),
+    (assign, ":price_factor", 170),
+  (else_try),
+    (eq, ":item_mod", imod_stubborn),
+    (eq, ":item_type", itp_type_horse),
+    (assign, ":price_factor", 90),
+  (else_try),
+    (eq, ":item_mod", imod_crude),
+    (assign, ":price_factor", 83),
+  (else_try),
+    (eq, ":item_mod", imod_battered),
+    (eq, ":item_type", itp_type_shield),
+    (assign, ":price_factor", 85),
+  (else_try),
+    (eq, ":item_mod", imod_battered),
+    (assign, ":price_factor", 75),
+  (else_try),
+    (eq, ":item_mod", imod_chipped),
+    (assign, ":price_factor", 72),
+  (else_try),
+    (eq, ":item_mod", imod_ragged),
+    (assign, ":price_factor", 70),
+  (else_try),
+    (eq, ":item_mod", imod_bent),
+    (assign, ":price_factor", 65),
+  (else_try),
+    (eq, ":item_mod", imod_swaybacked),
+    (eq, ":item_type", itp_type_horse),
+    (assign, ":price_factor", 60),
+  (else_try),
+    (eq, ":item_mod", imod_rusty),
+    (assign, ":price_factor", 55),
+  (else_try),
+    (eq, ":item_mod", imod_tattered),
+    (assign, ":price_factor", 50),
+  (else_try),
+    (eq, ":item_mod", imod_cracked),
+    (eq, ":item_type", itp_type_shield),
+    (assign, ":price_factor", 60),
+  (else_try),
+    (eq, ":item_mod", imod_cracked),
+    (assign, ":price_factor", 50),
+  (else_try),
+    (eq, ":item_mod", imod_lame),
+    (eq, ":item_type", itp_type_horse),
+    (assign, ":price_factor", 40),
+  (try_end),
+  (store_item_value, ":price", ":item_id"),
+  (val_mul, ":price", ":price_factor"),
+  (val_div, ":price", 100),
+  
+  (assign, reg0, ":price"),
+  (assign, reg1, ":price_factor"),
+  ]),
+  
+  # script_store_item_adjective_to_s0
+  # arg1: item_modifier
+  # s0: modifier name
+  ("store_item_adjective_to_s0",
+  [ (store_script_param_1, ":item_mod"), 
+  (try_begin),
+    (eq, ":item_mod", imod_masterwork),
+    (str_store_string, s0, "@masterwork"),
+  (else_try),
+    (eq, ":item_mod", imod_champion),
+    (str_store_string, s0, "@champion"),
+  (else_try),
+    (eq, ":item_mod", imod_lordly),
+    (str_store_string, s0, "@lordly"),
+  (else_try),
+    (eq, ":item_mod", imod_tempered),
+    (str_store_string, s0, "@tempered"),
+  (else_try),
+    (eq, ":item_mod", imod_reinforced),
+    (str_store_string, s0, "@reinforced"),
+  (else_try),
+    (eq, ":item_mod", imod_spirited),
+    (str_store_string, s0, "@spirited"),
+  (else_try),
+    (eq, ":item_mod", imod_strong),
+    (str_store_string, s0, "@strong"),
+  (else_try),
+    (eq, ":item_mod", imod_hardened),
+    (str_store_string, s0, "@hardened"),
+  (else_try),
+    (eq, ":item_mod", imod_balanced),
+    (str_store_string, s0, "@balanced"),
+  (else_try),
+    (eq, ":item_mod", imod_thick),
+    (str_store_string, s0, "@thick"),
+  (else_try),
+    (eq, ":item_mod", imod_heavy),
+    (str_store_string, s0, "@leavy"),
+  (else_try),
+    (eq, ":item_mod", imod_large_bag),
+    (str_store_string, s0, "@plenty"),
+  (else_try),
+    (eq, ":item_mod", imod_sturdy),
+    (str_store_string, s0, "@sturdy"),
+  (else_try),
+    (eq, ":item_mod", imod_stubborn),
+    (str_store_string, s0, "@stubborn"),
+  (else_try),
+    (eq, ":item_mod", imod_crude),
+    (str_store_string, s0, "@crude"),
+  (else_try),
+    (eq, ":item_mod", imod_battered),
+    (str_store_string, s0, "@battered"),
+  (else_try),
+    (eq, ":item_mod", imod_chipped),
+    (str_store_string, s0, "@chipped"),
+  (else_try),
+    (eq, ":item_mod", imod_ragged),
+    (str_store_string, s0, "@ragged"),
+  (else_try),
+    (eq, ":item_mod", imod_bent),
+    (str_store_string, s0, "@Bent"),
+  (else_try),
+    (eq, ":item_mod", imod_swaybacked),
+    (str_store_string, s0, "@swaybacked"),
+  (else_try),
+    (eq, ":item_mod", imod_rusty),
+    (str_store_string, s0, "@rusty"),
+  (else_try),
+    (eq, ":item_mod", imod_tattered),
+    (str_store_string, s0, "@tattered"),
+  (else_try),
+    (eq, ":item_mod", imod_cracked),
+    (str_store_string, s0, "@cracked"),
+  (else_try),
+    (eq, ":item_mod", imod_lame),
+    (str_store_string, s0, "@lame"),
+  (else_try),
+    (str_store_string, s0, "@regular"),
+  (try_end),
+  ]),
+  
+  # Some filter scripts:
+  ("cf_item_sold_by_weaponsmith",
+  [ (store_script_param, ":item", 1),
+  (call_script, "script_cf_item_can_be_sold", ":item"), 
+    (item_get_type, ":type", ":item"),
+  (is_between, ":type", itp_type_one_handed_wpn, itp_type_goods),
+  ]),
+  ("cf_item_sold_by_armorer",
+  [ (store_script_param, ":item", 1),
+  (call_script, "script_cf_item_can_be_sold", ":item"), 
+    (item_get_type, ":type", ":item"),
+  (is_between, ":type", itp_type_head_armor, itp_type_pistol),
+  ]),
+  ("cf_item_sold_by_horse_merchant",
+  [ (store_script_param, ":item", 1),
+  (call_script, "script_cf_item_can_be_sold", ":item"), 
+    (item_get_type, ":type", ":item"),
+  (eq, ":type", itp_type_horse),
+  ]),
+  ("cf_item_sold_by_temp_faction",
+  [ (store_script_param, ":item", 1),
+  (call_script, "script_cf_item_can_be_sold", ":item"), # Check this first to save time
+    (assign, ":faction_specific", 0),
+    (assign, ":faction_matches", 0),
+  (try_for_range, ":faction", "fac_commoners", "fac_kingdoms_end"),
+    (item_has_faction, ":item", ":faction"),
+    (assign, ":faction_specific", 1),
+    (eq, ":faction", "$temp"),
+      (assign, ":faction_matches", 1),
+  (try_end),
+  (this_or_next|eq, ":faction_specific", 0),
+  (eq, ":faction_matches", 1),
+  ]),
+  ("cf_item_can_be_sold", # itp_merchandise can't be checked, so we'll make unsellable items unique to fac_no_faction
+  [ (store_script_param, ":item", 1),
+  (this_or_next|item_has_faction, ":item", "fac_commoners"),
+  (neg|item_has_faction, ":item", "fac_no_faction"),
+  ]),
+  ("item_abundance",
+  [ (store_script_param, ":item", 1),
+  (item_get_abundance, reg0, ":item"),
+  ]),
+  
+
+  # script_rand
+  # Input: arg1 = min arg2 = max
+  # Output: reg0 = random_number
+  # A better RNG; Will only work up to about a billion
+  ("rand", [
+  (store_script_param_1, ":min"),
+  (store_script_param_2, ":max"),
+    
+  (val_mul,"$rand_seed",1664525), # see: Numerical Recipes in C
+  (val_add,"$rand_seed",1013904223), # Any two odd, relatively prime numbers larger than 65536 will do
+
+  (val_sub,":max",":min"),
+  (try_begin),
+    (gt,":max",1),
+     # Handle negative numbers; store_mod is not safe there!
+    (store_mod,":r","$rand_seed",1024*1024*1024),
+    (try_begin),
+      (lt, ":r", 0),
+    (val_add,":r",1024*1024*1024),
+    (try_end),
+    (store_div,":range",1024*1024*1024,":max"),
+    (val_div,":r",":range"),
+     # Make sure we didn't exceed our range.
+     # Should happen very rarely, so we can afford to be lazy and use recursion.
+    (try_begin),
+    (eq,":r",":max"),
+    (call_script,"script_rand",0,":max"),
+    (val_add,reg0,":min"),
+    (else_try),
+    (store_add,reg0,":min",":r"),
+    (try_end),
+  (else_try),
+    (assign,reg0,":min"),
+  (try_end),
+  ]),
+   
+
+     
+####################################################################################################################
+# _ZZ_ - Common Warband ARray Processing
+####################################################################################################################
+# Functional programming using Party Slots as arrays (or stacks)
+# Parties are the only way to dynamically allocate memory in WB scripts
+# Slots are already arrays of integers (or IDs), making them ideal for storage
+# Slot zero is reserved for the number of elements
+
+####################################################################################################################
+# [ ZZ01 ] - Data and Algorithms
+####################################################################################################################
+
+  # script_warp_array_clear
+  # Clears an array by setting its length to zero
+  # Input: arg1 = array_id
+  # Output: nothing
+  ("warp_array_clear",
+  [ (store_script_param, ":array_id", 1),
+    (party_set_slot, ":array_id", 0, 0),
+  ]),
+
+  # script_warp_array_length
+  # Returns the length of an array
+  # Input: arg1 = array_id
+  # Output: reg0 = length
+  ("warp_array_length",
+  [ (store_script_param, ":array_id", 1),
+    (party_get_slot, reg0, ":array_id", 0),
+  ]),  
+
+  # script_warp_array_init_value
+  # Fills the array with (arg2) repetitions of (arg3)
+  # Input: arg1 = array_id
+  #        arg2 = length
+  #        arg3 = value
+  # Output: nothing
+  ("warp_array_init_value",
+  [ (store_script_param, ":array_id", 1),
+    (store_script_param, ":length", 2),
+    (store_script_param, ":value", 3),
+  
+    (party_set_slot, ":array_id", 0, ":length"),
+  (val_add, ":length", 1),
+    (try_for_range, ":i", 1, ":length"), 
+    (party_set_slot, ":array_id", ":i", ":value"),
+    (try_end),
+  ]),  
+  
+  # script_warp_array_init_range
+  # Fills the array with the numbers/IDs from (arg2) to (arg3)
+  # Input: arg1 = array_id
+  #        arg2 = first
+  #        arg2 = end
+  # Output: nothing
+  ("warp_array_init_range",
+  [ (store_script_param, ":array_id", 1),
+    (store_script_param, ":first", 2),
+    (store_script_param, ":end", 3),
+  
+  (assign, ":slot", 0),
+    (try_for_range, ":i", ":first", ":end"), 
+    (val_add, ":slot", 1),
+    (party_set_slot, ":array_id", ":slot", ":i"),
+    (try_end),
+    (party_set_slot, ":array_id", 0, ":slot"),
+  ]),  
+  
+  # script_warp_array_init_random
+  # Fills the array with (arg2) random numbers in the range between (arg3) and (arg4)
+  # Input: arg1 = array_id
+  #        arg2 = length
+  #        arg3 = min_value
+  #        arg4 = max_value
+  # Output: nothing
+  ("warp_array_init_random",
+  [ (store_script_param, ":array_id", 1),
+    (store_script_param, ":length", 2),
+    (store_script_param, ":min", 3),
+    (store_script_param, ":max", 4),
+  
+    (party_set_slot, ":array_id", 0, ":length"),
+  (val_add, ":length", 1),
+    (try_for_range, ":i", 1, ":length"), 
+    (call_script, "script_rand", ":min", ":max"),
+    (party_set_slot, ":array_id", ":i", reg0),
+    (try_end),
+  ]),  
+  
+  # script_warp_array_push
+  # Appends an element to an array
+  # Input: arg1 = array_id
+  #        arg2 = element
+  # Output: nothing
+  ("warp_array_push",
+  [ (store_script_param, ":array_id", 1),
+    (store_script_param, ":element", 2),
+  
+    (party_get_slot, ":length", ":array_id", 0),
+  (val_add, ":length", 1),
+    (party_set_slot, ":array_id", ":length", ":element"),
+    (party_set_slot, ":array_id", 0, ":length"),
+  ]),
+  
+  # script_cf_warp_array_pop
+  # Removes the last element and writes it to reg0
+  # Fails if the array is empty
+  # Input: arg1 = array_id
+  # Output: reg0 = popped element
+  ("cf_warp_array_pop",
+  [ (store_script_param, ":array_id", 1),
+  
+    (party_get_slot, ":length", ":array_id", 0),
+  (gt, ":length", 0),
+  (party_get_slot, reg0, ":array_id", ":length"),
+  (val_sub, ":length", 1),
+  (party_set_slot, ":array_id", 0, ":length"),
+  ]),
+  
+  # script_warp_array_remove_last
+  # Removes the last element if it exists
+  # Input: arg1 = array_id
+  # Output: nothing
+  ("warp_array_remove_last",
+  [ (store_script_param, ":array_id", 1),
+  
+    (party_get_slot, ":length", ":array_id", 0),
+  (val_sub, ":length", 1),
+  (val_max, ":length", 0),
+  (party_set_slot, ":array_id", 0, ":length"),
+  ]),
+  
+  # script_cf_warp_array_last
+  # Writes the last element to reg0
+  # Fails if the array is empty
+  # Input: arg1 = array_id
+  # Output: reg0 = last element
+  ("cf_warp_array_last",
+  [ (store_script_param, ":array_id", 1),
+  
+    (party_get_slot, ":length", ":array_id", 0),
+  (gt, ":length", 0),
+  (party_get_slot, reg0, ":array_id", ":length"),
+  ]),
+  
+  # script_cf_warp_array_set
+  # Sets the (arg2)th element to (arg3)
+  # Fails if the array is too small
+  # Input: arg1 = array_id
+  #        arg2 = index
+  #        arg3 = value
+  # Output: nothing
+  ("cf_warp_array_set",
+  [ (store_script_param, ":array_id", 1),
+    (store_script_param, ":index", 2),
+    (store_script_param, ":value", 3),
+  
+    (gt, ":index", 0),
+  (store_sub, ":index-1", ":index", 1),
+    (party_slot_ge, ":array_id", 0, ":index-1"),
+  (try_begin),
+    (party_slot_eq, ":array_id", 0, ":index-1"),
+    (party_set_slot, ":array_id", 0, ":index"),
+  (try_end),
+    (party_set_slot, ":array_id", ":index", ":value"),
+  ]),
+  
+  # script_cf_warp_array_get
+  # Writes the (arg2)ths element to reg0
+  # Fails if the index is out of bounds
+  # Input: arg1 = array_id
+  #        arg2 = index
+  # Output: reg0 = value
+  ("cf_warp_array_get",
+  [ (store_script_param, ":array_id", 1),
+    (store_script_param, ":index", 2),
+  
+    (gt, ":index", 0),
+    (party_slot_ge, ":array_id", 0, ":index"),
+    (party_get_slot, reg0, ":array_id", ":index"),
+  ]),
+  
+  # script_cf_warp_array_get_random
+  # Writes a random element to reg0
+  # Fails if the array is empty
+  # Input: arg1 = array_id
+  # Output: reg0 = value
+  ("cf_warp_array_get_random",
+  [ (store_script_param, ":array_id", 1),
+  
+    (party_get_slot, ":length", ":array_id", 0),
+    (gt, ":length", 0),
+    (call_script, "script_rand", 0, ":length"),
+    (val_add, reg0, 1),
+    (party_get_slot, reg0, ":array_id", reg0),
+  ]),
+  
+  # script_warp_array_find_first
+  # Writes the index of the first element matching a specific condition to reg0, or zero if none is found
+  # Input: arg1 = array_id
+  #        arg2 = cf_match
+  # Output: reg0 = value
+  ("warp_array_find_first",
+  [ (store_script_param, ":array_id", 1),
+    (store_script_param, ":cf_match", 2),
+  
+  (party_get_slot, ":end", ":array_id", 0),
+  (val_add, ":end", 1),
+  (assign,reg0,0),
+  (try_for_range, ":i", 1, ":end"), 
+    (eq,reg0,0), # otherwise, we're done
+    (party_get_slot, ":ce", ":array_id", ":i"),
+    (call_script,":cf_match",":ce"),
+    (assign,reg0,":i"),
+  (try_end),
+  ]),
+    
+  # script_warp_array_find_last
+  # Writes the index of the last element matching a specific condition to reg0, or zero if none is found
+  # Input: arg1 = array_id
+  #        arg2 = cf_match
+  # Output: reg0 = value
+  ("warp_array_find_last",
+  [ (store_script_param, ":array_id", 1),
+    (store_script_param, ":cf_match", 2),
+  
+  (party_get_slot, ":last", ":array_id", 0),
+  (assign,reg0,0),
+  (try_for_range, ":i", 0, ":last"), 
+    (eq,reg0,0), # otherwise, we're done
+    (store_sub,":index",":last",":i"),
+    (party_get_slot, ":ce", ":array_id", ":index"),
+    (call_script,":cf_match",":ce"),
+    (assign,reg0,":index"),
+  (try_end),
+  ]),
+  
+  # script_warp_array_copy
+  # Copies array 1 from array 2
+  # Input: arg1 = src_array
+  #        arg2 = dest_array
+  # Output: nothing
+  ("warp_array_copy",
+  [ (store_script_param, ":dest_array", 1),
+  (store_script_param, ":src_array", 2),
+    
+  (party_get_slot, ":length", ":src_array", 0),
+  (party_set_slot, ":dest_array", 0, ":length"),
+  (val_add, ":length", 1),
+  (try_for_range, ":i", 1, ":length"), 
+    (party_get_slot, ":v", ":src_array", ":i"),
+    (party_set_slot, ":dest_array", ":i", ":v"),
+  (try_end),
+  ]),
+    
+  # script_cf_warp_array_copy_range
+  # Copies the subrange (arg2)..(arg3) from array 1 to array 2
+  # Input: arg1 = src_array
+  #        arg2 = dest_array
+  #        arg3 = first
+  #        arg4 = end
+  #        
+  # Output: nothing
+  ("cf_warp_array_copy_range",
+  [ (store_script_param, ":dest_array", 1),
+    (store_script_param, ":src_array", 4),
+    (store_script_param, ":first", 2),
+    (store_script_param, ":end", 3),
+  
+  (store_sub,":last",":end",1),
+  (party_slot_ge, ":src_array",0,":last"), # Is the source array long enough?
+  (assign, ":j", 0),
+  (try_for_range, ":i", ":first", ":end"), 
+    (val_add,":j",1), # count the elements written
+    (party_get_slot, ":v", ":src_array", ":i"),
+    (party_set_slot, ":dest_array", ":j", ":v"),
+  (try_end),
+  (party_set_slot, ":dest_array", 0, ":j"),
+  ]),
+  
+  # script_warp_array_reverse
+  # Reverses the array in place
+  # Input: arg1 = array_id
+  # Output: nothing
+  ("warp_array_reverse",
+  [ (store_script_param, ":array_id", 1),
+  
+  (party_get_slot, ":last", ":array_id", 0),
+  (try_for_range, ":i", 1, ":last"), 
+    (gt,":last",":i"), # otherwise, we're done
+    (party_get_slot, ":v1", ":array_id", ":i"),
+    (party_get_slot, ":v2", ":array_id", ":last"),
+    (party_set_slot, ":array_id", ":i", ":v2"),
+    (party_set_slot, ":array_id", ":last", ":v1"),
+    (val_sub,":last",1),
+  (try_end),
+  ]),
+  
+  # script_warp_array_filter
+  # Removes all elements that fail the check of cf_filter
+  # Input: arg1 = array_id
+  #        arg2 = cf_filter
+  # Output: nothing
+  ("warp_array_filter",
+  [ (store_script_param, ":array_id", 1),
+  (store_script_param, ":cf_filter", 2),
+  
+  (party_get_slot, ":end", ":array_id", 0),
+  (val_add, ":end", 1),
+  (assign, ":matches", 0),
+  (try_for_range, ":i", 1, ":end"), 
+    (party_get_slot, ":ce", ":array_id", ":i"),
+    (call_script,":cf_filter",":ce"),
+    (val_add,":matches",1),
+    (gt,":i",":matches"),
+    (party_set_slot, ":array_id", ":matches", ":ce"),
+  (try_end),
+  (party_set_slot, ":array_id", 0, ":matches"),
+  ]),
+  
+  # script_warp_array_map
+  # Applies a mapping function (p1->reg0) to every element and writes the result in its place
+  # Elements are removed if the mapping function fails
+  # Input: arg1 = array_id
+  #        arg2 = cf_map
+  # Output: nothing
+  ("warp_array_map",
+  [ (store_script_param, ":array_id", 1),
+  (store_script_param, ":cf_map", 2),
+  
+  (party_get_slot, ":end", ":array_id", 0),
+  (val_add, ":end", 1),
+  (assign, ":matches", 0),
+  (try_for_range, ":i", 1, ":end"), 
+    (party_get_slot, ":ce", ":array_id", ":i"),
+    (call_script,":cf_map",":ce"),
+    (val_add,":matches",1),
+    (party_set_slot, ":array_id", ":matches", reg0),
+  (try_end),
+  (party_set_slot, ":array_id", 0, ":matches"),
+  ]),
+  
+  # script_warp_array_sum_map
+  # Applies a mapping function (p1->reg0) to every element and adds the results
+  # Elements are not counted if the mapping function fails
+  # Input: arg1 = array_id
+  #        arg2 = cf_map
+  # Output: nothing
+  ("warp_array_sum_map",
+  [ (store_script_param, ":array_id", 1),
+  (store_script_param, ":cf_map", 2),
+  
+  (party_get_slot, ":end", ":array_id", 0),
+  (val_add, ":end", 1),
+  (assign, ":sum", 0),
+  (try_for_range, ":i", 1, ":end"), 
+    (party_get_slot, ":ce", ":array_id", ":i"),
+    (call_script,":cf_map",":ce"),
+    (val_add,":sum",reg0),
+  (try_end),
+  (assign, reg0, ":sum"),
+  ]),
+  
+  # script_warp_array_unique
+  # Makes sure the array contains each element only once
+  # Input: arg1 = array_id
+  # Output: nothing
+  ("warp_array_unique",
+  [ (store_script_param, ":array_id", 1),
+  
+  (party_get_slot, ":end", ":array_id", 0),
+  (val_add, ":end", 1),
+  (assign, ":unique", 0),
+  (try_for_range, ":i", 1, ":end"), 
+    (party_get_slot, ":ce", ":array_id", ":i"),
+    (assign,":found",0),
+    (try_for_range, ":j", 1, ":i"),
+      (party_slot_eq, ":array_id", ":j", ":ce"),
+      (assign,":found",1),
+      (assign,":j",":i"),
+    (try_end),
+    (eq,":found",0),
+    (val_add,":unique",1),
+    (gt,":i",":unique"),
+    (party_set_slot, ":array_id", ":unique", ":ce"),
+  (try_end),
+  (party_set_slot, ":array_id", 0, ":unique"),
+  ]),
+  
+  # script_warp_array_sort
+  # Sorts the array using natural merge sort and a function cf_order(a,b) that fails iff a,b is the wrong order
+  # Input: arg1 = array_id
+  #        arg2 = cf_order
+  # Output: nothing
+  ("warp_array_sort",
+  [ (store_script_param, ":array_id", 1),
+    (store_script_param, ":cf_order", 2),
+  
+  (party_get_slot, ":end", ":array_id", 0),
+  (val_add, ":end", 1),
+  (call_script,"script_warp_array_sort_range_aux",":array_id","p_warp_temp",1,":end",":cf_order"),
+  (try_begin),
+    (eq,reg0,"p_warp_temp"),
+    (try_for_range, ":i", 1, ":end"),
+      (party_get_slot, ":v", "p_warp_temp", ":i"),
+      (party_set_slot, ":array_id", ":i", ":v"),
+    (try_end),
+  (try_end),
+  ]),
+  
+  # script_warp_array_sort_range
+  # Sorts only a subrange of the array; otherwise same as "script_warp_array_sort"
+  # Input: arg1 = array_id
+  #        arg2 = first
+  #        arg3 = end
+  #        arg4 = cf_order
+  # Output: nothing
+  ("warp_array_sort_range",
+  [ (store_script_param, ":array_id", 1),
+  (store_script_param, ":first", 2),
+  (store_script_param, ":end", 3),
+    (store_script_param, ":cf_order", 4),
+  
+  (call_script,"script_warp_array_sort_range_aux",":array_id","p_warp_temp",":first",":end",":cf_order"),
+  (try_begin),
+    (eq,reg0,"p_warp_temp"),
+    (try_for_range, ":i", ":first", ":end"),
+      (party_get_slot, ":v", "p_warp_temp", ":i"),
+      (party_set_slot, ":array_id", ":i", ":v"),
+    (try_end),
+  (try_end),
+  ]),
+  
+  # Auxiliary function; recursively performs one round of mergesort from array_1 to array_2 and writes the sorted array_id to reg0 when done
+  ("warp_array_sort_range_aux",
+  [ (store_script_param, ":array_1", 1),
+  (store_script_param, ":array_2", 2),
+  (store_script_param, ":first", 3),
+  (store_script_param, ":end", 4),
+    (store_script_param, ":cf_order", 5),
+  
+  (assign,":p1",1),
+  (assign,":p2",-1),
+  (assign,":sorted",1),
+
+  (store_add, ":second", ":first", 1),
+  (store_sub, ":last", ":end", 1),
+    (try_for_range, ":i", ":second", ":last"),
+    (store_sub, ":i-1", ":i", 1),
+    (party_get_slot, ":val_a", ":array_1", ":i-1"),
+    (party_get_slot, ":val_b", ":array_1", ":i"),
+    (try_begin),
+      (call_script,":cf_order", ":val_a", ":val_b"),
+    (else_try), # Check failed -> wrong order!
+      (assign,":sorted",0),
+      (try_begin),
+        (le,":p2",0),
+        (assign,":p2",":i"),
+      (else_try),
+        (call_script,"script_warp_array_merge_range_aux",":array_1",":array_2",":p1",":p2",":i",":cf_order"),
+        (assign,":p1",":i"),
+        (assign,":p2",-1),
+      (try_end),
+    (try_end),
+    (try_end),
+  (try_begin), # Merge last two runs (if there are)
+    (gt,":p2",0),
+    (lt,":p2",":end"),
+    (call_script,"script_warp_array_merge_range_aux",":array_1",":array_2",":p1",":p2",":end",":cf_order"),
+  (else_try), # Or copy the last run (if necessary)
+    (lt,":p1",":end"),
+    (eq,":sorted",0), # otherwise, just return array_1
+    (try_for_range, ":i", ":p1", ":end"),
+      (party_get_slot, ":v", ":array_1", ":i"),
+      (party_set_slot, ":array_2", ":i", ":v"),
+    (try_end),
+  (try_end),
+  (try_begin),
+    (eq,":sorted",1), # Am I done yet?
+    (assign,reg0,":array_1"),
+  (else_try),
+    (call_script,"script_warp_array_sort_range_aux",":array_2",":array_1",":first",":end",":cf_order"),
+  (try_end),
+  ]),  
+  ("warp_array_merge_range_aux",
+  [ (store_script_param, ":array_1", 1),
+  (store_script_param, ":array_2", 2),
+  (store_script_param, ":pos1", 3),
+  (store_script_param, ":pos2", 4),
+    (store_script_param, ":pos3", 5),
+    (store_script_param, ":cf_order", 6),
+  
+  (assign,":c1",":pos1"),
+  (assign,":c2",":pos2"),
+  
+    (try_for_range, ":i", ":pos1", ":pos3"), 
+    (try_begin),
+      (eq,":c1",":pos2"),
+      (party_get_slot, ":v", ":array_1", ":c2"),
+      (party_set_slot, ":array_2", ":i", ":v"),
+      (val_add,":c2",1),
+    (else_try),
+      (eq,":c2",":pos3"),
+      (party_get_slot, ":v", ":array_1", ":c1"),
+      (party_set_slot, ":array_2", ":i", ":v"),
+      (val_add,":c1",1),
+    (else_try),
+      (party_get_slot, ":val_a", ":array_1", ":c1"),
+      (party_get_slot, ":val_b", ":array_1", ":c2"),
+      (try_begin),
+        (call_script,":cf_order", ":val_a", ":val_b"),
+        (party_get_slot, ":v", ":array_1", ":c1"),
+        (party_set_slot, ":array_2", ":i", ":v"),
+        (val_add,":c1",1),
+      (else_try),
+        (party_get_slot, ":v", ":array_1", ":c2"),
+        (party_set_slot, ":array_2", ":i", ":v"),
+        (val_add,":c2",1),
+      (try_end),
+    (try_end),
+    (try_end),
+  ]),  
+  
+  # script_warp_array_shuffle
+  # Shuffles the array (puts all elements in random order)
+  # Input: arg1 = array_id
+  # Output: nothing
+  ("warp_array_shuffle",
+  [ (store_script_param, ":array_id", 1),
+  
+  (party_get_slot, ":end", ":array_id", 0),
+  (val_add, ":end", 1),
+  (call_script,"script_warp_array_shuffle_range",":array_id",1,":end"),
+  ]),
+  
+  # script_warp_array_shuffle_range
+  # Shuffles a subrange of the array
+  # Input: arg1 = array_id
+  #        arg2 = first
+  #        arg3 = end
+  # Output: nothing
+  ("warp_array_shuffle_range",
+  [ (store_script_param, ":array_id", 1),
+  (store_script_param, ":first", 2),
+  (store_script_param, ":end", 3),
+
+  (try_for_range, ":i", ":first", ":end"),
+    (call_script, "script_rand", ":i", ":end"),
+    (neq,":i",reg0), (assign,":j",reg0),
+    (party_get_slot, ":vi", ":array_id", ":i"),
+    (party_get_slot, ":vj", ":array_id", ":j"),
+    (party_set_slot, ":array_id", ":i", ":vj"),
+    (party_set_slot, ":array_id", ":j", ":vi"),
+  (try_end),
+  ]),
+  
+  # script_warp_print_array
+  # Writes an array's content to s3, using a map function and custom separators
+  # e.g. (1,4,6,9),"script_warp_roman","@ or ","@ or maybe" -> "I or IV or VI or maybe IX"
+  # Input: arg1 = array_id
+  #      arg2 = script that writes the ID's name to s0 - MUST NOT TOUCH s1, s2 or s3!
+  # Set before calling:
+  #      s1 = middle separator (usually comma or space)
+  #      s2 = last separator (usually and)
+  # Output: s3 = List of strings returned by arg4
+  ("warp_print_array",
+  [
+  (store_script_param, ":array_id", 1),
+  (store_script_param, ":script_name", 2),
+  
+    (party_get_slot, ":array_last", ":array_id", 0),
+  (str_clear,s3),
+  
+  (try_begin),
+    (eq,":array_last",1),
+    (party_get_slot, ":v", ":array_id", ":array_last"),
+    (call_script,":script_name",":v"),
+    (str_store_string,s3,"@{s0}"),
+  (else_try),
+    (ge,":array_last",2),
+    (party_get_slot, ":v", ":array_id", 1),
+    (call_script,":script_name",":v"),
+    (str_store_string,s3,"@{s0}"),
+    (try_for_range, ":i", 2, ":array_last"),
+      (party_get_slot, ":v", ":array_id", ":i"),
+      (call_script,":script_name",":v"),
+      (str_store_string,s3,"@{s3}{s1}{s0}"),
+    (try_end),
+    (party_get_slot, ":v", ":array_id", ":array_last"),
+    (call_script,":script_name",":v"),
+    (str_store_string,s3,"@{s3}{s2}{s0}"),
+  (try_end),
+  ]),
+  
+  # script_warp_print_array_comma
+  # Writes an array's content to s1, separated by commas and using a map function
+  # e.g. (1,4,6,9),"script_warp_roman" -> "I, IV, VI, IX"
+  # Input: arg1 = array_id
+  #      arg2 = script that writes the ID's name to s0 - MUST NOT TOUCH s1!
+  # Output: s1 = List of strings returned by arg4
+  ("warp_print_array_comma",
+  [
+  (store_script_param, ":array_id", 1),
+  (store_script_param, ":script_name", 2),
+  
+    (party_get_slot, ":array_last", ":array_id", 0),
+  (store_add,":array_end",":array_last",1),
+  (str_clear,s1),
+  
+  (try_begin),
+    (eq,":array_last",1),
+    (party_get_slot, ":v", ":array_id", ":array_last"),
+    (call_script,":script_name",":v"),
+    (str_store_string,s1,"@{s0}"),
+  (else_try),
+    (ge,":array_last",2),
+    (party_get_slot, ":v", ":array_id", 1),
+    (call_script,":script_name",":v"),
+    (str_store_string,s1,"@{s0}"),
+    (try_for_range, ":i", 2, ":array_end"),
+      (party_get_slot, ":v", ":array_id", ":i"),
+      (call_script,":script_name",":v"),
+      (str_store_string,s1,"@{s1}, {s0}"),
+    (try_end),
+  (try_end),
+  ]),
+  
+  # script_warp_print_array_and
+  # Writes an array's content to s1, separated by commas, a final "and" and using a map function
+  # e.g. (1,4,6,9),"script_warp_roman" -> "I, IV, VI and IX"
+  # Input: arg1 = array_id
+  #      arg2 = script that writes the ID's name to s0 - MUST NOT TOUCH s1!
+  # Output: s1 = List of strings returned by arg4
+  ("warp_print_array_and",
+  [
+  (store_script_param, ":array_id", 1),
+  (store_script_param, ":script_name", 2),
+  
+    (party_get_slot, ":array_last", ":array_id", 0),
+  (str_clear,s1),
+  
+  (try_begin),
+    (eq,":array_last",1),
+    (party_get_slot, ":v", ":array_id", ":array_last"),
+    (call_script,":script_name",":v"),
+    (str_store_string,s1,"@{s0}"),
+  (else_try),
+    (ge,":array_last",2),
+    (party_get_slot, ":v", ":array_id", 1),
+    (call_script,":script_name",":v"),
+    (str_store_string,s1,"@{s0}"),
+    (try_for_range, ":i", 2, ":array_last"),
+      (party_get_slot, ":v", ":array_id", ":i"),
+      (call_script,":script_name",":v"),
+      (str_store_string,s1,"@{s1}, {s0}"),
+    (try_end),
+    (party_get_slot, ":v", ":array_id", ":array_last"),
+    (call_script,":script_name",":v"),
+    (str_store_string,s1,"@{s1} and {s0}"),
+  (try_end),
+  ]),
+  
+
+####################################################################################################################
+# [ ZZ02 ] - Printing
+####################################################################################################################
+  # script_warp_number
+  # Takes a number and writes it to s0
+  # Input: arg1 = number
+  # Output: s0 = number string
+  ("warp_number",
+  [
+  (store_script_param, ":number", 1),
+  (assign,reg0,":number"),
+  (str_store_string,s0,"@{reg0}"),
+  ]),
+  # script_warp_fp_number
+  # Takes a fixed point number and writes it to s0
+  # Requires the fixed point multiplier to be a power of 10
+  # Input: arg1 = number
+  # Output: s0 = number string
+  ("warp_fp_number",
+  [ (store_script_param, ":number", 1),
+  (assign,":fixed_point",1),
+  (convert_to_fixed_point, ":fixed_point"),
+  (store_div, reg0, ":number", ":fixed_point"),
+  (str_store_string,s0,"@{reg0}."),
+  (store_mod, reg0, ":number", ":fixed_point"),
+  (val_abs, reg0),
+  (val_div,":fixed_point",10),
+  (try_for_range, ":unused", 0, 9),
+    (neq,reg0,0),
+    (gt,":fixed_point",reg0),
+    (val_div,":fixed_point",10),
+    (str_store_string,s0,"@{s0}0"),
+  (try_end),
+  (str_store_string,s0,"@{s0}{reg0}"),
+  ]),  
+  # script_warp_roman
+  # Takes a number and writes its roman numeral to s0
+  # Input: arg1 = number
+  # Output: s0 = roman numeral
+  ("warp_roman",
+  [
+  (store_script_param, ":number", 1),
+
+  (try_begin),
+    (gt,":number",0),
+    (str_clear,s0),
+    (call_script,"script_warp_roman_aux",":number"),
+  (else_try),
+    (eq,":number",0),
+    (str_store_string,s0,"@0"),
+  (else_try),
+    (store_sub,":neg_number",0,":number"),
+    (str_clear,s0),
+    (call_script,"script_warp_roman_aux",":neg_number"),
+    (str_store_string,s0,"@-{s0}"),
+  (try_end),
+  ]),
+  # Recursive auxiliary function; requires empty s0 and n>0 at the beginning
+  ("warp_roman_aux",
+  [
+  (store_script_param, ":number", 1),
+
+  (try_begin),
+    (ge,":number",1000),
+    (store_sub,":rest",":number",1000),
+    (call_script,"script_warp_roman_aux",":rest"),
+    (str_store_string,s0,"@M{s0}"),
+  (else_try),
+    (ge,":number",900),
+    (store_sub,":rest",":number",900),
+    (call_script,"script_warp_roman_aux",":rest"),
+    (str_store_string,s0,"@CM{s0}"),
+  (else_try),
+    (ge,":number",500),
+    (store_sub,":rest",":number",500),
+    (call_script,"script_warp_roman_aux",":rest"),
+    (str_store_string,s0,"@D{s0}"),
+  (else_try),
+    (ge,":number",400),
+    (store_sub,":rest",":number",400),
+    (call_script,"script_warp_roman_aux",":rest"),
+    (str_store_string,s0,"@CD{s0}"),
+  (else_try),
+    (ge,":number",100),
+    (store_sub,":rest",":number",100),
+    (call_script,"script_warp_roman_aux",":rest"),
+    (str_store_string,s0,"@C{s0}"),
+  (else_try),
+    (ge,":number",90),
+    (store_sub,":rest",":number",90),
+    (call_script,"script_warp_roman_aux",":rest"),
+    (str_store_string,s0,"@XC{s0}"),
+  (else_try),
+    (ge,":number",50),
+    (store_sub,":rest",":number",50),
+    (call_script,"script_warp_roman_aux",":rest"),
+    (str_store_string,s0,"@L{s0}"),
+  (else_try),
+    (ge,":number",40),
+    (store_sub,":rest",":number",40),
+    (call_script,"script_warp_roman_aux",":rest"),
+    (str_store_string,s0,"@XL{s0}"),
+  (else_try),
+    (ge,":number",10),
+    (store_sub,":rest",":number",10),
+    (call_script,"script_warp_roman_aux",":rest"),
+    (str_store_string,s0,"@X{s0}"),
+  (else_try),
+    (ge,":number",9),
+    (store_sub,":rest",":number",9),
+    (call_script,"script_warp_roman_aux",":rest"),
+    (str_store_string,s0,"@IX{s0}"),
+  (else_try),
+    (ge,":number",5),
+    (store_sub,":rest",":number",5),
+    (call_script,"script_warp_roman_aux",":rest"),
+    (str_store_string,s0,"@V{s0}"),
+  (else_try),
+    (ge,":number",4),
+    (store_sub,":rest",":number",4),
+    (call_script,"script_warp_roman_aux",":rest"),
+    (str_store_string,s0,"@IV{s0}"),
+  (else_try),
+    (ge,":number",1),
+    (store_sub,":rest",":number",1),
+    (call_script,"script_warp_roman_aux",":rest"),
+    (str_store_string,s0,"@I{s0}"),
+  (try_end),
+  ]),
+  
+  ("warp_troop_name",[(store_script_param, ":troop", 1), (str_store_troop_name, s0, ":troop")]),
+  ("warp_party_name",[(store_script_param, ":party", 1), (str_store_party_name, s0, ":party")]),
+  ("warp_item_name",[(store_script_param, ":item", 1), (str_store_item_name, s0, ":item")]),
+  
+####################################################################################################################
+# [ ZZ03 ] - Comparing and Filtering
+####################################################################################################################
+  ("cf_ascending",
+  [ (store_script_param, ":a", 1),
+  (store_script_param, ":b", 2),
+  (ge,":b",":a"),
+  ]),
+  ("cf_descending",
+  [ (store_script_param, ":a", 1),
+  (store_script_param, ":b", 2),
+  (ge,":a",":b"),
+  ]),
+  ("cf_gt0", [(store_script_param, ":x", 1), (gt,":x",0),]),
+  ("cf_ge0", [(store_script_param, ":x", 1), (ge,":x",0),]),
+  ("cf_eq_temp", [(store_script_param, ":x", 1), (eq,":x","$temp"),]),
+
+
 
 ]
 
