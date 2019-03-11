@@ -1445,7 +1445,7 @@ items = [
 ["w_short_bow_yew", "Yew Short Bow", [("w_short_bow_yew",0),("w_short_bow_yew_carry",ixmesh_carry)], itp_type_bow|itp_merchandise|itp_two_handed|itp_primary, itcf_shoot_bow|itcf_carry_bow_back,
  66, weight(0.7)|difficulty(1)|spd_rtng(92)|shoot_speed(45)|thrust_damage(12,pierce), imodbits_bow ],
 
- ["w_hunting_bow_ash", "Ash Hunting Bow", [("w_hunting_bow_ash",0),("w_hunting_bow_ash_carry",ixmesh_carry)], itp_type_bow|itp_merchandise|itp_two_handed|itp_primary, itcf_shoot_bow|itcf_carry_bow_back,
+["w_hunting_bow_ash", "Ash Hunting Bow", [("w_hunting_bow_ash",0),("w_hunting_bow_ash_carry",ixmesh_carry)], itp_type_bow|itp_merchandise|itp_two_handed|itp_primary, itcf_shoot_bow|itcf_carry_bow_back,
  90, weight(0.8)|difficulty(1)|spd_rtng(90)|shoot_speed(45)|thrust_damage(15,pierce), imodbits_bow ],
 ["w_hunting_bow_elm", "Elm Hunting Bow", [("w_hunting_bow_elm",0),("w_hunting_bow_elm_carry",ixmesh_carry)], itp_type_bow|itp_merchandise|itp_two_handed|itp_primary, itcf_shoot_bow|itcf_carry_bow_back,
  102, weight(0.9)|difficulty(1)|spd_rtng(89)|shoot_speed(48)|thrust_damage(16,pierce), imodbits_bow ],
@@ -1463,7 +1463,7 @@ items = [
 ["w_war_bow_yew", "Yew War Bow", [("w_war_bow_yew",0),("w_war_bow_yew_carry",ixmesh_carry)], itp_type_bow|itp_merchandise|itp_two_handed|itp_primary, itcf_shoot_bow|itcf_carry_bow_back,
  184, weight(1.4)|difficulty(3)|spd_rtng(82)|shoot_speed(89)|thrust_damage(23,pierce), imodbits_bow ],
 
- ["w_long_bow_ash", "Ash Long Bow", [("w_long_bow_ash",0),("w_long_bow_ash_carry",ixmesh_carry)], itp_type_bow|itp_merchandise|itp_two_handed|itp_primary, itcf_shoot_bow|itcf_carry_bow_back,
+["w_long_bow_ash", "Ash Long Bow", [("w_long_bow_ash",0),("w_long_bow_ash_carry",ixmesh_carry)], itp_type_bow|itp_merchandise|itp_two_handed|itp_primary, itcf_shoot_bow|itcf_carry_bow_back,
  220, weight(1.4)|difficulty(4)|spd_rtng(80)|shoot_speed(96)|thrust_damage(25,pierce), imodbits_bow ],
 ["w_long_bow_elm", "Elm Long Bow", [("w_long_bow_elm",0),("w_long_bow_elm_carry",ixmesh_carry)], itp_type_bow|itp_merchandise|itp_two_handed|itp_primary, itcf_shoot_bow|itcf_carry_bow_back,
  235, weight(1.5)|difficulty(4)|spd_rtng(79)|shoot_speed(104)|thrust_damage(26,pierce), imodbits_bow ],
