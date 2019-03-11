@@ -1222,7 +1222,9 @@ slot_party_template_num_killed   = 1
 
 slot_party_template_lair_type    	 	= 3
 slot_party_template_lair_party    		= 4
-slot_party_template_lair_spawnpoint     = 5
+slot_party_template_lair_spawnpoint_begin  = 5
+slot_party_template_lair_spawnpoint_end    = 6
+
 
 
 # Ryan END
@@ -1471,6 +1473,14 @@ town_walker_entries_start = 32
 reinforcement_cost_easy = 600
 reinforcement_cost_moderate = 450
 reinforcement_cost_hard = 300
+
+max_bandit_parties_easy     = 16 # Was 14 at mount&blade, 18 in warband, 16 last decision
+max_bandit_parties_moderate = 24 # Bandits are more spread out now, so we might need a few more
+max_bandit_parties_hard     = 32 # If you play on hard, I assume you like a challenge...
+max_looter_parties = 42 # Was 33 at mount&blade, 50 in warband, 42 last decision; does not scale with difficulty, looters are basically XP on legs
+
+bandit_spawn_radius = 25
+deserter_spawn_radius = 4
 
 merchant_toll_duration        = 72 #Tolls are valid for 72 hours
 

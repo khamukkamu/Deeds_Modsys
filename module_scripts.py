@@ -92,27 +92,6 @@ scripts = [
       (call_script, "script_update_party_creation_random_limits"),
       (assign, "$g_player_party_icon", -1),
 
-      #Warband changes begin -- set this early
-      (try_for_range, ":npc", active_npcs_including_player_begin, kingdom_ladies_end), #SB : range
-        
-        (try_begin),
-          (eq, ":npc", active_npcs_including_player_begin),
-          (assign, ":npc", "trp_player"),
-        (try_end),
-        # (is_between, ":npc", active_npcs_begin, kingdom_ladies_end),
-        (troop_set_slot, ":npc", slot_troop_father, -1),
-        (troop_set_slot, ":npc", slot_troop_mother, -1),
-        (troop_set_slot, ":npc", slot_troop_guardian, -1),
-        (troop_set_slot, ":npc", slot_troop_spouse, -1),
-        (troop_set_slot, ":npc", slot_troop_betrothed, -1),
-        (troop_set_slot, ":npc", slot_troop_prisoner_of_party, -1),
-        (troop_set_slot, ":npc", slot_lady_last_suitor, -1),
-        (troop_set_slot, ":npc", slot_troop_stance_on_faction_issue, -1),
-
-        (store_random_in_range, ":decision_seed", 0, 10000),
-        (troop_set_slot, ":npc", slot_troop_set_decision_seed, ":decision_seed"),	#currently not used
-        (troop_set_slot, ":npc", slot_troop_temp_decision_seed, ":decision_seed"),	#currently not used, holds for at least 24 hours
-      (try_end),
 
       (assign, "$g_lord_long_term_count", 0),
       ##diplomacy start+ Clear faction leader/marshall, since 0 is the player
@@ -128,8 +107,30 @@ scripts = [
       (call_script, "script_initialize_item_info"),
       (call_script, "script_initialize_aristocracy"),
       (call_script, "script_initialize_npcs"),
+      (call_script, "script_initialize_bandits"),
       (assign, "$disable_npc_complaints", 0),
       #NPC companion changes end
+
+      
+# Factions:
+      (call_script, "script_initialize_faction_troop_types"),
+      
+      (try_for_range, ":faction_no", kingdoms_begin, kingdoms_end),
+        (faction_set_slot, ":faction_no", slot_faction_marshall, -1),
+      (try_end),
+      (faction_set_slot, "fac_player_supporters_faction", slot_faction_marshall, "trp_player"),
+
+      ##diplomacy begin #SB : new scripts
+      (call_script, "script_dplmc_init_domestic_policy"),
+      (call_script, "script_dplmc_init_quest_delegate_states"),
+      (call_script, "script_dplmc_init_faction_gender_ratio", 0),
+      ##diplomacy end
+
+
+# Towns:
+
+      (call_script, "script_initialize_trade_routes"),
+      (call_script, "script_initialize_town_arena_info"),
 
       # Setting random feast time
       (try_for_range, ":faction_no", kingdoms_begin, kingdoms_end),
@@ -161,151 +162,6 @@ scripts = [
         (try_end),
       (try_end),
 
-      # Cultures:
-      (faction_set_slot, "fac_culture_1",  slot_faction_tier_1_troop, "trp_french_peasant"),
-      (faction_set_slot, "fac_culture_1",  slot_faction_tier_2_troop, "trp_french_militia"),
-      (faction_set_slot, "fac_culture_1",  slot_faction_tier_3_troop, "trp_french_voulgier"),
-      (faction_set_slot, "fac_culture_1",  slot_faction_tier_4_troop, "trp_french_man_at_arms"),
-      (faction_set_slot, "fac_culture_1",  slot_faction_tier_5_troop, "trp_french_captain"),
-      (faction_set_slot, "fac_culture_1",  slot_faction_tier_6_troop, "trp_french_squire"),
-      (faction_set_slot, "fac_culture_1",  slot_faction_tier_1_archer, "trp_french_peasant_archer"),
-      
-      (faction_set_slot, "fac_culture_2", slot_faction_tier_1_troop, "trp_english_peasant"),
-      (faction_set_slot, "fac_culture_2", slot_faction_tier_2_troop, "trp_english_yeoman"),
-      (faction_set_slot, "fac_culture_2", slot_faction_tier_3_troop, "trp_english_spearman"),
-      (faction_set_slot, "fac_culture_2", slot_faction_tier_4_troop, "trp_english_heavy_infantry"),
-      (faction_set_slot, "fac_culture_2", slot_faction_tier_5_troop, "trp_english_captain"),
-      (faction_set_slot, "fac_culture_2", slot_faction_tier_6_troop, "trp_english_squire"),
-      (faction_set_slot, "fac_culture_2",  slot_faction_tier_1_archer, "trp_english_peasant_archer"),
-      
-      (faction_set_slot, "fac_culture_3", slot_faction_tier_1_troop, "trp_burgundian_peasant"),
-      (faction_set_slot, "fac_culture_3", slot_faction_tier_2_troop, "trp_burgundian_militia"),
-      (faction_set_slot, "fac_culture_3", slot_faction_tier_3_troop, "trp_burgundian_pikeman"),
-      (faction_set_slot, "fac_culture_3", slot_faction_tier_4_troop, "trp_burgundian_halberdier"),
-      (faction_set_slot, "fac_culture_3", slot_faction_tier_5_troop, "trp_burgundian_captain"),
-      (faction_set_slot, "fac_culture_3", slot_faction_tier_6_troop, "trp_burgundian_squire"),
-      (faction_set_slot, "fac_culture_3",  slot_faction_tier_1_archer, "trp_burgundian_militia_archer"),
-      
-      (faction_set_slot, "fac_culture_4", slot_faction_tier_1_troop, "trp_breton_peasant"),
-      (faction_set_slot, "fac_culture_4", slot_faction_tier_2_troop, "trp_breton_militia"),
-      (faction_set_slot, "fac_culture_4", slot_faction_tier_3_troop, "trp_breton_infantry"),
-      (faction_set_slot, "fac_culture_4", slot_faction_tier_4_troop, "trp_breton_man_at_arms"),
-      (faction_set_slot, "fac_culture_4", slot_faction_tier_5_troop, "trp_breton_captain"),
-      (faction_set_slot, "fac_culture_4", slot_faction_tier_6_troop, "trp_breton_squire"),
-      (faction_set_slot, "fac_culture_4",  slot_faction_tier_1_archer, "trp_breton_peasant_archer"),
-
-      # (faction_set_slot, "fac_culture_5", slot_faction_tier_1_troop, "trp_rhodok_tribesman"),
-      # (faction_set_slot, "fac_culture_5", slot_faction_tier_2_troop, "trp_rhodok_spearman"),
-      # (faction_set_slot, "fac_culture_5", slot_faction_tier_3_troop, "trp_rhodok_trained_spearman"),
-      # (faction_set_slot, "fac_culture_5", slot_faction_tier_4_troop, "trp_rhodok_veteran_spearman"),
-      # (faction_set_slot, "fac_culture_5", slot_faction_tier_5_troop, "trp_rhodok_sergeant"),
-
-      # (faction_set_slot, "fac_culture_6", slot_faction_tier_1_troop, "trp_sarranid_recruit"),
-      # (faction_set_slot, "fac_culture_6", slot_faction_tier_2_troop, "trp_sarranid_footman"),
-      # (faction_set_slot, "fac_culture_6", slot_faction_tier_3_troop, "trp_sarranid_archer"),
-      # (faction_set_slot, "fac_culture_6", slot_faction_tier_4_troop, "trp_sarranid_horseman"),
-      # (faction_set_slot, "fac_culture_6", slot_faction_tier_5_troop, "trp_sarranid_mamluke"),
-
-      (faction_set_slot, "fac_culture_1", slot_faction_town_walker_male_troop, "trp_town_walker_1"),
-      (faction_set_slot, "fac_culture_1", slot_faction_town_walker_female_troop, "trp_town_walker_2"),
-      (faction_set_slot, "fac_culture_1", slot_faction_village_walker_male_troop, "trp_village_walker_1"),
-      (faction_set_slot, "fac_culture_1", slot_faction_village_walker_female_troop, "trp_village_walker_2"),
-      (faction_set_slot, "fac_culture_1", slot_faction_town_spy_male_troop, "trp_spy_walker_1"),
-      (faction_set_slot, "fac_culture_1", slot_faction_town_spy_female_troop, "trp_spy_walker_2"),
-
-      (faction_set_slot, "fac_culture_2", slot_faction_town_walker_male_troop, "trp_town_walker_1"),
-      (faction_set_slot, "fac_culture_2", slot_faction_town_walker_female_troop, "trp_town_walker_2"),
-      (faction_set_slot, "fac_culture_2", slot_faction_village_walker_male_troop, "trp_village_walker_1"),
-      (faction_set_slot, "fac_culture_2", slot_faction_village_walker_female_troop, "trp_village_walker_2"),
-      (faction_set_slot, "fac_culture_2", slot_faction_town_spy_male_troop, "trp_spy_walker_1"),
-      (faction_set_slot, "fac_culture_2", slot_faction_town_spy_female_troop, "trp_spy_walker_2"),
-
-      (faction_set_slot, "fac_culture_3", slot_faction_town_walker_male_troop, "trp_khergit_townsman"),
-      (faction_set_slot, "fac_culture_3", slot_faction_town_walker_female_troop, "trp_khergit_townswoman"),
-      (faction_set_slot, "fac_culture_3", slot_faction_village_walker_male_troop, "trp_khergit_townsman"),
-      (faction_set_slot, "fac_culture_3", slot_faction_village_walker_female_troop, "trp_khergit_townswoman"),
-      (faction_set_slot, "fac_culture_3", slot_faction_town_spy_male_troop, "trp_spy_walker_1"),
-      (faction_set_slot, "fac_culture_3", slot_faction_town_spy_female_troop, "trp_spy_walker_2"),
-
-      (faction_set_slot, "fac_culture_4", slot_faction_town_walker_male_troop, "trp_town_walker_1"),
-      (faction_set_slot, "fac_culture_4", slot_faction_town_walker_female_troop, "trp_town_walker_2"),
-      (faction_set_slot, "fac_culture_4", slot_faction_village_walker_male_troop, "trp_village_walker_1"),
-      (faction_set_slot, "fac_culture_4", slot_faction_village_walker_female_troop, "trp_village_walker_2"),
-      (faction_set_slot, "fac_culture_4", slot_faction_town_spy_male_troop, "trp_spy_walker_1"),
-      (faction_set_slot, "fac_culture_4", slot_faction_town_spy_female_troop, "trp_spy_walker_2"),
-
-      (faction_set_slot, "fac_culture_5", slot_faction_town_walker_male_troop, "trp_town_walker_1"),
-      (faction_set_slot, "fac_culture_5", slot_faction_town_walker_female_troop, "trp_town_walker_2"),
-      (faction_set_slot, "fac_culture_5", slot_faction_village_walker_male_troop, "trp_village_walker_1"),
-      (faction_set_slot, "fac_culture_5", slot_faction_village_walker_female_troop, "trp_village_walker_2"),
-      (faction_set_slot, "fac_culture_5", slot_faction_town_spy_male_troop, "trp_spy_walker_1"),
-      (faction_set_slot, "fac_culture_5", slot_faction_town_spy_female_troop, "trp_spy_walker_2"),
-
-      (faction_set_slot, "fac_culture_6", slot_faction_town_walker_male_troop, "trp_sarranid_townsman"),
-      (faction_set_slot, "fac_culture_6", slot_faction_town_walker_female_troop, "trp_sarranid_townswoman"),
-      (faction_set_slot, "fac_culture_6", slot_faction_village_walker_male_troop, "trp_sarranid_townsman"),
-      (faction_set_slot, "fac_culture_6", slot_faction_village_walker_female_troop, "trp_sarranid_townswoman"),
-      (faction_set_slot, "fac_culture_6", slot_faction_town_spy_male_troop, "trp_spy_walker_1"),
-      (faction_set_slot, "fac_culture_6", slot_faction_town_spy_female_troop, "trp_spy_walker_2"),
-
-      (try_begin),
-        (eq, "$cheat_mode", 1),
-        (assign, reg3, "$cheat_mode"),
-        (display_message, "@{!}DEBUG : Completed faction troop assignments, cheat mode: {reg3}"),
-      (try_end),
-
-# Factions:
-      (faction_set_slot, "fac_kingdom_1",  slot_faction_culture, "fac_culture_1"),
-      (faction_set_slot, "fac_kingdom_1",  slot_faction_leader, "trp_kingdom_1_lord"),
-      (troop_set_slot, "trp_kingdom_1_lord", slot_troop_renown, 1200),
-
-      (faction_set_slot, "fac_kingdom_2",  slot_faction_culture, "fac_culture_2"),
-      (faction_set_slot, "fac_kingdom_2",  slot_faction_leader, "trp_kingdom_2_lord"),
-      (troop_set_slot, "trp_kingdom_2_lord", slot_troop_renown, 1200),
-
-      (faction_set_slot, "fac_kingdom_3",  slot_faction_culture, "fac_culture_3"),
-      (faction_set_slot, "fac_kingdom_3",  slot_faction_leader, "trp_kingdom_3_lord"),
-      (troop_set_slot, "trp_kingdom_3_lord", slot_troop_renown, 1200),
-
-      (faction_set_slot, "fac_kingdom_4",  slot_faction_culture, "fac_culture_4"),
-      (faction_set_slot, "fac_kingdom_4",  slot_faction_leader, "trp_kingdom_4_lord"),
-      (troop_set_slot, "trp_kingdom_4_lord", slot_troop_renown, 1200),
-
-      # (faction_set_slot, "fac_kingdom_5",  slot_faction_culture, "fac_culture_5"),
-      # (faction_set_slot, "fac_kingdom_5",  slot_faction_leader, "trp_kingdom_5_lord"),
-      # (troop_set_slot, "trp_kingdom_5_lord", slot_troop_renown, 1200),
-
-      # (faction_set_slot, "fac_kingdom_6",  slot_faction_culture, "fac_culture_6"),
-      # (faction_set_slot, "fac_kingdom_6",  slot_faction_leader, "trp_kingdom_6_lord"),
-      # (troop_set_slot, "trp_kingdom_6_lord", slot_troop_renown, 1200),
-
-      (assign, ":player_faction_culture", "fac_culture_1"),
-      (faction_set_slot, "fac_player_supporters_faction",  slot_faction_culture, ":player_faction_culture"),
-      (faction_set_slot, "fac_player_faction",  slot_faction_culture, ":player_faction_culture"),
-
-      (try_for_range, ":faction_no", kingdoms_begin, kingdoms_end),
-        (faction_set_slot, ":faction_no", slot_faction_marshall, -1),
-      (try_end),
-      (faction_set_slot, "fac_player_supporters_faction", slot_faction_marshall, "trp_player"),
-      (call_script, "script_initialize_faction_troop_types"),
-      ##diplomacy begin #SB : new scripts
-      (call_script, "script_dplmc_init_domestic_policy"),
-      (call_script, "script_dplmc_init_quest_delegate_states"),
-      (call_script, "script_dplmc_init_faction_gender_ratio", 0),
-      ##diplomacy end
-
-
-# Towns:
-      (try_for_range, ":item_no", trade_goods_begin, trade_goods_end),
-        (store_sub, ":offset", ":item_no", trade_goods_begin),
-        (val_add, ":offset", slot_town_trade_good_prices_begin),
-        (try_for_range, ":center_no", centers_begin, centers_end),
-          (party_set_slot, ":center_no", ":offset", average_price_factor), #1000
-        (try_end),
-      (try_end),
-
-      (call_script, "script_initialize_trade_routes"),
-      (call_script, "script_initialize_town_arena_info"),
       #start some tournaments
       (try_for_range, ":town_no", towns_begin, towns_end),
         (store_random_in_range, ":rand", 0, 100),
@@ -318,217 +174,16 @@ scripts = [
       #village products designate the raw materials produced in the vicinity
       #right now, just doing a test for grain produced in the swadian heartland
 
+      (call_script, "script_initialize_center_data"),
 
-      # fill_village_bound_centers
-    #pass 1: Give one village to each castle
-      (try_for_range, ":cur_center", castles_begin, castles_end),
-        (assign, ":min_dist", 999999),
-        (assign, ":min_dist_village", -1),
-        (try_for_range, ":cur_village", villages_begin, villages_end),
-          (neg|party_slot_ge, ":cur_village", slot_village_bound_center, 1), #skip villages which are already bound.
-          (store_distance_to_party_from_party, ":cur_dist", ":cur_village", ":cur_center"),
-          (lt, ":cur_dist", ":min_dist"),
-          (assign, ":min_dist", ":cur_dist"),
-          (assign, ":min_dist_village", ":cur_village"),
-        (try_end),
-        (party_set_slot, ":min_dist_village", slot_village_bound_center, ":cur_center"),
-        (store_faction_of_party, ":town_faction", ":cur_center"),
-        (call_script, "script_give_center_to_faction_aux", ":min_dist_village", ":town_faction"),
-      (try_end),
-
-
-    #pass 2: Give other villages to closest town.
-      (try_for_range, ":cur_village", villages_begin, villages_end),
-        (neg|party_slot_ge, ":cur_village", slot_village_bound_center, 1), #skip villages which are already bound.
-        (assign, ":min_dist", 999999),
-        (assign, ":min_dist_town", -1),
-        (try_for_range, ":cur_town", towns_begin, towns_end),
-          (store_distance_to_party_from_party, ":cur_dist", ":cur_village", ":cur_town"),
-          (lt, ":cur_dist", ":min_dist"),
-          (assign, ":min_dist", ":cur_dist"),
-          (assign, ":min_dist_town", ":cur_town"),
-        (try_end),
-        (party_set_slot, ":cur_village", slot_village_bound_center, ":min_dist_town"),
-        (store_faction_of_party, ":town_faction", ":min_dist_town"),
-        (call_script, "script_give_center_to_faction_aux", ":cur_village", ":town_faction"),
-      (try_end),
-
-
-    # Towns (loop)
-      (try_for_range, ":town_no", towns_begin, towns_end),
-        (store_sub, ":offset", ":town_no", towns_begin),
-        (party_set_slot,":town_no", slot_party_type, spt_town),
-        #(store_add, ":cur_object_no", "trp_town_1_seneschal", ":offset"),
-        #(party_set_slot,":town_no", slot_town_seneschal, ":cur_object_no"),
-        (store_add, ":cur_object_no", "scn_town_1_center", ":offset"),
-        (party_set_slot,":town_no", slot_town_center, ":cur_object_no"),
-        (store_add, ":cur_object_no", "scn_town_1_castle", ":offset"),
-        (party_set_slot,":town_no", slot_town_castle, ":cur_object_no"),
-        (store_add, ":cur_object_no", "scn_town_1_prison", ":offset"),
-        (party_set_slot,":town_no", slot_town_prison, ":cur_object_no"),
-        (store_add, ":cur_object_no", "scn_town_1_walls", ":offset"),
-        (party_set_slot,":town_no", slot_town_walls, ":cur_object_no"),
-        (store_add, ":cur_object_no", "scn_town_1_tavern", ":offset"),
-        (party_set_slot,":town_no", slot_town_tavern, ":cur_object_no"),
-        (store_add, ":cur_object_no", "scn_town_1_store", ":offset"),
-        (party_set_slot,":town_no", slot_town_store, ":cur_object_no"),
-        (store_add, ":cur_object_no", "scn_town_1_arena", ":offset"),
-        (party_set_slot,":town_no", slot_town_arena, ":cur_object_no"),
-        (store_add, ":cur_object_no", "scn_town_1_alley", ":offset"),
-        (party_set_slot,":town_no", slot_town_alley, ":cur_object_no"),
-        (store_add, ":cur_object_no", "trp_town_1_mayor", ":offset"),
-        (party_set_slot,":town_no", slot_town_elder, ":cur_object_no"),
-        (store_add, ":cur_object_no", "trp_town_1_tavernkeeper", ":offset"),
-        (party_set_slot,":town_no", slot_town_tavernkeeper, ":cur_object_no"),
-        (store_add, ":cur_object_no", "trp_town_1_weaponsmith", ":offset"),
-        (party_set_slot,":town_no", slot_town_weaponsmith, ":cur_object_no"),
-        (store_add, ":cur_object_no", "trp_town_1_armorer", ":offset"),
-        (party_set_slot,":town_no", slot_town_armorer, ":cur_object_no"),
-        (store_add, ":cur_object_no", "trp_town_1_merchant", ":offset"),
-        (party_set_slot,":town_no", slot_town_merchant, ":cur_object_no"),
-        (store_add, ":cur_object_no", "trp_town_1_horse_merchant", ":offset"),
-        (party_set_slot,":town_no", slot_town_horse_merchant, ":cur_object_no"),
-        (store_add, ":cur_object_no", "scn_town_1_center", ":offset"),
-        (party_set_slot,":town_no", slot_town_center, ":cur_object_no"),
-        # (party_set_slot,":town_no", slot_town_reinforcement_party_template, "pt_center_reinforcements"),
-      (try_end),
-
-# Castles
-      (try_for_range, ":castle_no", castles_begin, castles_end),
-        (store_sub, ":offset", ":castle_no", castles_begin),
-        (val_mul, ":offset", 3),
-
-        (store_add, ":exterior_scene_no", "scn_castle_1_exterior", ":offset"),
-        (party_set_slot,":castle_no", slot_castle_exterior, ":exterior_scene_no"),
-        (store_add, ":interior_scene_no", "scn_castle_1_interior", ":offset"),
-        (party_set_slot,":castle_no", slot_town_castle, ":interior_scene_no"),
-        (store_add, ":interior_scene_no", "scn_castle_1_prison", ":offset"),
-        (party_set_slot,":castle_no", slot_town_prison, ":interior_scene_no"),
-
-        # (party_set_slot,":castle_no", slot_town_reinforcement_party_template, "pt_center_reinforcements"),
-        (party_set_slot,":castle_no", slot_party_type, spt_castle),
-        (party_set_slot,":castle_no", slot_center_is_besieged_by, -1),
-      (try_end),
-
-# Set which castles need to be attacked with siege towers.
-      (party_set_slot,"p_town_13", slot_center_siege_with_belfry, 1),
-      (party_set_slot,"p_town_16", slot_center_siege_with_belfry, 1),
-
-      (party_set_slot,"p_castle_1", slot_center_siege_with_belfry, 1),
-      (party_set_slot,"p_castle_2", slot_center_siege_with_belfry, 1),
-      (party_set_slot,"p_castle_4", slot_center_siege_with_belfry, 1),
-      (party_set_slot,"p_castle_7", slot_center_siege_with_belfry, 1),
-      (party_set_slot,"p_castle_8", slot_center_siege_with_belfry, 1),
-      (party_set_slot,"p_castle_9", slot_center_siege_with_belfry, 1),
-      (party_set_slot,"p_castle_11", slot_center_siege_with_belfry, 1),
-      (party_set_slot,"p_castle_13", slot_center_siege_with_belfry, 1),
-      (party_set_slot,"p_castle_21", slot_center_siege_with_belfry, 1),
-      (party_set_slot,"p_castle_25", slot_center_siege_with_belfry, 1),
-      (party_set_slot,"p_castle_34", slot_center_siege_with_belfry, 1),
-      (party_set_slot,"p_castle_35", slot_center_siege_with_belfry, 1),
-      (party_set_slot,"p_castle_38", slot_center_siege_with_belfry, 1),
-      (party_set_slot,"p_castle_40", slot_center_siege_with_belfry, 1),
-      (party_set_slot,"p_castle_41", slot_center_siege_with_belfry, 1),
-      (party_set_slot,"p_castle_42", slot_center_siege_with_belfry, 1),
-      (party_set_slot,"p_castle_43", slot_center_siege_with_belfry, 1),
-
-	  # Villages characters
-      (try_for_range, ":village_no", villages_begin, villages_end),
-        (store_sub, ":offset", ":village_no", villages_begin),
-
-        (store_add, ":exterior_scene_no", "scn_village_1", ":offset"),
-        (party_set_slot,":village_no", slot_castle_exterior, ":exterior_scene_no"),
-
-        (store_add, ":store_troop_no", "trp_village_1_elder", ":offset"),
-        (party_set_slot,":village_no", slot_town_elder, ":store_troop_no"),
-
-        (party_set_slot,":village_no", slot_party_type, spt_village),
-        (party_set_slot,":village_no", slot_village_raided_by, -1),
-
-        (call_script, "script_refresh_village_defenders", ":village_no"),
-        (call_script, "script_refresh_village_defenders", ":village_no"),
-        (call_script, "script_refresh_village_defenders", ":village_no"),
-        (call_script, "script_refresh_village_defenders", ":village_no"),
-      (try_end),
-
-      (try_for_range, ":center_no", centers_begin, centers_end),
-        (party_set_slot, ":center_no", slot_center_last_spotted_enemy, -1),
-        (party_set_slot, ":center_no", slot_center_is_besieged_by, -1),
-        (party_set_slot, ":center_no", slot_center_last_taken_by_troop, -1),
-        ##diplomacy start+ Set the home slots for town merchants, elders, etc. for reverse-lookup
-        (try_for_range, ":offset", dplmc_slot_town_merchants_begin, dplmc_slot_town_merchants_end),
-           (party_get_slot, ":npc", ":center_no", ":offset"),
-           (gt, ":npc", 0),
-           (neg|troop_slot_ge, ":npc", slot_troop_home, 1),#If the startup script wasn't altered by another mod, we don't have to worry about this condition.
-           (troop_set_slot, ":npc", slot_troop_home, ":center_no"),
-        (try_end),
-        ##diplomacy end+
-      (try_end),
-
+    
 # Troops:
 
 # Assign banners and renown.
 # We assume there are enough banners for all kingdom heroes.
-
-      #faction banners
-      (faction_set_slot, "fac_kingdom_1", slot_faction_banner, "mesh_banner_kingdom_f"),
-      (faction_set_slot, "fac_kingdom_2", slot_faction_banner, "mesh_banner_kingdom_b"),
-      (faction_set_slot, "fac_kingdom_3", slot_faction_banner, "mesh_banner_kingdom_c"),
-      (faction_set_slot, "fac_kingdom_4", slot_faction_banner, "mesh_banner_kingdom_a"),
-      # (faction_set_slot, "fac_kingdom_5", slot_faction_banner, "mesh_banner_kingdom_d"),
-      # (faction_set_slot, "fac_kingdom_6", slot_faction_banner, "mesh_banner_kingdom_e"),
-
-      (try_for_range, ":cur_faction", npc_kingdoms_begin, npc_kingdoms_end),
-        (faction_get_slot, ":cur_faction_king", ":cur_faction", slot_faction_leader),
-        (faction_get_slot, ":cur_faction_banner", ":cur_faction", slot_faction_banner),
-        (val_sub, ":cur_faction_banner", banner_meshes_begin),
-        (val_add, ":cur_faction_banner", banner_scene_props_begin),
-        (troop_set_slot, ":cur_faction_king", slot_troop_banner_scene_prop, ":cur_faction_banner"),
-      (try_end),
-      # (assign, ":num_khergit_lords_assigned", 0),
-      # (assign, ":num_sarranid_lords_assigned", 0),
-      (assign, ":num_other_lords_assigned", 0),
+      (call_script, "script_initialize_troop_banners"),
 
       (try_for_range, ":kingdom_hero", active_npcs_begin, active_npcs_end),
-        (this_or_next|troop_slot_eq, ":kingdom_hero", slot_troop_occupation, slto_kingdom_hero),
-        (troop_slot_eq, ":kingdom_hero", slot_troop_occupation, slto_inactive_pretender),
-
-        (store_troop_faction, ":kingdom_hero_faction", ":kingdom_hero"),
-        (neg|faction_slot_eq, ":kingdom_hero_faction", slot_faction_leader, ":kingdom_hero"),
-        (try_begin),
-          # (eq, ":kingdom_hero_faction", "fac_kingdom_3"), #Khergit Khanate
-          # (store_add, ":kingdom_3_banners_begin", banner_scene_props_begin, khergit_banners_begin_offset),
-          # (store_add, ":banner_id", ":kingdom_3_banners_begin", ":num_khergit_lords_assigned"),
-          # (troop_set_slot, ":kingdom_hero", slot_troop_banner_scene_prop, ":banner_id"),
-          # (val_add, ":num_khergit_lords_assigned", 1),
-        # (else_try),
-          # (eq, ":kingdom_hero_faction", "fac_kingdom_6"), #Sarranid Sultanate
-          # (store_add, ":kingdom_6_banners_begin", banner_scene_props_begin, sarranid_banners_begin_offset),
-          # (store_add, ":banner_id", ":kingdom_6_banners_begin", ":num_sarranid_lords_assigned"),
-          # (troop_set_slot, ":kingdom_hero", slot_troop_banner_scene_prop, ":banner_id"),
-          # (val_add, ":num_sarranid_lords_assigned", 1),
-        # (else_try),
-          (assign, ":hero_offset", ":num_other_lords_assigned"),
-          # (try_begin),
-            # (gt, ":hero_offset", khergit_banners_begin_offset),#Do not add khergit banners to other lords
-            # (val_add, ":hero_offset", khergit_banners_end_offset),
-            # (val_sub, ":hero_offset", khergit_banners_begin_offset),
-          # (try_end),
-          # (try_begin),
-            # (gt, ":hero_offset", sarranid_banners_begin_offset),#Do not add sarranid banners to other lords
-            # (val_add, ":hero_offset", sarranid_banners_end_offset),
-            # (val_sub, ":hero_offset", sarranid_banners_begin_offset),
-          # (try_end),
-          (store_add, ":banner_id", banner_scene_props_begin, ":hero_offset"),
-          (troop_set_slot, ":kingdom_hero", slot_troop_banner_scene_prop, ":banner_id"),
-          (val_add, ":num_other_lords_assigned", 1),
-        (try_end),
-        (try_begin),
-          (this_or_next|lt, ":banner_id", banner_scene_props_begin),
-          (gt, ":banner_id", banner_scene_props_end_minus_one),
-          (display_message, "@{!}ERROR: Not enough banners for heroes!"),
-        (try_end),
-
         (store_character_level, ":level", ":kingdom_hero"),
         (store_mul, ":renown", ":level", ":level"),
         (val_div, ":renown", 4), #for top lord, is about 400
@@ -539,7 +194,7 @@ scripts = [
         (val_add, ":renown", ":age_addition"),
 
         (try_begin),
-          (faction_slot_eq, ":kingdom_hero_faction", slot_faction_leader, ":kingdom_hero"),
+          (is_between, ":kingdom_hero", kings_begin, kings_end),
           (store_random_in_range, ":random_renown", 250, 400),
         (else_try),
           (store_random_in_range, ":random_renown", 0, 100),
@@ -564,437 +219,7 @@ scripts = [
         (add_faction_note_tableau_mesh, ":faction_no", "tableau_faction_note_mesh_banner"),
       (try_end),
 
-	  #Give centers to factions first, to ensure more equal distributions
-### French Towns
-	  (call_script, "script_give_center_to_faction_aux", "p_town_1", "fac_kingdom_1"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_2", "fac_kingdom_1"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_3", "fac_kingdom_1"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_4", "fac_kingdom_1"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_5", "fac_kingdom_1"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_6", "fac_kingdom_1"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_7", "fac_kingdom_1"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_8", "fac_kingdom_1"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_9", "fac_kingdom_1"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_10", "fac_kingdom_1"),
-	  
-	  (call_script, "script_give_center_to_faction_aux", "p_town_11", "fac_kingdom_1"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_12", "fac_kingdom_1"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_13", "fac_kingdom_1"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_14", "fac_kingdom_1"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_15", "fac_kingdom_1"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_16", "fac_kingdom_1"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_17", "fac_kingdom_1"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_18", "fac_kingdom_1"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_19", "fac_kingdom_1"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_20", "fac_kingdom_1"),
-	  
-	  (call_script, "script_give_center_to_faction_aux", "p_town_21", "fac_kingdom_1"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_22", "fac_kingdom_1"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_23", "fac_kingdom_1"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_24", "fac_kingdom_1"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_25", "fac_kingdom_1"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_26", "fac_kingdom_1"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_27", "fac_kingdom_1"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_28", "fac_kingdom_1"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_29", "fac_kingdom_1"),
-	  
-### English Towns	  
-	  (call_script, "script_give_center_to_faction_aux", "p_town_30", "fac_kingdom_2"),
-	  
-	  (call_script, "script_give_center_to_faction_aux", "p_town_31", "fac_kingdom_2"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_32", "fac_kingdom_2"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_33", "fac_kingdom_2"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_34", "fac_kingdom_2"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_35", "fac_kingdom_2"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_36", "fac_kingdom_2"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_37", "fac_kingdom_2"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_38", "fac_kingdom_2"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_39", "fac_kingdom_2"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_40", "fac_kingdom_2"),
-	  
-	  (call_script, "script_give_center_to_faction_aux", "p_town_41", "fac_kingdom_2"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_42", "fac_kingdom_2"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_43", "fac_kingdom_2"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_44", "fac_kingdom_2"),	  
-	  (call_script, "script_give_center_to_faction_aux", "p_town_45", "fac_kingdom_2"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_46", "fac_kingdom_2"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_47", "fac_kingdom_2"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_48", "fac_kingdom_2"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_49", "fac_kingdom_2"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_50", "fac_kingdom_2"),
-	  
-	  
-	  (call_script, "script_give_center_to_faction_aux", "p_town_51", "fac_kingdom_2"),
-	
-### Burgundian Towns	
-	  (call_script, "script_give_center_to_faction_aux", "p_town_52", "fac_kingdom_3"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_53", "fac_kingdom_3"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_54", "fac_kingdom_3"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_55", "fac_kingdom_3"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_56", "fac_kingdom_3"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_57", "fac_kingdom_3"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_58", "fac_kingdom_3"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_59", "fac_kingdom_3"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_60", "fac_kingdom_3"),
-	  
-	  (call_script, "script_give_center_to_faction_aux", "p_town_61", "fac_kingdom_3"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_62", "fac_kingdom_3"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_63", "fac_kingdom_3"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_64", "fac_kingdom_3"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_65", "fac_kingdom_3"),
-
-### Breton Towns
-	  (call_script, "script_give_center_to_faction_aux", "p_town_66", "fac_kingdom_4"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_67", "fac_kingdom_4"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_68", "fac_kingdom_4"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_69", "fac_kingdom_4"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_70", "fac_kingdom_4"),
-	  
-	  (call_script, "script_give_center_to_faction_aux", "p_town_71", "fac_kingdom_4"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_72", "fac_kingdom_4"),
-	  (call_script, "script_give_center_to_faction_aux", "p_town_73", "fac_kingdom_4"),	  
-
-### French Castles	  
-      (call_script, "script_give_center_to_faction_aux", "p_castle_1", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_2", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_3", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_4", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_5", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_6", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_7", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_8", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_9", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_10", "fac_kingdom_1"),
-	  
-      (call_script, "script_give_center_to_faction_aux", "p_castle_11", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_12", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_13", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_14", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_15", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_16", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_17", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_18", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_19", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_20", "fac_kingdom_1"),
-	  
-      (call_script, "script_give_center_to_faction_aux", "p_castle_21", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_22", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_23", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_24", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_25", "fac_kingdom_1"),
-
-### English Castles		  
-      (call_script, "script_give_center_to_faction_aux", "p_castle_26", "fac_kingdom_2"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_27", "fac_kingdom_2"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_28", "fac_kingdom_2"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_29", "fac_kingdom_2"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_30", "fac_kingdom_2"),
-	  
-      (call_script, "script_give_center_to_faction_aux", "p_castle_31", "fac_kingdom_2"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_32", "fac_kingdom_2"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_33", "fac_kingdom_2"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_34", "fac_kingdom_2"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_35", "fac_kingdom_2"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_36", "fac_kingdom_2"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_37", "fac_kingdom_2"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_38", "fac_kingdom_2"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_39", "fac_kingdom_2"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_40", "fac_kingdom_2"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_41", "fac_kingdom_2"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_42", "fac_kingdom_2"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_43", "fac_kingdom_2"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_44", "fac_kingdom_2"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_45", "fac_kingdom_2"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_46", "fac_kingdom_2"),
-	  
-### Burgundian Castles	 	  
-      (call_script, "script_give_center_to_faction_aux", "p_castle_47", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_48", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_49", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_50", "fac_kingdom_3"),
-	  
-      (call_script, "script_give_center_to_faction_aux", "p_castle_51", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_52", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_53", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_54", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_55", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_56", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_57", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_58", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_59", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_60", "fac_kingdom_3"),
-	  
-      (call_script, "script_give_center_to_faction_aux", "p_castle_61", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_62", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_63", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_64", "fac_kingdom_3"),
-
-### Breton Castles		  
-      (call_script, "script_give_center_to_faction_aux", "p_castle_65", "fac_kingdom_4"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_66", "fac_kingdom_4"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_67", "fac_kingdom_4"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_68", "fac_kingdom_4"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_69", "fac_kingdom_4"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_70", "fac_kingdom_4"),
-	  
-      (call_script, "script_give_center_to_faction_aux", "p_castle_71", "fac_kingdom_4"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_72", "fac_kingdom_4"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_73", "fac_kingdom_4"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_74", "fac_kingdom_4"),	  
-      (call_script, "script_give_center_to_faction_aux", "p_castle_75", "fac_kingdom_4"),	  
-      (call_script, "script_give_center_to_faction_aux", "p_castle_76", "fac_kingdom_4"),	  
-      (call_script, "script_give_center_to_faction_aux", "p_castle_77", "fac_kingdom_4"),	  
-      (call_script, "script_give_center_to_faction_aux", "p_castle_78", "fac_kingdom_4"),	  
-      (call_script, "script_give_center_to_faction_aux", "p_castle_79", "fac_kingdom_4"),	  
-      (call_script, "script_give_center_to_faction_aux", "p_castle_80", "fac_kingdom_4"),	  
-
-      (call_script, "script_give_center_to_faction_aux", "p_castle_81", "fac_kingdom_4"),	  
-      (call_script, "script_give_center_to_faction_aux", "p_castle_82", "fac_kingdom_4"),	  
-      (call_script, "script_give_center_to_faction_aux", "p_castle_83", "fac_kingdom_4"),	  
-      (call_script, "script_give_center_to_faction_aux", "p_castle_84", "fac_kingdom_4"),	  
-      (call_script, "script_give_center_to_faction_aux", "p_castle_85", "fac_kingdom_4"),	  
-      (call_script, "script_give_center_to_faction_aux", "p_castle_86", "fac_kingdom_4"),	  
-      # (call_script, "script_give_center_to_faction_aux", "p_castle_87", "fac_kingdom_4"),	  
-      # (call_script, "script_give_center_to_faction_aux", "p_castle_88", "fac_kingdom_4"),	  
-	  
-
-
-##################################################################################################################################################################################################################################################################################################################
-###################################################################################################### DAC TOWN DISTRIBUTION #####################################################################################################################################################################################
-##################################################################################################################################################################################################################################################################################################################
-
-	  
-# French towns	  
-      (call_script, "script_give_center_to_lord", "p_town_1",  "trp_kingdom_1_lord", 0),# Bourges - Charles_VII
-      (call_script, "script_give_center_to_lord", "p_town_2",  "trp_knight_1_9", 0),# Orléans - Jean D'Orléans, Le Bâtard  
-      (call_script, "script_give_center_to_lord", "p_town_3",  "trp_knight_1_8", 0),# Tours - Pierre d'Amboise, Seigneur de Chaumont
-      (call_script, "script_give_center_to_lord", "p_town_4",  "trp_kingdom_1_lord", 0),# Poitiers - Charles_VII
-      (call_script, "script_give_center_to_lord", "p_town_5",  "trp_kingdom_1_lord", 0),# La_Rochelle - Charles_VII
-      (call_script, "script_give_center_to_lord", "p_town_6",  "trp_knight_1_17", 0),# Clermont - Louis I de Bourbon, Comte de Clermont
-      (call_script, "script_give_center_to_lord", "p_town_7",  "trp_knight_1_16", 0),# Moulins - Charles I de Bourbon, Duc de Bourbon et d'Auvergne
-      (call_script, "script_give_center_to_lord", "p_town_8",  "trp_knight_1_16", 0),# Aurillac - Charles I de Bourbon, Duc de Bourbon et d'Auvergne
-      (call_script, "script_give_center_to_lord", "p_town_9",  "trp_knight_1_16", 0),# Lyon - Charles I de Bourbon, Duc de Bourbon et d'Auvergne
-      (call_script, "script_give_center_to_lord", "p_town_10", "trp_knight_1_53", 0),# Le_Puy - Louis-Armand XII de Polignac, Vicomte de Polignac, Gouverneur du Velay
-	  
-      (call_script, "script_give_center_to_lord", "p_town_11", "trp_kingdom_1_lord", 0),# Cahors - Charles VII
-      (call_script, "script_give_center_to_lord", "p_town_12", "trp_knight_1_22", 0),# Rodez - Jean IV d'Armagnac
-      (call_script, "script_give_center_to_lord", "p_town_13", "trp_knight_1_22", 0),# Lectoure - Jean IV d'Armagnac
-      (call_script, "script_give_center_to_lord", "p_town_14", "trp_knight_1_46", 0),# Tarbes - Jean de Grailly, Comte de Foix et de Bigorre, Vicomte de Béarn et de Marsan
-      (call_script, "script_give_center_to_lord", "p_town_15", "trp_kingdom_1_lord", 0),# Toulouse - Charles_VII
-      (call_script, "script_give_center_to_lord", "p_town_16", "trp_kingdom_1_lord", 0),# Carcassonne - Charles_VII
-      (call_script, "script_give_center_to_lord", "p_town_17", "trp_knight_1_48", 0),# Montpellier - Raymond de Villars, Sénéchal de Beaucaire et Nîmes
-      (call_script, "script_give_center_to_lord", "p_town_18", "trp_knight_1_31", 0),# Valence - Charles II de Poitiers, Seigneur de Saint-Vallier
-      (call_script, "script_give_center_to_lord", "p_town_19", "trp_knight_1_7", 0),# Thouars - Louis d'Amboise, Vicomte de Thouars
-      (call_script, "script_give_center_to_lord", "p_town_20", "trp_kingdom_1_lord", 0),# Tournai - Charles_VII
-	  
-      (call_script, "script_give_center_to_lord", "p_town_21", "trp_knight_1_9", 0),# Gien - Jean D'Orleans
-      (call_script, "script_give_center_to_lord", "p_town_22", "trp_kingdom_1_lord", 0),# Montargis-le-Franc - Charles_VII
-      (call_script, "script_give_center_to_lord", "p_town_23",  "trp_knight_1_4", 0), # Albret - Charles II d'Albret, Sire d'Albret, Vicomte de Tartas
-      (call_script, "script_give_center_to_lord", "p_town_24",  "trp_knight_1_9", 0), # Bergerac - Jean D'Orléans, le Bâtard  	 
-      (call_script, "script_give_center_to_lord", "p_town_25",  "trp_knight_1_9", 0), # Périgueux - Jean D'Orléans, le Bâtard 
-      (call_script, "script_give_center_to_lord", "p_town_26",  "trp_knight_1_9", 0), # Angoulême - Jean D'Orléans, le Bâtard 	  
-      (call_script, "script_give_center_to_lord", "p_town_27",  "trp_kingdom_1_lord", 0), # Limoges - Charles VII
-      (call_script, "script_give_center_to_lord", "p_town_28",  "trp_knight_1_37", 0), # Angers - Louis III d'Anjou, Duc d'Anjou	  
-      (call_script, "script_give_center_to_lord", "p_town_29", "trp_knight_1_46", 0),# Foix Jean de Grailly, Comte de Foix et de Bigorre, Vicomte de Béarn et de Marsan
-
-
-# English Towns
-      (call_script, "script_give_center_to_lord", "p_town_30",  "trp_kingdom_2_lord", 0), # Paris - John of Lancaster, Duc de Bedford
-      (call_script, "script_give_center_to_lord", "p_town_31",  "trp_knight_2_43", 0), # Bayonne - Bertrand III de Montferrand
-      (call_script, "script_give_center_to_lord", "p_town_32",  "trp_knight_2_3", 0), # Nemours - William de la Pole, Earl of Suffolk
-      (call_script, "script_give_center_to_lord", "p_town_33",  "trp_knight_2_1", 0), # Laval - John Talbot, Baron Talbot and Furnival
-      (call_script, "script_give_center_to_lord", "p_town_34",  "trp_knight_2_1", 0), # Le_Mans - John Talbot, Baron Talbot and Furnival
-      (call_script, "script_give_center_to_lord", "p_town_35",  "trp_knight_2_43", 0), # Bordeaux - Bertrand III de Montferrand
-      (call_script, "script_give_center_to_lord", "p_town_36",  "trp_knight_2_4", 0), # Chartres - Thomas de Scales, Baron de Scales
-      (call_script, "script_give_center_to_lord", "p_town_37",  "trp_kingdom_2_lord", 0), # Rouen - John of Lancaster, Duc de Bedford
-      (call_script, "script_give_center_to_lord", "p_town_38",  "trp_knight_2_47", 0), # Caen - Sir Robert de Vere, Captain of Caen
-      (call_script, "script_give_center_to_lord", "p_town_39",  "trp_knight_2_2", 0), # Harfleur - John Fastolf, Lieutenant-general of Normandy
-      (call_script, "script_give_center_to_lord", "p_town_40",  "trp_knight_2_18", 0), # Cherbourg - Sir Walter Hungerford
-
-      (call_script, "script_give_center_to_lord", "p_town_41",  "trp_kingdom_2_lord", 0), # Bayeux - John of Lancaster, Duc de Bedford
-      (call_script, "script_give_center_to_lord", "p_town_42",  "trp_knight_2_21", 0), # Calais - Richard Woodville, Baron Wodville, Lieutenant of Calais
-      (call_script, "script_give_center_to_lord", "p_town_43",  "trp_knight_2_7", 0), # Alençon - Thomas Beaufort, Count of Perche
-      (call_script, "script_give_center_to_lord", "p_town_44",  "trp_knight_2_27", 0), # Argentan - Sir William Oldhall	  
-      (call_script, "script_give_center_to_lord", "p_town_45",  "trp_knight_2_44", 0), # Tartas - François de Montferrand, Gouverneur de Dax
-      (call_script, "script_give_center_to_lord", "p_town_46",  "trp_knight_2_44", 0), # Dax - François de Montferrand, Gouverneur de Dax
-      (call_script, "script_give_center_to_lord", "p_town_47",  "trp_knight_2_16", 0), # Libourne - Sir John Radcliffe
-      (call_script, "script_give_center_to_lord", "p_town_48",  "trp_knight_2_10", 0), # Saint-Lô - Richard Beauchamp
-      (call_script, "script_give_center_to_lord", "p_town_49",  "trp_knight_2_39", 0), # Eu - Henry Bourchier, Count of Eu
-      (call_script, "script_give_center_to_lord", "p_town_50",  "trp_knight_2_9", 0), # Avranches - John Mowbray, Earl of Norfolk
-
-      (call_script, "script_give_center_to_lord", "p_town_51",  "trp_knight_2_1", 0), # Coutances - John Talbot, Baron Talbot and Furnival
-	  
-# Burgundian Towns
-      (call_script, "script_give_center_to_lord", "p_town_52",  "trp_kingdom_3_lord", 0), # Dijon - Philippe the Good, Duke of Burgundy
-      (call_script, "script_give_center_to_lord", "p_town_53",  "trp_knight_3_20", 0), # Besançon - Thibaud VI de Rougemont, Vicomte de Besançon et Seigneur de Rougemont
-      (call_script, "script_give_center_to_lord", "p_town_54",  "trp_knight_3_3", 0), # Nevers - Charles de Bourgogne, Comte de Nevers et de Rethel
-      (call_script, "script_give_center_to_lord", "p_town_55",  "trp_kingdom_3_lord", 0), # Auxerre - Philippe the Good, Duke of Burgundy
-      (call_script, "script_give_center_to_lord", "p_town_56",  "trp_kingdom_3_lord", 0), # Troyes - Philippe the Good, Duke of Burgundy
-      (call_script, "script_give_center_to_lord", "p_town_57",  "trp_knight_3_10", 0), # Compiègne - Jean de Villiers de l'Isle-Adam, Seigneur de L'Isle-Adam
-      (call_script, "script_give_center_to_lord", "p_town_58",  "trp_knight_3_19", 0), # Bruges - Roland d'Uytkerke, Seigneur d'Uytkerke
-      (call_script, "script_give_center_to_lord", "p_town_59",  "trp_kingdom_3_lord", 0), # Gand - Philippe the Good, Duke of Burgundy
-      (call_script, "script_give_center_to_lord", "p_town_60",  "trp_kingdom_3_lord", 0), # Malines - Philippe the Good, Duke of Burgundy
-
-      (call_script, "script_give_center_to_lord", "p_town_61",  "trp_kingdom_3_lord", 0), # Boulogne - Philippe the Good, Duke of Burgundy
-      (call_script, "script_give_center_to_lord", "p_town_62",  "trp_knight_3_3", 0), # Châlons-en-Champagne - Charles de Bourgogne, Comte de Nevers et de Rethel
-      (call_script, "script_give_center_to_lord", "p_town_63",  "trp_knight_3_3", 0), # Reims - Charles de Bourgogne, Comte de Nevers et de Rethel
-      (call_script, "script_give_center_to_lord", "p_town_64", "trp_knight_3_10", 0), # Amiens - Jean de Villiers de l'Isle-Adam
-      (call_script, "script_give_center_to_lord", "p_town_65", "trp_knight_3_10", 0), # Peronne - Jean de Villiers de l'Isle-Adam
-	 	  
-# Breton Towns
-      (call_script, "script_give_center_to_lord", "p_town_66",  "trp_kingdom_4_lord", 0), # Rennes - Jean V de Montfort, Duke of Brittany
-      (call_script, "script_give_center_to_lord", "p_town_67",  "trp_kingdom_4_lord", 0), # Nantes - Jean V de Montfort, Duke of Brittany
-      (call_script, "script_give_center_to_lord", "p_town_68",  "trp_kingdom_4_lord", 0), # Vannes - Jean V de Montfort, Duke of Brittany
-      (call_script, "script_give_center_to_lord", "p_town_69",  "trp_knight_4_13", 0), # Kemper - Guillaume de Rosmadec, Baron de Rosmadec
-      (call_script, "script_give_center_to_lord", "p_town_70",  "trp_knight_4_14", 0), # Saint-Malo - Pierre de Rochefort, Seigneur de Rieux et de Rochefort
-
-      (call_script, "script_give_center_to_lord", "p_town_71",  "trp_kingdom_4_lord", 0), # Saint-Brieuc - Jean V de Montfort, Duke of Brittany
-      (call_script, "script_give_center_to_lord", "p_town_72",  "trp_knight_4_10", 0), # Saint-Pol-de-Léon - Alain X de Rohan, Vicomte de Léon
-      (call_script, "script_give_center_to_lord", "p_town_73",  "trp_knight_4_9", 0), # Rohan - Alain IX de Rohan, Vicomte de Rohan
-	  
-
-
-##################################################################################################################################################################################################################################################################################################################
-###################################################################################################### DAC CASTLE DISTRIBUTION ###################################################################################################################################################################################
-##################################################################################################################################################################################################################################################################################################################
-
-### French Castles
-      (call_script, "script_give_center_to_lord", "p_castle_1", "trp_kingdom_1_lord", 0), # Forteresse_de_Chinon - Charles_VII
-      (call_script, "script_give_center_to_lord", "p_castle_2", "trp_knight_1_39", 0), # Châteauroux - Guy III de Chauvigny, Baron de Châteauroux
-      (call_script, "script_give_center_to_lord", "p_castle_3", "trp_kingdom_1_lord", 0), # Rochefort - Charles_VII
-      (call_script, "script_give_center_to_lord", "p_castle_4", "trp_knight_1_24", 0), # Tour_de_Termes - Jean IV de Termes d’Armagnac, Seigneur de Termes
-      (call_script, "script_give_center_to_lord", "p_castle_5", "trp_knight_1_28", 0), # Château_de_Murol - Jean d'Apchon de Murol
-      (call_script, "script_give_center_to_lord", "p_castle_6", "trp_knight_1_53", 0), # Château_de_Polignac - Louis-Armand XII de Chalençon-Polignac
-      (call_script, "script_give_center_to_lord", "p_castle_7", "trp_knight_1_11", 0), # Château_de_Culant - Louis de Culant
-      (call_script, "script_give_center_to_lord", "p_castle_8", "trp_knight_1_8", 0), # Château_de_Montbazon - Pierre d'Amboise
-      (call_script, "script_give_center_to_lord", "p_castle_9", "trp_knight_1_15", 0), # Château_de_Boussac - Jean de Brosse
-      (call_script, "script_give_center_to_lord", "p_castle_10", "trp_knight_1_33", 0), # Yèvre-le-Châtel - Nicolas de Giresme
-	  
-      (call_script, "script_give_center_to_lord", "p_castle_11", "trp_knight_1_42", 0), # Château_de_La_Fayette - Gilbert Motier de La Fayette
-      (call_script, "script_give_center_to_lord", "p_castle_12", "trp_knight_1_43", 0), # La_Tour_d'Auvergne - Bertrand V de La Tour d'Auvergne
-      (call_script, "script_give_center_to_lord", "p_castle_13", "trp_knight_1_20", 0), # chateaux de Charlus - Antoine de Chabannes 
-      (call_script, "script_give_center_to_lord", "p_castle_14", "trp_knight_1_17", 0), # Château_de_Sancerre - Louis I de Bourbon
-      (call_script, "script_give_center_to_lord", "p_castle_15", "trp_knight_1_4", 0), # Castelnau_Tursan - Charles II d'Albret
-      (call_script, "script_give_center_to_lord", "p_castle_16", "trp_knight_1_23", 0), # Forteresse_d'Auch - Bernard VIII D'Armagnac
-      (call_script, "script_give_center_to_lord", "p_castle_17", "trp_knight_1_50", 0), # Mont-St-Michel - Louis d’Estouteville, Seigneur d'Estouteville et de Valmont
-      (call_script, "script_give_center_to_lord", "p_castle_18", "trp_knight_1_32", 0), # Château_de_Turenne - Pierre de Beaufort de Turenne, Comte de Beaufort, Vicomte de Turenne
-      (call_script, "script_give_center_to_lord", "p_castle_19", "trp_knight_1_23", 0), # Sévérac-le-Château - Bernard VIII d’Armagnac
-      (call_script, "script_give_center_to_lord", "p_castle_20", "trp_knight_1_45", 0), # Saint-Germain Beaupré - Jean Foucault, seigneur de St- germain
-	  
-      (call_script, "script_give_center_to_lord", "p_castle_21", "trp_knight_1_17", 0), # Château_de_Virieu - Louis I de Bourbon
-      (call_script, "script_give_center_to_lord", "p_castle_22", "trp_knight_1_19", 0), # Château de La Palice - Jacques de Chabannes, Seigneur de La Palice
-      (call_script, "script_give_center_to_lord", "p_castle_23", "trp_knight_1_29", 0), # Château du Cheylard - Hugues de Cubières du Cheylard
-      (call_script, "script_give_center_to_lord", "p_castle_24", "trp_kingdom_1_lord", 0), # Château de Vaucouleurs - Charles VII 
-      (call_script, "script_give_center_to_lord", "p_castle_25", "trp_knight_1_10", 0), # La Tour De Marmande - (dans le Poitou) Jean V de Bueil
-
-
-### English Castles	  
-      # (call_script, "script_give_center_to_lord", "p_castle_26", "trp_", 0), # Château_de_Castelnaud [Forteresses de routier] - à retirer de la faction anglaise ?
-      (call_script, "script_give_center_to_lord", "p_castle_27", "trp_knight_2_43", 0), # Forteresse_de_Rauzan - Bertrand III de Montferrand, Baron of Guyenne
-      # (call_script, "script_give_center_to_lord", "p_castle_28", "trp_", 0), # Château_de_Montréal [Forteresses de routier] - à retirer de la faction anglaise ?
-      (call_script, "script_give_center_to_lord", "p_castle_29", "trp_knight_2_4", 0), # Château_du_Lude - Thomas de Scales, Baron de Scales
-      (call_script, "script_give_center_to_lord", "p_castle_30", "trp_knight_2_43", 0), # Château_de_Nérac - Bertrand III de Montferrand, Baron of Guyenne
-
-      (call_script, "script_give_center_to_lord", "p_castle_31", "trp_knight_2_13", 0), # Château_de_Falaise - Reginald Grey, Baron Grey de Ruthyn
-      (call_script, "script_give_center_to_lord", "p_castle_32", "trp_kingdom_2_lord", 0), # Château-Gaillard - John of Lancaster, duc de Bedford
-      (call_script, "script_give_center_to_lord", "p_castle_33", "trp_knight_2_34", 0), # Château_de_Vendôme - Robert Willoughby, Lord Willoughby of Eresby
-      (call_script, "script_give_center_to_lord", "p_castle_34", "trp_knight_2_2", 0), # Château_de_Beauvau - John Fastolf, Governor of Anjou
-      (call_script, "script_give_center_to_lord", "p_castle_35", "trp_knight_2_30", 0), # Château_Gontier - Edmund Beaufort, Earl of Dorset
-      (call_script, "script_give_center_to_lord", "p_castle_36", "trp_knight_2_7", 0), # Château_de_Verneuil - Thomas Beaufort, Count of Perche
-      (call_script, "script_give_center_to_lord", "p_castle_37", "trp_knight_2_30", 0), # Château de Mortain - Edmund Beaufort, Count of Mortain
-      (call_script, "script_give_center_to_lord", "p_castle_38", "trp_knight_2_45", 0), # Château de Langoiran - Jean de Montferrand, Seigneur de Langoiran
-      (call_script, "script_give_center_to_lord", "p_castle_39", "trp_knight_2_46", 0), # Forteresse de Landiras - Pierre II de Montferrant, Seigneur de Landiras
-      (call_script, "script_give_center_to_lord", "p_castle_40", "trp_knight_2_16", 0), # Château de Fronsac - Sir John Radcliffe, Seneschal of Guyenne, Captain of Fronsac
-
-      (call_script, "script_give_center_to_lord", "p_castle_41", "trp_knight_2_43", 0), # Château de Montferrand - Bertrand III de Montferrand
-      (call_script, "script_give_center_to_lord", "p_castle_42", "trp_knight_2_28", 0), # Forteresse de Blaye - John Holland, Earl of Huntingdon, Amiral
-      (call_script, "script_give_center_to_lord", "p_castle_43", "trp_knight_2_9", 0), # Château de Montbray - John Mowbray, Earl of Norfolk
-      (call_script, "script_give_center_to_lord", "p_castle_44", "trp_knight_2_6", 0), # Château de Gacé - Thomas Rempston, Baron Rempston and Gacé
-      (call_script, "script_give_center_to_lord", "p_castle_45", "trp_knight_2_1", 0), # Château de Sainte-Suzanne - John Talbot, Baron Talbot and Furnival
-      (call_script, "script_give_center_to_lord", "p_castle_46", "trp_knight_2_2", 0), # Château de Durtal - John Fastolf
-  
-### Burgundian Castles	  
-      (call_script, "script_give_center_to_lord", "p_castle_47", "trp_kingdom_3_lord", 0), # Château_de_Tonerre - Philippe Le Bon
-      (call_script, "script_give_center_to_lord", "p_castle_48", "trp_kingdom_3_lord", 0), # Forteresse_d'Avallon - Philippe Le Bon
-      (call_script, "script_give_center_to_lord", "p_castle_49", "trp_knight_3_16", 0), # Château_de_Varenne-lès-Mâcon - Guillaume IV de Vienne
-      (call_script, "script_give_center_to_lord", "p_castle_50", "trp_knight_3_1", 0), # Château_de_Toulongeon - Antoine de Toulongeon
-
-      (call_script, "script_give_center_to_lord", "p_castle_51", "trp_knight_3_4", 0), # Château_de_Ligny-en-Barrois - Pierre Ier de Luxembourg
-      (call_script, "script_give_center_to_lord", "p_castle_52", "trp_knight_3_13", 0), # Château_de_Jonvelle - Jean de La Trémoille
-      (call_script, "script_give_center_to_lord", "p_castle_53", "trp_knight_3_7", 0), # Forteresse_de_Noyelles - Baudot de Noyelles
-      (call_script, "script_give_center_to_lord", "p_castle_54", "trp_knight_3_8", 0), # Château_de_Montfort - Pierre de Bauffremont
-      (call_script, "script_give_center_to_lord", "p_castle_55", "trp_knight_3_9", 0), # Forteresse_de_La_Rochepot - Régnier Pot
-      (call_script, "script_give_center_to_lord", "p_castle_56", "trp_knight_3_14", 0), # Château_de_Vergy - Antoine de Vergy
-      (call_script, "script_give_center_to_lord", "p_castle_57", "trp_knight_3_12", 0), # Château_de_Brimeu - Jacques de Brimeu
-      (call_script, "script_give_center_to_lord", "p_castle_58", "trp_knight_3_11", 0), # Château_de_Bellemotte - David de Brimeu
-      (call_script, "script_give_center_to_lord", "p_castle_59", "trp_knight_3_19", 0), # Forteresse_d'Uytkerke - Roland d'Uytkerke
-      (call_script, "script_give_center_to_lord", "p_castle_60", "trp_knight_3_3", 0), # Château_de_La_Charité-sur-Loire - Charles de Bourgogne
-
-      (call_script, "script_give_center_to_lord", "p_castle_61", "trp_knight_3_10", 0), # Forteresse_de_L'Isle_Adam - Jean de Villiers de l'Isle-Adam
-      (call_script, "script_give_center_to_lord", "p_castle_62", "trp_kingdom_3_lord", 0), # Château_de_Senlis - Philippe Le Bon
-      (call_script, "script_give_center_to_lord", "p_castle_63", "trp_knight_3_17", 0), # Château_de_Montcornet - Antoine I de Croÿ
-      (call_script, "script_give_center_to_lord", "p_castle_64", "trp_knight_3_18", 0), # Château_de_Chimay - Jean II de Croÿ  
- 
-### Breton Castles	  
-      (call_script, "script_give_center_to_lord", "p_castle_65", "trp_knight_4_1", 0), # Château_de_Fougères - Arthur de Richemont
-      (call_script, "script_give_center_to_lord", "p_castle_66", "trp_knight_4_15", 0), # Châteaubriant - Bertrand de Dinan
-      (call_script, "script_give_center_to_lord", "p_castle_67", "trp_knight_4_16", 0), # Château_de_Dinan - Jacques de Dinan
-      (call_script, "script_give_center_to_lord", "p_castle_68", "trp_knight_4_2", 0), # Château_de_Clisson - Richard de Montfort
-      (call_script, "script_give_center_to_lord", "p_castle_69", "trp_knight_4_9", 0), # Château_de_Josselin - Alain IX de Rohan
-      (call_script, "script_give_center_to_lord", "p_castle_70", "trp_knight_4_9", 0), # Forteresse_de_Roch'Morvan - Alain IX de Rohan
-
-      (call_script, "script_give_center_to_lord", "p_castle_71", "trp_knight_4_11", 0), # Château_de_Guéméné - Charles de Rohan-Guéméné
-      (call_script, "script_give_center_to_lord", "p_castle_72", "trp_knight_4_14", 0), # Château_de_Rochefort - Pierre de Rochefort, Seigneur de Rieux et de Rochefort	  
-      (call_script, "script_give_center_to_lord", "p_castle_73", "trp_knight_4_18", 0), # Château_de_Tonquédec - Rolland III de Coëtmen
-      (call_script, "script_give_center_to_lord", "p_castle_74", "trp_knight_4_13", 0), # Château_de_Rosmadec - Guillaume de Rosmadec
-      (call_script, "script_give_center_to_lord", "p_castle_75", "trp_knight_4_5", 0), # Château_de_Coëtivy - Prigent VII de Coëtivy
-      (call_script, "script_give_center_to_lord", "p_castle_76", "trp_knight_4_4", 0), # Château_de_Trémazan - Tanneguy III Du Chastel
-      (call_script, "script_give_center_to_lord", "p_castle_77", "trp_knight_4_6", 0), # Château_de_Kermoysan - Tugdual de Kermoysan
-      (call_script, "script_give_center_to_lord", "p_castle_78", "trp_knight_4_17", 0), # Château_de_Coëtquen - Raoul V de Coëtquen
-      (call_script, "script_give_center_to_lord", "p_castle_79", "trp_knight_4_3", 0), # Château_de_Penhoët - Jean de Penhoët
-
-      (call_script, "script_give_center_to_lord", "p_castle_80", "trp_knight_4_7", 0), # Château_de_Penmarc'h - Henri Penmarc'h
-      (call_script, "script_give_center_to_lord", "p_castle_81", "trp_knight_4_1", 0), # Forteresse_de_Kemperlé - Arthur de Richemont
-      (call_script, "script_give_center_to_lord", "p_castle_82", "trp_knight_4_12", 0), # Château_d'Hen_Bont - Louis I de Rohan-Guéméné	  
-      (call_script, "script_give_center_to_lord", "p_castle_83", "trp_knight_4_14", 0), # Château_de_Derval - Pierre de Rochefort
-      (call_script, "script_give_center_to_lord", "p_castle_84", "trp_knight_4_1", 0), # Château_de_Suscinio - Arthur de Richemont
-      (call_script, "script_give_center_to_lord", "p_castle_85", "trp_knight_4_10", 0), # Forteresse_de_Roch'an - Alain X de Rohan
-      (call_script, "script_give_center_to_lord", "p_castle_86", "trp_knight_4_1", 0), # Forteresse_de_Dol - Arthur de Richemont             
-	  
-	  
-	  
-	  #Add home centers for claimants
-	  # (troop_set_slot, "trp_kingdom_1_pretender", slot_troop_home, "p_town_4"),#Lady Isolle - Suno
-	  # (troop_set_slot, "trp_kingdom_2_pretender", slot_troop_home, "p_town_11"),#Prince Valdym - Curaw
-      # (troop_set_slot, "trp_kingdom_3_pretender", slot_troop_home, "p_town_18"),#Dustum Khan - Narra
-      # (troop_set_slot, "trp_kingdom_4_pretender", slot_troop_home, "p_town_12"),#Lethwin Far-Seeker - Wercheg
-      # (troop_set_slot, "trp_kingdom_5_pretender", slot_troop_home, "p_town_3"),#Lord Kastor - Veluca
-	  # (troop_set_slot, "trp_kingdom_6_pretender", slot_troop_home, "p_town_20"),#Arwa the Pearled One - Durquba
- 	  #add ancestral fiefs to home slots (mods not using standard NPCs should remove this)
-      # (troop_set_slot, "trp_knight_2_10", slot_troop_home, "p_castle_29"), #Nelag_Castle
-      # (troop_set_slot, "trp_knight_3_4", slot_troop_home, "p_castle_30"), #Asugan_Castle
-      # (troop_set_slot, "trp_knight_1_3", slot_troop_home, "p_castle_35"), #Haringoth_Castle
-      # (troop_set_slot, "trp_knight_5_11", slot_troop_home, "p_castle_33"), #Etrosq_Castle
-	  #Also the primary six towns:
-	  # (troop_set_slot, "trp_kingdom_1_lord", slot_troop_home, "p_town_6"),#King Harlaus to Praven
-	  # (troop_set_slot, "trp_kingdom_2_lord", slot_troop_home, "p_town_8"),#King Yaroglek to Reyvadin
-	  # (troop_set_slot, "trp_kingdom_3_lord", slot_troop_home, "p_town_10"),#Sanjar Khan to Tulga
-	  # (troop_set_slot, "trp_kingdom_4_lord", slot_troop_home, "p_town_1"),#King Ragnar to Sargoth
-	  # (troop_set_slot, "trp_kingdom_5_lord", slot_troop_home, "p_town_5"),#King Graveth to Jelkala
-	  # (troop_set_slot, "trp_kingdom_6_lord", slot_troop_home, "p_town_19"),#Sultan Hakim to Shariz
-	  
-	  
-      ##Also set home slots for starting quest merchants (merchant of praven, merchant of reyvadin, etc.)
-      (try_for_range, ":npc", kings_begin, kings_end),
-         (troop_get_slot, ":center_no", ":npc", slot_troop_home),
-         (val_sub, ":npc", kings_begin),
-         (val_add, ":npc", startup_merchants_begin),
-         (is_between, ":npc", startup_merchants_begin, startup_merchants_end),#Right now there's a startup merchant for each faction.  Verify this hasn't unexpectedly changed.
-         (neg|troop_slot_ge, ":npc", slot_troop_home, 1),#Verify that the home slot is not already set
-         (troop_set_slot, ":npc", slot_troop_home, ":center_no"),
-      (try_end),
-      ##diplomacy end+
-
+      (call_script, "script_assign_major_centers"), # Major Script for Assigning Centers
       (call_script, "script_assign_lords_to_empty_centers"),
 
 	  #set original factions
@@ -1004,25 +229,25 @@ scripts = [
         (party_set_slot, ":center_no", slot_center_culture,  ":culture"),
         (party_set_slot, ":center_no", slot_center_original_faction,  ":original_faction"),
         (party_set_slot, ":center_no", slot_center_ex_faction,  ":original_faction"),
-		##diplomacy start+ set additional slots
-		(party_get_slot, ":town_lord", ":center_no", slot_town_lord),
+		    ##diplomacy start+ set additional slots
+		    (party_get_slot, ":town_lord", ":center_no", slot_town_lord),
 
-		(try_begin),
-			(eq, ":town_lord", "trp_player"),
-			#Use trp_kingdom_heroes_including_player_begin instead of trp_player as a workaround for
-			#old saved games (since uninitialized memory is 0).
-			(party_set_slot, ":center_no", dplmc_slot_center_ex_lord, "trp_kingdom_heroes_including_player_begin"),
-			(troop_slot_eq, "trp_player", slot_troop_home, ":center_no"),
-			(neg|party_slot_ge, ":center_no", dplmc_slot_center_original_lord, 1),
-			(party_set_slot, ":center_no", dplmc_slot_center_original_lord, "trp_kingdom_heroes_including_player_begin"),
-		(else_try),
-			(party_set_slot, ":center_no", dplmc_slot_center_ex_lord, ":town_lord"),
-			(ge, ":town_lord", 0),
-			(troop_slot_eq, ":town_lord", slot_troop_home, ":center_no"),
-			(neg|party_slot_ge, ":center_no", dplmc_slot_center_original_lord, 1),
-			(party_set_slot, ":center_no", dplmc_slot_center_original_lord, ":town_lord"),
-		(try_end),
-		##diplomacy end+
+    		(try_begin),
+    			(eq, ":town_lord", "trp_player"),
+    			#Use trp_kingdom_heroes_including_player_begin instead of trp_player as a workaround for
+    			#old saved games (since uninitialized memory is 0).
+    			(party_set_slot, ":center_no", dplmc_slot_center_ex_lord, "trp_kingdom_heroes_including_player_begin"),
+    			(troop_slot_eq, "trp_player", slot_troop_home, ":center_no"),
+    			(neg|party_slot_ge, ":center_no", dplmc_slot_center_original_lord, 1),
+    			(party_set_slot, ":center_no", dplmc_slot_center_original_lord, "trp_kingdom_heroes_including_player_begin"),
+    		(else_try),
+    			(party_set_slot, ":center_no", dplmc_slot_center_ex_lord, ":town_lord"),
+    			(ge, ":town_lord", 0),
+    			(troop_slot_eq, ":town_lord", slot_troop_home, ":center_no"),
+    			(neg|party_slot_ge, ":center_no", dplmc_slot_center_original_lord, 1),
+    			(party_set_slot, ":center_no", dplmc_slot_center_original_lord, ":town_lord"),
+    		(try_end),
+    		##diplomacy end+
       (try_end),
 
 	  #set territorial disputes/outstanding border issues
@@ -1292,10 +517,15 @@ scripts = [
       #(try_for_range, ":unused", 0, 25),
       #  (spawn_around_party, "p_main_party", "pt_looters"),
       #(try_end),
-
-      (try_for_range, ":unused", 0, 10),
+      (options_get_campaign_ai, ":difficulty_setting"), # Will be used occasionally
+      # Spawn initial bandits, now based on difficulty
+      (store_sub, ":max_bandits", 4, ":difficulty_setting"),
+      (val_mul, ":max_bandits", 5),
+      (try_for_range, ":unused", 0, ":max_bandits"), # was 10
         (call_script, "script_spawn_bandits"),
       (try_end),
+      (call_script, "script_spawn_bandit_lairs"),
+
 
       #we are adding looter parties around each village with 1/5 probability.
       (set_spawn_radius, 5),
@@ -1496,426 +726,8 @@ scripts = [
     #Kham - Init variables
 
     (assign, "$first_time", 0), #squelch compiler warnings
-	
-##################################################################################################################################################################################################################################################################################################################
-###################################################################################################### HYW CUSTOM ARMORS #########################################################################################################################################################################################
-##################################################################################################################################################################################################################################################################################################################
-		
 
-
-## Padded Cloth
-      (item_set_slot, "itm_a_padded_cloth_custom", slot_item_materials_begin, "str_a_padded_cloth_blue"),
-      (item_set_slot, "itm_a_padded_cloth_custom", slot_item_materials_end, "str_a_padded_cloth_end"),
-# France
-      (item_set_slot, "itm_a_padded_cloth_custom", slot_item_france_materials_begin, "str_a_padded_cloth_blue"),
-      (item_set_slot, "itm_a_padded_cloth_custom", slot_item_france_materials_end, "str_a_padded_cloth_english"),
-# England
-      (item_set_slot, "itm_a_padded_cloth_custom", slot_item_english_materials_begin, "str_a_padded_cloth_white"),
-      (item_set_slot, "itm_a_padded_cloth_custom", slot_item_english_materials_end, "str_a_padded_cloth_brown"),
-# Burgundy
-      (item_set_slot, "itm_a_padded_cloth_custom", slot_item_burgundy_materials_begin, "str_a_padded_cloth_red"),
-      (item_set_slot, "itm_a_padded_cloth_custom", slot_item_burgundy_materials_end, "str_a_padded_cloth_half_black"),
-# Brittany		
-      (item_set_slot, "itm_a_padded_cloth_custom", slot_item_breton_materials_begin, "str_a_padded_cloth_half_black"),
-      (item_set_slot, "itm_a_padded_cloth_custom", slot_item_breton_materials_end, "str_a_padded_cloth_yellow"),
-# Flemish Mercenaries		
-      (item_set_slot, "itm_a_padded_cloth_custom", slot_item_flemish_materials_begin, "str_a_padded_cloth_black"),
-      (item_set_slot, "itm_a_padded_cloth_custom", slot_item_flemish_materials_end, "str_a_padded_cloth_green"),	
-# Rebels	
-      (item_set_slot, "itm_a_padded_cloth_custom", slot_item_rebel_materials_begin, "str_a_padded_cloth_green"),
-      (item_set_slot, "itm_a_padded_cloth_custom", slot_item_rebel_materials_end, "str_a_padded_cloth_end"),			
-      (item_set_slot, "itm_a_padded_cloth_custom", slot_item_num_components, 1),
-      
-## Peasant Clothes
-       (item_set_slot, "itm_a_peasant_man_custom", slot_item_materials_begin, "str_a_peasant_man_blue"),
-      (item_set_slot, "itm_a_peasant_man_custom", slot_item_materials_end, "str_a_peasant_man_end"),
-# France
-      (item_set_slot, "itm_a_peasant_man_custom", slot_item_france_materials_begin, "str_a_peasant_man_blue"),
-      (item_set_slot, "itm_a_peasant_man_custom", slot_item_france_materials_end, "str_a_peasant_man_green_2"),
-# England
-      (item_set_slot, "itm_a_peasant_man_custom", slot_item_english_materials_begin, "str_a_peasant_man_green"),
-      (item_set_slot, "itm_a_peasant_man_custom", slot_item_english_materials_end, "str_a_peasant_man_brown"),
-# Burgundy
-      (item_set_slot, "itm_a_peasant_man_custom", slot_item_burgundy_materials_begin, "str_a_peasant_man_yellow_2"),
-      (item_set_slot, "itm_a_peasant_man_custom", slot_item_burgundy_materials_end, "str_a_peasant_man_black_3"),
-# Brittany		
-      (item_set_slot, "itm_a_peasant_man_custom", slot_item_breton_materials_begin, "str_a_peasant_man_brown_2"),
-      (item_set_slot, "itm_a_peasant_man_custom", slot_item_breton_materials_end, "str_a_peasant_man_black"),	
-# Flemish Mercenaries		
-      (item_set_slot, "itm_a_peasant_man_custom", slot_item_flemish_materials_begin, "str_a_peasant_man_black"),
-      (item_set_slot, "itm_a_peasant_man_custom", slot_item_flemish_materials_end, "str_a_peasant_man_end"),			
-      (item_set_slot, "itm_a_peasant_man_custom", slot_item_num_components, 1),    
-		
-## Native Woman Common Dress
-      (item_set_slot, "itm_a_woman_common_dress_1_custom", slot_item_materials_begin, "str_a_woman_common_dress_black"),
-      (item_set_slot, "itm_a_woman_common_dress_1_custom", slot_item_materials_end, "str_a_woman_common_dress_end"),	
-      (item_set_slot, "itm_a_woman_common_dress_1_custom", slot_item_num_components, 1),    
-	  
-## Native Woman Common Dress 2
-      (item_set_slot, "itm_a_woman_common_dress_2_custom", slot_item_materials_begin, "str_a_woman_common_dress_2_blue"),
-      (item_set_slot, "itm_a_woman_common_dress_2_custom", slot_item_materials_end, "str_a_woman_common_dress_2_end"),	
-      (item_set_slot, "itm_a_woman_common_dress_2_custom", slot_item_num_components, 1),    
-
-## Native shirt
-      (item_set_slot, "itm_a_peasant_shirt_custom", slot_item_materials_begin, "str_a_shirt_black"),
-      (item_set_slot, "itm_a_peasant_shirt_custom", slot_item_materials_end, "str_a_shirt_end"),	
-      (item_set_slot, "itm_a_peasant_shirt_custom", slot_item_num_components, 1),    	  
-	  
-## Nobleman Court Outfit
-      (item_set_slot, "itm_a_nobleman_court_outfit_custom", slot_item_materials_begin, "str_a_nobleman_outfit_french"),
-      (item_set_slot, "itm_a_nobleman_court_outfit_custom", slot_item_materials_end, "str_a_nobleman_outfit_end"),
-# France
-      (item_set_slot, "itm_a_nobleman_court_outfit_custom", slot_item_france_materials_begin, "str_a_nobleman_outfit_french"),
-      (item_set_slot, "itm_a_nobleman_court_outfit_custom", slot_item_france_materials_end, "str_a_nobleman_outfit_english"),
-# England
-      (item_set_slot, "itm_a_nobleman_court_outfit_custom", slot_item_english_materials_begin, "str_a_nobleman_outfit_english"),
-      (item_set_slot, "itm_a_nobleman_court_outfit_custom", slot_item_english_materials_end, "str_a_nobleman_outfit_burgundian"),
-# Burgundy
-      (item_set_slot, "itm_a_nobleman_court_outfit_custom", slot_item_burgundy_materials_begin, "str_a_nobleman_outfit_burgundian"),
-      (item_set_slot, "itm_a_nobleman_court_outfit_custom", slot_item_burgundy_materials_end, "str_a_nobleman_outfit_breton"),
-# Brittany		
-      (item_set_slot, "itm_a_nobleman_court_outfit_custom", slot_item_breton_materials_begin, "str_a_nobleman_outfit_breton"),
-      (item_set_slot, "itm_a_nobleman_court_outfit_custom", slot_item_breton_materials_end, "str_a_nobleman_outfit_end"),		
-      (item_set_slot, "itm_a_nobleman_court_outfit_custom", slot_item_num_components, 1),    	
-	  
-## Gambeson
-      (item_set_slot, "itm_a_gambeson_custom", slot_item_materials_begin, "str_a_gambeson_blue"),
-      (item_set_slot, "itm_a_gambeson_custom", slot_item_materials_end, "str_a_gambeson_end"),
-# France
-      (item_set_slot, "itm_a_gambeson_custom", slot_item_france_materials_begin, "str_a_gambeson_blue"),
-      (item_set_slot, "itm_a_gambeson_custom", slot_item_france_materials_end, "str_a_gambeson_red"),
-# England
-      (item_set_slot, "itm_a_gambeson_custom", slot_item_english_materials_begin, "str_a_gambeson_white"),
-      (item_set_slot, "itm_a_gambeson_custom", slot_item_english_materials_end, "str_a_gambeson_brown"),
-# Burgundy
-      (item_set_slot, "itm_a_gambeson_custom", slot_item_burgundy_materials_begin, "str_a_gambeson_red"),
-      (item_set_slot, "itm_a_gambeson_custom", slot_item_burgundy_materials_end, "str_a_gambeson_black"),
-# Brittany		
-      (item_set_slot, "itm_a_gambeson_custom", slot_item_breton_materials_begin, "str_a_gambeson_brown"),
-      (item_set_slot, "itm_a_gambeson_custom", slot_item_breton_materials_end, "str_a_gambeson_green"),	
-# Rebels		
-      (item_set_slot, "itm_a_gambeson_custom", slot_item_rebel_materials_begin, "str_a_gambeson_green"),
-      (item_set_slot, "itm_a_gambeson_custom", slot_item_rebel_materials_end, "str_a_gambeson_end"),			
-      (item_set_slot, "itm_a_gambeson_custom", slot_item_num_components, 1),    		
-		
-## Padded Armor
-      (item_set_slot, "itm_a_padded_armor_custom", slot_item_materials_begin, "str_a_padded_armor_blue"),
-      (item_set_slot, "itm_a_padded_armor_custom", slot_item_materials_end, "str_a_padded_armor_end"),
-# France
-      (item_set_slot, "itm_a_padded_armor_custom", slot_item_france_materials_begin, "str_a_padded_armor_blue"),
-      (item_set_slot, "itm_a_padded_armor_custom", slot_item_france_materials_end, "str_a_padded_armor_red"),
-# England
-      (item_set_slot, "itm_a_padded_armor_custom", slot_item_english_materials_begin, "str_a_padded_armor_white"),
-      (item_set_slot, "itm_a_padded_armor_custom", slot_item_english_materials_end, "str_a_padded_armor_brown"),
-# Burgundy
-      (item_set_slot, "itm_a_padded_armor_custom", slot_item_burgundy_materials_begin, "str_a_padded_armor_red"),
-      (item_set_slot, "itm_a_padded_armor_custom", slot_item_burgundy_materials_end, "str_a_padded_armor_black"),
-# Brittany		
-      (item_set_slot, "itm_a_padded_armor_custom", slot_item_breton_materials_begin, "str_a_padded_armor_brown"),
-      (item_set_slot, "itm_a_padded_armor_custom", slot_item_breton_materials_end, "str_a_padded_armor_green"),	
-# Rebels		
-      (item_set_slot, "itm_a_padded_armor_custom", slot_item_rebel_materials_begin, "str_a_padded_armor_green"),
-      (item_set_slot, "itm_a_padded_armor_custom", slot_item_rebel_materials_end, "str_a_padded_armor_end"),			
-      (item_set_slot, "itm_a_padded_armor_custom", slot_item_num_components, 1),    				
-		
-## Narf Gambeson 
-      (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_materials_begin, "str_a_gambeson_narf_blue"),
-      (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_materials_end, "str_a_gambeson_narf_end"),
-# France
-      (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_france_materials_begin, "str_a_gambeson_narf_blue"),
-      (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_france_materials_end, "str_a_gambeson_narf_english"),
-# England
-      (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_english_materials_begin, "str_a_gambeson_narf"),
-      (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_english_materials_end, "str_a_gambeson_narf_brown"),
-# Burgundy
-      (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_burgundy_materials_begin, "str_a_gambeson_narf_red"),
-      (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_burgundy_materials_end, "str_a_gambeson_narf_black"),
-# Brittany		
-      (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_breton_materials_begin, "str_a_gambeson_narf_half_black"),
-      (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_breton_materials_end, "str_a_gambeson_narf_yellow_black"),	
-# Flemish Mercenaries		
-      (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_flemish_materials_begin, "str_a_gambeson_narf_black"),
-      (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_flemish_materials_end, "str_a_gambeson_narf_green"),	
-# Rebels		
-      (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_rebel_materials_begin, "str_a_gambeson_narf_green"),
-      (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_rebel_materials_end, "str_a_gambeson_narf_end"),			
-      (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_num_components, 1),   
-
-## Bogmir Brigandine 
-      (item_set_slot, "itm_a_brigandine_bogmir_custom", slot_item_materials_begin, "str_a_brigandine_french"),
-      (item_set_slot, "itm_a_brigandine_bogmir_custom", slot_item_materials_end, "str_a_brigandine_end"),
-# France
-      (item_set_slot, "itm_a_brigandine_bogmir_custom", slot_item_france_materials_begin, "str_a_brigandine_french"),
-      (item_set_slot, "itm_a_brigandine_bogmir_custom", slot_item_france_materials_end, "str_a_brigandine_english"),
-# England
-      (item_set_slot, "itm_a_brigandine_bogmir_custom", slot_item_english_materials_begin, "str_a_brigandine_english"),
-      (item_set_slot, "itm_a_brigandine_bogmir_custom", slot_item_english_materials_end, "str_a_brigandine_brown"),
-# Burgundy
-      (item_set_slot, "itm_a_brigandine_bogmir_custom", slot_item_burgundy_materials_begin, "str_a_brigandine_red"),
-      (item_set_slot, "itm_a_brigandine_bogmir_custom", slot_item_burgundy_materials_end, "str_a_brigandine_black"),
-# Brittany		
-      (item_set_slot, "itm_a_brigandine_bogmir_custom", slot_item_breton_materials_begin, "str_a_brigandine_brown"),
-      (item_set_slot, "itm_a_brigandine_bogmir_custom", slot_item_breton_materials_end, "str_a_brigandine_end"),			
-      (item_set_slot, "itm_a_brigandine_bogmir_custom", slot_item_num_components, 1),   	
-		
-## Padded Over Mail (Mail Hauberk)
-      (item_set_slot, "itm_a_padded_over_mail_custom", slot_item_materials_begin, "str_a_padded_over_mail_blue"),
-      (item_set_slot, "itm_a_padded_over_mail_custom", slot_item_materials_end, "str_a_padded_over_mail_end"),
-# France
-      (item_set_slot, "itm_a_padded_over_mail_custom", slot_item_france_materials_begin, "str_a_padded_over_mail_blue"),
-      (item_set_slot, "itm_a_padded_over_mail_custom", slot_item_france_materials_end, "str_a_padded_over_mail_red"),
-# England
-      (item_set_slot, "itm_a_padded_over_mail_custom", slot_item_english_materials_begin, "str_a_padded_over_mail"),
-      (item_set_slot, "itm_a_padded_over_mail_custom", slot_item_english_materials_end, "str_a_padded_over_mail_brown"),
-# Burgundy
-      (item_set_slot, "itm_a_padded_over_mail_custom", slot_item_burgundy_materials_begin, "str_a_padded_over_mail_red"),
-      (item_set_slot, "itm_a_padded_over_mail_custom", slot_item_burgundy_materials_end, "str_a_padded_over_mail_black"),
-# Brittany		
-      (item_set_slot, "itm_a_padded_over_mail_custom", slot_item_breton_materials_begin, "str_a_padded_over_mail_brown"),
-      (item_set_slot, "itm_a_padded_over_mail_custom", slot_item_breton_materials_end, "str_a_padded_over_mail_end"),			
-      (item_set_slot, "itm_a_padded_over_mail_custom", slot_item_num_components, 1),   		
-		
-## Coat of Plates
-      (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_materials_begin, "str_a_coat_of_plates_french_1"),
-      (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_materials_end, "str_a_coat_of_plates_end"),
-# France
-      (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_france_materials_begin, "str_a_coat_of_plates_french_1"),
-      (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_france_materials_end, "str_a_coat_of_plates_english_1"),
-# England
-      (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_english_materials_begin, "str_a_coat_of_plates_english_1"),
-      (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_english_materials_end, "str_a_coat_of_plates_end"),	
-      (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_num_components, 1),   			
-
-## Surcoat Over Mail
-      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_materials_begin, "str_a_surcoat_over_mail_french_1"),
-      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_materials_end, "str_a_surcoat_over_mail_end"),
-# France
-      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_france_materials_begin, "str_a_surcoat_over_mail_french_1"),
-      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_france_materials_end, "str_a_surcoat_over_mail_english_1"),
-# England
-      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_english_materials_begin, "str_a_surcoat_over_mail_english_1"),
-      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_english_materials_end, "str_a_surcoat_over_mail_breton_1"),	
-# Brittany		
-      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_breton_materials_begin, "str_a_surcoat_over_mail_breton_1"),
-      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_breton_materials_end, "str_a_surcoat_over_mail_end"),			
-      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_num_components, 1),   	
-		
-## Churburg
-      (item_set_slot, "itm_a_churburg_narf_custom", slot_item_materials_begin, "str_a_churburg_blue"),
-      (item_set_slot, "itm_a_churburg_narf_custom", slot_item_materials_end, "str_a_churburg_end"),
-# France
-      (item_set_slot, "itm_a_churburg_narf_custom", slot_item_france_materials_begin, "str_a_churburg_blue"),
-      (item_set_slot, "itm_a_churburg_narf_custom", slot_item_france_materials_end, "str_a_churburg_red"),
-# England
-      (item_set_slot, "itm_a_churburg_narf_custom", slot_item_english_materials_begin, "str_a_churburg_white"),
-      (item_set_slot, "itm_a_churburg_narf_custom", slot_item_english_materials_end, "str_a_churburg_brown"),	
-# Burgundy
-      (item_set_slot, "itm_a_churburg_narf_custom", slot_item_burgundy_materials_begin, "str_a_churburg_red"),
-      (item_set_slot, "itm_a_churburg_narf_custom", slot_item_burgundy_materials_end, "str_a_churburg_white_2"),		
-# Brittany		
-      (item_set_slot, "itm_a_churburg_narf_custom", slot_item_breton_materials_begin, "str_a_churburg_white_2"),
-      (item_set_slot, "itm_a_churburg_narf_custom", slot_item_breton_materials_end, "str_a_churburg_yellow_black"),	
-# Flemish Mercenaries		
-      (item_set_slot, "itm_a_churburg_narf_custom", slot_item_flemish_materials_begin, "str_a_churburg_black"),
-      (item_set_slot, "itm_a_churburg_narf_custom", slot_item_flemish_materials_end, "str_a_churburg_end"),		
-      (item_set_slot, "itm_a_churburg_narf_custom", slot_item_num_components, 1),   	
-		
-## Churburg Brass
-      (item_set_slot, "itm_a_churburg_brass_narf_custom", slot_item_materials_begin, "str_a_churburg_brass_blue"),
-      (item_set_slot, "itm_a_churburg_brass_narf_custom", slot_item_materials_end, "str_a_churburg_brass_end"),
-# France
-      (item_set_slot, "itm_a_churburg_brass_narf_custom", slot_item_france_materials_begin, "str_a_churburg_brass_blue"),
-      (item_set_slot, "itm_a_churburg_brass_narf_custom", slot_item_france_materials_end, "str_a_churburg_brass_red"),
-# England
-      (item_set_slot, "itm_a_churburg_brass_narf_custom", slot_item_english_materials_begin, "str_a_churburg_brass_white"),
-      (item_set_slot, "itm_a_churburg_brass_narf_custom", slot_item_english_materials_end, "str_a_churburg_brass_brown"),	
-# Burgundy
-      (item_set_slot, "itm_a_churburg_brass_narf_custom", slot_item_burgundy_materials_begin, "str_a_churburg_brass_red"),
-      (item_set_slot, "itm_a_churburg_brass_narf_custom", slot_item_burgundy_materials_end, "str_a_churburg_brass_black"),		
-# Brittany		
-      (item_set_slot, "itm_a_churburg_brass_narf_custom", slot_item_breton_materials_begin, "str_a_churburg_brass_black"),
-      (item_set_slot, "itm_a_churburg_brass_narf_custom", slot_item_breton_materials_end, "str_a_churburg_brass_end"),			
-      (item_set_slot, "itm_a_churburg_brass_narf_custom", slot_item_num_components, 1),   		
-				
-## Corrazina
-      (item_set_slot, "itm_a_corrazina_narf_custom", slot_item_materials_begin, "str_a_corrazina_blue"),
-      (item_set_slot, "itm_a_corrazina_narf_custom", slot_item_materials_end, "str_a_corrazina_end"),
-# France
-      (item_set_slot, "itm_a_corrazina_narf_custom", slot_item_france_materials_begin, "str_a_corrazina_blue"),
-      (item_set_slot, "itm_a_corrazina_narf_custom", slot_item_france_materials_end, "str_a_corrazina_red"),
-# England
-      (item_set_slot, "itm_a_corrazina_narf_custom", slot_item_english_materials_begin, "str_a_corrazina_white"),
-      (item_set_slot, "itm_a_corrazina_narf_custom", slot_item_english_materials_end, "str_a_corrazina_brown"),	
-# Burgundy
-      (item_set_slot, "itm_a_corrazina_narf_custom", slot_item_burgundy_materials_begin, "str_a_corrazina_red"),
-      (item_set_slot, "itm_a_corrazina_narf_custom", slot_item_burgundy_materials_end, "str_a_corrazina_black"),		
-# Brittany		
-      (item_set_slot, "itm_a_corrazina_narf_custom", slot_item_breton_materials_begin, "str_a_corrazina_white_2"),
-      (item_set_slot, "itm_a_corrazina_narf_custom", slot_item_breton_materials_end, "str_a_corrazina_yellow_black"),		
-# Flemish Mercenaries		
-      (item_set_slot, "itm_a_corrazina_narf_custom", slot_item_flemish_materials_begin, "str_a_corrazina_black"),
-      (item_set_slot, "itm_a_corrazina_narf_custom", slot_item_flemish_materials_end, "str_a_corrazina_end"),			
-      (item_set_slot, "itm_a_corrazina_narf_custom", slot_item_num_components, 1),   
-		
-## Early Transitional Plate
-      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_materials_begin, "str_a_early_transitional_french_1"),
-      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_materials_end, "str_a_early_transitional_end"),
-# France
-      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_france_materials_begin, "str_a_early_transitional_french_1"),
-      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_france_materials_end, "str_a_early_transitional_english_1"),
-# England
-      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_english_materials_begin, "str_a_early_transitional_white"),
-      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_english_materials_end, "str_a_early_transitional_english_2"),	
-# Burgundy
-      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_burgundy_materials_begin, "str_a_early_transitional_burgundian"),
-      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_burgundy_materials_end, "str_a_early_transitional_breton"),		
-# Brittany		
-      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_breton_materials_begin, "str_a_early_transitional_breton"),
-      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_breton_materials_end, "str_a_early_transitional_black"),		
-# Flemish Mercenaries		
-      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_flemish_materials_begin, "str_a_early_transitional_black"),
-      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_flemish_materials_end, "str_a_early_transitional_end"),
-      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_num_components, 1),   		
-				
-## Narf Brigandine 
-      (try_for_range, ":item_no", "itm_a_brigandine_narf_padded_custom", "itm_a_churburg_narf_custom"), # Seek: All the Brigandines share the same base
-			(item_set_slot, ":item_no", slot_item_materials_begin, "str_a_brigandine_narf_blue"),
-			(item_set_slot, ":item_no", slot_item_materials_end, "str_a_brigandine_narf_end"),
-	# France
-			(item_set_slot, ":item_no", slot_item_france_materials_begin, "str_a_brigandine_narf_blue"),
-			(item_set_slot, ":item_no", slot_item_france_materials_end, "str_a_brigandine_narf_english"),
-	# England
-			(item_set_slot, ":item_no", slot_item_english_materials_begin, "str_a_brigandine_narf_white"),
-			(item_set_slot, ":item_no", slot_item_english_materials_end, "str_a_brigandine_narf_brown"),
-	# Burgundy
-			(item_set_slot, ":item_no", slot_item_burgundy_materials_begin, "str_a_brigandine_narf_red"),
-			(item_set_slot, ":item_no", slot_item_burgundy_materials_end, "str_a_brigandine_narf_black_white"),
-	# Brittany		
-			(item_set_slot, ":item_no", slot_item_breton_materials_begin, "str_a_brigandine_narf_brown"),
-			(item_set_slot, ":item_no", slot_item_breton_materials_end, "str_a_brigandine_narf_yellow_black"),	
-	# Flemish Mercenaries		
-			(item_set_slot, ":item_no", slot_item_flemish_materials_begin, "str_a_brigandine_narf_black"),
-			(item_set_slot, ":item_no", slot_item_flemish_materials_end, "str_a_brigandine_narf_end"),				
-			(item_set_slot, ":item_no", slot_item_num_components, 1),   	
-      (try_end),
-		
-## Narf Aketon 
-      (try_for_range, ":item_no", "itm_a_aketon_narf_custom", "itm_a_brigandine_bogmir_custom"), # Seek: All the Aketons share the same base
-			(item_set_slot, ":item_no", slot_item_materials_begin, "str_a_aketon_narf_blue"),
-			(item_set_slot, ":item_no", slot_item_materials_end, "str_a_aketon_narf_end"),
-	# France
-			(item_set_slot, ":item_no", slot_item_france_materials_begin, "str_a_aketon_narf_blue"),
-			(item_set_slot, ":item_no", slot_item_france_materials_end, "str_a_aketon_narf_english"),
-	# England
-			(item_set_slot, ":item_no", slot_item_english_materials_begin, "str_a_aketon_narf"),
-			(item_set_slot, ":item_no", slot_item_english_materials_end, "str_a_aketon_narf_brown"),
-	# Burgundy
-			(item_set_slot, ":item_no", slot_item_burgundy_materials_begin, "str_a_aketon_narf_red"),
-			(item_set_slot, ":item_no", slot_item_burgundy_materials_end, "str_a_aketon_narf_black"),
-	# Brittany		
-			(item_set_slot, ":item_no", slot_item_breton_materials_begin, "str_a_aketon_narf_brown"),
-			(item_set_slot, ":item_no", slot_item_breton_materials_end, "str_a_aketon_narf_yellow_black"),	
-	# Flemish		
-			(item_set_slot, ":item_no", slot_item_flemish_materials_begin, "str_a_aketon_narf_black"),
-			(item_set_slot, ":item_no", slot_item_flemish_materials_end, "str_a_aketon_narf_end"),				
-			(item_set_slot, ":item_no", slot_item_num_components, 1),   	
-      (try_end),
-
-## Custom Hoods for the helmets
-      (try_for_range, ":item_no", "itm_h_bascinet_fi_hood_custom", "itm_a_peasant_man_custom"), # Seek: All the Helmets share the same base
-			(item_set_slot, ":item_no", slot_item_materials_begin, "str_h_hood_narf_blue"),
-			(item_set_slot, ":item_no", slot_item_materials_end, "str_h_hood_narf_end"),
-	# France
-			(item_set_slot, ":item_no", slot_item_france_materials_begin, "str_h_hood_narf_blue"),
-			(item_set_slot, ":item_no", slot_item_france_materials_end, "str_h_hood_narf_red"),
-	# England
-			(item_set_slot, ":item_no", slot_item_english_materials_begin, "str_h_hood_narf_white"),
-			(item_set_slot, ":item_no", slot_item_english_materials_end, "str_h_hood_narf_yellow_blue"),
-	# Burgundy
-			(item_set_slot, ":item_no", slot_item_burgundy_materials_begin, "str_h_hood_narf_white"),
-			(item_set_slot, ":item_no", slot_item_burgundy_materials_end, "str_h_hood_narf_white_2"),
-	# Brittany		
-			(item_set_slot, ":item_no", slot_item_breton_materials_begin, "str_h_hood_narf_white_2"),
-			(item_set_slot, ":item_no", slot_item_breton_materials_end, "str_h_hood_narf_yellow_black"),		
-	# Flemish Mercenaries	
-			(item_set_slot, ":item_no", slot_item_flemish_materials_begin, "str_h_hood_narf_black"),
-			(item_set_slot, ":item_no", slot_item_flemish_materials_end, "str_h_hood_narf_green"),
-	# Rebels	
-			(item_set_slot, ":item_no", slot_item_rebel_materials_begin, "str_h_hood_narf_green"),
-			(item_set_slot, ":item_no", slot_item_rebel_materials_end, "str_h_hood_narf_end"),				
-			(item_set_slot, ":item_no", slot_item_num_components, 1),   	
-      (try_end),			
-		
-###################################################################################################### HYW CUSTOM ARMORS VERTEX COLORED
-		
-## Vertex Coloured Leather Vest
-      (item_set_slot, "itm_a_leather_vest_custom", slot_item_materials_begin, "str_a_leather_vest_arms_blue"),
-      (item_set_slot, "itm_a_leather_vest_custom", slot_item_materials_end, "str_a_leather_vest_arms_end"),
-# France
-      (item_set_slot, "itm_a_leather_vest_custom", slot_item_france_materials_begin, "str_a_leather_vest_arms_blue"),
-      (item_set_slot, "itm_a_leather_vest_custom", slot_item_france_materials_end, "str_a_leather_vest_arms_red"),
-# England
-      (item_set_slot, "itm_a_leather_vest_custom", slot_item_english_materials_begin, "str_a_leather_vest_arms_white"),
-      (item_set_slot, "itm_a_leather_vest_custom", slot_item_english_materials_end, "str_a_leather_vest_arms_brown"),
-# Burgundy
-      (item_set_slot, "itm_a_leather_vest_custom", slot_item_burgundy_materials_begin, "str_a_leather_vest_arms_red"),
-      (item_set_slot, "itm_a_leather_vest_custom", slot_item_burgundy_materials_end, "str_a_leather_vest_arms_black"),
-# Brittany		
-      (item_set_slot, "itm_a_leather_vest_custom", slot_item_breton_materials_begin, "str_a_leather_vest_arms_black"),
-      (item_set_slot, "itm_a_leather_vest_custom", slot_item_breton_materials_end, "str_a_leather_vest_arms_green"),	
-# Rebels		
-      (item_set_slot, "itm_a_leather_vest_custom", slot_item_rebel_materials_begin, "str_a_leather_vest_arms_green"),
-      (item_set_slot, "itm_a_leather_vest_custom", slot_item_rebel_materials_end, "str_a_leather_vest_arms_end"),			
-      (item_set_slot, "itm_a_leather_vest_custom", slot_item_num_components, 1),      
-		
-## Vertex Coloured Leather Armor
-      (item_set_slot, "itm_a_leather_armor_custom", slot_item_materials_begin, "str_a_leather_armor_arms_blue"),
-      (item_set_slot, "itm_a_leather_armor_custom", slot_item_materials_end, "str_a_leather_armor_arms_end"),
-# France
-      (item_set_slot, "itm_a_leather_armor_custom", slot_item_france_materials_begin, "str_a_leather_armor_arms_blue"),
-      (item_set_slot, "itm_a_leather_armor_custom", slot_item_france_materials_end, "str_a_leather_armor_arms_red"),
-# England
-      (item_set_slot, "itm_a_leather_armor_custom", slot_item_english_materials_begin, "str_a_leather_armor_arms_white"),
-      (item_set_slot, "itm_a_leather_armor_custom", slot_item_english_materials_end, "str_a_leather_armor_arms_brown"),
-# Burgundy
-      (item_set_slot, "itm_a_leather_armor_custom", slot_item_burgundy_materials_begin, "str_a_leather_armor_arms_red"),
-      (item_set_slot, "itm_a_leather_armor_custom", slot_item_burgundy_materials_end, "str_a_leather_armor_arms_black"),
-# Brittany		
-      (item_set_slot, "itm_a_leather_armor_custom", slot_item_breton_materials_begin, "str_a_leather_armor_arms_black"),
-      (item_set_slot, "itm_a_leather_armor_custom", slot_item_breton_materials_end, "str_a_leather_armor_arms_green"),	
-# Rebels		
-      (item_set_slot, "itm_a_leather_armor_custom", slot_item_rebel_materials_begin, "str_a_leather_armor_arms_green"),
-      (item_set_slot, "itm_a_leather_armor_custom", slot_item_rebel_materials_end, "str_a_leather_armor_arms_end"),			
-      (item_set_slot, "itm_a_leather_armor_custom", slot_item_num_components, 1),     
-
-## Vertex Coloured Mail shirt
-      (item_set_slot, "itm_a_mail_shirt_custom", slot_item_materials_begin, "str_a_mail_shirt_arms_blue"),
-      (item_set_slot, "itm_a_mail_shirt_custom", slot_item_materials_end, "str_a_mail_shirt_arms_end"),
-# France
-      (item_set_slot, "itm_a_mail_shirt_custom", slot_item_france_materials_begin, "str_a_mail_shirt_arms_blue"),
-      (item_set_slot, "itm_a_mail_shirt_custom", slot_item_france_materials_end, "str_a_mail_shirt_arms_red"),
-# England
-      (item_set_slot, "itm_a_mail_shirt_custom", slot_item_english_materials_begin, "str_a_mail_shirt_arms_white"),
-      (item_set_slot, "itm_a_mail_shirt_custom", slot_item_english_materials_end, "str_a_mail_shirt_arms_brown"),
-# Burgundy
-      (item_set_slot, "itm_a_mail_shirt_custom", slot_item_burgundy_materials_begin, "str_a_mail_shirt_arms_red"),
-      (item_set_slot, "itm_a_mail_shirt_custom", slot_item_burgundy_materials_end, "str_a_mail_shirt_arms_black"),
-# Brittany		
-      (item_set_slot, "itm_a_mail_shirt_custom", slot_item_breton_materials_begin, "str_a_mail_shirt_arms_black"),
-      (item_set_slot, "itm_a_mail_shirt_custom", slot_item_breton_materials_end, "str_a_mail_shirt_arms_green"),	
-# Rebels		
-      (item_set_slot, "itm_a_mail_shirt_custom", slot_item_rebel_materials_begin, "str_a_mail_shirt_arms_green"),
-      (item_set_slot, "itm_a_mail_shirt_custom", slot_item_rebel_materials_end, "str_a_mail_shirt_arms_end"),			
-      (item_set_slot, "itm_a_mail_shirt_custom", slot_item_num_components, 1),     		
-
-      #Init Custom Armors
-      (try_for_range, ":item_no", "itm_h_bascinet_fi_hood_custom", "itm_items_end"), # Seek: Changed the range
-          (item_get_slot, ":materials_begin", ":item_no", slot_item_materials_begin),
-          (item_get_slot, ":materials_end", ":item_no", slot_item_materials_end),
-          (store_random_in_range, ":random_material", ":materials_begin", ":materials_end"),
-          (item_set_slot, ":item_no", slot_item_player_color, ":random_material"), # Kham: Set to a Random Colour.
-          (item_set_slot, ":item_no", slot_item_num_components, 1), #allows it to be customized
-      (try_end),	
+    (call_script, "script_initialize_custom_armor_data"), 
 
     ]),
 
@@ -7730,6 +6542,28 @@ scripts = [
 
 	("initialize_aristocracy",
 	[
+
+  #Warband changes begin -- set this early
+    (try_for_range, ":npc", active_npcs_including_player_begin, kingdom_ladies_end), #SB : range
+      
+      (try_begin),
+        (eq, ":npc", active_npcs_including_player_begin),
+        (assign, ":npc", "trp_player"),
+      (try_end),
+      # (is_between, ":npc", active_npcs_begin, kingdom_ladies_end),
+      (troop_set_slot, ":npc", slot_troop_father, -1),
+      (troop_set_slot, ":npc", slot_troop_mother, -1),
+      (troop_set_slot, ":npc", slot_troop_guardian, -1),
+      (troop_set_slot, ":npc", slot_troop_spouse, -1),
+      (troop_set_slot, ":npc", slot_troop_betrothed, -1),
+      (troop_set_slot, ":npc", slot_troop_prisoner_of_party, -1),
+      (troop_set_slot, ":npc", slot_lady_last_suitor, -1),
+      (troop_set_slot, ":npc", slot_troop_stance_on_faction_issue, -1),
+
+      (store_random_in_range, ":decision_seed", 0, 10000),
+      (troop_set_slot, ":npc", slot_troop_set_decision_seed, ":decision_seed"), #currently not used
+      (troop_set_slot, ":npc", slot_troop_temp_decision_seed, ":decision_seed"),  #currently not used, holds for at least 24 hours
+    (try_end),
 	  #LORD OCCUPATIONS, BLOOD RELATIONSHIPS, RENOWN AND REPUTATIONS
 
 	  #King ages
@@ -8210,6 +7044,129 @@ scripts = [
     ("initialize_faction_troop_types",
     [
 
+# Cultures:
+      (faction_set_slot, "fac_culture_1",  slot_faction_tier_1_troop, "trp_french_peasant"),
+      (faction_set_slot, "fac_culture_1",  slot_faction_tier_2_troop, "trp_french_militia"),
+      (faction_set_slot, "fac_culture_1",  slot_faction_tier_3_troop, "trp_french_voulgier"),
+      (faction_set_slot, "fac_culture_1",  slot_faction_tier_4_troop, "trp_french_man_at_arms"),
+      (faction_set_slot, "fac_culture_1",  slot_faction_tier_5_troop, "trp_french_captain"),
+      (faction_set_slot, "fac_culture_1",  slot_faction_tier_6_troop, "trp_french_squire"),
+      (faction_set_slot, "fac_culture_1",  slot_faction_tier_1_archer, "trp_french_peasant_archer"),
+      
+      (faction_set_slot, "fac_culture_2", slot_faction_tier_1_troop, "trp_english_peasant"),
+      (faction_set_slot, "fac_culture_2", slot_faction_tier_2_troop, "trp_english_yeoman"),
+      (faction_set_slot, "fac_culture_2", slot_faction_tier_3_troop, "trp_english_spearman"),
+      (faction_set_slot, "fac_culture_2", slot_faction_tier_4_troop, "trp_english_heavy_infantry"),
+      (faction_set_slot, "fac_culture_2", slot_faction_tier_5_troop, "trp_english_captain"),
+      (faction_set_slot, "fac_culture_2", slot_faction_tier_6_troop, "trp_english_squire"),
+      (faction_set_slot, "fac_culture_2",  slot_faction_tier_1_archer, "trp_english_peasant_archer"),
+      
+      (faction_set_slot, "fac_culture_3", slot_faction_tier_1_troop, "trp_burgundian_peasant"),
+      (faction_set_slot, "fac_culture_3", slot_faction_tier_2_troop, "trp_burgundian_militia"),
+      (faction_set_slot, "fac_culture_3", slot_faction_tier_3_troop, "trp_burgundian_pikeman"),
+      (faction_set_slot, "fac_culture_3", slot_faction_tier_4_troop, "trp_burgundian_halberdier"),
+      (faction_set_slot, "fac_culture_3", slot_faction_tier_5_troop, "trp_burgundian_captain"),
+      (faction_set_slot, "fac_culture_3", slot_faction_tier_6_troop, "trp_burgundian_squire"),
+      (faction_set_slot, "fac_culture_3",  slot_faction_tier_1_archer, "trp_burgundian_militia_archer"),
+      
+      (faction_set_slot, "fac_culture_4", slot_faction_tier_1_troop, "trp_breton_peasant"),
+      (faction_set_slot, "fac_culture_4", slot_faction_tier_2_troop, "trp_breton_militia"),
+      (faction_set_slot, "fac_culture_4", slot_faction_tier_3_troop, "trp_breton_infantry"),
+      (faction_set_slot, "fac_culture_4", slot_faction_tier_4_troop, "trp_breton_man_at_arms"),
+      (faction_set_slot, "fac_culture_4", slot_faction_tier_5_troop, "trp_breton_captain"),
+      (faction_set_slot, "fac_culture_4", slot_faction_tier_6_troop, "trp_breton_squire"),
+      (faction_set_slot, "fac_culture_4",  slot_faction_tier_1_archer, "trp_breton_peasant_archer"),
+
+      # (faction_set_slot, "fac_culture_5", slot_faction_tier_1_troop, "trp_rhodok_tribesman"),
+      # (faction_set_slot, "fac_culture_5", slot_faction_tier_2_troop, "trp_rhodok_spearman"),
+      # (faction_set_slot, "fac_culture_5", slot_faction_tier_3_troop, "trp_rhodok_trained_spearman"),
+      # (faction_set_slot, "fac_culture_5", slot_faction_tier_4_troop, "trp_rhodok_veteran_spearman"),
+      # (faction_set_slot, "fac_culture_5", slot_faction_tier_5_troop, "trp_rhodok_sergeant"),
+
+      # (faction_set_slot, "fac_culture_6", slot_faction_tier_1_troop, "trp_sarranid_recruit"),
+      # (faction_set_slot, "fac_culture_6", slot_faction_tier_2_troop, "trp_sarranid_footman"),
+      # (faction_set_slot, "fac_culture_6", slot_faction_tier_3_troop, "trp_sarranid_archer"),
+      # (faction_set_slot, "fac_culture_6", slot_faction_tier_4_troop, "trp_sarranid_horseman"),
+      # (faction_set_slot, "fac_culture_6", slot_faction_tier_5_troop, "trp_sarranid_mamluke"),
+
+      (faction_set_slot, "fac_culture_1", slot_faction_town_walker_male_troop, "trp_town_walker_1"),
+      (faction_set_slot, "fac_culture_1", slot_faction_town_walker_female_troop, "trp_town_walker_2"),
+      (faction_set_slot, "fac_culture_1", slot_faction_village_walker_male_troop, "trp_village_walker_1"),
+      (faction_set_slot, "fac_culture_1", slot_faction_village_walker_female_troop, "trp_village_walker_2"),
+      (faction_set_slot, "fac_culture_1", slot_faction_town_spy_male_troop, "trp_spy_walker_1"),
+      (faction_set_slot, "fac_culture_1", slot_faction_town_spy_female_troop, "trp_spy_walker_2"),
+
+      (faction_set_slot, "fac_culture_2", slot_faction_town_walker_male_troop, "trp_town_walker_1"),
+      (faction_set_slot, "fac_culture_2", slot_faction_town_walker_female_troop, "trp_town_walker_2"),
+      (faction_set_slot, "fac_culture_2", slot_faction_village_walker_male_troop, "trp_village_walker_1"),
+      (faction_set_slot, "fac_culture_2", slot_faction_village_walker_female_troop, "trp_village_walker_2"),
+      (faction_set_slot, "fac_culture_2", slot_faction_town_spy_male_troop, "trp_spy_walker_1"),
+      (faction_set_slot, "fac_culture_2", slot_faction_town_spy_female_troop, "trp_spy_walker_2"),
+
+      (faction_set_slot, "fac_culture_3", slot_faction_town_walker_male_troop, "trp_khergit_townsman"),
+      (faction_set_slot, "fac_culture_3", slot_faction_town_walker_female_troop, "trp_khergit_townswoman"),
+      (faction_set_slot, "fac_culture_3", slot_faction_village_walker_male_troop, "trp_khergit_townsman"),
+      (faction_set_slot, "fac_culture_3", slot_faction_village_walker_female_troop, "trp_khergit_townswoman"),
+      (faction_set_slot, "fac_culture_3", slot_faction_town_spy_male_troop, "trp_spy_walker_1"),
+      (faction_set_slot, "fac_culture_3", slot_faction_town_spy_female_troop, "trp_spy_walker_2"),
+
+      (faction_set_slot, "fac_culture_4", slot_faction_town_walker_male_troop, "trp_town_walker_1"),
+      (faction_set_slot, "fac_culture_4", slot_faction_town_walker_female_troop, "trp_town_walker_2"),
+      (faction_set_slot, "fac_culture_4", slot_faction_village_walker_male_troop, "trp_village_walker_1"),
+      (faction_set_slot, "fac_culture_4", slot_faction_village_walker_female_troop, "trp_village_walker_2"),
+      (faction_set_slot, "fac_culture_4", slot_faction_town_spy_male_troop, "trp_spy_walker_1"),
+      (faction_set_slot, "fac_culture_4", slot_faction_town_spy_female_troop, "trp_spy_walker_2"),
+
+      (faction_set_slot, "fac_culture_5", slot_faction_town_walker_male_troop, "trp_town_walker_1"),
+      (faction_set_slot, "fac_culture_5", slot_faction_town_walker_female_troop, "trp_town_walker_2"),
+      (faction_set_slot, "fac_culture_5", slot_faction_village_walker_male_troop, "trp_village_walker_1"),
+      (faction_set_slot, "fac_culture_5", slot_faction_village_walker_female_troop, "trp_village_walker_2"),
+      (faction_set_slot, "fac_culture_5", slot_faction_town_spy_male_troop, "trp_spy_walker_1"),
+      (faction_set_slot, "fac_culture_5", slot_faction_town_spy_female_troop, "trp_spy_walker_2"),
+
+      (faction_set_slot, "fac_culture_6", slot_faction_town_walker_male_troop, "trp_sarranid_townsman"),
+      (faction_set_slot, "fac_culture_6", slot_faction_town_walker_female_troop, "trp_sarranid_townswoman"),
+      (faction_set_slot, "fac_culture_6", slot_faction_village_walker_male_troop, "trp_sarranid_townsman"),
+      (faction_set_slot, "fac_culture_6", slot_faction_village_walker_female_troop, "trp_sarranid_townswoman"),
+      (faction_set_slot, "fac_culture_6", slot_faction_town_spy_male_troop, "trp_spy_walker_1"),
+      (faction_set_slot, "fac_culture_6", slot_faction_town_spy_female_troop, "trp_spy_walker_2"),
+
+      (try_begin),
+        (eq, "$cheat_mode", 1),
+        (assign, reg3, "$cheat_mode"),
+        (display_message, "@{!}DEBUG : Completed faction troop assignments, cheat mode: {reg3}"),
+      (try_end),
+
+# Kingdom Culture Settings
+      (faction_set_slot, "fac_kingdom_1",  slot_faction_culture, "fac_culture_1"),
+      (faction_set_slot, "fac_kingdom_1",  slot_faction_leader, "trp_kingdom_1_lord"),
+      (troop_set_slot, "trp_kingdom_1_lord", slot_troop_renown, 1200),
+
+      (faction_set_slot, "fac_kingdom_2",  slot_faction_culture, "fac_culture_2"),
+      (faction_set_slot, "fac_kingdom_2",  slot_faction_leader, "trp_kingdom_2_lord"),
+      (troop_set_slot, "trp_kingdom_2_lord", slot_troop_renown, 1200),
+
+      (faction_set_slot, "fac_kingdom_3",  slot_faction_culture, "fac_culture_3"),
+      (faction_set_slot, "fac_kingdom_3",  slot_faction_leader, "trp_kingdom_3_lord"),
+      (troop_set_slot, "trp_kingdom_3_lord", slot_troop_renown, 1200),
+
+      (faction_set_slot, "fac_kingdom_4",  slot_faction_culture, "fac_culture_4"),
+      (faction_set_slot, "fac_kingdom_4",  slot_faction_leader, "trp_kingdom_4_lord"),
+      (troop_set_slot, "trp_kingdom_4_lord", slot_troop_renown, 1200),
+
+      # (faction_set_slot, "fac_kingdom_5",  slot_faction_culture, "fac_culture_5"),
+      # (faction_set_slot, "fac_kingdom_5",  slot_faction_leader, "trp_kingdom_5_lord"),
+      # (troop_set_slot, "trp_kingdom_5_lord", slot_troop_renown, 1200),
+
+      # (faction_set_slot, "fac_kingdom_6",  slot_faction_culture, "fac_culture_6"),
+      # (faction_set_slot, "fac_kingdom_6",  slot_faction_leader, "trp_kingdom_6_lord"),
+      # (troop_set_slot, "trp_kingdom_6_lord", slot_troop_renown, 1200),
+
+# Faction Troop Types
+
+      (assign, ":player_faction_culture", "fac_culture_1"),
+      (faction_set_slot, "fac_player_supporters_faction",  slot_faction_culture, ":player_faction_culture"),
+      (faction_set_slot, "fac_player_faction",  slot_faction_culture, ":player_faction_culture"),
       (try_for_range, ":faction_no", kingdoms_begin, kingdoms_end),
         (faction_get_slot, ":culture", ":faction_no", slot_faction_culture),
 
@@ -8604,6 +7561,14 @@ scripts = [
       (item_set_slot, "itm_pork", slot_item_urban_demand, 40),
       (item_set_slot, "itm_pork", slot_item_rural_demand, 10),
       (item_set_slot, "itm_pork", slot_item_desert_demand, -1),
+
+      (try_for_range, ":item_no", trade_goods_begin, trade_goods_end),
+        (store_sub, ":offset", ":item_no", trade_goods_begin),
+        (val_add, ":offset", slot_town_trade_good_prices_begin),
+        (try_for_range, ":center_no", centers_begin, centers_end),
+          (party_set_slot, ":center_no", ":offset", average_price_factor), #1000
+        (try_end),
+      (try_end),
 
       # Setting book intelligence requirements
       (item_set_slot, "itm_book_tactics", slot_item_intelligence_requirement, 9),
@@ -40946,115 +39911,89 @@ scripts = [
      (try_end),
      ]),
 
-  #script_spawn_bandits
+
+ #script_initialize_bandits
+  # INPUT: none
+  # OUTPUT: none
+  ("initialize_bandits",
+    [
+   (party_template_set_slot, "pt_plains_bandits", slot_party_template_lair_type, "pt_plains_bandit_lair"),
+   (party_template_set_slot, "pt_steppe_bandits", slot_party_template_lair_type, "pt_steppe_bandit_lair"),
+   (party_template_set_slot, "pt_taiga_bandits", slot_party_template_lair_type, "pt_taiga_bandit_lair"),
+   (party_template_set_slot, "pt_forest_bandits", slot_party_template_lair_type, "pt_forest_bandit_lair"),
+   (party_template_set_slot, "pt_mountain_bandits", slot_party_template_lair_type, "pt_mountain_bandit_lair"),
+   (party_template_set_slot, "pt_sea_raiders", slot_party_template_lair_type, "pt_sea_raider_lair"),
+   (party_template_set_slot, "pt_desert_bandits", slot_party_template_lair_type, "pt_desert_bandit_lair"),
+  
+   (party_template_set_slot, "pt_plains_bandits", slot_party_template_lair_spawnpoint_begin, "p_plains_bandit_spawn_point_1"),
+   (party_template_set_slot, "pt_steppe_bandits", slot_party_template_lair_spawnpoint_begin, "p_steppe_bandit_spawn_point_1"),
+   (party_template_set_slot, "pt_taiga_bandits", slot_party_template_lair_spawnpoint_begin, "p_taiga_bandit_spawn_point_1"),
+   (party_template_set_slot, "pt_forest_bandits", slot_party_template_lair_spawnpoint_begin, "p_forest_bandit_spawn_point_1"),
+   (party_template_set_slot, "pt_mountain_bandits", slot_party_template_lair_spawnpoint_begin, "p_mountain_bandit_spawn_point_1"),
+   (party_template_set_slot, "pt_sea_raiders", slot_party_template_lair_spawnpoint_begin, "p_sea_raider_spawn_point_1"),
+   (party_template_set_slot, "pt_desert_bandits", slot_party_template_lair_spawnpoint_begin, "p_desert_bandit_spawn_point_1"),
+  
+   (party_template_set_slot, "pt_plains_bandits", slot_party_template_lair_spawnpoint_end, "p_steppe_bandit_spawn_point_1"),
+   (party_template_set_slot, "pt_steppe_bandits", slot_party_template_lair_spawnpoint_end, "p_taiga_bandit_spawn_point_1"),
+   (party_template_set_slot, "pt_taiga_bandits", slot_party_template_lair_spawnpoint_end, "p_forest_bandit_spawn_point_1"),
+   (party_template_set_slot, "pt_forest_bandits", slot_party_template_lair_spawnpoint_end, "p_mountain_bandit_spawn_point_1"),
+   (party_template_set_slot, "pt_mountain_bandits", slot_party_template_lair_spawnpoint_end, "p_sea_raider_spawn_point_1"),
+   (party_template_set_slot, "pt_sea_raiders", slot_party_template_lair_spawnpoint_end, "p_desert_bandit_spawn_point_1"),
+   (party_template_set_slot, "pt_desert_bandits", slot_party_template_lair_spawnpoint_end, "p_spawn_points_end"),
+  ]),  
+  
+
+#script_spawn_bandits
   # INPUT: none
   # OUTPUT: none
   ("spawn_bandits",
     [
      (set_spawn_radius,1),
-
-	 (try_begin),
-		(eq, "$cheat_mode", 1),
-		(display_message, "@{!}DEBUG : Doing spawn bandit script"),
-	 (try_end),
-
-	 (party_template_set_slot, "pt_steppe_bandits", slot_party_template_lair_type, "pt_steppe_bandit_lair"),
-	 (party_template_set_slot, "pt_taiga_bandits", slot_party_template_lair_type, "pt_taiga_bandit_lair"),
-	 (party_template_set_slot, "pt_mountain_bandits", slot_party_template_lair_type, "pt_mountain_bandit_lair"),
-	 (party_template_set_slot, "pt_forest_bandits", slot_party_template_lair_type, "pt_forest_bandit_lair"),
-	 (party_template_set_slot, "pt_sea_raiders", slot_party_template_lair_type, "pt_sea_raider_lair"),
-	 (party_template_set_slot, "pt_desert_bandits", slot_party_template_lair_type, "pt_desert_bandit_lair"),
-
-	 (party_template_set_slot, "pt_steppe_bandits", slot_party_template_lair_spawnpoint, "p_steppe_bandit_spawn_point"),
-	 (party_template_set_slot, "pt_taiga_bandits", slot_party_template_lair_spawnpoint, "p_taiga_bandit_spawn_point"),
-	 (party_template_set_slot, "pt_mountain_bandits", slot_party_template_lair_spawnpoint, "p_mountain_bandit_spawn_point"),
-	 (party_template_set_slot, "pt_forest_bandits", slot_party_template_lair_spawnpoint, "p_forest_bandit_spawn_point"),
-	 (party_template_set_slot, "pt_sea_raiders", slot_party_template_lair_spawnpoint, "p_sea_raider_spawn_point_1"),
-	 (party_template_set_slot, "pt_desert_bandits", slot_party_template_lair_spawnpoint, "p_desert_bandit_spawn_point"),
-
+     
+   (options_get_campaign_ai, ":difficulty_setting"),
      (try_begin),
-       (store_num_parties_of_template, ":num_parties", "pt_mountain_bandits"),
-       (lt,":num_parties",16), #was 14 at mount&blade, 18 in warband, 16 last decision
-       (store_random,":spawn_point",num_mountain_bandit_spawn_points),
-       (val_add,":spawn_point","p_mountain_bandit_spawn_point"),
-       (set_spawn_radius, 25),
-       (spawn_around_party,":spawn_point","pt_mountain_bandits"),
+     (eq, ":difficulty_setting", 0), # hard
+     (assign, ":max_bandits", max_bandit_parties_hard),
+   (else_try),
+     (eq, ":difficulty_setting", 1), # medium
+     (assign, ":max_bandits", max_bandit_parties_moderate),
+   (else_try),
+     (assign, ":max_bandits", max_bandit_parties_easy),
      (try_end),
-     (try_begin),
-       (store_num_parties_of_template, ":num_parties", "pt_forest_bandits"),
-       (lt,":num_parties",16), #was 14 at mount&blade, 18 in warband, 16 last decision
-       (store_random,":spawn_point",num_forest_bandit_spawn_points),
-       (val_add,":spawn_point","p_forest_bandit_spawn_point"),
-       (set_spawn_radius, 25),
-       (spawn_around_party,":spawn_point","pt_forest_bandits"),
-     (try_end),
-     (try_begin),
-       (store_num_parties_of_template, ":num_parties", "pt_sea_raiders"),
-       (lt,":num_parties",16), #was 14 at mount&blade, 18 in warband, 16 last decision
-       (store_random,":spawn_point",num_sea_raider_spawn_points),
-       (val_add,":spawn_point","p_sea_raider_spawn_point_1"),
-       (set_spawn_radius, 25),
-       (spawn_around_party,":spawn_point","pt_sea_raiders"),
-     (try_end),
-     (try_begin),
-       (store_num_parties_of_template, ":num_parties", "pt_steppe_bandits"),
-       (lt,":num_parties",16), #was 14 at mount&blade, 18 in warband, 16 last decision
-       (store_random,":spawn_point",num_steppe_bandit_spawn_points),
-       (val_add,":spawn_point","p_steppe_bandit_spawn_point"),
-       (set_spawn_radius, 25),
-       (spawn_around_party,":spawn_point","pt_steppe_bandits"),
-     (try_end),
-     (try_begin),
-       (store_num_parties_of_template, ":num_parties", "pt_taiga_bandits"),
-       (lt,":num_parties",16), #was 14 at mount&blade, 18 in warband, 16 last decision
-       (store_random,":spawn_point",num_taiga_bandit_spawn_points),
-       (val_add,":spawn_point","p_taiga_bandit_spawn_point"),
-       (set_spawn_radius, 25),
-       (spawn_around_party,":spawn_point","pt_taiga_bandits"),
-     (try_end),
-     (try_begin),
-       (store_num_parties_of_template, ":num_parties", "pt_desert_bandits"),
-       (lt,":num_parties",16), #was 14 at mount&blade, 18 in warband, 16 last decision
-       (store_random,":spawn_point",num_desert_bandit_spawn_points),
-       (val_add,":spawn_point","p_desert_bandit_spawn_point"),
-       (set_spawn_radius, 25),
-       (spawn_around_party,":spawn_point","pt_desert_bandits"),
+   
+     (try_for_range, ":bandit_template", "pt_plains_bandits", "pt_deserters"),
+       (store_num_parties_of_template, ":num_parties", ":bandit_template"),
+       (lt,":num_parties", ":max_bandits"),
+     (party_template_get_slot, ":sp_begin", ":bandit_template", slot_party_template_lair_spawnpoint_begin),
+     (party_template_get_slot, ":sp_end", ":bandit_template", slot_party_template_lair_spawnpoint_end),
+       (store_random_in_range, ":spawn_point", ":sp_begin", ":sp_end"),
+       (set_spawn_radius, bandit_spawn_radius),
+       (spawn_around_party,":spawn_point", ":bandit_template"),
      (try_end),
      (try_begin),
        (store_num_parties_of_template, ":num_parties", "pt_looters"),
-       (lt,":num_parties",42), #was 33 at mount&blade, 50 in warband, 42 last decision
-       (try_begin), #SB : quest active, small chance to keep spawning from nearby villages
-         (check_quest_active, "qst_deal_with_looters"),
-         (quest_get_slot, ":spawn_point", "qst_deal_with_looters", slot_quest_giver_center),
-         (is_between, ":spawn_point", walled_centers_begin, walled_centers_end),
-         (assign, ":villages_end", villages_end),
-         (try_for_range_backwards, ":village_no", villages_begin, ":villages_end"),
-           (party_slot_eq, ":village_no", slot_village_bound_center, ":spawn_point"),
-           (store_random_in_range, ":random_no", 0, 5),
-           (eq, ":random_no", 0),
-           (assign, ":spawn_point", ":village_no"),
-           (assign, ":villages_end", -1),
-         (try_end),
-       (else_try),
-         (store_random_in_range,":spawn_point",villages_begin,villages_end), #spawn looters twice to have lots of them at the beginning
-       (try_end),
-       
-       (set_spawn_radius, 25),
-       (spawn_around_party,":spawn_point","pt_looters"),
-       (assign, ":spawned_party_id", reg0),
+       (lt,":num_parties", max_looter_parties),
+       (store_random_in_range, ":spawn_point", villages_begin, villages_end),       
+       (set_spawn_radius, bandit_spawn_radius),
+       (spawn_around_party, ":spawn_point", "pt_looters"),
+       (assign, ":spawned_party_1", reg0),
+       (spawn_around_party, ":spawn_point", "pt_looters"), # Spawn looters twice to have lots of them at the beginning
+       (assign, ":spawned_party_2", reg0),
        (try_begin),
          (check_quest_active, "qst_deal_with_looters"),
-         (party_set_flags, ":spawned_party_id", pf_quest_party, 1),
+         (party_set_flags, ":spawned_party_1", pf_quest_party, 1),
+         (party_set_flags, ":spawned_party_2", pf_quest_party, 1),
        (else_try),
-         (party_set_flags, ":spawned_party_id", pf_quest_party, 0),
+         (party_set_flags, ":spawned_party_1", pf_quest_party, 0),
+         (party_set_flags, ":spawned_party_2", pf_quest_party, 0),
        (try_end),
      (try_end),
      (try_begin),
        (store_num_parties_of_template, ":num_parties", "pt_deserters"),
-       (lt,":num_parties",15),
-       (set_spawn_radius, 4),
+       (lt,":num_parties", ":max_bandits"), # was 15
+       (set_spawn_radius, deserter_spawn_radius),
        (try_for_range, ":troop_no", active_npcs_begin, active_npcs_end),
-         (troop_slot_eq, ":troop_no", slot_troop_occupation, slto_kingdom_hero),
+       (troop_slot_eq, ":troop_no", slot_troop_occupation, slto_kingdom_hero),
          (store_random_in_range, ":random_no", 0, 100),
          (lt, ":random_no", 5),
          (troop_get_slot, ":party_no", ":troop_no", slot_troop_leaded_party),
@@ -41062,8 +40001,6 @@ scripts = [
          (neq, ":troop_faction", "fac_player_supporters_faction"),
          (gt, ":party_no", 0),
          (neg|party_is_in_any_town, ":party_no"),
-##         (party_get_attached_to, ":attached_party_no", ":party_no"),
-##         (lt, ":attached_party_no", 0),#in wilderness
          (spawn_around_party, ":party_no", "pt_deserters"),
          (assign, ":new_party", reg0),
          (store_troop_faction, ":faction_no", ":troop_no"),
@@ -41077,105 +40014,105 @@ scripts = [
          (try_for_range, ":unused", 0, ":random_no"),
            (party_upgrade_with_xp, ":new_party", 1000000, 0),
          (try_end),
-##         (str_store_party_name, s1, ":party_no"),
-##         (call_script, "script_get_closest_center", ":party_no"),
-##         (try_begin),
-##           (gt, reg0, 0),
-##           (str_store_party_name, s2, reg0),
-##         (else_try),
-##           (str_store_string, s2, "@unknown place"),
-##         (try_end),
-##         (assign, reg1, ":number_to_add"),
-##         (display_message, "@{reg1} Deserters spawned from {s1}, near {s2}."),
        (try_end),
      (try_end), #deserters ends
-
-
-
-	 #Spawn bandit lairs
-	(try_for_range, ":bandit_template", bandit_party_templates_begin, bandit_party_templates_end), #SB : template range
-		(party_template_get_slot, ":bandit_lair_party", ":bandit_template", slot_party_template_lair_party),
-		(le, ":bandit_lair_party", 1),
-
-		(party_template_get_slot, ":bandit_lair_template", ":bandit_template", slot_party_template_lair_type),
-		(party_template_get_slot, ":bandit_lair_template_spawnpoint", ":bandit_template", slot_party_template_lair_spawnpoint),
-
-		(set_spawn_radius, 20),
-
-        (spawn_around_party, ":bandit_lair_template_spawnpoint", ":bandit_lair_template"),
-		(assign, ":new_camp", reg0),
-
-		(party_set_slot, ":new_camp", slot_party_type, spt_bandit_lair),
-
-		(str_store_party_name, s4, ":new_camp"),
-
-		(party_get_position, pos4, ":new_camp"),
-        #(party_set_flags, ":new_camp", pf_icon_mask, 1),
-
-		(party_get_current_terrain, ":new_camp_terrain", ":new_camp"),
-		(position_get_z, ":elevation", pos4),
-		(position_get_y, ":lair_y", pos4),
-
-		(assign, ":center_too_close", 0),
-		(try_for_range, ":center", centers_begin, centers_end),
-			(eq, ":center_too_close", 0),
-			(store_distance_to_party_from_party, ":distance", ":new_camp", ":center"),
-			(lt, ":distance", 3),
-			(assign, ":center_too_close", 1),
-		(try_end),
-
-		(try_begin),
-			(eq, ":center_too_close", 1),
-			(party_is_active, ":new_camp"),
-			(remove_party, ":new_camp"),
-			(party_template_set_slot, ":bandit_template", slot_party_template_lair_party, 0),
-		(else_try),
-			(eq, ":bandit_template", "pt_sea_raiders"),
-			(eq, ":new_camp_terrain", 3),
-			(map_get_water_position_around_position, pos5, pos4, 4),
-			(party_template_set_slot, ":bandit_template", slot_party_template_lair_party, ":new_camp"),
-			(party_set_flags, ":new_camp", pf_disabled, 1),
-		(else_try),
-			(eq, ":bandit_template", "pt_mountain_bandits"),
-			(eq, ":new_camp_terrain", 3),
-			(gt, ":elevation", 250),
-			(party_template_set_slot, ":bandit_template", slot_party_template_lair_party, ":new_camp"),
-			(party_set_flags, ":new_camp", pf_disabled, 1),
-		(else_try),
-			(eq, ":bandit_template", "pt_desert_bandits"),
-			(eq, ":new_camp_terrain", 5),
-			(gt, ":lair_y", -9000),
-			(gt, ":elevation", 125),
-			(party_template_set_slot, ":bandit_template", slot_party_template_lair_party, ":new_camp"),
-			(party_set_flags, ":new_camp", pf_disabled, 1),
-		(else_try),
-			(eq, ":bandit_template", "pt_steppe_bandits"),
-			(this_or_next|eq, ":new_camp_terrain", 2),
-			(eq, ":new_camp_terrain", 10),
-			(this_or_next|eq, ":new_camp_terrain", 10),
-			(gt, ":elevation", 200),
-			(party_template_set_slot, ":bandit_template", slot_party_template_lair_party, ":new_camp"),
-			(party_set_flags, ":new_camp", pf_disabled, 1),
-		(else_try),
-			(eq, ":bandit_template", "pt_taiga_bandits"),
-			(eq, ":new_camp_terrain", 12),
-			(party_template_set_slot, ":bandit_template", slot_party_template_lair_party, ":new_camp"),
-			(party_set_flags, ":new_camp", pf_disabled, 1),
-		(else_try),
-			(eq, ":bandit_template", "pt_forest_bandits"),
-			(eq, ":new_camp_terrain", 11),
-			(party_template_set_slot, ":bandit_template", slot_party_template_lair_party, ":new_camp"),
-			(party_set_flags, ":new_camp", pf_disabled, 1),
-		(else_try),
-			(party_is_active, ":new_camp"),
-			(str_store_party_name, s4, ":new_camp"),
-			(remove_party, ":new_camp"),
-			(party_template_set_slot, ":bandit_template", slot_party_template_lair_party, 0),
-		(else_try),
-		(try_end),
-	(try_end),
      ]),
-
+   
+  #script_spawn_bandit_lairs
+  # INPUT: none
+  # OUTPUT: none
+  ("spawn_bandit_lairs",
+    [
+  (try_for_range, ":bandit_template", "pt_plains_bandits", "pt_deserters"),
+    (party_template_get_slot, ":bandit_lair_party", ":bandit_template", slot_party_template_lair_party),
+    (le, ":bandit_lair_party", 1),
+    
+    (party_template_get_slot, ":bandit_lair_template", ":bandit_template", slot_party_template_lair_type),
+        (party_template_get_slot, ":spawnpoint_begin", ":bandit_template", slot_party_template_lair_spawnpoint_begin),
+        (party_template_get_slot, ":spawnpoint_end", ":bandit_template", slot_party_template_lair_spawnpoint_end),
+        (store_random_in_range, ":bandit_lair_template_spawnpoint", ":spawnpoint_begin", ":spawnpoint_end"),
+   
+    (set_spawn_radius, 20),
+   
+        (spawn_around_party, ":bandit_lair_template_spawnpoint", ":bandit_lair_template"),
+    (assign, ":new_camp", reg0),
+    
+    (party_set_slot, ":new_camp", slot_party_type, spt_bandit_lair),
+    
+    (str_store_party_name, s4, ":new_camp"),
+    
+    (party_get_position, pos4, ":new_camp"),
+    
+    (party_get_current_terrain, ":new_camp_terrain", ":new_camp"),
+    (position_get_z, ":elevation", pos4),
+    (position_get_y, ":lair_y", pos4),    
+                
+    (assign, ":center_too_close", 0),
+    (try_for_range, ":center", centers_begin, centers_end),
+      (eq, ":center_too_close", 0),
+      (store_distance_to_party_from_party, ":distance", ":new_camp", ":center"),
+      (lt, ":distance", 3),
+      (assign, ":center_too_close", 1),
+    (try_end),
+            
+    (try_begin),
+      (eq, ":center_too_close", 1),
+      (party_is_active, ":new_camp"),
+      (remove_party, ":new_camp"),
+      (party_template_set_slot, ":bandit_template", slot_party_template_lair_party, 0),     
+    (else_try),
+      (eq, ":bandit_template", "pt_sea_raiders"),
+      (eq, ":new_camp_terrain", 3),
+      (map_get_water_position_around_position, pos5, pos4, 4),      
+      (party_template_set_slot, ":bandit_template", slot_party_template_lair_party, ":new_camp"),
+      (party_set_flags, ":new_camp", pf_disabled, 1),     
+    (else_try), 
+      (eq, ":bandit_template", "pt_mountain_bandits"),
+      (eq, ":new_camp_terrain", 3),
+      (gt, ":elevation", 250),      
+      (party_template_set_slot, ":bandit_template", slot_party_template_lair_party, ":new_camp"),
+      (party_set_flags, ":new_camp", pf_disabled, 1),     
+    (else_try),
+      (eq, ":bandit_template", "pt_desert_bandits"),
+      (eq, ":new_camp_terrain", 5),
+      (gt, ":lair_y", -9000),
+      (gt, ":elevation", 125),
+      (party_template_set_slot, ":bandit_template", slot_party_template_lair_party, ":new_camp"),
+      (party_set_flags, ":new_camp", pf_disabled, 1),     
+    (else_try), 
+      (eq, ":bandit_template", "pt_steppe_bandits"),
+      (this_or_next|eq, ":new_camp_terrain", 2),
+      (eq, ":new_camp_terrain", 10),
+      (this_or_next|eq, ":new_camp_terrain", 10),
+      (gt, ":elevation", 200),
+      (party_template_set_slot, ":bandit_template", slot_party_template_lair_party, ":new_camp"),
+      (party_set_flags, ":new_camp", pf_disabled, 1),     
+    (else_try), 
+      (eq, ":bandit_template", "pt_plains_bandits"),
+      (this_or_next|eq, ":new_camp_terrain", 10),
+      (eq, ":new_camp_terrain", 11),
+      (party_template_set_slot, ":bandit_template", slot_party_template_lair_party, ":new_camp"),
+      (party_set_flags, ":new_camp", pf_disabled, 1),     
+    (else_try), 
+      (eq, ":bandit_template", "pt_taiga_bandits"),
+      (eq, ":new_camp_terrain", 12),        
+      (party_template_set_slot, ":bandit_template", slot_party_template_lair_party, ":new_camp"),
+      (party_set_flags, ":new_camp", pf_disabled, 1),
+    (else_try), 
+      (eq, ":bandit_template", "pt_forest_bandits"),
+      (eq, ":new_camp_terrain", 11),        
+      (party_template_set_slot, ":bandit_template", slot_party_template_lair_party, ":new_camp"),
+      (party_set_flags, ":new_camp", pf_disabled, 1),     
+    (else_try),
+      (party_is_active, ":new_camp"),
+      (str_store_party_name, s4, ":new_camp"),
+      (remove_party, ":new_camp"),
+      (party_template_set_slot, ":bandit_template", slot_party_template_lair_party, 0),
+    (else_try),
+    (try_end),     
+  (try_end),
+     ]),
+  
   #script_count_mission_casualties_from_agents
   # INPUT: none
   # OUTPUT: none
@@ -73447,13 +72384,13 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       ##diplomacy end+
 
       #this to correct string errors in games started in 1.104 or before
-      (party_set_name, "p_steppe_bandit_spawn_point", "str_the_steppes"),
-      (party_set_name, "p_taiga_bandit_spawn_point", "str_the_tundra"),
-      (party_set_name, "p_forest_bandit_spawn_point", "str_the_forests"),
-      (party_set_name, "p_mountain_bandit_spawn_point", "str_the_highlands"),
+      (party_set_name, "p_steppe_bandit_spawn_point_1", "str_the_steppes"),
+      (party_set_name, "p_taiga_bandit_spawn_point_1", "str_the_tundra"),
+      (party_set_name, "p_forest_bandit_spawn_point_1", "str_the_forests"),
+      (party_set_name, "p_mountain_bandit_spawn_point_1", "str_the_highlands"),
       (party_set_name, "p_sea_raider_spawn_point_1", "str_the_coast"),
       (party_set_name, "p_sea_raider_spawn_point_2", "str_the_coast"),
-      (party_set_name, "p_desert_bandit_spawn_point", "str_the_deserts"),
+      (party_set_name, "p_desert_bandit_spawn_point_1", "str_the_deserts"),
 
       #this to correct inappropriate home strings - Katrin to Uxkhal, Matheld to Fearichen
       # (troop_set_slot, "trp_npc11", slot_troop_home, "p_town_7"),
@@ -75438,6 +74375,1084 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
           (troop_raise_proficiency, "trp_player",":wpt",5), #"taught you how to wield any weapon you desired"
         (try_end),
   ]),
+
+("initialize_center_data",[ 
+
+# fill_village_bound_centers
+    #pass 1: Give one village to each castle
+      (try_for_range, ":cur_center", castles_begin, castles_end),
+        (assign, ":min_dist", 999999),
+        (assign, ":min_dist_village", -1),
+        (try_for_range, ":cur_village", villages_begin, villages_end),
+          (neg|party_slot_ge, ":cur_village", slot_village_bound_center, 1), #skip villages which are already bound.
+          (store_distance_to_party_from_party, ":cur_dist", ":cur_village", ":cur_center"),
+          (lt, ":cur_dist", ":min_dist"),
+          (assign, ":min_dist", ":cur_dist"),
+          (assign, ":min_dist_village", ":cur_village"),
+        (try_end),
+        (party_set_slot, ":min_dist_village", slot_village_bound_center, ":cur_center"),
+        (store_faction_of_party, ":town_faction", ":cur_center"),
+        (call_script, "script_give_center_to_faction_aux", ":min_dist_village", ":town_faction"),
+      (try_end),
+
+
+    #pass 2: Give other villages to closest town.
+      (try_for_range, ":cur_village", villages_begin, villages_end),
+        (neg|party_slot_ge, ":cur_village", slot_village_bound_center, 1), #skip villages which are already bound.
+        (assign, ":min_dist", 999999),
+        (assign, ":min_dist_town", -1),
+        (try_for_range, ":cur_town", towns_begin, towns_end),
+          (store_distance_to_party_from_party, ":cur_dist", ":cur_village", ":cur_town"),
+          (lt, ":cur_dist", ":min_dist"),
+          (assign, ":min_dist", ":cur_dist"),
+          (assign, ":min_dist_town", ":cur_town"),
+        (try_end),
+        (party_set_slot, ":cur_village", slot_village_bound_center, ":min_dist_town"),
+        (store_faction_of_party, ":town_faction", ":min_dist_town"),
+        (call_script, "script_give_center_to_faction_aux", ":cur_village", ":town_faction"),
+      (try_end),
+
+
+    # Towns (loop)
+      (try_for_range, ":town_no", towns_begin, towns_end),
+        (store_sub, ":offset", ":town_no", towns_begin),
+        (party_set_slot,":town_no", slot_party_type, spt_town),
+        #(store_add, ":cur_object_no", "trp_town_1_seneschal", ":offset"),
+        #(party_set_slot,":town_no", slot_town_seneschal, ":cur_object_no"),
+        (store_add, ":cur_object_no", "scn_town_1_center", ":offset"),
+        (party_set_slot,":town_no", slot_town_center, ":cur_object_no"),
+        (store_add, ":cur_object_no", "scn_town_1_castle", ":offset"),
+        (party_set_slot,":town_no", slot_town_castle, ":cur_object_no"),
+        (store_add, ":cur_object_no", "scn_town_1_prison", ":offset"),
+        (party_set_slot,":town_no", slot_town_prison, ":cur_object_no"),
+        (store_add, ":cur_object_no", "scn_town_1_walls", ":offset"),
+        (party_set_slot,":town_no", slot_town_walls, ":cur_object_no"),
+        (store_add, ":cur_object_no", "scn_town_1_tavern", ":offset"),
+        (party_set_slot,":town_no", slot_town_tavern, ":cur_object_no"),
+        (store_add, ":cur_object_no", "scn_town_1_store", ":offset"),
+        (party_set_slot,":town_no", slot_town_store, ":cur_object_no"),
+        (store_add, ":cur_object_no", "scn_town_1_arena", ":offset"),
+        (party_set_slot,":town_no", slot_town_arena, ":cur_object_no"),
+        (store_add, ":cur_object_no", "scn_town_1_alley", ":offset"),
+        (party_set_slot,":town_no", slot_town_alley, ":cur_object_no"),
+        (store_add, ":cur_object_no", "trp_town_1_mayor", ":offset"),
+        (party_set_slot,":town_no", slot_town_elder, ":cur_object_no"),
+        (store_add, ":cur_object_no", "trp_town_1_tavernkeeper", ":offset"),
+        (party_set_slot,":town_no", slot_town_tavernkeeper, ":cur_object_no"),
+        (store_add, ":cur_object_no", "trp_town_1_weaponsmith", ":offset"),
+        (party_set_slot,":town_no", slot_town_weaponsmith, ":cur_object_no"),
+        (store_add, ":cur_object_no", "trp_town_1_armorer", ":offset"),
+        (party_set_slot,":town_no", slot_town_armorer, ":cur_object_no"),
+        (store_add, ":cur_object_no", "trp_town_1_merchant", ":offset"),
+        (party_set_slot,":town_no", slot_town_merchant, ":cur_object_no"),
+        (store_add, ":cur_object_no", "trp_town_1_horse_merchant", ":offset"),
+        (party_set_slot,":town_no", slot_town_horse_merchant, ":cur_object_no"),
+        (store_add, ":cur_object_no", "scn_town_1_center", ":offset"),
+        (party_set_slot,":town_no", slot_town_center, ":cur_object_no"),
+        # (party_set_slot,":town_no", slot_town_reinforcement_party_template, "pt_center_reinforcements"),
+      (try_end),
+
+# Castles
+      (try_for_range, ":castle_no", castles_begin, castles_end),
+        (store_sub, ":offset", ":castle_no", castles_begin),
+        (val_mul, ":offset", 3),
+
+        (store_add, ":exterior_scene_no", "scn_castle_1_exterior", ":offset"),
+        (party_set_slot,":castle_no", slot_castle_exterior, ":exterior_scene_no"),
+        (store_add, ":interior_scene_no", "scn_castle_1_interior", ":offset"),
+        (party_set_slot,":castle_no", slot_town_castle, ":interior_scene_no"),
+        (store_add, ":interior_scene_no", "scn_castle_1_prison", ":offset"),
+        (party_set_slot,":castle_no", slot_town_prison, ":interior_scene_no"),
+
+        # (party_set_slot,":castle_no", slot_town_reinforcement_party_template, "pt_center_reinforcements"),
+        (party_set_slot,":castle_no", slot_party_type, spt_castle),
+        (party_set_slot,":castle_no", slot_center_is_besieged_by, -1),
+      (try_end),
+
+# Set which castles need to be attacked with siege towers.
+      (party_set_slot,"p_town_13", slot_center_siege_with_belfry, 1),
+      (party_set_slot,"p_town_16", slot_center_siege_with_belfry, 1),
+
+      (party_set_slot,"p_castle_1", slot_center_siege_with_belfry, 1),
+      (party_set_slot,"p_castle_2", slot_center_siege_with_belfry, 1),
+      (party_set_slot,"p_castle_4", slot_center_siege_with_belfry, 1),
+      (party_set_slot,"p_castle_7", slot_center_siege_with_belfry, 1),
+      (party_set_slot,"p_castle_8", slot_center_siege_with_belfry, 1),
+      (party_set_slot,"p_castle_9", slot_center_siege_with_belfry, 1),
+      (party_set_slot,"p_castle_11", slot_center_siege_with_belfry, 1),
+      (party_set_slot,"p_castle_13", slot_center_siege_with_belfry, 1),
+      (party_set_slot,"p_castle_21", slot_center_siege_with_belfry, 1),
+      (party_set_slot,"p_castle_25", slot_center_siege_with_belfry, 1),
+      (party_set_slot,"p_castle_34", slot_center_siege_with_belfry, 1),
+      (party_set_slot,"p_castle_35", slot_center_siege_with_belfry, 1),
+      (party_set_slot,"p_castle_38", slot_center_siege_with_belfry, 1),
+      (party_set_slot,"p_castle_40", slot_center_siege_with_belfry, 1),
+      (party_set_slot,"p_castle_41", slot_center_siege_with_belfry, 1),
+      (party_set_slot,"p_castle_42", slot_center_siege_with_belfry, 1),
+      (party_set_slot,"p_castle_43", slot_center_siege_with_belfry, 1),
+
+    # Villages characters
+      (try_for_range, ":village_no", villages_begin, villages_end),
+        (store_sub, ":offset", ":village_no", villages_begin),
+
+        (store_add, ":exterior_scene_no", "scn_village_1", ":offset"),
+        (party_set_slot,":village_no", slot_castle_exterior, ":exterior_scene_no"),
+
+        (store_add, ":store_troop_no", "trp_village_1_elder", ":offset"),
+        (party_set_slot,":village_no", slot_town_elder, ":store_troop_no"),
+
+        (party_set_slot,":village_no", slot_party_type, spt_village),
+        (party_set_slot,":village_no", slot_village_raided_by, -1),
+
+        (call_script, "script_refresh_village_defenders", ":village_no"),
+        (call_script, "script_refresh_village_defenders", ":village_no"),
+        (call_script, "script_refresh_village_defenders", ":village_no"),
+        (call_script, "script_refresh_village_defenders", ":village_no"),
+      (try_end),
+
+      (try_for_range, ":center_no", centers_begin, centers_end),
+        (party_set_slot, ":center_no", slot_center_last_spotted_enemy, -1),
+        (party_set_slot, ":center_no", slot_center_is_besieged_by, -1),
+        (party_set_slot, ":center_no", slot_center_last_taken_by_troop, -1),
+        ##diplomacy start+ Set the home slots for town merchants, elders, etc. for reverse-lookup
+        (try_for_range, ":offset", dplmc_slot_town_merchants_begin, dplmc_slot_town_merchants_end),
+           (party_get_slot, ":npc", ":center_no", ":offset"),
+           (gt, ":npc", 0),
+           (neg|troop_slot_ge, ":npc", slot_troop_home, 1),#If the startup script wasn't altered by another mod, we don't have to worry about this condition.
+           (troop_set_slot, ":npc", slot_troop_home, ":center_no"),
+        (try_end),
+        ##diplomacy end+
+      (try_end),
+
+  ]),
+
+("initialize_troop_banners",
+  [
+      #faction banners
+      (faction_set_slot, "fac_kingdom_1", slot_faction_banner, "mesh_banner_kingdom_f"),
+      (faction_set_slot, "fac_kingdom_2", slot_faction_banner, "mesh_banner_kingdom_b"),
+      (faction_set_slot, "fac_kingdom_3", slot_faction_banner, "mesh_banner_kingdom_c"),
+      (faction_set_slot, "fac_kingdom_4", slot_faction_banner, "mesh_banner_kingdom_a"),
+      # (faction_set_slot, "fac_kingdom_5", slot_faction_banner, "mesh_banner_kingdom_d"),
+      # (faction_set_slot, "fac_kingdom_6", slot_faction_banner, "mesh_banner_kingdom_e"),
+
+      (try_for_range, ":cur_faction", npc_kingdoms_begin, npc_kingdoms_end),
+        (faction_get_slot, ":cur_faction_king", ":cur_faction", slot_faction_leader),
+        (faction_get_slot, ":cur_faction_banner", ":cur_faction", slot_faction_banner),
+        (val_sub, ":cur_faction_banner", banner_meshes_begin),
+        (val_add, ":cur_faction_banner", banner_scene_props_begin),
+        (troop_set_slot, ":cur_faction_king", slot_troop_banner_scene_prop, ":cur_faction_banner"),
+      (try_end),
+      # (assign, ":num_khergit_lords_assigned", 0),
+      # (assign, ":num_sarranid_lords_assigned", 0),
+      (assign, ":num_other_lords_assigned", 0),
+
+      (try_for_range, ":kingdom_hero", active_npcs_begin, active_npcs_end),
+        (this_or_next|troop_slot_eq, ":kingdom_hero", slot_troop_occupation, slto_kingdom_hero),
+        (troop_slot_eq, ":kingdom_hero", slot_troop_occupation, slto_inactive_pretender),
+
+        (store_troop_faction, ":kingdom_hero_faction", ":kingdom_hero"),
+        (neg|faction_slot_eq, ":kingdom_hero_faction", slot_faction_leader, ":kingdom_hero"),
+        (try_begin),
+          # (eq, ":kingdom_hero_faction", "fac_kingdom_3"), #Khergit Khanate
+          # (store_add, ":kingdom_3_banners_begin", banner_scene_props_begin, khergit_banners_begin_offset),
+          # (store_add, ":banner_id", ":kingdom_3_banners_begin", ":num_khergit_lords_assigned"),
+          # (troop_set_slot, ":kingdom_hero", slot_troop_banner_scene_prop, ":banner_id"),
+          # (val_add, ":num_khergit_lords_assigned", 1),
+        # (else_try),
+          # (eq, ":kingdom_hero_faction", "fac_kingdom_6"), #Sarranid Sultanate
+          # (store_add, ":kingdom_6_banners_begin", banner_scene_props_begin, sarranid_banners_begin_offset),
+          # (store_add, ":banner_id", ":kingdom_6_banners_begin", ":num_sarranid_lords_assigned"),
+          # (troop_set_slot, ":kingdom_hero", slot_troop_banner_scene_prop, ":banner_id"),
+          # (val_add, ":num_sarranid_lords_assigned", 1),
+        # (else_try),
+          (assign, ":hero_offset", ":num_other_lords_assigned"),
+          # (try_begin),
+            # (gt, ":hero_offset", khergit_banners_begin_offset),#Do not add khergit banners to other lords
+            # (val_add, ":hero_offset", khergit_banners_end_offset),
+            # (val_sub, ":hero_offset", khergit_banners_begin_offset),
+          # (try_end),
+          # (try_begin),
+            # (gt, ":hero_offset", sarranid_banners_begin_offset),#Do not add sarranid banners to other lords
+            # (val_add, ":hero_offset", sarranid_banners_end_offset),
+            # (val_sub, ":hero_offset", sarranid_banners_begin_offset),
+          # (try_end),
+          (store_add, ":banner_id", banner_scene_props_begin, ":hero_offset"),
+          (troop_set_slot, ":kingdom_hero", slot_troop_banner_scene_prop, ":banner_id"),
+          (val_add, ":num_other_lords_assigned", 1),
+        (try_end),
+        (try_begin),
+          (this_or_next|lt, ":banner_id", banner_scene_props_begin),
+          (gt, ":banner_id", banner_scene_props_end_minus_one),
+          (display_message, "@{!}ERROR: Not enough banners for heroes!"),
+        (try_end),
+      (try_end),
+    ]), 
+
+# script_assign_major_centers
+# Input: none
+# Output: none
+#Now ONLY called from the start
+("assign_major_centers",
+  [
+
+#Give centers to factions first, to ensure more equal distributions
+### French Towns
+    (call_script, "script_give_center_to_faction_aux", "p_town_1", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_2", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_3", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_4", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_5", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_6", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_7", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_8", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_9", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_10", "fac_kingdom_1"),
+    
+    (call_script, "script_give_center_to_faction_aux", "p_town_11", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_12", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_13", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_14", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_15", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_16", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_17", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_18", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_19", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_20", "fac_kingdom_1"),
+    
+    (call_script, "script_give_center_to_faction_aux", "p_town_21", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_22", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_23", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_24", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_25", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_26", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_27", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_28", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_29", "fac_kingdom_1"),
+    
+### English Towns   
+    (call_script, "script_give_center_to_faction_aux", "p_town_30", "fac_kingdom_2"),
+    
+    (call_script, "script_give_center_to_faction_aux", "p_town_31", "fac_kingdom_2"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_32", "fac_kingdom_2"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_33", "fac_kingdom_2"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_34", "fac_kingdom_2"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_35", "fac_kingdom_2"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_36", "fac_kingdom_2"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_37", "fac_kingdom_2"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_38", "fac_kingdom_2"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_39", "fac_kingdom_2"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_40", "fac_kingdom_2"),
+    
+    (call_script, "script_give_center_to_faction_aux", "p_town_41", "fac_kingdom_2"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_42", "fac_kingdom_2"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_43", "fac_kingdom_2"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_44", "fac_kingdom_2"),   
+    (call_script, "script_give_center_to_faction_aux", "p_town_45", "fac_kingdom_2"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_46", "fac_kingdom_2"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_47", "fac_kingdom_2"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_48", "fac_kingdom_2"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_49", "fac_kingdom_2"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_50", "fac_kingdom_2"),
+    
+    
+    (call_script, "script_give_center_to_faction_aux", "p_town_51", "fac_kingdom_2"),
+  
+### Burgundian Towns  
+    (call_script, "script_give_center_to_faction_aux", "p_town_52", "fac_kingdom_3"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_53", "fac_kingdom_3"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_54", "fac_kingdom_3"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_55", "fac_kingdom_3"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_56", "fac_kingdom_3"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_57", "fac_kingdom_3"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_58", "fac_kingdom_3"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_59", "fac_kingdom_3"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_60", "fac_kingdom_3"),
+    
+    (call_script, "script_give_center_to_faction_aux", "p_town_61", "fac_kingdom_3"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_62", "fac_kingdom_3"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_63", "fac_kingdom_3"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_64", "fac_kingdom_3"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_65", "fac_kingdom_3"),
+
+### Breton Towns
+    (call_script, "script_give_center_to_faction_aux", "p_town_66", "fac_kingdom_4"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_67", "fac_kingdom_4"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_68", "fac_kingdom_4"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_69", "fac_kingdom_4"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_70", "fac_kingdom_4"),
+    
+    (call_script, "script_give_center_to_faction_aux", "p_town_71", "fac_kingdom_4"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_72", "fac_kingdom_4"),
+    (call_script, "script_give_center_to_faction_aux", "p_town_73", "fac_kingdom_4"),   
+
+### French Castles    
+      (call_script, "script_give_center_to_faction_aux", "p_castle_1", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_2", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_3", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_4", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_5", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_6", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_7", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_8", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_9", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_10", "fac_kingdom_1"),
+    
+      (call_script, "script_give_center_to_faction_aux", "p_castle_11", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_12", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_13", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_14", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_15", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_16", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_17", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_18", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_19", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_20", "fac_kingdom_1"),
+    
+      (call_script, "script_give_center_to_faction_aux", "p_castle_21", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_22", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_23", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_24", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_25", "fac_kingdom_1"),
+
+### English Castles     
+      (call_script, "script_give_center_to_faction_aux", "p_castle_26", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_27", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_28", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_29", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_30", "fac_kingdom_2"),
+    
+      (call_script, "script_give_center_to_faction_aux", "p_castle_31", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_32", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_33", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_34", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_35", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_36", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_37", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_38", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_39", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_40", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_41", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_42", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_43", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_44", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_45", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_46", "fac_kingdom_2"),
+    
+### Burgundian Castles      
+      (call_script, "script_give_center_to_faction_aux", "p_castle_47", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_48", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_49", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_50", "fac_kingdom_3"),
+    
+      (call_script, "script_give_center_to_faction_aux", "p_castle_51", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_52", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_53", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_54", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_55", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_56", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_57", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_58", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_59", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_60", "fac_kingdom_3"),
+    
+      (call_script, "script_give_center_to_faction_aux", "p_castle_61", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_62", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_63", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_64", "fac_kingdom_3"),
+
+### Breton Castles      
+      (call_script, "script_give_center_to_faction_aux", "p_castle_65", "fac_kingdom_4"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_66", "fac_kingdom_4"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_67", "fac_kingdom_4"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_68", "fac_kingdom_4"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_69", "fac_kingdom_4"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_70", "fac_kingdom_4"),
+    
+      (call_script, "script_give_center_to_faction_aux", "p_castle_71", "fac_kingdom_4"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_72", "fac_kingdom_4"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_73", "fac_kingdom_4"),
+      (call_script, "script_give_center_to_faction_aux", "p_castle_74", "fac_kingdom_4"),   
+      (call_script, "script_give_center_to_faction_aux", "p_castle_75", "fac_kingdom_4"),   
+      (call_script, "script_give_center_to_faction_aux", "p_castle_76", "fac_kingdom_4"),   
+      (call_script, "script_give_center_to_faction_aux", "p_castle_77", "fac_kingdom_4"),   
+      (call_script, "script_give_center_to_faction_aux", "p_castle_78", "fac_kingdom_4"),   
+      (call_script, "script_give_center_to_faction_aux", "p_castle_79", "fac_kingdom_4"),   
+      (call_script, "script_give_center_to_faction_aux", "p_castle_80", "fac_kingdom_4"),   
+
+      (call_script, "script_give_center_to_faction_aux", "p_castle_81", "fac_kingdom_4"),   
+      (call_script, "script_give_center_to_faction_aux", "p_castle_82", "fac_kingdom_4"),   
+      (call_script, "script_give_center_to_faction_aux", "p_castle_83", "fac_kingdom_4"),   
+      (call_script, "script_give_center_to_faction_aux", "p_castle_84", "fac_kingdom_4"),   
+      (call_script, "script_give_center_to_faction_aux", "p_castle_85", "fac_kingdom_4"),   
+      (call_script, "script_give_center_to_faction_aux", "p_castle_86", "fac_kingdom_4"),   
+      # (call_script, "script_give_center_to_faction_aux", "p_castle_87", "fac_kingdom_4"),   
+      # (call_script, "script_give_center_to_faction_aux", "p_castle_88", "fac_kingdom_4"),   
+    
+
+
+##################################################################################################################################################################################################################################################################################################################
+###################################################################################################### DAC TOWN DISTRIBUTION #####################################################################################################################################################################################
+##################################################################################################################################################################################################################################################################################################################
+
+    
+# French towns    
+      (call_script, "script_give_center_to_lord", "p_town_1",  "trp_kingdom_1_lord", 0),# Bourges - Charles_VII
+      (call_script, "script_give_center_to_lord", "p_town_2",  "trp_knight_1_9", 0),# Orléans - Jean D'Orléans, Le Bâtard  
+      (call_script, "script_give_center_to_lord", "p_town_3",  "trp_knight_1_8", 0),# Tours - Pierre d'Amboise, Seigneur de Chaumont
+      (call_script, "script_give_center_to_lord", "p_town_4",  "trp_kingdom_1_lord", 0),# Poitiers - Charles_VII
+      (call_script, "script_give_center_to_lord", "p_town_5",  "trp_kingdom_1_lord", 0),# La_Rochelle - Charles_VII
+      (call_script, "script_give_center_to_lord", "p_town_6",  "trp_knight_1_17", 0),# Clermont - Louis I de Bourbon, Comte de Clermont
+      (call_script, "script_give_center_to_lord", "p_town_7",  "trp_knight_1_16", 0),# Moulins - Charles I de Bourbon, Duc de Bourbon et d'Auvergne
+      (call_script, "script_give_center_to_lord", "p_town_8",  "trp_knight_1_16", 0),# Aurillac - Charles I de Bourbon, Duc de Bourbon et d'Auvergne
+      (call_script, "script_give_center_to_lord", "p_town_9",  "trp_knight_1_16", 0),# Lyon - Charles I de Bourbon, Duc de Bourbon et d'Auvergne
+      (call_script, "script_give_center_to_lord", "p_town_10", "trp_knight_1_53", 0),# Le_Puy - Louis-Armand XII de Polignac, Vicomte de Polignac, Gouverneur du Velay
+    
+      (call_script, "script_give_center_to_lord", "p_town_11", "trp_kingdom_1_lord", 0),# Cahors - Charles VII
+      (call_script, "script_give_center_to_lord", "p_town_12", "trp_knight_1_22", 0),# Rodez - Jean IV d'Armagnac
+      (call_script, "script_give_center_to_lord", "p_town_13", "trp_knight_1_22", 0),# Lectoure - Jean IV d'Armagnac
+      (call_script, "script_give_center_to_lord", "p_town_14", "trp_knight_1_46", 0),# Tarbes - Jean de Grailly, Comte de Foix et de Bigorre, Vicomte de Béarn et de Marsan
+      (call_script, "script_give_center_to_lord", "p_town_15", "trp_kingdom_1_lord", 0),# Toulouse - Charles_VII
+      (call_script, "script_give_center_to_lord", "p_town_16", "trp_kingdom_1_lord", 0),# Carcassonne - Charles_VII
+      (call_script, "script_give_center_to_lord", "p_town_17", "trp_knight_1_48", 0),# Montpellier - Raymond de Villars, Sénéchal de Beaucaire et Nîmes
+      (call_script, "script_give_center_to_lord", "p_town_18", "trp_knight_1_31", 0),# Valence - Charles II de Poitiers, Seigneur de Saint-Vallier
+      (call_script, "script_give_center_to_lord", "p_town_19", "trp_knight_1_7", 0),# Thouars - Louis d'Amboise, Vicomte de Thouars
+      (call_script, "script_give_center_to_lord", "p_town_20", "trp_kingdom_1_lord", 0),# Tournai - Charles_VII
+    
+      (call_script, "script_give_center_to_lord", "p_town_21", "trp_knight_1_9", 0),# Gien - Jean D'Orleans
+      (call_script, "script_give_center_to_lord", "p_town_22", "trp_kingdom_1_lord", 0),# Montargis-le-Franc - Charles_VII
+      (call_script, "script_give_center_to_lord", "p_town_23",  "trp_knight_1_4", 0), # Albret - Charles II d'Albret, Sire d'Albret, Vicomte de Tartas
+      (call_script, "script_give_center_to_lord", "p_town_24",  "trp_knight_1_9", 0), # Bergerac - Jean D'Orléans, le Bâtard     
+      (call_script, "script_give_center_to_lord", "p_town_25",  "trp_knight_1_9", 0), # Périgueux - Jean D'Orléans, le Bâtard 
+      (call_script, "script_give_center_to_lord", "p_town_26",  "trp_knight_1_9", 0), # Angoulême - Jean D'Orléans, le Bâtard     
+      (call_script, "script_give_center_to_lord", "p_town_27",  "trp_kingdom_1_lord", 0), # Limoges - Charles VII
+      (call_script, "script_give_center_to_lord", "p_town_28",  "trp_knight_1_37", 0), # Angers - Louis III d'Anjou, Duc d'Anjou    
+      (call_script, "script_give_center_to_lord", "p_town_29", "trp_knight_1_46", 0),# Foix Jean de Grailly, Comte de Foix et de Bigorre, Vicomte de Béarn et de Marsan
+
+
+# English Towns
+      (call_script, "script_give_center_to_lord", "p_town_30",  "trp_kingdom_2_lord", 0), # Paris - John of Lancaster, Duc de Bedford
+      (call_script, "script_give_center_to_lord", "p_town_31",  "trp_knight_2_43", 0), # Bayonne - Bertrand III de Montferrand
+      (call_script, "script_give_center_to_lord", "p_town_32",  "trp_knight_2_3", 0), # Nemours - William de la Pole, Earl of Suffolk
+      (call_script, "script_give_center_to_lord", "p_town_33",  "trp_knight_2_1", 0), # Laval - John Talbot, Baron Talbot and Furnival
+      (call_script, "script_give_center_to_lord", "p_town_34",  "trp_knight_2_1", 0), # Le_Mans - John Talbot, Baron Talbot and Furnival
+      (call_script, "script_give_center_to_lord", "p_town_35",  "trp_knight_2_43", 0), # Bordeaux - Bertrand III de Montferrand
+      (call_script, "script_give_center_to_lord", "p_town_36",  "trp_knight_2_4", 0), # Chartres - Thomas de Scales, Baron de Scales
+      (call_script, "script_give_center_to_lord", "p_town_37",  "trp_kingdom_2_lord", 0), # Rouen - John of Lancaster, Duc de Bedford
+      (call_script, "script_give_center_to_lord", "p_town_38",  "trp_knight_2_47", 0), # Caen - Sir Robert de Vere, Captain of Caen
+      (call_script, "script_give_center_to_lord", "p_town_39",  "trp_knight_2_2", 0), # Harfleur - John Fastolf, Lieutenant-general of Normandy
+      (call_script, "script_give_center_to_lord", "p_town_40",  "trp_knight_2_18", 0), # Cherbourg - Sir Walter Hungerford
+
+      (call_script, "script_give_center_to_lord", "p_town_41",  "trp_kingdom_2_lord", 0), # Bayeux - John of Lancaster, Duc de Bedford
+      (call_script, "script_give_center_to_lord", "p_town_42",  "trp_knight_2_21", 0), # Calais - Richard Woodville, Baron Wodville, Lieutenant of Calais
+      (call_script, "script_give_center_to_lord", "p_town_43",  "trp_knight_2_7", 0), # Alençon - Thomas Beaufort, Count of Perche
+      (call_script, "script_give_center_to_lord", "p_town_44",  "trp_knight_2_27", 0), # Argentan - Sir William Oldhall   
+      (call_script, "script_give_center_to_lord", "p_town_45",  "trp_knight_2_44", 0), # Tartas - François de Montferrand, Gouverneur de Dax
+      (call_script, "script_give_center_to_lord", "p_town_46",  "trp_knight_2_44", 0), # Dax - François de Montferrand, Gouverneur de Dax
+      (call_script, "script_give_center_to_lord", "p_town_47",  "trp_knight_2_16", 0), # Libourne - Sir John Radcliffe
+      (call_script, "script_give_center_to_lord", "p_town_48",  "trp_knight_2_10", 0), # Saint-Lô - Richard Beauchamp
+      (call_script, "script_give_center_to_lord", "p_town_49",  "trp_knight_2_39", 0), # Eu - Henry Bourchier, Count of Eu
+      (call_script, "script_give_center_to_lord", "p_town_50",  "trp_knight_2_9", 0), # Avranches - John Mowbray, Earl of Norfolk
+
+      (call_script, "script_give_center_to_lord", "p_town_51",  "trp_knight_2_1", 0), # Coutances - John Talbot, Baron Talbot and Furnival
+    
+# Burgundian Towns
+      (call_script, "script_give_center_to_lord", "p_town_52",  "trp_kingdom_3_lord", 0), # Dijon - Philippe the Good, Duke of Burgundy
+      (call_script, "script_give_center_to_lord", "p_town_53",  "trp_knight_3_20", 0), # Besançon - Thibaud VI de Rougemont, Vicomte de Besançon et Seigneur de Rougemont
+      (call_script, "script_give_center_to_lord", "p_town_54",  "trp_knight_3_3", 0), # Nevers - Charles de Bourgogne, Comte de Nevers et de Rethel
+      (call_script, "script_give_center_to_lord", "p_town_55",  "trp_kingdom_3_lord", 0), # Auxerre - Philippe the Good, Duke of Burgundy
+      (call_script, "script_give_center_to_lord", "p_town_56",  "trp_kingdom_3_lord", 0), # Troyes - Philippe the Good, Duke of Burgundy
+      (call_script, "script_give_center_to_lord", "p_town_57",  "trp_knight_3_10", 0), # Compiègne - Jean de Villiers de l'Isle-Adam, Seigneur de L'Isle-Adam
+      (call_script, "script_give_center_to_lord", "p_town_58",  "trp_knight_3_19", 0), # Bruges - Roland d'Uytkerke, Seigneur d'Uytkerke
+      (call_script, "script_give_center_to_lord", "p_town_59",  "trp_kingdom_3_lord", 0), # Gand - Philippe the Good, Duke of Burgundy
+      (call_script, "script_give_center_to_lord", "p_town_60",  "trp_kingdom_3_lord", 0), # Malines - Philippe the Good, Duke of Burgundy
+
+      (call_script, "script_give_center_to_lord", "p_town_61",  "trp_kingdom_3_lord", 0), # Boulogne - Philippe the Good, Duke of Burgundy
+      (call_script, "script_give_center_to_lord", "p_town_62",  "trp_knight_3_3", 0), # Châlons-en-Champagne - Charles de Bourgogne, Comte de Nevers et de Rethel
+      (call_script, "script_give_center_to_lord", "p_town_63",  "trp_knight_3_3", 0), # Reims - Charles de Bourgogne, Comte de Nevers et de Rethel
+      (call_script, "script_give_center_to_lord", "p_town_64", "trp_knight_3_10", 0), # Amiens - Jean de Villiers de l'Isle-Adam
+      (call_script, "script_give_center_to_lord", "p_town_65", "trp_knight_3_10", 0), # Peronne - Jean de Villiers de l'Isle-Adam
+      
+# Breton Towns
+      (call_script, "script_give_center_to_lord", "p_town_66",  "trp_kingdom_4_lord", 0), # Rennes - Jean V de Montfort, Duke of Brittany
+      (call_script, "script_give_center_to_lord", "p_town_67",  "trp_kingdom_4_lord", 0), # Nantes - Jean V de Montfort, Duke of Brittany
+      (call_script, "script_give_center_to_lord", "p_town_68",  "trp_kingdom_4_lord", 0), # Vannes - Jean V de Montfort, Duke of Brittany
+      (call_script, "script_give_center_to_lord", "p_town_69",  "trp_knight_4_13", 0), # Kemper - Guillaume de Rosmadec, Baron de Rosmadec
+      (call_script, "script_give_center_to_lord", "p_town_70",  "trp_knight_4_14", 0), # Saint-Malo - Pierre de Rochefort, Seigneur de Rieux et de Rochefort
+
+      (call_script, "script_give_center_to_lord", "p_town_71",  "trp_kingdom_4_lord", 0), # Saint-Brieuc - Jean V de Montfort, Duke of Brittany
+      (call_script, "script_give_center_to_lord", "p_town_72",  "trp_knight_4_10", 0), # Saint-Pol-de-Léon - Alain X de Rohan, Vicomte de Léon
+      (call_script, "script_give_center_to_lord", "p_town_73",  "trp_knight_4_9", 0), # Rohan - Alain IX de Rohan, Vicomte de Rohan
+    
+
+
+##################################################################################################################################################################################################################################################################################################################
+###################################################################################################### DAC CASTLE DISTRIBUTION ###################################################################################################################################################################################
+##################################################################################################################################################################################################################################################################################################################
+
+### French Castles
+      (call_script, "script_give_center_to_lord", "p_castle_1", "trp_kingdom_1_lord", 0), # Forteresse_de_Chinon - Charles_VII
+      (call_script, "script_give_center_to_lord", "p_castle_2", "trp_knight_1_39", 0), # Châteauroux - Guy III de Chauvigny, Baron de Châteauroux
+      (call_script, "script_give_center_to_lord", "p_castle_3", "trp_kingdom_1_lord", 0), # Rochefort - Charles_VII
+      (call_script, "script_give_center_to_lord", "p_castle_4", "trp_knight_1_24", 0), # Tour_de_Termes - Jean IV de Termes d’Armagnac, Seigneur de Termes
+      (call_script, "script_give_center_to_lord", "p_castle_5", "trp_knight_1_28", 0), # Château_de_Murol - Jean d'Apchon de Murol
+      (call_script, "script_give_center_to_lord", "p_castle_6", "trp_knight_1_53", 0), # Château_de_Polignac - Louis-Armand XII de Chalençon-Polignac
+      (call_script, "script_give_center_to_lord", "p_castle_7", "trp_knight_1_11", 0), # Château_de_Culant - Louis de Culant
+      (call_script, "script_give_center_to_lord", "p_castle_8", "trp_knight_1_8", 0), # Château_de_Montbazon - Pierre d'Amboise
+      (call_script, "script_give_center_to_lord", "p_castle_9", "trp_knight_1_15", 0), # Château_de_Boussac - Jean de Brosse
+      (call_script, "script_give_center_to_lord", "p_castle_10", "trp_knight_1_33", 0), # Yèvre-le-Châtel - Nicolas de Giresme
+    
+      (call_script, "script_give_center_to_lord", "p_castle_11", "trp_knight_1_42", 0), # Château_de_La_Fayette - Gilbert Motier de La Fayette
+      (call_script, "script_give_center_to_lord", "p_castle_12", "trp_knight_1_43", 0), # La_Tour_d'Auvergne - Bertrand V de La Tour d'Auvergne
+      (call_script, "script_give_center_to_lord", "p_castle_13", "trp_knight_1_20", 0), # chateaux de Charlus - Antoine de Chabannes 
+      (call_script, "script_give_center_to_lord", "p_castle_14", "trp_knight_1_17", 0), # Château_de_Sancerre - Louis I de Bourbon
+      (call_script, "script_give_center_to_lord", "p_castle_15", "trp_knight_1_4", 0), # Castelnau_Tursan - Charles II d'Albret
+      (call_script, "script_give_center_to_lord", "p_castle_16", "trp_knight_1_23", 0), # Forteresse_d'Auch - Bernard VIII D'Armagnac
+      (call_script, "script_give_center_to_lord", "p_castle_17", "trp_knight_1_50", 0), # Mont-St-Michel - Louis d’Estouteville, Seigneur d'Estouteville et de Valmont
+      (call_script, "script_give_center_to_lord", "p_castle_18", "trp_knight_1_32", 0), # Château_de_Turenne - Pierre de Beaufort de Turenne, Comte de Beaufort, Vicomte de Turenne
+      (call_script, "script_give_center_to_lord", "p_castle_19", "trp_knight_1_23", 0), # Sévérac-le-Château - Bernard VIII d’Armagnac
+      (call_script, "script_give_center_to_lord", "p_castle_20", "trp_knight_1_45", 0), # Saint-Germain Beaupré - Jean Foucault, seigneur de St- germain
+    
+      (call_script, "script_give_center_to_lord", "p_castle_21", "trp_knight_1_17", 0), # Château_de_Virieu - Louis I de Bourbon
+      (call_script, "script_give_center_to_lord", "p_castle_22", "trp_knight_1_19", 0), # Château de La Palice - Jacques de Chabannes, Seigneur de La Palice
+      (call_script, "script_give_center_to_lord", "p_castle_23", "trp_knight_1_29", 0), # Château du Cheylard - Hugues de Cubières du Cheylard
+      (call_script, "script_give_center_to_lord", "p_castle_24", "trp_kingdom_1_lord", 0), # Château de Vaucouleurs - Charles VII 
+      (call_script, "script_give_center_to_lord", "p_castle_25", "trp_knight_1_10", 0), # La Tour De Marmande - (dans le Poitou) Jean V de Bueil
+
+
+### English Castles   
+      # (call_script, "script_give_center_to_lord", "p_castle_26", "trp_", 0), # Château_de_Castelnaud [Forteresses de routier] - à retirer de la faction anglaise ?
+      (call_script, "script_give_center_to_lord", "p_castle_27", "trp_knight_2_43", 0), # Forteresse_de_Rauzan - Bertrand III de Montferrand, Baron of Guyenne
+      # (call_script, "script_give_center_to_lord", "p_castle_28", "trp_", 0), # Château_de_Montréal [Forteresses de routier] - à retirer de la faction anglaise ?
+      (call_script, "script_give_center_to_lord", "p_castle_29", "trp_knight_2_4", 0), # Château_du_Lude - Thomas de Scales, Baron de Scales
+      (call_script, "script_give_center_to_lord", "p_castle_30", "trp_knight_2_43", 0), # Château_de_Nérac - Bertrand III de Montferrand, Baron of Guyenne
+
+      (call_script, "script_give_center_to_lord", "p_castle_31", "trp_knight_2_13", 0), # Château_de_Falaise - Reginald Grey, Baron Grey de Ruthyn
+      (call_script, "script_give_center_to_lord", "p_castle_32", "trp_kingdom_2_lord", 0), # Château-Gaillard - John of Lancaster, duc de Bedford
+      (call_script, "script_give_center_to_lord", "p_castle_33", "trp_knight_2_34", 0), # Château_de_Vendôme - Robert Willoughby, Lord Willoughby of Eresby
+      (call_script, "script_give_center_to_lord", "p_castle_34", "trp_knight_2_2", 0), # Château_de_Beauvau - John Fastolf, Governor of Anjou
+      (call_script, "script_give_center_to_lord", "p_castle_35", "trp_knight_2_30", 0), # Château_Gontier - Edmund Beaufort, Earl of Dorset
+      (call_script, "script_give_center_to_lord", "p_castle_36", "trp_knight_2_7", 0), # Château_de_Verneuil - Thomas Beaufort, Count of Perche
+      (call_script, "script_give_center_to_lord", "p_castle_37", "trp_knight_2_30", 0), # Château de Mortain - Edmund Beaufort, Count of Mortain
+      (call_script, "script_give_center_to_lord", "p_castle_38", "trp_knight_2_45", 0), # Château de Langoiran - Jean de Montferrand, Seigneur de Langoiran
+      (call_script, "script_give_center_to_lord", "p_castle_39", "trp_knight_2_46", 0), # Forteresse de Landiras - Pierre II de Montferrant, Seigneur de Landiras
+      (call_script, "script_give_center_to_lord", "p_castle_40", "trp_knight_2_16", 0), # Château de Fronsac - Sir John Radcliffe, Seneschal of Guyenne, Captain of Fronsac
+
+      (call_script, "script_give_center_to_lord", "p_castle_41", "trp_knight_2_43", 0), # Château de Montferrand - Bertrand III de Montferrand
+      (call_script, "script_give_center_to_lord", "p_castle_42", "trp_knight_2_28", 0), # Forteresse de Blaye - John Holland, Earl of Huntingdon, Amiral
+      (call_script, "script_give_center_to_lord", "p_castle_43", "trp_knight_2_9", 0), # Château de Montbray - John Mowbray, Earl of Norfolk
+      (call_script, "script_give_center_to_lord", "p_castle_44", "trp_knight_2_6", 0), # Château de Gacé - Thomas Rempston, Baron Rempston and Gacé
+      (call_script, "script_give_center_to_lord", "p_castle_45", "trp_knight_2_1", 0), # Château de Sainte-Suzanne - John Talbot, Baron Talbot and Furnival
+      (call_script, "script_give_center_to_lord", "p_castle_46", "trp_knight_2_2", 0), # Château de Durtal - John Fastolf
+  
+### Burgundian Castles    
+      (call_script, "script_give_center_to_lord", "p_castle_47", "trp_kingdom_3_lord", 0), # Château_de_Tonerre - Philippe Le Bon
+      (call_script, "script_give_center_to_lord", "p_castle_48", "trp_kingdom_3_lord", 0), # Forteresse_d'Avallon - Philippe Le Bon
+      (call_script, "script_give_center_to_lord", "p_castle_49", "trp_knight_3_16", 0), # Château_de_Varenne-lès-Mâcon - Guillaume IV de Vienne
+      (call_script, "script_give_center_to_lord", "p_castle_50", "trp_knight_3_1", 0), # Château_de_Toulongeon - Antoine de Toulongeon
+
+      (call_script, "script_give_center_to_lord", "p_castle_51", "trp_knight_3_4", 0), # Château_de_Ligny-en-Barrois - Pierre Ier de Luxembourg
+      (call_script, "script_give_center_to_lord", "p_castle_52", "trp_knight_3_13", 0), # Château_de_Jonvelle - Jean de La Trémoille
+      (call_script, "script_give_center_to_lord", "p_castle_53", "trp_knight_3_7", 0), # Forteresse_de_Noyelles - Baudot de Noyelles
+      (call_script, "script_give_center_to_lord", "p_castle_54", "trp_knight_3_8", 0), # Château_de_Montfort - Pierre de Bauffremont
+      (call_script, "script_give_center_to_lord", "p_castle_55", "trp_knight_3_9", 0), # Forteresse_de_La_Rochepot - Régnier Pot
+      (call_script, "script_give_center_to_lord", "p_castle_56", "trp_knight_3_14", 0), # Château_de_Vergy - Antoine de Vergy
+      (call_script, "script_give_center_to_lord", "p_castle_57", "trp_knight_3_12", 0), # Château_de_Brimeu - Jacques de Brimeu
+      (call_script, "script_give_center_to_lord", "p_castle_58", "trp_knight_3_11", 0), # Château_de_Bellemotte - David de Brimeu
+      (call_script, "script_give_center_to_lord", "p_castle_59", "trp_knight_3_19", 0), # Forteresse_d'Uytkerke - Roland d'Uytkerke
+      (call_script, "script_give_center_to_lord", "p_castle_60", "trp_knight_3_3", 0), # Château_de_La_Charité-sur-Loire - Charles de Bourgogne
+
+      (call_script, "script_give_center_to_lord", "p_castle_61", "trp_knight_3_10", 0), # Forteresse_de_L'Isle_Adam - Jean de Villiers de l'Isle-Adam
+      (call_script, "script_give_center_to_lord", "p_castle_62", "trp_kingdom_3_lord", 0), # Château_de_Senlis - Philippe Le Bon
+      (call_script, "script_give_center_to_lord", "p_castle_63", "trp_knight_3_17", 0), # Château_de_Montcornet - Antoine I de Croÿ
+      (call_script, "script_give_center_to_lord", "p_castle_64", "trp_knight_3_18", 0), # Château_de_Chimay - Jean II de Croÿ  
+ 
+### Breton Castles    
+      (call_script, "script_give_center_to_lord", "p_castle_65", "trp_knight_4_1", 0), # Château_de_Fougères - Arthur de Richemont
+      (call_script, "script_give_center_to_lord", "p_castle_66", "trp_knight_4_15", 0), # Châteaubriant - Bertrand de Dinan
+      (call_script, "script_give_center_to_lord", "p_castle_67", "trp_knight_4_16", 0), # Château_de_Dinan - Jacques de Dinan
+      (call_script, "script_give_center_to_lord", "p_castle_68", "trp_knight_4_2", 0), # Château_de_Clisson - Richard de Montfort
+      (call_script, "script_give_center_to_lord", "p_castle_69", "trp_knight_4_9", 0), # Château_de_Josselin - Alain IX de Rohan
+      (call_script, "script_give_center_to_lord", "p_castle_70", "trp_knight_4_9", 0), # Forteresse_de_Roch'Morvan - Alain IX de Rohan
+
+      (call_script, "script_give_center_to_lord", "p_castle_71", "trp_knight_4_11", 0), # Château_de_Guéméné - Charles de Rohan-Guéméné
+      (call_script, "script_give_center_to_lord", "p_castle_72", "trp_knight_4_14", 0), # Château_de_Rochefort - Pierre de Rochefort, Seigneur de Rieux et de Rochefort   
+      (call_script, "script_give_center_to_lord", "p_castle_73", "trp_knight_4_18", 0), # Château_de_Tonquédec - Rolland III de Coëtmen
+      (call_script, "script_give_center_to_lord", "p_castle_74", "trp_knight_4_13", 0), # Château_de_Rosmadec - Guillaume de Rosmadec
+      (call_script, "script_give_center_to_lord", "p_castle_75", "trp_knight_4_5", 0), # Château_de_Coëtivy - Prigent VII de Coëtivy
+      (call_script, "script_give_center_to_lord", "p_castle_76", "trp_knight_4_4", 0), # Château_de_Trémazan - Tanneguy III Du Chastel
+      (call_script, "script_give_center_to_lord", "p_castle_77", "trp_knight_4_6", 0), # Château_de_Kermoysan - Tugdual de Kermoysan
+      (call_script, "script_give_center_to_lord", "p_castle_78", "trp_knight_4_17", 0), # Château_de_Coëtquen - Raoul V de Coëtquen
+      (call_script, "script_give_center_to_lord", "p_castle_79", "trp_knight_4_3", 0), # Château_de_Penhoët - Jean de Penhoët
+
+      (call_script, "script_give_center_to_lord", "p_castle_80", "trp_knight_4_7", 0), # Château_de_Penmarc'h - Henri Penmarc'h
+      (call_script, "script_give_center_to_lord", "p_castle_81", "trp_knight_4_1", 0), # Forteresse_de_Kemperlé - Arthur de Richemont
+      (call_script, "script_give_center_to_lord", "p_castle_82", "trp_knight_4_12", 0), # Château_d'Hen_Bont - Louis I de Rohan-Guéméné   
+      (call_script, "script_give_center_to_lord", "p_castle_83", "trp_knight_4_14", 0), # Château_de_Derval - Pierre de Rochefort
+      (call_script, "script_give_center_to_lord", "p_castle_84", "trp_knight_4_1", 0), # Château_de_Suscinio - Arthur de Richemont
+      (call_script, "script_give_center_to_lord", "p_castle_85", "trp_knight_4_10", 0), # Forteresse_de_Roch'an - Alain X de Rohan
+      (call_script, "script_give_center_to_lord", "p_castle_86", "trp_knight_4_1", 0), # Forteresse_de_Dol - Arthur de Richemont             
+    
+    
+    
+    #Add home centers for claimants
+    # (troop_set_slot, "trp_kingdom_1_pretender", slot_troop_home, "p_town_4"),#Lady Isolle - Suno
+    # (troop_set_slot, "trp_kingdom_2_pretender", slot_troop_home, "p_town_11"),#Prince Valdym - Curaw
+      # (troop_set_slot, "trp_kingdom_3_pretender", slot_troop_home, "p_town_18"),#Dustum Khan - Narra
+      # (troop_set_slot, "trp_kingdom_4_pretender", slot_troop_home, "p_town_12"),#Lethwin Far-Seeker - Wercheg
+      # (troop_set_slot, "trp_kingdom_5_pretender", slot_troop_home, "p_town_3"),#Lord Kastor - Veluca
+    # (troop_set_slot, "trp_kingdom_6_pretender", slot_troop_home, "p_town_20"),#Arwa the Pearled One - Durquba
+    #add ancestral fiefs to home slots (mods not using standard NPCs should remove this)
+      # (troop_set_slot, "trp_knight_2_10", slot_troop_home, "p_castle_29"), #Nelag_Castle
+      # (troop_set_slot, "trp_knight_3_4", slot_troop_home, "p_castle_30"), #Asugan_Castle
+      # (troop_set_slot, "trp_knight_1_3", slot_troop_home, "p_castle_35"), #Haringoth_Castle
+      # (troop_set_slot, "trp_knight_5_11", slot_troop_home, "p_castle_33"), #Etrosq_Castle
+    #Also the primary six towns:
+    # (troop_set_slot, "trp_kingdom_1_lord", slot_troop_home, "p_town_6"),#King Harlaus to Praven
+    # (troop_set_slot, "trp_kingdom_2_lord", slot_troop_home, "p_town_8"),#King Yaroglek to Reyvadin
+    # (troop_set_slot, "trp_kingdom_3_lord", slot_troop_home, "p_town_10"),#Sanjar Khan to Tulga
+    # (troop_set_slot, "trp_kingdom_4_lord", slot_troop_home, "p_town_1"),#King Ragnar to Sargoth
+    # (troop_set_slot, "trp_kingdom_5_lord", slot_troop_home, "p_town_5"),#King Graveth to Jelkala
+    # (troop_set_slot, "trp_kingdom_6_lord", slot_troop_home, "p_town_19"),#Sultan Hakim to Shariz
+    
+    
+      ##Also set home slots for starting quest merchants (merchant of praven, merchant of reyvadin, etc.)
+      (try_for_range, ":npc", kings_begin, kings_end),
+         (troop_get_slot, ":center_no", ":npc", slot_troop_home),
+         (val_sub, ":npc", kings_begin),
+         (val_add, ":npc", startup_merchants_begin),
+         (is_between, ":npc", startup_merchants_begin, startup_merchants_end),#Right now there's a startup merchant for each faction.  Verify this hasn't unexpectedly changed.
+         (neg|troop_slot_ge, ":npc", slot_troop_home, 1),#Verify that the home slot is not already set
+         (troop_set_slot, ":npc", slot_troop_home, ":center_no"),
+      (try_end),
+      ##diplomacy end+
+
+  ]),
+
+
+("initialize_custom_armor_data", 
+  [
+
+##################################################################################################################################################################################################################################################################################################################
+###################################################################################################### HYW CUSTOM ARMORS #########################################################################################################################################################################################
+##################################################################################################################################################################################################################################################################################################################
+    
+
+
+## Padded Cloth
+      (item_set_slot, "itm_a_padded_cloth_custom", slot_item_materials_begin, "str_a_padded_cloth_blue"),
+      (item_set_slot, "itm_a_padded_cloth_custom", slot_item_materials_end, "str_a_padded_cloth_end"),
+# France
+      (item_set_slot, "itm_a_padded_cloth_custom", slot_item_france_materials_begin, "str_a_padded_cloth_blue"),
+      (item_set_slot, "itm_a_padded_cloth_custom", slot_item_france_materials_end, "str_a_padded_cloth_english"),
+# England
+      (item_set_slot, "itm_a_padded_cloth_custom", slot_item_english_materials_begin, "str_a_padded_cloth_white"),
+      (item_set_slot, "itm_a_padded_cloth_custom", slot_item_english_materials_end, "str_a_padded_cloth_brown"),
+# Burgundy
+      (item_set_slot, "itm_a_padded_cloth_custom", slot_item_burgundy_materials_begin, "str_a_padded_cloth_red"),
+      (item_set_slot, "itm_a_padded_cloth_custom", slot_item_burgundy_materials_end, "str_a_padded_cloth_half_black"),
+# Brittany    
+      (item_set_slot, "itm_a_padded_cloth_custom", slot_item_breton_materials_begin, "str_a_padded_cloth_half_black"),
+      (item_set_slot, "itm_a_padded_cloth_custom", slot_item_breton_materials_end, "str_a_padded_cloth_yellow"),
+# Flemish Mercenaries   
+      (item_set_slot, "itm_a_padded_cloth_custom", slot_item_flemish_materials_begin, "str_a_padded_cloth_black"),
+      (item_set_slot, "itm_a_padded_cloth_custom", slot_item_flemish_materials_end, "str_a_padded_cloth_green"),  
+# Rebels  
+      (item_set_slot, "itm_a_padded_cloth_custom", slot_item_rebel_materials_begin, "str_a_padded_cloth_green"),
+      (item_set_slot, "itm_a_padded_cloth_custom", slot_item_rebel_materials_end, "str_a_padded_cloth_end"),      
+      (item_set_slot, "itm_a_padded_cloth_custom", slot_item_num_components, 1),
+      
+## Peasant Clothes
+       (item_set_slot, "itm_a_peasant_man_custom", slot_item_materials_begin, "str_a_peasant_man_blue"),
+      (item_set_slot, "itm_a_peasant_man_custom", slot_item_materials_end, "str_a_peasant_man_end"),
+# France
+      (item_set_slot, "itm_a_peasant_man_custom", slot_item_france_materials_begin, "str_a_peasant_man_blue"),
+      (item_set_slot, "itm_a_peasant_man_custom", slot_item_france_materials_end, "str_a_peasant_man_green_2"),
+# England
+      (item_set_slot, "itm_a_peasant_man_custom", slot_item_english_materials_begin, "str_a_peasant_man_green"),
+      (item_set_slot, "itm_a_peasant_man_custom", slot_item_english_materials_end, "str_a_peasant_man_brown"),
+# Burgundy
+      (item_set_slot, "itm_a_peasant_man_custom", slot_item_burgundy_materials_begin, "str_a_peasant_man_yellow_2"),
+      (item_set_slot, "itm_a_peasant_man_custom", slot_item_burgundy_materials_end, "str_a_peasant_man_black_3"),
+# Brittany    
+      (item_set_slot, "itm_a_peasant_man_custom", slot_item_breton_materials_begin, "str_a_peasant_man_brown_2"),
+      (item_set_slot, "itm_a_peasant_man_custom", slot_item_breton_materials_end, "str_a_peasant_man_black"), 
+# Flemish Mercenaries   
+      (item_set_slot, "itm_a_peasant_man_custom", slot_item_flemish_materials_begin, "str_a_peasant_man_black"),
+      (item_set_slot, "itm_a_peasant_man_custom", slot_item_flemish_materials_end, "str_a_peasant_man_end"),      
+      (item_set_slot, "itm_a_peasant_man_custom", slot_item_num_components, 1),    
+    
+## Native Woman Common Dress
+      (item_set_slot, "itm_a_woman_common_dress_1_custom", slot_item_materials_begin, "str_a_woman_common_dress_black"),
+      (item_set_slot, "itm_a_woman_common_dress_1_custom", slot_item_materials_end, "str_a_woman_common_dress_end"),  
+      (item_set_slot, "itm_a_woman_common_dress_1_custom", slot_item_num_components, 1),    
+    
+## Native Woman Common Dress 2
+      (item_set_slot, "itm_a_woman_common_dress_2_custom", slot_item_materials_begin, "str_a_woman_common_dress_2_blue"),
+      (item_set_slot, "itm_a_woman_common_dress_2_custom", slot_item_materials_end, "str_a_woman_common_dress_2_end"),  
+      (item_set_slot, "itm_a_woman_common_dress_2_custom", slot_item_num_components, 1),    
+
+## Native shirt
+      (item_set_slot, "itm_a_peasant_shirt_custom", slot_item_materials_begin, "str_a_shirt_black"),
+      (item_set_slot, "itm_a_peasant_shirt_custom", slot_item_materials_end, "str_a_shirt_end"),  
+      (item_set_slot, "itm_a_peasant_shirt_custom", slot_item_num_components, 1),       
+    
+## Nobleman Court Outfit
+      (item_set_slot, "itm_a_nobleman_court_outfit_custom", slot_item_materials_begin, "str_a_nobleman_outfit_french"),
+      (item_set_slot, "itm_a_nobleman_court_outfit_custom", slot_item_materials_end, "str_a_nobleman_outfit_end"),
+# France
+      (item_set_slot, "itm_a_nobleman_court_outfit_custom", slot_item_france_materials_begin, "str_a_nobleman_outfit_french"),
+      (item_set_slot, "itm_a_nobleman_court_outfit_custom", slot_item_france_materials_end, "str_a_nobleman_outfit_english"),
+# England
+      (item_set_slot, "itm_a_nobleman_court_outfit_custom", slot_item_english_materials_begin, "str_a_nobleman_outfit_english"),
+      (item_set_slot, "itm_a_nobleman_court_outfit_custom", slot_item_english_materials_end, "str_a_nobleman_outfit_burgundian"),
+# Burgundy
+      (item_set_slot, "itm_a_nobleman_court_outfit_custom", slot_item_burgundy_materials_begin, "str_a_nobleman_outfit_burgundian"),
+      (item_set_slot, "itm_a_nobleman_court_outfit_custom", slot_item_burgundy_materials_end, "str_a_nobleman_outfit_breton"),
+# Brittany    
+      (item_set_slot, "itm_a_nobleman_court_outfit_custom", slot_item_breton_materials_begin, "str_a_nobleman_outfit_breton"),
+      (item_set_slot, "itm_a_nobleman_court_outfit_custom", slot_item_breton_materials_end, "str_a_nobleman_outfit_end"),   
+      (item_set_slot, "itm_a_nobleman_court_outfit_custom", slot_item_num_components, 1),     
+    
+## Gambeson
+      (item_set_slot, "itm_a_gambeson_custom", slot_item_materials_begin, "str_a_gambeson_blue"),
+      (item_set_slot, "itm_a_gambeson_custom", slot_item_materials_end, "str_a_gambeson_end"),
+# France
+      (item_set_slot, "itm_a_gambeson_custom", slot_item_france_materials_begin, "str_a_gambeson_blue"),
+      (item_set_slot, "itm_a_gambeson_custom", slot_item_france_materials_end, "str_a_gambeson_red"),
+# England
+      (item_set_slot, "itm_a_gambeson_custom", slot_item_english_materials_begin, "str_a_gambeson_white"),
+      (item_set_slot, "itm_a_gambeson_custom", slot_item_english_materials_end, "str_a_gambeson_brown"),
+# Burgundy
+      (item_set_slot, "itm_a_gambeson_custom", slot_item_burgundy_materials_begin, "str_a_gambeson_red"),
+      (item_set_slot, "itm_a_gambeson_custom", slot_item_burgundy_materials_end, "str_a_gambeson_black"),
+# Brittany    
+      (item_set_slot, "itm_a_gambeson_custom", slot_item_breton_materials_begin, "str_a_gambeson_brown"),
+      (item_set_slot, "itm_a_gambeson_custom", slot_item_breton_materials_end, "str_a_gambeson_green"), 
+# Rebels    
+      (item_set_slot, "itm_a_gambeson_custom", slot_item_rebel_materials_begin, "str_a_gambeson_green"),
+      (item_set_slot, "itm_a_gambeson_custom", slot_item_rebel_materials_end, "str_a_gambeson_end"),      
+      (item_set_slot, "itm_a_gambeson_custom", slot_item_num_components, 1),        
+    
+## Padded Armor
+      (item_set_slot, "itm_a_padded_armor_custom", slot_item_materials_begin, "str_a_padded_armor_blue"),
+      (item_set_slot, "itm_a_padded_armor_custom", slot_item_materials_end, "str_a_padded_armor_end"),
+# France
+      (item_set_slot, "itm_a_padded_armor_custom", slot_item_france_materials_begin, "str_a_padded_armor_blue"),
+      (item_set_slot, "itm_a_padded_armor_custom", slot_item_france_materials_end, "str_a_padded_armor_red"),
+# England
+      (item_set_slot, "itm_a_padded_armor_custom", slot_item_english_materials_begin, "str_a_padded_armor_white"),
+      (item_set_slot, "itm_a_padded_armor_custom", slot_item_english_materials_end, "str_a_padded_armor_brown"),
+# Burgundy
+      (item_set_slot, "itm_a_padded_armor_custom", slot_item_burgundy_materials_begin, "str_a_padded_armor_red"),
+      (item_set_slot, "itm_a_padded_armor_custom", slot_item_burgundy_materials_end, "str_a_padded_armor_black"),
+# Brittany    
+      (item_set_slot, "itm_a_padded_armor_custom", slot_item_breton_materials_begin, "str_a_padded_armor_brown"),
+      (item_set_slot, "itm_a_padded_armor_custom", slot_item_breton_materials_end, "str_a_padded_armor_green"), 
+# Rebels    
+      (item_set_slot, "itm_a_padded_armor_custom", slot_item_rebel_materials_begin, "str_a_padded_armor_green"),
+      (item_set_slot, "itm_a_padded_armor_custom", slot_item_rebel_materials_end, "str_a_padded_armor_end"),      
+      (item_set_slot, "itm_a_padded_armor_custom", slot_item_num_components, 1),            
+    
+## Narf Gambeson 
+      (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_materials_begin, "str_a_gambeson_narf_blue"),
+      (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_materials_end, "str_a_gambeson_narf_end"),
+# France
+      (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_france_materials_begin, "str_a_gambeson_narf_blue"),
+      (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_france_materials_end, "str_a_gambeson_narf_english"),
+# England
+      (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_english_materials_begin, "str_a_gambeson_narf"),
+      (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_english_materials_end, "str_a_gambeson_narf_brown"),
+# Burgundy
+      (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_burgundy_materials_begin, "str_a_gambeson_narf_red"),
+      (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_burgundy_materials_end, "str_a_gambeson_narf_black"),
+# Brittany    
+      (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_breton_materials_begin, "str_a_gambeson_narf_half_black"),
+      (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_breton_materials_end, "str_a_gambeson_narf_yellow_black"),  
+# Flemish Mercenaries   
+      (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_flemish_materials_begin, "str_a_gambeson_narf_black"),
+      (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_flemish_materials_end, "str_a_gambeson_narf_green"),  
+# Rebels    
+      (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_rebel_materials_begin, "str_a_gambeson_narf_green"),
+      (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_rebel_materials_end, "str_a_gambeson_narf_end"),      
+      (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_num_components, 1),   
+
+## Bogmir Brigandine 
+      (item_set_slot, "itm_a_brigandine_bogmir_custom", slot_item_materials_begin, "str_a_brigandine_french"),
+      (item_set_slot, "itm_a_brigandine_bogmir_custom", slot_item_materials_end, "str_a_brigandine_end"),
+# France
+      (item_set_slot, "itm_a_brigandine_bogmir_custom", slot_item_france_materials_begin, "str_a_brigandine_french"),
+      (item_set_slot, "itm_a_brigandine_bogmir_custom", slot_item_france_materials_end, "str_a_brigandine_english"),
+# England
+      (item_set_slot, "itm_a_brigandine_bogmir_custom", slot_item_english_materials_begin, "str_a_brigandine_english"),
+      (item_set_slot, "itm_a_brigandine_bogmir_custom", slot_item_english_materials_end, "str_a_brigandine_brown"),
+# Burgundy
+      (item_set_slot, "itm_a_brigandine_bogmir_custom", slot_item_burgundy_materials_begin, "str_a_brigandine_red"),
+      (item_set_slot, "itm_a_brigandine_bogmir_custom", slot_item_burgundy_materials_end, "str_a_brigandine_black"),
+# Brittany    
+      (item_set_slot, "itm_a_brigandine_bogmir_custom", slot_item_breton_materials_begin, "str_a_brigandine_brown"),
+      (item_set_slot, "itm_a_brigandine_bogmir_custom", slot_item_breton_materials_end, "str_a_brigandine_end"),      
+      (item_set_slot, "itm_a_brigandine_bogmir_custom", slot_item_num_components, 1),     
+    
+## Padded Over Mail (Mail Hauberk)
+      (item_set_slot, "itm_a_padded_over_mail_custom", slot_item_materials_begin, "str_a_padded_over_mail_blue"),
+      (item_set_slot, "itm_a_padded_over_mail_custom", slot_item_materials_end, "str_a_padded_over_mail_end"),
+# France
+      (item_set_slot, "itm_a_padded_over_mail_custom", slot_item_france_materials_begin, "str_a_padded_over_mail_blue"),
+      (item_set_slot, "itm_a_padded_over_mail_custom", slot_item_france_materials_end, "str_a_padded_over_mail_red"),
+# England
+      (item_set_slot, "itm_a_padded_over_mail_custom", slot_item_english_materials_begin, "str_a_padded_over_mail"),
+      (item_set_slot, "itm_a_padded_over_mail_custom", slot_item_english_materials_end, "str_a_padded_over_mail_brown"),
+# Burgundy
+      (item_set_slot, "itm_a_padded_over_mail_custom", slot_item_burgundy_materials_begin, "str_a_padded_over_mail_red"),
+      (item_set_slot, "itm_a_padded_over_mail_custom", slot_item_burgundy_materials_end, "str_a_padded_over_mail_black"),
+# Brittany    
+      (item_set_slot, "itm_a_padded_over_mail_custom", slot_item_breton_materials_begin, "str_a_padded_over_mail_brown"),
+      (item_set_slot, "itm_a_padded_over_mail_custom", slot_item_breton_materials_end, "str_a_padded_over_mail_end"),     
+      (item_set_slot, "itm_a_padded_over_mail_custom", slot_item_num_components, 1),      
+    
+## Coat of Plates
+      (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_materials_begin, "str_a_coat_of_plates_french_1"),
+      (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_materials_end, "str_a_coat_of_plates_end"),
+# France
+      (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_france_materials_begin, "str_a_coat_of_plates_french_1"),
+      (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_france_materials_end, "str_a_coat_of_plates_english_1"),
+# England
+      (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_english_materials_begin, "str_a_coat_of_plates_english_1"),
+      (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_english_materials_end, "str_a_coat_of_plates_end"),  
+      (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_num_components, 1),        
+
+## Surcoat Over Mail
+      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_materials_begin, "str_a_surcoat_over_mail_french_1"),
+      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_materials_end, "str_a_surcoat_over_mail_end"),
+# France
+      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_france_materials_begin, "str_a_surcoat_over_mail_french_1"),
+      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_france_materials_end, "str_a_surcoat_over_mail_english_1"),
+# England
+      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_english_materials_begin, "str_a_surcoat_over_mail_english_1"),
+      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_english_materials_end, "str_a_surcoat_over_mail_breton_1"), 
+# Brittany    
+      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_breton_materials_begin, "str_a_surcoat_over_mail_breton_1"),
+      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_breton_materials_end, "str_a_surcoat_over_mail_end"),     
+      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_num_components, 1),     
+    
+## Churburg
+      (item_set_slot, "itm_a_churburg_narf_custom", slot_item_materials_begin, "str_a_churburg_blue"),
+      (item_set_slot, "itm_a_churburg_narf_custom", slot_item_materials_end, "str_a_churburg_end"),
+# France
+      (item_set_slot, "itm_a_churburg_narf_custom", slot_item_france_materials_begin, "str_a_churburg_blue"),
+      (item_set_slot, "itm_a_churburg_narf_custom", slot_item_france_materials_end, "str_a_churburg_red"),
+# England
+      (item_set_slot, "itm_a_churburg_narf_custom", slot_item_english_materials_begin, "str_a_churburg_white"),
+      (item_set_slot, "itm_a_churburg_narf_custom", slot_item_english_materials_end, "str_a_churburg_brown"), 
+# Burgundy
+      (item_set_slot, "itm_a_churburg_narf_custom", slot_item_burgundy_materials_begin, "str_a_churburg_red"),
+      (item_set_slot, "itm_a_churburg_narf_custom", slot_item_burgundy_materials_end, "str_a_churburg_white_2"),    
+# Brittany    
+      (item_set_slot, "itm_a_churburg_narf_custom", slot_item_breton_materials_begin, "str_a_churburg_white_2"),
+      (item_set_slot, "itm_a_churburg_narf_custom", slot_item_breton_materials_end, "str_a_churburg_yellow_black"), 
+# Flemish Mercenaries   
+      (item_set_slot, "itm_a_churburg_narf_custom", slot_item_flemish_materials_begin, "str_a_churburg_black"),
+      (item_set_slot, "itm_a_churburg_narf_custom", slot_item_flemish_materials_end, "str_a_churburg_end"),   
+      (item_set_slot, "itm_a_churburg_narf_custom", slot_item_num_components, 1),     
+    
+## Churburg Brass
+      (item_set_slot, "itm_a_churburg_brass_narf_custom", slot_item_materials_begin, "str_a_churburg_brass_blue"),
+      (item_set_slot, "itm_a_churburg_brass_narf_custom", slot_item_materials_end, "str_a_churburg_brass_end"),
+# France
+      (item_set_slot, "itm_a_churburg_brass_narf_custom", slot_item_france_materials_begin, "str_a_churburg_brass_blue"),
+      (item_set_slot, "itm_a_churburg_brass_narf_custom", slot_item_france_materials_end, "str_a_churburg_brass_red"),
+# England
+      (item_set_slot, "itm_a_churburg_brass_narf_custom", slot_item_english_materials_begin, "str_a_churburg_brass_white"),
+      (item_set_slot, "itm_a_churburg_brass_narf_custom", slot_item_english_materials_end, "str_a_churburg_brass_brown"), 
+# Burgundy
+      (item_set_slot, "itm_a_churburg_brass_narf_custom", slot_item_burgundy_materials_begin, "str_a_churburg_brass_red"),
+      (item_set_slot, "itm_a_churburg_brass_narf_custom", slot_item_burgundy_materials_end, "str_a_churburg_brass_black"),    
+# Brittany    
+      (item_set_slot, "itm_a_churburg_brass_narf_custom", slot_item_breton_materials_begin, "str_a_churburg_brass_black"),
+      (item_set_slot, "itm_a_churburg_brass_narf_custom", slot_item_breton_materials_end, "str_a_churburg_brass_end"),      
+      (item_set_slot, "itm_a_churburg_brass_narf_custom", slot_item_num_components, 1),       
+        
+## Corrazina
+      (item_set_slot, "itm_a_corrazina_narf_custom", slot_item_materials_begin, "str_a_corrazina_blue"),
+      (item_set_slot, "itm_a_corrazina_narf_custom", slot_item_materials_end, "str_a_corrazina_end"),
+# France
+      (item_set_slot, "itm_a_corrazina_narf_custom", slot_item_france_materials_begin, "str_a_corrazina_blue"),
+      (item_set_slot, "itm_a_corrazina_narf_custom", slot_item_france_materials_end, "str_a_corrazina_red"),
+# England
+      (item_set_slot, "itm_a_corrazina_narf_custom", slot_item_english_materials_begin, "str_a_corrazina_white"),
+      (item_set_slot, "itm_a_corrazina_narf_custom", slot_item_english_materials_end, "str_a_corrazina_brown"), 
+# Burgundy
+      (item_set_slot, "itm_a_corrazina_narf_custom", slot_item_burgundy_materials_begin, "str_a_corrazina_red"),
+      (item_set_slot, "itm_a_corrazina_narf_custom", slot_item_burgundy_materials_end, "str_a_corrazina_black"),    
+# Brittany    
+      (item_set_slot, "itm_a_corrazina_narf_custom", slot_item_breton_materials_begin, "str_a_corrazina_white_2"),
+      (item_set_slot, "itm_a_corrazina_narf_custom", slot_item_breton_materials_end, "str_a_corrazina_yellow_black"),   
+# Flemish Mercenaries   
+      (item_set_slot, "itm_a_corrazina_narf_custom", slot_item_flemish_materials_begin, "str_a_corrazina_black"),
+      (item_set_slot, "itm_a_corrazina_narf_custom", slot_item_flemish_materials_end, "str_a_corrazina_end"),     
+      (item_set_slot, "itm_a_corrazina_narf_custom", slot_item_num_components, 1),   
+    
+## Early Transitional Plate
+      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_materials_begin, "str_a_early_transitional_french_1"),
+      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_materials_end, "str_a_early_transitional_end"),
+# France
+      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_france_materials_begin, "str_a_early_transitional_french_1"),
+      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_france_materials_end, "str_a_early_transitional_english_1"),
+# England
+      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_english_materials_begin, "str_a_early_transitional_white"),
+      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_english_materials_end, "str_a_early_transitional_english_2"), 
+# Burgundy
+      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_burgundy_materials_begin, "str_a_early_transitional_burgundian"),
+      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_burgundy_materials_end, "str_a_early_transitional_breton"),   
+# Brittany    
+      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_breton_materials_begin, "str_a_early_transitional_breton"),
+      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_breton_materials_end, "str_a_early_transitional_black"),    
+# Flemish Mercenaries   
+      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_flemish_materials_begin, "str_a_early_transitional_black"),
+      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_flemish_materials_end, "str_a_early_transitional_end"),
+      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_num_components, 1),       
+        
+## Narf Brigandine 
+      (try_for_range, ":item_no", "itm_a_brigandine_narf_padded_custom", "itm_a_churburg_narf_custom"), # Seek: All the Brigandines share the same base
+      (item_set_slot, ":item_no", slot_item_materials_begin, "str_a_brigandine_narf_blue"),
+      (item_set_slot, ":item_no", slot_item_materials_end, "str_a_brigandine_narf_end"),
+  # France
+      (item_set_slot, ":item_no", slot_item_france_materials_begin, "str_a_brigandine_narf_blue"),
+      (item_set_slot, ":item_no", slot_item_france_materials_end, "str_a_brigandine_narf_english"),
+  # England
+      (item_set_slot, ":item_no", slot_item_english_materials_begin, "str_a_brigandine_narf_white"),
+      (item_set_slot, ":item_no", slot_item_english_materials_end, "str_a_brigandine_narf_brown"),
+  # Burgundy
+      (item_set_slot, ":item_no", slot_item_burgundy_materials_begin, "str_a_brigandine_narf_red"),
+      (item_set_slot, ":item_no", slot_item_burgundy_materials_end, "str_a_brigandine_narf_black_white"),
+  # Brittany    
+      (item_set_slot, ":item_no", slot_item_breton_materials_begin, "str_a_brigandine_narf_brown"),
+      (item_set_slot, ":item_no", slot_item_breton_materials_end, "str_a_brigandine_narf_yellow_black"),  
+  # Flemish Mercenaries   
+      (item_set_slot, ":item_no", slot_item_flemish_materials_begin, "str_a_brigandine_narf_black"),
+      (item_set_slot, ":item_no", slot_item_flemish_materials_end, "str_a_brigandine_narf_end"),        
+      (item_set_slot, ":item_no", slot_item_num_components, 1),     
+      (try_end),
+    
+## Narf Aketon 
+      (try_for_range, ":item_no", "itm_a_aketon_narf_custom", "itm_a_brigandine_bogmir_custom"), # Seek: All the Aketons share the same base
+      (item_set_slot, ":item_no", slot_item_materials_begin, "str_a_aketon_narf_blue"),
+      (item_set_slot, ":item_no", slot_item_materials_end, "str_a_aketon_narf_end"),
+  # France
+      (item_set_slot, ":item_no", slot_item_france_materials_begin, "str_a_aketon_narf_blue"),
+      (item_set_slot, ":item_no", slot_item_france_materials_end, "str_a_aketon_narf_english"),
+  # England
+      (item_set_slot, ":item_no", slot_item_english_materials_begin, "str_a_aketon_narf"),
+      (item_set_slot, ":item_no", slot_item_english_materials_end, "str_a_aketon_narf_brown"),
+  # Burgundy
+      (item_set_slot, ":item_no", slot_item_burgundy_materials_begin, "str_a_aketon_narf_red"),
+      (item_set_slot, ":item_no", slot_item_burgundy_materials_end, "str_a_aketon_narf_black"),
+  # Brittany    
+      (item_set_slot, ":item_no", slot_item_breton_materials_begin, "str_a_aketon_narf_brown"),
+      (item_set_slot, ":item_no", slot_item_breton_materials_end, "str_a_aketon_narf_yellow_black"),  
+  # Flemish   
+      (item_set_slot, ":item_no", slot_item_flemish_materials_begin, "str_a_aketon_narf_black"),
+      (item_set_slot, ":item_no", slot_item_flemish_materials_end, "str_a_aketon_narf_end"),        
+      (item_set_slot, ":item_no", slot_item_num_components, 1),     
+      (try_end),
+
+## Custom Hoods for the helmets
+      (try_for_range, ":item_no", "itm_h_bascinet_fi_hood_custom", "itm_a_peasant_man_custom"), # Seek: All the Helmets share the same base
+      (item_set_slot, ":item_no", slot_item_materials_begin, "str_h_hood_narf_blue"),
+      (item_set_slot, ":item_no", slot_item_materials_end, "str_h_hood_narf_end"),
+  # France
+      (item_set_slot, ":item_no", slot_item_france_materials_begin, "str_h_hood_narf_blue"),
+      (item_set_slot, ":item_no", slot_item_france_materials_end, "str_h_hood_narf_red"),
+  # England
+      (item_set_slot, ":item_no", slot_item_english_materials_begin, "str_h_hood_narf_white"),
+      (item_set_slot, ":item_no", slot_item_english_materials_end, "str_h_hood_narf_yellow_blue"),
+  # Burgundy
+      (item_set_slot, ":item_no", slot_item_burgundy_materials_begin, "str_h_hood_narf_white"),
+      (item_set_slot, ":item_no", slot_item_burgundy_materials_end, "str_h_hood_narf_white_2"),
+  # Brittany    
+      (item_set_slot, ":item_no", slot_item_breton_materials_begin, "str_h_hood_narf_white_2"),
+      (item_set_slot, ":item_no", slot_item_breton_materials_end, "str_h_hood_narf_yellow_black"),    
+  # Flemish Mercenaries 
+      (item_set_slot, ":item_no", slot_item_flemish_materials_begin, "str_h_hood_narf_black"),
+      (item_set_slot, ":item_no", slot_item_flemish_materials_end, "str_h_hood_narf_green"),
+  # Rebels  
+      (item_set_slot, ":item_no", slot_item_rebel_materials_begin, "str_h_hood_narf_green"),
+      (item_set_slot, ":item_no", slot_item_rebel_materials_end, "str_h_hood_narf_end"),        
+      (item_set_slot, ":item_no", slot_item_num_components, 1),     
+      (try_end),      
+    
+###################################################################################################### HYW CUSTOM ARMORS VERTEX COLORED
+    
+## Vertex Coloured Leather Vest
+      (item_set_slot, "itm_a_leather_vest_custom", slot_item_materials_begin, "str_a_leather_vest_arms_blue"),
+      (item_set_slot, "itm_a_leather_vest_custom", slot_item_materials_end, "str_a_leather_vest_arms_end"),
+# France
+      (item_set_slot, "itm_a_leather_vest_custom", slot_item_france_materials_begin, "str_a_leather_vest_arms_blue"),
+      (item_set_slot, "itm_a_leather_vest_custom", slot_item_france_materials_end, "str_a_leather_vest_arms_red"),
+# England
+      (item_set_slot, "itm_a_leather_vest_custom", slot_item_english_materials_begin, "str_a_leather_vest_arms_white"),
+      (item_set_slot, "itm_a_leather_vest_custom", slot_item_english_materials_end, "str_a_leather_vest_arms_brown"),
+# Burgundy
+      (item_set_slot, "itm_a_leather_vest_custom", slot_item_burgundy_materials_begin, "str_a_leather_vest_arms_red"),
+      (item_set_slot, "itm_a_leather_vest_custom", slot_item_burgundy_materials_end, "str_a_leather_vest_arms_black"),
+# Brittany    
+      (item_set_slot, "itm_a_leather_vest_custom", slot_item_breton_materials_begin, "str_a_leather_vest_arms_black"),
+      (item_set_slot, "itm_a_leather_vest_custom", slot_item_breton_materials_end, "str_a_leather_vest_arms_green"),  
+# Rebels    
+      (item_set_slot, "itm_a_leather_vest_custom", slot_item_rebel_materials_begin, "str_a_leather_vest_arms_green"),
+      (item_set_slot, "itm_a_leather_vest_custom", slot_item_rebel_materials_end, "str_a_leather_vest_arms_end"),     
+      (item_set_slot, "itm_a_leather_vest_custom", slot_item_num_components, 1),      
+    
+## Vertex Coloured Leather Armor
+      (item_set_slot, "itm_a_leather_armor_custom", slot_item_materials_begin, "str_a_leather_armor_arms_blue"),
+      (item_set_slot, "itm_a_leather_armor_custom", slot_item_materials_end, "str_a_leather_armor_arms_end"),
+# France
+      (item_set_slot, "itm_a_leather_armor_custom", slot_item_france_materials_begin, "str_a_leather_armor_arms_blue"),
+      (item_set_slot, "itm_a_leather_armor_custom", slot_item_france_materials_end, "str_a_leather_armor_arms_red"),
+# England
+      (item_set_slot, "itm_a_leather_armor_custom", slot_item_english_materials_begin, "str_a_leather_armor_arms_white"),
+      (item_set_slot, "itm_a_leather_armor_custom", slot_item_english_materials_end, "str_a_leather_armor_arms_brown"),
+# Burgundy
+      (item_set_slot, "itm_a_leather_armor_custom", slot_item_burgundy_materials_begin, "str_a_leather_armor_arms_red"),
+      (item_set_slot, "itm_a_leather_armor_custom", slot_item_burgundy_materials_end, "str_a_leather_armor_arms_black"),
+# Brittany    
+      (item_set_slot, "itm_a_leather_armor_custom", slot_item_breton_materials_begin, "str_a_leather_armor_arms_black"),
+      (item_set_slot, "itm_a_leather_armor_custom", slot_item_breton_materials_end, "str_a_leather_armor_arms_green"),  
+# Rebels    
+      (item_set_slot, "itm_a_leather_armor_custom", slot_item_rebel_materials_begin, "str_a_leather_armor_arms_green"),
+      (item_set_slot, "itm_a_leather_armor_custom", slot_item_rebel_materials_end, "str_a_leather_armor_arms_end"),     
+      (item_set_slot, "itm_a_leather_armor_custom", slot_item_num_components, 1),     
+
+## Vertex Coloured Mail shirt
+      (item_set_slot, "itm_a_mail_shirt_custom", slot_item_materials_begin, "str_a_mail_shirt_arms_blue"),
+      (item_set_slot, "itm_a_mail_shirt_custom", slot_item_materials_end, "str_a_mail_shirt_arms_end"),
+# France
+      (item_set_slot, "itm_a_mail_shirt_custom", slot_item_france_materials_begin, "str_a_mail_shirt_arms_blue"),
+      (item_set_slot, "itm_a_mail_shirt_custom", slot_item_france_materials_end, "str_a_mail_shirt_arms_red"),
+# England
+      (item_set_slot, "itm_a_mail_shirt_custom", slot_item_english_materials_begin, "str_a_mail_shirt_arms_white"),
+      (item_set_slot, "itm_a_mail_shirt_custom", slot_item_english_materials_end, "str_a_mail_shirt_arms_brown"),
+# Burgundy
+      (item_set_slot, "itm_a_mail_shirt_custom", slot_item_burgundy_materials_begin, "str_a_mail_shirt_arms_red"),
+      (item_set_slot, "itm_a_mail_shirt_custom", slot_item_burgundy_materials_end, "str_a_mail_shirt_arms_black"),
+# Brittany    
+      (item_set_slot, "itm_a_mail_shirt_custom", slot_item_breton_materials_begin, "str_a_mail_shirt_arms_black"),
+      (item_set_slot, "itm_a_mail_shirt_custom", slot_item_breton_materials_end, "str_a_mail_shirt_arms_green"),  
+# Rebels    
+      (item_set_slot, "itm_a_mail_shirt_custom", slot_item_rebel_materials_begin, "str_a_mail_shirt_arms_green"),
+      (item_set_slot, "itm_a_mail_shirt_custom", slot_item_rebel_materials_end, "str_a_mail_shirt_arms_end"),     
+      (item_set_slot, "itm_a_mail_shirt_custom", slot_item_num_components, 1),        
+
+      #Init Custom Armors
+      (try_for_range, ":item_no", "itm_h_bascinet_fi_hood_custom", "itm_items_end"), # Seek: Changed the range
+          (item_get_slot, ":materials_begin", ":item_no", slot_item_materials_begin),
+          (item_get_slot, ":materials_end", ":item_no", slot_item_materials_end),
+          (store_random_in_range, ":random_material", ":materials_begin", ":materials_end"),
+          (item_set_slot, ":item_no", slot_item_player_color, ":random_material"), # Kham: Set to a Random Colour.
+          (item_set_slot, ":item_no", slot_item_num_components, 1), #allows it to be customized
+      (try_end),  
+]),
 
 ]
 
