@@ -962,9 +962,9 @@
   3.300000 staff_cstance 0 60 1342177280 0 0.000000 0.000000 0.000000 0.000000 
  crouch_pike_recover 0 35651599  1
   1.200000 staff_cstance 10 11 4 0 0.000000 0.000000 0.000000 0.000000 
- ready_overswing_spear 524288 1679818762  1
+ ready_overswing_spear 1679294464 1679818762  1
   0.350000 attacks_staff_thrust_overhead 6 21 7 0 0.000000 0.000000 0.000000 0.000000 
- release_overswing_spear 524288 2183135242  1
+ release_overswing_spear 1679294464 2183135242  1
   0.450000 attacks_staff_thrust_overhead 21 43 6 0 0.000000 0.000000 0.000000 0.000000 
  release_overswing_spear_continue 0 572522497  1
   0.300000 attacks_staff_thrust_overhead 43 50 3 0 0.000000 0.000000 0.000000 0.000000 
