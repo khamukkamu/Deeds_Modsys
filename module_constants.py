@@ -1816,19 +1816,20 @@ readable_books_begin = "itm_book_tactics"
 readable_books_end   = reference_books_begin
 books_begin = readable_books_begin
 books_end = reference_books_end
+
+# Ranges used for Refresh Center Inventories Script 
 horses_begin = "itm_ho_sumpter_1"
 horses_end = "itm_h_bascinet_great"
+armors_begin = "itm_h_bascinet_great" #Includes helms, armours, gauntlets, and boots
+armors_end = "itm_w_dagger_bollock"
 weapons_begin = "itm_w_dagger_bollock"
-weapons_end = "itm_dedal_kufel"
-ranged_weapons_begin = "itm_w_short_bow_ash"
-ranged_weapons_end = "itm_dedal_kufel"
+weapons_end = "itm_arrows"
 ammo_begin = "itm_arrows"
 ammo_end = "itm_w_short_bow_ash"
-armors_begin = "itm_a_gambeson_black"
-armors_end = "itm_a_churburg_narf_mail"
+ranged_weapons_begin = "itm_w_short_bow_ash"
+ranged_weapons_end = "itm_dedal_kufel"
 shields_begin = "itm_s_battle_shield_charles"
-shields_end = "itm_h_bascinet_fi_hood_custom"
-
+shields_end = "itm_items_end"
 
 #INVASION MODE START
 coop_drops_begin = "itm_javelin_bow"
