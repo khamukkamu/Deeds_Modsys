@@ -6492,7 +6492,7 @@ TOTAL:  {reg5}"),
           (try_end),
 
           (this_or_next|eq, ":battle_lost",1),
-          (eq,"$a",1),
+          (eq,"$g_player_surrenders",1),
           (leave_encounter),
           (change_screen_return),
         (try_end),

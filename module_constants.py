@@ -1685,7 +1685,7 @@ player_realm_quests_end_2 = "qst_blank_quest_26"
 
 all_items_begin = 0
 all_items_end = "itm_ccoop_new_items_end" #SB : new ccoop stuff
-normal_items_end = "itm_dplmc_coat_of_plates_red_constable"
+normal_items_end = "itm_items_end"
 
 all_quests_begin = 0
 all_quests_end = "qst_quests_end"

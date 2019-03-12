@@ -15059,7 +15059,7 @@ scripts = [
         (try_end),
 ### HYW KHAM: Customizable string for custom items		  
       (else_try),
-        (is_between, ":item_no", "itm_h_bascinet_fi_hood_custom", "itm_items_end"),
+        (is_between, ":item_no", "itm_h_bascinet_fi_hood_custom", "itm_dplmc_coat_of_plates_red_constable"),
         (try_begin),
           (eq, ":extra_text_id", 0),
           (str_store_string, s1, "@Customizable"),
