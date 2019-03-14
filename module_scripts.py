@@ -6883,165 +6883,257 @@ scripts = [
 
 
 	("initialize_trade_routes",
-	[
-	  #SARGOTH - 10 routes
-      (call_script, "script_set_trade_route_between_centers", "p_town_1", "p_town_2"), #Sargoth - Tihr
-      (call_script, "script_set_trade_route_between_centers", "p_town_1", "p_town_4"), #Sargoth - Suno
-      (call_script, "script_set_trade_route_between_centers", "p_town_1", "p_town_12"), #Sargoth - Wercheg
-      (call_script, "script_set_trade_route_between_centers", "p_town_1", "p_town_11"), #Sargoth - Curaw
-      (call_script, "script_set_trade_route_between_centers", "p_town_1", "p_town_8"), #Sargoth - Reyvadin
-      (call_script, "script_set_trade_route_between_centers", "p_town_1", "p_town_13"), #Sargoth - Rivacheg
-      (call_script, "script_set_trade_route_between_centers", "p_town_1", "p_town_7"), #Sargoth - Uxkhal
-      (call_script, "script_set_trade_route_between_centers", "p_town_1", "p_town_9"), #Sargoth - Khudan
-      (call_script, "script_set_trade_route_between_centers", "p_town_1", "p_town_6"), #Sargoth - Praven
-      (call_script, "script_set_trade_route_between_centers", "p_town_1", "p_town_15"), #Sargoth - Yalen
-      (call_script, "script_set_trade_route_between_centers", "p_town_1", "p_town_16"), #Sargoth - Dhirim
+  [
 
-	  #TIHR- 8 Routes
-      (call_script, "script_set_trade_route_between_centers", "p_town_2", "p_town_4"), #Tihr- Suno
-      (call_script, "script_set_trade_route_between_centers", "p_town_2", "p_town_6"), #Tihr - Praven
-      (call_script, "script_set_trade_route_between_centers", "p_town_2", "p_town_7"), #Tihr - Uxkhal
-      (call_script, "script_set_trade_route_between_centers", "p_town_2", "p_town_15"), #Tihr - Yalen
-      (call_script, "script_set_trade_route_between_centers", "p_town_2", "p_town_12"), #Tihr - Wercheg
-      (call_script, "script_set_trade_route_between_centers", "p_town_2", "p_town_8"), #Tihr - Reyvadin
-      (call_script, "script_set_trade_route_between_centers", "p_town_2", "p_town_11"), #Tihr - Curaw
-      (call_script, "script_set_trade_route_between_centers", "p_town_2", "p_town_16"), #Thir - Dhirim
-
-	  #VELUCA - 8 Routes
-      (call_script, "script_set_trade_route_between_centers", "p_town_3", "p_town_7"), #Veluca- Uxkhal
-      (call_script, "script_set_trade_route_between_centers", "p_town_3", "p_town_5"), #Veluca - Jelkala
-      (call_script, "script_set_trade_route_between_centers", "p_town_3", "p_town_15"), #Veluca - Yalen
-      (call_script, "script_set_trade_route_between_centers", "p_town_3", "p_town_16"), #Veluca - Dhirim
-      (call_script, "script_set_trade_route_between_centers", "p_town_3", "p_town_14"), #Veluca - Halmar
-      (call_script, "script_set_trade_route_between_centers", "p_town_3", "p_town_4"), #Veluca - Suno
-      (call_script, "script_set_trade_route_between_centers", "p_town_3", "p_town_19"), #Veluca - Shariz
-      (call_script, "script_set_trade_route_between_centers", "p_town_3", "p_town_6"), #Veluca - Praven
-
-	  #SUNO - 11 routes
-	  #Sargoth, Tihr, Veluca
-      (call_script, "script_set_trade_route_between_centers", "p_town_4", "p_town_12"), #Suno - Wercheg
-      (call_script, "script_set_trade_route_between_centers", "p_town_4", "p_town_8"), #Suno - Reyvadin
-      (call_script, "script_set_trade_route_between_centers", "p_town_4", "p_town_11"), #Suno - Curaw
-      (call_script, "script_set_trade_route_between_centers", "p_town_4", "p_town_6"), #Suno - Praven
-      (call_script, "script_set_trade_route_between_centers", "p_town_4", "p_town_7"), #Suno - Uxkhal
-      (call_script, "script_set_trade_route_between_centers", "p_town_4", "p_town_16"), #Suno - Dhirim
-      (call_script, "script_set_trade_route_between_centers", "p_town_4", "p_town_5"), #Suno - Jelkala
-      (call_script, "script_set_trade_route_between_centers", "p_town_4", "p_town_15"), #Suno - Yalen
-
-	  #JELKALA - 6 ROUTES
-      #Veluca, Suno
-      (call_script, "script_set_trade_route_between_centers", "p_town_5", "p_town_15"), #Jelkala - Yalen
-      (call_script, "script_set_trade_route_between_centers", "p_town_5", "p_town_6"), #Jelkala - Praven
-      (call_script, "script_set_trade_route_between_centers", "p_town_5", "p_town_7"), #Jelkala - Uxkhal
-      (call_script, "script_set_trade_route_between_centers", "p_town_5", "p_town_19"), #Jelkala - Shariz
-
-	  #PRAVEN - 7 ROUTES
-	  #Tihr, Veluca, Suno, Jelkala
-      (call_script, "script_set_trade_route_between_centers", "p_town_6", "p_town_7"), #Praven - Uxkhal
-      (call_script, "script_set_trade_route_between_centers", "p_town_6", "p_town_15"), #Praven - Yalen
-      (call_script, "script_set_trade_route_between_centers", "p_town_6", "p_town_16"), #Praven - Dhirim
-
-	  #UXKHAL - 9 Routes
-	  #Sargoth, Tihr, Suno, Jelkala, Praven
-      (call_script, "script_set_trade_route_between_centers", "p_town_7", "p_town_15"), #Yalen
-      (call_script, "script_set_trade_route_between_centers", "p_town_7", "p_town_16"), #Dhirim
-      (call_script, "script_set_trade_route_between_centers", "p_town_7", "p_town_19"), #Shariz
-      (call_script, "script_set_trade_route_between_centers", "p_town_7", "p_town_14"), #Halmar
-
-	  #REYVADIN - 9 Routes
-	  #Suno, Sargoth
-      (call_script, "script_set_trade_route_between_centers", "p_town_8", "p_town_9"), #Khudan
-      (call_script, "script_set_trade_route_between_centers", "p_town_8", "p_town_11"), #Curaw
-      (call_script, "script_set_trade_route_between_centers", "p_town_8", "p_town_12"), #Wercheg
-      (call_script, "script_set_trade_route_between_centers", "p_town_8", "p_town_13"), #Rivacheg
-      (call_script, "script_set_trade_route_between_centers", "p_town_8", "p_town_16"), #Dhirim
-      (call_script, "script_set_trade_route_between_centers", "p_town_8", "p_town_18"), #Narra
-      (call_script, "script_set_trade_route_between_centers", "p_town_8", "p_town_17"), #Ichamur
-
-	  #KHUDAN - 9 Routes
-	  #Sargoth, Reyvadin
-      (call_script, "script_set_trade_route_between_centers", "p_town_9", "p_town_11"), #Curaw
-      (call_script, "script_set_trade_route_between_centers", "p_town_9", "p_town_13"), #Rivacheg
-      (call_script, "script_set_trade_route_between_centers", "p_town_9", "p_town_12"), #Wercheg
-      (call_script, "script_set_trade_route_between_centers", "p_town_9", "p_town_17"), #Ichamur
-      (call_script, "script_set_trade_route_between_centers", "p_town_9", "p_town_10"), #Tulga
-      (call_script, "script_set_trade_route_between_centers", "p_town_9", "p_town_16"), #Dhirim
-      (call_script, "script_set_trade_route_between_centers", "p_town_9", "p_town_18"), #Narra
-
-	  #TULGA - 7 Routes
-	  #Khudan
-      (call_script, "script_set_trade_route_between_centers", "p_town_10", "p_town_17"), #Ichamur
-      (call_script, "script_set_trade_route_between_centers", "p_town_10", "p_town_18"), #Narra
-      (call_script, "script_set_trade_route_between_centers", "p_town_10", "p_town_22"), #Bariyye
-      (call_script, "script_set_trade_route_between_centers", "p_town_10", "p_town_21"), #Ahmerrad
-      (call_script, "script_set_trade_route_between_centers", "p_town_10", "p_town_14"), #Halmar
-      (call_script, "script_set_trade_route_between_centers", "p_town_10", "p_town_20"), #Durquba
-
-	  #CURAW - 9 Routes
-	  #Khudan, Reyvadin, Sargoth, Suno
-      (call_script, "script_set_trade_route_between_centers", "p_town_11", "p_town_12"), #Wercheg
-      (call_script, "script_set_trade_route_between_centers", "p_town_11", "p_town_13"), #Rivacheg
-      (call_script, "script_set_trade_route_between_centers", "p_town_11", "p_town_14"), #Halmar
-      (call_script, "script_set_trade_route_between_centers", "p_town_11", "p_town_16"), #Dhirim
-      (call_script, "script_set_trade_route_between_centers", "p_town_11", "p_town_17"), #Ichamur
-
-	  #WERCHEG - 7 Routes
-	  #Sargoth, Suno, Reyvadin, Khudan, Curaw, Tihr
-      (call_script, "script_set_trade_route_between_centers", "p_town_12", "p_town_13"), #Rivacheg
-
-	  #RIVACHEG - 6 Routes
-	  #Sargoth, Reyvadin, Khudan, Curaw, Wercheg
-      (call_script, "script_set_trade_route_between_centers", "p_town_13", "p_town_17"), #Ichamur
-
-	  #HALMAR- 11 Routes
-	  #Veluca, Uxkhal, Tulga, Curaw
-      (call_script, "script_set_trade_route_between_centers", "p_town_14", "p_town_17"), #Ichamur
-      (call_script, "script_set_trade_route_between_centers", "p_town_14", "p_town_18"), #Narra
-      (call_script, "script_set_trade_route_between_centers", "p_town_14", "p_town_21"), #Ahmerrad
-      (call_script, "script_set_trade_route_between_centers", "p_town_14", "p_town_22"), #Bariyye
-      (call_script, "script_set_trade_route_between_centers", "p_town_14", "p_town_20"), #Durquba
-      (call_script, "script_set_trade_route_between_centers", "p_town_14", "p_town_19"), #Shariz
-      (call_script, "script_set_trade_route_between_centers", "p_town_14", "p_town_16"), #Dhirim
-
-	  #YALEN - 7 Routes
-	  #Sargoth, Tihr, Veluca, Suno, Jelkala, Praven, Uxkhal
-
-	  #DHIRIM - 13 Routes
-	  #Sargoth, Thir, Veluca, Suno, Praven, Uxkhal, Reyvadin, Khudan, Curaw, Halmar
-      (call_script, "script_set_trade_route_between_centers", "p_town_16", "p_town_18"), #Narra
-      (call_script, "script_set_trade_route_between_centers", "p_town_16", "p_town_20"), #Durquba
-      (call_script, "script_set_trade_route_between_centers", "p_town_16", "p_town_19"), #Shariz
-
-	  #ICHAMUR - 7 Routes
-      #Reyvadin, Khudan, Tulga, Curaw, Rivacheg, Halmar
-      (call_script, "script_set_trade_route_between_centers", "p_town_17", "p_town_18"), #Narra
-
-	  #NARRA - 9 Routes
-      #Reyvadin, Khudan, Tulga, Halmar, Dhirim, Ichamur
-      (call_script, "script_set_trade_route_between_centers", "p_town_18", "p_town_20"), #Durquba
-      (call_script, "script_set_trade_route_between_centers", "p_town_18", "p_town_21"), #Ahmerrad
-      (call_script, "script_set_trade_route_between_centers", "p_town_18", "p_town_22"), #Bariyye
-
-	  #SHARIZ - 8 Routes
-      #Veluca, Jelkala, Uxkhal, Halmar, Dhirim
-      (call_script, "script_set_trade_route_between_centers", "p_town_19", "p_town_20"), #Durquba
-      (call_script, "script_set_trade_route_between_centers", "p_town_19", "p_town_21"), #Ahmerrad
-      (call_script, "script_set_trade_route_between_centers", "p_town_19", "p_town_22"), #Bariyye
-
-	  #DURQUBA - 7 Routes
-      #Tulga, Halmar, Dhirim, Narra, Shariz
-      (call_script, "script_set_trade_route_between_centers", "p_town_20", "p_town_21"), #Ahmerrad
-      (call_script, "script_set_trade_route_between_centers", "p_town_20", "p_town_22"), #Bariyye
-
-	  #AHMERRAD - 6 Routes
-      #Tulga, Halmar, Narra, Shariz, Durquba
-      (call_script, "script_set_trade_route_between_centers", "p_town_21", "p_town_22"), #Bariyye
-
-	  #BARIYYE - 6 Routes
-      #Tulga, Halmar, Narra, Shariz, Durquba, Ahmerrad
-	]),
+    # DAC Trade Routes completed with DAC-Trade-Routes.xlsx Sheet.
+    
+    # French Towns
+    #Bourges
+    (call_script, "script_set_trade_route_between_centers","p_town_1","p_town_21"),
+    (call_script, "script_set_trade_route_between_centers","p_town_1","p_town_2"),
+    (call_script, "script_set_trade_route_between_centers","p_town_1","p_town_3"),
+    (call_script, "script_set_trade_route_between_centers","p_town_1","p_town_19"),
+    (call_script, "script_set_trade_route_between_centers","p_town_1","p_town_4"),
+    (call_script, "script_set_trade_route_between_centers","p_town_1","p_town_27"),
+    (call_script, "script_set_trade_route_between_centers","p_town_1","p_town_6"),
+    (call_script, "script_set_trade_route_between_centers","p_town_1","p_town_7"),
+    (call_script, "script_set_trade_route_between_centers","p_town_1","p_town_15"),
 
 
+    #Orleans
+    (call_script, "script_set_trade_route_between_centers","p_town_2","p_town_22"),
+    (call_script, "script_set_trade_route_between_centers","p_town_2","p_town_21"),
+    (call_script, "script_set_trade_route_between_centers","p_town_2","p_town_3"),
+
+
+    #Tours
+    (call_script, "script_set_trade_route_between_centers","p_town_3","p_town_21"),
+    (call_script, "script_set_trade_route_between_centers","p_town_3","p_town_6"),
+    (call_script, "script_set_trade_route_between_centers","p_town_3","p_town_4"),
+    (call_script, "script_set_trade_route_between_centers","p_town_3","p_town_19"),
+    (call_script, "script_set_trade_route_between_centers","p_town_3","p_town_28"),
+
+
+    #Poitiers
+    (call_script, "script_set_trade_route_between_centers","p_town_4","p_town_27"),
+    (call_script, "script_set_trade_route_between_centers","p_town_4","p_town_25"),
+    (call_script, "script_set_trade_route_between_centers","p_town_4","p_town_26"),
+    (call_script, "script_set_trade_route_between_centers","p_town_4","p_town_5"),
+    (call_script, "script_set_trade_route_between_centers","p_town_4","p_town_19"),
+
+
+    #La Rochelle
+    (call_script, "script_set_trade_route_between_centers","p_town_5","p_town_19"),
+    (call_script, "script_set_trade_route_between_centers","p_town_5","p_town_4"),
+    (call_script, "script_set_trade_route_between_centers","p_town_5","p_town_27"),
+    (call_script, "script_set_trade_route_between_centers","p_town_5","p_town_26"),
+    (call_script, "script_set_trade_route_between_centers","p_town_5","p_town_67"),
+
+
+    #Clermont
+    (call_script, "script_set_trade_route_between_centers","p_town_6","p_town_7"),
+    (call_script, "script_set_trade_route_between_centers","p_town_6","p_town_10"),
+    (call_script, "script_set_trade_route_between_centers","p_town_6","p_town_8"),
+    (call_script, "script_set_trade_route_between_centers","p_town_6","p_town_25"),
+    (call_script, "script_set_trade_route_between_centers","p_town_6","p_town_27"),
+
+
+    #Moulin
+    (call_script, "script_set_trade_route_between_centers","p_town_7","p_town_9"),
+    (call_script, "script_set_trade_route_between_centers","p_town_7","p_town_10"),
+    (call_script, "script_set_trade_route_between_centers","p_town_7","p_town_21"),
+
+
+    #Aurillac
+    (call_script, "script_set_trade_route_between_centers","p_town_8","p_town_10"),
+    (call_script, "script_set_trade_route_between_centers","p_town_8","p_town_12"),
+    (call_script, "script_set_trade_route_between_centers","p_town_8","p_town_11"),
+    (call_script, "script_set_trade_route_between_centers","p_town_8","p_town_24"),
+    (call_script, "script_set_trade_route_between_centers","p_town_8","p_town_25"),
+
+
+    #Lyon
+    (call_script, "script_set_trade_route_between_centers","p_town_9","p_town_18"),
+    (call_script, "script_set_trade_route_between_centers","p_town_9","p_town_1"),
+
+
+    #Le_Puy
+    (call_script, "script_set_trade_route_between_centers","p_town_10","p_town_27"),  (call_script, "script_set_trade_route_between_centers","p_town_10","p_town_9"), (call_script, "script_set_trade_route_between_centers","p_town_10","p_town_15"),  (call_script, "script_set_trade_route_between_centers","p_town_10","p_town_52"),
+
+
+
+    #Cahors
+    (call_script, "script_set_trade_route_between_centers","p_town_11","p_town_12"),
+    (call_script, "script_set_trade_route_between_centers","p_town_11","p_town_15"),
+    (call_script, "script_set_trade_route_between_centers","p_town_11","p_town_13"),
+    (call_script, "script_set_trade_route_between_centers","p_town_11","p_town_24"),
+
+
+    #Rodez
+    (call_script, "script_set_trade_route_between_centers","p_town_12","p_town_13"),
+    (call_script, "script_set_trade_route_between_centers","p_town_12","p_town_15"),
+
+
+    #Lectoure
+    (call_script, "script_set_trade_route_between_centers","p_town_13","p_town_15"),
+    (call_script, "script_set_trade_route_between_centers","p_town_13","p_town_14"),
+    (call_script, "script_set_trade_route_between_centers","p_town_13","p_town_24"),
+
+
+    #Tarbes
+    (call_script, "script_set_trade_route_between_centers","p_town_14","p_town_15"),
+    (call_script, "script_set_trade_route_between_centers","p_town_14","p_town_16"),
+    (call_script, "script_set_trade_route_between_centers","p_town_14","p_town_29"),
+
+
+    #Toulouse
+    (call_script, "script_set_trade_route_between_centers","p_town_15","p_town_8"), (call_script, "script_set_trade_route_between_centers","p_town_15","p_town_16"),  (call_script, "script_set_trade_route_between_centers","p_town_15","p_town_29"),  (call_script, "script_set_trade_route_between_centers","p_town_15","p_town_35"),
+
+
+    #Carcassonne
+    (call_script, "script_set_trade_route_between_centers","p_town_16","p_town_29"),
+    (call_script, "script_set_trade_route_between_centers","p_town_16","p_town_12"),
+
+
+    #Montpellier
+    (call_script, "script_set_trade_route_between_centers","p_town_17","p_town_18"),
+    (call_script, "script_set_trade_route_between_centers","p_town_17","p_town_12"),
+    (call_script, "script_set_trade_route_between_centers","p_town_17","p_town_15"),
+    (call_script, "script_set_trade_route_between_centers","p_town_17","p_town_16"),
+
+
+    #Thouars
+    (call_script, "script_set_trade_route_between_centers","p_town_19","p_town_28"),
+    (call_script, "script_set_trade_route_between_centers","p_town_19","p_town_67"),
+    (call_script, "script_set_trade_route_between_centers","p_town_19","p_town_5"),
+
+
+    #Tournai
+    (call_script, "script_set_trade_route_between_centers","p_town_20","p_town_22"),
+
+
+    #Gien
+    (call_script, "script_set_trade_route_between_centers","p_town_21","p_town_22"),
+
+    #Albret
+    (call_script, "script_set_trade_route_between_centers","p_town_23","p_town_14"),
+    (call_script, "script_set_trade_route_between_centers","p_town_23","p_town_13"),
+
+    #Perigueux
+    (call_script, "script_set_trade_route_between_centers","p_town_25","p_town_27"),
+    (call_script, "script_set_trade_route_between_centers","p_town_25","p_town_24"),
+
+    #Angouleme
+    (call_script, "script_set_trade_route_between_centers","p_town_26","p_town_27"),
+    (call_script, "script_set_trade_route_between_centers","p_town_26","p_town_25"),
+    (call_script, "script_set_trade_route_between_centers","p_town_26","p_town_24"),
+    (call_script, "script_set_trade_route_between_centers","p_town_26","p_town_5"),
+
+    #Limoges
+    (call_script, "script_set_trade_route_between_centers","p_town_27","p_town_6"),
+
+    #Angers
+    (call_script, "script_set_trade_route_between_centers","p_town_28","p_town_67"),
+
+    #Foix
+    (call_script, "script_set_trade_route_between_centers","p_town_29","p_town_17"),
+
+
+    #English Towns
+    #Paris 
+    (call_script, "script_set_trade_route_between_centers","p_town_30","p_town_32"),  (call_script, "script_set_trade_route_between_centers","p_town_30","p_town_36"),  (call_script, "script_set_trade_route_between_centers","p_town_30","p_town_43"),  (call_script, "script_set_trade_route_between_centers","p_town_30","p_town_44"),  (call_script, "script_set_trade_route_between_centers","p_town_30","p_town_37"),  (call_script, "script_set_trade_route_between_centers","p_town_30","p_town_42"),  (call_script, "script_set_trade_route_between_centers","p_town_30","p_town_57"),  (call_script, "script_set_trade_route_between_centers","p_town_30","p_town_1"), (call_script, "script_set_trade_route_between_centers","p_town_30","p_town_52"),
+    #Bayonne 
+    (call_script, "script_set_trade_route_between_centers","p_town_31","p_town_35"),  (call_script, "script_set_trade_route_between_centers","p_town_31","p_town_45"),  (call_script, "script_set_trade_route_between_centers","p_town_31","p_town_46"),  (call_script, "script_set_trade_route_between_centers","p_town_31","p_town_14"),          
+    #Nemours
+    (call_script, "script_set_trade_route_between_centers","p_town_32","p_town_63"),  (call_script, "script_set_trade_route_between_centers","p_town_32","p_town_56"),  (call_script, "script_set_trade_route_between_centers","p_town_32","p_town_55"),  (call_script, "script_set_trade_route_between_centers","p_town_32","p_town_22"),  (call_script, "script_set_trade_route_between_centers","p_town_32","p_town_21"),  (call_script, "script_set_trade_route_between_centers","p_town_32","p_town_2"), (call_script, "script_set_trade_route_between_centers","p_town_32","p_town_36"),    
+    #Laval
+    (call_script, "script_set_trade_route_between_centers","p_town_33","p_town_50"),  (call_script, "script_set_trade_route_between_centers","p_town_33","p_town_44"),  (call_script, "script_set_trade_route_between_centers","p_town_33","p_town_43"),  (call_script, "script_set_trade_route_between_centers","p_town_33","p_town_34"),  (call_script, "script_set_trade_route_between_centers","p_town_33","p_town_3"), (call_script, "script_set_trade_route_between_centers","p_town_33","p_town_28"),  (call_script, "script_set_trade_route_between_centers","p_town_33","p_town_67"),  (call_script, "script_set_trade_route_between_centers","p_town_33","p_town_68"),  (call_script, "script_set_trade_route_between_centers","p_town_33","p_town_66"),
+    #Le_Mans
+    (call_script, "script_set_trade_route_between_centers","p_town_34","p_town_43"),  (call_script, "script_set_trade_route_between_centers","p_town_34","p_town_36"),  (call_script, "script_set_trade_route_between_centers","p_town_34","p_town_2"), (call_script, "script_set_trade_route_between_centers","p_town_34","p_town_3"), (call_script, "script_set_trade_route_between_centers","p_town_34","p_town_28"),        
+    #Bordeaux
+    (call_script, "script_set_trade_route_between_centers","p_town_35","p_town_47"),  (call_script, "script_set_trade_route_between_centers","p_town_35","p_town_23"),  (call_script, "script_set_trade_route_between_centers","p_town_35","p_town_45"),  (call_script, "script_set_trade_route_between_centers","p_town_35","p_town_46"),  (call_script, "script_set_trade_route_between_centers","p_town_35","p_town_1"), (call_script, "script_set_trade_route_between_centers","p_town_35","p_town_67"),
+    #Chartres
+    (call_script, "script_set_trade_route_between_centers","p_town_36","p_town_37"),  (call_script, "script_set_trade_route_between_centers","p_town_36","p_town_43"),  (call_script, "script_set_trade_route_between_centers","p_town_36","p_town_2"),           
+    #Rouen
+    (call_script, "script_set_trade_route_between_centers","p_town_37","p_town_42"),  (call_script, "script_set_trade_route_between_centers","p_town_37","p_town_44"),  (call_script, "script_set_trade_route_between_centers","p_town_37","p_town_38"),  (call_script, "script_set_trade_route_between_centers","p_town_37","p_town_39"),  (call_script, "script_set_trade_route_between_centers","p_town_37","p_town_49"),        
+    #Caen
+    (call_script, "script_set_trade_route_between_centers","p_town_38","p_town_44"),  (call_script, "script_set_trade_route_between_centers","p_town_38","p_town_50"),  (call_script, "script_set_trade_route_between_centers","p_town_38","p_town_48"),  (call_script, "script_set_trade_route_between_centers","p_town_38","p_town_41"),          
+    #Harfleur
+    (call_script, "script_set_trade_route_between_centers","p_town_39","p_town_49"),                
+    #Cherbourg
+    (call_script, "script_set_trade_route_between_centers","p_town_40","p_town_41"),  (call_script, "script_set_trade_route_between_centers","p_town_40","p_town_51"),  (call_script, "script_set_trade_route_between_centers","p_town_40","p_town_48"),            
+    #Bayeux
+    (call_script, "script_set_trade_route_between_centers","p_town_41","p_town_51"),                
+    #Calais
+    (call_script, "script_set_trade_route_between_centers","p_town_42","p_town_58"),  (call_script, "script_set_trade_route_between_centers","p_town_42","p_town_59"),  (call_script, "script_set_trade_route_between_centers","p_town_42","p_town_20"),  (call_script, "script_set_trade_route_between_centers","p_town_42","p_town_65"),  (call_script, "script_set_trade_route_between_centers","p_town_42","p_town_64"),  (call_script, "script_set_trade_route_between_centers","p_town_42","p_town_49"),  (call_script, "script_set_trade_route_between_centers","p_town_42","p_town_61"),    
+    #Alençon
+    (call_script, "script_set_trade_route_between_centers","p_town_43","p_town_37"),  (call_script, "script_set_trade_route_between_centers","p_town_43","p_town_44"),              
+    #Argentan
+    (call_script, "script_set_trade_route_between_centers","p_town_44","p_town_50"),                
+    #Tartas
+    (call_script, "script_set_trade_route_between_centers","p_town_45","p_town_46"),  (call_script, "script_set_trade_route_between_centers","p_town_45","p_town_23"),              
+    #Dax                 
+    #Libourne
+    (call_script, "script_set_trade_route_between_centers","p_town_47","p_town_25"),  (call_script, "script_set_trade_route_between_centers","p_town_47","p_town_24"),  (call_script, "script_set_trade_route_between_centers","p_town_47","p_town_11"),            
+    #Saint-Lô
+    (call_script, "script_set_trade_route_between_centers","p_town_48","p_town_51"),  (call_script, "script_set_trade_route_between_centers","p_town_48","p_town_50"),              
+    #Eu
+    (call_script, "script_set_trade_route_between_centers","p_town_49","p_town_64"),                
+    #Avranches
+    (call_script, "script_set_trade_route_between_centers","p_town_50","p_town_51"),  (call_script, "script_set_trade_route_between_centers","p_town_50","p_town_70"),  (call_script, "script_set_trade_route_between_centers","p_town_50","p_town_66"),            
+    #Coutances                 
+
+    #Burgandian Towns
+    #Dijon
+    (call_script, "script_set_trade_route_between_centers","p_town_52","p_town_53"),  (call_script, "script_set_trade_route_between_centers","p_town_52","p_town_9"), (call_script, "script_set_trade_route_between_centers","p_town_52","p_town_7"), (call_script, "script_set_trade_route_between_centers","p_town_52","p_town_54"),  (call_script, "script_set_trade_route_between_centers","p_town_52","p_town_21"),  (call_script, "script_set_trade_route_between_centers","p_town_52","p_town_55"),  (call_script, "script_set_trade_route_between_centers","p_town_52","p_town_56"),  (call_script, "script_set_trade_route_between_centers","p_town_52","p_town_63"),  (call_script, "script_set_trade_route_between_centers","p_town_52","p_town_61"),  (call_script, "script_set_trade_route_between_centers","p_town_52","p_town_1"),
+    #Besançon
+    (call_script, "script_set_trade_route_between_centers","p_town_53","p_town_9"), (call_script, "script_set_trade_route_between_centers","p_town_53","p_town_56"),  (call_script, "script_set_trade_route_between_centers","p_town_53","p_town_60"),              
+    #Nevers
+    (call_script, "script_set_trade_route_between_centers","p_town_54","p_town_1"), (call_script, "script_set_trade_route_between_centers","p_town_54","p_town_21"),  (call_script, "script_set_trade_route_between_centers","p_town_54","p_town_7"),             
+    #Auxerre 
+    (call_script, "script_set_trade_route_between_centers","p_town_55","p_town_54"),  (call_script, "script_set_trade_route_between_centers","p_town_55","p_town_22"),  (call_script, "script_set_trade_route_between_centers","p_town_55","p_town_21"),  (call_script, "script_set_trade_route_between_centers","p_town_55","p_town_56"),            
+    #Troyes
+    (call_script, "script_set_trade_route_between_centers","p_town_56","p_town_63"),  (call_script, "script_set_trade_route_between_centers","p_town_56","p_town_57"),  (call_script, "script_set_trade_route_between_centers","p_town_56","p_town_65"),  (call_script, "script_set_trade_route_between_centers","p_town_56","p_town_64"),            
+    #Compiègne
+    (call_script, "script_set_trade_route_between_centers","p_town_57","p_town_64"),  (call_script, "script_set_trade_route_between_centers","p_town_57","p_town_65"),  (call_script, "script_set_trade_route_between_centers","p_town_57","p_town_63"),  (call_script, "script_set_trade_route_between_centers","p_town_57","p_town_32"),  (call_script, "script_set_trade_route_between_centers","p_town_57","p_town_37"),          
+    #Bruges
+    (call_script, "script_set_trade_route_between_centers","p_town_58","p_town_60"),  (call_script, "script_set_trade_route_between_centers","p_town_58","p_town_59"),  (call_script, "script_set_trade_route_between_centers","p_town_58","p_town_20"),  (call_script, "script_set_trade_route_between_centers","p_town_58","p_town_65"),  (call_script, "script_set_trade_route_between_centers","p_town_58","p_town_64"),  (call_script, "script_set_trade_route_between_centers","p_town_58","p_town_37"),  (call_script, "script_set_trade_route_between_centers","p_town_58","p_town_61"),  (call_script, "script_set_trade_route_between_centers","p_town_58","p_town_52"),
+    #Gand 
+    (call_script, "script_set_trade_route_between_centers","p_town_59","p_town_20"),  (call_script, "script_set_trade_route_between_centers","p_town_59","p_town_63"),                
+    #Malines 
+    (call_script, "script_set_trade_route_between_centers","p_town_60","p_town_63"),  (call_script, "script_set_trade_route_between_centers","p_town_60","p_town_56"),  (call_script, "script_set_trade_route_between_centers","p_town_60","p_town_52"),  (call_script, "script_set_trade_route_between_centers","p_town_60","p_town_53"),  (call_script, "script_set_trade_route_between_centers","p_town_60","p_town_61"),  (call_script, "script_set_trade_route_between_centers","p_town_60","p_town_42"),        
+    #Boulogne  
+    (call_script, "script_set_trade_route_between_centers","p_town_61","p_town_64"),  (call_script, "script_set_trade_route_between_centers","p_town_61","p_town_30"),  (call_script, "script_set_trade_route_between_centers","p_town_61","p_town_37"),  (call_script, "script_set_trade_route_between_centers","p_town_61","p_town_39"),            
+    #Châlons-en-Champagne 
+    (call_script, "script_set_trade_route_between_centers","p_town_62","p_town_63"),  (call_script, "script_set_trade_route_between_centers","p_town_62","p_town_56"),  (call_script, "script_set_trade_route_between_centers","p_town_62","p_town_52"),  (call_script, "script_set_trade_route_between_centers","p_town_62","p_town_53"),            
+    #Reims 
+    (call_script, "script_set_trade_route_between_centers","p_town_63","p_town_20"),  (call_script, "script_set_trade_route_between_centers","p_town_63","p_town_30"),                
+    #Amiens 
+    (call_script, "script_set_trade_route_between_centers","p_town_64","p_town_30"),  (call_script, "script_set_trade_route_between_centers","p_town_64","p_town_37"),                
+    #Peronne
+    (call_script, "script_set_trade_route_between_centers","p_town_65","p_town_20"),  (call_script, "script_set_trade_route_between_centers","p_town_65","p_town_64"),                
+
+    #Breton Towns
+    #Rennes
+    (call_script, "script_set_trade_route_between_centers","p_town_66","p_town_70"),  (call_script, "script_set_trade_route_between_centers","p_town_66","p_town_73"),  (call_script, "script_set_trade_route_between_centers","p_town_66","p_town_68"),  (call_script, "script_set_trade_route_between_centers","p_town_66","p_town_67"),  (call_script, "script_set_trade_route_between_centers","p_town_66","p_town_28"),  (call_script, "script_set_trade_route_between_centers","p_town_66","p_town_72"),  (call_script, "script_set_trade_route_between_centers","p_town_66","p_town_37"),  (call_script, "script_set_trade_route_between_centers","p_town_66","p_town_30"),
+    #Nantes
+    (call_script, "script_set_trade_route_between_centers","p_town_67","p_town_28"),  (call_script, "script_set_trade_route_between_centers","p_town_67","p_town_68"),  (call_script, "script_set_trade_route_between_centers","p_town_67","p_town_73"),  (call_script, "script_set_trade_route_between_centers","p_town_67","p_town_69"),  (call_script, "script_set_trade_route_between_centers","p_town_67","p_town_70"),  (call_script, "script_set_trade_route_between_centers","p_town_67","p_town_1"), (call_script, "script_set_trade_route_between_centers","p_town_67","p_town_37"),  (call_script, "script_set_trade_route_between_centers","p_town_67","p_town_30"),
+    #Vannes
+    (call_script, "script_set_trade_route_between_centers","p_town_68","p_town_73"),  (call_script, "script_set_trade_route_between_centers","p_town_68","p_town_69"),  (call_script, "script_set_trade_route_between_centers","p_town_68","p_town_70"),  (call_script, "script_set_trade_route_between_centers","p_town_68","p_town_71"),        
+    #Kemper
+    (call_script, "script_set_trade_route_between_centers","p_town_69","p_town_73"),  (call_script, "script_set_trade_route_between_centers","p_town_69","p_town_70"),  (call_script, "script_set_trade_route_between_centers","p_town_69","p_town_72"),          
+    #Saint-Malo
+    (call_script, "script_set_trade_route_between_centers","p_town_70","p_town_71"),  (call_script, "script_set_trade_route_between_centers","p_town_70","p_town_73"),            
+    #Saint-Brieuc
+    (call_script, "script_set_trade_route_between_centers","p_town_71","p_town_72"),              
+    #Saint-Pol-de-Léon
+    (call_script, "script_set_trade_route_between_centers","p_town_72","p_town_67"),              
+    #Rohan
+    (call_script, "script_set_trade_route_between_centers","p_town_73","p_town_72"),              
+
+
+  ]),
+  
 
     ("initialize_faction_troop_types",
     [
