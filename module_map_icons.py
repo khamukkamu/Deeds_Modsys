@@ -59,7 +59,7 @@ map_icons = [
   ("castle_b",mcn_no_shadow,"icon_castle_b", 0.35,0),
   ("castle_c",mcn_no_shadow,"icon_castle_c", 0.35,0),
   ("castle_d",mcn_no_shadow,"icon_castle_d", 0.35,0),
-  ("town_snow",mcn_no_shadow,"icon_town_a", 0.35,0),
+  ("castle_e",mcn_no_shadow,"icon_castle_e", 0.35,0),
 
 
   ("castle_snow_a",mcn_no_shadow,"icon_castle_a", 0.35,0),

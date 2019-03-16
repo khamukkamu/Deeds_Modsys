@@ -1512,7 +1512,7 @@ npc_kingdoms_begin = "fac_kingdom_1"
 npc_kingdoms_end = kingdoms_end
 
 bandits_begin = "trp_bandit"
-bandits_end = "trp_black_khergit_horseman"
+bandits_end = "trp_manhunter"
 
 kingdom_ladies_begin = "trp_knight_1_1_wife"
 kingdom_ladies_end = "trp_heroes_end"
@@ -1907,7 +1907,7 @@ num_mountain_bandit_spawn_points = 1
 num_steppe_bandit_spawn_points = 1
 num_taiga_bandit_spawn_points = 1
 num_desert_bandit_spawn_points = 1
-num_black_khergit_spawn_points = 1
+# num_black_khergit_spawn_points = 1
 num_sea_raider_spawn_points = 2
 
 peak_prisoner_trains = 4
@@ -2383,7 +2383,7 @@ captain_multiplayer_coop_new_troops_end = "trp_slaver_chief"
 #SB : bunch of constants
 
 #ranges
-bandit_party_templates_begin = "pt_steppe_bandits"
+bandit_party_templates_begin = "pt_routier_bandits"
 bandit_party_templates_end   = "pt_deserters"
 
 fighters_begin = "trp_novice_fighter"

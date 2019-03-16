@@ -25,17 +25,24 @@ from compiler import *
 ####################################################################################################################
 
 def heraldic(item_tableau):
-  return (ti_on_init_item, [(store_trigger_param_1, ":agent_no"),(store_trigger_param_2, ":troop_no"),(call_script, "script_shield_item_set_banner", item_tableau, ":agent_no", ":troop_no")])
+  return (ti_on_init_item, [
+  (store_trigger_param_1, ":agent_no"),
+  (store_trigger_param_2, ":troop_no"),
+  (call_script, "script_shield_item_set_banner", item_tableau, ":agent_no", ":troop_no")
+  ])
   
-def add_mesh(item_meshes):
-  cur_meshes = [(store_trigger_param_1, ":agent_no"),(ge, ":agent_no", 0)]
-  for mesh in item_meshes if not isinstance(item_meshes, basestring) else [item_meshes]:
-    cur_meshes.append((str_store_string, s1, mesh))
-    cur_meshes.append((cur_item_add_mesh, s1))
-  return (ti_on_init_item, cur_meshes)
+# def add_mesh(item_meshes):
+  # cur_meshes = [(store_trigger_param_1, ":agent_no"),(ge, ":agent_no", 0)]
+  # for mesh in item_meshes if not isinstance(item_meshes, basestring) else [item_meshes]:
+    # cur_meshes.append((str_store_string, s1, mesh))
+    # cur_meshes.append((cur_item_add_mesh, s1))
+  # return (ti_on_init_item, cur_meshes)
   
 def reskin(item_material):
-  return (ti_on_init_item, [(str_store_string, s1, item_material),(cur_item_set_material, s1, 0),])
+  return (ti_on_init_item, [
+  (str_store_string, s1, item_material),
+  (cur_item_set_material, s1, 0),
+  ])
   
 def custom_reskin(item):
   return (ti_on_init_item, [

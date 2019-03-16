@@ -1691,7 +1691,7 @@ simple_triggers = [
       (gt, ":bandit_camp", "p_spawn_points_end"),
       #Can't have party is active here, because it will fail for inactive parties
       (party_get_template_id, ":template", ":bandit_camp"), #SB : fix template range
-      (is_between, ":template", "pt_steppe_bandit_lair", "pt_bandit_lair_templates_end"),
+      (is_between, ":template", "pt_looter_lair", "pt_bandit_lair_templates_end"),
 
       (store_distance_to_party_from_party, ":distance", "p_main_party", ":bandit_camp"),
       (lt, ":distance", ":spotting"),

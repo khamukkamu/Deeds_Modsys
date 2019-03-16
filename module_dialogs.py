@@ -3244,7 +3244,7 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 (try_for_agents, ":agent_no"),
 (agent_get_troop_id, ":agent_troop_id", ":agent_no"),
 (ge, ":agent_troop_id", "trp_looter"),
-(le, ":agent_troop_id", "trp_desert_bandit"),
+(lt, ":agent_troop_id", "trp_manhunter"),
 (agent_set_team, ":agent_no", 1),
 (try_end),
 
@@ -40975,55 +40975,55 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
      (eq,"$random_quest_no", "qst_destroy_bandit_lair"),
 	 (quest_get_slot, ":bandit_lair", "qst_destroy_bandit_lair", slot_quest_target_party),
 	 (party_get_template_id, ":bandit_type", ":bandit_lair"),
-	 (eq, ":bandit_type", "pt_sea_raider_lair"),
+	 (eq, ":bandit_type", "pt_flayer_lair"),
 	 ],
-	"The raiders are likely to have laid up their ships in a well-concealed cove, somewhere along the coastline, preferably next to a small stream where they have some water. The best way to discover its location would be to find a group of sea raiders who appear to be heading back to their base to resupply, and follow them.", "merchant_quest_track_bandit_lair_choice",
+	"Bandits such as these usually roam Provence or Languedoc and will certainly set up camps in the area.", "merchant_quest_track_bandit_lair_choice",
    []],
 
   [anyone,"destroy_lair_quest_brief", [
      (eq,"$random_quest_no", "qst_destroy_bandit_lair"),
 	 (quest_get_slot, ":bandit_lair", "qst_destroy_bandit_lair", slot_quest_target_party),
 	 (party_get_template_id, ":bandit_type", ":bandit_lair"),
-	 (eq, ":bandit_type", "pt_desert_bandit_lair"),
+	 (eq, ":bandit_type", "pt_routier_lair"),
 	 ],
-	"Bandits such as these usually establish their hideouts in the foothills on the edge of the desert, often in a canyon near a spring. This gives them both water and concealment. The best way to discover its location would be to find a group of desert bandits who appear to be heading back to their base to resupply, and follow them.", "merchant_quest_track_bandit_lair_choice",
+	"Bandits such as these usually roam in Flanders or in the Pyreneans and will build fortifications as a base of operations.", "merchant_quest_track_bandit_lair_choice",
    []],
 
   [anyone,"destroy_lair_quest_brief", [
      (eq,"$random_quest_no", "qst_destroy_bandit_lair"),
 	 (quest_get_slot, ":bandit_lair", "qst_destroy_bandit_lair", slot_quest_target_party),
 	 (party_get_template_id, ":bandit_type", ":bandit_lair"),
-	 (eq, ":bandit_type", "pt_mountain_bandit_lair"),
+	 (eq, ":bandit_type", "pt_retondeur_lair"),
 	 ],
-	"Bandits such as these will usually establish a base in the highlands, often on an steep ledge where they have a view of the surrounding countryside. This makes them difficult to surprise. The best way to discover its location would be to find a group of mountain bandits who appear to be heading back to their base to resupply, and follow them.", "merchant_quest_track_bandit_lair_choice",
+	"Bandits such as these will usually establish a camp wherever they see fit.", "merchant_quest_track_bandit_lair_choice",
    []],
 
   [anyone,"destroy_lair_quest_brief", [
      (eq,"$random_quest_no", "qst_destroy_bandit_lair"),
 	 (quest_get_slot, ":bandit_lair", "qst_destroy_bandit_lair", slot_quest_target_party),
 	 (party_get_template_id, ":bandit_type", ":bandit_lair"),
-	 (eq, ":bandit_type", "pt_forest_bandit_lair"),
+	 (eq, ":bandit_type", "pt_tard_venu_lair"),
 	 ],
-	"Bandits such as these will usually set up their encampments deep in the woods, sometimes in the middle of a swamp. The best way to discover its location would be to find a group of forest bandits who appear to be heading back to their base to resupply, and follow them.", "merchant_quest_track_bandit_lair_choice",
+	"Bandits such as these will usually expel peasants from their villages and use it as a base of operations.", "merchant_quest_track_bandit_lair_choice",
    []],
 
   [anyone,"destroy_lair_quest_brief", [
      (eq,"$random_quest_no", "qst_destroy_bandit_lair"),
 	 (quest_get_slot, ":bandit_lair", "qst_destroy_bandit_lair", slot_quest_target_party),
 	 (party_get_template_id, ":bandit_type", ":bandit_lair"),
-	 (eq, ":bandit_type", "pt_steppe_bandit_lair"),
+	 (eq, ":bandit_type", "pt_angry_pleb_lair"),
 	 ],
-	"Bandits such as these will usually set up their encampments in the woodland on the steppe, where they have some concealment. The best way to discover its location would be to find a group of steppe bandits who appear to be heading back to their base to resupply, and follow them.", "merchant_quest_track_bandit_lair_choice",
+	"Bandits such as these will usually coerce other villagers into open rebellion and use those villages as a base of operations.", "merchant_quest_track_bandit_lair_choice",
    []],
 
-  [anyone,"destroy_lair_quest_brief", [
-     (eq,"$random_quest_no", "qst_destroy_bandit_lair"),
-	 (quest_get_slot, ":bandit_lair", "qst_destroy_bandit_lair", slot_quest_target_party),
-	 (party_get_template_id, ":bandit_type", ":bandit_lair"),
-	 (eq, ":bandit_type", "pt_taiga_bandit_lair"),
-	 ],
-	"Bandits such as these will usually set up their encampments deep in the woods. The best way to discover its location would be to find a group of tundra bandits who appear to be heading back to their base to resupply, and follow them.", "merchant_quest_track_bandit_lair_choice",
-   []],
+  # [anyone,"destroy_lair_quest_brief", [
+     # (eq,"$random_quest_no", "qst_destroy_bandit_lair"),
+	 # (quest_get_slot, ":bandit_lair", "qst_destroy_bandit_lair", slot_quest_target_party),
+	 # (party_get_template_id, ":bandit_type", ":bandit_lair"),
+	 # (eq, ":bandit_type", "pt_taiga_bandit_lair"),
+	 # ],
+	# "Bandits such as these will usually set up their encampments deep in the woods. The best way to discover its location would be to find a group of tundra bandits who appear to be heading back to their base to resupply, and follow them.", "merchant_quest_track_bandit_lair_choice",
+   # []],
 
   [anyone|plyr,"merchant_quest_track_bandit_lair_choice", [], "Aye, I'll do it.", "merchant_quest_destroy_lair_brief", [
 
@@ -43514,24 +43514,23 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 ##    ]],
 
 # Ryan BEGIN
-  [party_tpl|pt_mountain_bandits|auto_proceed,"start", [(eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)],
+  [party_tpl|pt_routier_bandits|auto_proceed,"start", [(eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)],
    "{!}Warning: This line should never display.", "bandit_introduce",[]],
-  [party_tpl|pt_forest_bandits|auto_proceed,"start", [(eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)],
+  [party_tpl|pt_flayer_bandits|auto_proceed,"start", [(eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)],
    "{!}Warning: This line should never display.", "bandit_introduce",[]],
-  [party_tpl|pt_taiga_bandits|auto_proceed,"start", [(eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)],
+  [party_tpl|pt_retondeur_bandits|auto_proceed,"start", [(eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)],
    "{!}Warning: This line should never display.", "bandit_introduce",[]],
-  [party_tpl|pt_steppe_bandits|auto_proceed,"start", [(eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)],
+  [party_tpl|pt_tard_venu_bandits|auto_proceed,"start", [(eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)],
    "{!}Warning: This line should never display.", "bandit_introduce",[]],
-  [party_tpl|pt_desert_bandits|auto_proceed,"start", [(eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)],
+  [party_tpl|pt_peasant_bandits|auto_proceed,"start", [(eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)],
    "{!}Warning: This line should never display.", "bandit_introduce",[]],
 
-  [party_tpl|pt_sea_raiders,"start", [
-    (eq, "$g_encountered_party_faction", "fac_outlaws"), #first stack should always be a bandit
-    #sea raiders skull-drinking dialogue
-    ],
-   "I will drink from your skull!", "battle_reason_stated",[
-   (play_sound, "snd_encounter_sea_raiders"),
-   ]],
+  # [party_tpl|pt_sea_raiders,"start", [
+    # (eq, "$g_encountered_party_faction", "fac_outlaws"), #first stack should always be a bandit
+    # ],
+   # "I will drink from your skull!", "battle_reason_stated",[
+   # (play_sound, "snd_encounter_sea_raiders"),
+   # ]],
     
   [anyone,"bandit_introduce", [
       # (store_random_in_range, ":rand", 11, 15),
@@ -43545,12 +43544,12 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
       (str_store_string, s5, ":intro"),
     ], "{s5}", "bandit_talk",[
     #SB : reintroduce steppe bandit sounds
-    (try_begin),
-      (eq, "$g_encountered_party_template", "pt_steppe_bandits"),
-      (play_sound,"snd_encounter_steppe_bandits"),
-    (else_try),
+    # (try_begin),
+      # (eq, "$g_encountered_party_template", "pt_steppe_bandits"),
+      # (play_sound,"snd_encounter_steppe_bandits"),
+    # (else_try),
       (play_sound,"snd_encounter_bandits"),
-     (try_end),
+     # (try_end),
     ]],
 
   [anyone|plyr,"bandit_talk", [], "I'll give you nothing but cold steel, you scum!", "close_window",[(encounter_attack)]],
@@ -43629,16 +43628,16 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
         (str_store_string, s5, ":string"),
       ], "{s5}", "close_window",[
       #SB : add sound
-      (try_begin),
+      # (try_begin),
         # (eq, "$g_talk_troop", "trp_steppe_bandits")
-        (eq, "$g_encountered_party_template", "pt_steppe_bandits"),
-        (play_sound, "snd_encounter_steppe_bandits"),
-      (else_try),
-        (eq, "$g_encountered_party_template", "pt_sea_raiders"),
-        (play_sound, "snd_encounter_sea_raiders"),
-      (else_try),
+        # (eq, "$g_encountered_party_template", "pt_steppe_bandits"),
+        # (play_sound, "snd_encounter_steppe_bandits"),
+      # (else_try),
+        # (eq, "$g_encountered_party_template", "pt_sea_raiders"),
+        # (play_sound, "snd_encounter_sea_raiders"),
+      # (else_try),
         (play_sound, "snd_encounter_bandits"),
-      (try_end),
+      # (try_end),
       
       ]],
 

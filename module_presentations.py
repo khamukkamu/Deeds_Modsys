@@ -437,7 +437,7 @@ presentations = [
         # (eq, "$g_quick_battle_team_2_faction", "fac_kingdom_6"),
         # (assign, ":cur_troop", "trp_sarranid_mamluke"),
       (else_try),
-        (assign, ":cur_troop", "trp_taiga_bandit"),
+        (assign, ":cur_troop", "trp_routier_knight"),
       (try_end),
       (val_mul, ":cur_troop", 2), #with weapons
       (create_mesh_overlay_with_tableau_material, reg0, -1, "tableau_game_party_window", ":cur_troop"),
