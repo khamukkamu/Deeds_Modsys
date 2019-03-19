@@ -75302,27 +75302,36 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (item_set_slot, "itm_a_padded_over_mail_custom", slot_item_num_components, 1),      
     
 ## Coat of Plates
-      (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_materials_begin, "str_a_coat_of_plates_french_1"),
+      (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_materials_begin, "str_a_coat_of_plates_blue"),
       (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_materials_end, "str_a_coat_of_plates_end"),
 # France
-      (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_france_materials_begin, "str_a_coat_of_plates_french_1"),
-      (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_france_materials_end, "str_a_coat_of_plates_english_1"),
+      (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_france_materials_begin, "str_a_coat_of_plates_blue"),
+      (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_france_materials_end, "str_a_coat_of_plates_red"),
 # England
-      (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_english_materials_begin, "str_a_coat_of_plates_english_1"),
-      (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_english_materials_end, "str_a_coat_of_plates_end"),  
+      (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_english_materials_begin, "str_a_coat_of_plates_white"),
+      (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_english_materials_end, "str_a_coat_of_plates_brown"),  
+# Burgundy
+      (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_burgundy_materials_begin, "str_a_coat_of_plates_red"),
+      (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_burgundy_materials_end, "str_a_coat_of_plates_black"), 	  
+# Brittany    
+      (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_breton_materials_begin, "str_a_coat_of_plates_brown"),
+      (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_breton_materials_end, "str_a_coat_of_plates_end"),     	  
       (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_num_components, 1),        
 
 ## Surcoat Over Mail
-      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_materials_begin, "str_a_surcoat_over_mail_french_1"),
+      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_materials_begin, "str_a_surcoat_over_mail_blue"),
       (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_materials_end, "str_a_surcoat_over_mail_end"),
 # France
-      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_france_materials_begin, "str_a_surcoat_over_mail_french_1"),
-      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_france_materials_end, "str_a_surcoat_over_mail_english_1"),
+      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_france_materials_begin, "str_a_surcoat_over_mail_blue"),
+      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_france_materials_end, "str_a_surcoat_over_mail_red"),
 # England
-      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_english_materials_begin, "str_a_surcoat_over_mail_english_1"),
-      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_english_materials_end, "str_a_surcoat_over_mail_breton_1"), 
+      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_english_materials_begin, "str_a_surcoat_over_mail_red"),
+      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_english_materials_end, "str_a_surcoat_over_mail_blue_3"), 
+# Burgundy
+      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_burgundy_materials_begin, "str_a_surcoat_over_mail_blue_3"),
+      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_burgundy_materials_end, "str_a_surcoat_over_mail_black"), 	  
 # Brittany    
-      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_breton_materials_begin, "str_a_surcoat_over_mail_breton_1"),
+      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_breton_materials_begin, "str_a_surcoat_over_mail_brown"),
       (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_breton_materials_end, "str_a_surcoat_over_mail_end"),     
       (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_num_components, 1),     
     

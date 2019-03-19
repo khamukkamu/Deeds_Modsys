@@ -5378,24 +5378,32 @@ Even in the last case, the player can make formations up to four lines by orderi
 
 ## Coat of Plates
 # French 
-("a_coat_of_plates_french_1", "a_coat_of_plates_french_1"),  
-("a_coat_of_plates_french_2", "a_coat_of_plates_french_2"),  
-("a_coat_of_plates_french_3", "a_coat_of_plates_french_3"),  
+("a_coat_of_plates_blue", "a_coat_of_plates_blue"),  
+("a_coat_of_plates_white", "a_coat_of_plates_white"),  
 # English
-("a_coat_of_plates_english_1", "a_coat_of_plates_english_1"),  
-("a_coat_of_plates_english_2", "a_coat_of_plates_english_2"),  
-("a_coat_of_plates_english_3", "a_coat_of_plates_english_3"),  
+("a_coat_of_plates_red", "a_coat_of_plates_red"),  
+# Burgundian
+("a_coat_of_plates_brown", "a_coat_of_plates_brown"),  
+# Breton
+("a_coat_of_plates_white_2", "a_coat_of_plates_white"),  
+("a_coat_of_plates_black", "a_coat_of_plates_black"),  
 ("a_coat_of_plates_end", "a_coat_of_plates_end"),
 
 ## Surcoat over Mail
 # French 
-("a_surcoat_over_mail_french_1", "a_surcoat_over_mail_french_1"),  
-("a_surcoat_over_mail_french_2", "a_surcoat_over_mail_french_2"),  
+("a_surcoat_over_mail_blue", "a_surcoat_over_mail_blue"),  
+("a_surcoat_over_mail_blue_2", "a_surcoat_over_mail_blue_2"),  
 # English
-("a_surcoat_over_mail_english_1", "a_surcoat_over_mail_english_1"),  
-("a_surcoat_over_mail_english_2", "a_surcoat_over_mail_english_2"),  
+("a_surcoat_over_mail_red", "a_surcoat_over_mail_red"),  
+("a_surcoat_over_mail_red_2", "a_surcoat_over_mail_red_2"),  
+("a_surcoat_over_mail_red_3", "a_surcoat_over_mail_red_3"),  
+# Burgundian
+("a_surcoat_over_mail_blue_3", "a_surcoat_over_mail_blue_3"),  
+("a_surcoat_over_mail_brown", "a_surcoat_over_mail_brown"),  
+("a_surcoat_over_mail_brown_2", "a_surcoat_over_mail_brown_2"),  
 # Breton
-("a_surcoat_over_mail_breton_1", "a_surcoat_over_mail_breton_1"),  
+("a_surcoat_over_mail_black", "a_surcoat_over_mail_black"),  
+("a_surcoat_over_mail_black_2", "a_surcoat_over_mail_black_2"),  
 ("a_surcoat_over_mail_end", "a_surcoat_over_mail_end"),
 
 ## Churburg
