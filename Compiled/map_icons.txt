@@ -36,22 +36,22 @@ woman 0 woman_a 0.150000 17 0.150000 0.173000 0.000000 0
 woman_b 0 woman_b 0.150000 17 0.150000 0.173000 0.000000 0
 
 
-town 1 map_town_a 0.350000 0 0.000000 0.000000 0.000000 0
+town 1 icon_town_a 0.350000 0 0.000000 0.000000 0.000000 0
 
 
-town_steppe 1 map_town_steppe_a 0.350000 0 0.000000 0.000000 0.000000 0
+town_steppe 1 icon_town_b 0.350000 0 0.000000 0.000000 0.000000 0
 
 
-town_desert 1 map_town_desert_a 0.350000 0 0.000000 0.000000 0.000000 0
+town_desert 1 map_village_a 0.350000 0 0.000000 0.000000 0.000000 0
 
 
 village_a 1 map_village_a 0.450000 0 0.000000 0.000000 0.000000 0
 
 
-village_b 1 map_village_b 0.450000 0 0.000000 0.000000 0.000000 0
+village_b 1 map_village_a 0.450000 0 0.000000 0.000000 0.000000 0
 
 
-village_c 1 map_village_c 0.450000 0 0.000000 0.000000 0.000000 0
+village_c 1 map_village_a 0.450000 0 0.000000 0.000000 0.000000 0
 
 
 village_burnt_a 1 map_village_burnt_a 0.450000 0 0.000000 0.000000 0.000000 0
@@ -60,25 +60,25 @@ village_burnt_a 1 map_village_burnt_a 0.450000 0 0.000000 0.000000 0.000000 0
 village_deserted_a 1 map_village_deserted_a 0.450000 0 0.000000 0.000000 0.000000 0
 
 
-village_burnt_b 1 map_village_burnt_b 0.450000 0 0.000000 0.000000 0.000000 0
+village_burnt_b 1 map_village_burnt_a 0.450000 0 0.000000 0.000000 0.000000 0
 
 
-village_deserted_b 1 map_village_deserted_b 0.450000 0 0.000000 0.000000 0.000000 0
+village_deserted_b 1 map_village_deserted_a 0.450000 0 0.000000 0.000000 0.000000 0
 
 
-village_burnt_c 1 map_village_burnt_c 0.450000 0 0.000000 0.000000 0.000000 0
+village_burnt_c 1 map_village_burnt_a 0.450000 0 0.000000 0.000000 0.000000 0
 
 
-village_deserted_c 1 map_village_deserted_c 0.450000 0 0.000000 0.000000 0.000000 0
+village_deserted_c 1 map_village_deserted_a 0.450000 0 0.000000 0.000000 0.000000 0
 
 
-village_snow_a 1 map_village_snow_a 0.450000 0 0.000000 0.000000 0.000000 0
+village_snow_a 1 map_village_a 0.450000 0 0.000000 0.000000 0.000000 0
 
 
-village_snow_burnt_a 1 map_village_snow_burnt_a 0.450000 0 0.000000 0.000000 0.000000 0
+village_snow_burnt_a 1 map_village_burnt_a 0.450000 0 0.000000 0.000000 0.000000 0
 
 
-village_snow_deserted_a 1 map_village_snow_deserted_a 0.450000 0 0.000000 0.000000 0.000000 0
+village_snow_deserted_a 1 map_village_deserted_a 0.450000 0 0.000000 0.000000 0.000000 0
 
 
 camp 1 camp_tent 0.130000 0 0.000000 0.000000 0.000000 0
@@ -90,25 +90,25 @@ ship 1 boat_sail_on 0.230000 17 0.000000 0.050000 0.000000 0
 ship_on_land 1 boat_sail_off 0.230000 0 0.000000 0.000000 0.000000 0
 
 
-castle_a 1 map_castle_a 0.350000 0 0.000000 0.000000 0.000000 0
+castle_a 1 icon_castle_a 0.350000 0 0.000000 0.000000 0.000000 0
 
 
-castle_b 1 map_castle_b 0.350000 0 0.000000 0.000000 0.000000 0
+castle_b 1 icon_castle_b 0.350000 0 0.000000 0.000000 0.000000 0
 
 
-castle_c 1 map_castle_c 0.350000 0 0.000000 0.000000 0.000000 0
+castle_c 1 icon_castle_c 0.350000 0 0.000000 0.000000 0.000000 0
 
 
-castle_d 1 map_castle_d 0.350000 0 0.000000 0.000000 0.000000 0
+castle_d 1 icon_castle_d 0.350000 0 0.000000 0.000000 0.000000 0
 
 
-town_snow 1 map_town_snow_a 0.350000 0 0.000000 0.000000 0.000000 0
+castle_e 1 icon_castle_e 0.350000 0 0.000000 0.000000 0.000000 0
 
 
-castle_snow_a 1 map_castle_snow_a 0.350000 0 0.000000 0.000000 0.000000 0
+castle_snow_a 1 icon_castle_a 0.350000 0 0.000000 0.000000 0.000000 0
 
 
-castle_snow_b 1 map_castle_snow_b 0.350000 0 0.000000 0.000000 0.000000 0
+castle_snow_b 1 icon_castle_b 0.350000 0 0.000000 0.000000 0.000000 0
 
 
 mule 0 icon_mule 0.200000 17 0.150000 0.173000 0.000000 0
@@ -126,7 +126,7 @@ bridge_a 1 map_river_bridge_a 1.270000 0 0.000000 0.000000 0.000000 0
 bridge_b 1 map_river_bridge_b 0.700000 0 0.000000 0.000000 0.000000 0
 
 
-bridge_snow_a 1 map_river_bridge_snow_a 1.270000 0 0.000000 0.000000 0.000000 0
+bridge_snow_a 1 map_river_bridge_a 1.270000 0 0.000000 0.000000 0.000000 0
 
 
 custom_banner_01 0 custom_map_banner_01 0.300000 0 0.000000 0.000000 0.000000 1

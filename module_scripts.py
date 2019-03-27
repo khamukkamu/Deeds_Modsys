@@ -32362,7 +32362,7 @@ scripts = [
   # script_decide_run_away_or_not
   # Input: none
   # Output: none
-  ("decide_run_away_or_not",
+  ("decide_run_away_or_not_orig",
     [
       (store_script_param, ":cur_agent", 1),
       (store_script_param, ":mission_time", 2),
@@ -76863,6 +76863,327 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
   ("cf_eq_temp", [(store_script_param, ":x", 1), (eq,":x","$temp"),]),
 
 
+
+
+# Autolykos & JacobHinds Morale System
+
+# script_decide_run_away_or_not
+  # Input: none
+  # Output: none
+  ("decide_run_away_or_not",
+    [
+      (store_script_param, ":cur_agent", 1),
+      (store_script_param, ":unused", 2),
+            
+      (assign, ":force_retreat", 0),
+      (assign, ":local_potential", 0), # Each non-routed troop affects local "potential" with Level/Distance^2, sign depends on team.
+      (agent_get_team, ":agent_team", ":cur_agent"),
+      (agent_get_division, ":agent_division", ":cur_agent"),
+      (try_begin),
+        (lt, ":agent_division", 9), #static classes
+        (team_get_movement_order, ":agent_movement_order", ":agent_team", ":agent_division"),
+        (eq, ":agent_movement_order", mordr_retreat),
+        (assign, ":force_retreat", 1),
+    (else_try), # Only need to calculate "potential" if retreat was not ordered
+    (agent_get_position, pos0, ":cur_agent"), 
+      (try_for_agents, ":other_agent"),
+      # First, make sure the other agent is actually a combatant
+      (agent_is_human, ":other_agent"),
+      (agent_is_active, ":other_agent"),
+      (agent_is_alive, ":other_agent"),
+      (neg|agent_is_wounded, ":other_agent"),
+      (neg|agent_is_routed, ":other_agent"),
+      (neq, ":cur_agent", ":other_agent"),
+      (agent_get_troop_id, ":other_troop", ":other_agent"),
+      (ge, ":other_troop", 0), # Just in case
+      # Second, calculate the agent's local effect
+      (agent_get_position, pos1, ":other_agent"), 
+          (get_sq_distance_between_positions, ":dist2", pos0, pos1), # cm^2
+      (le, ":dist2", 100000000), # Ignore troops further away than 100 m
+      (val_max, ":dist2", 10000), # Closer than 1m does not increase effect
+      (store_character_level, ":other_level", ":other_troop"),
+      (store_mul, ":delta_phi", ":other_level", 1000000),
+      (val_div, ":delta_phi", ":dist2"),
+      (try_begin),
+        (agent_slot_eq, ":other_agent", slot_agent_is_running_away, 1),
+      (try_begin),
+        (agent_slot_eq, ":cur_agent", slot_agent_is_running_away, 0),
+          (val_mul, ":delta_phi", -1),
+      (else_try),
+          (assign, ":delta_phi", 0), # Otherwise, rallying routed troops is impossible
+      (try_end),
+      (try_end),
+      # Finally, apply it to the local potential
+      (try_begin),
+        (agent_get_team, ":other_team", ":other_agent"),
+        (teams_are_enemies, ":agent_team", ":other_team"), 
+      (val_sub, ":local_potential", ":delta_phi"),
+      (else_try),
+      (try_begin),
+          (troop_is_hero, ":other_troop"),
+        (val_mul, ":delta_phi", 10),
+        (agent_get_item_slot, ":helmet", ":other_agent", 4),
+        (try_begin),
+          (lt, ":helmet", 0),
+          (val_mul, ":delta_phi", 2), # Recognizing their leader gives a morale boost
+        (else_try),
+          (item_get_head_armor, ":head_armor", ":helmet"),
+          (lt, ":head_armor", 10), # This is probably a hat, not a helmet
+          (val_mul, ":delta_phi", 2),
+        (try_end),
+      (else_try),
+          (agent_get_horse, ":horse", ":other_agent"),
+        (ge, ":horse", 0),
+        (val_mul, ":delta_phi", 2),
+      (try_end),
+      (val_add, ":local_potential", ":delta_phi"),
+      (try_end),
+    (try_end),
+      (try_end),
+    
+    (agent_get_troop_id, ":troop_id", ":cur_agent"),
+    (store_character_level, ":troop_lvl", ":troop_id"),
+    (store_agent_hit_points, ":agent_health", ":cur_agent"),
+    (call_script, "script_battle_agent_base_morale", ":cur_agent"),
+    (get_player_agent_no, ":player_agent"),
+    (try_begin),
+    (agent_get_team, ":player_team", ":player_agent"),
+    (eq, ":agent_team", ":player_team"),
+    (store_add, ":individual_morale", reg0, ":agent_health"), 
+    (else_try),
+    (store_add, ":individual_morale", reg1, ":agent_health"), 
+    (try_end),
+    (try_begin),
+      (troop_is_hero, ":troop_id"),
+    (val_mul, ":troop_lvl", 10), # Heroes are a lot less likely to run.
+    (try_end),
+    (store_mul, ":rout_threshold", ":troop_lvl", ":individual_morale"),
+    (val_mul, ":rout_threshold", -10),
+    (store_sub, ":rally_threshold", 200, ":individual_morale"),
+    (val_mul, ":rally_threshold", 5),
+
+      (agent_get_slot, ":is_cur_agent_running_away", ":cur_agent", slot_agent_is_running_away),
+      (try_begin),
+        (eq, ":is_cur_agent_running_away", 0),
+        (try_begin),
+          (eq, ":force_retreat", 1),
+          (agent_start_running_away, ":cur_agent"),
+          (agent_set_slot, ":cur_agent",  slot_agent_is_running_away, 1),
+        (else_try),
+      (lt, ":local_potential", ":rout_threshold"),
+      (neq, ":cur_agent", ":player_agent"), # The player does not run!
+          (agent_start_running_away, ":cur_agent"),
+          (agent_set_slot, ":cur_agent",  slot_agent_is_running_away, 1),
+      (str_store_agent_name, s1, ":cur_agent"),
+      (try_begin),
+        (agent_is_ally, ":cur_agent"),
+        (display_message, "str_s1_routed", color_msg_ally_routed),
+      (else_try),
+        (display_message, "str_s1_routed", color_msg_enemy_routed),
+      (try_end),
+        (try_end),
+      (else_try),
+        (neq, ":force_retreat", 1),
+    (ge, ":local_potential", ":rally_threshold"),
+    (agent_stop_running_away, ":cur_agent"),
+        (agent_set_slot, ":cur_agent",  slot_agent_is_running_away, 0),
+    (eq, ":agent_team", ":player_team"),
+    (str_store_agent_name, s1, ":cur_agent"),
+    (display_message, "str_s1_rallied", color_msg_ally_rallied),
+      (try_end),      
+  ]),
+
+  # script_decide_team_rout
+  # Input: none
+  # Output: none
+  ("decide_team_rout",
+    [ # Initialize Teams
+  (get_player_agent_no, ":player_agent"),
+  (agent_get_team, ":player_team", ":player_agent"),
+    (team_set_slot, ":player_team", slot_team_relation_to_player, 1),
+  (try_for_range, ":cur_team", 0, 8), # 7 seems to be the highest team number commonly used
+      (team_set_slot, ":cur_team", slot_team_fighting_strength, 0),
+      (team_set_slot, ":cur_team", slot_team_routing_strength, 0),
+      (team_set_slot, ":cur_team", slot_team_defeated_strength, 0),
+    (neq, ":cur_team", ":player_team"),
+    (try_begin),
+      (teams_are_enemies, ":cur_team", ":player_team"),
+        (team_set_slot, ":cur_team", slot_team_relation_to_player, -1),
+    (else_try),
+      (team_get_leader, ":leader", ":cur_team"),
+      (gt, ":leader", 0),
+    (agent_is_ally, ":leader"),
+        (team_set_slot, ":cur_team", slot_team_relation_to_player, 1),
+    (else_try),
+        (team_set_slot, ":cur_team", slot_team_relation_to_player, 0),
+    (try_end),
+  (try_end),
+  # First pass: Count the strength of the teams
+  (try_for_agents, ":cur_agent"),
+    (agent_is_human, ":cur_agent"),
+    (agent_is_active, ":cur_agent"),
+    (agent_get_troop_id, ":cur_troop", ":cur_agent"),
+    (store_character_level, ":troop_level", ":cur_troop"),
+    (agent_get_team, ":agent_team", ":cur_agent"),
+    (try_begin),
+      (this_or_next|agent_is_wounded, ":cur_agent"),
+    (neg|agent_is_alive, ":cur_agent"),
+        (team_get_slot, ":defeated", ":agent_team", slot_team_defeated_strength),
+    (val_add, ":defeated", ":troop_level"),
+        (team_set_slot, ":agent_team", slot_team_defeated_strength, ":defeated"),
+    (else_try),
+      (this_or_next|agent_is_routed, ":cur_agent"),
+        (agent_slot_ge, ":cur_agent",  slot_agent_is_running_away, 1),
+        (team_get_slot, ":routing", ":agent_team", slot_team_routing_strength),
+    (val_add, ":routing", ":troop_level"),
+        (team_set_slot, ":agent_team", slot_team_routing_strength, ":routing"),
+    (else_try),
+        (team_get_slot, ":fighting", ":agent_team", slot_team_fighting_strength),
+    (val_add, ":fighting", ":troop_level"),
+        (team_set_slot, ":agent_team", slot_team_fighting_strength, ":fighting"),
+    (try_end),
+  (try_end),
+  # Calculate Battle Score and determine outcome
+  (assign, ":battle_score", 0),
+  (assign, ":ally_rout_threshold", 0),
+  (assign, ":enemy_rout_threshold", 0),
+  (try_for_range, ":cur_team", 0, 8),
+      (team_get_slot, ":defeated", ":cur_team", slot_team_defeated_strength),
+      (team_get_slot, ":routing", ":cur_team", slot_team_routing_strength),
+      (team_get_slot, ":fighting", ":cur_team", slot_team_fighting_strength),
+    (store_add, ":not_fighting", ":defeated", ":routing"),
+    (try_begin),
+        (team_slot_eq, ":cur_team", slot_team_relation_to_player, -1),
+    (val_add, ":battle_score", ":not_fighting"),
+    (val_add, ":enemy_rout_threshold", ":fighting"),
+    (else_try),
+        (team_slot_eq, ":cur_team", slot_team_relation_to_player, 1),
+    (val_sub, ":battle_score", ":not_fighting"),
+    (val_sub, ":ally_rout_threshold", ":fighting"), # Must be negative
+    (try_end),
+  (try_end),
+  # Second pass: Apply effects
+  (val_mul, ":battle_score", 150), # Will get divided by health+morale (1..200)
+  (try_for_agents, ":cur_agent"),
+    (agent_is_human, ":cur_agent"),
+    (agent_is_active, ":cur_agent"),
+    (store_agent_hit_points, ":health", ":cur_agent"),
+    (gt, ":health", 0),
+    (call_script, "script_battle_agent_base_morale", ":cur_agent"),
+    (try_begin),
+      (eq, ":agent_team", ":player_team"),
+    (store_add, ":individual_morale", reg0, ":health"),
+    (else_try),
+    (store_add, ":individual_morale", reg1, ":health"), 
+    (try_end),
+    (assign, ":message_string", 0),
+    (assign, ":message_color", 0xFF00FF), # To make it obvious if not set!
+    (store_div, ":individual_score", ":battle_score", ":individual_morale"), # Good morale -> Less fazed by battle outcome
+    (agent_get_team, ":agent_team", ":cur_agent"),
+    (try_begin),
+        (agent_get_division, ":agent_division", ":cur_agent"),
+        (lt, ":agent_division", 9),
+        (team_get_movement_order, ":agent_movement_order", ":agent_team", ":agent_division"),
+        (eq, ":agent_movement_order", mordr_retreat),
+    (try_begin),
+      (agent_slot_eq, ":cur_agent", slot_agent_is_running_away, 0),
+          (agent_start_running_away, ":cur_agent"),
+          (agent_set_slot, ":cur_agent", slot_agent_is_running_away, 1),
+    (try_end), # If the order is to retreat, don't check conditions or display messages!
+    (else_try),
+        (agent_slot_eq, ":cur_agent", slot_agent_is_running_away, 0),
+        (try_begin),
+          (team_slot_eq, ":agent_team", slot_team_relation_to_player, 1),
+        (lt, ":individual_score", ":ally_rout_threshold"),
+      (neq, ":cur_agent", ":player_agent"), # The player does not run!
+          (agent_start_running_away, ":cur_agent"),
+          (agent_set_slot, ":cur_agent", slot_agent_is_running_away, 1),
+      (assign, ":message_string", "str_s1_routed"),
+      (assign, ":message_color", color_msg_ally_routed),
+      (else_try),
+          (team_slot_eq, ":agent_team", slot_team_relation_to_player, -1),
+        (gt, ":individual_score", ":enemy_rout_threshold"),
+          (agent_start_running_away, ":cur_agent"),
+          (agent_set_slot, ":cur_agent", slot_agent_is_running_away, 1),
+      (assign, ":message_string", "str_s1_routed"),
+      (assign, ":message_color", color_msg_enemy_routed),
+      (try_end),
+    (else_try),
+      (try_begin),
+          (team_slot_eq, ":agent_team", slot_team_relation_to_player, 1),
+        (ge, ":individual_score", ":ally_rout_threshold"),
+          (agent_stop_running_away, ":cur_agent"),
+          (agent_set_slot, ":cur_agent", slot_agent_is_running_away, 0),
+      (eq, ":agent_team", ":player_team"),
+      (assign, ":message_string", "str_s1_rallied"),
+      (assign, ":message_color", color_msg_ally_rallied),
+      (else_try),
+          (team_slot_eq, ":agent_team", slot_team_relation_to_player, -1),
+        (le, ":individual_score", ":enemy_rout_threshold"),
+          (agent_stop_running_away, ":cur_agent"),
+          (agent_set_slot, ":cur_agent", slot_agent_is_running_away, 0),
+      (try_end),
+    (try_end),
+    (try_begin),
+      (gt, ":message_string", 0),
+    (str_store_agent_name, s1, ":cur_agent"),
+    (display_message, ":message_string", ":message_color"),
+    (try_end),
+  (try_end),
+  ]),
+  
+  # script_battle_agent_base_morale
+  # Input: arg1 = agent_no
+  # Output: reg0 = base_morale_if_player_party
+  #         reg1 = base_morale_if_ai_party
+  ("battle_agent_base_morale",
+    [(store_script_param, ":agent_no", 1),
+  (call_script, "script_battle_party_base_morale"), # sets defaults for reg0, reg1
+  (try_begin), # If we know the agent, we can try to figure out faction specific morale...
+    (eq, "$g_is_quick_battle", 0),
+    (agent_get_troop_id, ":troop_no", ":agent_no"),
+    (gt, ":troop_no", 0),
+    (call_script, "script_game_get_morale_of_troops_from_faction", ":troop_no"), # overwrites reg0
+  (try_end),
+  ]),
+  
+  # script_battle_party_base_morale
+  # Input: none
+  # Output: reg0 = player_party_morale
+  #         reg1 = ai_party_morale
+  ("battle_party_base_morale",
+    [
+  (try_begin),
+    (eq, "$g_is_quick_battle", 0),
+    (party_get_morale, reg0, "p_main_party"),
+    (options_get_campaign_ai, ":ai_handicap"), # 0 = hard, 1 = normal, 2 = easy
+    (val_mul, ":ai_handicap", 25),
+    (store_sub, reg1, 100, ":ai_handicap"), # 100, 75, 50
+  (else_try),
+    (assign, reg0, 75),
+    (assign, reg1, 75),
+  (try_end),
+  ]),
+  
+  # script_battle_count_fighting_enemies
+  # Input: none
+  # Output: reg0 = number of enemies that are not dead, wounded, routed or routing
+  ("battle_count_fighting_enemies",
+    [
+  (assign, ":fighting_enemies", 0),
+  (try_for_agents, ":cur_agent"),
+    (agent_is_human, ":cur_agent"),
+    (agent_is_active, ":cur_agent"),
+    (agent_is_alive, ":cur_agent"),
+    (neg|agent_is_ally, ":cur_agent"),
+    (neg|agent_is_wounded, ":cur_agent"),
+    (neg|agent_is_routed, ":cur_agent"),
+      (agent_slot_eq, ":cur_agent", slot_agent_is_running_away, 0),
+    (val_add, ":fighting_enemies", 1),
+  (try_end),
+  (assign, reg0, ":fighting_enemies"),
+  ]),
+  
 
 ]
 

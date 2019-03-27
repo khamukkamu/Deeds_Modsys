@@ -5164,6 +5164,9 @@ One may memorize the placement of selected divisions relative to the player by p
 - NO FORMATION^^\
 Even in the last case, the player can make formations up to four lines by ordering Stand Closer enough times."),
 
+("s1_routed", "{s1} has routed!"),
+("s1_rallied", "{s1} has rallied!"),
+
 # Kham - Armor Customization Strings
 # English colors: Red | White
 # French colors: Blue | White

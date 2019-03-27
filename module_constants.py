@@ -1083,6 +1083,11 @@ slot_player_coop_opened_chests_end             = slot_player_coop_opened_chests_
 slot_team_flag_situation                       = 0
 
 
+# For the simplifed morale system:
+slot_team_relation_to_player			= 0
+slot_team_fighting_strength				= 1
+slot_team_routing_strength				= 2
+slot_team_defeated_strength				= 3
 
 
 #Rebellion changes end
@@ -2775,3 +2780,6 @@ color_good_news    = 0x50FF50
 color_bad_news     = 0xFF5050
 color_neutral_news = 0xFFAA00
 
+color_msg_enemy_routed = 0x44CCAA # Should be same color as killed or wounded
+color_msg_ally_routed  = 0xCCCC33 # yellow = routed, orange = wounded, red = killed
+color_msg_ally_rallied = 0x33CC33 # green = rallied

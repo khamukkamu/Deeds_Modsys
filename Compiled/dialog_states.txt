@@ -1685,7 +1685,6 @@ reinforcements_reinforce
 reinforcement_hostile
 reinforcements_attack
 bandit_introduce
-battle_reason_stated
 bandit_talk
 bandit_barter
 bandit_barter_2
@@ -1757,6 +1756,7 @@ merchant_quest_1a
 merchant_quest_1b
 merchant_quest_1c
 merchant_quest_1d
+battle_reason_stated
 free
 view_char_requested
 end
