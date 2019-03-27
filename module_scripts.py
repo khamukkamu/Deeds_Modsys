@@ -74354,7 +74354,6 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
         (troop_raise_proficiency, "trp_player",wpt_two_handed_weapon,15),
         (troop_raise_proficiency, "trp_player",wpt_polearm,20),
         (troop_raise_proficiency, "trp_player",wpt_throwing,10),
-        (troop_add_item, "trp_player","itm_tab_shield_kite_b",imod_battered),
         (troop_add_gold, "trp_player", 50),
         (troop_set_slot, "trp_player", slot_troop_renown, 10),
 
@@ -75544,7 +75543,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (item_set_slot, "itm_a_mail_shirt_custom", slot_item_num_components, 1),        
 
       #Init Custom Armors
-      (try_for_range, ":item_no", "itm_h_bascinet_fi_hood_custom", "itm_items_end"), # Seek: Changed the range
+      (try_for_range, ":item_no", "itm_h_bascinet_fi_hood_custom", "itm_dplmc_coat_of_plates_red_constable"), # Seek: Changed the range
           (item_get_slot, ":materials_begin", ":item_no", slot_item_materials_begin),
           (item_get_slot, ":materials_end", ":item_no", slot_item_materials_end),
           (store_random_in_range, ":random_material", ":materials_begin", ":materials_end"),

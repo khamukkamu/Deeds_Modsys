@@ -43887,6 +43887,107 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 	(assign, "$temp", horses_begin),
 	(assign, "$temp_2", horses_end),
 	]],
+	
+  ### DAC Kham - Armour Customization Dialogues START #####
+
+  [anyone|plyr,"town_merchant_talk",[(is_between,"$g_talk_troop",armor_merchants_begin,armor_merchants_end)], "I'd like to customize my equipment.", "tailor_custom_armor_start",[]],
+
+  [anyone,"tailor_custom_armor_start",[], "Very well, what would you like to customize?", "tailor_custom_armor_ask",[]],
+
+  [anyone|plyr|repeat_for_100, "tailor_custom_armor_ask",
+    [
+      (store_repeat_object, ":custom_armour"),
+      (troop_get_inventory_slot, ":item_id", "trp_player", ":custom_armour"),
+      (ge, ":item_id", 0),
+      (item_slot_ge, ":item_id", slot_item_num_components, 1),
+      (str_store_item_name, s1, ":item_id"),
+
+   ], "{s1}", "tailor_custom_armor_choose", [
+	(store_repeat_object, ":custom_armour"),
+	(troop_get_inventory_slot, "$g_current_opened_item_details", "trp_player", ":custom_armour"),
+   ],
+  ],
+
+  [anyone|plyr,"tailor_custom_armor_ask",[], "On second thought, nevermind.", "close_window",[(assign, "$g_current_opened_item_details", -1)]],
+
+### DAC Seek: Made some changes to pricing, added skillchecks
+# Price Announcement
+  [anyone,"tailor_custom_armor_choose",
+  [
+	(item_get_value, ":price",  "$g_current_opened_item_details"),
+	(val_mul, ":price", 20),
+	(val_div, ":price", 100),
+	(assign,reg0, ":price"),
+
+  ], "{Sir/Madam}, this will cost you {reg0} crowns.", "tailor_custom_armor_confirm",[]],
+
+# Deal or no deal
+  [anyone|plyr,"tailor_custom_armor_confirm",
+  [
+	(store_troop_gold, ":gold", "trp_player"),
+	(ge, ":gold", reg0),
+	(store_skill_level, ":persuasion_level", "skl_persuasion", "trp_player"),
+	(store_skill_level, ":trade_level", "skl_trade", "trp_player"),
+	(eq, ":persuasion_level", 0),
+	(eq, ":trade_level", 0),
+  ],	"[Pay the asked price].", "town_merchant_finish",[
+	(troop_remove_gold, "trp_player", reg0),
+  ]
+  ],
+
+  [anyone|plyr,"tailor_custom_armor_confirm",
+  [
+	(assign,reg2, 20),
+	(store_troop_gold, ":gold", "trp_player"),
+	(ge, ":gold", reg0),
+	(store_skill_level, reg1, "skl_persuasion", "trp_player"),
+	(gt, reg1, 0),
+	(val_sub, reg2, reg1),
+	(item_get_value, ":price",  "$g_current_opened_item_details"),
+	(val_mul, ":price", reg2),
+	(val_div, ":price", 100),
+	(assign,reg0, ":price"),
+
+  ],	"[Persuasion {reg1}] Make it {reg0} crowns and I'll be more enclined to come back for bussiness.", "town_merchant_finish",[
+	(troop_remove_gold, "trp_player", reg0),
+  ]
+  ],
+
+  [anyone|plyr,"tailor_custom_armor_confirm",
+  [
+	(assign,reg2, 20),
+	(store_troop_gold, ":gold", "trp_player"),
+	(ge, ":gold", reg0),
+	(store_skill_level, reg1, "skl_trade", "trp_player"),
+	(gt, reg1, 0),
+	(val_sub, reg2, reg1),
+	(item_get_value, ":price",  "$g_current_opened_item_details"),
+	(val_mul, ":price", reg2),
+	(val_div, ":price", 100),
+	(assign,reg0, ":price"),
+
+  ],	"[Trade {reg1}] I'm certain that {reg0} crowns is a more reasonable price.", "town_merchant_finish",[
+	(troop_remove_gold, "trp_player", reg0),
+  ]
+  ],
+
+# Finalize
+  [anyone|plyr,"tailor_custom_armor_confirm",
+  [
+	(store_troop_gold, ":gold", "trp_player"),
+	(le, ":gold", reg0),
+  ],	"I'm afraid I can't afford it at the moment.", "close_window",[(assign, "$g_current_opened_item_details", -1)]],
+
+  [anyone|plyr,"tailor_custom_armor_confirm",[], "I need to think about this, perhaps later.","close_window",[(assign, "$g_current_opened_item_details", -1)]],
+
+  [anyone,"town_merchant_finish",[], "I will work on it right away.", "close_window",
+    [
+	(item_get_slot, "$custom_armour_current_colour", "$g_current_opened_item_details", slot_item_player_color),
+	(start_presentation, "prsnt_customize_armor"),
+    ]
+  ],
+
+  ### DAC Kham - Armour Customization Dialogues END #####	
 
   [anyone, "dplmc_trade_autosell_1", [
     (call_script, "script_dplmc_initialize_autoloot", 0),#0 means only run if uninitialized
