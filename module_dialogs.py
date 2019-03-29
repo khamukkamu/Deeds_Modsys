@@ -25647,7 +25647,7 @@ I will use this to make amends to those you have wronged, and I will let it be k
   (try_end),
   (try_begin),
       #Reset banner if applicable
-      (is_between, ":give_fief", walled_centers_begin, walled_centers_end),
+      (is_between, ":give_fief", centers_begin, centers_end), ### DAC Seek: Adding banners to villages
       (troop_get_slot, ":cur_banner", ":to_lord", slot_troop_banner_scene_prop),
       (gt, ":cur_banner", 0),
       (val_sub, ":cur_banner", banner_scene_props_begin),
@@ -25669,7 +25669,7 @@ I will use this to make amends to those you have wronged, and I will let it be k
   (try_end),
   (try_begin),
       #Reset banner if applicable
-      (is_between, ":give_fief", walled_centers_begin, walled_centers_end),
+      (is_between, ":give_fief",centers_begin, centers_end), ### DAC Seek: Adding banners to villages
       (troop_get_slot, ":cur_banner", ":to_lord", slot_troop_banner_scene_prop),
       (gt, ":cur_banner", 0),
       (val_sub, ":cur_banner", banner_scene_props_begin),

@@ -133,6 +133,8 @@ try:
 		from module_parties import *
 		WRECK.current_module = 'dialogs'
 		from module_dialogs import *
+		WRECK.current_module = 'skyboxes'
+		from Skyboxes import *		
 		WRECK.current_module = None
 
 	except Exception, e:

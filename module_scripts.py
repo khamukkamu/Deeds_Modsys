@@ -24275,7 +24275,8 @@ scripts = [
 
     (try_begin),
         (this_or_next|party_slot_eq, ":center_no", slot_party_type, spt_town),
-			(party_slot_eq, ":center_no", slot_party_type, spt_castle),
+        (this_or_next|party_slot_eq, ":center_no", slot_party_type, spt_village),		### DAC Seek: adding banners to villages
+	(party_slot_eq, ":center_no", slot_party_type, spt_castle),
 		(gt, ":lord_troop_id", -1),
 
 #normal_banner_begin
@@ -74436,7 +74437,6 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
         (troop_raise_proficiency, "trp_player",wpt_two_handed_weapon,15),
         (troop_raise_proficiency, "trp_player",wpt_polearm,20),
         (troop_raise_proficiency, "trp_player",wpt_throwing,10),
-        (troop_add_item, "trp_player","itm_tab_shield_kite_b",imod_battered),
         (troop_add_gold, "trp_player", 50),
         (troop_set_slot, "trp_player", slot_troop_renown, 10),
         

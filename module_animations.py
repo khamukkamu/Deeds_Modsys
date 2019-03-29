@@ -119,6 +119,7 @@ animations = [
  ],
  ["stand_single", 0, amf_client_prediction,
    [9.0, "sword_loop01", 0, 200, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+   [9.0, "sword_loop02", 0, 100, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
  ],
  ["stand_greatsword", 0, amf_client_prediction,
    [6.0, "greatsword_cstance", 0, 91, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],  

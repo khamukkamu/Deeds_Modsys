@@ -9296,7 +9296,7 @@ presentations = [
               # (str_store_troop_name_link, s13, ":troop_to_change"),
               # (str_store_troop_name_link, s14, ":troop_to_give_back"),
               # (display_message, "@player replaced {s13} restored {s14}"),
-              (try_for_range, ":cur_center", walled_centers_begin, walled_centers_end),
+              (try_for_range, ":cur_center", centers_begin, centers_end), ### DAC Seek: Adding banners to villages
                 (party_slot_eq, ":cur_center", slot_town_lord, "$g_player_troop"),
                 (party_set_banner_icon, ":cur_center", ":selected_banner_map_icon"),
               (else_try),
