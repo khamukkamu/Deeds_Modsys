@@ -2783,3 +2783,9 @@ color_neutral_news = 0xFFAA00
 color_msg_enemy_routed = 0x44CCAA # Should be same color as killed or wounded
 color_msg_ally_routed  = 0xCCCC33 # yellow = routed, orange = wounded, red = killed
 color_msg_ally_rallied = 0x33CC33 # green = rallied
+# VC Presentantion Constants
+font_title = 2400
+font_small = 800
+font_normal = 1200
+# shows mouse coordinates on presentations (set 0 for production)
+debug_show_presentation_coordinates = 0

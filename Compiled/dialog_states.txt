@@ -1707,6 +1707,11 @@ trade_requested_weapons
 trade_requested_armor
 trade_requested_horse
 dplmc_trade_autosell_1
+tailor_custom_armor_start
+tailor_custom_armor_ask
+tailor_custom_armor_choose
+tailor_custom_armor_confirm
+town_merchant_finish
 dplmc_trade_autosell_2a
 merchant_trade
 dplmc_trade_autosell_2b

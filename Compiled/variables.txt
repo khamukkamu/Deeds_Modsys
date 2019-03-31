@@ -1429,3 +1429,12 @@ g_custom_armor_angle
 g_custom_armor_param_count
 g_custom_armor_mandatory
 custom_armour_current_colour
+g_presentation_leave_button
+checkbox_show_item_details
+checkbox_show_item_details_val
+checkbox_show_item_details_label
+default_troop_portrait
+temp2
+troop_detail_dummy_angle
+temp_troop
+mouse_coordinates

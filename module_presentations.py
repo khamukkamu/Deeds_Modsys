@@ -23,6 +23,48 @@ from compiler import *
 #  4) Triggers: Simple triggers that are associated with the presentation
 ####################################################################################################################
 
+
+load = ti_on_presentation_load
+run = ti_on_presentation_run
+event = ti_on_presentation_event_state_change
+hover = ti_on_presentation_mouse_enter_leave
+click = ti_on_presentation_mouse_press
+
+# Shows coordinates on a presentation for easy development
+# Set debug_show_presentation_coordinates on module_constants.py
+coord_helper = [
+  (load, [
+      (eq, debug_show_presentation_coordinates, 1),
+      (create_text_overlay, "$mouse_coordinates", "str_empty_string"),
+      (overlay_set_color, "$mouse_coordinates", 0xFF0000),
+      (position_set_x, pos1, 10),
+      (position_set_y, pos1, 700),
+      (overlay_set_position, "$mouse_coordinates", pos1),
+  ]),
+  (run, [
+      (eq, debug_show_presentation_coordinates, 1),
+      (set_fixed_point_multiplier, 1000),
+      
+      (mouse_get_position, pos1),
+      (position_get_x, reg1, pos1),
+      (position_get_y, reg2, pos1),
+      (overlay_set_text, "$mouse_coordinates", "@{reg1}, {reg2}"),
+  ])
+]
+prsnt_escape_close = [
+  (run,
+    [
+      (try_begin),
+        (this_or_next|key_clicked, key_escape),
+        (key_clicked, key_xbox_start),
+        (presentation_set_duration, 0),
+        (change_screen_return,0),
+      (try_end),
+  ]),
+]
+
+
+
 presentations = [
   ("game_credits",prsntf_read_only,mesh_load_window,[
       (ti_on_presentation_load,
@@ -18952,6 +18994,647 @@ presentations = [
   (presentation_set_duration, 0),
 ]),
 ]), #end troop tree
+
+#chief presentacion troop_tree moto - Heavily Edited by Kham for 1429 La Relance
+("troop_tree", 0, 0, [
+(ti_on_presentation_load, [
+  (presentation_set_duration, 999999),
+  (set_fixed_point_multiplier, 1000),
+  
+  #pic
+  (create_mesh_overlay, reg0, "mesh_pic_troop_trees"),
+  (position_set_x, pos1, -1),
+  (position_set_y, pos1, -1),
+  (overlay_set_position, reg0, pos1),
+  (position_set_x, pos1, 1002),
+  (position_set_y, pos1, 1002),
+  (overlay_set_size, reg0, pos1),
+  
+  #screen top
+  (create_text_overlay, reg1, "@Troop Tree", tf_center_justify),
+  (position_set_x, pos1, Screen_Width/2),
+  (position_set_y, pos1, Screen_Title_Height),
+  (overlay_set_position, reg1, pos1),
+  
+  (overlay_set_display, reg1, 0),
+  (assign, "$troop_tree_counter", -1),
+  
+  # Kingdom
+  (create_text_overlay, reg1, "@Kingdom: ", tf_right_align),
+  (position_set_x, pos1, Screen_Width/2-250), #250
+  #(position_set_y, pos1, Screen_Title_Height-Screen_Text_Height),
+  (position_set_y, pos1, 700),
+  
+  (overlay_set_position, reg1, pos1),
+  
+  (create_combo_button_overlay, "$g_presentation_obj_sliders_1"),
+  (position_set_x, pos1, Screen_Width/2 - 100), #400
+  #(position_set_y, pos1, Screen_Title_Height-Screen_Text_Height-5),
+  (position_set_y, pos1, 700),
+  
+  (overlay_set_position, "$g_presentation_obj_sliders_1", pos1),
+
+  # Troop
+  (create_text_overlay, reg2, "@Troop: ", tf_right_align),
+  (position_set_x, pos1, Screen_Width/2 + 130), #630
+  #(position_set_y, pos1, Screen_Title_Height-Screen_Text_Height),
+  (position_set_y, pos1, 700),
+  
+  (overlay_set_position, reg2, pos1),
+  
+  (create_combo_button_overlay, "$g_presentation_obj_sliders_2"),
+  (position_set_x, pos1, Screen_Width/2 + 280), #780
+  #(position_set_y, pos1, Screen_Title_Height-Screen_Text_Height-5),
+  (position_set_y, pos1, 700),
+  
+  (overlay_set_position, "$g_presentation_obj_sliders_2", pos1),
+
+ 
+  
+  # (overlay_set_additional_render_height, reg1, 20), #float over report MOTO doesn't help
+  
+  #Dropdown 1: Kingdoms
+  (store_add, ":last_kingdom", "fac_kingdom_4", 1),
+  (try_for_range, ":kingdom", "fac_kingdom_1", ":last_kingdom"),
+    (str_store_faction_name, s2, ":kingdom"),
+    (overlay_add_item, "$g_presentation_obj_sliders_1", s2),
+  (try_end),
+
+  #Dropdown 1: Others
+  (str_store_string, s1, "@Others"),
+  (overlay_add_item, "$g_presentation_obj_sliders_1", s1),
+
+  #Dropdown 2: Troops
+  (try_begin),
+    (eq, "$g_presentation_obj_sliders_1_val", 0), #France
+    (faction_get_slot, ":troop", "fac_culture_1", slot_faction_tier_1_troop),
+    (str_store_troop_name, s1, ":troop"),
+    (overlay_add_item, "$g_presentation_obj_sliders_2", s1),
+    (faction_get_slot, ":archer", "fac_culture_1", slot_faction_tier_1_archer),
+    (str_store_troop_name, s1, ":archer"),
+    (overlay_add_item, "$g_presentation_obj_sliders_2", s1),
+    (str_store_troop_name, s1, "trp_french_squire"),
+    (str_store_string, s1, "@French Squire"),
+    (overlay_add_item, "$g_presentation_obj_sliders_2", s1),
+    (str_store_troop_name, s1, "trp_french_captain"),
+    (str_store_string, s1, "@French Captain"),
+    (overlay_add_item, "$g_presentation_obj_sliders_2", s1),
+  (else_try),
+    (eq, "$g_presentation_obj_sliders_1_val", 1), #England
+    (faction_get_slot, ":troop", "fac_culture_2", slot_faction_tier_1_troop),
+    (str_store_troop_name, s1, ":troop"),
+    (overlay_add_item, "$g_presentation_obj_sliders_2", s1),
+    (faction_get_slot, ":archer", "fac_culture_2", slot_faction_tier_1_archer),
+    (str_store_troop_name, s1, ":archer"),
+    (overlay_add_item, "$g_presentation_obj_sliders_2", s1),
+    (str_store_troop_name, s1, "trp_english_squire"),
+    (str_store_string, s1, "@English Squire"),
+    (overlay_add_item, "$g_presentation_obj_sliders_2", s1),
+    (str_store_troop_name, s1, "trp_english_captain"),
+    (str_store_string, s1, "@English Captain"),
+    (overlay_add_item, "$g_presentation_obj_sliders_2", s1),
+  (else_try),
+    (eq, "$g_presentation_obj_sliders_1_val", 2), #Burgandy
+    (faction_get_slot, ":troop", "fac_culture_3", slot_faction_tier_1_troop),
+    (str_store_troop_name, s1, ":troop"),
+    (overlay_add_item, "$g_presentation_obj_sliders_2", s1),
+    (faction_get_slot, ":archer", "fac_culture_3", slot_faction_tier_1_archer),
+    (str_store_troop_name, s1, ":archer"),
+    (overlay_add_item, "$g_presentation_obj_sliders_2", s1),
+    (str_store_troop_name, s1, "trp_burgundian_squire"),
+    (str_store_string, s1, "@Burgundian Squire"),
+    (overlay_add_item, "$g_presentation_obj_sliders_2", s1),
+    (str_store_troop_name, s1, "trp_burgundian_captain"),
+    (str_store_string, s1, "@Burgundian Captain"),
+    (overlay_add_item, "$g_presentation_obj_sliders_2", s1),
+  (else_try),
+    (eq, "$g_presentation_obj_sliders_1_val", 3), #Brittany
+    (faction_get_slot, ":troop", "fac_culture_4", slot_faction_tier_1_troop),
+    (str_store_troop_name, s1, ":troop"),
+    (overlay_add_item, "$g_presentation_obj_sliders_2", s1),
+    (faction_get_slot, ":archer", "fac_culture_4", slot_faction_tier_1_archer),
+    (str_store_troop_name, s1, ":archer"),
+    (overlay_add_item, "$g_presentation_obj_sliders_2", s1),
+    (str_store_troop_name, s1, "trp_breton_squire"),
+    (str_store_string, s1, "@Breton Squire"),
+    (overlay_add_item, "$g_presentation_obj_sliders_2", s1),
+    (str_store_troop_name, s1, "trp_breton_captain"),
+    (str_store_string, s1, "@Breton Captain"),
+    (overlay_add_item, "$g_presentation_obj_sliders_2", s1),
+  (else_try),
+    (eq, "$g_presentation_obj_sliders_1_val", 4), #Others
+    (str_store_troop_name, s1, "trp_flemish_militia_pikeman"),
+    # (str_store_troop_name, s2, "trp_flemish_peasant_crossbowman"),
+    # (str_store_string, s1, "@{s1} or {s2}"),
+    (overlay_add_item, "$g_presentation_obj_sliders_2", s1),
+    
+    (str_store_troop_name, s1, "trp_flemish_peasant_crossbowman"),
+    (overlay_add_item, "$g_presentation_obj_sliders_2", s1),
+    
+    (str_store_troop_name, s1, "trp_watchman"),
+    (overlay_add_item, "$g_presentation_obj_sliders_2", s1),
+    
+    (str_store_troop_name, s1, "trp_mercenary_bowman"),
+    # (str_store_troop_name, s2, "trp_slave_driver"),
+    # (str_store_string, s1, "@{s1} or {s2}"),
+    (overlay_add_item, "$g_presentation_obj_sliders_2", s1),
+   
+    (str_store_troop_name, s1, "trp_mercenary_scout"),
+    (overlay_add_item, "$g_presentation_obj_sliders_2", s1),   
+   
+    (str_store_troop_name, s1, "trp_disgruntled_farmer"),
+    (overlay_add_item, "$g_presentation_obj_sliders_2", s1),   
+
+    (str_store_troop_name, s1, "trp_routier_knight"),
+    (overlay_add_item, "$g_presentation_obj_sliders_2", s1),     
+  (try_end),
+
+  (overlay_set_val, "$g_presentation_obj_sliders_2", "$g_presentation_obj_sliders_2_val"),
+  (overlay_set_val, "$g_presentation_obj_sliders_1", "$g_presentation_obj_sliders_1_val"),
+  
+  #write the trees
+  
+  (try_begin),
+    (eq, "$g_presentation_obj_sliders_1_val", 0),
+    (try_begin),
+      (eq, "$g_presentation_obj_sliders_2_val", 0),
+      (faction_get_slot, ":troop", "fac_culture_1", slot_faction_tier_1_troop),
+      (call_script, "script_troop_tree_precurse", ":troop", 1, 1),
+      (store_div, "$troop_tree_pic_width", Troop_Tree_Area_Width, reg0),
+      (store_div, "$troop_tree_pic_height", Troop_Tree_Area_Height, reg1),
+    (else_try),
+      (eq, "$g_presentation_obj_sliders_2_val", 1),
+      (faction_get_slot, ":troop", "fac_culture_1", slot_faction_tier_1_archer),
+      (call_script, "script_troop_tree_precurse", ":troop", 1, 1),
+      (store_div, "$troop_tree_pic_width", Troop_Tree_Area_Width, reg0),
+      (store_div, "$troop_tree_pic_height", Troop_Tree_Area_Height, reg1),
+    (else_try),
+      (eq, "$g_presentation_obj_sliders_2_val", 2),
+      (assign, ":troop", "trp_french_squire"),
+      (call_script, "script_troop_tree_precurse", ":troop", 1, 1),
+      (store_div, "$troop_tree_pic_width", Troop_Tree_Area_Width, reg0),
+      (store_div, "$troop_tree_pic_height", Troop_Tree_Area_Height, reg1),
+    (else_try),
+      (eq, "$g_presentation_obj_sliders_2_val", 3),
+     (assign, ":troop", "trp_french_captain"),
+      (call_script, "script_troop_tree_precurse", ":troop", 1, 1),
+      (store_div, "$troop_tree_pic_width", Troop_Tree_Area_Width, reg0),
+      (store_div, "$troop_tree_pic_height", Troop_Tree_Area_Height, reg1),
+    (try_end),
+  (else_try),
+    (eq, "$g_presentation_obj_sliders_1_val", 1),
+    (try_begin),
+      (eq, "$g_presentation_obj_sliders_2_val", 0),
+      (faction_get_slot, ":troop", "fac_culture_2", slot_faction_tier_1_troop),
+      (call_script, "script_troop_tree_precurse", ":troop", 1, 1),
+      (store_div, "$troop_tree_pic_width", Troop_Tree_Area_Width, reg0),
+      (store_div, "$troop_tree_pic_height", Troop_Tree_Area_Height, reg1),
+    (else_try),
+      (eq, "$g_presentation_obj_sliders_2_val", 1),
+      (faction_get_slot, ":troop", "fac_culture_2", slot_faction_tier_1_archer),
+      (call_script, "script_troop_tree_precurse", ":troop", 1, 1),
+      (store_div, "$troop_tree_pic_width", Troop_Tree_Area_Width, reg0),
+      (store_div, "$troop_tree_pic_height", Troop_Tree_Area_Height, reg1),
+    (else_try),
+      (eq, "$g_presentation_obj_sliders_2_val", 2),
+      (assign, ":troop", "trp_english_squire"),
+      (call_script, "script_troop_tree_precurse", ":troop", 1, 1),
+      (store_div, "$troop_tree_pic_width", Troop_Tree_Area_Width, reg0),
+      (store_div, "$troop_tree_pic_height", Troop_Tree_Area_Height, reg1),
+    (else_try),
+      (eq, "$g_presentation_obj_sliders_2_val", 3),
+     (assign, ":troop", "trp_english_captain"),
+      (call_script, "script_troop_tree_precurse", ":troop", 1, 1),
+      (store_div, "$troop_tree_pic_width", Troop_Tree_Area_Width, reg0),
+      (store_div, "$troop_tree_pic_height", Troop_Tree_Area_Height, reg1),
+    (try_end),
+  (else_try),
+    (eq, "$g_presentation_obj_sliders_1_val", 2),
+    (try_begin),
+      (eq, "$g_presentation_obj_sliders_2_val", 0),
+      (faction_get_slot, ":troop", "fac_culture_3", slot_faction_tier_1_troop),
+      (call_script, "script_troop_tree_precurse", ":troop", 1, 1),
+      (store_div, "$troop_tree_pic_width", Troop_Tree_Area_Width, reg0),
+      (store_div, "$troop_tree_pic_height", Troop_Tree_Area_Height, reg1),
+    (else_try),
+      (eq, "$g_presentation_obj_sliders_2_val", 1),
+      (faction_get_slot, ":troop", "fac_culture_3", slot_faction_tier_1_archer),
+      (call_script, "script_troop_tree_precurse", ":troop", 1, 1),
+      (store_div, "$troop_tree_pic_width", Troop_Tree_Area_Width, reg0),
+      (store_div, "$troop_tree_pic_height", Troop_Tree_Area_Height, reg1),
+    (else_try),
+      (eq, "$g_presentation_obj_sliders_2_val", 2),
+      (assign, ":troop", "trp_burgundian_squire"),
+      (call_script, "script_troop_tree_precurse", ":troop", 1, 1),
+      (store_div, "$troop_tree_pic_width", Troop_Tree_Area_Width, reg0),
+      (store_div, "$troop_tree_pic_height", Troop_Tree_Area_Height, reg1),
+    (else_try),
+      (eq, "$g_presentation_obj_sliders_2_val", 3),
+     (assign, ":troop", "trp_burgundian_captain"),
+      (call_script, "script_troop_tree_precurse", ":troop", 1, 1),
+      (store_div, "$troop_tree_pic_width", Troop_Tree_Area_Width, reg0),
+      (store_div, "$troop_tree_pic_height", Troop_Tree_Area_Height, reg1),
+    (try_end),
+  (else_try),
+    (eq, "$g_presentation_obj_sliders_1_val", 3),
+    (try_begin),
+      (eq, "$g_presentation_obj_sliders_2_val", 0),
+      (faction_get_slot, ":troop", "fac_culture_4", slot_faction_tier_1_troop),
+      (call_script, "script_troop_tree_precurse", ":troop", 1, 1),
+      (store_div, "$troop_tree_pic_width", Troop_Tree_Area_Width, reg0),
+      (store_div, "$troop_tree_pic_height", Troop_Tree_Area_Height, reg1),
+    (else_try),
+      (eq, "$g_presentation_obj_sliders_2_val", 1),
+      (faction_get_slot, ":troop", "fac_culture_4", slot_faction_tier_1_archer),
+      (call_script, "script_troop_tree_precurse", ":troop", 1, 1),
+      (store_div, "$troop_tree_pic_width", Troop_Tree_Area_Width, reg0),
+      (store_div, "$troop_tree_pic_height", Troop_Tree_Area_Height, reg1),
+    (else_try),
+      (eq, "$g_presentation_obj_sliders_2_val", 2),
+      (assign, ":troop", "trp_breton_squire"),
+      (call_script, "script_troop_tree_precurse", ":troop", 1, 1),
+      (store_div, "$troop_tree_pic_width", Troop_Tree_Area_Width, reg0),
+      (store_div, "$troop_tree_pic_height", Troop_Tree_Area_Height, reg1),
+    (else_try),
+      (eq, "$g_presentation_obj_sliders_2_val", 3),
+     (assign, ":troop", "trp_breton_captain"),
+      (call_script, "script_troop_tree_precurse", ":troop", 1, 1),
+      (store_div, "$troop_tree_pic_width", Troop_Tree_Area_Width, reg0),
+      (store_div, "$troop_tree_pic_height", Troop_Tree_Area_Height, reg1),
+    (try_end),
+  (else_try),
+    (eq, "$g_presentation_obj_sliders_1_val", 4),
+    (try_begin),
+      (eq, "$g_presentation_obj_sliders_2_val", 0),
+      (assign, ":troop", "trp_flemish_militia_pikeman"),
+      (call_script, "script_troop_tree_precurse", ":troop", 1, 1),
+      (store_div, "$troop_tree_pic_width", Troop_Tree_Area_Width, reg0),
+      (store_div, "$troop_tree_pic_height", Troop_Tree_Area_Height, reg1),
+    (else_try),
+      (eq, "$g_presentation_obj_sliders_2_val", 1),
+      (assign, ":troop", "trp_flemish_peasant_crossbowman"),
+      (call_script, "script_troop_tree_precurse", ":troop", 1, 1),
+      (store_div, "$troop_tree_pic_width", Troop_Tree_Area_Width, reg0),
+      (store_div, "$troop_tree_pic_height", Troop_Tree_Area_Height, reg1),
+    (else_try),
+      (eq, "$g_presentation_obj_sliders_2_val", 2),
+      (assign, ":troop", "trp_watchman"),
+      (call_script, "script_troop_tree_precurse", ":troop", 1, 1),
+      (store_div, "$troop_tree_pic_width", Troop_Tree_Area_Width, reg0),
+      (store_div, "$troop_tree_pic_height", Troop_Tree_Area_Height, reg1),
+    (else_try),
+      (eq, "$g_presentation_obj_sliders_2_val", 3),
+      (assign, ":troop", "trp_mercenary_bowman"),
+      (call_script, "script_troop_tree_precurse", ":troop", 1, 1),
+      (store_div, "$troop_tree_pic_width", Troop_Tree_Area_Width, reg0),
+      (store_div, "$troop_tree_pic_height", Troop_Tree_Area_Height, reg1),
+    (else_try),
+      (eq, "$g_presentation_obj_sliders_2_val", 4),
+      (assign, ":troop", "trp_mercenary_scout"),
+      (call_script, "script_troop_tree_precurse", ":troop", 1, 1),
+      (store_div, "$troop_tree_pic_width", Troop_Tree_Area_Width, reg0),
+      (store_div, "$troop_tree_pic_height", Troop_Tree_Area_Height, reg1),
+    (else_try),
+      (eq, "$g_presentation_obj_sliders_2_val", 5),
+      (assign, ":troop", "trp_disgruntled_farmer"),
+      (call_script, "script_troop_tree_precurse", ":troop", 1, 1),
+      (store_div, "$troop_tree_pic_width", Troop_Tree_Area_Width, reg0),
+      (store_div, "$troop_tree_pic_height", Troop_Tree_Area_Height, reg1),    
+    (else_try),
+      (eq, "$g_presentation_obj_sliders_2_val", 6),
+      (assign, ":troop", "trp_routier_knight"),
+      (call_script, "script_troop_tree_precurse", ":troop", 1, 1),
+      (store_div, "$troop_tree_pic_width", Troop_Tree_Area_Width, reg0),
+      (store_div, "$troop_tree_pic_height", Troop_Tree_Area_Height, reg1),        
+    (try_end),
+  (try_end),
+  
+  (store_div, ":x_pos", "$troop_tree_pic_width", 2),
+  (val_add, ":x_pos", Screen_Border_Width),
+  (store_mul, ":y_pos", "$troop_tree_pic_height", -1),
+  (val_add, ":y_pos", Screen_Title_Height-2*Screen_Text_Height),
+  (call_script, "script_troop_tree_recurse", ":troop", ":x_pos", ":y_pos"),
+  
+  #screen bottom
+  (create_game_button_overlay, "$presentation_leave_button", "str_done", tf_center_justify),
+  (position_set_x, pos1, Screen_Width/2),
+  (position_set_y, pos1, Screen_Border_Width),
+  (overlay_set_position, "$presentation_leave_button", pos1),
+  
+  # Alert that click opens detail
+  (create_text_overlay, reg1, "@(Click on a unit for details)", tf_right_align),
+  (position_set_x, 1, 950),(position_set_y, 1, 25),
+  (overlay_set_position, reg1, 1),
+  (position_set_x, pos1, 1750/2),(position_set_y, pos1, 1750/2),
+  (overlay_set_size, reg1, pos1),
+  (overlay_set_color, reg1, 0x000000),
+  
+]),
+
+(ti_on_presentation_run, [
+  (try_begin),
+    (this_or_next|key_clicked, key_escape),
+    (key_clicked, key_xbox_start),
+    (presentation_set_duration, 0),
+  (try_end),
+]),
+
+(ti_on_presentation_event_state_change, [
+  (store_trigger_param_1, ":object"),
+  (store_trigger_param_2, ":value"),
+  
+  (try_begin),
+    (eq, ":object", "$g_presentation_obj_sliders_1"),
+    (assign, "$g_presentation_obj_sliders_1_val", ":value"),
+    (start_presentation, "prsnt_troop_tree"),
+    
+  (else_try),
+    (eq, ":object", "$g_presentation_obj_sliders_2"),
+    (assign, "$g_presentation_obj_sliders_2_val", ":value"),
+    (start_presentation, "prsnt_troop_tree"),
+  (else_try),
+    (eq, ":object", "$presentation_leave_button"),
+    (presentation_set_duration, 0),
+  (try_end),
+]),
+
+(ti_on_presentation_mouse_press, [
+  (store_trigger_param_1, ":object_id"),
+  #(store_trigger_param_2, ":obj_value"),
+  (try_begin),
+    
+    (assign, ":end_loop", 0),
+    (store_add, ":end_loop", "$troop_tree_counter", 1),
+    
+    (try_for_range, ":slot_no", 0, ":end_loop"),
+      (troop_get_slot, ":unused", "trp_temp_array_a", ":slot_no"),
+      (troop_slot_eq, "trp_temp_array_a", ":slot_no", ":object_id"),
+      (troop_get_slot, ":troop_id", "trp_temp_array_b", ":slot_no"),
+      (assign, "$temp_troop", ":troop_id"),
+      (assign, ":end_loop", 0),
+      (assign, "$temp", 1),
+      (start_presentation, "prsnt_troop_detail"),
+    (try_end),
+  (try_end),
+]),
+]), #end troop tree
+#moto troop tree chief acaba
+
+
+# Presentation prsnt_troop_detail
+# Description: from the troop tree you can click on any troop
+#              to see its details: stats, inventory, etc
+("troop_detail", 0, 0, [
+(load,
+[
+  (presentation_set_duration, 999999),
+  (set_fixed_point_multiplier, 1000),
+  
+  (assign, ":draw_troop", "$temp_troop"),
+  
+  #pic
+  (create_mesh_overlay, reg0, "mesh_pic_units_details"),
+  (position_set_x, pos1, -1),
+  (position_set_y, pos1, -1),
+  (overlay_set_position, reg0, pos1),
+  (position_set_x, pos1, 1002),
+  (position_set_y, pos1, 1002),
+  (overlay_set_size, reg0, pos1),
+  
+  
+  (call_script, "script_troop_detail_layout"),
+  (call_script, "script_troop_detail_draw_troop", ":draw_troop"),
+  (call_script, "script_troop_detail_draw_weapons", ":draw_troop"),
+  
+  (try_begin),
+    (eq, "$temp", 1),# ---- Stats ----
+    (call_script, "script_troop_detail_stats", ":draw_troop"),
+    
+  (else_try),# ---- Inventory of troop ----
+    (eq, "$temp", 2),
+    (call_script, "script_troop_detail_inventory"),
+  (try_end),
+  
+]),
+
+(event,
+[
+  (store_trigger_param_1, ":object"),
+  (store_trigger_param_2, ":value"),
+  
+  (try_begin),# done button
+    (eq, ":object", "$g_presentation_leave_button"),
+    (start_presentation, "prsnt_troop_tree"),
+  (else_try),
+    (eq, ":object", "$g_presentation_obj_1"),
+    (call_script, "script_troop_detail_change_screen", "$temp_troop"),
+    
+  (else_try),
+    (eq, ":object", "$checkbox_show_item_details"),
+    (assign, "$checkbox_show_item_details_val", ":value"),
+  (try_end),
+  
+]),
+
+(hover,[
+  (call_script, "script_troop_detail_inventory_tooltip"),
+]),
+
+(click,
+[
+  (eq, "$temp", 2),
+  (store_trigger_param_1, ":object_id"),
+  (call_script, "script_troop_detail_update_dummy", "$temp_troop", ":object_id"),
+]),
+] + coord_helper + prsnt_escape_close
+),
+
+ ("all_items", 0, mesh_load_window, [
+    (ti_on_presentation_load,
+      [
+        (presentation_set_duration, 999999),
+        (set_fixed_point_multiplier, 1000),
+
+        (create_combo_label_overlay, "$g_presentation_obj_1"),
+        (position_set_x, pos1, 500),
+        (position_set_y, pos1, 675),
+        (overlay_set_position, "$g_presentation_obj_1", pos1),
+        (overlay_add_item, "$g_presentation_obj_1", "@Weapons"),
+        (overlay_add_item, "$g_presentation_obj_1", "@Armors"),
+        (overlay_add_item, "$g_presentation_obj_1", "@Others"),
+        (overlay_set_val, "$g_presentation_obj_1", "$temp"),
+
+        ## back
+        (create_game_button_overlay, "$g_presentation_obj_5", "@Done"),
+        (position_set_x, pos1, 900),
+        (position_set_y, pos1, 25),
+        (overlay_set_position, "$g_presentation_obj_5", pos1),
+
+        (str_clear, s0),
+        (create_text_overlay, "$g_presentation_obj_6", s0, tf_scrollable),
+        (position_set_x, pos1, 50),
+        (position_set_y, pos1, 100),
+        (overlay_set_position, "$g_presentation_obj_6", pos1),
+        (position_set_x, pos1, 890),
+        (position_set_y, pos1, 560),
+        (overlay_set_area_size, "$g_presentation_obj_6", pos1),
+        (set_container_overlay, "$g_presentation_obj_6"),
+
+        (assign, ":num_items", len(items)),
+        (assign, "$temp_2", 0),
+        ## types
+        (try_begin),
+          (eq, "$temp", 0), # weapons
+          (try_for_range, ":item_no", 0, ":num_items"),
+            (item_get_type, ":type", ":item_no"),
+            (this_or_next|is_between, ":type", itp_type_one_handed_wpn, itp_type_goods),
+            (is_between, ":type", itp_type_pistol, itp_type_animal),
+            (val_add, "$temp_2", 1),
+          (try_end),
+        (else_try),
+          (eq, "$temp", 1), # armors
+          (try_for_range, ":item_no", 0, ":num_items"),
+            (item_get_type, ":type", ":item_no"),
+            (is_between, ":type", itp_type_head_armor, itp_type_pistol),
+            (val_add, "$temp_2", 1),
+          (try_end),
+        (else_try),
+          (eq, "$temp", 2), # others
+          (try_for_range, ":item_no", 0, ":num_items"),
+            (item_get_type, ":type", ":item_no"),
+            (this_or_next|eq, ":type", itp_type_horse),
+            (this_or_next|eq, ":type", itp_type_goods),
+            (this_or_next|eq, ":type", itp_type_animal),
+            (eq, ":type", itp_type_book),
+            (val_add, "$temp_2", 1),
+          (try_end),
+        (try_end),
+
+        (store_div, ":height", "$temp_2", 11),
+        (store_mod, ":offset", "$temp_2", 11),
+        (val_min, ":offset", 1),
+        (val_add, ":height", ":offset"),
+        (store_mul, ":pos_y", ":height", 80),
+        (val_sub, ":pos_y", 80),
+        (assign, ":pos_x", 0),
+        (assign, ":slot_no", 0),
+        (try_for_range, ":item_no", 0, ":num_items"),
+          (item_get_type, ":type", ":item_no"),
+          (try_begin),
+            (eq, "$temp", 0), # weapons
+            (try_begin),
+              (this_or_next|is_between, ":type", itp_type_one_handed_wpn, itp_type_goods),
+              (is_between, ":type", itp_type_pistol, itp_type_animal),
+              (assign, ":continue", 1),
+            (else_try),
+              (assign, ":continue", 0),
+            (try_end),
+          (else_try),
+            (eq, "$temp", 1), # armors
+            (try_begin),
+              (is_between, ":type", itp_type_head_armor, itp_type_pistol),
+              (assign, ":continue", 1),
+            (else_try),
+              (assign, ":continue", 0),
+            (try_end),
+          (else_try),
+            (eq, "$temp", 2), # others
+            (try_begin),
+              (this_or_next|eq, ":type", itp_type_horse),
+              (this_or_next|eq, ":type", itp_type_goods),
+              (this_or_next|eq, ":type", itp_type_animal),
+              (eq, ":type", itp_type_book),
+              (assign, ":continue", 1),
+            (else_try),
+              (assign, ":continue", 0),
+            (try_end),
+          (try_end),
+          (eq, ":continue", 1),
+          ## item slot
+          (create_mesh_overlay, reg1, "mesh_inv_slot"),
+          (position_set_x, pos1, 800),
+          (position_set_y, pos1, 800),
+          (overlay_set_size, reg1, pos1),
+          (position_set_x, pos1, ":pos_x"),
+          (position_set_y, pos1, ":pos_y"),
+          (overlay_set_position, reg1, pos1),
+          (create_mesh_overlay, reg1, "mesh_mp_inventory_choose"),
+          (position_set_x, pos1, 640),
+          (position_set_y, pos1, 640),
+          (overlay_set_size, reg1, pos1),
+          (position_set_x, pos1, ":pos_x"),
+          (position_set_y, pos1, ":pos_y"),
+          (overlay_set_position, reg1, pos1),
+          (troop_set_slot, "trp_temp_array_a", ":slot_no", reg1),
+          ## item
+          (create_mesh_overlay_with_item_id, reg1, ":item_no"),
+          (position_set_x, pos1, 800),
+          (position_set_y, pos1, 800),
+          (overlay_set_size, reg1, pos1),
+          (store_add, ":item_x", ":pos_x", 40),
+          (store_add, ":item_y", ":pos_y", 40),
+          (position_set_x, pos1, ":item_x"),
+          (position_set_y, pos1, ":item_y"),
+          (overlay_set_position, reg1, pos1),
+          (troop_set_slot, "trp_temp_array_b", ":slot_no", reg1),
+          (troop_set_slot, "trp_temp_array_c", ":slot_no", ":item_no"),
+          (val_add, ":pos_x", 80),
+          (val_add, ":slot_no", 1),
+          (try_begin),
+            (ge, ":pos_x", 880),
+            (assign, ":pos_x", 0),
+            (val_sub, ":pos_y", 80),
+          (try_end),
+        (try_end),
+
+        (set_container_overlay, -1),
+        ## items
+      ]),
+
+    (ti_on_presentation_mouse_enter_leave,
+      [
+      (store_trigger_param_1, ":object"),
+      (store_trigger_param_2, ":enter_leave"),
+
+      (try_begin),
+        (eq, ":enter_leave", 0),
+        (try_for_range, ":slot_no", 0, "$temp_2"),
+          (troop_slot_eq, "trp_temp_array_a", ":slot_no", ":object"),
+          (troop_get_slot, ":item_no", "trp_temp_array_c", ":slot_no"),
+          (troop_get_slot, ":target_obj", "trp_temp_array_b", ":slot_no"),
+          (overlay_get_position, pos0, ":target_obj"),
+          (show_item_details, ":item_no", pos0, 100),
+          (assign, "$g_current_opened_item_details", ":slot_no"),
+        (try_end),
+      (else_try),
+        (try_for_range, ":slot_no", 0, "$temp_2"),
+          (troop_slot_eq, "trp_temp_array_a", ":slot_no", ":object"),
+          (try_begin),
+            (eq, "$g_current_opened_item_details", ":slot_no"),
+            (close_item_details),
+          (try_end),
+        (try_end),
+      (try_end),
+    ]),
+
+    (ti_on_presentation_event_state_change,
+      [
+        (store_trigger_param_1, ":object"),
+        (store_trigger_param_2, ":value"),
+
+        (try_begin),
+          (eq, ":object", "$g_presentation_obj_1"),
+          (assign, "$temp", ":value"),
+          (start_presentation, "prsnt_all_items"),
+        (else_try),
+          (eq, ":object", "$g_presentation_obj_5"),
+          (presentation_set_duration, 0),
+        (try_end),
+    ]),
+  ]),
+
+
+
 
 ("order_display", prsntf_read_only,0,[
     (ti_on_presentation_load, [
