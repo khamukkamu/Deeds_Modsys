@@ -19368,6 +19368,7 @@ presentations = [
     
     (try_for_range, ":slot_no", 0, ":end_loop"),
       (troop_get_slot, ":unused", "trp_temp_array_a", ":slot_no"),
+      (val_mul, ":unused", 1), ### DAC Seek: Stopping the compiler from complaining	  
       (troop_slot_eq, "trp_temp_array_a", ":slot_no", ":object_id"),
       (troop_get_slot, ":troop_id", "trp_temp_array_b", ":slot_no"),
       (assign, "$temp_troop", ":troop_id"),

@@ -1522,11 +1522,11 @@ items = [
 ##################################################################################################################################################################################################################################################################################################################
 
 
-["w_light_lance",         "Light Lance", [("w_light_lance",0)], itp_couchable|itp_type_polearm|itp_offset_lance|itp_has_upper_stab|itp_merchandise| itp_primary|itp_penalty_with_shield|itp_wooden_parry, itc_pike_upstab, 
+["w_light_lance",         "Light Lance", [("w_light_lance",0)], itp_couchable|itp_type_polearm|itp_offset_lance|itp_has_upper_stab|itp_merchandise| itp_primary|itp_penalty_with_shield|itp_wooden_parry, itc_lance_upstab, 
 285 , weight(3)|difficulty(9)|spd_rtng(84) | weapon_length(355)|swing_damage(0 , blunt) | thrust_damage(25 ,  pierce),imodbits_polearm ],
-["w_native_spear_b",         "Light Lance", [("w_native_spear_b",0)], itp_couchable|itp_type_polearm|itp_offset_lance|itp_has_upper_stab|itp_merchandise| itp_primary|itp_penalty_with_shield|itp_wooden_parry, itc_pike_upstab, 
+["w_native_spear_b",         "Light Lance", [("w_native_spear_b",0)], itp_couchable|itp_type_polearm|itp_offset_lance|itp_has_upper_stab|itp_merchandise| itp_primary|itp_penalty_with_shield|itp_wooden_parry, itc_lance_upstab, 
 214 , weight(2.5)|difficulty(9)|spd_rtng(88) | weapon_length(175)|swing_damage(0 , blunt) | thrust_damage(27 ,  pierce),imodbits_polearm ],
-["w_native_spear_f",         "Light Lance", [("w_native_spear_f",0)], itp_couchable|itp_type_polearm|itp_offset_lance|itp_has_upper_stab|itp_merchandise| itp_primary|itp_penalty_with_shield|itp_wooden_parry, itc_pike_upstab, 
+["w_native_spear_f",         "Light Lance", [("w_native_spear_f",0)], itp_couchable|itp_type_polearm|itp_offset_lance|itp_has_upper_stab|itp_merchandise| itp_primary|itp_penalty_with_shield|itp_wooden_parry, itc_lance_upstab, 
 224 , weight(2.4)|difficulty(9)|spd_rtng(86) | weapon_length(190)|swing_damage(0 , blunt) | thrust_damage(29 ,  pierce),imodbits_polearm ],
 
 ["w_lance_1", "Lance", [("w_lance_1",0)], itp_couchable|itp_type_polearm|itp_primary|itp_offset_lance, itc_greatlance, 

@@ -74995,7 +74995,6 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
           (troop_raise_proficiency, "trp_player",wpt_one_handed_weapon,10),
           (troop_raise_proficiency, "trp_player",wpt_two_handed_weapon,10),
           (troop_raise_proficiency, "trp_player",wpt_polearm,10),
-          (troop_add_item, "trp_player","itm_tab_shield_round_a",imod_battered),
           (troop_set_slot, "trp_player", slot_troop_renown, 100),
           (call_script, "script_change_player_honor", 3),
           (troop_add_gold, "trp_player", 100),
@@ -77634,6 +77633,8 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
     [
       (store_script_param, ":cur_agent", 1),
       (store_script_param, ":unused", 2),
+	  
+      (val_mul, ":unused", 1), ### DAC Seek: Stopping the compiler from complaining	  
             
       (assign, ":force_retreat", 0),
       (assign, ":local_potential", 0), # Each non-routed troop affects local "potential" with Level/Distance^2, sign depends on team.
