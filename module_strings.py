@@ -5541,6 +5541,34 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("a_mail_shirt_arms_green", "a_mail_shirt_arms_green"),  
 ("a_mail_shirt_arms_end", "a_mail_shirt_arms_end"),
 
+## Vertex Coloured Hood
+# French 
+("h_hood_blue", "h_hood_blue"),
+("h_hood_blue_white", "h_hood_blue_white"),
+("h_hood_blue_yellow", "h_hood_blue_yellow"),
+("h_hood_white", "h_hood_white"),
+# English
+("h_hood_red_blue", "h_hood_red_blue"),
+("h_hood_red_white", "h_hood_red_white"),
+("h_hood_red", "h_hood_red"),
+("h_hood_red_yellow", "h_hood_red_yellow"),
+("h_hood_yellow", "h_hood_yellow"),
+# Burgundian
+("h_hood_yellow_brown", "h_hood_yellow_brown"),
+("h_hood_blue_yellow_2", "h_hood_blue_yellow"),
+("h_hood_brown", "h_hood_brown"),
+("h_hood_white_brown", "h_hood_white_brown"),
+# Breton
+("h_hood_black", "h_hood_black"),  
+("h_hood_white_black", "h_hood_white_black"),  
+# Rebel
+("h_hood_brown_green", "h_hood_brown_green"),  
+("h_hood_green", "h_hood_green"),  
+("h_hood_red_green", "h_hood_red_green"),  
+("h_hood_yellow_green", "h_hood_yellow_green"),  
+("h_hood_white_green", "h_hood_white_green"),  
+("h_hood_end", "h_hood_end"),
+
   
 #utility for skill names
 ]+[

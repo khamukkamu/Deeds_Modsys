@@ -715,25 +715,7 @@ items = [
 
 # Hoods
 ["h_hood_black", "Hood", [("h_hood_black",0)],itp_merchandise|itp_type_head_armor|itp_civilian,0,9, weight(1)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0),imodbits_cloth],
-["h_hood_blue", "Hood", [("h_hood_blue",0)],itp_merchandise|itp_type_head_armor|itp_civilian,0,9, weight(1)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0),imodbits_cloth],
-["h_hood_blue_white", "Hood", [("h_hood_blue_white",0)],itp_merchandise|itp_type_head_armor|itp_civilian,0,9, weight(1)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0),imodbits_cloth],
-["h_hood_blue_yellow", "Hood", [("h_hood_blue_yellow",0)],itp_merchandise|itp_type_head_armor|itp_civilian,0,9, weight(1)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0),imodbits_cloth],
-["h_hood_brown", "Hood", [("h_hood_brown",0)],itp_merchandise|itp_type_head_armor|itp_civilian,0,9, weight(1)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0),imodbits_cloth],
-["h_hood_brown_green", "Hood", [("h_hood_brown_green",0)],itp_merchandise|itp_type_head_armor|itp_civilian,0,9, weight(1)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0),imodbits_cloth],
 ["h_hood_green", "Hood", [("h_hood_green",0)],itp_merchandise|itp_type_head_armor|itp_civilian,0,9, weight(1)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0),imodbits_cloth],
-["h_hood_red", "Hood", [("h_hood_red",0)],itp_merchandise|itp_type_head_armor|itp_civilian,0,9, weight(1)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0),imodbits_cloth],
-["h_hood_red_blue", "Hood", [("h_hood_red_blue",0)],itp_merchandise|itp_type_head_armor|itp_civilian,0,9, weight(1)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0),imodbits_cloth],
-["h_hood_red_green", "Hood", [("h_hood_red_green",0)],itp_merchandise|itp_type_head_armor|itp_civilian,0,9, weight(1)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0),imodbits_cloth],
-["h_hood_red_white", "Hood", [("h_hood_red_white",0)],itp_merchandise|itp_type_head_armor|itp_civilian,0,9, weight(1)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0),imodbits_cloth],
-["h_hood_red_yellow", "Hood", [("h_hood_red_yellow",0)],itp_merchandise|itp_type_head_armor|itp_civilian,0,9, weight(1)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0),imodbits_cloth],
-["h_hood_white", "Hood", [("h_hood_white",0)],itp_merchandise|itp_type_head_armor|itp_civilian,0,9, weight(1)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0),imodbits_cloth],
-["h_hood_white_black", "Hood", [("h_hood_white_black",0)],itp_merchandise|itp_type_head_armor|itp_civilian,0,9, weight(1)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0),imodbits_cloth],
-["h_hood_white_brown", "Hood", [("h_hood_white_brown",0)],itp_merchandise|itp_type_head_armor|itp_civilian,0,9, weight(1)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0),imodbits_cloth],
-["h_hood_white_green", "Hood", [("h_hood_white_green",0)],itp_merchandise|itp_type_head_armor|itp_civilian,0,9, weight(1)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0),imodbits_cloth],
-["h_hood_white_yellow", "Hood", [("h_hood_white_yellow",0)],itp_merchandise|itp_type_head_armor|itp_civilian,0,9, weight(1)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0),imodbits_cloth],
-["h_hood_yellow", "Hood", [("h_hood_yellow",0)],itp_merchandise|itp_type_head_armor|itp_civilian,0,9, weight(1)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0),imodbits_cloth],
-["h_hood_yellow_brown", "Hood", [("h_hood_yellow_brown",0)],itp_merchandise|itp_type_head_armor|itp_civilian,0,9, weight(1)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0),imodbits_cloth],
-["h_hood_yellow_green", "Hood", [("h_hood_yellow_green",0)],itp_merchandise|itp_type_head_armor|itp_civilian,0,9, weight(1)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0),imodbits_cloth],
 
 # Padded Coifs
 ["h_padded_coif_black", "Padded Coif", [("h_padded_coif_black",0)], itp_merchandise| itp_type_head_armor   ,0, 22 , weight(1)|abundance(100)|head_armor(11)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth ],
@@ -1004,6 +986,7 @@ items = [
 ["a_leather_vest_custom", "Leather Vest", [("a_leather_vest_base",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 325 , weight(3)|abundance(100)|head_armor(0)|body_armor(22)|leg_armor(6)|difficulty(0) ,imodbits_cloth,[custom_remodel("itm_a_leather_vest_custom")]], 
 ["a_leather_armor_custom", "Padded Leather", [("a_leather_armor_base",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs|itp_civilian,0, 454 , weight(12)|abundance(100)|head_armor(0)|body_armor(27)|leg_armor(10)|difficulty(0) ,imodbits_cloth ,[custom_remodel("itm_a_leather_armor_custom")]], 
 ["a_mail_shirt_custom", "Mail Shirt", [("a_mail_shirt_base",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1040 , weight(19)|abundance(100)|head_armor(0)|body_armor(37)|leg_armor(12)|difficulty(7) ,imodbits_armor ,[custom_remodel("itm_a_mail_shirt_custom")]], 
+["h_hood_custom", "Hood", [("mesh_none",0)],itp_merchandise|itp_type_head_armor|itp_civilian,0,9, weight(1)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0),imodbits_cloth,[custom_remodel("itm_h_hood_custom")]], 
 
 ##diplomacy begin
 ["dplmc_coat_of_plates_red_constable", "Constable Coat of Plates", [("a_brigandine_bogmir",0)], itp_unique|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
