@@ -646,9 +646,9 @@ items = [
 ["h_pot_helmet_mail", "Pot Helmet with Mail Coif", [("h_pot_helmet",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
 518 , weight(1.75)|abundance(100)|head_armor(30)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@o_mail_coif_narf", 0, 0),])]],
 
-["h_mail_coif_full", "Mail Coif", [("h_mail_coif_full",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature   ,0, 
+["h_mail_coif_full", "Mail Coif", [("h_mail_coif_full",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature|itp_covers_beard   ,0, 
 320 , weight(1.25)|abundance(100)|head_armor(24)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_armor ],
-["h_mail_coif_balaclava", "Mail Coif", [("h_mail_coif_balaclava",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature   ,0, 
+["h_mail_coif_balaclava", "Mail Coif", [("h_mail_coif_balaclava",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature|itp_covers_beard   ,0, 
 292 , weight(1.25)|abundance(100)|head_armor(22)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_armor ],
 ["h_mail_coif", "Mail Coif", [("h_mail_coif",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature   ,0, 
 266 , weight(1.25)|abundance(100)|head_armor(20)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_armor ],

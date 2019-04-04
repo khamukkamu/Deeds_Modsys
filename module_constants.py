@@ -1478,10 +1478,10 @@ reinforcement_cost_easy = 600
 reinforcement_cost_moderate = 450
 reinforcement_cost_hard = 300
 
-max_bandit_parties_easy     = 16 # Was 14 at mount&blade, 18 in warband, 16 last decision
-max_bandit_parties_moderate = 24 # Bandits are more spread out now, so we might need a few more
-max_bandit_parties_hard     = 32 # If you play on hard, I assume you like a challenge...
-max_looter_parties = 42 # Was 33 at mount&blade, 50 in warband, 42 last decision; does not scale with difficulty, looters are basically XP on legs
+max_bandit_parties_easy     = 20 # Was 14 at mount&blade, 18 in warband, 16 last decision
+max_bandit_parties_moderate = 28 # Bandits are more spread out now, so we might need a few more
+max_bandit_parties_hard     = 36 # If you play on hard, I assume you like a challenge...
+max_looter_parties = 50 # Was 33 at mount&blade, 50 in warband, 42 last decision; does not scale with difficulty, looters are basically XP on legs
 
 bandit_spawn_radius = 25
 deserter_spawn_radius = 4

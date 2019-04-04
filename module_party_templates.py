@@ -45,19 +45,19 @@ party_templates = [
 ###################################################################################################### HYW BANDITS TEMPLATES #####################################################################################################################################################################################
 ##################################################################################################################################################################################################################################################################################################################
 
-  ("looters","Looters",icon_axeman|carries_goods(8),0,fac_outlaws,bandit_personality,[(trp_looter,3,45)]),
+  ("looters","Looters",icon_axeman|carries_goods(8),0,fac_outlaws,bandit_personality,[(trp_looter,5,50)]),
   # ("plains_bandits","Bandits",icon_khergit|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_bandit,4,58)]),
   # ("steppe_bandits","Steppe Bandits",icon_khergit_horseman_b|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_steppe_bandit,4,58)]),
 ### Routiers  
-  ("routier_bandits","Routiers",icon_vaegir_knight|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_routier_knight,1,1),(trp_routier_crossbowman,4,12),(trp_routier_mounted_sergeant,2,12),(trp_routier_sergeant,1,4),(trp_routier_voulgier,2,6),(trp_routier_footman,4,12)]),
+  ("routier_bandits","Routiers",icon_vaegir_knight|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_routier_knight,1,1),(trp_routier_crossbowman,4,12),(trp_routier_mounted_sergeant,4,12),(trp_routier_sergeant,2,10),(trp_routier_voulgier,4,12),(trp_routier_footman,8,24)]),
 ### Flayers
-  ("flayer_bandits","Flayers",icon_axeman|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_flayer_captain,1,1),(trp_flayer_infantry,4,12),(trp_flayer_fauchard,2,8),(trp_flayer_archer,2,8)]),
+  ("flayer_bandits","Flayers",icon_axeman|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_flayer_captain,1,1),(trp_flayer_infantry,6,18),(trp_flayer_fauchard,4,12),(trp_flayer_archer,2,8)]),
 ### Retondeurs
-  ("retondeur_bandits","Retondeurs",icon_axeman|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_retondeur_horseman,2,8),(trp_retondeur_maceman,4,12),(trp_retondeur_crossbowman,2,8)]),
+  ("retondeur_bandits","Retondeurs",icon_axeman|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_retondeur_horseman,2,12),(trp_retondeur_maceman,6,18),(trp_retondeur_crossbowman,2,8)]),
 ### Tard-Venus
-  ("tard_venu_bandits","Tard-Venus",icon_axeman|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_tard_venu_militia,4,20),(trp_tard_venu_pikeman,4,12),(trp_tard_venu_archer,2,8)]),
+  ("tard_venu_bandits","Tard-Venus",icon_axeman|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_tard_venu_militia,8,24),(trp_tard_venu_pikeman,6,18),(trp_tard_venu_archer,4,12)]),
 ### Angry Plebs 
-  ("peasant_bandits","Rebellious Peasants",icon_peasant|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_disgruntled_farmer,4,20),(trp_irrate_hunter,4,12),(trp_furious_lumberjack,4,12)]),
+  ("peasant_bandits","Rebellious Peasants",icon_peasant|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_disgruntled_farmer,8,24),(trp_irrate_hunter,4,12),(trp_furious_lumberjack,1,6)]),
 
 ### Native
   # ("taiga_bandits","Tundra Bandits",icon_axeman|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_taiga_bandit,4,58)]),
