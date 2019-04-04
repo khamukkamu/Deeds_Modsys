@@ -732,7 +732,7 @@ game_menus = [
 
       ("view_troop_trees", [], "Review Troop Trees.",
         [(start_presentation, "prsnt_troop_tree"),]),
-      
+
       ("view_character_report",[],"View character report.",
        [(jump_to_menu, "mnu_character_report"),
         ]
@@ -3664,6 +3664,14 @@ TOTAL:  {reg5}"),
     (try_end),
     ],
     [
+
+      ("dac_test_menu",[],"DAC Test Menu",
+       [
+        (jump_to_menu, "mnu_dac_test_menu"),
+        ]
+       ),
+
+
       ("camp_action_1",[(eq,"$cheat_mode",1)],"{!}Cheat: Walk around.",
        [(set_jump_mission,"mt_ai_training"),
         (call_script, "script_setup_random_scene"),
@@ -4226,6 +4234,27 @@ TOTAL:  {reg5}"),
        ),
       ]
   ),
+
+
+# DAC Test Menu
+
+( "dac_test_menu",0,
+  "DAC Test Menu. Use at your own Risk","none",[],
+    [
+    ("dac_test_view_all_items",[],"View All Items", [(start_presentation, "prsnt_all_items")]),
+    
+    ("dac_test_infinite_camp", [], "Infinite Camp", [
+         (assign,"$g_camp_mode", 1),
+         (assign, "$g_infinite_camping", 1),
+         (assign, "$g_player_icon_state", pis_camping),
+         (rest_for_hours_interactive, 10 * 24 * 365, 20), #10 year rest while not attackable with 20x speed
+         (change_screen_return),]), 
+
+    ("dac_test_back",[],"Back",[(jump_to_menu, "mnu_camp")]),
+ ]),
+
+ ## DAC Test Menu END
+
 
   ("camp_action",0,
    "Choose an action:",

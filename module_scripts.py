@@ -253,16 +253,23 @@ scripts = [
       (try_end),
 
 	  #set territorial disputes/outstanding border issues
-	  # (party_set_slot, "p_castle_10", slot_center_ex_faction, "fac_kingdom_2"), #vaegirs claim nord-held alburq
-	  # (party_set_slot, "p_castle_13", slot_center_ex_faction, "fac_kingdom_4"), #nords claim swadian-held kelredan
-	  # (party_set_slot, "p_castle_15", slot_center_ex_faction, "fac_kingdom_1"), #swadians claim rhodok-held ergelon
-	  # (party_set_slot, "p_castle_46", slot_center_ex_faction, "fac_kingdom_5"), #rhodoks claim sarranid-held weyyah
-	  # (party_set_slot, "p_castle_40", slot_center_ex_faction, "fac_kingdom_6"), #sarranids claim khergit-held uhhun
-	  # (party_set_slot, "p_town_11",   slot_center_ex_faction, "fac_kingdom_3"), #Khergits claim vaegir-held curaw
+	   #(party_set_slot, "p_town_42", slot_center_ex_faction, "fac_kingdom_3"), #Burgandy claims English-held Calais
+	    (party_set_slot, "p_town_20", slot_center_ex_faction, "fac_kingdom_3"), #Burgandy claims French-held Tournai
+	    (party_set_slot, "p_town_2",  slot_center_ex_faction, "fac_kingdom_2"), #English claim French-held Orleans
+      (party_set_slot, "p_town_21", slot_center_ex_faction, "fac_kingdom_2"), #English claim French-held Gien
+      (party_set_slot, "p_town_54", slot_center_ex_faction, "fac_kingdom_1"), #French claim Burgandy-held Nevers
+      (party_set_slot, "p_town_7",  slot_center_ex_faction, "fac_kingdom_3"), #Burgandy claim French-held Moulins
+      (party_set_slot, "p_town_9",  slot_center_ex_faction, "fac_kingdom_3"), #Burgandy claim French-held Lyon
+      (party_set_slot, "p_town_25", slot_center_ex_faction, "fac_kingdom_2"), #English claim French-held Perigueux
+      (party_set_slot, "p_town_24", slot_center_ex_faction, "fac_kingdom_2"), #English claim French-held Bergerac
+      (party_set_slot, "p_town_23", slot_center_ex_faction, "fac_kingdom_2"), #English claim French-held Albret
+      (party_set_slot, "p_town_14", slot_center_ex_faction, "fac_kingdom_2"), #English claim French-held Tarbes
+      (party_set_slot, "p_town_47", slot_center_ex_faction, "fac_kingdom_1"), #French claim English-held Libourne
+      (party_set_slot, "p_town_35", slot_center_ex_faction, "fac_kingdom_1"), #French claim English-held Bordeaux
+      (party_set_slot, "p_town_45", slot_center_ex_faction, "fac_kingdom_1"), #French claim English-held Tartas
+      (party_set_slot, "p_town_46", slot_center_ex_faction, "fac_kingdom_1"), #French claim English-held Dax
+      (party_set_slot, "p_town_31", slot_center_ex_faction, "fac_kingdom_1"), #French claim English-held Bayonne
 
-	  #Swadians, being in the middle, will have additional claims on two of their neighhbors
-	  # (party_set_slot, "p_castle_15", slot_center_ex_faction, "fac_kingdom_1"), #swadians claim vaegir-held tilbault
-	  # (party_set_slot, "p_castle_22", slot_center_ex_faction, "fac_kingdom_1"), #swadians claim khergit-held unuzdaq
 
       (call_script, "script_update_village_market_towns"),
 

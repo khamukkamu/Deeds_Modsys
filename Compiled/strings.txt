@@ -1,5 +1,5 @@
 stringsfile version 1
-4044
+4065
 str_no_string NO_STRING!
 str_empty_string _
 str_yes Yes.
@@ -4002,6 +4002,27 @@ str_a_mail_shirt_arms_brown a_mail_shirt_arms_brown
 str_a_mail_shirt_arms_black a_mail_shirt_arms_black
 str_a_mail_shirt_arms_green a_mail_shirt_arms_green
 str_a_mail_shirt_arms_end a_mail_shirt_arms_end
+str_h_hood_blue h_hood_blue
+str_h_hood_blue_white h_hood_blue_white
+str_h_hood_blue_yellow h_hood_blue_yellow
+str_h_hood_white h_hood_white
+str_h_hood_red_blue h_hood_red_blue
+str_h_hood_red_white h_hood_red_white
+str_h_hood_red h_hood_red
+str_h_hood_red_yellow h_hood_red_yellow
+str_h_hood_yellow h_hood_yellow
+str_h_hood_yellow_brown h_hood_yellow_brown
+str_h_hood_blue_yellow_2 h_hood_blue_yellow
+str_h_hood_brown h_hood_brown
+str_h_hood_white_brown h_hood_white_brown
+str_h_hood_black h_hood_black
+str_h_hood_white_black h_hood_white_black
+str_h_hood_brown_green h_hood_brown_green
+str_h_hood_green h_hood_green
+str_h_hood_red_green h_hood_red_green
+str_h_hood_yellow_green h_hood_yellow_green
+str_h_hood_white_green h_hood_white_green
+str_h_hood_end h_hood_end
 str_skl_trade Trade
 str_skl_leadership Leadership
 str_skl_prisoner_management Prisoner_Management
