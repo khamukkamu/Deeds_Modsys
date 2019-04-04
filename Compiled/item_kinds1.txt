@@ -1099,11 +1099,11 @@ itemsfile version 3
 1
 -50.000000  1 1964 3 1585267068834416167 0 0 
 
- itm_h_mail_coif_full Mail_Coif Mail_Coif 1  h_mail_coif_full 0  69388 0 320 704643236 1.250000 100 24 0 0 7 0 0 0 0 0 0 0
+ itm_h_mail_coif_full Mail_Coif Mail_Coif 1  h_mail_coif_full 0  68719546124 0 320 704643236 1.250000 100 24 0 0 7 0 0 0 0 0 0 0
  0
 0
 
- itm_h_mail_coif_balaclava Mail_Coif Mail_Coif 1  h_mail_coif_balaclava 0  69388 0 292 704643236 1.250000 100 22 0 0 7 0 0 0 0 0 0 0
+ itm_h_mail_coif_balaclava Mail_Coif Mail_Coif 1  h_mail_coif_balaclava 0  68719546124 0 292 704643236 1.250000 100 22 0 0 7 0 0 0 0 0 0 0
  0
 0
 
