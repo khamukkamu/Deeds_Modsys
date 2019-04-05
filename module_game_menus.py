@@ -4249,11 +4249,24 @@ TOTAL:  {reg5}"),
          (assign, "$g_player_icon_state", pis_camping),
          (rest_for_hours_interactive, 10 * 24 * 365, 20), #10 year rest while not attackable with 20x speed
          (change_screen_return),]), 
+		 
+      ("camp_troops_cheat",[],"Give Troops", [
+          (jump_to_menu, "mnu_camp_give_troops")]),	 
 
     ("dac_test_back",[],"Back",[(jump_to_menu, "mnu_camp")]),
  ]),
 
  ## DAC Test Menu END
+ 
+   ( "camp_give_troops",0,
+    "Troops to receive:","none",[],
+    [   
+      ("give_troops_france",[],"Give French Troops", [(party_add_template, "p_main_party", "pt_kingdom_1_reinforcements_a"),(party_add_template, "p_main_party", "pt_kingdom_1_reinforcements_b"),(party_add_template, "p_main_party", "pt_kingdom_1_reinforcements_c"),(party_add_template, "p_main_party", "pt_kingdom_1_reinforcements_d"),]),
+      ("give_troops_england",[],"Give English Troops", [(party_add_template, "p_main_party", "pt_kingdom_2_reinforcements_a"),(party_add_template, "p_main_party", "pt_kingdom_2_reinforcements_b"),(party_add_template, "p_main_party", "pt_kingdom_2_reinforcements_c"),(party_add_template, "p_main_party", "pt_kingdom_2_reinforcements_d"),]),
+      ("give_troops_burgundy",[],"Give Burgundian Troops", [(party_add_template, "p_main_party", "pt_kingdom_3_reinforcements_a"),(party_add_template, "p_main_party", "pt_kingdom_3_reinforcements_b"),(party_add_template, "p_main_party", "pt_kingdom_3_reinforcements_c"),(party_add_template, "p_main_party", "pt_kingdom_3_reinforcements_d"),]),
+      ("give_troops_brittany",[],"Give Breton Troops", [(party_add_template, "p_main_party", "pt_kingdom_4_reinforcements_a"),(party_add_template, "p_main_party", "pt_kingdom_4_reinforcements_b"),(party_add_template, "p_main_party", "pt_kingdom_4_reinforcements_c"),(party_add_template, "p_main_party", "pt_kingdom_4_reinforcements_d"),]),	 
+      ("resume_travelling",[],"Resume travelling.",[(change_screen_return),]), 
+ ]),  	
 
 
   ("camp_action",0,
