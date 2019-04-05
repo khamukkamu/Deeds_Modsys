@@ -1,5 +1,5 @@
 scene_propsfile version 1
- 1046
+ 1191
 spr_invalid_object 0 0 question_mark 0 0
 
 
@@ -3236,5 +3236,440 @@ spr_prison_cart_door_left 100352 0 prison_cart_door_left bo_prison_cart_door_lef
 spr_multiplayer_coop_item_drop 268501005 0 package bobaggage 2
 -44.000000  0 
 -47.000000  63 2071 1 1224979098644774912 2072 1 1224979098644774913 1724 2 1224979098644774914 1224979098644774912 401 1 1224979098644774914 2133 2 1224979098644774915 -1 2133 2 1224979098644774916 -1 12 1 1224979098644774912 1712 1 1224979098644774912 1702 1 1224979098644774912 1704 1 1224979098644774912 1707 1 1224979098644774912 1770 2 1224979098644774917 1224979098644774912 31 2 1224979098644774917 0 1765 2 1224979098644774918 1224979098644774912 31 2 1224979098644774918 1224979098644774914 1718 2 1224979098644774919 1224979098644774912 1073742372 3 1224979098644774914 43 1224979098644774919 548 3 1224979098644774914 44 1224979098644774919 4 0 31 2 1224979098644774915 -1 2133 2 1224979098644774915 1224979098644774912 5 0 31 2 1224979098644774916 -1 2133 2 1224979098644774916 1224979098644774912 3 0 3 0 2133 2 1224979098644774920 1 2133 2 1224979098644774921 -1 6 3 1224979098644774922 50 60 31 2 1224979098644774920 1 528 3 1224979098644774923 1224979098644774914 1224979098644774922 4 0 31 2 1224979098644774923 1224979098644774913 2133 2 1224979098644774920 0 3 0 3 0 6 3 1224979098644774922 50 60 31 2 1224979098644774920 1 528 3 1224979098644774923 1224979098644774914 1224979098644774922 4 0 31 2 1224979098644774923 0 31 2 1224979098644774921 -1 2133 2 1224979098644774921 1224979098644774922 3 0 3 0 4 0 31 2 1224979098644774920 1 1 2 936748722493063935 1224979098644774914 2147483679 2 1224979098644774921 -1 508 3 1224979098644774914 1224979098644774921 1224979098644774913 396 4 1224979098644774914 121 1224979098644774921 1224979098644774913 3 0 2133 2 72057594037927937 1224979098644774920 4 0 31 2 1224979098644774920 1 4 0 2147483679 2 1224979098644774914 0 397 5 1224979098644774914 120 144115188075857172 1224979098644774915 1224979098644774916 5 0 1 4 936748722493063936 144115188075857172 1224979098644774915 1224979098644774916 3 0 3 0 2133 2 144115188075857172 -1 
+
+
+spr_ado_wood_arena_barrier 0 0 ado_wood_arena_barrier bo_ado_wood_arena_barrier 0
+
+
+spr_ado_wood_arena_training 0 0 ado_wood_arena_training bo_ado_wood_arena_training 0
+
+
+spr_ado_wood_barn 0 0 ado_wood_barn bo_ado_wood_barn 0
+
+
+spr_ado_wood_bench_fine 0 0 ado_wood_bench_fine bo_ado_wood_bench_fine 0
+
+
+spr_ado_wood_bench_plain 0 0 ado_wood_bench_plain bo_ado_wood_bench_plain 0
+
+
+spr_ado_stone_bench_roman 0 0 ado_stone_bench_roman bo_ado_stone_bench_roman 0
+
+
+spr_ado_wood_bridge_long 0 0 ado_wood_bridge_long bo_ado_wood_bridge_long 0
+
+
+spr_ado_wood_bridge_long_ramp 0 0 ado_wood_bridge_long_ramp bo_ado_wood_bridge_long_ramp 0
+
+
+spr_ado_wood_bridge_tall 0 0 ado_wood_bridge_tall bo_ado_wood_bridge_tall 0
+
+
+spr_ado_wood_cabin_log 0 0 ado_wood_cabin_log bo_ado_wood_cabin_log 0
+
+
+spr_ado_wood_cart 0 0 ado_wood_cart bo_ado_wood_cart 0
+
+
+spr_ado_wood_cart_2 0 0 ado_wood_cart_2 bo_ado_wood_cart_2 0
+
+
+spr_ado_wood_cart_2_broken 0 0 ado_wood_cart_2_broken bo_ado_wood_cart_2_broken 0
+
+
+spr_ado_wood_cart_3 0 0 ado_wood_cart_3 bo_ado_wood_cart_3 0
+
+
+spr_ado_wood_cart_wheel 0 0 ado_wood_cart_wheel bo_ado_wood_cart_wheel 0
+
+
+spr_ado_wood_chair1 0 0 ado_wood_chair1 bo_ado_wood_chair1 0
+
+
+spr_ado_wood_chair2 0 0 ado_wood_chair2 bo_ado_wood_chair2 0
+
+
+spr_ado_wood_chair_fine 0 0 ado_wood_chair_fine bo_ado_wood_chair_fine 0
+
+
+spr_ado_wood_coffin_closed 0 0 ado_wood_coffin_closed bo_ado_wood_coffin_closed 0
+
+
+spr_ado_wood_coffin_lid 0 0 ado_wood_coffin_lid bo_ado_wood_coffin_lid 0
+
+
+spr_ado_wood_coffin_no_lid 0 0 ado_wood_coffin_no_lid bo_ado_wood_coffin_no_lid 0
+
+
+spr_ado_wood_coffin_with_lid_off 0 0 ado_wood_coffin_with_lid_off bo_ado_wood_coffin_with_lid_off 0
+
+
+spr_ado_wood_cradle 0 0 ado_wood_cradle bo_ado_wood_cradle 0
+
+
+spr_ado_wood_crate_1 0 0 ado_wood_crate_1 bo_ado_wood_crate_1 0
+
+
+spr_ado_wood_crate_2 0 0 ado_wood_crate_2 bo_ado_wood_crate_2 0
+
+
+spr_ado_wood_crate_broken 0 0 ado_wood_crate_broken bo_ado_wood_crate_broken 0
+
+
+spr_ado_wood_crate_closed 0 0 ado_wood_crate_closed bo_ado_wood_crate_closed 0
+
+
+spr_ado_wood_crate_lid 0 0 ado_wood_crate_lid bo_ado_wood_crate_lid 0
+
+
+spr_ado_wood_crate_tall 0 0 ado_wood_crate_tall bo_ado_wood_crate_tall 0
+
+
+spr_ado_wood_desk 0 0 ado_wood_desk bo_ado_wood_desk 0
+
+
+spr_ado_wood_desk_tall 0 0 ado_wood_desk_tall bo_ado_wood_desk_tall 0
+
+
+spr_ado_wood_dovecote_tall 0 0 ado_wood_dovecote_tall bo_ado_wood_dovecote_tall 0
+
+
+spr_ado_wood_fence_short 0 0 ado_wood_fence_short bo_ado_wood_fence_short 0
+
+
+spr_ado_wood_fence_long 0 0 ado_wood_fence_long bo_ado_wood_fence_long 0
+
+
+spr_ado_wood_gatehouse 0 0 ado_wood_gatehouse bo_ado_wood_gatehouse 0
+
+
+spr_ado_wood_gatehouse_large 0 0 ado_wood_gatehouse_large bo_ado_wood_gatehouse_large 0
+
+
+spr_ado_wood_gate_left 0 0 ado_wood_gate_left bo_ado_wood_gate_left 0
+
+
+spr_ado_wood_gate_right 0 0 ado_wood_gate_right bo_ado_wood_gate_right 0
+
+
+spr_ado_wood_gate_lock 0 0 ado_wood_gate_lock bo_ado_wood_gate_lock 0
+
+
+spr_ado_wood_gates_locked 0 0 ado_wood_gates_locked bo_ado_wood_gates_locked 0
+
+
+spr_ado_wood_gatehouse_twins 0 0 ado_wood_gatehouse_twins bo_ado_wood_gatehouse_twins 0
+
+
+spr_ado_wood_house 0 0 ado_wood_house bo_ado_wood_house 0
+
+
+spr_ado_wood_house_planks 0 0 ado_wood_house_planks bo_ado_wood_house_planks 0
+
+
+spr_ado_wood_house_small 0 0 ado_wood_house_small bo_ado_wood_house_small 0
+
+
+spr_ado_wood_house_small_v2 0 0 ado_wood_house_small_v2 bo_ado_wood_house_small_v2 0
+
+
+spr_ado_wood_house_small_shingles 0 0 ado_wood_house_small_shingles bo_ado_wood_house_small_shingles 0
+
+
+spr_ado_wood_judas_cradle 0 0 ado_wood_judas_cradle bo_ado_wood_judas_cradle 0
+
+
+spr_ado_wood_ladder_simple 0 0 ado_wood_ladder_simple bo_ado_wood_ladder_simple 0
+
+
+spr_ado_wood_ladder_simple_broken 0 0 ado_wood_ladder_simple_broken bo_ado_wood_ladder_simple_broken 0
+
+
+spr_ado_wood_log_1 0 0 ado_wood_log_1 bo_ado_wood_log_1 0
+
+
+spr_ado_wood_log_2 0 0 ado_wood_log_2 bo_ado_wood_log_2 0
+
+
+spr_ado_wood_log_3 0 0 ado_wood_log_3 bo_ado_wood_log_3 0
+
+
+spr_ado_wood_log_4 0 0 ado_wood_log_4 bo_ado_wood_log_4 0
+
+
+spr_ado_wood_logs_pile 0 0 ado_wood_logs_pile bo_ado_wood_logs_pile 0
+
+
+spr_ado_wood_logs_pile_2 0 0 ado_wood_logs_pile_2 bo_ado_wood_logs_pile_2 0
+
+
+spr_ado_wood_palisade_long 0 0 ado_wood_palisade_long bo_ado_wood_palisade_long 0
+
+
+spr_ado_wood_palisade_long_decay 0 0 ado_wood_palisade_long_decay bo_ado_wood_palisade_long_decay 0
+
+
+spr_ado_wood_palisade_long_destroyed 0 0 ado_wood_palisade_long_destroyed bo_ado_wood_palisade_long_destroyed 0
+
+
+spr_ado_wood_palisade_plain 0 0 ado_wood_palisade_plain bo_ado_wood_palisade_plain 0
+
+
+spr_ado_wood_palisade_short 0 0 ado_wood_palisade_short bo_ado_wood_palisade_short 0
+
+
+spr_ado_wood_palisade_stake 0 0 ado_wood_palisade_stake bo_ado_wood_palisade_stake 0
+
+
+spr_ado_wood_palisade_stake_broken 0 0 ado_wood_palisade_stake_broken bo_ado_wood_palisade_stake_broken 0
+
+
+spr_ado_wood_pile 0 0 ado_wood_pile bo_ado_wood_pile 0
+
+
+spr_ado_wood_pillory 0 0 ado_wood_pillory bo_ado_wood_pillory 0
+
+
+spr_ado_wood_platform 0 0 ado_wood_platform bo_ado_wood_platform 0
+
+
+spr_ado_wood_platform_raised 0 0 ado_wood_platform_raised bo_ado_wood_platform_raised 0
+
+
+spr_ado_wood_spanish_donkey 0 0 ado_wood_spanish_donkey bo_ado_wood_spanish_donkey 0
+
+
+spr_ado_wood_stable 0 0 ado_wood_stable bo_ado_wood_stable 0
+
+
+spr_ado_wood_stable_simple 0 0 ado_wood_stable_simple bo_ado_wood_stable_simple 0
+
+
+spr_ado_wood_stairs 0 0 ado_wood_stairs bo_ado_wood_stairs 0
+
+
+spr_ado_wood_stairs_long 0 0 ado_wood_stairs_long bo_ado_wood_stairs_long 0
+
+
+spr_ado_wood_stairs_short 0 0 ado_wood_stairs_short bo_ado_wood_stairs_short 0
+
+
+spr_ado_wood_stockade_bending 0 0 ado_wood_stockade_bending bo_ado_wood_stockade_bending 0
+
+
+spr_ado_wood_stockade_long 0 0 ado_wood_stockade_long bo_ado_wood_stockade_long 0
+
+
+spr_ado_wood_stockade_long_broken 0 0 ado_wood_stockade_long_broken bo_ado_wood_stockade_long_broken 0
+
+
+spr_ado_wood_stockade_short 0 0 ado_wood_stockade_short bo_ado_wood_stockade_short 0
+
+
+spr_ado_wood_stockade_plank 0 0 ado_wood_stockade_plank bo_ado_wood_stockade_plank 0
+
+
+spr_ado_wood_stockade_plank_broken 0 0 ado_wood_stockade_plank_broken bo_ado_wood_stockade_plank_broken 0
+
+
+spr_ado_wood_stool 0 0 ado_wood_stool bo_ado_wood_stool 0
+
+
+spr_ado_wood_table_plain 0 0 ado_wood_table_plain bo_ado_wood_table_plain 0
+
+
+spr_ado_wood_table_round 0 0 ado_wood_table_round bo_ado_wood_table_round 0
+
+
+spr_ado_wood_table_round_2 0 0 ado_wood_table_round_2 bo_ado_wood_table_round_2 0
+
+
+spr_ado_wood_table_round_small 0 0 ado_wood_table_round_small bo_ado_wood_table_round_small 0
+
+
+spr_ado_wood_tourney_arch 0 0 ado_wood_tourney_arch bo_ado_wood_tourney_arch 0
+
+
+spr_ado_wood_tourney_arch_painted 0 0 ado_wood_tourney_arch_painted bo_ado_wood_tourney_arch_painted 0
+
+
+spr_ado_wood_tourney_arch_painted_dark 0 0 ado_wood_tourney_arch_painted_dark bo_ado_wood_tourney_arch_painted_dark 0
+
+
+spr_ado_wood_tourney_barrier 0 0 ado_wood_tourney_barrier bo_ado_wood_tourney_barrier 0
+
+
+spr_ado_wood_tourney_barrier_painted 0 0 ado_wood_tourney_barrier_painted bo_ado_wood_tourney_barrier_painted 0
+
+
+spr_ado_wood_tourney_barrier_painted_dark 0 0 ado_wood_tourney_barrier_painted_dark bo_ado_wood_tourney_barrier_painted_dark 0
+
+
+spr_ado_wood_tourney_barrier_post 0 0 ado_wood_tourney_barrier_post bo_ado_wood_tourney_barrier_post 0
+
+
+spr_ado_wood_tourney_barrier_short 0 0 ado_wood_tourney_barrier_short bo_ado_wood_tourney_barrier_short 0
+
+
+spr_ado_wood_tourney_barrier_short_painted 0 0 ado_wood_tourney_barrier_short_painted bo_ado_wood_tourney_barrier_short_painted 0
+
+
+spr_ado_wood_tourney_barrier_short_painted_dark 0 0 ado_wood_tourney_barrier_short_painted_dark bo_ado_wood_tourney_barrier_short_painted_dark 0
+
+
+spr_ado_wood_tourney_fence 0 0 ado_wood_tourney_fence bo_ado_wood_tourney_fence 0
+
+
+spr_ado_wood_tourney_fence_post 0 0 ado_wood_tourney_fence_post bo_ado_wood_tourney_fence_post 0
+
+
+spr_ado_wood_tourney_fence_short 0 0 ado_wood_tourney_fence_short bo_ado_wood_tourney_fence_short 0
+
+
+spr_ado_wood_tourney_podium 0 0 ado_wood_tourney_podium bo_ado_wood_tourney_podium 0
+
+
+spr_ado_wood_tourney_podium_painted 0 0 ado_wood_tourney_podium_painted bo_ado_wood_tourney_podium_painted 0
+
+
+spr_ado_wood_tourney_podium_painted_dark 0 0 ado_wood_tourney_podium_painted_dark bo_ado_wood_tourney_podium_painted_dark 0
+
+
+spr_ado_wood_tourney_post 0 0 ado_wood_tourney_post bo_ado_wood_tourney_post 0
+
+
+spr_ado_wood_tourney_scaffold_short 0 0 ado_wood_tourney_scaffold_short bo_ado_wood_tourney_scaffold_short 0
+
+
+spr_ado_wood_tourney_scaffold_tall 0 0 ado_wood_tourney_scaffold_tall bo_ado_wood_tourney_scaffold_tall 0
+
+
+spr_ado_wood_tourney_scaffold_tall_painted 0 0 ado_wood_tourney_scaffold_tall_painted bo_ado_wood_tourney_scaffold_tall_painted 0
+
+
+spr_ado_wood_tourney_scaffold_tall_painted_dark 0 0 ado_wood_tourney_scaffold_tall_painted_dark bo_ado_wood_tourney_scaffold_tall_painted_dark 0
+
+
+spr_ado_wood_tower_lookout_defence 0 0 ado_wood_tower_lookout_defence bo_ado_wood_tower_lookout_defence 0
+
+
+spr_ado_wood_wall_section 0 0 ado_wood_wall_section bo_ado_wood_wall_section 0
+
+
+spr_ado_wood_wall_section_2 0 0 ado_wood_wall_section_2 bo_ado_wood_wall_section_2 0
+
+
+spr_ado_wood_wall_section_destroyed 0 0 ado_wood_wall_section_destroyed bo_ado_wood_wall_section_destroyed 0
+
+
+spr_ado_wood_wall_section_bending 0 0 ado_wood_wall_section_bending bo_ado_wood_wall_section_bending 0
+
+
+spr_ado_wood_wall_section_corner 0 0 ado_wood_wall_section_corner bo_ado_wood_wall_section_corner 0
+
+
+spr_ado_wood_wall_section_short 0 0 ado_wood_wall_section_short bo_ado_wood_wall_section_short 0
+
+
+spr_ado_wood_wall_tower 0 0 ado_wood_wall_tower bo_ado_wood_wall_tower 0
+
+
+spr_ado_wood_well_stone_village 0 0 ado_wood_well_stone_village bo_ado_wood_well_stone_village 0
+
+
+spr_ado_wood_well_village 0 0 ado_wood_well_village bo_ado_wood_well_village 0
+
+
+spr_ado_wood_wheelbarrow 0 0 ado_wood_wheelbarrow bo_ado_wood_wheelbarrow 0
+
+
+spr_ado_wood_windmill_post 0 0 ado_wood_windmill_post bo_ado_wood_windmill_post 0
+
+
+spr_ado_wood_windmill_post_full_sail 0 0 ado_wood_windmill_post_full_sail bo_ado_wood_windmill_post_full_sail 0
+
+
+spr_ado_wood_windmill_post_full_sail_red 0 0 ado_wood_windmill_post_full_sail_red bo_ado_wood_windmill_post_full_sail_red 0
+
+
+spr_ado_wood_windmill_post_sails_off 0 0 ado_wood_windmill_post_sails_off bo_ado_wood_windmill_post_sails_off 0
+
+
+spr_bartizan 0 0 bartizan bo_bartizan 0
+
+
+spr_french_curtain_wall_a 0 0 french_curtain_wall_a bo_french_curtain_wall_a 0
+
+
+spr_french_curtain_wall_a_destroyed 0 0 french_curtain_wall_a_destroyed bo_french_curtain_wall_a_destroyed 0
+
+
+spr_french_curtain_wall_b 0 0 french_curtain_wall_b bo_french_curtain_wall_b 0
+
+
+spr_french_curtain_wall_c 0 0 french_curtain_wall_c bo_french_curtain_wall_c 0
+
+
+spr_french_curtain_wall_rea 0 0 french_curtain_wall_rea bo_french_curtain_wall_rea 0
+
+
+spr_french_curtain_wall_rea_destroyed 0 0 french_curtain_wall_rea_destroyed bo_french_curtain_wall_rea_destroyed 0
+
+
+spr_french_gatehouse_a 0 0 french_gatehouse_a bo_french_gatehouse_a 0
+
+
+spr_french_gatehouse_b 0 0 french_gatehouse_b bo_french_gatehouse_b 0
+
+
+spr_french_keep 0 0 french_keep bo_french_keep 0
+
+
+spr_french_keep_late 0 0 french_keep_late bo_french_keep_late 0
+
+
+spr_french_keep_rouen 0 0 french_keep_rouen bo_french_keep_rouen 0
+
+
+spr_french_late_curtain_wall 0 0 french_late_curtain_wall bo_french_late_curtain_wall 0
+
+
+spr_french_tower_a 0 0 french_tower_a bo_french_tower_a 0
+
+
+spr_french_tower_b 0 0 french_tower_b bo_french_tower_b 0
+
+
+spr_french_tower_c 0 0 french_tower_c bo_french_tower_c 0
+
+
+spr_french_tower_d 0 0 french_tower_d bo_french_tower_d 0
+
+
+spr_french_tower_e 0 0 french_tower_e bo_french_tower_e 0
+
+
+spr_french_tower_f 0 0 french_tower_f bo_french_tower_f 0
+
+
+spr_french_tower_g 0 0 french_tower_g bo_french_tower_g 0
+
+
+spr_french_tower_h 0 0 french_tower_h bo_french_tower_h 0
+
+
+spr_french_tower_i 0 0 french_tower_i bo_french_tower_i 0
+
+
+spr_french_tower_j 0 0 french_tower_j bo_french_tower_j 0
+
+
+spr_french_tower_k 0 0 french_tower_k bo_french_tower_k 0
+
+
+spr_french_tower_l 0 0 french_tower_l bo_french_tower_l 0
+
+
+spr_german_gatehouse_a 0 0 german_gatehouse_a bo_german_gatehouse_a 0
 
 

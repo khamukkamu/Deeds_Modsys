@@ -1,5 +1,5 @@
 scenesfile version 1
- 554
+ 642
 scn_random_scene random_scene 1792 none none 0.000000 0.000000 240.000000 240.000000 -0.500000 0x300028000003e8fa0000034e00004b34000059be 
   0 
   0 
@@ -2216,3 +2216,355 @@ scn_enterprise_oil_press enterprise_oil_press 1 oil_press_interior bo_oil_press_
   0 
   0 
  0 
+scn_bm_town_1_center bm_town_1_center 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000030000913400d2348000030c40000600500006b66 
+  0 
+  1  1453 
+ outer_terrain_beach 
+scn_bm_town_1_castle bm_town_1_castle 1 viking_interior_keep_a bo_viking_interior_keep_a -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  1  100000 
+  1  496 
+ 0 
+scn_bm_town_1_tavern bm_town_1_tavern 1 viking_interior_tavern_a bo_viking_interior_tavern_a -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  1  100000 
+  0 
+ 0 
+scn_bm_town_1_store bm_town_1_store 1 viking_interior_merchant_a bo_viking_interior_merchant_a -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  1  100000 
+  0 
+ 0 
+scn_bm_town_1_arena bm_town_1_arena 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0xa0001d9300031ccb0000156f000048ba0000361c 
+  0 
+  0 
+ outer_terrain_plain 
+scn_bm_town_1_prison bm_town_1_prison 1 viking_interior_merchant_a bo_viking_interior_merchant_a -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  0 
+  0 
+ 0 
+scn_bm_town_1_walls bm_town_1_walls 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000030000913400d2348000030c40000600500006b66 
+  0 
+  0 
+ outer_terrain_beach 
+scn_bm_town_1_alley bm_town_1_alley 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000030000913400d2348000030c40000600500006b66 
+  0 
+  0 
+ outer_terrain_beach 
+scn_bm_town_2_center bm_town_2_center 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000030000913400d2348000030c40000600500006b66 
+  0 
+  1  1453 
+ outer_terrain_beach 
+scn_bm_town_2_castle bm_town_2_castle 1 viking_interior_keep_a bo_viking_interior_keep_a -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  1  100000 
+  1  497 
+ 0 
+scn_bm_town_2_tavern bm_town_2_tavern 1 viking_interior_tavern_a bo_viking_interior_tavern_a -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  1  100000 
+  0 
+ outer_terrain_town_thir_1 
+scn_bm_town_2_store bm_town_2_store 1 viking_interior_merchant_a bo_viking_interior_merchant_a -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  1  100000 
+  0 
+ 0 
+scn_bm_town_2_arena bm_town_2_arena 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0xa0001d9300031ccb0000156f000048ba0000361c 
+  0 
+  0 
+ outer_terrain_plain 
+scn_bm_town_2_prison bm_town_2_prison 1 viking_interior_tavern_a bo_viking_interior_tavern_a -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  0 
+  0 
+ 0 
+scn_bm_town_2_walls bm_town_2_walls 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000030000913400d2348000030c40000600500006b66 
+  0 
+  0 
+ outer_terrain_beach 
+scn_bm_town_2_alley bm_town_2_alley 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000030000913400d2348000030c40000600500006b66 
+  0 
+  0 
+ outer_terrain_beach 
+scn_bm_town_12_center bm_town_12_center 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000030000913400d2348000030c40000600500006b66 
+  0 
+  0 
+ outer_terrain_beach 
+scn_bm_town_12_castle bm_town_12_castle 1 viking_interior_keep_a bo_viking_interior_keep_a -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  1  100000 
+  1  507 
+ 0 
+scn_bm_town_12_tavern bm_town_12_tavern 1 viking_interior_tavern_a bo_viking_interior_tavern_a -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  1  100000 
+  0 
+ 0 
+scn_bm_town_12_store bm_town_12_store 1 viking_interior_merchant_a bo_viking_interior_merchant_a -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  1  100000 
+  0 
+ 0 
+scn_bm_town_12_arena bm_town_12_arena 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0xa0001d9300031ccb0000156f000048ba0000361c 
+  0 
+  0 
+ outer_terrain_plain 
+scn_bm_town_12_prison bm_town_12_prison 1 viking_interior_merchant_a bo_viking_interior_merchant_a -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  1  100000 
+  0 
+ 0 
+scn_bm_town_12_walls bm_town_12_walls 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000030000913400d2348000030c40000600500006b66 
+  0 
+  0 
+ outer_terrain_beach 
+scn_bm_town_12_alley bm_town_12_alley 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000030000913400d2348000030c40000600500006b66 
+  0 
+  0 
+ outer_terrain_beach 
+scn_bm_town_4_center bm_town_4_center 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000030000500000d2348000030c4000053ae00001d83 
+  0 
+  0 
+ outer_terrain_plain 
+scn_bm_town_4_castle bm_town_4_castle 1 interior_castle_q bo_interior_castle_q -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  1  100000 
+  1  499 
+ 0 
+scn_bm_town_4_tavern bm_town_4_tavern 1 interior_tavern_f bo_interior_tavern_f -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  1  100000 
+  0 
+ 0 
+scn_bm_town_4_store bm_town_4_store 1 interior_tavern_g bo_interior_tavern_g -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  1  100000 
+  0 
+ 0 
+scn_bm_town_4_arena bm_town_4_arena 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0xa0001d9300031ccb0000156f000048ba0000361c 
+  0 
+  0 
+ outer_terrain_plain 
+scn_bm_town_4_prison bm_town_4_prison 1 interior_prison_g bo_interior_prison_g -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  0 
+  0 
+ 0 
+scn_bm_town_4_walls bm_town_4_walls 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000030000500000d2348000030c4000053ae00001d83 
+  0 
+  0 
+ outer_terrain_plain 
+scn_bm_town_4_alley bm_town_4_alley 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000030000500000d2348000030c4000053ae00001d83 
+  0 
+  0 
+ outer_terrain_plain 
+scn_bm_town_6_center bm_town_6_center 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000030000500000d2348000030c4000053ae00001d83 
+  0 
+  0 
+ outer_terrain_beach 
+scn_bm_town_6_castle bm_town_6_castle 1 interior_castle_z bo_interior_castle_z -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  1  100000 
+  1  501 
+ 0 
+scn_bm_town_6_tavern bm_town_6_tavern 1 interior_tavern_g bo_interior_tavern_g -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  1  100000 
+  0 
+ 0 
+scn_bm_town_6_store bm_town_6_store 1 interior_town_house_j bo_interior_town_house_j -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  1  100000 
+  0 
+ 0 
+scn_bm_town_6_arena bm_town_6_arena 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0xa0001d9300031ccb0000156f000048ba0000361c 
+  0 
+  0 
+ outer_terrain_plain 
+scn_bm_town_7_arena bm_town_7_arena 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0xa0001d9300031ccb0000156f000048ba0000361c 
+  0 
+  0 
+ outer_terrain_plain 
+scn_bm_town_6_prison bm_town_6_prison 1 interior_prison_e bo_interior_prison_e -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  1  100000 
+  0 
+ 0 
+scn_bm_town_6_walls bm_town_6_walls 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000030000500000d2348000030c4000053ae00001d83 
+  0 
+  0 
+ outer_terrain_beach 
+scn_bm_town_6_alley bm_town_6_alley 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000030000500000d2348000030c4000053ae00001d83 
+  0 
+  0 
+ outer_terrain_beach 
+scn_bm_town_7_center bm_town_7_center 4352 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000030000500000d2348000030c4000053ae00001d83 
+  0 
+  0 
+ outer_terrain_plain 
+scn_bm_town_7_castle bm_town_7_castle 1 interior_castle_v bo_interior_castle_v -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  1  100000 
+  1  502 
+ 0 
+scn_bm_town_7_tavern bm_town_7_tavern 1 interior_tavern_d bo_interior_tavern_d -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  1  100000 
+  0 
+ 0 
+scn_bm_town_7_store bm_town_7_store 1 interior_tavern_f bo_interior_tavern_f -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  1  100000 
+  0 
+ 0 
+scn_bm_town_7_prison bm_town_7_prison 1 interior_prison_i bo_interior_prison_i -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  1  100000 
+  0 
+ 0 
+scn_bm_town_7_walls bm_town_7_walls 4352 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000030000500000d2348000030c4000053ae00001d83 
+  0 
+  0 
+ outer_terrain_plain 
+scn_bm_town_7_alley bm_town_7_alley 4352 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000030000500000d2348000030c4000053ae00001d83 
+  0 
+  0 
+ outer_terrain_plain 
+scn_bm_town_16_center bm_town_16_center 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000030000500000d2348000030c4000053ae00001d83 
+  0 
+  0 
+ outer_terrain_plain 
+scn_bm_town_16_castle bm_town_16_castle 1 interior_castle_m bo_interior_castle_m -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  1  100000 
+  1  511 
+ 0 
+scn_bm_town_16_tavern bm_town_16_tavern 1 interior_tavern_b bo_interior_tavern_b -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  1  100000 
+  0 
+ 0 
+scn_bm_town_16_store bm_town_16_store 1 interior_tavern_f bo_interior_tavern_f -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  1  100000 
+  0 
+ 0 
+scn_bm_town_16_arena bm_town_16_arena 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0xa0001d9300031ccb0000156f000048ba0000361c 
+  0 
+  0 
+ outer_terrain_plain 
+scn_bm_town_16_prison bm_town_16_prison 1 interior_prison_k bo_interior_prison_k -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  1  100000 
+  0 
+ 0 
+scn_bm_town_16_walls bm_town_16_walls 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000030000500000d2348000030c4000053ae00001d83 
+  0 
+  0 
+ outer_terrain_plain 
+scn_bm_town_16_alley bm_town_16_alley 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000030000500000d2348000030c4000053ae00001d83 
+  0 
+  0 
+ outer_terrain_plain 
+scn_bm_town_8_center bm_town_8_center 4352 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000030000500000d2348000030c4000053ae00001d83 
+  0 
+  0 
+ outer_terrain_plain 
+scn_bm_town_8_castle bm_town_8_castle 1 interior_castle_w bo_interior_castle_w -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  1  100000 
+  1  503 
+ 0 
+scn_bm_town_8_tavern bm_town_8_tavern 1 interior_tavern_h bo_interior_tavern_h -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  1  100000 
+  0 
+ 0 
+scn_bm_town_8_store bm_town_8_store 1 interior_house_b bo_interior_house_b -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  1  100000 
+  0 
+ 0 
+scn_bm_town_8_arena bm_town_8_arena 4352 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0xa0001d9300031ccb0000156f000048ba0000361c 
+  0 
+  0 
+ outer_terrain_plain 
+scn_bm_town_8_prison bm_town_8_prison 1 dungeon_cell_b bo_dungeon_cell_b -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  1  100000 
+  0 
+ 0 
+scn_bm_town_8_walls bm_town_8_walls 4352 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000030000500000d2348000030c4000053ae00001d83 
+  0 
+  0 
+ outer_terrain_plain 
+scn_bm_town_8_alley bm_town_8_alley 4352 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000030000500000d2348000030c4000053ae00001d83 
+  0 
+  0 
+ outer_terrain_plain 
+scn_bm_town_9_center bm_town_9_center 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000040000500000d234800005e0c0000699d00000b23 
+  0 
+  0 
+ outer_terrain_snow 
+scn_bm_town_9_castle bm_town_9_castle 1 interior_castle_g bo_interior_castle_g -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  1  100000 
+  1  504 
+ 0 
+scn_bm_town_9_tavern bm_town_9_tavern 1 interior_tavern_e bo_interior_tavern_e -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  1  100000 
+  0 
+ 0 
+scn_bm_town_9_store bm_town_9_store 1 interior_town_house_a bo_interior_town_house_a -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  1  100000 
+  0 
+ 0 
+scn_bm_town_9_arena bm_town_9_arena 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x40001d9300031ccb0000156f000048ba0000361c 
+  0 
+  0 
+ outer_terrain_snow 
+scn_bm_town_9_prison bm_town_9_prison 1 interior_prison_j bo_interior_prison_j -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  1  100000 
+  0 
+ 0 
+scn_bm_town_9_walls bm_town_9_walls 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000040000500000d234800005e0c0000699d00000b23 
+  0 
+  0 
+ outer_terrain_snow 
+scn_bm_town_9_alley bm_town_9_alley 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000040000500000d234800005e0c0000699d00000b23 
+  0 
+  0 
+ outer_terrain_snow 
+scn_bm_town_11_center bm_town_11_center 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000040000000000fffff000041ef00005ae800003c55 
+  0 
+  0 
+ outer_terrain_snow 
+scn_bm_town_11_castle bm_town_11_castle 1 interior_castle_i bo_interior_castle_i -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  1  100000 
+  1  506 
+ 0 
+scn_bm_town_11_tavern bm_town_11_tavern 1 interior_tavern_h bo_interior_tavern_h -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  1  100000 
+  0 
+ 0 
+scn_bm_town_11_store bm_town_11_store 1 interior_town_house_j bo_interior_town_house_j -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  1  100000 
+  0 
+ 0 
+scn_bm_town_11_arena bm_town_11_arena 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x40001d9300031ccb0000156f000048ba0000361c 
+  0 
+  0 
+ outer_terrain_snow 
+scn_bm_town_11_prison bm_town_11_prison 1 dungeon_a bo_dungeon_a -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  1  100000 
+  0 
+ 0 
+scn_bm_town_11_walls bm_town_11_walls 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000040000000000fffff000041ef00005ae800003c55 
+  0 
+  0 
+ outer_terrain_snow 
+scn_bm_town_11_alley bm_town_11_alley 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000040000000000fffff000041ef00005ae800003c55 
+  0 
+  0 
+ outer_terrain_snow 
+scn_bm_town_13_center bm_town_13_center 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000030000500000d2348000030c40000061200007962 
+  0 
+  1  1451 
+ outer_terrain_beach 
+scn_bm_town_13_castle bm_town_13_castle 0 none none -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  1  100000 
+  1  508 
+ 0 
+scn_bm_town_13_tavern bm_town_13_tavern 1 interior_town_house_aa bo_interior_town_house_aa -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  1  100000 
+  0 
+ 0 
+scn_bm_town_13_store bm_town_13_store 1 interior_town_house_j bo_interior_town_house_j -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  1  100000 
+  0 
+ 0 
+scn_bm_town_13_arena bm_town_13_arena 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0xa0001d9300031ccb0000156f000048ba0000361c 
+  0 
+  0 
+ 0 
+scn_bm_town_13_prison bm_town_13_prison 1 interior_prison_a bo_interior_prison_a -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  1  100000 
+  0 
+ 0 
+scn_bm_town_13_walls bm_town_13_walls 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000030000500000d2348000030c40000061200007962 
+  0 
+  0 
+ outer_terrain_beach 
+scn_bm_town_13_alley bm_town_13_alley 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000030000500000d2348000030c40000061200007962 
+  0 
+  0 
+ outer_terrain_beach 
