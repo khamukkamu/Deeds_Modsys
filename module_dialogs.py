@@ -43900,9 +43900,9 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
       (troop_get_inventory_slot, ":item_id", "trp_player", ":custom_armour"),
       (ge, ":item_id", 0),
       (item_slot_ge, ":item_id", slot_item_num_components, 1),
-      (str_store_item_name, s1, ":item_id"),
+      (str_store_item_name, s66, ":item_id"),
 
-   ], "{s1}", "tailor_custom_armor_choose", [
+   ], "{s66}", "tailor_custom_armor_choose", [
 	(store_repeat_object, ":custom_armour"),
 	(troop_get_inventory_slot, "$g_current_opened_item_details", "trp_player", ":custom_armour"),
    ],
@@ -43917,57 +43917,57 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 	(item_get_value, ":price",  "$g_current_opened_item_details"),
 	(val_mul, ":price", 20),
 	(val_div, ":price", 100),
-	(assign,reg0, ":price"),
+	(assign,reg55, ":price"),
 
-  ], "{Sir/Madam}, this will cost you {reg0} crowns.", "tailor_custom_armor_confirm",[]],
+  ], "{Sir/Madam}, this will cost you {reg55} crowns.", "tailor_custom_armor_confirm",[]],
 
 # Deal or no deal
   [anyone|plyr,"tailor_custom_armor_confirm",
   [
 	(store_troop_gold, ":gold", "trp_player"),
-	(ge, ":gold", reg0),
+	(ge, ":gold", reg55),
 	(store_skill_level, ":persuasion_level", "skl_persuasion", "trp_player"),
 	(store_skill_level, ":trade_level", "skl_trade", "trp_player"),
 	(eq, ":persuasion_level", 0),
 	(eq, ":trade_level", 0),
   ],	"[Pay the asked price].", "town_merchant_finish",[
-	(troop_remove_gold, "trp_player", reg0),
+	(troop_remove_gold, "trp_player", reg55),
   ]
   ],
 
   [anyone|plyr,"tailor_custom_armor_confirm",
   [
-	(assign,reg2, 20),
+	(assign,reg57, 20),
 	(store_troop_gold, ":gold", "trp_player"),
-	(ge, ":gold", reg0),
-	(store_skill_level, reg1, "skl_persuasion", "trp_player"),
-	(gt, reg1, 0),
-	(val_sub, reg2, reg1),
+	(ge, ":gold", reg55),
+	(store_skill_level, reg56, "skl_persuasion", "trp_player"),
+	(gt, reg56, 0),
+	(val_sub, reg57, reg56),
 	(item_get_value, ":price",  "$g_current_opened_item_details"),
-	(val_mul, ":price", reg2),
+	(val_mul, ":price", reg57),
 	(val_div, ":price", 100),
 	(assign,reg0, ":price"),
 
-  ],	"[Persuasion {reg1}] Make it {reg0} crowns and I'll be more enclined to come back for bussiness.", "town_merchant_finish",[
-	(troop_remove_gold, "trp_player", reg0),
+  ],	"[Persuasion {reg56}] Make it {reg55} crowns and I'll be more enclined to come back for bussiness.", "town_merchant_finish",[
+	(troop_remove_gold, "trp_player", reg55),
   ]
   ],
 
   [anyone|plyr,"tailor_custom_armor_confirm",
   [
-	(assign,reg2, 20),
+	(assign,reg57, 20),
 	(store_troop_gold, ":gold", "trp_player"),
-	(ge, ":gold", reg0),
-	(store_skill_level, reg1, "skl_trade", "trp_player"),
-	(gt, reg1, 0),
-	(val_sub, reg2, reg1),
+	(ge, ":gold", reg55),
+	(store_skill_level, reg56, "skl_trade", "trp_player"),
+	(gt, reg56, 0),
+	(val_sub, reg57, reg56),
 	(item_get_value, ":price",  "$g_current_opened_item_details"),
-	(val_mul, ":price", reg2),
+	(val_mul, ":price", reg57),
 	(val_div, ":price", 100),
-	(assign,reg0, ":price"),
+	(assign,reg55, ":price"),
 
-  ],	"[Trade {reg1}] I'm certain that {reg0} crowns is a more reasonable price.", "town_merchant_finish",[
-	(troop_remove_gold, "trp_player", reg0),
+  ],	"[Trade {reg56}] I'm certain that {reg55} crowns is a more reasonable price.", "town_merchant_finish",[
+	(troop_remove_gold, "trp_player", reg55),
   ]
   ],
 
@@ -43975,7 +43975,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [anyone|plyr,"tailor_custom_armor_confirm",
   [
 	(store_troop_gold, ":gold", "trp_player"),
-	(le, ":gold", reg0),
+	(le, ":gold", reg55),
   ],	"I'm afraid I can't afford it at the moment.", "close_window",[(assign, "$g_current_opened_item_details", -1)]],
 
   [anyone|plyr,"tailor_custom_armor_confirm",[], "I need to think about this, perhaps later.","close_window",[(assign, "$g_current_opened_item_details", -1)]],

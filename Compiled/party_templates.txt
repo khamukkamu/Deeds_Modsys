@@ -6,12 +6,12 @@ pt_enemy Enemy 2 0 27 7 -1 -1 -1 -1 -1 -1
 pt_hero_party Hero_Party 2 0 1 7 -1 -1 -1 -1 -1 -1 
 pt_village_defenders Village_Defenders 6 0 1 7 25 10 20 0 186 0 4 0 -1 -1 -1 -1 
 pt_cattle_herd Cattle_Herd 2814749767106598 0 3 7 24 80 120 0 -1 -1 -1 -1 -1 
-pt_looters Looters 2251799813685257 0 2 312 176 3 45 0 -1 -1 -1 -1 -1 
-pt_routier_bandits Routiers 562949953421315 0 2 312 157 1 1 0 162 4 12 0 158 2 12 0 159 1 4 0 160 2 6 0 161 4 12 0 
-pt_flayer_bandits Flayers 562949953421321 0 2 312 163 1 1 0 164 4 12 0 165 2 8 0 166 2 8 0 -1 -1 
-pt_retondeur_bandits Retondeurs 562949953421321 0 2 312 167 2 8 0 168 4 12 0 169 2 8 0 -1 -1 -1 
-pt_tard_venu_bandits Tard-Venus 562949953421321 0 2 312 170 4 20 0 171 4 12 0 172 2 8 0 -1 -1 -1 
-pt_peasant_bandits Rebellious_Peasants 562949953421318 0 2 312 173 4 20 0 175 4 12 0 174 4 12 0 -1 -1 -1 
+pt_looters Looters 2251799813685257 0 2 312 176 5 50 0 -1 -1 -1 -1 -1 
+pt_routier_bandits Routiers 562949953421315 0 2 312 157 1 1 0 162 4 12 0 158 4 12 0 159 2 10 0 160 4 12 0 161 8 24 0 
+pt_flayer_bandits Flayers 562949953421321 0 2 312 163 1 1 0 164 6 18 0 165 4 12 0 166 2 8 0 -1 -1 
+pt_retondeur_bandits Retondeurs 562949953421321 0 2 312 167 2 12 0 168 6 18 0 169 2 8 0 -1 -1 -1 
+pt_tard_venu_bandits Tard-Venus 562949953421321 0 2 312 170 8 24 0 171 6 18 0 172 4 12 0 -1 -1 -1 
+pt_peasant_bandits Rebellious_Peasants 562949953421318 0 2 312 173 8 24 0 175 4 12 0 174 1 6 0 -1 -1 -1 
 pt_deserters Deserters 844424930131971 0 24 312 -1 -1 -1 -1 -1 -1 
 pt_troublesome_bandits Troublesome_Bandits 2533274790658057 0 2 312 177 14 55 0 -1 -1 -1 -1 -1 
 pt_bandits_awaiting_ransom Bandits_Awaiting_Ransom 2533274790789129 0 3 312 177 24 58 0 188 1 1 1 -1 -1 -1 -1 

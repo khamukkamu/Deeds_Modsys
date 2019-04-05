@@ -1,4 +1,4 @@
-1677
+1679
 qstr_Next_Page Next_Page
 qstr_Game_Rules:^ Game_Rules:^
 qstr_0 0
@@ -1676,3 +1676,5 @@ qstr_{reg1}_{reg2} {reg1},_{reg2}
 qstr_Weapons Weapons
 qstr_Armors Armors
 qstr_Done Done
+qstr_No_changes_were_made No_changes_were_made,_I've_refunded_you_the_amount_you_paid.
+qstr_No_changes_were_made_ No_changes_were_made,_so_I've_refunded_you_the_{reg55}_you_paid.
