@@ -25,39 +25,39 @@ from compiler import *
 ####################################################################################################################
 
 man_face_keys = [
-(20,0, 0.7,-0.6, "Chin Size"),
-(260,0, -0.6,1.4, "Chin Shape"),
-(10,0,-0.5,0.9, "Chin Forward"),
-(240,0,0.9,-0.8, "Jaw Width"),
-(210,0,-0.5,1.0, "Jaw Position"),
-(250,0,0.8,-1.0, "Mouth-Nose Distance"),
-(200,0,-0.3,1.0, "Mouth Width"),
-(50,0,-1.5,1.0, "Cheeks"),
+(240,0,-0.4,0.3, "Chin Size"), 
+(230,0,-0.4,0.8, "Chin Shape"), 
+(250,0,-0.25,0.55, "Chin Forward"), 
+(130,0,-0.5,1.0, "Jaw Width"),
+(120,0,-0.5,0.6, "Lower Lip"),
+(110,0,-0.2,0.6, "Upper Lip"),
+(100,0,0.2,-0.2, "Mouth-Nose Distance"),
+(90,0,0.55,-0.55, "Mouth Width"),
 
-(60,0,-0.4,1.35, "Nose Height"),
-(70,0,-0.6,0.7, "Nose Width"),
-(80,0,1.0,-0.1, "Nose Size"),
-(270,0,-0.5,1.0, "Nose Shape"),
-(90,0,-0.2,1.4, "Nose Bridge"),
+(30,0,-0.3,0.3, "Nostril Size"),
+(60,0,0.25,-0.25, "Nose Height"),
+(40,0,-0.2,0.3, "Nose Width"),
+(70,0,-0.3,0.4, "Nose Size"),
+(50,0,0.2,-0.3, "Nose Shape"),
+(80,0,-0.3,0.65, "Nose Bridge"),
 
-(100,0,-0.3,1.5, "Cheek Bones"),
-(150,0,-0.2,3.0, "Eye Width"),
-(110,0,1.5,-0.9, "Eye to Eye Dist"),
-(120,0,1.9,-1.0, "Eye Shape"),
-(130,0,-0.5, 1.1, "Eye Depth"),
-(140,0,1.0,-1.2, "Eyelids"),
+(160,0,-0.2,0.25, "Eye Width"),
+(190,0,-0.25,0.15, "Eye to Eye Dist"),
+(170,0,-0.85,0.85, "Eye Shape"),
+(200,0,-0.3,0.7, "Eye Depth"),
+(180,0,-1.5,1.5, "Eyelids"),
 
-(160,0,1.3,-0.2, "Eyebrow Position"),
-(170,0,-0.1,1.9, "Eyebrow Height"),
-(220,0,-0.1,0.9, "Eyebrow Depth"),
-(180,0,-1.1,1.6, "Eyebrow Shape"),
-(230,0,1.2,-0.7, "Temple Width"),
+(20,0,0.6,-0.25, "Cheeks"),
+(260,0,-0.6,0.5, "Cheek Bones"),
+(220,0,0.8,-0.8, "Eyebrow Height"),
+(210,0,-0.75,0.75, "Eyebrow Shape"),
+(10,0,-0.6,0.5, "Temple Width"),
 
-(30,0,-0.6,0.9, "Face Depth"),
-(40,0,0.9,-0.6, "Face Ratio"),
-(190,0,0.0,0.95, "Face Width"),
+(270,0,-0.3,1.0, "Face Depth"),
+(150,0,-0.25,0.45, "Face Ratio"),
+(140,0,-0.4,0.5, "Face Width"),
 
-(280,0,0.0,1.0, "Post-Edit"),
+(280,0,1.0,1.0, "Post-Edit"),
 ]
 # Face width-Jaw width Temple width
 woman_face_keys = [
@@ -139,29 +139,26 @@ skins = [
     ["beard_e","beard_d","beard_k","beard_l","beard_i","beard_j","beard_z","beard_m","beard_n","beard_y","beard_p","beard_o",   "beard_v", "beard_f", "beard_b", "beard_c","beard_t","beard_u","beard_r","beard_s","beard_a","beard_h","beard_g",], #beard meshes ,"beard_q"
     ["hair_blonde", "hair_red", "hair_brunette", "hair_black", "hair_white"], #hair textures
     ["beard_blonde","beard_red","beard_brunette","beard_black","beard_white"], #beard_materials
-    [("manface_young_2",0xffcbe0e0,["hair_blonde"],[0xffffffff, 0xffb04717, 0xff502a19]),
-     ("manface_midage",0xffdfefe1,["hair_blonde"],[0xffffffff, 0xffb04717, 0xff632e18, 0xff502a19, 0xff19100c]),
-     ("manface_young",0xffd0e0e0,["hair_blonde"],[0xff83301a, 0xff502a19, 0xff19100c, 0xff0c0d19]),     
-#     ("manface_old",0xffd0d0d0,["hair_white","hair_brunette","hair_red","hair_blonde"],[0xffffcded, 0xffbbcded, 0xff99eebb]),
-     ("manface_young_3",0xffdceded,["hair_blonde"],[0xff2f180e, 0xff171313, 0xff007080c]),
-     ("manface_7",0xffc0c8c8,["hair_blonde"],[0xff171313, 0xff007080c]),
-     ("manface_midage_2",0xfde4c8d8,["hair_blonde"],[0xff502a19, 0xff19100c, 0xff0c0d19]),
-     ("manface_rugged",0xffb0aab5,["hair_blonde"],[0xff171313, 0xff007080c]),
-#     ("manface_young_4",0xffe0e8e8,["hair_blonde"],[0xff2f180e, 0xff171313, 0xff007080c]),
-     ("manface_african",0xff807c8a,["hair_blonde"],[0xff120808, 0xff007080c]),     
-#     ("manface_old_2",0xffd5d5c5,["hair_white"],[0xffffcded, 0xffbbcded, 0xff99eebb]),
+    [("manface_1",0xffcbe0e0,["hair_blonde"],[0xffffffff, 0xffb04717, 0xff502a19]),
+     ("manface_2",0xffdfefe1,["hair_blonde"],[0xffffffff, 0xffb04717, 0xff632e18, 0xff502a19, 0xff19100c]),
+     ("manface_3",0xffd0e0e0,["hair_blonde"],[0xff83301a, 0xff502a19, 0xff19100c, 0xff0c0d19]),     
+     ("manface_4",0xffd0d0d0,["hair_blonde"],[0xffffcded, 0xffbbcded, 0xff99eebb]),
+     ("manface_5",0xffdceded,["hair_blonde"],[0xff2f180e, 0xff171313, 0xff007080c]),
+     ("manface_6",0xffc0c8c8,["hair_blonde"],[0xff171313, 0xff007080c]),
+     ("manface_7",0xfde4c8d8,["hair_blonde"],[0xff502a19, 0xff19100c, 0xff0c0d19]),
+     ("manface_8",0xffb0aab5,["hair_blonde"],[0xff171313, 0xff007080c]),
+     ("manface_9",0xffe0e8e8,["hair_blonde"],[0xff2f180e, 0xff171313, 0xff007080c]),
+     ("manface_10",0xffe0e8e8,["hair_blonde"],[0xff2f180e, 0xff171313, 0xff007080c]),
+    ("manface_11",0xffd5d5c5,["hair_blonde"],[0xffffcded, 0xffbbcded, 0xff99eebb]),
      ], #man_face_textures,
     [(voice_die,"snd_man_die"),(voice_hit,"snd_man_hit"),(voice_grunt,"snd_man_grunt"),(voice_grunt_long,"snd_man_grunt_long"),(voice_yell,"snd_man_yell"),(voice_stun,"snd_man_stun"),(voice_victory,"snd_man_victory")], #voice sounds
     "skel_human", 1.0,
     psys_game_blood,psys_game_blood_2,
-    [[1.7, comp_greater_than, (1.0,face_width), (1.0,temple_width)], #constraints: ex: 1.7 > (face_width + temple_width)
-     [0.3, comp_less_than, (1.0,face_width), (1.0,temple_width)],
-     [1.7, comp_greater_than, (1.0,face_width), (1.0,face_depth)],
-     [0.3, comp_less_than, (1.0,eyebrow_height), (1.0,eyebrow_position)],
-     [1.7, comp_greater_than, (1.0,eyebrow_height), (1.0,eyebrow_position)],
-     [-0.7, comp_less_than, (1.0,nose_size), (-1.0,nose_shape)],
-     [0.7, comp_greater_than, (1.0,nose_size), (-1.0,nose_shape)],
-     [2.7, comp_greater_than, (1.0,chin_size), (1.0,mouth_nose_distance), (1.0,nose_height), (-1.0,face_width)],
+	[[1.6, comp_greater_than, (1.0,eye_to_eye_dist), (1.0,temple_width)], #constraints: ex: 1.7 > (face_width + temple_width)
+     [0.6, comp_less_than, (1.0,eye_to_eye_dist), (1.0,temple_width)],  
+	 [1.5, comp_greater_than, (1.0,face_ratio), (1.0,mouth_width)],  # face ratio and mouth to nose distance
+	 [0.6, comp_greater_than, (-1.0,nose_width), (1.0,mouth_width)],  # nose height and mouth to nose distance
+	 [-1.0, comp_less_than, (-1.0,nose_width), (1.0,mouth_width)],  # nose height and mouth to nose distance
      ]
   ),
   
