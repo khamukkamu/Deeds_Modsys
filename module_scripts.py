@@ -62523,7 +62523,7 @@ scripts = [
 			(assign, reg1, ":min_score"),
 			(display_message, "@{!}DEBUG - player renown {reg0}, required renown {reg1}"),
 		  (try_end),
-		 (str_store_string, s14, "@{playername}, I know that if it were not for you I would not sit on this throne, but your name is little renowned in Calradia.  Marrying you would be perceived as an uneven match and would call into question my own claim to the throne."),
+		 (str_store_string, s14, "@{playername}, I know that if it were not for you I would not sit on this throne, but your name is little renowned in France.  Marrying you would be perceived as an uneven match and would call into question my own claim to the throne."),
 	  (else_try),
 		  #check player has sufficient fiefs
 		  (store_mul, ":player_score", ":player_towns", 3),
@@ -66952,7 +66952,7 @@ scripts = [
                  (str_store_faction_name, s45, "$players_kingdom"),
              (else_try),
                  (assign, reg45, 0),
-                 (str_store_string, s45, "@Calradia."),
+                 (str_store_string, s45, "@France."),
              (try_end),
 
              # status

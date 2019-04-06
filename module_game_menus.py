@@ -107,11 +107,11 @@ game_menus = [
   ),
 
   ("start_phase_2",mnf_disable_all_keys,
-    "You hear about Calradia, a land torn between rival kingdoms battling each other for supremacy,\
+    "You hear about France, a land torn between rival kingdoms battling each other for supremacy,\
  a haven for knights and mercenaries, cutthroats and adventurers, all willing to risk their lives in pursuit of fortune, power, or glory...\
  In this land which holds great dangers and even greater opportunities, you believe you may leave your past behind and start a new life.\
  You feel that finally, you hold the key of your destiny in your hands, free to choose as you will,\
- and that whatever course you take, great adventures will await you. Drawn by the stories you hear about Calradia and its kingdoms, you...",
+ and that whatever course you take, great adventures will await you. Drawn by the stories you hear about France and its kingdoms, you...",
     "none",
     [
       #SB : auto-sort through inventory, get rid of duplicate armor (and add them as gold)
@@ -13469,28 +13469,28 @@ TOTAL:  {reg5}"),
     "none",
     [
 
-	 (assign, ":calradian_average_urban_hardship", 0),
-	 (assign, ":calradian_average_rural_hardship", 0),
+	 (assign, ":average_urban_hardship", 0),
+	 (assign, ":average_rural_hardship", 0),
 
 	 (try_for_range, ":center", towns_begin, towns_end),
 		(call_script, "script_center_get_goods_availability", ":center"),
-		(val_add, ":calradian_average_urban_hardship", reg0),
+		(val_add, ":average_urban_hardship", reg0),
 	 (try_end),
 
 	 (try_for_range, ":center", villages_begin, villages_end),
 		(call_script, "script_center_get_goods_availability", ":center"),
-		(val_add, ":calradian_average_rural_hardship", reg0),
+		(val_add, ":average_rural_hardship", reg0),
 	 (try_end),
 
-	 (val_div, ":calradian_average_rural_hardship", 110),
-	 (val_div, ":calradian_average_urban_hardship", 22),
+	 (val_div, ":average_rural_hardship", 110),
+	 (val_div, ":average_urban_hardship", 22),
 
 
 
 	 (call_script, "script_center_get_goods_availability", "$g_encountered_party"),
 
-	 (assign, reg1, ":calradian_average_urban_hardship"),
-	 (assign, reg2, ":calradian_average_rural_hardship"),
+	 (assign, reg1, ":average_urban_hardship"),
+	 (assign, reg2, ":average_rural_hardship"),
 
 	 (try_begin),
 		(ge, "$cheat_mode", 1),
@@ -13521,9 +13521,9 @@ TOTAL:  {reg5}"),
        (party_get_slot, ":price", "$g_encountered_party", ":cur_good_price_slot"),
 
 	   (assign, ":total_centers", 0),
-	   (assign, ":calradian_average_price", 0),
-	   (assign, ":calradian_average_production", 0),
-	   (assign, ":calradian_average_consumption", 0),
+	   (assign, ":average_price", 0),
+	   (assign, ":average_production", 0),
+	   (assign, ":average_consumption", 0),
 
 	   (try_for_range, ":center", centers_begin, centers_end),
 		(neg|is_between, ":center", castles_begin, castles_end),
@@ -13534,17 +13534,17 @@ TOTAL:  {reg5}"),
 		(store_add, ":center_consumption", reg1, reg2),
 
         (party_get_slot, ":center_price", ":center", ":cur_good_price_slot"),
-	    (val_add, ":calradian_average_price", ":center_price"),
-	    (val_add, ":calradian_average_production", ":center_production"),
-	    (val_add, ":calradian_average_consumption", ":center_consumption"),
+	    (val_add, ":average_price", ":center_price"),
+	    (val_add, ":average_production", ":center_production"),
+	    (val_add, ":average_consumption", ":center_consumption"),
 	   (try_end),
 
-	   (assign, ":calradian_total_production", ":calradian_average_production"),
-	   (assign, ":calradian_total_consumption", ":calradian_average_consumption"),
+	   (assign, ":total_production", ":average_production"),
+	   (assign, ":total_consumption", ":average_consumption"),
 
-	   (val_div, ":calradian_average_price", ":total_centers"),
-	   (val_div, ":calradian_average_production", ":total_centers"),
-	   (val_div, ":calradian_average_consumption", ":total_centers"),
+	   (val_div, ":average_price", ":total_centers"),
+	   (val_div, ":average_production", ":total_centers"),
+	   (val_div, ":average_consumption", ":total_centers"),
 
 
        (str_store_item_name, s3, ":cur_good"),
@@ -13554,20 +13554,20 @@ TOTAL:  {reg5}"),
        (assign, reg3, ":production"),
        (assign, reg4, ":price"),
 
-	   (assign, reg5, ":calradian_average_production"),
-	   (assign, reg6, ":calradian_average_price"),
+	   (assign, reg5, ":average_production"),
+	   (assign, reg6, ":average_price"),
 
 	   (assign, reg7, ":consumer_consumption"),
 	   (assign, reg8, ":raw_material_consumption"),
 	   (assign, reg9, ":consumption"),
 
-	   (assign, reg10, ":calradian_average_consumption"),
+	   (assign, reg10, ":average_consumption"),
 
 	   (item_get_slot, ":production_slot", ":cur_good", slot_item_production_slot),
 	   (party_get_slot, ":production_number", "$g_encountered_party", ":production_slot"),
 	   (assign, reg11, ":production_number"),
-	   (assign, reg12, ":calradian_total_production"),
-	   (assign, reg13, ":calradian_total_consumption"),
+	   (assign, reg12, ":total_production"),
+	   (assign, reg13, ":total_consumption"),
 
 	   (item_get_slot, ":production_string", ":cur_good", slot_item_production_string),
 	   (str_store_string, s4, ":production_string"),
@@ -17357,7 +17357,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
   (
     "notification_player_faction_active",0,
-    "You now possess land in your name, without being tied to any kingdom. This makes you a monarch in your own right, with your court temporarily located at {s12}. However, the other kings in Calradia will at first consider you a threat, for if any upstart warlord can grab a throne, then their own legitimacy is called into question.^^You may find it desirable at this time to pledge yourself to an existing kingdom. If you want to continue as a sovereign monarch, then your first priority should be to establish an independent right to rule. You can establish your right to rule through several means -- marrying into a high-born family, recruiting new lords, governing your lands, treating with other kings, or dispatching your companions on missions.^^At any rate, your first step should be to appoint a chief minister from among your companions, to handle affairs of state. Different companions have different capabilities.^You may appoint new ministers from time to time. You may also change the location of your court, by speaking to the minister.",
+    "You now possess land in your name, without being tied to any kingdom. This makes you a monarch in your own right, with your court temporarily located at {s12}. However, the other noble houses in France will at first consider you a threat, for if any upstart warlord can grab a throne, then their own legitimacy is called into question.^^You may find it desirable at this time to pledge yourself to an existing kingdom. If you want to continue as a sovereign monarch, then your first priority should be to establish an independent right to rule. You can establish your right to rule through several means -- marrying into a high-born family, recruiting new lords, governing your lands, treating with other kings, or dispatching your companions on missions.^^At any rate, your first step should be to appoint a chief minister from among your companions, to handle affairs of state. Different companions have different capabilities.^You may appoint new ministers from time to time. You may also change the location of your court, by speaking to the minister.",
     "none",
     [
       (set_fixed_point_multiplier, 100),
@@ -17823,7 +17823,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
   (
     "notification_one_faction_left",0,
-    "Calradia Conquered by One Kingdom^^{s1} has defeated all rivals and stands as the sole kingdom.",
+    "France Conquered by One Kingdom^^{s1} has defeated all rivals and stands as the sole kingdom.",
     "none",
     [
       (str_store_faction_name, s1, "$g_notification_menu_var1"),
@@ -20190,7 +20190,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (eq, "$g_notification_menu_var2", "$g_notification_menu_var1"),
         ##nested diplomacy end+
         #SB : some fixes
-        (str_store_string, s11, "@{playername}, ^^I always knew you were a bad egg, since the day you have pledged allegiance to my clan. ^Did you really think you could set my family against me? You've dropped your mask, you snake! You are an infliction, and I will not bear it anymore. ^Hereby, I disown and ban you from my house. I have urged my family to fight you, and I will warn all Calradian lords of your infamy. ^Tremble with fear, for now you have a deadly enemy! ^^{s9}."),
+        (str_store_string, s11, "@{playername}, ^^I always knew you were a bad egg, since the day you have pledged allegiance to my clan. ^Did you really think you could set my family against me? You've dropped your mask, you snake! You are an infliction, and I will not bear it anymore. ^Hereby, I disown and ban you from my house. I have urged my family to fight you, and I will warn all noble families of your infamy. ^Tremble with fear, for now you have a deadly enemy! ^^{s9}."),
       (else_try),
         ##nested diplomacy start+ (2) Fix a bug from the Diplomacy 3.3.2 version of this menu by getting your ex-affiliate
 	    #from "$g_notification_menu_var2" instead of "$g_player_affiliated_troop".
@@ -20544,7 +20544,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   ),
 
   ("dplmc_start_select_prejudice",menu_text_color(0xFF000000)|mnf_disable_all_keys,
-    "In the traditional medieval society depicted in the game, war and politics are usually dominated by male members of the nobility.  Beacuse of this, a female character can face initial prejudice, and some opportunities open to men will not be available (although a woman will also have some opportunities a man will not).  Some players might find distasteful, so if you want you can ignore that aspect of society in Calradia.^^You can later change your mind through the options in the Camp menu.",
+    "In the traditional medieval society depicted in the game, war and politics are usually dominated by male members of the nobility.  Beacuse of this, a female character can face initial prejudice, and some opportunities open to men will not be available (although a woman will also have some opportunities a man will not).  Some players might find distasteful, so if you want you can ignore that aspect of society in medieval Europe.^^You can later change your mind through the options in the Camp menu.",
     "none",
     [],
     [
