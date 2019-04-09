@@ -1298,7 +1298,7 @@ scenes = [
     [],[]),
 
 
-# Scene Collection List
+# DAC Scene Collection List
 
 # Bowman's Improved scenes
 
@@ -1503,4 +1503,58 @@ scenes = [
 ("bm_town_13_alley",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030000500000d2348000030c40000061200007962",
   [],[],"outer_terrain_beach"),
 
+
+# GoKiller's Ultimate Scene Pack
+# Castles
+
+#Alnor
+("gk_castle_35_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000003000000000047919000041ef00005ae800003c55",
+  [],[],"outer_terrain_plain"),
+
+#Dimmore
+("gk_castle_13_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000003000000000064d8e000041ef00005ae800003c55",
+  [],[],"outer_terrain_plain"),
+
+#Earnside
+("gk_castle_27_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300000000002fcbf000041ef00005ae800003c55",
+  [],[],"outer_terrain_plain"),
+
+#Greenhill
+("gk_castle_31_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300000000002fcbf000041ef00005ae800003c55",
+  [],[],"outer_terrain_plain"),
+
+#Grimtol
+("gk_castle_8_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300000000002fcbf000041ef00005ae800003c55",
+  [],[],"outer_terrain_plain"),
+
+#Northfort
+("gk_castle_20_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300000000002fcbf000041ef00005ae800003c55",
+  [],[],"outer_terrain_plain"),
+
+#Stormstar
+("gk_castle_25_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300000000005a16d000041ef00005ae800003c55",
+  [],[],"outer_terrain_plain"),
+
+#Unnamed
+("gk_castle_40_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000015546938c0005194a0000242100005a8900006a85",
+  [],[],"outer_terrain_steppe"),
+
+
+# Villages
+
+# Village 3
+("gk_village_3",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030000000000400f6000041ef00005ae800003c55",
+  [],[],"outer_terrain_plain"),
+
+# Village 13
+("gk_village_13",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300000000005194a000041ef00005ae800003c55",
+    [],[], "outer_terrain_plain"),
+
+# Village 55
+("gk_village_55",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300000000003d8f6000041ef00005ae800003c55",
+  [],[],"outer_terrain_plain"),
+
+# Village 57
+("gk_village_57",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300000000003c0f0000041ef00005ae800003c55",
+  [],[],"outer_terrain_plain"),
 ]
