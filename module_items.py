@@ -500,7 +500,7 @@ items = [
 1056 , weight(3)|abundance(100)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(8) ,imodbits_plate ],
 ["h_houndskull_fi", "Houndskull Bascinet", [("h_houndskull_fi",0)], itp_merchandise|itp_type_head_armor|itp_covers_head| itp_attach_armature   ,0, 
 1056 , weight(3)|abundance(100)|head_armor(48)|body_armor(0)|leg_armor(0)|difficulty(8) ,imodbits_plate ],
-["h_bascinet_fi_noseguard", "Bascinet with Noseguard", [("h_bascinet_fi_noseguard",0)], itp_merchandise|itp_type_head_armor| itp_attach_armature   ,0, 
+["h_bascinet_fi_noseguard", "Bascinet with Noseguard", [("h_bascinet_fi_noseguard",0)], itp_merchandise|itp_type_head_armor| itp_attach_armature|itp_covers_beard   ,0, 
 1034 , weight(2.25)|abundance(100)|head_armor(47)|body_armor(0)|leg_armor(0)|difficulty(8) ,imodbits_plate ],
 ["h_zitta_bascinet_novisor", "Bascinet with Aventail", [("h_zitta_bascinet_novisor",0)], itp_merchandise|itp_type_head_armor| itp_attach_armature   ,0, 
 990 , weight(2.25)|abundance(100)|head_armor(45)|body_armor(0)|leg_armor(0)|difficulty(8) ,imodbits_plate ],
