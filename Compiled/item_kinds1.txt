@@ -2932,63 +2932,63 @@ itemsfile version 3
  0
 0
 
- itm_w_light_lance Light_Lance Light_Lance 1  w_light_lance 0  9007202614706180 9254615759470988544 285 8202 3.000000 100 0 0 0 9 0 84 0 355 0 281 512
+ itm_w_light_lance Light_Lance Light_Lance 1  w_light_lance 0  9007202480488452 9254615759470988544 285 8202 3.000000 100 0 0 0 9 0 84 0 355 0 281 512
  0
 0
 
- itm_w_native_spear_b Light_Lance Light_Lance 1  w_native_spear_b 0  9007202614706180 9254615759470988544 214 8202 2.500000 100 0 0 0 9 0 88 0 175 0 283 512
+ itm_w_native_spear_b Light_Lance Light_Lance 1  w_native_spear_b 0  9007202480488452 9254615759470988544 214 8202 2.500000 100 0 0 0 9 0 88 0 175 0 283 512
  0
 0
 
- itm_w_native_spear_f Light_Lance Light_Lance 1  w_native_spear_f 0  9007202614706180 9254615759470988544 224 8202 2.400000 100 0 0 0 9 0 86 0 190 0 285 512
+ itm_w_native_spear_f Light_Lance Light_Lance 1  w_native_spear_f 0  9007202480488452 9254615759470988544 224 8202 2.400000 100 0 0 0 9 0 86 0 190 0 285 512
  0
 0
 
- itm_w_lance_1 Lance Lance 1  w_lance_1 0  3225419780 201326848 320 8202 4.400000 100 0 0 0 12 0 82 0 267 0 291 35
+ itm_w_lance_1 Lance Lance 1  w_lance_1 0  2152005636 201326848 320 8202 4.400000 100 0 0 0 12 0 82 0 267 0 291 35
  0
 0
 
- itm_w_lance_2 Lance Lance 1  w_lance_2 0  3225419780 201326848 286 8202 4.000000 100 0 0 0 12 0 85 0 226 0 287 31
+ itm_w_lance_2 Lance Lance 1  w_lance_2 0  2152005636 201326848 286 8202 4.000000 100 0 0 0 12 0 85 0 226 0 287 31
  0
 0
 
- itm_w_lance_3 Lance Lance 1  w_lance_3 0  3225419780 201326848 307 8202 4.200000 100 0 0 0 12 0 83 0 253 0 288 32
+ itm_w_lance_3 Lance Lance 1  w_lance_3 0  2152005636 201326848 307 8202 4.200000 100 0 0 0 12 0 83 0 253 0 288 32
  0
 0
 
- itm_w_lance_4 Lance Lance 1  w_lance_4 0  3225419780 201326848 307 8202 4.200000 100 0 0 0 12 0 83 0 253 0 288 32
+ itm_w_lance_4 Lance Lance 1  w_lance_4 0  2152005636 201326848 307 8202 4.200000 100 0 0 0 12 0 83 0 253 0 288 32
  0
 0
 
- itm_w_lance_5 Lance Lance 1  w_lance_5 0  3225419780 201326848 308 8202 4.200000 100 0 0 0 12 0 83 0 252 0 290 34
+ itm_w_lance_5 Lance Lance 1  w_lance_5 0  2152005636 201326848 308 8202 4.200000 100 0 0 0 12 0 83 0 252 0 290 34
  0
 0
 
- itm_w_lance_6 Lance Lance 1  w_lance_6 0  3225419780 201326848 296 8202 4.300000 100 0 0 0 12 0 83 0 241 0 286 30
+ itm_w_lance_6 Lance Lance 1  w_lance_6 0  2152005636 201326848 296 8202 4.300000 100 0 0 0 12 0 83 0 241 0 286 30
  0
 0
 
- itm_w_lance_colored_english_1 English_Lance English_Lance 1  w_lance_colored_english_1 0  3225419780 201326848 308 8202 4.200000 100 0 0 0 12 0 83 0 252 0 290 34
+ itm_w_lance_colored_english_1 English_Lance English_Lance 1  w_lance_colored_english_1 0  2152005636 201326848 308 8202 4.200000 100 0 0 0 12 0 83 0 252 0 290 34
  0
 0
 
- itm_w_lance_colored_english_2 English_Lance English_Lance 1  w_lance_colored_english_2 0  3225419780 201326848 308 8202 4.200000 100 0 0 0 12 0 83 0 252 0 290 34
+ itm_w_lance_colored_english_2 English_Lance English_Lance 1  w_lance_colored_english_2 0  2152005636 201326848 308 8202 4.200000 100 0 0 0 12 0 83 0 252 0 290 34
  0
 0
 
- itm_w_lance_colored_english_3 English_Lance English_Lance 1  w_lance_colored_english_3 0  3225419780 201326848 320 8202 4.400000 100 0 0 0 12 0 82 0 267 0 291 35
+ itm_w_lance_colored_english_3 English_Lance English_Lance 1  w_lance_colored_english_3 0  2152005636 201326848 320 8202 4.400000 100 0 0 0 12 0 82 0 267 0 291 35
  0
 0
 
- itm_w_lance_colored_french_1 French_Lance French_Lance 1  w_lance_colored_french_1 0  3225419780 201326848 308 8202 4.200000 100 0 0 0 12 0 83 0 252 0 290 34
+ itm_w_lance_colored_french_1 French_Lance French_Lance 1  w_lance_colored_french_1 0  2152005636 201326848 308 8202 4.200000 100 0 0 0 12 0 83 0 252 0 290 34
  0
 0
 
- itm_w_lance_colored_french_2 French_Lance French_Lance 1  w_lance_colored_french_2 0  3225419780 201326848 308 8202 4.200000 100 0 0 0 12 0 83 0 252 0 290 34
+ itm_w_lance_colored_french_2 French_Lance French_Lance 1  w_lance_colored_french_2 0  2152005636 201326848 308 8202 4.200000 100 0 0 0 12 0 83 0 252 0 290 34
  0
 0
 
- itm_w_lance_colored_french_3 French_Lance French_Lance 1  w_lance_colored_french_3 0  3225419780 201326848 308 8202 4.200000 100 0 0 0 12 0 83 0 252 0 290 34
+ itm_w_lance_colored_french_3 French_Lance French_Lance 1  w_lance_colored_french_3 0  2152005636 201326848 308 8202 4.200000 100 0 0 0 12 0 83 0 252 0 290 34
  0
 0
 
