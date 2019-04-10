@@ -1557,4 +1557,20 @@ scenes = [
 # Village 57
 ("gk_village_57",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300000000003c0f0000041ef00005ae800003c55",
   [],[],"outer_terrain_plain"),
+
+# DNO Scenes
+
+# Town 8
+("dno_town_8_center",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000003400005000008c230000041540000681800000709",
+  [],[],"outer_terrain_snow"),
+("dno_town_8_walls",sf_generate,"none", "none", (0,0),(300,300),-100,"0x000000033000124c000acab40000280700000c9f00000ab5",
+  [],[],"outer_terrain_none"),
+("dno_town_8_alley",sf_generate,"none", "none", (0,0),(300,300),-100,"0x000000033000124c000acab40000280700000c9f00000ab5",
+  [],[],"outer_terrain_none"),
+("dno_town_8_tavern", sf_indoors, "interior_tavern_b", "bo_interior_tavern_b", (-100, -100), (100, 100), -100, "0",["exit"], []),
+
+# Castle
+("dno_castle_euro4_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000230041fb20005fd7d00002692000029b700007d12",
+  [],[],"outer_terrain_plain"),
+
 ]
