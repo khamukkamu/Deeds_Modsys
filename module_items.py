@@ -804,7 +804,7 @@ items = [
 ["a_plate_harness_3", "Plate Harness", [("a_plate_harness_3",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0, 6230, weight(30)|abundance(100)|head_armor(0)|body_armor(62)|leg_armor(24)|difficulty(9), imodbits_armor],
 
 ["a_plate_english", "English Plate Armour", [("a_english_plate",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0, 6540, weight(29)|abundance(100)|head_armor(8)|body_armor(64)|leg_armor(24)|difficulty(9), imodbits_armor ],
-["a_plate_joan", "Joan's Plate Armour", [("a_plate_joan",0)], itp_type_body_armor|itp_covers_legs, 0, 9000, weight(29)|abundance(100)|head_armor(0)|body_armor(70)|leg_armor(28)|difficulty(12), imodbits_armor ],
+["a_plate_joan", "Jeanne's Plate Armour", [("a_plate_joan",0)], itp_type_body_armor|itp_covers_legs, 0, 9000, weight(29)|abundance(100)|head_armor(0)|body_armor(70)|leg_armor(28)|difficulty(12), imodbits_armor ],
 
 ##################################################################################################################################################################################################################################################################################################################
 ###################################################################################################### HYW HERALDIC ARMOR ########################################################################################################################################################################################

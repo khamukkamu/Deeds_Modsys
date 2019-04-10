@@ -43946,9 +43946,9 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 	(item_get_value, ":price",  "$g_current_opened_item_details"),
 	(val_mul, ":price", reg57),
 	(val_div, ":price", 100),
-	(assign,reg0, ":price"),
+	(assign,reg55, ":price"),
 
-  ],	"[Persuasion {reg56}] Make it {reg55} crowns and I'll be more enclined to come back for bussiness.", "town_merchant_finish",[
+  ],	"[Persuasion {reg56}] Make it {reg55} crowns and I'll be more inclined to come back for bussiness.", "town_merchant_finish",[
 	(troop_remove_gold, "trp_player", reg55),
   ]
   ],
