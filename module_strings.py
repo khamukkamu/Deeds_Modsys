@@ -5235,6 +5235,7 @@ Even in the last case, the player can make formations up to four lines by orderi
 ## Native Shirt
 ("a_shirt_black", "a_shirt_black"),  
 ("a_shirt_blue", "a_shirt_blue"),  
+("a_shirt_brown", "a_shirt_brown"),
 ("a_shirt_green", "a_shirt_green"),  
 ("a_shirt_red", "a_shirt_red"),  
 ("a_shirt_white", "a_shirt_white"),
