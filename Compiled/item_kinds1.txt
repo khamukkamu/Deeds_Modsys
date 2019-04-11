@@ -814,7 +814,7 @@ itemsfile version 3
  0
 0
 
- itm_h_bascinet_fi_noseguard Bascinet_with_Noseguard Bascinet_with_Noseguard 1  h_bascinet_fi_noseguard 0  69388 0 1034 704643238 2.250000 100 47 0 0 8 0 0 0 0 0 0 0
+ itm_h_bascinet_fi_noseguard Bascinet_with_Noseguard Bascinet_with_Noseguard 1  h_bascinet_fi_noseguard 0  68719546124 0 1034 704643238 2.250000 100 47 0 0 8 0 0 0 0 0 0 0
  0
 0
 
