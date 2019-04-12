@@ -549,17 +549,6 @@ items = [
 ["h_cerveliere_mail", "Cerveliere with Mail Coif", [("h_cerveliere",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
 816 , weight(1.5)|abundance(100)|head_armor(41)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@o_mail_coif_narf", 0, 0),])]],
 
-# Byzantion Base: 24; Hood: 8; Padding: 12; Mail Narf: 16
-["h_byzantion_padded", "Byzantion Helmet with Padded Cloth", [("h_byzantion",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-598 , weight(1.75)|abundance(100)|head_armor(36)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@o_padded_coif_narf", 0, 0),])]],
-["h_byzantion_mail", "Byzantion Helmet with Mail Coif", [("h_byzantion",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-796 , weight(1.75)|abundance(100)|head_armor(40)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@o_mail_coif_narf", 0, 0),])]],
-
-["h_byzantion_painted_padded", "Byzantion Helmet with Padded Cloth", [("h_byzantion_painted",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-598 , weight(1.75)|abundance(100)|head_armor(36)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@o_padded_coif_narf", 0, 0),])]],
-["h_byzantion_painted_mail", "Byzantion Helmet with Mail Coif", [("h_byzantion_painted",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-796 , weight(1.75)|abundance(100)|head_armor(40)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@o_mail_coif_narf", 0, 0),])]],
-
 # Chapel de Fer Base: 22; Hood: 8; Padding: 12; Mail Narf: 16; Gorget: 18
 ["h_chapel_de_fer_1_padded", "Chapel de Fer with Padded Cloth", [("h_chapel_de_fer_1",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
 564 , weight(1.75)|abundance(100)|head_armor(34)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@o_padded_coif_narf", 0, 0),])]],
@@ -887,11 +876,6 @@ items = [
 # Cerveliere Base: 25; Hood: 8; Padding: 12; Mail Narf: 16
 ["h_cerveliere_hood_custom", "Cerveliere with Hood", [("o_hood_narf_base",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
 438 , weight(1.5)|abundance(100)|head_armor(33)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[custom_reskin("itm_h_cerveliere_hood_custom"),(ti_on_init_item,[(cur_item_add_mesh, "@h_cerveliere", 0, 0),])]],
-# Byzantion Base: 24; Hood: 8; Padding: 12; Mail Narf: 16
-["h_byzantion_hood_custom", "Byzantion Helmet with Hood", [("o_hood_narf_base",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-425 , weight(1.75)|abundance(100)|head_armor(32)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[custom_reskin("itm_h_byzantion_hood_custom"),(ti_on_init_item,[(cur_item_add_mesh, "@h_byzantion", 0, 0),])]],
-["h_byzantion_painted_hood_custom", "Byzantion Helmet with Hood", [("o_hood_narf_base",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-400 , weight(1.75)|abundance(100)|head_armor(30)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[custom_reskin("itm_h_byzantion_painted_hood_custom"),(ti_on_init_item,[(cur_item_add_mesh, "@h_byzantion_painted", 0, 0),])]],
 # Chapel de Fer Base: 22; Hood: 8; Padding: 12; Mail Narf: 16; Gorget: 18
 ["h_chapel_de_fer_1_hood_custom", "Chapel de Fer with Hood", [("o_hood_narf_base",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
 400 , weight(1.75)|abundance(100)|head_armor(30)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[custom_reskin("itm_h_chapel_de_fer_1_hood_custom"),(ti_on_init_item,[(cur_item_add_mesh, "@h_chapel_de_fer_1", 0, 0),])]],
