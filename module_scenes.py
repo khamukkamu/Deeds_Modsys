@@ -2956,4 +2956,98 @@ scenes = [
 ("dno_castle_euro4_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000230041fb20005fd7d00002692000029b700007d12",
   [],[],"outer_terrain_plain"),
 
+
+# RUS Scenes
+
+#Gdansk
+("rus_town_17_center", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x000000002005591e00040506000059a100002cd500005052",[], [], "outer_terrain_steppe"),
+("rus_town_17_castle", sf_indoors, "interior_castle_c", "bo_interior_castle_c", (-100, -100), (100, 100), -100, "0",["exit"], ["castle_12_seneschal"]),
+("rus_town_17_tavern", sf_indoors, "interior_tavern_c", "bo_interior_tavern_c", (-100, -100), (100, 100), -100, "0",["exit"], []),
+("rus_town_17_store", sf_indoors, "interior_town_house_steppe_g", "bo_interior_town_house_steppe_g", (-100, -100), (100, 100), -100, "0",["exit"], []),
+("rus_town_17_arena", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x000000002005591e00040506000059a100002cd500005052",[], [], "outer_terrain_steppe"),
+("rus_town_17_prison", sf_indoors, "interior_prison_n", "bo_interior_prison_n", (-100, -100), (100, 100), -100, "0",["exit"], []),
+("rus_town_17_walls", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x000000002005591e00040506000059a100002cd500005052",[], [], "outer_terrain_steppe"),
+("rus_town_17_alley", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x0000000420000500000334ce00001d1100003d0600000d27",[], [], "outer_terrain_steppe"),
+
+#Poznan
+("rus_town_14_center", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x00000003b00787520004dd3d000072a000003c780000409f",[], [], "outer_terrain_steppe"),
+("rus_town_14_castle", sf_indoors, "interior_castle_g_square_keep", "bo_interior_castle_g_square_keep", (-100, -100), (100, 100), -100, "0",["exit"], ["town_7_seneschal"]),
+("rus_town_14_tavern", sf_indoors, "mod_s_interior_town_house_steppe_g", "bo_interior_town_house_steppe_g", (-100, -100), (100, 100), -100, "0",["exit"], []),
+("rus_town_14_store", sf_indoors, "interior_house_extension_h", "bo_interior_house_extension_h", (-100, -100), (100, 100), -100, "0",["exit"], []),
+("rus_town_14_arena", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x00000002200005000005f57b00005885000046bd00006d9c",[], [], "outer_terrain_steppe"),
+("rus_town_14_prison", sf_indoors, "interior_prison_n", "bo_interior_prison_n", (-100, -100), (100, 100), -100, "0",["exit"], []),
+("rus_town_14_walls", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x00000003b00787520004dd3d000072a000003c780000409f",[], [], "outer_terrain_steppe"),
+("rus_town_14_alley", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x0000000420000500000334ce00001d1100003d0600000d27",[], [], "outer_terrain_steppe"),
+
+#Krakow
+("rus_town_12_center", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x0000000230078563000541320000775f000047e900002417",[], [], "outer_terrain_plain"),
+("rus_town_12_castle", sf_indoors, "interior_castle_x", "bo_interior_castle_x", (-100, -100), (100, 100), -100, "0",["exit"], ["town_5_seneschal"]),
+("rus_town_12_tavern", sf_indoors, "interior_town_house_aa", "bo_interior_town_house_aa", (-100, -100), (100, 100), -100, "0",["exit"], []),
+("rus_town_12_store", sf_indoors, "interior_house_a", "bo_interior_house_a", (-100, -100), (100, 100), -100, "0",["exit"], []),
+("rus_town_12_arena", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0xa0001d9300031ccb0000156f000048ba0000361c",[], [], "outer_terrain_town_thir_1"),
+("rus_town_12_prison", sf_indoors, "interior_prison_d", "bo_interior_prison_d", (-100, -100), (100, 100), -100, "0",["exit"], []),
+("rus_town_12_walls", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x0000000230078563000541320000775f000047e900002417",[], [], "outer_terrain_plain"),
+("rus_town_12_alley", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x300bc5430001e0780000448a0000049f00007932",[], [], "outer_terrain_town_thir"),
+
+#Wroclaw
+("rus_town_13_center", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x0000000330078adc0005896200003c0800001a3200006859",[], ["town_20_master_craftsman"], "outer_terrain_plain"),
+("rus_town_13_castle", sf_indoors, "interior_castle_b", "bo_interior_castle_b", (-100, -100), (100, 100), -100, "0",["exit"], ["town_6_seneschal"]),
+("rus_town_13_tavern", sf_indoors, "interior_tavern_g", "bo_interior_tavern_g", (-100, -100), (100, 100), -100, "0",["exit"], []),
+("rus_town_13_store", sf_indoors, "interior_town_house_j", "bo_interior_town_house_j", (-100, -100), (100, 100), -100, "0",["exit"], []),
+("rus_town_13_arena", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0xa0001d9300031ccb0000156f000048ba0000361c",[], []),
+("rus_town_13_prison", sf_indoors, "interior_prison_a", "bo_interior_prison_a", (-100, -100), (100, 100), -100, "0",["exit"], []),
+("rus_town_13_walls", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x0000000330078adc0005896200003c0800001a3200006859",[], [], "outer_terrain_plain"),
+("rus_town_13_alley", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x300bc5430001e0780000448a0000049f00007932",[], []),
+
+#Plock
+("rus_town_15_center", sf_generate, "none", "none", (0, 0), (180, 180), -100, "0x30050d0d0002d4b300000e2f000027d200005f66",[], [], "outer_terrain_steppe"),
+("rus_town_15_castle", sf_indoors, "interior_castle_e", "bo_interior_castle_e", (-100, -100), (100, 100), -100, "0",["exit"], ["town_8_seneschal"]),
+("rus_town_15_tavern", sf_indoors, "interior_tavern_d", "bo_interior_tavern_d", (-100, -100), (100, 100), -100, "0",["exit"], []),
+("rus_town_15_store", sf_indoors, "interior_town_house_c", "bo_interior_town_house_c", (-100, -100), (100, 100), -100, "0",["exit"], []),
+("rus_town_15_arena", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x30050d0d0002d4b300000e2f000027d200005f66",[], [], "outer_terrain_plain"),
+("rus_town_15_prison", sf_indoors, "interior_prison_f", "bo_interior_prison_f", (-100, -100), (100, 100), -100, "0",["exit"], []),
+("rus_town_15_walls", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x30050d0d0002d4b300000e2f000027d200005f66",[], [], "outer_terrain_steppe"),
+("rus_town_15_alley", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x300bc5430001e0780000448a0000049f00007932",[], [], "outer_terrain_steppe"),
+
+#Sandomierz
+("rus_town_16_center", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x0000000130001887000334d0000073ed00004f1a00007a35",[], [], "outer_terrain_steppe"),
+("rus_town_16_castle", sf_indoors, "interior_castle_n", "bo_interior_castle_n", (-100, -100), (100, 100), -100, "0",["exit"], ["town_9_seneschal"]),
+("rus_town_16_tavern", sf_indoors, "interior_tavern_b", "bo_interior_tavern_b", (-100, -100), (100, 100), -100, "0",["exit"], []),
+("rus_town_16_store", sf_indoors, "interior_town_house_i", "bo_interior_town_house_i", (-100, -100), (100, 100), -100, "0",["exit"], []),
+("rus_town_16_arena", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x0000000130001887000334d0000073ed00004f1a00007a35",[], [], "outer_terrain_plain"),
+("rus_town_16_prison", sf_indoors, "interior_prison_k", "bo_interior_prison_k", (-100, -100), (100, 100), -100, "0",["exit"], []),
+("rus_town_16_walls", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x0000000130001887000334d0000073ed00004f1a00007a35",[], [], "outer_terrain_steppe"),
+("rus_town_16_alley", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x300bc5430001e0780000448a0000049f00007932",[], [], "outer_terrain_steppe"),
+
+#Riga
+("rus_town_21_center", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x00000002300785550003c0f30000658f00005ca100003384",[], [], "outer_terrain_plain"),
+("rus_town_21_castle", sf_indoors, "interior_castle_n", "bo_interior_castle_n", (-100, -100), (100, 100), -100, "0",["exit"], ["town_14_seneschal"]),
+("rus_town_21_tavern", sf_indoors, "interior_tavern_b", "bo_interior_tavern_b", (-100, -100), (100, 100), -100, "0",["exit"], []),
+("rus_town_21_store", sf_indoors, "interior_town_house_i", "bo_interior_town_house_i", (-100, -100), (100, 100), -100, "0",["exit"], []),
+("rus_town_21_arena", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x0000000130001887000334d0000073ed00004f1a00007a35",[], [], "outer_terrain_plain"),
+("rus_town_21_walls", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x00000002300785550003c0f30000658f00005ca100003384",[], [], "outer_terrain_plain"),
+("rus_town_21_alley", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x300bc5430001e0780000448a0000049f00007932",[], [], "outer_terrain_plain"),
+
+#Wenden
+("rus_town_22_center", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x00000000300798b2000380e3000037960000573900003f48",[], [], "outer_terrain_plain"),
+("rus_town_22_castle", sf_indoors, "interior_castle_w", "bo_interior_castle_w", (-100, -100), (100, 100), -100, "0",["exit"], ["town_15_seneschal"]),
+("rus_town_22_tavern", sf_indoors, "interior_town_house_f", "bo_interior_town_house_f", (-100, -100), (100, 100), -100, "0",["exit"], []),
+("rus_town_22_store", sf_indoors, "interior_house_b", "bo_interior_house_b", (-100, -100), (100, 100), -100, "0",["exit"], []),
+("rus_town_22_arena", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x00000000300798b2000380e3000037960000573900003f48",[], [], "outer_terrain_steppe"),
+("rus_town_22_prison", sf_indoors, "dungeon_cell_b", "bo_dungeon_cell_b", (-100, -100), (100, 100), -100, "0",["exit"], []),
+("rus_town_22_walls", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x00000000300798b2000380e3000037960000573900003f48",[], [], "outer_terrain_plain"),
+("rus_town_22_alley", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x0000000420000500000334ce00001d1100003d0600000d27",[], [], "outer_terrain_plain"), 
+
+#Kokenhausen
+("rus_castle_26_exterior", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x00000001300000000008ba33000041ef80005ae800003c55",[], [], "outer_terrain_plain"),
+("rus_castle_26_interior", sf_indoors, "castle_h_interior_a", "bo_castle_h_interior_a", (-100, -100), (100, 100), -100, "0",["exit"], ["castle_19_seneschal"]),
+("rus_castle_26_prison", sf_indoors, "interior_prison_h", "bo_interior_prison_h", (-100, -100), (100, 100), -100, "0",[], []),
+#Gerzika
+("rus_castle_27_exterior", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x00000001b00000000009124e000041ef00005ae800003c55",[], ["bonus_chest_1", "bonus_chest_2", "bonus_chest_3",], "outer_terrain_plain"),
+("rus_castle_27_interior", sf_indoors, "interior_castle_l", "bo_interior_castle_l", (-100, -100), (100, 100), -100, "0",["exit"], ["castle_20_seneschal"]),
+("rus_castle_27_prison", sf_indoors, "interior_prison_i", "bo_interior_prison_i", (-100, -100), (100, 100), -100, "0",[], []), 
+ 
+
+
+
 ]

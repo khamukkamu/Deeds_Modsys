@@ -1,5 +1,5 @@
 stringsfile version 1
-4065
+4066
 str_no_string NO_STRING!
 str_empty_string _
 str_yes Yes.
@@ -3821,6 +3821,7 @@ str_a_woman_common_dress_2_white a_woman_common_dress_2_white
 str_a_woman_common_dress_2_end a_woman_common_dress_2_end
 str_a_shirt_black a_shirt_black
 str_a_shirt_blue a_shirt_blue
+str_a_shirt_brown a_shirt_brown
 str_a_shirt_green a_shirt_green
 str_a_shirt_red a_shirt_red
 str_a_shirt_white a_shirt_white
