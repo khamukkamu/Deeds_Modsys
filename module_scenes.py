@@ -362,8 +362,10 @@ scenes = [
   [],[],"outer_terrain_desert"),
 ("town_65_center",sf_generate,"none", "none",(0,0),(100,100),-100,"0x0000000150051a800004190400003f8c0000352b000014d8",
   [],[],"outer_terrain_desert"),
-("town_66_center",sf_generate,"none", "none",(0,0),(100,100),-100,"0x000000025a03253200042d08000079d6000004fd00006910",
-  [],[],"outer_terrain_desert"),
+
+# Rennes - BM's Uxkhal
+("town_66_center",sf_generate|sf_muddy_water,"none", "none", (0,0),(100,100),-100,"0x0000000030000500000d2348000030c4000053ae00001d83",
+  [],[],"outer_terrain_plain"),
   
 ("town_67_center",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000003002498000035cd50000104100005e940000147b",
     [],["bonus_chest_3"],"outer_terrain_town_thir_1"),
@@ -549,8 +551,11 @@ scenes = [
     ["exit"],["town_20_seneschal"]),
   ("town_65_castle",sf_indoors, "arabian_interior_keep_b", "bo_arabian_interior_keep_b", (-100,-100),(100,100),-100,"0",
     ["exit"],["town_21_seneschal"]),
-  ("town_66_castle",sf_indoors, "arabian_interior_keep_a", "bo_arabian_interior_keep_a", (-100,-100),(100,100),-100,"0x00000007300005000002308c00004a840000624700004fda",
-    ["exit"],["town_22_seneschal"]),
+
+  # Rennes - BM's Uxkhal
+  ("town_66_castle",sf_indoors, "interior_castle_v", "bo_interior_castle_v", (-100,-100),(100,100),-100,"0",
+    ["exit"],["town_7_seneschal"]),
+
 
   ("town_67_castle",sf_indoors,"viking_interior_keep_a", "bo_viking_interior_keep_a", (-100,-100),(100,100),-100,"0",
     ["exit"],["town_1_seneschal"]),
@@ -736,7 +741,9 @@ scenes = [
     ["exit"],[]),
   ("town_65_tavern",sf_indoors, "interior_town_house_steppe_g", "bo_interior_town_house_steppe_g", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
-  ("town_66_tavern",sf_indoors, "interior_town_house_steppe_c", "bo_interior_town_house_steppe_c", (-100,-100),(100,100),-100,"0",
+
+  # Rennes - BM's Uxkhal
+  ("town_66_tavern",sf_indoors, "interior_tavern_d", "bo_interior_tavern_d", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
 
   ("town_67_tavern",sf_indoors,"viking_interior_tavern_a", "bo_viking_interior_tavern_a", (-100,-100),(100,100),-100,"0",
@@ -923,9 +930,12 @@ scenes = [
     ["exit"],[]),
   ("town_65_store",sf_indoors, "interior_town_house_steppe_g", "bo_interior_town_house_steppe_g", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
-  ("town_66_store",sf_indoors, "interior_town_house_steppe_d", "bo_interior_town_house_steppe_d", (-100,-100),(100,100),-100,"0",
+
+  # Rennes - BM's Uxkhal
+  ("town_66_store", sf_indoors, "interior_tavern_f", "bo_interior_tavern_f", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
   
+
   ("town_67_store",sf_indoors,"viking_interior_merchant_a", "bo_viking_interior_merchant_a", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
   ("town_68_store",sf_indoors,"viking_interior_merchant_a", "bo_viking_interior_merchant_a", (-100,-100),(100,100),-100,"0",
@@ -1110,8 +1120,10 @@ scenes = [
     [],[],"outer_terrain_desert"),
   ("town_65_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002200005000005f57b00005885000046bd00006d9c",
     [],[],"outer_terrain_desert"),
-  ("town_66_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002200005000005f57b00005885000046bd00006d9c",
-    [],[],"outer_terrain_desert"),
+
+  # Rennes - BM's Uxkhal
+  ("town_66_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0xa0001d9300031ccb0000156f000048ba0000361c",
+    [],[],"outer_terrain_plain"),
 
   ("town_67_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0xa0001d9300031ccb0000156f000048ba0000361c",
     [],[],"outer_terrain_plain"),
@@ -1297,7 +1309,9 @@ scenes = [
     ["exit"],[]),
   ("town_65_prison",sf_indoors,"interior_prison_n", "bo_interior_prison_n", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
-  ("town_66_prison",sf_indoors,"interior_prison_o", "bo_interior_prison_o", (-100,-100),(100,100),-100,"0",
+
+  # Rennes - BM's Uxkhal
+  ("town_66_prison",sf_indoors,"interior_prison_i", "bo_interior_prison_i", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
 
   ("town_67_prison",sf_indoors,"interior_prison_cell_a", "bo_interior_prison_cell_a", (-100,-100),(100,100),-100,"0",
@@ -1486,8 +1500,10 @@ scenes = [
     [],[],"outer_terrain_desert"),
   ("town_65_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000150051a800004190400003f8c0000352b000014d8",
     [],[],"outer_terrain_desert"),
-  ("town_66_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000025a00723200046d1b00003e020000147600004387",
-    [],[],"outer_terrain_desert"),
+
+  # Rennes - BM's Uxkhal
+  ("town_66_walls",sf_generate|sf_muddy_water,"none", "none", (0,0),(100,100),-100,"0x0000000030000500000d2348000030c4000053ae00001d83",
+    [],[],"outer_terrain_plain"),
  
   ("town_67_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001300010c800054d5c00004af000005d3f00002ca0",
     [],[],"outer_terrain_plain"),
@@ -1675,8 +1691,10 @@ scenes = [
     [],[],"outer_terrain_desert"),
   ("town_65_alley",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000150051a800004190400003f8c0000352b000014d8",
     [],[],"outer_terrain_desert"),
-  ("town_66_alley",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000025a00723200046d1b00003e0200001476000052ae",
-    [],[],"outer_terrain_desert"),
+
+  # Rennes - BM's Uxkhal
+  ("town_66_alley",sf_generate|sf_muddy_water,"none", "none", (0,0),(100,100),-100,"0x0000000030000500000d2348000030c4000053ae00001d83",
+    [],[],"outer_terrain_plain"),
 
   ("town_67_alley",sf_generate,"none", "none", (0,0),(100,100),-100,"0x300bc5430001e0780000448a0000049f00007932",
     [],[],"outer_terrain_plain"),
