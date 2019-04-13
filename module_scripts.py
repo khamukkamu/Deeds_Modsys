@@ -953,12 +953,12 @@ scripts = [
       #INVASION MODE END
 
       #faction banners
-      (faction_set_slot, "fac_kingdom_1", slot_faction_banner, "mesh_banner_kingdom_f"),
+      (faction_set_slot, "fac_kingdom_1", slot_faction_banner, "mesh_banner_kingdom_a"),
       (faction_set_slot, "fac_kingdom_2", slot_faction_banner, "mesh_banner_kingdom_b"),
       (faction_set_slot, "fac_kingdom_3", slot_faction_banner, "mesh_banner_kingdom_c"),
-      (faction_set_slot, "fac_kingdom_4", slot_faction_banner, "mesh_banner_kingdom_a"),
-      # (faction_set_slot, "fac_kingdom_5", slot_faction_banner, "mesh_banner_kingdom_d"),
-      # (faction_set_slot, "fac_kingdom_6", slot_faction_banner, "mesh_banner_kingdom_e"),
+      (faction_set_slot, "fac_kingdom_4", slot_faction_banner, "mesh_banner_kingdom_d"),
+      # (faction_set_slot, "fac_kingdom_5", slot_faction_banner, "mesh_banner_kingdom_e"),
+      # (faction_set_slot, "fac_kingdom_6", slot_faction_banner, "mesh_banner_kingdom_f"),
 
       (try_for_range, ":cur_item", all_items_begin, all_items_end),
         (try_for_range, ":cur_faction", npc_kingdoms_begin, npc_kingdoms_end),
@@ -61857,8 +61857,8 @@ scripts = [
 			(try_begin), #new-begin
 				(neq, ":faction_no", "fac_player_supporters_faction"),
 				(this_or_next|troop_slot_eq, ":troop_no", slot_troop_occupation, slto_inactive),
-					(troop_slot_eq, ":troop_no", slot_troop_occupation, slto_retirement),
-					(troop_slot_eq, ":troop_no", slot_troop_occupation, dplmc_slto_exile), #SB : revoke exile
+				(this_or_next|troop_slot_eq, ":troop_no", slot_troop_occupation, slto_retirement),
+				(troop_slot_eq, ":troop_no", slot_troop_occupation, dplmc_slto_exile), #SB : revoke exile
 				(troop_set_slot, ":troop_no", slot_troop_occupation, slto_kingdom_hero),
 		    (try_end), #new-end
 
@@ -75392,12 +75392,12 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 ("initialize_troop_banners",
   [
       #faction banners
-      (faction_set_slot, "fac_kingdom_1", slot_faction_banner, "mesh_banner_kingdom_f"),
+      (faction_set_slot, "fac_kingdom_1", slot_faction_banner, "mesh_banner_kingdom_a"),
       (faction_set_slot, "fac_kingdom_2", slot_faction_banner, "mesh_banner_kingdom_b"),
       (faction_set_slot, "fac_kingdom_3", slot_faction_banner, "mesh_banner_kingdom_c"),
-      (faction_set_slot, "fac_kingdom_4", slot_faction_banner, "mesh_banner_kingdom_a"),
-      # (faction_set_slot, "fac_kingdom_5", slot_faction_banner, "mesh_banner_kingdom_d"),
-      # (faction_set_slot, "fac_kingdom_6", slot_faction_banner, "mesh_banner_kingdom_e"),
+      (faction_set_slot, "fac_kingdom_4", slot_faction_banner, "mesh_banner_kingdom_d"),
+      # (faction_set_slot, "fac_kingdom_5", slot_faction_banner, "mesh_banner_kingdom_e"),
+      # (faction_set_slot, "fac_kingdom_6", slot_faction_banner, "mesh_banner_kingdom_f"),
 
       (try_for_range, ":cur_faction", npc_kingdoms_begin, npc_kingdoms_end),
         (faction_get_slot, ":cur_faction_king", ":cur_faction", slot_faction_leader),
@@ -75406,8 +75406,6 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
         (val_add, ":cur_faction_banner", banner_scene_props_begin),
         (troop_set_slot, ":cur_faction_king", slot_troop_banner_scene_prop, ":cur_faction_banner"),
       (try_end),
-      # (assign, ":num_khergit_lords_assigned", 0),
-      # (assign, ":num_sarranid_lords_assigned", 0),
       (assign, ":num_other_lords_assigned", 0),
 
       (try_for_range, ":kingdom_hero", active_npcs_begin, active_npcs_end),
@@ -75416,34 +75414,14 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 
         (store_troop_faction, ":kingdom_hero_faction", ":kingdom_hero"),
         (neg|faction_slot_eq, ":kingdom_hero_faction", slot_faction_leader, ":kingdom_hero"),
+		
         (try_begin),
-          # (eq, ":kingdom_hero_faction", "fac_kingdom_3"), #Khergit Khanate
-          # (store_add, ":kingdom_3_banners_begin", banner_scene_props_begin, khergit_banners_begin_offset),
-          # (store_add, ":banner_id", ":kingdom_3_banners_begin", ":num_khergit_lords_assigned"),
-          # (troop_set_slot, ":kingdom_hero", slot_troop_banner_scene_prop, ":banner_id"),
-          # (val_add, ":num_khergit_lords_assigned", 1),
-        # (else_try),
-          # (eq, ":kingdom_hero_faction", "fac_kingdom_6"), #Sarranid Sultanate
-          # (store_add, ":kingdom_6_banners_begin", banner_scene_props_begin, sarranid_banners_begin_offset),
-          # (store_add, ":banner_id", ":kingdom_6_banners_begin", ":num_sarranid_lords_assigned"),
-          # (troop_set_slot, ":kingdom_hero", slot_troop_banner_scene_prop, ":banner_id"),
-          # (val_add, ":num_sarranid_lords_assigned", 1),
-        # (else_try),
           (assign, ":hero_offset", ":num_other_lords_assigned"),
-          # (try_begin),
-            # (gt, ":hero_offset", khergit_banners_begin_offset),#Do not add khergit banners to other lords
-            # (val_add, ":hero_offset", khergit_banners_end_offset),
-            # (val_sub, ":hero_offset", khergit_banners_begin_offset),
-          # (try_end),
-          # (try_begin),
-            # (gt, ":hero_offset", sarranid_banners_begin_offset),#Do not add sarranid banners to other lords
-            # (val_add, ":hero_offset", sarranid_banners_end_offset),
-            # (val_sub, ":hero_offset", sarranid_banners_begin_offset),
-          # (try_end),
           (store_add, ":banner_id", banner_scene_props_begin, ":hero_offset"),
           (troop_set_slot, ":kingdom_hero", slot_troop_banner_scene_prop, ":banner_id"),
           (val_add, ":num_other_lords_assigned", 1),
         (try_end),
+		
         (try_begin),
           (this_or_next|lt, ":banner_id", banner_scene_props_begin),
           (gt, ":banner_id", banner_scene_props_end_minus_one),
@@ -75662,7 +75640,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 # French towns    
       (call_script, "script_give_center_to_lord", "p_town_1",  "trp_kingdom_1_lord", 0),# Bourges - Charles_VII
       (call_script, "script_give_center_to_lord", "p_town_2",  "trp_knight_1_9", 0),# Orléans - Jean D'Orléans, Le Bâtard  
-      (call_script, "script_give_center_to_lord", "p_town_3",  "trp_knight_1_8", 0),# Tours - Pierre d'Amboise, Seigneur de Chaumont
+      (call_script, "script_give_center_to_lord", "p_town_3",  "trp_knight_1_10", 0), # Tours - Jean V de Bueil
       (call_script, "script_give_center_to_lord", "p_town_4",  "trp_kingdom_1_lord", 0),# Poitiers - Charles_VII
       (call_script, "script_give_center_to_lord", "p_town_5",  "trp_kingdom_1_lord", 0),# La_Rochelle - Charles_VII
       (call_script, "script_give_center_to_lord", "p_town_6",  "trp_knight_1_17", 0),# Clermont - Louis I de Bourbon, Comte de Clermont
@@ -75674,8 +75652,8 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (call_script, "script_give_center_to_lord", "p_town_11", "trp_kingdom_1_lord", 0),# Cahors - Charles VII
       (call_script, "script_give_center_to_lord", "p_town_12", "trp_knight_1_22", 0),# Rodez - Jean IV d'Armagnac
       (call_script, "script_give_center_to_lord", "p_town_13", "trp_knight_1_22", 0),# Lectoure - Jean IV d'Armagnac
-      (call_script, "script_give_center_to_lord", "p_town_14", "trp_knight_1_46", 0),# Tarbes - Jean de Grailly, Comte de Foix et de Bigorre, Vicomte de Béarn, Gouverneur du Languedoc
-      (call_script, "script_give_center_to_lord", "p_town_15", "trp_knight_1_46", 0),# Toulouse - Jean de Grailly, Comte de Foix et de Bigorre, Vicomte de Béarn, Gouverneur du Languedoc
+      (call_script, "script_give_center_to_lord", "p_town_14", "trp_knight_1_46", 0),# Tarbes - Jean de Foix, Comte de Foix et de Bigorre, Vicomte de Béarn, Gouverneur du Languedoc
+      (call_script, "script_give_center_to_lord", "p_town_15", "trp_knight_1_46", 0),# Toulouse - Jean de Foix, Comte de Foix et de Bigorre, Vicomte de Béarn, Gouverneur du Languedoc
       (call_script, "script_give_center_to_lord", "p_town_16", "trp_kingdom_1_lord", 0),# Carcassonne - Charles_VII
       (call_script, "script_give_center_to_lord", "p_town_17", "trp_knight_1_48", 0),# Montpellier - Raymond de Villars, Sénéchal de Beaucaire et Nîmes
       (call_script, "script_give_center_to_lord", "p_town_18", "trp_knight_1_31", 0),# Valence - Charles II de Poitiers, Seigneur de Saint-Vallier
@@ -75690,12 +75668,12 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (call_script, "script_give_center_to_lord", "p_town_26",  "trp_knight_1_9", 0), # Angoulême - Jean D'Orléans, le Bâtard     
       (call_script, "script_give_center_to_lord", "p_town_27",  "trp_knight_1_6", 0), # Limoges - Jean Poton de Xaintrailles, seigneur de Xaintrailles, sénéchal du Limousin
       (call_script, "script_give_center_to_lord", "p_town_28",  "trp_knight_1_37", 0), # Angers - Louis III d'Anjou, Duc d'Anjou    
-      (call_script, "script_give_center_to_lord", "p_town_29", "trp_knight_1_46", 0),# Foix Jean de Grailly, Comte de Foix et de Bigorre, Vicomte de Béarn et de Marsan
+      (call_script, "script_give_center_to_lord", "p_town_29", "trp_knight_1_46", 0),# Foix Jean de Foix, Comte de Foix et de Bigorre, Vicomte de Béarn et de Marsan
 
 
 # English Towns
       (call_script, "script_give_center_to_lord", "p_town_30",  "trp_kingdom_2_lord", 0), # Paris - John of Lancaster, Duc de Bedford
-      (call_script, "script_give_center_to_lord", "p_town_31",  "trp_knight_2_46", 0), # Bayonne - Jean-Gaillard de Durfort, Seigneur de Duras, prévôt de Bayonne
+      (call_script, "script_give_center_to_lord", "p_town_31",  "trp_knight_2_45", 0), # Bayonne - Jean-Gaillard de Durfort, Seigneur de Duras, prévôt de Bayonne
       (call_script, "script_give_center_to_lord", "p_town_32",  "trp_knight_2_3", 0), # Nemours - William de la Pole, Earl of Suffolk
       (call_script, "script_give_center_to_lord", "p_town_33",  "trp_knight_2_1", 0), # Laval - John Talbot, Baron Talbot and Furnival
       (call_script, "script_give_center_to_lord", "p_town_34",  "trp_knight_2_1", 0), # Le_Mans - John Talbot, Baron Talbot and Furnival
@@ -75797,12 +75775,12 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (call_script, "script_give_center_to_lord", "p_castle_35", "trp_knight_2_30", 0), # Château_Gontier - Edmund Beaufort, Earl of Dorset
       (call_script, "script_give_center_to_lord", "p_castle_36", "trp_knight_2_7", 0), # Château_de_Verneuil - Thomas Beaufort, Count of Perche
       (call_script, "script_give_center_to_lord", "p_castle_37", "trp_knight_2_30", 0), # Château de Mortain - Edmund Beaufort, Count of Mortain
-      (call_script, "script_give_center_to_lord", "p_castle_38", "trp_knight_2_43", 0), # Château de Langoiran - Bertrand III de Montferrand, Seigneur de Landiras
-      (call_script, "script_give_center_to_lord", "p_castle_39", "trp_knight_2_43", 0), # Forteresse de Landiras - Bertrand III de Montferrand, Seigneur de Landiras
+      (call_script, "script_give_center_to_lord", "p_castle_38", "trp_knight_2_42", 0), # Château de Langoiran - Bertrand III de Montferrand, Seigneur de Landiras
+      (call_script, "script_give_center_to_lord", "p_castle_39", "trp_knight_2_42", 0), # Forteresse de Landiras - Bertrand III de Montferrand, Seigneur de Landiras
       (call_script, "script_give_center_to_lord", "p_castle_40", "trp_knight_2_16", 0), # Château de Fronsac - Sir John Radcliffe, Seneschal of Guyenne, Captain of Fronsac
 
       (call_script, "script_give_center_to_lord", "p_castle_41", "trp_knight_2_43", 0), # Château de Montferrand - Bertrand III de Montferrand
-      (call_script, "script_give_center_to_lord", "p_castle_42", "trp_knight_2_45", 0), # Forteresse de Blaye - Jean de Montferrand
+      (call_script, "script_give_center_to_lord", "p_castle_42", "trp_knight_2_44", 0), # Forteresse de Blaye - Jean de Montferrand
       (call_script, "script_give_center_to_lord", "p_castle_43", "trp_knight_2_9", 0), # Château de Montbray - John Mowbray, Earl of Norfolk
       (call_script, "script_give_center_to_lord", "p_castle_44", "trp_knight_2_6", 0), # Château de Gacé - Thomas Rempston, Baron Rempston and Gacé
       (call_script, "script_give_center_to_lord", "p_castle_45", "trp_knight_2_1", 0), # Château de Sainte-Suzanne - John Talbot, Baron Talbot and Furnival
