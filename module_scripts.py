@@ -75406,7 +75406,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
         (val_add, ":cur_faction_banner", banner_scene_props_begin),
         (troop_set_slot, ":cur_faction_king", slot_troop_banner_scene_prop, ":cur_faction_banner"),
       (try_end),
-      (assign, ":num_other_lords_assigned", 0),
+      # (assign, ":num_other_lords_assigned", 0),
 
       (try_for_range, ":kingdom_hero", active_npcs_begin, active_npcs_end),
         (this_or_next|troop_slot_eq, ":kingdom_hero", slot_troop_occupation, slto_kingdom_hero),
@@ -75415,18 +75415,185 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
         (store_troop_faction, ":kingdom_hero_faction", ":kingdom_hero"),
         (neg|faction_slot_eq, ":kingdom_hero_faction", slot_faction_leader, ":kingdom_hero"),
 		
-        (try_begin),
-          (assign, ":hero_offset", ":num_other_lords_assigned"),
-          (store_add, ":banner_id", banner_scene_props_begin, ":hero_offset"),
-          (troop_set_slot, ":kingdom_hero", slot_troop_banner_scene_prop, ":banner_id"),
-          (val_add, ":num_other_lords_assigned", 1),
-        (try_end),
+### DAC Seek: Manual banner assignment
+# French lords	
+	(troop_set_slot, "trp_knight_1_1", slot_troop_banner_scene_prop, "spr_banner_a02"), # Jean II d'Alençon
+	(troop_set_slot, "trp_knight_1_2", slot_troop_banner_scene_prop, "spr_banner_b10"), # Étienne de Vignolles
+	(troop_set_slot, "trp_knight_1_3", slot_troop_banner_scene_prop, "spr_banner_b17"), # Gilles de Rais
+	(troop_set_slot, "trp_knight_1_4", slot_troop_banner_scene_prop, "spr_banner_a01"), # Charles II d'Albret
+	(troop_set_slot, "trp_knight_1_5", slot_troop_banner_scene_prop, "spr_banner_b08"), # Jeanne
+	(troop_set_slot, "trp_knight_1_6", slot_troop_banner_scene_prop, "spr_banner_b21"), # Jean Poton de Xaintrailles
+	(troop_set_slot, "trp_knight_1_7", slot_troop_banner_scene_prop, "spr_banner_a03"), # Louis d'Amboise
+	(troop_set_slot, "trp_knight_1_8", slot_troop_banner_scene_prop, "spr_banner_a03"), # Pierre d'Amboise
+	(troop_set_slot, "trp_knight_1_9", slot_troop_banner_scene_prop, "spr_banner_a21"), # Jean d'Orléans
+	(troop_set_slot, "trp_knight_1_10", slot_troop_banner_scene_prop, "spr_banner_a20"), # Jean V de Bueil
+
+	(troop_set_slot, "trp_knight_1_11", slot_troop_banner_scene_prop, "spr_banner_a19"), # Louis de Culant
+	(troop_set_slot, "trp_knight_1_12", slot_troop_banner_scene_prop, "spr_banner_a19"), # Charles de Culant
+	(troop_set_slot, "trp_knight_1_13", slot_troop_banner_scene_prop, "spr_banner_b20"), # Raymond de Villars
+	(troop_set_slot, "trp_knight_1_14", slot_troop_banner_scene_prop, "spr_banner_b04"), # Raoul VI de Gaucourt
+	(troop_set_slot, "trp_knight_1_15", slot_troop_banner_scene_prop, "spr_banner_a13"), # Jean de Brosse
+	(troop_set_slot, "trp_knight_1_16", slot_troop_banner_scene_prop, "spr_banner_a11"), # Charles I de Bourbon
+	(troop_set_slot, "trp_knight_1_17", slot_troop_banner_scene_prop, "spr_banner_a11"), # Louis I de Bourbon
+	(troop_set_slot, "trp_knight_1_18", slot_troop_banner_scene_prop, "spr_banner_a08"), # Arnault Guilhem de Barbazan
+	(troop_set_slot, "trp_knight_1_19", slot_troop_banner_scene_prop, "spr_banner_a14"), # Jacques de Chabannes
+	(troop_set_slot, "trp_knight_1_20", slot_troop_banner_scene_prop, "spr_banner_a14"), # Antoine de Chabannes
+
+	(troop_set_slot, "trp_knight_1_21", slot_troop_banner_scene_prop, "spr_banner_a10"), # Pierre de Beauvau
+	(troop_set_slot, "trp_knight_1_22", slot_troop_banner_scene_prop, "spr_banner_a06"), # Jean IV d'Armagnac
+	(troop_set_slot, "trp_knight_1_23", slot_troop_banner_scene_prop, "spr_banner_a06"), # Bernard VIII d'Armagnac
+	(troop_set_slot, "trp_knight_1_24", slot_troop_banner_scene_prop, "spr_banner_a07"), # Jean IV de Termes d’Armagnac
+	(troop_set_slot, "trp_knight_1_25", slot_troop_banner_scene_prop, "spr_banner_a07"), # Géraud de Termes d'Armagnac
+	(troop_set_slot, "trp_knight_1_26", slot_troop_banner_scene_prop, "spr_banner_a07"), # Thilbault de Termes d'Armagnac
+	(troop_set_slot, "trp_knight_1_27", slot_troop_banner_scene_prop, "spr_banner_a07"), # Renaud de Termes d'Armagnac
+	(troop_set_slot, "trp_knight_1_28", slot_troop_banner_scene_prop, "spr_banner_a05"), # Jean d'Apchon de Murol
+	(troop_set_slot, "trp_knight_1_29", slot_troop_banner_scene_prop, "spr_banner_a18"), # Hugues de Cubières du Cheylard
+	(troop_set_slot, "trp_knight_1_30", slot_troop_banner_scene_prop, "spr_banner_b07"), # Christophe d'Harcourt
+
+	(troop_set_slot, "trp_knight_1_31", slot_troop_banner_scene_prop, "spr_banner_b16"), # Charles II de Poitiers
+	(troop_set_slot, "trp_knight_1_32", slot_troop_banner_scene_prop, "spr_banner_a09"), # Pierre de Beaufort de Turenne
+	(troop_set_slot, "trp_knight_1_33", slot_troop_banner_scene_prop, "spr_banner_a12"), # Jacques II de Bourbon de Vendôme
+	(troop_set_slot, "trp_knight_1_34", slot_troop_banner_scene_prop, "spr_banner_a12"), # Louis I de Bourbon de Vendôme
+	(troop_set_slot, "trp_knight_1_35", slot_troop_banner_scene_prop, "spr_banner_b11"), # Jean de Lignières
+	(troop_set_slot, "trp_knight_1_36", slot_troop_banner_scene_prop, "spr_banner_b13"), # Jean Malet de Graville
+	(troop_set_slot, "trp_knight_1_37", slot_troop_banner_scene_prop, "spr_banner_a04"), # Louis III d'Anjou
+	(troop_set_slot, "trp_knight_1_38", slot_troop_banner_scene_prop, "spr_banner_a04"), # René d'Anjou
+	(troop_set_slot, "trp_knight_1_39", slot_troop_banner_scene_prop, "spr_banner_b14"), # Guy XIV de Montfort de Laval
+	(troop_set_slot, "trp_knight_1_40", slot_troop_banner_scene_prop, "spr_banner_b14"), # André de Montfort de Laval
+
+	(troop_set_slot, "trp_knight_1_41", slot_troop_banner_scene_prop, "spr_banner_a18"), # Guy III de Chauvigny
+	(troop_set_slot, "trp_knight_1_42", slot_troop_banner_scene_prop, "spr_banner_b16"), # Gilbert Motier de la Fayette
+	(troop_set_slot, "trp_knight_1_43", slot_troop_banner_scene_prop, "spr_banner_b19"), # Bertrand V de la Tour d'Auvergne
+	(troop_set_slot, "trp_knight_1_44", slot_troop_banner_scene_prop, "spr_banner_b12"), # Ambroise de Loré, Capitaine de Sainte-Suzanne
+	(troop_set_slot, "trp_knight_1_45", slot_troop_banner_scene_prop, "spr_banner_b02"), # Jean Foucault
+	(troop_set_slot, "trp_knight_1_46", slot_troop_banner_scene_prop, "spr_banner_b06"), # Jean I de Foix
+	(troop_set_slot, "trp_knight_1_47", slot_troop_banner_scene_prop, "spr_banner_b09"), # Girault de la Paillière
+	(troop_set_slot, "trp_knight_1_48", slot_troop_banner_scene_prop, "spr_banner_b03"), # Guillaume II de Gamaches
+	(troop_set_slot, "trp_knight_1_49", slot_troop_banner_scene_prop, "spr_banner_b03"), # Jean de Gamaches
+	(troop_set_slot, "trp_knight_1_50", slot_troop_banner_scene_prop, "spr_banner_b01"), # Louis d’Estouteville
+	
+	(troop_set_slot, "trp_knight_1_51", slot_troop_banner_scene_prop, "spr_banner_b18"), # André de Rambures
+	(troop_set_slot, "trp_knight_1_52", slot_troop_banner_scene_prop, "spr_banner_a15"), # Denis de Chailly
+	(troop_set_slot, "trp_knight_1_53", slot_troop_banner_scene_prop, "spr_banner_a16"), # Louis-Armand XII de Chalençon-Polignac
+	(troop_set_slot, "trp_knight_1_54", slot_troop_banner_scene_prop, "spr_banner_b05"), # Nicolas de Giresme
+	
+# English Lords	
+	(troop_set_slot, "trp_knight_2_1", slot_troop_banner_scene_prop, "spr_banner_d11"), # John Talbot
+	(troop_set_slot, "trp_knight_2_2", slot_troop_banner_scene_prop, "spr_banner_c13"), # John Fastolf
+	(troop_set_slot, "trp_knight_2_3", slot_troop_banner_scene_prop, "spr_banner_c09"), # William de la Pole
+	(troop_set_slot, "trp_knight_2_4", slot_troop_banner_scene_prop, "spr_banner_c10"), # Thomas de Scales
+	(troop_set_slot, "trp_knight_2_5", slot_troop_banner_scene_prop, "spr_banner_d12"), # John Tiptoft
+	(troop_set_slot, "trp_knight_2_6", slot_troop_banner_scene_prop, "spr_banner_d06"), # Thomas Rempston
+	(troop_set_slot, "trp_knight_2_7", slot_troop_banner_scene_prop, "spr_banner_c03"), # Thomas Beaufort
+	(troop_set_slot, "trp_knight_2_8", slot_troop_banner_scene_prop, "spr_banner_c03"), # Edmund Beaufort
+	(troop_set_slot, "trp_knight_2_9", slot_troop_banner_scene_prop, "spr_banner_d03"), # John Mowbray
+	(troop_set_slot, "trp_knight_2_10", slot_troop_banner_scene_prop, "spr_banner_c02"), # Richard Beauchamp
+	
+	(troop_set_slot, "trp_knight_2_11", slot_troop_banner_scene_prop, "spr_banner_d10"), # Humphrey Stafford
+	(troop_set_slot, "trp_knight_2_12", slot_troop_banner_scene_prop, "spr_banner_d07"), # Richard le Strange
+	(troop_set_slot, "trp_knight_2_13", slot_troop_banner_scene_prop, "spr_banner_c18"), # Reginald Grey
+	(troop_set_slot, "trp_knight_2_14", slot_troop_banner_scene_prop, "spr_banner_c18"), # John Grey
+	(troop_set_slot, "trp_knight_2_15", slot_troop_banner_scene_prop, "spr_banner_c08"), # William Harington
+	(troop_set_slot, "trp_knight_2_16", slot_troop_banner_scene_prop, "spr_banner_d05"), # John Radcliffe
+	(troop_set_slot, "trp_knight_2_17", slot_troop_banner_scene_prop, "spr_banner_d05"), # Thomas Radcliffe
+	(troop_set_slot, "trp_knight_2_18", slot_troop_banner_scene_prop, "spr_banner_c21"), # Walter Hungerford
+	(troop_set_slot, "trp_knight_2_19", slot_troop_banner_scene_prop, "spr_banner_c21"), # Robert Hungerford
+	(troop_set_slot, "trp_knight_2_20", slot_troop_banner_scene_prop, "spr_banner_c21"), # Edmund Hungerford
+
+	(troop_set_slot, "trp_knight_2_21", slot_troop_banner_scene_prop, "spr_banner_d17"), # Richard Woodville
+	(troop_set_slot, "trp_knight_2_22", slot_troop_banner_scene_prop, "spr_banner_d17"), # Richard II Woodville
+	(troop_set_slot, "trp_knight_2_23", slot_troop_banner_scene_prop, "spr_banner_d14"), # James Tuchet
+	(troop_set_slot, "trp_knight_2_24", slot_troop_banner_scene_prop, "spr_banner_c16"), # William Glasdale
+	(troop_set_slot, "trp_knight_2_25", slot_troop_banner_scene_prop, "spr_banner_d01"), # Thomas Kyriell
+	(troop_set_slot, "trp_knight_2_26", slot_troop_banner_scene_prop, "spr_banner_c14"), # James Fiennes
+	(troop_set_slot, "trp_knight_2_27", slot_troop_banner_scene_prop, "spr_banner_d04"), # William Oldhall
+	(troop_set_slot, "trp_knight_2_28", slot_troop_banner_scene_prop, "spr_banner_c20"), # John Holland
+	(troop_set_slot, "trp_knight_2_29", slot_troop_banner_scene_prop, "spr_banner_c05"), # William Bonville
+	(troop_set_slot, "trp_knight_2_30", slot_troop_banner_scene_prop, "spr_banner_d18"), # Robert Harling
+
+	(troop_set_slot, "trp_knight_2_31", slot_troop_banner_scene_prop, "spr_banner_c17"), # Matthew Gough
+	(troop_set_slot, "trp_knight_2_32", slot_troop_banner_scene_prop, "spr_banner_d09"), # John Salvayn
+	(troop_set_slot, "trp_knight_2_33", slot_troop_banner_scene_prop, "spr_banner_c04"), # Thomas Blount
+	(troop_set_slot, "trp_knight_2_34", slot_troop_banner_scene_prop, "spr_banner_d16"), # Robert Willoughby
+	(troop_set_slot, "trp_knight_2_35", slot_troop_banner_scene_prop, "spr_banner_c01"), # John Beauchamp
+	(troop_set_slot, "trp_knight_2_36", slot_troop_banner_scene_prop, "spr_banner_d13"), # Robert Howard of Tendring
+	(troop_set_slot, "trp_knight_2_37", slot_troop_banner_scene_prop, "spr_banner_c06"), # Ralph Boteler
+	(troop_set_slot, "trp_knight_2_38", slot_troop_banner_scene_prop, "spr_banner_c15"), # John Fitzalan
+	(troop_set_slot, "trp_knight_2_39", slot_troop_banner_scene_prop, "spr_banner_c07"), # Henry Bourchier
+	(troop_set_slot, "trp_knight_2_40", slot_troop_banner_scene_prop, "spr_banner_d08"), # John Robessart
+	
+	(troop_set_slot, "trp_knight_2_41", slot_troop_banner_scene_prop, "spr_banner_d08"), # Lewis Robessart
+	(troop_set_slot, "trp_knight_2_42", slot_troop_banner_scene_prop, "spr_banner_d02"), # Bertrand III de Montferrand
+	(troop_set_slot, "trp_knight_2_43", slot_troop_banner_scene_prop, "spr_banner_d02"), # François de Montferrand
+	(troop_set_slot, "trp_knight_2_44", slot_troop_banner_scene_prop, "spr_banner_d02"), # Jean de Montferrand
+	(troop_set_slot, "trp_knight_2_45", slot_troop_banner_scene_prop, "spr_banner_c12"), # Jean-Gaillard de Durfort
+	(troop_set_slot, "trp_knight_2_46", slot_troop_banner_scene_prop, "spr_banner_c11"), # Robert de Vere
+	(troop_set_slot, "trp_knight_2_47", slot_troop_banner_scene_prop, "spr_banner_c11"), # Richard de Vere
+	(troop_set_slot, "trp_knight_2_48", slot_troop_banner_scene_prop, "spr_banner_c09"), # John de la Pole
+	(troop_set_slot, "trp_knight_2_49", slot_troop_banner_scene_prop, "spr_banner_c09"), # Alexander de la Pole
+	(troop_set_slot, "trp_knight_2_50", slot_troop_banner_scene_prop, "spr_banner_c09"), # Thomas de la Pole
+	
+	(troop_set_slot, "trp_knight_2_51", slot_troop_banner_scene_prop, "spr_banner_d15"), # Lawrence Warren
+	(troop_set_slot, "trp_knight_2_52", slot_troop_banner_scene_prop, "spr_banner_c19"), # Richard Hankford
+	
+# Burgundian Lords
+	(troop_set_slot, "trp_knight_3_1", slot_troop_banner_scene_prop, "spr_banner_e10"), # Antoine de Toulongeon
+	(troop_set_slot, "trp_knight_3_2", slot_troop_banner_scene_prop, "spr_banner_e10"), # André de Toulongeon
+	(troop_set_slot, "trp_knight_3_3", slot_troop_banner_scene_prop, "spr_banner_e03"), # Charles de Bourgogne
+	(troop_set_slot, "trp_knight_3_4", slot_troop_banner_scene_prop, "spr_banner_e05"), # Pierre I de Luxembourg
+	(troop_set_slot, "trp_knight_3_5", slot_troop_banner_scene_prop, "spr_banner_e05"), # Jean II de Luxembourg
+	(troop_set_slot, "trp_knight_3_6", slot_troop_banner_scene_prop, "spr_banner_e05"), # Jean de Luxembourg
+	(troop_set_slot, "trp_knight_3_7", slot_troop_banner_scene_prop, "spr_banner_e06"), # Baudot de Noyelles
+	(troop_set_slot, "trp_knight_3_8", slot_troop_banner_scene_prop, "spr_banner_e01"), # Pierre de Bauffremont
+	(troop_set_slot, "trp_knight_3_9", slot_troop_banner_scene_prop, "spr_banner_e07"), # Régnier Pot
+	(troop_set_slot, "trp_knight_3_10", slot_troop_banner_scene_prop, "spr_banner_e14"), # Jean de Villiers de l'Isle-Adam
+
+	(troop_set_slot, "trp_knight_3_11", slot_troop_banner_scene_prop, "spr_banner_e02"), # David de Brimeu
+	(troop_set_slot, "trp_knight_3_12", slot_troop_banner_scene_prop, "spr_banner_e02"), # Jacques de Brimeu
+	(troop_set_slot, "trp_knight_3_13", slot_troop_banner_scene_prop, "spr_banner_e11"), # Jean de La Trémoille
+	(troop_set_slot, "trp_knight_3_14", slot_troop_banner_scene_prop, "spr_banner_e12"), # Antoine de Vergy
+	(troop_set_slot, "trp_knight_3_15", slot_troop_banner_scene_prop, "spr_banner_e12"), # Jean IV de Vergy
+	(troop_set_slot, "trp_knight_3_16", slot_troop_banner_scene_prop, "spr_banner_e13"), # Guillaume IV de Vienne
+	(troop_set_slot, "trp_knight_3_17", slot_troop_banner_scene_prop, "spr_banner_e04"), # Antoine I de Croÿ
+	(troop_set_slot, "trp_knight_3_18", slot_troop_banner_scene_prop, "spr_banner_e04"), # Jean II de Croÿ
+	(troop_set_slot, "trp_knight_3_19", slot_troop_banner_scene_prop, "spr_banner_e08"), # Roland d'Uytkerke
+	(troop_set_slot, "trp_knight_3_20", slot_troop_banner_scene_prop, "spr_banner_e09"), # Thibaud VI de Rougemont
+	
+# Breton Lords	
+	(troop_set_slot, "trp_knight_4_1", slot_troop_banner_scene_prop, "spr_banner_f11"), # Arthur de Richemont
+	(troop_set_slot, "trp_knight_4_2", slot_troop_banner_scene_prop, "spr_banner_f08"), # Richard de Montfort
+	(troop_set_slot, "trp_knight_4_3", slot_troop_banner_scene_prop, "spr_banner_f09"), # Jean de Penhoët
+	(troop_set_slot, "trp_knight_4_4", slot_troop_banner_scene_prop, "spr_banner_f02"), # Tanneguy III du Chastel
+	(troop_set_slot, "trp_knight_4_5", slot_troop_banner_scene_prop, "spr_banner_f03"), # Prigent VII de Coëtivy
+	(troop_set_slot, "trp_knight_4_6", slot_troop_banner_scene_prop, "spr_banner_f07"), # Tugdual de Kermoysan
+	(troop_set_slot, "trp_knight_4_7", slot_troop_banner_scene_prop, "spr_banner_f10"), # Henri Penmarc'h
+	(troop_set_slot, "trp_knight_4_8", slot_troop_banner_scene_prop, "spr_banner_f10"), # Alain Penmarc'h
+	(troop_set_slot, "trp_knight_4_9", slot_troop_banner_scene_prop, "spr_banner_f13"), # Alain IX de Rohan
+	(troop_set_slot, "trp_knight_4_10", slot_troop_banner_scene_prop, "spr_banner_f13"), # Alain X de Rohan
+
+	(troop_set_slot, "trp_knight_4_11", slot_troop_banner_scene_prop, "spr_banner_f13"), # Charles de Rohan-Guéméné
+	(troop_set_slot, "trp_knight_4_12", slot_troop_banner_scene_prop, "spr_banner_f13"), # Louis Rohan-Guéméné
+	(troop_set_slot, "trp_knight_4_13", slot_troop_banner_scene_prop, "spr_banner_f14"), # Guillaume de Rosmadec
+	(troop_set_slot, "trp_knight_4_14", slot_troop_banner_scene_prop, "spr_banner_f12"), # Pierre de Rochefort
+	(troop_set_slot, "trp_knight_4_15", slot_troop_banner_scene_prop, "spr_banner_f06"), # Bertrand de Dinan
+	(troop_set_slot, "trp_knight_4_16", slot_troop_banner_scene_prop, "spr_banner_f01"), # Jacques de Dinan
+	(troop_set_slot, "trp_knight_4_17", slot_troop_banner_scene_prop, "spr_banner_f05"), # Raoul V de Coëtquen
+	(troop_set_slot, "trp_knight_4_18", slot_troop_banner_scene_prop, "spr_banner_f04"), # Rolland III de Coëtmen
+
+	
+	
+        # (try_begin),
+          # (assign, ":hero_offset", ":num_other_lords_assigned"),
+          # (store_add, ":banner_id", banner_scene_props_begin, ":hero_offset"),
+          # (troop_set_slot, ":kingdom_hero", slot_troop_banner_scene_prop, ":banner_id"),
+          # (val_add, ":num_other_lords_assigned", 1),
+        # (try_end),
 		
-        (try_begin),
-          (this_or_next|lt, ":banner_id", banner_scene_props_begin),
-          (gt, ":banner_id", banner_scene_props_end_minus_one),
-          (display_message, "@{!}ERROR: Not enough banners for heroes!"),
-        (try_end),
+        # (try_begin),
+          # (this_or_next|lt, ":banner_id", banner_scene_props_begin),
+          # (gt, ":banner_id", banner_scene_props_end_minus_one),
+          # (display_message, "@{!}ERROR: Not enough banners for heroes!"),
+        # (try_end),
       (try_end),
     ]), 
 

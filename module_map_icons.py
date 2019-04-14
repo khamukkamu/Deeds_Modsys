@@ -193,7 +193,7 @@ map_icons = [
   ("map_flag_d15",0,"map_flag_d15", banner_scale,0),
   ("map_flag_d16",0,"map_flag_d16", banner_scale,0),
   ("map_flag_d17",0,"map_flag_d17", banner_scale,0),
-  # ("map_flag_d18",0,"map_flag_d18", banner_scale,0),
+  ("map_flag_d18",0,"map_flag_d18", banner_scale,0),
   # ("map_flag_d19",0,"map_flag_d19", banner_scale,0),
   # ("map_flag_d20",0,"map_flag_d20", banner_scale,0),
   # ("map_flag_d21",0,"map_flag_d21", banner_scale,0),
