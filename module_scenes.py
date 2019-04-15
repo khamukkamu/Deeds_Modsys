@@ -1082,7 +1082,7 @@ scenes = [
     ["exit"],[]),
 
 # Dijon - Rus' Krakow
-  ("town_522_store", sf_indoors, "interior_house_a", "bo_interior_house_a", (-100, -100), (100, 100), -100, "0",["exit"], []),
+  ("town_52_store", sf_indoors, "interior_house_a", "bo_interior_house_a", (-100, -100), (100, 100), -100, "0",["exit"], []),
 
 # Besancon - BM's Suno
   ("town_53_store",sf_indoors, "interior_tavern_g", "bo_interior_tavern_g", (-100,-100),(100,100),-100,"0",
