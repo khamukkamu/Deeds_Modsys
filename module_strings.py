@@ -2983,10 +2983,10 @@ We apologize sincerely if you contributed your suggestions and feedback but were
   ("unknown_assailants", "unknown assailants"),
 
   #Faction descriptors
-  ("swadians", "Swadians"),
-  ("vaegirs", "Vaegirs"),
-  ("khergits", "Khergits"),
-  ("nords", "Nords"),
+  ("swadians", "Kingdom of France"),
+  ("vaegirs", "Kingdom of England"),
+  ("khergits", "Duchy of Burgundy"),
+  ("nords", "Duchy of Brittany"),
   ("rhodoks", "Rhodoks"),
   ("sarranids", "Sarranids"),
   ("bandits", "bandits"),
