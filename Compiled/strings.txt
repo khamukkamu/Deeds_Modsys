@@ -2085,10 +2085,10 @@ str_about_a_week_ago about_a_week_ago
 str_about_two_weeks_ago about_two_weeks_ago
 str_several_weeks_ago several_weeks_ago
 str_unknown_assailants unknown_assailants
-str_swadians Swadians
-str_vaegirs Vaegirs
-str_khergits Khergits
-str_nords Nords
+str_swadians Kingdom_of_France
+str_vaegirs Kingdom_of_England
+str_khergits Duchy_of_Burgundy
+str_nords Duchy_of_Brittany
 str_rhodoks Rhodoks
 str_sarranids Sarranids
 str_bandits bandits
