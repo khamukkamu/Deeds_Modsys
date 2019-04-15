@@ -1867,7 +1867,7 @@ custom_banner_flag_map_types_begin = "mesh_custom_map_banner_01"
 custom_banner_flag_map_types_end = custom_banner_flag_types_begin
 
 custom_banner_flag_scene_props_begin = "spr_custom_banner_01"
-custom_banner_flag_scene_props_end = "spr_banner_a"
+custom_banner_flag_scene_props_end = "spr_banner_a01"
 
 custom_banner_map_icons_begin = "icon_custom_banner_01"
 custom_banner_map_icons_end = "icon_map_flag_a01"
@@ -1878,13 +1878,13 @@ banner_map_icons_end_minus_one = "icon_map_flag_f14"
 banner_scene_props_begin = "spr_banner_a01"
 banner_scene_props_end_minus_one = "spr_banner_f14"
 
-khergit_banners_begin_offset = 63
-khergit_banners_end_offset = 84
+# khergit_banners_begin_offset = 63
+# khergit_banners_end_offset = 84
 
-sarranid_banners_begin_offset = 105
-sarranid_banners_end_offset = 125
+# sarranid_banners_begin_offset = 105
+# sarranid_banners_end_offset = 125
 
-banners_end_offset = 136
+banners_end_offset = 116
 
 # Some constants for merchant invenotries
 merchant_inventory_space = 30
