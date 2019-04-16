@@ -1,4 +1,4 @@
-135
+123
 cant_find_this.ogg 0 0
 DAC-Title.ogg 272629888 272629888
 Battle/DAC-Battle-Epic-1.ogg 268439552 268439615
@@ -90,6 +90,11 @@ Travel/Burgandy/DAC-Travel-Burgandy-27.mp3 268500996 268500996
 Travel/Burgandy/DAC-Travel-Burgandy-28.mp3 268500996 268500996
 DAC-Court-Generic-1.mp3 268443648 268968511
 DAC-Town-Generic-1.mp3 268443648 268968448
+DAC-Town-Generic-2.mp3 268443648 268968448
+DAC-Town-Generic-3.mp3 268443648 268968448
+DAC-Town-Generic-4.mp3 268443648 268968448
+DAC-Town-Generic-5.mp3 268443648 268968448
+DAC-Town-Generic-6.mp3 268443648 268968448
 DAC-Tavern-Generic-1.mp3 285213184 285213184
 DAC-Tavern-Generic-2.mp3 285213184 285213184
 DAC-Defeat-1.ogg 268468480 268468480
@@ -102,29 +107,12 @@ defeated_by_neutral_3.ogg 33024 33024
 empty_village.ogg 256 256
 encounter_hostile_nords.ogg 2097408 2097408
 escape.ogg 256 256
-infiltration_khergit.ogg 16388 16447
 killed_by_khergit.ogg 33028 33028
 killed_by_swadian.ogg 33025 33025
-lords_hall_khergit.ogg 4 8767
-lords_hall_nord.ogg 8192 8704
-lords_hall_swadian.ogg 8192 8704
-lords_hall_rhodok.ogg 8192 8704
-lords_hall_vaegir.ogg 8192 8704
-mounted_snow_terrain_calm.ogg 8192 8704
-outdoor_beautiful_land.ogg 8192 8704
 neutral_infiltration.ogg 16384 16384
 retreat.ogg 33024 33024
 tavern_1.ogg 16777728 16777728
 tavern_2.ogg 16777728 16777728
-town_neutral.ogg 8192 8704
-town_khergit.ogg 8196 8767
-town_nord.ogg 8200 8767
-town_rhodok.ogg 8208 8767
-town_swadian.ogg 8193 8767
-town_vaegir.ogg 8194 8767
-uncertain_homestead.ogg 8192 8704
-hearth_and_brotherhood.ogg 8192 8704
-tragic_village.ogg 8192 8704
 victorious_evil.ogg 256 256
 victorious_neutral_1.ogg 8388864 8388864
 victorious_neutral_2.ogg 8388864 8388864
