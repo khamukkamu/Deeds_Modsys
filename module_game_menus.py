@@ -6293,7 +6293,7 @@ TOTAL:  {reg5}"),
     "{!}You shouldn't be reading this...",
     "none",
     [
-        (play_track, "track_DAC-Defeat-1", 1),
+        (play_track, "track_DAC-Defeat-2", 1),
            # Free prisoners
           (party_get_num_prisoner_stacks, ":num_prisoner_stacks","p_main_party"),
           (try_for_range, ":stack_no", 0, ":num_prisoner_stacks"),

@@ -139,6 +139,8 @@ tracks = [
   ("DAC-Town-Generic-4", "DAC-Town-Generic-4.mp3", mtf_module_track|mtf_sit_town, mtf_sit_tavern|mtf_sit_night),
   ("DAC-Town-Generic-5", "DAC-Town-Generic-5.mp3", mtf_module_track|mtf_sit_town, mtf_sit_tavern|mtf_sit_night),
   ("DAC-Town-Generic-6", "DAC-Town-Generic-6.mp3", mtf_module_track|mtf_sit_town, mtf_sit_tavern|mtf_sit_night),
+  ("DAC-Town-Generic-7", "DAC-Town-Generic-7.mp3", mtf_module_track|mtf_sit_town, mtf_sit_tavern|mtf_sit_night),
+  ("DAC-Town-Generic-8", "DAC-Town-Generic-8.mp3", mtf_module_track|mtf_sit_town, mtf_sit_tavern|mtf_sit_night),
 
 
 # Tavern
@@ -147,6 +149,7 @@ tracks = [
 
 # Defeat
   ("DAC-Defeat-1", "DAC-Defeat-1.ogg", mtf_module_track|mtf_persist_until_finished|mtf_sit_killed, 0),
+  ("DAC-Defeat-2", "DAC-Defeat-2.mp3", mtf_module_track|mtf_persist_until_finished|mtf_sit_killed, 0),
   ("empty_village", "empty_village.ogg", mtf_persist_until_finished|mtf_sit_killed, 0), # Native
 
 # Infiltration
