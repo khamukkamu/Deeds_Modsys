@@ -32,15 +32,15 @@ tracks = [
 
 # DAC Generic Battle Music (Ambient Sound [for now])
 
-  ("DAC-Battle-Generic-1", "Battle/DAC-Battle-Generic-1.ogg", mtf_module_track|mtf_sit_fight, 0),
-  ("DAC-Battle-Generic-2", "Battle/DAC-Battle-Generic-2.ogg", mtf_module_track|mtf_sit_fight, 0),
-  ("DAC-Battle-Generic-3", "Battle/DAC-Battle-Generic-3.ogg", mtf_module_track|mtf_sit_fight, 0),
-  ("DAC-Battle-Generic-4", "Battle/DAC-Battle-Generic-4.ogg", mtf_module_track|mtf_sit_fight, 0),
-  ("DAC-Battle-Generic-5", "Battle/DAC-Battle-Generic-5.ogg", mtf_module_track|mtf_sit_fight, 0),
-  ("DAC-Battle-Generic-6", "Battle/DAC-Battle-Generic-6.ogg", mtf_module_track|mtf_sit_fight, 0),
-  ("DAC-Battle-Generic-7", "Battle/DAC-Battle-Generic-7.ogg", mtf_module_track|mtf_sit_fight, 0),
-  ("DAC-Battle-Generic-8", "Battle/DAC-Battle-Generic-8.ogg", mtf_module_track|mtf_sit_fight, 0),
-  ("DAC-Battle-Generic-9", "Battle/DAC-Battle-Generic-9.ogg", mtf_module_track|mtf_sit_fight, 0),
+  ("DAC-Battle-Generic-1", "Battle/DAC-Battle-Generic-1.ogg", mtf_module_track|mtf_sit_fight|mtf_sit_arena, 0),
+  ("DAC-Battle-Generic-2", "Battle/DAC-Battle-Generic-2.ogg", mtf_module_track|mtf_sit_fight|mtf_sit_arena, 0),
+  ("DAC-Battle-Generic-3", "Battle/DAC-Battle-Generic-3.ogg", mtf_module_track|mtf_sit_fight|mtf_sit_arena, 0),
+  ("DAC-Battle-Generic-4", "Battle/DAC-Battle-Generic-4.ogg", mtf_module_track|mtf_sit_fight|mtf_sit_arena, 0),
+  ("DAC-Battle-Generic-5", "Battle/DAC-Battle-Generic-5.ogg", mtf_module_track|mtf_sit_fight|mtf_sit_arena, 0),
+  ("DAC-Battle-Generic-6", "Battle/DAC-Battle-Generic-6.ogg", mtf_module_track|mtf_sit_fight|mtf_sit_arena, 0),
+  ("DAC-Battle-Generic-7", "Battle/DAC-Battle-Generic-7.ogg", mtf_module_track|mtf_sit_fight|mtf_sit_arena, 0),
+  ("DAC-Battle-Generic-8", "Battle/DAC-Battle-Generic-8.ogg", mtf_module_track|mtf_sit_fight|mtf_sit_arena, 0),
+  ("DAC-Battle-Generic-9", "Battle/DAC-Battle-Generic-9.ogg", mtf_module_track|mtf_sit_fight|mtf_sit_arena, 0),
 
 # DAC Siege Music
 
@@ -147,47 +147,40 @@ tracks = [
 
 # Defeat
   ("DAC-Defeat-1", "DAC-Defeat-1.ogg", mtf_module_track|mtf_persist_until_finished|mtf_sit_killed, 0),
+  ("empty_village", "empty_village.ogg", mtf_persist_until_finished|mtf_sit_killed, 0), # Native
+
+# Infiltration
+
+  ("calm_night_2", "calm_night_2.ogg", mtf_sit_town_infiltrate, 0), #Native
+
+# Victory
+  ("victorious_evil", "victorious_evil.ogg", mtf_persist_until_finished|mtf_sit_victorious, 0), # Native
+  ("escape", "escape.ogg", mtf_persist_until_finished|mtf_sit_victorious, 0), #Native
 
 # DAC Changes END
 
-# Native Music Starts Here. Will need to be replaced
-
-  ("arena_1", "arena_1.ogg", mtf_sit_arena, 0),
-#  ("arena_2", "arena_2.ogg", mtf_looping|mtf_sit_arena, 0),
-  ("armorer", "armorer.ogg", mtf_sit_travel, 0),
-  
+# Native Music Starts Here. Will need to be replaced  
  
-  ("captured", "capture.ogg", mtf_persist_until_finished, 0),
-  ("defeated_by_neutral", "defeated_by_neutral.ogg",mtf_persist_until_finished|mtf_sit_killed, 0),
-  ("defeated_by_neutral_2", "defeated_by_neutral_2.ogg", mtf_persist_until_finished|mtf_sit_killed, 0),
-  ("defeated_by_neutral_3", "defeated_by_neutral_3.ogg", mtf_persist_until_finished|mtf_sit_killed, 0),
+  #("defeated_by_neutral", "defeated_by_neutral.ogg",mtf_persist_until_finished|mtf_sit_killed, 0),
+  #("defeated_by_neutral_2", "defeated_by_neutral_2.ogg", mtf_persist_until_finished|mtf_sit_killed, 0),
+  #("defeated_by_neutral_3", "defeated_by_neutral_3.ogg", mtf_persist_until_finished|mtf_sit_killed, 0),
 
-  ("empty_village", "empty_village.ogg", mtf_persist_until_finished, 0),
-  ("encounter_hostile_nords", "encounter_hostile_nords.ogg", mtf_persist_until_finished|mtf_sit_encounter_hostile, 0),
-  ("escape", "escape.ogg", mtf_persist_until_finished, 0),
-
-  ("killed_by_khergit", "killed_by_khergit.ogg", mtf_persist_until_finished|mtf_culture_3|mtf_sit_killed, 0),
+  #("killed_by_khergit", "killed_by_khergit.ogg", mtf_persist_until_finished|mtf_culture_3|mtf_sit_killed, 0),
 #  ("killed_by_neutral", "killed_by_neutral.ogg", mtf_persist_until_finished|mtf_culture_6|mtf_sit_killed, 0),
 #  ("killed_by_nord", "killed_by_nord.ogg", mtf_persist_until_finished|mtf_culture_4|mtf_sit_killed, 0),
 #  ("killed_by_rhodok", "killed_by_rhodok.ogg", mtf_persist_until_finished|mtf_culture_5|mtf_sit_killed, 0),
-  ("killed_by_swadian", "killed_by_swadian.ogg", mtf_persist_until_finished|mtf_culture_1|mtf_sit_killed, 0),
+  #("killed_by_swadian", "killed_by_swadian.ogg", mtf_persist_until_finished|mtf_culture_1|mtf_sit_killed, 0),
 #  ("killed_by_vaegir", "killed_by_vaegir.ogg", mtf_persist_until_finished|mtf_culture_2|mtf_sit_killed, 0),
 
-  ("neutral_infiltration", "neutral_infiltration.ogg", mtf_sit_town_infiltrate, 0),
-  ("retreat", "retreat.ogg", mtf_persist_until_finished|mtf_sit_killed, 0),
-  
-  ("tavern_1", "tavern_1.ogg", mtf_sit_tavern|mtf_sit_feast, 0),
-  ("tavern_2", "tavern_2.ogg", mtf_sit_tavern|mtf_sit_feast, 0),
+  #("victorious_neutral_1", "victorious_neutral_1.ogg", mtf_persist_until_finished|mtf_sit_victorious, 0),
+  #("victorious_neutral_2", "victorious_neutral_2.ogg", mtf_persist_until_finished|mtf_sit_victorious, 0),
+  #("victorious_neutral_3", "victorious_neutral_3.ogg", mtf_persist_until_finished|mtf_sit_victorious, 0),
+
+  #("victorious_swadian", "victorious_swadian.ogg", mtf_persist_until_finished|mtf_culture_2|mtf_sit_victorious, 0),
+  #("victorious_vaegir", "victorious_vaegir.ogg", mtf_persist_until_finished|mtf_culture_2|mtf_sit_victorious, 0),
+  #("victorious_vaegir_2", "victorious_vaegir_2.ogg", mtf_persist_until_finished|mtf_culture_2|mtf_sit_victorious, 0),
 
 
-  ("victorious_evil", "victorious_evil.ogg", mtf_persist_until_finished, 0),
-  ("victorious_neutral_1", "victorious_neutral_1.ogg", mtf_persist_until_finished|mtf_sit_victorious, 0),
-  ("victorious_neutral_2", "victorious_neutral_2.ogg", mtf_persist_until_finished|mtf_sit_victorious, 0),
-  ("victorious_neutral_3", "victorious_neutral_3.ogg", mtf_persist_until_finished|mtf_sit_victorious, 0),
-
-  ("victorious_swadian", "victorious_swadian.ogg", mtf_persist_until_finished|mtf_culture_2|mtf_sit_victorious, 0),
-  ("victorious_vaegir", "victorious_vaegir.ogg", mtf_persist_until_finished|mtf_culture_2|mtf_sit_victorious, 0),
-  ("victorious_vaegir_2", "victorious_vaegir_2.ogg", mtf_persist_until_finished|mtf_culture_2|mtf_sit_victorious, 0),
   ("wedding", "wedding.ogg", mtf_persist_until_finished, 0),
 
   ("coronation", "coronation.ogg", mtf_persist_until_finished, 0),
