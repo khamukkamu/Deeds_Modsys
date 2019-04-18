@@ -3470,19 +3470,14 @@ simple_triggers = [
       (party_get_slot, ":has_tournament", ":center_no", slot_town_has_tournament),
       (try_begin),
         (eq, ":has_tournament", 1),#tournament ended, simulate
-        (call_script, "script_fill_tournament_participants_troop", ":center_no", 0),
-        (call_script, "script_sort_tournament_participant_troops"),#may not be needed
-        (call_script, "script_get_num_tournament_participants"),
-        (store_sub, ":needed_to_remove_randomly", reg0, 1),
-        (call_script, "script_remove_tournament_participants_randomly", ":needed_to_remove_randomly"),
-        (call_script, "script_sort_tournament_participant_troops"),
-        (troop_get_slot, ":winner_troop", "trp_tournament_participants", 0),
+        (call_script, "script_cf_simulate_tournament", ":center_no"),
+        (assign, ":winner_troop", reg0),
         (try_begin),
-          (is_between, ":winner_troop", active_npcs_begin, active_npcs_end),
           (str_store_troop_name_link, s1, ":winner_troop"),
           (str_store_party_name_link, s2, ":center_no"),
           #SB : log message, change color, add money
           (display_log_message, "@{s1} has won the tournament at {s2}.", message_alert),
+          (troop_is_hero, ":winner_troop"),
           (call_script, "script_change_troop_renown", ":winner_troop", 20),
           (try_begin),
             (ge, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_MEDIUM),
