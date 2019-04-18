@@ -271,8 +271,8 @@ tf_guarantee_all_wo_ranged = tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_
 
 
 troops = [
-["player","Player","Player",tf_hero|tf_unmoveable_in_party_window,no_scene,reserved,fac_player_faction,[],str_4|agi_4|int_4|cha_4,wp(15),0,0x000000018000000136db6db6db6db6db00000000001db6db0000000000000000],
-["multiplayer_profile_troop_male","multiplayer_profile_troop_male","multiplayer_profile_troop_male", tf_hero|tf_guarantee_all, 0, 0,fac_commoners,[itm_a_leather_jerkin,itm_b_leather_boots],0,0,0,0x000000018000000136db6db6db6db6db00000000001db6db0000000000000000],
+["player","Player","Player",tf_hero|tf_unmoveable_in_party_window,no_scene,reserved,fac_player_faction,[],str_4|agi_4|int_4|cha_4,wp(15),0,0x00000001bf00114d57237198fb66c55c00000000001cb52a0000000000000000],
+["multiplayer_profile_troop_male","multiplayer_profile_troop_male","multiplayer_profile_troop_male", tf_hero|tf_guarantee_all, 0, 0,fac_commoners,[itm_a_leather_jerkin,itm_b_leather_boots],0,0,0,0x00000001bf00114d57237198fb66c55c00000000001cb52a0000000000000000],
 ["multiplayer_profile_troop_female","multiplayer_profile_troop_female","multiplayer_profile_troop_female", tf_hero|tf_female|tf_guarantee_all, 0, 0,fac_commoners,[itm_a_tabard,itm_b_leather_boots],0,0,0,0x000000018000000136db6db6db6db6db00000000001db6db0000000000000000],
 ["temp_troop","Temp Troop","Temp Troop",tf_hero,no_scene,reserved,fac_commoners,[],def_attrib,0,knows_common|knows_inventory_management_10,0],
 ##  ["game","Game","Game",tf_hero,no_scene,reserved,fac_commoners,[],def_attrib,0,knows_common,0],
@@ -683,39 +683,39 @@ troops = [
 
 #William Reynes english longbowman mounted archer/scout
 ["npc1", "William Reynes", "William Reynes", tf_hero|tf_mounted, no_scene, reserved, fac_kingdom_2, 
-  [itm_h_highlander_beret_brown_2,itm_a_noble_shirt_brown,itm_b_hosen_shoes_custom,itm_w_bastard_sword_baron_2], 
+  [itm_h_cerveliere_hood_custom,itm_a_aketon_narf_custom,itm_b_leather_boots,itm_g_leather_gauntlet,itm_w_long_bow_ash,itm_arrows,itm_w_onehanded_sword_longbowman,itm_ho_rouncey_4], 
     str_10|agi_7|int_9|cha_7|level(7), wp(80), knows_warrior_npc|knows_ironflesh_2|knows_power_strike_3|knows_athletics_2|knows_riding_3, 
-      0x000000001b00b504251b893ae265249b00000000001e36db0000000000000000 ],
+      0x0000000500009004450d65aa627948d500000000001d44e50000000000000000 ],
 
 # Frans Demaar Marchand Flamand de Bruges
 ["npc2", "Frans Demaar", "Frans Demaar", tf_hero, no_scene, reserved, fac_kingdom_3, 
-  [itm_h_mail_coif,itm_b_mail_chausses,itm_heraldic_tunic_new,itm_g_mail_gauntlets,itm_w_native_spear_f,itm_tab_shield_kite_cav_a,itm_w_onehanded_sword_c_long,itm_ho_rouncey_3], 
+  [itm_h_felt_hat_b_red,itm_a_merchant_outfit,itm_b_leather_boots,itm_g_leather_gauntlet,itm_w_dagger_italian], 
     str_12|agi_9|int_6|cha_6|level(6), wp(100), knows_warrior_npc|knows_riding_3|knows_weapon_master_1|knows_ironflesh_1|knows_power_strike_2|knows_athletics_2|knows_tactics_1|knows_leadership_1, 
-      0x00000009ff01218a251b89c6dca6491a00000000001e36db0000000000000000 ],
+      0x00000007c00064d131948255aa95a51a00000000001db6db0000000000000000 ],
 
 #Morgane Lann guérisseuse herboriste/marchande bretonne
 ["npc3", "Morgane Lann", "Morgane Lann", tf_hero|tf_female|tf_guarantee_boots|tf_guarantee_armor, no_scene, reserved, fac_kingdom_4, 
-  [itm_h_bascinet_fi_noseguard,itm_a_padded_over_mail_custom,itm_g_mail_gauntlets,itm_b_mail_chausses,itm_w_voulge_french], 
+  [], 
     str_9|agi_9|int_12|cha_6|level(6), wp(70), knows_warrior_npc|knows_power_strike_1|knows_tactics_4|knows_first_aid_2|knows_athletics_1|knows_riding_2, 
       0x000000077f00104f24dc71bb6bc548db00000000001da7240000000000000000 ],
 
 # Jean, bâtard du Guesclin Ecuyer/contrebandier/marchand à cheval/scout
 ["npc4", "Jean", "Jean", tf_hero, no_scene, reserved, fac_kingdom_4, 
-  [itm_a_farmer_tunic,itm_b_wrapping_boots,itm_w_fork_1], 
+  [itm_h_bascinet_fi_mail,itm_a_hauberk_narf,itm_g_mail_gauntlets,itm_b_mail_boots,itm_w_onehanded_sword_knight,itm_tab_shield_heater_cav_b,itm_ho_courser_5], 
     str_10|agi_9|int_13|cha_10|level(10), wp(110), knows_warrior_npc|knows_weapon_master_2|knows_power_strike_2|knows_riding_2|knows_athletics_2|knows_power_throw_2|knows_first_aid_1|knows_surgery_1|knows_tactics_2|knows_leadership_2, 
-      0x000000095b008380251b8a3ae265249b00000000001e36db0000000000000000 ],
+      0x000000043f0030045edb6dc59b4e5cd500000000001db6db0000000000000000 ],
 
 # Josserand de Reulle (bourguignon) arbalétrier à cheval/Scout
 ["npc5", "Josserand de Reulle", "Josserand de Reulle", tf_hero, no_scene, reserved, fac_kingdom_3, 
-  [itm_a_merchant_outfit,itm_b_leather_boots,itm_h_highlander_beret_red_2], 
+  [itm_a_gambeson_narf_custom,itm_b_hosen_shoes_custom,itm_crossbow,itm_bolts,itm_w_onehanded_sword_a_long,itm_ho_courser_7], 
     str_9|agi_9|int_12|cha_7|level(5), wp(90), knows_warrior_npc|knows_riding_2|knows_horse_archery_3|knows_power_draw_3|knows_leadership_2|knows_weapon_master_1|knows_trade_5, 
-      0x000000001000310826db8dbce5a9a2cb00000000001e36eb0000000000000000 ],
+      0x000000041410404057604acb2665bb2300000000001dc4dd0000000000000000 ],
 
 #Louis le Barbier Chirurgien Bourguignon Dijon
 ["npc6", "Louis le Barbier", "Louis le Barbier", tf_hero, no_scene, reserved, fac_kingdom_3, 
-  [itm_h_cerveliere_padded,itm_a_aketon_narf_custom,itm_b_leather_boots,itm_g_leather_gauntlet,itm_w_onehanded_sword_squire,itm_tab_shield_kite_b], 
+  [itm_h_simple_coif,itm_a_surgeon_dress,itm_b_wrapping_boots,itm_w_dagger_italian], 
        str_8|agi_7|int_13|cha_7|level(4),wp(30),knows_merchant_npc|knows_ironflesh_1|knows_power_strike_1|knows_surgery_4|knows_wound_treatment_3|knows_first_aid_3,
-      0x00000001ab0074c736db6db6db6db6db00000000001db6e30000000000000000 ],
+      0x0000000fff089006389e52b7526d16f300000000001e92a20000000000000000 ],
 
 #Diane du Bois rebelle française archère
 ["npc7", "Diane du Bois", "Diane du Bois", tf_hero|tf_female, no_scene, reserved, fac_kingdom_1, 
@@ -725,51 +725,51 @@ troops = [
 
 #Baudouin de Limoges marchand 
 ["npc8", "Baudouin de Limoges", "Baudouin de Limoges", tf_hero, no_scene, reserved, fac_kingdom_1, 
-  [itm_w_twohanded_war_axe,itm_a_leather_vest_custom,itm_b_leather_boots,itm_g_leather_gauntlet,itm_h_hood_black], 
+  [itm_h_highlander_beret_black,itm_a_noble_shirt_black,itm_b_hosen_poulaines_custom,itm_w_archers_maul], 
     str_17|agi_10|int_9|cha_10|level(9), wp(100), knows_warrior_npc|knows_weapon_master_3|knows_power_strike_2|knows_leadership_1|knows_athletics_4, 
-      0x000000003f00518036db6db6db6db6db00000000001db6db0000000000000000 ],
+      0x0000000a400cb50b374346d654cdaa5d00000000001ebb140000000000000000 ],
 
 #Philippe de Culant jeune noble Français écuyer 0rleans en 1429 
 ["npc9", "Philippe de Culant", "Philippe de Culant", tf_hero, no_scene, reserved, fac_kingdom_1,
-  [itm_h_zitta_bascinet_novisor,itm_a_churburg_brass_narf_custom,itm_g_mail_gauntlets,itm_b_steel_greaves,itm_w_onehanded_sword_knight,itm_w_lance_colored_french_1,itm_ho_horse_barded_white,itm_tab_shield_kite_cav_a], 
+  [itm_h_sallet_hood_custom,itm_heraldic_mail_tabard,itm_b_mail_chausses,itm_g_mail_gauntlets,itm_w_light_lance,itm_w_onehanded_sword_squire_2,itm_ho_rouncey_6], 
     str_12|agi_12|int_7|cha_8|level(7), wp(100), knows_warrior_npc|knows_weapon_master_2|knows_riding_4|knows_athletics_1|knows_leadership_1|knows_tactics_1|knows_power_strike_2, 
-      0x000000003d00e01144dc8dbb2361b6db00000000001d571b0000000000000000 ],
+      0x000000002208b00558d46a4cac6abab300000000001d38ca0000000000000000 ],
 
 #Frère Hardouin du Puy Moine guérisseur
 ["npc10", "Frère Hardouin du Puy", "Frère Hardouin du Puy", tf_hero, no_scene, reserved, fac_kingdom_1, 
-  [itm_a_tabard,itm_b_leather_boots,itm_h_simple_coif,itm_w_onehanded_sword_sovereign], 
+  [itm_a_monk_robe_brown,itm_b_wrapping_boots,itm_w_dagger_pikeman], 
     str_12|agi_8|int_9|cha_11|level(9), wp(105), knows_warrior_npc|knows_weapon_master_3|knows_tactics_2|knows_leadership_1|knows_ironflesh_3|knows_trainer_3|knows_riding_2, 
-      0x000000095b0093c0251b8a3ae265249b00000000001e36db0000000000000000 ],
+      0x000000097b10100a195c715a96a958aa00000000001dc8940000000000000000 ],
 
 #Marguerite du Four Cuisinière/Marchande 
 ["npc11", "Marguerite du Four", "Marguerite du Four", tf_hero|tf_female, no_scene, reserved, fac_kingdom_1, 
-  [itm_a_commoner_apron,itm_h_leather_cap,itm_b_leather_boots,itm_g_leather_gauntlet,itm_w_warhammer_1], 
+  [itm_a_commoner_apron,itm_b_leather_boots,itm_g_leather_gauntlet,itm_w_warhammer_1], 
     str_8|agi_11|int_10|cha_10|level(8), wp(70), knows_merchant_npc|knows_weapon_master_1|knows_first_aid_1|knows_wound_treatment_2|knows_ironflesh_3|knows_inventory_management_5, 
       0x000000003d01209244dc8dbb2361b6db00000000001d571b0000000000000000 ],
 
 #Michele Guistella Chirurgien Italien
 ["npc12", "Michele Guistella", "Michele Guistella", tf_hero, no_scene, reserved, fac_commoners, 
-  [itm_a_surgeon_dress,itm_h_highlander_beret_brown,itm_b_hosen_shoes_custom,itm_w_dagger_pikeman], 
+  [itm_h_highlander_beret_red,itm_a_noble_shirt_red,itm_b_hosen_shoes_custom,itm_w_dagger_italian], 
     str_8|agi_7|int_13|cha_7|level(5), wp(70), knows_merchant_npc|knows_ironflesh_1|knows_power_strike_1|knows_pathfinding_4|knows_inventory_management_3|knows_first_aid_3|knows_wound_treatment_2, 
-      0x000000000000a10f38dc8cb92c8e36db00000000001dd6e30000000000000000 ],
+      0x00000000c400348b174a84c2db53331200000000001f34dc0000000000000000 ],
 
 #Thomas Gower mounted squire mant at arms (Falaise)
 ["npc13", "Thomas Gower", "Thomas Gower", tf_hero, no_scene, reserved, fac_kingdom_2, 
   [itm_h_pot_helmet_hood_custom,itm_a_mail_shirt_custom,itm_b_mail_chausses,itm_w_onehanded_war_axe,itm_tab_shield_kite_c], 
     str_9|agi_8|int_12|cha_8|level(3), wp(90), knows_warrior_npc|knows_leadership_2|knows_athletics_2|knows_ironflesh_2|knows_power_strike_1|knows_weapon_master_1, 
-      0x000000003f00900b14dc72372cad44dc00000000001e592b0000000000000000 ],
+      0x00000000f604018437534e375c98cb0a00000000001db2e30000000000000000 ],
 
 #John Crichton noble écossais soldat veteran
-["npc14", "John Crichton", "Michel", tf_hero, no_scene, reserved, fac_commoners, 
-  [itm_crossbow,itm_bolts,itm_h_kettlehat_padded,itm_a_aketon_narf_custom,itm_b_leather_boots,itm_g_leather_gauntlet,itm_w_onehanded_sword_c_small], 
+["npc14", "John Crichton", "John Crichton", tf_hero, no_scene, reserved, fac_commoners, 
+  [itm_h_kettlehat_padded,itm_a_aketon_narf_custom,itm_b_leather_boots,itm_g_leather_gauntlet,itm_w_twohanded_sword_steward_2], 
     str_12|agi_10|int_9|cha_8|level(9), wp(100), knows_warrior_npc|knows_weapon_master_3|knows_leadership_2|knows_power_strike_1|knows_inventory_management_3|knows_tactics_2|knows_ironflesh_3|knows_trainer_2, 
-      0x0000000ac00ce18744db6db6db6db6db00000000001dc6d30000000000000000 ],
+      0x00000000d808a30746eb6e392ad23b9300000000001d4ae30000000000000000 ],
 
 #Gaspard Bureau bourgeois Français de Paris Ingénieur
 ["npc15", "Gaspard Bureau", "Gaspard Bureau", tf_hero, no_scene, reserved, fac_kingdom_1, 
   [itm_h_arming_cap,itm_a_noble_shirt_white,itm_b_hosen_poulaines_custom,itm_w_dagger_bollock], 
     str_9|agi_9|int_12|cha_8|level(7), wp(40), knows_warrior_npc|knows_surgery_4|knows_trade_3|knows_spotting_1|knows_engineer_3|knows_tactics_1, 
-      0x000000095b007180251b8a3ae465249b00000000001e36db0000000000000000 ],
+      0x00000000ca0824055ae399e91e6f47de00000000001e02e30000000000000000 ],
 
 # Frère Martin d'Autun Moine Guérisseur
 ["npc16", "Blanche", "Blanche", tf_hero, no_scene, reserved, fac_kingdom_3, 
