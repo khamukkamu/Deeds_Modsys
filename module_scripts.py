@@ -204,6 +204,7 @@ scripts = [
         (val_add, ":renown", ":random_renown"),
 
         (troop_set_slot, ":kingdom_hero", slot_troop_renown, ":renown"),
+        (troop_set_slot, ":kingdom_hero", slot_troop_fights_in_tournaments, 1), # Nobles always do
       (try_end),
 
       (try_for_range, ":troop_no", "trp_player", "trp_merchants_end"),
@@ -7686,168 +7687,761 @@ scripts = [
 	 ]),
 
 
+# Tournaments - Autolykos' Version
+
     ("initialize_town_arena_info",
     [
+      # Set Team Sizes
       (try_for_range, ":town_no", towns_begin, towns_end),
         (party_set_slot, ":town_no", slot_town_tournament_max_teams, 4),
         (party_set_slot, ":town_no", slot_town_tournament_max_team_size, 8),
       (try_end),
-      (party_set_slot, "p_town_6", slot_town_tournament_max_team_size, 2),
+      (party_set_slot, "p_town_1", slot_town_tournament_max_team_size, 1),
+      (party_set_slot, "p_town_3", slot_town_tournament_max_teams, 2),
+      (party_set_slot, "p_town_5", slot_town_tournament_max_teams, 2),
+      (party_set_slot, "p_town_9", slot_town_tournament_max_teams, 2),
+      (party_set_slot, "p_town_10", slot_town_tournament_max_teams, 2),
+      (party_set_slot, "p_town_14", slot_town_tournament_max_teams, 2),
+      (party_set_slot, "p_town_18", slot_town_tournament_max_teams, 2),
 
-      (party_set_slot,"p_town_1", slot_town_arena_melee_1_num_teams,   2),
-      (party_set_slot,"p_town_1", slot_town_arena_melee_1_team_size,   1),
-      (party_set_slot,"p_town_1", slot_town_arena_melee_2_num_teams,   4),
-      (party_set_slot,"p_town_1", slot_town_arena_melee_2_team_size,   1),
-      (party_set_slot,"p_town_1", slot_town_arena_melee_3_num_teams,   4),
-      (party_set_slot,"p_town_1", slot_town_arena_melee_3_team_size,   1),
-
-      (party_set_slot,"p_town_2", slot_town_arena_melee_1_num_teams,   4),
-      (party_set_slot,"p_town_2", slot_town_arena_melee_1_team_size,   4),
-      (party_set_slot,"p_town_2", slot_town_arena_melee_2_num_teams,   4),
-      (party_set_slot,"p_town_2", slot_town_arena_melee_2_team_size,   6),
-      (party_set_slot,"p_town_2", slot_town_arena_melee_3_num_teams,   4),
-      (party_set_slot,"p_town_2", slot_town_arena_melee_3_team_size,   8),
-
-      (party_set_slot,"p_town_3", slot_town_arena_melee_1_num_teams,   2),
-      (party_set_slot,"p_town_3", slot_town_arena_melee_1_team_size,   8),
-      (party_set_slot,"p_town_3", slot_town_arena_melee_2_num_teams,   2),
-      (party_set_slot,"p_town_3", slot_town_arena_melee_2_team_size,   8),
-      (party_set_slot,"p_town_3", slot_town_arena_melee_3_num_teams,   2),
-      (party_set_slot,"p_town_3", slot_town_arena_melee_3_team_size,   8),
-
-      (party_set_slot,"p_town_4", slot_town_arena_melee_1_num_teams,   2),
-      (party_set_slot,"p_town_4", slot_town_arena_melee_1_team_size,   8),
-      (party_set_slot,"p_town_4", slot_town_arena_melee_2_num_teams,   3),
-      (party_set_slot,"p_town_4", slot_town_arena_melee_2_team_size,   8),
-      (party_set_slot,"p_town_4", slot_town_arena_melee_3_num_teams,   2),
-      (party_set_slot,"p_town_4", slot_town_arena_melee_3_team_size,   5),
-
-      (party_set_slot,"p_town_5", slot_town_arena_melee_1_num_teams,   2),
-      (party_set_slot,"p_town_5", slot_town_arena_melee_1_team_size,   3),
-      (party_set_slot,"p_town_5", slot_town_arena_melee_2_num_teams,   2),
-      (party_set_slot,"p_town_5", slot_town_arena_melee_2_team_size,   5),
-      (party_set_slot,"p_town_5", slot_town_arena_melee_3_num_teams,   2),
-      (party_set_slot,"p_town_5", slot_town_arena_melee_3_team_size,   8),
-
-      (party_set_slot,"p_town_6", slot_town_arena_melee_1_num_teams,   2),
-      (party_set_slot,"p_town_6", slot_town_arena_melee_1_team_size,   4),
-      (party_set_slot,"p_town_6", slot_town_arena_melee_2_num_teams,   3),
-      (party_set_slot,"p_town_6", slot_town_arena_melee_2_team_size,   4),
-      (party_set_slot,"p_town_6", slot_town_arena_melee_3_num_teams,   3),
-      (party_set_slot,"p_town_6", slot_town_arena_melee_3_team_size,   6),
-
-      (party_set_slot,"p_town_7", slot_town_arena_melee_1_num_teams,   4),
-      (party_set_slot,"p_town_7", slot_town_arena_melee_1_team_size,   4),
-      (party_set_slot,"p_town_7", slot_town_arena_melee_2_num_teams,   4),
-      (party_set_slot,"p_town_7", slot_town_arena_melee_2_team_size,   6),
-      (party_set_slot,"p_town_7", slot_town_arena_melee_3_num_teams,   4),
-      (party_set_slot,"p_town_7", slot_town_arena_melee_3_team_size,   8),
-
-      (party_set_slot,"p_town_8", slot_town_arena_melee_1_num_teams,   3),
-      (party_set_slot,"p_town_8", slot_town_arena_melee_1_team_size,   1),
-      (party_set_slot,"p_town_8", slot_town_arena_melee_2_num_teams,   3),
-      (party_set_slot,"p_town_8", slot_town_arena_melee_2_team_size,   3),
-      (party_set_slot,"p_town_8", slot_town_arena_melee_3_num_teams,   3),
-      (party_set_slot,"p_town_8", slot_town_arena_melee_3_team_size,   7),
-
-      (party_set_slot,"p_town_9", slot_town_arena_melee_1_num_teams,   2),
-      (party_set_slot,"p_town_9", slot_town_arena_melee_1_team_size,   2),
-      (party_set_slot,"p_town_9", slot_town_arena_melee_2_num_teams,   2),
-      (party_set_slot,"p_town_9", slot_town_arena_melee_2_team_size,   5),
-      (party_set_slot,"p_town_9", slot_town_arena_melee_3_num_teams,   2),
-      (party_set_slot,"p_town_9", slot_town_arena_melee_3_team_size,   8),
-
-      (party_set_slot,"p_town_10", slot_town_arena_melee_1_num_teams,   2),
-      (party_set_slot,"p_town_10", slot_town_arena_melee_1_team_size,   3),
-      (party_set_slot,"p_town_10", slot_town_arena_melee_2_num_teams,   2),
-      (party_set_slot,"p_town_10", slot_town_arena_melee_2_team_size,   5),
-      (party_set_slot,"p_town_10", slot_town_arena_melee_3_num_teams,   2),
-      (party_set_slot,"p_town_10", slot_town_arena_melee_3_team_size,   8),
-
-      (party_set_slot,"p_town_11", slot_town_arena_melee_1_num_teams,   2),
-      (party_set_slot,"p_town_11", slot_town_arena_melee_1_team_size,   8),
-      (party_set_slot,"p_town_11", slot_town_arena_melee_2_num_teams,   3),
-      (party_set_slot,"p_town_11", slot_town_arena_melee_2_team_size,   4),
-      (party_set_slot,"p_town_11", slot_town_arena_melee_3_num_teams,   3),
-      (party_set_slot,"p_town_11", slot_town_arena_melee_3_team_size,   6),
-
-      (party_set_slot,"p_town_12", slot_town_arena_melee_1_num_teams,   3),
-      (party_set_slot,"p_town_12", slot_town_arena_melee_1_team_size,   8),
-      (party_set_slot,"p_town_12", slot_town_arena_melee_2_num_teams,   4),
-      (party_set_slot,"p_town_12", slot_town_arena_melee_2_team_size,   6),
-      (party_set_slot,"p_town_12", slot_town_arena_melee_3_num_teams,   4),
-      (party_set_slot,"p_town_12", slot_town_arena_melee_3_team_size,   5),
-
-      (party_set_slot,"p_town_13", slot_town_arena_melee_1_num_teams,   2),
-      (party_set_slot,"p_town_13", slot_town_arena_melee_1_team_size,   8),
-      (party_set_slot,"p_town_13", slot_town_arena_melee_2_num_teams,   4),
-      (party_set_slot,"p_town_13", slot_town_arena_melee_2_team_size,   5),
-      (party_set_slot,"p_town_13", slot_town_arena_melee_3_num_teams,   4),
-      (party_set_slot,"p_town_13", slot_town_arena_melee_3_team_size,   7),
-
-      (party_set_slot,"p_town_14", slot_town_arena_melee_1_num_teams,   2),
-      (party_set_slot,"p_town_14", slot_town_arena_melee_1_team_size,   4),
-      (party_set_slot,"p_town_14", slot_town_arena_melee_2_num_teams,   2),
-      (party_set_slot,"p_town_14", slot_town_arena_melee_2_team_size,   5),
-      (party_set_slot,"p_town_14", slot_town_arena_melee_3_num_teams,   2),
-      (party_set_slot,"p_town_14", slot_town_arena_melee_3_team_size,   6),
-
-      (party_set_slot,"p_town_15", slot_town_arena_melee_1_num_teams,   2),
-      (party_set_slot,"p_town_15", slot_town_arena_melee_1_team_size,   8),
-      (party_set_slot,"p_town_15", slot_town_arena_melee_2_num_teams,   3),
-      (party_set_slot,"p_town_15", slot_town_arena_melee_2_team_size,   4),
-      (party_set_slot,"p_town_15", slot_town_arena_melee_3_num_teams,   3),
-      (party_set_slot,"p_town_15", slot_town_arena_melee_3_team_size,   6),
-
-      (party_set_slot,"p_town_16", slot_town_arena_melee_1_num_teams,   3),
-      (party_set_slot,"p_town_16", slot_town_arena_melee_1_team_size,   8),
-      (party_set_slot,"p_town_16", slot_town_arena_melee_2_num_teams,   4),
-      (party_set_slot,"p_town_16", slot_town_arena_melee_2_team_size,   6),
-      (party_set_slot,"p_town_16", slot_town_arena_melee_3_num_teams,   4),
-      (party_set_slot,"p_town_16", slot_town_arena_melee_3_team_size,   5),
-
-      (party_set_slot,"p_town_17", slot_town_arena_melee_1_num_teams,   2),
-      (party_set_slot,"p_town_17", slot_town_arena_melee_1_team_size,   8),
-      (party_set_slot,"p_town_17", slot_town_arena_melee_2_num_teams,   4),
-      (party_set_slot,"p_town_17", slot_town_arena_melee_2_team_size,   5),
-      (party_set_slot,"p_town_17", slot_town_arena_melee_3_num_teams,   4),
-      (party_set_slot,"p_town_17", slot_town_arena_melee_3_team_size,   7),
-
-      (party_set_slot,"p_town_18", slot_town_arena_melee_1_num_teams,   2),
-      (party_set_slot,"p_town_18", slot_town_arena_melee_1_team_size,   4),
-      (party_set_slot,"p_town_18", slot_town_arena_melee_2_num_teams,   2),
-      (party_set_slot,"p_town_18", slot_town_arena_melee_2_team_size,   5),
-      (party_set_slot,"p_town_18", slot_town_arena_melee_3_num_teams,   2),
-      (party_set_slot,"p_town_18", slot_town_arena_melee_3_team_size,   6),
-
-      (party_set_slot,"p_town_19", slot_town_arena_melee_1_num_teams,   2),
-      (party_set_slot,"p_town_19", slot_town_arena_melee_1_team_size,   8),
-      (party_set_slot,"p_town_19", slot_town_arena_melee_2_num_teams,   4),
-      (party_set_slot,"p_town_19", slot_town_arena_melee_2_team_size,   4),
-      (party_set_slot,"p_town_19", slot_town_arena_melee_3_num_teams,   4),
-      (party_set_slot,"p_town_19", slot_town_arena_melee_3_team_size,   6),
-
-      (party_set_slot,"p_town_20", slot_town_arena_melee_1_num_teams,   4),
-      (party_set_slot,"p_town_20", slot_town_arena_melee_1_team_size,   2),
-      (party_set_slot,"p_town_20", slot_town_arena_melee_2_num_teams,   4),
-      (party_set_slot,"p_town_20", slot_town_arena_melee_2_team_size,   4),
-      (party_set_slot,"p_town_20", slot_town_arena_melee_3_num_teams,   4),
-      (party_set_slot,"p_town_20", slot_town_arena_melee_3_team_size,   6),
-
-      (party_set_slot,"p_town_21", slot_town_arena_melee_1_num_teams,   3),
-      (party_set_slot,"p_town_21", slot_town_arena_melee_1_team_size,   3),
-      (party_set_slot,"p_town_21", slot_town_arena_melee_2_num_teams,   2),
-      (party_set_slot,"p_town_21", slot_town_arena_melee_2_team_size,   6),
-      (party_set_slot,"p_town_21", slot_town_arena_melee_3_num_teams,   2),
-      (party_set_slot,"p_town_21", slot_town_arena_melee_3_team_size,   8),
-
-      (party_set_slot,"p_town_22", slot_town_arena_melee_1_num_teams,   4),
-      (party_set_slot,"p_town_22", slot_town_arena_melee_1_team_size,   3),
-      (party_set_slot,"p_town_22", slot_town_arena_melee_2_num_teams,   3),
-      (party_set_slot,"p_town_22", slot_town_arena_melee_2_team_size,   4),
-      (party_set_slot,"p_town_22", slot_town_arena_melee_3_num_teams,   2),
-      (party_set_slot,"p_town_22", slot_town_arena_melee_3_team_size,   6),
+    # Set Weapon Choice
+    # Sargoth
+      (party_set_slot, "p_town_1", slot_town_tournament_weapon_maybe_horse, slot_town_tournament_weapon_1),
+      (party_set_slot, "p_town_1", slot_town_tournament_weapon_no_horse, slot_town_tournament_weapon_1),
+      (party_set_slot, "p_town_1", slot_town_tournament_weapon_1, "itm_practice_sword"),
+      (party_set_slot, "p_town_1", slot_town_tournament_weapon_2, "itm_heavy_practice_sword"),
+      (party_set_slot, "p_town_1", slot_town_tournament_weapon_3, "itm_practice_axe"),
+      (party_set_slot, "p_town_1", slot_town_tournament_weapon_4, "itm_practice_staff"),
+    # Tihr
+      (party_set_slot, "p_town_2", slot_town_tournament_weapon_maybe_horse, slot_town_tournament_weapon_1),
+      (party_set_slot, "p_town_2", slot_town_tournament_weapon_no_horse, slot_town_tournament_weapon_1),
+      (party_set_slot, "p_town_2", slot_town_tournament_weapon_1, "itm_practice_sword"),
+      (party_set_slot, "p_town_2", slot_town_tournament_weapon_2, "itm_heavy_practice_sword"),
+      (party_set_slot, "p_town_2", slot_town_tournament_weapon_3, "itm_practice_axe"),
+      (party_set_slot, "p_town_2", slot_town_tournament_weapon_4, "itm_practice_spear"),
+      (party_set_slot, "p_town_2", slot_town_tournament_weapon_5, "itm_practice_bow"),
+    # Veluca
+      (party_set_slot, "p_town_3", slot_town_tournament_weapon_maybe_horse, slot_town_tournament_weapon_2),
+      (party_set_slot, "p_town_3", slot_town_tournament_weapon_no_horse, slot_town_tournament_weapon_6),
+      (party_set_slot, "p_town_3", slot_town_tournament_weapon_1, "itm_practice_lance"),
+      (party_set_slot, "p_town_3", slot_town_tournament_weapon_2, "itm_practice_sword"),
+      (party_set_slot, "p_town_3", slot_town_tournament_weapon_3, "itm_heavy_practice_sword"),
+      (party_set_slot, "p_town_3", slot_town_tournament_weapon_4, "itm_practice_bow"),
+      (party_set_slot, "p_town_3", slot_town_tournament_weapon_5, "itm_practice_crossbow"),
+      (party_set_slot, "p_town_3", slot_town_tournament_weapon_6, "itm_practice_spear"),
+    # Suno
+      (party_set_slot, "p_town_4", slot_town_tournament_weapon_maybe_horse, slot_town_tournament_weapon_2),
+      (party_set_slot, "p_town_4", slot_town_tournament_weapon_no_horse, slot_town_tournament_weapon_5),
+      (party_set_slot, "p_town_4", slot_town_tournament_weapon_1, "itm_practice_lance"),
+      (party_set_slot, "p_town_4", slot_town_tournament_weapon_2, "itm_practice_sword"),
+      (party_set_slot, "p_town_4", slot_town_tournament_weapon_3, "itm_heavy_practice_sword"),
+      (party_set_slot, "p_town_4", slot_town_tournament_weapon_4, "itm_practice_axe"),
+      (party_set_slot, "p_town_4", slot_town_tournament_weapon_5, "itm_practice_spear"),
+    # Jelkala
+      (party_set_slot, "p_town_5", slot_town_tournament_weapon_maybe_horse, slot_town_tournament_weapon_2),
+      (party_set_slot, "p_town_5", slot_town_tournament_weapon_no_horse, slot_town_tournament_weapon_6),
+      (party_set_slot, "p_town_5", slot_town_tournament_weapon_1, "itm_practice_lance"),
+      (party_set_slot, "p_town_5", slot_town_tournament_weapon_2, "itm_practice_sword"),
+      (party_set_slot, "p_town_5", slot_town_tournament_weapon_3, "itm_heavy_practice_sword"),
+      (party_set_slot, "p_town_5", slot_town_tournament_weapon_4, "itm_practice_bow"),
+      (party_set_slot, "p_town_5", slot_town_tournament_weapon_5, "itm_practice_crossbow"),
+      (party_set_slot, "p_town_5", slot_town_tournament_weapon_6, "itm_practice_spear"),
+    # Praven
+      (party_set_slot, "p_town_6", slot_town_tournament_weapon_maybe_horse, slot_town_tournament_weapon_end),
+      (party_set_slot, "p_town_6", slot_town_tournament_weapon_no_horse, slot_town_tournament_weapon_end),
+      (party_set_slot, "p_town_6", slot_town_tournament_weapon_1, "itm_practice_lance"),
+    # Uxkhal
+      (party_set_slot, "p_town_7", slot_town_tournament_weapon_maybe_horse, slot_town_tournament_weapon_end),
+      (party_set_slot, "p_town_7", slot_town_tournament_weapon_no_horse, slot_town_tournament_weapon_end),
+      (party_set_slot, "p_town_7", slot_town_tournament_weapon_1, "itm_practice_sword"),
+      (party_set_slot, "p_town_7", slot_town_tournament_weapon_2, "itm_heavy_practice_sword"),
+    # Reyvadin
+      (party_set_slot, "p_town_8", slot_town_tournament_weapon_maybe_horse, slot_town_tournament_weapon_2),
+      (party_set_slot, "p_town_8", slot_town_tournament_weapon_no_horse, slot_town_tournament_weapon_5),
+      (party_set_slot, "p_town_8", slot_town_tournament_weapon_1, "itm_practice_lance"),
+      (party_set_slot, "p_town_8", slot_town_tournament_weapon_2, "itm_practice_sword"),
+      (party_set_slot, "p_town_8", slot_town_tournament_weapon_3, "itm_heavy_practice_sword"),
+      (party_set_slot, "p_town_8", slot_town_tournament_weapon_4, "itm_practice_axe"),
+      (party_set_slot, "p_town_8", slot_town_tournament_weapon_5, "itm_practice_spear"),
+    # Khudan
+      (party_set_slot, "p_town_9", slot_town_tournament_weapon_maybe_horse, slot_town_tournament_weapon_end),
+      (party_set_slot, "p_town_9", slot_town_tournament_weapon_no_horse, slot_town_tournament_weapon_end),
+      (party_set_slot, "p_town_9", slot_town_tournament_weapon_1, "itm_practice_lance"),
+      (party_set_slot, "p_town_9", slot_town_tournament_weapon_2, "itm_practice_bow"),
+      (party_set_slot, "p_town_9", slot_town_tournament_weapon_3, "itm_practice_javelin"),
+    # Tulga
+      (party_set_slot, "p_town_10", slot_town_tournament_weapon_maybe_horse, slot_town_tournament_weapon_end),
+      (party_set_slot, "p_town_10", slot_town_tournament_weapon_no_horse, slot_town_tournament_weapon_end),
+      (party_set_slot, "p_town_10", slot_town_tournament_weapon_1, "itm_practice_bow"),
+      (party_set_slot, "p_town_10", slot_town_tournament_weapon_2, "itm_practice_javelin"),
+    # Curaw
+      (party_set_slot, "p_town_11", slot_town_tournament_weapon_maybe_horse, slot_town_tournament_weapon_end),
+      (party_set_slot, "p_town_11", slot_town_tournament_weapon_no_horse, slot_town_tournament_weapon_end),
+      (party_set_slot, "p_town_11", slot_town_tournament_weapon_1, "itm_practice_sword"),
+      (party_set_slot, "p_town_11", slot_town_tournament_weapon_2, "itm_heavy_practice_sword"),
+      (party_set_slot, "p_town_11", slot_town_tournament_weapon_3, "itm_practice_bow"),
+      (party_set_slot, "p_town_11", slot_town_tournament_weapon_4, "itm_practice_javelin"),
+    # Wercheg
+      (party_set_slot, "p_town_12", slot_town_tournament_weapon_maybe_horse, slot_town_tournament_weapon_1),
+      (party_set_slot, "p_town_12", slot_town_tournament_weapon_no_horse, slot_town_tournament_weapon_end),
+      (party_set_slot, "p_town_12", slot_town_tournament_weapon_1, "itm_practice_axe"),
+    # Rivacheg
+      (party_set_slot, "p_town_13", slot_town_tournament_weapon_maybe_horse, slot_town_tournament_weapon_2),
+      (party_set_slot, "p_town_13", slot_town_tournament_weapon_no_horse, slot_town_tournament_weapon_6),
+      (party_set_slot, "p_town_13", slot_town_tournament_weapon_1, "itm_practice_lance"),
+      (party_set_slot, "p_town_13", slot_town_tournament_weapon_2, "itm_practice_sword"),
+      (party_set_slot, "p_town_13", slot_town_tournament_weapon_3, "itm_heavy_practice_sword"),
+      (party_set_slot, "p_town_13", slot_town_tournament_weapon_4, "itm_practice_axe"),
+      (party_set_slot, "p_town_13", slot_town_tournament_weapon_5, "itm_practice_bow"),
+      (party_set_slot, "p_town_13", slot_town_tournament_weapon_6, "itm_practice_spear"),
+    # Halmar
+      (party_set_slot, "p_town_14", slot_town_tournament_weapon_maybe_horse, slot_town_tournament_weapon_end),
+      (party_set_slot, "p_town_14", slot_town_tournament_weapon_no_horse, slot_town_tournament_weapon_end),
+      (party_set_slot, "p_town_14", slot_town_tournament_weapon_1, "itm_practice_lance"),
+      (party_set_slot, "p_town_14", slot_town_tournament_weapon_2, "itm_practice_sword"),
+      (party_set_slot, "p_town_14", slot_town_tournament_weapon_3, "itm_heavy_practice_sword"),
+      (party_set_slot, "p_town_14", slot_town_tournament_weapon_4, "itm_practice_bow"),
+      (party_set_slot, "p_town_14", slot_town_tournament_weapon_5, "itm_practice_javelin"),
+    # Yalen
+      (party_set_slot, "p_town_15", slot_town_tournament_weapon_maybe_horse, slot_town_tournament_weapon_2),
+      (party_set_slot, "p_town_15", slot_town_tournament_weapon_no_horse, slot_town_tournament_weapon_6),
+      (party_set_slot, "p_town_15", slot_town_tournament_weapon_1, "itm_practice_lance"),
+      (party_set_slot, "p_town_15", slot_town_tournament_weapon_2, "itm_practice_sword"),
+      (party_set_slot, "p_town_15", slot_town_tournament_weapon_3, "itm_heavy_practice_sword"),
+      (party_set_slot, "p_town_15", slot_town_tournament_weapon_4, "itm_practice_bow"),
+      (party_set_slot, "p_town_15", slot_town_tournament_weapon_5, "itm_practice_crossbow"),
+      (party_set_slot, "p_town_15", slot_town_tournament_weapon_6, "itm_practice_spear"),
+    # Dhirim
+      (party_set_slot, "p_town_16", slot_town_tournament_weapon_maybe_horse, slot_town_tournament_weapon_2),
+      (party_set_slot, "p_town_16", slot_town_tournament_weapon_no_horse, slot_town_tournament_weapon_5),
+      (party_set_slot, "p_town_16", slot_town_tournament_weapon_1, "itm_practice_lance"),
+      (party_set_slot, "p_town_16", slot_town_tournament_weapon_2, "itm_practice_sword"),
+      (party_set_slot, "p_town_16", slot_town_tournament_weapon_3, "itm_heavy_practice_sword"),
+      (party_set_slot, "p_town_16", slot_town_tournament_weapon_4, "itm_practice_axe"),
+      (party_set_slot, "p_town_16", slot_town_tournament_weapon_5, "itm_practice_spear"),
+      (party_set_slot, "p_town_16", slot_town_tournament_weapon_6, "itm_practice_bow"),
+    # Ichamur
+      (party_set_slot, "p_town_17", slot_town_tournament_weapon_maybe_horse, slot_town_tournament_weapon_end),
+      (party_set_slot, "p_town_17", slot_town_tournament_weapon_no_horse, slot_town_tournament_weapon_end),
+      (party_set_slot, "p_town_17", slot_town_tournament_weapon_1, "itm_practice_bow"),
+      (party_set_slot, "p_town_17", slot_town_tournament_weapon_2, "itm_practice_javelin"),
+    # Narra
+      (party_set_slot, "p_town_18", slot_town_tournament_weapon_maybe_horse, slot_town_tournament_weapon_end),
+      (party_set_slot, "p_town_18", slot_town_tournament_weapon_no_horse, slot_town_tournament_weapon_end),
+      (party_set_slot, "p_town_18", slot_town_tournament_weapon_1, "itm_practice_lance"),
+      (party_set_slot, "p_town_18", slot_town_tournament_weapon_2, "itm_practice_sword"),
+      (party_set_slot, "p_town_18", slot_town_tournament_weapon_3, "itm_heavy_practice_sword"),
+      (party_set_slot, "p_town_18", slot_town_tournament_weapon_4, "itm_practice_bow"),
+      (party_set_slot, "p_town_18", slot_town_tournament_weapon_5, "itm_practice_javelin"),
+    # Shariz
+      (party_set_slot, "p_town_19", slot_town_tournament_weapon_maybe_horse, slot_town_tournament_weapon_end),
+      (party_set_slot, "p_town_19", slot_town_tournament_weapon_no_horse, slot_town_tournament_weapon_end),
+      (party_set_slot, "p_town_19", slot_town_tournament_weapon_1, "itm_practice_lance"),
+      (party_set_slot, "p_town_19", slot_town_tournament_weapon_2, "itm_practice_sword"),
+      (party_set_slot, "p_town_19", slot_town_tournament_weapon_3, "itm_heavy_practice_sword"),
+      (party_set_slot, "p_town_19", slot_town_tournament_weapon_4, "itm_practice_bow"),
+      (party_set_slot, "p_town_19", slot_town_tournament_weapon_5, "itm_practice_javelin"),
+    # Durquba
+      (party_set_slot, "p_town_20", slot_town_tournament_weapon_maybe_horse, slot_town_tournament_weapon_1),
+      (party_set_slot, "p_town_20", slot_town_tournament_weapon_no_horse, slot_town_tournament_weapon_end),
+      (party_set_slot, "p_town_20", slot_town_tournament_weapon_1, "itm_practice_sword"),
+      (party_set_slot, "p_town_20", slot_town_tournament_weapon_2, "itm_heavy_practice_sword"),
+      (party_set_slot, "p_town_20", slot_town_tournament_weapon_3, "itm_practice_spear"),
+      (party_set_slot, "p_town_20", slot_town_tournament_weapon_4, "itm_practice_bow"),
+      (party_set_slot, "p_town_20", slot_town_tournament_weapon_5, "itm_practice_javelin"),
+    # Ahmerrad
+      (party_set_slot, "p_town_21", slot_town_tournament_weapon_maybe_horse, slot_town_tournament_weapon_end),
+      (party_set_slot, "p_town_21", slot_town_tournament_weapon_no_horse, slot_town_tournament_weapon_end),
+      (party_set_slot, "p_town_21", slot_town_tournament_weapon_1, "itm_practice_lance"),
+      (party_set_slot, "p_town_21", slot_town_tournament_weapon_2, "itm_practice_sword"),
+      (party_set_slot, "p_town_21", slot_town_tournament_weapon_3, "itm_heavy_practice_sword"),
+      (party_set_slot, "p_town_21", slot_town_tournament_weapon_4, "itm_practice_bow"),
+      (party_set_slot, "p_town_21", slot_town_tournament_weapon_5, "itm_practice_javelin"),
+    # Bariyye
+      (party_set_slot, "p_town_22", slot_town_tournament_weapon_maybe_horse, slot_town_tournament_weapon_1),
+      (party_set_slot, "p_town_22", slot_town_tournament_weapon_no_horse, slot_town_tournament_weapon_end),
+      (party_set_slot, "p_town_22", slot_town_tournament_weapon_1, "itm_practice_sword"),
+      (party_set_slot, "p_town_22", slot_town_tournament_weapon_2, "itm_heavy_practice_sword"),
+      (party_set_slot, "p_town_22", slot_town_tournament_weapon_3, "itm_practice_spear"),
+      (party_set_slot, "p_town_22", slot_town_tournament_weapon_4, "itm_practice_bow"),
+      (party_set_slot, "p_town_22", slot_town_tournament_weapon_5, "itm_practice_javelin"),
 	]),
+
+ # script_setup_town_tournament
+  # Input: arg1: town
+  # Output: none
+  ("setup_town_tournament",
+    [(store_script_param, ":town_no", 1),
+  
+   (assign, ":participants", 1),
+   (try_for_range, ":unused", 0, num_tournament_rounds),
+     (val_mul, ":participants", 2),
+   (try_end),
+   
+   # Initialize parties to store variables; can be created dynamically, and allows me to use WARP
+   # Deleting the old ones should not be necessary, but we still try to do it in case the 
+   # Player somehow managed to wiggle their way out without getting to a proper finish menu
+   (try_begin), 
+     (gt, "$tournament_participant_party", "p_static_parties_end"),
+     (remove_party, "$tournament_participant_party"),
+   (try_end),
+   (spawn_around_party, ":town_no", "pt_none"),
+   (assign, "$tournament_participant_party", reg0),
+   (disable_party, "$tournament_participant_party"),
+   (try_begin),
+     (gt, "$tournament_equipment_party", "p_static_parties_end"),
+     (remove_party, "$tournament_equipment_party"),
+   (try_end),
+   (spawn_around_party, ":town_no", "pt_none"),
+   (assign, "$tournament_equipment_party", reg0),
+   (disable_party, "$tournament_equipment_party"),
+   (try_begin),
+     (gt, "$tournament_entry_point_party", "p_static_parties_end"),
+     (remove_party, "$tournament_entry_point_party"),
+   (try_end),
+   (spawn_around_party, ":town_no", "pt_none"),
+   (assign, "$tournament_entry_point_party", reg0),
+   (disable_party, "$tournament_entry_point_party"),
+   (call_script,"script_warp_array_init_value", "$tournament_entry_point_party", ":participants", -1),
+   
+   # Add the player
+   (call_script,"script_warp_array_push", "$tournament_participant_party", "trp_player"),
+   # Add other heroes from player party
+     (party_get_num_companion_stacks, ":num_stacks", "p_main_party"),
+     (try_for_range, ":stack_no", 0, ":num_stacks"),
+       (party_stack_get_troop_id, ":cur_troop", "p_main_party", ":stack_no"),
+       (is_between, ":cur_troop", active_npcs_begin, active_npcs_end),
+     (troop_slot_ge, ":cur_troop", slot_troop_fights_in_tournaments, 1),
+     (call_script,"script_warp_array_push", "$tournament_participant_party", ":cur_troop"),
+     (try_end),
+   # Add heroes at the feast
+     (party_collect_attachments_to_party, ":town_no", "p_temp_party"),
+     (party_get_num_companion_stacks, ":num_stacks", "p_temp_party"),
+     (try_for_range, ":stack_no", 0, ":num_stacks"),
+       (party_stack_get_troop_id, ":cur_troop", "p_temp_party", ":stack_no"),
+       (is_between, ":cur_troop", active_npcs_begin, active_npcs_end),
+     (call_script,"script_warp_array_push", "$tournament_participant_party", ":cur_troop"),
+     (try_end),
+   (call_script,"script_warp_array_unique", "$tournament_participant_party"), # Just in case
+   # Add some of the champions
+     (try_for_range, ":champion", arena_champions_begin, arena_champions_end),
+     (call_script,"script_rand", 0, 2), (eq, reg0, 0),
+     (call_script,"script_warp_array_push", "$tournament_participant_party", ":champion"),
+     (try_end),
+   # And some quick battle troops
+     (try_for_range, ":qb_hero", quick_battle_troops_begin, quick_battle_troops_end),
+     (call_script,"script_rand", 0, 10), (eq, reg0, 0),
+     (call_script,"script_warp_array_push", "$tournament_participant_party", ":qb_hero"),
+     (try_end),
+   
+   # Make sure the tournament has the right number of participants
+   (call_script,"script_warp_array_length", "$tournament_participant_party"),
+   (store_sub, ":more_participants", ":participants", reg0),
+   (try_begin),
+     (gt, ":more_participants", 0), # Fill up if more are needed
+     (try_for_range, ":unused", 0, ":more_participants"),
+       (call_script,"script_rand", arena_fighters_begin, arena_fighters_end),
+     (assign, ":cur_troop", reg0),
+     (try_begin),
+       (eq, ":cur_troop", "trp_arena_training_fighter_1"),
+       (assign, ":cur_troop", "trp_hired_blade"),
+     (else_try),
+       (eq, ":cur_troop", "trp_arena_training_fighter_2"),
+       (assign, ":cur_troop", "trp_sword_sister"),
+     (try_end),
+       (call_script,"script_warp_array_push", "$tournament_participant_party", ":cur_troop"),
+     (try_end),
+   (else_try),
+     (lt, ":more_participants", 0), # Otherwise, sort and remove the least important ones
+     (call_script,"script_warp_array_sort", "$tournament_participant_party", "script_cf_more_important_participant"),
+     (try_for_range, ":unused", ":more_participants", 0),
+       (call_script,"script_cf_warp_array_pop", "$tournament_participant_party"),
+     (try_end),
+   (try_end),
+   # (call_script,"script_warp_array_shuffle", "$tournament_participant_party"), # No need; shuffling the entry points is enough
+     
+   (call_script,"script_warp_array_copy", "$tournament_equipment_party", "$tournament_participant_party"),
+   (call_script,"script_warp_array_map", "$tournament_equipment_party", "script_pick_tournament_equipment"),
+
+   (assign, "$g_tournament_cur_tier", 0),
+   (assign, "$g_tournament_next_num_teams", 0),
+   (assign, "$g_tournament_next_team_size", 0),
+   (assign, "$g_tournament_num_participants_for_fight", 0),
+   (assign, "$g_tournament_bet_placed", 0),
+   (assign, "$g_tournament_bet_win_amount", 0),
+   (assign, "$g_tournament_last_bet_tier", -1),
+   (assign, "$g_tournament_player_team_won", -1),
+     ]),  
+
+
+  # script_count_active_tournament_participants
+  # Input: none (reads $tournament_participant_party; expects disqualified participants to be set to -1)
+  # Output: reg0: number of participants
+  #         reg1: is the player among them?
+  ("count_active_tournament_participants",[
+    (assign, ":active_participants", 0),
+    (assign, ":player_instances", 0),
+  (try_begin),
+    (gt, "$tournament_participant_party", 0),
+    (call_script,"script_warp_array_length", "$tournament_participant_party"),
+    (assign, ":total_participants", reg0), (val_add, ":total_participants", 1),
+    (try_for_range, ":id", 1, ":total_participants"),
+      (call_script, "script_cf_warp_array_get", "$tournament_participant_party", ":id"),
+    (ge, reg0, 0),
+    (val_add, ":active_participants", 1),
+    (eq, reg0, "trp_player"),
+    (val_add, ":player_instances", 1),
+    (try_end),
+  (try_end),
+  (assign, reg0, ":active_participants"),
+    (assign, reg1, ":player_instances"),
+     ]),  
+
+  # script_assign_tournament_teams_for_next_round
+  # Input: arg1 = max_teams, arg2 = max_size (and reads $tournament_participant_party)
+  # Output: reg0 = number_of_teams, reg1 = team_size (and writes $tournament_entry_point_party)
+  ("assign_tournament_teams_for_next_round",
+    [ (store_script_param, ":max_teams", 1),
+    (store_script_param, ":max_size", 2),
+   
+    # Determine number and size of teams
+        (call_script, "script_count_active_tournament_participants"),
+        (assign, ":active_participants", reg0),
+    (val_min, ":max_teams", ":active_participants"),
+        (val_add, ":max_teams", 1),
+    (call_script, "script_rand", 2, ":max_teams"),
+    (assign, ":num_teams", reg0),
+    (store_div, ":max_team_size", ":active_participants", ":num_teams"),
+    (val_min, ":max_size", ":max_team_size"),
+        (val_add, ":max_size", 1),
+    (call_script, "script_rand", 1, ":max_size"),
+    (assign, ":team_size", reg0),
+    
+    # Create a random sequence of all used entry points
+    (call_script, "script_warp_array_clear", "p_temp_party"),
+    (try_for_range, ":t", 0, ":num_teams"),
+      (try_for_range, ":m", 0, ":team_size"),
+        (store_mul, ":entry", ":t", 8),
+        (val_add, ":entry", ":m"),
+      (call_script, "script_warp_array_push", "p_temp_party", ":entry"),
+      (try_end),
+    (try_end),
+    (call_script, "script_warp_array_shuffle", "p_temp_party"),
+    # Fill it up with -1 for all active participants that don't fit
+    (store_mul, ":extra_participants", ":num_teams", ":team_size"),
+    (store_sub, ":extra_participants", ":active_participants", ":extra_participants"),
+    (try_for_range, ":unused", 0, ":extra_participants"),
+      (call_script, "script_warp_array_push", "p_temp_party", -1),
+    (try_end),
+    (call_script, "script_warp_array_shuffle_range", "p_temp_party", 2, ":active_participants"), # The first one is reserved for the player
+    (try_begin),
+      (call_script, "script_cf_warp_array_get", "p_temp_party", 1),
+      (call_script, "script_cf_warp_array_set", "$tournament_entry_point_party", 1, reg0),
+    (try_end),
+    
+    # Distribute the entry points among active participants
+    (assign, ":next_entry", 2),
+    (call_script,"script_warp_array_length", "$tournament_participant_party"),
+    (assign, ":total_participants", reg0), (val_add, ":total_participants", 1),
+      (try_for_range, ":id", 2, ":total_participants"),
+      (call_script, "script_cf_warp_array_get", "$tournament_participant_party", ":id"),
+      (assign, ":participant", reg0),
+      (try_begin),
+        (gt, ":participant", 0),
+      (call_script, "script_cf_warp_array_get", "p_temp_party", ":next_entry"),
+      (call_script, "script_cf_warp_array_set", "$tournament_entry_point_party", ":id", reg0),
+      (val_add, ":next_entry", 1),
+      (else_try),
+      (call_script, "script_cf_warp_array_set", "$tournament_entry_point_party", ":id", -1),
+      (try_end),
+    (try_end),
+    
+    # Set results
+        (assign, reg0, ":num_teams"),
+        (assign, reg1, ":team_size"),
+     ]),
+  
+
+  # script_remove_losers_after_tournament_fight
+  # Input: arg1 = player_team_won (1 or 0)
+  # Output: none
+  ("remove_losers_after_tournament_fight",
+    [(store_script_param, ":player_team_won", 1),
+   
+   # Collect participating agents and assign them a score
+   (call_script,"script_warp_array_length", "$tournament_participant_party"),
+   (assign, ":total_participants", reg0),
+   (call_script, "script_warp_array_init_random", "p_temp_party", ":total_participants", 1, 250), # Some baseline score for non-participating agents
+     (get_player_agent_no, ":player_agent"),
+     (agent_get_team, ":player_team", ":player_agent"),
+     (try_for_agents, ":agent_no"),
+       (agent_is_human, ":agent_no"), # No Horseys!
+       (agent_get_troop_id, ":troop_id", ":agent_no"),
+       (neg|is_between, ":troop_id", arena_masters_begin, arena_masters_end), # No Tournament Master!
+     (agent_get_entry_no, ":entry", ":agent_no"),
+     (assign, "$temp", ":entry"),
+     (call_script, "script_warp_array_find_first", "$tournament_entry_point_party", "script_cf_eq_temp"),
+     (assign, ":id", reg0),
+     (call_script, "script_rand", 1, 100),
+     (assign, ":score", reg0), # To break ties
+       (agent_get_team, ":agent_team", ":agent_no"),
+     (try_begin),
+       (ge, ":player_team_won", 1),
+       (eq, ":agent_team", ":player_team"),
+       (val_add, ":score", 10000),
+     (try_end),
+     (agent_get_kill_count, ":kill_count", ":agent_no", 1),
+     (val_mul, ":kill_count", 100),
+     (val_add, ":score", ":kill_count"),
+     (call_script, "script_cf_warp_array_set", "p_temp_party", ":id", ":score"),
+   (try_end),
+   
+   # Remove bottom half of participants
+   (call_script,"script_count_active_tournament_participants"),
+   (store_div, ":num_to_eliminate", reg0, 2),
+   (val_add, ":total_participants", 1),
+   (try_for_range, ":unused", 0, ":num_to_eliminate"),
+     (assign, ":lowest_score", 1000000),
+     (assign, ":id_with_lowest_score", 0),
+     (try_for_range, ":id", 1, ":total_participants"),
+       (call_script, "script_cf_warp_array_get", "$tournament_participant_party", ":id"),
+     (ge, reg0, 0),
+       (call_script, "script_cf_warp_array_get", "p_temp_party", ":id"),
+     (lt, reg0, ":lowest_score"),
+     (assign, ":lowest_score", reg0),
+       (assign, ":id_with_lowest_score", ":id"),
+     (try_end),
+     (call_script, "script_cf_warp_array_set", "$tournament_participant_party", ":id_with_lowest_score", -1),
+   (try_end),
+     ]),
+     
+  # script_cf_more_important_participant
+  # Input: arg1: participant_a, arg2: participant_b
+  # Output: none
+  ("cf_more_important_participant",
+    [(store_script_param, ":participant_a", 1),
+   (store_script_param, ":participant_b", 2),
+   
+   (this_or_next|eq,":participant_a","trp_player"),
+   (neq,":participant_b","trp_player"), # The player is always first!
+   
+   (this_or_next|troop_is_hero,":participant_a"),
+   (neg|troop_is_hero,":participant_b"), # Heroes before regulars!
+   
+   (this_or_next|main_party_has_troop,":participant_a"),
+   (neg|main_party_has_troop,":participant_b"), # Heroes in player party are first!
+   
+   (store_character_level, ":level_a", ":participant_a"),
+   (store_character_level, ":level_b", ":participant_b"),
+   (ge, ":level_a", ":level_b"), # Use level to break ties
+     ]),  
+   
+  # script_pick_tournament_equipment
+  # Input: arg1: troop_no (and requires $current_town to be set)
+  # Output: reg0: slot (adds tournament_weapon_horse_offset if with horse)
+  ("pick_tournament_equipment",
+    [(store_script_param, ":troop_no", 1),
+   
+   (try_begin),
+     (troop_is_hero,":troop_no"),
+     (main_party_has_troop,":troop_no"), # Will follow the player's advice
+     (call_script, "script_pick_matching_tournament_weapon_in_town", ":troop_no", "$current_town"),
+   (else_try),
+     (call_script, "script_pick_random_tournament_weapon_in_town", ":troop_no", "$current_town"),
+   (try_end),
+   (try_begin),
+     (gt, reg1, 0), # Wants a horse
+     (val_add, reg0, tournament_weapon_horse_offset),
+   (try_end),
+     ]),  
+  
+  # script_pick_random_tournament_weapon_in_town
+  # Input: arg1: troop_no arg2: town_no
+  # Output: reg0: slot reg1: use_horse
+  # Chooses a random weapon available in this town
+  ("pick_random_tournament_weapon_in_town",
+    [(store_script_param, ":unused", 1),
+   (store_script_param, ":town_no", 2),
+   
+   (val_mul, ":unused", 1), #squelch compiler warnings
+
+   (assign, ":mounted_sets", 0),
+   (assign, ":foot_sets", 0),
+   (party_get_slot, ":first_optional_slot", ":town_no", slot_town_tournament_weapon_maybe_horse),
+   (party_get_slot, ":first_foot_slot", ":town_no", slot_town_tournament_weapon_no_horse),
+     (try_for_range, ":slot", slot_town_tournament_weapon_1, slot_town_tournament_weapon_end),
+     (party_get_slot, ":weapon", ":town_no", ":slot"),
+     (gt, ":weapon", 0),
+     (try_begin),
+       (ge, ":slot", ":first_foot_slot"),
+     (val_add, ":foot_sets", 1),
+     (else_try),
+       (ge, ":slot", ":first_optional_slot"),
+     (val_add, ":mounted_sets", 1),
+     (val_add, ":foot_sets", 1),
+     (else_try),
+     (val_add, ":mounted_sets", 1),
+     (try_end),
+     (try_end),
+   (store_add, ":total_sets", ":mounted_sets", ":foot_sets"),
+   (call_script, "script_rand", 0, ":total_sets"),
+   (try_begin),
+     (ge, reg0, ":mounted_sets"),
+     (val_sub, reg0, ":mounted_sets"),
+     (val_add, reg0, ":first_optional_slot"),
+     (assign, reg1, 0),
+     (else_try),
+     (val_add, reg0, slot_town_tournament_weapon_1),
+     (assign, reg1, 1),
+     (try_end),
+     ]),  
+
+  # script_pick_matching_tournament_weapon_in_town
+  # Input: arg1: troop_no arg2: town_no
+  # Output: reg0: slot reg1: use_horse
+  # Chooses the weapon that matches the troop's current equipment best
+  ("pick_matching_tournament_weapon_in_town",
+    [(store_script_param, ":troop_no", 1),
+   (store_script_param, ":town_no", 2),
+   
+   (assign, ":is_mounted", -1),
+   (try_begin),
+     (troop_get_inventory_slot, ":horse", ":troop_no", ek_horse),
+     (gt, ":horse", 0),
+     (assign, ":is_mounted", 1),
+   (try_end),
+   
+   (party_get_slot, ":first_optional_slot", ":town_no", slot_town_tournament_weapon_maybe_horse),
+   (party_get_slot, ":first_foot_slot", ":town_no", slot_town_tournament_weapon_no_horse),
+   
+   (assign, ":best_score", -10),
+   (assign, ":best_slot", slot_town_tournament_weapon_1),
+     (try_for_range, ":slot", slot_town_tournament_weapon_1, slot_town_tournament_weapon_end),
+     (party_get_slot, ":weapon", ":town_no", ":slot"),
+     (gt, ":weapon", 0),
+     (item_get_type, ":weapon_type", ":weapon"),
+     (assign, ":score", 0),
+     (try_for_range, ":inv_slot", 0, 5),
+       (troop_get_inventory_slot, ":inv_weapon", ":troop_no", ":inv_slot"),
+       (gt, ":inv_weapon", 0),
+     (item_get_type, ":inv_weapon_type", ":inv_weapon"),
+     (try_begin),
+       (eq, ":weapon", "itm_practice_lance"),
+       (is_between, ":inv_weapon", "itm_w_light_lance", "itm_arrows"),
+       (ge, ":is_mounted", 1),
+       (val_add, ":score", 2), # Lance & Horse is a great choice, and this troop is a Lancer
+     (else_try),
+       (eq, ":weapon_type", ":inv_weapon_type"),
+       (val_add, ":score", 1),
+       (eq, ":weapon_type", itp_type_two_handed_wpn),
+       (val_add, ":score", 1), # So that carrying a shield with your 2H won't override your choice
+     (else_try),
+       (eq, ":inv_weapon_type", itp_type_arrows),
+       (eq, ":weapon_type", itp_type_bow),
+       (val_add, ":score", 2), # Ranged needs a bit of help; otherwise Sidearm and Shield will get priority
+     (else_try),
+       (eq, ":inv_weapon_type", itp_type_bolts),
+       (eq, ":weapon_type", itp_type_crossbow),
+       (val_add, ":score", 2), # Dito
+     (else_try),
+       (eq, ":inv_weapon_type", itp_type_shield),
+       (this_or_next|eq, ":weapon_type", itp_type_polearm),
+       (eq, ":weapon_type", itp_type_one_handed_wpn),
+       (neq, ":weapon", "itm_practice_staff"),
+       (val_add, ":score", 1),
+     (try_end),
+     (try_end),
+     (try_begin),
+       (lt, ":slot", ":first_optional_slot"),
+     (val_add, ":score", ":is_mounted"),
+     (else_try),
+       (lt, ":slot", ":first_foot_slot"),
+     (val_add, ":score", 1), # Can choose, so it's always right
+     (else_try),
+     (val_sub, ":score", ":is_mounted"),
+     (try_end),
+     (call_script,"script_rand",0,2),
+     (ge,":score",":best_score"),
+     (this_or_next|eq, reg0, 0),
+     (gt,":score",":best_score"),
+     (assign,":best_score",":score"),
+     (assign,":best_slot",":slot"),
+     (try_end),
+   
+   (try_begin),
+     (lt, ":best_slot", ":first_optional_slot"),
+     (assign, reg1, 1),
+   (else_try),
+     (lt, ":best_slot", ":first_foot_slot"),
+     (gt, ":is_mounted", 0),
+     (assign, reg1, 1),
+   (else_try),
+     (assign, reg1, 0),
+   (try_end),
+     
+   (assign,reg0,":best_slot"),
+     ]),  
+   
+  # script_cf_simulate_tournament
+  # Input: arg1: town
+  # Output: reg0: winner (fails if none)
+  ("cf_simulate_tournament",
+    [(store_script_param, ":town_no", 1),
+  
+   (call_script, "script_warp_array_clear", "p_temp_party"),
+   # Add heroes at the feast
+     (party_collect_attachments_to_party, ":town_no", "p_temp_party"),
+     (party_get_num_companion_stacks, ":num_stacks", "p_temp_party"),
+     (try_for_range, ":stack_no", 0, ":num_stacks"),
+       (party_stack_get_troop_id, ":cur_troop", "p_temp_party", ":stack_no"),
+       (is_between, ":cur_troop", active_npcs_begin, active_npcs_end),
+     (call_script,"script_warp_array_push", "p_temp_party", ":cur_troop"),
+     (try_end),
+   # Add all the champions, to make sure someone participates
+     (try_for_range, ":champion", arena_champions_begin, arena_champions_end),
+     (call_script,"script_warp_array_push", "p_temp_party", ":champion"),
+     (try_end),
+   # And some quick battle troops
+     (try_for_range, ":qb_hero", quick_battle_troops_begin, quick_battle_troops_end),
+     (call_script,"script_rand", 0, 10), (eq, reg0, 0),
+     (call_script,"script_warp_array_push", "p_temp_party", ":qb_hero"),
+     (try_end),
+   (call_script, "script_warp_array_shuffle", "p_temp_party"),
+   (call_script,"script_cf_warp_array_get", "p_temp_party", 1),
+   # cf_warp_array_get already sets reg0
+     ]),  
+   
+
+  # script_get_tournament_bets
+  # Input: none
+  # Output: reg0 = bets on player, reg1 = bets against player
+  ("get_tournament_bets",
+    [
+    (call_script, "script_get_tournament_bets_for_troop", "trp_player"),
+    (assign, ":player_bets", reg0),
+        (party_get_slot, ":relation", "$current_town", slot_center_player_relation),
+        (try_begin),
+      (gt, ":relation", 0), # Being the local hero isn't always an advantage...
+      (val_mul, ":relation", 50),
+      (val_add, ":player_bets", ":relation"),
+        (try_end),
+        (val_add, ":player_bets", "$g_tournament_bet_placed"), # Betting a lot on yourself makes people suspicious...
+    
+    (assign, ":other_bets", 0),
+    (call_script,"script_warp_array_length", "$tournament_participant_party"),
+    (assign, ":total_participants", reg0), (val_add, ":total_participants", 1),
+      (try_for_range, ":id", 2, ":total_participants"),
+      (call_script, "script_cf_warp_array_get", "$tournament_participant_party", ":id"),
+      (gt, reg0, 0), (call_script, "script_get_tournament_bets_for_troop", reg0),
+      (val_add, ":other_bets", reg0),
+        (try_end),
+    
+    # The amount of money in the pot is limited by town prosperity
+    (store_add, ":total_bets", ":player_bets", ":other_bets"),
+        (party_get_slot, ":prosperity", "$current_town", slot_town_prosperity),
+    (store_mul, ":betting_pool", ":prosperity", 10),
+    (try_begin),
+      (gt, ":total_bets", ":betting_pool"),
+      (val_mul, ":player_bets", ":betting_pool"),
+      (val_div, ":player_bets", ":total_bets"),
+      (val_mul, ":other_bets", ":betting_pool"),
+      (val_div, ":other_bets", ":total_bets"),
+    (try_end),
+    
+        (assign, reg0, ":player_bets"),
+        (assign, reg1, ":other_bets"),
+     ]),   
+   
+  # script_get_tournament_bets_for_troop
+  # Input: arg1 = troop_no
+  # Output: reg0 = base amount of bets
+  ("get_tournament_bets_for_troop",
+    [ (store_script_param, ":troop_no", 1),
+    (store_character_level, ":bet_amount", ":troop_no"),
+        (try_begin),
+          (troop_is_hero, ":troop_no"),
+      (val_mul, ":bet_amount", 10),
+          (troop_get_slot, ":renown", ":troop_no", slot_troop_renown),
+      (val_add, ":bet_amount", ":renown"),
+        (try_end),
+        (assign, reg0, ":bet_amount"),
+     ]),  
+   
+  # script_tournament_place_bet
+  # Input: arg1 = bet_amount
+  # Output: none
+  ("tournament_place_bet",
+    [
+        (store_script_param, ":bet_amount", 1),
+    (call_script, "script_get_tournament_bets"),
+    (store_add, ":player_bets", ":bet_amount", reg0),
+    (store_mul, ":win_amount", ":bet_amount", reg1),
+    (val_div, ":win_amount", ":player_bets"),
+    (val_add, ":win_amount", ":bet_amount"),
+        (val_add, "$g_tournament_bet_placed", ":bet_amount"),
+        (val_add, "$g_tournament_bet_win_amount", ":win_amount"),
+        (troop_remove_gold, "trp_player", ":bet_amount"),
+        (assign, "$g_tournament_last_bet_tier", "$g_tournament_cur_tier"),
+     ]),
+   
+  # script_cf_write_tournament_weapon_to_s0
+  # Input: arg1 = slot_no
+  # Output: s0 = description of weapon set; fails if not available here
+  ("cf_write_tournament_weapon_to_s0",
+    [(store_script_param, ":slot_no", 1),
+   (assign, reg1, 0),
+   (try_begin),
+     (ge, ":slot_no", slot_town_tournament_weapon_end),
+     (val_sub, ":slot_no", tournament_weapon_horse_offset),
+     (assign, reg1, 1),
+   (try_end),
+   (party_get_slot, ":item_no", "$current_town", ":slot_no"),
+   (gt, ":item_no", 0),
+   (party_get_slot, ":first_optional_slot", "$current_town", slot_town_tournament_weapon_maybe_horse),
+   (party_get_slot, ":first_foot_slot", "$current_town", slot_town_tournament_weapon_no_horse),
+   (this_or_next|eq, reg1, 0),
+   (lt, ":slot_no", ":first_foot_slot"),
+   (this_or_next|eq, reg1, 1),
+   (ge, ":slot_no", ":first_optional_slot"),
+   (str_store_item_name, s0, ":item_no"), # As default
+   (try_begin), # Some item sets get a better description
+     (eq, ":item_no", "itm_practice_lance"),
+     (str_store_string, s0, "@Lance and Shield"),
+   (else_try),
+     (eq, ":item_no", "itm_practice_sword"),
+     (str_store_string, s0, "@Sword and Shield"),
+   (else_try),
+     (eq, ":item_no", "itm_heavy_practice_sword"),
+     (str_store_string, s0, "@Two-Handed Sword"),
+   (else_try),
+     (eq, ":item_no", "itm_practice_axe"),
+     (str_store_string, s0, "@Axe and Shield"),
+   (else_try),
+     (eq, ":item_no", "itm_practice_staff"),
+     (str_store_string, s0, "@Staff"),
+   (else_try),
+     (eq, ":item_no", "itm_practice_bow"),
+     (str_store_string, s0, "@Bow and Dagger"),
+   (else_try),
+     (eq, ":item_no", "itm_practice_crossbow"),
+     (str_store_string, s0, "@Crossbow and Sword"),
+   (else_try),
+     (eq, ":item_no", "itm_practice_javelin"),
+     (str_store_string, s0, "@Javelins and Shield"),
+   (else_try),
+     (eq, ":item_no", "itm_practice_spear"),
+     (str_store_string, s0, "@Spear and Shield"),
+   (try_end),
+   (try_begin),
+     (eq, reg1, 1),
+     (str_store_string, s0, "@{s0}, mounted"),
+   (else_try),
+     (str_store_string, s0, "@{s0}, on foot"),
+   (try_end),
+     ]),
+
+
+# Tournaments - Autolykos' Version END
 
 	("initialize_banner_info",
 	[
@@ -40766,6 +41360,7 @@ scripts = [
 		(troop_set_slot, "trp_npc1", slot_troop_town_with_contacts, "p_town_17"),
 		(troop_set_slot, "trp_npc1", slot_troop_original_faction, 0),
 		(troop_set_slot, "trp_npc1", slot_lord_reputation_type, lrep_roguish), #
+    (troop_set_slot, "trp_npc1", slot_troop_fights_in_tournaments, 0),
 
 
 
@@ -40783,6 +41378,7 @@ scripts = [
 		(troop_set_slot, "trp_npc2", slot_troop_town_with_contacts, "p_town_1"), #Sargoth
 		(troop_set_slot, "trp_npc2", slot_troop_original_faction, 0),
 		(troop_set_slot, "trp_npc2", slot_lord_reputation_type, lrep_custodian), #
+    (troop_set_slot, "trp_npc2", slot_troop_fights_in_tournaments, 0),
 
 #
         (troop_set_slot, "trp_npc3", slot_troop_morality_type, tmt_humanitarian), #Ymira
@@ -40799,6 +41395,7 @@ scripts = [
 		(troop_set_slot, "trp_npc3", slot_troop_town_with_contacts, "p_town_15"), #yalen
 		(troop_set_slot, "trp_npc3", slot_troop_original_faction, 0),
 		(troop_set_slot, "trp_npc3", slot_lord_reputation_type, lrep_benefactor), #
+    (troop_set_slot, "trp_npc3", slot_troop_fights_in_tournaments, 0),
 
 
 
@@ -40817,6 +41414,7 @@ scripts = [
 		(troop_set_slot, "trp_npc4", slot_troop_town_with_contacts, "p_town_3"), #veluca
 		(troop_set_slot, "trp_npc4", slot_troop_original_faction, 0),
 		(troop_set_slot, "trp_npc4", slot_lord_reputation_type, lrep_cunning), #
+    (troop_set_slot, "trp_npc4", slot_troop_fights_in_tournaments, 1),
 
 
         (troop_set_slot, "trp_npc5", slot_troop_morality_type, tmt_egalitarian),  #beheshtur
@@ -40834,6 +41432,7 @@ scripts = [
 		(troop_set_slot, "trp_npc5", slot_troop_town_with_contacts, "p_town_10"), #tulga
 		(troop_set_slot, "trp_npc5", slot_troop_original_faction, "fac_kingdom_3"), #khergit
 		(troop_set_slot, "trp_npc5", slot_lord_reputation_type, lrep_cunning), #
+    (troop_set_slot, "trp_npc5", slot_troop_fights_in_tournaments, 0),
 
 
 
@@ -40852,6 +41451,7 @@ scripts = [
 		(troop_set_slot, "trp_npc6", slot_troop_town_with_contacts, "p_town_7"), #uxkhal
 		(troop_set_slot, "trp_npc6", slot_troop_original_faction, "fac_kingdom_1"), #swadia
 		(troop_set_slot, "trp_npc6", slot_lord_reputation_type, lrep_upstanding), #
+    (troop_set_slot, "trp_npc6", slot_troop_fights_in_tournaments, 0),
 
 
 
@@ -40869,6 +41469,7 @@ scripts = [
 		(troop_set_slot, "trp_npc7", slot_troop_town_with_contacts, "p_town_2"), #tihr
 		(troop_set_slot, "trp_npc7", slot_troop_original_faction, 0), #swadia
 		(troop_set_slot, "trp_npc7", slot_lord_reputation_type, lrep_custodian), #
+    (troop_set_slot, "trp_npc7", slot_troop_fights_in_tournaments, 0),
 
 
 
@@ -40887,6 +41488,7 @@ scripts = [
 		(troop_set_slot, "trp_npc8", slot_troop_town_with_contacts, "p_town_12"), #wercheg
 		(troop_set_slot, "trp_npc8", slot_troop_original_faction, "fac_kingdom_4"), #nords
 		(troop_set_slot, "trp_npc8", slot_lord_reputation_type, lrep_martial), #
+    (troop_set_slot, "trp_npc8", slot_troop_fights_in_tournaments, 1),
 
 
         (troop_set_slot, "trp_npc9", slot_troop_morality_type, tmt_aristocratic), #alayen
@@ -40904,6 +41506,7 @@ scripts = [
 		(troop_set_slot, "trp_npc9", slot_troop_town_with_contacts, "p_town_8"), #reyvadin
 		(troop_set_slot, "trp_npc9", slot_troop_original_faction, "fac_kingdom_2"), #vaegirs
 		(troop_set_slot, "trp_npc9", slot_lord_reputation_type, lrep_martial), #
+    (troop_set_slot, "trp_npc9", slot_troop_fights_in_tournaments, 1),
 
 
         (troop_set_slot, "trp_npc10", slot_troop_morality_type, tmt_humanitarian), #bunduk
@@ -40921,6 +41524,7 @@ scripts = [
 		(troop_set_slot, "trp_npc10", slot_troop_town_with_contacts, "p_town_5"), #jelkala
 		(troop_set_slot, "trp_npc10", slot_troop_original_faction, "fac_kingdom_1"), #rhodoks
 		(troop_set_slot, "trp_npc10", slot_lord_reputation_type, lrep_benefactor), #
+    (troop_set_slot, "trp_npc10", slot_troop_fights_in_tournaments, 0),
 
 
 
@@ -40955,6 +41559,7 @@ scripts = [
 		(troop_set_slot, "trp_npc12", slot_troop_town_with_contacts, "p_town_14"), #halmar
 		(troop_set_slot, "trp_npc12", slot_troop_original_faction, 0), #
 		(troop_set_slot, "trp_npc12", slot_lord_reputation_type, lrep_benefactor), #
+    (troop_set_slot, "trp_npc12", slot_troop_fights_in_tournaments, 0),
 
 
 
@@ -40973,6 +41578,7 @@ scripts = [
 		(troop_set_slot, "trp_npc13", slot_troop_town_with_contacts, "p_town_4"), #suno
 		(troop_set_slot, "trp_npc13", slot_troop_original_faction, 0), #
 		(troop_set_slot, "trp_npc13", slot_lord_reputation_type, lrep_roguish), #
+    (troop_set_slot, "trp_npc13", slot_troop_fights_in_tournaments, 1),
 
 
 
@@ -40991,7 +41597,7 @@ scripts = [
 		(troop_set_slot, "trp_npc14", slot_troop_town_with_contacts, "p_town_16"), #dhirim
 		(troop_set_slot, "trp_npc14", slot_troop_original_faction, 0), #
 		(troop_set_slot, "trp_npc14", slot_lord_reputation_type, lrep_selfrighteous), #
-
+    (troop_set_slot, "trp_npc14", slot_troop_fights_in_tournaments, 1),
 
         (troop_set_slot, "trp_npc15", slot_troop_morality_type, tmt_egalitarian),  #artimenner
         (troop_set_slot, "trp_npc15", slot_troop_morality_value, 2),
@@ -41007,6 +41613,7 @@ scripts = [
 		(troop_set_slot, "trp_npc15", slot_troop_kingsupport_opponent, "trp_npc4"), #nizar
  		(troop_set_slot, "trp_npc15", slot_troop_town_with_contacts, "p_town_20"), #durquba
 		(troop_set_slot, "trp_npc15", slot_lord_reputation_type, lrep_custodian), #
+    (troop_set_slot, "trp_npc15", slot_troop_fights_in_tournaments, 1),
 
 
         (troop_set_slot, "trp_npc16", slot_troop_morality_type, tmt_aristocratic), #klethi
@@ -41022,6 +41629,7 @@ scripts = [
         (troop_set_slot, "trp_npc16", slot_troop_kingsupport_opponent, "trp_npc12"), #nizar
         (troop_set_slot, "trp_npc16", slot_troop_town_with_contacts, "p_town_9"), #khudan
         (troop_set_slot, "trp_npc16", slot_lord_reputation_type, lrep_roguish), #
+        (troop_set_slot, "trp_npc16", slot_troop_fights_in_tournaments, 0),
 
 
 
@@ -42244,22 +42852,6 @@ scripts = [
         (assign, reg0, ":win_amount"),
      ]),
 
-  # script_tournament_place_bet
-  # Input: arg1 = bet_amount
-  # Output: none
-  ("tournament_place_bet",
-    [
-        (store_script_param, ":bet_amount", 1),
-        (call_script, "script_get_win_amount_for_tournament_bet"),
-        (assign, ":win_amount", reg0),
-        (val_mul, ":win_amount", ":bet_amount"),
-        (val_div, ":win_amount", 100),
-        (val_sub, ":win_amount", ":bet_amount"),
-        (val_add, "$g_tournament_bet_placed", ":bet_amount"),
-        (val_add, "$g_tournament_bet_win_amount", ":win_amount"),
-        (troop_remove_gold, "trp_player", ":bet_amount"),
-        (assign, "$g_tournament_last_bet_tier", "$g_tournament_cur_tier"),
-     ]),
 
   # script_calculate_amount_of_cattle_can_be_stolen
   # Input: arg1 = village_no

@@ -407,6 +407,22 @@ slot_town_arena_melee_3_team_size = 85
 slot_town_arena_melee_cur_tier    = 86
 ##slot_town_arena_template        = 87
 
+# Tournaments - Autolykos
+slot_town_has_tournament                       = 156
+slot_town_tournament_max_teams                 = 157
+slot_town_tournament_max_team_size             = 158
+slot_town_tournament_weapon_maybe_horse     = 78 # first slot for which a horse is optional
+slot_town_tournament_weapon_no_horse        = 79 # first slot for which a horse is forbidden
+slot_town_tournament_weapon_1               = 80
+slot_town_tournament_weapon_2               = 81
+slot_town_tournament_weapon_3               = 82
+slot_town_tournament_weapon_4               = 83
+slot_town_tournament_weapon_5               = 84
+slot_town_tournament_weapon_6               = 85
+slot_town_tournament_weapon_7               = 86
+slot_town_tournament_weapon_end             = 87
+tournament_weapon_horse_offset = 10 # must be greater than the max number of weapon sets
+
 slot_center_npc_volunteer_troop_type   = 90
 slot_center_npc_volunteer_troop_amount = 91
 slot_center_mercenary_troop_type  = 90
@@ -472,9 +488,6 @@ slot_center_player_enterprise_output_price        = 142 #not used
 
 
 slot_center_has_bandits                        = 155
-slot_town_has_tournament                       = 156
-slot_town_tournament_max_teams                 = 157
-slot_town_tournament_max_team_size             = 158
 
 slot_center_faction_when_oath_renounced        = 159
 
@@ -875,6 +888,8 @@ slot_troop_personalityclash_penalties = 77 ### accumulated grievances from perso
 
 slot_troop_home_speech_delivered = 78 #only for companions
 slot_troop_discussed_rebellion   = 78 #only for pretenders
+
+slot_troop_fights_in_tournaments = 79 #only in player party - Autolykos
 
 #courtship slots
 slot_lady_courtship_heroic_recited      = 74
@@ -1485,13 +1500,10 @@ max_looter_parties = 50 # Was 33 at mount&blade, 50 in warband, 42 last decision
 
 bandit_spawn_radius = 25
 deserter_spawn_radius = 4
-
 merchant_toll_duration        = 72 #Tolls are valid for 72 hours
-
 hero_escape_after_defeat_chance = 70
-
-
 raid_distance = 4
+num_tournament_rounds = 6 # -> 64 participants
 
 surnames_begin = "str_surname_1"
 surnames_end = "str_surnames_end"
@@ -2789,3 +2801,9 @@ font_small = 800
 font_normal = 1200
 # shows mouse coordinates on presentations (set 0 for production)
 debug_show_presentation_coordinates = 0
+
+arena_champions_begin = "trp_xerina"
+arena_champions_end = "trp_tutorial_trainer"
+
+arena_fighters_begin = "trp_arena_training_fighter_1"
+arena_fighters_end = "trp_cattle"

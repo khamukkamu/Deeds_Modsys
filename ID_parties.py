@@ -454,3 +454,4 @@ p_reserved_2 = 452
 p_reserved_3 = 453
 p_reserved_4 = 454
 p_reserved_5 = 455
+p_static_parties_end = 456
