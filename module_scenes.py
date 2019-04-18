@@ -208,8 +208,8 @@ scenes = [
     [],[],"outer_terrain_plain"),
 
 # La Rochelle - BM's Praven
-  ("town_5_center",sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x00000000300798b2000380e3000037960000573900003f48",
-    [], [], "outer_terrain_plain"),
+  ("town_5_center",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030000500000d2348000030c4000053ae00001d83",
+  [],[],"outer_terrain_beach"),
 
 
   ("town_6_center", sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002300491830004a529000036230000312a00003653",
@@ -228,8 +228,8 @@ scenes = [
     [], [], "outer_terrain_steppe"),
 
 
-  ("town_10_center",sf_generate,"none", "none",(0,0),(100,100),-100,"0x00000000200016da000364d9000060f500007591000064e7",
-    [],[],"outer_terrain_steppe"),
+  ("town_10_center",sf_generate,"none", "none",(0,0),(100,100),-100,"0x00000000300214100003ecfb00002b930000051900002c29",
+    [],[],"outer_terrain_plain"),
   ("town_11_center",sf_generate,"none", "none",(0,0),(100,100),-100,"0x400790b20002c8b0000050d500006f8c00006dbd",
     [],[],"outer_terrain_snow"),
   ("town_12_center",sf_generate,"none", "none", (0,0),(100,100),-100,"0x3002cd340002b4ac00002ccd800026dc00000c1d",
@@ -239,8 +239,8 @@ scenes = [
   ("town_13_center",sf_generate|sf_muddy_water,"none", "none",(0,0),(100,100),-100,"0x0000000030000500000d2348000030c4000053ae00001d83",
     [],[],"outer_terrain_plain"),
 
-  ("town_14_center",sf_generate,"none", "none",(0,0),(100,100),-100,"0x00000000200016da000364d9000060f500007591000064e7",
-    [],[],"outer_terrain_steppe"),
+  ("town_14_center",sf_generate,"none", "none", (0,0),(100,100),-100,"0x30001d9300031ccb0000156f000048ba0000361c",
+    [],[],"outer_terrain_plain"),
 
 
 #Toulouse - Rus' Wroclaw
@@ -254,10 +254,10 @@ scenes = [
   ("town_17_center",sf_generate,"none", "none",(0,0),(100,100),-100,"0x0000000030000500000d2348000030c40000061200007962",
   [],["bonus_chest_1"],"outer_terrain_beach"),
   
-  ("town_18_center",sf_generate,"none", "none",(0,0),(100,100),-100,"0x0000000020049cbd00025896000048e90000164400002b3f",
-    [],[],"outer_terrain_steppe"),
-  ("town_19_center",sf_generate,"none", "none",(0,0),(100,100),-100,"0x0000000020049cbd00025896000048e90000164400002b3f",
-    [],[],"outer_terrain_steppe"),
+  ("town_18_center",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002300491830004a529000036230000312a00003653",
+    [],[],"outer_terrain_plain"),
+  ("town_19_center",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001300785320004c93200002bc700005e48000008d2",
+    [],[],"outer_terrain_plain"),
 
   # Tournai - Rus' Riga
   ("town_20_center",sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x00000002300785550003c0f30000658f00005ca100003384",
@@ -468,8 +468,8 @@ scenes = [
     ["exit"],["town_4_seneschal"]),
 
 # La Rochelle - BM's Praven
-  ("town_5_castle",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030000500000d2348000030c4000053ae00001d83",
-    [],[],"outer_terrain_beach"),
+  ("town_5_castle",sf_indoors, "interior_castle_z", "bo_interior_castle_z", (-100,-100),(100,100),-100,"0",
+    ["exit"],["town_6_seneschal"]),
 
 
   ("town_6_castle",sf_indoors, "interior_castle_z", "bo_interior_castle_z", (-100,-100),(100,100),-100,"0",
@@ -486,8 +486,8 @@ scenes = [
   ("town_9_castle",sf_indoors, "interior_castle_n", "bo_interior_castle_n", (-100, -100), (100, 100), -100, "0",
    ["exit"], ["town_9_seneschal"]),
 
-  ("town_10_castle",sf_generate, "none", "none", (-100,-100),(100,100),-100,"0x00000007300005000002308c00004a840000624700004fda",
-    ["exit"],["town_10_seneschal"]),
+  ("town_10_castle",sf_indoors,"castle_h_interior_b", "bo_castle_h_interior_b", (-100,-100),(100,100),-100,"0",
+    ["exit"],["town_3_seneschal"]),
   ("town_11_castle",sf_indoors, "interior_castle_i", "bo_interior_castle_i", (-100,-100),(100,100),-100,"0",
     ["exit"],["town_11_seneschal"]),
   ("town_12_castle",sf_indoors, "viking_interior_keep_a", "bo_viking_interior_keep_a", (-100,-100),(100,100),-100,"0",
@@ -498,8 +498,8 @@ scenes = [
     ["exit"],["town_8_seneschal"]),
 
 
-  ("town_14_castle",sf_indoors, "interior_castle_g_square_keep", "bo_interior_castle_g_square_keep", (-100,-100),(100,100),-100,"0",
-    ["exit"],["town_14_seneschal"]),
+  ("town_14_castle",sf_indoors, "interior_castle_q", "bo_interior_castle_q", (-100,-100),(100,100),-100,"0",
+    ["exit"],["town_4_seneschal"]),
 
 #Toulouse - Rus' Wroclaw
   ("town_15_castle", sf_indoors, "interior_castle_b", "bo_interior_castle_b", (-100, -100), (100, 100), -100, "0",["exit"], ["town_6_seneschal"]),
@@ -512,10 +512,10 @@ scenes = [
   ("town_17_castle",0, "none", "none", (-100,-100),(100,100),-100,"0",
   ["exit"],["town_13_seneschal"]),
   
-  ("town_18_castle",sf_generate, "none", "none", (-100,-100),(100,100),-100,"0x00000007300005000002308c00004a840000624700004fda",
-    ["exit"],["town_18_seneschal"]),
-  ("town_19_castle",sf_indoors, "arabian_interior_keep_a", "bo_arabian_interior_keep_a", (-100,-100),(100,100),-100,"0",
-    ["exit"],["town_19_seneschal"]),
+  ("town_18_castle",sf_indoors, "interior_castle_z", "bo_interior_castle_z", (-100,-100),(100,100),-100,"0",
+    ["exit"],["town_6_seneschal"]),
+  ("town_19_castle",sf_indoors, "interior_castle_v", "bo_interior_castle_v", (-100,-100),(100,100),-100,"0",
+    ["exit"],["town_7_seneschal"]),
 
   # Tournai - Rus' Riga
   ("town_20_castle", sf_indoors, "interior_castle_n", "bo_interior_castle_n", (-100, -100), (100, 100), -100, "0",
@@ -736,7 +736,7 @@ scenes = [
    ["exit"], []),
 
 
-  ("town_10_tavern",sf_indoors, "interior_town_house_steppe_c", "bo_interior_town_house_steppe_c", (-100,-100),(100,100),-100,"0",
+  ("town_10_tavern",sf_indoors,"interior_rhodok_houses_b", "bo_interior_rhodok_houses_b", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
   ("town_11_tavern",sf_indoors, "interior_tavern_c", "bo_interior_tavern_c", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
@@ -748,7 +748,7 @@ scenes = [
   ["exit"],[]),
 
 
-  ("town_14_tavern",sf_indoors, "interior_town_house_steppe_g", "bo_interior_town_house_steppe_g", (-100,-100),(100,100),-100,"0",
+  ("town_14_tavern",sf_indoors, "interior_tavern_f", "bo_interior_tavern_f", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
 
 #Toulouse - Rus' Wroclaw
@@ -762,9 +762,9 @@ scenes = [
   ("town_17_tavern",sf_indoors, "interior_town_house_aa", "bo_interior_town_house_aa", (-100,-100),(100,100),-100,"0",
   ["exit"],[]),
   
-  ("town_18_tavern",sf_indoors, "interior_town_house_steppe_c", "bo_interior_town_house_steppe_c", (-100,-100),(100,100),-100,"0",
+  ("town_18_tavern",sf_indoors, "interior_tavern_g", "bo_interior_tavern_g", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
-  ("town_19_tavern",sf_indoors, "interior_town_house_steppe_d", "bo_interior_town_house_steppe_d", (-100,-100),(100,100),-100,"0",
+  ("town_19_tavern",sf_indoors, "interior_town_house_f", "bo_interior_town_house_f", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
 
   # Tournai - Rus' Riga
@@ -980,7 +980,7 @@ scenes = [
     ["exit"], []),
 
 
-  ("town_10_store",sf_indoors, "interior_town_house_steppe_d", "bo_interior_town_house_steppe_d", (-100,-100),(100,100),-100,"0",
+  ("town_10_store",sf_indoors,"interior_rhodok_houses_d", "bo_interior_rhodok_houses_d", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
   ("town_11_store",sf_indoors, "interior_town_house_j", "bo_interior_town_house_j", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
@@ -992,7 +992,7 @@ scenes = [
     ["exit"],[]),
 
 
-  ("town_14_store",sf_indoors, "interior_house_extension_h", "bo_interior_house_extension_h", (-100,-100),(100,100),-100,"0",
+  ("town_14_store",sf_indoors, "interior_town_house_a", "bo_interior_town_house_a", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
 
 #Toulouse - Rus' Wroclaw
@@ -1007,9 +1007,9 @@ scenes = [
   ("town_17_store",sf_indoors, "interior_town_house_j", "bo_interior_town_house_j", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
   
-  ("town_18_store",sf_indoors, "interior_town_house_steppe_d", "bo_interior_town_house_steppe_d", (-100,-100),(100,100),-100,"0",
+  ("town_18_store",sf_indoors, "interior_town_house_j", "bo_interior_town_house_j", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
-  ("town_19_store",sf_indoors, "interior_town_house_steppe_d", "bo_interior_town_house_steppe_d", (-100,-100),(100,100),-100,"0",
+  ("town_19_store",sf_indoors, "interior_house_a", "bo_interior_house_a", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
 
   # Tournai - Rus' Riga
@@ -1223,8 +1223,8 @@ scenes = [
     [], [], "outer_terrain_plain"),
 
 
-  ("town_10_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002200005000005f57b00005885000046bd00006d9c",
-    [],[],"outer_terrain_steppe"),
+  ("town_10_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0xa0001d9300031ccb0000156f000048ba0000361c",
+    [],[]),
   ("town_11_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0x40001d9300031ccb0000156f000048ba0000361c",
     [],[],"outer_terrain_snow"),
   ("town_12_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0xa0001d9300031ccb0000156f000048ba0000361c",
@@ -1234,8 +1234,8 @@ scenes = [
   ("town_13_arena",sf_generate|sf_muddy_water,"none", "none", (0,0),(100,100),-100,"0xa0001d9300031ccb0000156f000048ba0000361c",
     [],[],"outer_terrain_plain"),
 
-  ("town_14_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002200005000005f57b00005885000046bd00006d9c",
-    [],[],"outer_terrain_steppe"),
+  ("town_14_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0xa0001d9300031ccb0000156f000048ba0000361c",
+    [],[],"outer_terrain_plain"),
   
 #Toulouse - Rus' Wroclaw
   ("town_15_arena", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0xa0001d9300031ccb0000156f000048ba0000361c",[], []),
@@ -1248,10 +1248,10 @@ scenes = [
   ("town_17_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0xa0001d9300031ccb0000156f000048ba0000361c",
   [],[]),
   
-  ("town_18_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002200005000005f57b00005885000046bd00006d9c",
-    [],[],"outer_terrain_steppe"),
-  ("town_19_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002200005000005f57b00005885000046bd00006d9c",
-    [],[],"outer_terrain_desert"),
+  ("town_18_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0xa0001d9300031ccb0000156f000048ba0000361c",
+    [],[],"outer_terrain_plain"),
+  ("town_19_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0xa0001d9300031ccb0000156f000048ba0000361c",
+    [],[],"outer_terrain_plain"),
 
   # Tournai - Rus' Riga
   ("town_20_arena",sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x0000000130001887000334d0000073ed00004f1a00007a35",
@@ -1472,8 +1472,8 @@ scenes = [
   ("town_9_prison",sf_indoors, "interior_prison_k", "bo_interior_prison_k", (-100, -100), (100, 100), -100, "0",
     ["exit"], []),
   
-  ("town_10_prison",sf_indoors,"interior_prison_o", "bo_interior_prison_o", (-100,-100),(100,100),-100,"0",
-    ["exit"],[]),
+  ("town_10_prison",sf_indoors,"interior_prison_f", "bo_interior_prison_f", (-100,-100),(100,100),-100,"0",
+    [],[]),
   ("town_11_prison",sf_indoors,"dungeon_a", "bo_dungeon_a", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
   ("town_12_prison",sf_indoors,"interior_prison_cell_a", "bo_interior_prison_cell_a", (-100,-100),(100,100),-100,"0",
@@ -1483,8 +1483,8 @@ scenes = [
   ("town_13_prison",sf_indoors,"dungeon_cell_b", "bo_dungeon_cell_b", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
 
-  ("town_14_prison",sf_indoors,"interior_prison_n", "bo_interior_prison_n", (-100,-100),(100,100),-100,"0",
-    ["exit"],[]),
+  ("town_14_prison",sf_indoors,"interior_prison_g", "bo_interior_prison_g", (-100,-100),(100,100),-100,"0",
+    [],[]),
 
   #Toulouse - Rus' Wroclaw
   ("town_15_prison", sf_indoors, "interior_prison_a", "bo_interior_prison_a", (-100, -100), (100, 100), -100, "0",["exit"], []),
@@ -1497,9 +1497,9 @@ scenes = [
   ("town_17_prison",sf_indoors,"interior_prison_a", "bo_interior_prison_a", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
   
-  ("town_18_prison",sf_indoors,"interior_prison_o", "bo_interior_prison_o", (-100,-100),(100,100),-100,"0",
+  ("town_18_prison",sf_indoors,"interior_prison_e", "bo_interior_prison_e", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
-  ("town_19_prison",sf_indoors,"interior_prison_o", "bo_interior_prison_o", (-100,-100),(100,100),-100,"0",
+  ("town_19_prison",sf_indoors,"interior_prison_i", "bo_interior_prison_i", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
 
   ("town_20_prison",sf_indoors,"interior_prison_o", "bo_interior_prison_o", (-100,-100),(100,100),-100,"0",
@@ -1716,8 +1716,8 @@ scenes = [
   ("town_9_walls", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x0000000130001887000334d0000073ed00004f1a00007a35",[], [], "outer_terrain_steppe"),
   
 
-  ("town_10_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002200011af00065192000067110000688300003435",
-    [],[],"outer_terrain_steppe"),
+  ("town_10_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300214100003ecfb00002b930000051900002c29",
+    [],[],"outer_terrain_plain"),
   ("town_11_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000140015033000651900000159f0000619800006af6",
     [],[],"outer_terrain_snow"),
   ("town_12_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001300010c800054d5c00004af000005d3f00002ca0",
@@ -1727,8 +1727,8 @@ scenes = [
   ("town_13_walls",sf_generate|sf_muddy_water,"none", "none", (0,0),(100,100),-100,"0x0000000030000500000d2348000030c4000053ae00001d83",
     [],[],"outer_terrain_plain"),
   
-  ("town_14_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002200011af00065192000067110000688300003435",
-    [],[],"outer_terrain_steppe"),
+  ("town_14_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001300010c800054d5c00004af000005d3f00002ca0",
+    [],[],"outer_terrain_plain"),
 
 #Toulouse - Rus' Wroclaw
   ("town_15_walls", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x0000000330078adc0005896200003c0800001a3200006859",[], [], "outer_terrain_plain"),
@@ -1741,10 +1741,10 @@ scenes = [
   ("town_17_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030000500000d2348000030c40000061200007962",
     [],[],"outer_terrain_beach"),
 
-  ("town_18_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002200011af00065192000067110000688300003435",
-    [],[],"outer_terrain_steppe"),
-  ("town_19_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002200011af00065192000067110000688300003435",
-    [],[],"outer_terrain_desert"),
+  ("town_18_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002300015e300063d8800002757000055df00001b08",
+    [],[],"sea_outer_terrain_1"),
+  ("town_19_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000013002491600055157000000d20000152a0000611a",
+    [],[],"outer_terrain_plain"),
 
   # Tournai - Rus' Riga
   ("town_20_walls", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x00000002300785550003c0f30000658f00005ca100003384",
@@ -1965,8 +1965,8 @@ scenes = [
   ("town_9_alley",sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x300bc5430001e0780000448a0000049f00007932",[], [], "outer_terrain_steppe"),
 
 
-  ("town_10_alley",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000420000500000334ce00001d1100003d0600000d27",
-    [],[],"outer_terrain_steppe"),
+  ("town_10_alley",sf_generate,"none", "none", (0,0),(100,100),-100,"0x300bc5430001e0780000448a0000049f00007932",
+    [],[]),
   ("town_11_alley",sf_generate,"none", "none", (0,0),(100,100),-100,"0x400211130001e07800002ad400001172000035c4",
     [],[],"outer_terrain_snow"),
   ("town_12_alley",sf_generate,"none", "none", (0,0),(100,100),-100,"0x300bc5430001e0780000448a0000049f00007932",
@@ -1976,8 +1976,8 @@ scenes = [
   ("town_13_alley",sf_generate|sf_muddy_water,"none", "none", (0,0),(100,100),-100,"0x0000000030000500000d2348000030c4000053ae00001d83",
     [],[],"outer_terrain_plain"),
   
-  ("town_14_alley",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000420000500000334ce00001d1100003d0600000d27",
-    [],[],"outer_terrain_steppe"),
+  ("town_14_alley",sf_generate,"none", "none", (0,0),(100,100),-100,"0x300bc5430001e0780000448a0000049f00007932",
+    [],[],"outer_terrain_plain"),
  #Toulouse - Rus' Wroclaw
   ("town_15_alley", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x300bc5430001e0780000448a0000049f00007932",[], []),
  
@@ -1989,10 +1989,10 @@ scenes = [
   ("town_17_alley",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030000500000d2348000030c40000061200007962",
     [],[],"outer_terrain_beach"),
   
-  ("town_18_alley",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000420000500000334ce00001d1100003d0600000d27",
-    [],[],"outer_terrain_steppe"),
-  ("town_19_alley",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000220002f000003fd0400006e120000359900004e13",
-    [],[],"outer_terrain_desert"),
+  ("town_18_alley",sf_generate,"none", "none", (0,0),(100,100),-100,"0x300bc5430001e0780000448a0000049f00007932",
+    [],[],"outer_terrain_plain"),
+  ("town_19_alley",sf_generate,"none", "none", (0,0),(100,100),-100,"0x20008a110002589600006af30000356b00002c27",
+    [],[],"outer_terrain_plain"),
 
   # Tournai - Rus' Riga
   ("town_20_alley",sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x300bc5430001e0780000448a0000049f00007932",
