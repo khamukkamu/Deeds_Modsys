@@ -794,7 +794,7 @@ scenes = [
     ["exit"],[]),
 
 #Angers - Rus' Poznan
-  ("town_28_tavern", sf_indoors, "mod_s_interior_town_house_steppe_g", "bo_interior_town_house_steppe_g", (-100, -100), (100, 100), -100, "0",["exit"], []),
+  ("town_28_tavern", sf_indoors, "interior_town_house_steppe_g", "bo_interior_town_house_steppe_g", (-100, -100), (100, 100), -100, "0",["exit"], []),
 
   ("town_29_tavern",sf_indoors, "interior_town_house_f", "bo_interior_town_house_f", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
@@ -876,7 +876,7 @@ scenes = [
     ["exit"],[]),
 
   # Nevers - Rus' Poznan
-  ("town_54_tavern",sf_indoors, "mod_s_interior_town_house_steppe_g", "bo_interior_town_house_steppe_g", (-100, -100), (100, 100), -100, "0",
+  ("town_54_tavern",sf_indoors, "interior_town_house_steppe_g", "bo_interior_town_house_steppe_g", (-100, -100), (100, 100), -100, "0",
    ["exit"], []),
   
 
@@ -1888,7 +1888,7 @@ scenes = [
   
 # Boulogne - DNO's Town 8
   ("town_61_walls",sf_generate,"none", "none", (0,0),(300,300),-100,"0x000000033000124c000acab40000280700000c9f00000ab5",
-    [],[],"outer_terrain_none"),
+    [],[],"outer_terrain_plain"),
   
   ("town_62_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002200011af00065192000067110000688300003435",
     [],[],"outer_terrain_steppe"),
@@ -2133,7 +2133,7 @@ scenes = [
 
 # Boulogne - DNO's Town 8
   ("town_61_alley",sf_generate,"none", "none", (0,0),(300,300),-100,"0x000000033000124c000acab40000280700000c9f00000ab5",
-    [],[],"outer_terrain_none"),
+    [],[],"outer_terrain_plain"),
 
   ("town_62_alley",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000420000500000334ce00001d1100003d0600000d27",
     [],[],"outer_terrain_steppe"),
@@ -3707,9 +3707,9 @@ scenes = [
 ("dno_town_8_center",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000003400005000008c230000041540000681800000709",
   [],[],"outer_terrain_snow"),
 ("dno_town_8_walls",sf_generate,"none", "none", (0,0),(300,300),-100,"0x000000033000124c000acab40000280700000c9f00000ab5",
-  [],[],"outer_terrain_none"),
+  [],[],"outer_terrain_plain"),
 ("dno_town_8_alley",sf_generate,"none", "none", (0,0),(300,300),-100,"0x000000033000124c000acab40000280700000c9f00000ab5",
-  [],[],"outer_terrain_none"),
+  [],[],"outer_terrain_plain"),
 ("dno_town_8_tavern", sf_indoors, "interior_tavern_b", "bo_interior_tavern_b", (-100, -100), (100, 100), -100, "0",["exit"], []),
 
 # Castle
@@ -3732,7 +3732,7 @@ scenes = [
 #Poznan
 ("rus_town_14_center", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x00000003b00787520004dd3d000072a000003c780000409f",[], [], "outer_terrain_steppe"),
 ("rus_town_14_castle", sf_indoors, "interior_castle_g_square_keep", "bo_interior_castle_g_square_keep", (-100, -100), (100, 100), -100, "0",["exit"], ["town_7_seneschal"]),
-("rus_town_14_tavern", sf_indoors, "mod_s_interior_town_house_steppe_g", "bo_interior_town_house_steppe_g", (-100, -100), (100, 100), -100, "0",["exit"], []),
+("rus_town_14_tavern", sf_indoors, "interior_town_house_steppe_g", "bo_interior_town_house_steppe_g", (-100, -100), (100, 100), -100, "0",["exit"], []),
 ("rus_town_14_store", sf_indoors, "interior_house_extension_h", "bo_interior_house_extension_h", (-100, -100), (100, 100), -100, "0",["exit"], []),
 ("rus_town_14_arena", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x00000002200005000005f57b00005885000046bd00006d9c",[], [], "outer_terrain_steppe"),
 ("rus_town_14_prison", sf_indoors, "interior_prison_n", "bo_interior_prison_n", (-100, -100), (100, 100), -100, "0",["exit"], []),
