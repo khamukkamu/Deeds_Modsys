@@ -670,9 +670,9 @@ troops = [
 
 # Tavern minstrel.
 ["tavern_minstrel_1","Wandering Minstrel","Minstrel",tf_hero|tf_randomize_face|tf_guarantee_shield|tf_guarantee_armor|tf_guarantee_boots, 0, reserved, fac_commoners,[itm_h_highlander_beret_red_2,itm_a_noble_shirt_red, itm_b_leather_boots, itm_lute],def_attrib|level(5),wp(20),knows_common,merchant_face_1,merchant_face_2],
-["tavern_minstrel_2","Wandering Bard","Minstrel",tf_hero|tf_randomize_face|tf_guarantee_shield|tf_guarantee_armor|tf_guarantee_boots, 0, reserved, fac_commoners,[itm_a_tabard_heraldic, itm_b_hosen_poulaines_custom, itm_lyre],def_attrib|level(5),wp(20),knows_common,merchant_face_1,merchant_face_2],
-["tavern_minstrel_3","Wandering Ashik","Minstrel",tf_hero|tf_randomize_face|tf_guarantee_shield|tf_guarantee_armor|tf_guarantee_boots, 0, reserved, fac_commoners,[itm_a_tabard_heraldic, itm_b_hosen_poulaines_custom, itm_lute],def_attrib|level(5),wp(20),knows_common,merchant_face_1,merchant_face_2],
-["tavern_minstrel_4","Wandering Skald","Minstrel",tf_hero|tf_randomize_face|tf_guarantee_shield|tf_guarantee_armor|tf_guarantee_boots, 0, reserved, fac_commoners,[itm_a_tabard_heraldic, itm_b_hosen_shoes_custom, itm_lyre],def_attrib|level(5),wp(20),knows_common,merchant_face_1,merchant_face_2],
+["tavern_minstrel_2","Wandering Bard","Minstrel",tf_hero|tf_randomize_face|tf_guarantee_shield|tf_guarantee_armor|tf_guarantee_boots, 0, reserved, fac_commoners,[itm_a_tabard, itm_b_hosen_poulaines_custom, itm_lyre],def_attrib|level(5),wp(20),knows_common,merchant_face_1,merchant_face_2],
+["tavern_minstrel_3","Wandering Ashik","Minstrel",tf_hero|tf_randomize_face|tf_guarantee_shield|tf_guarantee_armor|tf_guarantee_boots, 0, reserved, fac_commoners,[itm_a_tabard, itm_b_hosen_poulaines_custom, itm_lute],def_attrib|level(5),wp(20),knows_common,merchant_face_1,merchant_face_2],
+["tavern_minstrel_4","Wandering Skald","Minstrel",tf_hero|tf_randomize_face|tf_guarantee_shield|tf_guarantee_armor|tf_guarantee_boots, 0, reserved, fac_commoners,[itm_a_tabard, itm_b_hosen_shoes_custom, itm_lyre],def_attrib|level(5),wp(20),knows_common,merchant_face_1,merchant_face_2],
 ["tavern_minstrel_5","Wandering Troubadour","Minstrel",tf_hero|tf_randomize_face|tf_guarantee_shield|tf_guarantee_armor|tf_guarantee_boots, 0, reserved, fac_commoners,[itm_h_highlander_beret_green_2,itm_a_noble_shirt_green, itm_b_hosen_shoes_custom, itm_lute],def_attrib|level(5),wp(20),knows_common,merchant_face_1,merchant_face_2],
 
 #NPC system changes begin
