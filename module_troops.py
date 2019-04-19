@@ -772,7 +772,7 @@ troops = [
       0x00000000ca0824055ae399e91e6f47de00000000001e02e30000000000000000 ],
 
 # Frère Martin d'Autun Moine Guérisseur
-["npc16", "Blanche", "Blanche", tf_hero, no_scene, reserved, fac_kingdom_3, 
+["npc16", "Frère Martin d'Autun", "Frère Martin d'Autun", tf_hero, no_scene, reserved, fac_kingdom_3, 
   [itm_h_arming_cap,itm_a_noble_shirt_white,itm_b_hosen_poulaines_custom,itm_w_dagger_bollock], 
     str_7|agi_11|int_8|cha_7|level(2), wp(80), knows_tracker_npc|knows_power_throw_3|knows_athletics_2|knows_power_strike_1|knows_surgery_8, 
       0x00000000000040060558b239244d94d100000000001d98e30000000000000000 ],
