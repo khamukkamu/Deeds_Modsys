@@ -684,7 +684,7 @@ troops = [
 #William Reynes english longbowman mounted archer/scout
 ["npc1", "William Reynes", "William Reynes", tf_hero|tf_mounted, no_scene, reserved, fac_kingdom_2, 
   [itm_h_cerveliere_hood_custom,itm_a_aketon_narf_custom,itm_b_leather_boots,itm_g_leather_gauntlet,itm_w_long_bow_ash,itm_arrows,itm_w_onehanded_sword_longbowman,itm_ho_rouncey_4], 
-    str_10|agi_7|int_9|cha_7|level(7), wp(80), knows_warrior_npc|knows_ironflesh_2|knows_power_strike_3|knows_athletics_2|knows_riding_3, 
+    level(18)|str_14|agi_16|int_8|cha_10, wpex(120,80,80,180,80,80), knows_ironflesh_3|knows_power_draw_4|knows_power_strike_2|knows_athletics_4|knows_weapon_master_2|knows_riding_3, 
       0x0000000500009004450d65aa627948d500000000001d44e50000000000000000 ],
 
 # Frans Demaar Marchand Flamand de Bruges
