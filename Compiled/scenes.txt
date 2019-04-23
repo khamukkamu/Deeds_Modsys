@@ -1,5 +1,5 @@
 scenesfile version 1
- 1364
+ 1373
 scn_random_scene random_scene 1792 none none 0.000000 0.000000 240.000000 240.000000 -0.500000 0x300028000003e8fa0000034e00004b34000059be 
   0 
   0 
@@ -3032,99 +3032,99 @@ scn_castle_40_prison castle_40_prison 1 interior_prison_n bo_interior_prison_n -
   0 
   0 
  0 
-scn_castle_41_exterior castle_41_exterior 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x000000005a0932320004cd3000004e7d00007d6e00006c58 
+scn_castle_41_exterior castle_41_exterior 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0xa00363638005c16d00003c82000037e000002303 
   0 
   0 
- outer_terrain_desert 
-scn_castle_41_interior castle_41_interior 1 interior_castle_y bo_interior_castle_y -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+ outer_terrain_plain 
+scn_castle_41_interior castle_41_interior 1 interior_castle_u bo_interior_castle_u -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
   1  100000 
-  1  610 
+  1  571 
  0 
-scn_castle_41_prison castle_41_prison 1 interior_prison_i bo_interior_prison_i -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+scn_castle_41_prison castle_41_prison 1 interior_prison_d bo_interior_prison_d -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
   0 
   0 
  0 
-scn_castle_42_exterior castle_42_exterior 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x000000005a039fb20005114400004f690000467a00004400 
+scn_castle_42_exterior castle_42_exterior 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000030044e900003dd02000077b20000400100005697 
   0 
   0 
- outer_terrain_desert 
-scn_castle_42_interior castle_42_interior 1 arabian_interior_keep_b bo_arabian_interior_keep_b -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+ outer_terrain_plain 
+scn_castle_42_interior castle_42_interior 1 interior_castle_m bo_interior_castle_m -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
   1  100000 
-  1  611 
+  1  572 
  0 
-scn_castle_42_prison castle_42_prison 1 interior_prison_o bo_interior_prison_o -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+scn_castle_42_prison castle_42_prison 1 interior_prison_e bo_interior_prison_e -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
   0 
   0 
  0 
-scn_castle_43_exterior castle_43_exterior 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x000000005a0ae6480004952400003e1800005d9f00002c7e 
+scn_castle_43_exterior castle_43_exterior 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x000000013006199a0004e5370000494f000028fc00006cf6 
   0 
   0 
- outer_terrain_desert 
-scn_castle_43_interior castle_43_interior 1 arabian_interior_keep_b bo_arabian_interior_keep_b -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+ outer_terrain_plain 
+scn_castle_43_interior castle_43_interior 1 interior_castle_a bo_interior_castle_a -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
   1  100000 
-  1  612 
+  1  589 
  0 
-scn_castle_43_prison castle_43_prison 1 interior_prison_o bo_interior_prison_o -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+scn_castle_43_prison castle_43_prison 1 interior_prison_d bo_interior_prison_d -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
   0 
   0 
  0 
-scn_castle_44_exterior castle_44_exterior 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000053e3b2320004ed3800001eb400006277000068ea 
+scn_castle_44_exterior castle_44_exterior 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x00000002300658bc0007bded000025520000093800006114 
   0 
   0 
- outer_terrain_desert 
-scn_castle_44_interior castle_44_interior 1 arabian_interior_keep_b bo_arabian_interior_keep_b -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+ outer_terrain_plain 
+scn_castle_44_interior castle_44_interior 1 interior_castle_y bo_interior_castle_y -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
   1  100000 
-  1  613 
+  1  592 
  0 
-scn_castle_44_prison castle_44_prison 1 interior_prison_o bo_interior_prison_o -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+scn_castle_44_prison castle_44_prison 1 interior_prison_b bo_interior_prison_b -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
   0 
   0 
  0 
-scn_castle_45_exterior castle_45_exterior 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000254c2ec0000042509000016da0000017200000ed3 
+scn_castle_45_exterior castle_45_exterior 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000130021f63000721ca000055be000079d90000156d 
   0 
   0 
- outer_terrain_desert 
-scn_castle_45_interior castle_45_interior 1 arabian_interior_keep_b bo_arabian_interior_keep_b -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+ outer_terrain_plain 
+scn_castle_45_interior castle_45_interior 1 castle_h_interior_b bo_castle_h_interior_b -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
   1  100000 
-  1  614 
+  1  593 
  0 
-scn_castle_45_prison castle_45_prison 1 interior_prison_n bo_interior_prison_n -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+scn_castle_45_prison castle_45_prison 1 interior_prison_f bo_interior_prison_f -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
   0 
   0 
  0 
-scn_castle_46_exterior castle_46_exterior 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000254c2ec0000042509000016da0000017200000ed3 
+scn_castle_46_exterior castle_46_exterior 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x000000013004e0a600061989000053d50000749800005f64 
   0 
   0 
- outer_terrain_desert 
-scn_castle_46_interior castle_46_interior 1 arabian_interior_keep_b bo_arabian_interior_keep_b -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+ outer_terrain_plain 
+scn_castle_46_interior castle_46_interior 1 castle_h_interior_b bo_castle_h_interior_b -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
   1  100000 
-  1  615 
+  1  594 
  0 
-scn_castle_46_prison castle_46_prison 1 interior_prison_o bo_interior_prison_o -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+scn_castle_46_prison castle_46_prison 1 interior_prison_a bo_interior_prison_a -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
   0 
   0 
  0 
-scn_castle_47_exterior castle_47_exterior 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x000000005a07b2320002b8ad000036c80000409d00001987 
+scn_castle_47_exterior castle_47_exterior 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x000000013005213200077dda0000733300002edf000052ba 
   0 
   0 
- outer_terrain_desert 
-scn_castle_47_interior castle_47_interior 1 arabian_interior_keep_b bo_arabian_interior_keep_b -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+ outer_terrain_plain 
+scn_castle_47_interior castle_47_interior 1 castle_h_interior_a bo_castle_h_interior_a -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
   1  100000 
-  1  616 
+  1  595 
  0 
-scn_castle_47_prison castle_47_prison 1 interior_prison_n bo_interior_prison_n -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+scn_castle_47_prison castle_47_prison 1 interior_prison_h bo_interior_prison_h -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
   0 
   0 
  0 
-scn_castle_48_exterior castle_48_exterior 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000056c3da200003a0e6000002a900002d7a0000409e 
+scn_castle_48_exterior castle_48_exterior 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x000000013007b23200070dbc000041de00000c4900003cfc 
   0 
   0 
- outer_terrain_desert 
-scn_castle_48_interior castle_48_interior 1 arabian_interior_keep_b bo_arabian_interior_keep_b -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+ outer_terrain_plain 
+scn_castle_48_interior castle_48_interior 1 castle_h_interior_a bo_castle_h_interior_a -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
   1  100000 
-  1  617 
+  1  596 
  0 
-scn_castle_48_prison castle_48_prison 1 interior_prison_o bo_interior_prison_o -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+scn_castle_48_prison castle_48_prison 1 interior_prison_i bo_interior_prison_i -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
   0 
   0 
  0 
@@ -3545,6 +3545,42 @@ scn_castle_83_interior castle_83_interior 1 castle_h_interior_a bo_castle_h_inte
   1  604 
  0 
 scn_castle_83_prison castle_83_prison 1 interior_prison_f bo_interior_prison_f -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  0 
+  0 
+ 0 
+scn_castle_84_exterior castle_84_exterior 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x000000013004e0a600061989000053d50000749800005f64 
+  0 
+  0 
+ outer_terrain_plain 
+scn_castle_84_interior castle_84_interior 1 castle_h_interior_b bo_castle_h_interior_b -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  1  100000 
+  1  594 
+ 0 
+scn_castle_84_prison castle_84_prison 1 interior_prison_a bo_interior_prison_a -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  0 
+  0 
+ 0 
+scn_castle_85_exterior castle_85_exterior 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x000000013005213200077dda0000733300002edf000052ba 
+  0 
+  0 
+ outer_terrain_plain 
+scn_castle_85_interior castle_85_interior 1 castle_h_interior_a bo_castle_h_interior_a -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  1  100000 
+  1  595 
+ 0 
+scn_castle_85_prison castle_85_prison 1 interior_prison_h bo_interior_prison_h -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  0 
+  0 
+ 0 
+scn_castle_86_exterior castle_86_exterior 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x000000013007b23200070dbc000041de00000c4900003cfc 
+  0 
+  0 
+ outer_terrain_plain 
+scn_castle_86_interior castle_86_interior 1 castle_h_interior_a bo_castle_h_interior_a -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+  1  100000 
+  1  596 
+ 0 
+scn_castle_86_prison castle_86_prison 1 interior_prison_i bo_interior_prison_i -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
   0 
   0 
  0 
