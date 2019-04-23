@@ -218,6 +218,15 @@ dialogs = [
                (eq, 1, 0)],
 "{!}Warning: This line is never displayed. It is just for storing conversation variables.", "close_window", []],
 
+
+# unified chat for review or access from party window (mtarini)
+[anyone|auto_proceed,"start", [(eq, "$talk_context", tc_troop_review_talk),(agent_has_item_equipped, "$g_talk_agent", "itm_feet_chains")], "___", "prisoner_chat",[]],
+#[anyone|auto_proceed ,"prisoner_chat", [], "___", "prisoner_chat_00",[]],
+[anyone|auto_proceed,"start", [(eq, "$talk_context", tc_troop_review_talk),], "___", "member_chat",[]],
+#[anyone|auto_proceed ,"member_chat", [], "___", "member_chat_00",[]],
+
+
+
 [anyone ,"member_chat", [
          (store_conversation_troop, "$g_talk_troop"),
               (try_begin),

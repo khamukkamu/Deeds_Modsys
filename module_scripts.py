@@ -78718,6 +78718,29 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
   ]),
   
 
+# utility script (TLD)
+# removes from party A the prisoners, as dictated from party B (except wonded)
+# returns removed number in reg0
+("party_remove_party_from_prisoners",[
+
+  (store_script_param_1, ":dest"),
+  (store_script_param_2, ":remove_list"),
+
+  (assign, ":removed", 0),
+  
+    (party_get_num_companion_stacks, ":num_stacks", ":remove_list"),
+    (try_for_range, ":i_stack", 0, ":num_stacks"),
+      (party_stack_get_troop_id, ":trp", ":remove_list", ":i_stack"),
+    (party_stack_get_size, ":n", ":remove_list", ":i_stack"),
+    (party_stack_get_num_wounded, ":w", ":remove_list", ":i_stack"),
+    (val_sub, ":n", ":w"),
+    (party_remove_prisoners, ":dest",  ":trp",  ":n"),
+    (val_add, ":removed", reg0),
+    (try_end),
+  (assign, reg0, ":removed"),
+]),
+
+
 ]
 
 scripts = scripts + formAI_scripts

@@ -835,3 +835,4 @@ itm_kicking_boots = 833
 itm_restore_health_armour = 834
 itm_javelin_bow_ammo = 835
 itm_ccoop_new_items_end = 836
+itm_feet_chains = 837

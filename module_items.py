@@ -1761,4 +1761,10 @@ items = [
 #0,weight(2.25)|abundance(90)|weapon_length(63)|thrust_damage(1,pierce)|max_ammo(4),imodbits_missile],
 ["ccoop_new_items_end", "Items End", [("javelin",0)], 0, 0, 1, 0, 0],
 #INVASION MODE END
+
+# TLD Chains
+
+["feet_chains","Feet Chains",[("chains_full",0)],itp_type_foot_armor|itp_attach_armature,0,200,weight(10)|leg_armor(0)|difficulty(0),imodbits_none],
+
+
 ]

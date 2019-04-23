@@ -1,5 +1,5 @@
 itemsfile version 3
-837
+838
  itm_no_item INVALID_ITEM INVALID_ITEM 1  invalid_item 0  12582914 9223388529554358287 3 0 1.500000 100 0 0 0 0 0 103 0 90 0 522 528
  0
 0
@@ -136,7 +136,7 @@ itemsfile version 3
  0
 0
 
- itm_practice_spear Practice_Spear Practice_Spear 1  arena_lance 0  2251801026101252 31243728790228224 90 8202 2.500000 100 0 0 0 0 0 96 0 150 0 537 532
+ itm_practice_spear Practice_Spear Practice_Spear 1  w_native_spear_b 0  2251801026101252 31243728790228224 90 8202 2.500000 100 0 0 0 0 0 96 0 150 0 537 532
  0
 0
 
@@ -3577,6 +3577,10 @@ itemsfile version 3
 0
 
  itm_ccoop_new_items_end Items_End Items_End 1  javelin 0  0 0 1 0 0.000000 100 0 0 0 0 0 0 0 0 0 0 0
+ 0
+0
+
+ itm_feet_chains Feet_Chains Feet_Chains 1  chains_full 0  3854 0 200 0 10.000000 100 0 0 0 0 0 0 0 0 0 0 0
  0
 0
 

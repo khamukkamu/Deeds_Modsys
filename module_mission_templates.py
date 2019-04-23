@@ -46,7 +46,7 @@ bard_disguise = [itm_h_highlander_beret_green_2,itm_a_noble_shirt_green,itm_b_ho
 #note that these are usually male clothing, especially farmer_disguise, need some female ones as well
 
 af_castle_lord = af_override_horse | af_override_weapons| af_require_civilian
-
+af_prisoner       = af_override_horse | af_override_weapons | af_override_head | af_override_gloves | af_override_gloves | af_override_foot
 
 # Autolykos begin
 
@@ -17826,5 +17826,198 @@ mission_templates = [
       ],
   ),
 
+
+# review troops (tld)
+("review_troops",0,-1,"You review your troops",
+[(1,mtef_defenders|mtef_team_0,0,0,0,[]),(0,mtef_defenders|mtef_team_0,0,0,0,[]), # not used
+ (1,mtef_attackers|mtef_team_1,0,0,1,[]), # player 
+ (4,mtef_attackers|mtef_team_2,0,0,30,[]), # troops
+ (4,mtef_visitor_source, af_prisoner, 0,0,[itm_feet_chains] ),  # prisoners (4)
+ (4,mtef_visitor_source, af_prisoner, 0,0,[itm_feet_chains] ),  # prisoners
+ (4,mtef_visitor_source, af_prisoner, 0,0,[itm_feet_chains] ),  # prisoners
+ (4,mtef_visitor_source, af_prisoner, 0,0,[itm_feet_chains] ),  # prisoners
+ (4,mtef_visitor_source, af_prisoner, 0,0,[itm_feet_chains] ),  # prisoners
+ (4,mtef_visitor_source, af_prisoner, 0,0,[itm_feet_chains] ),  # prisoners
+ (4,mtef_visitor_source, af_prisoner, 0,0,[itm_feet_chains] ),  # prisoners
+ (4,mtef_visitor_source, af_prisoner, 0,0,[itm_feet_chains] ),  # prisoners
+ (4,mtef_visitor_source, af_prisoner, 0,0,[itm_feet_chains] ),  # prisoners
+ (4,mtef_visitor_source, af_prisoner, 0,0,[itm_feet_chains] ),  # prisoners
+
+
+  ],
+  [  
+ 
+  # make friend, prisoners, players, etc appear at the right locations and with scripted short starting walks
+  (ti_on_agent_spawn, 0, 0, [],[
+   (store_trigger_param_1, ":agent_no"),
+   
+   (get_player_agent_no, ":player_no"),
+   (agent_get_position, pos1, ":agent_no"),
+   
+   (try_begin),
+    (eq,":player_no", ":agent_no"), # player
+    # player was spawned at a distant entry point so that it faces his troops (MaB bug: set poistion doesn't affect ... move back to his troops
+    (entry_point_get_position,pos1,4),
+    (position_move_y, pos1, 700, 0), # move player in front
+    
+    (party_get_num_companions, ":nc","p_main_party"),
+    (val_mul, ":nc", 50), (val_sub, ":nc", 50), (val_min, ":nc", 750),
+    (position_move_x, pos1, ":nc", 0),# center player on X
+    #(position_rotate_z, pos1, 180), # rotate player to face troops ... if only this worked... sigh 
+    (agent_set_position, ":agent_no", pos1),
+    (try_begin),
+      (agent_get_horse, reg12, ":agent_no" ),(ge, reg12, 0),
+      (agent_set_position, reg12, pos1),
+    (try_end),
+   (else_try),
+   
+    # NPCS...
+    (store_random_in_range,":speed_limit",2,6),
+    
+    (try_begin),
+      (agent_get_horse, reg12, ":agent_no" ),(ge, reg12, 0),
+      (agent_set_animation, ":agent_no", "anim_pause_mounted"),
+      (val_add,":speed_limit",4),
+      (store_random_in_range, reg6, 50, 100),(agent_set_animation_progress, ":agent_no", reg6),
+      #(agent_set_animation, reg12, "anim_horse_stand"),
+    (else_try),
+      (agent_is_human,":agent_no"),
+      (agent_set_animation, ":agent_no", "anim_pause"),
+      (store_random_in_range, reg6, 90, 100),(agent_set_animation_progress, ":agent_no", reg6),
+    (try_end),
+
+    
+    (copy_position, pos2, pos1),
+    (store_random_in_range,":start_pos",-460,-330),
+    (position_move_y, pos2, ":start_pos", 0), # ten steps backward please
+    (store_random_in_range,":start_drift",-50,+50),
+    (position_move_x, pos2, ":start_drift", 0),     
+    (position_move_y, pos1, 200, 0), # ten steps backward please
+    
+    # (position_get_x, reg10, pos1),
+    # (position_get_y, reg11, pos1),
+    # (position_get_x, reg12, pos2),
+    # (position_get_y, reg13, pos2),
+     (agent_get_troop_id, reg16,  ":agent_no"), (str_store_troop_name, s3, reg16),
+     #(display_message, "@{reg10},{reg11} to {reg12},{reg13} ({s3})"),
+    (try_begin),
+      (agent_has_item_equipped, ":agent_no", itm_feet_chains),
+
+      (store_random_in_range,":speed_limit",1,2),
+      (position_move_y, pos2, -600, 0),
+      (position_move_y, pos1, -600, 0), # prisoners, stay back
+      
+      (agent_set_animation, ":agent_no", "anim_stay_tied"),
+    # (display_message, "@Spawn pris: ({s3})"),
+      (agent_set_position, ":agent_no", pos2),
+      (store_agent_hit_points,":cur_hp",":agent_no",1),
+      (agent_set_slot, ":agent_no", slot_agent_last_hp, ":cur_hp"),
+      (agent_set_slot, ":agent_no", slot_agent_anim_status, 0),
+      (agent_set_animation_progress, ":agent_no", 20),
+      (agent_set_team, ":agent_no", 3),
+    (else_try),
+      (agent_set_team, ":agent_no", 2),
+      (agent_set_position, ":agent_no", pos2),
+      (agent_set_scripted_destination, ":agent_no", pos1, 0),
+    (try_end),
+    (agent_set_speed_limit,":agent_no",":speed_limit"),
+   (try_end),
+  ]),
+  
+
+  (ti_inventory_key_pressed, 0, 0, [(set_trigger_result,1)], []),
+  tld_cheer_on_space_when_battle_over_press,tld_cheer_on_space_when_battle_over_release,
+  (ti_before_mission_start,0,0,[],[
+    (set_battle_advantage, 0),
+  (team_set_relation,1,2,1), # player friend with troops
+  (team_set_relation,2,3,0), # troops neutrl with pris
+  (assign, "$talk_context", tc_troop_review_talk),
+  (troop_get_xp, "$inital_player_xp", "trp_player"), 
+  ]),
+  (ti_tab_pressed          , 0, 0, [], [   #(ti_on_leave_area,0,0,[],[]),
+  (assign, "$talk_context", 0),
+  (call_script, "script_count_mission_casualties_from_agents"),
+
+  (party_get_num_companions, reg20, "p_enemy_casualties"),
+
+  #(display_message, "@(killed {reg20} prisoners)!"),
+  (try_begin),
+    (gt, reg20, 0),
+    (call_script, "script_party_remove_party_from_prisoners", "p_main_party", "p_enemy_casualties"), # remove prisoners
+    # remove undue XP gained from killing pris...
+    (troop_get_xp, ":xp", "trp_player"), 
+    (gt,":xp","$inital_player_xp"),
+    (store_sub,":diff","$inital_player_xp",":xp"),
+    (add_xp_to_troop, ":diff","trp_player"), # diff is neg: removes XP 
+    (store_mul, reg10,":diff", -1),
+    (display_message, "@(cancelled the {reg10} exp pts earned from killing prisoners)"),
+  (try_end),
+  (reset_visitors),
+  (set_trigger_result,1),
+  ]),
+
+  (0,0,0,[(game_key_clicked,gk_attack)], [  (team_set_relation,1,3,-1) ]), # payer pressed attack: he can now hit/kill pris! 
+  #(0,0,0,[(game_key_clicked,gk_action)], [ (team_set_relation,1,3,0) ]), # player pressed talk
+  (2,2,2,[(neg|game_key_is_down,gk_attack)], [  (neg|game_key_is_down,gk_attack),(team_set_relation,1,3,0) ]), # player wasn't aggressive for 2 secs: he can  now talk to pris!
+  
+  # keep them tied...
+  (0,0.5,0,[],[
+  (try_for_agents,":agent_no"),
+    (agent_has_item_equipped, ":agent_no", itm_feet_chains),
+    (agent_get_slot, reg10,      ":agent_no", slot_agent_anim_status), 
+    (agent_get_slot, ":last_hp", ":agent_no", slot_agent_last_hp), 
+    (store_agent_hit_points,":cur_hp",":agent_no",1),
+    (agent_set_slot, ":agent_no", slot_agent_last_hp, ":cur_hp"),
+    (try_begin),
+      (store_mod, reg11, reg10, 10),(this_or_next|eq, reg11, 0), # one turn every 10...
+      (neq,":cur_hp",":last_hp"),
+      (try_begin),
+        (neq,":cur_hp",":last_hp"), # hit: fall
+        (agent_set_animation, ":agent_no", "anim_fall_tied"),
+        (assign, reg10, 6),
+      (else_try),
+        (eq,reg10,0), # first time: walk
+        (agent_set_animation, ":agent_no", "anim_walk_tied"),
+      (else_try),
+        (agent_set_animation, ":agent_no", "anim_stay_tied"),
+      (try_end),
+    (try_end),
+    (val_add, reg10, 1),
+    (agent_set_slot, ":agent_no", slot_agent_anim_status, reg10),
+    (agent_set_slot, ":agent_no", slot_agent_last_hp, ":cur_hp"),
+  (try_end),
+  ]),
+  (0,0,ti_once,[],[
+  # spawn all party
+  (set_battle_advantage, 0),
+  #(add_reinforcements_to_entry,3,30),
+  
+  #(display_message, "@Your troops are behind you"),
+  
+  # spawn prisoners...
+  (assign, ":p", "p_main_party"),
+  (party_get_num_prisoner_stacks, ":n",":p"),
+  (assign, ":max_pris", 10),
+  (store_current_scene, ":cur_scene"),
+  (modify_visitors_at_site, ":cur_scene"), 
+  (reset_visitors),
+  (try_for_range, ":i",0,":n"),
+    (party_prisoner_stack_get_troop_id,   ":trp_id",":p",":i" ),
+    (party_prisoner_stack_get_size, ":trp_no",":p",":i" ),
+    (val_min, ":trp_no", ":max_pris"),
+    (store_add, ":entry", ":i", 4),
+    (add_visitors_to_current_scene,":entry",":trp_id",":trp_no"),
+    (val_sub,":max_pris",":trp_no"), 
+    #(str_store_troop_name, s3, ":trp_id"),(assign, reg3,":trp_no"),(display_message,"@debug: spawning {reg3} {s3} as prisoners"),
+  (try_end),
+  ],),
+  (0,6,ti_once,[],[  # after X secs, cancel all scripted destinations
+  (try_for_agents,":i"),
+  (agent_clear_scripted_mode, ":i"),
+  (try_end),
+  ],),
+
+  ],
+),
 
 ]

@@ -3678,6 +3678,19 @@ TOTAL:  {reg5}"),
         (change_screen_mission),
         ]
        ),
+
+    ("camp_troop"      ,[
+        (party_get_num_companions,reg10,"p_main_party"),(val_sub,reg10,1),
+        (party_get_num_prisoners,reg11,"p_main_party"),
+        (this_or_next|gt,reg10,0),(gt,reg11,0),
+        (store_mul, reg12, reg10,reg11),
+    ],"Review{reg10?_troops:}{reg12?_and:}{reg11?_prisoners:}."  ,[
+      #(jump_to_scene, "scn_camp_scene_horse_track"),
+      (call_script, "script_setup_random_scene"),
+      (set_jump_mission,"mt_review_troops"),
+      (change_screen_mission)]),
+
+
        ##diplomacy begin
 ###################################################################################
 # Autoloot: Allow item management from camp

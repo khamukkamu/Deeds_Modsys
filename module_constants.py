@@ -1294,6 +1294,7 @@ tc_escape                     = 19
 tc_give_center_to_fief        = 20
 tc_merchants_house            = 21
 
+tc_troop_review_talk          = 22 #TLD
 
 #Troop Commentaries begin
 #Log entry types
@@ -2807,3 +2808,7 @@ arena_champions_end = "trp_tutorial_trainer"
 
 arena_fighters_begin = "trp_arena_training_fighter_1"
 arena_fighters_end = "trp_cattle"
+
+# TLD prisoners
+slot_agent_anim_status     	= 32
+slot_agent_last_hp		        = 33
