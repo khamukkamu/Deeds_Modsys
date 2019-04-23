@@ -304,8 +304,10 @@ scenes = [
 
 ("town_31_center",sf_generate,"none", "none", (0,0),(100,100),-100,"0x400790b20002c8b0000050d500006f8c00006dbd",
   [],[],"outer_terrain_snow"),
-("town_32_center",sf_generate,"none", "none",(0,0),(100,100),-100,"0x00000000200016da000364d9000060f500007591000064e7",
-  [],[],"outer_terrain_steppe"),
+
+("town_32_center",sf_generate,"none", "none", (0,0),(100,100),-100,"0x30001d9300031ccb0000156f000048ba0000361c",
+  [],[],"outer_terrain_plain"),
+
 ("town_33_center",sf_generate,"none", "none",(0,0),(100,100),-100,"0x400790b20002c8b0000050d500006f8c00006dbd",
   [],[],"outer_terrain_snow"),
 ("town_34_center",sf_generate,"none", "none", (0,0),(100,100),-100,"0x3002cd340002b4ac00002ccd800026dc00000c1d",
@@ -336,18 +338,19 @@ scenes = [
 ("town_40_center",sf_generate,"none", "none",(0,0),(100,100),-100,"0x0000000030000500000d2348000030c40000061200007962",
   [],["bonus_chest_1"],"outer_terrain_beach"),
 
-("town_41_center",sf_generate,"none", "none",(0,0),(100,100),-100,"0x0000000020049cbd00025896000048e90000164400002b3f",
-  [],[],"outer_terrain_steppe"),
+("town_41_center",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002300491830004a529000036230000312a00003653",
+  [],[],"outer_terrain_plain"),
 
 # Calais - BM's Rivacheg
 ("town_42_center",sf_generate,"none", "none",(0,0),(100,100),-100,"0x0000000030000500000d2348000030c40000061200007962",
   [],["bonus_chest_1"],"outer_terrain_beach"),
 
 
-("town_43_center",sf_generate,"none", "none",(0,0),(100,100),-100,"0x0000000150051a800004190400003f8c0000352b000014d8",
-  [],[],"outer_terrain_desert"),
-("town_44_center",sf_generate,"none", "none",(0,0),(100,100),-100,"0x000000025a03253200042d08000079d6000004fd00006910",
-  [],[],"outer_terrain_desert"),
+("town_43_center",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001300785320004c93200002bc700005e48000008d2",
+  [],[],"outer_terrain_plain"),
+
+("town_44_center",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001300785320004c93200002bc700005e48000008d2",
+  [],[],"outer_terrain_plain"),
 
 ("town_45_center",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000003002498000035cd50000104100005e940000147b",
     [],["bonus_chest_3"],"outer_terrain_town_thir_1"),
@@ -409,18 +412,18 @@ scenes = [
   [],[],"outer_terrain_snow"),
 
 
-("town_62_center",sf_generate,"none", "none",(0,0),(100,100),-100,"0x0000000020049cbd00025896000048e90000164400002b3f",
-  [],[],"outer_terrain_steppe"),
+("town_62_center",sf_generate,"none", "none",(0,0),(100,100),-100,"0x3000148000025896000074e600006c260000125a",
+    [],[],"outer_terrain_plain"),
 
 # Reims - Rus' Krakow
 ("town_63_center", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x0000000230078563000541320000775f000047e900002417",
   [], [], "outer_terrain_plain"),
 
 
-("town_64_center",sf_generate,"none", "none",(0,0),(100,100),-100,"0x00000a0650001e9a00a505418000581f000028c800000143",
-  [],[],"outer_terrain_desert"),
-("town_65_center",sf_generate,"none", "none",(0,0),(100,100),-100,"0x0000000150051a800004190400003f8c0000352b000014d8",
-  [],[],"outer_terrain_desert"),
+("town_64_center",sf_generate,"none", "none",(0,0),(100,100),-100,"0x00000000300214100003ecfb00002b930000051900002c29",
+    [],[],"outer_terrain_plain"),
+("town_65_center",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001300785320004c93200002bc700005e48000008d2",
+  [],[],"outer_terrain_plain"),
 
 # Rennes - BM's Uxkhal
 ("town_66_center",sf_generate|sf_muddy_water,"none", "none", (0,0),(100,100),-100,"0x0000000030000500000d2348000030c4000053ae00001d83",
@@ -559,8 +562,10 @@ scenes = [
 
   ("town_31_castle",sf_indoors, "interior_castle_g", "bo_interior_castle_g", (-100,-100),(100,100),-100,"0",
     ["exit"],["town_9_seneschal"]),
-  ("town_32_castle",sf_generate, "none", "none", (-100,-100),(100,100),-100,"0x00000007300005000002308c00004a840000624700004fda",
-    ["exit"],["town_10_seneschal"]),
+  
+  ("town_32_castle",sf_indoors, "interior_castle_q", "bo_interior_castle_q", (-100,-100),(100,100),-100,"0",
+    ["exit"],["town_4_seneschal"]),
+
   ("town_33_castle",sf_indoors, "interior_castle_i", "bo_interior_castle_i", (-100,-100),(100,100),-100,"0",
     ["exit"],["town_11_seneschal"]),
   ("town_34_castle",sf_indoors, "viking_interior_keep_a", "bo_viking_interior_keep_a", (-100,-100),(100,100),-100,"0",
@@ -591,17 +596,18 @@ scenes = [
   ("town_40_castle",0, "none", "none", (-100,-100),(100,100),-100,"0",
     ["exit"],["town_13_seneschal"]),
   
-  ("town_41_castle",sf_indoors, "arabian_interior_keep_a", "bo_arabian_interior_keep_a", (-100,-100),(100,100),-100,"0",
-    ["exit"],["town_19_seneschal"]),
-  
+  ("town_41_castle",sf_indoors, "interior_castle_z", "bo_interior_castle_z", (-100,-100),(100,100),-100,"0",
+    ["exit"],["town_6_seneschal"]),
+
   # Calais - BM's Rivacheg
   ("town_42_castle",0, "none", "none", (-100,-100),(100,100),-100,"0",
    ["exit"],["town_13_seneschal"]),
   
-  ("town_43_castle",sf_indoors, "arabian_interior_keep_b", "bo_arabian_interior_keep_b", (-100,-100),(100,100),-100,"0",
-    ["exit"],["town_21_seneschal"]),
-  ("town_44_castle",sf_indoors, "arabian_interior_keep_a", "bo_arabian_interior_keep_a", (-100,-100),(100,100),-100,"0x00000007300005000002308c00004a840000624700004fda",
-    ["exit"],["town_22_seneschal"]),
+  ("town_43_castle",sf_indoors, "interior_castle_v", "bo_interior_castle_v", (-100,-100),(100,100),-100,"0",
+    ["exit"],["town_7_seneschal"]),
+
+  ("town_44_castle",sf_indoors, "interior_castle_v", "bo_interior_castle_v", (-100,-100),(100,100),-100,"0",
+    ["exit"],["town_7_seneschal"]),
 
   ("town_45_castle",sf_indoors,"viking_interior_keep_a", "bo_viking_interior_keep_a", (-100,-100),(100,100),-100,"0",
     ["exit"],["town_1_seneschal"]),
@@ -657,18 +663,18 @@ scenes = [
 
   ("town_61_castle",sf_indoors, "interior_castle_g_square_keep", "bo_interior_castle_g_square_keep", (-100,-100),(100,100),-100,"0",
     ["exit"],["town_17_seneschal"]),
-  ("town_62_castle",sf_generate, "none", "none", (-100,-100),(100,100),-100,"0x00000007300005000002308c00004a840000624700004fda",
-    ["exit"],["town_18_seneschal"]),
+  ("town_62_castle",sf_indoors, "interior_castle_w", "bo_interior_castle_w", (-100,-100),(100,100),-100,"0",
+    ["exit"],["town_8_seneschal"]),
   
   # Reims - Rus' Krakow
   ("town_63_castle",sf_indoors, "interior_castle_x", "bo_interior_castle_x", (-100, -100), (100, 100), -100, "0",
     ["exit"], ["town_5_seneschal"]),
   
 
-  ("town_64_castle",sf_indoors, "arabian_interior_keep_b", "bo_arabian_interior_keep_b", (-100,-100),(100,100),-100,"0",
-    ["exit"],["town_20_seneschal"]),
-  ("town_65_castle",sf_indoors, "arabian_interior_keep_b", "bo_arabian_interior_keep_b", (-100,-100),(100,100),-100,"0",
-    ["exit"],["town_21_seneschal"]),
+  ("town_64_castle",sf_indoors,"castle_h_interior_b", "bo_castle_h_interior_b", (-100,-100),(100,100),-100,"0",
+    ["exit"],["town_3_seneschal"]),
+  ("town_65_castle",sf_indoors, "interior_castle_v", "bo_interior_castle_v", (-100,-100),(100,100),-100,"0",
+    ["exit"],["town_7_seneschal"]),
 
   # Rennes - BM's Uxkhal
   ("town_66_castle",sf_indoors, "interior_castle_v", "bo_interior_castle_v", (-100,-100),(100,100),-100,"0",
@@ -806,8 +812,10 @@ scenes = [
 
   ("town_31_tavern",sf_indoors, "interior_tavern_g", "bo_interior_tavern_g", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
-  ("town_32_tavern",sf_indoors, "interior_town_house_steppe_c", "bo_interior_town_house_steppe_c", (-100,-100),(100,100),-100,"0",
+  
+  ("town_32_tavern",sf_indoors, "interior_tavern_f", "bo_interior_tavern_f", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
+
   ("town_33_tavern",sf_indoors, "interior_tavern_c", "bo_interior_tavern_c", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
   ("town_34_tavern",sf_indoors, "viking_interior_tavern_a", "bo_viking_interior_tavern_a", (-100,-100),(100,100),-100,"0",
@@ -837,16 +845,17 @@ scenes = [
   ("town_40_tavern",sf_indoors, "interior_town_house_aa", "bo_interior_town_house_aa", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
   
-  ("town_41_tavern",sf_indoors, "interior_town_house_steppe_d", "bo_interior_town_house_steppe_d", (-100,-100),(100,100),-100,"0",
+  ("town_41_tavern",sf_indoors, "interior_tavern_g", "bo_interior_tavern_g", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
 
   # Calais - BM's Rivacheg
   ("town_42_tavern",sf_indoors, "interior_town_house_aa", "bo_interior_town_house_aa", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
   
-  ("town_43_tavern",sf_indoors, "interior_town_house_steppe_g", "bo_interior_town_house_steppe_g", (-100,-100),(100,100),-100,"0",
+  ("town_43_tavern",sf_indoors, "interior_town_house_f", "bo_interior_town_house_f", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
-  ("town_44_tavern",sf_indoors, "interior_town_house_steppe_c", "bo_interior_town_house_steppe_c", (-100,-100),(100,100),-100,"0",
+
+  ("town_44_tavern",sf_indoors, "interior_town_house_f", "bo_interior_town_house_f", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
 
   ("town_45_tavern",sf_indoors,"viking_interior_tavern_a", "bo_viking_interior_tavern_a", (-100,-100),(100,100),-100,"0",
@@ -905,7 +914,7 @@ scenes = [
 # Boulogne - DNO's Town 8
   ("town_61_tavern", sf_indoors, "interior_tavern_b", "bo_interior_tavern_b", (-100, -100), (100, 100), -100, "0",["exit"], []),
 
-  ("town_62_tavern",sf_indoors, "interior_town_house_steppe_c", "bo_interior_town_house_steppe_c", (-100,-100),(100,100),-100,"0",
+  ("town_62_tavern",sf_indoors, "interior_tavern_h", "bo_interior_tavern_h", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
   
   # Reims - Rus' Krakow
@@ -913,9 +922,9 @@ scenes = [
     ["exit"], []),
   
 
-  ("town_64_tavern",sf_indoors, "interior_town_house_steppe_c", "bo_interior_town_house_steppe_c", (-100,-100),(100,100),-100,"0",
+  ("town_64_tavern",sf_indoors,"interior_rhodok_houses_b", "bo_interior_rhodok_houses_b", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
-  ("town_65_tavern",sf_indoors, "interior_town_house_steppe_g", "bo_interior_town_house_steppe_g", (-100,-100),(100,100),-100,"0",
+  ("town_65_tavern",sf_indoors, "interior_town_house_f", "bo_interior_town_house_f", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
 
   # Rennes - BM's Uxkhal
@@ -1050,8 +1059,10 @@ scenes = [
 
   ("town_31_store",sf_indoors, "interior_tavern_a", "bo_interior_tavern_a", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
-  ("town_32_store",sf_indoors, "interior_town_house_steppe_d", "bo_interior_town_house_steppe_d", (-100,-100),(100,100),-100,"0",
+  
+  ("town_32_store",sf_indoors, "interior_town_house_a", "bo_interior_town_house_a", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
+
   ("town_33_store",sf_indoors, "interior_town_house_j", "bo_interior_town_house_j", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
   ("town_34_store",sf_indoors, "viking_interior_merchant_a", "bo_viking_interior_merchant_a", (-100,-100),(100,100),-100,"0",
@@ -1082,16 +1093,17 @@ scenes = [
   ("town_40_store",sf_indoors, "interior_town_house_j", "bo_interior_town_house_j", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
   
-  ("town_41_store",sf_indoors, "interior_town_house_steppe_d", "bo_interior_town_house_steppe_d", (-100,-100),(100,100),-100,"0",
+  ("town_41_store",sf_indoors, "interior_town_house_j", "bo_interior_town_house_j", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
   
   # Calais - BM's Rivacheg
   ("town_42_store",sf_indoors, "interior_town_house_j", "bo_interior_town_house_j", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
   
-  ("town_43_store",sf_indoors, "interior_town_house_steppe_g", "bo_interior_town_house_steppe_g", (-100,-100),(100,100),-100,"0",
+  ("town_43_store",sf_indoors, "interior_house_a", "bo_interior_house_a", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
-  ("town_44_store",sf_indoors, "interior_town_house_steppe_d", "bo_interior_town_house_steppe_d", (-100,-100),(100,100),-100,"0",
+
+  ("town_44_store",sf_indoors, "interior_house_a", "bo_interior_house_a", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
 
   ("town_45_store",sf_indoors,"viking_interior_merchant_a", "bo_viking_interior_merchant_a", (-100,-100),(100,100),-100,"0",
@@ -1147,7 +1159,7 @@ scenes = [
 
   ("town_61_store",sf_indoors, "interior_town_house_steppe_g", "bo_interior_town_house_steppe_g", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
-  ("town_62_store",sf_indoors, "interior_town_house_steppe_d", "bo_interior_town_house_steppe_d", (-100,-100),(100,100),-100,"0",
+  ("town_62_store",sf_indoors, "interior_house_b", "bo_interior_house_b", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
   
   # Reims - Rus' Krakow
@@ -1155,9 +1167,9 @@ scenes = [
     ["exit"], []),
   
 
-  ("town_64_store",sf_indoors, "interior_town_house_steppe_d", "bo_interior_town_house_steppe_d", (-100,-100),(100,100),-100,"0",
+  ("town_64_store",sf_indoors,"interior_rhodok_houses_d", "bo_interior_rhodok_houses_d", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
-  ("town_65_store",sf_indoors, "interior_town_house_steppe_g", "bo_interior_town_house_steppe_g", (-100,-100),(100,100),-100,"0",
+  ("town_65_store",sf_indoors, "interior_house_a", "bo_interior_house_a", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
 
   # Rennes - BM's Uxkhal
@@ -1294,8 +1306,10 @@ scenes = [
 
   ("town_31_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0x40001d9300031ccb0000156f000048ba0000361c",
     [],[],"outer_terrain_snow"),
-  ("town_32_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002200005000005f57b00005885000046bd00006d9c",
-    [],[],"outer_terrain_steppe"),
+
+  ("town_32_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0xa0001d9300031ccb0000156f000048ba0000361c",
+    [],[],"outer_terrain_plain"),
+  
   ("town_33_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0x40001d9300031ccb0000156f000048ba0000361c",
     [],[],"outer_terrain_snow"),
   ("town_34_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0xa0001d9300031ccb0000156f000048ba0000361c",
@@ -1328,17 +1342,18 @@ scenes = [
   ("town_40_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0xa0001d9300031ccb0000156f000048ba0000361c",
     [],[]),
   
-  ("town_41_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002200005000005f57b00005885000046bd00006d9c",
-    [],[],"outer_terrain_desert"),
+  ("town_41_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0xa0001d9300031ccb0000156f000048ba0000361c",
+    [],[],"outer_terrain_plain"),
   
   # Calais - BM's Rivacheg
   ("town_42_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0xa0001d9300031ccb0000156f000048ba0000361c",
     [],[]),
   
-  ("town_43_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002200005000005f57b00005885000046bd00006d9c",
-    [],[],"outer_terrain_desert"),
-  ("town_44_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002200005000005f57b00005885000046bd00006d9c",
-    [],[],"outer_terrain_desert"),
+  ("town_43_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0xa0001d9300031ccb0000156f000048ba0000361c",
+    [],[],"outer_terrain_plain"),
+
+  ("town_44_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0xa0001d9300031ccb0000156f000048ba0000361c",
+    [],[],"outer_terrain_plain"),
 
   ("town_45_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0xa0001d9300031ccb0000156f000048ba0000361c",
     [],[],"outer_terrain_plain"),
@@ -1396,18 +1411,18 @@ scenes = [
 
   ("town_61_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002200005000005f57b00005885000046bd00006d9c",
     [],[],"outer_terrain_plain"),
-  ("town_62_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002200005000005f57b00005885000046bd00006d9c",
-    [],[],"outer_terrain_steppe"),
+  ("town_62_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0xa0001d9300031ccb0000156f000048ba0000361c",
+    [],[],"outer_terrain_plain"),
   
   # Reims - Rus' Krakow
   ("town_63_arena",sf_generate, "none", "none", (0, 0), (100, 100), -100, "0xa0001d9300031ccb0000156f000048ba0000361c",
     [], [], "outer_terrain_town_thir_1"),
   
 
-  ("town_64_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002200005000005f57b00005885000046bd00006d9c",
-    [],[],"outer_terrain_desert"),
-  ("town_65_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002200005000005f57b00005885000046bd00006d9c",
-    [],[],"outer_terrain_desert"),
+  ("town_64_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0xa0001d9300031ccb0000156f000048ba0000361c",
+    [],[]),
+  ("town_65_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0xa0001d9300031ccb0000156f000048ba0000361c",
+    [],[],"outer_terrain_plain"),
 
   # Rennes - BM's Uxkhal
   ("town_66_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0xa0001d9300031ccb0000156f000048ba0000361c",
@@ -1542,8 +1557,10 @@ scenes = [
 
   ("town_31_prison",sf_indoors,"interior_prison_j", "bo_interior_prison_j", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
-  ("town_32_prison",sf_indoors,"interior_prison_o", "bo_interior_prison_o", (-100,-100),(100,100),-100,"0",
-    ["exit"],[]),
+  
+  ("town_32_prison",sf_indoors,"interior_prison_g", "bo_interior_prison_g", (-100,-100),(100,100),-100,"0",
+    [],[]),
+
   ("town_33_prison",sf_indoors,"dungeon_a", "bo_dungeon_a", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
   ("town_34_prison",sf_indoors,"interior_prison_cell_a", "bo_interior_prison_cell_a", (-100,-100),(100,100),-100,"0",
@@ -1575,7 +1592,7 @@ scenes = [
     ["exit"],[]),
   
 
-  ("town_41_prison",sf_indoors,"interior_prison_o", "bo_interior_prison_o", (-100,-100),(100,100),-100,"0",
+  ("town_41_prison",sf_indoors,"interior_prison_e", "bo_interior_prison_e", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
   
   # Calais - BM's Rivacheg
@@ -1583,9 +1600,10 @@ scenes = [
     ["exit"],[]),
   
 
-  ("town_43_prison",sf_indoors,"interior_prison_n", "bo_interior_prison_n", (-100,-100),(100,100),-100,"0",
+  ("town_43_prison",sf_indoors,"interior_prison_i", "bo_interior_prison_i", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
-  ("town_44_prison",sf_indoors,"interior_prison_o", "bo_interior_prison_o", (-100,-100),(100,100),-100,"0",
+
+  ("town_44_prison",sf_indoors,"interior_prison_i", "bo_interior_prison_i", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
 
   ("town_45_prison",sf_indoors,"interior_prison_cell_a", "bo_interior_prison_cell_a", (-100,-100),(100,100),-100,"0",
@@ -1642,7 +1660,7 @@ scenes = [
 
   ("town_61_prison",sf_indoors,"interior_prison_n", "bo_interior_prison_n", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
-  ("town_62_prison",sf_indoors,"interior_prison_o", "bo_interior_prison_o", (-100,-100),(100,100),-100,"0",
+  ("town_62_prison",sf_indoors,"dungeon_cell_b", "bo_dungeon_cell_b", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
   
   # Reims - Rus' Krakow
@@ -1650,9 +1668,9 @@ scenes = [
     ["exit"], []),
   
 
-  ("town_64_prison",sf_indoors,"interior_prison_o", "bo_interior_prison_o", (-100,-100),(100,100),-100,"0",
-    ["exit"],[]),
-  ("town_65_prison",sf_indoors,"interior_prison_n", "bo_interior_prison_n", (-100,-100),(100,100),-100,"0",
+  ("town_64_prison",sf_indoors,"interior_prison_f", "bo_interior_prison_f", (-100,-100),(100,100),-100,"0",
+    [],[]),
+  ("town_65_prison",sf_indoors,"interior_prison_i", "bo_interior_prison_i", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
 
   # Rennes - BM's Uxkhal
@@ -1787,8 +1805,10 @@ scenes = [
 
   ("town_31_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000140015033000651900000159f0000619800006af6",
     [],[],"outer_terrain_snow"),
-  ("town_32_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002200011af00065192000067110000688300003435",
-    [],[],"outer_terrain_steppe"),
+
+  ("town_32_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001300010c800054d5c00004af000005d3f00002ca0",
+    [],[],"outer_terrain_plain"),
+  
   ("town_33_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000140015033000651900000159f0000619800006af6",
     [],[],"outer_terrain_snow"),
   ("town_34_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001300010c800054d5c00004af000005d3f00002ca0",
@@ -1820,18 +1840,19 @@ scenes = [
     [],[],"outer_terrain_beach"),
   
 
-  ("town_41_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002200011af00065192000067110000688300003435",
-    [],[],"outer_terrain_desert"),
+  ("town_41_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002300015e300063d8800002757000055df00001b08",
+    [],[],"sea_outer_terrain_1"),
   
   # Calais - BM's Rivacheg
   ("town_42_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030000500000d2348000030c40000061200007962",
     [],[],"outer_terrain_beach"),
   
 
-  ("town_43_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000150051a800004190400003f8c0000352b000014d8",
-    [],[],"outer_terrain_desert"),
-  ("town_44_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000025a00723200046d1b00003e020000147600004387",
-    [],[],"outer_terrain_desert"),
+  ("town_43_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000013002491600055157000000d20000152a0000611a",
+    [],[],"outer_terrain_plain"),
+
+  ("town_44_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000013002491600055157000000d20000152a0000611a",
+    [],[],"outer_terrain_plain"),
 
   ("town_45_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001300010c800054d5c00004af000005d3f00002ca0",
     [],[],"outer_terrain_plain"),
@@ -1890,18 +1911,19 @@ scenes = [
   ("town_61_walls",sf_generate,"none", "none", (0,0),(300,300),-100,"0x000000033000124c000acab40000280700000c9f00000ab5",
     [],[],"outer_terrain_plain"),
   
-  ("town_62_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002200011af00065192000067110000688300003435",
-    [],[],"outer_terrain_steppe"),
+  ("town_62_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000013002491600055157000000d20000152a0000611a",
+    [],[],"outer_terrain_plain"),
   
   # Reims - Rus' Krakow
   ("town_63_walls", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x0000000230078563000541320000775f000047e900002417",
     [], [], "outer_terrain_plain"),
   
 
-  ("town_64_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000a0650001e9a00a505418000581f000028c800000143",
-    [],[],"outer_terrain_desert"),
-  ("town_65_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000150051a800004190400003f8c0000352b000014d8",
-    [],[],"outer_terrain_desert"),
+  ("town_64_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300214100003ecfb00002b930000051900002c29",
+    [],[],"outer_terrain_plain"),
+  ("town_65_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000013002491600055157000000d20000152a0000611a",
+    [],[],"outer_terrain_plain"),
+
 
   # Rennes - BM's Uxkhal
   ("town_66_walls",sf_generate|sf_muddy_water,"none", "none", (0,0),(100,100),-100,"0x0000000030000500000d2348000030c4000053ae00001d83",
@@ -2035,8 +2057,10 @@ scenes = [
 
   ("town_31_alley",sf_generate,"none", "none", (0,0),(100,100),-100,"0x400211130001e07800002ad400001172000035c4",
     [],[],"outer_terrain_snow"),
-  ("town_32_alley",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000420000500000334ce00001d1100003d0600000d27",
-    [],[],"outer_terrain_steppe"),
+
+  ("town_32_alley",sf_generate,"none", "none", (0,0),(100,100),-100,"0x300bc5430001e0780000448a0000049f00007932",
+    [],[],"outer_terrain_plain"),
+  
   ("town_33_alley",sf_generate,"none", "none", (0,0),(100,100),-100,"0x400211130001e07800002ad400001172000035c4",
     [],[],"outer_terrain_snow"),
   ("town_34_alley",sf_generate,"none", "none", (0,0),(100,100),-100,"0x300bc5430001e0780000448a0000049f00007932",
@@ -2067,18 +2091,19 @@ scenes = [
     [],[],"outer_terrain_beach"),
   
 
-  ("town_41_alley",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000220002f000003fd0400006e120000359900004e13",
-    [],[],"outer_terrain_desert"),
+  ("town_41_alley",sf_generate,"none", "none", (0,0),(100,100),-100,"0x300bc5430001e0780000448a0000049f00007932",
+    [],[],"outer_terrain_plain"),
   
   # Calais - BM's Rivacheg
   ("town_42_alley",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030000500000d2348000030c40000061200007962",
    [],[],"outer_terrain_beach"),
   
 
-  ("town_43_alley",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000150051a800004190400003f8c0000352b000014d8",
-    [],[],"outer_terrain_desert"),
-  ("town_44_alley",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000025a00723200046d1b00003e0200001476000052ae",
-    [],[],"outer_terrain_desert"),
+  ("town_43_alley",sf_generate,"none", "none", (0,0),(100,100),-100,"0x20008a110002589600006af30000356b00002c27",
+    [],[],"outer_terrain_plain"),
+
+  ("town_44_alley",sf_generate,"none", "none", (0,0),(100,100),-100,"0x20008a110002589600006af30000356b00002c27",
+    [],[],"outer_terrain_plain"),
 
   ("town_45_alley",sf_generate,"none", "none", (0,0),(100,100),-100,"0x300bc5430001e0780000448a0000049f00007932",
     [],[],"outer_terrain_plain"),
@@ -2135,18 +2160,18 @@ scenes = [
   ("town_61_alley",sf_generate,"none", "none", (0,0),(300,300),-100,"0x000000033000124c000acab40000280700000c9f00000ab5",
     [],[],"outer_terrain_plain"),
 
-  ("town_62_alley",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000420000500000334ce00001d1100003d0600000d27",
-    [],[],"outer_terrain_steppe"),
+  ("town_62_alley",sf_generate,"none", "none", (0,0),(100,100),-100,"0x300bc5430001e0780000448a0000049f00007932",
+    [],[],"outer_terrain_plain"),
   
   # Reims - Rus' Krakow
   ("town_63_alley",sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x300bc5430001e0780000448a0000049f00007932",
     [], [], "outer_terrain_town_thir_1"),
   
 
-  ("town_64_alley",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000a0650001e9a00a505418000581f000028c800000143",
-    [],[],"outer_terrain_desert"),
-  ("town_65_alley",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000150051a800004190400003f8c0000352b000014d8",
-    [],[],"outer_terrain_desert"),
+  ("town_64_alley",sf_generate,"none", "none", (0,0),(100,100),-100,"0x300bc5430001e0780000448a0000049f00007932",
+    [],[]),
+  ("town_65_alley",sf_generate,"none", "none", (0,0),(100,100),-100,"0x20008a110002589600006af30000356b00002c27",
+    [],[],"outer_terrain_plain"),
 
   # Rennes - BM's Uxkhal
   ("town_66_alley",sf_generate|sf_muddy_water,"none", "none", (0,0),(100,100),-100,"0x0000000030000500000d2348000030c4000053ae00001d83",
