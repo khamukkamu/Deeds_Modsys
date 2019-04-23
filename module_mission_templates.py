@@ -823,6 +823,18 @@ deeds_common_battle_scripts = [
   #bright_nights
   ] + battle_panel_triggers + utility_triggers + extended_battle_menu + common_division_data + division_order_processing + real_deployment + formations_triggers + AI_triggers
 
+deeds_common_siege_scripts = [
+    tld_cheer_on_space_when_battle_over_press,
+    tld_cheer_on_space_when_battle_over_release,
+    mission_fade_in,
+    dplmc_random_mixed_gender,
+    dplmc_horse_speed,
+    common_move_deathcam, common_rotate_deathcam,
+    custom_commander_camera, deathcam_cycle_forwards, deathcam_cycle_backwards,
+    dplmc_death_camera,  
+  #customize_armor,
+  #bright_nights
+  ] 
 
 ##SB : new camera triggers
 dplmc_battle_mode_triggers = [
@@ -4370,7 +4382,7 @@ mission_templates = [
       common_battle_inventory,
     ]
     ##diplomacy begin
-    + dplmc_battle_mode_triggers,
+    + deeds_common_siege_scripts,
     ##diplomacy end
   ),
 
@@ -4454,7 +4466,7 @@ mission_templates = [
       common_battle_inventory,
     ]
     ##diplomacy begin
-    + dplmc_battle_mode_triggers,
+    + deeds_common_siege_scripts,
     ##diplomacy end
   ),
 
@@ -4658,7 +4670,7 @@ mission_templates = [
       common_siege_assign_men_to_belfry,
     ]
     ##diplomacy begin
-    + dplmc_battle_mode_triggers,
+    + deeds_common_siege_scripts,
     ##diplomacy end
   ),
 
@@ -4776,7 +4788,7 @@ mission_templates = [
 ##       []),
     ]
     ##diplomacy begin
-    + dplmc_battle_mode_triggers,
+    + deeds_common_siege_scripts,
     ##diplomacy end
   ),
 
