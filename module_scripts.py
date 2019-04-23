@@ -41346,20 +41346,20 @@ scripts = [
 
 # set strings
 
-        (troop_set_slot, "trp_npc1", slot_troop_morality_type, tmt_egalitarian),  #borcha
-        (troop_set_slot, "trp_npc1", slot_troop_morality_value, 4),  #borcha
-        (troop_set_slot, "trp_npc1", slot_troop_2ary_morality_type, tmt_aristocratic),  #borcha
-        (troop_set_slot, "trp_npc1", slot_troop_2ary_morality_value, -1),
-        (troop_set_slot, "trp_npc1", slot_troop_personalityclash_object, "trp_npc7"),  #borcha - deshavi
-        (troop_set_slot, "trp_npc1", slot_troop_personalityclash2_object, "trp_npc16"),  #borcha - klethi
-        (troop_set_slot, "trp_npc1", slot_troop_personalitymatch_object, "trp_npc2"),  #borcha - marnid
-        (troop_set_slot, "trp_npc1", slot_troop_home, "p_village_25"), #Dashbiga
+        (troop_set_slot, "trp_npc1", slot_troop_morality_type, tmt_aristocratic),  #William Reynes
+        (troop_set_slot, "trp_npc1", slot_troop_morality_value, 4),  #William Reynes
+        (troop_set_slot, "trp_npc1", slot_troop_2ary_morality_type, tmt_honest),  #William Reynes
+        (troop_set_slot, "trp_npc1", slot_troop_2ary_morality_value, 1),
+        (troop_set_slot, "trp_npc1", slot_troop_personalityclash_object, "trp_npc7"),  #William Reynes - Diane du Bois
+        (troop_set_slot, "trp_npc1", slot_troop_personalityclash2_object, "trp_npc4"),  #William Reynes - Jean, bâtard du Guesclin
+        (troop_set_slot, "trp_npc1", slot_troop_personalitymatch_object, "trp_npc13"),  #William Reynes - Thomas Gower
+        (troop_set_slot, "trp_npc1", slot_troop_home, "p_town_38"), #Caen
         (troop_set_slot, "trp_npc1", slot_troop_payment_request, 300),
-		(troop_set_slot, "trp_npc1", slot_troop_kingsupport_argument, argument_ruler),
-		(troop_set_slot, "trp_npc1", slot_troop_kingsupport_opponent, "trp_npc14"), #lezalit
-		(troop_set_slot, "trp_npc1", slot_troop_town_with_contacts, "p_town_17"),
-		(troop_set_slot, "trp_npc1", slot_troop_original_faction, 0),
-		(troop_set_slot, "trp_npc1", slot_lord_reputation_type, lrep_roguish), #
+		(troop_set_slot, "trp_npc1", slot_troop_kingsupport_argument, argument_claim),
+		(troop_set_slot, "trp_npc1", slot_troop_kingsupport_opponent, "trp_npc4"), # Jean, bâtard du Guesclin
+		(troop_set_slot, "trp_npc1", slot_troop_town_with_contacts, "p_town_38"),
+		(troop_set_slot, "trp_npc1", slot_troop_original_faction, fac_kingdom_2),
+		(troop_set_slot, "trp_npc1", slot_lord_reputation_type, lrep_martial), #
     (troop_set_slot, "trp_npc1", slot_troop_fights_in_tournaments, 0),
 
 
