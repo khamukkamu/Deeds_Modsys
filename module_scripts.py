@@ -41364,18 +41364,18 @@ scripts = [
 
 
 
-        (troop_set_slot, "trp_npc2", slot_troop_morality_type, tmt_humanitarian), #marnid
+        (troop_set_slot, "trp_npc2", slot_troop_morality_type, tmt_humanitarian), #Frans Demaar
         (troop_set_slot, "trp_npc2", slot_troop_morality_value, 2),
         (troop_set_slot, "trp_npc2", slot_troop_2ary_morality_type, tmt_honest),
         (troop_set_slot, "trp_npc2", slot_troop_2ary_morality_value, 1),
-        (troop_set_slot, "trp_npc2", slot_troop_personalityclash_object, "trp_npc5"), #marnid - beheshtur
-        (troop_set_slot, "trp_npc2", slot_troop_personalityclash2_object, "trp_npc9"), #marnid - alayen
-        (troop_set_slot, "trp_npc2", slot_troop_personalitymatch_object, "trp_npc1"),  #marnid - borcha
-        (troop_set_slot, "trp_npc2", slot_troop_home, "p_town_1"), #Sargoth
+        (troop_set_slot, "trp_npc2", slot_troop_personalityclash_object, "trp_npc14"), #Frans Demaar - John Crichton
+        (troop_set_slot, "trp_npc2", slot_troop_personalityclash2_object, "trp_npc8"), #Frans Demaar - Baudouin de Limoges
+        (troop_set_slot, "trp_npc2", slot_troop_personalitymatch_object, "trp_npc15"),  #Frans Demaar - Gaspard Bureau
+        (troop_set_slot, "trp_npc2", slot_troop_home, "p_town_58"), #Bruges
         (troop_set_slot, "trp_npc2", slot_troop_payment_request, 0),
 		(troop_set_slot, "trp_npc2", slot_troop_kingsupport_argument, argument_victory),
-		(troop_set_slot, "trp_npc2", slot_troop_kingsupport_opponent, "trp_npc16"), #klethi
-		(troop_set_slot, "trp_npc2", slot_troop_town_with_contacts, "p_town_1"), #Sargoth
+		(troop_set_slot, "trp_npc2", slot_troop_kingsupport_opponent, "trp_npc14"), # John Crichton
+		(troop_set_slot, "trp_npc2", slot_troop_town_with_contacts, "p_town_58"), #Bruges
 		(troop_set_slot, "trp_npc2", slot_troop_original_faction, 0),
 		(troop_set_slot, "trp_npc2", slot_lord_reputation_type, lrep_custodian), #
     (troop_set_slot, "trp_npc2", slot_troop_fights_in_tournaments, 0),
