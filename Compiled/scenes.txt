@@ -1,5 +1,5 @@
 scenesfile version 1
- 1373
+ 1376
 scn_random_scene random_scene 1792 none none 0.000000 0.000000 240.000000 240.000000 -0.500000 0x300028000003e8fa0000034e00004b34000059be 
   0 
   0 
@@ -5492,3 +5492,15 @@ scn_rus_castle_27_prison rus_castle_27_prison 1 interior_prison_i bo_interior_pr
   0 
   0 
  0 
+scn_conversation_scene_tld_plain conversation_scene_tld_plain 256 none none -40.000000 -40.000000 40.000000 40.000000 -100.000000 0x00000006300005000002308c00003005000018b300001d92 
+  0 
+  0 
+ outer_terrain_plain 
+scn_conversation_scene_tld_snow conversation_scene_tld_snow 256 none none -40.000000 -40.000000 40.000000 40.000000 -100.000000 0x00000006300005000002308c00003005000018b300001d92 
+  0 
+  0 
+ outer_terrain_snow 
+scn_conversation_scene_tld_forest conversation_scene_tld_forest 256 none none -40.000000 -40.000000 40.000000 40.000000 -100.000000 0x00000006300005000002308c00003005000018b300001d92 
+  0 
+  0 
+ outer_terrain_town_thir_1 

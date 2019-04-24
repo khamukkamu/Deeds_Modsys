@@ -1372,4 +1372,7 @@ scn_rus_castle_26_prison = 1369
 scn_rus_castle_27_exterior = 1370
 scn_rus_castle_27_interior = 1371
 scn_rus_castle_27_prison = 1372
+scn_conversation_scene_tld_plain = 1373
+scn_conversation_scene_tld_snow = 1374
+scn_conversation_scene_tld_forest = 1375
 scn_exit = 100000
