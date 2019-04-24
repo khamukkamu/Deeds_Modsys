@@ -1968,6 +1968,20 @@ animations = [
  ],
 
 
+#tavern pack
+ ["sitting_drinking_low", acf_enforce_all, amf_priority_die|amf_play,
+   [20.0, "dedal_sitting_drinking_low", 0, 311, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],],
+ ["sitting_low", acf_enforce_all, amf_priority_die|amf_keep,
+   [18.0, "dedal_sitting_low", 3, 301, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],],
+ ["lute_sitting", acf_enforce_all, amf_priority_die|amf_play,
+   [2.05, "dedal_lute_sitting", 3, 7, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],],
+ ["lute_standing", acf_enforce_all, amf_priority_die|amf_play,
+   [2.05, "dedal_lute_standing", 3, 7, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],],
+ ["lyre_sitting", acf_enforce_all, amf_priority_die|amf_play,
+   [2.05, "dedal_lyre_sitting", 3, 7, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],],
+ ["lyre_standing", acf_enforce_all, amf_priority_die|amf_play,
+   [2.05, "dedal_lyre_standing", 3, 7, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],],
+
 # Commented out for TLD cheer
 # ["unused_human_anim_44", 0, 0, [1.0, "anim_human", 0, 1, 0]],
 # ["unused_human_anim_45", 0, 0, [1.0, "anim_human", 0, 1, 0]],
@@ -1981,12 +1995,14 @@ animations = [
 # ["unused_human_anim_51", 0, 0, [1.0, "anim_human", 0, 1, 0]],
 # ["unused_human_anim_52", 0, 0, [1.0, "anim_human", 0, 1, 0]],
 
- ["unused_human_anim_53", 0, 0, [1.0, "anim_human", 0, 1, 0]],
- ["unused_human_anim_54", 0, 0, [1.0, "anim_human", 0, 1, 0]],
- ["unused_human_anim_55", 0, 0, [1.0, "anim_human", 0, 1, 0]],
- ["unused_human_anim_56", 0, 0, [1.0, "anim_human", 0, 1, 0]],
- ["unused_human_anim_57", 0, 0, [1.0, "anim_human", 0, 1, 0]],
- ["unused_human_anim_58", 0, 0, [1.0, "anim_human", 0, 1, 0]],
+# Commented out for Tavern Pack
+ #["unused_human_anim_53", 0, 0, [1.0, "anim_human", 0, 1, 0]],
+ #["unused_human_anim_54", 0, 0, [1.0, "anim_human", 0, 1, 0]],
+ #["unused_human_anim_55", 0, 0, [1.0, "anim_human", 0, 1, 0]],
+ #["unused_human_anim_56", 0, 0, [1.0, "anim_human", 0, 1, 0]],
+ #["unused_human_anim_57", 0, 0, [1.0, "anim_human", 0, 1, 0]],
+ #["unused_human_anim_58", 0, 0, [1.0, "anim_human", 0, 1, 0]],
+ 
  ["unused_human_anim_59", 0, 0, [1.0, "anim_human", 0, 1, 0]],
  ["unused_human_anim_60", 0, 0, [1.0, "anim_human", 0, 1, 0]],
  ["unused_human_anim_61", 0, 0, [1.0, "anim_human", 0, 1, 0]],

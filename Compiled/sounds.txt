@@ -1,5 +1,5 @@
 soundsfile version 3
-366
+372
  drum_3.ogg 769
  tutorial_1.ogg 1793
  tutorial_2.ogg 1793
@@ -366,7 +366,13 @@ soundsfile version 3
  your_flag_returned.ogg 2721
  you_scored_a_point.ogg 2721
  enemy_scored_a_point.ogg 2721
-200
+ dedal_tavern_lute_1.ogg 1378
+ dedal_tavern_lute_2.ogg 1378
+ dedal_tavern_lute_3.ogg 1378
+ dedal_tavern_lyre_1.ogg 1634
+ dedal_tavern_lyre_2.ogg 1634
+ dedal_tavern_lyre_3.ogg 1634
+202
 snd_click 769 1 0 0 
 snd_tutorial_1 1793 1 1 0 
 snd_tutorial_2 1793 1 2 0 
@@ -545,6 +551,8 @@ snd_enemy_flag_taken 2721 1 362 0
 snd_flag_returned 2721 1 363 0 
 snd_team_scored_a_point 2721 1 364 0 
 snd_enemy_scored_a_point 2721 1 365 0 
+snd_dedal_tavern_lute 1378 3 366 0 367 0 368 0 
+snd_dedal_tavern_lyre 1634 3 369 0 370 0 371 0 
 snd_ccoop_spawn_companion_0 2048 1 282 0 
 snd_ccoop_spawn_companion_1 2048 1 283 0 
 snd_ccoop_spawn_companion_2 2048 1 284 0 

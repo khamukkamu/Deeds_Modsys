@@ -814,6 +814,58 @@ tld_cheer_on_space_when_battle_over_release = (0,0,0,[(eq,"$player_cheering",2),
 
 # END TLD
 
+dedal_tavern_animations = (
+  ti_on_agent_spawn,1,0,[
+    (eq, "$talk_context", tc_tavern_talk),
+    (store_trigger_param_1,":agent"),
+    (agent_get_troop_id,":troop",":agent"),
+    (try_begin),
+      (is_between,":troop","trp_musican_male","trp_musicans_end"),
+      (try_begin),
+        (agent_has_item_equipped,":agent","itm_dedal_lutnia"),
+        (agent_set_stand_animation, ":agent", "anim_lute_sitting"),
+        (agent_set_animation, ":agent", "anim_lute_sitting"),
+        (agent_play_sound,":agent","snd_dedal_tavern_lute"),
+      (else_try),
+        (agent_has_item_equipped,":agent","itm_dedal_lira"),
+        (agent_set_stand_animation, ":agent", "anim_lyre_sitting"),
+        (agent_set_animation, ":agent", "anim_lyre_sitting"),
+        (agent_play_sound,":agent","snd_dedal_tavern_lyre"),
+      (try_end),
+      (store_random_in_range,":r",0,300),
+      (agent_set_animation_progress,":agent",":r"),
+    (else_try),
+      (is_between,":troop",tavern_minstrels_begin,tavern_minstrels_end),
+      (try_begin),
+        (agent_has_item_equipped,":agent","itm_dedal_lutnia"),
+        (agent_set_stand_animation, ":agent", "anim_lute_standing"),
+        (agent_set_animation, ":agent", "anim_lute_standing"),
+        (agent_play_sound,":agent","snd_dedal_tavern_lute"),
+      (else_try),
+        (agent_has_item_equipped,":agent","itm_dedal_lira"),
+        (agent_set_stand_animation, ":agent", "anim_lyre_standing"),
+        (agent_set_animation, ":agent", "anim_lyre_standing"),
+        (agent_play_sound,":agent","snd_dedal_tavern_lyre"),
+      (try_end),
+      (store_random_in_range,":r",0,300),
+      (agent_set_animation_progress,":agent",":r"),
+    (else_try),
+      (is_between,":troop",walkers_begin,walkers_end),
+      (try_begin),
+        (agent_has_item_equipped,":agent","itm_dedal_kufel"),
+        (agent_set_stand_animation, ":agent", "anim_sitting_drinking_low"),
+        (agent_set_animation, ":agent", "anim_sitting_drinking_low"),
+        (store_random_in_range,":r",0,300),
+      (else_try),
+        (agent_set_stand_animation, ":agent", "anim_sitting_low"),
+        (agent_set_animation, ":agent", "anim_sitting_low"),
+        (store_random_in_range,":r",0,300),
+      (try_end),
+      (agent_set_animation_progress,":agent",":r"),
+    (try_end),
+  ],[])
+  
+  
 
 deeds_common_battle_scripts = [
   tld_cheer_on_space_when_battle_over_press,
@@ -2499,8 +2551,20 @@ mission_templates = [
      (29,mtef_visitor_source,af_override_horse,0,1,[]),
      (30,mtef_visitor_source,af_override_horse,0,1,[]),
      (31,mtef_visitor_source,af_override_horse,0,1,[]),
+
+       #dedal begin
+      (1,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#32
+      (2,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#33
+      (3,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#34
+      (4,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#35
+      (5,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#36
+      (6,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#37
+      (7,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#38
+      (8,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#39
+      (10,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#40
      ],
      [
+     dedal_tavern_animations,
       (1, 0, ti_once, [],
       [
         (store_current_scene, ":cur_scene"),
