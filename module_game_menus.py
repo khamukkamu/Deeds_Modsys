@@ -95,7 +95,7 @@ game_menus = [
           (assign, "$cheat_mode", 1),
           (jump_to_menu, "mnu_choose_skill"),
         (else_try),
-          (jump_to_menu, "mnu_dac_start_character_background"),
+          (jump_to_menu, "mnu_start_game_1"),
         (try_end),
         ]
        ),
@@ -1164,7 +1164,7 @@ game_menus = [
        [
          (troop_set_type,"trp_player", 0),
          (assign,"$character_gender", tf_male),
-         (jump_to_menu,"mnu_start_character_1"),
+         (jump_to_menu,"mnu_dac_start_character_background"),
         ]
        ),
       ("start_female",[],"Female",
@@ -20644,20 +20644,20 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ("dplmc_start_prejudice_yes",[],"I do not mind encountering sexism.",
        [
          (assign, "$g_disable_condescending_comments", 0),#Default value
-         (jump_to_menu,"mnu_start_character_1"),
+         (jump_to_menu,"mnu_dac_start_character_background"),
         ]
        ),
       ("dplmc_start_prejudice_no",[],"I would prefer not to encounter as much sexism.",
        [
          (assign, "$g_disable_condescending_comments", 2),#Any value 2 or higher shuts off sexist setting elements
-         (jump_to_menu, "mnu_start_character_1"),
+         (jump_to_menu, "mnu_dac_start_character_background"),
        ]
        ),
        #SB : enable dplmc_random_mixed_gender mission triggers
       ("dplmc_start_prejudice_mixed",[],"I would also like to see female presence on the field of battle.",
        [
          (assign, "$g_disable_condescending_comments", 4),
-         (jump_to_menu, "mnu_start_character_1"),
+         (jump_to_menu, "mnu_dac_start_character_background"),
        ]
        ),
 	  ("go_back",[],"Go back",
