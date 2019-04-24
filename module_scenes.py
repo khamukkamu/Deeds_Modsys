@@ -3008,65 +3008,48 @@ scenes = [
   ("village_90",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000012002cd900005314c00001f6d00006d7700003493",
     [],[],"outer_terrain_steppe"),
 	
-	("village_91",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
-    [],[],"outer_terrain_desert"),
-	
-	("village_92",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
-    [],[],"outer_terrain_desert"),
-	
-	("village_93",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
-    [],[],"outer_terrain_desert"),
-	
-	("village_94",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
-    [],[],"outer_terrain_desert"),
-	
-	("village_95",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
-    [],[],"outer_terrain_desert"),
-	
-	("village_96",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
-    [],[],"outer_terrain_desert"),
-	
-	("village_97",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
-    [],[],"outer_terrain_desert"),
-	
-	("village_98",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
-    [],[],"outer_terrain_desert"),
-	
-	("village_99",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
-    [],[],"outer_terrain_desert"),
-	
-	("village_100",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
-    [],[],"outer_terrain_desert"),
-	
-	("village_101",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
-    [],[],"outer_terrain_desert"),
-	
-	("village_102",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
-    [],[],"outer_terrain_desert"),
-	
-	("village_103",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
-    [],[],"outer_terrain_desert"),
-	
-	("village_104",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
-    [],[],"outer_terrain_desert"),
-	
-	("village_105",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
-    [],[],"outer_terrain_desert"),
-	
-	("village_106",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
-    [],[],"outer_terrain_desert"),
-	
-	("village_107",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
-    [],[],"outer_terrain_desert"),
-	
-	("village_108",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
-    [],[],"outer_terrain_desert"),
-	
-	("village_109",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
-    [],[],"outer_terrain_desert"),
-	
-	("village_110",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
-    [],[],"outer_terrain_desert"),
+ # Sarranid Villages 91 - 110 replaced by Village 53 - 72 
+
+  ("village_91",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000023002dd19000691a40000566a000012a000001037",
+    [],[],"outer_terrain_plain"),
+  ("village_92",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002300032300005c5740000243e000056aa00003a7a",
+    [],[],"outer_terrain_plain"),
+  ("village_93",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002300019500006c1b4000065c700002bea0000154e",
+    [],[],"outer_terrain_plain"),
+  ("village_94",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002300296320006b5aa00006f3200003a5000004fed",
+    [],[],"outer_terrain_town_thir_1"),
+  ("village_95",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002300027b200065d9700004dcf0000212800001bf0",
+    [],[],"outer_terrain_plain"),
+  ("village_96",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002300018e38005e58300000376000027e70000015c",
+    [],[],"outer_terrain_plain"),
+  ("village_97",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002300022a60005314c0000428100007e0100002e97",
+    [],[],"outer_terrain_plain"),
+  ("village_98",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000230079c3200060d860000428100007e01000071b4",
+    [],[],"outer_terrain_plain"),
+  ("village_99",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001300325350006659e0000603500006b0200005676",
+    [],[],"outer_terrain_plain"),
+  ("village_100",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000143c08f060004e53a00000a500000187700007c9b",
+    [],[],"outer_terrain_snow"),
+  ("village_101",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000013007a6b20006258b00006bb8000074df00002f18",
+    [],[],"outer_terrain_plain"),
+  ("village_102",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001300410320005a96800006b5300004edc00000d11",
+    [],[],"outer_terrain_plain"),
+  ("village_103",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000013004d8320006358b00006d2b000005d5000023e5",
+    [],[],"outer_terrain_plain"),
+  ("village_104",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000013007a2b20006097f00001342000050d900003545",
+    [],[],"outer_terrain_town_thir_1"),
+  ("village_105",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000013003e02d0005ed7800002c2e0000688800005fe4",
+    [],[],"outer_terrain_plain"),
+  ("village_106",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000130079a3200062d8b0000297c00000def000067b7",
+    [],[],"outer_terrain_plain"),
+  ("village_107",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002300022a60005314c0000428100007e0100002e97",
+    [],[],"outer_terrain_plain"),
+  ("village_108",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000230079c3200060d860000428100007e01000071b4",
+    [],[],"outer_terrain_plain"),
+  ("village_109",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000630079ab20005fd7f0000687300007190000006df",
+    [],[],"outer_terrain_plain"),
+  ("village_110",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000006300654ac00062d910000635800007c9600005d35",
+    [],[],"outer_terrain_plain"),
 	
 # DAC Village Dupes Begin
 
@@ -3253,65 +3236,47 @@ scenes = [
   ("village_200",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000012002cd900005314c00001f6d00006d7700003493",
     [],[],"outer_terrain_steppe"),
   
-  ("village_201",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
-    [],[],"outer_terrain_desert"),
-  
-  ("village_202",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
-    [],[],"outer_terrain_desert"),
-  
-  ("village_203",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
-    [],[],"outer_terrain_desert"),
-  
-  ("village_204",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
-    [],[],"outer_terrain_desert"),
-  
-  ("village_205",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
-    [],[],"outer_terrain_desert"),
-  
-  ("village_206",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
-    [],[],"outer_terrain_desert"),
-  
-  ("village_207",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
-    [],[],"outer_terrain_desert"),
-  
-  ("village_208",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
-    [],[],"outer_terrain_desert"),
-  
-  ("village_209",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
-    [],[],"outer_terrain_desert"),
-  
-  ("village_210",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
-    [],[],"outer_terrain_desert"),
-  
-  ("village_211",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
-    [],[],"outer_terrain_desert"),
-  
-  ("village_212",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
-    [],[],"outer_terrain_desert"),
-  
-  ("village_213",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
-    [],[],"outer_terrain_desert"),
-  
-  ("village_214",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
-    [],[],"outer_terrain_desert"),
-  
-  ("village_215",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
-    [],[],"outer_terrain_desert"),
-  
-  ("village_216",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
-    [],[],"outer_terrain_desert"),
-  
-  ("village_217",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
-    [],[],"outer_terrain_desert"),
-  
-  ("village_218",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
-    [],[],"outer_terrain_desert"),
-  
-  ("village_219",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
-    [],[],"outer_terrain_desert"),
-  
-  ("village_220",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001500410320005a96800006b5300004edc00000d11",
-    [],[],"outer_terrain_desert"),	
+  # Sarranid Villages 201 - 220 replaced by Villages 53-72
+  ("village_201",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000023002dd19000691a40000566a000012a000001037",
+    [],[],"outer_terrain_plain"),
+  ("village_202",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002300032300005c5740000243e000056aa00003a7a",
+    [],[],"outer_terrain_plain"),
+  ("village_203",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002300019500006c1b4000065c700002bea0000154e",
+    [],[],"outer_terrain_plain"),
+  ("village_204",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002300296320006b5aa00006f3200003a5000004fed",
+    [],[],"outer_terrain_town_thir_1"),
+  ("village_205",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002300027b200065d9700004dcf0000212800001bf0",
+    [],[],"outer_terrain_plain"),
+  ("village_206",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002300018e38005e58300000376000027e70000015c",
+    [],[],"outer_terrain_plain"),
+  ("village_207",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002300022a60005314c0000428100007e0100002e97",
+    [],[],"outer_terrain_plain"),
+  ("village_208",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000230079c3200060d860000428100007e01000071b4",
+    [],[],"outer_terrain_plain"),
+  ("village_209",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001300325350006659e0000603500006b0200005676",
+    [],[],"outer_terrain_plain"),
+  ("village_210",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000143c08f060004e53a00000a500000187700007c9b",
+    [],[],"outer_terrain_snow"),
+  ("village_211",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000013007a6b20006258b00006bb8000074df00002f18",
+    [],[],"outer_terrain_plain"),
+  ("village_212",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001300410320005a96800006b5300004edc00000d11",
+    [],[],"outer_terrain_plain"),
+  ("village_213",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000013004d8320006358b00006d2b000005d5000023e5",
+    [],[],"outer_terrain_plain"),
+  ("village_214",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000013007a2b20006097f00001342000050d900003545",
+    [],[],"outer_terrain_town_thir_1"),
+  ("village_215",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000013003e02d0005ed7800002c2e0000688800005fe4",
+    [],[],"outer_terrain_plain"),
+  ("village_216",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000130079a3200062d8b0000297c00000def000067b7",
+    [],[],"outer_terrain_plain"),
+  ("village_217",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002300022a60005314c0000428100007e0100002e97",
+    [],[],"outer_terrain_plain"),
+  ("village_218",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000230079c3200060d860000428100007e01000071b4",
+    [],[],"outer_terrain_plain"),
+  ("village_219",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000630079ab20005fd7f0000687300007190000006df",
+    [],[],"outer_terrain_plain"),
+  ("village_220",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000006300654ac00062d910000635800007c9600005d35",
+    [],[],"outer_terrain_plain"),
 
   ("village_221",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030081763000589620000338e00004f2c00005cfb",
     [],[],"outer_terrain_plain"),
