@@ -3385,8 +3385,8 @@ simple_triggers = [
     (try_end),
     ]),
 
-  # Adding mercenary troops to the towns
-  (72,
+  # Adding mercenary troops to the towns # DAC - Changed from 72
+  (48,
    [
      (call_script, "script_update_mercenary_units_of_towns"),
      #NPC changes begin
@@ -3401,6 +3401,15 @@ simple_triggers = [
        (call_script, "script_update_volunteer_troops_in_village", ":village_no"),
        (call_script, "script_update_npc_volunteer_troops_in_village", ":village_no"),
      (try_end),
+
+     # DAC - Militia and Noble Recruitment
+     (try_for_range, ":center_no", towns_begin, towns_end),
+        (call_script, "script_update_volunteer_troops_in_town", ":center_no"),
+     (try_end),
+     
+     (try_for_range, ":center_no", castles_begin, castles_end),
+        (call_script, "script_update_volunteer_troops_in_castle", ":center_no"),       
+      (try_end),
     ]),
 
   (24,

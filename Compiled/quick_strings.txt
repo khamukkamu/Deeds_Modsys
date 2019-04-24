@@ -1,4 +1,4 @@
-1684
+1687
 qstr_Next_Page Next_Page
 qstr_Game_Rules:^ Game_Rules:^
 qstr_0 0
@@ -1683,3 +1683,6 @@ qstr_{playername}_I_know_ {playername},_I_know_that_if_it_were_not_for_you_I_wou
 qstr_France. France.
 qstr_{playername}_^^I_alw {playername},_^^I_always_knew_you_were_a_bad_egg,_since_the_day_you_have_pledged_allegiance_to_my_clan._^Did_you_really_think_you_could_set_my_family_against_me?_You've_dropped_your_mask,_you_snake!_You_are_an_infliction,_and_I_will_not_bear_it_anymore._^Hereby,_I_disown_and_ban_you_from_my_house._I_have_urged_my_family_to_fight_you,_and_I_will_warn_all_noble_families_of_your_infamy._^Tremble_with_fear,_for_now_you_have_a_deadly_enemy!_^^{s9}.
 qstr__cancelled_the_{reg1 (cancelled_the_{reg10}_exp_pts_earned_from_killing_prisoners)
+qstr_No_one_wishes_to_acc No_one_wishes_to_accompany_you.
+qstr_One_{s3}_will_follow One_{s3}_will_follow_you.
+qstr_{reg5}_{s3}_will_fol {reg5}_{s3}_will_follow_you.

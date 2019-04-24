@@ -38917,6 +38917,102 @@ scripts = [
        (party_set_slot, ":center_no", slot_center_npc_volunteer_troop_amount, ":amount"),
      ]),
 
+# DAC - Militia and Noble Recruitment
+("update_volunteer_troops_in_town",
+    [
+      (store_script_param, ":center_no", 1),
+      (party_get_slot, ":player_relation", ":center_no", slot_center_player_relation),
+      (party_get_slot, ":center_culture", ":center_no", slot_center_culture),
+      
+      (faction_get_slot, ":volunteer_troop", ":center_culture", slot_faction_tier_2_troop),
+      (assign, ":volunteer_troop_tier", 1),
+      (store_div, ":tier_upgrades", ":player_relation", 10),
+      (try_for_range, ":unused", 0, ":tier_upgrades"),
+        (store_random_in_range, ":random_no", 0, 100),
+        (lt, ":random_no", 10),
+        (store_random_in_range, ":random_no", 0, 2),
+        (troop_get_upgrade_troop, ":upgrade_troop_no", ":volunteer_troop", ":random_no"),
+        (try_begin),
+          (le, ":upgrade_troop_no", 0),
+          (troop_get_upgrade_troop, ":upgrade_troop_no", ":volunteer_troop", 0),
+        (try_end),
+        (gt, ":upgrade_troop_no", 0),
+        (val_add, ":volunteer_troop_tier", 1),
+        (assign, ":volunteer_troop", ":upgrade_troop_no"),
+      (try_end),
+      
+      (assign, ":upper_limit", 7),
+      (try_begin),
+        (ge, ":player_relation", 5),
+        (assign, ":upper_limit", ":player_relation"),
+        (val_div, ":upper_limit", 2),
+        (val_add, ":upper_limit", 10),
+      (else_try),
+        (lt, ":player_relation", 0),
+        (assign, ":upper_limit", 0),
+      (try_end),
+      
+      (val_mul, ":upper_limit", 3),
+      (store_add, ":amount_random_divider", 2, ":volunteer_troop_tier"),
+      (val_div, ":upper_limit", ":amount_random_divider"),
+      
+      (store_random_in_range, ":amount", 0, ":upper_limit"),
+      (party_set_slot, ":center_no", slot_center_volunteer_troop_type, ":volunteer_troop"),
+      (party_set_slot, ":center_no", slot_center_volunteer_troop_amount, ":amount"),
+  ]),
+  
+  
+  
+  ("update_volunteer_troops_in_castle",
+    [
+      (store_script_param, ":center_no", 1),
+      (party_get_slot, ":player_relation", ":center_no", slot_center_player_relation),
+      (party_get_slot, ":center_culture", ":center_no", slot_center_culture),
+      
+      (faction_get_slot, ":volunteer_troop_dismounted", ":center_culture", slot_faction_tier_5_troop),      
+      (faction_get_slot, ":volunteer_troop", ":center_culture", slot_faction_tier_6_troop),
+      
+      (assign, ":volunteer_troop_tier", 1),
+      (store_div, ":tier_upgrades", ":player_relation", 10),
+      (try_for_range, ":unused", 0, ":tier_upgrades"),
+        (store_random_in_range, ":random_no", 0, 100),
+        (lt, ":random_no", 10),
+        (store_random_in_range, ":random_no", 0, 2),
+        (troop_get_upgrade_troop, ":upgrade_troop_no", ":volunteer_troop", ":random_no"),
+        (try_begin),
+          (le, ":upgrade_troop_no", 0),
+          (troop_get_upgrade_troop, ":upgrade_troop_no", ":volunteer_troop", 0),
+        (try_end),
+        (gt, ":upgrade_troop_no", 0),
+        (val_add, ":volunteer_troop_tier", 1),
+        (assign, ":volunteer_troop", ":upgrade_troop_no"),
+      (try_end),
+      
+      (assign, ":upper_limit", 7),
+      (try_begin),
+        (ge, ":player_relation", 5),
+        (assign, ":upper_limit", ":player_relation"),
+        (val_div, ":upper_limit", 2),
+        (val_add, ":upper_limit", 10),
+      (else_try),
+        (lt, ":player_relation", 0),
+        (assign, ":upper_limit", 0),
+      (try_end),
+      
+      (val_mul, ":upper_limit", 3),
+      (store_add, ":amount_random_divider", 2, ":volunteer_troop_tier"),
+      (val_div, ":upper_limit", ":amount_random_divider"),
+      
+      (store_random_in_range, ":amount", 0, ":upper_limit"),
+      (party_set_slot, ":center_no", slot_center_volunteer_troop_type, ":volunteer_troop"),
+      (party_set_slot, ":center_no", slot_center_volunteer_troop_type_ranged, ":volunteer_troop_dismounted"), # Re-using slots created for the archer recruitment code  
+      (party_set_slot, ":center_no", slot_center_volunteer_troop_amount, ":amount"),
+  ]),
+  
+
+# DAC - Militia and Noble Recruitment END
+
+
   #script_update_companion_candidates_in_taverns
   # INPUT: none
   # OUTPUT: none
@@ -41090,10 +41186,27 @@ scripts = [
 		(eq, "$cheat_mode", 1),
 		(display_message, "str_party_has_capacity"),
 	 (try_end),
-
-
-     ]),
-
+ ]),
+  
+  #script_cf_town_castle_recruit_volunteers_cond
+  # INPUT: none
+  # OUTPUT: none
+  ("cf_town_castle_recruit_volunteers_cond",
+    [(store_faction_of_party, ":town_faction", "$current_town"),
+      (party_get_slot, ":center_relation", "$current_town", slot_center_player_relation),
+      (store_relation, ":town_faction_relation", ":town_faction", "fac_player_faction"),
+      (ge, ":center_relation", 0),
+      (this_or_next|ge, ":center_relation", 5),
+      (this_or_next|eq, ":town_faction", "$players_kingdom"),
+      (this_or_next|ge, ":town_faction_relation", 0),
+      (this_or_next|eq, ":town_faction", "$supported_pretender_old_faction"),
+      (             eq, "$players_kingdom", 0),
+      (party_slot_ge, "$current_town", slot_center_volunteer_troop_amount, 0),
+      (party_slot_ge, "$current_town", slot_center_volunteer_troop_type, 1),
+      (party_get_free_companions_capacity, ":free_capacity", "p_main_party"),
+      (ge, ":free_capacity", 1),
+  ]),
+  
   #script_village_recruit_volunteers_recruit
   # INPUT: none
   # OUTPUT: none
@@ -41127,6 +41240,62 @@ scripts = [
       (store_mul, ":cost", ":volunteer_amount", 25),#25 denars per man
       (troop_remove_gold, "trp_player", ":cost"),
   ]), 	 
+
+#script_town_castle_recruit_nobles_recruit
+  # INPUT: none
+  # OUTPUT: none
+  ("town_castle_recruit_nobles_recruit",
+    [(store_faction_of_party, ":cur_faction", "$current_town"),
+      (faction_get_slot, ":volunteer_troop", ":cur_faction", slot_faction_tier_2_troop),
+      (party_get_slot, ":volunteer_amount", "$current_town", slot_center_volunteer_troop_amount),
+      (party_get_free_companions_capacity, ":free_capacity", "p_main_party"),
+      (val_min, ":volunteer_amount", ":free_capacity"),
+      (store_troop_gold, ":gold", "trp_player"),
+      (store_div, ":gold_capacity", ":gold", 30),#200 denars per man
+      (val_min, ":volunteer_amount", ":gold_capacity"),
+      (party_add_members, "p_main_party", ":volunteer_troop", ":volunteer_amount"),
+      (party_set_slot, "$current_town", slot_center_volunteer_troop_amount, -1),
+      (store_mul, ":cost", ":volunteer_amount", 30),#200 denars per man
+      (troop_remove_gold, "trp_player", ":cost"),
+  ]),
+
+#script_town_castle_recruit_nobles_squire
+  # INPUT: none
+  # OUTPUT: none
+  ("town_castle_recruit_nobles_squire",
+    [(store_faction_of_party, ":cur_faction", "$current_town"),
+      
+      (faction_get_slot, ":volunteer_troop", ":cur_faction", slot_faction_tier_6_troop),
+      
+      (party_get_slot, ":volunteer_amount", "$current_town", slot_center_volunteer_troop_amount),
+      (party_get_free_companions_capacity, ":free_capacity", "p_main_party"),
+      (val_min, ":volunteer_amount", ":free_capacity"),
+      (store_troop_gold, ":gold", "trp_player"),
+      (store_div, ":gold_capacity", ":gold", 200),#200 denars per man
+      (val_min, ":volunteer_amount", ":gold_capacity"),
+      (party_add_members, "p_main_party", ":volunteer_troop", ":volunteer_amount"),
+      (party_set_slot, "$current_town", slot_center_volunteer_troop_amount, -1),
+      (store_mul, ":cost", ":volunteer_amount", 200),#200 denars per man
+      (troop_remove_gold, "trp_player", ":cost"),
+  ]),
+  
+  ("town_castle_recruit_captain",
+    [(store_faction_of_party, ":cur_faction", "$current_town"),
+      
+      (faction_get_slot, ":volunteer_troop", ":cur_faction", slot_faction_tier_5_troop),
+      
+      (party_get_slot, ":volunteer_amount", "$current_town", slot_center_volunteer_troop_amount),
+      (party_get_free_companions_capacity, ":free_capacity", "p_main_party"),
+      (val_min, ":volunteer_amount", ":free_capacity"),
+      (store_troop_gold, ":gold", "trp_player"),
+      (store_div, ":gold_capacity", ":gold", 125),#125 denars per man
+      (val_min, ":volunteer_amount", ":gold_capacity"),
+      (party_add_members, "p_main_party", ":volunteer_troop", ":volunteer_amount"),
+      (party_set_slot, "$current_town", slot_center_volunteer_troop_amount, -1),
+      (store_mul, ":cost", ":volunteer_amount", 125),#125 denars per man
+      (troop_remove_gold, "trp_player", ":cost"),
+  ]),  
+  
 
   #script_get_troop_item_amount
   # INPUT: arg1 = troop_no, arg2 = item_no

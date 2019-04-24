@@ -13227,6 +13227,31 @@ TOTAL:  {reg5}"),
      ]),
 	 ##nested diplomacy end+
 	  ##diplomacy end
+
+    #DAC - Militia and local Noble Recruitment 
+    ("town_recruit_volunteers",
+      [
+        (party_slot_eq,"$current_town",slot_party_type, spt_town),
+        #(call_script, "script_cf_town_castle_recruit_volunteers_cond"),
+      ]
+      ,"Recruit local militia.",
+      [
+        (jump_to_menu, "mnu_town_recruit_volunteers_2"),
+    ]),
+         
+    ("castle_recruit",
+      [
+        (party_slot_eq,"$current_town",slot_party_type, spt_castle),
+        #(call_script, "script_cf_town_castle_recruit_volunteers_cond"),
+      ]
+      ,"Recruit local nobles.",
+      [
+        (jump_to_menu, "mnu_castle_recruit_volunteers"),
+    ]),
+
+    # DAC END
+
+
       ("town_leave",[],"Leave...",
       [
         (assign, "$g_permitted_to_center",0),
@@ -13258,111 +13283,192 @@ TOTAL:  {reg5}"),
       "Use cheats.",
       [(jump_to_menu, "mnu_town_cheats"),
       ]),
-      # ("castle_cheat_interior",
-      # [
-        # (eq, "$cheat_mode", 1),
-      # ],
-      # "{!}CHEAT! Interior.",
-      # [
-        # (set_jump_mission,"mt_ai_training"),
-        # (party_get_slot, ":castle_scene", "$current_town", slot_town_castle),
-        # (jump_to_scene,":castle_scene"),
-        # (change_screen_mission),
-      # ]),
-
-      # ("castle_cheat_town_exterior",
-      # [
-        # (eq, "$cheat_mode", 1),
-      # ],
-      # "{!}CHEAT! Exterior.",
-      # [
-        # (try_begin),
-          # (party_slot_eq, "$current_town",slot_party_type, spt_castle),
-          # (party_get_slot, ":scene", "$current_town", slot_castle_exterior),
-        # (else_try),
-          # (party_get_slot, ":scene", "$current_town", slot_town_center),
-        # (try_end),
-        # (set_jump_mission,"mt_ai_training"),
-        # (jump_to_scene,":scene"),
-        # (change_screen_mission),
-      # ]),
-
-      # ("castle_cheat_dungeon",
-      # [
-        # (eq, "$cheat_mode", 1),
-      # ],
-      # "{!}CHEAT! Prison.",
-      # [
-        # (set_jump_mission,"mt_ai_training"),
-        # (party_get_slot, ":castle_scene", "$current_town", slot_town_prison),
-        # (jump_to_scene,":castle_scene"),
-        # (change_screen_mission),
-      # ]),
-
-      # ("castle_cheat_town_walls",
-      # [
-        # (eq, "$cheat_mode", 1),
-        # (party_slot_eq,"$current_town",slot_party_type, spt_town),
-      # ],
-      # "{!}CHEAT! Town Walls.",
-      # [
-        # (party_get_slot, ":scene", "$current_town", slot_town_walls),
-        # (set_jump_mission,"mt_ai_training"),
-        # (jump_to_scene,":scene"),
-        # (change_screen_mission),
-      # ]),
-
-      # ("cheat_town_start_siege",
-      # [
-        # (eq, "$cheat_mode", 1),
-        # (party_slot_eq, "$g_encountered_party", slot_center_is_besieged_by, -1),
-        # (lt, "$g_encountered_party_2", 1),
-        # (call_script, "script_party_count_fit_for_battle","p_main_party"),
-        # (gt, reg(0), 1),
-        # (try_begin),
-          # (party_slot_eq, "$g_encountered_party", slot_party_type, spt_town),
-          # (assign, reg6, 1),
-        # (else_try),
-          # (assign, reg6, 0),
-        # (try_end),
-      # ],
-      # "{!}CHEAT: Besiege the {reg6?town:castle}...",
-      # [
-        # (assign,"$g_player_besiege_town","$g_encountered_party"),
-        # (jump_to_menu, "mnu_castle_besiege"),
-      # ]),
-
-      # ("center_reports",
-      # [
-        # (eq, "$cheat_mode", 1),
-      # ],
-      # "{!}CHEAT! Show reports.",
-      # [
-        # (jump_to_menu,"mnu_center_reports"),
-      # ]),
-
-      # ("sail_from_port",
-      # [
-        # (party_slot_eq,"$current_town",slot_party_type, spt_town),
-        # (eq, "$cheat_mode", 1),
-        # #(party_slot_eq,"$current_town",slot_town_near_shore, 1),
-      # ],
-      # "{!}CHEAT: Sail from port.",
-      # [
-        # (assign, "$g_player_icon_state", pis_ship),
-        # (party_set_flags, "p_main_party", pf_is_ship, 1),
-        # (party_get_position, pos1, "p_main_party"),
-        # (map_get_water_position_around_position, pos2, pos1, 6),
-        # (party_set_position, "p_main_party", pos2),
-        # (assign, "$g_main_ship_party", -1),
-        # (change_screen_return),
-      # ]),
-
     ]
    ),
 
+# DAC - Militia and Noble Recruitment
+  (
+    "town_recruit_volunteers_2",0,
+    "{s18}",
+    "none",
+    [(store_faction_of_party, ":cur_faction", "$current_town"),
+      (faction_get_slot, ":volunteer_troop", ":cur_faction", slot_faction_tier_2_troop),
+      (party_get_slot, ":volunteer_troop", "$current_town", slot_center_volunteer_troop_type),
+      (party_get_slot, ":volunteer_amount", "$current_town", slot_center_volunteer_troop_amount),
+      (party_get_free_companions_capacity, ":free_capacity", "p_main_party"),
+      (store_troop_gold, ":gold", "trp_player"),
+      (store_div, ":gold_capacity", ":gold", 30),
+      (assign, ":party_capacity", ":free_capacity"),
+      (val_min, ":party_capacity", ":gold_capacity"),
+      (try_begin),
+        (gt, ":party_capacity", 0),
+        (val_min, ":volunteer_amount", ":party_capacity"),
+      (try_end),
+      (assign, reg5, ":volunteer_amount"),
+      (assign, reg7, 0),
+      (try_begin),
+        (gt, ":volunteer_amount", ":gold_capacity"),
+        (assign, reg7, 1), #not enough money
+      (try_end),
+      (try_begin),
+        (eq, ":volunteer_amount", 0),
+        (str_store_string, s18, "@No one here seems to be willing to join your party."),
+      (else_try),
+        (store_mul, reg6, ":volunteer_amount", 30),
+        (str_store_troop_name_by_count, s3, ":volunteer_troop", ":volunteer_amount"),
+        (try_begin),
+          (eq, reg5, 1),
+          (str_store_string, s18, "@One {s3} volunteers to follow you."),
+        (else_try),
+          (str_store_string, s18, "@{reg5} {s3} volunteer to follow you."),
+        (try_end),
+        #(set_background_mesh, "mesh_pic_town_recruit"),
+      (try_end),
+    ],
+    [
+      ("continue_not_enough_gold",
+        [
+          (eq, reg7, 1),
+        ],
+        "I don't have enough money...",
+        [
+          (jump_to_menu,"mnu_town"),
+      ]),
+      
+      ("continue",
+        [
+          (eq, reg7, 0),
+          (eq, reg5, 0),
+        ],
+        "Continue...",
+        [
+          (party_set_slot, "$current_town", slot_center_volunteer_troop_amount, -1),
+          (jump_to_menu,"mnu_town"),
+      ]),
+      
+      ("recruit_them",
+        [
+          (eq, reg7, 0),
+          (gt, reg5, 0),
+        ],
+        "Recruit them ({reg6} denars).",
+        [
+          (call_script, "script_town_castle_recruit_nobles_recruit"),
+          
+          (jump_to_menu,"mnu_town"),
+      ]),
+      
+      ("forget_it",
+        [
+          (eq, reg7, 0),
+          (gt, reg5, 0),
+        ],
+        "Forget it.",
+        [
+          (jump_to_menu,"mnu_town"),
+      ]),
+    ],
+  ),
 
+(
+    "castle_recruit_volunteers",0,
+    "{s18}",
+    "none",
+    [(store_faction_of_party, ":cur_faction", "$current_town"),
+      (faction_get_slot, ":volunteer_troop", ":cur_faction", slot_faction_tier_6_troop),
+      (party_get_slot, ":volunteer_troop", "$current_town", slot_center_volunteer_troop_type),
+      (party_get_slot, ":volunteer_amount", "$current_town", slot_center_volunteer_troop_amount),
+      (party_get_free_companions_capacity, ":free_capacity", "p_main_party"),
+      (store_troop_gold, ":gold", "trp_player"),
+      (store_div, ":gold_capacity", ":gold", 200),
+      (assign, ":party_capacity", ":free_capacity"),
+      (val_min, ":party_capacity", ":gold_capacity"),
+      (assign, reg9, ":gold"),      
+      (try_begin),
+        (gt, ":party_capacity", 0),
+        (val_min, ":volunteer_amount", ":party_capacity"),
+      (try_end),
+      (assign, reg5, ":volunteer_amount"),
+      (assign, reg7, 0),
+      (try_begin),
+        (gt, ":volunteer_amount", ":gold_capacity"),
+        (assign, reg7, 1), #not enough money
+      (try_end),
+      (try_begin),
+        (eq, ":volunteer_amount", 0),
+        (str_store_string, s18, "@No one wishes to accompany you."),
+      (else_try),
+        (store_mul, reg6, ":volunteer_amount", 200),
+        (store_mul, reg8, ":volunteer_amount", 125),      
+        (str_store_troop_name_by_count, s3, ":volunteer_troop", ":volunteer_amount"),
+        (try_begin),
+          (eq, reg5, 1),
+          (str_store_string, s18, "@One {s3} will follow you."),
+        (else_try),
+          (str_store_string, s18, "@{reg5} {s3} will follow you."),
+        (try_end),
+        #(set_background_mesh, "mesh_pic_ecuyer"),
+      (try_end),
+    ],
+    [
+      ("continue_not_enough_gold",
+        [
+          (eq, reg7, 1),
+        ],
+        "I don't have enough crowns...",
+        [
+          (jump_to_menu,"mnu_town"),
+      ]),
+      
+      ("continue",
+        [
+          (eq, reg7, 0),
+          (eq, reg5, 0),
+        ],
+        "Continuer...",
+        [
+          (party_set_slot, "$current_town", slot_center_volunteer_troop_amount, -1),
+          (jump_to_menu,"mnu_town"),
+      ]),
+      
+      ("recruit_them",
+        [#ajouter condition renom?et envoyer en bas vers "vous n'avez pas assez de renom?
+          (eq, reg7, 0),
+          (gt, reg5, 0),
+        ],
+        "Recruit as Mounted Nobles ({reg6} crowns).",
+        [
+          (call_script, "script_town_castle_recruit_nobles_squire"),
+          
+          (jump_to_menu,"mnu_town"),
+      ]),
+    
+      ("recruit_them_dismounted",
+        [
+          (eq, reg7, 0),
+          (gt, reg5, 0),
+          (gt, reg9, reg8),      
+        ],
+        "Recruit as Dismounted Nobles ({reg8} crowns).",
+        [
+          (call_script, "script_town_castle_recruit_captain"),
+          
+          (jump_to_menu,"mnu_town"),
+      ]),     
+      
+      ("forget_it",
+        [
+          (eq, reg7, 0),
+          (gt, reg5, 0),
+        ],
+        "Forget it.",
+        [
+          (jump_to_menu,"mnu_town"),
+      ]),
+    ],
+  ),
 
+# DAC END
   (
     "cannot_enter_court",0,
     "There is a feast in progress in the lord's hall, but you are not of sufficient status to be invited inside. Perhaps increasing your renown would win you admittance -- or you might also try distinguishing yourself at a tournament while the feast is in progress...",
