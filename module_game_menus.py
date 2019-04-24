@@ -13232,7 +13232,7 @@ TOTAL:  {reg5}"),
     ("town_recruit_volunteers",
       [
         (party_slot_eq,"$current_town",slot_party_type, spt_town),
-        #(call_script, "script_cf_town_castle_recruit_volunteers_cond"),
+        (call_script, "script_cf_town_castle_recruit_volunteers_cond"),
       ]
       ,"Recruit local militia.",
       [
@@ -13242,7 +13242,7 @@ TOTAL:  {reg5}"),
     ("castle_recruit",
       [
         (party_slot_eq,"$current_town",slot_party_type, spt_castle),
-        #(call_script, "script_cf_town_castle_recruit_volunteers_cond"),
+        (call_script, "script_cf_town_castle_recruit_volunteers_cond"),
       ]
       ,"Recruit local nobles.",
       [
