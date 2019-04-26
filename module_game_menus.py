@@ -228,67 +228,9 @@ game_menus = [
          # (try_end),
          # (add_xp_to_troop, 5000, "trp_player"),
 
-         (change_screen_return),
+         #(change_screen_return), # DAC - Change to Starting Quest Menu
+         (jump_to_menu, "mnu_dac_start_quest"),
        ]),
-      # ("town_1",[(eq, "$current_startup_quest_phase", 0),],"Join a caravan to Praven, in the Kingdom of Swadia.",
-       # [
-         # (assign, "$current_town", "p_town_6"),
-         # (assign, "$g_starting_town", "$current_town"),
-         # (assign, "$g_journey_string", "str_journey_to_praven"),
-		 # (jump_to_menu, "mnu_start_phase_2_5"),
-##         (party_relocate_near_party, "p_main_party", "$g_starting_town", 2),
-##         (change_screen_return),
-       # ]),
-
-      # ("town_2",[(eq, "$current_startup_quest_phase", 0),],"Join a caravan to Reyvadin, in the Kingdom of the Vaegirs.",
-       # [
-         # (assign, "$current_town", "p_town_8"),
-         # (assign, "$g_starting_town", "$current_town"),
-         # (assign, "$g_journey_string", "str_journey_to_reyvadin"),
-		 # (jump_to_menu, "mnu_start_phase_2_5"),
-##         (party_relocate_near_party, "p_main_party", "$g_starting_town", 2),
-##         (change_screen_return),
-       # ]),
-
-      # ("town_3",[(eq, "$current_startup_quest_phase", 0),],"Join a caravan to Tulga, in the Khergit Khanate.",
-       # [
-         # (assign, "$current_town", "p_town_10"),
-         # (assign, "$g_starting_town", "$current_town"),
-         # (assign, "$g_journey_string", "str_journey_to_tulga"),
-		 # (jump_to_menu, "mnu_start_phase_2_5"),
-##         (party_relocate_near_party, "p_main_party", "$g_starting_town", 2),
-##         (change_screen_return),
-       # ]),
-
-      # ("town_4",[(eq, "$current_startup_quest_phase", 0),],"Take a ship to Sargoth, in the Kingdom of the Nords.",
-       # [
-         # (assign, "$current_town", "p_town_1"),
-         # (assign, "$g_starting_town", "$current_town"),
-         # (assign, "$g_journey_string", "str_journey_to_sargoth"),
-		 # (jump_to_menu, "mnu_start_phase_2_5"),
-##         (party_relocate_near_party, "p_main_party", "$g_starting_town", 2),
-##         (change_screen_return),
-       # ]),
-
-      # ("town_5",[(eq, "$current_startup_quest_phase", 0),],"Take a ship to Jelkala, in the Kingdom of the Rhodoks.",
-       # [
-         # (assign, "$current_town", "p_town_5"),
-         # (assign, "$g_starting_town", "$current_town"),
-         # (assign, "$g_journey_string", "str_journey_to_jelkala"),
-		 # (jump_to_menu, "mnu_start_phase_2_5"),
-##         (party_relocate_near_party, "p_main_party", "$g_starting_town", 2),
-##         (change_screen_return),
-       # ]),
-
-      # ("town_6",[(eq, "$current_startup_quest_phase", 0),],"Join a caravan to Shariz, in the Sarranid Sultanate.",
-       # [
-         # (assign, "$current_town", "p_town_19"),
-         # (assign, "$g_starting_town", "$current_town"),
-         # (assign, "$g_journey_string", "str_journey_to_shariz"),
-		 # (jump_to_menu, "mnu_start_phase_2_5"),
-##         (party_relocate_near_party, "p_main_party", "$g_starting_town", 2),
-##         (change_screen_return),
-       # ]),
 ##diplomacy end+ (replaced "join" with "Join")
 
       ("tutorial_cheat",[(eq,1,0)],"{!}CHEAT!",
@@ -1145,7 +1087,63 @@ game_menus = [
     ]
   ),
   
+
+
+## DAC - Starting Quest Menu Start
+
+# DAC - This menu automatically populates the intro depending on the character's background
+("dac_start_quest", 0, 
+  "{s10}", "none",[
+    (call_script, "script_dac_get_start_quest_intro_strings"),
+  ],
   
+  [
+
+# DAC - Choices depending on character background appear here.
+# Note: Dialogues can be found by searching "Start Quest Dialogues" in module_dialogs.py
+    ("start_merc", [(eq, "$background_type", cb_merc)],
+        "Discuss your options...",[
+        (call_script, "script_dac_starting_quest_meeting_scene"),
+      ]),
+  
+    ("start_generic", [],
+      "Skip Intro Quest...",[
+      (change_screen_return),
+    ]),
+
+  ]
+),
+
+# DAC - MERC Stand and Fight Option After Meeting
+("dac_stand_fight", 0, 
+  "You and your men prepare for the attack...", "none",[],
+  
+  [
+   
+    ("merc_stand_fight", [],
+        "Lead your men",[
+        (call_script, "script_dac_merc_init_stand_and_fight"),
+        (change_screen_mission),
+      ]),
+  ]
+),
+
+# DAC - MERC Start Quest Victory Menu 
+# TO DO: Might have to use this for all other options, which means changing up the script to accomodate - Kham
+
+("starting_quest_victory_merc",0, 
+  "{s10}", "none",[
+    (call_script, "script_dac_start_quest_merc_init_victory_menu", 0),],
+  [
+    ("end_merc_quest", [],
+      "Continue...",[
+      (call_script, "script_dac_start_quest_merc_init_victory_menu", 1), # DAC - Consequences = 1 to use the script in the consequences block
+      (change_screen_map),
+    ]),
+
+  ]
+),
+
 ####################################################################################################################
 # [ Z02 ] - Character Generation
 ####################################################################################################################

@@ -31952,6 +31952,7 @@ scripts = [
         (eq, ":terrain_type", rt_bridge),
         (assign, ":scene_to_use", "scn_random_scene_plain"),
       (try_end),
+      (assign, reg0, ":scene_to_use"),
       (jump_to_scene,":scene_to_use"),
   ]),
 
@@ -75910,6 +75911,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
         (troop_add_item, "trp_player","itm_b_leather_boots",0),
         (troop_add_item, "trp_player","itm_g_leather_gauntlet",0),
         (troop_add_item, "trp_player","itm_w_dagger_italian",0),
+
   ]),
 
 ("start_as_warrior", [
@@ -78921,6 +78923,104 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
   (assign, reg0, ":removed"),
 ]),
 
+
+### DAC - Starting Quest Scripts
+
+# script_dac_get_start_quest_intro_strings
+# Stores Intro String to s10
+("dac_get_start_quest_intro_strings", [
+
+(str_clear, s10),
+(try_begin),
+  (eq, "$background_type", cb_merc),
+  (str_store_string, s10, "str_dac_start_quest_mercenary"),
+(else_try),
+  (str_store_string, s10, "str_dac_start_quest_generic"),
+(try_end)
+
+]),
+
+# script_dac_starting_quest_meeting_scene
+# Sets up a meeting scene with a character
+
+("dac_starting_quest_meeting_scene", [
+
+    (call_script, "script_get_meeting_scene"), 
+    (assign, ":meeting_scene", reg0),
+    (modify_visitors_at_site,":meeting_scene"),
+    (reset_visitors),
+
+    # This is where we distinguish who the player meets
+    (try_begin),
+      (eq, "$background_type", cb_merc),
+      (faction_get_slot, ":tier_3_troop", "fac_kingdom_1", slot_faction_tier_3_troop),
+      (assign, ":meeting_troop", ":tier_3_troop"),
+    (try_end),
+    
+    (set_visitor,0,"trp_player"),
+    (set_visitor,17,":meeting_troop"),
+
+    (set_jump_mission,"mt_conversation_encounter"),
+    (jump_to_scene,":meeting_scene"),
+    (assign, "$talk_context", tc_start_quest),
+    (change_screen_map_conversation, ":meeting_troop"),
+
+]),
+
+
+# script_dac_merc_init_stand_and_fight
+# Initializes the Stand and Fight merc option
+
+("dac_merc_init_stand_and_fight", [
+
+      (set_jump_mission,"mt_custom_lead_charge"),
+      (call_script, "script_setup_random_scene"),
+      (modify_visitors_at_site, reg0),
+      (faction_get_slot, ":tier_2_troop", "fac_kingdom_1", slot_faction_tier_2_troop),
+      (faction_get_slot, ":tier_3_troop", "fac_kingdom_1", slot_faction_tier_3_troop),
+      (set_visitor, 0,"trp_player"),
+      (set_visitors,0,":tier_2_troop", 7),
+      (set_visitors,0,":tier_3_troop", 4),
+      (set_visitors,2,"trp_flayer_captain", 1),
+      (set_visitors,2,"trp_flayer_infantry", 5),
+      (set_visitors,2,"trp_flayer_fauchard", 5),
+      (set_visitors,2,"trp_flayer_archer", 8),
+      (set_battle_advantage, 0),
+      (assign, "$g_battle_result", 0),
+      (assign, "$g_next_menu", "mnu_starting_quest_victory_merc"),
+      (assign, "$g_mt_mode", vba_normal),
+      (assign, "$cant_leave_encounter", 1),       
+      (jump_to_menu, "mnu_starting_quest_victory_merc"),
+
+]),
+
+# script_dac_start_quest_merc_init_victory_menu
+# Initializes the victory / defeat menu for the merc start quest.
+# set Consequences = 1 to trigger the consequences of the victory / defeat.
+# use it in the consequences block of the menu.
+
+("dac_start_quest_merc_init_victory_menu", [
+
+  (store_script_param_1, ":consequences"),
+  (str_clear, s10),
+  (try_begin),
+    (eq, ":consequences", 0),
+    (try_begin),
+      (eq, "$g_battle_won", 1),
+      (str_store_string, s10, "@You won the battle."),
+    (else_try),
+      (str_store_string, s10, "@You were defeated."),
+    (try_end),
+  (else_try),
+    (eq, ":consequences", 1),
+    (try_begin),
+      (eq, "$g_battle_won", 1),
+      (add_xp_as_reward, 150),
+      (troop_add_gold, "trp_player", 150),
+    (try_end),
+  (try_end),
+
+]),
 
 ]
 

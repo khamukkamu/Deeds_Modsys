@@ -5570,7 +5570,12 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("h_hood_white_green", "h_hood_white_green"),  
 ("h_hood_end", "h_hood_end"),
 
-  
+
+# DAC Starting Quest Strings  
+
+("dac_start_quest_generic", "^^You continue your journey towards France..."),
+("dac_start_quest_mercenary", "^^You are standing in a scene with a dozen other mercenaries, one of them approaches you and gives you a summary of the situation. You got knocked out in the last skirmish, the leader of the company is dead and you are the highest ranked amongst those still alive which puts you in command of the remnants of the company. Your assailants are still pursuing you and have split into two groups to try and encircle your company. ^^You can discuss with your subordinate and take decisions right away or delay those decisions and ask other members for advice."),
+
 #utility for skill names
 ]+[
 ("skl_"+skills[x][0], skills[x][1]) for x in range(0, len(skills))]

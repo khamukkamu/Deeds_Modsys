@@ -1295,6 +1295,7 @@ tc_give_center_to_fief        = 20
 tc_merchants_house            = 21
 
 tc_troop_review_talk          = 22 #TLD
+tc_start_quest				  = 23
 
 #Troop Commentaries begin
 #Log entry types

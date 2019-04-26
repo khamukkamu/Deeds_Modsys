@@ -49,3 +49,4 @@ mt_meeting_merchant = 47
 mt_town_fight = 48
 mt_multiplayer_duel = 49
 mt_review_troops = 50
+mt_custom_lead_charge = 51

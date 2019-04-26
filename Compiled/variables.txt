@@ -1439,3 +1439,4 @@ troop_detail_dummy_angle
 temp_troop
 mouse_coordinates
 inital_player_xp
+battle_won
