@@ -1088,8 +1088,9 @@ game_menus = [
   ),
   
 
-
-## DAC - Starting Quest Menu Start
+####################################################################################################################
+# DAC - Starting Quest Menus
+####################################################################################################################
 
 # DAC - This menu automatically populates the intro depending on the character's background
 ("dac_start_quest", 0, 
@@ -1100,12 +1101,16 @@ game_menus = [
   [
 
 # DAC - Choices depending on character background appear here.
-# Note: Dialogues can be found by searching "Start Quest Dialogues" in module_dialogs.py
+# Note: Dialogues can be found by searching "Start Quest Dialogues" in module_dialogs.py 
     ("start_merc", [(eq, "$background_type", cb_merc)],
         "Discuss your options...",[
         (call_script, "script_dac_starting_quest_meeting_scene"),
       ]),
-  
+
+    ("start_merc", [(eq, "$background_type", cb_forester)],
+        "Discuss your options...",[
+        (call_script, "script_dac_starting_quest_meeting_scene"),
+      ]),
     ("start_generic", [],
       "Skip Intro Quest...",[
       (change_screen_return),
@@ -1120,9 +1125,15 @@ game_menus = [
   
   [
    
-    ("merc_stand_fight", [],
+    ("merc_stand_fight", [(eq, "$background_type", cb_merc)],
         "Lead your men",[
         (call_script, "script_dac_merc_init_stand_and_fight"),
+        (change_screen_mission),
+      ]),
+
+    ("hunter_stand_fight", [(eq, "$background_type", cb_forester)],
+        "Lead your men",[
+        (call_script, "script_dac_hunter_init_stand_and_fight"),
         (change_screen_mission),
       ]),
   ]
@@ -1143,6 +1154,8 @@ game_menus = [
 
   ]
 ),
+
+
 
 ####################################################################################################################
 # [ Z02 ] - Character Generation

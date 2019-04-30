@@ -14,12 +14,12 @@ menu_custom_battle_scene 18374686479671624192 (NO_TRANS) none 0 6
  mno_quick_battle_scene_1  0  {!}quick_battle_scene_1  3 1911 1 792633534417207318 1910 1 720575940379280529 2048 0  .  mno_quick_battle_scene_2  0  {!}quick_battle_scene_2  3 1911 1 792633534417207318 1910 1 720575940379280530 2048 0  .  mno_quick_battle_scene_3  0  {!}quick_battle_scene_3  3 1911 1 792633534417207318 1910 1 720575940379280531 2048 0  .  mno_quick_battle_scene_4  0  {!}quick_battle_scene_4  3 1911 1 792633534417207318 1910 1 720575940379280532 2048 0  .  mno_quick_battle_scene_5  0  {!}quick_battle_scene_5  3 1911 1 792633534417207318 1910 1 720575940379280533 2048 0  .  mno_go_back  0  {!}Go_back  1 2055 0  . 
 menu_custom_battle_end 512 The_battle_is_over._{s1}_Your_side_killed_{reg5}_enemies_and_lost_{reg6}_troops_over_the_battle._You_personally_slew_{reg7}_men_in_the_fighting. none 16 603 1 0 2133 2 72057594037927941 144115188075856870 2133 2 72057594037927942 144115188075856869 1701 1 1224979098644774912 1701 2 1224979098644774913 1 2120 3 72057594037927943 1224979098644774912 1224979098644774913 4 0 31 2 144115188075856168 1 2320 2 1 216172782113783953 5 0 2320 2 1 216172782113783954 3 0 4 0 30 2 144115188075856870 100 372 1 4 3 0 1
  mno_continue  0  Continue...  1 2055 0  . 
-menu_dac_start_quest 0 {s10} none 1 1 1 936748722493064060 2
- mno_start_merc  1 31 2 144115188075856171 7  Discuss_your_options...  1 1 1 936748722493064061  .  mno_start_generic  0  Skip_Intro_Quest...  1 2040 0  . 
-menu_dac_stand_fight 0 You_and_your_men_prepare_for_the_attack... none 0 1
- mno_merc_stand_fight  0  Lead_your_men  2 1 1 936748722493064062 2048 0  . 
-menu_starting_quest_victory_merc 0 {s10} none 1 1 2 936748722493064063 0 1
- mno_end_merc_quest  0  Continue...  2 1 2 936748722493064063 1 2052 0  . 
+menu_dac_start_quest 0 {s10} none 1 1 1 936748722493064060 3
+ mno_start_merc  1 31 2 144115188075856171 7  Discuss_your_options...  1 1 1 936748722493064061  .  mno_start_merc  1 31 2 144115188075856171 4  Discuss_your_options...  1 1 1 936748722493064061  .  mno_start_generic  0  Skip_Intro_Quest...  1 2040 0  . 
+menu_dac_stand_fight 0 You_and_your_men_prepare_for_the_attack... none 0 2
+ mno_merc_stand_fight  1 31 2 144115188075856171 7  Lead_your_men  2 1 1 936748722493064062 2048 0  .  mno_hunter_stand_fight  1 31 2 144115188075856171 4  Lead_your_men  2 1 1 936748722493064063 2048 0  . 
+menu_starting_quest_victory_merc 0 {s10} none 1 1 2 936748722493064064 0 1
+ mno_end_merc_quest  0  Continue...  2 1 2 936748722493064064 1 2052 0  . 
 menu_start_game_1 18374686479671624192 Select_your_character's_gender. none 1 2133 2 144115188075856199 0 3
  mno_start_male  0  Male  3 1505 2 360287970189639680 0 2133 2 144115188075856162 0 2060 1 864691128455135250  .  mno_start_female  0  Female  3 1505 2 360287970189639680 1 2133 2 144115188075856162 1 2060 1 864691128455135497  .  mno_go_back  0  Go_back  1 2060 1 864691128455135232  . 
 menu_start_character_1 512 You_were_born_years_ago,_in_a_land_far_away._Your_father_was... none 7 2319 1 10 2319 1 11 2319 1 12 2319 1 13 2319 1 14 2319 1 15 2133 2 72057594037927947 144115188075856162 8

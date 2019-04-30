@@ -78924,8 +78924,10 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 ]),
 
 
-### DAC - Starting Quest Scripts
-
+####################################################################################################################
+# DAC - Starting Quest Scripts
+####################################################################################################################
+  
 # script_dac_get_start_quest_intro_strings
 # Stores Intro String to s10
 ("dac_get_start_quest_intro_strings", [
@@ -78934,6 +78936,9 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 (try_begin),
   (eq, "$background_type", cb_merc),
   (str_store_string, s10, "str_dac_start_quest_mercenary"),
+(else_try),
+  (eq, "$background_type", cb_forester),
+  (str_store_string, s10, "str_dac_start_quest_forester"),
 (else_try),
   (str_store_string, s10, "str_dac_start_quest_generic"),
 (try_end)
@@ -78955,6 +78960,10 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (eq, "$background_type", cb_merc),
       (faction_get_slot, ":tier_3_troop", "fac_kingdom_1", slot_faction_tier_3_troop),
       (assign, ":meeting_troop", ":tier_3_troop"),
+    (else_try),
+      (eq, "$background_type", cb_forester),
+      (faction_get_slot, ":tier_1_archer", "fac_kingdom_1", slot_faction_tier_1_archer),
+      (assign, ":meeting_troop", ":tier_1_archer"),
     (try_end),
     
     (set_visitor,0,"trp_player"),
@@ -78985,6 +78994,32 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (set_visitors,2,"trp_flayer_infantry", 5),
       (set_visitors,2,"trp_flayer_fauchard", 5),
       (set_visitors,2,"trp_flayer_archer", 8),
+      (set_battle_advantage, 0),
+      (assign, "$g_battle_result", 0),
+      (assign, "$g_next_menu", "mnu_starting_quest_victory_merc"),
+      (assign, "$g_mt_mode", vba_normal),
+      (assign, "$cant_leave_encounter", 1),       
+      (jump_to_menu, "mnu_starting_quest_victory_merc"),
+
+]),
+
+# script_dac_hunter_init_stand_and_fight
+# Initializes the Stand and Fight Hunter option
+
+("dac_hunter_init_stand_and_fight", [
+
+      (set_jump_mission,"mt_custom_lead_charge"),
+      (assign, ":scene_to_use", "scn_random_scene_plain_forest"),
+      (jump_to_scene,":scene_to_use"),
+      (modify_visitors_at_site, ":scene_to_use"),
+      (faction_get_slot, ":tier_1_archer", "fac_kingdom_1", slot_faction_tier_1_archer),
+      (faction_get_slot, ":tier_2_troop", "fac_kingdom_1", slot_faction_tier_2_troop),
+      (set_visitor, 0,"trp_player"),
+      (set_visitors,0,":tier_1_archer", 7),
+      (set_visitors,0,":tier_2_troop", 4),
+      (set_visitors,2,"trp_irrate_hunter", 5),
+      (set_visitors,2,"trp_furious_lumberjack", 5),
+      (set_visitors,2,"trp_disgruntled_farmer", 12),
       (set_battle_advantage, 0),
       (assign, "$g_battle_result", 0),
       (assign, "$g_next_menu", "mnu_starting_quest_victory_merc"),

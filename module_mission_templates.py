@@ -18087,6 +18087,8 @@ mission_templates = [
   ],
 ),
 
+
+# DAC - Custom Mission Templates.
   (
     "custom_lead_charge",mtf_battle_mode|mtf_synch_inventory,charge,
     "You lead your men to battle.",

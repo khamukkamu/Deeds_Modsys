@@ -233,7 +233,10 @@ dialogs = [
 [anyone|auto_proceed,"start", [(eq, "$talk_context", tc_troop_review_talk),], "___", "member_chat",[]],
 #[anyone|auto_proceed ,"member_chat", [], "___", "member_chat_00",[]],
 
-# DAC - Start Quest Dialogues
+
+####################################################################################################################
+# DAC - Starting Quest Dialogues
+####################################################################################################################
 
 # Mercenary Discuss Options START
 [anyone,"start", [(eq, "$talk_context", tc_start_quest), (eq, "$background_type", cb_merc)], 
@@ -250,6 +253,22 @@ dialogs = [
           (jump_to_menu, "mnu_dac_stand_fight"),]],
 
 # Mercenary Discuss Options END
+
+# Hunter Discuss Options START
+[anyone,"start", [(eq, "$talk_context", tc_start_quest), (eq, "$background_type", cb_forester)], 
+  "What would you like to do, friend?", "start_quest_merc",[]],
+
+[anyone|plyr,"start_quest_merc", [(eq, "$talk_context", tc_start_quest), (eq, "$background_type", cb_forester)], 
+  "Stand and fight", "start_quest_fight",[]],
+
+[anyone|plyr,"start_quest_merc", [(eq, "$talk_context", tc_start_quest), (eq, "$background_type", cb_forester)], 
+  "Skip this quest", "close_window",[(change_screen_map)]],
+
+[anyone,"start_quest_fight", [], 
+  "Good. I'll prepare the men.", "close_window",[
+          (jump_to_menu, "mnu_dac_stand_fight"),]],
+
+# Hunter Discuss Options END
 
 [anyone ,"member_chat", [
          (store_conversation_troop, "$g_talk_troop"),
