@@ -19619,6 +19619,21 @@ presentations = [
       (try_end),
     ]),
 
+# DAC - Give Item
+    (ti_on_presentation_mouse_press, [
+      (store_trigger_param_1, ":object"),
+
+        (try_for_range, ":slot_no", 0, "$temp_2"),
+          (troop_slot_eq, "trp_temp_array_a", ":slot_no", ":object"),
+          (troop_get_slot, ":item_no", "trp_temp_array_c", ":slot_no"),
+          (troop_get_slot, ":target_obj", "trp_temp_array_b", ":slot_no"),
+          (overlay_get_position, pos0, ":target_obj"),
+          (troop_add_item, "trp_player", ":item_no"),
+          (str_store_item_name, s45, ":item_no"),
+          (display_message, "@{s45} Added", color_good_news),
+        (try_end),
+    ]),
+
     (ti_on_presentation_event_state_change,
       [
         (store_trigger_param_1, ":object"),
