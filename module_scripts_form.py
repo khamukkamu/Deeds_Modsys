@@ -1229,6 +1229,7 @@ formAI_scripts = [
       
       #lag this check to be sure
       (store_mission_timer_c, ":time_stamp"),
+      (val_max, ":time_stamp", 6), #moto fix v5.1 2019
       (try_begin),	#time lag
         (gt, ":any_fighting", 0),
         (assign, "$teams_last_fighting", ":time_stamp"),
