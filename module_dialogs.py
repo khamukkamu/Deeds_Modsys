@@ -240,11 +240,26 @@ dialogs = [
 
 # Mercenary Discuss Options START
 [anyone,"start", [(eq, "$talk_context", tc_start_quest), (eq, "$background_type", cb_merc)], 
-  "What would you like to do, commander?", "start_quest_merc",[]],
+  "You're finally awake. Good.", "start_recap_merc",[]],
 
-[anyone|plyr,"start_quest_merc", [(eq, "$talk_context", tc_start_quest), (eq, "$background_type", cb_merc)], 
-  "Stand and fight", "start_quest_fight",[]],
+[anyone|plyr,"start_recap_merc", [], 
+  "Can someone clue me in on what is going on?", "recap_quest_merc",[]],
+  
+[anyone,"recap_quest_merc", [], 
+  "You took quite a nasty hit so I don't blame you for being a bit lost. Remember that last contract we got? Horseshite. Someone was looking to get rid of us, I don't think those that we faced were Routiers at all and they knew we were coming their way. We walked straight into an ambush.", "recap_quest_merc_cont",[]],  
 
+[anyone|plyr,"recap_quest_merc_cont", [], 
+  "Where's the captain? Where's my equipment? Where are we?", "recap_quest_merc_cont_2",[]],
+  
+[anyone,"recap_quest_merc_cont_2", [], 
+  "Cap's dead. Your equipment was in bad shape, we stripped you so you would be easier to carry. To be honest we didn't think you'd survive but since you saved our asses in the ambush it's the least we could do. It doesn't matter much where we are right now, just know that they are still trying to finish us off.", "recap_quest_merc_end",[]],  
+ 
+[anyone,"recap_quest_merc_end", [], 
+  "Here's the situation, they split their force in two parties to cut us off and eventually surround us. Which they will certainly achieve if we don't make a move soon. That's your call, you're next in line for command since the captain's demise.", "start_quest_merc",[]],  
+   
+[anyone|plyr,"start_quest_merc", [], 
+  "We'll make a stand here.", "start_quest_fight",[]],
+  
 [anyone|plyr,"start_quest_merc", [(eq, "$talk_context", tc_start_quest), (eq, "$background_type", cb_merc)], 
   "Skip this quest", "close_window",[(change_screen_map)]],
 
@@ -253,6 +268,8 @@ dialogs = [
           (jump_to_menu, "mnu_dac_stand_fight"),]],
 
 # Mercenary Discuss Options END
+
+
 
 # Hunter Discuss Options START
 [anyone,"start", [(eq, "$talk_context", tc_start_quest), (eq, "$background_type", cb_forester)], 
