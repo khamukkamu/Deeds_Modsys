@@ -1046,6 +1046,7 @@ AI_triggers = [
   (ti_before_mission_start, 0, 0, [], [
       (assign, "$ranged_clock", 0),
       (assign, "$clock_reset", 0),
+      (assign, "$teams_last_fighting", 0), #FormAI V5 moto fix 2019
       (init_position, Team0_Cavalry_Destination),
       (init_position, Team1_Cavalry_Destination),
       (init_position, Team2_Cavalry_Destination),
