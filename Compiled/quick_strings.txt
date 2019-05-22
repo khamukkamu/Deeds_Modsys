@@ -1,4 +1,4 @@
-1692
+1693
 qstr_Next_Page Next_Page
 qstr_Game_Rules:^ Game_Rules:^
 qstr_0 0
@@ -1691,3 +1691,4 @@ qstr_You_continue_your_jo You_continue_your_journey_towards_France...
 qstr_You_won_the_battle. You_won_the_battle.
 qstr_You_were_defeated. You_were_defeated.
 qstr_{s45}_Added {s45}_Added
+qstr_AI_Controls_Troops_W AI_Controls_Troops_When_Player_is_KO'd:_

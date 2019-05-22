@@ -1440,3 +1440,5 @@ temp_troop
 mouse_coordinates
 inital_player_xp
 battle_won
+formai_ai_control_troops
+form_options_overlay_5
