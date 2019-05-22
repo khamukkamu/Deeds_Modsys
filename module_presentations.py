@@ -19909,6 +19909,21 @@ presentations = [
         (overlay_set_val, "$form_options_overlay_4", "$FormAI_AI_no_defense"),
         
         (val_sub, ":y_pos", Screen_Text_Height),
+
+        #Have AI control troops when Player is KO'd
+        (create_text_overlay, reg1, "@AI Controls Troops When Player is KO'd: ", tf_right_align),
+        (position_set_y, pos0, ":y_pos"),
+        (overlay_set_position, reg1, pos0),
+        
+        (create_check_box_overlay, "$form_options_overlay_5", "mesh_checkbox_off", "mesh_checkbox_on"),
+        (copy_position, pos1, pos0),
+        (store_add, reg2, ":y_pos", Screen_Checkbox_Height_Adj),
+        (position_set_y, pos1, reg2),
+        (overlay_set_position, "$form_options_overlay_5", pos1),
+        
+        (overlay_set_val, "$form_options_overlay_5", "$FormAI_AI_Control_Troops"),
+        
+        (val_sub, ":y_pos", Screen_Text_Height),
         
         # This is for Done button
         (assign, "$form_options_overlay_exit", 0), # forced initialization
@@ -19943,6 +19958,9 @@ presentations = [
         (else_try),
           (eq, ":object", "$form_options_overlay_4"),
           (assign, "$FormAI_AI_no_defense", ":value"),
+        (else_try),
+          (eq, ":object", "$form_options_overlay_5"),
+          (assign, "$FormAI_AI_Control_Troops", ":value"),
         (else_try),
           (eq, ":object", "$form_options_overlay_exit"),
           (presentation_set_duration, 0),

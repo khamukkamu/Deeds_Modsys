@@ -13,6 +13,11 @@ view_char
 training
 member_chat
 prisoner_chat
+start_recap_merc
+recap_quest_merc
+recap_quest_merc_cont
+recap_quest_merc_cont_2
+recap_quest_merc_end
 start_quest_merc
 start_quest_fight
 award_fief_to_vassal

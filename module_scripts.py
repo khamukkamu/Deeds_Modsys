@@ -736,6 +736,7 @@ scripts = [
     #Kham - Init variables
 
     (assign, "$first_time", 0), #squelch compiler warnings
+    (assign, "$FormAI_AI_Control_Troops", 1), #AI Control Dead Player's Troops (FormV5)
 
     (call_script, "script_initialize_custom_armor_data"), 
 
