@@ -24,11 +24,11 @@ tracks = [
   ("DAC-Battle-Epic-2", "Battle/DAC-Battle-Epic-2.ogg", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
   ("DAC-Battle-Epic-3", "Battle/DAC-Battle-Epic-3.ogg", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
   ("DAC-Battle-Epic-4", "Battle/DAC-Battle-Epic-4.mp3", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
-  ("DAC-Battle-Epic-5", "Battle/DAC-Battle-Epic-3.mp3", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
+  ("DAC-Battle-Epic-5", "Battle/DAC-Battle-Epic-5.mp3", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
   ("DAC-Battle-Epic-6", "Battle/DAC-Battle-Epic-6.ogg", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
 
 # Bandit Epic (num combatants >= 50),
-  ("DAC-Battle-Bandits-1", "DAC-Battle-Bandits-1.mp3", mtf_module_track|mtf_sit_ambushed|mtf_culture_6, 0),
+  ("DAC-Battle-Bandits-1", "Battle/DAC-Battle-Bandits-1.mp3", mtf_module_track|mtf_sit_ambushed|mtf_culture_6, 0),
 
 # DAC Generic Battle Music (Ambient Sound [for now])
 
@@ -44,9 +44,9 @@ tracks = [
 
 # DAC Siege Music
 
-  ("DAC-Battle-Siege-1", "DAC-Battle-Siege-1.mp3", mtf_module_track|mtf_sit_siege, 0),
-  ("DAC-Battle-Siege-2", "DAC-Battle-Siege-2.ogg", mtf_module_track|mtf_sit_siege, 0),  
-  ("DAC-Battle-Siege-3", "DAC-Battle-Siege-3.ogg", mtf_module_track|mtf_sit_siege, 0),  
+  ("DAC-Battle-Siege-1", "Battle/DAC-Battle-Siege-1.mp3", mtf_module_track|mtf_sit_siege, 0),
+  ("DAC-Battle-Siege-2", "Battle/DAC-Battle-Siege-2.ogg", mtf_module_track|mtf_sit_siege, 0),  
+  ("DAC-Battle-Siege-3", "Battle/DAC-Battle-Siege-3.ogg", mtf_module_track|mtf_sit_siege, 0),  
 
 # DAC Travel Music
 # Breton
