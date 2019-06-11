@@ -1424,6 +1424,7 @@ triggers = [
                     (store_random_in_range, ":random", 0, 100),
                     (val_add, ":npc_morale", ":random"),
                     (lt, ":npc_morale", 20),
+                    (neq, "$disable_npc_complaints", 1), #SB : disable					
                     (assign, "$npc_is_quitting", ":npc"),
                 (try_end),
 
@@ -1701,6 +1702,4 @@ triggers = [
   (0.1, 0.5, 0, [(map_free,0),(eq,"$g_move_fast", 1)], [(assign,"$g_move_fast", 0)]),
 
 ##diplomacy end
-
-
 ]

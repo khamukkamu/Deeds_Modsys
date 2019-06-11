@@ -5221,8 +5221,9 @@ mission_templates = [
        [
        #instead of refreshing the scene we just talk on-sight
          (get_player_agent_no, ":agent"),
-         (store_agent_hit_points, ":hp", ":agent", 0),
-         (troop_set_health, "$g_player_troop", ":hp", 0),
+         # (store_agent_hit_points, ":hp", ":agent", 0),
+         # (troop_set_health, "$g_player_troop", ":hp", 0),
+         (call_script, "script_agent_apply_training_health", ":agent"),
          
          (mission_enable_talk),
          (start_mission_conversation, "$g_talk_troop"),

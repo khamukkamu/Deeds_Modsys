@@ -2973,7 +2973,13 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
   (val_add, ":quest", all_quests_begin), #starts at 0
   (lt, ":quest", all_quests_end),
   (neg|quest_slot_eq, ":quest", slot_quest_delegate_level, -1),
+  (neq, ":quest", "qst_deliver_grain"), #disable temporarily
+  (neq, ":quest", "qst_deliver_wine"),
+  (neq, ":quest", "qst_raise_troops"),
+  (neq, ":quest", "qst_capture_prisoners"),
   (check_quest_active, ":quest"),
+  (neg|check_quest_concluded, ":quest"),
+  (neg|check_quest_concluded, ":quest"),
   (neg|check_quest_concluded, ":quest"),
   # (str_store_quest_name, s2, ":quest"), #TODO replace with description rather than relying on preset
   (store_add, ":quest_string", ":quest", "str_dplmc_npc_qst_deliver_message"),
@@ -3244,10 +3250,18 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 [anyone|auto_proceed, "member_delegate_quest_soldiers", [], "{!}.", "member_delegate_quest_confirm", []],
 
 
-[anyone|plyr, "member_delegate_quest_ask_for_troops", [],
+[anyone|plyr, "member_delegate_quest_ask_for_troops", [
+  (eq, "$random_merchant_quest_no", "qst_raise_troops"),
+],
 "Yes, here are the troops.", "member_delegate_quest_confirm", []],
 
+[anyone|plyr, "member_delegate_quest_ask_for_troops", [
+  (eq, "$random_merchant_quest_no", "qst_capture_prisoners"),
+],
+"Alright, here are the prisoners.", "member_delegate_quest_confirm", []],
 
+[anyone|plyr, "member_delegate_quest_ask_for_troops", [],
+"Hold off on that.", "member_delegate_quest_confirm", []],
 
 [anyone|plyr, "member_delegate_quest_confirm", [],
 "Good luck out there.", "do_member_quest", [
@@ -4105,7 +4119,7 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
     (neg|troop_slot_eq, "$g_talk_troop", slot_troop_occupation, slto_kingdom_hero),
     (neg|troop_slot_ge, "$g_talk_troop", slot_troop_banner_scene_prop, banner_scene_props_begin),
     (store_sub, ":banner_offset", banners_end_offset, 1),
-    (assign, ":end_loop", 150), #151 tries to not match the player/companions banner...not all will be used
+    (assign, ":end_loop", banners_end_offset), #151 tries to not match the player/companions banner...not all will be used
     (try_for_range, ":unused", 0, ":end_loop"), 
         (store_random_in_range, ":banner_id", 0, ":banner_offset"),
         (val_add, ":banner_id", banner_scene_props_begin),
@@ -8032,11 +8046,11 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
 "I think we're fine now.", "dplmc_constable_pretalk",
 []],
 
-[anyone|plyr, "dplmc_constable_talk",
-[
-],
-"Let's talk about patrols and troop movement.", "dplmc_constable_security_ask",
-[]],
+# [anyone|plyr, "dplmc_constable_talk",
+# [
+# ],
+# "Let's talk about patrols and troop movement.", "dplmc_constable_security_ask",
+# []],
 
 [anyone|plyr, "dplmc_constable_recruits_and_training",
 [
@@ -16705,6 +16719,9 @@ Here, take this purse of {reg3} denars, as I promised. I hope we can travel toge
 (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", -30),
 (call_script, "script_change_player_relation_with_faction_ex", "$g_talk_troop_faction", -2),
 (call_script, "script_event_hero_taken_prisoner_by_player", "$g_talk_troop"),
+(call_script, "script_change_troop_renown", "$g_talk_troop", dplmc_taken_prisoner_renown), #SB : lose some renown
+(call_script, "script_change_player_honor", dplmc_taken_prisoner_renown + dplmc_escape_prisoner_renown), #SB : and some honor as well I guess
+
 ]],#take prisoner
 
 [anyone,"freed_lord_answer_1", [],
@@ -16785,6 +16802,8 @@ Here, take this purse of {reg3} denars, as I promised. I hope we can travel toge
 		(call_script, "script_change_player_relation_with_troop", ":npc", ":player_relation_change"),
 	(try_end),
 (try_end),
+#SB : add some renown
+(call_script, "script_change_troop_renown", "$g_talk_troop", dplmc_escape_prisoner_renown),
 ##diplomacy end+
 (call_script, "script_change_player_relation_with_faction_ex", "$g_talk_troop_faction", 2)]],
 
@@ -17113,7 +17132,13 @@ Here, take this purse of {reg3} denars, as I promised. I hope we can travel toge
 (assign, ":new_faction", reg0),
 
 (try_begin),
-  (is_between, ":new_faction", kingdoms_begin, kingdoms_end),
+  #SB : reject defecting to player faction from player faction
+  (eq, ":new_faction", "fac_player_supporters_faction"),
+  (str_store_string, s9, "@I see. Perhaps circumstances will change a few days from now, but until then I appreciate your generous hospitality."),
+  #put back in inactive pool, add counter to slot_troop_intrigue_impatience/slot_troop_controversy?
+  (troop_set_slot, "$g_talk_troop", slot_troop_occupation, slto_inactive),
+(else_try),
+  (is_between, ":new_faction", npc_kingdoms_begin, kingdoms_end),
   (troop_get_slot, ":old_faction", "$g_talk_troop", slot_troop_original_faction),
   (str_store_troop_name, s1, "$g_talk_troop"),
   (str_store_faction_name, s2, ":new_faction"),
@@ -22276,20 +22301,24 @@ I'll send some men to take him to our prison with due haste.", "lord_pretalk", [
 (try_begin),
  ##diplomacy start+ Override is_female to use script
  ##(troop_get_type, ":is_female", ":recruitment_candidate"),
- (assign, ":is_female", 0),
+ #SB : call script for term
  (try_begin),
-	(call_script, "script_cf_dplmc_troop_is_female", ":recruitment_candidate"),
-	(assign, ":is_female", 1),
+   (call_script, "script_cf_dplmc_troop_is_female", ":recruitment_candidate"),
+   (str_store_string, s45, "str_she"),
+   (call_script, "script_dplmc_print_cultural_word_to_sreg", ":recruitment_candidate", DPLMC_CULTURAL_TERM_KING_FEMALE, s47),
+ (else_try),
+   (str_store_string, s45, "str_he"),
+   (call_script, "script_dplmc_print_cultural_word_to_sreg", ":recruitment_candidate", DPLMC_CULTURAL_TERM_KING, s47),
  (try_end),
  ##diplomacy end+
- (str_store_string, s45, "str_he"),
- (str_store_string, s47, "str_king"),
+ # (str_store_string, s45, "str_he"),
+ # (str_store_string, s47, "str_king"),
 
- (try_begin),
-   (eq, ":is_female", 1),
-   (str_store_string, s45, "str_she"),
-   (str_store_string, s47, "str_queen"),
- (try_end),
+ # (try_begin),
+   # (eq, ":is_female", 1),
+   # (str_store_string, s45, "str_she"),
+   # (str_store_string, s47, "str_queen"),
+ # (try_end),
 
  (try_begin),
    (eq, ":recruitment_candidate", "$supported_pretender"),
@@ -30419,7 +30448,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
      (call_script, "script_start_quest", "$random_quest_no", "$g_talk_troop"),
      (call_script, "script_cf_center_get_free_walker", ":quest_target_center"),
      (call_script, "script_center_set_walker_to_type", ":quest_target_center", reg0, walkert_spy),
-     (str_store_item_name,s14,"$spy_item_worn"),
+     # (str_store_item_name,s14,"$spy_item_worn"), #SB : useless code
      #TODO: Change this value
      (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 1),
      (assign, "$g_leave_encounter",1),
@@ -36674,8 +36703,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
         (play_sound, "snd_quest_failed"),
         (store_div, ":renown_sub", "$temp", -150), #about 1 renown per 3-4 troop
         (try_begin),#supporters get less malus
-           (store_troop_faction, ":faction", "$g_talk_troop"),
-           (eq, ":faction", "$supported_pretender_old_faction"),
+           (eq, "$g_talk_troop_faction", "$supported_pretender_old_faction"),
            (val_div, ":renown_sub", 2),
         (try_end),
 
@@ -36684,7 +36712,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
         (call_script, "script_change_troop_renown", "trp_player", ":renown_sub"),
         (party_get_num_companions, ":num_recruited", "$g_encountered_party"), #not counting prisoners
         (val_mul, ":num_recruited", 20), #about 1 point of morale lost per 5 men
-        (call_script, "script_change_faction_troop_morale", ":faction", ":num_recruited")
+        (call_script, "script_change_faction_troop_morale", "$g_talk_troop_faction", ":num_recruited", 1),
      ]],
   [anyone|plyr,"deserter_recruit_2", [],
    "I don't have that much money with me", "deserter_barter_3b",[]],
@@ -44663,6 +44691,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    "Let me see your equipment.", "dplmc_view_regular_inventory", [
      #SB : pre-copy stuff over
      (assign, "$g_player_troop", "trp_player"),
+     (assign, "$diplomacy_var", "$sneaked_into_town"),	 
      (set_player_troop, "trp_player"),
      (call_script, "script_dplmc_copy_inventory", "$g_talk_troop", "trp_temp_array_b"),
    ]
@@ -44670,18 +44699,8 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [anyone,"dplmc_view_regular_inventory",
     [(call_script, "script_dplmc_print_subordinate_says_sir_madame_to_s0"),], "Very well {s0}, here is what I am using...", "dplmc_do_view_regular_inventory",#Use {s0} instead of {sir/madam}
     [
-      # (call_script, "script_dplmc_copy_inventory", "$g_player_troop", "trp_temp_array_a"),
-
-      (try_for_range, ":i_slot", ek_item_0, ek_food),
-        (troop_get_inventory_slot, ":item", "trp_player", ":i_slot"),
-        (gt, ":item", -1),
-        (troop_set_inventory_slot, "trp_temp_array_c", ":i_slot", ":item"),
-        (troop_get_inventory_slot_modifier, ":imod", "trp_player", ":i_slot"),
-        (troop_set_inventory_slot_modifier, "trp_temp_array_c", ":i_slot", ":imod"),
-      (try_end),
 
       #SB : sort it before displaying
-      # (troop_set_auto_equip, "trp_temp_array_b", 0),
       (troop_sort_inventory, "trp_temp_array_b"),
       #name display
       (str_store_troop_name, s10, "$g_talk_troop"),
@@ -44689,11 +44708,25 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
       (troop_set_name, "trp_player", s10),
       (troop_set_name, "trp_temp_array_b", s11),
       (troop_set_name, "trp_temp_array_c", s11),
+	  
+      #placeholder troop should be able to equip even if original couldn't
+      (troop_raise_skill, "trp_temp_array_b", skl_power_draw, 10),
+      (troop_raise_skill, "trp_temp_array_b", skl_power_throw, 10),
+      (troop_raise_skill, "trp_temp_array_b", skl_riding, 10),
+      (troop_raise_attribute, "trp_temp_array_b", ca_strength, 30),
+    
+      #copy max of facekeys, overriding tableau troop doesn't reflect equipment
+      (str_store_troop_face_keys, s13, "$g_talk_troop", 1),
+      (troop_set_face_keys, "trp_temp_array_b", s13, 0),
+      (troop_set_face_keys, "trp_temp_array_b", s13, 1),
+      (troop_get_type, ":gender", "$g_talk_troop"),
+      (troop_set_type, "trp_temp_array_b", ":gender"),	  
 
       # (troop_set_name, "trp_player", s10),
       (set_player_troop, "trp_temp_array_b"),
       (troop_clear_inventory, "trp_temp_array_c"),
       (change_screen_equip_other, "trp_temp_array_c"), #should be safe left panel
+      (assign, "$sneaked_into_town", 999), #temp to check in tableau	  
     ]],
   [anyone,"dplmc_do_view_regular_inventory", [(call_script, "script_dplmc_print_subordinate_says_sir_madame_to_s0"),],
    "Is that satisfactory, {s0}?", "dplmc_do_view_regular_inventory_2", [
@@ -44709,6 +44742,11 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
      (troop_clear_inventory, "trp_temp_array_c"),
      (str_store_troop_name, s10, "trp_temp_array_b"),
      (troop_set_name, "trp_player", s10),
+     (assign, "$sneaked_into_town", "$diplomacy_var"),
+     (troop_raise_skill, "trp_temp_array_b", skl_power_draw, -10),
+     (troop_raise_skill, "trp_temp_array_b", skl_power_throw, -10),
+     (troop_raise_skill, "trp_temp_array_b", skl_riding, -10),
+     (troop_raise_attribute, "trp_temp_array_b", ca_strength, -30),	 
    ]
   ],
 ## CC view regular's equipment

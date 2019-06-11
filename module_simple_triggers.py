@@ -407,7 +407,13 @@ simple_triggers = [
         (assign,"$g_player_raid_complete",1),
       (else_try),
         (party_slot_eq, "$g_player_raiding_village", slot_village_state, svs_being_raided),
-        (rest_for_hours, 3, 5, 1), #rest while attackable
+        (try_begin), #SB : turbo
+          (this_or_next|key_is_down, key_left_shift),
+          (key_is_down, key_right_shift),
+          (rest_for_hours, 3, 15, 1),
+        (else_try),
+          (rest_for_hours, 3, 5, 1),
+        (try_end),
       (else_try),
         (rest_for_hours, 0, 0, 0), #stop resting - abort
         (assign,"$g_player_raiding_village",0),
@@ -2497,13 +2503,18 @@ simple_triggers = [
   # Check escape chances of hero prisoners.
   (48,
    [
-       (call_script, "script_randomly_make_prisoner_heroes_escape_from_party", "p_main_party", 50),
+       (assign, ":chance", hero_escape_from_player_chance), #50
+       (try_begin),  #SB : use consts and apply skill
+         (store_skill_level, ":skill", "skl_prisoner_management", "trp_player"),
+         (val_sub, ":chance", ":skill"), #50 to 35
+       (try_end), #also chance is /1000 not /100
+       (call_script, "script_randomly_make_prisoner_heroes_escape_from_party", "p_main_party", hero_escape_from_player_chance),
        (try_for_range, ":center_no", walled_centers_begin, walled_centers_end),
 ##         (party_slot_eq, ":center_no", slot_town_lord, "trp_player"),
-         (assign, ":chance", 30),
+         (assign, ":chance", hero_escape_from_center_chance),
          (try_begin),
            (party_slot_eq, ":center_no", slot_center_has_prisoner_tower, 1),
-           (assign, ":chance", 5),
+           (assign, ":chance", hero_escape_from_tower_chance),
          (try_end),
          (call_script, "script_randomly_make_prisoner_heroes_escape_from_party", ":center_no", ":chance"),
        (try_end),
@@ -3479,20 +3490,25 @@ simple_triggers = [
       (party_get_slot, ":has_tournament", ":center_no", slot_town_has_tournament),
       (try_begin),
         (eq, ":has_tournament", 1),#tournament ended, simulate
-        (call_script, "script_cf_simulate_tournament", ":center_no"),
-        (assign, ":winner_troop", reg0),
+        (call_script, "script_fill_tournament_participants_troop", ":center_no", 0),
+        (call_script, "script_sort_tournament_participant_troops"),#may not be needed
+        (call_script, "script_get_num_tournament_participants"),
+        (store_sub, ":needed_to_remove_randomly", reg0, 1),
+        (call_script, "script_remove_tournament_participants_randomly", ":needed_to_remove_randomly"),
+        (call_script, "script_sort_tournament_participant_troops"),
+        (troop_get_slot, ":winner_troop", "trp_tournament_participants", 0),
         (try_begin),
+          (is_between, ":winner_troop", active_npcs_begin, active_npcs_end),
           (str_store_troop_name_link, s1, ":winner_troop"),
           (str_store_party_name_link, s2, ":center_no"),
           #SB : log message, change color, add money
           (display_log_message, "@{s1} has won the tournament at {s2}.", message_alert),
-          (troop_is_hero, ":winner_troop"),
-          (call_script, "script_change_troop_renown", ":winner_troop", 20),
+          (call_script, "script_change_troop_renown", ":winner_troop", dplmc_tournament_renown),
           (try_begin),
             (ge, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_MEDIUM),
             (store_faction_of_party, ":center_faction", ":center_no"),
             (call_script, "script_dplmc_get_troop_standing_in_faction", ":winner_troop", ":center_faction"),
-            (store_mul, ":reward", reg0, 20), #1200 for leader, 600 for lord etc
+            (store_mul, ":reward", reg0, dplmc_tournament_renown), #1200 for leader, 600 for lord etc
             (val_add, ":reward", 150),
             (call_script, "script_dplmc_distribute_gold_to_lord_and_holdings", ":reward", ":winner_troop"), #add some wealth
           (else_try),
@@ -4612,146 +4628,137 @@ simple_triggers = [
         (assign, "$g_force_peace_faction_2", 0),
        ]),
 
-#NPC changes begin
-#Resolve one issue each hour
+
 (1,
    [
-		(str_store_string, s51, "str_no_trigger_noted"),
+    (str_store_string, s51, "str_no_trigger_noted"),
 
-		# Rejoining party
-        (try_begin),
-            (gt, "$npc_to_rejoin_party", 0),
-            (eq, "$g_infinite_camping", 0),
-            (try_begin), #SB : allow hired blade to pass
-                (this_or_next|eq, "$npc_to_rejoin_party", "trp_hired_blade"),
-                (this_or_next|is_between, "$npc_to_rejoin_party", town_walkers_begin, town_walkers_end),
-                (neg|main_party_has_troop, "$npc_to_rejoin_party"),
-                (neq, "$g_player_is_captive", 1),
+    # Rejoining party
+    (try_begin),
+      (gt, "$npc_to_rejoin_party", 0),
+      (eq, "$g_infinite_camping", 0),
+      (try_begin), #SB : allow hired blade to pass
+        (this_or_next|eq, "$npc_to_rejoin_party", "trp_hired_blade"),
+        (this_or_next|is_between, "$npc_to_rejoin_party", town_walkers_begin, town_walkers_end),
+        (neg|main_party_has_troop, "$npc_to_rejoin_party"),
+        (neq, "$g_player_is_captive", 1),
+        (str_store_string, s51, "str_triggered_by_npc_to_rejoin_party"),
+        (assign, "$npc_map_talk_context", slot_troop_days_on_mission),
+        (start_map_conversation, "$npc_to_rejoin_party", -1),
+      (else_try),
+        (is_between, "$npc_to_rejoin_party", companions_begin, companions_end),
+        (troop_set_slot, "$npc_to_rejoin_party", slot_troop_current_mission, npc_mission_rejoin_when_possible),
+        (assign, "$npc_to_rejoin_party", 0),
+      (try_end),
+      # Here do NPC that is quitting
+    (else_try),
+      (gt, "$npc_is_quitting", 0),
+      (eq, "$g_infinite_camping", 0),
+      (try_begin),
+        (main_party_has_troop, "$npc_is_quitting"),
+        (neq, "$g_player_is_captive", 1),
+        ##diplomacy start+ disable spouse quitting to avoid problems
+        (neg|troop_slot_eq, "trp_player", slot_troop_spouse, "$npc_is_quitting"),
+        (neg|troop_slot_eq, "$npc_is_quitting", slot_troop_spouse, "trp_player"),
+        ##diplomacy end+
+        (str_store_string, s51, "str_triggered_by_npc_is_quitting"),
+        (start_map_conversation, "$npc_is_quitting", -1),
+      (else_try),
+        (assign, "$npc_is_quitting", 0),
+      (try_end),
+    #NPC with grievance
+    (else_try), #### Grievance
+      (gt, "$npc_with_grievance", 0),
+      (eq, "$g_infinite_camping", 0),
+      (eq, "$disable_npc_complaints", 0),
+      (try_begin),
+        (main_party_has_troop, "$npc_with_grievance"),
+        (neq, "$g_player_is_captive", 1),
+        (str_store_string, s51, "str_triggered_by_npc_has_grievance"),
+        (assign, "$npc_map_talk_context", slot_troop_morality_state),
+        (start_map_conversation, "$npc_with_grievance", -1),
+      (else_try),
+        (assign, "$npc_with_grievance", 0),
+      (try_end),
+    (else_try),
+      (gt, "$npc_with_personality_clash", 0),
+      (eq, "$g_infinite_camping", 0),
+      (eq, "$disable_npc_complaints", 0),
+      (troop_get_slot, ":object", "$npc_with_personality_clash", slot_troop_personalityclash_object),
+      (try_begin),
+        (main_party_has_troop, "$npc_with_personality_clash"),
+        (main_party_has_troop, ":object"),
+        (neq, "$g_player_is_captive", 1),
 
-				(str_store_string, s51, "str_triggered_by_npc_to_rejoin_party"),
+        (assign, "$npc_map_talk_context", slot_troop_personalityclash_state),
+        (str_store_string, s51, "str_triggered_by_npc_has_personality_clash"),
+        (start_map_conversation, "$npc_with_personality_clash", -1),
+      (else_try),
+        (assign, "$npc_with_personality_clash", 0),
+      (try_end),
+    (else_try), #### Political issue
+      (gt, "$npc_with_political_grievance", 0),
+      (eq, "$g_infinite_camping", 0),
+      (eq, "$disable_npc_complaints", 0),
+      (try_begin),
+        (main_party_has_troop, "$npc_with_political_grievance"),
+        (neq, "$g_player_is_captive", 1),
 
-                (assign, "$npc_map_talk_context", slot_troop_days_on_mission),
-                (start_map_conversation, "$npc_to_rejoin_party", -1),
-			(else_try),
-				(is_between, "$npc_to_rejoin_party", companions_begin, companions_end),
-				(troop_set_slot, "$npc_to_rejoin_party", slot_troop_current_mission, npc_mission_rejoin_when_possible),
-				(assign, "$npc_to_rejoin_party", 0),
-            (try_end),
-		# Here do NPC that is quitting
-		(else_try),
-            (gt, "$npc_is_quitting", 0),
-            (eq, "$g_infinite_camping", 0),
-            (try_begin),
-                (main_party_has_troop, "$npc_is_quitting"),
-                (neq, "$g_player_is_captive", 1),
-				##diplomacy start+ disable spouse quitting to avoid problems
-				(neg|troop_slot_eq, "trp_player", slot_troop_spouse, "$npc_is_quitting"),
-				(neg|troop_slot_eq, "$npc_is_quitting", slot_troop_spouse, "trp_player"),
-				##diplomacy end+
-				(str_store_string, s51, "str_triggered_by_npc_is_quitting"),
-                (start_map_conversation, "$npc_is_quitting", -1),
-            (else_try),
-                (assign, "$npc_is_quitting", 0),
-            (try_end),
-		#NPC with grievance
-        (else_try), #### Grievance
-            (gt, "$npc_with_grievance", 0),
-            (eq, "$g_infinite_camping", 0),
-            (eq, "$disable_npc_complaints", 0),
-            (try_begin),
-                (main_party_has_troop, "$npc_with_grievance"),
-                (neq, "$g_player_is_captive", 1),
+        (str_store_string, s51, "str_triggered_by_npc_has_political_grievance"),
+        (assign, "$npc_map_talk_context", slot_troop_kingsupport_objection_state),
+        (start_map_conversation, "$npc_with_political_grievance", -1),
+      (else_try),
+        (assign, "$npc_with_political_grievance", 0),
+      (try_end),
+    (else_try),
+      (eq, "$disable_sisterly_advice", 0),
+      (eq, "$g_infinite_camping", 0),
+      (gt, "$npc_with_sisterly_advice", 0),
+      (try_begin),
+        (main_party_has_troop, "$npc_with_sisterly_advice"),
+        (neq, "$g_player_is_captive", 1),
 
-				(str_store_string, s51, "str_triggered_by_npc_has_grievance"),
+        ##diplomacy start+
+        (troop_slot_ge, "$npc_with_sisterly_advice", slot_troop_woman_to_woman_string, 1),
+        ##diplomacy end+
+        (assign, "$npc_map_talk_context", slot_troop_woman_to_woman_string), #was npc_with_sisterly advice
+        (start_map_conversation, "$npc_with_sisterly_advice", -1),
+      (else_try),
+        (assign, "$npc_with_sisterly_advice", 0),
+      (try_end),
+    (else_try), #check for regional background
+      (eq, "$disable_local_histories", 0),
+      (eq, "$g_infinite_camping", 0),
+      (try_for_range, ":npc", companions_begin, companions_end),
+        (main_party_has_troop, ":npc"),
+        (troop_slot_eq, ":npc", slot_troop_home_speech_delivered, 0),
+        (troop_get_slot, ":home", ":npc", slot_troop_home),
+        (gt, ":home", 0),
+        (store_distance_to_party_from_party, ":distance", ":home", "p_main_party"),
+        (lt, ":distance", 7),
+        (assign, "$npc_map_talk_context", slot_troop_home),
+        (str_store_string, s51, "str_triggered_by_local_histories"),
+        (start_map_conversation, ":npc", -1),
+      (try_end),
+    (try_end),
 
-                (assign, "$npc_map_talk_context", slot_troop_morality_state),
-                (start_map_conversation, "$npc_with_grievance", -1),
-            (else_try),
-                (assign, "$npc_with_grievance", 0),
-            (try_end),
-        (else_try),
-            (gt, "$npc_with_personality_clash", 0),
-            (eq, "$g_infinite_camping", 0),
-            (eq, "$disable_npc_complaints", 0),
-            (troop_get_slot, ":object", "$npc_with_personality_clash", slot_troop_personalityclash_object),
-            (try_begin),
-                (main_party_has_troop, "$npc_with_personality_clash"),
-                (main_party_has_troop, ":object"),
-                (neq, "$g_player_is_captive", 1),
+    #add pretender to party if not active
+    (try_begin),
+      (check_quest_active, "qst_rebel_against_kingdom"),
+      (is_between, "$supported_pretender", pretenders_begin, pretenders_end),
+      (neg|main_party_has_troop, "$supported_pretender"),
+      (neg|troop_slot_eq, "$supported_pretender", slot_troop_occupation, slto_kingdom_hero),
+      (party_add_members, "p_main_party", "$supported_pretender", 1),
+    (try_end),
 
-                (assign, "$npc_map_talk_context", slot_troop_personalityclash_state),
-				(str_store_string, s51, "str_triggered_by_npc_has_personality_clash"),
-                (start_map_conversation, "$npc_with_personality_clash", -1),
-            (else_try),
-                (assign, "$npc_with_personality_clash", 0),
-            (try_end),
-        (else_try), #### Political issue
-            (gt, "$npc_with_political_grievance", 0),
-            (eq, "$g_infinite_camping", 0),
-            (eq, "$disable_npc_complaints", 0),
-            (try_begin),
-                (main_party_has_troop, "$npc_with_political_grievance"),
-                (neq, "$g_player_is_captive", 1),
-
-				(str_store_string, s51, "str_triggered_by_npc_has_political_grievance"),
-                (assign, "$npc_map_talk_context", slot_troop_kingsupport_objection_state),
-                (start_map_conversation, "$npc_with_political_grievance", -1),
-			(else_try),
-				(assign, "$npc_with_political_grievance", 0),
-            (try_end),
-		(else_try),
-            (eq, "$disable_sisterly_advice", 0),
-            (eq, "$g_infinite_camping", 0),
-            (gt, "$npc_with_sisterly_advice", 0),
-            (try_begin),
-				(main_party_has_troop, "$npc_with_sisterly_advice"),
-                (neq, "$g_player_is_captive", 1),
-
-				##diplomacy start+
-				(troop_slot_ge, "$npc_with_sisterly_advice", slot_troop_woman_to_woman_string, 1),
-				##diplomacy end+
-				(assign, "$npc_map_talk_context", slot_troop_woman_to_woman_string), #was npc_with_sisterly advice
-	            (start_map_conversation, "$npc_with_sisterly_advice", -1),
-			(else_try),
-				(assign, "$npc_with_sisterly_advice", 0),
-            (try_end),
-		(else_try), #check for regional background
-            (eq, "$disable_local_histories", 0),
-            (eq, "$g_infinite_camping", 0),
-            (try_for_range, ":npc", companions_begin, companions_end),
-                (main_party_has_troop, ":npc"),
-                (troop_slot_eq, ":npc", slot_troop_home_speech_delivered, 0),
-                (troop_get_slot, ":home", ":npc", slot_troop_home),
-                (gt, ":home", 0),
-                (store_distance_to_party_from_party, ":distance", ":home", "p_main_party"),
-                (lt, ":distance", 7),
-                (assign, "$npc_map_talk_context", slot_troop_home),
-
-				(str_store_string, s51, "str_triggered_by_local_histories"),
-
-                (start_map_conversation, ":npc", -1),
-            (try_end),
-        (try_end),
-
-		#add pretender to party if not active
-		(try_begin),
-			(check_quest_active, "qst_rebel_against_kingdom"),
-			(is_between, "$supported_pretender", pretenders_begin, pretenders_end),
-			(neg|main_party_has_troop, "$supported_pretender"),
-			(neg|troop_slot_eq, "$supported_pretender", slot_troop_occupation, slto_kingdom_hero),
-			(party_add_members, "p_main_party", "$supported_pretender", 1),
-		(try_end),
-
-		#make player marshal of rebel faction
-		(try_begin),
-			(check_quest_active, "qst_rebel_against_kingdom"),
-			(is_between, "$supported_pretender", pretenders_begin, pretenders_end),
-			(main_party_has_troop, "$supported_pretender"),
-			(neg|faction_slot_eq, "fac_player_supporters_faction", slot_faction_marshall, "trp_player"),
-			(call_script, "script_appoint_faction_marshall", "fac_player_supporters_faction", "trp_player"),
-		(try_end),
-
-
+    #make player marshal of rebel faction
+    (try_begin),
+      (check_quest_active, "qst_rebel_against_kingdom"),
+      (is_between, "$supported_pretender", pretenders_begin, pretenders_end),
+      (main_party_has_troop, "$supported_pretender"),
+      (neg|faction_slot_eq, "fac_player_supporters_faction", slot_faction_marshall, "trp_player"),
+      (call_script, "script_appoint_faction_marshall", "fac_player_supporters_faction", "trp_player"),
+    (try_end),
 ]),
 #NPC changes end
 

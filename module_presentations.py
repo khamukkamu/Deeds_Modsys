@@ -3,6 +3,7 @@ from header_common import *
 from header_presentations import *
 from header_mission_templates import *
 from ID_meshes import *
+from ID_factions import *
 from header_operations import *
 from header_triggers import *
 #SB: import skills from ID_skills import *
@@ -16101,7 +16102,7 @@ presentations = [
           (position_set_y, pos1, ":text_y"),
           (overlay_set_position, reg1, pos1),
           # number_box
-          (create_number_box_overlay, reg1, 0, 5),
+          (create_number_box_overlay, reg1, 0, 9),
           (store_add, ":number_box_x", ":pos_x", 115),
           (store_add, ":number_box_y", ":pos_y", 30),
           (position_set_x, pos1, ":number_box_x"),
@@ -18535,7 +18536,7 @@ presentations = [
                     (try_end),
                     
                     (assign, reg1, "$g_disable_condescending_comments"),
-                    (display_message, "@prejudice is {reg1}"),
+                    # (display_message, "@prejudice is {reg1}"),
 
                     (set_container_overlay, -1),
                     (create_mesh_overlay, reg0, "mesh_pic_siege_sighted_fem"),
@@ -18547,17 +18548,17 @@ presentations = [
                     (val_add, ":num_options", 1),
                     
                     ## NPC Complaints
-					(create_text_overlay, reg0, "@Companion Complaints:", tf_vertical_align_center),
+					(create_text_overlay, reg0, "@Disable Companions Complaints:", tf_vertical_align_center),
 					(position_set_y, pos1, ":texts_y"),
 					(overlay_set_position, reg0, pos1),
-                    (troop_set_slot, "trp_temp_array_a", ":num_options", reg0),
+ 					(troop_set_slot, "trp_temp_array_a", ":num_options", reg0),
 					(val_sub, ":texts_y", ":y_increment"),
 
 					(create_check_box_overlay, reg0, "mesh_checkbox_off", "mesh_checkbox_on"),
 					(position_set_y, pos2, ":inputs_y"),
 					(overlay_set_position, reg0, pos2),
 					(val_sub, ":inputs_y", ":y_increment"),
-                    (troop_set_slot, "trp_temp_array_b", ":num_options", reg0),
+					(troop_set_slot, "trp_temp_array_b", ":num_options", reg0),
 					(overlay_set_val, reg0, "$disable_npc_complaints"),
                     (set_container_overlay, -1),
                     (create_mesh_overlay, reg0, "mesh_pic_recruits"),
@@ -18813,9 +18814,9 @@ presentations = [
                         (store_sub, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_HIGH, ":value"),
                     (else_try), #Prejudice
                         (troop_slot_eq, "trp_temp_array_b", 8, ":object"),
-                        (assign, reg0, ":value"),
-                        (assign, reg1, "$g_disable_condescending_comments"),
-                        (display_message, "@option {reg0}: was {reg1}"),
+                        # (assign, reg0, ":value"),
+                        # (assign, reg1, "$g_disable_condescending_comments"),
+                        # (display_message, "@option {reg0}: was {reg1}"),
                         (try_begin), #default
                           (eq, ":value", 3),
                           (assign, "$g_disable_condescending_comments", 0),

@@ -1503,7 +1503,14 @@ max_looter_parties = 50 # Was 33 at mount&blade, 50 in warband, 42 last decision
 bandit_spawn_radius = 25
 deserter_spawn_radius = 4
 merchant_toll_duration        = 72 #Tolls are valid for 72 hours
+
+#SB : const some of these
+companion_escape_after_defeat_chance = 50
 hero_escape_after_defeat_chance = 70
+hero_escape_from_player_chance = 50
+hero_escape_from_center_chance = 30
+hero_escape_from_tower_chance = 5
+
 raid_distance = 4
 num_tournament_rounds = 6 # -> 64 participants
 
@@ -2337,6 +2344,7 @@ DPLMC_GOLD_CHANGES_HIGH    =  2
 # - Village elder now receives the gold when you buy cattle
 # - Resting at neutral centers cost extra for wounded troops
 # - Tournament wins are modified and applied to NPC
+# - Amount of items looted from village is no longer always 30
 #
 #High:
 # - The total amount of weekly bonus gold awarded to kings in Calradia
@@ -2416,6 +2424,10 @@ dplmc_command_renown_limit = 300
 
 dplmc_ransom_commission = 500
 dplmc_ransom_debt_mask = 100000
+
+dplmc_tournament_renown = 20
+dplmc_taken_prisoner_renown = -5
+dplmc_escape_prisoner_renown = 3
 
 dplmc_companion_skill_renown = 3
 dplmc_companion_emissary_renown = 2
