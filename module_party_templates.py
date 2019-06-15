@@ -49,15 +49,15 @@ party_templates = [
   # ("plains_bandits","Bandits",icon_khergit|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_bandit,4,58)]),
   # ("steppe_bandits","Steppe Bandits",icon_khergit_horseman_b|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_steppe_bandit,4,58)]),
 ### Routiers  
-  ("routier_bandits","Routiers",icon_vaegir_knight|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_routier_knight,1,1),(trp_routier_crossbowman,4,12),(trp_routier_mounted_sergeant,4,12),(trp_routier_sergeant,2,10),(trp_routier_voulgier,4,12),(trp_routier_footman,8,24)]),
+  ("routier_bandits","Routiers",icon_dac_routier|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_routier_knight,1,1),(trp_routier_crossbowman,4,12),(trp_routier_mounted_sergeant,4,12),(trp_routier_sergeant,2,10),(trp_routier_voulgier,4,12),(trp_routier_footman,8,24)]),
 ### Flayers
-  ("flayer_bandits","Flayers",icon_axeman|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_flayer_captain,1,1),(trp_flayer_infantry,6,18),(trp_flayer_fauchard,4,12),(trp_flayer_archer,2,8)]),
+  ("flayer_bandits","Flayers",icon_dac_flayer|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_flayer_captain,1,1),(trp_flayer_infantry,6,18),(trp_flayer_fauchard,4,12),(trp_flayer_archer,2,8)]),
 ### Retondeurs
-  ("retondeur_bandits","Retondeurs",icon_axeman|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_retondeur_horseman,2,12),(trp_retondeur_maceman,6,18),(trp_retondeur_crossbowman,2,8)]),
+  ("retondeur_bandits","Retondeurs",icon_dac_retondeur|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_retondeur_horseman,2,12),(trp_retondeur_maceman,6,18),(trp_retondeur_crossbowman,2,8)]),
 ### Tard-Venus
-  ("tard_venu_bandits","Tard-Venus",icon_axeman|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_tard_venu_militia,8,24),(trp_tard_venu_pikeman,6,18),(trp_tard_venu_archer,4,12)]),
+  ("tard_venu_bandits","Tard-Venus",icon_dac_tard_venu|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_tard_venu_militia,8,24),(trp_tard_venu_pikeman,6,18),(trp_tard_venu_archer,4,12)]),
 ### Angry Plebs 
-  ("peasant_bandits","Rebellious Peasants",icon_peasant|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_disgruntled_farmer,8,24),(trp_irrate_hunter,4,12),(trp_furious_lumberjack,1,6)]),
+  ("peasant_bandits","Rebellious Peasants",icon_dac_rebel_peasants|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_disgruntled_farmer,8,24),(trp_irrate_hunter,4,12),(trp_furious_lumberjack,1,6)]),
 
 ### Native
   # ("taiga_bandits","Tundra Bandits",icon_axeman|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_taiga_bandit,4,58)]),
@@ -65,7 +65,7 @@ party_templates = [
   # ("forest_bandits","Forest Bandits",icon_axeman|carries_goods(2),0,fac_forest_bandits,bandit_personality,[(trp_forest_bandit,4,52)]),
   # ("mountain_bandits","Mountain Bandits",icon_axeman|carries_goods(2),0,fac_mountain_bandits,bandit_personality,[(trp_mountain_bandit,4,60)]),
   # ("sea_raiders","Sea Raiders",icon_axeman|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_sea_raider,5,50)]),
-  ("deserters","Deserters",icon_vaegir_knight|carries_goods(3),0,fac_deserters,bandit_personality,[]),
+  ("deserters","Deserters",icon_dac_deserter|carries_goods(3),0,fac_deserters,bandit_personality,[]),
     
 ### Quest Related	
   ("troublesome_bandits","Troublesome Bandits",icon_axeman|carries_goods(9)|pf_quest_party,0,fac_outlaws,bandit_personality,[(trp_bandit,14,55)]),
@@ -111,7 +111,7 @@ party_templates = [
   ("village_farmers","Village Farmers",icon_peasant|pf_civilian,0,fac_innocents,merchant_personality,[(trp_farmer,5,10),(trp_peasant_woman,3,8)]),
   ("forager_party","Foraging Party",icon_gray_knight|carries_goods(5)|pf_show_faction,0,fac_commoners,merchant_personality,[]),
   ("scout_party","Scouts",icon_gray_knight|carries_goods(1)|pf_show_faction,0,fac_commoners,bandit_personality,[]),
-  ("patrol_party","Patrol",icon_gray_knight|carries_goods(2)|pf_show_faction,0,fac_commoners,soldier_personality,[]),
+  ("patrol_party","Patrol",icon_dac_routier|carries_goods(2)|pf_show_faction,0,fac_commoners,soldier_personality,[]),
   ("messenger_party","Messenger",icon_flagbearer_b|pf_show_faction,0,fac_commoners,merchant_personality,[]),
   ("raider_party","Raiders",icon_gray_knight|carries_goods(16)|pf_quest_party,0,fac_commoners,bandit_personality,[]),
   ("raider_captives","Raider Captives",0,0,fac_commoners,0,[(trp_peasant_woman,6,30,pmf_is_prisoner)]),

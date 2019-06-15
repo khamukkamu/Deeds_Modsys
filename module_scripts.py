@@ -26176,6 +26176,27 @@ scripts = [
       #  (val_add, ":flag_icon", custom_banner_map_icons_begin),
       #  (party_set_banner_icon, "$pout_party", ":flag_icon"),
       (try_end),
+	  
+### DAC Seek: Assigning new icons to the spawned lords	
+	(try_begin),
+		(eq, ":troop_faction_no", fac_kingdom_1),
+		(assign, ":party_icon", "icon_dac_french_knight"),
+	(else_try),
+		(eq, ":troop_faction_no", fac_kingdom_2),
+		(assign, ":party_icon", "icon_dac_english_knight"),  
+	(else_try),
+		(eq, ":troop_faction_no", fac_kingdom_3),
+		(assign, ":party_icon", "icon_dac_burgundian_knight"),  
+	(else_try),
+		(eq, ":troop_faction_no", fac_kingdom_4),
+		(assign, ":party_icon", "icon_dac_breton_knight"),  
+	(else_try),
+		(assign, ":party_icon", "icon_gray_knight"),  	
+	(try_end),
+	
+	(party_set_icon, "$pout_party", ":party_icon"),
+
+### DAC Seek End	
 
       (try_begin),
         #because of below two lines, lords can only hire more than one party_template(stack) at game start once a time during all game.

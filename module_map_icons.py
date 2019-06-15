@@ -34,9 +34,23 @@ map_icons = [
   ("axeman",0,"bandit_a", avatar_scale,snd_footstep_grass, 0.15, 0.173, 0),
   ("woman",0,"woman_a", avatar_scale,snd_footstep_grass, 0.15, 0.173, 0),
   ("woman_b",0,"woman_b", avatar_scale,snd_footstep_grass, 0.15, 0.173, 0),
+  
+   ("dac_breton_knight",0,"dac_breton_knight", avatar_scale,snd_footstep_grass, 0.15, 0.173, 0), 
+   ("dac_burgundian_knight",0,"dac_burgundian_knight", avatar_scale,snd_footstep_grass, 0.15, 0.173, 0), 
+   ("dac_english_knight",0,"dac_english_knight", avatar_scale,snd_footstep_grass, 0.15, 0.173, 0), 
+   ("dac_french_knight",0,"dac_french_knight", avatar_scale,snd_footstep_grass, 0.15, 0.173, 0), 
+   
+   ("dac_routier",0,"dac_routier", avatar_scale,snd_footstep_grass, 0.15, 0.173, 0),    
+   ("dac_flayer",0,"dac_flayer", avatar_scale,snd_footstep_grass, 0.15, 0.173, 0),    
+   ("dac_retondeur",0,"dac_retondeur", avatar_scale,snd_footstep_grass, 0.15, 0.173, 0),    
+   ("dac_tard_venu",0,"dac_tard_venu", avatar_scale,snd_footstep_grass, 0.15, 0.173, 0),    
+   ("dac_rebel_peasants",0,"dac_rebel_peasants", avatar_scale,snd_footstep_grass, 0.15, 0.173, 0),    
+   ("dac_deserter",0,"dac_deserter", avatar_scale,snd_footstep_grass, 0.15, 0.173, 0),    
+  
   ("town",mcn_no_shadow,"icon_town_a", 0.35,0),
   ("town_steppe",mcn_no_shadow,"icon_town_b", 0.35,0),
   ("town_desert",mcn_no_shadow,"map_village_a", 0.35,0),
+  
   ("village_a",mcn_no_shadow,"map_village_a", 0.45, 0),
   ("village_b",mcn_no_shadow,"map_village_a", 0.45, 0),
   ("village_c",mcn_no_shadow,"map_village_a", 0.45, 0),
