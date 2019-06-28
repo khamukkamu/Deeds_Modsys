@@ -31413,7 +31413,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
         (troop_add_item, "$g_talk_troop","itm_g_leather_gauntlet", imod_lordly),
         # (troop_add_item, "$g_talk_troop","itm_female_hood", imod_lordly),
         (troop_add_item, "$g_talk_troop","itm_w_hunting_bow_elm", imod_masterwork),
-        (troop_add_item, "$g_talk_troop","itm_arrows", imod_large_bag),
+        (troop_add_item, "$g_talk_troop","itm_w_arrow_triangular", imod_large_bag),
         
         # ..and some proficiencies
         (troop_raise_attribute, "$g_talk_troop", ca_strength, 2),

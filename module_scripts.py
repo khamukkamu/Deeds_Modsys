@@ -1029,7 +1029,7 @@ scripts = [
       # (item_set_slot, "itm_javelin", ":vaegir_price_slot", 120),
 
       #arrows
-      # (item_set_slot, "itm_arrows", slot_item_multiplayer_item_class, multi_item_class_type_arrow),
+      # (item_set_slot, "itm_w_arrow_triangulars", slot_item_multiplayer_item_class, multi_item_class_type_arrow),
       # (item_set_slot, "itm_barbed_arrows", slot_item_multiplayer_item_class, multi_item_class_type_arrow),
       # (item_set_slot, "itm_bodkin_arrows", slot_item_multiplayer_item_class, multi_item_class_type_arrow),
       # (item_set_slot, "itm_khergit_arrows", slot_item_multiplayer_item_class, multi_item_class_type_arrow),
@@ -1490,7 +1490,7 @@ scripts = [
 
       #2-Vaegir Warriors
       #2a-Vaegir Archer
-      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_arrows", "trp_vaegir_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_arrow_triangulars", "trp_vaegir_archer_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_barbed_arrows", "trp_vaegir_archer_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mace_1", "trp_vaegir_archer_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mace_2", "trp_vaegir_archer_multiplayer"),
@@ -1600,7 +1600,7 @@ scripts = [
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nomad_bow", "trp_khergit_veteran_horse_archer_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_khergit_bow", "trp_khergit_veteran_horse_archer_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_strong_bow", "trp_khergit_veteran_horse_archer_multiplayer"),
-      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_arrows", "trp_khergit_veteran_horse_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_arrow_triangulars", "trp_khergit_veteran_horse_archer_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_khergit_arrows", "trp_khergit_veteran_horse_archer_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_leather_steppe_cap_a", "trp_khergit_veteran_horse_archer_multiplayer"),
 	  # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nomad_cap_b", "trp_khergit_veteran_horse_archer_multiplayer"),
@@ -1693,7 +1693,7 @@ scripts = [
       #Nord Warriors
 
       #4c-Nord Archer
-      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_arrows", "trp_nord_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_arrow_triangulars", "trp_nord_archer_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_barbed_arrows", "trp_nord_archer_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_bodkin_arrows", "trp_nord_archer_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_sword_viking_1", "trp_nord_archer_multiplayer"),
@@ -1945,7 +1945,7 @@ scripts = [
 
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_short_bow", "trp_sarranid_archer_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_nomad_bow", "trp_sarranid_archer_multiplayer"),
-      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_arrows", "trp_sarranid_archer_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_arrow_triangulars", "trp_sarranid_archer_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_barbed_arrows", "trp_sarranid_archer_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_scimitar", "trp_sarranid_archer_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_mace_1", "trp_sarranid_archer_multiplayer"),
@@ -4945,9 +4945,9 @@ scripts = [
     [
       (store_script_param_2, ":num_hours"),
       (store_div, ":num_days", ":num_hours", 24),
-      (store_add, ":cur_day", ":num_days", 23),
-      (assign, ":cur_month", 3),
-      (assign, ":cur_year", 1257),
+      (store_add, ":cur_day", ":num_days", 1),
+      (assign, ":cur_month", 4),
+      (assign, ":cur_year", 1429),
       (assign, ":try_range", 99999),
       (try_for_range, ":unused", 0, ":try_range"),
         (try_begin),
@@ -8231,7 +8231,7 @@ scripts = [
      (item_get_type, ":inv_weapon_type", ":inv_weapon"),
      (try_begin),
        (eq, ":weapon", "itm_practice_lance"),
-       (is_between, ":inv_weapon", "itm_w_light_lance", "itm_arrows"),
+       (is_between, ":inv_weapon", "itm_w_light_lance", "itm_w_arrow_blunt"),
        (ge, ":is_mounted", 1),
        (val_add, ":score", 2), # Lance & Horse is a great choice, and this troop is a Lancer
      (else_try),
@@ -70309,7 +70309,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
           (eq, ":with_weapon", 1),
           (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_w_archer_hatchet"),
           (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_w_hunting_bow_elm"),
-          (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_barbed_arrows"),
+          (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_w_arrow_broadhead"),
         (try_end),
       (else_try),
         (eq, "$sneaked_into_town", disguise_merchant),
@@ -73989,12 +73989,12 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       # (troop_remove_item, "trp_vaegir_messenger", "itm_sword_medieval_b"),
       # (troop_remove_item, "trp_khergit_messenger", "itm_leather_jerkin"),
       # (troop_remove_item, "trp_khergit_messenger", "itm_short_bow"),
-      # (troop_remove_item, "trp_khergit_messenger", "itm_arrows"),
+      # (troop_remove_item, "trp_khergit_messenger", "itm_w_arrow_triangulars"),
       # (troop_remove_item, "trp_nord_messenger", "itm_leather_jerkin"),
       # (troop_remove_item, "trp_nord_messenger", "itm_short_bow"),
       # (troop_remove_item, "trp_rhodok_messenger", "itm_leather_jerkin"),
       # (troop_remove_item, "trp_rhodok_messenger", "itm_short_bow"),
-      # (troop_remove_item, "trp_rhodok_messenger", "itm_arrows"),
+      # (troop_remove_item, "trp_rhodok_messenger", "itm_w_arrow_triangulars"),
       #sarranid messenger already copied from horseman
       #but we need to reassign them
       # (troop_set_faction, "trp_sarranid_messenger", "fac_kingdom_6"),
@@ -76034,7 +76034,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
         (troop_add_gold, "trp_player", 100),
 
         (troop_add_item, "trp_player","itm_w_archers_maul"),
-        (troop_add_item, "trp_player","itm_barbed_arrows"),
+        (troop_add_item, "trp_player","itm_w_arrow_broadhead"),
         (troop_add_item, "trp_player","itm_w_hunting_bow_yew"),
         (troop_add_item, "trp_player","itm_h_hood_black"),
         (troop_add_item, "trp_player","itm_a_hunter_coat"),
@@ -77128,6 +77128,23 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (item_set_slot, "itm_a_churburg_brass_narf_custom", slot_item_breton_materials_end, "str_a_churburg_brass_end"),      
       (item_set_slot, "itm_a_churburg_brass_narf_custom", slot_item_num_components, 1),       
         
+## Churburg Jupon
+      (item_set_slot, "itm_a_churburg_jupon_custom", slot_item_materials_begin, "str_a_churburg_jupon_blue"),
+      (item_set_slot, "itm_a_churburg_jupon_custom", slot_item_materials_end, "str_a_churburg_jupon_end"),
+# France
+      (item_set_slot, "itm_a_churburg_jupon_custom", slot_item_france_materials_begin, "str_a_churburg_jupon_blue"),
+      (item_set_slot, "itm_a_churburg_jupon_custom", slot_item_france_materials_end, "str_a_churburg_jupon_red"),
+# England
+      (item_set_slot, "itm_a_churburg_jupon_custom", slot_item_english_materials_begin, "str_a_churburg_jupon_white"),
+      (item_set_slot, "itm_a_churburg_jupon_custom", slot_item_english_materials_end, "str_a_churburg_jupon_brown"), 
+# Burgundy
+      (item_set_slot, "itm_a_churburg_jupon_custom", slot_item_burgundy_materials_begin, "str_a_churburg_jupon_red"),
+      (item_set_slot, "itm_a_churburg_jupon_custom", slot_item_burgundy_materials_end, "str_a_churburg_jupon_black"),    
+# Brittany    
+      (item_set_slot, "itm_a_churburg_jupon_custom", slot_item_breton_materials_begin, "str_a_churburg_jupon_brown"),
+      (item_set_slot, "itm_a_churburg_jupon_custom", slot_item_breton_materials_end, "str_a_churburg_jupon_end"),   
+      (item_set_slot, "itm_a_churburg_jupon_custom", slot_item_num_components, 1),   
+	  
 ## Corrazina
       (item_set_slot, "itm_a_corrazina_narf_custom", slot_item_materials_begin, "str_a_corrazina_blue"),
       (item_set_slot, "itm_a_corrazina_narf_custom", slot_item_materials_end, "str_a_corrazina_end"),
@@ -77146,7 +77163,24 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 # Flemish Mercenaries   
       (item_set_slot, "itm_a_corrazina_narf_custom", slot_item_flemish_materials_begin, "str_a_corrazina_black"),
       (item_set_slot, "itm_a_corrazina_narf_custom", slot_item_flemish_materials_end, "str_a_corrazina_end"),     
-      (item_set_slot, "itm_a_corrazina_narf_custom", slot_item_num_components, 1),   
+      (item_set_slot, "itm_a_corrazina_narf_custom", slot_item_num_components, 1),   	  
+	  
+## Corrazina Leather
+      (item_set_slot, "itm_a_corrazina_leather_custom", slot_item_materials_begin, "str_a_corrazina_leather_blue"),
+      (item_set_slot, "itm_a_corrazina_leather_custom", slot_item_materials_end, "str_a_corrazina_leather_end"),
+# France
+      (item_set_slot, "itm_a_corrazina_leather_custom", slot_item_france_materials_begin, "str_a_corrazina_leather_blue"),
+      (item_set_slot, "itm_a_corrazina_leather_custom", slot_item_france_materials_end, "str_a_corrazina_leather_red"),
+# England
+      (item_set_slot, "itm_a_corrazina_leather_custom", slot_item_english_materials_begin, "str_a_corrazina_leather_white"),
+      (item_set_slot, "itm_a_corrazina_leather_custom", slot_item_english_materials_end, "str_a_corrazina_leather_brown"), 
+# Burgundy
+      (item_set_slot, "itm_a_corrazina_leather_custom", slot_item_burgundy_materials_begin, "str_a_corrazina_leather_red"),
+      (item_set_slot, "itm_a_corrazina_leather_custom", slot_item_burgundy_materials_end, "str_a_corrazina_leather_black"),    
+# Brittany    
+      (item_set_slot, "itm_a_corrazina_leather_custom", slot_item_breton_materials_begin, "str_a_corrazina_leather_brown"),
+      (item_set_slot, "itm_a_corrazina_leather_custom", slot_item_breton_materials_end, "str_a_corrazina_leather_end"),   
+      (item_set_slot, "itm_a_corrazina_leather_custom", slot_item_num_components, 1),   	  	  
     
 ## Early Transitional Plate
       (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_materials_begin, "str_a_early_transitional_french_1"),

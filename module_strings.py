@@ -5439,6 +5439,19 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("a_churburg_brass_white_2", "a_churburg_brass_white"),
 ("a_churburg_brass_end", "a_churburg_brass_end"),
 
+## Churburg Jupon
+# French 
+("a_churburg_jupon_blue", "a_churburg_jupon_blue"),  
+("a_churburg_jupon_white", "a_churburg_jupon_white"),  
+# English
+("a_churburg_jupon_red", "a_churburg_jupon_red"),  
+# Burgundian
+("a_churburg_jupon_brown", "a_churburg_jupon_brown"),  
+# Breton  
+("a_churburg_jupon_black", "a_churburg_jupon_black"),  
+("a_churburg_jupon_white_2", "a_churburg_jupon_white"),
+("a_churburg_jupon_end", "a_churburg_jupon_end"),
+
 ## Corrazina
 # French 
 ("a_corrazina_blue", "a_corrazina_blue"),  
@@ -5454,6 +5467,19 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("a_corrazina_yellow_black", "a_corrazina_yellow_black"),  
 ("a_corrazina_yellow", "a_corrazina_yellow"),
 ("a_corrazina_end", "a_corrazina_end"),
+
+## Corrazina Leather
+# French 
+("a_corrazina_leather_blue", "a_corrazina_leather_blue"),  
+("a_corrazina_leather_white", "a_corrazina_leather_white"),  
+# English
+("a_corrazina_leather_red", "a_corrazina_leather_red"),  
+# Burgundian
+("a_corrazina_leather_brown", "a_corrazina_leather_brown"),  
+# Breton    
+("a_corrazina_leather_white_2", "a_corrazina_leather_white"),
+("a_corrazina_leather_black", "a_corrazina_leather_black"),
+("a_corrazina_leather_end", "a_corrazina_leather_end"),
 
 ## Early Transitional Plate
 # French 

@@ -205,10 +205,10 @@ items = [
  ["tutorial_spear", "Spear", [("w_spear_1",0)], itp_type_polearm|itp_merchandise|itp_wooden_parry|itp_primary|itp_offset_lance, itc_spear_upstab|itcf_carry_spear, 134, weight(1.1)|difficulty(0)|spd_rtng(99)|weapon_length(107)|swing_damage(37,pierce)|thrust_damage(37,pierce), imodbits_polearm ],
  ["tutorial_club", "Club", [("club",0)], itp_type_one_handed_wpn| itp_primary|itp_wooden_parry|itp_wooden_attack, itc_scimitar, 0 , weight(2.5)|difficulty(0)|spd_rtng(95) | weapon_length(95)|swing_damage(11 , blunt) | thrust_damage(0 ,  pierce),imodbits_none ],
  ["tutorial_battle_axe", "Battle Axe", [("w_twohanded_war_axe",0)], itp_type_two_handed_wpn| itp_two_handed|itp_primary|itp_bonus_against_shield|itp_wooden_parry, itc_nodachi|itcf_carry_axe_back, 0 , weight(5)|difficulty(0)|spd_rtng(88) | weapon_length(108)|swing_damage(27 , cut) | thrust_damage(0 ,  pierce),imodbits_axe ],
- ["tutorial_arrows","Arrows", [("arrow",0),("flying_missile",ixmesh_flying_ammo),("quiver", ixmesh_carry)], itp_type_arrows, itcf_carry_quiver_back, 0,weight(3)|abundance(160)|weapon_length(95)|thrust_damage(0,pierce)|max_ammo(20),imodbits_missile],
- ["tutorial_bolts","Bolts", [("bolt",0),("flying_missile",ixmesh_flying_ammo),("bolt_bag", ixmesh_carry),("bolt_bag_b", ixmesh_carry|imodbit_large_bag)], itp_type_bolts, itcf_carry_quiver_right_vertical, 0,weight(2.25)|abundance(90)|weapon_length(55)|thrust_damage(0,pierce)|max_ammo(18),imodbits_missile],
+ ["tutorial_arrows","Arrows", [("w_arrow_blunt",0),("w_arrow_blunt",ixmesh_flying_ammo),("w_arrow_quiver_blunt", ixmesh_carry)], itp_type_arrows, itcf_carry_quiver_back, 0,weight(3)|abundance(160)|weapon_length(95)|thrust_damage(0,pierce)|max_ammo(20),imodbits_missile],
+ ["tutorial_bolts","Bolts", [("w_bolt_triangular",0),("w_bolt_triangular",ixmesh_flying_ammo),("w_bolt_quiver_triangular", ixmesh_carry)], itp_type_bolts, itcf_carry_quiver_right_vertical, 0,weight(2.25)|abundance(90)|weapon_length(55)|thrust_damage(0,pierce)|max_ammo(18),imodbits_missile],
  ["tutorial_short_bow", "Short Bow", [("w_hunting_bow_ash",0),("w_hunting_bow_ash_carry",ixmesh_carry)], itp_type_bow|itp_merchandise|itp_two_handed|itp_primary, itcf_shoot_bow|itcf_carry_bow_back,90, weight(0.8)|difficulty(1)|spd_rtng(90)|shoot_speed(45)|thrust_damage(15,pierce), imodbits_bow ],
- ["tutorial_crossbow", "Crossbow", [("crossbow",0)], itp_type_crossbow |itp_primary|itp_two_handed|itp_cant_reload_on_horseback ,itcf_shoot_crossbow|itcf_carry_crossbow_back, 0 , weight(3)|difficulty(0)|spd_rtng(42)|  shoot_speed(68) | thrust_damage(32,pierce)|max_ammo(1),imodbits_crossbow ],
+ ["tutorial_crossbow", "Crossbow", [("w_crossbow_medium",0)], itp_type_crossbow |itp_primary|itp_two_handed|itp_cant_reload_on_horseback ,itcf_shoot_crossbow|itcf_carry_crossbow_back, 0 , weight(3)|difficulty(0)|spd_rtng(42)|  shoot_speed(68) | thrust_damage(32,pierce)|max_ammo(1),imodbits_crossbow ],
  ["tutorial_throwing_daggers", "Throwing Daggers", [("throwing_dagger",0)], itp_type_thrown |itp_primary ,itcf_throw_knife, 0 , weight(3.5)|difficulty(0)|spd_rtng(102) | shoot_speed(25) | thrust_damage(16 ,  cut)|max_ammo(14)|weapon_length(0),imodbits_missile ],
  ["tutorial_saddle_horse", "Saddle Horse", [("ho_sumpter_1",0)], itp_type_horse, 0, 0,abundance(90)|body_armor(3)|difficulty(0)|horse_speed(40)|horse_maneuver(38)|horse_charge(8),imodbits_horse_basic],
  ["tutorial_shield", "Kite Shield", [("tableau_shield_kite_1",0)], itp_type_shield|itp_wooden_parry, itcf_carry_kite_shield,  118 , weight(2.5)|hit_points(480)|body_armor(1)|spd_rtng(82)|weapon_length(150),imodbits_shield ],
@@ -235,7 +235,7 @@ items = [
  ["practice_lance","Practice Lance", [("w_native_spear_b",0)], itp_couchable|itp_type_polearm|itp_offset_lance|itp_has_upper_stab|itp_merchandise| itp_primary|itp_penalty_with_shield|itp_wooden_parry, itc_pike_upstab, 214 , weight(2.5)|difficulty(9)|spd_rtng(88) | weapon_length(175)|swing_damage(0 , blunt) | thrust_damage(27 ,  blunt),imodbits_polearm ],
  ["practice_shield","Practice Shield", [("tableau_shield_round_5",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 20,weight(3.5)|body_armor(1)|hit_points(200)|spd_rtng(100)|shield_width(50),imodbits_none],
  ["practice_bow","Practice Bow", [("w_hunting_bow_ash",0),("w_hunting_bow_ash_carry",ixmesh_carry)], itp_type_bow|itp_merchandise|itp_two_handed|itp_primary, itcf_shoot_bow|itcf_carry_bow_back, 90, weight(0.8)|difficulty(1)|spd_rtng(90)|shoot_speed(45)|thrust_damage(21,blunt), imodbits_bow ],
- ["practice_crossbow", "Practice Crossbow", [("crossbow_a",0)], itp_type_crossbow |itp_primary|itp_two_handed ,itcf_shoot_crossbow|itcf_carry_crossbow_back, 0, weight(3)|spd_rtng(42)| shoot_speed(68) | thrust_damage(32,blunt)|max_ammo(1),imodbits_crossbow],
+ ["practice_crossbow", "Practice Crossbow", [("w_crossbow_medium",0)], itp_type_crossbow |itp_primary|itp_two_handed ,itcf_shoot_crossbow|itcf_carry_crossbow_back, 0, weight(3)|spd_rtng(42)| shoot_speed(68) | thrust_damage(32,blunt)|max_ammo(1),imodbits_crossbow],
  ["practice_javelin", "Practice Javelins", [("javelin",0),("javelins_quiver", ixmesh_carry)], itp_type_thrown |itp_primary|itp_next_item_as_melee,itcf_throw_javelin|itcf_carry_quiver_back|itcf_show_holster_when_drawn, 0, weight(5) | spd_rtng(91) | shoot_speed(28) | thrust_damage(27, blunt) | max_ammo(50) | weapon_length(75), imodbits_thrown],
  ["practice_javelin_melee", "practice_javelin_melee", [("javelin",0)], itp_type_polearm|itp_primary|itp_penalty_with_shield|itp_wooden_parry , itc_staff, 0, weight(1)|difficulty(0)|spd_rtng(91) |swing_damage(12, blunt)| thrust_damage(14,  blunt)|weapon_length(75),imodbits_polearm ],
  ["practice_throwing_daggers", "Throwing Daggers", [("throwing_dagger",0)], itp_type_thrown |itp_primary ,itcf_throw_knife, 0 , weight(3.5)|spd_rtng(102) | shoot_speed(25) | thrust_damage(16, blunt)|max_ammo(10)|weapon_length(0),imodbits_thrown ],
@@ -243,12 +243,12 @@ items = [
  ["practice_spear","Practice Spear",[("w_native_spear_b",0)], itp_type_polearm|itp_offset_lance|itp_primary|itp_penalty_with_shield|itp_wooden_parry|itp_no_blur, itc_spear|itcf_carry_spear, 90 , weight(2.5)|spd_rtng(96) | weapon_length(150)|swing_damage(20 , blunt) | thrust_damage(25 ,  blunt),imodbits_polearm ],
  
  ["practice_horse","Practice Horse", [("ho_sumpter_1",0)], itp_type_horse, 0, 37,body_armor(10)|horse_speed(40)|horse_maneuver(37)|horse_charge(14),imodbits_none],
- ["practice_arrows","Practice Arrows", [("arena_arrow",0),("flying_missile",ixmesh_flying_ammo),("quiver", ixmesh_carry)], itp_type_arrows, itcf_carry_quiver_back, 0,weight(1.5)|weapon_length(95)|max_ammo(80),imodbits_missile],
+ ["practice_arrows","Practice Arrows", [("w_arrow_blunt",0),("w_arrow_blunt",ixmesh_flying_ammo),("w_arrow_quiver_blunt", ixmesh_carry)], itp_type_arrows, itcf_carry_quiver_back, 0,weight(1.5)|weapon_length(95)|max_ammo(80),imodbits_missile],
 ## ["practice_arrows","Practice Arrows", [("arrow",0),("flying_missile",ixmesh_flying_ammo)], itp_type_arrows, 0, 31,weight(1.5)|weapon_length(95)|max_ammo(80),imodbits_none],
- ["practice_bolts","Practice Bolts", [("bolt",0),("flying_missile",ixmesh_flying_ammo),("bolt_bag", ixmesh_carry),("bolt_bag_b", ixmesh_carry|imodbit_large_bag)], itp_type_bolts, itcf_carry_quiver_right_vertical, 0,weight(2.25)|weapon_length(55)|max_ammo(49),imodbits_missile],
- ["practice_arrows_10_amount","Practice Arrows", [("arrow",0),("flying_missile",ixmesh_flying_ammo),("quiver", ixmesh_carry)], itp_type_arrows, itcf_carry_quiver_back, 0,weight(1.5)|weapon_length(95)|max_ammo(10),imodbits_missile],
- ["practice_arrows_100_amount","Practice Arrows", [("arrow",0),("flying_missile",ixmesh_flying_ammo),("quiver", ixmesh_carry)], itp_type_arrows, itcf_carry_quiver_back, 0,weight(1.5)|weapon_length(95)|max_ammo(100),imodbits_missile],
- ["practice_bolts_9_amount","Practice Bolts", [("bolt",0),("flying_missile",ixmesh_flying_ammo),("bolt_bag", ixmesh_carry),("bolt_bag_b", ixmesh_carry|imodbit_large_bag)], itp_type_bolts, itcf_carry_quiver_right_vertical, 0,weight(2.25)|weapon_length(55)|max_ammo(9),imodbits_missile],
+ ["practice_bolts","Practice Bolts", [("w_bolt_triangular",0),("w_bolt_triangular",ixmesh_flying_ammo),("w_bolt_quiver_triangular", ixmesh_carry)], itp_type_bolts, itcf_carry_quiver_right_vertical, 0,weight(2.25)|weapon_length(55)|max_ammo(49),imodbits_missile],
+ ["practice_arrows_10_amount","Practice Arrows", [("w_arrow_blunt",0),("w_arrow_blunt",ixmesh_flying_ammo),("w_arrow_quiver_blunt", ixmesh_carry)], itp_type_arrows, itcf_carry_quiver_back, 0,weight(1.5)|weapon_length(95)|max_ammo(10),imodbits_missile],
+ ["practice_arrows_100_amount","Practice Arrows", [("w_arrow_blunt",0),("w_arrow_blunt",ixmesh_flying_ammo),("w_arrow_quiver_blunt", ixmesh_carry)], itp_type_arrows, itcf_carry_quiver_back, 0,weight(1.5)|weapon_length(95)|max_ammo(100),imodbits_missile],
+ ["practice_bolts_9_amount","Practice Bolts", [("w_bolt_triangular",0),("w_bolt_triangular",ixmesh_flying_ammo),("w_bolt_quiver_triangular", ixmesh_carry)], itp_type_bolts, itcf_carry_quiver_right_vertical, 0,weight(2.25)|weapon_length(55)|max_ammo(9),imodbits_missile],
  ["practice_boots", "Practice Boots", [("b_ankle_boots",0)], itp_type_foot_armor |itp_civilian  | itp_attach_armature,0, 11 , weight(1)|abundance(100)|head_armor(0)|body_armor(0)|leg_armor(10), imodbits_cloth ],
  
  ["red_tourney_armor","Red Tourney Armor", [("a_gambeson_white",0)], itp_type_body_armor|itp_covers_legs, 0, 152,weight(15.0)|body_armor(20)|leg_armor(6),imodbits_none],
@@ -407,7 +407,7 @@ items = [
  30 , weight(1)|abundance(100)|head_armor(0)|body_armor(0)|leg_armor(8)|difficulty(0) ,imodbits_cloth ],
 
 ["practice_bow_2","Practice Bow", [("w_hunting_bow_ash",0), ("w_hunting_bow_ash_carry",ixmesh_carry)], itp_type_bow |itp_primary|itp_two_handed,itcf_shoot_bow|itcf_carry_bow_back, 0, weight(1.5)|spd_rtng(90) | shoot_speed(40) | thrust_damage(21, blunt),imodbits_bow ],
-["practice_arrows_2","Practice Arrows", [("arena_arrow",0),("flying_missile",ixmesh_flying_ammo),("quiver", ixmesh_carry)], itp_type_arrows, itcf_carry_quiver_back, 0,weight(1.5)|weapon_length(95)|max_ammo(80),imodbits_missile],
+["practice_arrows_2","Practice Arrows", [("w_arrow_blunt",0),("w_arrow_blunt",ixmesh_flying_ammo),("w_arrow_quiver_blunt", ixmesh_carry)], itp_type_arrows, itcf_carry_quiver_back, 0,weight(1.5)|weapon_length(95)|max_ammo(80),imodbits_missile],
 
 
 ["heraldic_mail_with_surcoat_for_tableau", "{!}Heraldic Mail with Surcoat", [("heraldic_armor_a",0)], itp_type_body_armor |itp_covers_legs ,0,
@@ -473,10 +473,7 @@ items = [
 ["ho_charger_white", "Charger", [("ho_charger_white",0)], itp_type_horse|itp_merchandise, 0, 1540, abundance(40)|hit_points(120)|body_armor(25)|difficulty(3)|horse_speed(42)|horse_maneuver(40)|horse_charge(28)|horse_scale(108), imodbits_horse_basic|imodbit_champion ],
 
 ["sumpter_horse", "Sumpter Horse", [("sumpter_horse",0)], itp_type_horse|itp_merchandise, 0, 254, abundance(90)|hit_points(100)|body_armor(10)|difficulty(1)|horse_speed(37)|horse_maneuver(39)|horse_charge(9)|horse_scale(100), imodbits_horse_basic ],
-# ["sumpter_horse_paris", "Cheval malade", [("sumpter_horse",0)], itp_type_horse|itp_merchandise, 0, 134, abundance(90)|hit_points(90)|body_armor(7)|difficulty(1)|horse_speed(37)|horse_maneuver(39)|horse_charge(9)|horse_scale(100), imodbits_horse_basic ],
 ["saddle_horse", "Saddle Horse", [("saddle_horse",0),("horse_c",imodbits_horse_good)], itp_type_horse|itp_merchandise, 0, 360, abundance(90)|hit_points(100)|body_armor(8)|difficulty(1)|horse_speed(45)|horse_maneuver(44)|horse_charge(10)|horse_scale(104), imodbits_horse_basic ],
-# ["saddle_horseparis", "Cheval faible", [("saddle_horse",0),("horse_c",imodbits_horse_good)], itp_type_horse|itp_merchandise, 0, 50, abundance(90)|hit_points(88)|body_armor(6)|difficulty(1)|horse_speed(45)|horse_maneuver(44)|horse_charge(10)|horse_scale(104), imodbits_horse_basic ],
-# ["saddle_horseparis2", "Cheval faible", [("saddle_horse",0),("horse_c",imodbits_horse_good)], itp_type_horse|itp_merchandise, 0, 50, abundance(90)|hit_points(87)|body_armor(6)|difficulty(1)|horse_speed(45)|horse_maneuver(44)|horse_charge(10)|horse_scale(104), imodbits_horse_basic ],
 
 ["ho_tournament_horse_barded_white_chamfrom", "Barded Horse with Chamfrom", [("ho_horse_barded_white_chamfrom",0)], itp_type_horse|itp_merchandise, 0, 983, abundance(40)|hit_points(120)|body_armor(30)|difficulty(0)|horse_speed(42)|horse_maneuver(38)|horse_charge(26)|horse_scale(108), imodbits_horse_basic|imodbit_champion ],
 ["ho_tournament_horse_barded_black_chamfrom", "Barded Horse with Chamfrom", [("ho_horse_barded_black_chamfrom",0)], itp_type_horse|itp_merchandise, 0, 983, abundance(40)|hit_points(120)|body_armor(30)|difficulty(0)|horse_speed(42)|horse_maneuver(38)|horse_charge(26)|horse_scale(108), imodbits_horse_basic|imodbit_champion ],
@@ -782,8 +779,6 @@ items = [
 ["a_hauberk_plate_narf_jackchain_plate_hose", "Mail Hauberk", [("a_hauberk_narf_base",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1700 , weight(19)|abundance(100)|head_armor(0)|body_armor(48)|leg_armor(18)|difficulty(7) ,imodbits_armor ,[(ti_on_init_item,[(cur_item_add_mesh, "@a_hauberk_narf_aketon_base", 0, 0),(cur_item_add_mesh, "@a_hauberk_narf_arms_mail_plate", 0, 0),(cur_item_add_mesh, "@o_hosen_hauberk_plate", 0, 0),])]],
 ["a_hauberk_plate_narf_jackchain_full_plate_hose", "Mail Hauberk", [("a_hauberk_narf_base",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1780 , weight(19)|abundance(100)|head_armor(0)|body_armor(48)|leg_armor(24)|difficulty(7) ,imodbits_armor ,[(ti_on_init_item,[(cur_item_add_mesh, "@a_hauberk_narf_aketon_base", 0, 0),(cur_item_add_mesh, "@a_hauberk_narf_arms_mail_plate", 0, 0),(cur_item_add_mesh, "@o_hosen_hauberk_plate_full", 0, 0),])]],
 
-# ["a_brigandine_sl", "Brigandine", [("a_brigandine_bogmir",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs,0, 1830 , weight(19)|abundance(100)|head_armor(0)|body_armor(46)|leg_armor(12)|difficulty(0) ,imodbits_armor],
-
 ["a_churburg_narf_mail", "Churburg Plate", [("a_churburg_narf_base",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0, 3828, weight(27)|abundance(100)|head_armor(0)|body_armor(58)|leg_armor(20)|difficulty(10), imodbits_armor ,[(ti_on_init_item,[(cur_item_set_material, "@a_churburg_mail", 0, 0),])]],
 
 ["a_milanese_armour_narf", "Milanese Armour", [("a_milanese_armour_narf",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0, 5660, weight(28)|abundance(100)|head_armor(0)|body_armor(60)|leg_armor(22)|difficulty(10), imodbits_plate ],
@@ -818,6 +813,8 @@ items = [
 ["heraldic_churburg_13_brass_tabard", "Heraldic Brass Churburg Armor", [("heraldic_churburg_13_brass_tabard",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0, 4430, weight(27)|abundance(100)|head_armor(0)|body_armor(58)|leg_armor(20)|difficulty(8), imodbits_plate, [(ti_on_init_item,[(store_trigger_param_1,":agent_no"),(store_trigger_param_2,":troop_no"),(call_script,"script_shield_item_set_banner","tableau_heraldic_churburg_13_brass_tabard",":agent_no",":troop_no"),])] ],
 
 ["heraldic_early_transitional", "Heavy Mail and Plate", [("early_transitional_heraldic",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 2460 , weight(25)|abundance(100)|head_armor(0)|body_armor(48)|leg_armor(18)|difficulty(8) ,imodbits_armor , [(ti_on_init_item,[(store_trigger_param_1,":agent_no"),(store_trigger_param_2,":troop_no"),(call_script,"script_shield_item_set_banner","tableau_early_transitional_heraldic",":agent_no",":troop_no"),])] ],
+
+["heraldic_jupon", "Heraldic jupon", [("a_churburg_jupon_heraldic",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0, 5400, weight(28)|abundance(100)|head_armor(0)|body_armor(60)|leg_armor(24)|difficulty(9), imodbits_plate  , [(ti_on_init_item,[(store_trigger_param_1,":agent_no"),(store_trigger_param_2,":troop_no"),(call_script,"script_shield_item_set_banner","tableau_heraldic_jupon",":agent_no",":troop_no"),])] ],
 
 ["heraldic_plate", "Heraldic Plate Harness", [("heraldic_plate",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0, 6550, weight(29)|abundance(100)|head_armor(0)|body_armor(62)|leg_armor(24)|difficulty(9), imodbits_plate  , [(ti_on_init_item,[(store_trigger_param_1,":agent_no"),(store_trigger_param_2,":troop_no"),(call_script,"script_shield_item_set_banner","tableau_heraldic_plate",":agent_no",":troop_no"),])] ],
 
@@ -963,6 +960,8 @@ items = [
 ["a_churburg_brass_narf_custom", "Churburg Brass Plate", [("a_churburg_narf_base",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0, 1680, weight(27)|abundance(100)|head_armor(0)|body_armor(44)|leg_armor(18)|difficulty(8), imodbits_armor , [custom_reskin("itm_a_churburg_brass_narf_custom")]], 
 ["a_early_transitional_narf_custom", "Heavy Mail and Plate", [("a_early_transitional_narf_base",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1920 , weight(25)|abundance(100)|head_armor(0)|body_armor(48)|leg_armor(18)|difficulty(8) ,imodbits_armor , [custom_reskin("itm_a_early_transitional_narf_custom")]],  
 ["a_corrazina_narf_custom", "Corrazina", [("a_corrazina_narf_base",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 2140 , weight(23)|abundance(100)|head_armor(0)|body_armor(54)|leg_armor(14)|difficulty(8) ,imodbits_armor , [custom_reskin("itm_a_corrazina_narf_custom")]], 
+["a_corrazina_leather_custom", "Corrazina", [("a_corrazina_narf_base",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 2140 , weight(23)|abundance(100)|head_armor(0)|body_armor(54)|leg_armor(14)|difficulty(8) ,imodbits_armor , [custom_reskin("itm_a_corrazina_leather_custom")]], 
+["a_churburg_jupon_custom", "Churburg with Jupon", [("a_churburg_jupon_base",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0, 5400, weight(28)|abundance(100)|head_armor(0)|body_armor(60)|leg_armor(24)|difficulty(9), imodbits_plate  ,[custom_reskin("itm_a_churburg_jupon_custom")]], 
 
 ["b_hosen_shoes_custom", "Woolen Hose", [("b_hosen_shoes",0)], itp_merchandise| itp_type_foot_armor |itp_civilian | itp_attach_armature ,0, 6 , weight(1)|abundance(100)|head_armor(0)|body_armor(0)|leg_armor(4)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_b_hosen_shoes_custom")]],  
 ["b_hosen_poulaines_custom", "Woolen Hose Poulaines", [("b_hosen_poulaines",0)], itp_merchandise| itp_type_foot_armor |itp_civilian | itp_attach_armature ,0, 6 , weight(1)|abundance(100)|head_armor(0)|body_armor(0)|leg_armor(4)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_b_hosen_poulaines_custom")]],  
@@ -1529,19 +1528,6 @@ items = [
 ###################################################################################################### HYW RANGED ################################################################################################################################################################################################
 ##################################################################################################################################################################################################################################################################################################################
 
-["arrows", "Arrows", [("arrow",0),("arrow_flying",ixmesh_flying_ammo),("quiver",ixmesh_carry)], itp_type_arrows|itp_default_ammo|itp_merchandise, itcf_carry_quiver_back, 
-72, weight(3)|abundance(100)|weapon_length(95)|thrust_damage(20,cut)|max_ammo(30), imodbits_missile ],
-["arrows_b", "English Arrows", [("arrow_b",0),("arrow_b_flying",ixmesh_flying_ammo),("quiver_b",ixmesh_carry)], itp_type_arrows|itp_default_ammo|itp_merchandise, itcf_carry_quiver_back, 
-144, weight(3)|abundance(80)|weapon_length(95)|thrust_damage(18,pierce)|max_ammo(24), imodbits_missile ],
-["barbed_arrows", "Barbed Arrows", [("barbed_arrow",0),("barbed_arrow_flying",ixmesh_flying_ammo),("quiver_d",ixmesh_carry)], itp_type_arrows|itp_default_ammo|itp_merchandise, itcf_carry_quiver_back, 
-98, weight(3)|abundance(90)|weapon_length(95)|thrust_damage(24,cut)|max_ammo(24), imodbits_missile ],
-["piercing_arrows", "Bodkin Arrows", [("piercing_arrow",0),("piercing_arrow_flying",ixmesh_flying_ammo),("quiver_c",ixmesh_carry)], itp_type_arrows|itp_default_ammo|itp_merchandise, itcf_carry_quiver_back, 
-104, weight(3)|abundance(90)|weapon_length(95)|thrust_damage(16,pierce)|max_ammo(24), imodbits_missile ],
-
-["bolts", "Bolts", [("bolt",0),("bolt_flying",ixmesh_flying_ammo),("bolt_bag",ixmesh_carry),("bolt_bag_b",ixmesh_carry|imodbit_large_bag)], itp_type_bolts|itp_default_ammo|itp_merchandise|itp_can_penetrate_shield, itcf_carry_quiver_right_vertical, 64, weight(2.25)|abundance(90)|weapon_length(63)|thrust_damage(5,pierce)|max_ammo(29), imodbits_missile ],
-["steel_bolts", "Steel Bolts", [("bolt",0),("bolt_flying",ixmesh_flying_ammo),("bolt_bag_c",ixmesh_carry)], itp_type_bolts|itp_merchandise|itp_can_penetrate_shield, itcf_carry_quiver_right_vertical, 210, weight(2.5)|abundance(20)|weapon_length(63)|thrust_damage(6,pierce)|max_ammo(29), imodbits_missile ],
-["cartridges","Cartridges", [("cartridge_a",0)], itp_type_bullets|itp_merchandise|itp_can_penetrate_shield|itp_default_ammo, 0, 41,weight(2.25)|abundance(90)|weapon_length(3)|thrust_damage(1,pierce)|max_ammo(50),imodbits_missile],
-
 ["w_short_bow_ash", "Ash Short Bow", [("w_short_bow_ash",0),("w_short_bow_ash_carry",ixmesh_carry)], itp_type_bow|itp_merchandise|itp_two_handed|itp_primary, itcf_shoot_bow|itcf_carry_bow_back,
  42, weight(0.5)|difficulty(0)|spd_rtng(95)|shoot_speed(40)|thrust_damage(9,pierce), imodbits_bow ],
 ["w_short_bow_elm", "Elm Short Bow", [("w_short_bow_elm",0),("w_short_bow_elm_carry",ixmesh_carry)], itp_type_bow|itp_merchandise|itp_two_handed|itp_primary, itcf_shoot_bow|itcf_carry_bow_back,
@@ -1578,25 +1564,59 @@ items = [
 ["w_long_bow_yew", "Yew Long Bow", [("w_long_bow_yew",0),("w_long_bow_yew_carry",ixmesh_carry)], itp_type_bow|itp_merchandise|itp_two_handed|itp_primary, itcf_shoot_bow|itcf_carry_bow_back,
  265, weight(1.6)|difficulty(5)|spd_rtng(77)|shoot_speed(121)|thrust_damage(28,pierce), imodbits_bow ],
 
-["stones",         "Stones", [("throwing_stone",0)], itp_type_thrown |itp_merchandise|itp_primary ,itcf_throw_stone, 1 , weight(4)|difficulty(0)|spd_rtng(97) | shoot_speed(30) | thrust_damage(11 ,  blunt)|max_ammo(18)|weapon_length(8),imodbit_large_bag ],
-["throwing_knives", "Throwing Knives", [("throwing_knife",0)], itp_type_thrown |itp_merchandise|itp_primary ,itcf_throw_knife, 76 , weight(3.5)|difficulty(0)|spd_rtng(121) | shoot_speed(25) | thrust_damage(19 ,  cut)|max_ammo(14)|weapon_length(0),imodbits_thrown ],
-["throwing_daggers", "Throwing Daggers", [("throwing_dagger",0)], itp_type_thrown |itp_merchandise|itp_primary ,itcf_throw_knife, 193 , weight(3.5)|difficulty(0)|spd_rtng(110) | shoot_speed(24) | thrust_damage(25 ,  cut)|max_ammo(13)|weapon_length(0),imodbits_thrown ],
-
-["hunting_crossbow", "Hunting Crossbow", [("crossbow",0)], itp_type_crossbow|itp_merchandise|itp_two_handed|itp_primary, itcf_shoot_crossbow|itcf_carry_crossbow_back, 
+ ["w_crossbow_hunting", "Hunting Crossbow", [("w_crossbow_hunting",0)], itp_type_crossbow|itp_merchandise|itp_two_handed|itp_primary, itcf_shoot_crossbow|itcf_carry_crossbow_back, 
 88, weight(2.25)|difficulty(0)|spd_rtng(80)|shoot_speed(81)|thrust_damage(48,pierce)|max_ammo(1), imodbits_crossbow ],
-["light_crossbow", "Light Crossbow", [("crossbow_b",0)], itp_type_crossbow|itp_merchandise|itp_two_handed|itp_primary, itcf_shoot_crossbow|itcf_carry_crossbow_back, 
+["w_crossbow_light", "Light Crossbow", [("w_crossbow_light",0)], itp_type_crossbow|itp_merchandise|itp_two_handed|itp_primary, itcf_shoot_crossbow|itcf_carry_crossbow_back, 
 132, weight(2.5)|difficulty(8)|spd_rtng(76)|shoot_speed(92)|thrust_damage(52,pierce)|max_ammo(1), imodbits_crossbow ],
-["crossbow", "Crossbow", [("crossbow_a",0)], itp_type_crossbow|itp_merchandise|itp_cant_reload_on_horseback|itp_two_handed|itp_primary, itcf_shoot_crossbow|itcf_carry_crossbow_back, 
+["w_crossbow_cavalry", "Cavalry Crossbow", [("w_crossbow_cavalry",0)], itp_type_crossbow|itp_merchandise|itp_two_handed|itp_primary, itcf_shoot_crossbow|itcf_carry_crossbow_back, 
+184, weight(2.5)|difficulty(8)|spd_rtng(74)|shoot_speed(96)|thrust_damage(54,pierce)|max_ammo(1), imodbits_crossbow ],
+["w_crossbow_medium", "Crossbow", [("w_crossbow_medium",0)], itp_type_crossbow|itp_merchandise|itp_cant_reload_on_horseback|itp_two_handed|itp_primary, itcf_shoot_crossbow|itcf_carry_crossbow_back, 
 218, weight(3)|difficulty(9)|spd_rtng(72)|shoot_speed(112)|thrust_damage(56,pierce)|max_ammo(1), imodbits_crossbow ],
-["heavy_crossbow", "Heavy Crossbow", [("crossbow_c",0)], itp_type_crossbow|itp_merchandise|itp_cant_reload_on_horseback|itp_two_handed|itp_primary, itcf_shoot_crossbow|itcf_carry_crossbow_back, 
+["w_crossbow_heavy", "Heavy Crossbow", [("w_crossbow_heavy",0)], itp_type_crossbow|itp_merchandise|itp_cant_reload_on_horseback|itp_two_handed|itp_primary, itcf_shoot_crossbow|itcf_carry_crossbow_back, 
 349, weight(3.5)|difficulty(10)|spd_rtng(68)|shoot_speed(125)|thrust_damage(60,pierce)|max_ammo(1), imodbits_crossbow ],
-["sniper_crossbow", "Siege Crossbow", [("crossbow_c",0)], itp_type_crossbow|itp_merchandise|itp_cant_reload_on_horseback|itp_two_handed|itp_primary, itcf_shoot_crossbow|itcf_carry_crossbow_back, 
+["w_crossbow_siege", "Siege Crossbow", [("w_crossbow_siege",0)], itp_type_crossbow|itp_merchandise|itp_cant_reload_on_horseback|itp_two_handed|itp_primary, itcf_shoot_crossbow|itcf_carry_crossbow_back, 
 683, weight(3.75)|difficulty(11)|spd_rtng(62)|shoot_speed(128)|thrust_damage(66,pierce)|max_ammo(1), imodbits_crossbow ],
+
 
 ["w_handgonne_1", "Handgonne", [("w_handgonne_1",0)], itp_type_musket|itp_two_handed|itp_primary|itp_next_item_as_melee, itcf_shoot_musket|itcf_carry_spear|itcf_reload_musket, 
 1850, weight(4.5)|abundance(90)|difficulty(0)|spd_rtng(58)|shoot_speed(160)|thrust_damage(100,pierce)|max_ammo(1)|accuracy(95), imodbits_none, [(ti_on_weapon_attack,[(play_sound,"snd_pistol_shot"),(position_move_x,pos1,0),(position_move_y,pos1,112),(particle_system_burst,"psys_pistol_smoke",pos1,15)])] ],
 ["w_handgonne_2", "Handgonne", [("w_handgonne_2",0)], itp_type_musket|itp_two_handed|itp_primary|itp_next_item_as_melee, itcf_shoot_musket|itcf_carry_spear|itcf_reload_musket, 
 2230, weight(3.8)|abundance(90)|difficulty(0)|spd_rtng(60)|shoot_speed(180)|thrust_damage(120,pierce)|max_ammo(1)|accuracy(98), imodbits_none, [(ti_on_weapon_attack,[(play_sound,"snd_pistol_shot"),(position_move_x,pos1,0),(position_move_y,pos1,107),(particle_system_burst,"psys_pistol_smoke",pos1,15)])] ],
+
+# Piercing Arrows
+["w_arrow_triangular", "Arrows", [("w_arrow_triangular",0),("w_arrow_triangular",ixmesh_flying_ammo),("w_arrow_quiver_triangular",ixmesh_carry)], itp_type_arrows|itp_default_ammo|itp_merchandise, itcf_carry_quiver_back_right, 
+72, weight(3)|abundance(100)|weapon_length(102)|thrust_damage(16,pierce)|max_ammo(30), imodbits_missile ],
+["w_arrow_triangular_large", "Large Arrows", [("w_arrow_triangular_large",0),("w_arrow_triangular_large",ixmesh_flying_ammo),("w_arrow_quiver_triangular_large",ixmesh_carry)], itp_type_arrows|itp_default_ammo|itp_merchandise, itcf_carry_quiver_back_right, 
+104, weight(3.5)|abundance(100)|weapon_length(104)|thrust_damage(18,pierce)|max_ammo(30), imodbits_missile ],
+["w_arrow_bodkin", "Bodkin Arrows", [("w_arrow_bodkin",0),("w_arrow_bodkin",ixmesh_flying_ammo),("w_arrow_quiver_bodkin",ixmesh_carry)], itp_type_arrows|itp_default_ammo|itp_merchandise, itcf_carry_quiver_back_right, 
+162, weight(3)|abundance(80)|weapon_length(104)|thrust_damage(20,pierce)|max_ammo(30), imodbits_missile ],
+# Cutting Arrows
+["w_arrow_broadhead", "Broadhead Arrows", [("w_arrow_broadhead",0),("w_arrow_broadhead",ixmesh_flying_ammo),("w_arrow_quiver_broadhead",ixmesh_carry)], itp_type_arrows|itp_default_ammo|itp_merchandise, itcf_carry_quiver_back, 
+98, weight(4)|abundance(100)|weapon_length(103)|thrust_damage(24,cut)|max_ammo(30), imodbits_missile ],
+["w_arrow_broadhead_large", "Large Broadhead Arrows", [("w_arrow_broadhead_large",0),("w_arrow_broadhead_large",ixmesh_flying_ammo),("w_arrow_quiver_broadhead_large",ixmesh_carry)], itp_type_arrows|itp_default_ammo|itp_merchandise, itcf_carry_quiver_back, 
+146, weight(4.5)|abundance(100)|weapon_length(104)|thrust_damage(26,cut)|max_ammo(30), imodbits_missile ],
+# Blunt Arrows
+["w_arrow_blunt", "Blunt Arrows", [("w_arrow_blunt",0),("w_arrow_blunt",ixmesh_flying_ammo),("w_arrow_quiver_blunt",ixmesh_carry)], itp_type_arrows|itp_default_ammo|itp_merchandise, itcf_carry_quiver_back, 
+86, weight(5)|abundance(100)|weapon_length(98)|thrust_damage(15,blunt)|max_ammo(30), imodbits_missile ],
+
+# Piercing Bolts
+["w_bolt_triangular", "Bolts", [("w_bolt_triangular",0),("w_bolt_triangular",ixmesh_flying_ammo),("w_bolt_quiver_triangular",ixmesh_carry)], itp_type_bolts|itp_default_ammo|itp_merchandise|itp_can_penetrate_shield, itcf_carry_quiver_right_vertical,
+ 64, weight(2.25)|abundance(90)|weapon_length(73)|thrust_damage(10,pierce)|max_ammo(29), imodbits_missile ],
+["w_bolt_triangular_large", "Bolts", [("w_bolt_triangular_large",0),("w_bolt_triangular_large",ixmesh_flying_ammo),("w_bolt_quiver_triangular_large",ixmesh_carry)], itp_type_bolts|itp_default_ammo|itp_merchandise|itp_can_penetrate_shield, itcf_carry_quiver_right_vertical,
+ 92, weight(2.25)|abundance(90)|weapon_length(75)|thrust_damage(12,pierce)|max_ammo(29), imodbits_missile ],
+["w_bolt_bodkin", "Bodkin Bolts", [("w_bolt_bodkin",0),("w_bolt_bodkin",ixmesh_flying_ammo),("w_bolt_quiver_bodkin",ixmesh_carry)], itp_type_bolts|itp_default_ammo|itp_merchandise|itp_can_penetrate_shield, itcf_carry_quiver_right_vertical,
+ 125, weight(2.25)|abundance(90)|weapon_length(74)|thrust_damage(14,pierce)|max_ammo(29), imodbits_missile ],
+# Cutting Bolts
+["w_bolt_boar", "Board Bolts", [("w_bolt_boar",0),("w_bolt_boar",ixmesh_flying_ammo),("w_bolt_quiver_boar",ixmesh_carry)], itp_type_bolts|itp_default_ammo|itp_merchandise|itp_can_penetrate_shield, itcf_carry_quiver_right_vertical,
+ 100, weight(3)|abundance(90)|weapon_length(73)|thrust_damage(16,cut)|max_ammo(29), imodbits_missile ],
+["w_bolt_broadhead", "Broadhead Bolts", [("w_bolt_broadhead",0),("w_bolt_broadhead",ixmesh_flying_ammo),("w_bolt_quiver_broadhead",ixmesh_carry)], itp_type_bolts|itp_default_ammo|itp_merchandise|itp_can_penetrate_shield, itcf_carry_quiver_right_vertical,
+ 118, weight(3)|abundance(90)|weapon_length(73)|thrust_damage(18,cut)|max_ammo(29), imodbits_missile ],
+
+
+["cartridges","Cartridges", [("cartridge_a",0)], itp_type_bullets|itp_merchandise|itp_can_penetrate_shield|itp_default_ammo, 0, 41,weight(2.25)|abundance(90)|weapon_length(3)|thrust_damage(1,pierce)|max_ammo(50),imodbits_missile],
+["stones",         "Stones", [("throwing_stone",0)], itp_type_thrown |itp_merchandise|itp_primary ,itcf_throw_stone, 1 , weight(4)|difficulty(0)|spd_rtng(97) | shoot_speed(30) | thrust_damage(11 ,  blunt)|max_ammo(18)|weapon_length(8),imodbit_large_bag ],
+["throwing_knives", "Throwing Knives", [("throwing_knife",0)], itp_type_thrown |itp_merchandise|itp_primary ,itcf_throw_knife, 76 , weight(3.5)|difficulty(0)|spd_rtng(121) | shoot_speed(25) | thrust_damage(19 ,  cut)|max_ammo(14)|weapon_length(0),imodbits_thrown ],
+["throwing_daggers", "Throwing Daggers", [("throwing_dagger",0)], itp_type_thrown |itp_merchandise|itp_primary ,itcf_throw_knife, 193 , weight(3.5)|difficulty(0)|spd_rtng(110) | shoot_speed(24) | thrust_damage(25 ,  cut)|max_ammo(13)|weapon_length(0),imodbits_thrown ],
 
 ["dedal_kufel","Kufel",[("dedal_kufelL",0)],	itp_type_hand_armor,0,0,weight(1),0],
 ["dedal_lutnia","Lutnia",[("dedal_lutniaL",0)],	itp_type_hand_armor,0,0,weight(1),0],

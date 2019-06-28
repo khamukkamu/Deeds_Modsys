@@ -39,7 +39,7 @@ from compiler import *
 # the new flags now also have af_override_everything, so include footwear
 pilgrim_disguise = [itm_pilgrim_hood,itm_pilgrim_disguise,itm_practice_staff, itm_throwing_daggers, itm_b_wrapping_boots]
 farmer_disguise = [itm_h_felt_hat_b_brown, itm_a_farmer_tunic, itm_b_ankle_boots, itm_w_fork_2, itm_w_onehanded_war_axe]
-hunter_disguise = [itm_h_hood_black,itm_g_leather_gauntlet, itm_a_hunter_coat, itm_w_archer_hatchet, itm_w_hunting_bow_elm, itm_barbed_arrows, itm_b_wrapping_boots]
+hunter_disguise = [itm_h_hood_black,itm_g_leather_gauntlet, itm_a_hunter_coat, itm_w_archer_hatchet, itm_w_hunting_bow_elm, itm_w_arrow_broadhead, itm_b_wrapping_boots]
 merchant_disguise = [itm_a_merchant_outfit,itm_b_hosen_shoes_custom,itm_h_highlander_beret_red_2,itm_w_dagger_italian]
 guard_disguise = [itm_h_mail_coif,itm_g_mail_gauntlets,itm_a_mail_shirt_custom,itm_b_mail_chausses,itm_tab_shield_round_c,itm_w_warhammer_1,itm_w_spear_7]
 bard_disguise = [itm_h_highlander_beret_green_2,itm_a_noble_shirt_green,itm_b_hosen_shoes_custom,itm_w_mace_winged,itm_lyre]
@@ -826,11 +826,13 @@ dedal_tavern_animations = (
         (agent_set_stand_animation, ":agent", "anim_lute_sitting"),
         (agent_set_animation, ":agent", "anim_lute_sitting"),
         (agent_play_sound,":agent","snd_dedal_tavern_lute"),
+        (agent_ai_set_interact_with_player, ":agent", 0), # DAC Seek: Stop agents from turning when the player steps nearby		
       (else_try),
         (agent_has_item_equipped,":agent","itm_dedal_lira"),
         (agent_set_stand_animation, ":agent", "anim_lyre_sitting"),
         (agent_set_animation, ":agent", "anim_lyre_sitting"),
         (agent_play_sound,":agent","snd_dedal_tavern_lyre"),
+        (agent_ai_set_interact_with_player, ":agent", 0), # DAC Seek: Stop agents from turning when the player steps nearby				
       (try_end),
       (store_random_in_range,":r",0,300),
       (agent_set_animation_progress,":agent",":r"),
@@ -855,10 +857,12 @@ dedal_tavern_animations = (
         (agent_has_item_equipped,":agent","itm_dedal_kufel"),
         (agent_set_stand_animation, ":agent", "anim_sitting_drinking_low"),
         (agent_set_animation, ":agent", "anim_sitting_drinking_low"),
+        (agent_ai_set_interact_with_player, ":agent", 0), # DAC Seek: Stop agents from turning when the player steps nearby				
         (store_random_in_range,":r",0,300),
       (else_try),
         (agent_set_stand_animation, ":agent", "anim_sitting_low"),
         (agent_set_animation, ":agent", "anim_sitting_low"),
+        (agent_ai_set_interact_with_player, ":agent", 0), # DAC Seek: Stop agents from turning when the player steps nearby				
         (store_random_in_range,":r",0,300),
       (try_end),
       (agent_set_animation_progress,":agent",":r"),
