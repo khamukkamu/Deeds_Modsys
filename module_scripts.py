@@ -77348,10 +77348,24 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 # Brittany    
       (item_set_slot, "itm_h_hood_custom", slot_item_breton_materials_begin, "str_h_hood_brown"),
       (item_set_slot, "itm_h_hood_custom", slot_item_breton_materials_end, "str_h_hood_brown_green"),  
-# Rebels    
-      (item_set_slot, "itm_h_hood_custom", slot_item_rebel_materials_begin, "str_a_mail_shirt_arms_green"),
-      (item_set_slot, "itm_h_hood_custom", slot_item_rebel_materials_end, "str_a_mail_shirt_arms_end"),     
-      (item_set_slot, "itm_h_hood_custom", slot_item_num_components, 1),        	  
+      (item_set_slot, "itm_h_hood_custom", slot_item_num_components, 1),        
+
+## Vertex Coloured Hoods
+      (item_set_slot, "itm_h_hood_fi_custom", slot_item_materials_begin, "str_h_hood_fi_blue"),
+      (item_set_slot, "itm_h_hood_fi_custom", slot_item_materials_end, "str_h_hood_fi_end"),
+# France
+      (item_set_slot, "itm_h_hood_fi_custom", slot_item_france_materials_begin, "str_h_hood_fi_blue"),
+      (item_set_slot, "itm_h_hood_fi_custom", slot_item_france_materials_end, "str_h_hood_fi_green"),
+# England
+      (item_set_slot, "itm_h_hood_fi_custom", slot_item_english_materials_begin, "str_h_hood_fi_white"),
+      (item_set_slot, "itm_h_hood_fi_custom", slot_item_english_materials_end, "str_h_hood_fi_brown"),
+# Burgundy
+      (item_set_slot, "itm_h_hood_fi_custom", slot_item_burgundy_materials_begin, "str_h_hood_fi_red"),
+      (item_set_slot, "itm_h_hood_fi_custom", slot_item_burgundy_materials_end, "str_h_hood_fi_black"),
+# Brittany    
+      (item_set_slot, "itm_h_hood_fi_custom", slot_item_breton_materials_begin, "str_h_hood_fi_brown"),
+      (item_set_slot, "itm_h_hood_fi_custom", slot_item_breton_materials_end, "str_h_hood_fi_end"),  
+      (item_set_slot, "itm_h_hood_fi_custom", slot_item_num_components, 1),        	  
 
       #Init Custom Armors
       (try_for_range, ":item_no", "itm_h_bascinet_fi_hood_custom", "itm_dplmc_coat_of_plates_red_constable"), # Seek: Changed the range

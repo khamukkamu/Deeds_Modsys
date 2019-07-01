@@ -645,11 +645,21 @@ items = [
 ###################################################################################################### HYW HOODS | HATS ##########################################################################################################################################################################################
 ##################################################################################################################################################################################################################################################################################################################
 # Light headgear
-["h_arming_cap", "Arming Cap", [("h_arming_cap",0)], itp_merchandise| itp_type_head_armor  |itp_civilian ,0, 5 , weight(1)|abundance(100)|head_armor(7)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth ],
+["h_arming_cap", "Arming Cap", [("h_arming_cap",0)], itp_merchandise| itp_type_head_armor  |itp_civilian ,0, 38 , weight(1)|abundance(100)|head_armor(12)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth ],
 ["h_simple_coif", "Arming Cap", [("h_simple_coif",0)], itp_merchandise| itp_type_head_armor  |itp_civilian ,0, 4, weight(1)|abundance(100)|head_armor(6)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth ],
+["h_simple_coif_black", "Arming Cap", [("h_simple_coif_black",0)], itp_merchandise| itp_type_head_armor  |itp_civilian ,0, 4, weight(1)|abundance(100)|head_armor(6)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth ],
+["h_simple_coif_brown", "Arming Cap", [("h_simple_coif_brown",0)], itp_merchandise| itp_type_head_armor  |itp_civilian ,0, 4, weight(1)|abundance(100)|head_armor(6)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth ],
 ["h_leather_cap", "Leather Cap", [("h_leather_cap",0)], itp_merchandise| itp_type_head_armor|itp_civilian ,0, 6 , weight(1)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth ],
 ["h_mitre", "Mitre", [("h_mitre",0)],  itp_type_head_armor|itp_civilian ,0, 6 , weight(1)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth ],
 ["h_straw_hat", "Straw Hat", [("h_straw_hat",0)],itp_merchandise|itp_type_head_armor|itp_civilian,0,9, weight(1)|abundance(100)|head_armor(2)|body_armor(0)|leg_armor(0)|difficulty(0),imodbits_cloth],
+
+# Leather Hats
+["h_leather_hat", "Leather Hat", [("h_leather_hat",0)], itp_merchandise|itp_type_head_armor|itp_civilian ,0, 6 , weight(1)|abundance(100)|head_armor(8)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth ],
+["h_leather_hat_b", "Leather Hat", [("h_leather_hat_b",0)], itp_merchandise|itp_type_head_armor|itp_civilian ,0, 6 , weight(1)|abundance(100)|head_armor(9)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth ],
+["h_leather_hat_c", "Leather Hat", [("h_leather_hat_c",0)], itp_merchandise|itp_type_head_armor|itp_civilian ,0, 13, weight(1)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth ],
+["h_leather_hat_c_black", "Leather Hat", [("h_leather_hat_c",0)], itp_merchandise|itp_type_head_armor|itp_civilian ,0, 13, weight(1)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth, [(ti_on_init_item,[(cur_item_set_material, "@h_leather_hats_2_black", 0, 0),])]],
+["h_leather_hat_d", "Leather Hat", [("h_leather_hat_d",0)], itp_merchandise|itp_type_head_armor|itp_civilian ,0, 13, weight(1)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth ],
+["h_leather_hat_d_black", "Leather Hat", [("h_leather_hat_d",0)], itp_merchandise|itp_type_head_armor|itp_civilian ,0, 13, weight(1)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_cloth , [(ti_on_init_item,[(cur_item_set_material, "@h_leather_hats_2_black", 0, 0),])]],
 
 # Women headgear
 ["h_court_barbette", "Barbette", [("h_court_barbette",0)],itp_merchandise|itp_type_head_armor|itp_civilian|itp_fit_to_head,0,70, weight(0.5)|abundance(100)|head_armor(6)|body_armor(0)|leg_armor(0)|difficulty(0),imodbits_cloth],
@@ -971,6 +981,7 @@ items = [
 ["a_leather_armor_custom", "Padded Leather", [("a_leather_armor_base",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs|itp_civilian,0, 454 , weight(12)|abundance(100)|head_armor(0)|body_armor(27)|leg_armor(10)|difficulty(0) ,imodbits_cloth ,[custom_remodel("itm_a_leather_armor_custom")]], 
 ["a_mail_shirt_custom", "Mail Shirt", [("a_mail_shirt_base",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1040 , weight(19)|abundance(100)|head_armor(0)|body_armor(37)|leg_armor(12)|difficulty(7) ,imodbits_armor ,[custom_remodel("itm_a_mail_shirt_custom")]], 
 ["h_hood_custom", "Hood", [("mesh_none",0)],itp_merchandise|itp_type_head_armor|itp_civilian,0,9, weight(1)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0),imodbits_cloth,[custom_remodel("itm_h_hood_custom")]], 
+["h_hood_fi_custom", "Hood", [("mesh_none",0)],itp_merchandise|itp_type_head_armor|itp_civilian,0,9, weight(1)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0),imodbits_cloth,[custom_remodel("itm_h_hood_fi_custom")]], 
 
 ##diplomacy begin
 ["dplmc_coat_of_plates_red_constable", "Constable Coat of Plates", [("a_brigandine_bogmir",0)], itp_unique|itp_type_body_armor|itp_covers_legs|itp_civilian,0,

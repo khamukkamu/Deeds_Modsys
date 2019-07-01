@@ -5596,6 +5596,21 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("h_hood_white_green", "h_hood_white_green"),  
 ("h_hood_end", "h_hood_end"),
 
+## Vertex Coloured Hood FI
+# French 
+("h_hood_fi_blue", "h_hood_fi_blue"),
+("h_hood_fi_white", "h_hood_fi_white"),
+# English
+("h_hood_fi_green", "h_hood_fi_green"),
+("h_hood_fi_red", "h_hood_fi_red"),
+# Burgundian
+("h_hood_fi_brown", "h_hood_fi_brown"),
+("h_hood_fi_white_2", "h_hood_fi_white"),
+# Breton
+("h_hood_fi_black", "h_hood_fi_black"),  
+# Rebel
+("h_hood_fi_end", "h_hood_fi_end"),
+
 
 # DAC Starting Quest Strings  
 
