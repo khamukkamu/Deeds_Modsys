@@ -77022,6 +77022,29 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_rebel_materials_begin, "str_a_gambeson_narf_green"),
       (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_rebel_materials_end, "str_a_gambeson_narf_end"),      
       (item_set_slot, "itm_a_gambeson_narf_custom", slot_item_num_components, 1),   
+	  
+## Narf Gambeson Plate
+      (item_set_slot, "itm_a_gambeson_narf_breastplate_custom", slot_item_materials_begin, "str_a_gambeson_narf_blue"),
+      (item_set_slot, "itm_a_gambeson_narf_breastplate_custom", slot_item_materials_end, "str_a_gambeson_narf_end"),
+# France
+      (item_set_slot, "itm_a_gambeson_narf_breastplate_custom", slot_item_france_materials_begin, "str_a_gambeson_narf_blue"),
+      (item_set_slot, "itm_a_gambeson_narf_breastplate_custom", slot_item_france_materials_end, "str_a_gambeson_narf_english"),
+# England
+      (item_set_slot, "itm_a_gambeson_narf_breastplate_custom", slot_item_english_materials_begin, "str_a_gambeson_narf"),
+      (item_set_slot, "itm_a_gambeson_narf_breastplate_custom", slot_item_english_materials_end, "str_a_gambeson_narf_brown"),
+# Burgundy
+      (item_set_slot, "itm_a_gambeson_narf_breastplate_custom", slot_item_burgundy_materials_begin, "str_a_gambeson_narf_red"),
+      (item_set_slot, "itm_a_gambeson_narf_breastplate_custom", slot_item_burgundy_materials_end, "str_a_gambeson_narf_black"),
+# Brittany    
+      (item_set_slot, "itm_a_gambeson_narf_breastplate_custom", slot_item_breton_materials_begin, "str_a_gambeson_narf_half_black"),
+      (item_set_slot, "itm_a_gambeson_narf_breastplate_custom", slot_item_breton_materials_end, "str_a_gambeson_narf_yellow_black"),  
+# Flemish Mercenaries   
+      (item_set_slot, "itm_a_gambeson_narf_breastplate_custom", slot_item_flemish_materials_begin, "str_a_gambeson_narf_black"),
+      (item_set_slot, "itm_a_gambeson_narf_breastplate_custom", slot_item_flemish_materials_end, "str_a_gambeson_narf_green"),  
+# Rebels    
+      (item_set_slot, "itm_a_gambeson_narf_breastplate_custom", slot_item_rebel_materials_begin, "str_a_gambeson_narf_green"),
+      (item_set_slot, "itm_a_gambeson_narf_breastplate_custom", slot_item_rebel_materials_end, "str_a_gambeson_narf_end"),      
+      (item_set_slot, "itm_a_gambeson_narf_breastplate_custom", slot_item_num_components, 1),   	  
 
 ## Bogmir Brigandine 
       (item_set_slot, "itm_a_brigandine_bogmir_custom", slot_item_materials_begin, "str_a_brigandine_french"),
