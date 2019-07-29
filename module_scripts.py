@@ -76026,19 +76026,24 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
         (troop_raise_skill, "trp_player",skl_horse_archery,1),
         (troop_raise_skill, "trp_player",skl_power_throw,1),				
 		
-        (troop_raise_proficiency, "trp_player",wpt_two_handed_weapon,10),
-        (troop_raise_proficiency, "trp_player",wpt_archery,80),	
-        (troop_raise_proficiency, "trp_player",wpt_polearm,10),	
+        (troop_raise_proficiency, "trp_player",wpt_two_handed_weapon,15),
+        (troop_raise_proficiency, "trp_player",wpt_archery,60),	
+        (troop_raise_proficiency, "trp_player",wpt_polearm,15),	
 		
         (call_script,"script_change_troop_renown", "trp_player", 5),
         (troop_add_gold, "trp_player", 100),
 
+        (store_random_in_range, ":food_item", "itm_cattle_meat", "itm_siege_supply"),
+        (troop_add_item, "trp_player",":food_item"),		
         (troop_add_item, "trp_player","itm_w_archers_maul"),
         (troop_add_item, "trp_player","itm_w_arrow_broadhead"),
         (troop_add_item, "trp_player","itm_w_hunting_bow_yew"),
         (troop_add_item, "trp_player","itm_h_hood_black"),
         (troop_add_item, "trp_player","itm_a_hunter_coat"),
         (troop_add_item, "trp_player","itm_b_wrapping_boots"),		
+		
+        (party_add_members,"p_main_party","trp_french_peasant", 8),
+        (party_add_members,"p_main_party","trp_french_peasant_archer", 5),	
   ]),
 
 ("start_as_merc", [
@@ -76074,6 +76079,13 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
         (troop_add_item, "trp_player","itm_a_padded_armor_custom"),
         (troop_add_item, "trp_player","itm_b_leather_boots"),
         (troop_add_item, "trp_player","itm_s_steel_buckler"),		
+		
+        (party_add_members,"p_main_party","trp_mercenary_german_dismounted_knight", 1),
+        (party_add_members,"p_main_party","trp_flemish_militia_crossbowman", 3),
+        (party_add_members,"p_main_party","trp_mercenary_archer", 2),
+        (party_add_members,"p_main_party","trp_mercenary_pavise_spearman", 4),
+        (party_add_members,"p_main_party","trp_mercenary_maceman", 2),
+        (party_add_members,"p_main_party","trp_flemish_militia_pikeman", 3),
 
   ]),
 
@@ -79119,6 +79131,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (set_jump_mission,"mt_custom_lead_charge"),
       (call_script, "script_setup_random_scene"),
       (modify_visitors_at_site, reg0),
+	  
       (faction_get_slot, ":tier_2_troop", "fac_kingdom_1", slot_faction_tier_2_troop),
       (faction_get_slot, ":tier_3_troop", "fac_kingdom_1", slot_faction_tier_3_troop),
       (set_visitor, 0,"trp_player"),
@@ -79128,6 +79141,10 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (set_visitors,2,"trp_flayer_infantry", 5),
       (set_visitors,2,"trp_flayer_fauchard", 5),
       (set_visitors,2,"trp_flayer_archer", 8),
+### DAC Seek: Not sure if needed	  
+        # (party_clear, "p_temp_casualties"),
+        # (set_party_battle_mode),
+	  
       (set_battle_advantage, 0),
       (assign, "$g_battle_result", 0),
       (assign, "$g_next_menu", "mnu_starting_quest_victory_merc"),
