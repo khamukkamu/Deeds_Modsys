@@ -739,6 +739,7 @@ scripts = [
     (assign, "$FormAI_AI_Control_Troops", 1), #AI Control Dead Player's Troops (FormV5)
 
     (call_script, "script_initialize_custom_armor_data"), 
+    (call_script, "script_init_weapon_switching"),	
 
     ]),
 
@@ -7688,6 +7689,7 @@ scripts = [
       (item_set_slot, "itm_book_wound_treatment_reference", slot_item_intelligence_requirement, 10),
       (item_set_slot, "itm_book_training_reference", slot_item_intelligence_requirement, 10),
       (item_set_slot, "itm_book_surgery_reference", slot_item_intelligence_requirement, 10),
+	  
 	 ]),
 
 
@@ -15722,6 +15724,33 @@ scripts = [
           (set_result_string, "@Deliver {reg5} units to {s5}"),
           (set_trigger_result, message_alert),
         (try_end),
+### DaC Autolykos Alternate Weapon Modes
+     (else_try),
+        (item_get_slot, ":alt_item", ":item_no", slot_item_weapon_switch_to),
+		(gt, ":alt_item", 0),
+        (try_begin),
+          (eq, ":extra_text_id", 0),
+		  (item_get_type, ":alt_type", ":alt_item"),
+		  (item_get_swing_damage_type, ":alt_damage_type", ":alt_item"),
+          (try_begin),
+		    (eq, ":alt_type", itp_type_thrown),
+            (set_result_string, "@Throwable"),
+            (set_trigger_result, 0xFFEEDD),
+		  (else_try),
+		    (eq, ":alt_damage_type", cut),
+            (set_result_string, "@Cutting when flipped"),
+            (set_trigger_result, 0xFFEEDD),
+		  (else_try),
+		    (eq, ":alt_damage_type", pierce),
+            (set_result_string, "@Piercing when flipped"),
+            (set_trigger_result, 0xFFEEDD),
+		  (else_try),
+		    (eq, ":alt_damage_type", blunt),
+            (set_result_string, "@Blunt when flipped"),
+            (set_trigger_result, 0xFFEEDD),
+		  (try_end),
+        (try_end),		
+### DaC End		
       (else_try),
         (is_between, ":item_no", readable_books_begin, readable_books_end),
         (try_begin),
@@ -37518,6 +37547,122 @@ scripts = [
 
     (call_script, "script_update_order_flags_on_map"),
   ]),
+  
+### DaC Autolykos Alternate Weapon Modes
+  # script_order_switch_weapon_mode
+  # Called from triggers in mission_templates
+  # Input: arg1 = order_no (mordr_use_any_weapon or mordr_use_blunt_weapons), arg2 = commander_agent
+  # Output: none
+  ("order_switch_weapon_mode",
+    [
+      (store_script_param_1, ":order_no"),
+      (store_script_param_2, ":commander_agent"),
+		  
+	  (agent_get_team, ":team_id", ":commander_agent"),
+	  
+	  (try_for_agents, ":agent_no"),
+		(agent_is_active, ":agent_no"),
+		(agent_is_human, ":agent_no"),
+		(agent_is_non_player, ":agent_no"),
+		(agent_is_alive, ":agent_no"),
+		(agent_get_team, ":team_no", ":agent_no"),
+		(eq, ":team_no", ":team_id"),
+		(agent_get_class, ":class_no", ":agent_no"),
+		(class_is_listening_order, ":team_no", ":class_no"),
+		(agent_get_wielded_item, ":item_no", ":agent_no", 0),
+		(try_begin), #could be using fists
+		  (gt, ":item_no", 0),
+		  (item_get_slot, ":swap_no", ":item_no", slot_item_weapon_switch_to),
+		(else_try),
+		  (assign, ":swap_no", 0),
+		(try_end),
+		
+		(try_begin), #none found on wielded item
+		  (eq, ":swap_no", 0),
+		  (assign, ":end", ek_head),
+		  (try_for_range, ":item_slot", ek_item_0, ":end"),
+			(agent_get_item_slot, ":item_no", ":agent_no", ":item_slot"),
+			(gt, ":item_no", 0),
+			(item_get_slot, ":swap_no", ":item_no", slot_item_weapon_switch_to),
+			(gt, ":swap_no", 0),
+			(assign, ":end", -1),
+		  (try_end),
+		(try_end),
+		(gt, ":swap_no", 0),
+		(try_begin),
+		  (eq, ":order_no", mordr_use_any_weapon), #switch back to the base version (should be the best option)
+		  (call_script, "script_weapon_get_base_version", ":item_no"),
+		  (assign, ":swap_no", reg0),
+		  (eq, ":swap_no", ":item_no"),
+		  (assign, ":swap_no", 0),
+		(else_try),
+		  (eq, ":order_no", mordr_use_blunt_weapons), #switching to blunt modes only
+		  (call_script, "script_weapon_get_blunt_version", ":item_no"),
+		  (assign, ":swap_no", reg0),
+		  (eq, ":swap_no", ":item_no"),
+		  (assign, ":swap_no", 0),
+		(else_try),
+		  (assign, ":swap_no", 0),
+		(try_end),
+		(gt, ":swap_no", 0),
+		(agent_unequip_item, ":agent_no", ":item_no"),
+		(agent_equip_item, ":agent_no", ":swap_no"),
+		(agent_set_wielded_item, ":agent_no", ":swap_no"),
+	  (try_end),
+  ]),
+  
+  # Helper Scripts:
+  # Returns the next blunt version this weapon can switch to, if found (and -1 otherwise)
+  ("weapon_get_blunt_version",
+    [ (store_script_param_1, ":item_no"),
+	  (assign, ":blunt_version", -1),
+	  (try_begin),
+		(item_get_swing_damage_type, ":swing_type", ":item_no"),
+		(eq, ":swing_type", blunt),
+		(assign, ":blunt_version", ":item_no"),
+	  (else_try),
+	    (assign, ":end", 10), # Don't search any further than 10 items
+	    (item_get_slot, ":swap", ":item_no", slot_item_weapon_switch_to),
+	    (try_for_range, ":unused", 0, ":end"),
+		  (try_begin),
+		    (this_or_next|le, ":swap", 0),
+		    (eq, ":swap", ":item_no"),
+			(assign, ":end", -1),
+		  (else_try),
+			(item_get_swing_damage_type, ":swing_type", ":swap"),
+			(eq, ":swing_type", blunt),
+			(assign, ":blunt_version", ":swap"),
+			(assign, ":end", -1),
+		  (else_try),
+	        (item_get_slot, ":swap", ":swap", slot_item_weapon_switch_to),
+		  (try_end),
+		(try_end),
+	  (try_end),
+	  (assign, reg0, ":blunt_version"),
+  ]),
+  # Returns the base version of this weapon (the one that comes first in module_items)
+  ("weapon_get_base_version",
+    [ (store_script_param_1, ":item_no"),
+	  (assign, ":base_version", ":item_no"),
+	  (try_begin),
+	    (assign, ":end", 10), # Don't search any further than 10 items
+	    (item_get_slot, ":swap", ":item_no", slot_item_weapon_switch_to),
+	    (try_for_range, ":unused", 0, ":end"),
+		  (try_begin),
+		    (this_or_next|le, ":swap", 0),
+		    (eq, ":swap", ":item_no"),
+			(assign, ":end", -1),
+		  (else_try),
+			(lt, ":swap", ":base_version"),
+			(assign, ":base_version", ":swap"),
+		  (try_end),
+	      (item_get_slot, ":swap", ":swap", slot_item_weapon_switch_to),
+		(try_end),
+	  (try_end),
+	  (assign, reg0, ":base_version"),
+  ]),
+
+### DaC End  
 
  # script_set_town_picture
   # Input: none
@@ -79069,6 +79214,53 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
   (assign, reg0, ":removed"),
 ]),
 
+####################################################################################################################
+# DAC - Autolykos alternate weapon modes
+####################################################################################################################
+
+	("init_weapon_switching", [
+	  # Allowing Weapons to be switched
+### Axes	  
+      (call_script, "script_item_weapon_switch_with_next", "itm_w_horseman_axe_1"),
+      (call_script, "script_item_weapon_switch_with_next", "itm_w_horseman_axe_2"),
+      (call_script, "script_item_weapon_switch_with_next", "itm_w_horseman_axe_3"),
+      (call_script, "script_item_weapon_switch_with_next", "itm_w_german_knight_axe"),
+      (call_script, "script_item_weapon_switch_with_next", "itm_w_german_knight_axe_2"),
+      (call_script, "script_item_weapon_switch_with_next", "itm_w_knight_battle_axe"),
+      (call_script, "script_item_weapon_switch_with_next", "itm_w_twohanded_war_axe_3"),
+	  
+### Warhammers
+      (call_script, "script_item_weapon_switch_with_next", "itm_w_warhammer_1"),
+      (call_script, "script_item_weapon_switch_with_next", "itm_w_warhammer_2"),
+      (call_script, "script_item_weapon_switch_with_next", "itm_w_knight_warhammer_1"),
+      (call_script, "script_item_weapon_switch_with_next", "itm_w_knight_warhammer_2"),
+	  
+### Polearms 	  
+      (call_script, "script_item_weapon_switch_with_next", "itm_w_bec_de_corbin"),
+      (call_script, "script_item_weapon_switch_with_next", "itm_w_poleaxe_english"),
+      (call_script, "script_item_weapon_switch_with_next", "itm_w_polehammer_1"),
+      (call_script, "script_item_weapon_switch_with_next", "itm_w_polehammer_2"),
+      (call_script, "script_item_weapon_switch_with_next", "itm_w_polehammer_lucern"),
+      (call_script, "script_item_weapon_switch_with_next", "itm_w_polehammer_milan"),
+      (call_script, "script_item_weapon_switch_with_next", "itm_w_voulge_swiss_3"), 
+      (call_script, "script_item_weapon_switch_with_next", "itm_w_spear_1"), 
+      (call_script, "script_item_weapon_switch_with_next", "itm_w_spear_2"), 
+      (call_script, "script_item_weapon_switch_with_next", "itm_w_spear_3"), 
+      (call_script, "script_item_weapon_switch_with_next", "itm_w_spear_4"), 
+      (call_script, "script_item_weapon_switch_with_next", "itm_w_spear_5"), 
+      (call_script, "script_item_weapon_switch_with_next", "itm_w_spear_6"), 
+      (call_script, "script_item_weapon_switch_with_next", "itm_w_spear_7"), 
+      (call_script, "script_item_weapon_switch_with_next", "itm_w_spear_8"), 
+	  
+
+	 ]),
+	 
+	("item_weapon_switch_with_next", [
+	  (store_script_param_1, ":item_no"),
+	  (store_add, ":next_item", ":item_no", 1),
+      (item_set_slot, ":item_no", slot_item_weapon_switch_to, ":next_item"),
+      (item_set_slot, ":next_item", slot_item_weapon_switch_to, ":item_no"),
+	]),
 
 ####################################################################################################################
 # DAC - Starting Quest Scripts

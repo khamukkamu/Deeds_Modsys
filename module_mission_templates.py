@@ -869,12 +869,53 @@ dedal_tavern_animations = (
     (try_end),
   ],[])
   
+common_player_weapon_toggle = (
+  0,0,1, [
+    (neg|main_hero_fallen),
+    (game_key_clicked, gk_toggle_weapon_mode),
+    (get_player_agent_no, ":player_agent"),
+    (agent_get_wielded_item, ":item", ":player_agent", 0),
+    (gt, ":item", 0),
+    (item_slot_ge, ":item", slot_item_weapon_switch_to, 1),
+  ],[
+    (get_player_agent_no, ":player_agent"),
+    (agent_get_wielded_item, ":item", ":player_agent", 0),
+    (item_get_slot, ":alternate", ":item", slot_item_weapon_switch_to),
+    (gt, ":alternate", 1),
+    (agent_unequip_item, ":player_agent", ":item"),
+    (agent_equip_item, ":player_agent", ":alternate"),
+    (agent_set_wielded_item, ":player_agent", ":alternate"),
+  ])
+  
+common_ai_weapon_toggle = (
+  ti_on_order_issued, 0, 0, [
+  (store_trigger_param_1, ":order_no"),
+  (this_or_next|eq, ":order_no", mordr_use_any_weapon),
+  (eq, ":order_no", mordr_use_blunt_weapons),
+  ],[
+  (store_trigger_param_1, ":order_no"),
+  (store_trigger_param_2, ":agent_id"), #probably the player
+  (call_script, "script_order_switch_weapon_mode", ":order_no", ":agent_id"),
+])
+
+common_ai_weapon_toggle_check = (
+  ti_on_item_wielded, 0, 0, [
+  (store_trigger_param_2, ":item_no"),
+  (eq, ":item_no", 0),
+  ],[
+  (store_trigger_param_1, ":agent_no"),
+  (agent_unequip_item, ":agent_no", 0),
+  (agent_force_rethink, ":agent_no"),
+  ])	 
   
 
 deeds_common_battle_scripts = [
   tld_cheer_on_space_when_battle_over_press,
   tld_cheer_on_space_when_battle_over_release,
   mission_fade_in,
+  common_player_weapon_toggle,
+  common_ai_weapon_toggle,
+  common_ai_weapon_toggle_check,
   #customize_armor,
   #bright_nights
   ] + battle_panel_triggers + utility_triggers + extended_battle_menu + common_division_data + division_order_processing + real_deployment + formations_triggers + AI_triggers
@@ -888,6 +929,9 @@ deeds_common_siege_scripts = [
     common_move_deathcam, common_rotate_deathcam,
     custom_commander_camera, deathcam_cycle_forwards, deathcam_cycle_backwards,
     dplmc_death_camera,  
+    common_player_weapon_toggle,
+    common_ai_weapon_toggle,
+    common_ai_weapon_toggle_check,	
   #customize_armor,
   #bright_nights
   ] 
@@ -1948,7 +1992,6 @@ common_siege_assign_men_to_belfry = (
   [
     (call_script, "script_cf_siege_assign_men_to_belfry"),
     ], [])
-
 
 tournament_triggers_diplo = [
   (ti_before_mission_start, 0, 0, [], [(call_script, "script_change_banners_and_chest"),

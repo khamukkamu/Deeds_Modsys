@@ -19,6 +19,7 @@ slot_item_food_bonus               = 1
 slot_item_book_reading_progress    = 2
 slot_item_book_read                = 3
 slot_item_intelligence_requirement = 4
+slot_item_weapon_switch_to         = 5
 
 slot_item_amount_available         = 7
 
