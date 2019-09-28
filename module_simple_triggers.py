@@ -6440,6 +6440,7 @@ simple_triggers = [
 		(assign, ":num_exiles", 0),
 		#iterate over lords from a random start point, wrapping back to zero
 		(store_random_in_range, ":rand_no", lords_begin, lords_end),
+		(val_sub, ":rand_no", lords_begin),	# DAC: Fix from Diegoami https://forums.taleworlds.com/index.php/topic,324014.msg9159510.html#msg9159510		
 		(try_for_range, ":index", lords_begin, lords_end),
 		  (store_add, ":troop_no", ":rand_no", ":index"),
 		  (try_begin),
