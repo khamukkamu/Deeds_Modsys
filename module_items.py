@@ -735,7 +735,6 @@ items = [
 
 ["a_peasant_tunic", "Peasant Tunic", [("a_peasant_tunic",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs|itp_civilian ,0, 6 , weight(1)|abundance(100)|head_armor(0)|body_armor(6)|leg_armor(2)|difficulty(0) ,imodbits_cloth ],
 ["a_farmer_tunic", "Tunic with vest", [("a_farmer_tunic",0)], itp_merchandise| itp_type_body_armor |itp_civilian |itp_covers_legs ,0, 47 , weight(2)|abundance(100)|head_armor(0)|body_armor(11)|leg_armor(6)|difficulty(0) ,imodbits_cloth ],
-["a_hunter_coat", "Pelt Coat", [("a_hunter_coat",0)],  itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0, 14, weight(2)|abundance(100)|head_armor(0)|body_armor(9)|leg_armor(1)|difficulty(0) ,imodbits_cloth ],
 ["a_peasant_coat", "Coat", [("a_peasant_coat",0)],  itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0, 14, weight(2)|abundance(100)|head_armor(0)|body_armor(9)|leg_armor(1)|difficulty(0) ,imodbits_cloth ],
 
 # Church
@@ -919,6 +918,7 @@ items = [
 ["a_woman_common_dress_1_custom", "Dress", [("a_woman_common_dress_1",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs|itp_civilian ,0, 6 , weight(1)|abundance(100)|head_armor(0)|body_armor(6)|leg_armor(2)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_woman_common_dress_1_custom")]], 
 ["a_woman_common_dress_2_custom", "Dress", [("a_woman_common_dress_2",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs|itp_civilian ,0, 6 , weight(1)|abundance(100)|head_armor(0)|body_armor(6)|leg_armor(2)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_woman_common_dress_2_custom")]], 
 ["a_peasant_shirt_custom", "Shirt", [("a_peasant_shirt",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs|itp_civilian ,0, 3 , weight(1)|abundance(100)|head_armor(0)|body_armor(5)|leg_armor(0)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_peasant_shirt_custom")]], 
+["a_hunter_coat_custom", "Pelt Coat", [("a_hunter_coat",0)],  itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0, 14, weight(2)|abundance(100)|head_armor(0)|body_armor(9)|leg_armor(1)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_hunter_coat_custom")]], 
 ["a_nobleman_court_outfit_custom", "Noble Outfit", [("a_nobleman_court_outfit_base",0)],  itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian   ,0, 348 , weight(4)|abundance(100)|head_armor(0)|body_armor(15)|leg_armor(12)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_nobleman_court_outfit_custom")]], 
 ["a_gambeson_custom", "Gambeson", [("a_gambeson_white",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(21)|leg_armor(5)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_gambeson_custom")]], 
 ["a_padded_armor_custom", "Padded Jack", [("a_padded_armor_base",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs|itp_civilian,0, 364 , weight(7)|abundance(100)|head_armor(0)|body_armor(24)|leg_armor(8)|difficulty(0) ,imodbits_cloth ,[custom_reskin("itm_a_padded_armor_custom")]], 
@@ -1629,17 +1629,17 @@ items = [
  265, weight(1.6)|difficulty(5)|spd_rtng(77)|shoot_speed(121)|thrust_damage(28,pierce), imodbits_bow ],
 
  ["w_crossbow_hunting", "Hunting Crossbow", [("w_crossbow_hunting",0)], itp_type_crossbow|itp_merchandise|itp_two_handed|itp_primary, itcf_shoot_crossbow|itcf_carry_crossbow_back, 
-88, weight(2.25)|difficulty(0)|spd_rtng(80)|shoot_speed(81)|thrust_damage(48,pierce)|max_ammo(1), imodbits_crossbow ],
+88, weight(2.25)|difficulty(0)|spd_rtng(78)|shoot_speed(81)|thrust_damage(48,pierce)|max_ammo(1), imodbits_crossbow ],
 ["w_crossbow_light", "Light Crossbow", [("w_crossbow_light",0)], itp_type_crossbow|itp_merchandise|itp_two_handed|itp_primary, itcf_shoot_crossbow|itcf_carry_crossbow_back, 
-132, weight(2.5)|difficulty(8)|spd_rtng(76)|shoot_speed(92)|thrust_damage(52,pierce)|max_ammo(1), imodbits_crossbow ],
+132, weight(2.5)|difficulty(8)|spd_rtng(74)|shoot_speed(92)|thrust_damage(52,pierce)|max_ammo(1), imodbits_crossbow ],
 ["w_crossbow_cavalry", "Cavalry Crossbow", [("w_crossbow_cavalry",0)], itp_type_crossbow|itp_merchandise|itp_two_handed|itp_primary, itcf_shoot_crossbow|itcf_carry_crossbow_back, 
-184, weight(2.5)|difficulty(8)|spd_rtng(74)|shoot_speed(96)|thrust_damage(54,pierce)|max_ammo(1), imodbits_crossbow ],
+184, weight(2.5)|difficulty(8)|spd_rtng(72)|shoot_speed(96)|thrust_damage(54,pierce)|max_ammo(1), imodbits_crossbow ],
 ["w_crossbow_medium", "Crossbow", [("w_crossbow_medium",0)], itp_type_crossbow|itp_merchandise|itp_cant_reload_on_horseback|itp_two_handed|itp_primary, itcf_shoot_crossbow|itcf_carry_crossbow_back, 
-218, weight(3)|difficulty(9)|spd_rtng(72)|shoot_speed(112)|thrust_damage(56,pierce)|max_ammo(1), imodbits_crossbow ],
+218, weight(3)|difficulty(9)|spd_rtng(70)|shoot_speed(112)|thrust_damage(56,pierce)|max_ammo(1), imodbits_crossbow ],
 ["w_crossbow_heavy", "Heavy Crossbow", [("w_crossbow_heavy",0)], itp_type_crossbow|itp_merchandise|itp_cant_reload_on_horseback|itp_two_handed|itp_primary, itcf_shoot_crossbow|itcf_carry_crossbow_back, 
-349, weight(3.5)|difficulty(10)|spd_rtng(68)|shoot_speed(125)|thrust_damage(60,pierce)|max_ammo(1), imodbits_crossbow ],
+349, weight(3.5)|difficulty(10)|spd_rtng(66)|shoot_speed(125)|thrust_damage(60,pierce)|max_ammo(1), imodbits_crossbow ],
 ["w_crossbow_siege", "Siege Crossbow", [("w_crossbow_siege",0)], itp_type_crossbow|itp_merchandise|itp_cant_reload_on_horseback|itp_two_handed|itp_primary, itcf_shoot_crossbow|itcf_carry_crossbow_back, 
-683, weight(3.75)|difficulty(11)|spd_rtng(62)|shoot_speed(128)|thrust_damage(66,pierce)|max_ammo(1), imodbits_crossbow ],
+683, weight(3.75)|difficulty(11)|spd_rtng(60)|shoot_speed(128)|thrust_damage(66,pierce)|max_ammo(1), imodbits_crossbow ],
 
 
 ["w_handgonne_1", "Handgonne", [("w_handgonne_1",0)], itp_type_musket|itp_two_handed|itp_primary|itp_next_item_as_melee, itcf_shoot_musket|itcf_carry_spear|itcf_reload_musket, 
@@ -1651,30 +1651,30 @@ items = [
 ["w_arrow_triangular", "Arrows", [("w_arrow_triangular",0),("w_arrow_triangular",ixmesh_flying_ammo),("w_arrow_quiver_triangular",ixmesh_carry)], itp_type_arrows|itp_default_ammo|itp_merchandise, itcf_carry_quiver_back_right, 
 72, weight(3)|abundance(100)|weapon_length(102)|thrust_damage(16,pierce)|max_ammo(30), imodbits_missile ],
 ["w_arrow_triangular_large", "Large Arrows", [("w_arrow_triangular_large",0),("w_arrow_triangular_large",ixmesh_flying_ammo),("w_arrow_quiver_triangular_large",ixmesh_carry)], itp_type_arrows|itp_default_ammo|itp_merchandise, itcf_carry_quiver_back_right, 
-104, weight(3.5)|abundance(100)|weapon_length(104)|thrust_damage(18,pierce)|max_ammo(30), imodbits_missile ],
+104, weight(3.5)|abundance(100)|weapon_length(104)|thrust_damage(20,pierce)|max_ammo(30), imodbits_missile ],
 ["w_arrow_bodkin", "Bodkin Arrows", [("w_arrow_bodkin",0),("w_arrow_bodkin",ixmesh_flying_ammo),("w_arrow_quiver_bodkin",ixmesh_carry)], itp_type_arrows|itp_default_ammo|itp_merchandise, itcf_carry_quiver_back_right, 
-162, weight(3)|abundance(80)|weapon_length(104)|thrust_damage(20,pierce)|max_ammo(30), imodbits_missile ],
+162, weight(3)|abundance(80)|weapon_length(104)|thrust_damage(24,pierce)|max_ammo(30), imodbits_missile ],
 # Cutting Arrows
 ["w_arrow_broadhead", "Broadhead Arrows", [("w_arrow_broadhead",0),("w_arrow_broadhead",ixmesh_flying_ammo),("w_arrow_quiver_broadhead",ixmesh_carry)], itp_type_arrows|itp_default_ammo|itp_merchandise, itcf_carry_quiver_back, 
-98, weight(4)|abundance(100)|weapon_length(103)|thrust_damage(24,cut)|max_ammo(30), imodbits_missile ],
+98, weight(4)|abundance(100)|weapon_length(103)|thrust_damage(18,cut)|max_ammo(30), imodbits_missile ],
 ["w_arrow_broadhead_large", "Large Broadhead Arrows", [("w_arrow_broadhead_large",0),("w_arrow_broadhead_large",ixmesh_flying_ammo),("w_arrow_quiver_broadhead_large",ixmesh_carry)], itp_type_arrows|itp_default_ammo|itp_merchandise, itcf_carry_quiver_back, 
-146, weight(4.5)|abundance(100)|weapon_length(104)|thrust_damage(26,cut)|max_ammo(30), imodbits_missile ],
+146, weight(4.5)|abundance(100)|weapon_length(104)|thrust_damage(22,cut)|max_ammo(30), imodbits_missile ],
 # Blunt Arrows
-["w_arrow_blunt", "Blunt Arrows", [("w_arrow_blunt",0),("w_arrow_blunt",ixmesh_flying_ammo),("w_arrow_quiver_blunt",ixmesh_carry)], itp_type_arrows|itp_default_ammo|itp_merchandise, itcf_carry_quiver_back, 
+["w_arrow_blunt", "Blunt Arrows", [("w_arrow_blunt",0),("w_arrow_blunt",ixmesh_flying_ammo),("w_arrow_quiver_blunt",ixmesh_carry)], itp_type_arrows|itp_default_ammo, itcf_carry_quiver_back, 
 86, weight(5)|abundance(100)|weapon_length(98)|thrust_damage(15,blunt)|max_ammo(30), imodbits_missile ],
 
 # Piercing Bolts
 ["w_bolt_triangular", "Bolts", [("w_bolt_triangular",0),("w_bolt_triangular",ixmesh_flying_ammo),("w_bolt_quiver_triangular",ixmesh_carry)], itp_type_bolts|itp_default_ammo|itp_merchandise|itp_can_penetrate_shield, itcf_carry_quiver_right_vertical,
- 64, weight(2.25)|abundance(90)|weapon_length(73)|thrust_damage(10,pierce)|max_ammo(29), imodbits_missile ],
+ 64, weight(2.25)|abundance(90)|weapon_length(73)|thrust_damage(10,pierce)|max_ammo(30), imodbits_missile ],
 ["w_bolt_triangular_large", "Bolts", [("w_bolt_triangular_large",0),("w_bolt_triangular_large",ixmesh_flying_ammo),("w_bolt_quiver_triangular_large",ixmesh_carry)], itp_type_bolts|itp_default_ammo|itp_merchandise|itp_can_penetrate_shield, itcf_carry_quiver_right_vertical,
- 92, weight(2.25)|abundance(90)|weapon_length(75)|thrust_damage(12,pierce)|max_ammo(29), imodbits_missile ],
+ 100, weight(2.25)|abundance(90)|weapon_length(75)|thrust_damage(14,pierce)|max_ammo(28), imodbits_missile ],
 ["w_bolt_bodkin", "Bodkin Bolts", [("w_bolt_bodkin",0),("w_bolt_bodkin",ixmesh_flying_ammo),("w_bolt_quiver_bodkin",ixmesh_carry)], itp_type_bolts|itp_default_ammo|itp_merchandise|itp_can_penetrate_shield, itcf_carry_quiver_right_vertical,
- 125, weight(2.25)|abundance(90)|weapon_length(74)|thrust_damage(14,pierce)|max_ammo(29), imodbits_missile ],
+ 125, weight(2.25)|abundance(90)|weapon_length(74)|thrust_damage(18,pierce)|max_ammo(25), imodbits_missile ],
 # Cutting Bolts
 ["w_bolt_boar", "Board Bolts", [("w_bolt_boar",0),("w_bolt_boar",ixmesh_flying_ammo),("w_bolt_quiver_boar",ixmesh_carry)], itp_type_bolts|itp_default_ammo|itp_merchandise|itp_can_penetrate_shield, itcf_carry_quiver_right_vertical,
- 100, weight(3)|abundance(90)|weapon_length(73)|thrust_damage(16,cut)|max_ammo(29), imodbits_missile ],
+ 92, weight(3)|abundance(90)|weapon_length(73)|thrust_damage(12,cut)|max_ammo(24), imodbits_missile ],
 ["w_bolt_broadhead", "Broadhead Bolts", [("w_bolt_broadhead",0),("w_bolt_broadhead",ixmesh_flying_ammo),("w_bolt_quiver_broadhead",ixmesh_carry)], itp_type_bolts|itp_default_ammo|itp_merchandise|itp_can_penetrate_shield, itcf_carry_quiver_right_vertical,
- 118, weight(3)|abundance(90)|weapon_length(73)|thrust_damage(18,cut)|max_ammo(29), imodbits_missile ],
+ 118, weight(3)|abundance(90)|weapon_length(73)|thrust_damage(16,cut)|max_ammo(22), imodbits_missile ],
 
 
 ["cartridges","Cartridges", [("cartridge_a",0)], itp_type_bullets|itp_merchandise|itp_can_penetrate_shield|itp_default_ammo, 0, 41,weight(2.25)|abundance(90)|weapon_length(3)|thrust_damage(1,pierce)|max_ammo(50),imodbits_missile],

@@ -5241,6 +5241,12 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("a_shirt_white", "a_shirt_white"),
 ("a_shirt_end", "a_shirt_end"),
 
+## Native Thick Coat
+("a_thick_coat_black", "a_thick_coat_black"),  
+("a_thick_coat_brown", "a_thick_coat_brown"),  
+("a_thick_coat_white", "a_thick_coat_white"),
+("a_thick_coat_end", "a_thick_coat_end"),
+
 ## Native Nobleman Court Outfit
 # French 
 ("a_nobleman_outfit_french", "a_nobleman_outfit_french"),  

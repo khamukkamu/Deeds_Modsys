@@ -35408,6 +35408,7 @@ scripts = [
     [
       (replace_scene_props, "spr_battlement_a_destroyed", "spr_battlement_a"),
       (replace_scene_props, "spr_snowy_castle_battlement_a_destroyed", "spr_snowy_castle_battlement_a"),
+      (replace_scene_props, "spr_snowy_castle_battlement_b_destroyed", "spr_snowy_castle_battlement_b"),
       (replace_scene_props, "spr_castle_e_battlement_a_destroyed", "spr_castle_e_battlement_a"),
       (replace_scene_props, "spr_castle_battlement_a_destroyed", "spr_castle_battlement_a"),
       (replace_scene_props, "spr_castle_battlement_b_destroyed", "spr_castle_battlement_b"),
@@ -40507,7 +40508,7 @@ scripts = [
            (eq, "$sneaked_into_town", disguise_hunter),
            (cur_tableau_add_override_item, "itm_h_hood_black"),
            (cur_tableau_add_override_item, "itm_g_leather_gauntlet"),
-           (cur_tableau_add_override_item, "itm_a_hunter_coat"),
+           (cur_tableau_add_override_item, "itm_a_hunter_coat_custom"),
            (cur_tableau_add_override_item, "itm_b_wrapping_boots"),
          (else_try),
            (eq, "$sneaked_into_town", disguise_merchant),
@@ -70429,7 +70430,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
         (eq, "$sneaked_into_town", disguise_hunter),
         (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_h_hood_black"),
         (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_g_leather_gauntlet"),
-        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_a_hunter_coat"),
+        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_a_hunter_coat_custom"),
         (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_b_wrapping_boots"),
         (try_begin),
           (eq, ":with_weapon", 1),
@@ -76165,7 +76166,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
         (troop_add_item, "trp_player","itm_w_arrow_broadhead"),
         (troop_add_item, "trp_player","itm_w_hunting_bow_yew"),
         (troop_add_item, "trp_player","itm_h_hood_black"),
-        (troop_add_item, "trp_player","itm_a_hunter_coat"),
+        (troop_add_item, "trp_player","itm_a_hunter_coat_custom"),
         (troop_add_item, "trp_player","itm_b_wrapping_boots"),		
 		
         (party_add_members,"p_main_party","trp_french_peasant", 8),
@@ -77080,6 +77081,11 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (item_set_slot, "itm_a_peasant_shirt_custom", slot_item_materials_begin, "str_a_shirt_black"),
       (item_set_slot, "itm_a_peasant_shirt_custom", slot_item_materials_end, "str_a_shirt_end"),  
       (item_set_slot, "itm_a_peasant_shirt_custom", slot_item_num_components, 1),       
+	  
+## Native thick coat
+      (item_set_slot, "itm_a_hunter_coat_custom", slot_item_materials_begin, "str_a_thick_coat_black"),
+      (item_set_slot, "itm_a_hunter_coat_custom", slot_item_materials_end, "str_a_thick_coat_end"),  
+      (item_set_slot, "itm_a_hunter_coat_custom", slot_item_num_components, 1),       	  
     
 ## Nobleman Court Outfit
       (item_set_slot, "itm_a_nobleman_court_outfit_custom", slot_item_materials_begin, "str_a_nobleman_outfit_french"),

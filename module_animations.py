@@ -706,14 +706,14 @@ animations = [
 #TODO: ready bow, release javelin and reload crossbow should have the same time 
 # duration and controlled via weapon speed.
  ["ready_bow", acf_rot_vertical_bow|acf_anim_length(100), amf_priority_attack|amf_use_weapon_speed|amf_keep|amf_client_owner_prediction|amf_rider_rot_bow,
-   [1.5, "anim_human", combat+500, combat+530, blend_in_ready|arf_make_custom_sound, pack2f(0.14, 0.44)],
+   [1.8, "anim_human", combat+500, combat+530, blend_in_ready|arf_make_custom_sound, pack2f(0.14, 0.44)],
  ],
  ["release_bow", acf_rot_vertical_bow|acf_anim_length(100), amf_priority_attack|amf_use_weapon_speed|amf_play|amf_client_owner_prediction|amf_rider_rot_bow,
-   [0.3, "anim_human", combat+530, combat+532, arf_blend_in_2],
+   [0.4, "anim_human", combat+530, combat+532, arf_blend_in_2],
  ],
  #not used
  ["ready_bow_mounted", acf_rot_vertical_bow|acf_anim_length(100), amf_priority_attack|amf_use_weapon_speed|amf_keep|amf_client_owner_prediction|amf_rider_rot_bow,
-   [1.5, "anim_human", combat+800, combat+830, blend_in_ready|arf_make_custom_sound, pack2f(0.10, 0.40)],
+   [1.8, "anim_human", combat+800, combat+830, blend_in_ready|arf_make_custom_sound, pack2f(0.10, 0.40)],
  ],
  #not used
  ["release_bow_mounted", acf_rot_vertical_bow|acf_anim_length(100), amf_rider_rot_bow,
@@ -726,10 +726,10 @@ animations = [
    [0.2, "anim_human", combat+1330, combat+1331, arf_blend_in_1],
  ],
  ["reload_crossbow", 0, amf_priority_reload|amf_use_weapon_speed|amf_play,
-   [1.6, "anim_human", combat+1700, combat+1750, arf_blend_in_8|arf_make_custom_sound, pack2f(0.40, 0.94)], 
+   [1.9, "anim_human", combat+1700, combat+1750, arf_blend_in_8|arf_make_custom_sound, pack2f(0.40, 0.94)], 
  ],
  ["reload_crossbow_horseback", 0, amf_priority_reload|amf_use_weapon_speed|amf_play,
-   [1.8, "anim_human", combat+1800, combat+1877, arf_blend_in_8|arf_make_custom_sound, pack2f(0.27, 0.94)], 
+   [2.1, "anim_human", combat+1800, combat+1877, arf_blend_in_8|arf_make_custom_sound, pack2f(0.27, 0.94)], 
  ],
  ["ready_javelin", acf_rot_vertical_bow, amf_priority_attack|amf_use_weapon_speed|amf_keep|amf_client_owner_prediction|amf_rider_rot_throw,
    [0.6, "throw_javelin2", 0, 30, blend_in_ready],
