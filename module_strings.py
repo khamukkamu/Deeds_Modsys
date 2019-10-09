@@ -3940,20 +3940,20 @@ We apologize sincerely if you contributed your suggestions and feedback but were
 
 
   ("faction_title_male_player", "Lord {s0}"),
-  ("faction_title_male_1", "Count {s0}"),
-  ("faction_title_male_2", "Boyar {s0}"),
-  ("faction_title_male_3", "{s0} Noyan"),
-  ("faction_title_male_4", "Jarl {s0}"),
-  ("faction_title_male_5", "Count {s0}"),
-  ("faction_title_male_6", "Emir {s0}"),
+  ("faction_title_male_1", "Lord {s0}"),
+  ("faction_title_male_2", "Lord {s0}"),
+  ("faction_title_male_3", "Lord {s0}"),
+  ("faction_title_male_4", "Lord {s0}"),
+  ("faction_title_male_5", "Lord {s0}"),
+  ("faction_title_male_6", "Lord {s0}"),
 
   ("faction_title_female_player", "Lady {s0}"),
-  ("faction_title_female_1", "Countess {s0}"),
-  ("faction_title_female_2", "Boyarina {s0}"),
-  ("faction_title_female_3", "{s0} Hatun"),
-  ("faction_title_female_4", "Grevinne {s0}"),
-  ("faction_title_female_5", "Countess {s0}"),
-  ("faction_title_female_6", "Sayeda {s0}"),
+  ("faction_title_female_1", "Lady {s0}"),
+  ("faction_title_female_2", "Lady {s0}"),
+  ("faction_title_female_3", "Lady {s0}"),
+  ("faction_title_female_4", "Lady {s0}"),
+  ("faction_title_female_5", "Lady {s0}"),
+  ("faction_title_female_6", "Lady {s0}"),
 
   ("name_kingdom_text", "What will be the name of your kingdom?"),
   ("default_kingdom_name", "{s0}'s Kingdom"),
@@ -5529,6 +5529,19 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("h_hood_narf_green", "h_hood_narf_green"),  
 ("h_hood_narf_green_white", "h_hood_narf_green_white"),  
 ("h_hood_narf_end", "h_hood_narf_end"),
+
+## Vertex Cloth Vest
+# French 
+("a_cloth_vest_blue", "a_cloth_vest_blue"),
+("a_cloth_vest_white", "a_cloth_vest_white"),
+# English
+("a_cloth_vest_red", "a_cloth_vest_red"),
+# Burgundian
+("a_cloth_vest_brown", "a_cloth_vest_brown"),
+# Breton
+("a_cloth_vest_white_2", "a_cloth_vest_white"),
+("a_cloth_vest_black", "a_cloth_vest_black"),  
+("a_cloth_vest_end", "a_cloth_vest_end"),
 
 ###################################################################################################### HYW CUSTOM ARMORS VERTEX COLORED
 

@@ -211,7 +211,7 @@ items = [
  ["tutorial_crossbow", "Crossbow", [("w_crossbow_medium",0)], itp_type_crossbow |itp_primary|itp_two_handed|itp_cant_reload_on_horseback ,itcf_shoot_crossbow|itcf_carry_crossbow_back, 0 , weight(3)|difficulty(0)|spd_rtng(42)|  shoot_speed(68) | thrust_damage(32,pierce)|max_ammo(1),imodbits_crossbow ],
  ["tutorial_throwing_daggers", "Throwing Daggers", [("throwing_dagger",0)], itp_type_thrown |itp_primary ,itcf_throw_knife, 0 , weight(3.5)|difficulty(0)|spd_rtng(102) | shoot_speed(25) | thrust_damage(16 ,  cut)|max_ammo(14)|weapon_length(0),imodbits_missile ],
  ["tutorial_saddle_horse", "Saddle Horse", [("ho_sumpter_1",0)], itp_type_horse, 0, 0,abundance(90)|body_armor(3)|difficulty(0)|horse_speed(40)|horse_maneuver(38)|horse_charge(8),imodbits_horse_basic],
- ["tutorial_shield", "Kite Shield", [("tableau_shield_kite_1",0)], itp_type_shield|itp_wooden_parry, itcf_carry_kite_shield,  118 , weight(2.5)|hit_points(480)|body_armor(1)|spd_rtng(82)|weapon_length(150),imodbits_shield ],
+ ["tutorial_shield", "Kite Shield", [("arena_shield_red",0)], itp_type_shield|itp_wooden_parry, itcf_carry_kite_shield,  118 , weight(2.5)|hit_points(480)|body_armor(1)|spd_rtng(82)|weapon_length(150),imodbits_shield ],
  ["tutorial_staff_no_attack","Staff", [("wooden_staff",0)],itp_type_polearm|itp_offset_lance|itp_primary|itp_penalty_with_shield|itp_wooden_parry|itp_wooden_attack,itc_parry_polearm|itcf_carry_sword_back,9, weight(3.5)|spd_rtng(120) | weapon_length(115)|swing_damage(0,blunt) | thrust_damage(0,blunt),imodbits_none],
  ["tutorial_staff","Staff", [("wooden_staff",0)],itp_type_polearm|itp_offset_lance|itp_primary|itp_penalty_with_shield|itp_wooden_parry|itp_wooden_attack,itc_staff|itcf_carry_sword_back,9, weight(3.5)|spd_rtng(120) | weapon_length(115)|swing_damage(16,blunt) | thrust_damage(16,blunt),imodbits_none],
  ["tutorial_sword", "Sword", [("w_onehanded_sword_squire",0),("w_onehanded_sword_squire_scabbard", ixmesh_carry)], itp_type_one_handed_wpn|itp_primary, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 499 , weight(1.4)|difficulty(0)|spd_rtng(100) | weapon_length(97)|swing_damage(29 , cut) | thrust_damage(27 ,  pierce),imodbits_sword_high ],
@@ -233,7 +233,7 @@ items = [
 
  ["practice_staff","Practice Staff", [("wooden_staff",0)],itp_type_polearm|itp_offset_lance|itp_primary|itp_penalty_with_shield|itp_wooden_parry|itp_wooden_attack,itc_staff|itcf_carry_sword_back,9, weight(2.5)|spd_rtng(103) | weapon_length(118)|swing_damage(18,blunt) | thrust_damage(18,blunt),imodbits_none],
  ["practice_lance","Practice Lance", [("w_native_spear_b",0)], itp_couchable|itp_type_polearm|itp_offset_lance|itp_has_upper_stab|itp_merchandise| itp_primary|itp_penalty_with_shield|itp_wooden_parry, itc_pike_upstab, 214 , weight(2.5)|difficulty(9)|spd_rtng(88) | weapon_length(175)|swing_damage(0 , blunt) | thrust_damage(27 ,  blunt),imodbits_polearm ],
- ["practice_shield","Practice Shield", [("tableau_shield_round_5",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 20,weight(3.5)|body_armor(1)|hit_points(200)|spd_rtng(100)|shield_width(50),imodbits_none],
+ ["practice_shield","Practice Shield", [("arena_shield_red",0)], itp_type_shield|itp_wooden_parry, itcf_carry_round_shield, 20,weight(3.5)|body_armor(1)|hit_points(200)|spd_rtng(100)|shield_width(50),imodbits_none],
  ["practice_bow","Practice Bow", [("w_hunting_bow_ash",0),("w_hunting_bow_ash_carry",ixmesh_carry)], itp_type_bow|itp_merchandise|itp_two_handed|itp_primary, itcf_shoot_bow|itcf_carry_bow_back, 90, weight(0.8)|difficulty(1)|spd_rtng(90)|shoot_speed(45)|thrust_damage(21,blunt), imodbits_bow ],
  ["practice_crossbow", "Practice Crossbow", [("w_crossbow_medium",0)], itp_type_crossbow |itp_primary|itp_two_handed ,itcf_shoot_crossbow|itcf_carry_crossbow_back, 0, weight(3)|spd_rtng(42)| shoot_speed(68) | thrust_damage(32,blunt)|max_ammo(1),imodbits_crossbow],
  ["practice_javelin", "Practice Javelins", [("javelin",0),("javelins_quiver", ixmesh_carry)], itp_type_thrown |itp_primary|itp_next_item_as_melee,itcf_throw_javelin|itcf_carry_quiver_back|itcf_show_holster_when_drawn, 0, weight(5) | spd_rtng(91) | shoot_speed(28) | thrust_damage(27, blunt) | max_ammo(50) | weapon_length(75), imodbits_thrown],
@@ -828,7 +828,7 @@ items = [
 ["heraldic_plate", "Heraldic Plate Harness", [("heraldic_plate",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0, 6550, weight(29)|abundance(100)|head_armor(0)|body_armor(62)|leg_armor(24)|difficulty(9), imodbits_plate  , [(ti_on_init_item,[(store_trigger_param_1,":agent_no"),(store_trigger_param_2,":troop_no"),(call_script,"script_shield_item_set_banner","tableau_heraldic_plate",":agent_no",":troop_no"),])] ],
 
 ["a_tabard_heraldic", "Heraldic Tabard", [("a_tabard_heraldic",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian ,0,
- 147 , weight(2)|abundance(100)|head_armor(0)|body_armor(14)|leg_armor(6)|difficulty(7) ,imodbits_armor,
+ 147 , weight(2)|abundance(100)|head_armor(0)|body_armor(14)|leg_armor(6)|difficulty(7) ,imodbits_cloth,
  [(ti_on_init_item, [(store_trigger_param_1, ":agent_no"),(store_trigger_param_2, ":troop_no"),(call_script, "script_shield_item_set_banner", "tableau_heraldic_tabard", ":agent_no", ":troop_no")])]],
 
 ##################################################################################################################################################################################################################################################################################################################
@@ -976,6 +976,9 @@ items = [
 
 ["b_hosen_shoes_custom", "Woolen Hose", [("b_hosen_shoes",0)], itp_merchandise| itp_type_foot_armor |itp_civilian | itp_attach_armature ,0, 6 , weight(1)|abundance(100)|head_armor(0)|body_armor(0)|leg_armor(4)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_b_hosen_shoes_custom")]],  
 ["b_hosen_poulaines_custom", "Woolen Hose Poulaines", [("b_hosen_poulaines",0)], itp_merchandise| itp_type_foot_armor |itp_civilian | itp_attach_armature ,0, 6 , weight(1)|abundance(100)|head_armor(0)|body_armor(0)|leg_armor(4)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_b_hosen_poulaines_custom")]],  
+
+# Both model and texture switch
+["a_cloth_vest_custom", "Vest", [("a_leather_vest_base",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 280 , weight(3)|abundance(100)|head_armor(0)|body_armor(20)|leg_armor(6)|difficulty(0) ,imodbits_cloth,[custom_remodel("itm_a_leather_vest_custom"),custom_reskin("itm_a_cloth_vest_custom")]], 
 
 # Model Switch
 ["a_leather_vest_custom", "Leather Vest", [("a_leather_vest_base",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 325 , weight(3)|abundance(100)|head_armor(0)|body_armor(22)|leg_armor(6)|difficulty(0) ,imodbits_cloth,[custom_remodel("itm_a_leather_vest_custom")]], 

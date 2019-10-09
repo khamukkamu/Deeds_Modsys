@@ -77437,6 +77437,23 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (item_set_slot, ":item_no", slot_item_rebel_materials_end, "str_h_hood_narf_end"),        
       (item_set_slot, ":item_no", slot_item_num_components, 1),     
       (try_end),      
+	  
+## Custom Cloth Vest
+      (item_set_slot, "itm_a_cloth_vest_custom", slot_item_materials_begin, "str_a_cloth_vest_blue"),
+      (item_set_slot, "itm_a_cloth_vest_custom", slot_item_materials_end, "str_a_cloth_vest_end"),
+# France
+      (item_set_slot, "itm_a_cloth_vest_custom", slot_item_france_materials_begin, "str_a_cloth_vest_blue"),
+      (item_set_slot, "itm_a_cloth_vest_custom", slot_item_france_materials_end, "str_a_cloth_vest_red"),
+# England
+      (item_set_slot, "itm_a_cloth_vest_custom", slot_item_english_materials_begin, "str_a_cloth_vest_white"),
+      (item_set_slot, "itm_a_cloth_vest_custom", slot_item_english_materials_end, "str_a_cloth_vest_brown"),
+# Burgundy
+      (item_set_slot, "itm_a_cloth_vest_custom", slot_item_burgundy_materials_begin, "str_a_cloth_vest_red"),
+      (item_set_slot, "itm_a_cloth_vest_custom", slot_item_burgundy_materials_end, "str_a_cloth_vest_black"),
+# Brittany    
+      (item_set_slot, "itm_a_cloth_vest_custom", slot_item_breton_materials_begin, "str_a_cloth_vest_brown"),
+      (item_set_slot, "itm_a_cloth_vest_custom", slot_item_breton_materials_end, "str_a_cloth_vest_end"),  
+      (item_set_slot, "itm_a_cloth_vest_custom", slot_item_num_components, 1),      	  
     
 ###################################################################################################### HYW CUSTOM ARMORS VERTEX COLORED
     

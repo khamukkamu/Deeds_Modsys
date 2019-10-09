@@ -82,9 +82,9 @@ map_icons = [
   ("cattle",0,"icon_cow", 0.2,snd_footstep_grass, 0.15, 0.173, 0),
   ("training_ground",mcn_no_shadow,"training", 0.35,0),
 
-  ("bridge_a",mcn_no_shadow,"map_river_bridge_a", 1.27,0),
-  ("bridge_b",mcn_no_shadow,"map_river_bridge_b", 0.7,0),
-  ("bridge_snow_a",mcn_no_shadow,"map_river_bridge_a", 1.27,0),
+  ("bridge_a",mcn_no_shadow,"map_river_bridge_a", 1.0,0),
+  ("bridge_b",mcn_no_shadow,"map_river_bridge_b", 1.0,0),
+  ("bridge_snow_a",mcn_no_shadow,"map_river_bridge_a", 1.0,0),
 
   ("custom_banner_01",0,"custom_map_banner_01", banner_scale, 0,
    [

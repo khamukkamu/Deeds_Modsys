@@ -12011,6 +12011,17 @@ TOTAL:  {reg5}"),
         (try_end),
 
         (call_script, "script_set_town_picture"),
+		
+### DAC - Display town lord
+        (try_begin),
+          (party_get_slot, ":center_lord", "$current_town", slot_town_lord),
+          (ge, ":center_lord", 0),
+          (set_fixed_point_multiplier, 100),
+          (position_set_x, pos0, 70),
+          (position_set_y, pos0, 5),
+          (position_set_z, pos0, 75),
+          (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", ":center_lord", pos0),
+        (try_end),			
 
 #		(str_clear, s5), #alert player that there are new rumors
 #		(try_begin),
