@@ -729,8 +729,8 @@ troops = [
 ["tavern_minstrel_5","Wandering Troubadour","Minstrel",tf_hero|tf_randomize_face|tf_guarantee_shield|tf_guarantee_armor|tf_guarantee_boots, 0, reserved, fac_commoners,[itm_h_highlander_beret_green_2,itm_a_noble_shirt_green, itm_b_hosen_shoes_custom, itm_lute, itm_dedal_lutnia],def_attrib|level(5),wp(20),knows_common,merchant_face_1,merchant_face_2],
 
 #dedal
-["musican_male","Musician","Musican",tf_guarantee_boots|tf_guarantee_armor,0,0,fac_commoners,[itm_h_highlander_beret_red_2,itm_a_noble_shirt_red,itm_a_tabard,itm_b_hosen_poulaines_custom],def_attrib|level(4),wp(60),knows_common,man_face_young_1, man_face_old_2,itm_dedal_lutnia],
-["musican_female","Musician","Musican",tf_female|tf_guarantee_boots|tf_guarantee_armor,0,0,fac_commoners,[itm_a_woman_common_dress_1_custom,itm_a_woman_common_dress_2_custom,itm_b_hosen_poulaines_custom,itm_h_court_wimple_1,itm_h_court_wimple_2,itm_dedal_lira],def_attrib|level(2),wp(40),knows_common,woman_face_1,woman_face_2],
+["musican_male","Musician","Musican",tf_guarantee_boots|tf_guarantee_armor,0,0,fac_commoners,[itm_h_highlander_beret_red_2,itm_a_noble_shirt_red,itm_a_tabard,itm_b_hosen_poulaines_custom, itm_lute, itm_dedal_lutnia],def_attrib|level(4),wp(60),knows_common,man_face_young_1, man_face_old_2,itm_dedal_lutnia],
+["musican_female","Musician","Musican",tf_female|tf_guarantee_boots|tf_guarantee_armor,0,0,fac_commoners,[itm_a_woman_common_dress_1_custom,itm_a_woman_common_dress_2_custom,itm_b_hosen_poulaines_custom,itm_h_court_wimple_1,itm_h_court_wimple_2, itm_dedal_lutnia],def_attrib|level(2),wp(40),knows_common,woman_face_1,woman_face_2],
 ["musicans_end","_","_",tf_inactive,0,0,0,[],0,0,0,0],
 
 #NPC system changes begin

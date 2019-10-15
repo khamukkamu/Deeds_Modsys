@@ -35639,11 +35639,30 @@ scripts = [
         (party_get_slot, ":walker_troop_id", "$current_town", ":troop_slot"),
         (gt, ":walker_troop_id", 0),
         (store_add, ":entry_no", town_walker_entries_start, ":walker_no"),
-        (store_random_in_range, ":total_walkers", 3, 8), # DAC Seek. Randomized the number of town walkers
+        (store_random_in_range, ":total_walkers", 3, 6), # DAC Seek. Randomized the number of town walkers
         (set_visitors, ":entry_no", ":walker_troop_id", ":total_walkers"),
       (try_end),
     (try_end),
   ]),
+  
+# DAC Seek: Less walkers in villages  
+  # script_init_village_walkers
+  # Input: none
+  # Output: none
+  ("init_village_walkers",
+  [
+    (try_begin),
+      (eq, "$town_nighttime", 0),
+      (try_for_range, ":walker_no", 0, num_town_walkers),
+        (store_add, ":troop_slot", slot_center_walker_0_troop, ":walker_no"),
+        (party_get_slot, ":walker_troop_id", "$current_town", ":troop_slot"),
+        (gt, ":walker_troop_id", 0),
+        (store_add, ":entry_no", town_walker_entries_start, ":walker_no"),
+        (store_random_in_range, ":total_walkers", 1, 4), # DAC Seek. Randomized the number of village walkers
+        (set_visitors, ":entry_no", ":walker_troop_id", ":total_walkers"),
+      (try_end),
+    (try_end),
+  ]),  
 
 
   # script_cf_enter_center_location_bandit_check

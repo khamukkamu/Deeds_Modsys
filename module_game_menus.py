@@ -10126,7 +10126,7 @@ TOTAL:  {reg5}"),
             ##diplomacy end
 
 
-           (call_script, "script_init_town_walkers"),
+           (call_script, "script_init_village_walkers"),
 
            (try_begin),
              (check_quest_active, "qst_hunt_down_fugitive"),

@@ -820,7 +820,7 @@ dedal_tavern_animations = (
     (store_trigger_param_1,":agent"),
     (agent_get_troop_id,":troop",":agent"),
     (try_begin),
-      (is_between,":troop","trp_tavern_minstrel_1","trp_musicans_end"),
+      (is_between,":troop","trp_musican_male","trp_musicans_end"),
       (try_begin),
         (agent_has_item_equipped,":agent","itm_dedal_lutnia"),
         (agent_set_stand_animation, ":agent", "anim_lute_sitting"),
@@ -2665,6 +2665,12 @@ mission_templates = [
           (agent_set_wielded_item, ":agent_no", -1), #doff it
         ]),
 
+      (ti_after_mission_start, 0, 0,	
+      [ # DAC Seek: Hide the spawning npcs for a split second
+            (mission_cam_set_screen_color, 0xFF736252), #roughly the colour of the menu bg
+            (mission_cam_animate_to_screen_color, 0x00736252, 1500),
+      ], []),			
+			
       (ti_inventory_key_pressed, 0, 0,
       [ #SB : disable inventory while attacked in taverns
         (try_begin),
