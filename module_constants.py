@@ -1582,7 +1582,7 @@ pretenders_end = active_npcs_end
 #Rebellion changes
 
 tavern_minstrels_begin = "trp_tavern_minstrel_1"
-tavern_minstrels_end   = "trp_kingdom_heroes_including_player_begin"
+tavern_minstrels_end   = "trp_musican_male"
 
 tavern_booksellers_begin = "trp_tavern_bookseller_1"
 tavern_booksellers_end   = tavern_minstrels_begin
