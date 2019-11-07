@@ -429,7 +429,7 @@ scenes = [
 
 
 # Boulogne - DNO's Town 8
-("town_61_center",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000003400005000008c230000041540000681800000709",
+("town_61_center",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000033000124c000acab40000280700000c9f00000ab5",
   [],[],"outer_terrain_plain"),
 
 
@@ -949,7 +949,7 @@ scenes = [
   
 
 # Boulogne - DNO's Town 8
-  ("town_61_tavern", sf_indoors, "interior_tavern_b", "bo_interior_tavern_b", (-100, -100), (100, 100), -100, "0",["exit"], []),
+  ("town_61_tavern", sf_indoors, "interior_town_house_f", "bo_interior_town_house_f", (-100, -100), (100, 100), -100, "0",["exit"], []),
 
   ("town_62_tavern",sf_indoors, "interior_tavern_h", "bo_interior_tavern_h", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
@@ -1455,7 +1455,7 @@ scenes = [
     [],[],"outer_terrain_plain"),
   
 
-  ("town_61_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002200005000005f57b00005885000046bd00006d9c",
+  ("town_61_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0xa0001d9300031ccb0000156f000048ba0000361c",
     [],[],"outer_terrain_plain"),
   ("town_62_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0xa0001d9300031ccb0000156f000048ba0000361c",
     [],[],"outer_terrain_plain"),
@@ -1708,7 +1708,7 @@ scenes = [
     ["exit"],[]),
   
 
-  ("town_61_prison",sf_indoors,"interior_prison_n", "bo_interior_prison_n", (-100,-100),(100,100),-100,"0",
+  ("town_61_prison",sf_indoors,"interior_prison_a", "bo_interior_prison_a", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
   ("town_62_prison",sf_indoors,"dungeon_cell_b", "bo_dungeon_cell_b", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
