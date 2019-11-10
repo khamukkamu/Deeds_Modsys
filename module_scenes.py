@@ -970,7 +970,7 @@ scenes = [
     ["exit"],[]),
 
 # Nantes - BM's Praven 
-  ("town_67_tavern",sf_indoors, "interior_tavern_g", "bo_interior_tavern_g", (-100,-100),(100,100),-100,"0",
+  ("town_67_tavern",sf_indoors, "interior_tavern_f", "bo_interior_tavern_f", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
 
   ("town_68_tavern",sf_indoors,"interior_tavern_g", "bo_interior_tavern_g", (-100,-100),(100,100),-100,"0",

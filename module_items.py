@@ -808,20 +808,21 @@ items = [
  3412 , weight(21)|abundance(100)|head_armor(0)|body_armor(48)|leg_armor(16)|difficulty(7) ,imodbits_armor,
  [(ti_on_init_item, [(store_trigger_param_1, ":agent_no"),(store_trigger_param_2, ":troop_no"),(call_script, "script_shield_item_set_banner", "tableau_heraldic_mail_long_surcoat_new", ":agent_no", ":troop_no")])]],
 
-["brigandine_b_heraldic", "Heraldic Brigandine", [("brigandine_b_heraldic",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs,0,
+["heraldic_brigandine_native", "Heraldic Brigandine", [("heraldic_brigandine_native",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs,0,
  2230 , weight(20)|abundance(100)|head_armor(0)|body_armor(46)|leg_armor(16)|difficulty(10) ,imodbits_armor,
- [(ti_on_init_item, [(store_trigger_param_1, ":agent_no"),(store_trigger_param_2, ":troop_no"),(call_script, "script_shield_item_set_banner", "tableau_brigandine_b_heraldic_new", ":agent_no", ":troop_no")])]],
-
+ [(ti_on_init_item, [(store_trigger_param_1, ":agent_no"),(store_trigger_param_2, ":troop_no"),(call_script, "script_shield_item_set_banner", "tableau_heraldic_brigandine_native", ":agent_no", ":troop_no")])]],
+ 
 ["heraldic_tunic_new", "Heraldic Tunic", [("heraldic_tunic_new",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs,0,
  1940 , weight(20)|abundance(100)|head_armor(0)|body_armor(42)|leg_armor(18)|difficulty(10) ,imodbits_armor,
  [(ti_on_init_item, [(store_trigger_param_1, ":agent_no"),(store_trigger_param_2, ":troop_no"),(call_script, "script_shield_item_set_banner", "tableau_heraldic_short_tunic_new", ":agent_no", ":troop_no")])]],
 
 ["heraldic_mail_tabard", "Heraldic Tabard with Mail", [("tabard_b_heraldic",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1040 , weight(19)|abundance(100)|head_armor(0)|body_armor(37)|leg_armor(12)|difficulty(7) ,imodbits_armor ,[(ti_on_init_item, [(store_trigger_param_1, ":agent_no"),(store_trigger_param_2, ":troop_no"),(call_script, "script_shield_item_set_banner", "tableau_heraldic_mail_tabard", ":agent_no", ":troop_no")])]],
 
-["heraldic_churburg_13_tabard", "Heraldic Churburg Armor", [("heraldic_churburg_13_tabard",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0, 4250, weight(27)|abundance(100)|head_armor(0)|body_armor(58)|leg_armor(20)|difficulty(8), imodbits_plate, [(ti_on_init_item,[(store_trigger_param_1,":agent_no"),(store_trigger_param_2,":troop_no"),(call_script,"script_shield_item_set_banner","tableau_heraldic_churburg_13_tabard",":agent_no",":troop_no"),])] ],
+["heraldic_churburg_13_tabard", "Heraldic Churburg Armor", [("heraldic_churburg_13_tabard",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0, 4250, weight(27)|abundance(100)|head_armor(0)|body_armor(58)|leg_armor(20)|difficulty(8), imodbits_plate, 
+[(ti_on_init_item,[(store_trigger_param_1,":agent_no"),(store_trigger_param_2,":troop_no"),(call_script,"script_shield_item_set_banner","tableau_heraldic_churburg_13_tabard",":agent_no",":troop_no"),])] ],
 ["heraldic_churburg_13_brass_tabard", "Heraldic Brass Churburg Armor", [("heraldic_churburg_13_brass_tabard",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0, 4430, weight(27)|abundance(100)|head_armor(0)|body_armor(58)|leg_armor(20)|difficulty(8), imodbits_plate, [(ti_on_init_item,[(store_trigger_param_1,":agent_no"),(store_trigger_param_2,":troop_no"),(call_script,"script_shield_item_set_banner","tableau_heraldic_churburg_13_brass_tabard",":agent_no",":troop_no"),])] ],
 
-["heraldic_early_transitional", "Heavy Mail and Plate", [("early_transitional_heraldic",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 2460 , weight(25)|abundance(100)|head_armor(0)|body_armor(48)|leg_armor(18)|difficulty(8) ,imodbits_armor , [(ti_on_init_item,[(store_trigger_param_1,":agent_no"),(store_trigger_param_2,":troop_no"),(call_script,"script_shield_item_set_banner","tableau_early_transitional_heraldic",":agent_no",":troop_no"),])] ],
+["heraldic_early_transitional", "Heavy Mail and Plate", [("heraldic_early_transitional",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 2460 , weight(25)|abundance(100)|head_armor(0)|body_armor(48)|leg_armor(18)|difficulty(8) ,imodbits_armor , [(ti_on_init_item,[(store_trigger_param_1,":agent_no"),(store_trigger_param_2,":troop_no"),(call_script,"script_shield_item_set_banner","tableau_heraldic_early_transitional",":agent_no",":troop_no"),])] ],
 
 ["heraldic_jupon", "Heraldic jupon", [("a_churburg_jupon_heraldic",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0, 5400, weight(28)|abundance(100)|head_armor(0)|body_armor(60)|leg_armor(24)|difficulty(9), imodbits_plate  , [(ti_on_init_item,[(store_trigger_param_1,":agent_no"),(store_trigger_param_2,":troop_no"),(call_script,"script_shield_item_set_banner","tableau_heraldic_jupon",":agent_no",":troop_no"),])] ],
 
