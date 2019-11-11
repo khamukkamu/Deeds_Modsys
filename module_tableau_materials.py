@@ -531,7 +531,7 @@ tableaus = [
        (cur_tableau_set_background_color, ":background_color"),
 
        (init_position, pos1),
-       (cur_tableau_add_mesh_with_vertex_color, "mesh_heraldic_armor_bg", pos1, 200, 100, 0x00308F),
+       (cur_tableau_add_mesh_with_vertex_color, "mesh_heraldic_armor_bg", pos1, 200, 100, ":background_color"),
        (init_position, pos1),
        (position_set_x, pos1, 9),
        (position_set_y, pos1, 145),
