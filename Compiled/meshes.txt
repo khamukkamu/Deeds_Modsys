@@ -215,13 +215,13 @@ mesh_tableau_mesh_heraldic_churburg_13_tabard_banner 0 tableau_mesh_heraldic_chu
 mesh_tableau_mesh_heraldic_churburg_13_tabard 0 tableau_mesh_heraldic_churburg_13_tabard 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 1.000000 1.000000
 mesh_tableau_mesh_heraldic_churburg_13_brass_tabard_banner 0 tableau_mesh_heraldic_churburg_13_brass_tabard_banner 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 1.000000 1.000000
 mesh_tableau_mesh_heraldic_churburg_13_brass_tabard 0 tableau_mesh_heraldic_churburg_13_brass_tabard 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 1.000000 1.000000
-mesh_tableau_mesh_early_transitional_heraldic_banner 0 tableau_mesh_early_transitional_heraldic_banner 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 1.000000 1.000000
-mesh_tableau_mesh_early_transitional_heraldic 0 tableau_mesh_early_transitional_heraldic 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 1.000000 1.000000
+mesh_tableau_mesh_heraldic_early_transitional 0 tableau_mesh_heraldic_early_transitional 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 1.000000 1.000000
 mesh_tableau_mesh_mail_long_surcoat_new_heraldic 0 tableau_mesh_mail_long_surcoat_new_heraldic 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 1.000000 1.000000
 mesh_tableau_mesh_heraldic_brigandine_native 0 tableau_mesh_heraldic_brigandine_native 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 1.000000 1.000000
 mesh_tableau_mesh_heraldic_tunic_new 0 tableau_mesh_heraldic_tunic_new 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 1.000000 1.000000
 mesh_tableau_mesh_tabard_b_heraldic 0 tableau_mesh_tabard_b_heraldic 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 1.000000 1.000000
 mesh_tableau_mesh_heraldic_plate 0 tableau_mesh_heraldic_plate 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 1.000000 1.000000
+mesh_tableau_mesh_heraldic_jupon 0 tableau_mesh_heraldic_jupon 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 1.000000 1.000000
 mesh_tableau_mesh_a_tabard_heraldic 0 tableau_mesh_a_tabard_heraldic 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 1.000000 1.000000
 mesh_banner_a01 0 banner_a01 0.000000 0.000000 0.000000 -90.000000 0.000000 0.000000 1.000000 1.000000 1.000000
 mesh_banner_a02 0 banner_a02 0.000000 0.000000 0.000000 -90.000000 0.000000 0.000000 1.000000 1.000000 1.000000
