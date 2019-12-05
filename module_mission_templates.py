@@ -48,6 +48,38 @@ bard_disguise = [itm_h_highlander_beret_green_2,itm_a_noble_shirt_green,itm_b_ho
 af_castle_lord = af_override_horse | af_override_weapons| af_require_civilian
 af_prisoner       = af_override_horse | af_override_weapons | af_override_head | af_override_gloves | af_override_gloves | af_override_foot
 
+# DAC Begin
+	
+dac_lancer_fix = (
+  ti_on_agent_dismount, 0, 0, [
+	(store_trigger_param_1, ":agent"), 
+	# (store_trigger_param_2, ":horse"), 
+	(agent_is_alive, ":agent"),
+	# (neg|agent_is_alive, ":horse"),	
+	(agent_is_non_player, ":agent"),
+	(call_script, "script_equip_best_melee_weapon", ":agent", 0, 0, 0),	
+	# (display_message, "@dac_lancer_fix called"),
+    ], [])	
+	
+# dac_lancer_fix_2 = (
+  # ti_on_agent_mount, 0, 0, [
+	# (store_trigger_param_1, ":agent"), 
+	# (agent_is_alive, ":agent"),
+	# (agent_is_non_player, ":agent"),
+	# (call_script, "script_equip_best_melee_weapon", ":agent", 0, 1, 0),	
+    # ], [])		
+	
+dac_lancer_fix_siege = (
+  ti_on_agent_spawn, 1, 0, [
+	(store_trigger_param_1, ":agent"), 
+	(agent_is_alive, ":agent"),
+	(agent_is_non_player, ":agent"),
+	(call_script, "script_equip_best_melee_weapon", ":agent", 0, 0, 0),	
+	# (display_message, "@dac_lancer_fix called"),
+    ], [])			
+   
+  # DAC End
+
 # Autolykos begin
 
 simple_battle_morale_check = (
@@ -916,6 +948,8 @@ deeds_common_battle_scripts = [
   common_player_weapon_toggle,
   common_ai_weapon_toggle,
   common_ai_weapon_toggle_check,
+  dac_lancer_fix,
+  # dac_lancer_fix_2,
   #customize_armor,
   #bright_nights
   ] + battle_panel_triggers + utility_triggers + extended_battle_menu + common_division_data + division_order_processing + real_deployment + formations_triggers + AI_triggers
@@ -932,6 +966,7 @@ deeds_common_siege_scripts = [
     common_player_weapon_toggle,
     common_ai_weapon_toggle,
     common_ai_weapon_toggle_check,	
+    dac_lancer_fix_siege,
   #customize_armor,
   #bright_nights
   ] 

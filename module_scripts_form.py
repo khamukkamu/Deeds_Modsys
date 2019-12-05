@@ -3839,6 +3839,8 @@ formAI_scripts = [
       (store_script_param, ":force_shield", 2),
       (store_script_param, ":force_length", 3),
       (store_script_param, ":fire_order", 4),
+	  
+	  # (display_message, "@script called"),
       
       (agent_get_wielded_item, ":cur_wielded", ":agent", 0),
       (try_begin),
@@ -3865,7 +3867,7 @@ formAI_scripts = [
             # (gt, ":ammo", 0),
             (assign, ":weapon", ":item"), #use thrown weapons first
           (try_end),
-        (try_end),
+        (try_end),	
         
         #select weapon
         (try_begin),
@@ -3875,14 +3877,14 @@ formAI_scripts = [
             (agent_get_item_slot, ":item", ":agent", ":item_slot"),
             (gt, ":item", itm_no_item),
             (item_get_type, ":weapon_type", ":item"),
-            (neq, ":weapon_type", itp_type_shield),
+            (neq, ":weapon_type", itp_type_shield),		
             
             (try_begin),
               (item_has_property, ":item", itp_two_handed),
               (assign, reg0, 1),
             (else_try),
               (assign, reg0, 0),
-            (try_end),
+            (try_end),		
             
             (this_or_next | eq, reg0, 0),
             (this_or_next | eq, ":force_shield", 0),
@@ -3901,10 +3903,12 @@ formAI_scripts = [
                   (assign, ":weapon", ":item"),
                 (try_end),
               (else_try),
+	  # (display_message, "@debug checking mounted agent start"),					  
                 (agent_get_troop_id, ":troop_id", ":agent"),
                 (troop_is_guarantee_horse, ":troop_id"),
-                (agent_get_horse, ":horse", ":agent"),
-                (le, ":horse", 0),
+                # (agent_get_horse, ":horse", ":agent"),
+                # (le, ":horse", 0),
+	  # (display_message, "@debug checking mounted agent conditions"),						
                 (try_for_range, ":item_slot", ek_item_0, ek_head),
                   (agent_get_item_slot, ":item", ":agent", ":item_slot"),
                   (gt, ":item", itm_no_item),
@@ -3912,7 +3916,13 @@ formAI_scripts = [
                   (eq, ":weapon_type", itp_type_one_handed_wpn),
                   (item_get_swing_damage, ":swing", ":item"),
                   (gt, ":swing", 19),
+				  
+	# (assign, reg4, ":swing"),			  
+	# (assign, reg5, ":item"),			  
+	  # (display_message, "@item {reg5} deals {reg4} swing damage"),						  
+				  
                   (assign, ":weapon", ":item"),
+	  # (display_message, "@debug checking mounted agent end"),					  
                 (try_end),
               (else_try),
                 (agent_get_troop_id, ":troop_id", ":agent"),
@@ -3946,7 +3956,20 @@ formAI_scripts = [
           (gt, ":weapon", itm_no_item),
           (agent_set_wielded_item, ":agent", ":weapon"),
         (try_end),
-      (try_end),]),
+      (try_end),
+	  
+	# (try_begin),		
+		# (agent_get_troop_id, ":id", ":agent"),		
+		# (assign, reg1, ":id"),
+		# (assign, reg2, ":weapon"),
+		# (assign, reg3, ":cur_wielded"),	
+		# (display_message, "@Troop {reg1} is using {reg3}"),   			
+		# (display_message, "@Troop {reg1} is switching to {reg2}"),   	
+	  # (display_message, "@break debug"),	  		
+	# (try_end),	  
+	  
+	  
+	  ]),
   
   # script_set_formation_destination by motomataru
   # Input: team, troop class, position
