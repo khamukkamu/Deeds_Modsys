@@ -1,5 +1,5 @@
 itemsfile version 3
-884
+888
  itm_no_item INVALID_ITEM INVALID_ITEM 1  invalid_item 0  12582914 9223388529554358287 3 0 1.500000 100 0 0 0 0 0 103 0 90 0 522 528
  0
 0
@@ -2835,6 +2835,10 @@ itemsfile version 3
  0
 0
 
+ itm_w_native_spear_d_alt Spear Spear 1  w_native_spear_d 0  4194314 262144 229 4398046781448 2.000000 100 0 0 0 0 0 80 20 179 1 300 0
+ 0
+0
+
  itm_w_native_spear_e Glaive Glaive 1  w_native_spear_e 0  1348534276 4222130824678912 326 8202 3.500000 100 0 0 0 9 0 79 0 228 0 256 37
  0
 0
@@ -2843,11 +2847,23 @@ itemsfile version 3
  0
 0
 
+ itm_w_native_spear_g_alt Spear Spear 1  w_native_spear_g 0  4194314 262144 164 4398046781448 2.500000 100 0 0 0 0 0 95 20 120 1 304 0
+ 0
+0
+
  itm_w_native_spear_h Spear Spear 1  w_native_spear_h 0  1078263812 9254615765645004032 140 8202 2.500000 100 0 0 0 0 0 95 0 134 0 288 532
  0
 0
 
+ itm_w_native_spear_h_alt Spear Spear 1  w_native_spear_h 0  4194314 262144 140 4398046781448 2.500000 100 0 0 0 0 0 95 20 134 1 302 0
+ 0
+0
+
  itm_w_native_spear_i Spear Spear 1  w_native_spear_i 0  1078263812 9254615765645004032 140 8202 2.500000 100 0 0 0 0 0 95 0 150 0 288 532
+ 0
+0
+
+ itm_w_native_spear_i_alt Spear Spear 1  w_native_spear_i 0  4194314 262144 140 4398046781448 2.500000 100 0 0 0 0 0 95 20 150 1 300 0
  0
 0
 
@@ -2883,7 +2899,7 @@ itemsfile version 3
  0
 0
 
- itm_w_poleaxe_english_alt English_Poleaxe English_Poleaxe 1  w_poleaxe_english_alt 0  1348468740 4222130824679168 438 8202 3.500000 100 0 0 0 13 0 89 0 144 0 544 39
+ itm_w_poleaxe_english_alt English_Poleaxe English_Poleaxe 1  w_poleaxe_english_alt 0  1348468740 4222130824679168 438 8202 3.500000 100 0 0 0 13 0 89 0 144 0 288 551
  0
 0
 

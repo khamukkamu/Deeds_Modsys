@@ -78,6 +78,15 @@ dac_lancer_fix_siege = (
 	# (display_message, "@dac_lancer_fix called"),
     ], [])			
    
+dac_lancer_fix_siege_test = (3, 0, 0, [(lt,"$dac_counter",3)],[ # need to repeat orders several times for the bitches to listen
+        
+      (try_for_agents, ":agent"),
+        (agent_is_alive, ":agent"),
+        (agent_is_non_player, ":agent"),
+        (call_script, "script_equip_best_melee_weapon", ":agent", 0, 0, 0), 
+      (try_end),
+      (val_add, "$dac_counter", 1),
+    ])
   # DAC End
 
 # Autolykos begin
@@ -966,7 +975,7 @@ deeds_common_siege_scripts = [
     common_player_weapon_toggle,
     common_ai_weapon_toggle,
     common_ai_weapon_toggle_check,	
-    dac_lancer_fix_siege,
+    dac_lancer_fix_siege_test,
   #customize_armor,
   #bright_nights
   ] 
@@ -1742,6 +1751,7 @@ common_siege_init = (
     (assign,"$attacker_reinforcement_stage",0),
     (call_script, "script_music_set_situation_with_culture", mtf_sit_siege),
     (call_script, "script_init_death_cam"), #SB : initialize this here
+    (assign, "$dac_counter", 0), 
     ])
 
 common_music_situation_update = (

@@ -1,4 +1,4 @@
-1697
+1703
 qstr_Next_Page Next_Page
 qstr_Game_Rules:^ Game_Rules:^
 qstr_0 0
@@ -1696,3 +1696,9 @@ qstr_I_see._Perhaps_circu I_see._Perhaps_circumstances_will_change_a_few_days_fr
 qstr_h_leather_hats_2_bla h_leather_hats_2_black
 qstr_a_breastplate_gambes a_breastplate_gambeson_base
 qstr_Disable_Companions_C Disable_Companions_Complaints:
+qstr_Alternative_Mode_^Th Alternative_Mode_^Thrown:_{reg2}p
+qstr_Alternative_Mode_^Sw Alternative_Mode_^Swing:_{reg1}c_^Thrust:_{reg2}p
+qstr_Alternative_Mode_^Swi Alternative_Mode_^Swing:_{reg1}c
+qstr_Alternative_Mode_^Swin Alternative_Mode_^Swing:_{reg1}p_^Thrust:_{reg2}p
+qstr_Alternative_Mode_^Swing Alternative_Mode_^Swing:_{reg1}p
+qstr_Alternative_Mode_^Swing: Alternative_Mode_^Swing:_{reg1}b_^Thrust:_{reg2}p
