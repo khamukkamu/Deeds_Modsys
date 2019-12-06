@@ -61,6 +61,7 @@ dac_lancer_fix = (
 	# (display_message, "@dac_lancer_fix called"),
     ], [])	
 	
+# Works but does not cover reinforcements	
 # dac_lancer_fix_2 = (
   # ti_on_agent_mount, 0, 0, [
 	# (store_trigger_param_1, ":agent"), 
@@ -68,15 +69,36 @@ dac_lancer_fix = (
 	# (agent_is_non_player, ":agent"),
 	# (call_script, "script_equip_best_melee_weapon", ":agent", 0, 1, 0),	
     # ], [])		
-	
+
+# Attempt using Motomataru's code	
+# dac_lancer_fix_siege = (
+  # ti_on_agent_spawn, 1, 0, [
+	# (store_trigger_param_1, ":agent"), 
+	# (agent_is_alive, ":agent"),
+	# (agent_is_non_player, ":agent"),
+	# (call_script, "script_equip_best_melee_weapon", ":agent", 0, 0, 0),	
+	# (display_message, "@dac_lancer_fix called"),
+    # ], [])		
+
+# Make sure there are no units that have no backup weapons 
 dac_lancer_fix_siege = (
   ti_on_agent_spawn, 1, 0, [
 	(store_trigger_param_1, ":agent"), 
 	(agent_is_alive, ":agent"),
 	(agent_is_non_player, ":agent"),
-	(call_script, "script_equip_best_melee_weapon", ":agent", 0, 0, 0),	
-	# (display_message, "@dac_lancer_fix called"),
-    ], [])			
+	(try_for_range, ":item_slot", ek_item_0, ek_head),
+		(agent_get_item_slot, ":item", ":agent", ":item_slot"),
+		(gt, ":item", itm_no_item),
+		(item_get_type, ":weapon_type", ":item"),
+		(eq, ":weapon_type", itp_type_polearm),	
+		(this_or_next|item_has_capability, ":item", itc_greatlance),
+		(item_has_capability, ":item", itc_lance_upstab),
+		(agent_unequip_item, ":agent", ":item"),
+	(try_end),	
+    ], [])		
+	
+	
+
    
 dac_lancer_fix_siege_test = (3, 0, 0, [(lt,"$dac_counter",3)],[ # need to repeat orders several times for the bitches to listen
         
@@ -975,7 +997,7 @@ deeds_common_siege_scripts = [
     common_player_weapon_toggle,
     common_ai_weapon_toggle,
     common_ai_weapon_toggle_check,	
-    dac_lancer_fix_siege_test,
+    dac_lancer_fix_siege,
   #customize_armor,
   #bright_nights
   ] 
