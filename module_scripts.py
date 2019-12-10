@@ -5228,8 +5228,18 @@ scripts = [
 			(gt, reg0, 0),
 			(val_add, ":num_relations", 1),
 		(try_end),
-	
+		
+# DAC Seek: Get troop age for lords without families		  
 		(try_begin),
+			(eq, ":num_relations", 0),	
+			
+			(try_begin),		
+				(neq, ":troop_no", "trp_player"),		
+				(troop_get_slot, reg1, ":troop_no", slot_troop_age),
+				(str_store_string, s49, "str__age_reg1"),				
+			(try_end),	
+			
+		(else_try),
 			(gt, ":num_relations", 0),
 			
 			(try_begin),
@@ -5250,14 +5260,11 @@ scripts = [
 					(str_store_string, s49, "str_s49_s12_s11_end"),
 				(else_try),
 				(str_store_string, s49, "str_s49_s12_s11"),
-			(try_end),
-# DAC Seek: Get troop age for lords without families		  
-			(else_try),	
-				(neq, ":troop_no", "trp_player"),		
-				(troop_get_slot, reg1, ":troop_no", slot_troop_age),
-				(str_store_string, s49, "str__age_reg1"),					
+			(try_end),			
+			
 		(try_end),
 		
+	
 	
 	
 		  ##diplomacy start+

@@ -4054,7 +4054,6 @@ We apologize sincerely if you contributed your suggestions and feedback but were
 
   ("_family_dupe", "^Family:"), #SB : duplicate string
   ("s49_s12_s11_end", "{s49} {s12} ({s11})."),
-
   ("center_party_not_active", "is not our target, because we don't have a leader who has taken the field."),
   ("center_is_friendly", "is not our enemy."),
   ("center_is_already_besieged", "is already under siege."),
