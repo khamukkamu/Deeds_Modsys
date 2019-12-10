@@ -251,6 +251,7 @@ meshes = [
   ("tableau_mesh_heraldic_early_transitional", 0, "tableau_mesh_heraldic_early_transitional",  0, 0, 0, 0, 0, 0, 1, 1, 1),
   ("tableau_mesh_mail_long_surcoat_new_heraldic", 0, "tableau_mesh_mail_long_surcoat_new_heraldic",  0, 0, 0, 0, 0, 0, 1, 1, 1),
   ("tableau_mesh_heraldic_brigandine_native", 0, "tableau_mesh_heraldic_brigandine_native",  0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("tableau_mesh_heraldic_brigandine_narf", 0, "tableau_mesh_heraldic_brigandine_narf",  0, 0, 0, 0, 0, 0, 1, 1, 1),
   ("tableau_mesh_heraldic_tunic_new", 0, "tableau_mesh_heraldic_tunic_new",  0, 0, 0, 0, 0, 0, 1, 1, 1),
   ("tableau_mesh_tabard_b_heraldic", 0, "tableau_mesh_tabard_b_heraldic",  0, 0, 0, 0, 0, 0, 1, 1, 1),
   ("tableau_mesh_heraldic_plate", 0, "tableau_mesh_heraldic_plate",  0, 0, 0, 0, 0, 0, 1, 1, 1),
