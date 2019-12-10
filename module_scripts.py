@@ -5176,78 +5176,90 @@ scripts = [
   # OUTPUT: s0 = note
   ("game_get_troop_note",
     [
-      (store_script_param_1, ":troop_no"),
-      (store_script_param_2, ":note_index"),
-      (set_trigger_result, 0),
+	(store_script_param_1, ":troop_no"),
+	(store_script_param_2, ":note_index"),
+	(set_trigger_result, 0),
 
-      (str_store_troop_name, s54, ":troop_no"),
-      (try_begin),
-        (eq, ":troop_no", "trp_player"),
-        (this_or_next|eq, "$player_has_homage", 1),
-        (eq, "$players_kingdom", "fac_player_supporters_faction"),
-        (assign, ":troop_faction", "$players_kingdom"),
-      (else_try),
-        (store_troop_faction, ":troop_faction", ":troop_no"),
-      (try_end),
-      (str_clear, s49),
+	(str_store_troop_name, s54, ":troop_no"),
+		(try_begin),
+		(eq, ":troop_no", "trp_player"),
+		(this_or_next|eq, "$player_has_homage", 1),
+		(eq, "$players_kingdom", "fac_player_supporters_faction"),
+		(assign, ":troop_faction", "$players_kingdom"),
+	(else_try),
+		(store_troop_faction, ":troop_faction", ":troop_no"),
+	(try_end),
+	
+	(str_clear, s49),
 
-	  #Family notes
-      (try_begin),
-	    ##diplomacy start+ add support for displaying relations with kings and claimants
-		#(this_or_next|is_between, ":troop_no", lords_begin, kingdom_ladies_end),
-        #(eq, ":troop_no", "trp_player"),
-        #(neg|is_between, ":troop_no", pretenders_begin, pretenders_end),
+  #Family notes
+	(try_begin),
+##diplomacy start+ add support for displaying relations with kings and claimants
+#(this_or_next|is_between, ":troop_no", lords_begin, kingdom_ladies_end),
+#(eq, ":troop_no", "trp_player"),
+#(neg|is_between, ":troop_no", pretenders_begin, pretenders_end),
 
 		(this_or_next|eq, ":troop_no", "trp_player"),
 		(this_or_next|is_between, ":troop_no", lords_begin, kingdom_ladies_end),#includes pretenders
-			(is_between, ":troop_no", kings_begin, kings_end),
+		(is_between, ":troop_no", kings_begin, kings_end),
 
-		##The following would only show relations for kings and claimants if they are married.
-        #(this_or_next|troop_slot_ge, ":troop_no", slot_troop_spouse, 0),
-		#	(neg|is_between, ":troop_no", pretenders_begin, pretenders_end),
-		#(this_or_next|troop_slot_ge, ":troop_no", slot_troop_spouse, 0),
-		#	(neg|is_between, ":troop_no", kings_begin, kings_end),
+##The following would only show relations for kings and claimants if they are married.
+#(this_or_next|troop_slot_ge, ":troop_no", slot_troop_spouse, 0),
+#	(neg|is_between, ":troop_no", pretenders_begin, pretenders_end),
+#(this_or_next|troop_slot_ge, ":troop_no", slot_troop_spouse, 0),
+#	(neg|is_between, ":troop_no", kings_begin, kings_end),
 
-		##diplomacy end+
-        (assign, ":num_relations", 0),
+##diplomacy end+
+		(assign, ":num_relations", 0),
 
-        (try_begin),
-          (call_script, "script_troop_get_family_relation_to_troop", "trp_player", ":troop_no"),
-          (gt, reg0, 0),
-          (val_add, ":num_relations", 1),
-        (try_end),
-		##diplomacy start+
-        #(try_for_range, ":aristocrat", lords_begin, kingdom_ladies_end),
-		#Display relations with kings and claimants
+		(try_begin),
+			(call_script, "script_troop_get_family_relation_to_troop", "trp_player", ":troop_no"),
+			(gt, reg0, 0),
+			(val_add, ":num_relations", 1),
+		(try_end),
+##diplomacy start+
+#(try_for_range, ":aristocrat", lords_begin, kingdom_ladies_end),
+#Display relations with kings and claimants
 		(try_for_range, ":aristocrat", heroes_begin, heroes_end),
-		  (this_or_next|is_between, ":aristocrat", lords_begin, kingdom_ladies_end),#includes pretenders
-			  (is_between, ":aristocrat", kings_begin, kings_end),
-		##diplomacy end+
-          (call_script, "script_troop_get_family_relation_to_troop", ":aristocrat", ":troop_no"),
-          (gt, reg0, 0),
-          (val_add, ":num_relations", 1),
-        (try_end),
-        (try_begin),
-          (gt, ":num_relations", 0),
-          (try_begin),
-            (eq, ":troop_no", "trp_player"),
-            (str_store_string, s49, "str__family_"),
-          (else_try),
-            (troop_get_slot, reg1, ":troop_no", slot_troop_age),
-            (str_store_string, s49, "str__age_reg1_family_"),
-          (try_end),
-          (try_begin),
-            (call_script, "script_troop_get_family_relation_to_troop", "trp_player", ":troop_no"),
-            (gt, reg0, 0),
-            (str_store_troop_name_link, s12, "trp_player"),
-            (val_sub, ":num_relations", 1),
-            (try_begin),
-              (eq, ":num_relations", 0),
-              (str_store_string, s49, "str_s49_s12_s11_end"),
-            (else_try),
-              (str_store_string, s49, "str_s49_s12_s11"),
-            (try_end),
-          (try_end),
+			(this_or_next|is_between, ":aristocrat", lords_begin, kingdom_ladies_end),#includes pretenders
+			(is_between, ":aristocrat", kings_begin, kings_end),
+##diplomacy end+
+			(call_script, "script_troop_get_family_relation_to_troop", ":aristocrat", ":troop_no"),
+			(gt, reg0, 0),
+			(val_add, ":num_relations", 1),
+		(try_end),
+	
+		(try_begin),
+			(gt, ":num_relations", 0),
+			
+			(try_begin),
+				(eq, ":troop_no", "trp_player"),
+				(str_store_string, s49, "str__family_"),
+			(else_try),
+				(troop_get_slot, reg1, ":troop_no", slot_troop_age),
+				(str_store_string, s49, "str__age_reg1_family_"),
+			(try_end),
+			
+			(try_begin),
+				(call_script, "script_troop_get_family_relation_to_troop", "trp_player", ":troop_no"),
+				(gt, reg0, 0),
+				(str_store_troop_name_link, s12, "trp_player"),
+				(val_sub, ":num_relations", 1),
+				(try_begin),
+					(eq, ":num_relations", 0),
+					(str_store_string, s49, "str_s49_s12_s11_end"),
+				(else_try),
+				(str_store_string, s49, "str_s49_s12_s11"),
+			(try_end),
+# DAC Seek: Get troop age for lords without families		  
+			(else_try),	
+				(neq, ":troop_no", "trp_player"),		
+				(troop_get_slot, reg1, ":troop_no", slot_troop_age),
+				(str_store_string, s49, "str__age_reg1"),					
+		(try_end),
+		
+	
+	
 		  ##diplomacy start+
           #(try_for_range, ":aristocrat", lords_begin, kingdom_ladies_end),
 		  #Display relations with kings and claimants

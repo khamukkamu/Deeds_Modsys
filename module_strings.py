@@ -2755,6 +2755,8 @@ We apologize sincerely if you contributed your suggestions and feedback but were
   ("prisoner_granted_parole", "Prisoner granted parole"),
   ("prisoner_not_offered_parole", "Prisoner not offered parole"),
   ("_age_reg1_family_", "^Age: {reg1}^Family:"),
+# DAC Seek: Display age of lords without families
+  ("_age_reg1", "^Age: {reg1}"),  
   ("s49_s12_s11_rel_reg0", "{s49} {s12} ({s11}, rel: {reg0}),"),
   ("s49_s12_s11", "{s49} {s12} ({s11}),"),
   #SB : add wealth, remove later, also add marshal indicator
