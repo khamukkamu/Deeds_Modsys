@@ -125,6 +125,9 @@ scripts = [
       (call_script, "script_dac_initialize_aristocracy_breton_lords"),
       (call_script, "script_dac_initialize_aristocracy_breton_ladies"),
 
+      (call_script, "script_dac_initialize_aristocracy_extra_lords"),
+      (call_script, "script_dac_initilize_aristocracy_extra_ladies"),
+
       (try_for_range, ":ladies", kingdom_ladies_begin, kingdom_ladies_end),
         (call_script, "script_add_lady_items", ":ladies"),
       (try_end),
@@ -81141,8 +81144,336 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 
 ]),
 
+#script_dac_initialize_aristocracy_extra_lords
+("dac_initialize_aristocracy_extra_lords", 
 
+[
 
+#Louis II d'Anjou
+(troop_set_slot,"trp_extra_lord_1",slot_troop_spouse,"trp_extra_lady_1"),
+(call_script, "script_init_troop_age","trp_extra_lord_1",0),
+(troop_set_slot,"trp_extra_lord_1",slot_lord_reputation_type,0),
+
+#Charles I d'Albret
+(troop_set_slot,"trp_extra_lord_2",slot_troop_spouse,"trp_extra_lady_2"),
+(call_script, "script_init_troop_age","trp_extra_lord_2",0),
+(troop_set_slot,"trp_extra_lord_2",slot_lord_reputation_type,0),
+
+#Charles III de Navarre
+(troop_set_slot,"trp_extra_lord_3",slot_troop_spouse,"trp_extra_lady_3"),
+(call_script, "script_init_troop_age","trp_extra_lord_3",0),
+(troop_set_slot,"trp_extra_lord_3",slot_lord_reputation_type,0),
+
+#Bernard VII d'Armagnac
+(troop_set_slot,"trp_extra_lord_4",slot_troop_spouse,"trp_extra_lady_5"),
+(call_script, "script_init_troop_age","trp_extra_lord_4",0),
+(troop_set_slot,"trp_extra_lord_4",slot_lord_reputation_type,0),
+
+#Robert de Chabannes
+(troop_set_slot,"trp_extra_lord_5",slot_troop_spouse,"trp_extra_lady_6"),
+(call_script, "script_init_troop_age","trp_extra_lord_5",0),
+(troop_set_slot,"trp_extra_lord_5",slot_lord_reputation_type,0),
+
+#Jean III de Beauvau
+(troop_set_slot,"trp_extra_lord_6",slot_troop_spouse,"trp_extra_lady_7"),
+(call_script, "script_init_troop_age","trp_extra_lord_6",0),
+(troop_set_slot,"trp_extra_lord_6",slot_lord_reputation_type,0),
+
+#Jean de Bourbon
+(troop_set_slot,"trp_extra_lord_7",slot_troop_spouse,"trp_extra_lady_8"),
+(call_script, "script_init_troop_age","trp_extra_lord_7",0),
+(troop_set_slot,"trp_extra_lord_7",slot_lord_reputation_type,0),
+
+#Jean I de Bourbon
+(troop_set_slot,"trp_extra_lord_8",slot_troop_spouse,"trp_extra_lady_9"),
+(call_script, "script_init_troop_age","trp_extra_lord_8",0),
+(troop_set_slot,"trp_extra_lord_8",slot_lord_reputation_type,0),
+
+#Guillaume I de Gamaches 
+(troop_set_slot,"trp_extra_lord_9",slot_troop_spouse,"trp_extra_lady_10"),
+(call_script, "script_init_troop_age","trp_extra_lord_9",0),
+(troop_set_slot,"trp_extra_lord_9",slot_lord_reputation_type,0),
+
+#Guy XIII de Montfort-Laval
+(troop_set_slot,"trp_extra_lord_10",slot_troop_spouse,"trp_kingdom_1_lady_34"),
+(call_script, "script_init_troop_age","trp_extra_lord_10",0),
+(troop_set_slot,"trp_extra_lord_10",slot_lord_reputation_type,0),
+
+#Ingelger II d'Amboise
+(troop_set_slot,"trp_extra_lord_11",slot_troop_spouse,"trp_extra_lady_12"),
+(call_script, "script_init_troop_age","trp_extra_lord_11",0),
+(troop_set_slot,"trp_extra_lord_11",slot_lord_reputation_type,0),
+
+#Jean IV de Bueil
+(troop_set_slot,"trp_extra_lord_12",slot_troop_spouse,"trp_extra_lady_13"),
+(call_script, "script_init_troop_age","trp_extra_lord_12",0),
+(troop_set_slot,"trp_extra_lord_12",slot_lord_reputation_type,0),
+
+#Michael de La Pole
+(troop_set_slot,"trp_extra_lord_13",slot_troop_spouse,"trp_extra_lady_15"),
+(call_script, "script_init_troop_age","trp_extra_lord_13",0),
+(troop_set_slot,"trp_extra_lord_13",slot_lord_reputation_type,0),
+
+#John Beaufort
+(troop_set_slot,"trp_extra_lord_14",slot_troop_spouse,"trp_extra_lady_16"),
+(call_script, "script_init_troop_age","trp_extra_lord_14",0),
+(troop_set_slot,"trp_extra_lord_14",slot_lord_reputation_type,0),
+
+#Walter Hungerford
+(troop_set_slot,"trp_extra_lord_15",slot_troop_spouse,"trp_extra_lady_17"),
+(call_script, "script_init_troop_age","trp_extra_lord_15",0),
+(troop_set_slot,"trp_extra_lord_15",slot_lord_reputation_type,0),
+
+#Thierry de Robersart
+(troop_set_slot,"trp_extra_lord_16",slot_troop_spouse,"trp_extra_lady_18"),
+(call_script, "script_init_troop_age","trp_extra_lord_16",0),
+(troop_set_slot,"trp_extra_lord_16",slot_lord_reputation_type,0),
+
+#Richard de Vere
+(troop_set_slot,"trp_extra_lord_17",slot_troop_spouse,"trp_extra_lady_19"),
+(call_script, "script_init_troop_age","trp_extra_lord_17",0),
+(troop_set_slot,"trp_extra_lord_17",slot_lord_reputation_type,0),
+
+#Bertrand II de Montferrand
+(troop_set_slot,"trp_extra_lord_18",slot_troop_spouse,"trp_extra_lady_20"),
+(call_script, "script_init_troop_age","trp_extra_lord_18",0),
+(troop_set_slot,"trp_extra_lord_18",slot_lord_reputation_type,0),
+
+#Jean de Bourgogne
+(troop_set_slot,"trp_extra_lord_19",slot_troop_spouse,"trp_extra_lady_21"),
+(call_script, "script_init_troop_age","trp_extra_lord_19",0),
+(troop_set_slot,"trp_extra_lord_19",slot_lord_reputation_type,0),
+
+#Tristan de Toulongeon
+(troop_set_slot,"trp_extra_lord_20",slot_troop_spouse,"trp_extra_lady_22"),
+(call_script, "script_init_troop_age","trp_extra_lord_20",0),
+(troop_set_slot,"trp_extra_lord_20",slot_lord_reputation_type,0),
+
+#Jean de Luxembourg
+(troop_set_slot,"trp_extra_lord_21",slot_troop_spouse,"trp_extra_lady_23"),
+(call_script, "script_init_troop_age","trp_extra_lord_21",0),
+(troop_set_slot,"trp_extra_lord_21",slot_lord_reputation_type,0),
+
+#Guillaume II de Brimeu
+(troop_set_slot,"trp_extra_lord_22",slot_troop_spouse,"trp_extra_lady_24"),
+(call_script, "script_init_troop_age","trp_extra_lord_22",0),
+(troop_set_slot,"trp_extra_lord_22",slot_lord_reputation_type,0),
+
+#Jean III de Vergy
+(troop_set_slot,"trp_extra_lord_23",slot_troop_spouse,"trp_extra_lady_25"),
+(call_script, "script_init_troop_age","trp_extra_lord_23",0),
+(troop_set_slot,"trp_extra_lord_23",slot_lord_reputation_type,0),
+
+#Jean I de Croÿ
+(troop_set_slot,"trp_extra_lord_24",slot_troop_spouse,"trp_extra_lady_26"),
+(call_script, "script_init_troop_age","trp_extra_lord_24",0),
+(troop_set_slot,"trp_extra_lord_24",slot_lord_reputation_type,0),
+
+#Jean IV de Montfort
+(troop_set_slot,"trp_extra_lord_25",slot_troop_spouse,"trp_extra_lady_27"),
+(call_script, "script_init_troop_age","trp_extra_lord_25",0),
+(troop_set_slot,"trp_extra_lord_25",slot_lord_reputation_type,0),
+
+#Charles de Dinan
+(troop_set_slot,"trp_extra_lord_26",slot_troop_spouse,"trp_extra_lady_28"),
+(call_script, "script_init_troop_age","trp_extra_lord_26",0),
+(troop_set_slot,"trp_extra_lord_26",slot_lord_reputation_type,0),
+
+#Guichard de Culant
+(troop_set_slot,"trp_extra_lord_27",slot_troop_spouse,"trp_extra_lady_29"),
+(call_script, "script_init_troop_age","trp_extra_lord_27",0),
+(troop_set_slot,"trp_extra_lord_27",slot_lord_reputation_type,0),
+
+#Jean de Culant
+(troop_set_slot,"trp_extra_lord_28",slot_troop_mother,"trp_extra_lady_29"),
+(troop_set_slot,"trp_extra_lord_28",slot_troop_spouse,"trp_extra_lady_30"),
+(call_script, "script_init_troop_age","trp_extra_lord_28",0),
+(troop_set_slot,"trp_extra_lord_28",slot_lord_reputation_type,0),
+
+#Jean II de Rieux
+(troop_set_slot,"trp_extra_lord_29",slot_troop_spouse,"trp_extra_lady_31"),
+(call_script, "script_init_troop_age","trp_extra_lord_29",0),
+(troop_set_slot,"trp_extra_lord_29",slot_lord_reputation_type,0),
+
+#Jean III de Rieux
+(troop_set_slot,"trp_extra_lord_30",slot_troop_mother,"trp_extra_lady_31"),
+(troop_set_slot,"trp_extra_lord_30",slot_troop_spouse,"trp_extra_lady_32"),
+(call_script, "script_init_troop_age","trp_extra_lord_30",0),
+(troop_set_slot,"trp_extra_lord_30",slot_lord_reputation_type,0),
+
+#Godemar II de Lignières
+(troop_set_slot,"trp_extra_lord_31",slot_troop_spouse,"trp_extra_lady_33"),
+(call_script, "script_init_troop_age","trp_extra_lord_31",0),
+(troop_set_slot,"trp_extra_lord_31",slot_lord_reputation_type,0),
+
+# Philippe de Lignières
+(troop_set_slot,"trp_extra_lord_32",slot_troop_mother,"trp_extra_lady_33"),
+(call_script, "script_init_troop_age","trp_extra_lord_32",0),
+(troop_set_slot,"trp_extra_lord_32",slot_lord_reputation_type,0),
+
+#Godemar III de Lignères
+(troop_set_slot,"trp_extra_lord_33",slot_troop_mother,"trp_extra_lady_33"),
+(call_script, "script_init_troop_age","trp_extra_lord_33",0),
+(troop_set_slot,"trp_extra_lord_33",slot_lord_reputation_type,0),
+
+#Thomas Mowbray
+(troop_set_slot,"trp_extra_lord_34",slot_troop_spouse,"trp_extra_lady_34"),
+(call_script, "script_init_troop_age","trp_extra_lord_34",0),
+(troop_set_slot,"trp_extra_lord_34",slot_lord_reputation_type,0),
+
+#John Holland of Exeter
+(call_script, "script_init_troop_age","trp_extra_lord_35",0),
+(troop_set_slot,"trp_extra_lord_35",slot_lord_reputation_type,0),
+
+]),
+
+#script_dac_initilize_aristocracy_extra_ladies
+("dac_initilize_aristocracy_extra_ladies",
+
+[
+
+#Yolande d'Aragon
+(call_script, "script_init_troop_age","trp_extra_lady_1",49),
+(troop_set_slot,"trp_extra_lady_1",slot_lord_reputation_type,lrep_none),
+
+#Marie de Sully
+(call_script, "script_init_troop_age","trp_extra_lady_2",0),
+(troop_set_slot,"trp_extra_lady_2",slot_lord_reputation_type,lrep_none),
+
+#Eléonore de Castille
+(call_script, "script_init_troop_age","trp_extra_lady_3",0),
+(troop_set_slot,"trp_extra_lady_3",slot_lord_reputation_type,lrep_none),
+
+#Béatrice de Navarre
+(troop_set_slot,"trp_extra_lady_4","trp_extra_lady_3"),
+(call_script, "script_init_troop_age","trp_extra_lady_4",0),
+(troop_set_slot,"trp_extra_lady_4",slot_lord_reputation_type,lrep_none),
+
+#Bonne de Berry
+(call_script, "script_init_troop_age","trp_extra_lady_5",0),
+(troop_set_slot,"trp_extra_lady_5",slot_lord_reputation_type,lrep_none),
+
+#Hélis de Bort
+(call_script, "script_init_troop_age","trp_extra_lady_6",0),
+(troop_set_slot,"trp_extra_lady_6",slot_lord_reputation_type,lrep_none),
+
+#Jeanne de Tigné
+(call_script, "script_init_troop_age","trp_extra_lady_7",0),
+(troop_set_slot,"trp_extra_lady_7",slot_lord_reputation_type,lrep_none),
+
+#Catherine de Vendôme
+(call_script, "script_init_troop_age","trp_extra_lady_8",0),
+(troop_set_slot,"trp_extra_lady_8",slot_lord_reputation_type,lrep_none),
+
+#Marie de Berry
+(call_script, "script_init_troop_age","trp_extra_lady_9",0),
+(troop_set_slot,"trp_extra_lady_9",slot_lord_reputation_type,lrep_none),
+
+#Marie de Fécamp
+(call_script, "script_init_troop_age","trp_extra_lady_10",0),
+(troop_set_slot,"trp_extra_lady_10",slot_lord_reputation_type,lrep_none),
+
+#Anne de Laval 
+(call_script, "script_init_troop_age","trp_extra_lady_11",0),
+(troop_set_slot,"trp_extra_lady_11",slot_lord_reputation_type,lrep_none),
+
+#Jeanne de Craon
+(call_script, "script_init_troop_age","trp_extra_lady_12",0),
+(troop_set_slot,"trp_extra_lady_12",slot_lord_reputation_type,lrep_none),
+
+#Marguerite d'Auvergne
+(call_script, "script_init_troop_age","trp_extra_lady_13",0),
+(troop_set_slot,"trp_extra_lady_13",slot_lord_reputation_type,lrep_none),
+
+#Isabel le Despenser
+(call_script, "script_init_troop_age","trp_extra_lady_14",0),
+(troop_set_slot,"trp_extra_lady_14",slot_lord_reputation_type,lrep_none),
+
+#Katherine Stafford
+(call_script, "script_init_troop_age","trp_extra_lady_15",0),
+(troop_set_slot,"trp_extra_lady_15",slot_lord_reputation_type,lrep_none),
+
+#Margaret Holland
+(call_script, "script_init_troop_age","trp_extra_lady_16",0),
+(troop_set_slot,"trp_extra_lady_16",slot_lord_reputation_type,lrep_none),
+
+#Katherine Peverell
+(call_script, "script_init_troop_age","trp_extra_lady_17",0),
+(troop_set_slot,"trp_extra_lady_17",slot_lord_reputation_type,lrep_none),
+
+#Jeanne d'Escaillon
+(call_script, "script_init_troop_age","trp_extra_lady_18",0),
+(troop_set_slot,"trp_extra_lady_18",slot_lord_reputation_type,lrep_none),
+
+#Alice Sergeaux 
+(call_script, "script_init_troop_age","trp_extra_lady_19",0),
+(troop_set_slot,"trp_extra_lady_19",slot_lord_reputation_type,lrep_none),
+
+#Rose d'Albret
+(call_script, "script_init_troop_age","trp_extra_lady_20",0),
+(troop_set_slot,"trp_extra_lady_20",slot_lord_reputation_type,lrep_none),
+
+#Marguerite de Bavière
+(call_script, "script_init_troop_age","trp_extra_lady_21",0),
+(troop_set_slot,"trp_extra_lady_21",slot_lord_reputation_type,lrep_none),
+
+#Jeanne de Chalon-Arlay
+(call_script, "script_init_troop_age","trp_extra_lady_22",0),
+(troop_set_slot,"trp_extra_lady_22",slot_lord_reputation_type,lrep_none),
+
+#Marguerite d'Enghien
+(call_script, "script_init_troop_age","trp_extra_lady_23",0),
+(troop_set_slot,"trp_extra_lady_23",slot_lord_reputation_type,lrep_none),
+
+#Jeanne de Créquy
+(call_script, "script_init_troop_age","trp_extra_lady_24",0),
+(troop_set_slot,"trp_extra_lady_24",slot_lord_reputation_type,lrep_none),
+
+#Jeanne de Vergy
+(call_script, "script_init_troop_age","trp_extra_lady_25",0),
+(troop_set_slot,"trp_extra_lady_25",slot_lord_reputation_type,lrep_none),
+
+#Marguerite de Craon
+(call_script, "script_init_troop_age","trp_extra_lady_26",0),
+(troop_set_slot,"trp_extra_lady_26",slot_lord_reputation_type,lrep_none),
+
+#Jeanne de Navarre
+(call_script, "script_init_troop_age","trp_extra_lady_27",0),
+(troop_set_slot,"trp_extra_lady_27",slot_lord_reputation_type,lrep_none),
+
+#Jeanne de Beaumanoir
+(call_script, "script_init_troop_age","trp_extra_lady_28",0),
+(troop_set_slot,"trp_extra_lady_28",slot_lord_reputation_type,lrep_none),
+
+#Isabeau de Brosse
+(call_script, "script_init_troop_age","trp_extra_lady_29",0),
+(troop_set_slot,"trp_extra_lady_29",slot_lord_reputation_type,lrep_none),
+
+#Marguerite de Sully
+(call_script, "script_init_troop_age","trp_extra_lady_30",0),
+(troop_set_slot,"trp_extra_lady_30",slot_lord_reputation_type,lrep_none),
+
+#Jeanne de Rochefort
+(call_script, "script_init_troop_age","trp_extra_lady_31",0),
+(troop_set_slot,"trp_extra_lady_31",slot_lord_reputation_type,lrep_none),
+
+#Béatrice de Montauban
+(call_script, "script_init_troop_age","trp_extra_lady_32",0),
+(troop_set_slot,"trp_extra_lady_32",slot_lord_reputation_type,lrep_none),
+
+#Agnès Trousseau
+(call_script, "script_init_troop_age","trp_extra_lady_33",0),
+(troop_set_slot,"trp_extra_lady_33",slot_lord_reputation_type,lrep_none),
+
+#Elizabeth FitzAlan
+(call_script, "script_init_troop_age","trp_extra_lady_34",0),
+(troop_set_slot,"trp_extra_lady_34",slot_lord_reputation_type,lrep_none),
+
+#Elizabeth Plantagenet
+(call_script, "script_init_troop_age","trp_extra_lady_35",0),
+(troop_set_slot,"trp_extra_lady_35",slot_lord_reputation_type,lrep_none),
+
+]),
 ]
 
 scripts = scripts + formAI_scripts
