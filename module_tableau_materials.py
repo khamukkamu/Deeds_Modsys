@@ -556,9 +556,9 @@ tableaus = [
        (cur_tableau_add_mesh_with_vertex_color, "mesh_heraldic_armor_bg", pos1, 200, 100, ":background_color"),
        (init_position, pos1),
        (position_set_z, pos1, 50),
-       (position_set_x, pos1, 53),
-       (position_set_y, pos1, 125),
-       (cur_tableau_add_mesh, ":banner_mesh", pos1, 103, 0),
+       (position_set_x, pos1, 54),
+       (position_set_y, pos1, 87),
+       (cur_tableau_add_mesh, ":banner_mesh", pos1, 83, 0),
 
        (init_position, pos1),
        (position_set_z, pos1, 100),
@@ -579,7 +579,7 @@ tableaus = [
 	(cur_tableau_add_mesh_with_vertex_color, "mesh_heraldic_armor_bg", pos1, 200, 100, ":background_color"),
 	(init_position, pos1),
 	(position_set_x, pos1, -59),
-	(position_set_y, pos1, 135),
+	(position_set_y, pos1, 130),
 	(cur_tableau_add_mesh, ":banner_mesh", pos1, 80, 0),
 
 	(init_position, pos1),
@@ -693,8 +693,8 @@ tableaus = [
        (init_position, pos1),
 
        (position_set_x, pos1, -8),
-       (position_set_y, pos1, 5),
-       (cur_tableau_add_mesh, ":banner_mesh", pos1, 50, 0), # was 118
+       (position_set_y, pos1, 1),
+       (cur_tableau_add_mesh, ":banner_mesh", pos1, 45, 0), # was 118
 
        (init_position, pos1),
        (position_set_z, pos1, 96),
