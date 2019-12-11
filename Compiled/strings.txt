@@ -1,5 +1,5 @@
 stringsfile version 1
-4102
+4103
 str_no_string NO_STRING!
 str_empty_string _
 str_yes Yes.
@@ -1884,6 +1884,7 @@ str_system_error SYSTEM_ERROR!
 str_prisoner_granted_parole Prisoner_granted_parole
 str_prisoner_not_offered_parole Prisoner_not_offered_parole
 str__age_reg1_family_ ^Age:_{reg1}^Family:
+str__age_reg1 ^Age:_{reg1}
 str_s49_s12_s11_rel_reg0 {s49}_{s12}_({s11},_rel:_{reg0}),
 str_s49_s12_s11 {s49}_{s12}_({s11}),
 str_lord_info_string {reg6?:{reg4?{s54}_is_the_ruler_of_{s56}.^:{s54}_is_{reg5?the_marshal_for:a_vassal_of}_{s55}_of_{s56}.^}}Renown:_{reg15}._Controversy:_{reg16}._Wealth:_{reg17}.^{reg9?{reg3?She:He}_is_the_{reg3?lady:lord}_of_{s58}.:{reg3?She:He}_has_no_fiefs.}{s59}^{s49}

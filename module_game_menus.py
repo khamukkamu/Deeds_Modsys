@@ -4273,7 +4273,64 @@ TOTAL:  {reg5}"),
          (assign, "$g_player_icon_state", pis_camping),
          (rest_for_hours_interactive, 10 * 24 * 365, 20), #10 year rest while not attackable with 20x speed
          (change_screen_return),]), 
-		 
+		
+    ("dac_print_french_lord_ages", [], "Print French Lords Ages", [
+        (try_for_range, ":lords", "trp_knight_1_1", "trp_knight_2_1"),
+          (troop_get_slot, reg55, ":lords", slot_troop_age),
+          (str_store_troop_name, s2, ":lords"),
+          (display_message, "@{s2} - {reg55}", color_good_news),
+        (try_end),]), 
+
+    ("dac_print_french_lady_ages", [], "Print French Lady Ages", [
+      (try_for_range, ":lords", "trp_kingdom_1_lady_1", "trp_kingdom_2_lady_1"),
+        (troop_get_slot, reg55, ":lords", slot_troop_age),
+        (str_store_troop_name, s2, ":lords"),
+        (display_message, "@{s2} - {reg55}", color_good_news),
+      (try_end),]), 
+
+    ("dac_print_english_lord_ages", [], "Print English Lords Ages", [
+        (try_for_range, ":lords", "trp_knight_2_1", "trp_knight_3_1"),
+          (troop_get_slot, reg55, ":lords", slot_troop_age),
+          (str_store_troop_name, s2, ":lords"),
+          (display_message, "@{s2} - {reg55}", color_good_news),
+        (try_end),]), 
+
+    ("dac_print_english_lady_ages", [], "Print English Lady Ages", [
+      (try_for_range, ":lords", "trp_kingdom_2_lady_1", "trp_kingdom_3_lady_1"),
+        (troop_get_slot, reg55, ":lords", slot_troop_age),
+        (str_store_troop_name, s2, ":lords"),
+        (display_message, "@{s2} - {reg55}", color_good_news),
+      (try_end),]), 
+
+    ("dac_print_burg_lord_ages", [], "Print Burgandian Lords Ages", [
+        (try_for_range, ":lords", "trp_knight_3_1", "trp_knight_4_1"),
+          (troop_get_slot, reg55, ":lords", slot_troop_age),
+          (str_store_troop_name, s2, ":lords"),
+          (display_message, "@{s2} - {reg55}", color_good_news),
+        (try_end),]), 
+
+    ("dac_print_burg_lady_ages", [], "Print Burgandian Lady Ages", [
+      (try_for_range, ":lords", "trp_kingdom_3_lady_1", "trp_kingdom_4_lady_1"),
+        (troop_get_slot, reg55, ":lords", slot_troop_age),
+        (str_store_troop_name, s2, ":lords"),
+        (display_message, "@{s2} - {reg55}", color_good_news),
+      (try_end),]), 
+
+    ("dac_print_breton_lord_ages", [], "Print Breton Lords Ages", [
+        (try_for_range, ":lords", "trp_knight_4_1", "trp_kingdom_1_pretender"),
+          (troop_get_slot, reg55, ":lords", slot_troop_age),
+          (str_store_troop_name, s2, ":lords"),
+          (display_message, "@{s2} - {reg55}", color_good_news),
+        (try_end),]), 
+
+    ("dac_print_breton_lady_ages", [], "Print Breton Lady Ages", [
+      (try_for_range, ":lords", "trp_kingdom_4_lady_1", "trp_heroes_end"),
+        (troop_get_slot, reg55, ":lords", slot_troop_age),
+        (str_store_troop_name, s2, ":lords"),
+        (display_message, "@{s2} - {reg55}", color_good_news),
+      (try_end),]), 
+
+
       ("camp_troops_cheat",[],"Give Troops", [
           (jump_to_menu, "mnu_camp_give_troops")]),	 
 
