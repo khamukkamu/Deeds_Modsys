@@ -81328,14 +81328,14 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 
 #Louis d'Orléans
 (troop_set_slot,"trp_extra_lord_36",slot_troop_spouse,"trp_extra_lady_36"), 
-(call_script, "script_init_troop_age","trp_extra_lord_36",),  
+(call_script, "script_init_troop_age","trp_extra_lord_36", 0),  
 (troop_set_slot,"trp_extra_lord_36",slot_lord_reputation_type,),
 
 #Charles d'Orléans
 (troop_set_slot,"trp_extra_lord_37",slot_troop_father,"trp_extra_lord_36"), 
 (troop_set_slot,"trp_extra_lord_37",slot_troop_mother,"trp_extra_lady_36"), 
 (troop_set_slot,"trp_extra_lord_37",slot_troop_spouse,"trp_extra_lady_37"), 
-(call_script, "script_init_troop_age","trp_extra_lord_37",),  
+(call_script, "script_init_troop_age","trp_extra_lord_37", 0),  
 (troop_set_slot,"trp_extra_lord_37",slot_lord_reputation_type,),
 
 ]),
@@ -81530,12 +81530,12 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 #Valentine Visconti
 (troop_set_slot,"trp_extra_lady_36",slot_troop_spouse,"trp_extra_lord_36"),
 
-(call_script, "script_init_troop_age","trp_extra_lady_36",),
+(call_script, "script_init_troop_age","trp_extra_lady_36", 0),
 (troop_set_slot,"trp_extra_lady_36",slot_lord_reputation_type,lrep_none),
 
 #Isabelle de Valois
 (troop_set_slot,"trp_extra_lady_37",slot_troop_spouse,"trp_extra_lord_37"),
-(call_script, "script_init_troop_age","trp_extra_lady_37",),
+(call_script, "script_init_troop_age","trp_extra_lady_37", 0),
 (troop_set_slot,"trp_extra_lady_37",slot_lord_reputation_type,lrep_none),
 
 
