@@ -79843,298 +79843,295 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 ("dac_initialize_aristocracy_french_ladies", [
 
 #Jeanne d'Orléans
-(troop_set_slot,"trp_kingdom_1_lady_1","trp_knight_1_1"),
+(troop_set_slot,"trp_kingdom_1_lady_1",slot_troop_spouse,"trp_knight_1_1"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_1",20),
 (troop_set_slot,"trp_kingdom_1_lady_1",slot_lord_reputation_type,lrep_ambitious),
 
 #Marie d'Anjou
-(troop_set_slot,"trp_kingdom_1_lady_2","trp_knight_1_37"),
-(troop_set_slot,"trp_kingdom_1_lady_2","trp_extra_lady_1"),
-(troop_set_slot,"trp_kingdom_1_lady_2","trp_kingdom_1_lord"),
+(troop_set_slot,"trp_kingdom_1_lady_2",slot_troop_father,"trp_knight_1_37"),
+(troop_set_slot,"trp_kingdom_1_lady_2",slot_troop_mother,"trp_extra_lady_1"),
+(troop_set_slot,"trp_kingdom_1_lady_2",slot_troop_spouse,"trp_kingdom_1_lord"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_2",25),
 (troop_set_slot,"trp_kingdom_1_lady_2",slot_lord_reputation_type,lrep_conventional),
 
 #Catherine de Thouars
-(troop_set_slot,"trp_kingdom_1_lady_3","trp_knight_1_3"),
+(troop_set_slot,"trp_kingdom_1_lady_3",slot_troop_spouse,"trp_knight_1_3"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_3",20),
 (troop_set_slot,"trp_kingdom_1_lady_3",slot_lord_reputation_type,lrep_conventional),
 
 #Anne d'Armagnac
 
-(troop_set_slot,"trp_kingdom_1_lady_4","trp_extra_lady_5"),
-(troop_set_slot,"trp_kingdom_1_lady_4","trp_knight_1_4"),
+(troop_set_slot,"trp_kingdom_1_lady_4",slot_troop_mother,"trp_extra_lady_5"),
+(troop_set_slot,"trp_kingdom_1_lady_4",slot_troop_spouse,"trp_knight_1_4"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_4",27),
 (troop_set_slot,"trp_kingdom_1_lady_4",slot_lord_reputation_type,lrep_ambitious),
 
 #Jacqueline de Montaigu
-(troop_set_slot,"trp_kingdom_1_lady_5","trp_knight_1_36"),
+(troop_set_slot,"trp_kingdom_1_lady_5",slot_troop_spouse,"trp_knight_1_36"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_5",34),
 (troop_set_slot,"trp_kingdom_1_lady_5",slot_lord_reputation_type,lrep_conventional),
 
 #Marguerite de Savoie
-(troop_set_slot,"trp_kingdom_1_lady_6","trp_knight_1_37"),
+(troop_set_slot,"trp_kingdom_1_lady_6",slot_troop_spouse,"trp_knight_1_37"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_6",20),
 (troop_set_slot,"trp_kingdom_1_lady_6",slot_lord_reputation_type,lrep_conventional),
 
 #Louise-Marie de Rieux
-(troop_set_slot,"trp_kingdom_1_lady_7","trp_extra_lady_32"),
-(troop_set_slot,"trp_kingdom_1_lady_7","trp_knight_1_7"),
+(troop_set_slot,"trp_kingdom_1_lady_7",slot_troop_mother,"trp_extra_lady_32"),
+(troop_set_slot,"trp_kingdom_1_lady_7",slot_troop_spouse,"trp_knight_1_7"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_7",24),
 (troop_set_slot,"trp_kingdom_1_lady_7",slot_lord_reputation_type,lrep_conventional),
 
 #Agnès de Bueil
-(troop_set_slot,"trp_kingdom_1_lady_8","trp_extra_lady_13"),
-(troop_set_slot,"trp_kingdom_1_lady_8","trp_knight_1_8"),
+(troop_set_slot,"trp_kingdom_1_lady_8",slot_troop_mother,"trp_extra_lady_13"),
+(troop_set_slot,"trp_kingdom_1_lady_8",slot_troop_spouse,"trp_knight_1_8"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_8",19),
 (troop_set_slot,"trp_kingdom_1_lady_8","trp_knight_1_10"),
 (troop_set_slot,"trp_kingdom_1_lady_8",slot_lord_reputation_type,lrep_conventional),
 
 #Isabelle de Lorraine
-(troop_set_slot,"trp_kingdom_1_lady_9","trp_knight_1_38"),
+(troop_set_slot,"trp_kingdom_1_lady_9",slot_troop_spouse,"trp_knight_1_38"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_9",20),
 (troop_set_slot,"trp_kingdom_1_lady_9",slot_lord_reputation_type,lrep_adventurous),
 
 #Jeanne de Montjean
-(troop_set_slot,"trp_kingdom_1_lady_10","trp_knight_1_10"),
+(troop_set_slot,"trp_kingdom_1_lady_10",slot_troop_spouse,"trp_knight_1_10"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_10",23),
 (troop_set_slot,"trp_kingdom_1_lady_10",slot_lord_reputation_type,lrep_conventional),
 
 #Jeanne de Châtillon
-(troop_set_slot,"trp_kingdom_1_lady_11","trp_knight_1_11"),
+(troop_set_slot,"trp_kingdom_1_lady_11",slot_troop_spouse,"trp_knight_1_11"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_11",59),
 (troop_set_slot,"trp_kingdom_1_lady_11",slot_lord_reputation_type,lrep_conventional),
 
 #Catherine de Laval
-(troop_set_slot,"trp_kingdom_1_lady_12","trp_knight_1_41"),
+(troop_set_slot,"trp_kingdom_1_lady_12",slot_troop_spouse,"trp_knight_1_41"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_12",17),
 (troop_set_slot,"trp_kingdom_1_lady_12",slot_lord_reputation_type,lrep_conventional),
 
 #Marie d'Armagnac
-(troop_set_slot,"trp_kingdom_1_lady_13","trp_knight_1_13"),
+(troop_set_slot,"trp_kingdom_1_lady_13",slot_troop_spouse,"trp_knight_1_13"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_13",33),
 (troop_set_slot,"trp_kingdom_1_lady_13",slot_lord_reputation_type,lrep_conventional),
 
 #Jeanne de Preuilly
-(troop_set_slot,"trp_kingdom_1_lady_14","trp_knight_1_14"),
+(troop_set_slot,"trp_kingdom_1_lady_14",slot_troop_spouse,"trp_knight_1_14"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_14",35),
 (troop_set_slot,"trp_kingdom_1_lady_14",slot_lord_reputation_type,lrep_conventional),
 
 #Jeanne de Naillac
-(troop_set_slot,"trp_kingdom_1_lady_15","trp_knight_1_15"),
+(troop_set_slot,"trp_kingdom_1_lady_15",slot_troop_spouse,"trp_knight_1_15"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_15",33),
 (troop_set_slot,"trp_kingdom_1_lady_15",slot_lord_reputation_type,lrep_conventional),
 
 #Agnès de Bourgogne
-(troop_set_slot,"trp_kingdom_1_lady_16","trp_knight_1_16"),
+(troop_set_slot,"trp_kingdom_1_lady_16",slot_troop_spouse,"trp_knight_1_16"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_16",22),
-(troop_set_slot,"trp_kingdom_1_lady_16","trp_kingdom_3_lord"),
+(troop_set_slot,"trp_kingdom_1_lady_16",slot_troop_guardian,"trp_kingdom_3_lord"),
 (troop_set_slot,"trp_kingdom_1_lady_16",slot_lord_reputation_type,lrep_conventional),
 
 #Jeanne de Clermont
-(troop_set_slot,"trp_kingdom_1_lady_17","trp_knight_1_17"),
+(troop_set_slot,"trp_kingdom_1_lady_17",slot_troop_spouse,"trp_knight_1_17"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_17",17),
 (troop_set_slot,"trp_kingdom_1_lady_17",slot_lord_reputation_type,lrep_conventional),
 
 #Sybille de Montaut
-(troop_set_slot,"trp_kingdom_1_lady_18","trp_knight_1_18"),
+(troop_set_slot,"trp_kingdom_1_lady_18",slot_troop_spouse,"trp_knight_1_18"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_18",50),
 (troop_set_slot,"trp_kingdom_1_lady_18",slot_lord_reputation_type,lrep_conventional),
 
 #Anne de Launay
-(troop_set_slot,"trp_kingdom_1_lady_19","trp_knight_1_19"),
+(troop_set_slot,"trp_kingdom_1_lady_19",slot_troop_spouse,"trp_knight_1_19"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_19",30),
 (troop_set_slot,"trp_kingdom_1_lady_19",slot_lord_reputation_type,lrep_conventional),
 
 #Jeanne de Joyeuse
-(troop_set_slot,"trp_kingdom_1_lady_20","trp_knight_1_42"),
+(troop_set_slot,"trp_kingdom_1_lady_20",slot_troop_spouse,"trp_knight_1_42"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_20",35),
 (troop_set_slot,"trp_kingdom_1_lady_20",slot_lord_reputation_type,lrep_conventional),
 
 #Jacquette du Peschin
-(troop_set_slot,"trp_kingdom_1_lady_21","trp_knight_1_43"),
+(troop_set_slot,"trp_kingdom_1_lady_21",slot_troop_spouse,"trp_knight_1_43"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_21",33),
 (troop_set_slot,"trp_kingdom_1_lady_21",slot_lord_reputation_type,lrep_conventional),
 
 #Isabelle de Navarre
-(troop_set_slot,"trp_kingdom_1_lady_22","trp_extra_lady_3"),
-(troop_set_slot,"trp_kingdom_1_lady_22","trp_knight_1_22"),
+(troop_set_slot,"trp_kingdom_1_lady_22",slot_troop_mother,"trp_extra_lady_3"),
+(troop_set_slot,"trp_kingdom_1_lady_22",slot_troop_spouse,"trp_knight_1_22"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_22",33),
 (troop_set_slot,"trp_kingdom_1_lady_22",slot_lord_reputation_type,lrep_conventional),
 
 #Eléonore de Bourbon
-(troop_set_slot,"trp_kingdom_1_lady_23","trp_knight_1_33"),
-(troop_set_slot,"trp_kingdom_1_lady_23","trp_extra_lady_4"),
-(troop_set_slot,"trp_kingdom_1_lady_23","trp_knight_1_23"),
+(troop_set_slot,"trp_kingdom_1_lady_23",slot_troop_father,"trp_knight_1_33"),
+(troop_set_slot,"trp_kingdom_1_lady_23",slot_troop_mother,"trp_extra_lady_4"),
+(troop_set_slot,"trp_kingdom_1_lady_23",slot_troop_spouse,"trp_knight_1_23"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_23",22),
 (troop_set_slot,"trp_kingdom_1_lady_23",slot_lord_reputation_type,lrep_conventional),
 
 #Eyquem de Tasque
-(troop_set_slot,"trp_kingdom_1_lady_24","trp_knight_1_24"),
+(troop_set_slot,"trp_kingdom_1_lady_24",slot_troop_spouse,"trp_knight_1_24"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_24",45),
 (troop_set_slot,"trp_kingdom_1_lady_24",slot_lord_reputation_type,lrep_conventional),
 
 #Guilhelma d'Urgosse
-(troop_set_slot,"trp_kingdom_1_lady_25","trp_knight_1_25"),
+(troop_set_slot,"trp_kingdom_1_lady_25",slot_troop_spouse,"trp_knight_1_25"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_25",25),
 (troop_set_slot,"trp_kingdom_1_lady_25",slot_lord_reputation_type,lrep_conventional),
 
 #Catherine de Marcilly
-(troop_set_slot,"trp_kingdom_1_lady_26","trp_knight_1_44"),
+(troop_set_slot,"trp_kingdom_1_lady_26",slot_troop_spouse,"trp_knight_1_44"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_26",20),
 (troop_set_slot,"trp_kingdom_1_lady_26",slot_lord_reputation_type,lrep_conventional),
 
 #Jeanne d'Albret
-(troop_set_slot,"trp_kingdom_1_lady_27","trp_extra_lady_2"),
-(troop_set_slot,"trp_kingdom_1_lady_27","trp_knight_1_46"),
+(troop_set_slot,"trp_kingdom_1_lady_27",slot_troop_mother,"trp_extra_lady_2"),
+(troop_set_slot,"trp_kingdom_1_lady_27",slot_troop_spouse,"trp_knight_1_46"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_27",26),
 (troop_set_slot,"trp_kingdom_1_lady_27",slot_lord_reputation_type,lrep_conventional),
 
 #Gabrielle de Lastic
-(troop_set_slot,"trp_kingdom_1_lady_28","trp_knight_1_28"),
+(troop_set_slot,"trp_kingdom_1_lady_28",slot_troop_spouse,"trp_knight_1_28"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_28",25),
 (troop_set_slot,"trp_kingdom_1_lady_28",slot_lord_reputation_type,lrep_conventional),
 
 #Cécile d'Altier
-(troop_set_slot,"trp_kingdom_1_lady_29","trp_knight_1_48"),
+(troop_set_slot,"trp_kingdom_1_lady_29",slot_troop_spouse,"trp_knight_1_48"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_29",44),
 (troop_set_slot,"trp_kingdom_1_lady_29",slot_lord_reputation_type,lrep_conventional),
 
 #Marguerite de Corbie
-(troop_set_slot,"trp_kingdom_1_lady_30","trp_knight_1_29"),
+(troop_set_slot,"trp_kingdom_1_lady_30",slot_troop_spouse,"trp_knight_1_29"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_30",20),
 (troop_set_slot,"trp_kingdom_1_lady_30",slot_lord_reputation_type,lrep_conventional),
 
 #Anne de Montlaur
-(troop_set_slot,"trp_kingdom_1_lady_31","trp_knight_1_31"),
+(troop_set_slot,"trp_kingdom_1_lady_31",slot_troop_spouse,"trp_knight_1_31"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_31",20),
 (troop_set_slot,"trp_kingdom_1_lady_31",slot_lord_reputation_type,lrep_conventional),
 
 #Blanche de Gimel
-(troop_set_slot,"trp_kingdom_1_lady_32","trp_knight_1_32"),
+(troop_set_slot,"trp_kingdom_1_lady_32",slot_troop_spouse,"trp_knight_1_32"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_32",22),
 (troop_set_slot,"trp_kingdom_1_lady_32",slot_lord_reputation_type,lrep_conventional),
 
 #Isabeau de Lignières
-(troop_set_slot,"trp_kingdom_1_lady_33","trp_knight_1_49"),
+(troop_set_slot,"trp_kingdom_1_lady_33",slot_troop_spouse,"trp_knight_1_49"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_33",25),
 (troop_set_slot,"trp_kingdom_1_lady_33",slot_lord_reputation_type,lrep_conventional),
 
 #Anne de Laval
-(troop_set_slot,"trp_kingdom_1_lady_34","trp_knight_1_34"),
+(troop_set_slot,"trp_kingdom_1_lady_34",slot_troop_spouse,"trp_knight_1_34"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_34",44),
-(troop_set_slot,"trp_kingdom_1_lady_34","trp_knight_1_39"),
+(troop_set_slot,"trp_kingdom_1_lady_34",slot_troop_guardian,"trp_knight_1_39"),
 (troop_set_slot,"trp_kingdom_1_lady_34",slot_lord_reputation_type,lrep_conventional),
 
 #Jacqueline de Chambly
-(troop_set_slot,"trp_kingdom_1_lady_35","trp_knight_1_35"),
+(troop_set_slot,"trp_kingdom_1_lady_35",slot_troop_spouse,"trp_knight_1_35"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_35",44),
 (troop_set_slot,"trp_kingdom_1_lady_35",slot_lord_reputation_type,lrep_conventional),
 
-(call_script, "script_init_troop_age","trp_kingdom_1_lady_35",0),
-(troop_set_slot,"trp_kingdom_1_lady_35",slot_lord_reputation_type,lrep_conventional),
-
 #Jeanne Paynel
-(troop_set_slot,"trp_kingdom_1_lady_36","trp_knight_1_50"),
+(troop_set_slot,"trp_kingdom_1_lady_36",slot_troop_spouse,"trp_knight_1_50"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_36",28),
 (troop_set_slot,"trp_kingdom_1_lady_36",slot_lord_reputation_type,lrep_conventional),
 
 #Péronne de Créquy
-(troop_set_slot,"trp_kingdom_1_lady_37","trp_knight_1_51"),
+(troop_set_slot,"trp_kingdom_1_lady_37",slot_troop_spouse,"trp_knight_1_51"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_37",25),
 (troop_set_slot,"trp_kingdom_1_lady_37",slot_lord_reputation_type,lrep_conventional),
 
 #Denise Pisdoë
-(troop_set_slot,"trp_kingdom_1_lady_38","trp_knight_1_52"),
+(troop_set_slot,"trp_kingdom_1_lady_38",slot_troop_spouse,"trp_knight_1_52"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_38",35),
 (troop_set_slot,"trp_kingdom_1_lady_38",slot_lord_reputation_type,lrep_conventional),
 
 #Isabeau de la Tour d'Auvergne
-(troop_set_slot,"trp_kingdom_1_lady_39","trp_knight_1_53"),
+(troop_set_slot,"trp_kingdom_1_lady_39",slot_troop_spouse,"trp_knight_1_53"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_39",29),
-(troop_set_slot,"trp_kingdom_1_lady_39","trp_knight_1_43"),
+(troop_set_slot,"trp_kingdom_1_lady_39",slot_troop_guardian,"trp_knight_1_43"),
 (troop_set_slot,"trp_kingdom_1_lady_39",slot_lord_reputation_type,lrep_conventional),
 
 #Bonne d'Armagnac
-(troop_set_slot,"trp_kingdom_1_lady_40","trp_knight_1_22"),
+(troop_set_slot,"trp_kingdom_1_lady_40",slot_troop_spouse,"trp_knight_1_22"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_40",17),
 (troop_set_slot,"trp_kingdom_1_lady_40",slot_lord_reputation_type,lrep_conventional),
 
 #Corneille de Barbazan
-(troop_set_slot,"trp_kingdom_1_lady_41","trp_knight_1_18"),
-(troop_set_slot,"trp_kingdom_1_lady_41","trp_kingdom_1_lady_18"),
+(troop_set_slot,"trp_kingdom_1_lady_41",slot_troop_father,"trp_knight_1_18"),
+(troop_set_slot,"trp_kingdom_1_lady_41",slot_troop_mother,"trp_kingdom_1_lady_18"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_41",25),
 (troop_set_slot,"trp_kingdom_1_lady_41",slot_lord_reputation_type,lrep_conventional),
 
 
 #Jeanne de Chailly
-(troop_set_slot,"trp_kingdom_1_lady_42","trp_knight_1_52"),
-(troop_set_slot,"trp_kingdom_1_lady_42","trp_kingdom_1_lady_38"),
+(troop_set_slot,"trp_kingdom_1_lady_42",slot_troop_father,"trp_knight_1_52"),
+(troop_set_slot,"trp_kingdom_1_lady_42",slot_troop_mother,"trp_kingdom_1_lady_38"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_42",18),
 (troop_set_slot,"trp_kingdom_1_lady_42",slot_lord_reputation_type,lrep_conventional),
 
 #Blanche de Gamaches
-(troop_set_slot,"trp_kingdom_1_lady_43","trp_knight_1_48"),
-(troop_set_slot,"trp_kingdom_1_lady_43","trp_kingdom_1_lady_30"),
+(troop_set_slot,"trp_kingdom_1_lady_43",slot_troop_father,"trp_knight_1_48"),
+(troop_set_slot,"trp_kingdom_1_lady_43",slot_troop_mother,"trp_kingdom_1_lady_30"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_43",17),
 (troop_set_slot,"trp_kingdom_1_lady_43",slot_lord_reputation_type,lrep_conventional),
 
 #Marie Malet de Graville
-(troop_set_slot,"trp_kingdom_1_lady_44","trp_knight_1_36"),
+(troop_set_slot,"trp_kingdom_1_lady_44",slot_troop_spouse,"trp_knight_1_36"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_44",19),
 (troop_set_slot,"trp_kingdom_1_lady_44",slot_lord_reputation_type,lrep_conventional),
 
 #Johannetta de Termes d'Armagnac
-(troop_set_slot,"trp_kingdom_1_lady_45","trp_knight_1_24"),
+(troop_set_slot,"trp_kingdom_1_lady_45",slot_troop_spouse,"trp_knight_1_24"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_45",20),
 (troop_set_slot,"trp_kingdom_1_lady_45",slot_lord_reputation_type,lrep_conventional),
 
 #Marguerite de Brosse
-(troop_set_slot,"trp_kingdom_1_lady_46","trp_knight_1_15"),
-(troop_set_slot,"trp_kingdom_1_lady_46","trp_kingdom_1_lady_15"),
+(troop_set_slot,"trp_kingdom_1_lady_46",slot_troop_father,"trp_knight_1_15"),
+(troop_set_slot,"trp_kingdom_1_lady_46",slot_troop_mother,"trp_kingdom_1_lady_15"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_46",17),
 (troop_set_slot,"trp_kingdom_1_lady_46",slot_lord_reputation_type,lrep_conventional),
 
 #Aenor de Culant
-(troop_set_slot,"trp_kingdom_1_lady_47","trp_knight_1_11"),
-(troop_set_slot,"trp_kingdom_1_lady_47","trp_kingdom_1_lady_11"),
+(troop_set_slot,"trp_kingdom_1_lady_47",slot_troop_father,"trp_knight_1_11"),
+(troop_set_slot,"trp_kingdom_1_lady_47",slot_troop_mother,"trp_kingdom_1_lady_11"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_47",25),
 (troop_set_slot,"trp_kingdom_1_lady_47",slot_lord_reputation_type,lrep_conventional),
 
 #Johanetta de Foix
-(troop_set_slot,"trp_kingdom_1_lady_48","trp_knight_1_33"),
+(troop_set_slot,"trp_kingdom_1_lady_48",slot_troop_spouse,"trp_knight_1_33"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_48",25),
 (troop_set_slot,"trp_kingdom_1_lady_48",slot_lord_reputation_type,lrep_conventional),
 
 #Jehannette de Bourbon
-(troop_set_slot,"trp_kingdom_1_lady_49","trp_knight_1_46"),
+(troop_set_slot,"trp_kingdom_1_lady_49",slot_troop_spouse,"trp_knight_1_46"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_49",21),
 (troop_set_slot,"trp_kingdom_1_lady_49",slot_lord_reputation_type,lrep_conventional),
 
 #Jacqueline de Lignières
-(troop_set_slot,"trp_kingdom_1_lady_50","trp_knight_1_35"),
-(troop_set_slot,"trp_kingdom_1_lady_50","trp_kingdom_1_lady_35"),
+(troop_set_slot,"trp_kingdom_1_lady_50",slot_troop_father,"trp_knight_1_35"),
+(troop_set_slot,"trp_kingdom_1_lady_50",slot_troop_mother,"trp_kingdom_1_lady_35"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_50",24),
 (troop_set_slot,"trp_kingdom_1_lady_50",slot_lord_reputation_type,lrep_conventional),
 
 #Jeanne de Poitiers
-(troop_set_slot,"trp_kingdom_1_lady_51","trp_knight_1_31"),
-(troop_set_slot,"trp_kingdom_1_lady_51","trp_kingdom_1_lady_31"),
+(troop_set_slot,"trp_kingdom_1_lady_51",slot_troop_father,"trp_knight_1_31"),
+(troop_set_slot,"trp_kingdom_1_lady_51",slot_troop_mother,"trp_kingdom_1_lady_31"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_51",20),
 (troop_set_slot,"trp_kingdom_1_lady_51",slot_lord_reputation_type,lrep_conventional),
 
 #Marguerite d'Harcourt
-(troop_set_slot,"trp_kingdom_1_lady_52","trp_knight_1_30"),
+(troop_set_slot,"trp_kingdom_1_lady_52",slot_troop_spouse,"trp_knight_1_30"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_52",20),
 (troop_set_slot,"trp_kingdom_1_lady_52",slot_lord_reputation_type,lrep_conventional),
 
 #Dauphine de Murol
-(troop_set_slot,"trp_kingdom_1_lady_53","trp_knight_1_28"),
+(troop_set_slot,"trp_kingdom_1_lady_53",slot_troop_spouse,"trp_knight_1_28"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_53",21),
 (troop_set_slot,"trp_kingdom_1_lady_53",slot_lord_reputation_type,lrep_conventional),
 
 #Louise de Chalençon-Polignac
-(troop_set_slot,"trp_kingdom_1_lady_54","trp_knight_1_53"),
-(troop_set_slot,"trp_kingdom_1_lady_54","trp_kingdom_1_lady_39"),
+(troop_set_slot,"trp_kingdom_1_lady_54",slot_troop_father,"trp_knight_1_53"),
+(troop_set_slot,"trp_kingdom_1_lady_54",slot_troop_mother,"trp_kingdom_1_lady_39"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_54",17),
 (troop_set_slot,"trp_kingdom_1_lady_54",slot_lord_reputation_type,lrep_conventional),
 
@@ -80408,290 +80405,290 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
   [
 
 #Margareth Beauchamp
-(troop_set_slot,"trp_kingdom_2_lady_1","trp_knight_2_10"),
-(troop_set_slot,"trp_kingdom_2_lady_1","trp_knight_2_1"),
+(troop_set_slot,"trp_kingdom_2_lady_1",slot_troop_father,"trp_knight_2_10"),
+(troop_set_slot,"trp_kingdom_2_lady_1",slot_troop_spouse,"trp_knight_2_1"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_1",25),
 (troop_set_slot,"trp_kingdom_2_lady_1",slot_lord_reputation_type,lrep_conventional),
 
 #Millicent Tibetot
-(troop_set_slot,"trp_kingdom_2_lady_2","trp_knight_2_2"),
+(troop_set_slot,"trp_kingdom_2_lady_2",slot_troop_spouse,"trp_knight_2_2"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_2",50),
 (troop_set_slot,"trp_kingdom_2_lady_2",slot_lord_reputation_type,lrep_conventional),
 
 #Alice Chaucer
-(troop_set_slot,"trp_kingdom_2_lady_3","trp_knight_2_3"),
+(troop_set_slot,"trp_kingdom_2_lady_3",slot_troop_spouse,"trp_knight_2_3"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_3",25),
 (troop_set_slot,"trp_kingdom_2_lady_3",slot_lord_reputation_type,lrep_conventional),
 
 #Ismayne Whalesburgh
-(troop_set_slot,"trp_kingdom_2_lady_4","trp_knight_2_4"),
+(troop_set_slot,"trp_kingdom_2_lady_4",slot_troop_spouse,"trp_knight_2_4"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_4",29),
 (troop_set_slot,"trp_kingdom_2_lady_4",slot_lord_reputation_type,lrep_conventional),
 
 #Joyce Charlton
-(troop_set_slot,"trp_kingdom_2_lady_5","trp_knight_2_5"),
+(troop_set_slot,"trp_kingdom_2_lady_5",slot_troop_spouse,"trp_knight_2_5"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_5",26),
 (troop_set_slot,"trp_kingdom_2_lady_5",slot_lord_reputation_type,lrep_conventional),
 
 #Alice Beckering
-(troop_set_slot,"trp_kingdom_2_lady_6","trp_knight_2_6"),
+(troop_set_slot,"trp_kingdom_2_lady_6",slot_troop_spouse,"trp_knight_2_6"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_6",29),
 (troop_set_slot,"trp_kingdom_2_lady_6",slot_lord_reputation_type,lrep_conventional),
 
 #Joan Fastolf
-(troop_set_slot,"trp_kingdom_2_lady_7","trp_knight_2_2"),
+(troop_set_slot,"trp_kingdom_2_lady_7",slot_troop_spouse,"trp_knight_2_2"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_7",20),
 (troop_set_slot,"trp_kingdom_2_lady_7",slot_lord_reputation_type,lrep_conventional),
 
 #Eleanor Beauchamp
-(troop_set_slot,"trp_kingdom_2_lady_8","trp_knight_2_10"),
+(troop_set_slot,"trp_kingdom_2_lady_8",slot_troop_spouse,"trp_knight_2_10"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_8",21),
 (troop_set_slot,"trp_kingdom_2_lady_8",slot_lord_reputation_type,lrep_conventional),
 
 #Katherine Neville
-(troop_set_slot,"trp_kingdom_2_lady_9","trp_knight_2_9"),
+(troop_set_slot,"trp_kingdom_2_lady_9",slot_troop_spouse,"trp_knight_2_9"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_9",29),
 (troop_set_slot,"trp_kingdom_2_lady_9",slot_lord_reputation_type,lrep_conventional),
 
 #Elizabeth Grey
-(troop_set_slot,"trp_kingdom_2_lady_10","trp_knight_2_13"),
-(troop_set_slot,"trp_kingdom_2_lady_10","trp_kingdom_2_lady_13"),
+(troop_set_slot,"trp_kingdom_2_lady_10",slot_troop_father,"trp_knight_2_13"),
+(troop_set_slot,"trp_kingdom_2_lady_10",slot_troop_mother,"trp_kingdom_2_lady_13"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_10",25),
 (troop_set_slot,"trp_kingdom_2_lady_10",slot_lord_reputation_type,lrep_conventional),
 
 #Anne Neville
-(troop_set_slot,"trp_kingdom_2_lady_11","trp_knight_2_11"),
+(troop_set_slot,"trp_kingdom_2_lady_11",slot_troop_spouse,"trp_knight_2_11"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_11",17),
 (troop_set_slot,"trp_kingdom_2_lady_11",slot_lord_reputation_type,lrep_conventional),
 
 #Joan Grey
-(troop_set_slot,"trp_kingdom_2_lady_12","trp_knight_2_13"),
-(troop_set_slot,"trp_kingdom_2_lady_12","trp_kingdom_2_lady_13"),
-(troop_set_slot,"trp_kingdom_2_lady_12","trp_knight_2_12"),
+(troop_set_slot,"trp_kingdom_2_lady_12",slot_troop_father,"trp_knight_2_13"),
+(troop_set_slot,"trp_kingdom_2_lady_12",slot_troop_mother,"trp_kingdom_2_lady_13"),
+(troop_set_slot,"trp_kingdom_2_lady_12",slot_troop_spouse,"trp_knight_2_12"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_12",30),
 (troop_set_slot,"trp_kingdom_2_lady_12",slot_lord_reputation_type,lrep_conventional),
 
 #Joan de Astley
-(troop_set_slot,"trp_kingdom_2_lady_13","trp_knight_2_13"),
+(troop_set_slot,"trp_kingdom_2_lady_13",slot_troop_spouse,"trp_knight_2_13"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_13",50),
 (troop_set_slot,"trp_kingdom_2_lady_13",slot_lord_reputation_type,lrep_conventional),
 
 #Constance Holland
-(troop_set_slot,"trp_kingdom_2_lady_14","trp_knight_2_14"),
+(troop_set_slot,"trp_kingdom_2_lady_14",slot_troop_spouse,"trp_knight_2_14"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_14",42),
 (troop_set_slot,"trp_kingdom_2_lady_14",slot_lord_reputation_type,lrep_conventional),
 
 #Margaret Neville
-(troop_set_slot,"trp_kingdom_2_lady_15","trp_knight_2_15"),
+(troop_set_slot,"trp_kingdom_2_lady_15",slot_troop_spouse,"trp_knight_2_15"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_15",40),
 (troop_set_slot,"trp_kingdom_2_lady_15",slot_lord_reputation_type,lrep_conventional),
 
 #Katherine Burnell
-(troop_set_slot,"trp_kingdom_2_lady_16","trp_knight_2_16"),
+(troop_set_slot,"trp_kingdom_2_lady_16",slot_troop_spouse,"trp_knight_2_16"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_16",28),
 (troop_set_slot,"trp_kingdom_2_lady_16",slot_lord_reputation_type,lrep_conventional),
 
 #Eleanor Grey
-(troop_set_slot,"trp_kingdom_2_lady_17","trp_knight_2_13"),
-(troop_set_slot,"trp_kingdom_2_lady_17","trp_kingdom_2_lady_13"),
+(troop_set_slot,"trp_kingdom_2_lady_17",slot_troop_father,"trp_knight_2_13"),
+(troop_set_slot,"trp_kingdom_2_lady_17",slot_troop_mother,"trp_kingdom_2_lady_13"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_17",20),
 (troop_set_slot,"trp_kingdom_2_lady_17",slot_lord_reputation_type,lrep_conventional),
 
 #Fynette Radcliffe 
-(troop_set_slot,"trp_kingdom_2_lady_18","trp_knight_2_16"),
-(troop_set_slot,"trp_kingdom_2_lady_18","trp_kingdom_2_lady_16"),
+(troop_set_slot,"trp_kingdom_2_lady_18",slot_troop_father,"trp_knight_2_16"),
+(troop_set_slot,"trp_kingdom_2_lady_18",slot_troop_spouse,"trp_kingdom_2_lady_16"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_18",20),
-(troop_set_slot,"trp_kingdom_2_lady_18","trp_knight_2_17"),
+(troop_set_slot,"trp_kingdom_2_lady_18",slot_troop_guardian,"trp_knight_2_17"),
 (troop_set_slot,"trp_kingdom_2_lady_18",slot_lord_reputation_type,lrep_conventional),
 
 #Elizabeth Woodville
-(troop_set_slot,"trp_kingdom_2_lady_19","trp_knight_2_21"),
-(troop_set_slot,"trp_kingdom_2_lady_19","trp_kingdom_2_lady_21"),
+(troop_set_slot,"trp_kingdom_2_lady_19",slot_troop_father,"trp_knight_2_21"),
+(troop_set_slot,"trp_kingdom_2_lady_19",slot_troop_mother,"trp_kingdom_2_lady_21"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_19",23),
-(troop_set_slot,"trp_kingdom_2_lady_19","trp_knight_2_22"),
+(troop_set_slot,"trp_kingdom_2_lady_19",slot_troop_guardian,"trp_knight_2_22"),
 (troop_set_slot,"trp_kingdom_2_lady_19",slot_lord_reputation_type,lrep_conventional),
 
 #Joan Woodville
-(troop_set_slot,"trp_kingdom_2_lady_20","trp_knight_2_21"),
-(troop_set_slot,"trp_kingdom_2_lady_20","trp_kingdom_2_lady_21"),
+(troop_set_slot,"trp_kingdom_2_lady_20",slot_troop_father,"trp_knight_2_21"),
+(troop_set_slot,"trp_kingdom_2_lady_20",slot_troop_mother,"trp_kingdom_2_lady_21"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_20",20),
-(troop_set_slot,"trp_kingdom_2_lady_20","trp_knight_2_22"),
+(troop_set_slot,"trp_kingdom_2_lady_20",slot_troop_guardian,"trp_knight_2_22"),
 (troop_set_slot,"trp_kingdom_2_lady_20",slot_lord_reputation_type,lrep_conventional),
 
 #Joan Bittlesgate
-(troop_set_slot,"trp_kingdom_2_lady_21","trp_knight_2_21"),
+(troop_set_slot,"trp_kingdom_2_lady_21",slot_troop_spouse,"trp_knight_2_21"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_21",39),
 (troop_set_slot,"trp_kingdom_2_lady_21",slot_lord_reputation_type,lrep_conventional),
 
 #Mary Oldhall
-(troop_set_slot,"trp_kingdom_2_lady_22","trp_knight_2_27"),
-(troop_set_slot,"trp_kingdom_2_lady_22","trp_kingdom_2_lady_27"),
+(troop_set_slot,"trp_kingdom_2_lady_22",slot_troop_father,"trp_knight_2_27"),
+(troop_set_slot,"trp_kingdom_2_lady_22",slot_troop_mother,"trp_kingdom_2_lady_27"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_22",19),
 (troop_set_slot,"trp_kingdom_2_lady_22",slot_lord_reputation_type,lrep_conventional),
 
 #Eleanor Holland
-(troop_set_slot,"trp_kingdom_2_lady_23","trp_knight_2_23"),
+(troop_set_slot,"trp_kingdom_2_lady_23",slot_troop_spouse,"trp_knight_2_23"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_23",23),
 (troop_set_slot,"trp_kingdom_2_lady_23",slot_lord_reputation_type,lrep_conventional),
 
 #Elizabeth Blount
-(troop_set_slot,"trp_kingdom_2_lady_24","trp_knight_2_33"),
+(troop_set_slot,"trp_kingdom_2_lady_24",slot_troop_spouse,"trp_knight_2_33"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_24",19),
 (troop_set_slot,"trp_kingdom_2_lady_24",slot_lord_reputation_type,lrep_conventional),
 
 #Joan Willoughby
-(troop_set_slot,"trp_kingdom_2_lady_25","trp_knight_2_34"),
+(troop_set_slot,"trp_kingdom_2_lady_25",slot_troop_spouse,"trp_knight_2_34"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_25",18),
 (troop_set_slot,"trp_kingdom_2_lady_25",slot_lord_reputation_type,lrep_conventional),
 
 #Emmeline Fiennes
-(troop_set_slot,"trp_kingdom_2_lady_26","trp_knight_2_26"),
+(troop_set_slot,"trp_kingdom_2_lady_26",slot_troop_spouse,"trp_knight_2_26"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_26",31),
 (troop_set_slot,"trp_kingdom_2_lady_26",slot_lord_reputation_type,lrep_conventional),
 
 #Mary Willoughby
-(troop_set_slot,"trp_kingdom_2_lady_27","trp_knight_2_27"),
-(call_script, "script_init_troop_age","trp_kingdom_2_lady_27",35),
+(troop_set_slot,"trp_kingdom_2_lady_27",slot_troop_father,"trp_knight_2_27"),
+(call_script, "script_init_troop_age",slot_troop_mother,"trp_kingdom_2_lady_27",35),
 (troop_set_slot,"trp_kingdom_2_lady_27","trp_knight_2_34"),
 (troop_set_slot,"trp_kingdom_2_lady_27",slot_lord_reputation_type,lrep_conventional),
 
 #Anne Stafford
-(troop_set_slot,"trp_kingdom_2_lady_28","trp_knight_2_28"),
+(troop_set_slot,"trp_kingdom_2_lady_28",slot_troop_spouse,"trp_knight_2_28"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_28",23),
 (troop_set_slot,"trp_kingdom_2_lady_28",slot_lord_reputation_type,lrep_conventional),
 
 #Elizabeth Courtenay
-(troop_set_slot,"trp_kingdom_2_lady_29","trp_knight_2_29"),
+(troop_set_slot,"trp_kingdom_2_lady_29",slot_troop_spouse,"trp_knight_2_29"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_29",22),
 (troop_set_slot,"trp_kingdom_2_lady_29",slot_lord_reputation_type,lrep_conventional),
 
 #Jane Gonville
-(troop_set_slot,"trp_kingdom_2_lady_30","trp_knight_2_30"),
+(troop_set_slot,"trp_kingdom_2_lady_30",slot_troop_spouse,"trp_knight_2_30"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_30",19),
 (troop_set_slot,"trp_kingdom_2_lady_30",slot_lord_reputation_type,lrep_conventional),
 
 #Margareth Moythe
-(troop_set_slot,"trp_kingdom_2_lady_31","trp_knight_2_31"),
+(troop_set_slot,"trp_kingdom_2_lady_31",slot_troop_spouse,"trp_knight_2_31"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_31",25),
 (troop_set_slot,"trp_kingdom_2_lady_31",slot_lord_reputation_type,lrep_conventional),
 
 #Katherine Howard of Trending
-(troop_set_slot,"trp_kingdom_2_lady_32","trp_knight_2_36"),
-(troop_set_slot,"trp_kingdom_2_lady_32","trp_kingdom_2_lady_36"),
+(troop_set_slot,"trp_kingdom_2_lady_32",slot_troop_father,"trp_knight_2_36"),
+(troop_set_slot,"trp_kingdom_2_lady_32",slot_troop_mother,"trp_kingdom_2_lady_36"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_32",18),
 (troop_set_slot,"trp_kingdom_2_lady_32",slot_lord_reputation_type,lrep_conventional),
 
 #Elizabeth Montacute
-(troop_set_slot,"trp_kingdom_2_lady_33","trp_knight_2_33"),
+(troop_set_slot,"trp_kingdom_2_lady_33",slot_troop_spouse,"trp_knight_2_33"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_33",36),
 (troop_set_slot,"trp_kingdom_2_lady_33",slot_lord_reputation_type,lrep_conventional),
 
 #Margery Gresley
-(troop_set_slot,"trp_kingdom_2_lady_34","trp_knight_2_34"),
+(troop_set_slot,"trp_kingdom_2_lady_34",slot_troop_spouse,"trp_knight_2_34"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_34",44),
 (troop_set_slot,"trp_kingdom_2_lady_34",slot_lord_reputation_type,lrep_conventional),
 
 #Isabeau de Montferrand
-(troop_set_slot,"trp_kingdom_2_lady_35","trp_knight_2_42"),
-(troop_set_slot,"trp_kingdom_2_lady_35","trp_kingdom_2_lady_42"),
+(troop_set_slot,"trp_kingdom_2_lady_35",slot_troop_father,"trp_knight_2_42"),
+(troop_set_slot,"trp_kingdom_2_lady_35",slot_troop_mother,"trp_kingdom_2_lady_42"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_35",17),
 (troop_set_slot,"trp_kingdom_2_lady_35",slot_lord_reputation_type,lrep_conventional),
 
 #Margaret Mowbray
 
-(troop_set_slot,"trp_kingdom_2_lady_36","trp_extra_lady_34"),
-(troop_set_slot,"trp_kingdom_2_lady_36","trp_knight_2_36"),
+(troop_set_slot,"trp_kingdom_2_lady_36",slot_troop_father,"trp_extra_lady_34"),
+(troop_set_slot,"trp_kingdom_2_lady_36",slot_troop_mother,"trp_knight_2_36"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_36",30),
-(troop_set_slot,"trp_kingdom_2_lady_36","trp_knight_2_9"),
+(troop_set_slot,"trp_kingdom_2_lady_36",slot_troop_guardian,"trp_knight_2_9"),
 (troop_set_slot,"trp_kingdom_2_lady_36",slot_lord_reputation_type,lrep_conventional),
 
 #Elizabeth Boteler
-(troop_set_slot,"trp_kingdom_2_lady_37","trp_knight_2_37"),
+(troop_set_slot,"trp_kingdom_2_lady_37",slot_troop_spouse,"trp_knight_2_37"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_37",29),
 (troop_set_slot,"trp_kingdom_2_lady_37",slot_lord_reputation_type,lrep_conventional),
 
 #Maud Lovell
-(troop_set_slot,"trp_kingdom_2_lady_38","trp_knight_2_38"),
+(troop_set_slot,"trp_kingdom_2_lady_38",slot_troop_spouse,"trp_knight_2_38"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_38",19),
 (troop_set_slot,"trp_kingdom_2_lady_38",slot_lord_reputation_type,lrep_conventional),
 
 #Isabel of Cambridge of York
-(troop_set_slot,"trp_kingdom_2_lady_39","trp_knight_2_39"),
+(troop_set_slot,"trp_kingdom_2_lady_39",slot_troop_spouse,"trp_knight_2_39"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_39",20),
 (troop_set_slot,"trp_kingdom_2_lady_39",slot_lord_reputation_type,lrep_conventional),
 
 #Jane Kerdeston
-(troop_set_slot,"trp_kingdom_2_lady_40","trp_knight_2_40"),
+(troop_set_slot,"trp_kingdom_2_lady_40",slot_troop_spouse,"trp_knight_2_40"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_40",25),
 (troop_set_slot,"trp_kingdom_2_lady_40",slot_lord_reputation_type,lrep_conventional),
 
 #Elizabeth Bourchier
-(troop_set_slot,"trp_kingdom_2_lady_41","trp_knight_2_41"),
+(troop_set_slot,"trp_kingdom_2_lady_41",slot_troop_spouse,"trp_knight_2_41"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_41",30),
 (troop_set_slot,"trp_kingdom_2_lady_41",slot_lord_reputation_type,lrep_conventional),
 
 #Isabeau de Preissac
-(troop_set_slot,"trp_kingdom_2_lady_42","trp_knight_2_42"),
+(troop_set_slot,"trp_kingdom_2_lady_42",slot_troop_spouse,"trp_knight_2_42"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_42",39),
 (troop_set_slot,"trp_kingdom_2_lady_42",slot_lord_reputation_type,lrep_conventional),
 
 #Jouyne de Pommiers
-(troop_set_slot,"trp_kingdom_2_lady_43","trp_knight_2_43"),
+(troop_set_slot,"trp_kingdom_2_lady_43",slot_troop_spouse,"trp_knight_2_43"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_43",39),
 (troop_set_slot,"trp_kingdom_2_lady_43",slot_lord_reputation_type,lrep_conventional),
 
 #Johaneta de Durfort
-(troop_set_slot,"trp_kingdom_2_lady_44","trp_knight_2_45"),
-(troop_set_slot,"trp_kingdom_2_lady_44","trp_kingdom_2_lady_45"),
+(troop_set_slot,"trp_kingdom_2_lady_44",slot_troop_father,"trp_knight_2_45"),
+(troop_set_slot,"trp_kingdom_2_lady_44",slot_troop_mother,"trp_kingdom_2_lady_45"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_44",23),
 (troop_set_slot,"trp_kingdom_2_lady_44",slot_lord_reputation_type,lrep_conventional),
 
 #Judiote de la Lande
-(troop_set_slot,"trp_kingdom_2_lady_45","trp_knight_2_45"),
+(troop_set_slot,"trp_kingdom_2_lady_45",slot_troop_spouse,"trp_knight_2_45"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_45",29),
 (troop_set_slot,"trp_kingdom_2_lady_45",slot_lord_reputation_type,lrep_conventional),
 
 #Joan Courtenay
-(troop_set_slot,"trp_kingdom_2_lady_46","trp_knight_2_46"),
+(troop_set_slot,"trp_kingdom_2_lady_46",slot_troop_spouse,"trp_knight_2_46"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_46",18),
 (troop_set_slot,"trp_kingdom_2_lady_46",slot_lord_reputation_type,lrep_conventional),
 
 #Johaneta de Montferrand 
-(troop_set_slot,"trp_kingdom_2_lady_47","trp_knight_2_43"),
+(troop_set_slot,"trp_kingdom_2_lady_47",slot_troop_spouse,"trp_knight_2_43"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_47",19),
 (troop_set_slot,"trp_kingdom_2_lady_47",slot_lord_reputation_type,lrep_conventional),
 
 #Judiote de Durfort
-(troop_set_slot,"trp_kingdom_2_lady_48","trp_knight_2_45"),
-(troop_set_slot,"trp_kingdom_2_lady_48","trp_kingdom_2_lady_45"),
+(troop_set_slot,"trp_kingdom_2_lady_48",slot_troop_father,"trp_knight_2_45"),
+(troop_set_slot,"trp_kingdom_2_lady_48",slot_troop_mother,"trp_kingdom_2_lady_45"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_48",20),
 (troop_set_slot,"trp_kingdom_2_lady_48",slot_lord_reputation_type,lrep_conventional),
 
 #Margaret Warren
-(troop_set_slot,"trp_kingdom_2_lady_49","trp_knight_2_51"),
-(troop_set_slot,"trp_kingdom_2_lady_49","trp_kingdom_2_lady_51"),
+(troop_set_slot,"trp_kingdom_2_lady_49",slot_troop_father,"trp_knight_2_51"),
+(troop_set_slot,"trp_kingdom_2_lady_49",slot_troop_mother,"trp_kingdom_2_lady_51"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_49",19),
 (troop_set_slot,"trp_kingdom_2_lady_49",slot_lord_reputation_type,lrep_conventional),
 
 #Joan Warren
-(troop_set_slot,"trp_kingdom_2_lady_50","trp_knight_2_51"),
-(troop_set_slot,"trp_kingdom_2_lady_50","trp_kingdom_2_lady_51"),
+(troop_set_slot,"trp_kingdom_2_lady_50",slot_troop_father,"trp_knight_2_51"),
+(troop_set_slot,"trp_kingdom_2_lady_50",slot_troop_mother,"trp_kingdom_2_lady_51"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_50",17),
 (troop_set_slot,"trp_kingdom_2_lady_50",slot_lord_reputation_type,lrep_conventional),
 
 #Margery de Bulkeley
-(troop_set_slot,"trp_kingdom_2_lady_51","trp_knight_2_51"),
+(troop_set_slot,"trp_kingdom_2_lady_51",slot_troop_spouse,"trp_knight_2_51"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_51",40),
 (troop_set_slot,"trp_kingdom_2_lady_51",slot_lord_reputation_type,lrep_conventional),
 
 #Anne Montacute
-(troop_set_slot,"trp_kingdom_2_lady_52","trp_knight_2_52"),
+(troop_set_slot,"trp_kingdom_2_lady_52",slot_troop_spouse,"trp_knight_2_52"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_52",45),
 (troop_set_slot,"trp_kingdom_2_lady_52",slot_lord_reputation_type,lrep_conventional),
 
 #Anne de Bourgogne
-(troop_set_slot,"trp_kingdom_2_lady_53","trp_kingdom_2_lord"),
-(call_script, "script_init_troop_age","trp_kingdom_2_lady_53",25),
+(troop_set_slot,"trp_kingdom_2_lady_53",slot_troop_father,"trp_kingdom_2_lord"),
+(call_script, "script_init_troop_age",slot_troop_mother,"trp_kingdom_2_lady_53",25),
 (troop_set_slot,"trp_kingdom_2_lady_53","trp_kingdom_3_lord"),
 (troop_set_slot,"trp_kingdom_2_lady_53",slot_lord_reputation_type,lrep_conventional),
 
@@ -80821,112 +80818,112 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 [
   
 #Béatrice de Saint-Chéron
-(troop_set_slot,"trp_kingdom_3_lady_1","trp_knight_3_1"),
+(troop_set_slot,"trp_kingdom_3_lady_1",slot_troop_spouse,"trp_knight_3_1"),
 (call_script, "script_init_troop_age","trp_kingdom_3_lady_1",35),
 (troop_set_slot,"trp_kingdom_3_lady_1",slot_lord_reputation_type,lrep_none),
 
 #Corneille de Bourgogne
-(troop_set_slot,"trp_kingdom_3_lady_2","trp_knight_3_2"),
+(troop_set_slot,"trp_kingdom_3_lady_2",slot_troop_spouse,"trp_knight_3_2"),
 (call_script, "script_init_troop_age","trp_kingdom_3_lady_2",30),
 (troop_set_slot,"trp_kingdom_3_lady_2",slot_lord_reputation_type,lrep_none),
 
 #Jeanne de Toulongeon
-(troop_set_slot,"trp_kingdom_3_lady_3","trp_knight_3_1"),
-(troop_set_slot,"trp_kingdom_3_lady_3","trp_kingdom_3_lady_1"),
+(troop_set_slot,"trp_kingdom_3_lady_3",slot_troop_father,"trp_knight_3_1"),
+(troop_set_slot,"trp_kingdom_3_lady_3",slot_troop_mother,"trp_kingdom_3_lady_1"),
 (call_script, "script_init_troop_age","trp_kingdom_3_lady_3",20),
 (troop_set_slot,"trp_kingdom_3_lady_3",slot_lord_reputation_type,lrep_none),
 
 #Marguerite des Baux
-(troop_set_slot,"trp_kingdom_3_lady_4","trp_knight_3_4"),
+(troop_set_slot,"trp_kingdom_3_lady_4",slot_troop_spouse,"trp_knight_3_4"),
 (call_script, "script_init_troop_age","trp_kingdom_3_lady_4",35),
 (troop_set_slot,"trp_kingdom_3_lady_4",slot_lord_reputation_type,lrep_none),
 
 #Jeanne de Béthune
-(troop_set_slot,"trp_kingdom_3_lady_5","trp_knight_3_5"),
+(troop_set_slot,"trp_kingdom_3_lady_5",slot_troop_spouse,"trp_knight_3_5"),
 (call_script, "script_init_troop_age","trp_kingdom_3_lady_5",30),
 (troop_set_slot,"trp_kingdom_3_lady_5",slot_lord_reputation_type,lrep_none),
 
 #Jacqueline de Luxembourg
-(troop_set_slot,"trp_kingdom_3_lady_6","trp_knight_3_4"),
-(troop_set_slot,"trp_kingdom_3_lady_6","trp_kingdom_3_lady_4"),
+(troop_set_slot,"trp_kingdom_3_lady_6",slot_troop_father,"trp_knight_3_4"),
+(troop_set_slot,"trp_kingdom_3_lady_6",slot_troop_mother,"trp_kingdom_3_lady_4"),
 (call_script, "script_init_troop_age","trp_kingdom_3_lady_6",17),
 (troop_set_slot,"trp_kingdom_3_lady_6",slot_lord_reputation_type,lrep_none),
 
 #Marie de Hangest
-(troop_set_slot,"trp_kingdom_3_lady_7","trp_knight_3_7"),
+(troop_set_slot,"trp_kingdom_3_lady_7",slot_troop_spouse,"trp_knight_3_7"),
 (call_script, "script_init_troop_age","trp_kingdom_3_lady_7",25),
 (troop_set_slot,"trp_kingdom_3_lady_7",slot_lord_reputation_type,lrep_none),
 
 #Agnès de Saulx 
-(troop_set_slot,"trp_kingdom_3_lady_8","trp_knight_3_8"),
+(troop_set_slot,"trp_kingdom_3_lady_8",slot_troop_spouse,"trp_knight_3_8"),
 (call_script, "script_init_troop_age","trp_kingdom_3_lady_8",24),
 (troop_set_slot,"trp_kingdom_3_lady_8",slot_lord_reputation_type,lrep_none),
 
 #Catherine d'Anguissola
-(troop_set_slot,"trp_kingdom_3_lady_9","trp_knight_3_9"),
+(troop_set_slot,"trp_kingdom_3_lady_9",slot_troop_spouse,"trp_knight_3_9"),
 (call_script, "script_init_troop_age","trp_kingdom_3_lady_9",55),
 (troop_set_slot,"trp_kingdom_3_lady_9",slot_lord_reputation_type,lrep_none),
 
 #Jeanne de Vallangoujard
-(troop_set_slot,"trp_kingdom_3_lady_10","trp_knight_3_10"),
+(troop_set_slot,"trp_kingdom_3_lady_10",slot_troop_spouse,"trp_knight_3_10"),
 (call_script, "script_init_troop_age","trp_kingdom_3_lady_10",40),
 (troop_set_slot,"trp_kingdom_3_lady_10",slot_lord_reputation_type,lrep_none),
 
 #Marie-Marguerite de Montagu
-(troop_set_slot,"trp_kingdom_3_lady_11","trp_knight_3_11"),
+(troop_set_slot,"trp_kingdom_3_lady_11",slot_troop_spouse,"trp_knight_3_11"),
 (call_script, "script_init_troop_age","trp_kingdom_3_lady_11",35),
 (troop_set_slot,"trp_kingdom_3_lady_11",slot_lord_reputation_type,lrep_none),
 
 #Marie du Bois
-(troop_set_slot,"trp_kingdom_3_lady_12","trp_knight_3_12"),
+(troop_set_slot,"trp_kingdom_3_lady_12",slot_troop_spouse,"trp_knight_3_12"),
 (call_script, "script_init_troop_age","trp_kingdom_3_lady_12",40),
 (troop_set_slot,"trp_kingdom_3_lady_12",slot_lord_reputation_type,lrep_none),
 
 #Jacqueline d'Amboise
-(troop_set_slot,"trp_kingdom_3_lady_13","trp_knight_3_13"),
-(call_script, "script_init_troop_age","trp_kingdom_3_lady_13",30),
+(troop_set_slot,"trp_kingdom_3_lady_13",slot_troop_father,"trp_knight_3_13"),
+(call_script, "script_init_troop_age",slot_troop_mother,"trp_kingdom_3_lady_13",30),
 (troop_set_slot,"trp_kingdom_3_lady_13","trp_knight_1_7"),
 (troop_set_slot,"trp_kingdom_3_lady_13",slot_lord_reputation_type,lrep_none),
 
 #Guillemete de Vienne
-(troop_set_slot,"trp_kingdom_3_lady_14","trp_knight_3_14"),
+(troop_set_slot,"trp_kingdom_3_lady_14", slot_troop_spouse,"trp_knight_3_14"),
 (call_script, "script_init_troop_age","trp_kingdom_3_lady_14",25),
 (troop_set_slot,"trp_kingdom_3_lady_14",slot_lord_reputation_type,lrep_none),
 
 #Pernelle de Villiers de L’Isle-Adam
-(troop_set_slot,"trp_kingdom_3_lady_15","trp_knight_3_10"),
-(troop_set_slot,"trp_kingdom_3_lady_15","trp_kingdom_3_lady_10"),
+(troop_set_slot,"trp_kingdom_3_lady_15",slot_troop_father,"trp_knight_3_10"),
+(troop_set_slot,"trp_kingdom_3_lady_15",slot_troop_mother,"trp_kingdom_3_lady_10"),
 (call_script, "script_init_troop_age","trp_kingdom_3_lady_15",20),
 (troop_set_slot,"trp_kingdom_3_lady_15",slot_lord_reputation_type,lrep_none),
 
 #Marie d'Auvergne
-(troop_set_slot,"trp_kingdom_3_lady_16","trp_knight_3_16"),
+(troop_set_slot,"trp_kingdom_3_lady_16",slot_troop_spouse,"trp_knight_3_16"),
 (call_script, "script_init_troop_age","trp_kingdom_3_lady_16",50),
 (troop_set_slot,"trp_kingdom_3_lady_16",slot_lord_reputation_type,lrep_none),
 
 #Marie de Roubaix
-(troop_set_slot,"trp_kingdom_3_lady_17","trp_knight_3_17"),
+(troop_set_slot,"trp_kingdom_3_lady_17",slot_troop_spouse,"trp_knight_3_17"),
 (call_script, "script_init_troop_age","trp_kingdom_3_lady_17",39),
 (troop_set_slot,"trp_kingdom_3_lady_17",slot_lord_reputation_type,lrep_none),
 
 #Marie de Lalaing
-(troop_set_slot,"trp_kingdom_3_lady_18","trp_knight_3_18"),
+(troop_set_slot,"trp_kingdom_3_lady_18",slot_troop_spouse,"trp_knight_3_18"),
 (call_script, "script_init_troop_age","trp_kingdom_3_lady_18",39),
 (troop_set_slot,"trp_kingdom_3_lady_18",slot_lord_reputation_type,lrep_none),
 
 #Margaretha van der Clite
-(troop_set_slot,"trp_kingdom_3_lady_19","trp_knight_3_19"),
+(troop_set_slot,"trp_kingdom_3_lady_19",slot_troop_spouse,"trp_knight_3_19"),
 (call_script, "script_init_troop_age","trp_kingdom_3_lady_19",35),
 (troop_set_slot,"trp_kingdom_3_lady_19",slot_lord_reputation_type,lrep_none),
 
 #Ermengarde de Rougemont
-(troop_set_slot,"trp_kingdom_3_lady_20","trp_knight_3_20"),
+(troop_set_slot,"trp_kingdom_3_lady_20",slot_troop_spouse,"trp_knight_3_20"),
 (call_script, "script_init_troop_age","trp_kingdom_3_lady_20",25),
 (troop_set_slot,"trp_kingdom_3_lady_20",slot_lord_reputation_type,lrep_none),
 
 #Marianne de Brimeu
-(troop_set_slot,"trp_kingdom_3_lady_21","trp_knight_3_12"),
-(troop_set_slot,"trp_kingdom_3_lady_21","trp_kingdom_3_lady_12"),
+(troop_set_slot,"trp_kingdom_3_lady_21",slot_troop_father,"trp_knight_3_12"),
+(troop_set_slot,"trp_kingdom_3_lady_21",slot_troop_mother,"trp_kingdom_3_lady_12"),
 (call_script, "script_init_troop_age","trp_kingdom_3_lady_21",20),
 (troop_set_slot,"trp_kingdom_3_lady_21",slot_lord_reputation_type,lrep_none),
 
@@ -81047,34 +81044,34 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 [
 
 #Marguerite de Bourgogne
-(troop_set_slot,"trp_kingdom_4_lady_1","trp_knight_4_1"),
+(troop_set_slot,"trp_kingdom_4_lady_1",slot_troop_father,"trp_knight_4_1"),
 (call_script, "script_init_troop_age","trp_kingdom_4_lady_1",36),
-(troop_set_slot,"trp_kingdom_4_lady_1","trp_kingdom_3_lord"),
+(troop_set_slot,"trp_kingdom_4_lady_1",slot_troop_guardian,"trp_kingdom_3_lord"),
 (troop_set_slot,"trp_kingdom_4_lady_1",slot_lord_reputation_type,lrep_none),
 
 #Marguerite d'Orléans
-(troop_set_slot,"trp_kingdom_4_lady_2","trp_knight_4_2"),
+(troop_set_slot,"trp_kingdom_4_lady_2",slot_troop_father,"trp_knight_4_2"),
 (call_script, "script_init_troop_age","trp_kingdom_4_lady_2",23),
-(troop_set_slot,"trp_kingdom_4_lady_2","trp_knight_1_9"),
+(troop_set_slot,"trp_kingdom_4_lady_2",slot_troop_guardian,"trp_knight_1_9"),
 (troop_set_slot,"trp_kingdom_4_lady_2",slot_lord_reputation_type,lrep_none),
 
 #Marguerite de Malestroit
-(troop_set_slot,"trp_kingdom_4_lady_3","trp_knight_4_3"),
+(troop_set_slot,"trp_kingdom_4_lady_3",slot_troop_spouse,"trp_knight_4_3"),
 (call_script, "script_init_troop_age","trp_kingdom_4_lady_3",40),
 (troop_set_slot,"trp_kingdom_4_lady_3",slot_lord_reputation_type,lrep_none),
 
 #Sibylle le Voyer 
-(troop_set_slot,"trp_kingdom_4_lady_4","trp_knight_4_4"),
+(troop_set_slot,"trp_kingdom_4_lady_4",slot_troop_spouse,"trp_knight_4_4"),
 (call_script, "script_init_troop_age","trp_kingdom_4_lady_4",49),
 (troop_set_slot,"trp_kingdom_4_lady_4",slot_lord_reputation_type,lrep_none),
 
 #Jeanne de France
-(troop_set_slot,"trp_kingdom_4_lady_5","trp_kingdom_4_lord"),
+(troop_set_slot,"trp_kingdom_4_lady_5",slot_troop_spouse,"trp_kingdom_4_lord"),
 (call_script, "script_init_troop_age","trp_kingdom_4_lady_5",38),
 (troop_set_slot,"trp_kingdom_4_lady_5",slot_lord_reputation_type,lrep_none),
 
 #Jeanne de Rohan
-(troop_set_slot,"trp_kingdom_4_lady_6","trp_knight_4_9"),
+(troop_set_slot,"trp_kingdom_4_lady_6",slot_troop_spouse,"trp_knight_4_9"),
 (call_script, "script_init_troop_age","trp_kingdom_4_lady_6",17),
 (troop_set_slot,"trp_kingdom_4_lady_6",slot_lord_reputation_type,lrep_none),
 
@@ -81083,62 +81080,62 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 (troop_set_slot,"trp_kingdom_4_lady_7",slot_lord_reputation_type,lrep_none),
 
 #Isabelle de Bretagne
-(troop_set_slot,"trp_kingdom_4_lady_8","trp_kingdom_4_lord"),
-(troop_set_slot,"trp_kingdom_4_lady_8","trp_kingdom_4_lady_5"),
+(troop_set_slot,"trp_kingdom_4_lady_8",slot_troop_father,"trp_kingdom_4_lord"),
+(troop_set_slot,"trp_kingdom_4_lady_8",slot_troop_mother,"trp_kingdom_4_lady_5"),
 (call_script, "script_init_troop_age","trp_kingdom_4_lady_8",18),
 (troop_set_slot,"trp_kingdom_4_lady_8",slot_lord_reputation_type,lrep_none),
 
 #Jacquette de Bretagne
-(troop_set_slot,"trp_kingdom_4_lady_9","trp_knight_4_1"),
+(troop_set_slot,"trp_kingdom_4_lady_9",slot_troop_spouse,"trp_knight_4_1"),
 (call_script, "script_init_troop_age","trp_kingdom_4_lady_9",17),
 (troop_set_slot,"trp_kingdom_4_lady_9",slot_lord_reputation_type,lrep_none),
 
 #Katell Penmarc'h
-(troop_set_slot,"trp_kingdom_4_lady_10","trp_knight_4_7"),
-(troop_set_slot,"trp_kingdom_4_lady_10","trp_kingdom_4_lady_7"),
+(troop_set_slot,"trp_kingdom_4_lady_10",slot_troop_father,"trp_knight_4_7"),
+(troop_set_slot,"trp_kingdom_4_lady_10",slot_troop_mother,"trp_kingdom_4_lady_7"),
 (call_script, "script_init_troop_age","trp_kingdom_4_lady_10",25),
 (troop_set_slot,"trp_kingdom_4_lady_10",slot_lord_reputation_type,lrep_none),
 
 #Catherine du Guesclin
-(troop_set_slot,"trp_kingdom_4_lady_11","trp_knight_4_11"),
+(troop_set_slot,"trp_kingdom_4_lady_11",slot_troop_spouse,"trp_knight_4_11"),
 (call_script, "script_init_troop_age","trp_kingdom_4_lady_11",47),
 (troop_set_slot,"trp_kingdom_4_lady_11",slot_lord_reputation_type,lrep_none),
 
 #Gwendoline de Coëtquen
-(troop_set_slot,"trp_kingdom_4_lady_12","trp_knight_4_17"),
-(troop_set_slot,"trp_kingdom_4_lady_12","trp_kingdom_4_lady_17"),
+(troop_set_slot,"trp_kingdom_4_lady_12",slot_troop_father,"trp_knight_4_17"),
+(troop_set_slot,"trp_kingdom_4_lady_12",slot_troop_mother,"trp_kingdom_4_lady_17"),
 (call_script, "script_init_troop_age","trp_kingdom_4_lady_12",25),
 (troop_set_slot,"trp_kingdom_4_lady_12",slot_lord_reputation_type,lrep_none),
 
 #Jeanne de Lespervez
-(troop_set_slot,"trp_kingdom_4_lady_13","trp_knight_4_13"),
+(troop_set_slot,"trp_kingdom_4_lady_13",slot_troop_spouse,"trp_knight_4_13"),
 (call_script, "script_init_troop_age","trp_kingdom_4_lady_13",35),
 (troop_set_slot,"trp_kingdom_4_lady_13",slot_lord_reputation_type,lrep_none),
 
 #Marie de Bretagne
-(troop_set_slot,"trp_kingdom_4_lady_14","trp_knight_4_2"),
-(troop_set_slot,"trp_kingdom_4_lady_14","trp_kingdom_4_lady_2"),
-(troop_set_slot,"trp_kingdom_4_lady_14","trp_knight_4_14"),
+(troop_set_slot,"trp_kingdom_4_lady_14",slot_troop_father,"trp_knight_4_2"),
+(troop_set_slot,"trp_kingdom_4_lady_14",slot_troop_mother,"trp_kingdom_4_lady_2"),
+(troop_set_slot,"trp_kingdom_4_lady_14",slot_troop_spouse,"trp_knight_4_14"),
 (call_script, "script_init_troop_age","trp_kingdom_4_lady_14",17),
 (troop_set_slot,"trp_kingdom_4_lady_14",slot_lord_reputation_type,lrep_none),
 
 #Marie de Surgères
-(troop_set_slot,"trp_kingdom_4_lady_15","trp_knight_4_15"),
+(troop_set_slot,"trp_kingdom_4_lady_15",slot_troop_spouse,"trp_knight_4_15"),
 (call_script, "script_init_troop_age","trp_kingdom_4_lady_15",24),
 (troop_set_slot,"trp_kingdom_4_lady_15",slot_lord_reputation_type,lrep_none),
 
 #Catherine de Rohan
-(troop_set_slot,"trp_kingdom_4_lady_16","trp_knight_4_16"),
+(troop_set_slot,"trp_kingdom_4_lady_16",slot_troop_spouse,"trp_knight_4_16"),
 (call_script, "script_init_troop_age","trp_kingdom_4_lady_16",20),
 (troop_set_slot,"trp_kingdom_4_lady_16",slot_lord_reputation_type,lrep_none),
 
 #Marguerite de Châteaugiron-Malestroit
-(troop_set_slot,"trp_kingdom_4_lady_17","trp_knight_4_17"),
+(troop_set_slot,"trp_kingdom_4_lady_17",slot_troop_spouse,"trp_knight_4_17"),
 (call_script, "script_init_troop_age","trp_kingdom_4_lady_17",57),
 (troop_set_slot,"trp_kingdom_4_lady_17",slot_lord_reputation_type,lrep_none),
 
 #Jeanne du Plessis-Anger
-(troop_set_slot,"trp_kingdom_4_lady_18","trp_knight_4_18"),
+(troop_set_slot,"trp_kingdom_4_lady_18",slot_troop_spouse,"trp_knight_4_18"),
 (call_script, "script_init_troop_age","trp_kingdom_4_lady_18",24),
 (troop_set_slot,"trp_kingdom_4_lady_18",slot_lord_reputation_type,lrep_none),
 
@@ -81285,6 +81282,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 (troop_set_slot,"trp_extra_lord_27",slot_lord_reputation_type,0),
 
 #Jean de Culant
+(troop_set_slot,"trp_extra_lord_28",slot_troop_father,"trp_extra_lord_27"),
 (troop_set_slot,"trp_extra_lord_28",slot_troop_mother,"trp_extra_lady_29"),
 (troop_set_slot,"trp_extra_lord_28",slot_troop_spouse,"trp_extra_lady_30"),
 (call_script, "script_init_troop_age","trp_extra_lord_28",0),
@@ -81296,6 +81294,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 (troop_set_slot,"trp_extra_lord_29",slot_lord_reputation_type,0),
 
 #Jean III de Rieux
+(troop_set_slot,"trp_extra_lord_30",slot_troop_father,"trp_extra_lord_29"),
 (troop_set_slot,"trp_extra_lord_30",slot_troop_mother,"trp_extra_lady_31"),
 (troop_set_slot,"trp_extra_lord_30",slot_troop_spouse,"trp_extra_lady_32"),
 (call_script, "script_init_troop_age","trp_extra_lord_30",0),
@@ -81307,11 +81306,13 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 (troop_set_slot,"trp_extra_lord_31",slot_lord_reputation_type,0),
 
 # Philippe de Lignières
+(troop_set_slot,"trp_extra_lord_32",slot_troop_father,"trp_extra_lord_31"),
 (troop_set_slot,"trp_extra_lord_32",slot_troop_mother,"trp_extra_lady_33"),
 (call_script, "script_init_troop_age","trp_extra_lord_32",0),
 (troop_set_slot,"trp_extra_lord_32",slot_lord_reputation_type,0),
 
 #Godemar III de Lignères
+(troop_set_slot,"trp_extra_lord_33",slot_troop_father,"trp_extra_lord_31"),
 (troop_set_slot,"trp_extra_lord_33",slot_troop_mother,"trp_extra_lady_33"),
 (call_script, "script_init_troop_age","trp_extra_lord_33",0),
 (troop_set_slot,"trp_extra_lord_33",slot_lord_reputation_type,0),
@@ -81325,6 +81326,18 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 (call_script, "script_init_troop_age","trp_extra_lord_35",0),
 (troop_set_slot,"trp_extra_lord_35",slot_lord_reputation_type,0),
 
+#Louis d'Orléans
+(troop_set_slot,"trp_extra_lord_36",slot_troop_spouse,"trp_extra_lady_36"), 
+(call_script, "script_init_troop_age","trp_extra_lord_36",),  
+(troop_set_slot,"trp_extra_lord_36",slot_lord_reputation_type,),
+
+#Charles d'Orléans
+(troop_set_slot,"trp_extra_lord_37",slot_troop_father,"trp_extra_lord_36"), 
+(troop_set_slot,"trp_extra_lord_37",slot_troop_mother,"trp_extra_lady_36"), 
+(troop_set_slot,"trp_extra_lord_37",slot_troop_spouse,"trp_extra_lady_37"), 
+(call_script, "script_init_troop_age","trp_extra_lord_37",),  
+(troop_set_slot,"trp_extra_lord_37",slot_lord_reputation_type,),
+
 ]),
 
 #script_dac_initilize_aristocracy_extra_ladies
@@ -81333,55 +81346,68 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 [
 
 #Yolande d'Aragon
+(troop_set_slot,"trp_extra_lady_1",slot_troop_spouse,"trp_extra_lord_1"),
 (call_script, "script_init_troop_age","trp_extra_lady_1",49),
 (troop_set_slot,"trp_extra_lady_1",slot_lord_reputation_type,lrep_none),
 
 #Marie de Sully
+(troop_set_slot,"trp_extra_lady_2",slot_troop_spouse,"trp_extra_lord_2"),
 (call_script, "script_init_troop_age","trp_extra_lady_2",0),
 (troop_set_slot,"trp_extra_lady_2",slot_lord_reputation_type,lrep_none),
 
 #Eléonore de Castille
+(troop_set_slot,"trp_extra_lady_3",slot_troop_spouse,"trp_extra_lord_3"),
 (call_script, "script_init_troop_age","trp_extra_lady_3",0),
 (troop_set_slot,"trp_extra_lady_3",slot_lord_reputation_type,lrep_none),
 
 #Béatrice de Navarre
-(troop_set_slot,"trp_extra_lady_4","trp_extra_lady_3"),
+(troop_set_slot,"trp_extra_lady_4",slot_troop_father,"trp_extra_lord_3"),
+(troop_set_slot,"trp_extra_lady_4",slot_troop_mother,"trp_extra_lady_3"),
 (call_script, "script_init_troop_age","trp_extra_lady_4",0),
 (troop_set_slot,"trp_extra_lady_4",slot_lord_reputation_type,lrep_none),
 
 #Bonne de Berry
+(troop_set_slot,"trp_extra_lady_5",slot_troop_spouse,"trp_extra_lord_4"),
 (call_script, "script_init_troop_age","trp_extra_lady_5",0),
 (troop_set_slot,"trp_extra_lady_5",slot_lord_reputation_type,lrep_none),
 
 #Hélis de Bort
+(troop_set_slot,"trp_extra_lady_6",slot_troop_spouse,"trp_extra_lord_5"),
 (call_script, "script_init_troop_age","trp_extra_lady_6",0),
 (troop_set_slot,"trp_extra_lady_6",slot_lord_reputation_type,lrep_none),
 
 #Jeanne de Tigné
+(troop_set_slot,"trp_extra_lady_7",slot_troop_spouse,"trp_extra_lord_6"),
 (call_script, "script_init_troop_age","trp_extra_lady_7",0),
 (troop_set_slot,"trp_extra_lady_7",slot_lord_reputation_type,lrep_none),
 
 #Catherine de Vendôme
+(troop_set_slot,"trp_extra_lady_8",slot_troop_spouse,"trp_extra_lord_7"),
 (call_script, "script_init_troop_age","trp_extra_lady_8",0),
 (troop_set_slot,"trp_extra_lady_8",slot_lord_reputation_type,lrep_none),
 
 #Marie de Berry
+(troop_set_slot,"trp_extra_lady_9",slot_troop_spouse,"trp_extra_lord_8"),
 (call_script, "script_init_troop_age","trp_extra_lady_9",0),
 (troop_set_slot,"trp_extra_lady_9",slot_lord_reputation_type,lrep_none),
 
 #Marie de Fécamp
+(troop_set_slot,"trp_extra_lady_10",slot_troop_spouse,"trp_extra_lord_9"),
 (call_script, "script_init_troop_age","trp_extra_lady_10",0),
 (troop_set_slot,"trp_extra_lady_10",slot_lord_reputation_type,lrep_none),
 
 #Anne de Laval 
+(troop_set_slot,"trp_extra_lady_11",slot_troop_spouse,"trp_extra_lord_10"),
 (call_script, "script_init_troop_age","trp_extra_lady_11",0),
 (troop_set_slot,"trp_extra_lady_11",slot_lord_reputation_type,lrep_none),
 
 #Jeanne de Craon
+(troop_set_slot,"trp_extra_lady_12",slot_troop_spouse,"trp_extra_lord_11"),
 (call_script, "script_init_troop_age","trp_extra_lady_12",0),
 (troop_set_slot,"trp_extra_lady_12",slot_lord_reputation_type,lrep_none),
 
 #Marguerite d'Auvergne
+(troop_set_slot,"trp_extra_lady_13",slot_troop_spouse,"trp_extra_lord_12"),
 (call_script, "script_init_troop_age","trp_extra_lady_13",0),
 (troop_set_slot,"trp_extra_lady_13",slot_lord_reputation_type,lrep_none),
 
@@ -81390,88 +81416,132 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 (troop_set_slot,"trp_extra_lady_14",slot_lord_reputation_type,lrep_none),
 
 #Katherine Stafford
+(troop_set_slot,"trp_extra_lady_15",slot_troop_spouse,"trp_extra_lord_13"),
 (call_script, "script_init_troop_age","trp_extra_lady_15",0),
 (troop_set_slot,"trp_extra_lady_15",slot_lord_reputation_type,lrep_none),
 
 #Margaret Holland
+(troop_set_slot,"trp_extra_lady_16",slot_troop_spouse,"trp_extra_lord_14"),
 (call_script, "script_init_troop_age","trp_extra_lady_16",0),
 (troop_set_slot,"trp_extra_lady_16",slot_lord_reputation_type,lrep_none),
 
 #Katherine Peverell
+(troop_set_slot,"trp_extra_lady_17",slot_troop_spouse,"trp_extra_lord_15"),
 (call_script, "script_init_troop_age","trp_extra_lady_17",0),
 (troop_set_slot,"trp_extra_lady_17",slot_lord_reputation_type,lrep_none),
 
 #Jeanne d'Escaillon
+(troop_set_slot,"trp_extra_lady_18",slot_troop_spouse,"trp_extra_lord_16"),
 (call_script, "script_init_troop_age","trp_extra_lady_18",0),
 (troop_set_slot,"trp_extra_lady_18",slot_lord_reputation_type,lrep_none),
 
 #Alice Sergeaux 
+(troop_set_slot,"trp_extra_lady_19",slot_troop_spouse,"trp_extra_lord_17"),
 (call_script, "script_init_troop_age","trp_extra_lady_19",0),
 (troop_set_slot,"trp_extra_lady_19",slot_lord_reputation_type,lrep_none),
 
 #Rose d'Albret
+(troop_set_slot,"trp_extra_lady_20",slot_troop_spouse,"trp_extra_lord_18"),
 (call_script, "script_init_troop_age","trp_extra_lady_20",0),
 (troop_set_slot,"trp_extra_lady_20",slot_lord_reputation_type,lrep_none),
 
 #Marguerite de Bavière
+(troop_set_slot,"trp_extra_lady_21",slot_troop_spouse,"trp_extra_lord_19"),
 (call_script, "script_init_troop_age","trp_extra_lady_21",0),
 (troop_set_slot,"trp_extra_lady_21",slot_lord_reputation_type,lrep_none),
 
 #Jeanne de Chalon-Arlay
+(troop_set_slot,"trp_extra_lady_22",slot_troop_spouse,"trp_extra_lord_20"),
 (call_script, "script_init_troop_age","trp_extra_lady_22",0),
 (troop_set_slot,"trp_extra_lady_22",slot_lord_reputation_type,lrep_none),
 
 #Marguerite d'Enghien
+(troop_set_slot,"trp_extra_lady_23",slot_troop_spouse,"trp_extra_lord_21"),
 (call_script, "script_init_troop_age","trp_extra_lady_23",0),
 (troop_set_slot,"trp_extra_lady_23",slot_lord_reputation_type,lrep_none),
 
 #Jeanne de Créquy
+(troop_set_slot,"trp_extra_lady_24",slot_troop_spouse,"trp_extra_lord_22"),
 (call_script, "script_init_troop_age","trp_extra_lady_24",0),
 (troop_set_slot,"trp_extra_lady_24",slot_lord_reputation_type,lrep_none),
 
 #Jeanne de Vergy
+(troop_set_slot,"trp_extra_lady_25",slot_troop_spouse,"trp_extra_lord_23"),
 (call_script, "script_init_troop_age","trp_extra_lady_25",0),
 (troop_set_slot,"trp_extra_lady_25",slot_lord_reputation_type,lrep_none),
 
 #Marguerite de Craon
+(troop_set_slot,"trp_extra_lady_26",slot_troop_spouse,"trp_extra_lord_24"),
 (call_script, "script_init_troop_age","trp_extra_lady_26",0),
 (troop_set_slot,"trp_extra_lady_26",slot_lord_reputation_type,lrep_none),
 
 #Jeanne de Navarre
+(troop_set_slot,"trp_extra_lady_27",slot_troop_spouse,"trp_extra_lord_25"),
 (call_script, "script_init_troop_age","trp_extra_lady_27",0),
 (troop_set_slot,"trp_extra_lady_27",slot_lord_reputation_type,lrep_none),
 
 #Jeanne de Beaumanoir
+(troop_set_slot,"trp_extra_lady_28",slot_troop_spouse,"trp_extra_lord_26"),
 (call_script, "script_init_troop_age","trp_extra_lady_28",0),
 (troop_set_slot,"trp_extra_lady_28",slot_lord_reputation_type,lrep_none),
 
 #Isabeau de Brosse
+(troop_set_slot,"trp_extra_lady_29",slot_troop_spouse,"trp_extra_lord_27"),
+
 (call_script, "script_init_troop_age","trp_extra_lady_29",0),
 (troop_set_slot,"trp_extra_lady_29",slot_lord_reputation_type,lrep_none),
 
 #Marguerite de Sully
+(troop_set_slot,"trp_extra_lady_30",slot_troop_spouse,"trp_extra_lord_28"),
+
 (call_script, "script_init_troop_age","trp_extra_lady_30",0),
 (troop_set_slot,"trp_extra_lady_30",slot_lord_reputation_type,lrep_none),
 
 #Jeanne de Rochefort
+(troop_set_slot,"trp_extra_lady_31",slot_troop_spouse,"trp_extra_lord_29"),
+
 (call_script, "script_init_troop_age","trp_extra_lady_31",0),
 (troop_set_slot,"trp_extra_lady_31",slot_lord_reputation_type,lrep_none),
 
 #Béatrice de Montauban
+(troop_set_slot,"trp_extra_lady_32",slot_troop_spouse,"trp_extra_lord_30"),
+
 (call_script, "script_init_troop_age","trp_extra_lady_32",0),
 (troop_set_slot,"trp_extra_lady_32",slot_lord_reputation_type,lrep_none),
 
 #Agnès Trousseau
+(troop_set_slot,"trp_extra_lady_33",slot_troop_spouse,"trp_extra_lord_31"),
+
 (call_script, "script_init_troop_age","trp_extra_lady_33",0),
 (troop_set_slot,"trp_extra_lady_33",slot_lord_reputation_type,lrep_none),
 
 #Elizabeth FitzAlan
+(troop_set_slot,"trp_extra_lady_34",slot_troop_spouse,"trp_extra_lord_34"),
+
 (call_script, "script_init_troop_age","trp_extra_lady_34",0),
 (troop_set_slot,"trp_extra_lady_34",slot_lord_reputation_type,lrep_none),
 
 #Elizabeth Plantagenet
+(troop_set_slot,"trp_extra_lady_35",slot_troop_spouse,"trp_extra_lord_35"),
+
 (call_script, "script_init_troop_age","trp_extra_lady_35",0),
 (troop_set_slot,"trp_extra_lady_35",slot_lord_reputation_type,lrep_none),
+
+#Valentine Visconti
+(troop_set_slot,"trp_extra_lady_36",slot_troop_spouse,"trp_extra_lord_36"),
+
+(call_script, "script_init_troop_age","trp_extra_lady_36",),
+(troop_set_slot,"trp_extra_lady_36",slot_lord_reputation_type,lrep_none),
+
+#Isabelle de Valois
+(troop_set_slot,"trp_extra_lady_37",slot_troop_spouse,"trp_extra_lord_37"),
+(call_script, "script_init_troop_age","trp_extra_lady_37",),
+(troop_set_slot,"trp_extra_lady_37",slot_lord_reputation_type,lrep_none),
+
+
+
+
+
 
 ]),
 ]
