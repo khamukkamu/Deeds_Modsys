@@ -6670,7 +6670,7 @@ scripts = [
 			(assign, ":ancestor_seed", 13),
 
 		(else_try),
-			(is_between, ":cur_troop", "trp_knight_4_1", "trp_kingdom_1_pretender"),
+			(is_between, ":cur_troop", "trp_knight_4_1", "trp_kingdom_3_pretender"),
 			(store_sub, ":npc_seed", ":cur_troop", "trp_knight_4_1"),
 			(assign, ":ancestor_seed", 19),
 
@@ -34944,30 +34944,30 @@ scripts = [
 			#Lady Isolla of Suno's father King Esterich was King Harlaus's cousin,
 			#making them first cousins once removed.  Assign a weight of "1"
 			#to this (for reference, the lowest value normally given in Native is 2).
-			(this_or_next|eq, ":troop_1", "trp_kingdom_1_lord"),
-			    (eq, ":troop_1", "trp_kingdom_1_pretender"),
-			(this_or_next|eq, ":troop_2", "trp_kingdom_1_lord"),
-			    (eq, ":troop_2", "trp_kingdom_1_pretender"),
-			(assign, ":relation_strength", 1),
-			(str_store_string, s11, "str_cousin"),
-		(else_try),
+			# (this_or_next|eq, ":troop_1", "trp_kingdom_1_lord"),
+			    # (eq, ":troop_1", "trp_kingdom_1_pretender"),
+			# (this_or_next|eq, ":troop_2", "trp_kingdom_1_lord"),
+			    # (eq, ":troop_2", "trp_kingdom_1_pretender"),
+			# (assign, ":relation_strength", 1),
+			# (str_store_string, s11, "str_cousin"),
+		# (else_try),
 			#Prince Valdym's uncle was Regent Burelek, father of King Yaroglek,
 			#making the two of them first cousins.
-			(this_or_next|eq, ":troop_1", "trp_kingdom_2_lord"),
-			    (eq, ":troop_1", "trp_kingdom_2_pretender"),
-			(this_or_next|eq, ":troop_2", "trp_kingdom_2_lord"),
-				(eq, ":troop_2", "trp_kingdom_2_pretender"),
-			(assign, ":relation_strength", 2),
-			(str_store_string, s11, "str_cousin"),
-		(else_try),
+			# (this_or_next|eq, ":troop_1", "trp_kingdom_2_lord"),
+			    # (eq, ":troop_1", "trp_kingdom_2_pretender"),
+			# (this_or_next|eq, ":troop_2", "trp_kingdom_2_lord"),
+				# (eq, ":troop_2", "trp_kingdom_2_pretender"),
+			# (assign, ":relation_strength", 2),
+			# (str_store_string, s11, "str_cousin"),
+		# (else_try),
 			#Sanjar Khan and Dustum Khan were both sons of Janakir Khan
 			#(although by different mothers) making them half-brothers.
 			(this_or_next|eq, ":troop_1", "trp_kingdom_3_lord"),
 			    (eq, ":troop_1", "trp_kingdom_3_pretender"),
 			(this_or_next|eq, ":troop_2", "trp_kingdom_3_lord"),
 				(eq, ":troop_2", "trp_kingdom_3_pretender"),
-			(assign, ":relation_strength", 10),
-			(str_store_string, s11, "str_dplmc_half_brother"),
+			(assign, ":relation_strength", 2),
+			(str_store_string, s11, "str_cousin"),
 			#Adjust their parentage to make this work automatically
 			(try_begin),
 		      	(troop_slot_eq, ":troop_1", slot_troop_father, -1),
@@ -42131,8 +42131,8 @@ scripts = [
 #Post 0907 changes end
 
     #Rebellion changes begin
-        (troop_set_slot, "trp_kingdom_1_pretender",  slot_troop_original_faction, "fac_kingdom_1"),
-        (troop_set_slot, "trp_kingdom_2_pretender",  slot_troop_original_faction, "fac_kingdom_2"),
+        # (troop_set_slot, "trp_kingdom_1_pretender",  slot_troop_original_faction, "fac_kingdom_1"),
+        # (troop_set_slot, "trp_kingdom_2_pretender",  slot_troop_original_faction, "fac_kingdom_2"),
         (troop_set_slot, "trp_kingdom_3_pretender",  slot_troop_original_faction, "fac_kingdom_3"),
         (troop_set_slot, "trp_kingdom_4_pretender",  slot_troop_original_faction, "fac_kingdom_4"),
         # (troop_set_slot, "trp_kingdom_5_pretender",  slot_troop_original_faction, "fac_kingdom_5"),
@@ -42140,14 +42140,14 @@ scripts = [
 
     #        (troop_set_slot, "trp_kingdom_1_pretender", slot_troop_support_base,     "p_town_4"), #suno
     #        (troop_set_slot, "trp_kingdom_2_pretender", slot_troop_support_base,     "p_town_11"), #curaw
-    #        (troop_set_slot, "trp_kingdom_3_pretender", slot_troop_support_base,     "p_town_18"), #town_18
-    #        (troop_set_slot, "trp_kingdom_4_pretender", slot_troop_support_base,     "p_town_12"), #wercheg
+           # (troop_set_slot, "trp_kingdom_3_pretender", slot_troop_support_base,     "p_town_60"), # Philippe de Saint-Pol, Malines
+           # (troop_set_slot, "trp_kingdom_4_pretender", slot_troop_support_base,     "p_town_27"), # Olivier de Blois, Limoges
     #        (troop_set_slot, "trp_kingdom_5_pretender", slot_troop_support_base,     "p_town_3"), #veluca
         ##diplomacy start+
         # (troop_set_slot, "trp_kingdom_1_pretender", slot_troop_home, "p_town_4"),#Lady Isolle - Suno
         # (troop_set_slot, "trp_kingdom_2_pretender", slot_troop_home, "p_town_11"),#Prince Valdym - Curaw
-        # (troop_set_slot, "trp_kingdom_3_pretender", slot_troop_home, "p_town_18"),#Dustum Khan - Narra
-        # (troop_set_slot, "trp_kingdom_4_pretender", slot_troop_home, "p_town_12"),#Lethwin Far-Seeker - Wercheg
+        (troop_set_slot, "trp_kingdom_3_pretender", slot_troop_home, "p_town_60"), # Philippe de Saint-Pol, Malines
+        (troop_set_slot, "trp_kingdom_4_pretender", slot_troop_home, "p_town_27"), # Olivier de Blois, Limoges
         # (troop_set_slot, "trp_kingdom_5_pretender", slot_troop_home, "p_town_3"),#Lord Kastor - Veluca
         # (troop_set_slot, "trp_kingdom_6_pretender", slot_troop_home, "p_town_20"),#Arwa the Pearled One - Durquba
         ##diplomacy end+
@@ -67071,31 +67071,30 @@ scripts = [
 			#Lady Isolla of Suno's father King Esterich was King Harlaus's cousin,
 			#making them first cousins once removed.  Assign a weight of "1"
 			#to this (for reference, the lowest value normally given in Native is 2).
-			(this_or_next|eq, ":troop_1", "trp_kingdom_1_lord"),
-			    (eq, ":troop_1", "trp_kingdom_1_pretender"),
-			(this_or_next|eq, ":troop_2", "trp_kingdom_1_lord"),
-			    (eq, ":troop_2", "trp_kingdom_1_pretender"),
-			(assign, ":relation_strength", 1),
-			(assign, ":relation_string", "str_cousin"),
-		(else_try),
-			#Prince Valdym's uncle was Regent Burelek, father of King Yaroglek,
-			#making the two of them first cousins.
-			(this_or_next|eq, ":troop_1", "trp_kingdom_2_lord"),
-			    (eq, ":troop_1", "trp_kingdom_2_pretender"),
-			(this_or_next|eq, ":troop_2", "trp_kingdom_2_lord"),
-				(eq, ":troop_2", "trp_kingdom_2_pretender"),
-			(assign, ":relation_strength", 2),
-			(assign, ":relation_string", "str_cousin"),
-		(else_try),
-			#Sanjar Khan and Dustum Khan were both sons of Janakir Khan
-			#(although by different mothers) making them half-brothers.
+			# (this_or_next|eq, ":troop_1", "trp_kingdom_1_lord"),
+			    # (eq, ":troop_1", "trp_kingdom_1_pretender"),
+			# (this_or_next|eq, ":troop_2", "trp_kingdom_1_lord"),
+			    # (eq, ":troop_2", "trp_kingdom_1_pretender"),
+			# (assign, ":relation_strength", 1),
+			# (assign, ":relation_string", "str_cousin"),
+		# (else_try),
+			# Philippe de Saint-Pol and Philip the Good are cousins
 			(this_or_next|eq, ":troop_1", "trp_kingdom_3_lord"),
 			    (eq, ":troop_1", "trp_kingdom_3_pretender"),
 			(this_or_next|eq, ":troop_2", "trp_kingdom_3_lord"),
 				(eq, ":troop_2", "trp_kingdom_3_pretender"),
-			(assign, ":relation_strength", 10),
-			(assign, ":relation_string", "str_dplmc_half_brother"),
-			#Adjust their parentage to make this work automatically
+			(assign, ":relation_strength", 2),
+			(assign, ":relation_string", "str_cousin"),
+		# (else_try),
+			#Sanjar Khan and Dustum Khan were both sons of Janakir Khan
+			#(although by different mothers) making them half-brothers.
+			# (this_or_next|eq, ":troop_1", "trp_kingdom_3_lord"),
+			    # (eq, ":troop_1", "trp_kingdom_3_pretender"),
+			# (this_or_next|eq, ":troop_2", "trp_kingdom_3_lord"),
+				# (eq, ":troop_2", "trp_kingdom_3_pretender"),
+			# (assign, ":relation_strength", 10),
+			# (assign, ":relation_string", "str_dplmc_half_brother"),
+			# Adjust their parentage to make this work automatically
 			(try_begin),
 		      	(troop_slot_eq, ":troop_1", slot_troop_father, -1),
 				(troop_slot_eq, ":troop_2", slot_troop_father, -1),
@@ -77091,8 +77090,8 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
     #Add home centers for claimants
     # (troop_set_slot, "trp_kingdom_1_pretender", slot_troop_home, "p_town_4"),#Lady Isolle - Suno
     # (troop_set_slot, "trp_kingdom_2_pretender", slot_troop_home, "p_town_11"),#Prince Valdym - Curaw
-      # (troop_set_slot, "trp_kingdom_3_pretender", slot_troop_home, "p_town_18"),#Dustum Khan - Narra
-      # (troop_set_slot, "trp_kingdom_4_pretender", slot_troop_home, "p_town_12"),#Lethwin Far-Seeker - Wercheg
+      (troop_set_slot, "trp_kingdom_3_pretender", slot_troop_home, "p_town_60"),# Philippe de Saint-Pol, Malines
+      (troop_set_slot, "trp_kingdom_4_pretender", slot_troop_home, "p_town_27"),# Olivier de Blois, Limoges
       # (troop_set_slot, "trp_kingdom_5_pretender", slot_troop_home, "p_town_3"),#Lord Kastor - Veluca
     # (troop_set_slot, "trp_kingdom_6_pretender", slot_troop_home, "p_town_20"),#Arwa the Pearled One - Durquba
     #add ancestral fiefs to home slots (mods not using standard NPCs should remove this)

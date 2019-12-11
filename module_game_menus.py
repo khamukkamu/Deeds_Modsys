@@ -4317,7 +4317,7 @@ TOTAL:  {reg5}"),
       (try_end),]), 
 
     ("dac_print_breton_lord_ages", [], "Print Breton Lords Ages", [
-        (try_for_range, ":lords", "trp_knight_4_1", "trp_kingdom_1_pretender"),
+        (try_for_range, ":lords", "trp_knight_4_1", "trp_kingdom_3_pretender"),
           (troop_get_slot, reg55, ":lords", slot_troop_age),
           (str_store_troop_name, s2, ":lords"),
           (display_message, "@{s2} - {reg55}", color_good_news),

@@ -1546,7 +1546,7 @@ kingdom_ladies_end = "trp_heroes_end"
 
 #active NPCs in order: companions, kings, lords, pretenders
 
-pretenders_begin = "trp_kingdom_1_pretender"
+pretenders_begin = "trp_kingdom_3_pretender"
 pretenders_end = kingdom_ladies_begin
 
 lords_begin = "trp_knight_1_1"
@@ -1577,7 +1577,7 @@ soldiers_end = "trp_town_walker_1"
 ##rebel_factions_begin = "fac_kingdom_1_rebels"
 ##rebel_factions_end =   "fac_kingdoms_end"
 
-pretenders_begin = "trp_kingdom_1_pretender"
+pretenders_begin = "trp_kingdom_3_pretender"
 pretenders_end = active_npcs_end
 #Rebellion changes
 
