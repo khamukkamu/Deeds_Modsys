@@ -80548,8 +80548,8 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 
 #Mary Willoughby
 (troop_set_slot,"trp_kingdom_2_lady_27",slot_troop_father,"trp_knight_2_27"),
-(call_script, "script_init_troop_age",slot_troop_mother,"trp_kingdom_2_lady_27",35),
-(troop_set_slot,"trp_kingdom_2_lady_27","trp_knight_2_34"),
+(call_script, "script_init_troop_age","trp_kingdom_2_lady_27",35),
+(troop_set_slot,"trp_kingdom_2_lady_27",slot_troop_guardian,"trp_knight_2_34"),
 (troop_set_slot,"trp_kingdom_2_lady_27",slot_lord_reputation_type,lrep_conventional),
 
 #Anne Stafford
@@ -80688,8 +80688,8 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 
 #Anne de Bourgogne
 (troop_set_slot,"trp_kingdom_2_lady_53",slot_troop_father,"trp_kingdom_2_lord"),
-(call_script, "script_init_troop_age",slot_troop_mother,"trp_kingdom_2_lady_53",25),
-(troop_set_slot,"trp_kingdom_2_lady_53","trp_kingdom_3_lord"),
+(call_script, "script_init_troop_age","trp_kingdom_2_lady_53",25),
+(troop_set_slot,"trp_kingdom_2_lady_53",slot_troop_guardian,"trp_kingdom_3_lord"),
 (troop_set_slot,"trp_kingdom_2_lady_53",slot_lord_reputation_type,lrep_conventional),
 
 ]),
