@@ -67068,6 +67068,14 @@ scripts = [
 		(eq, ":relation_strength", 0),
 		(neq, ":troop_1", ":troop_2"),
 		(try_begin),
+# Philippe de Saint-Pol and Philip the Good are cousins
+		(this_or_next|eq, ":troop_1", "trp_kingdom_3_lord"),
+		(eq, ":troop_1", "trp_kingdom_3_pretender"),
+		(this_or_next|eq, ":troop_2", "trp_kingdom_3_lord"),
+		(eq, ":troop_2", "trp_kingdom_3_pretender"),
+		(assign, ":relation_strength", 2),
+		(assign, ":relation_string", "str_cousin"),
+		# (else_try),		
 			#Lady Isolla of Suno's father King Esterich was King Harlaus's cousin,
 			#making them first cousins once removed.  Assign a weight of "1"
 			#to this (for reference, the lowest value normally given in Native is 2).
@@ -67078,14 +67086,7 @@ scripts = [
 			# (assign, ":relation_strength", 1),
 			# (assign, ":relation_string", "str_cousin"),
 		# (else_try),
-			# Philippe de Saint-Pol and Philip the Good are cousins
-			(this_or_next|eq, ":troop_1", "trp_kingdom_3_lord"),
-			    (eq, ":troop_1", "trp_kingdom_3_pretender"),
-			(this_or_next|eq, ":troop_2", "trp_kingdom_3_lord"),
-				(eq, ":troop_2", "trp_kingdom_3_pretender"),
-			(assign, ":relation_strength", 2),
-			(assign, ":relation_string", "str_cousin"),
-		# (else_try),
+
 			#Sanjar Khan and Dustum Khan were both sons of Janakir Khan
 			#(although by different mothers) making them half-brothers.
 			# (this_or_next|eq, ":troop_1", "trp_kingdom_3_lord"),
