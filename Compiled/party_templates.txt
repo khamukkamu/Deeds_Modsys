@@ -15,7 +15,7 @@ pt_peasant_bandits Rebellious_Peasants 562949953421332 0 2 312 177 8 24 0 179 4 
 pt_deserters Deserters 844424930131989 0 24 312 -1 -1 -1 -1 -1 -1 
 pt_troublesome_bandits Troublesome_Bandits 2533274790658057 0 2 312 181 14 55 0 -1 -1 -1 -1 -1 
 pt_bandits_awaiting_ransom Bandits_Awaiting_Ransom 2533274790789129 0 3 312 181 24 58 0 192 1 1 1 -1 -1 -1 -1 
-pt_leaded_looters Band_of_robbers 2251799813947401 0 3 312 1534 1 1 0 180 3 3 0 -1 -1 -1 -1 
+pt_leaded_looters Band_of_robbers 2251799813947401 0 3 312 1600 1 1 0 180 3 3 0 -1 -1 -1 -1 
 pt_looter_lair Kidnappers'_Hideout 562949955536043 0 3 312 180 15 25 0 -1 -1 -1 -1 -1 
 pt_routier_lair Routier_Stronghold 562949955535916 0 3 312 161 1 1 0 166 4 12 0 162 2 12 0 163 1 4 0 164 2 6 0 165 4 12 0 
 pt_flayer_lair Flayer_Camp 562949955535909 0 3 312 167 1 1 0 168 4 12 0 169 2 8 0 170 2 8 0 -1 -1 
@@ -27,9 +27,9 @@ pt_routed_warriors Routed_Enemies 3 0 1 137 -1 -1 -1 -1 -1 -1
 pt_manhunters Manhunters 2 0 23 137 183 9 40 0 -1 -1 -1 -1 -1 
 pt_kidnapped_girl Kidnapped_Girl 262154 0 3 7 192 1 1 0 -1 -1 -1 -1 -1 
 pt_merchant_caravan Merchant_Caravan 5629499534606383 0 1 11 191 1 1 0 28 5 25 0 -1 -1 -1 -1 
-pt_spy_partners Unremarkable_Travellers 2814749767434241 0 3 7 1481 1 1 0 28 5 11 0 -1 -1 -1 -1 
+pt_spy_partners Unremarkable_Travellers 2814749767434241 0 3 7 1547 1 1 0 28 5 11 0 -1 -1 -1 -1 
 pt_runaway_serfs Runaway_Serfs 2251799814012934 0 3 7 25 6 7 0 190 3 3 0 -1 -1 -1 -1 
-pt_spy Ordinary_Townsman 1125899907170305 0 3 7 1480 1 1 0 -1 -1 -1 -1 -1 
+pt_spy Ordinary_Townsman 1125899907170305 0 3 7 1546 1 1 0 -1 -1 -1 -1 -1 
 pt_sacrificed_messenger Sacrificed_Messenger 844424930459650 0 3 7 -1 -1 -1 -1 -1 -1 
 pt_village_farmers Village_Farmers 67108870 0 4 7 25 5 10 0 190 3 8 0 -1 -1 -1 -1 
 pt_forager_party Foraging_Party 1407374887747586 0 1 7 -1 -1 -1 -1 -1 -1 
@@ -61,4 +61,4 @@ pt_kingdom_4_reinforcements_c kingdom_4_reinforcements_c 0 0 1 0 136 1 3 0 138 1
 pt_kingdom_4_reinforcements_d kingdom_4_reinforcements_d 0 0 1 0 149 1 4 0 153 2 6 0 154 1 3 0 150 1 3 0 151 1 3 0 155 1 3 0 
 pt_dplmc_spouse Your_spouse 71303179 0 3 7 -1 -1 -1 -1 -1 -1 
 pt_dplmc_gift_caravan Your_Caravan 7036874421960751 0 1 11 191 1 1 0 28 5 25 0 -1 -1 -1 -1 
-pt_dplmc_recruiter Recruiter 4194309 0 3 7 1661 1 1 0 -1 -1 -1 -1 -1 
+pt_dplmc_recruiter Recruiter 4194309 0 3 7 1727 1 1 0 -1 -1 -1 -1 -1 

@@ -1,4 +1,4 @@
-1703
+1706
 qstr_Next_Page Next_Page
 qstr_Game_Rules:^ Game_Rules:^
 qstr_0 0
@@ -1702,3 +1702,6 @@ qstr_Alternative_Mode_^Swi Alternative_Mode_^Swing:_{reg1}c
 qstr_Alternative_Mode_^Swin Alternative_Mode_^Swing:_{reg1}p_^Thrust:_{reg2}p
 qstr_Alternative_Mode_^Swing Alternative_Mode_^Swing:_{reg1}p
 qstr_Alternative_Mode_^Swing: Alternative_Mode_^Swing:_{reg1}b_^Thrust:_{reg2}p
+qstr_{s2}___{reg55} {s2}_-_{reg55}
+qstr_Firing_Aristocracy_S Firing_Aristocracy_Script_-_1
+qstr_Firing_Aristocracy_Sc Firing_Aristocracy_Script_-_2
