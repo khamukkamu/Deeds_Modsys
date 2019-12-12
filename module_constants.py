@@ -1579,6 +1579,13 @@ soldiers_end = "trp_town_walker_1"
 
 pretenders_begin = "trp_kingdom_3_pretender"
 pretenders_end = active_npcs_end
+
+# DAC CHANGES
+extra_lords_begin = "trp_extra_lord_1"
+extra_lords_end = "trp_extra_lord_40"
+
+extra_ladies_begin = "trp_extra_lady_1"
+extra_ladies_end = "trp_extra_lord_1"
 #Rebellion changes
 
 tavern_minstrels_begin = "trp_tavern_minstrel_1"
