@@ -34944,39 +34944,27 @@ scripts = [
 		(eq, ":relation_strength", 0),
 		(neq, ":troop_1", ":troop_2"),
 		(try_begin),
-			#Lady Isolla of Suno's father King Esterich was King Harlaus's cousin,
-			#making them first cousins once removed.  Assign a weight of "1"
-			#to this (for reference, the lowest value normally given in Native is 2).
-			# (this_or_next|eq, ":troop_1", "trp_kingdom_1_lord"),
-			    # (eq, ":troop_1", "trp_kingdom_1_pretender"),
-			# (this_or_next|eq, ":troop_2", "trp_kingdom_1_lord"),
-			    # (eq, ":troop_2", "trp_kingdom_1_pretender"),
-			# (assign, ":relation_strength", 1),
-			# (str_store_string, s11, "str_cousin"),
-		# (else_try),
-			#Prince Valdym's uncle was Regent Burelek, father of King Yaroglek,
-			#making the two of them first cousins.
-			# (this_or_next|eq, ":troop_1", "trp_kingdom_2_lord"),
-			    # (eq, ":troop_1", "trp_kingdom_2_pretender"),
-			# (this_or_next|eq, ":troop_2", "trp_kingdom_2_lord"),
-				# (eq, ":troop_2", "trp_kingdom_2_pretender"),
-			# (assign, ":relation_strength", 2),
-			# (str_store_string, s11, "str_cousin"),
-		# (else_try),
-			#Sanjar Khan and Dustum Khan were both sons of Janakir Khan
-			#(although by different mothers) making them half-brothers.
 			(this_or_next|eq, ":troop_1", "trp_kingdom_3_lord"),
-			    (eq, ":troop_1", "trp_kingdom_3_pretender"),
+			(eq, ":troop_1", "trp_kingdom_3_pretender"),
 			(this_or_next|eq, ":troop_2", "trp_kingdom_3_lord"),
-				(eq, ":troop_2", "trp_kingdom_3_pretender"),
+			(eq, ":troop_2", "trp_kingdom_3_pretender"),
 			(assign, ":relation_strength", 2),
 			(str_store_string, s11, "str_cousin"),
+# Chabannes brother		
+		(else_try),		
+			(this_or_next|eq, ":troop_1", "trp_knight_1_19"),
+			(eq, ":troop_1", "trp_knight_1_20"),
+			(this_or_next|eq, ":troop_2", "trp_knight_1_19"),
+			(eq, ":troop_2", "trp_knight_1_20"),
+			(assign, ":relation_strength", 10),
+			(str_store_string, s11, "str_brother"),
+		
 			#Adjust their parentage to make this work automatically
 			(try_begin),
 		      	(troop_slot_eq, ":troop_1", slot_troop_father, -1),
 				(troop_slot_eq, ":troop_2", slot_troop_father, -1),
 				#Set their "father" slot to a number guaranteed not to have spurious collisions
-				(store_mul, ":janakir_khan", "trp_kingdom_3_lord", DPLMC_VIRTUAL_RELATIVE_MULTIPLIER),#defined in module_constants.py
+				(store_mul, ":janakir_khan", "trp_knight_1_19", DPLMC_VIRTUAL_RELATIVE_MULTIPLIER),#defined in module_constants.py
 				(val_add, ":janakir_khan", DPLMC_VIRTUAL_RELATIVE_FATHER_OFFSET),#defined in module_constants.py
 				(troop_set_slot, ":troop_1", slot_troop_father, ":janakir_khan"),
 				(troop_set_slot, ":troop_2", slot_troop_father, ":janakir_khan"),
@@ -67078,16 +67066,14 @@ scripts = [
 		(eq, ":troop_2", "trp_kingdom_3_pretender"),
 		(assign, ":relation_strength", 2),
 		(assign, ":relation_string", "str_cousin"),
-		# (else_try),		
-			#Lady Isolla of Suno's father King Esterich was King Harlaus's cousin,
-			#making them first cousins once removed.  Assign a weight of "1"
-			#to this (for reference, the lowest value normally given in Native is 2).
-			# (this_or_next|eq, ":troop_1", "trp_kingdom_1_lord"),
-			    # (eq, ":troop_1", "trp_kingdom_1_pretender"),
-			# (this_or_next|eq, ":troop_2", "trp_kingdom_1_lord"),
-			    # (eq, ":troop_2", "trp_kingdom_1_pretender"),
-			# (assign, ":relation_strength", 1),
-			# (assign, ":relation_string", "str_cousin"),
+# Chabannes brother		
+		(else_try),		
+			(this_or_next|eq, ":troop_1", "trp_knight_1_19"),
+			(eq, ":troop_1", "trp_knight_1_20"),
+			(this_or_next|eq, ":troop_2", "trp_knight_1_19"),
+			(eq, ":troop_2", "trp_knight_1_20"),
+			(assign, ":relation_strength", 10),
+			(assign, ":relation_string", "str_brother"),
 		# (else_try),
 
 			#Sanjar Khan and Dustum Khan were both sons of Janakir Khan
@@ -67103,7 +67089,7 @@ scripts = [
 		      	(troop_slot_eq, ":troop_1", slot_troop_father, -1),
 				(troop_slot_eq, ":troop_2", slot_troop_father, -1),
 				#Set their "father" slot to a number guaranteed not to have spurious collisions
-				(store_mul, ":janakir_khan", "trp_kingdom_3_lord", DPLMC_VIRTUAL_RELATIVE_MULTIPLIER),#defined in module_constants.py
+				(store_mul, ":janakir_khan", "trp_knight_1_19", DPLMC_VIRTUAL_RELATIVE_MULTIPLIER),#defined in module_constants.py
 				(val_add, ":janakir_khan", DPLMC_VIRTUAL_RELATIVE_FATHER_OFFSET),#defined in module_constants.py
 				(troop_set_slot, ":troop_1", slot_troop_father, ":janakir_khan"),
 				(troop_set_slot, ":troop_2", slot_troop_father, ":janakir_khan"),
@@ -79659,11 +79645,13 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 (troop_set_slot,"trp_knight_1_18",slot_lord_reputation_type,lrep_upstanding),
 
 #Jacques de Chabannes, Seigneur de La Palice
+(troop_set_slot,"trp_knight_1_19",slot_troop_father,"trp_extra_lord_5"),
 (troop_set_slot,"trp_knight_1_19",slot_troop_spouse,"trp_kingdom_1_lady_19"),
 (call_script, "script_init_troop_age","trp_knight_1_19",31),
 (troop_set_slot,"trp_knight_1_19",slot_lord_reputation_type,lrep_martial),
 
 #Antoine de Chabannes, Seigneur de Charlus
+(troop_set_slot,"trp_knight_1_20",slot_troop_father,"trp_extra_lord_5"),
 (call_script, "script_init_troop_age","trp_knight_1_20",21),
 (troop_set_slot,"trp_knight_1_20",slot_lord_reputation_type,lrep_debauched),
 
