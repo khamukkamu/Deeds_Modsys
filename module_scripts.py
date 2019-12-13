@@ -34943,6 +34943,7 @@ scripts = [
 	(try_begin),
 		(eq, ":relation_strength", 0),
 		(neq, ":troop_1", ":troop_2"),
+# Charles the Good + Philippe de Saint-Pol -> Cousins		
 		(try_begin),
 			(this_or_next|eq, ":troop_1", "trp_kingdom_3_lord"),
 			(eq, ":troop_1", "trp_kingdom_3_pretender"),
@@ -34950,14 +34951,183 @@ scripts = [
 			(eq, ":troop_2", "trp_kingdom_3_pretender"),
 			(assign, ":relation_strength", 2),
 			(str_store_string, s11, "str_cousin"),
-# Chabannes brother		
+			
+# Charles II d'Albret + Jeanne d'Albret -> Brother/Sister 	
+		(else_try),		
+			(eq, ":troop_1", "trp_knight_1_4"),
+			(eq, ":troop_2", "trp_kingdom_1_lady_27"),
+			(assign, ":relation_strength", 10),
+			(str_store_string, s11, "str_brother"),
+		(else_try),		
+			(eq, ":troop_1", "trp_kingdom_1_lady_27"),
+			(eq, ":troop_2", "trp_knight_1_4"),
+			(assign, ":relation_strength", 10),
+			(str_store_string, s11, "str_sister"),
+			
+# Louis d'Amboise + Pierre d'Amboise -> Brothers 	
+		(else_try),		
+			(this_or_next|eq, ":troop_1", "trp_knight_1_7"),
+			(eq, ":troop_1", "trp_knight_1_8"),
+			(this_or_next|eq, ":troop_2", "trp_knight_1_7"),
+			(eq, ":troop_2", "trp_knight_1_8"),
+			(assign, ":relation_strength", 10),
+			(str_store_string, s11, "str_brother"),		
+			
+# Jean d'Orléans + Jeanne d'Orléans -> Uncle/Niece 	
+		(else_try),		
+			(eq, ":troop_1", "trp_knight_1_9"),
+			(eq, ":troop_2", "trp_kingdom_1_lady_1"),
+			(assign, ":relation_strength", 4),
+			(str_store_string, s11, "str_uncle"),
+		(else_try),		
+			(eq, ":troop_1", "trp_kingdom_1_lady_1"),
+			(eq, ":troop_2", "trp_knight_1_9"),
+			(assign, ":relation_strength", 4),
+			(str_store_string, s11, "str_niece"),		
+			
+# Jean V de Bueil + Agnès de Bueil -> Brother/Sister 	
+		(else_try),		
+			(eq, ":troop_1", "trp_knight_1_10"),
+			(eq, ":troop_2", "trp_kingdom_1_lady_8"),
+			(assign, ":relation_strength", 10),
+			(str_store_string, s11, "str_brother"),		
+		(else_try),		
+			(eq, ":troop_1", "trp_kingdom_1_lady_8"),
+			(eq, ":troop_2", "trp_knight_1_10"),
+			(assign, ":relation_strength", 10),
+			(str_store_string, s11, "str_sister"),			
+			
+# Louis de Culant + Charles de Culant -> Uncle/Nephew 	
+		(else_try),		
+			(eq, ":troop_1", "trp_knight_1_11"),
+			(eq, ":troop_2", "trp_knight_1_12"),
+			(assign, ":relation_strength", 4),
+			(str_store_string, s11, "str_uncle"),
+		(else_try),		
+			(eq, ":troop_1", "trp_knight_1_12"),
+			(eq, ":troop_2", "trp_knight_1_11"),
+			(assign, ":relation_strength", 4),
+			(str_store_string, s11, "str_nephew"),	
+			
+# Louis de Culant + Jean de Brosse -> Cousins	
+		(else_try),
+			(this_or_next|eq, ":troop_1", "trp_knight_1_11"),
+			(eq, ":troop_1", "trp_knight_1_15"),
+			(this_or_next|eq, ":troop_2", "trp_knight_1_11"),
+			(eq, ":troop_2", "trp_knight_1_15"),
+			(assign, ":relation_strength", 2),
+			(str_store_string, s11, "str_cousin"),	
+
+# Charles I de Bourbon + Louis I de Bourbon -> Brothers 	
+		(else_try),		
+			(this_or_next|eq, ":troop_1", "trp_knight_1_16"),
+			(eq, ":troop_1", "trp_knight_1_17"),
+			(this_or_next|eq, ":troop_2", "trp_knight_1_16"),
+			(eq, ":troop_2", "trp_knight_1_17"),
+			(assign, ":relation_strength", 10),
+			(str_store_string, s11, "str_brother"),				
+			
+# Jacques de Chabannes + Antoine de Chabannes -> Brothers 	
 		(else_try),		
 			(this_or_next|eq, ":troop_1", "trp_knight_1_19"),
 			(eq, ":troop_1", "trp_knight_1_20"),
 			(this_or_next|eq, ":troop_2", "trp_knight_1_19"),
 			(eq, ":troop_2", "trp_knight_1_20"),
 			(assign, ":relation_strength", 10),
+			(str_store_string, s11, "str_brother"),		
+
+# Jean IV d'Armagnac + Bernard VIII d'Armagnac -> Brothers 	
+		(else_try),		
+			(this_or_next|eq, ":troop_1", "trp_knight_1_22"),
+			(eq, ":troop_1", "trp_knight_1_23"),
+			(this_or_next|eq, ":troop_2", "trp_knight_1_22"),
+			(eq, ":troop_2", "trp_knight_1_23"),
+			(assign, ":relation_strength", 10),
+			(str_store_string, s11, "str_brother"),					
+			
+# Jean IV d'Armagnac + Jean IV de Termes d'Armagnac -> Cousins	
+		(else_try),
+			(this_or_next|eq, ":troop_1", "trp_knight_1_22"),
+			(eq, ":troop_1", "trp_knight_1_24"),
+			(this_or_next|eq, ":troop_2", "trp_knight_1_22"),
+			(eq, ":troop_2", "trp_knight_1_24"),
+			(assign, ":relation_strength", 2),
+			(str_store_string, s11, "str_cousin"),		
+
+# Bernard VIII d'Armagnac + Jean IV de Termes d'Armagnac -> Cousins	
+		(else_try),
+			(this_or_next|eq, ":troop_1", "trp_knight_1_23"),
+			(eq, ":troop_1", "trp_knight_1_24"),
+			(this_or_next|eq, ":troop_2", "trp_knight_1_23"),
+			(eq, ":troop_2", "trp_knight_1_24"),
+			(assign, ":relation_strength", 2),
+			(str_store_string, s11, "str_cousin"),			
+			
+# Jacques II de Bourbon de Vendôme + Louis I de Bourbon de Vendôme -> Brothers 	
+		(else_try),		
+			(this_or_next|eq, ":troop_1", "trp_knight_1_33"),
+			(eq, ":troop_1", "trp_knight_1_34"),
+			(this_or_next|eq, ":troop_2", "trp_knight_1_33"),
+			(eq, ":troop_2", "trp_knight_1_34"),
+			(assign, ":relation_strength", 10),
+			(str_store_string, s11, "str_brother"),				
+			
+# Jean de Lignières + Isabeau de Lignières -> Uncle/Niece 	
+		(else_try),		
+			(eq, ":troop_1", "trp_knight_1_35"),
+			(eq, ":troop_2", "trp_kingdom_1_lady_33"),
+			(assign, ":relation_strength", 4),
+			(str_store_string, s11, "str_uncle"),
+		(else_try),		
+			(eq, ":troop_1", "trp_kingdom_1_lady_33"),
+			(eq, ":troop_2", "trp_knight_1_35"),
+			(assign, ":relation_strength", 4),
+			(str_store_string, s11, "str_niece"),					
+			
+# Louis III d'Anjou + René d'Anjou -> Brothers 	
+		(else_try),		
+			(this_or_next|eq, ":troop_1", "trp_knight_1_37"),
+			(eq, ":troop_1", "trp_knight_1_38"),
+			(this_or_next|eq, ":troop_2", "trp_knight_1_37"),
+			(eq, ":troop_2", "trp_knight_1_38"),
+			(assign, ":relation_strength", 10),
+			(str_store_string, s11, "str_brother"),					
+			
+# René d'Anjou + Marie d'Anjou -> Uncle/Niece 	
+		(else_try),		
+			(eq, ":troop_1", "trp_knight_1_38"),
+			(eq, ":troop_2", "trp_kingdom_1_lady_2"),
+			(assign, ":relation_strength", 4),
+			(str_store_string, s11, "str_uncle"),
+		(else_try),		
+			(eq, ":troop_1", "trp_kingdom_1_lady_33"),
+			(eq, ":troop_2", "trp_kingdom_1_lady_2"),
+			(assign, ":relation_strength", 4),
+			(str_store_string, s11, "str_niece"),					
+			
+# Guy XIV de Montfort de Laval + André de Montfort de Laval -> Brothers 	
+		(else_try),		
+			(this_or_next|eq, ":troop_1", "trp_knight_1_39"),
+			(eq, ":troop_1", "trp_knight_1_40"),
+			(this_or_next|eq, ":troop_2", "trp_knight_1_39"),
+			(eq, ":troop_2", "trp_knight_1_40"),
+			(assign, ":relation_strength", 10),
 			(str_store_string, s11, "str_brother"),
+
+# Guillaume II de Gamaches + Jean de Gamaches -> Brothers 	
+		(else_try),		
+			(this_or_next|eq, ":troop_1", "trp_knight_1_48"),
+			(eq, ":troop_1", "trp_knight_1_49"),
+			(this_or_next|eq, ":troop_2", "trp_knight_1_48"),
+			(eq, ":troop_2", "trp_knight_1_49"),
+			(assign, ":relation_strength", 10),
+			(str_store_string, s11, "str_brother"),				
+			
+### DAC Add Relations End			
+			
+			
+			
+			
 		
 			#Adjust their parentage to make this work automatically
 			(try_begin),
@@ -67058,15 +67228,92 @@ scripts = [
 	(try_begin),
 		(eq, ":relation_strength", 0),
 		(neq, ":troop_1", ":troop_2"),
+		
+# Charles the Good + Philippe de Saint-Pol -> Cousins
 		(try_begin),
-# Philippe de Saint-Pol and Philip the Good are cousins
-		(this_or_next|eq, ":troop_1", "trp_kingdom_3_lord"),
-		(eq, ":troop_1", "trp_kingdom_3_pretender"),
-		(this_or_next|eq, ":troop_2", "trp_kingdom_3_lord"),
-		(eq, ":troop_2", "trp_kingdom_3_pretender"),
-		(assign, ":relation_strength", 2),
-		(assign, ":relation_string", "str_cousin"),
-# Chabannes brother		
+			(this_or_next|eq, ":troop_1", "trp_kingdom_3_lord"),
+			(eq, ":troop_1", "trp_kingdom_3_pretender"),
+			(this_or_next|eq, ":troop_2", "trp_kingdom_3_lord"),
+			(eq, ":troop_2", "trp_kingdom_3_pretender"),
+			(assign, ":relation_strength", 2),
+			(assign, ":relation_string", "str_cousin"),
+			
+# Charles II d'Albret + Jeanne d'Albret -> Brother/Sister 	
+		(else_try),		
+			(eq, ":troop_1", "trp_knight_1_4"),
+			(eq, ":troop_2", "trp_kingdom_1_lady_27"),
+			(assign, ":relation_strength", 10),
+			(assign, ":relation_string", "str_brother"),			
+		(else_try),		
+			(eq, ":troop_1", "trp_kingdom_1_lady_27"),
+			(eq, ":troop_2", "trp_knight_1_4"),
+			(assign, ":relation_strength", 10),
+			(assign, ":relation_string", "str_sister"),		
+			
+# Louis d'Amboise + Pierre d'Amboise -> Brothers 	
+		(else_try),		
+			(this_or_next|eq, ":troop_1", "trp_knight_1_7"),
+			(eq, ":troop_1", "trp_knight_1_8"),
+			(this_or_next|eq, ":troop_2", "trp_knight_1_7"),
+			(eq, ":troop_2", "trp_knight_1_8"),
+			(assign, ":relation_strength", 10),
+			(assign, ":relation_string", "str_brother"),			
+			
+# Jean d'Orléans + Jeanne d'Orléans -> Uncle/Niece 	
+		(else_try),		
+			(eq, ":troop_1", "trp_knight_1_9"),
+			(eq, ":troop_2", "trp_kingdom_1_lady_1"),
+			(assign, ":relation_strength", 4),
+			(assign, ":relation_string", "str_uncle"),	
+		(else_try),		
+			(eq, ":troop_1", "trp_kingdom_1_lady_1"),
+			(eq, ":troop_2", "trp_knight_1_9"),
+			(assign, ":relation_strength", 4),
+			(assign, ":relation_string", "str_niece"),		
+			
+# Jean V de Bueil + Agnès de Bueil -> Brother/Sister 	
+		(else_try),		
+			(eq, ":troop_1", "trp_knight_1_10"),
+			(eq, ":troop_2", "trp_kingdom_1_lady_8"),
+			(assign, ":relation_strength", 10),
+			(assign, ":relation_string", "str_brother"),			
+		(else_try),		
+			(eq, ":troop_1", "trp_kingdom_1_lady_8"),
+			(eq, ":troop_2", "trp_knight_1_10"),
+			(assign, ":relation_strength", 10),
+			(assign, ":relation_string", "str_sister"),				
+			
+# Louis de Culant + Charles de Culant -> Uncle/Nephew 	
+		(else_try),		
+			(eq, ":troop_1", "trp_knight_1_11"),
+			(eq, ":troop_2", "trp_knight_1_12"),
+			(assign, ":relation_strength", 4),
+			(assign, ":relation_string", "str_uncle"),	
+		(else_try),		
+			(eq, ":troop_1", "trp_knight_1_12"),
+			(eq, ":troop_2", "trp_knight_1_11"),
+			(assign, ":relation_strength", 4),
+			(assign, ":relation_string", "str_nephew"),	
+			
+# Louis de Culant + Jean de Brosse -> Cousins	
+		(else_try),
+			(this_or_next|eq, ":troop_1", "trp_knight_1_11"),
+			(eq, ":troop_1", "trp_knight_1_15"),
+			(this_or_next|eq, ":troop_2", "trp_knight_1_11"),
+			(eq, ":troop_2", "trp_knight_1_15"),
+			(assign, ":relation_strength", 2),
+			(assign, ":relation_string", "str_cousin"),	
+			
+# Charles I de Bourbon + Louis I de Bourbon -> Brothers 	
+		(else_try),		
+			(this_or_next|eq, ":troop_1", "trp_knight_1_16"),
+			(eq, ":troop_1", "trp_knight_1_17"),
+			(this_or_next|eq, ":troop_2", "trp_knight_1_16"),
+			(eq, ":troop_2", "trp_knight_1_17"),
+			(assign, ":relation_strength", 10),
+			(assign, ":relation_string", "str_brother"),			
+			
+# Jacques de Chabannes + Antoine de Chabannes -> Brothers 
 		(else_try),		
 			(this_or_next|eq, ":troop_1", "trp_knight_1_19"),
 			(eq, ":troop_1", "trp_knight_1_20"),
@@ -67074,7 +67321,110 @@ scripts = [
 			(eq, ":troop_2", "trp_knight_1_20"),
 			(assign, ":relation_strength", 10),
 			(assign, ":relation_string", "str_brother"),
-		# (else_try),
+			
+# Jean IV d'Armagnac + Bernard VIII d'Armagnac -> Brothers 	
+		(else_try),		
+			(this_or_next|eq, ":troop_1", "trp_knight_1_22"),
+			(eq, ":troop_1", "trp_knight_1_23"),
+			(this_or_next|eq, ":troop_2", "trp_knight_1_22"),
+			(eq, ":troop_2", "trp_knight_1_23"),
+			(assign, ":relation_strength", 10),
+			(assign, ":relation_string", "str_brother"),			
+
+# Jean IV d'Armagnac + Jean IV de Termes d'Armagnac -> Cousins	
+		(else_try),
+			(this_or_next|eq, ":troop_1", "trp_knight_1_22"),
+			(eq, ":troop_1", "trp_knight_1_24"),
+			(this_or_next|eq, ":troop_2", "trp_knight_1_22"),
+			(eq, ":troop_2", "trp_knight_1_24"),
+			(assign, ":relation_strength", 2),
+			(assign, ":relation_string", "str_cousin"),	
+
+# Bernard VIII d'Armagnac + Jean IV de Termes d'Armagnac -> Cousins	
+		(else_try),
+			(this_or_next|eq, ":troop_1", "trp_knight_1_23"),
+			(eq, ":troop_1", "trp_knight_1_24"),
+			(this_or_next|eq, ":troop_2", "trp_knight_1_23"),
+			(eq, ":troop_2", "trp_knight_1_24"),
+			(assign, ":relation_strength", 2),
+			(assign, ":relation_string", "str_cousin"),		
+
+# Jacques II de Bourbon de Vendôme + Louis I de Bourbon de Vendôme -> Brothers 	
+		(else_try),		
+			(this_or_next|eq, ":troop_1", "trp_knight_1_33"),
+			(eq, ":troop_1", "trp_knight_1_34"),
+			(this_or_next|eq, ":troop_2", "trp_knight_1_33"),
+			(eq, ":troop_2", "trp_knight_1_34"),
+			(assign, ":relation_strength", 10),
+			(assign, ":relation_string", "str_brother"),			
+			
+# Jean de Lignières + Isabeau de Lignières -> Uncle/Niece 	
+		(else_try),		
+			(eq, ":troop_1", "trp_knight_1_35"),
+			(eq, ":troop_2", "trp_kingdom_1_lady_33"),
+			(assign, ":relation_strength", 4),
+			(assign, ":relation_string", "str_uncle"),	
+		(else_try),		
+			(eq, ":troop_1", "trp_kingdom_1_lady_33"),
+			(eq, ":troop_2", "trp_knight_1_35"),
+			(assign, ":relation_strength", 4),
+			(assign, ":relation_string", "str_niece"),				
+			
+# Louis III d'Anjou + René d'Anjou -> Brothers 	
+		(else_try),		
+			(this_or_next|eq, ":troop_1", "trp_knight_1_37"),
+			(eq, ":troop_1", "trp_knight_1_38"),
+			(this_or_next|eq, ":troop_2", "trp_knight_1_37"),
+			(eq, ":troop_2", "trp_knight_1_38"),
+			(assign, ":relation_strength", 10),
+			(assign, ":relation_string", "str_brother"),			
+			
+# René d'Anjou + Marie d'Anjou -> Uncle/Niece 	
+		(else_try),		
+			(eq, ":troop_1", "trp_knight_1_38"),
+			(eq, ":troop_2", "trp_kingdom_1_lady_2"),
+			(assign, ":relation_strength", 4),
+			(assign, ":relation_string", "str_uncle"),	
+		(else_try),		
+			(eq, ":troop_1", "trp_kingdom_1_lady_33"),
+			(eq, ":troop_2", "trp_kingdom_1_lady_2"),
+			(assign, ":relation_strength", 4),
+			(assign, ":relation_string", "str_niece"),				
+			
+# Guy XIV de Montfort de Laval + André de Montfort de Laval -> Brothers 	
+		(else_try),		
+			(this_or_next|eq, ":troop_1", "trp_knight_1_39"),
+			(eq, ":troop_1", "trp_knight_1_40"),
+			(this_or_next|eq, ":troop_2", "trp_knight_1_39"),
+			(eq, ":troop_2", "trp_knight_1_40"),
+			(assign, ":relation_strength", 10),
+			(assign, ":relation_string", "str_brother"),				
+			
+# Guillaume II de Gamaches + Jean de Gamaches -> Brothers 	
+		(else_try),		
+			(this_or_next|eq, ":troop_1", "trp_knight_1_48"),
+			(eq, ":troop_1", "trp_knight_1_49"),
+			(this_or_next|eq, ":troop_2", "trp_knight_1_48"),
+			(eq, ":troop_2", "trp_knight_1_49"),
+			(assign, ":relation_strength", 10),
+			(assign, ":relation_string", "str_brother"),				
+			
+### DAC Add Relations End				
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 
 			#Sanjar Khan and Dustum Khan were both sons of Janakir Khan
 			#(although by different mothers) making them half-brothers.
@@ -79574,6 +79924,8 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 (troop_set_slot,"trp_knight_1_3",slot_lord_reputation_type,lrep_debauched),
 
 #Charles II d'Albret, Sire d'Albret, Vicomte de Tartas
+(troop_set_slot,"trp_knight_1_4",slot_troop_mother,"trp_extra_lady_2"),
+(troop_set_slot,"trp_knight_1_4",slot_troop_father,"trp_extra_lord_2"),
 (troop_set_slot,"trp_knight_1_4",slot_troop_spouse,"trp_kingdom_1_lady_4"),
 (call_script, "script_init_troop_age","trp_knight_1_4",22),
 (troop_set_slot,"trp_knight_1_4",slot_lord_reputation_type,lrep_upstanding),
@@ -79587,11 +79939,15 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 (troop_set_slot,"trp_knight_1_6",slot_lord_reputation_type,lrep_martial),
 
 #Louis d'Amboise, Vicomte de Thouars
+(troop_set_slot,"trp_knight_1_7",slot_troop_father,"trp_extra_lord_11"),
+(troop_set_slot,"trp_knight_1_7",slot_troop_mother,"trp_extra_lady_12"),
 (troop_set_slot,"trp_knight_1_7",slot_troop_spouse,"trp_kingdom_1_lady_7"),
 (call_script, "script_init_troop_age","trp_knight_1_7",37),
 (troop_set_slot,"trp_knight_1_7",slot_lord_reputation_type,lrep_upstanding),
 
 #Pierre d'Amboise, Seigneur de Chaumont
+(troop_set_slot,"trp_knight_1_8",slot_troop_father,"trp_extra_lord_11"),
+(troop_set_slot,"trp_knight_1_8",slot_troop_mother,"trp_extra_lady_12"),
 (troop_set_slot,"trp_knight_1_8",slot_troop_spouse,"trp_kingdom_1_lady_8"),
 (call_script, "script_init_troop_age","trp_knight_1_8",21),
 (troop_set_slot,"trp_knight_1_8",slot_lord_reputation_type,lrep_martial),
@@ -79601,6 +79957,8 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 (troop_set_slot,"trp_knight_1_9",slot_lord_reputation_type,lrep_martial),
 
 #Jean V de Bueil, Seigneur de Bueil
+(troop_set_slot,"trp_knight_1_10",slot_troop_father,"trp_extra_lord_12"),
+(troop_set_slot,"trp_knight_1_10",slot_troop_mother,"trp_extra_lady_13"),
 (troop_set_slot,"trp_knight_1_10",slot_troop_spouse,"trp_kingdom_1_lady_10"),
 (call_script, "script_init_troop_age","trp_knight_1_10",23),
 (troop_set_slot,"trp_knight_1_10",slot_lord_reputation_type,lrep_martial),
@@ -79630,11 +79988,15 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 (troop_set_slot,"trp_knight_1_15",slot_lord_reputation_type,lrep_martial),
 
 #Charles I de Bourbon, Duc de Bourbon et d'Auvergne
+(troop_set_slot,"trp_knight_1_16",slot_troop_father,"trp_extra_lord_8"),
+(troop_set_slot,"trp_knight_1_16",slot_troop_mother,"trp_extra_lady_9"),
 (troop_set_slot,"trp_knight_1_16",slot_troop_spouse,"trp_kingdom_1_lady_16"),
 (call_script, "script_init_troop_age","trp_knight_1_16",28),
 (troop_set_slot,"trp_knight_1_16",slot_lord_reputation_type,lrep_upstanding),
 
 #Louis I de Bourbon, Comte de Clermont et de Sancerre
+(troop_set_slot,"trp_knight_1_17",slot_troop_father,"trp_extra_lord_8"),
+(troop_set_slot,"trp_knight_1_17",slot_troop_mother,"trp_extra_lady_9"),
 (troop_set_slot,"trp_knight_1_17",slot_troop_spouse,"trp_kingdom_1_lady_17"),
 (call_script, "script_init_troop_age","trp_knight_1_17",23),
 (troop_set_slot,"trp_knight_1_17",slot_lord_reputation_type,lrep_martial),
@@ -79660,11 +80022,15 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 (troop_set_slot,"trp_knight_1_21",slot_lord_reputation_type,lrep_selfrighteous),
 
 #Jean IV d'Armagnac, Comte d'Armagnac
+(troop_set_slot,"trp_knight_1_22",slot_troop_father,"trp_extra_lord_4"),
+(troop_set_slot,"trp_knight_1_22",slot_troop_mother,"trp_extra_lady_5"),
 (troop_set_slot,"trp_knight_1_22",slot_troop_spouse,"trp_kingdom_1_lady_22"),
 (call_script, "script_init_troop_age","trp_knight_1_22",33),
 (troop_set_slot,"trp_knight_1_22",slot_lord_reputation_type,lrep_selfrighteous),
 
 #Bernard VIII d'Armagnac, Comte de Pardiac
+(troop_set_slot,"trp_knight_1_23",slot_troop_father,"trp_extra_lord_4"),
+(troop_set_slot,"trp_knight_1_23",slot_troop_mother,"trp_extra_lady_5"),
 (troop_set_slot,"trp_knight_1_23",slot_troop_spouse,"trp_kingdom_1_lady_23"),
 (call_script, "script_init_troop_age","trp_knight_1_23",29),
 (troop_set_slot,"trp_knight_1_23",slot_lord_reputation_type,lrep_martial),
@@ -79719,10 +80085,14 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 (troop_set_slot,"trp_knight_1_32",slot_lord_reputation_type,lrep_selfrighteous),
 
 #Jacques II de Bourbon de Vendôme, Comte de la Marche et de Castres
+(troop_set_slot,"trp_knight_1_33",slot_troop_father,"trp_extra_lord_7"),
+(troop_set_slot,"trp_knight_1_33",slot_troop_mother,"trp_extra_lady_8"),
 (call_script, "script_init_troop_age","trp_knight_1_33",59),
 (troop_set_slot,"trp_knight_1_33",slot_lord_reputation_type,lrep_selfrighteous),
 
 #Louis I de Bourbon de Vendôme, Comte de Vendôme et de Chartres
+(troop_set_slot,"trp_knight_1_34",slot_troop_father,"trp_extra_lord_7"),
+(troop_set_slot,"trp_knight_1_34",slot_troop_mother,"trp_extra_lady_8"),
 (call_script, "script_init_troop_age","trp_knight_1_34",53),
 (troop_set_slot,"trp_knight_1_34",slot_lord_reputation_type,lrep_martial),
 
@@ -79738,21 +80108,26 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 
 #Louis III d'Anjou, Duc d'Anjou
 (troop_set_slot,"trp_knight_1_37",slot_troop_mother,"trp_extra_lady_1"),
+(troop_set_slot,"trp_knight_1_37",slot_troop_father,"trp_extra_lord_1"),
 (troop_set_slot,"trp_knight_1_37",slot_troop_spouse,"trp_kingdom_1_lady_6"),
 (call_script, "script_init_troop_age","trp_knight_1_37",26),
 (troop_set_slot,"trp_knight_1_37",slot_lord_reputation_type,lrep_upstanding),
 
 #René d'Anjou, Comte de Provence
 (troop_set_slot,"trp_knight_1_38",slot_troop_mother,"trp_extra_lady_1"),
+(troop_set_slot,"trp_knight_1_38",slot_troop_father,"trp_extra_lord_1"),
+(troop_set_slot,"trp_knight_1_38",slot_troop_spouse,"trp_kingdom_1_lady_9"),
 (call_script, "script_init_troop_age","trp_knight_1_38",20),
 (troop_set_slot,"trp_knight_1_38",slot_lord_reputation_type,lrep_upstanding),
 
 #Guy XIV de Montfort de Laval, Baron de Laval
-(troop_set_slot,"trp_knight_1_39",slot_troop_mother,"trp_kingdom_1_lady_34"),
+(troop_set_slot,"trp_knight_1_39",slot_troop_father,"trp_extra_lord_10"),
+(troop_set_slot,"trp_knight_1_39",slot_troop_mother,"trp_extra_lady_11"),
 (call_script, "script_init_troop_age","trp_knight_1_39",23),
 (troop_set_slot,"trp_knight_1_39",slot_lord_reputation_type,lrep_martial),
 
 #André de Montfort de Laval, Seigneur de Lohéac
+(troop_set_slot,"trp_knight_1_40",slot_troop_father,"trp_extra_lord_10"),
 (troop_set_slot,"trp_knight_1_40",slot_troop_mother,"trp_extra_lady_11"),
 (call_script, "script_init_troop_age","trp_knight_1_40",19),
 (troop_set_slot,"trp_knight_1_40",slot_lord_reputation_type,lrep_martial),
@@ -79786,17 +80161,19 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 (call_script, "script_init_troop_age","trp_knight_1_46",47),
 (troop_set_slot,"trp_knight_1_46",slot_lord_reputation_type,lrep_quarrelsome),
 
-#Guillaume II de Gamaches, Seigneur de Gamaches
+#Girault de la Paillière
 (call_script, "script_init_troop_age","trp_knight_1_47",25),
 (troop_set_slot,"trp_knight_1_47",slot_lord_reputation_type,lrep_martial),
 
-#Girault de la Paillière
+#Guillaume II de Gamaches, Seigneur de Gamaches
+(troop_set_slot,"trp_knight_1_48",slot_troop_father,"trp_extra_lord_9"),
 (troop_set_slot,"trp_knight_1_48",slot_troop_mother,"trp_extra_lady_10"),
 (troop_set_slot,"trp_knight_1_48",slot_troop_spouse,"trp_kingdom_1_lady_29"),
 (call_script, "script_init_troop_age","trp_knight_1_48",39),
 (troop_set_slot,"trp_knight_1_48",slot_lord_reputation_type,lrep_martial),
 
 #Jean de Gamaches, Seigneur de Rosemont et La Guerche
+(troop_set_slot,"trp_knight_1_49",slot_troop_father,"trp_extra_lord_9"),
 (troop_set_slot,"trp_knight_1_49",slot_troop_mother,"trp_extra_lady_10"),
 (call_script, "script_init_troop_age","trp_knight_1_49",30),
 (troop_set_slot,"trp_knight_1_49",slot_lord_reputation_type,lrep_martial),
@@ -79871,10 +80248,10 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 (troop_set_slot,"trp_kingdom_1_lady_7",slot_lord_reputation_type,lrep_conventional),
 
 #Agnès de Bueil
+(troop_set_slot,"trp_kingdom_1_lady_8",slot_troop_father,"trp_extra_lord_12"),
 (troop_set_slot,"trp_kingdom_1_lady_8",slot_troop_mother,"trp_extra_lady_13"),
 (troop_set_slot,"trp_kingdom_1_lady_8",slot_troop_spouse,"trp_knight_1_8"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_8",19),
-(troop_set_slot,"trp_kingdom_1_lady_8","trp_knight_1_10"),
 (troop_set_slot,"trp_kingdom_1_lady_8",slot_lord_reputation_type,lrep_conventional),
 
 #Isabelle de Lorraine
@@ -79972,6 +80349,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 (troop_set_slot,"trp_kingdom_1_lady_26",slot_lord_reputation_type,lrep_conventional),
 
 #Jeanne d'Albret
+(troop_set_slot,"trp_kingdom_1_lady_27",slot_troop_father,"trp_extra_lord_2"),
 (troop_set_slot,"trp_kingdom_1_lady_27",slot_troop_mother,"trp_extra_lady_2"),
 (troop_set_slot,"trp_kingdom_1_lady_27",slot_troop_spouse,"trp_knight_1_46"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_27",26),
@@ -80007,10 +80385,10 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_33",25),
 (troop_set_slot,"trp_kingdom_1_lady_33",slot_lord_reputation_type,lrep_conventional),
 
-#Anne de Laval
+#Jeanne de Laval
 (troop_set_slot,"trp_kingdom_1_lady_34",slot_troop_spouse,"trp_knight_1_34"),
-(call_script, "script_init_troop_age","trp_kingdom_1_lady_34",44),
-(troop_set_slot,"trp_kingdom_1_lady_34",slot_troop_guardian,"trp_knight_1_39"),
+(call_script, "script_init_troop_age","trp_kingdom_1_lady_34",24),
+# (troop_set_slot,"trp_kingdom_1_lady_34",slot_troop_guardian,"trp_knight_1_39"),
 (troop_set_slot,"trp_kingdom_1_lady_34",slot_lord_reputation_type,lrep_conventional),
 
 #Jacqueline de Chambly
@@ -80040,7 +80418,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 (troop_set_slot,"trp_kingdom_1_lady_39",slot_lord_reputation_type,lrep_conventional),
 
 #Bonne d'Armagnac
-(troop_set_slot,"trp_kingdom_1_lady_40",slot_troop_spouse,"trp_knight_1_22"),
+(troop_set_slot,"trp_kingdom_1_lady_40",slot_troop_father,"trp_knight_1_22"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_40",17),
 (troop_set_slot,"trp_kingdom_1_lady_40",slot_lord_reputation_type,lrep_conventional),
 
@@ -80069,7 +80447,8 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 (troop_set_slot,"trp_kingdom_1_lady_44",slot_lord_reputation_type,lrep_conventional),
 
 #Johannetta de Termes d'Armagnac
-(troop_set_slot,"trp_kingdom_1_lady_45",slot_troop_spouse,"trp_knight_1_24"),
+(troop_set_slot,"trp_kingdom_1_lady_45",slot_troop_father,"trp_knight_1_24"),
+(troop_set_slot,"trp_kingdom_1_lady_45",slot_troop_mother,"trp_kingdom_1_lady_24"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_45",20),
 (troop_set_slot,"trp_kingdom_1_lady_45",slot_lord_reputation_type,lrep_conventional),
 
@@ -80086,12 +80465,12 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 (troop_set_slot,"trp_kingdom_1_lady_47",slot_lord_reputation_type,lrep_conventional),
 
 #Johanetta de Foix
-(troop_set_slot,"trp_kingdom_1_lady_48",slot_troop_spouse,"trp_knight_1_33"),
+(troop_set_slot,"trp_kingdom_1_lady_48",slot_troop_father,"trp_knight_1_46"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_48",25),
 (troop_set_slot,"trp_kingdom_1_lady_48",slot_lord_reputation_type,lrep_conventional),
 
 #Jehannette de Bourbon
-(troop_set_slot,"trp_kingdom_1_lady_49",slot_troop_spouse,"trp_knight_1_46"),
+(troop_set_slot,"trp_kingdom_1_lady_49",slot_troop_father,"trp_knight_1_33"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_49",21),
 (troop_set_slot,"trp_kingdom_1_lady_49",slot_lord_reputation_type,lrep_conventional),
 
@@ -81180,7 +81559,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 (troop_set_slot,"trp_extra_lord_9",slot_lord_reputation_type,0),
 
 #Guy XIII de Montfort-Laval
-(troop_set_slot,"trp_extra_lord_10",slot_troop_spouse,"trp_kingdom_1_lady_34"),
+(troop_set_slot,"trp_extra_lord_10",slot_troop_spouse,"trp_extra_lady_11"),
 (call_script, "script_init_troop_age","trp_extra_lord_10",0),
 (troop_set_slot,"trp_extra_lord_10",slot_lord_reputation_type,0),
 
