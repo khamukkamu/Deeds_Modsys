@@ -20904,12 +20904,12 @@ goods, and books will never be sold. ^^You can change some settings here freely.
        ]
        ),
        #SB : enable dplmc_random_mixed_gender mission triggers
-      ("dplmc_start_prejudice_mixed",[],"I would also like to see female presence on the field of battle.",
-       [
-         (assign, "$g_disable_condescending_comments", 4),
-         (jump_to_menu, "mnu_dac_start_character_background"),
-       ]
-       ),
+      # ("dplmc_start_prejudice_mixed",[],"I would also like to see female presence on the field of battle.",
+       # [
+         # (assign, "$g_disable_condescending_comments", 4),
+         # (jump_to_menu, "mnu_dac_start_character_background"),
+       # ]
+       # ),
 	  ("go_back",[],"Go back",
        [
 	     (jump_to_menu,"mnu_start_game_1"),
