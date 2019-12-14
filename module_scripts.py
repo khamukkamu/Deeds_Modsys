@@ -34943,6 +34943,12 @@ scripts = [
 	(try_begin),
 		(eq, ":relation_strength", 0),
 		(neq, ":troop_1", ":troop_2"),
+		
+##################################################################################################################################################################################################################################################################################################################
+###################################################################################################### DAC Family Relations ########################################################################################################################################################################################
+##################################################################################################################################################################################################################################################################################################################
+		
+### French Lords		
 # Charles the Good + Philippe de Saint-Pol -> Cousins		
 		(try_begin),
 			(this_or_next|eq, ":troop_1", "trp_kingdom_3_lord"),
@@ -35134,18 +35140,30 @@ scripts = [
 			(eq, ":troop_2", "trp_knight_1_38"),
 			(assign, ":relation_strength", 10),
 			(str_store_string, s11, "str_brother"),					
+
+# Louis III d'Anjou + Marie d'Anjou -> Brother/Sister 	
+		(else_try),		
+			(eq, ":troop_1", "trp_knight_1_37"),
+			(eq, ":troop_2", "trp_kingdom_1_lady_2"),
+			(assign, ":relation_strength", 10),
+			(str_store_string, s11, "str_brother"),
+		(else_try),		
+			(eq, ":troop_1", "trp_kingdom_1_lady_2"),
+			(eq, ":troop_2", "trp_knight_1_37"),
+			(assign, ":relation_strength", 10),
+			(str_store_string, s11, "str_sister"),
 			
-# René d'Anjou + Marie d'Anjou -> Uncle/Niece 	
+# René d'Anjou + Marie d'Anjou -> Brother/Sister 	
 		(else_try),		
 			(eq, ":troop_1", "trp_knight_1_38"),
 			(eq, ":troop_2", "trp_kingdom_1_lady_2"),
-			(assign, ":relation_strength", 4),
-			(str_store_string, s11, "str_uncle"),
+			(assign, ":relation_strength", 10),
+			(str_store_string, s11, "str_brother"),
 		(else_try),		
-			(eq, ":troop_1", "trp_kingdom_1_lady_33"),
-			(eq, ":troop_2", "trp_kingdom_1_lady_2"),
-			(assign, ":relation_strength", 4),
-			(str_store_string, s11, "str_niece"),					
+			(eq, ":troop_1", "trp_kingdom_1_lady_2"),
+			(eq, ":troop_2", "trp_knight_1_38"),
+			(assign, ":relation_strength", 10),
+			(str_store_string, s11, "str_sister"),					
 			
 # Guy XIV de Montfort de Laval + André de Montfort de Laval -> Brothers 	
 		(else_try),		
@@ -35211,10 +35229,101 @@ scripts = [
 			(this_or_next|eq, ":troop_2", "trp_knight_1_48"),
 			(eq, ":troop_2", "trp_knight_1_49"),
 			(assign, ":relation_strength", 10),
+			(str_store_string, s11, "str_brother"),		
+
+### English Lords			
+			
+# William de la Pole + John de la Pole -> Brothers 	
+		(else_try),		
+			(this_or_next|eq, ":troop_1", "trp_knight_2_3"),
+			(eq, ":troop_1", "trp_knight_2_48"),
+			(this_or_next|eq, ":troop_2", "trp_knight_2_3"),
+			(eq, ":troop_2", "trp_knight_2_48"),
+			(assign, ":relation_strength", 10),
+			(str_store_string, s11, "str_brother"),	
+			
+# William de la Pole + Alexander de la Pole -> Brothers 	
+		(else_try),		
+			(this_or_next|eq, ":troop_1", "trp_knight_2_3"),
+			(eq, ":troop_1", "trp_knight_2_49"),
+			(this_or_next|eq, ":troop_2", "trp_knight_2_3"),
+			(eq, ":troop_2", "trp_knight_2_49"),
+			(assign, ":relation_strength", 10),
+			(str_store_string, s11, "str_brother"),		
+
+# William de la Pole + Thomas de la Pole -> Brothers 	
+		(else_try),		
+			(this_or_next|eq, ":troop_1", "trp_knight_2_3"),
+			(eq, ":troop_1", "trp_knight_2_50"),
+			(this_or_next|eq, ":troop_2", "trp_knight_2_3"),
+			(eq, ":troop_2", "trp_knight_2_50"),
+			(assign, ":relation_strength", 10),
+			(str_store_string, s11, "str_brother"),	
+
+# Thomas Beaufort + Edmund Beaufort -> Brothers 	
+		(else_try),		
+			(this_or_next|eq, ":troop_1", "trp_knight_2_7"),
+			(eq, ":troop_1", "trp_knight_2_8"),
+			(this_or_next|eq, ":troop_2", "trp_knight_2_7"),
+			(eq, ":troop_2", "trp_knight_2_8"),
+			(assign, ":relation_strength", 10),
+			(str_store_string, s11, "str_brother"),		
+
+# Richard Beauchamp + John Beauchamp -> Cousins	
+		(else_try),
+			(this_or_next|eq, ":troop_1", "trp_knight_2_10"),
+			(eq, ":troop_1", "trp_knight_2_35"),
+			(this_or_next|eq, ":troop_2", "trp_knight_2_10"),
+			(eq, ":troop_2", "trp_knight_2_35"),
+			(assign, ":relation_strength", 2),
+			(str_store_string, s11, "str_cousin"),
+			
+# Walter Hungerford + Robert Hungerford -> Brothers 	
+		(else_try),		
+			(this_or_next|eq, ":troop_1", "trp_knight_2_18"),
+			(eq, ":troop_1", "trp_knight_2_19"),
+			(this_or_next|eq, ":troop_2", "trp_knight_2_18"),
+			(eq, ":troop_2", "trp_knight_2_19"),
+			(assign, ":relation_strength", 10),
 			(str_store_string, s11, "str_brother"),				
 			
-### DAC Add Relations End			
+# Walter Hungerford + Edmund Hungerford -> Brothers 	
+		(else_try),		
+			(this_or_next|eq, ":troop_1", "trp_knight_2_18"),
+			(eq, ":troop_1", "trp_knight_2_20"),
+			(this_or_next|eq, ":troop_2", "trp_knight_2_18"),
+			(eq, ":troop_2", "trp_knight_2_20"),
+			(assign, ":relation_strength", 10),
+			(str_store_string, s11, "str_brother"),		
+
+# John Robessart + Lewis Robessart -> Brothers 	
+		(else_try),		
+			(this_or_next|eq, ":troop_1", "trp_knight_2_40"),
+			(eq, ":troop_1", "trp_knight_2_41"),
+			(this_or_next|eq, ":troop_2", "trp_knight_2_40"),
+			(eq, ":troop_2", "trp_knight_2_41"),
+			(assign, ":relation_strength", 10),
+			(str_store_string, s11, "str_brother"),	
+
+# Bertrand III de Montferrand + François de Montferrand -> Brothers 	
+		(else_try),		
+			(this_or_next|eq, ":troop_1", "trp_knight_2_42"),
+			(eq, ":troop_1", "trp_knight_2_43"),
+			(this_or_next|eq, ":troop_2", "trp_knight_2_42"),
+			(eq, ":troop_2", "trp_knight_2_43"),
+			(assign, ":relation_strength", 10),
+			(str_store_string, s11, "str_brother"),	
+
+# Robert de Vere + Richard de Vere -> Brothers 	
+		(else_try),		
+			(this_or_next|eq, ":troop_1", "trp_knight_2_46"),
+			(eq, ":troop_1", "trp_knight_2_47"),
+			(this_or_next|eq, ":troop_2", "trp_knight_2_46"),
+			(eq, ":troop_2", "trp_knight_2_47"),
+			(assign, ":relation_strength", 10),
+			(str_store_string, s11, "str_brother"),			
 			
+### DAC Family Relations End				
 			
 			
 			
@@ -67319,6 +67428,10 @@ scripts = [
 		(eq, ":relation_strength", 0),
 		(neq, ":troop_1", ":troop_2"),
 		
+##################################################################################################################################################################################################################################################################################################################
+###################################################################################################### DAC Family Relations ########################################################################################################################################################################################
+##################################################################################################################################################################################################################################################################################################################		
+		
 # Charles the Good + Philippe de Saint-Pol -> Cousins
 		(try_begin),
 			(this_or_next|eq, ":troop_1", "trp_kingdom_3_lord"),
@@ -67446,7 +67559,7 @@ scripts = [
 			(this_or_next|eq, ":troop_2", "trp_kingdom_1_lady_4"),
 			(eq, ":troop_2", "trp_knight_1_24"),
 			(assign, ":relation_strength", 2),
-			(str_store_string, s11, "str_cousin"),		
+			(assign, ":relation_string", "str_cousin"),		
 
 # Marie d'Armagnac + Jean IV de Termes d'Armagnac -> Cousins	
 		(else_try),
@@ -67455,7 +67568,7 @@ scripts = [
 			(this_or_next|eq, ":troop_2", "trp_kingdom_1_lady_13"),
 			(eq, ":troop_2", "trp_knight_1_24"),
 			(assign, ":relation_strength", 2),
-			(str_store_string, s11, "str_cousin"),				
+			(assign, ":relation_string", "str_cousin"),					
 
 # Jacques II de Bourbon de Vendôme + Louis I de Bourbon de Vendôme -> Brothers 	
 		(else_try),		
@@ -67487,17 +67600,29 @@ scripts = [
 			(assign, ":relation_strength", 10),
 			(assign, ":relation_string", "str_brother"),			
 			
-# René d'Anjou + Marie d'Anjou -> Uncle/Niece 	
+# Louis III d'Anjou + Marie d'Anjou -> Brother/Sister 	
+		(else_try),		
+			(eq, ":troop_1", "trp_knight_1_37"),
+			(eq, ":troop_2", "trp_kingdom_1_lady_2"),
+			(assign, ":relation_strength", 10),
+			(assign, ":relation_string", "str_brother"),
+		(else_try),		
+			(eq, ":troop_1", "trp_kingdom_1_lady_2"),
+			(eq, ":troop_2", "trp_knight_1_37"),
+			(assign, ":relation_strength", 10),
+			(assign, ":relation_string", "str_sister"),
+			
+# René d'Anjou + Marie d'Anjou -> Brother/Sister 	
 		(else_try),		
 			(eq, ":troop_1", "trp_knight_1_38"),
 			(eq, ":troop_2", "trp_kingdom_1_lady_2"),
-			(assign, ":relation_strength", 4),
-			(assign, ":relation_string", "str_uncle"),	
+			(assign, ":relation_strength", 10),
+			(assign, ":relation_string", "str_brother"),
 		(else_try),		
-			(eq, ":troop_1", "trp_kingdom_1_lady_33"),
-			(eq, ":troop_2", "trp_kingdom_1_lady_2"),
-			(assign, ":relation_strength", 4),
-			(assign, ":relation_string", "str_niece"),				
+			(eq, ":troop_1", "trp_kingdom_1_lady_2"),
+			(eq, ":troop_2", "trp_knight_1_38"),
+			(assign, ":relation_strength", 10),
+			(assign, ":relation_string", "str_sister"),			
 			
 # Guy XIV de Montfort de Laval + André de Montfort de Laval -> Brothers 	
 		(else_try),		
@@ -67564,9 +67689,99 @@ scripts = [
 			(eq, ":troop_2", "trp_knight_1_49"),
 			(assign, ":relation_strength", 10),
 			(assign, ":relation_string", "str_brother"),				
+	
+### English Lords
+# William de la Pole + John de la Pole -> Brothers 	
+		(else_try),		
+			(this_or_next|eq, ":troop_1", "trp_knight_2_3"),
+			(eq, ":troop_1", "trp_knight_2_48"),
+			(this_or_next|eq, ":troop_2", "trp_knight_2_3"),
+			(eq, ":troop_2", "trp_knight_2_48"),
+			(assign, ":relation_strength", 10),
+			(assign, ":relation_string", "str_brother"),	
 			
-### DAC Add Relations End				
+# William de la Pole + Alexander de la Pole -> Brothers 	
+		(else_try),		
+			(this_or_next|eq, ":troop_1", "trp_knight_2_3"),
+			(eq, ":troop_1", "trp_knight_2_49"),
+			(this_or_next|eq, ":troop_2", "trp_knight_2_3"),
+			(eq, ":troop_2", "trp_knight_2_49"),
+			(assign, ":relation_strength", 10),
+			(assign, ":relation_string", "str_brother"),		
+
+# William de la Pole + Thomas de la Pole -> Brothers 	
+		(else_try),		
+			(this_or_next|eq, ":troop_1", "trp_knight_2_3"),
+			(eq, ":troop_1", "trp_knight_2_50"),
+			(this_or_next|eq, ":troop_2", "trp_knight_2_3"),
+			(eq, ":troop_2", "trp_knight_2_50"),
+			(assign, ":relation_strength", 10),
+			(assign, ":relation_string", "str_brother"),		
+
+# Thomas Beaufort + Edmund Beaufort -> Brothers 	
+		(else_try),		
+			(this_or_next|eq, ":troop_1", "trp_knight_2_7"),
+			(eq, ":troop_1", "trp_knight_2_8"),
+			(this_or_next|eq, ":troop_2", "trp_knight_2_7"),
+			(eq, ":troop_2", "trp_knight_2_8"),
+			(assign, ":relation_strength", 10),
+			(assign, ":relation_string", "str_brother"),		
+
+# Richard Beauchamp + John Beauchamp -> Cousins	
+		(else_try),
+			(this_or_next|eq, ":troop_1", "trp_knight_2_10"),
+			(eq, ":troop_1", "trp_knight_2_35"),
+			(this_or_next|eq, ":troop_2", "trp_knight_2_10"),
+			(eq, ":troop_2", "trp_knight_2_35"),
+			(assign, ":relation_strength", 2),
+			(assign, ":relation_string", "str_cousin"),		
+
+# Walter Hungerford + Robert Hungerford -> Brothers 	
+		(else_try),		
+			(this_or_next|eq, ":troop_1", "trp_knight_2_18"),
+			(eq, ":troop_1", "trp_knight_2_19"),
+			(this_or_next|eq, ":troop_2", "trp_knight_2_18"),
+			(eq, ":troop_2", "trp_knight_2_19"),
+			(assign, ":relation_strength", 10),
+			(assign, ":relation_string", "str_brother"),				
 			
+# Walter Hungerford + Edmund Hungerford -> Brothers 	
+		(else_try),		
+			(this_or_next|eq, ":troop_1", "trp_knight_2_18"),
+			(eq, ":troop_1", "trp_knight_2_20"),
+			(this_or_next|eq, ":troop_2", "trp_knight_2_18"),
+			(eq, ":troop_2", "trp_knight_2_20"),
+			(assign, ":relation_strength", 10),
+			(assign, ":relation_string", "str_brother"),		
+			
+# John Robessart + Lewis Robessart -> Brothers 	
+		(else_try),		
+			(this_or_next|eq, ":troop_1", "trp_knight_2_40"),
+			(eq, ":troop_1", "trp_knight_2_41"),
+			(this_or_next|eq, ":troop_2", "trp_knight_2_40"),
+			(eq, ":troop_2", "trp_knight_2_41"),
+			(assign, ":relation_strength", 10),
+			(assign, ":relation_string", "str_brother"),		
+
+# Bertrand III de Montferrand + François de Montferrand -> Brothers 	
+		(else_try),		
+			(this_or_next|eq, ":troop_1", "trp_knight_2_42"),
+			(eq, ":troop_1", "trp_knight_2_43"),
+			(this_or_next|eq, ":troop_2", "trp_knight_2_42"),
+			(eq, ":troop_2", "trp_knight_2_43"),
+			(assign, ":relation_strength", 10),
+			(assign, ":relation_string", "str_brother"),	
+
+# Robert de Vere + Richard de Vere -> Brothers 	
+		(else_try),		
+			(this_or_next|eq, ":troop_1", "trp_knight_2_46"),
+			(eq, ":troop_1", "trp_knight_2_47"),
+			(this_or_next|eq, ":troop_2", "trp_knight_2_46"),
+			(eq, ":troop_2", "trp_knight_2_47"),
+			(assign, ":relation_strength", 10),
+			(assign, ":relation_string", "str_brother"),			
+	
+### DAC Family Relations End						
 			
 			
 			
@@ -80369,8 +80584,8 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 (troop_set_slot,"trp_kingdom_1_lady_1",slot_lord_reputation_type,lrep_ambitious),
 
 #Marie d'Anjou
-(troop_set_slot,"trp_kingdom_1_lady_2",slot_troop_father,"trp_knight_1_37"),
 (troop_set_slot,"trp_kingdom_1_lady_2",slot_troop_mother,"trp_extra_lady_1"),
+(troop_set_slot,"trp_kingdom_1_lady_2",slot_troop_father,"trp_extra_lord_1"),
 (troop_set_slot,"trp_kingdom_1_lady_2",slot_troop_spouse,"trp_kingdom_1_lord"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_2",25),
 (troop_set_slot,"trp_kingdom_1_lady_2",slot_lord_reputation_type,lrep_conventional),
@@ -80687,6 +80902,8 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 (troop_set_slot,"trp_knight_2_2",slot_lord_reputation_type,lrep_martial),
 
 #William de la Pole, Earl of Suffolk
+(troop_set_slot,"trp_knight_2_3",slot_troop_father,"trp_extra_lord_13"),
+(troop_set_slot,"trp_knight_2_3",slot_troop_mother,"trp_extra_lady_15"),
 (troop_set_slot,"trp_knight_2_3",slot_troop_spouse,"trp_kingdom_2_lady_3"),
 (call_script, "script_init_troop_age","trp_knight_2_3",33),
 (troop_set_slot,"trp_knight_2_3",slot_lord_reputation_type,lrep_quarrelsome),
@@ -80707,10 +80924,14 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 (troop_set_slot,"trp_knight_2_6",slot_lord_reputation_type,lrep_cunning),
 
 #Thomas Beaufort, Count of Perche
+(troop_set_slot,"trp_knight_2_7",slot_troop_father,"trp_extra_lord_14"),
+(troop_set_slot,"trp_knight_2_7",slot_troop_mother,"trp_extra_lady_16"),
 (call_script, "script_init_troop_age","trp_knight_2_7",24),
 (troop_set_slot,"trp_knight_2_7",slot_lord_reputation_type,lrep_martial),
 
 #Edmund Beaufort, Count of Mortain
+(troop_set_slot,"trp_knight_2_7",slot_troop_father,"trp_extra_lord_14"),
+(troop_set_slot,"trp_knight_2_7",slot_troop_mother,"trp_extra_lady_16"),
 (call_script, "script_init_troop_age","trp_knight_2_8",23),
 (troop_set_slot,"trp_knight_2_8",slot_lord_reputation_type,lrep_martial),
 
@@ -80760,14 +80981,20 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 (troop_set_slot,"trp_knight_2_17",slot_lord_reputation_type,lrep_debauched),
 
 #Sir Walter Hungerford
+(troop_set_slot,"trp_knight_2_18",slot_troop_father,"trp_extra_lord_15"),
+(troop_set_slot,"trp_knight_2_18",slot_troop_mother,"trp_extra_lady_17"),
 (call_script, "script_init_troop_age","trp_knight_2_18",24),
 (troop_set_slot,"trp_knight_2_18",slot_lord_reputation_type,lrep_martial),
 
 #Sir Robert Hungerford
+(troop_set_slot,"trp_knight_2_19",slot_troop_father,"trp_extra_lord_15"),
+(troop_set_slot,"trp_knight_2_19",slot_troop_mother,"trp_extra_lady_17"),
 (call_script, "script_init_troop_age","trp_knight_2_19",21),
 (troop_set_slot,"trp_knight_2_19",slot_lord_reputation_type,lrep_debauched),
 
 #Sir Edmund Hungerford
+(troop_set_slot,"trp_knight_2_20",slot_troop_father,"trp_extra_lord_15"),
+(troop_set_slot,"trp_knight_2_20",slot_troop_mother,"trp_extra_lady_17"),
 (call_script, "script_init_troop_age","trp_knight_2_20",19),
 (troop_set_slot,"trp_knight_2_20",slot_lord_reputation_type,lrep_goodnatured),
 
@@ -80864,21 +81091,29 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 (troop_set_slot,"trp_knight_2_39",slot_lord_reputation_type,lrep_martial),
 
 #John Robessart, Lord of Escaillon and Bruille
+(troop_set_slot,"trp_knight_2_40",slot_troop_father,"trp_extra_lord_16"),
+(troop_set_slot,"trp_knight_2_40",slot_troop_mother,"trp_extra_lady_18"),
 (troop_set_slot,"trp_knight_2_40",slot_troop_spouse,"trp_kingdom_2_lady_40"),
 (call_script, "script_init_troop_age","trp_knight_2_40",50),
 (troop_set_slot,"trp_knight_2_40",slot_lord_reputation_type,lrep_martial),
 
 #Sir Lewis Robessart
+(troop_set_slot,"trp_knight_2_41",slot_troop_father,"trp_extra_lord_16"),
+(troop_set_slot,"trp_knight_2_41",slot_troop_mother,"trp_extra_lady_18"),
 (troop_set_slot,"trp_knight_2_41",slot_troop_spouse,"trp_kingdom_2_lady_41"),
 (call_script, "script_init_troop_age","trp_knight_2_41",39),
 (troop_set_slot,"trp_knight_2_41",slot_lord_reputation_type,lrep_martial),
 
 #Bertrand III de Montferrand, Baron de Guyenne
+(troop_set_slot,"trp_knight_2_42",slot_troop_father,"trp_extra_lord_18"),
+(troop_set_slot,"trp_knight_2_42",slot_troop_mother,"trp_extra_lady_20"),
 (troop_set_slot,"trp_knight_2_42",slot_troop_spouse,"trp_kingdom_2_lady_42"),
 (call_script, "script_init_troop_age","trp_knight_2_42",49),
 (troop_set_slot,"trp_knight_2_42",slot_lord_reputation_type,lrep_upstanding),
 
 #François de Montferrand, Gouverneur de Dax, Sénéchal des Lannes
+(troop_set_slot,"trp_knight_2_43",slot_troop_father,"trp_extra_lord_18"),
+(troop_set_slot,"trp_knight_2_43",slot_troop_mother,"trp_extra_lady_20"),
 (troop_set_slot,"trp_knight_2_43",slot_troop_spouse,"trp_kingdom_2_lady_43"),
 (call_script, "script_init_troop_age","trp_knight_2_43",44),
 (troop_set_slot,"trp_knight_2_43",slot_lord_reputation_type,lrep_martial),
@@ -80895,23 +81130,33 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 (troop_set_slot,"trp_knight_2_45",slot_lord_reputation_type,lrep_selfrighteous),
 
 #Sir Robert de Vere
+(troop_set_slot,"trp_knight_2_46",slot_troop_father,"trp_extra_lord_17"),
+(troop_set_slot,"trp_knight_2_46",slot_troop_mother,"trp_extra_lady_19"),
 (troop_set_slot,"trp_knight_2_46",slot_troop_spouse,"trp_kingdom_2_lady_46"),
 (call_script, "script_init_troop_age","trp_knight_2_46",20),
 (troop_set_slot,"trp_knight_2_46",slot_lord_reputation_type,lrep_martial),
 
 #Sir Richard de Vere
+(troop_set_slot,"trp_knight_2_47",slot_troop_father,"trp_extra_lord_17"),
+(troop_set_slot,"trp_knight_2_47",slot_troop_mother,"trp_extra_lady_19"),
 (call_script, "script_init_troop_age","trp_knight_2_47",18),
 (troop_set_slot,"trp_knight_2_47",slot_lord_reputation_type,lrep_martial),
 
 #Sir John de la Pole
+(troop_set_slot,"trp_knight_2_48",slot_troop_father,"trp_extra_lord_13"),
+(troop_set_slot,"trp_knight_2_48",slot_troop_mother,"trp_extra_lady_15"),
 (call_script, "script_init_troop_age","trp_knight_2_48",29),
 (troop_set_slot,"trp_knight_2_48",slot_lord_reputation_type,lrep_martial),
 
 #Sir Alexander de la Pole
+(troop_set_slot,"trp_knight_2_49",slot_troop_father,"trp_extra_lord_13"),
+(troop_set_slot,"trp_knight_2_49",slot_troop_mother,"trp_extra_lady_15"),
 (call_script, "script_init_troop_age","trp_knight_2_49",25),
 (troop_set_slot,"trp_knight_2_49",slot_lord_reputation_type,lrep_martial),
 
 #Sir Thomas de la Pole
+(troop_set_slot,"trp_knight_2_50",slot_troop_father,"trp_extra_lord_13"),
+(troop_set_slot,"trp_knight_2_50",slot_troop_mother,"trp_extra_lady_15"),
 (call_script, "script_init_troop_age","trp_knight_2_50",23),
 (troop_set_slot,"trp_knight_2_50",slot_lord_reputation_type,lrep_martial),
 
@@ -80969,7 +81214,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 (troop_set_slot,"trp_kingdom_2_lady_7",slot_lord_reputation_type,lrep_conventional),
 
 #Eleanor Beauchamp
-(troop_set_slot,"trp_kingdom_2_lady_8",slot_troop_spouse,"trp_knight_2_10"),
+(troop_set_slot,"trp_kingdom_2_lady_8",slot_troop_father,"trp_knight_2_10"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_8",21),
 (troop_set_slot,"trp_kingdom_2_lady_8",slot_lord_reputation_type,lrep_conventional),
 
@@ -81182,7 +81427,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 (troop_set_slot,"trp_kingdom_2_lady_46",slot_lord_reputation_type,lrep_conventional),
 
 #Johaneta de Montferrand 
-(troop_set_slot,"trp_kingdom_2_lady_47",slot_troop_spouse,"trp_knight_2_43"),
+(troop_set_slot,"trp_kingdom_2_lady_47",slot_troop_father,"trp_knight_2_43"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_47",19),
 (troop_set_slot,"trp_kingdom_2_lady_47",slot_lord_reputation_type,lrep_conventional),
 
