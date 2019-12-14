@@ -82171,6 +82171,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 (troop_set_slot,"trp_kingdom_4_lady_5",slot_lord_reputation_type,lrep_none),
 
 #Jeanne de Rohan
+(troop_set_slot,"trp_kingdom_4_lady_6",slot_troop_father,"trp_knight_4_9"),
 (troop_set_slot,"trp_kingdom_4_lady_6",slot_troop_spouse,"trp_knight_4_9"),
 (call_script, "script_init_troop_age","trp_kingdom_4_lady_6",17),
 (troop_set_slot,"trp_kingdom_4_lady_6",slot_lord_reputation_type,lrep_none),
