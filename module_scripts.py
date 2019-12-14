@@ -35321,7 +35321,19 @@ scripts = [
 			(this_or_next|eq, ":troop_2", "trp_knight_2_46"),
 			(eq, ":troop_2", "trp_knight_2_47"),
 			(assign, ":relation_strength", 10),
-			(str_store_string, s11, "str_brother"),			
+			(str_store_string, s11, "str_brother"),	
+
+# John Holland + Constance Holland -> Brother/Sister 	
+		(else_try),		
+			(eq, ":troop_1", "trp_knight_2_28"),
+			(eq, ":troop_2", "trp_kingdom_2_lady_14"),
+			(assign, ":relation_strength", 10),
+			(str_store_string, s11, "str_brother"),	
+		(else_try),		
+			(eq, ":troop_1", "trp_kingdom_2_lady_14"),
+			(eq, ":troop_2", "trp_knight_2_28"),
+			(assign, ":relation_strength", 10),
+			(str_store_string, s11, "str_sister"),				
 			
 ### DAC Family Relations End				
 			
@@ -67780,6 +67792,18 @@ scripts = [
 			(eq, ":troop_2", "trp_knight_2_47"),
 			(assign, ":relation_strength", 10),
 			(assign, ":relation_string", "str_brother"),			
+			
+# John Holland + Constance Holland -> Brother/Sister 	
+		(else_try),		
+			(eq, ":troop_1", "trp_knight_2_28"),
+			(eq, ":troop_2", "trp_kingdom_2_lady_14"),
+			(assign, ":relation_strength", 10),
+			(assign, ":relation_string", "str_brother"),
+		(else_try),		
+			(eq, ":troop_1", "trp_kingdom_2_lady_14"),
+			(eq, ":troop_2", "trp_knight_2_28"),
+			(assign, ":relation_strength", 10),
+			(assign, ":relation_string", "str_sister"),			
 	
 ### DAC Family Relations End						
 			
@@ -80977,6 +81001,8 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 (troop_set_slot,"trp_knight_2_16",slot_lord_reputation_type,lrep_selfrighteous),
 
 #Sir Thomas Radcliffe
+(troop_set_slot,"trp_knight_2_17",slot_troop_father,"trp_knight_2_16"),
+(troop_set_slot,"trp_knight_2_17",slot_troop_mother,"trp_kingdom_2_lady_16"),
 (call_script, "script_init_troop_age","trp_knight_2_17",25),
 (troop_set_slot,"trp_knight_2_17",slot_lord_reputation_type,lrep_debauched),
 
@@ -81033,6 +81059,8 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 (troop_set_slot,"trp_knight_2_27",slot_lord_reputation_type,lrep_martial),
 
 #John Holland, Earl of Huntingdon, Amiral
+(troop_set_slot,"trp_knight_2_28",slot_troop_father,"trp_extra_lord_35"),
+(troop_set_slot,"trp_knight_2_28",slot_troop_mother,"trp_extra_lady_35"),
 (troop_set_slot,"trp_knight_2_28",slot_troop_spouse,"trp_kingdom_2_lady_28"),
 (call_script, "script_init_troop_age","trp_knight_2_28",35),
 (troop_set_slot,"trp_knight_2_28",slot_lord_reputation_type,lrep_selfrighteous),
@@ -81209,7 +81237,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 (troop_set_slot,"trp_kingdom_2_lady_6",slot_lord_reputation_type,lrep_conventional),
 
 #Joan Fastolf
-(troop_set_slot,"trp_kingdom_2_lady_7",slot_troop_spouse,"trp_knight_2_2"),
+(troop_set_slot,"trp_kingdom_2_lady_7",slot_troop_father,"trp_knight_2_2"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_7",20),
 (troop_set_slot,"trp_kingdom_2_lady_7",slot_lord_reputation_type,lrep_conventional),
 
@@ -81247,6 +81275,8 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 (troop_set_slot,"trp_kingdom_2_lady_13",slot_lord_reputation_type,lrep_conventional),
 
 #Constance Holland
+(troop_set_slot,"trp_kingdom_2_lady_14",slot_troop_father,"trp_extra_lord_35"),
+(troop_set_slot,"trp_kingdom_2_lady_14",slot_troop_mother,"trp_extra_lady_35"),
 (troop_set_slot,"trp_kingdom_2_lady_14",slot_troop_spouse,"trp_knight_2_14"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_14",42),
 (troop_set_slot,"trp_kingdom_2_lady_14",slot_lord_reputation_type,lrep_conventional),
@@ -81305,12 +81335,12 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 (troop_set_slot,"trp_kingdom_2_lady_23",slot_lord_reputation_type,lrep_conventional),
 
 #Elizabeth Blount
-(troop_set_slot,"trp_kingdom_2_lady_24",slot_troop_spouse,"trp_knight_2_33"),
+(troop_set_slot,"trp_kingdom_2_lady_24",slot_troop_father,"trp_knight_2_33"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_24",19),
 (troop_set_slot,"trp_kingdom_2_lady_24",slot_lord_reputation_type,lrep_conventional),
 
 #Joan Willoughby
-(troop_set_slot,"trp_kingdom_2_lady_25",slot_troop_spouse,"trp_knight_2_34"),
+(troop_set_slot,"trp_kingdom_2_lady_25",slot_troop_father,"trp_knight_2_34"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_25",18),
 (troop_set_slot,"trp_kingdom_2_lady_25",slot_lord_reputation_type,lrep_conventional),
 
