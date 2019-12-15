@@ -35473,6 +35473,18 @@ scripts = [
 			(eq, ":troop_2", "trp_knight_4_11"),
 			(assign, ":relation_strength", 2),
 			(str_store_string, s11, "str_cousin"),	
+			
+# Pierre de Rochefort + Louise-Marie de Rieux -> Uncle/Niece 	
+		(else_try),		
+			(eq, ":troop_1", "trp_knight_4_14"),
+			(eq, ":troop_2", "trp_kingdom_1_lady_7"),
+			(assign, ":relation_strength", 4),
+			(str_store_string, s11, "str_uncle"),
+		(else_try),		
+			(eq, ":troop_1", "trp_kingdom_1_lady_7"),
+			(eq, ":troop_2", "trp_knight_4_14"),
+			(assign, ":relation_strength", 4),
+			(str_store_string, s11, "str_niece"),			
 
 # Bertrand de Dinan + Jacques de Dinan -> Brothers 	
 		(else_try),		
@@ -68092,6 +68104,18 @@ scripts = [
 			(eq, ":troop_2", "trp_knight_4_11"),
 			(assign, ":relation_strength", 2),
 			(assign, ":relation_string", "str_cousin"),	
+			
+# Pierre de Rochefort + Louise-Marie de Rieux -> Uncle/Niece 	
+		(else_try),		
+			(eq, ":troop_1", "trp_knight_4_14"),
+			(eq, ":troop_2", "trp_kingdom_1_lady_7"),
+			(assign, ":relation_strength", 4),
+			(assign, ":relation_string", "str_uncle"),	
+		(else_try),		
+			(eq, ":troop_1", "trp_kingdom_1_lady_7"),
+			(eq, ":troop_2", "trp_knight_4_14"),
+			(assign, ":relation_strength", 4),
+			(assign, ":relation_string", "str_niece"),				
 
 # Bertrand de Dinan + Jacques de Dinan -> Brothers 	
 		(else_try),		
@@ -77688,7 +77712,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 	(troop_set_slot, "trp_knight_4_10", slot_troop_banner_scene_prop, "spr_banner_f13"), # Alain X de Rohan
 
 	(troop_set_slot, "trp_knight_4_11", slot_troop_banner_scene_prop, "spr_banner_f13"), # Charles de Rohan-Guéméné
-	(troop_set_slot, "trp_knight_4_12", slot_troop_banner_scene_prop, "spr_banner_f13"), # Louis Rohan-Guéméné
+	(troop_set_slot, "trp_knight_4_12", slot_troop_banner_scene_prop, "spr_banner_f13"), # Louis de Rohan-Guéméné
 	(troop_set_slot, "trp_knight_4_13", slot_troop_banner_scene_prop, "spr_banner_f14"), # Guillaume de Rosmadec
 	(troop_set_slot, "trp_knight_4_14", slot_troop_banner_scene_prop, "spr_banner_f12"), # Pierre de Rochefort
 	(troop_set_slot, "trp_knight_4_15", slot_troop_banner_scene_prop, "spr_banner_f06"), # Bertrand de Dinan
@@ -82114,7 +82138,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 (call_script, "script_init_troop_age","trp_knight_4_11",52),
 (troop_set_slot,"trp_knight_4_11",slot_lord_reputation_type,lrep_selfrighteous),
 
-#Louis Rohan-Guéméné
+#Louis de Rohan-Guéméné
 (troop_set_slot,"trp_knight_4_12",slot_troop_father,"trp_knight_4_11"),
 (troop_set_slot,"trp_knight_4_12",slot_troop_mother,"trp_kingdom_4_lady_11"),
 (call_script, "script_init_troop_age","trp_knight_4_12",23),
