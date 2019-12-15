@@ -273,12 +273,12 @@ dialogs = [
 
 # Hunter Discuss Options START
 [anyone,"start", [(eq, "$talk_context", tc_start_quest), (eq, "$background_type", cb_forester)], 
-  "What would you like to do, friend?", "start_quest_merc",[]],
+  "What would you like to do, friend?", "start_quest_hunter",[]],
 
-[anyone|plyr,"start_quest_merc", [(eq, "$talk_context", tc_start_quest), (eq, "$background_type", cb_forester)], 
+[anyone|plyr,"start_quest_hunter", [(eq, "$talk_context", tc_start_quest), (eq, "$background_type", cb_forester)], 
   "Stand and fight", "start_quest_fight",[]],
 
-[anyone|plyr,"start_quest_merc", [(eq, "$talk_context", tc_start_quest), (eq, "$background_type", cb_forester)], 
+[anyone|plyr,"start_quest_hunter", [(eq, "$talk_context", tc_start_quest), (eq, "$background_type", cb_forester)], 
   "Skip this quest", "close_window",[(change_screen_map)]],
 
 [anyone,"start_quest_fight", [], 
@@ -286,6 +286,60 @@ dialogs = [
           (jump_to_menu, "mnu_dac_stand_fight"),]],
 
 # Hunter Discuss Options END
+
+# Guard Discuss Options START
+[anyone,"start", [(eq, "$talk_context", tc_start_quest), (eq, "$background_type", cb_guard)], 
+  "Sire, these bandits plot to destroy the manor! What do you want to do?", "start_quest_guard",[]],
+
+[anyone|plyr,"start_quest_guard", [(eq, "$talk_context", tc_start_quest), (eq, "$background_type", cb_guard)], 
+  "Stand and fight", "start_quest_fight",[]],
+
+[anyone|plyr,"start_quest_guard", [(eq, "$talk_context", tc_start_quest), (eq, "$background_type", cb_guard)], 
+  "Skip this quest", "close_window",[(change_screen_map)]],
+
+[anyone,"start_quest_fight", [], 
+  "Good. I'll prepare the men.", "close_window",[
+          (jump_to_menu, "mnu_dac_stand_fight"),]],
+
+# Guard Discuss Options END
+
+# Merchant Discuss Options START
+[anyone,"start", [(eq, "$talk_context", tc_start_quest), (eq, "$background_type", cb_merchant)], 
+  "Looks like trouble is in the way... What do you want to do?", "start_quest_merchant",[]],
+
+[anyone|plyr,"start_quest_merchant", [(eq, "$talk_context", tc_start_quest), (eq, "$background_type", cb_merchant)], 
+  "Stand and fight", "start_quest_fight",[]],
+
+[anyone|plyr,"start_quest_merchant", [(eq, "$talk_context", tc_start_quest), (eq, "$background_type", cb_merchant)], 
+  "Skip this quest", "close_window",[(change_screen_map)]],
+
+[anyone,"start_quest_fight", [], 
+  "Good. I'll prepare the men.", "close_window",[
+          (jump_to_menu, "mnu_dac_stand_fight"),]],
+
+# Merchant Discuss Options END
+
+# Noble Discuss Options START
+[anyone,"start", [(eq, "$talk_context", tc_start_quest), (eq, "$background_type", cb_noble)], 
+  "You have come! How dare you insult me? Call me names behind my back! Tell me that my creations are ugly?!", "start_quest_noble",[]],
+
+[anyone|plyr,"start_quest_noble", [(eq, "$talk_context", tc_start_quest), (eq, "$background_type", cb_noble)], 
+  "I was actually defending you from your accusers...", "start_quest_noble_2",[]],
+
+[anyone,"start_quest_noble_2", [(eq, "$talk_context", tc_start_quest), (eq, "$background_type", cb_noble)], 
+  "LIAR! I DO NOT BELIEVE YOU! YOU AND YOUR FRIEND ALEC TRICOLINE! EN GARDE!", "start_quest_noble_3",[]],
+
+[anyone|plyr,"start_quest_noble_3", [(eq, "$talk_context", tc_start_quest), (eq, "$background_type", cb_noble)], 
+  "As you wish...", "start_quest_fight_noble",[]],
+
+[anyone|plyr,"start_quest_noble", [(eq, "$talk_context", tc_start_quest), (eq, "$background_type", cb_noble)], 
+  "Skip this quest", "close_window",[(change_screen_map)]],
+
+[anyone,"start_quest_fight_noble", [], 
+  "ENOUGH TALK!", "close_window",[
+          (jump_to_menu, "mnu_dac_stand_fight"),]],
+
+# Noble Discuss Options END
 
 [anyone ,"member_chat", [
          (store_conversation_troop, "$g_talk_troop"),

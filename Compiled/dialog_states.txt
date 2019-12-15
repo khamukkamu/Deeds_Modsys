@@ -20,6 +20,13 @@ recap_quest_merc_cont_2
 recap_quest_merc_end
 start_quest_merc
 start_quest_fight
+start_quest_hunter
+start_quest_guard
+start_quest_merchant
+start_quest_noble
+start_quest_noble_2
+start_quest_noble_3
+start_quest_fight_noble
 award_fief_to_vassal
 award_fief_to_vassal_defer
 award_fief_to_vassal_2

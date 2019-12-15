@@ -1107,8 +1107,20 @@ game_menus = [
         (call_script, "script_dac_starting_quest_meeting_scene"),
       ]),
 
-    ("start_merc", [(eq, "$background_type", cb_forester)],
+    ("start_hunter", [(eq, "$background_type", cb_forester)],
         "Discuss your options...",[
+        (call_script, "script_dac_starting_quest_meeting_scene"),
+      ]),
+    ("start_guard", [(eq, "$background_type", cb_guard)],
+        "Discuss your options...",[
+        (call_script, "script_dac_starting_quest_meeting_scene"),
+      ]),
+    ("start_merchant", [(eq, "$background_type", cb_merchant)],
+        "Discuss your options...",[
+        (call_script, "script_dac_starting_quest_meeting_scene"),
+      ]),
+    ("start_noble", [(eq, "$background_type", cb_noble)],
+        "Speak to the angry man...",[
         (call_script, "script_dac_starting_quest_meeting_scene"),
       ]),
     ("start_generic", [],
@@ -1134,6 +1146,24 @@ game_menus = [
     ("hunter_stand_fight", [(eq, "$background_type", cb_forester)],
         "Lead your men",[
         (call_script, "script_dac_hunter_init_stand_and_fight"),
+        (change_screen_mission),
+      ]),
+
+    ("guard_stand_fight", [(eq, "$background_type", cb_guard)],
+        "Lead your men",[
+        (call_script, "script_dac_guard_init_stand_and_fight"),
+        (change_screen_mission),
+      ]),
+
+    ("guard_stand_fight", [(eq, "$background_type", cb_merchant)],
+        "Lead your men",[
+        (call_script, "script_dac_merchant_init_stand_and_fight"),
+        (change_screen_mission),
+      ]),
+
+    ("noble_stand_fight", [(eq, "$background_type", cb_noble)],
+        "Duel",[
+        (call_script, "script_dac_guard_init_stand_and_fight"),
         (change_screen_mission),
       ]),
   ]

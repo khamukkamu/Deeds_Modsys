@@ -80449,6 +80449,12 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
   (eq, "$background_type", cb_forester),
   (str_store_string, s10, "str_dac_start_quest_forester"),
 (else_try),
+  (eq, "$background_type", cb_guard),
+  (str_store_string, s10, "str_dac_start_quest_guard"),
+(else_try),
+  (eq, "$background_type", cb_noble),
+  (str_store_string, s10, "str_dac_start_quest_noble"),
+(else_try),
   (str_store_string, s10, "str_dac_start_quest_generic"),
 (try_end)
 
@@ -80473,6 +80479,16 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (eq, "$background_type", cb_forester),
       (faction_get_slot, ":tier_1_archer", "fac_kingdom_1", slot_faction_tier_1_archer),
       (assign, ":meeting_troop", ":tier_1_archer"),
+    (else_try),
+      (eq, "$background_type", cb_guard),
+      (faction_get_slot, ":tier_1_troop", "fac_kingdom_1", slot_faction_tier_1_troop),
+      (assign, ":meeting_troop", ":tier_1_troop"),
+    (else_try),
+      (eq, "$background_type", cb_merchant),
+      (assign, ":meeting_troop", "trp_caravan_master"),
+    (else_try),
+      (eq, "$background_type", cb_noble),
+      (assign, ":meeting_troop", "trp_extra_lord_38"),
     (try_end),
     
     (set_visitor,0,"trp_player"),
@@ -80534,6 +80550,68 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (set_visitors,2,"trp_irrate_hunter", 5),
       (set_visitors,2,"trp_furious_lumberjack", 5),
       (set_visitors,2,"trp_disgruntled_farmer", 12),
+      (set_battle_advantage, 0),
+      (assign, "$g_battle_result", 0),
+      (assign, "$g_next_menu", "mnu_starting_quest_victory_merc"),
+      (assign, "$g_mt_mode", vba_normal),
+      (assign, "$cant_leave_encounter", 1),       
+      (jump_to_menu, "mnu_starting_quest_victory_merc"),
+
+]),
+
+# script_dac_guard_init_stand_and_fight
+# Initializes the Stand and Fight Guard option
+
+("dac_guard_init_stand_and_fight", [
+
+      (set_jump_mission,"mt_custom_lead_charge"),
+      (assign, ":scene_to_use", "scn_random_scene_plain_forest"),
+      (jump_to_scene,":scene_to_use"),
+      (modify_visitors_at_site, ":scene_to_use"),
+      (faction_get_slot, ":tier_1_archer", "fac_kingdom_1", slot_faction_tier_1_archer),
+      (faction_get_slot, ":tier_1_troop", "fac_kingdom_1", slot_faction_tier_1_troop),
+      (set_visitor, 0,"trp_player"),
+      (set_visitors,0,":tier_1_archer", 7),
+      (set_visitors,0,":tier_1_troop", 7),
+      (set_visitors,2,"trp_furious_lumberjack", 7),
+      (set_visitors,2,"trp_disgruntled_farmer", 18),
+      (set_battle_advantage, 0),
+      (assign, "$g_battle_result", 0),
+      (assign, "$g_next_menu", "mnu_starting_quest_victory_merc"),
+      (assign, "$g_mt_mode", vba_normal),
+      (assign, "$cant_leave_encounter", 1),       
+      (jump_to_menu, "mnu_starting_quest_victory_merc"),
+
+]),
+
+("dac_merchant_init_stand_and_fight", [
+
+      (set_jump_mission,"mt_custom_lead_charge"),
+      (assign, ":scene_to_use", "scn_random_scene_plain_forest"),
+      (jump_to_scene,":scene_to_use"),
+      (modify_visitors_at_site, ":scene_to_use"),
+      (set_visitor, 0,"trp_player"),
+      (set_visitors,0,"trp_watchman", 10),
+      (set_visitors,0,"trp_caravan_guard", 5),
+      (set_visitors,2,"trp_bandit", 7),
+      (set_visitors,2,"trp_looter", 15),
+      (set_battle_advantage, 0),
+      (assign, "$g_battle_result", 0),
+      (assign, "$g_next_menu", "mnu_starting_quest_victory_merc"),
+      (assign, "$g_mt_mode", vba_normal),
+      (assign, "$cant_leave_encounter", 1),       
+      (jump_to_menu, "mnu_starting_quest_victory_merc"),
+
+]),
+
+("dac_noble_init_stand_and_fight", [
+
+      (set_jump_mission,"mt_custom_lead_charge"),
+      (assign, ":scene_to_use", "scn_town_1_arena"),
+      (jump_to_scene,":scene_to_use"),
+      (modify_visitors_at_site, ":scene_to_use"),
+      (set_visitor, 0,"trp_player"),
+      (set_visitors,1,"trp_extra_lord_38", 1),
       (set_battle_advantage, 0),
       (assign, "$g_battle_result", 0),
       (assign, "$g_next_menu", "mnu_starting_quest_victory_merc"),
