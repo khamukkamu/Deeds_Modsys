@@ -35414,6 +35414,15 @@ scripts = [
 			(eq, ":troop_2", "trp_knight_3_15"),
 			(assign, ":relation_strength", 10),
 			(str_store_string, s11, "str_brother"),	
+			
+# Guillaume IV de Vienne + Guillemette de Vienne -> Cousins	
+		(else_try),
+			(this_or_next|eq, ":troop_1", "trp_knight_3_16"),
+			(eq, ":troop_1", "trp_kingdom_3_lady_14"),
+			(this_or_next|eq, ":troop_2", "trp_knight_3_16"),
+			(eq, ":troop_2", "trp_kingdom_3_lady_14"),
+			(assign, ":relation_strength", 2),
+			(str_store_string, s11, "str_cousin"),				
 
 # Antoine I de Croÿ + Jean II de Croÿ -> Brothers 	
 		(else_try),		
@@ -68023,7 +68032,16 @@ scripts = [
 			(this_or_next|eq, ":troop_2", "trp_knight_3_14"),
 			(eq, ":troop_2", "trp_knight_3_15"),
 			(assign, ":relation_strength", 10),
-			(assign, ":relation_string", "str_brother"),				
+			(assign, ":relation_string", "str_brother"),			
+
+# Guillaume IV de Vienne + Guillemette de Vienne -> Cousins	
+		(else_try),
+			(this_or_next|eq, ":troop_1", "trp_knight_3_16"),
+			(eq, ":troop_1", "trp_kingdom_3_lady_14"),
+			(this_or_next|eq, ":troop_2", "trp_knight_3_16"),
+			(eq, ":troop_2", "trp_kingdom_3_lady_14"),
+			(assign, ":relation_strength", 2),
+			(assign, ":relation_string", "str_cousin"),					
 			
 # Antoine I de Croÿ + Jean II de Croÿ -> Brothers 	
 		(else_try),		
@@ -77637,7 +77655,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 # Burgundian Lords
 	(troop_set_slot, "trp_knight_3_1", slot_troop_banner_scene_prop, "spr_banner_e10"), # Antoine de Toulongeon
 	(troop_set_slot, "trp_knight_3_2", slot_troop_banner_scene_prop, "spr_banner_e10"), # André de Toulongeon
-	(troop_set_slot, "trp_knight_3_3", slot_troop_banner_scene_prop, "spr_banner_e03"), # Charles de Bourgogne
+	(troop_set_slot, "trp_knight_3_3", slot_troop_banner_scene_prop, "spr_banner_e03"), # Guy de Bourgogne
 	(troop_set_slot, "trp_knight_3_4", slot_troop_banner_scene_prop, "spr_banner_e05"), # Pierre I de Luxembourg
 	(troop_set_slot, "trp_knight_3_5", slot_troop_banner_scene_prop, "spr_banner_e05"), # Jean II de Luxembourg
 	(troop_set_slot, "trp_knight_3_6", slot_troop_banner_scene_prop, "spr_banner_e05"), # Jean de Luxembourg
@@ -77965,7 +77983,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 # Burgundian Towns
       (call_script, "script_give_center_to_lord", "p_town_52",  "trp_kingdom_3_lord", 0), # Dijon - Philippe the Good, Duke of Burgundy
       (call_script, "script_give_center_to_lord", "p_town_53",  "trp_knight_3_20", 0), # Besançon - Thibaud VI de Rougemont, Vicomte de Besançon et Seigneur de Rougemont
-      (call_script, "script_give_center_to_lord", "p_town_54",  "trp_knight_3_3", 0), # Nevers - Charles de Bourgogne, Comte de Nevers et de Rethel
+      (call_script, "script_give_center_to_lord", "p_town_54",  "trp_knight_3_3", 0), # Nevers - Guy de Bourgogne, Comte de Nevers et de Rethel
       (call_script, "script_give_center_to_lord", "p_town_55",  "trp_kingdom_3_lord", 0), # Auxerre - Philippe the Good, Duke of Burgundy
       (call_script, "script_give_center_to_lord", "p_town_56",  "trp_kingdom_3_lord", 0), # Troyes - Philippe the Good, Duke of Burgundy
       (call_script, "script_give_center_to_lord", "p_town_57",  "trp_knight_3_10", 0), # Compiègne - Jean de Villiers de l'Isle-Adam, Seigneur de L'Isle-Adam
@@ -77974,8 +77992,8 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (call_script, "script_give_center_to_lord", "p_town_60",  "trp_kingdom_3_lord", 0), # Malines - Philippe the Good, Duke of Burgundy
 
       (call_script, "script_give_center_to_lord", "p_town_61",  "trp_kingdom_3_lord", 0), # Boulogne - Philippe the Good, Duke of Burgundy
-      (call_script, "script_give_center_to_lord", "p_town_62",  "trp_knight_3_3", 0), # Châlons-en-Champagne - Charles de Bourgogne, Comte de Nevers et de Rethel
-      (call_script, "script_give_center_to_lord", "p_town_63",  "trp_knight_3_3", 0), # Reims - Charles de Bourgogne, Comte de Nevers et de Rethel
+      (call_script, "script_give_center_to_lord", "p_town_62",  "trp_knight_3_3", 0), # Châlons-en-Champagne - Guy de Bourgogne, Comte de Nevers et de Rethel
+      (call_script, "script_give_center_to_lord", "p_town_63",  "trp_knight_3_3", 0), # Reims - Guy de Bourgogne, Comte de Nevers et de Rethel
       (call_script, "script_give_center_to_lord", "p_town_64", "trp_knight_3_10", 0), # Amiens - Jean de Villiers de l'Isle-Adam
       (call_script, "script_give_center_to_lord", "p_town_65", "trp_knight_3_10", 0), # Peronne - Jean de Villiers de l'Isle-Adam
       
@@ -78066,7 +78084,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (call_script, "script_give_center_to_lord", "p_castle_57", "trp_knight_3_12", 0), # Château_de_Brimeu - Jacques de Brimeu
       (call_script, "script_give_center_to_lord", "p_castle_58", "trp_knight_3_11", 0), # Château_de_Bellemotte - David de Brimeu
       (call_script, "script_give_center_to_lord", "p_castle_59", "trp_knight_3_19", 0), # Forteresse_d'Uytkerke - Roland d'Uytkerke
-      (call_script, "script_give_center_to_lord", "p_castle_60", "trp_knight_3_3", 0), # Château_de_La_Charité-sur-Loire - Charles de Bourgogne
+      (call_script, "script_give_center_to_lord", "p_castle_60", "trp_knight_3_3", 0), # Château_de_La_Charité-sur-Loire - Guy de Bourgogne
 
       (call_script, "script_give_center_to_lord", "p_castle_61", "trp_knight_3_10", 0), # Forteresse_de_L'Isle_Adam - Jean de Villiers de l'Isle-Adam
       (call_script, "script_give_center_to_lord", "p_castle_62", "trp_kingdom_3_lord", 0), # Château_de_Senlis - Philippe Le Bon
@@ -81797,8 +81815,8 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 (call_script, "script_init_troop_age","trp_knight_3_2",39),
 (troop_set_slot,"trp_knight_3_2",slot_lord_reputation_type,lrep_martial),
 
-#Charles de Bourgogne, Comte de Nevers et de Rethel
-(call_script, "script_init_troop_age","trp_knight_3_3",18),
+#Guy de Bourgogne, Comte de Nevers et de Rethel
+(call_script, "script_init_troop_age","trp_knight_3_3",29),
 (troop_set_slot,"trp_knight_3_3",slot_lord_reputation_type,lrep_goodnatured),
 
 #Pierre I de Luxembourg, Comte de Brienne
@@ -81980,7 +81998,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 (troop_set_slot,"trp_kingdom_3_lady_13","trp_knight_1_7"),
 (troop_set_slot,"trp_kingdom_3_lady_13",slot_lord_reputation_type,lrep_none),
 
-#Guillemete de Vienne
+#Guillemette de Vienne
 (troop_set_slot,"trp_kingdom_3_lady_14", slot_troop_spouse,"trp_knight_3_14"),
 (call_script, "script_init_troop_age","trp_kingdom_3_lady_14",25),
 (troop_set_slot,"trp_kingdom_3_lady_14",slot_lord_reputation_type,lrep_none),
