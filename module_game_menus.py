@@ -1163,7 +1163,7 @@ game_menus = [
 
     ("noble_stand_fight", [(eq, "$background_type", cb_noble)],
         "Duel",[
-        (call_script, "script_dac_guard_init_stand_and_fight"),
+        (call_script, "script_dac_noble_init_stand_and_fight"),
         (change_screen_mission),
       ]),
   ]
