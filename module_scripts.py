@@ -81281,7 +81281,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 
 #Jeanne de Poitiers
 (troop_set_slot,"trp_kingdom_1_lady_51",slot_troop_father,"trp_knight_1_31"),
-(troop_set_slot,"trp_kingdom_1_lady_51",slot_troop_mother,"trp_kingdom_1_lady_31"),
+# (troop_set_slot,"trp_kingdom_1_lady_51",slot_troop_mother,"trp_kingdom_1_lady_31"),
 (call_script, "script_init_troop_age","trp_kingdom_1_lady_51",20),
 (troop_set_slot,"trp_kingdom_1_lady_51",slot_lord_reputation_type,lrep_conventional),
 
