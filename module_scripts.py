@@ -82205,7 +82205,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 (troop_set_slot,"trp_kingdom_4_lady_8",slot_lord_reputation_type,lrep_none),
 
 #Jacquette de Bretagne
-(troop_set_slot,"trp_kingdom_4_lady_9",slot_troop_spouse,"trp_knight_4_1"),
+(troop_set_slot,"trp_kingdom_4_lady_9",slot_troop_father,"trp_knight_4_1"),
 (call_script, "script_init_troop_age","trp_kingdom_4_lady_9",17),
 (troop_set_slot,"trp_kingdom_4_lady_9",slot_lord_reputation_type,lrep_none),
 
