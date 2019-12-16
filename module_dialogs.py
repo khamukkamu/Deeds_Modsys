@@ -42658,10 +42658,35 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    "My good {lord/lady}. You have saved us from hunger and desperation. We cannot thank you enough, but you'll always be in our prayers.\
  The village of {s13} will not forget what you have done for us.", "village_elder_deliver_grain_thank_2",
    [(quest_get_slot, ":quest_target_amount", "qst_deliver_grain", slot_quest_target_amount),
-    (troop_remove_items, "trp_player", "itm_grain", ":quest_target_amount"),
-    (add_xp_as_reward, 400),
-    (call_script, "script_change_center_prosperity", "$current_town", 4),
-    (call_script, "script_change_player_relation_with_center", "$current_town", 5),
+########################################################################################################################
+# LAV MODIFICATIONS START (TRADE GOODS MOD)
+########################################################################################################################
+    #(troop_remove_items, "trp_player", "itm_grain", ":quest_target_amount"),
+    (troop_get_inventory_capacity, ":inv_size", "trp_player"),
+    (assign, ":result_xp_reward", 300), # Was 400
+    (assign, ":result_prosperity", 3),  # Was 4
+    (assign, ":result_relation", 4),    # Was 5
+    (try_for_range, ":i_slot", 0, ":inv_size"),
+      (troop_get_inventory_slot, ":cur_item", "trp_player", ":i_slot"),
+      (eq, ":cur_item", "itm_grain"),
+      (troop_get_inventory_slot_modifier, ":cur_modifier", "trp_player", ":i_slot"),
+      (try_begin),
+        (eq, ":cur_modifier", imod_large_bag), # These men are starving, they only care about quantity, so no bonus or penalty for quality
+        (val_add, ":result_xp_reward", 50),
+        (val_add, ":result_prosperity", 1),
+        (val_add, ":result_relation", 1),
+      (try_end),
+      (troop_remove_item, "itm_grain", 1),
+      (val_sub, ":quest_target_amount", 1),
+      (lt, ":quest_target_amount", 1),
+      (assign, ":inv_size", 0), #break
+    (try_end),
+    (add_xp_as_reward, ":result_xp_reward"),
+    (call_script, "script_change_center_prosperity", "$current_town", ":result_prosperity"),
+    (call_script, "script_change_player_relation_with_center", "$current_town", ":result_relation"),
+########################################################################################################################
+# LAV MODIFICATIONS END (TRADE GOODS MOD)
+########################################################################################################################
     (call_script, "script_end_quest", "qst_deliver_grain"),
 #Troop commentaries begin
     (call_script, "script_add_log_entry", logent_helped_peasants, "trp_player",  "$current_town", -1, -1),
