@@ -15034,10 +15034,12 @@ goods, and books will never be sold. ^^You can change some settings here freely.
          (assign, ":first_helmet_item", "itm_steppe_helmet_red"),
            (else_try),
              (eq, ":town_original_faction", "fac_kingdom_3"), # Khergit
+         (assign, ":first_armor_item", "itm_arena_armor_red"),
          (assign, ":first_helmet_item", "itm_steppe_helmet_red"),
            (else_try),
              (eq, ":town_original_faction", "fac_kingdom_4"), # Nord
          (assign, ":first_armor_item", "itm_arena_armor_red"),
+         (assign, ":first_helmet_item", "itm_steppe_helmet_red"),
            (try_end),
        (party_get_slot, ":first_optional_slot", "$current_town", slot_town_tournament_weapon_maybe_horse),
        (party_get_slot, ":first_foot_slot", "$current_town", slot_town_tournament_weapon_no_horse),
@@ -15078,8 +15080,8 @@ goods, and books will never be sold. ^^You can change some settings here freely.
            (gt, ":first_shield_item", 0), # Shield?
            (this_or_next|eq, ":primary_equipment", "itm_practice_sword"),
            (this_or_next|eq, ":primary_equipment", "itm_practice_axe"),
-           (this_or_next|eq, ":primary_equipment", "itm_practice_lance"),
-           (this_or_next|eq, ":primary_equipment", "itm_practice_javelin"),
+           (this_or_next|eq, ":primary_equipment", "itm_w_bastard_sword_a"),
+           (this_or_next|eq, ":primary_equipment", "itm_w_mace_knobbed"),
            (eq, ":primary_equipment", "itm_practice_spear"),
            (store_add, ":shield_item", ":first_shield_item", ":team_item_offset"),
            (mission_tpl_entry_add_override_item, "mt_arena_melee_fight", ":entry", ":shield_item"),
