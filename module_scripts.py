@@ -15769,6 +15769,34 @@ scripts = [
           (try_end),
           (eq, ":continue", 1),
           (item_get_slot, ":food_bonus", ":item_no", slot_item_food_bonus),
+
+########################################################################################################################
+# LAV MODIFICATIONS START (TRADE GOODS MOD)
+########################################################################################################################
+          (try_begin),
+            (eq, ":item_modifier", imod_cheap),
+            (val_sub, ":food_bonus", 2),
+          (else_try),
+            (eq, ":item_modifier", imod_fine),
+            (val_add, ":food_bonus", 1),
+          (else_try),
+            (eq, ":item_modifier", imod_well_made),
+            (val_add, ":food_bonus", 2),
+          (else_try),
+            (eq, ":item_modifier", imod_strong),
+            (val_add, ":food_bonus", 3),
+          (else_try),
+            (eq, ":item_modifier", imod_lordly),
+            (val_add, ":food_bonus", 5),
+          (else_try),
+            (eq, ":item_modifier", imod_exquisite),
+            (val_add, ":food_bonus", 6),
+          (try_end),
+########################################################################################################################
+# LAV MODIFICATIONS END (TRADE GOODS MOD)
+########################################################################################################################
+
+
           (assign, reg1, ":food_bonus"),
           (set_result_string, "@+{reg1} to party morale"),
           (set_trigger_result, 0x4444FF),
@@ -30476,6 +30504,15 @@ scripts = [
         (troop_get_inventory_slot_modifier, ":cur_modifier", "trp_player", ":i_slot"),
         (neq, ":cur_modifier", ":modifier"),
         (assign, ":has_without_modifier", 1),
+
+########################################################################################################################
+# LAV MODIFICATIONS START (TRADE GOODS MOD)
+########################################################################################################################
+        (assign, reg0, ":cur_modifier"),
+########################################################################################################################
+# LAV MODIFICATIONS END (TRADE GOODS MOD)
+########################################################################################################################
+
         (assign, ":inv_size", 0), #break
       (try_end),
       (eq, ":has_without_modifier", 1),
@@ -30519,6 +30556,32 @@ scripts = [
       (try_for_range, ":cur_edible", food_begin, food_end),
         (call_script, "script_cf_player_has_item_without_modifier", ":cur_edible", imod_rotten),
         (item_get_slot, ":food_bonus", ":cur_edible", slot_item_food_bonus),
+
+########################################################################################################################
+# LAV MODIFICATIONS START (TRADE GOODS MOD)
+########################################################################################################################
+        (try_begin),
+          (eq, reg0, imod_cheap),
+          (val_sub, ":food_bonus", 2),
+        (else_try),
+          (eq, reg0, imod_fine),
+          (val_add, ":food_bonus", 1),
+        (else_try),
+          (eq, reg0, imod_well_made),
+          (val_add, ":food_bonus", 2),
+        (else_try),
+          (eq, reg0, imod_strong),
+          (val_add, ":food_bonus", 3),
+        (else_try),
+          (eq, reg0, imod_lordly),
+          (val_add, ":food_bonus", 5),
+        (else_try),
+          (eq, reg0, imod_exquisite),
+          (val_add, ":food_bonus", 6),
+        (try_end),
+########################################################################################################################
+# LAV MODIFICATIONS END (TRADE GOODS MOD)
+########################################################################################################################
 
         (val_mul, ":food_bonus", 3),
         (val_div, ":food_bonus", 2),
@@ -59435,8 +59498,8 @@ scripts = [
         (lt, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_LOW),
         #fall through to default behavior
         ##diplomacy end+  
-        (lt,":cur_gold",1500),
-        (store_random_in_range,":new_gold",500,1000),
+        (lt,":cur_gold",15000),
+        (store_random_in_range,":new_gold",5000,10000),
         (call_script, "script_troop_add_gold", ":cur_merchant", ":new_gold"),
       (try_end),  
     
