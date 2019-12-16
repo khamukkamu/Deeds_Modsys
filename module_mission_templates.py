@@ -1000,7 +1000,7 @@ deeds_common_siege_scripts = [
     dac_lancer_fix_siege,
   #customize_armor,
   #bright_nights
-  ] 
+  ] + battle_panel_triggers + utility_triggers
 
 ##SB : new camera triggers
 dplmc_battle_mode_triggers = [

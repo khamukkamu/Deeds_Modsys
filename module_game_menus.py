@@ -4305,6 +4305,65 @@ TOTAL:  {reg5}"),
          (rest_for_hours_interactive, 10 * 24 * 365, 20), #10 year rest while not attackable with 20x speed
          (change_screen_return),]), 
 		
+      ("dac_test_print_aristocracy",[],"Aristocracy Debug Menu", [
+          (jump_to_menu, "mnu_camp_print_aristocracy")]),  
+
+      ("camp_troops_cheat",[],"Give Troops", [
+          (jump_to_menu, "mnu_camp_give_troops")]),	 
+      ("camp_test_sieges",[],"Test Sieges", [
+          (jump_to_menu, "mnu_dac_camp_test_sieges")]),  
+
+    ("dac_test_back",[],"Back",[(jump_to_menu, "mnu_camp")]),
+ ]),
+
+ ## DAC Test Menu END
+ 
+   ( "camp_give_troops",0,
+    "Troops to receive:","none",[],
+    [   
+      ("give_troops_france",[],"Give French Troops", [(party_add_template, "p_main_party", "pt_kingdom_1_reinforcements_a"),(party_add_template, "p_main_party", "pt_kingdom_1_reinforcements_b"),(party_add_template, "p_main_party", "pt_kingdom_1_reinforcements_c"),(party_add_template, "p_main_party", "pt_kingdom_1_reinforcements_d"),]),
+      ("give_troops_england",[],"Give English Troops", [(party_add_template, "p_main_party", "pt_kingdom_2_reinforcements_a"),(party_add_template, "p_main_party", "pt_kingdom_2_reinforcements_b"),(party_add_template, "p_main_party", "pt_kingdom_2_reinforcements_c"),(party_add_template, "p_main_party", "pt_kingdom_2_reinforcements_d"),]),
+      ("give_troops_burgundy",[],"Give Burgundian Troops", [(party_add_template, "p_main_party", "pt_kingdom_3_reinforcements_a"),(party_add_template, "p_main_party", "pt_kingdom_3_reinforcements_b"),(party_add_template, "p_main_party", "pt_kingdom_3_reinforcements_c"),(party_add_template, "p_main_party", "pt_kingdom_3_reinforcements_d"),]),
+      ("give_troops_brittany",[],"Give Breton Troops", [(party_add_template, "p_main_party", "pt_kingdom_4_reinforcements_a"),(party_add_template, "p_main_party", "pt_kingdom_4_reinforcements_b"),(party_add_template, "p_main_party", "pt_kingdom_4_reinforcements_c"),(party_add_template, "p_main_party", "pt_kingdom_4_reinforcements_d"),]),	 
+      ("resume_travelling",[],"Resume travelling.",[(change_screen_return),]), 
+ ]),  	
+
+
+("dac_camp_test_sieges", 0,
+    "Test Sieges: Join a faction first so you can actually join sieges", "none", [],
+    [
+
+  ("dac_test_join_faction", [], "Join Faction: France", [(call_script, "script_player_join_faction", "fac_kingdom_1"),]),
+  
+  ("dac_test_french_siege_english", [
+        (troop_get_slot, ":knight_party", "trp_knight_1_1", slot_troop_leaded_party),
+        (party_is_active, ":knight_party"),
+      ], 
+        "Order Jean II d'Alencon to Besiege Cherbourg", [
+        
+        (troop_get_slot, ":knight_party", "trp_knight_1_1", slot_troop_leaded_party),
+        (party_detach, ":knight_party"),
+        (party_relocate_near_party, ":knight_party", "p_town_40", 0),
+        (party_set_slot, "p_town_40", slot_center_is_besieged_by, ":knight_party"),
+        (call_script, "script_party_set_ai_state", ":knight_party", spai_besieging_center, "p_town_40"),
+        (party_set_ai_behavior, ":knight_party", ai_bhvr_attack_party),
+        (party_set_ai_object, ":knight_party", "p_town_40"),
+        (party_set_flags, ":knight_party", pf_default_behavior, 1),
+        (party_set_slot, ":knight_party", slot_party_ai_substate, 1),
+        (display_message, "@Jean II d'Alencon besieges Cherbourg!", 0x30FFC8),
+        (change_screen_map),
+ ]), 
+
+ ("test_siege_resume_travelling",[],"Resume travelling.",[(change_screen_return),]),
+ 
+ ]),
+
+
+
+  ("camp_print_aristocracy", 0,
+    "DEBUG for Aristocracy Scripts", "none", [],
+    [
+
     ("dac_print_french_lord_ages", [], "Print French Lords Ages", [
         (try_for_range, ":lords", "trp_knight_1_1", "trp_knight_2_1"),
           (troop_get_slot, reg55, ":lords", slot_troop_age),
@@ -4361,24 +4420,9 @@ TOTAL:  {reg5}"),
         (display_message, "@{s2} - {reg55}", color_good_news),
       (try_end),]), 
 
+    ("debug_aristocracy_resume_travelling",[],"Resume travelling.",[(change_screen_return),]),
 
-      ("camp_troops_cheat",[],"Give Troops", [
-          (jump_to_menu, "mnu_camp_give_troops")]),	 
-
-    ("dac_test_back",[],"Back",[(jump_to_menu, "mnu_camp")]),
- ]),
-
- ## DAC Test Menu END
- 
-   ( "camp_give_troops",0,
-    "Troops to receive:","none",[],
-    [   
-      ("give_troops_france",[],"Give French Troops", [(party_add_template, "p_main_party", "pt_kingdom_1_reinforcements_a"),(party_add_template, "p_main_party", "pt_kingdom_1_reinforcements_b"),(party_add_template, "p_main_party", "pt_kingdom_1_reinforcements_c"),(party_add_template, "p_main_party", "pt_kingdom_1_reinforcements_d"),]),
-      ("give_troops_england",[],"Give English Troops", [(party_add_template, "p_main_party", "pt_kingdom_2_reinforcements_a"),(party_add_template, "p_main_party", "pt_kingdom_2_reinforcements_b"),(party_add_template, "p_main_party", "pt_kingdom_2_reinforcements_c"),(party_add_template, "p_main_party", "pt_kingdom_2_reinforcements_d"),]),
-      ("give_troops_burgundy",[],"Give Burgundian Troops", [(party_add_template, "p_main_party", "pt_kingdom_3_reinforcements_a"),(party_add_template, "p_main_party", "pt_kingdom_3_reinforcements_b"),(party_add_template, "p_main_party", "pt_kingdom_3_reinforcements_c"),(party_add_template, "p_main_party", "pt_kingdom_3_reinforcements_d"),]),
-      ("give_troops_brittany",[],"Give Breton Troops", [(party_add_template, "p_main_party", "pt_kingdom_4_reinforcements_a"),(party_add_template, "p_main_party", "pt_kingdom_4_reinforcements_b"),(party_add_template, "p_main_party", "pt_kingdom_4_reinforcements_c"),(party_add_template, "p_main_party", "pt_kingdom_4_reinforcements_d"),]),	 
-      ("resume_travelling",[],"Resume travelling.",[(change_screen_return),]), 
- ]),  	
+  ]),
 
 
   ("camp_action",0,
