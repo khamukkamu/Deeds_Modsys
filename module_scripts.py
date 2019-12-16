@@ -80606,12 +80606,12 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 
 ("dac_noble_init_stand_and_fight", [
 
-      (set_jump_mission,"mt_custom_lead_charge"),
+      (set_jump_mission,"mt_custom_duel_with_lord"),
       (assign, ":scene_to_use", "scn_town_1_arena"),
       (jump_to_scene,":scene_to_use"),
       (modify_visitors_at_site, ":scene_to_use"),
-      (set_visitor, 0,"trp_player"),
-      (set_visitors,1,"trp_extra_lord_38", 1),
+      (set_visitor, 2,"trp_player"),
+      (set_visitor, 3,"trp_extra_lord_38"),
       (set_battle_advantage, 0),
       (assign, "$g_battle_result", 0),
       (assign, "$g_next_menu", "mnu_starting_quest_victory_merc"),

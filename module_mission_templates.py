@@ -1000,7 +1000,7 @@ deeds_common_siege_scripts = [
     dac_lancer_fix_siege,
   #customize_armor,
   #bright_nights
-  ] 
+  ] + battle_panel_triggers + utility_triggers
 
 ##SB : new camera triggers
 dplmc_battle_mode_triggers = [
@@ -18331,5 +18331,49 @@ mission_templates = [
     ##diplomacy begin
     + dplmc_battle_mode_triggers + dplmc_horse_cull,  #SB : horse cull
     ##diplomacy end
+  ),
+
+(
+    "custom_duel_with_lord",mtf_arena_fight|mtf_commit_casualties,-1,
+    "You enter a melee fight in the arena.",
+    [
+      (0, mtef_visitor_source|mtef_team_0,af_override_all,aif_start_alarmed,1,[itm_w_bastard_sword_a,itm_a_aketon_narf_custom]),
+      (16, mtef_visitor_source|mtef_team_1,af_override_all,aif_start_alarmed,1,[itm_w_bastard_sword_a,itm_a_aketon_narf_custom]),
+      #SB : use these for castle courtyard duels
+      (23, mtef_visitor_source|mtef_team_0,af_override_all,aif_start_alarmed,1,[itm_w_bastard_sword_a,itm_a_aketon_narf_custom]),
+      (24, mtef_visitor_source|mtef_team_1,af_override_all,aif_start_alarmed,1,[itm_w_bastard_sword_a,itm_a_aketon_narf_custom]),
+      
+    ],
+    [
+      common_inventory_not_available,
+      (ti_tab_pressed, 0, 0, [(display_message, "str_cannot_leave_now")], []),
+      (ti_before_mission_start, 0, 0, [], [(call_script, "script_change_banners_and_chest"),
+        #SB : remove siege objects if we fight in castles
+        (call_script, "script_remove_siege_objects"),
+      ]),
+
+      (0, 0, ti_once, [],
+       [
+         (call_script, "script_music_set_situation_with_culture", mtf_sit_arena),
+         ]),
+
+      (1, 4, ti_once, [
+    (this_or_next|main_hero_fallen),
+    (num_active_teams_le,1)],
+       [
+
+         (try_begin),
+          (neg|main_hero_fallen),
+          (assign, "$g_battle_won", 1),
+          (jump_to_menu, "mnu_starting_quest_victory_merc"), 
+          (finish_mission),
+        (else_try), 
+          (main_hero_fallen),
+          (jump_to_menu, "mnu_starting_quest_victory_merc"), 
+          (finish_mission),
+        (try_end),
+       
+           ]),
+    ],
   ),
 ]
