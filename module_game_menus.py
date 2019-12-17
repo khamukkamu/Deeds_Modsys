@@ -1,4 +1,4 @@
-from header_game_menus import *
+﻿from header_game_menus import *
 from header_parties import *
 from header_items import *
 from header_mission_templates import *
@@ -73,7 +73,7 @@ game_menus = [
 
   ("start_game_0",menu_text_color(0xFF000000)|mnf_disable_all_keys,
   ##diplomacy begin
-    "Welcome, adventurer, to Diplomacy for Mount & Blade: Warband. Before beginning the game you must create your character. Remember that in the traditional medieval society depicted in the game, war and politics are usually dominated by male members of the nobility. That does not however mean that you should not choose to play a female character, or one who is not of noble birth. Male nobles may have a somewhat easier start, but women and commoners can attain all of the same goals -- and in fact may have a much more interesting if more challenging early game.",
+    "Anno Domini 1429, ^ The war over the right to rule over France opposing the French House of Valois and the English House of Plantagenet has been raging for nearly a century. The recent English victory at Agincourt resulted in the death and imprisonment of several proeminent French lords yet those that remain carry on fighting for Charles VII and gather up to break the siege of Orléans...",
   ##diplomacy end
   "none",
     [],
