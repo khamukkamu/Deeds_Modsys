@@ -228,8 +228,8 @@ game_menus = [
          # (try_end),
          # (add_xp_to_troop, 5000, "trp_player"),
 
-         #(change_screen_return), # DAC - Change to Starting Quest Menu
-         (jump_to_menu, "mnu_dac_start_quest"),
+         (change_screen_return), # DAC - Change to Starting Quest Menu - disabled for now
+         #(jump_to_menu, "mnu_dac_start_quest"),
        ]),
 ##diplomacy end+ (replaced "join" with "Join")
 
@@ -2284,30 +2284,56 @@ game_menus = [
     (assign, reg11, "$character_gender"), #SB : every string now uses reg11 for daughter/son boy/girl etc
     ],
     [
-    ("dac_start_noble",[],"An impoverished noble.",[
+    ("dac_start_noble",[(neq, "$character_gender", tf_female)],"An impoverished noble.",[
         (assign,"$background_type",cb_noble),
         #(str_store_string,s10,"str_story_parent_noble"),
         (jump_to_menu,"mnu_dac_choose_skill"),
     ]),
-    ("dac_start_merchant",[],"A travelling merchant.",[
+    ("dac_start_merchant",[(neq, "$character_gender", tf_female)],"A travelling merchant.",[
         (assign,"$background_type",cb_merchant),
         #(str_store_string,s10,"str_story_parent_merchant"),
         (jump_to_menu,"mnu_dac_choose_skill"),
     ]),
-    ("dac_start_soldier",[],"A veteran soldier.",[
+    ("dac_start_soldier",[(neq, "$character_gender", tf_female)],"A veteran soldier.",[
         (assign,"$background_type",cb_guard),
         #(str_store_string,s10,"str_story_parent_guard"),
         (jump_to_menu,"mnu_dac_choose_skill"),
     ]),
-    ("dac_start_hunter",[],"A hunter.",[
+    ("dac_start_hunter",[(neq, "$character_gender", tf_female)],"A hunter.",[
         (assign,"$background_type",cb_forester),
         #(str_store_string,s10,"str_story_parent_forester"),
         (jump_to_menu,"mnu_dac_choose_skill"),
     ]),
   
-    ("dac_start_mercenary",[],"A rugged mercenary.",[
+    ("dac_start_mercenary",[(neq, "$character_gender", tf_female)],"A rugged mercenary.",[
         (assign,"$background_type",cb_merc),
         #(str_store_string,s10,"str_story_parent_priest"),
+        (jump_to_menu,"mnu_dac_choose_skill"),
+    ]),
+
+# DAC - Female Options
+
+    ("dac_start_noblewoman",[(eq, "$character_gender", tf_female)],"An impoverished noblewoman, dealing with the death of her father during the war.",[
+        (assign,"$background_type",cb_noble),
+        #(str_store_string,s10,"str_story_parent_noble"),
+        (jump_to_menu,"mnu_dac_choose_skill"),
+    ]),
+
+    ("dac_start_peasant",[(eq, "$character_gender", tf_female)],"a Peasant, inspired by the tales of Jeanne, La Pucelle d'Orléans.",[
+        (assign,"$background_type",cb_forester),
+        #(str_store_string,s10,"str_story_parent_forester"),
+        (jump_to_menu,"mnu_dac_choose_skill"),
+    ]),
+
+    ("dac_start_craftswoman",[(eq, "$character_gender", tf_female)],"a Craftswoman, supporting the war efforts.",[
+        (assign,"$background_type",cb_merchant),
+        #(str_store_string,s10,"str_story_parent_merchant"),
+        (jump_to_menu,"mnu_dac_choose_skill"),
+    ]),
+
+    ("dac_start_healer",[(eq, "$character_gender", tf_female)],"a Healer, tending to the wounded during the war.",[
+        (assign,"$background_type",cb_healer),
+        #(str_store_string,s10,"str_story_parent_merchant"),
         (jump_to_menu,"mnu_dac_choose_skill"),
     ]),
 
@@ -2364,6 +2390,9 @@ game_menus = [
           (else_try),
            (eq,"$background_type",cb_merc),
            (call_script, "script_start_as_merc"),
+          (else_try),
+           (eq,"$background_type",cb_healer),
+           (call_script, "script_start_as_healer"),
           (try_end),
 
       #SB : pre-allocate disguises

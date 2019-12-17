@@ -170,19 +170,23 @@ itemsfile version 3
 
  itm_red_tourney_armor Red_Tourney_Armor Red_Tourney_Armor 1  a_gambeson_white 0  16777229 0 152 0 15.000000 100 0 20 6 0 0 0 0 0 0 0 0
  0
-0
+1
+-50.000000  1 1978 3 1585267068834416174 0 0 
 
  itm_blue_tourney_armor Blue_Tourney_Armor Blue_Tourney_Armor 1  a_gambeson_white 0  16777229 0 152 0 15.000000 100 0 20 6 0 0 0 0 0 0 0 0
  0
-0
+1
+-50.000000  1 1978 3 1585267068834416171 0 0 
 
  itm_green_tourney_armor Green_Tourney_Armor Green_Tourney_Armor 1  a_gambeson_white 0  16777229 0 152 0 15.000000 100 0 20 6 0 0 0 0 0 0 0 0
  0
-0
+1
+-50.000000  1 1978 3 1585267068834416173 0 0 
 
  itm_gold_tourney_armor Gold_Tourney_Armor Gold_Tourney_Armor 1  a_gambeson_white 0  16777229 0 152 0 15.000000 100 0 20 6 0 0 0 0 0 0 0 0
  0
-0
+1
+-50.000000  1 1978 3 1585267068834416172 0 0 
 
  itm_red_tourney_helmet Red_Tourney_Helmet Red_Tourney_Helmet 1  h_hood_red 0  12 0 126 0 2.000000 100 16 0 0 0 0 0 0 0 0 0 0
  0
@@ -216,25 +220,29 @@ itemsfile version 3
  0
 0
 
- itm_arena_armor_white Arena_Armor_White Arena_Armor_White 1  a_gambeson_white 0  16777229 0 650 704643236 16.000000 100 0 29 13 0 0 0 0 0 0 0 0
+ itm_arena_armor_white Arena_Armor_White Arena_Armor_White 1  a_padded_over_mail 0  16777229 0 650 704643236 16.000000 100 0 29 13 0 0 0 0 0 0 0 0
  0
 0
 
- itm_arena_armor_red Arena_Armor_Red Arena_Armor_Red 1  a_gambeson_white 0  16777229 0 650 704643236 16.000000 100 0 29 13 0 0 0 0 0 0 0 0
+ itm_arena_armor_red Arena_Armor_Red Arena_Armor_Red 1  a_padded_over_mail 0  16777229 0 650 704643236 16.000000 100 0 29 13 0 0 0 0 0 0 0 0
  0
-0
+1
+-50.000000  1 1978 3 1585267068834416299 0 0 
 
- itm_arena_armor_blue Arena_Armor_Blue Arena_Armor_Blue 1  a_gambeson_white 0  16777229 0 650 704643236 16.000000 100 0 29 13 0 0 0 0 0 0 0 0
+ itm_arena_armor_blue Arena_Armor_Blue Arena_Armor_Blue 1  a_padded_over_mail 0  16777229 0 650 704643236 16.000000 100 0 29 13 0 0 0 0 0 0 0 0
  0
-0
+1
+-50.000000  1 1978 3 1585267068834416300 0 0 
 
- itm_arena_armor_green Arena_Armor_Green Arena_Armor_Green 1  a_gambeson_white 0  16777229 0 650 704643236 16.000000 100 0 29 13 0 0 0 0 0 0 0 0
+ itm_arena_armor_green Arena_Armor_Green Arena_Armor_Green 1  a_padded_over_mail 0  16777229 0 650 704643236 16.000000 100 0 29 13 0 0 0 0 0 0 0 0
  0
-0
+1
+-50.000000  1 1978 3 1585267068834416301 0 0 
 
- itm_arena_armor_yellow Arena_Armor_Yellow Arena_Armor_Yellow 1  a_gambeson_white 0  16777229 0 650 704643236 16.000000 100 0 29 13 0 0 0 0 0 0 0 0
+ itm_arena_armor_yellow Arena_Armor_Yellow Arena_Armor_Yellow 1  a_padded_over_mail 0  16777229 0 650 704643236 16.000000 100 0 29 13 0 0 0 0 0 0 0 0
  0
-0
+1
+-50.000000  1 1978 3 1585267068834416302 0 0 
 
  itm_arena_tunic_white Arena_Tunic_White_ Arena_Tunic_White_ 1  a_gambeson_white 0  16777229 0 47 123731968 2.000000 100 0 16 6 0 0 0 0 0 0 0 0
  0
@@ -242,89 +250,107 @@ itemsfile version 3
 
  itm_arena_tunic_red Arena_Tunic_Red Arena_Tunic_Red 1  a_gambeson_white 0  16777229 0 27 123731968 2.000000 100 0 16 6 0 0 0 0 0 0 0 0
  0
-0
+1
+-50.000000  1 1978 3 1585267068834416174 0 0 
 
  itm_arena_tunic_blue Arena_Tunic_Blue Arena_Tunic_Blue 1  a_gambeson_white 0  16777229 0 27 123731968 2.000000 100 0 16 6 0 0 0 0 0 0 0 0
  0
-0
+1
+-50.000000  1 1978 3 1585267068834416171 0 0 
 
  itm_arena_tunic_green Arena_Tunic_Green Arena_Tunic_Green 1  a_gambeson_white 0  16777229 0 27 123731968 2.000000 100 0 16 6 0 0 0 0 0 0 0 0
  0
-0
+1
+-50.000000  1 1978 3 1585267068834416173 0 0 
 
  itm_arena_tunic_yellow Arena_Tunic_Yellow Arena_Tunic_Yellow 1  a_gambeson_white 0  16777229 0 27 123731968 2.000000 100 0 16 6 0 0 0 0 0 0 0 0
  0
-0
+1
+-50.000000  1 1978 3 1585267068834416172 0 0 
 
- itm_arena_helmet_red Arena_Helmet_Red Arena_Helmet_Red 1  h_bascinet_fi 0  1073741836 0 187 704643238 1.250000 100 26 0 0 0 0 0 0 0 0 0 0
+ itm_arena_helmet_red Arena_Helmet_Red Arena_Helmet_Red 1  o_hood_narf_base 0  1073745676 0 187 704643238 1.250000 100 26 0 0 0 0 0 0 0 0 0 0
+ 0
+1
+-50.000000  2 1964 3 1585267068834416186 0 0 1978 3 1585267068834416303 0 0 
+
+ itm_arena_helmet_blue Arena_Helmet_Blue Arena_Helmet_Blue 1  o_hood_narf_base 0  1073745676 0 187 704643238 1.250000 100 26 0 0 0 0 0 0 0 0 0 0
+ 0
+1
+-50.000000  2 1964 3 1585267068834416186 0 0 1978 3 1585267068834416304 0 0 
+
+ itm_arena_helmet_green Arena_Helmet_Green Arena_Helmet_Green 1  o_hood_narf_base 0  1073745676 0 187 704643238 1.250000 100 26 0 0 0 0 0 0 0 0 0 0
+ 0
+1
+-50.000000  2 1964 3 1585267068834416186 0 0 1978 3 1585267068834416305 0 0 
+
+ itm_arena_helmet_yellow Arena_Helmet_Yellow Arena_Helmet_Yellow 1  o_hood_narf_base 0  1073745676 0 187 704643238 1.250000 100 26 0 0 0 0 0 0 0 0 0 0
+ 0
+1
+-50.000000  2 1964 3 1585267068834416186 0 0 1978 3 1585267068834416306 0 0 
+
+ itm_steppe_helmet_white Arena_Helmet_White Arena_Helmet_White 1  o_hood_narf_base 0  1073745676 0 187 704643238 1.250000 100 20 0 0 0 0 0 0 0 0 0 0
+ 0
+1
+-50.000000  2 1964 3 1585267068834416186 0 0 1978 3 1585267068834416307 0 0 
+
+ itm_steppe_helmet_red Arena_Helmet_Red Arena_Helmet_Red 1  o_hood_narf_base 0  1073745676 0 187 704643238 1.250000 100 20 0 0 0 0 0 0 0 0 0 0
+ 0
+1
+-50.000000  2 1964 3 1585267068834416189 0 0 1978 3 1585267068834416303 0 0 
+
+ itm_steppe_helmet_blue Arena_Helmet_Blue Arena_Helmet_Blue 1  o_hood_narf_base 0  1073745676 0 187 704643238 1.250000 100 20 0 0 0 0 0 0 0 0 0 0
+ 0
+1
+-50.000000  2 1964 3 1585267068834416189 0 0 1978 3 1585267068834416304 0 0 
+
+ itm_steppe_helmet_green Arena_Helmet_Green Arena_Helmet_Green 1  o_hood_narf_base 0  1073745676 0 187 704643238 1.250000 100 20 0 0 0 0 0 0 0 0 0 0
+ 0
+1
+-50.000000  2 1964 3 1585267068834416189 0 0 1978 3 1585267068834416305 0 0 
+
+ itm_steppe_helmet_yellow Arena_Helmet_Yellow Arena_Helmet_Yellow 1  o_hood_narf_base 0  1073745676 0 187 704643238 1.250000 100 20 0 0 0 0 0 0 0 0 0 0
+ 0
+1
+-50.000000  2 1964 3 1585267068834416189 0 0 1978 3 1585267068834416306 0 0 
+
+ itm_tourney_helm_white Tourney_Helm_White Tourney_Helm_White 1  o_hood_narf_base 0  2147487500 0 760 704643238 2.750000 100 30 0 0 0 0 0 0 0 0 0 0
+ 0
+1
+-50.000000  2 1964 3 1585267068834416186 0 0 1978 3 1585267068834416307 0 0 
+
+ itm_tourney_helm_red Tourney_Helm_Red Tourney_Helm_Red 1  o_hood_narf_base 0  2147487500 0 760 704643238 2.750000 100 30 0 0 0 0 0 0 0 0 0 0
+ 0
+1
+-50.000000  2 1964 3 1585267068834416186 0 0 1978 3 1585267068834416303 0 0 
+
+ itm_tourney_helm_blue Tourney_Helm_Blue Tourney_Helm_Blue 1  o_hood_narf_base 0  2147487500 0 760 704643238 2.750000 100 30 0 0 0 0 0 0 0 0 0 0
+ 0
+1
+-50.000000  2 1964 3 1585267068834416186 0 0 1978 3 1585267068834416304 0 0 
+
+ itm_tourney_helm_green Tourney_Helm_Green Tourney_Helm_Green 1  o_hood_narf_base 0  2147487500 0 760 704643238 2.750000 100 30 0 0 0 0 0 0 0 0 0 0
+ 0
+1
+-50.000000  2 1964 3 1585267068834416186 0 0 1978 3 1585267068834416305 0 0 
+
+ itm_tourney_helm_yellow Tourney_Helm_Yellow Tourney_Helm_Yellow 1  o_hood_narf_base 0  2147487500 0 760 704643238 2.750000 100 30 0 0 0 0 0 0 0 0 0 0
+ 0
+1
+-50.000000  2 1964 3 1585267068834416186 0 0 1978 3 1585267068834416306 0 0 
+
+ itm_arena_turban_red Arena_Hood Arena_Hood 1  h_hood_red 0  1073741836 0 187 704643238 1.250000 100 26 0 0 0 0 0 0 0 0 0 0
  0
 0
 
- itm_arena_helmet_blue Arena_Helmet_Blue Arena_Helmet_Blue 1  h_bascinet_fi 0  1073741836 0 187 704643238 1.250000 100 26 0 0 0 0 0 0 0 0 0 0
+ itm_arena_turban_blue Arena_Hood Arena_Hood 1  h_hood_blue 0  1073741836 0 187 704643238 1.250000 100 26 0 0 0 0 0 0 0 0 0 0
  0
 0
 
- itm_arena_helmet_green Arena_Helmet_Green Arena_Helmet_Green 1  h_bascinet_fi 0  1073741836 0 187 704643238 1.250000 100 26 0 0 0 0 0 0 0 0 0 0
+ itm_arena_turban_green Arena_Hood Arena_Hood 1  h_hood_green 0  1073741836 0 187 704643238 1.250000 100 26 0 0 0 0 0 0 0 0 0 0
  0
 0
 
- itm_arena_helmet_yellow Arena_Helmet_Yellow Arena_Helmet_Yellow 1  h_bascinet_fi 0  1073741836 0 187 704643238 1.250000 100 26 0 0 0 0 0 0 0 0 0 0
- 0
-0
-
- itm_steppe_helmet_white Steppe_Helmet_White Steppe_Helmet_White 1  h_bascinet_fi 0  1073741836 0 187 704643238 1.250000 100 20 0 0 0 0 0 0 0 0 0 0
- 0
-0
-
- itm_steppe_helmet_red Steppe_Helmet_Red Steppe_Helmet_Red 1  h_bascinet_fi 0  1073741836 0 187 704643238 1.250000 100 20 0 0 0 0 0 0 0 0 0 0
- 0
-0
-
- itm_steppe_helmet_blue Steppe_Helmet_Blue Steppe_Helmet_Blue 1  h_bascinet_fi 0  1073741836 0 187 704643238 1.250000 100 20 0 0 0 0 0 0 0 0 0 0
- 0
-0
-
- itm_steppe_helmet_green Steppe_Helmet_Green Steppe_Helmet_Green 1  h_bascinet_fi 0  1073741836 0 187 704643238 1.250000 100 20 0 0 0 0 0 0 0 0 0 0
- 0
-0
-
- itm_steppe_helmet_yellow Steppe_Helmet_Yellow Steppe_Helmet_Yellow 1  h_bascinet_fi 0  1073741836 0 187 704643238 1.250000 100 20 0 0 0 0 0 0 0 0 0 0
- 0
-0
-
- itm_tourney_helm_white Tourney_Helm_White Tourney_Helm_White 1  h_bascinet_fi 0  2147483660 0 760 704643238 2.750000 100 30 0 0 0 0 0 0 0 0 0 0
- 0
-0
-
- itm_tourney_helm_red Tourney_Helm_Red Tourney_Helm_Red 1  h_bascinet_fi 0  2147483660 0 760 704643238 2.750000 100 30 0 0 0 0 0 0 0 0 0 0
- 0
-0
-
- itm_tourney_helm_blue Tourney_Helm_Blue Tourney_Helm_Blue 1  h_bascinet_fi 0  2147483660 0 760 704643238 2.750000 100 30 0 0 0 0 0 0 0 0 0 0
- 0
-0
-
- itm_tourney_helm_green Tourney_Helm_Green Tourney_Helm_Green 1  h_bascinet_fi 0  2147483660 0 760 704643238 2.750000 100 30 0 0 0 0 0 0 0 0 0 0
- 0
-0
-
- itm_tourney_helm_yellow Tourney_Helm_Yellow Tourney_Helm_Yellow 1  h_bascinet_fi 0  2147483660 0 760 704643238 2.750000 100 30 0 0 0 0 0 0 0 0 0 0
- 0
-0
-
- itm_arena_turban_red Arena_Turban Arena_Turban 1  h_hood_red 0  1073741836 0 187 704643238 1.250000 100 26 0 0 0 0 0 0 0 0 0 0
- 0
-0
-
- itm_arena_turban_blue Arena_Turban Arena_Turban 1  h_hood_blue 0  1073741836 0 187 704643238 1.250000 100 26 0 0 0 0 0 0 0 0 0 0
- 0
-0
-
- itm_arena_turban_green Arena_Turban Arena_Turban 1  h_hood_green 0  1073741836 0 187 704643238 1.250000 100 26 0 0 0 0 0 0 0 0 0 0
- 0
-0
-
- itm_arena_turban_yellow Arena_Turban Arena_Turban 1  h_hood_yellow 0  1073741836 0 187 704643238 1.250000 100 26 0 0 0 0 0 0 0 0 0 0
+ itm_arena_turban_yellow Arena_Hood Arena_Hood 1  h_hood_yellow 0  1073741836 0 187 704643238 1.250000 100 26 0 0 0 0 0 0 0 0 0 0
  0
 0
 

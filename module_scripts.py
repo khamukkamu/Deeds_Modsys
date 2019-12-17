@@ -77284,6 +77284,37 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 
   ]),
 
+("start_as_healer", [
+        
+        (troop_raise_attribute, "trp_player",ca_intelligence,5),
+        (troop_raise_attribute, "trp_player",ca_charisma,2), 
+    
+        (troop_raise_skill, "trp_player",skl_wound_treatment,3),
+        (troop_raise_skill, "trp_player",skl_surgery,3),
+        (troop_raise_skill, "trp_player",skl_first_aid,3),
+        (troop_raise_skill, "trp_player",skl_inventory_management,2),
+        (troop_raise_skill, "trp_player",skl_persuasion,1),   
+    
+        (troop_raise_proficiency, "trp_player",wpt_one_handed_weapon,30),
+        (troop_raise_proficiency, "trp_player",wpt_two_handed_weapon,15),
+        (troop_raise_proficiency, "trp_player",wpt_polearm,25),   
+        (try_for_range, ":unused", 0, 4),
+          (store_random_in_range, ":wpt", wpt_one_handed_weapon, wpt_firearm),
+          (troop_raise_proficiency, "trp_player",":wpt",5), 
+        (try_end),    
+    
+        (troop_add_gold, "trp_player", 200),
+        (troop_set_slot, "trp_player", slot_troop_renown, 30),
+
+        (store_random_in_range, ":food_item", "itm_cattle_meat", "itm_siege_supply"),
+        (troop_add_item, "trp_player",":food_item"),
+        (troop_add_item, "trp_player","itm_h_highlander_beret_red_2",0),
+        (troop_add_item, "trp_player","itm_a_merchant_outfit",0),
+        (troop_add_item, "trp_player","itm_b_leather_boots",0),
+        (troop_add_item, "trp_player","itm_g_leather_gauntlet",0),
+        (troop_add_item, "trp_player","itm_w_dagger_italian",0),
+  ]),
+
 ("initialize_center_data",[ 
 
 # fill_village_bound_centers
