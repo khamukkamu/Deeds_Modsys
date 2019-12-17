@@ -28321,6 +28321,13 @@ And to think I would offer you a place among my nobles. Begone, beggar, before I
     (assign, reg1, 0),
   (else_try),
     (str_store_party_name, s1, "$g_invite_offered_center"),
+### DAC
+        (troop_get_slot, ":cur_banner", "trp_player", slot_troop_banner_scene_prop),
+        (gt, ":cur_banner", 0),
+        (val_sub, ":cur_banner", banner_scene_props_begin),
+        (val_add, ":cur_banner", banner_map_icons_begin),
+        (party_set_banner_icon, "$g_invite_offered_center", ":cur_banner"),
+### DAC End	
   (try_end),
   ],
 "Let it be known that from this day forward, you are my sworn {man/follower} and vassal.\

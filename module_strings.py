@@ -2287,10 +2287,10 @@ strings = [
   ("feast_lengthy_description_6", 			  "The realm will be speaking of the bounty of your table for months to come, and it will become the standard to which all other feasts will aspire. You have filled the bellies not just of your noble guests and their retinues, but also of the poor who flocked to the gates. "),
 
 
-  ("kingdom_1_adjective",                     "Swadian"),
-  ("kingdom_2_adjective",                     "Vaegir"),
-  ("kingdom_3_adjective",                     "Khergit"),
-  ("kingdom_4_adjective",                     "Nord"),
+  ("kingdom_1_adjective",                     "French"),
+  ("kingdom_2_adjective",                     "English"),
+  ("kingdom_3_adjective",                     "Burgundian"),
+  ("kingdom_4_adjective",                     "Breton"),
   ("kingdom_5_adjective",                     "Rhodok"),
   ("kingdom_6_adjective",                     "Sarranid"),
 
