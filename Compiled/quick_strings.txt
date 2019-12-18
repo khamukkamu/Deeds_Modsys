@@ -1,4 +1,4 @@
-1716
+1718
 qstr_Next_Page Next_Page
 qstr_Game_Rules:^ Game_Rules:^
 qstr_0 0
@@ -1715,3 +1715,5 @@ qstr_h_hood_narf_blue h_hood_narf_blue
 qstr_h_hood_narf_green h_hood_narf_green
 qstr_h_hood_narf_brown h_hood_narf_brown
 qstr_h_hood_narf_white h_hood_narf_white
+qstr_A_livestock_epidemic_ A_livestock_epidemic_has_killed_{reg5}_sheep_in_{s4}.
+qstr_A_livestock_epidemic_h A_livestock_epidemic_has_killed_{reg4}_cattle_and_{reg5}_sheep_in_{s4}.

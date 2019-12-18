@@ -561,7 +561,9 @@ simple_triggers = [
            (party_prisoner_stack_get_troop_id, ":stack_troop",":center_no",":stack_no"),
            (neg|troop_is_hero, ":stack_troop"),
            (party_prisoner_stack_get_size, ":stack_size",":center_no",":stack_no"),
-           (store_random_in_range, ":rand_no", 0, 40),
+           #(store_random_in_range, ":rand_no", 0, 40),
+           (call_script, "script_rand", 0, 40), #DAC Kham: Replaced with Autolykos' Script
+           (assign, ":rand_no", reg0),
            (val_mul, ":stack_size", ":rand_no"),
            (val_div, ":stack_size", 100),
            (party_remove_prisoners, ":center_no", ":stack_troop", ":stack_size"),
@@ -793,7 +795,9 @@ simple_triggers = [
           # (party_get_num_companions, ":num_companions", ":result"), #should be 0, unless this is run before current party reaches there
           # (lt, ":num_companions", 25),
 
-          (store_random_in_range, ":rand", 0, 100),
+          #(store_random_in_range, ":rand", 0, 100),
+          (call_script, "script_rand", 0, 100), #DAC Kham: Replaced with Autolykos' Script
+          (assign, ":rand", reg0),
           (try_begin),
             (is_between, ":center_faction", kingdoms_begin, kingdoms_end),
             (faction_get_slot, ":dplmc_quality", ":center_faction", dplmc_slot_faction_quality),
@@ -854,7 +858,9 @@ simple_triggers = [
      #this is moved up from below , from a 24 x 15 slot to a 24 slot
      (try_for_range, ":center_no", centers_begin, centers_end),
        #(neg|is_between, ":center_no", castles_begin, castles_end),
-       (store_random_in_range, ":random", 0, 30),
+       #(store_random_in_range, ":random", 0, 30),
+       (call_script, "script_rand", 0, 30), #DAC Kham: Replaced with Autolykos' Script
+       (assign, ":random", reg0),
        (le, ":random", 10),
 	   
        (call_script, "script_get_center_ideal_prosperity", ":center_no"),
@@ -920,8 +926,12 @@ simple_triggers = [
    (call_script, "script_randomly_start_war_peace_new", 1),
 
    (try_begin),
-		(store_random_in_range, ":acting_village", villages_begin, villages_end),
-		(store_random_in_range, ":target_village", villages_begin, villages_end),
+    (call_script, "script_rand", villages_begin, villages_end), #DAC Kham: Replaced with Autolykos' Script
+    (assign, ":acting_village", reg0),
+    (call_script, "script_rand", villages_begin, villages_end), #DAC Kham: Replaced with Autolykos' Script
+    (assign, ":target_village", reg0),
+		#(store_random_in_range, ":acting_village", villages_begin, villages_end),
+		#(store_random_in_range, ":target_village", villages_begin, villages_end),
 		(store_faction_of_party, ":acting_faction", ":acting_village"),
 		(store_faction_of_party, ":target_faction", ":target_village"), #target faction receives the provocation
 		(neq, ":acting_village", ":target_village"),
@@ -1059,7 +1069,9 @@ simple_triggers = [
            (try_end),
          (try_end),
 
-         (store_random_in_range, ":rand", 0, 100),
+         #(store_random_in_range, ":rand", 0, 100),
+         (call_script, "script_rand", 0, 100), #DAC Kham: Replaced with Autolykos' Script
+         (assign, ":rand", reg0),
          (le, ":rand", ":max_accepted_random_value"),
 
          (party_upgrade_with_xp, ":hero_party", ":xp_gain"),
@@ -1093,7 +1105,9 @@ simple_triggers = [
            (try_end),
          (try_end),
 
-         (store_random_in_range, ":rand", 0, 100),
+         #(store_random_in_range, ":rand", 0, 100),
+         (call_script, "script_rand", 0, 100), #DAC Kham: Replaced with Autolykos' Script
+         (assign, ":rand", reg0),
          (le, ":rand", ":max_accepted_random_value"),
 
          (party_upgrade_with_xp, ":center_no", ":xp_gain"),
@@ -1816,12 +1830,16 @@ simple_triggers = [
           (store_sub, ":random_down_limit", 175, ":strength_ratio"), #was 200 (1.126)
           (val_max, ":random_down_limit", 0),
           (try_begin),
-            (store_random_in_range, ":rand", 0, 100),
+            #(store_random_in_range, ":rand", 0, 100),
+            (call_script, "script_rand", 0, 100), #DAC Kham: Replaced with Autolykos' Script
+            (assign, ":rand", reg0),
             (lt, ":rand", ":random_up_limit"),
             (gt, ":siege_begin_hours", 24),#initial preparation
             (assign, ":launch_attack", 1),
           (else_try),
-            (store_random_in_range, ":rand", 0, 100),
+            #(store_random_in_range, ":rand", 0, 100),
+            (call_script, "script_rand", 0, 100), #DAC Kham: Replaced with Autolykos' Script
+            (assign, ":rand", reg0),
             (lt, ":rand", ":random_down_limit"),
             (assign, ":call_attack_back", 1),
           (try_end),
@@ -1958,7 +1976,9 @@ simple_triggers = [
   #Clearing slot_village_player_can_not_steal_cattle flags
    (0.5,
    [
-	(store_random_in_range, ":village_no", villages_begin, villages_end),
+	#(store_random_in_range, ":village_no", villages_begin, villages_end),
+  (call_script, "script_rand", villages_begin, villages_end), #DAC Kham: Replaced with Autolykos' Script
+  (assign, ":village_no", reg0),
 	(neg|party_slot_eq, ":village_no", slot_village_state, svs_looted),
 	(call_script, "script_refresh_village_defenders", ":village_no"),
 	(party_set_slot, ":village_no", slot_village_player_can_not_steal_cattle, 0),
@@ -1971,8 +1991,10 @@ simple_triggers = [
 
     #villages weekly ON AVERAGE
     (1, [
-        (store_random_in_range, ":village_no", villages_begin, villages_end),
-        
+        #(store_random_in_range, ":village_no", villages_begin, villages_end), #DAC Kham: Replaced with Autolykos' Script
+        (call_script, "script_rand", villages_begin, villages_end),
+        (assign, ":village_no", reg0),
+
         # Refresh merchant inventories
         (call_script, "script_refresh_village_merchant_inventory", ":village_no"),
         
@@ -1986,7 +2008,9 @@ simple_triggers = [
         (val_add, ":grazing_capacity", ":sheep_addition"),
         (val_div, ":grazing_capacity", ":num_acres"),
         
-        (store_random_in_range, ":random_no", 0, 100),
+        #(store_random_in_range, ":random_no", 0, 100),
+        (call_script, "script_rand", 0, 100), #DAC Kham: Replaced with Autolykos' Script
+        (assign, ":random_no", reg0),
         (try_begin), #Disaster
           (le, ":random_no", 5),#5% chance of epidemic - should happen once every two years It was more common in Dark Ages
           (val_min, ":num_cattle", 10),
@@ -2197,7 +2221,9 @@ simple_triggers = [
                 (try_end),
 
                 (le, ":center_relation", -5),
-                (store_random_in_range, ":random",-100, 0),
+                #(store_random_in_range, ":random",-100, 0),
+                (call_script, "script_rand", -100, 0), #DAC Kham: Replaced with Autolykos' Script
+                (assign, ":random", reg0),
                 (gt, ":random", ":center_relation"),
 
                 (neg|party_slot_eq, ":center_no", slot_village_infested_by_bandits, "trp_peasant_woman"),
@@ -2212,9 +2238,13 @@ simple_triggers = [
                 (store_mul, ":player_levelx2", ":player_level", 2),
                 (try_begin),
                   (is_between, ":center_no", villages_begin, villages_end),
-                  (store_random_in_range, ":random",0, ":player_level"),
+                  #(store_random_in_range, ":random",0, ":player_level"),
+                  (call_script, "script_rand", 0, ":player_level"), #DAC Kham: Replaced with Autolykos' Script
+                  (assign, ":random", reg0),
                   (party_add_members, ":center_no", "trp_mercenary_swordsman", ":random"),
-                  (store_random_in_range, ":random", 0, ":player_leveld2"),
+                  #(store_random_in_range, ":random", 0, ":player_leveld2"),
+                  (call_script, "script_rand", 0, ":player_leveld2"), #DAC Kham: Replaced with Autolykos' Script
+                  (assign, ":random", reg0),
                   (party_add_members, ":center_no", "trp_hired_blade", ":random"),
                 (else_try),
                   (party_set_banner_icon, ":center_no", 0),
@@ -2225,9 +2255,13 @@ simple_triggers = [
                     (party_stack_get_troop_id, ":troop_id", ":center_no", ":i_stack"),
                     (party_remove_members, ":center_no", ":troop_id", ":stack_size"),
                   (try_end),
-                  (store_random_in_range, ":random",":player_leveld2", ":player_levelx2"),
+                  #(store_random_in_range, ":random",":player_leveld2", ":player_levelx2"),
+                  (call_script, "script_rand", ":player_leveld2", ":player_levelx2"), #DAC Kham: Replaced with Autolykos' Script
+                  (assign, ":random", reg0),
                   (party_add_members, ":center_no", "trp_townsman", ":random"),
-                  (store_random_in_range, ":random",0, ":player_level"),
+                 #(store_random_in_range, ":random",0, ":player_level"),
+                  (call_script, "script_rand", 0, ":player_level"), #DAC Kham: Replaced with Autolykos' Script
+                  (assign, ":random", reg0),
                   (party_add_members, ":center_no", "trp_watchman", ":random"),
                   #SB : move some injured to dungeon, rescue/lynch existing ones?
                 (try_end),
@@ -2328,7 +2362,9 @@ simple_triggers = [
 			(assign, "$npc_with_sisterly_advice", ":npc"),
 		(try_end),
 	 (else_try),
-	     (store_random_in_range, ":kingdom_no", npc_kingdoms_begin, npc_kingdoms_end),
+	     #(store_random_in_range, ":kingdom_no", npc_kingdoms_begin, npc_kingdoms_end),
+       (call_script, "script_rand", npc_kingdoms_begin, npc_kingdoms_end), #DAC Kham: Replaced with Autolykos' Script
+       (assign, ":kingdom_no", reg0),
 	     (assign, ":min_distance", 999999),
 	     (try_for_range, ":center_no", walled_centers_begin, walled_centers_end),
 	       (store_faction_of_party, ":center_faction", ":center_no"),
@@ -2359,7 +2395,9 @@ simple_triggers = [
 	       (ge, ":kingdom_relation", 0),
 	       (ge, ":lord_relation", 0),
 	       (ge, ":player_party_size", 45),
-	       (store_random_in_range, ":rand", 0, 100),
+	       #(store_random_in_range, ":rand", 0, 100),
+         (call_script, "script_rand", 0, 100), #DAC Kham: Replaced with Autolykos' Script
+         (assign, ":rand", reg0),
 	       (lt, ":rand", 50),
 	       (call_script, "script_get_poorest_village_of_faction", ":kingdom_no"),
 	       (assign, "$g_invite_offered_center", reg0),
@@ -2372,7 +2410,9 @@ simple_triggers = [
 	       (ge, ":kingdom_relation", -40),
 	       (ge, ":lord_relation", -20),
 	       (ge, ":player_party_size", 30),
-	       (store_random_in_range, ":rand", 0, 100),
+	       #(store_random_in_range, ":rand", 0, 100),
+         (call_script, "script_rand", 0, 100), #DAC Kham: Replaced with Autolykos' Script
+         (assign, ":rand", reg0),
 	       (lt, ":rand", 20),
 	       (assign, "$g_invite_faction", ":kingdom_no"),
 	       (assign, "$g_invite_offered_center", -1),
@@ -2391,13 +2431,17 @@ simple_triggers = [
       #  (store_random_in_range, ":random", 0, 9999),
 	  ##NEW:
 	  (try_for_range, ":troop_no", heroes_begin, heroes_end),
-	     (store_random_in_range, ":random", 0, 10000),
+	     #(store_random_in_range, ":random", 0, 10000),
+        (call_script, "script_rand", 0, 10000), #DAC Kham: Replaced with Autolykos' Script
+        (assign, ":random", reg0),
 	  ##diplomacy end+
         (troop_set_slot, ":troop_no", slot_troop_temp_decision_seed, ":random"),
       (try_end),
 
 	  ##diplomacy start+ Also update the temporary seed for the player
-	  (store_random_in_range, ":random", 0, 10000),
+	  #(store_random_in_range, ":random", 0, 10000),
+    (call_script, "script_rand", 0, 10000), #DAC Kham: Replaced with Autolykos' Script
+    (assign, ":random", reg0),
 	  (troop_set_slot, "trp_player", slot_troop_temp_decision_seed, ":random"),
 	  ##diplomacy end+
 
@@ -2619,7 +2663,9 @@ simple_triggers = [
              (is_between, ":troop_no", kings_begin, kings_end),
              (troop_set_slot, ":troop_no", slot_troop_change_to_faction, "fac_commoners"),
            (else_try),
-             (store_random_in_range, ":random_no", 0, 100),
+             #(store_random_in_range, ":random_no", 0, 100),
+             (call_script, "script_rand", 0, 100), #DAC Kham: Replaced with Autolykos' Script
+             (assign, ":random_no", reg0),
              (lt, ":random_no", 10),
              (call_script, "script_cf_get_random_active_faction_except_player_faction_and_faction", ":cur_faction"),
              (troop_set_slot, ":troop_no", slot_troop_change_to_faction, reg0),
@@ -2643,12 +2689,16 @@ simple_triggers = [
   # Spawn village farmer parties
   (0.5,
    [
-       (store_random_in_range, ":village_no", villages_begin, villages_end),
+       #(store_random_in_range, ":village_no", villages_begin, villages_end),
+        (call_script, "script_rand", villages_begin, villages_end), #DAC Kham: Replaced with Autolykos' Script
+         (assign, ":village_no", reg0),
          (party_slot_eq, ":village_no", slot_village_state, svs_normal),
          (party_get_slot, ":farmer_party", ":village_no", slot_village_farmer_party),
          (this_or_next|eq, ":farmer_party", 0),
          (neg|party_is_active, ":farmer_party"),
-         (store_random_in_range, ":random_no", 0, 100),
+         #(store_random_in_range, ":random_no", 0, 100),
+         (call_script, "script_rand", 0, 100), #DAC Kham: Replaced with Autolykos' Script
+         (assign, ":random_no", reg0),
          (lt, ":random_no", 60),
          (call_script, "script_create_village_farmer_party", ":village_no"),
          (party_set_slot, ":village_no", slot_village_farmer_party, reg0),
@@ -2699,7 +2749,9 @@ simple_triggers = [
          (else_try),
            (party_get_cur_town, ":cur_center", ":party_no"),
 
-           (store_random_in_range, ":random_no", 0, 100),
+           #(store_random_in_range, ":random_no", 0, 100),
+           (call_script, "script_rand", 0, 100), #DAC Kham: Replaced with Autolykos' Script
+           (assign, ":random_no", reg0),
            (assign, ":tariff_succeed_limit", 45), #SB : base amount for medium
            (try_begin),
              (this_or_next|party_slot_eq, ":cur_center", slot_town_lord, "trp_player"),
@@ -2901,7 +2953,9 @@ simple_triggers = [
 
              #Adding 1 to village prosperity
              (try_begin),
-               (store_random_in_range, ":rand", 0, 100),
+               #(store_random_in_range, ":rand", 0, 100),
+               (call_script, "script_rand", 0, 100), #DAC Kham: Replaced with Autolykos' Script
+               (assign, ":rand", reg0),
                (lt, ":rand", 5), #was 35
                (call_script, "script_change_center_prosperity", ":home_center", 1),
 			   (val_add, "$newglob_total_prosperity_from_village_trade", 1),
@@ -3098,7 +3152,9 @@ simple_triggers = [
        (store_mul, ":total_effect", ":dist_effect", ":reln_effect"),
        (val_mul, ":total_effect", ":num_men_effect"),
        (store_div, ":spot_chance", ":total_effect", 10),
-       (store_random_in_range, ":random_spot", 0, 1000),
+       #(store_random_in_range, ":random_spot", 0, 1000),
+       (call_script, "script_rand", 0, 1000), #DAC Kham: Replaced with Autolykos' Script
+       (assign, ":random_spot", reg0),
        (lt, ":random_spot", ":spot_chance"),
        (faction_get_slot, ":player_alarm", ":cur_faction", slot_faction_player_alarm),
        (val_add, ":player_alarm", 1),
@@ -3211,7 +3267,9 @@ simple_triggers = [
            (store_sub, ":amount", ":max", ":amount"), #get amount consumed already
            (val_mul, ":amount", 100),
            (val_div, ":amount", ":max"),
-           (store_random_in_range, ":max", 0, ":amount"),
+           #(store_random_in_range, ":max", 0, ":amount"),
+           (call_script, "script_rand", 0, ":amount"), #DAC Kham: Replaced with Autolykos' Script
+           (assign, ":max", reg0),
            (try_begin),
              (lt, ":max", ":management"), # saving throw
              (ge, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_LOW),
@@ -3329,7 +3387,9 @@ simple_triggers = [
       (gt, ":chance", 0),
       (assign, ":num_escaped", 0),
       (try_for_range, ":unused", 0, "$g_prisoner_recruit_size"),
-        (store_random_in_range, ":random_no", 0, 100),
+        #(store_random_in_range, ":random_no", 0, 100),
+        (call_script, "script_rand", 0, 100), #DAC Kham: Replaced with Autolykos' Script
+        (assign, ":random_no", reg0),
         (lt, ":random_no", ":chance"),
         (val_add, ":num_escaped", 1),
       (try_end),
@@ -3380,7 +3440,9 @@ simple_triggers = [
         (party_prisoner_stack_get_troop_id, ":stack_troop", ":center_no", ":i_stack"),
         (troop_is_hero, ":stack_troop"),
         (troop_slot_eq, ":stack_troop", slot_troop_occupation, slto_kingdom_hero),
-        (store_random_in_range, ":random_no", 0, 100),
+        #(store_random_in_range, ":random_no", 0, 100),
+        (call_script, "script_rand", 0, 100), #DAC Kham: Replaced with Autolykos' Script
+        (assign, ":random_no", reg0),
         (try_begin),
           (le, ":random_no", 10),
           (call_script, "script_calculate_ransom_amount_for_troop", ":stack_troop"),
@@ -3446,7 +3508,9 @@ simple_triggers = [
       (             party_slot_eq, ":center_no", slot_party_type, spt_village),
       (call_script, "script_center_remove_walker_type_from_walkers", ":center_no", walkert_needs_money),
       (call_script, "script_center_remove_walker_type_from_walkers", ":center_no", walkert_needs_money_helped),
-      (store_random_in_range, ":rand", 0, 100),
+      #(store_random_in_range, ":rand", 0, 100),
+      (call_script, "script_rand", 0, 100), #DAC Kham: Replaced with Autolykos' Script
+      (assign, ":rand", reg0),
       (try_begin),
         (lt, ":rand", 70),
         (neg|party_slot_ge, ":center_no", slot_town_prosperity, 60),
@@ -3549,7 +3613,9 @@ simple_triggers = [
           (neg|check_quest_succeeded, "qst_deal_with_night_bandits"),
           (assign, ":continue", 1),
         (else_try),
-          (store_random_in_range, ":random_no", 0, 100),
+          #(store_random_in_range, ":random_no", 0, 100),
+          (call_script, "script_rand", 0, 100), #DAC Kham: Replaced with Autolykos' Script
+          (assign, ":random_no", reg0),
           (lt, ":random_no", 3),
           (assign, ":continue", 1),
         (try_end),
@@ -3574,7 +3640,9 @@ simple_triggers = [
             (party_slot_eq, ":center_no", slot_party_type, spt_town),
             (assign, ":random_chance", 20),
           (try_end),
-          (store_random_in_range, ":random_no", 0, 100),
+          #(store_random_in_range, ":random_no", 0, 100),
+          (call_script, "script_rand", 0, 100), #DAC Kham: Replaced with Autolykos' Script
+          (assign, ":random_no", reg0),
           (lt, ":random_no", ":random_chance"),
           (party_set_slot, ":center_no", slot_center_has_bandits, 0),
           (try_begin),
@@ -3599,7 +3667,9 @@ simple_triggers = [
 
 	(try_begin),
       (lt, ":num_active_tournaments", 3),
-      (store_random_in_range, ":random_no", 0, 100),
+      #(store_random_in_range, ":random_no", 0, 100),
+      (call_script, "script_rand", 0, 100), #DAC Kham: Replaced with Autolykos' Script
+      (assign, ":random_no", reg0),
       #Add new tournaments with a 30% chance if there are less than 3 tournaments going on
       (lt, ":random_no", 30),
       (store_random_in_range, ":random_town", towns_begin, towns_end),
@@ -3730,7 +3800,9 @@ simple_triggers = [
       (try_begin), #SB : faction troop morale
         (party_get_slot, ":old_faction", "$g_last_rest_center", slot_center_original_faction),
         (party_get_slot, ":relation", "$g_last_rest_center", slot_center_player_relation),
-        (store_random_in_range, ":relation", ":relation", 1100), #spread of 1200 or 1000
+        #(store_random_in_range, ":relation", ":relation", 1100), #spread of 1200 or 1000
+        (call_script, "script_rand", ":relation", 1100), #DAC Kham: Replaced with Autolykos' Script
+        (assign, ":relation", reg0),
         (ge, ":relation", 900),
         (val_sub, ":relation", ":total_cost"), #around 800
         (val_div, ":relation", 100),
@@ -4320,7 +4392,9 @@ simple_triggers = [
          (troop_slot_eq, ":faction_marshall", slot_troop_does_not_give_quest, 0),
          (try_for_range, ":unused", 0, 20), #Repeat trial twenty times
            (eq, ":result", -1),
-           (store_random_in_range, ":quest_no", army_quests_begin, army_quests_end),
+           #(store_random_in_range, ":quest_no", army_quests_begin, army_quests_end),
+            (call_script, "script_rand", army_quests_begin, army_quests_end), #DAC Kham: Replaced with Autolykos' Script
+            (assign, ":quest_no", reg0),
            (neg|quest_slot_ge, ":quest_no", slot_quest_dont_give_again_remaining_days, 1),
            (try_begin),
              (eq, ":quest_no", "qst_deliver_cattle_to_army"),
@@ -4619,7 +4693,9 @@ simple_triggers = [
          (store_div, ":unrest_chance", 10000, "$qst_collect_taxes_total_hours"),
          (val_add, ":unrest_chance",30),
 
-         (store_random_in_range, ":unrest_roll", 0, 1000),
+         #(store_random_in_range, ":unrest_roll", 0, 1000),
+        (call_script, "script_rand", 0, 1000), #DAC Kham: Replaced with Autolykos' Script
+        (assign, ":unrest_roll", reg0),
          (try_begin),
            (lt, ":unrest_roll", ":unrest_chance"),
            (jump_to_menu, "mnu_collect_taxes_revolt"),
@@ -6181,7 +6257,9 @@ simple_triggers = [
             (party_set_slot, ":party_no", dplmc_slot_party_mission_diplomacy, ":hours"),
 
             (try_begin),
-              (store_random_in_range, ":random", 0, 1000),
+              #(store_random_in_range, ":random", 0, 1000),
+              (call_script, "script_rand", 0, 1000), #DAC Kham: Replaced with Autolykos' Script
+              (assign, ":random", reg0),
               (eq, ":random", 0),
               (str_store_party_name, s11, ":target_party"),
               (display_log_message, "@It is rumoured that a spy has been caught in {s11}.", message_defeated), #SB : message code
@@ -6450,7 +6528,9 @@ simple_triggers = [
 		(assign, ":best_score", -101),
 		(assign, ":num_exiles", 0),
 		#iterate over lords from a random start point, wrapping back to zero
-		(store_random_in_range, ":rand_no", lords_begin, lords_end),
+    (call_script, "script_rand", lords_begin, lords_end), #DAC Kham: Replaced with Autolykos' Script
+    (assign, ":rand_no", reg0),
+		#(store_random_in_range, ":rand_no", lords_begin, lords_end),
 		(val_sub, ":rand_no", lords_begin),	# DAC: Fix from Diegoami https://forums.taleworlds.com/index.php/topic,324014.msg9159510.html#msg9159510		
 		(try_for_range, ":index", lords_begin, lords_end),
 		  (store_add, ":troop_no", ":rand_no", ":index"),
@@ -6499,7 +6579,9 @@ simple_triggers = [
 	    (else_try),
 			#If there were fewer than 3 lords in exile, random chance that none will return.
 			(lt, ":num_exiles", 3),
-			(store_random_in_range, ":random", 0, 256),
+			#(store_random_in_range, ":random", 0, 256),
+      (call_script, "script_rand", 0, 256), #DAC Kham: Replaced with Autolykos' Script
+      (assign, ":random", reg0),
 			(ge, ":random", 128),
 			(try_begin),
 				(ge, "$cheat_mode", 1),
