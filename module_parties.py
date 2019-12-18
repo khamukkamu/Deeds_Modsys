@@ -153,7 +153,7 @@ parties = [
    ("town_62","Châlons-en-Champagne", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(103.62, 76.41),[], 209),           
    ("town_63","Reims", icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(82.19, 88.61),[], 303),                            
    ("town_64","Amiens",icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(40.44, 108.18),[],284),
-   ("town_65","Peronne",icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(62.45, 108.32),[],345),
+   ("town_65","Péronne",icon_town|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(62.45, 108.32),[],345),
  
 ### DAC Breton Towns
    ("town_66","Rennes", icon_town_steppe|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-66.54, 46.77),[], 192),                          
@@ -476,7 +476,7 @@ parties = [
   ("village_170", "Condette",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(17.63, 130.74),[], 136),
   
   ("village_171", "Wimeureux",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(20.97, 136.72),[], 318),
-  ("village_172", "Boves",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(41.44, 110.67),[], 302),
+  ("village_172", "Ligny",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(37.87, 115.44),[], 302),
   ("village_173", "Picquigny",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(41.48, 105.15),[], 205),
   ("village_174", "Allaines",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(58.84, 107.34),[], 140),
   ("village_175", "Biaches",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65.82, 105.62),[], 302),
@@ -491,8 +491,8 @@ parties = [
   ("village_183", "Montigny",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(99.64, 15.7),[], 225),
   ("village_184", "Beaune",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(103.25, -0.29),[], 202),
   ("village_185", "Reulle",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(107.82, 6.65),[], 166),
-  ("village_186", "Hesdin",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(23.73, 120.91),[], 240),
-  ("village_187", "Arras",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(53.19, 119.94),[], 112),
+  ("village_186", "Grigny",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(25, 120.03),[], 240),
+  ("village_187", "Arras",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(52.49, 118.51),[], 112),
   ("village_188", "Bredene",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(58.4, 150.18),[], 103),
   ("village_189", "Donzy",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(63.53, 2.93),[], 342),
   ("village_190", "Mours",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(29.9, 83.06),[], 306),

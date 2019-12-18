@@ -1603,7 +1603,7 @@ ransom_brokers_end   = tavern_travelers_begin
 mercenary_troops_begin = "trp_watchman"
 mercenary_troops_end = "trp_mercenaries_end"
 
-multiplayer_troops_begin = "trp_swadian_crossbowman_multiplayer"
+multiplayer_troops_begin = "trp_french_crossbowman_multiplayer"
 multiplayer_troops_end = "trp_multiplayer_end"
 
 #INVASION MODE start
@@ -1631,18 +1631,18 @@ multiplayer_coop_companion_equipment_sets_end = "trp_coop_companion_equipment_se
 
 multiplayer_coop_companion_description_strings_begin = "str_npc1_1"
 #INVASION MODE end
-multiplayer_ai_troops_begin = "trp_swadian_crossbowman_multiplayer_ai"
+multiplayer_ai_troops_begin = "trp_french_crossbowman_ai"
 multiplayer_ai_troops_end = multiplayer_troops_begin
 
 #INVASION MODE START
 captain_multiplayer_troops_begin = "trp_farmer"
-captain_multiplayer_troops_end = "trp_swadian_crossbowman"
+captain_multiplayer_troops_end = "trp_mercenaries_end"
 
-captain_multiplayer_new_troops_begin = "trp_swadian_crossbowman"
-captain_multiplayer_new_troops_end = "trp_khergit_lancer"
+captain_multiplayer_new_troops_begin = "trp_mercenaries_end"
+captain_multiplayer_new_troops_end = "trp_routier_knight"
 
-captain_multiplayer_coop_new_troops_begin = "trp_khergit_lancer"
-captain_multiplayer_coop_new_troops_end = "trp_slaver_chief"
+captain_multiplayer_coop_new_troops_begin = "trp_routier_knight"
+captain_multiplayer_coop_new_troops_end = "trp_manhunter"
 #INVASION MODE END
 multiplayer_scenes_begin = "scn_multi_scene_1"
 multiplayer_scenes_end = "scn_multiplayer_maps_end"
