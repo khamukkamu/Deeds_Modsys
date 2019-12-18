@@ -1118,6 +1118,7 @@ cb_priest = 7
 
 #DAC
 cb_merc = cb_priest
+cb_healer = cb_nomad
 
 #SB : these should be moved up by one
 cb2_page = 0
