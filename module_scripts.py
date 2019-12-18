@@ -78636,7 +78636,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (call_script, "script_give_center_to_lord", "p_town_14", "trp_knight_1_46", 0),# Tarbes - Jean de Foix, Comte de Foix et de Bigorre, Vicomte de Béarn, Gouverneur du Languedoc
       (call_script, "script_give_center_to_lord", "p_town_15", "trp_knight_1_46", 0),# Toulouse - Jean de Foix, Comte de Foix et de Bigorre, Vicomte de Béarn, Gouverneur du Languedoc
       (call_script, "script_give_center_to_lord", "p_town_16", "trp_kingdom_1_lord", 0),# Carcassonne - Charles_VII
-      (call_script, "script_give_center_to_lord", "p_town_17", "trp_knight_1_48", 0),# Montpellier - Raymond de Villars, Sénéchal de Beaucaire et Nîmes
+      (call_script, "script_give_center_to_lord", "p_town_17", "trp_knight_1_13", 0),# Montpellier - Raymond de Villars, Sénéchal de Beaucaire et Nîmes
       (call_script, "script_give_center_to_lord", "p_town_18", "trp_knight_1_31", 0),# Valence - Charles II de Poitiers, Seigneur de Saint-Vallier
       (call_script, "script_give_center_to_lord", "p_town_19", "trp_knight_1_7", 0),# Thouars - Louis d'Amboise, Vicomte de Thouars
       (call_script, "script_give_center_to_lord", "p_town_20", "trp_kingdom_1_lord", 0),# Tournai - Charles_VII
@@ -78658,10 +78658,10 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (call_script, "script_give_center_to_lord", "p_town_32",  "trp_knight_2_3", 0), # Nemours - William de la Pole, Earl of Suffolk
       (call_script, "script_give_center_to_lord", "p_town_33",  "trp_knight_2_1", 0), # Laval - John Talbot, Baron Talbot and Furnival
       (call_script, "script_give_center_to_lord", "p_town_34",  "trp_knight_2_1", 0), # Le_Mans - John Talbot, Baron Talbot and Furnival
-      (call_script, "script_give_center_to_lord", "p_town_35",  "trp_knight_2_43", 0), # Bordeaux - Bertrand III de Montferrand
+      (call_script, "script_give_center_to_lord", "p_town_35",  "trp_knight_2_42", 0), # Bordeaux - Bertrand III de Montferrand
       (call_script, "script_give_center_to_lord", "p_town_36",  "trp_knight_2_4", 0), # Chartres - Thomas de Scales, Baron de Scales
       (call_script, "script_give_center_to_lord", "p_town_37",  "trp_kingdom_2_lord", 0), # Rouen - John of Lancaster, Duc de Bedford
-      (call_script, "script_give_center_to_lord", "p_town_38",  "trp_knight_2_47", 0), # Caen - Sir Robert de Vere, Captain of Caen
+      (call_script, "script_give_center_to_lord", "p_town_38",  "trp_knight_2_13", 0), # Caen - Reginald Grey, Baron Grey de Ruthyn
       (call_script, "script_give_center_to_lord", "p_town_39",  "trp_knight_2_2", 0), # Harfleur - John Fastolf, Lieutenant-general of Normandy
       (call_script, "script_give_center_to_lord", "p_town_40",  "trp_knight_2_18", 0), # Cherbourg - Sir Walter Hungerford
 
@@ -78669,14 +78669,14 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (call_script, "script_give_center_to_lord", "p_town_42",  "trp_knight_2_21", 0), # Calais - Richard Woodville, Baron Wodville, Lieutenant of Calais
       (call_script, "script_give_center_to_lord", "p_town_43",  "trp_knight_2_7", 0), # Alençon - Thomas Beaufort, Count of Perche
       (call_script, "script_give_center_to_lord", "p_town_44",  "trp_knight_2_27", 0), # Argentan - Sir William Oldhall   
-      (call_script, "script_give_center_to_lord", "p_town_45",  "trp_knight_2_44", 0), # Tartas - François de Montferrand, Gouverneur de Dax
-      (call_script, "script_give_center_to_lord", "p_town_46",  "trp_knight_2_44", 0), # Dax - François de Montferrand, Gouverneur de Dax
+      (call_script, "script_give_center_to_lord", "p_town_45",  "trp_knight_2_43", 0), # Tartas - François de Montferrand, Gouverneur de Dax
+      (call_script, "script_give_center_to_lord", "p_town_46",  "trp_knight_2_43", 0), # Dax - François de Montferrand, Gouverneur de Dax
       (call_script, "script_give_center_to_lord", "p_town_47",  "trp_knight_2_16", 0), # Libourne - Sir John Radcliffe
       (call_script, "script_give_center_to_lord", "p_town_48",  "trp_knight_2_10", 0), # Saint-Lô - Richard Beauchamp
       (call_script, "script_give_center_to_lord", "p_town_49",  "trp_knight_2_39", 0), # Eu - Henry Bourchier, Count of Eu
       (call_script, "script_give_center_to_lord", "p_town_50",  "trp_knight_2_9", 0), # Avranches - John Mowbray, Earl of Norfolk
 
-      (call_script, "script_give_center_to_lord", "p_town_51",  "trp_knight_2_1", 0), # Coutances - John Talbot, Baron Talbot and Furnival
+      (call_script, "script_give_center_to_lord", "p_town_51",  "trp_knight_2_40", 0), # Coutances - John Robessart
     
 # Burgundian Towns
       (call_script, "script_give_center_to_lord", "p_town_52",  "trp_kingdom_3_lord", 0), # Dijon - Philippe the Good, Duke of Burgundy
@@ -78692,7 +78692,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (call_script, "script_give_center_to_lord", "p_town_61",  "trp_kingdom_3_lord", 0), # Boulogne - Philippe the Good, Duke of Burgundy
       (call_script, "script_give_center_to_lord", "p_town_62",  "trp_knight_3_3", 0), # Châlons-en-Champagne - Guy de Bourgogne, Comte de Nevers et de Rethel
       (call_script, "script_give_center_to_lord", "p_town_63",  "trp_knight_3_3", 0), # Reims - Guy de Bourgogne, Comte de Nevers et de Rethel
-      (call_script, "script_give_center_to_lord", "p_town_64", "trp_knight_3_10", 0), # Amiens - Jean de Villiers de l'Isle-Adam
+      (call_script, "script_give_center_to_lord", "p_town_64", "trp_knight_3_11", 0), # Amiens - David de Brimeu, Seigneur de Ligny
       (call_script, "script_give_center_to_lord", "p_town_65", "trp_knight_3_10", 0), # Peronne - Jean de Villiers de l'Isle-Adam
       
 # Breton Towns
@@ -78715,14 +78715,14 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 ### French Castles
       (call_script, "script_give_center_to_lord", "p_castle_1", "trp_kingdom_1_lord", 0), # Forteresse_de_Chinon - Charles_VII
       (call_script, "script_give_center_to_lord", "p_castle_2", "trp_knight_1_39", 0), # Châteauroux - Guy III de Chauvigny, Baron de Châteauroux
-      (call_script, "script_give_center_to_lord", "p_castle_3", "trp_kingdom_1_lord", 0), # Rochefort - Charles_VII
+      (call_script, "script_give_center_to_lord", "p_castle_3", "trp_knight_1_1", 0), # Niort - Jean II d'Alençon
       (call_script, "script_give_center_to_lord", "p_castle_4", "trp_knight_1_24", 0), # Tour_de_Termes - Jean IV de Termes d’Armagnac, Seigneur de Termes
       (call_script, "script_give_center_to_lord", "p_castle_5", "trp_knight_1_28", 0), # Château_de_Murol - Jean de Murol
       (call_script, "script_give_center_to_lord", "p_castle_6", "trp_knight_1_53", 0), # Château_de_Polignac - Louis-Armand XII de Chalençon-Polignac
       (call_script, "script_give_center_to_lord", "p_castle_7", "trp_knight_1_11", 0), # Château_de_Culant - Louis de Culant
-      (call_script, "script_give_center_to_lord", "p_castle_8", "trp_knight_1_8", 0), # Château_de_Montbazon - Pierre d'Amboise
+      (call_script, "script_give_center_to_lord", "p_castle_8", "trp_knight_1_8", 0), # Château_de_Chaumont - Pierre d'Amboise
       (call_script, "script_give_center_to_lord", "p_castle_9", "trp_knight_1_15", 0), # Château_de_Boussac - Jean de Brosse
-      (call_script, "script_give_center_to_lord", "p_castle_10", "trp_knight_1_33", 0), # Yèvre-le-Châtel - Nicolas de Giresme
+      (call_script, "script_give_center_to_lord", "p_castle_10", "trp_knight_1_54", 0), # Yèvre-le-Châtel - Nicolas de Giresme
     
       (call_script, "script_give_center_to_lord", "p_castle_11", "trp_knight_1_42", 0), # Château_de_La_Fayette - Gilbert Motier de La Fayette
       (call_script, "script_give_center_to_lord", "p_castle_12", "trp_knight_1_43", 0), # La_Tour_d'Auvergne - Bertrand V de La Tour d'Auvergne
@@ -78743,25 +78743,25 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 
 
 ### English Castles   
-      (call_script, "script_give_center_to_lord", "p_castle_26", "trp_knight_2_43", 0), # Château_de_Castelnaud [Forteresses de routier] - Bertrand III de Montferrand
-      (call_script, "script_give_center_to_lord", "p_castle_27", "trp_knight_2_43", 0), # Forteresse_de_Rauzan - Bertrand III de Montferrand, Baron of Guyenne
+      (call_script, "script_give_center_to_lord", "p_castle_26", "trp_knight_2_17", 0), # Château_de_Castelnaud [Forteresses de routier] - Sir Thomas Radcliffe
+      (call_script, "script_give_center_to_lord", "p_castle_27", "trp_knight_2_44", 0), # Forteresse_de_Rauzan - Jean de Montferrand, Seigneur de Langoiran
       (call_script, "script_give_center_to_lord", "p_castle_28", "trp_knight_2_28", 0), # Château_de_Montréal [Forteresses de routier] - John Holland ?
       (call_script, "script_give_center_to_lord", "p_castle_29", "trp_knight_2_4", 0), # Château_du_Lude - Thomas de Scales, Baron de Scales
-      (call_script, "script_give_center_to_lord", "p_castle_30", "trp_knight_2_43", 0), # Château_de_Nérac - Bertrand III de Montferrand, Baron of Guyenne
+      (call_script, "script_give_center_to_lord", "p_castle_30", "trp_knight_2_44", 0), # Château_de_Nérac - Jean de Montferrand, Seigneur de Langoiran
 
-      (call_script, "script_give_center_to_lord", "p_castle_31", "trp_knight_2_13", 0), # Château_de_Falaise - Reginald Grey, Baron Grey de Ruthyn
+      (call_script, "script_give_center_to_lord", "p_castle_31", "trp_knight_2_14", 0), # Château_de_Falaise - John Grey, Lord Grey de Ruthyn
       (call_script, "script_give_center_to_lord", "p_castle_32", "trp_kingdom_2_lord", 0), # Château-Gaillard - John of Lancaster, duc de Bedford
       (call_script, "script_give_center_to_lord", "p_castle_33", "trp_knight_2_34", 0), # Château_de_Vendôme - Robert Willoughby, Lord Willoughby of Eresby
       (call_script, "script_give_center_to_lord", "p_castle_34", "trp_knight_2_2", 0), # Château_de_Beauvau - John Fastolf, Governor of Anjou
-      (call_script, "script_give_center_to_lord", "p_castle_35", "trp_knight_2_30", 0), # Château_Gontier - Edmund Beaufort, Earl of Dorset
+      (call_script, "script_give_center_to_lord", "p_castle_35", "trp_knight_2_34", 0), # Château_Gontier - Robert Willoughby, Lord Willoughby of Eresby
       (call_script, "script_give_center_to_lord", "p_castle_36", "trp_knight_2_7", 0), # Château_de_Verneuil - Thomas Beaufort, Count of Perche
-      (call_script, "script_give_center_to_lord", "p_castle_37", "trp_knight_2_30", 0), # Château de Mortain - Edmund Beaufort, Count of Mortain
-      (call_script, "script_give_center_to_lord", "p_castle_38", "trp_knight_2_42", 0), # Château de Langoiran - Bertrand III de Montferrand, Seigneur de Landiras
+      (call_script, "script_give_center_to_lord", "p_castle_37", "trp_knight_2_8", 0), # Château de Mortain - Edmund Beaufort, Count of Mortain
+      (call_script, "script_give_center_to_lord", "p_castle_38", "trp_knight_2_44", 0), # Château de Langoiran - Jean de Montferrand, Seigneur de Langoiran
       (call_script, "script_give_center_to_lord", "p_castle_39", "trp_knight_2_42", 0), # Forteresse de Landiras - Bertrand III de Montferrand, Seigneur de Landiras
       (call_script, "script_give_center_to_lord", "p_castle_40", "trp_knight_2_16", 0), # Château de Fronsac - Sir John Radcliffe, Seneschal of Guyenne, Captain of Fronsac
 
-      (call_script, "script_give_center_to_lord", "p_castle_41", "trp_knight_2_43", 0), # Château de Montferrand - Bertrand III de Montferrand
-      (call_script, "script_give_center_to_lord", "p_castle_42", "trp_knight_2_44", 0), # Forteresse de Blaye - Jean de Montferrand
+      (call_script, "script_give_center_to_lord", "p_castle_41", "trp_knight_2_42", 0), # Château de Montferrand - Bertrand III de Montferrand
+      (call_script, "script_give_center_to_lord", "p_castle_42", "trp_knight_2_28", 0), # Forteresse de Blaye - John Holland, Earl of Huntingdon, Amiral
       (call_script, "script_give_center_to_lord", "p_castle_43", "trp_knight_2_9", 0), # Château de Montbray - John Mowbray, Earl of Norfolk
       (call_script, "script_give_center_to_lord", "p_castle_44", "trp_knight_2_6", 0), # Château de Gacé - Thomas Rempston, Baron Rempston and Gacé
       (call_script, "script_give_center_to_lord", "p_castle_45", "trp_knight_2_1", 0), # Château de Sainte-Suzanne - John Talbot, Baron Talbot and Furnival
