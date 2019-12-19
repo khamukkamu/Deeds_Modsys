@@ -36681,6 +36681,7 @@ scripts = [
       (replace_scene_props, "spr_earth_wall_b2", "spr_earth_wall_b"),
       (replace_scene_props, "spr_belfry_platform_b", "spr_empty"),
       (replace_scene_props, "spr_belfry_platform_a", "spr_empty"),
+      (replace_scene_props, "spr_belfry_platform_old", "spr_empty"),
       (replace_scene_props, "spr_belfry_a", "spr_empty"),
       (replace_scene_props, "spr_belfry_wheel", "spr_empty"),
       (replace_scene_props, "spr_siege_ladder_move_6m", "spr_empty"),
