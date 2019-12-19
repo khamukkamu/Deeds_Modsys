@@ -442,7 +442,7 @@ itemsfile version 3
  0
 0
 
- itm_tools Tools Tools 1  iron_hammer 0  65547 0 410 84086660 50.000000 90 0 0 0 0 0 0 0 0 0 0 0
+ itm_tools Tools Tools 1  w_warhammer_1 0  65547 0 410 84086660 50.000000 90 0 0 0 0 0 0 0 0 0 0 0
  0
 0
 

@@ -51083,7 +51083,7 @@ scripts = [
 		#added
 		(troop_slot_ge, ":kingdom_lady", slot_troop_mother, 0),
 		(troop_get_slot, ":closest_male_relative", ":kingdom_lady", slot_troop_mother),
-		(troop_slot_eq, ":closest_male_relative", slot_troop_occupation, slto_kingdom_hero),
+		#(troop_slot_eq, ":closest_male_relative", slot_troop_occupation, slto_kingdom_hero), #DAC Kham - Doesnt make sense...
 	(else_try),
 		(troop_slot_ge, ":kingdom_lady", slot_troop_guardian, 0),
 		(troop_get_slot, ":closest_male_relative", ":kingdom_lady", slot_troop_guardian),
