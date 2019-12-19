@@ -3736,7 +3736,7 @@ TOTAL:  {reg5}"),
     ],
     [
 
-      ("dac_test_menu",[],"DAC Test Menu",
+      ("dac_test_menu",[(eq,"$cheat_mode",1)],"DAC Test Menu",
        [
         (jump_to_menu, "mnu_dac_test_menu"),
         ]
