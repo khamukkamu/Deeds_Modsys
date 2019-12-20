@@ -6528,9 +6528,9 @@ simple_triggers = [
 		(assign, ":best_score", -101),
 		(assign, ":num_exiles", 0),
 		#iterate over lords from a random start point, wrapping back to zero
-    (call_script, "script_rand", lords_begin, lords_end), #DAC Kham: Replaced with Autolykos' Script
-    (assign, ":rand_no", reg0),
-		#(store_random_in_range, ":rand_no", lords_begin, lords_end),
+   # (call_script, "script_rand", lords_begin, lords_end), #DAC Kham: Replaced with Autolykos' Script
+    #(assign, ":rand_no", reg0),
+		(store_random_in_range, ":rand_no", lords_begin, lords_end),
 		(val_sub, ":rand_no", lords_begin),	# DAC: Fix from Diegoami https://forums.taleworlds.com/index.php/topic,324014.msg9159510.html#msg9159510		
 		(try_for_range, ":index", lords_begin, lords_end),
 		  (store_add, ":troop_no", ":rand_no", ":index"),
@@ -6579,9 +6579,9 @@ simple_triggers = [
 	    (else_try),
 			#If there were fewer than 3 lords in exile, random chance that none will return.
 			(lt, ":num_exiles", 3),
-			#(store_random_in_range, ":random", 0, 256),
-      (call_script, "script_rand", 0, 256), #DAC Kham: Replaced with Autolykos' Script
-      (assign, ":random", reg0),
+			(store_random_in_range, ":random", 0, 256),
+      #(call_script, "script_rand", 0, 256), #DAC Kham: Replaced with Autolykos' Script
+      #(assign, ":random", reg0),
 			(ge, ":random", 128),
 			(try_begin),
 				(ge, "$cheat_mode", 1),
