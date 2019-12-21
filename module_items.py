@@ -1302,11 +1302,11 @@ items = [
 ["w_awlpike_6", "Short Pike", [("w_awlpike_6",0)], itp_type_polearm|itp_merchandise| itp_cant_use_on_horseback|itp_primary|itp_penalty_with_shield|itp_wooden_parry|itp_two_handed|itp_has_upper_stab, itc_pike_upstab, 
 275 , weight(2.0)|difficulty(0)|spd_rtng(85) | weapon_length(193)|swing_damage(19 , blunt) | thrust_damage(31 ,  pierce),imodbits_polearm ],
 
-["w_pike_1", "Pike", [("w_pike_1",0)], itp_type_polearm|itp_merchandise| itp_cant_use_on_horseback|itp_primary|itp_penalty_with_shield|itp_wooden_parry|itp_two_handed|itp_has_upper_stab, itc_pike_upstab, 
+["w_pike_1", "Pike", [("w_pike_1",0)], itp_couchable|itp_type_polearm|itp_merchandise| itp_cant_use_on_horseback|itp_primary|itp_penalty_with_shield|itp_wooden_parry|itp_two_handed|itp_has_upper_stab, itc_pike_upstab, 
 497 , weight(3.5)|difficulty(0)|spd_rtng(78) | weapon_length(450)|swing_damage(18 , blunt) | thrust_damage(30 ,  pierce),imodbits_polearm ],
-["w_pike_swiss_1", "Swiss Pike", [("w_pike_swiss_1",0)], itp_type_polearm|itp_merchandise| itp_cant_use_on_horseback|itp_primary|itp_penalty_with_shield|itp_wooden_parry|itp_two_handed|itp_has_upper_stab, itc_pike_upstab, 
+["w_pike_swiss_1", "Swiss Pike", [("w_pike_swiss_1",0)], itp_couchable|itp_type_polearm|itp_merchandise| itp_cant_use_on_horseback|itp_primary|itp_penalty_with_shield|itp_wooden_parry|itp_two_handed|itp_has_upper_stab, itc_pike_upstab, 
 344 , weight(3.0)|difficulty(0)|spd_rtng(82) | weapon_length(255)|swing_damage(27 , blunt) | thrust_damage(33 ,  pierce),imodbits_polearm ],
-["w_pike_swiss_2", "Swiss Pike", [("w_pike_swiss_2",0)], itp_type_polearm|itp_merchandise| itp_cant_use_on_horseback|itp_primary|itp_penalty_with_shield|itp_wooden_parry|itp_two_handed|itp_has_upper_stab, itc_pike_upstab, 
+["w_pike_swiss_2", "Swiss Pike", [("w_pike_swiss_2",0)], itp_couchable|itp_type_polearm|itp_merchandise| itp_cant_use_on_horseback|itp_primary|itp_penalty_with_shield|itp_wooden_parry|itp_two_handed|itp_has_upper_stab, itc_pike_upstab, 
 336 , weight(3.0)|difficulty(0)|spd_rtng(82) | weapon_length(246)|swing_damage(24 , blunt) | thrust_damage(35 ,  pierce),imodbits_polearm ],
 
 ["w_bill_1", "Bill", [("w_bill_1",0)], itp_type_polearm|itp_merchandise|itp_two_handed|itp_primary|itp_cant_use_on_horseback|itp_offset_lance, itc_poleaxe|itcf_carry_spear, 
