@@ -42,10 +42,10 @@ factions = [
 
   ("player_faction","Player Faction",0, 0.9, [], []),
   ("player_supporters_faction","Player's Supporters",0, 0.9, [("player_faction",1.00),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05)], [], 0xFF4433), #changed name so that can tell difference if shows up on map
-  ("kingdom_1",  "Kingdom of France", 0, 0.9, [("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05)], [], 0x4980d8),
-  ("kingdom_2",  "Kingdom of England",    0, 0.9, [("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05)], [], 0xb21010),
-  ("kingdom_3",  "Duchy of Burgundy", 0, 0.9, [("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05)], [], 0xddb544),
-  ("kingdom_4",  "Duchy of Brittany",    0, 0.9, [("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05)], [], 0x9495a5),
+  ("kingdom_1",  "Kingdom of France", 0, 0.9, [("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("kingdom_2",-1),("kingdom_3",-0.2),("kingdom_4",0.4)], [], 0x4980d8),
+  ("kingdom_2",  "Kingdom of England",    0, 0.9, [("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("kingdom_1",-1),("kingdom_4",-0.2),("kingdom_3",0.2)], [], 0xb21010),
+  ("kingdom_3",  "Duchy of Burgundy", 0, 0.9, [("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("kingdom_1",-0.2),("kingdom_4",0),("kingdom_2",0.2)], [], 0xddb544),
+  ("kingdom_4",  "Duchy of Brittany",    0, 0.9, [("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("kingdom_2",-0.2),("kingdom_3",0),("kingdom_1",0.4)], [], 0x9495a5),
   # ("kingdom_5",  "Kingdom of Rhodoks",  0, 0.9, [("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05)], [], 0x33DD33),
   # ("kingdom_6",  "Sarranid Sultanate",  0, 0.9, [("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05)], [], 0xDDDD33),
 
