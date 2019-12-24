@@ -77979,8 +77979,8 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
         (troop_add_item, "trp_player","itm_a_hunter_coat_custom"),
         (troop_add_item, "trp_player","itm_b_wrapping_boots"),		
 		
-        (party_add_members,"p_main_party","trp_french_peasant", 8),
-        (party_add_members,"p_main_party","trp_french_peasant_archer", 5),	
+        # (party_add_members,"p_main_party","trp_french_peasant", 8),
+        # (party_add_members,"p_main_party","trp_french_peasant_archer", 5),	
   ]),
 
 ("start_as_merc", [
@@ -78017,12 +78017,12 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
         (troop_add_item, "trp_player","itm_b_leather_boots"),
         (troop_add_item, "trp_player","itm_s_steel_buckler"),		
 		
-        (party_add_members,"p_main_party","trp_mercenary_german_dismounted_knight", 1),
-        (party_add_members,"p_main_party","trp_flemish_militia_crossbowman", 3),
-        (party_add_members,"p_main_party","trp_mercenary_archer", 2),
-        (party_add_members,"p_main_party","trp_mercenary_pavise_spearman", 4),
-        (party_add_members,"p_main_party","trp_mercenary_maceman", 2),
-        (party_add_members,"p_main_party","trp_flemish_militia_pikeman", 3),
+        # (party_add_members,"p_main_party","trp_mercenary_german_dismounted_knight", 1),
+        # (party_add_members,"p_main_party","trp_flemish_militia_crossbowman", 3),
+        # (party_add_members,"p_main_party","trp_mercenary_archer", 2),
+        # (party_add_members,"p_main_party","trp_mercenary_pavise_spearman", 4),
+        # (party_add_members,"p_main_party","trp_mercenary_maceman", 2),
+        # (party_add_members,"p_main_party","trp_flemish_militia_pikeman", 3),
 
   ]),
 
