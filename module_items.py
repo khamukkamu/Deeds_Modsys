@@ -466,8 +466,8 @@ items = [
 ["sumpter_horse", "Sumpter Horse", [("sumpter_horse",0)], itp_type_horse|itp_merchandise, 0, 254, abundance(90)|hit_points(100)|body_armor(10)|difficulty(1)|horse_speed(37)|horse_maneuver(39)|horse_charge(9)|horse_scale(100), imodbits_horse_basic ],
 ["saddle_horse", "Saddle Horse", [("saddle_horse",0),("horse_c",imodbits_horse_good)], itp_type_horse|itp_merchandise, 0, 360, abundance(90)|hit_points(100)|body_armor(8)|difficulty(1)|horse_speed(45)|horse_maneuver(44)|horse_charge(10)|horse_scale(104), imodbits_horse_basic ],
 
-["ho_tournament_horse_barded_white_chamfrom", "Barded Horse with Chamfrom", [("ho_horse_barded_white_chamfrom",0)], itp_type_horse|itp_merchandise, 0, 983, abundance(40)|hit_points(120)|body_armor(30)|difficulty(0)|horse_speed(42)|horse_maneuver(38)|horse_charge(26)|horse_scale(108), imodbits_horse_basic|imodbit_champion ],
-["ho_tournament_horse_barded_black_chamfrom", "Barded Horse with Chamfrom", [("ho_horse_barded_black_chamfrom",0)], itp_type_horse|itp_merchandise, 0, 983, abundance(40)|hit_points(120)|body_armor(30)|difficulty(0)|horse_speed(42)|horse_maneuver(38)|horse_charge(26)|horse_scale(108), imodbits_horse_basic|imodbit_champion ],
+["ho_tournament_horse_barded_white_chamfrom", "Barded Horse with Chamfrom", [("ho_horse_barded_white_chamfrom",0)], itp_type_horse, 0, 983, abundance(40)|hit_points(120)|body_armor(30)|difficulty(0)|horse_speed(42)|horse_maneuver(38)|horse_charge(26)|horse_scale(108), imodbits_horse_basic|imodbit_champion ],
+["ho_tournament_horse_barded_black_chamfrom", "Barded Horse with Chamfrom", [("ho_horse_barded_black_chamfrom",0)], itp_type_horse, 0, 983, abundance(40)|hit_points(120)|body_armor(30)|difficulty(0)|horse_speed(42)|horse_maneuver(38)|horse_charge(26)|horse_scale(108), imodbits_horse_basic|imodbit_champion ],
 
 ##################################################################################################################################################################################################################################################################################################################
 ###################################################################################################### HYW HELMETS ###############################################################################################################################################################################################
@@ -1656,10 +1656,10 @@ items = [
 683, weight(3.75)|difficulty(11)|spd_rtng(60)|shoot_speed(128)|thrust_damage(66,pierce)|max_ammo(1), imodbits_crossbow ],
 
 
-["w_handgonne_1", "Handgonne", [("w_handgonne_1",0)], itp_type_musket|itp_two_handed|itp_primary, itcf_shoot_musket|itcf_carry_spear|itcf_reload_musket, 
-1850, weight(4.5)|abundance(90)|difficulty(0)|spd_rtng(58)|shoot_speed(160)|thrust_damage(100,pierce)|max_ammo(1)|accuracy(95), imodbits_none, [(ti_on_weapon_attack,[(play_sound,"snd_pistol_shot"),(position_move_x,pos1,0),(position_move_y,pos1,112),(particle_system_burst,"psys_pistol_smoke",pos1,15)])] ],
-["w_handgonne_2", "Handgonne", [("w_handgonne_2",0)], itp_type_musket|itp_two_handed|itp_primary, itcf_shoot_musket|itcf_carry_spear|itcf_reload_musket, 
-2230, weight(3.8)|abundance(90)|difficulty(0)|spd_rtng(60)|shoot_speed(180)|thrust_damage(120,pierce)|max_ammo(1)|accuracy(98), imodbits_none, [(ti_on_weapon_attack,[(play_sound,"snd_pistol_shot"),(position_move_x,pos1,0),(position_move_y,pos1,107),(particle_system_burst,"psys_pistol_smoke",pos1,15)])] ],
+["w_handgonne_1", "Handgonne", [("w_handgonne_1",0)], itp_type_musket|itp_two_handed|itp_primary|itp_cant_use_on_horseback, itcf_shoot_musket|itcf_carry_spear|itcf_reload_musket, 
+1850, weight(4.5)|abundance(90)|difficulty(0)|spd_rtng(16)|shoot_speed(160)|thrust_damage(100,pierce)|max_ammo(1)|accuracy(95), imodbits_none, [(ti_on_weapon_attack,[(play_sound,"snd_pistol_shot"),(position_move_x,pos1,0),(position_move_y,pos1,112),(particle_system_burst,"psys_pistol_smoke",pos1,15)])] ],
+["w_handgonne_2", "Handgonne", [("w_handgonne_2",0)], itp_type_musket|itp_two_handed|itp_primary|itp_cant_use_on_horseback, itcf_shoot_musket|itcf_carry_spear|itcf_reload_musket, 
+2230, weight(3.8)|abundance(90)|difficulty(0)|spd_rtng(20)|shoot_speed(180)|thrust_damage(120,pierce)|max_ammo(1)|accuracy(98), imodbits_none, [(ti_on_weapon_attack,[(play_sound,"snd_pistol_shot"),(position_move_x,pos1,0),(position_move_y,pos1,107),(particle_system_burst,"psys_pistol_smoke",pos1,15)])] ],
 
 # Piercing Arrows
 ["w_arrow_triangular", "Arrows", [("w_arrow_triangular",0),("w_arrow_triangular",ixmesh_flying_ammo),("w_arrow_quiver_triangular",ixmesh_carry)], itp_type_arrows|itp_default_ammo|itp_merchandise, itcf_carry_quiver_back_right, 
