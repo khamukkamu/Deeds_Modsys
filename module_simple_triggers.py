@@ -232,7 +232,7 @@ simple_triggers = [
         (troop_get_slot, reg17, "$g_talk_troop", slot_troop_wealth),
         (try_begin),
           (neq, reg17, "$demanded_money"),
-          (display_message, "@{s17} has {reg17} denars"),
+          (display_message, "@{s17} has {reg17} crowns"),
         (try_end),
         (assign, "$demanded_money", reg17),
       (try_end),
@@ -326,7 +326,7 @@ simple_triggers = [
           # (else_try),
             # (str_store_string, s2, "@large"),
           # (try_end),
-          # (str_store_string, s65, "@{s3} is bankrupt ({reg3} denars) while at {s2}!"),
+          # (str_store_string, s65, "@{s3} is bankrupt ({reg3} crowns) while at {s2}!"),
         # (try_end),
 
 		# (try_begin),
@@ -3740,7 +3740,7 @@ simple_triggers = [
   #  (try_end),
     ]),
 
-  # Taking denars from player while resting in not owned centers
+  # Taking crowns from player while resting in not owned centers
   (1,
    [(neg|map_free),
     (is_currently_night),

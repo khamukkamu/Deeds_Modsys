@@ -8703,7 +8703,7 @@ TOTAL:  {reg5}"),
   (
     "castle_taken",mnf_disable_all_keys,
   ##diplomacy begin
-    "{s3} has fallen to your troops, and you now have full control of the {reg2?town:castle}. You can plunder spoils of war worth {reg3} denars.\
+    "{s3} has fallen to your troops, and you now have full control of the {reg2?town:castle}. You can plunder spoils of war worth {reg3} crowns.\
 {reg1? You may station troops here to defend it against enemies who may try to recapture it. Also, you should select now whether you will hold the {reg2?town:castle} yourself or give it to a faithful vassal...:}",# Only visible when castle is taken without being a vassal of a kingdom.
   ##diplomacy end
     "none",
@@ -9225,7 +9225,7 @@ TOTAL:  {reg5}"),
  'I was most pleased to hear of your valiant efforts in the capture of {s2}. Your victory has gladdened all our hearts.\
  You also requested me to give you ownership of the castle, but that is a favor which I fear I cannot grant,\
  as you already hold significant estates in my realm.\
- Instead I have sent you {reg6} denars to cover the expenses of your campaign, but {s2} I give to {s5}.'\
+ Instead I have sent you {reg6} crowns to cover the expenses of your campaign, but {s2} I give to {s5}.'\
  ",
     "none",
     [(set_background_mesh, "mesh_pic_messenger"),
@@ -9279,7 +9279,7 @@ TOTAL:  {reg5}"),
  'I was most pleased to hear of your valiant efforts in the capture of {s2}. Your victory has gladdened all our hearts.\
  You also requested me to give ownership of the castle to your {wife/husband}, but that is a favor which I fear I cannot grant,\
  as {she/he} already holds significant estates in my realm.\
- Instead I have sent you {reg6} denars to cover the expenses of your campaign, but {s2} I give to {s5}.'\
+ Instead I have sent you {reg6} crowns to cover the expenses of your campaign, but {s2} I give to {s5}.'\
  ",
 ##diplomacy end+
     "none",
@@ -10637,7 +10637,7 @@ TOTAL:  {reg5}"),
      (party_get_slot, ":volunteer_amount", "$current_town", slot_center_volunteer_troop_amount),
      (party_get_free_companions_capacity, ":free_capacity", "p_main_party"),
      (store_troop_gold, ":gold", "trp_player"),
-     (store_div, ":gold_capacity", ":gold", 10),#10 denars per man
+     (store_div, ":gold_capacity", ":gold", 10),#10 crowns per man
      (assign, ":party_capacity", ":free_capacity"),
      (val_min, ":party_capacity", ":gold_capacity"),
       (assign, reg9, ":gold"),		 
@@ -10655,8 +10655,8 @@ TOTAL:  {reg5}"),
        (eq, ":volunteer_amount", 0),
        (str_store_string, s18, "@No one here seems to be willing to join your party."),
      (else_try),
-       (store_mul, reg6, ":volunteer_amount", 10),#10 denars per man
-        (store_mul, reg8, ":volunteer_amount", 25),#25 denars per man	   
+       (store_mul, reg6, ":volunteer_amount", 10),#10 crowns per man
+        (store_mul, reg8, ":volunteer_amount", 25),#25 crowns per man	   
        (str_store_troop_name_by_count, s3, ":volunteer_troop", ":volunteer_amount"),
        (try_begin),
          (eq, reg5, 1),
@@ -11063,7 +11063,7 @@ TOTAL:  {reg5}"),
   (
     "center_improve",0,
     "{s19} As the party member with the highest engineer skill ({reg2}), {reg3?you reckon:{s3} reckons} that building the {s4} will cost you\
- {reg5} denars and will take {reg6} days.",
+ {reg5} crowns and will take {reg6} days.",
     "none",
     [#SB : town pictures
      (call_script, "script_set_town_picture"),
@@ -11569,7 +11569,7 @@ TOTAL:  {reg5}"),
   (
     "village_loot_complete",mnf_disable_all_keys,
     "On your orders your troops sack the village, pillaging everything of any value,\
- and then put the buildings to the torch. From the coins and valuables that are found, you get your share of {reg1} denars.",
+ and then put the buildings to the torch. From the coins and valuables that are found, you get your share of {reg1} crowns.",
     "none",
     [
         (get_achievement_stat, ":number_of_village_raids", ACHIEVEMENT_THE_BANDIT, 0),
@@ -13302,7 +13302,7 @@ TOTAL:  {reg5}"),
           (party_get_num_companions, ":num_men", "p_main_party"),
           (store_div, reg1, ":num_men", 4),
           (val_add, reg1, 1),
-          (str_store_string, s1, "@ ({reg1} denars per night)"),
+          (str_store_string, s1, "@ ({reg1} crowns per night)"),
           (store_troop_gold, ":gold", "trp_player"),
           (lt, ":gold", reg1),
           (assign, ":can_rest", 0),
@@ -13599,7 +13599,7 @@ TOTAL:  {reg5}"),
           (eq, reg7, 0),
           (gt, reg5, 0),
         ],
-        "Recruit them ({reg6} denars).",
+        "Recruit them ({reg6} crowns).",
         [
           (call_script, "script_town_castle_recruit_nobles_recruit"),
           
@@ -13792,7 +13792,7 @@ TOTAL:  {reg5}"),
 	
  (
     "center_reports",0,
-    "Town Name: {s1}^Rent Income: {reg1} denars^Tariff Income: {reg2} denars^Food Stock: for {reg3} days",
+    "Town Name: {s1}^Rent Income: {reg1} crowns^Tariff Income: {reg2} crowns^Food Stock: for {reg3} days",
     "none",
     [(party_get_slot, ":town_food_store", "$g_encountered_party", slot_party_food_store),
      (call_script, "script_center_get_food_consumption", "$g_encountered_party"),
@@ -14067,7 +14067,7 @@ TOTAL:  {reg5}"),
   (
     "dplmc_trade_auto_sell_begin",0,
     "Items in your inventory whose type is marked as sellable and whose prices \
-are below {reg1} denars will be sold to the {reg2?appropriate merchants:elder} \
+are below {reg1} crowns will be sold to the {reg2?appropriate merchants:elder} \
 in the current {reg2?town:village} automatically.  Specifically food, trade \
 goods, and books will never be sold. ^^You can change some settings here freely.",
     "none",
@@ -14399,35 +14399,35 @@ goods, and books will never be sold. ^^You can change some settings here freely.
          (assign, reg6, ":best_result_5_profit"),
          (str_store_item_name, s4, ":best_result_5_item"),
          (str_store_party_name, s5, ":best_result_5_town"),
-         (str_store_string, s3, "@^Buying {s4} here and selling it at {s5} would bring a profit of {reg6} denars per item.{s3}"),
+         (str_store_string, s3, "@^Buying {s4} here and selling it at {s5} would bring a profit of {reg6} crowns per item.{s3}"),
        (try_end),
        (try_begin),
          (ge, ":best_result_4_item", 0),
          (assign, reg6, ":best_result_4_profit"),
          (str_store_item_name, s4, ":best_result_4_item"),
          (str_store_party_name, s5, ":best_result_4_town"),
-         (str_store_string, s3, "@^Buying {s4} here and selling it at {s5} would bring a profit of {reg6} denars per item.{s3}"),
+         (str_store_string, s3, "@^Buying {s4} here and selling it at {s5} would bring a profit of {reg6} crowns per item.{s3}"),
        (try_end),
        (try_begin),
          (ge, ":best_result_3_item", 0),
          (assign, reg6, ":best_result_3_profit"),
          (str_store_item_name, s4, ":best_result_3_item"),
          (str_store_party_name, s5, ":best_result_3_town"),
-         (str_store_string, s3, "@^Buying {s4} here and selling it at {s5} would bring a profit of {reg6} denars per item.{s3}"),
+         (str_store_string, s3, "@^Buying {s4} here and selling it at {s5} would bring a profit of {reg6} crowns per item.{s3}"),
        (try_end),
        (try_begin),
          (ge, ":best_result_2_item", 0),
          (assign, reg6, ":best_result_2_profit"),
          (str_store_item_name, s4, ":best_result_2_item"),
          (str_store_party_name, s5, ":best_result_2_town"),
-         (str_store_string, s3, "@^Buying {s4} here and selling it at {s5} would bring a profit of {reg6} denars per item.{s3}"),
+         (str_store_string, s3, "@^Buying {s4} here and selling it at {s5} would bring a profit of {reg6} crowns per item.{s3}"),
        (try_end),
        (try_begin),
          (ge, ":best_result_1_item", 0),
          (assign, reg6, ":best_result_1_profit"),
          (str_store_item_name, s4, ":best_result_1_item"),
          (str_store_party_name, s5, ":best_result_1_town"),
-         (str_store_string, s3, "@^Buying {s4} here and selling it at {s5} would bring a profit of {reg6} denars per item.{s3}"),
+         (str_store_string, s3, "@^Buying {s4} here and selling it at {s5} would bring a profit of {reg6} crowns per item.{s3}"),
        (try_end),
        (str_store_string, s2, "@{reg3?You find:{s1} finds} out the following:^{s3}"),
      (try_end),
@@ -14862,7 +14862,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   (
     "town_tournament_won",mnf_disable_all_keys,
     "You have won the tournament of {s3}! You are filled with pride as the crowd cheers your name.\
- In addition to honour, fame and glory, you earn a prize of {reg9} denars. {s8}",
+ In addition to honour, fame and glory, you earn a prize of {reg9} crowns. {s8}",
     "none",
     [
         (str_store_party_name, s3, "$current_town"),
@@ -14890,7 +14890,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (try_begin),
           (gt, "$g_tournament_bet_win_amount", 0),
           (assign, reg8, ":total_win"),
-          (str_store_string, s8, "@Moreover, you earn {reg8} denars from the clever bets you placed on yourself..."),
+          (str_store_string, s8, "@Moreover, you earn {reg8} crowns from the clever bets you placed on yourself..."),
         (try_end),
 		(try_begin),
 			(this_or_next|neq, "$players_kingdom", "$g_encountered_party_faction"),
@@ -15165,7 +15165,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
   (
     "tournament_bet",0,
-    "The bets for this round are {reg0} on you and {reg1} on others.{reg2? You have already bet {reg2} denars on yourself, and if you win, you will earn {reg3} denars.:} How much do you want to bet?",
+    "The bets for this round are {reg0} on you and {reg1} on others.{reg2? You have already bet {reg2} crowns on yourself, and if you win, you will earn {reg3} crowns.:} How much do you want to bet?",
     "none",
     [
       (assign, reg2, "$g_tournament_bet_placed"),
@@ -15176,7 +15176,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ("bet_100_denars", [(store_troop_gold, ":gold", "trp_player"),
                           (ge, ":gold", 100)
                           ],
-       "100 denars.",
+       "100 crowns.",
        [
          (assign, "$temp", 100),
          (jump_to_menu, "mnu_tournament_bet_confirm"),
@@ -15184,7 +15184,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ("bet_50_denars", [(store_troop_gold, ":gold", "trp_player"),
                          (ge, ":gold", 50)
                          ],
-       "50 denars.",
+       "50 crowns.",
        [
          (assign, "$temp", 50),
          (jump_to_menu, "mnu_tournament_bet_confirm"),
@@ -15192,7 +15192,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ("bet_20_denars", [(store_troop_gold, ":gold", "trp_player"),
                          (ge, ":gold", 20)
                          ],
-       "20 denars.",
+       "20 crowns.",
        [
          (assign, "$temp", 20),
          (jump_to_menu, "mnu_tournament_bet_confirm"),
@@ -15200,7 +15200,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ("bet_10_denars", [(store_troop_gold, ":gold", "trp_player"),
                          (ge, ":gold", 10)
                          ],
-       "10 denars.",
+       "10 crowns.",
        [
          (assign, "$temp", 10),
          (jump_to_menu, "mnu_tournament_bet_confirm"),
@@ -15208,7 +15208,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ("bet_5_denars", [(store_troop_gold, ":gold", "trp_player"),
                         (ge, ":gold", 5)
                         ],
-       "5 denars.",
+       "5 crowns.",
        [
          (assign, "$temp", 5),
          (jump_to_menu, "mnu_tournament_bet_confirm"),
@@ -15222,7 +15222,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
   (
     "tournament_bet_confirm",0,
-    "If you bet {reg1} denars, you will earn {reg2} denars if you win the tournament. Is that all right?",
+    "If you bet {reg1} crowns, you will earn {reg2} crowns if you win the tournament. Is that all right?",
     "none",
     [
       (call_script, "script_get_tournament_bets"),
@@ -15517,7 +15517,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "collect_taxes_complete",mnf_disable_all_keys,
     ##diplomacy start+
     ##Replace "him" with "{reg4?her:him}"
-    "You've collected {reg3} denars in taxes from {s3}. {s19} will be expecting you to take the money to {reg4?her:him}.",
+    "You've collected {reg3} crowns in taxes from {s3}. {s19} will be expecting you to take the money to {reg4?her:him}.",
     ##diplomacy end+
     "none",
     [(str_store_party_name, s3, "$current_town"),
@@ -15567,7 +15567,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   (
     "collect_taxes_failed",mnf_disable_all_keys,
 ##diplomacy start+ fix gender of pronoun
-    "You could collect only {reg3} denars as tax from {s3} before the revolt broke out.\
+    "You could collect only {reg3} crowns as tax from {s3} before the revolt broke out.\
  {s1} won't be happy, but some silver will placate {reg4?her:him} better than nothing at all...",
 ##diplomacy end+
     "none",
@@ -15970,7 +15970,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   (
     "enemy_offer_ransom_for_prisoner",0,
 ##diplomacy start+ Since s2 is the name of a kingdom rather than a person, change "sell him" to "sell them"
-    "{s2} offers you a sum of {reg12} denars in silver if you are willing to sell them {s1}.",
+    "{s2} offers you a sum of {reg12} crowns in silver if you are willing to sell them {s1}.",
 ##diplomacy end+
     "none",
     [ (call_script, "script_calculate_ransom_amount_for_troop", "$g_ransom_offer_troop"),
@@ -16702,7 +16702,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "captivity_end_propose_ransom",0,
     "You spend long hours in the sunless dank of the dungeon, more than you can count.\
  Suddenly one of your captors enters your cell with an offer;\
- he proposes to free you{reg6? and {s5}:} in return for {reg5} denars of your hidden wealth. You decide to...",
+ he proposes to free you{reg6? and {s5}:} in return for {reg5} crowns of your hidden wealth. You decide to...",
     "none",
     [
       (assign, reg5, "$player_ransom_amount"),
@@ -17523,7 +17523,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 ####################################################################################################################    
    
   ("notification_relieved_as_marshal", mnf_disable_all_keys,
-    "{s4} wishes to inform you that your services as marshal are no longer required. In honor of valiant efforts on behalf of the realm over the last {reg4} days, however, {reg8?she:he} offers you a purse of {reg5} denars.",
+    "{s4} wishes to inform you that your services as marshal are no longer required. In honor of valiant efforts on behalf of the realm over the last {reg4} days, however, {reg8?she:he} offers you a purse of {reg5} crowns.",
     "none",
     [
 	(assign, reg4, "$g_player_days_as_marshal"),
@@ -19979,7 +19979,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "none",
     [(set_game_menu_tableau_mesh, "tableau_faction_note_mesh_banner", "$g_notification_menu_var1", pos0),],
     [
-      ("dplmc_demand_4000",[(gt, "$g_player_chamberlain", 0),],"Demand 4000 denars",
+      ("dplmc_demand_4000",[(gt, "$g_player_chamberlain", 0),],"Demand 4000 crowns",
       [
         (call_script, "script_npc_decision_checklist_peace_or_war", "$g_notification_menu_var1", "fac_player_supporters_faction", -1),
         (assign, ":goodwill", reg0),
@@ -19995,7 +19995,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
           (jump_to_menu,"mnu_dplmc_deny_terms"),
         (try_end),
       ]),
-      ("dplmc_demand_8000",[(gt, "$g_player_chamberlain", 0),],"Demand 8000 denars",
+      ("dplmc_demand_8000",[(gt, "$g_player_chamberlain", 0),],"Demand 8000 crowns",
        [
          (call_script, "script_npc_decision_checklist_peace_or_war", "$g_notification_menu_var1", "fac_player_supporters_faction", -1),
          (assign, ":goodwill", reg0),
@@ -20178,7 +20178,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
   (
     "dplmc_riot_negotiate",mnf_disable_all_keys,
-    "You approach the angry crowd and begin negotiations. The leader of the riot demands {reg0} denars. He agrees to lay down arms if you are willing to pay.",
+    "You approach the angry crowd and begin negotiations. The leader of the riot demands {reg0} crowns. He agrees to lay down arms if you are willing to pay.",
     "none",
     [
       (party_get_slot, ":center_relation", "$g_encountered_party", slot_center_player_relation),
@@ -20269,7 +20269,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   (
     "dplmc_notification_appoint_chamberlain",0,
     #SB : your court
-    "As a lord of a fief you can now appoint a chamberlain who resides at your court for a weekly salary of "+str(dplmc_chamberlain_salary)+" denars. He will handle all financial affairs like collecting and determining taxes, paying wages and managing your estate. In addition he supervises money transfers between kingdoms giving you more diplomatic options.",
+    "As a lord of a fief you can now appoint a chamberlain who resides at your court for a weekly salary of "+str(dplmc_chamberlain_salary)+" crowns. He will handle all financial affairs like collecting and determining taxes, paying wages and managing your estate. In addition he supervises money transfers between kingdoms giving you more diplomatic options.",
     "none",
     [
     #SB : tableau notes
@@ -20310,7 +20310,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   (
     "dplmc_notification_appoint_constable",0,
     #SB : your court, also walled center clarification
-    "As a lord of a fortified center you can now appoint a constable who resides at your court for a weekly salary of "+str(dplmc_constable_salary)+" denars. He will recruit new troops and provide information about your army.",
+    "As a lord of a fortified center you can now appoint a constable who resides at your court for a weekly salary of "+str(dplmc_constable_salary)+" crowns. He will recruit new troops and provide information about your army.",
     "none",
     [
     #SB : tableau notes
@@ -20354,7 +20354,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   (
     "dplmc_notification_appoint_chancellor",0,
     #SB : your court, fief->city
-    "As a lord of a realm and owner of a city you can now appoint a chancellor who resides at your court for a weekly salary of "+str(dplmc_chancellor_salary)+" denars. He will be the keeper of your seal and conduct the correspondence between you and other important persons.",
+    "As a lord of a realm and owner of a city you can now appoint a chancellor who resides at your court for a weekly salary of "+str(dplmc_chancellor_salary)+" crowns. He will be the keeper of your seal and conduct the correspondence between you and other important persons.",
     "none",
     [
     #SB : tableau notes
@@ -20413,7 +20413,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 
   (
     "dplmc_negotiate_besieger",0,
-    "You appear with a white flag at the top of the wall. After a while a negotiator of {s11} approaches you. He demands {s6} and all associated villages as well as {reg0} denars for safe conduct.",
+    "You appear with a white flag at the top of the wall. After a while a negotiator of {s11} approaches you. He demands {s6} and all associated villages as well as {reg0} crowns for safe conduct.",
     "none",
     [
       (party_get_slot, ":besieger", "$current_town", slot_center_is_besieged_by),
@@ -22396,7 +22396,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   
   (
     "dplmc_choose_disguise", 0,
-    "You are about to sneak into {s1}. Make sure you don't bring suspicious items or excess denars that might be confiscated. {s2}",
+    "You are about to sneak into {s1}. Make sure you don't bring suspicious items or excess crowns that might be confiscated. {s2}",
     "none",
     [
         

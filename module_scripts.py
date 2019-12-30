@@ -26244,7 +26244,7 @@ scripts = [
       (troop_get_slot, ":party_no", ":troop_no", slot_troop_leaded_party),
       (troop_get_slot, ":cur_wealth", ":troop_no", slot_troop_wealth),
 
-      (assign, ":weekly_income", 750), #let every hero receive 750 denars by default
+      (assign, ":weekly_income", 750), #let every hero receive 750 crowns by default
 
       (store_character_level, ":troop_level", ":troop_no"),
       (store_mul, ":level_income", ":troop_level", 10),
@@ -27735,7 +27735,7 @@ scripts = [
                  (eq, "$cheat_mode", 2),
                  (assign, reg2, ":raid_leader_gold"),
                  (str_store_troop_name_link, s2, ":raid_leader"),
-                 (display_message, "@{s2} now has {reg2} denars from raiding"),#SB : debug
+                 (display_message, "@{s2} now has {reg2} crowns from raiding"),#SB : debug
                (try_end),
                #take loot gold from village lord #new 1.126
 			   ##diplomacy start+
@@ -27773,7 +27773,7 @@ scripts = [
                    (eq, "$cheat_mode", 2),
                    (assign, reg2, ":village_lord_gold"),
                    (str_store_troop_name_link, s2, ":village_lord"),
-                   (display_message, "@{s2} now has {reg2} denars from being raided"),
+                   (display_message, "@{s2} now has {reg2} crowns from being raided"),
                  (try_end),
 			   (else_try),
 			      #Option: player loses gold when his fiefs are raided, just as an NPC does
@@ -28851,7 +28851,7 @@ scripts = [
         (str_store_troop_name_link, s0, ":troop_no"),
         (try_begin),
            (gt, reg0, 0),
-           (display_log_message, "@{s0} collects {reg0} denars from {s4}, current wealth: {reg1} denars"),
+           (display_log_message, "@{s0} collects {reg0} crowns from {s4}, current wealth: {reg1} crowns"),
         (try_end),
       (try_end),
       ##diplomacy end+
@@ -29016,7 +29016,7 @@ scripts = [
             (str_store_string, s3, ":string"),
             (call_script, "script_game_get_money_text", ":cost"),
             (assign, reg0, ":troop_wealth"),
-            (display_log_message, "@{s10} upgrades {s3}{s11} (costing {s1}) in {s4}, {reg0} denars remaining."),
+            (display_log_message, "@{s10} upgrades {s3}{s11} (costing {s1}) in {s4}, {reg0} crowns remaining."),
           (try_end),
           (val_sub, ":troop_wealth", ":cost"),
           (troop_set_inventory_slot_modifier, ":troop_no", ":slot", ":imod"),
@@ -29060,7 +29060,7 @@ scripts = [
       (str_store_troop_name_link, s1, ":troop_no"),
       (str_store_party_name_link, s2, ":center_no"),
       (assign, reg2, ":troop_wealth"),
-      (display_message, "@{s1} spends time in {s2}, {reg1} -> {reg2} denars"),
+      (display_message, "@{s1} spends time in {s2}, {reg1} -> {reg2} crowns"),
     (try_end),
     #Courtship
     (try_begin),
@@ -34183,7 +34183,7 @@ scripts = [
       (try_begin), #SB : display only if > 0
         (gt, ":cur_debt", 0),
         (str_store_troop_name_link, s1, ":troop_no"),
-        (display_message, "@You now owe {reg2} denars to {s1}.", message_negative),
+        (display_message, "@You now owe {reg2} crowns to {s1}.", message_negative),
       (try_end),
   ]),
 
@@ -42690,11 +42690,11 @@ scripts = [
      (party_get_free_companions_capacity, ":free_capacity", "p_main_party"),
      (val_min, ":volunteer_amount", ":free_capacity"),
      (store_troop_gold, ":gold", "trp_player"),
-     (store_div, ":gold_capacity", ":gold", 10),#10 denars per man
+     (store_div, ":gold_capacity", ":gold", 10),#10 crowns per man
      (val_min, ":volunteer_amount", ":gold_capacity"),
      (party_add_members, "p_main_party", ":volunteer_troop", ":volunteer_amount"),
      (party_set_slot, "$current_town", slot_center_volunteer_troop_amount, -1),
-     (store_mul, ":cost", ":volunteer_amount", 10),#10 denars per man
+     (store_mul, ":cost", ":volunteer_amount", 10),#10 crowns per man
      (troop_remove_gold, "trp_player", ":cost"),
      ]),
 	 
@@ -42707,11 +42707,11 @@ scripts = [
       (party_get_free_companions_capacity, ":free_capacity", "p_main_party"),
       (val_min, ":volunteer_amount", ":free_capacity"),
       (store_troop_gold, ":gold", "trp_player"),
-      (store_div, ":gold_capacity", ":gold", 25),#25 denars per man
+      (store_div, ":gold_capacity", ":gold", 25),#25 crowns per man
       (val_min, ":volunteer_amount", ":gold_capacity"),
       (party_add_members, "p_main_party", ":volunteer_troop", ":volunteer_amount"),
       (party_set_slot, "$current_town", slot_center_volunteer_troop_amount, -1),
-      (store_mul, ":cost", ":volunteer_amount", 25),#25 denars per man
+      (store_mul, ":cost", ":volunteer_amount", 25),#25 crowns per man
       (troop_remove_gold, "trp_player", ":cost"),
   ]), 	 
 
@@ -42725,11 +42725,11 @@ scripts = [
       (party_get_free_companions_capacity, ":free_capacity", "p_main_party"),
       (val_min, ":volunteer_amount", ":free_capacity"),
       (store_troop_gold, ":gold", "trp_player"),
-      (store_div, ":gold_capacity", ":gold", 30),#200 denars per man
+      (store_div, ":gold_capacity", ":gold", 30),#200 crowns per man
       (val_min, ":volunteer_amount", ":gold_capacity"),
       (party_add_members, "p_main_party", ":volunteer_troop", ":volunteer_amount"),
       (party_set_slot, "$current_town", slot_center_volunteer_troop_amount, -1),
-      (store_mul, ":cost", ":volunteer_amount", 30),#200 denars per man
+      (store_mul, ":cost", ":volunteer_amount", 30),#200 crowns per man
       (troop_remove_gold, "trp_player", ":cost"),
   ]),
 
@@ -42745,11 +42745,11 @@ scripts = [
       (party_get_free_companions_capacity, ":free_capacity", "p_main_party"),
       (val_min, ":volunteer_amount", ":free_capacity"),
       (store_troop_gold, ":gold", "trp_player"),
-      (store_div, ":gold_capacity", ":gold", 200),#200 denars per man
+      (store_div, ":gold_capacity", ":gold", 200),#200 crowns per man
       (val_min, ":volunteer_amount", ":gold_capacity"),
       (party_add_members, "p_main_party", ":volunteer_troop", ":volunteer_amount"),
       (party_set_slot, "$current_town", slot_center_volunteer_troop_amount, -1),
-      (store_mul, ":cost", ":volunteer_amount", 200),#200 denars per man
+      (store_mul, ":cost", ":volunteer_amount", 200),#200 crowns per man
       (troop_remove_gold, "trp_player", ":cost"),
   ]),
   
@@ -42762,11 +42762,11 @@ scripts = [
       (party_get_free_companions_capacity, ":free_capacity", "p_main_party"),
       (val_min, ":volunteer_amount", ":free_capacity"),
       (store_troop_gold, ":gold", "trp_player"),
-      (store_div, ":gold_capacity", ":gold", 125),#125 denars per man
+      (store_div, ":gold_capacity", ":gold", 125),#125 crowns per man
       (val_min, ":volunteer_amount", ":gold_capacity"),
       (party_add_members, "p_main_party", ":volunteer_troop", ":volunteer_amount"),
       (party_set_slot, "$current_town", slot_center_volunteer_troop_amount, -1),
-      (store_mul, ":cost", ":volunteer_amount", 125),#125 denars per man
+      (store_mul, ":cost", ":volunteer_amount", 125),#125 crowns per man
       (troop_remove_gold, "trp_player", ":cost"),
   ]),  
   
@@ -44503,7 +44503,7 @@ scripts = [
         (try_end),
         (val_mul, ":win_amount", ":player_odds"),
         (val_div, ":win_amount", 100),
-        (val_add, ":win_amount", 100), #win amount when 100 denars is placed
+        (val_add, ":win_amount", 100), #win amount when 100 crowns is placed
         (assign, reg0, ":win_amount"),
      ]),
 
@@ -58326,7 +58326,7 @@ scripts = [
         #For now it is removed as Armagan's decision, we can add this option in later patchs. I and Armagan accept it has good potential. But this system needs also
         #scouting quests and scouting AI added together. If we only add this then we limit AI very much, it can attack only very few of centers, this damages
         #variability of game and surprise attacks of AI. Player can predict where AI will attack and he can full garnisons of only this center.
-        #We can add asking travellers about how good defended center X by paying 100 denars for example to equalize situations of AI and human player.
+        #We can add asking travellers about how good defended center X by paying 100 crowns for example to equalize situations of AI and human player.
         #But these needs much work and detailed AI tests so Armagan decided to skip this for now.
 
         #(store_sub, ":faction_recce_slot", ":faction_no", kingdoms_begin),
@@ -61682,7 +61682,7 @@ scripts = [
       (troop_add_gold, "trp_household_possessions", ":amount"),
       (assign, reg0, ":amount"),
       (play_sound, "snd_money_received"),
-      (display_message, "@{reg0} denars added to treasury."),
+      (display_message, "@{reg0} crowns added to treasury."),
   ]),
 
   ("dplmc_withdraw_from_treasury",
@@ -61691,7 +61691,7 @@ scripts = [
       (troop_remove_gold, "trp_household_possessions", ":amount"),
       (assign, reg0, ":amount"),
       (play_sound, "snd_money_paid"),
-      (display_message, "@{reg0} denars removed from treasury."),
+      (display_message, "@{reg0} crowns removed from treasury."),
   ]),
 
   ("dplmc_describe_tax_rate_to_s50",
@@ -63751,7 +63751,7 @@ scripts = [
             (lt, ":offered_prosperity", ":min_prosperity"),
             (str_store_string, s14, "str_dplmc_fief_exchange_refuse_rich"),
           (else_try),
-            #accept trade for 0 or more denars
+            #accept trade for 0 or more crowns
             (store_sub, ":result", ":target_prosperity", ":offered_prosperity"),
             (val_mul, ":result", ":target_type"),
             (val_mul, ":result", 36),#Should probably be 60 instead
@@ -63929,7 +63929,7 @@ scripts = [
 		#	(assign, reg0, ":num_lords"),
 		#	(assign, reg1, ":gold_to_each"),
 		#	(str_store_faction_name, s5, ":faction_no"),
-		#	(display_message, "@ {reg0} vassals of the {s5} receive {reg1} denars each (dplmc_faction_leader_splits_gold)"),
+		#	(display_message, "@ {reg0} vassals of the {s5} receive {reg1} crowns each (dplmc_faction_leader_splits_gold)"),
 		#(try_end),
 
 		(try_for_range, ":lord_no", heroes_begin, heroes_end),
@@ -63999,7 +63999,7 @@ scripts = [
 		#	(str_store_troop_name, s4, ":lord_no"),
 		#	(str_store_faction_name, s5, ":faction_no"),
 		#	(str_store_troop_name, s6, ":faction_liege"),
-		#	(display_message, "@{!}{s4} of the {s5} receives {reg0} denars (dplmc_faction_leader_splits_gold)"),
+		#	(display_message, "@{!}{s4} of the {s5} receives {reg0} crowns (dplmc_faction_leader_splits_gold)"),
 		#(try_end),
 		(call_script, "script_dplmc_distribute_gold_to_lord_and_holdings", reg0, ":lord_no"),
 		(troop_set_slot, ":lord_no", slot_troop_temp_slot, 0),
@@ -64011,7 +64011,7 @@ scripts = [
 		(str_store_troop_name, s4, ":troop_no"),
 		(str_store_faction_name, s5, ":faction_no"),
 		(str_store_troop_name, s6, ":faction_liege"),
-		(display_message, "@{!}{s6} of the {s5} retains the remaining {reg0} denars (dplmc_faction_leader_splits_gold)"),
+		(display_message, "@{!}{s6} of the {s5} retains the remaining {reg0} crowns (dplmc_faction_leader_splits_gold)"),
 	(try_end),
 
 	#(call_script, "script_troop_add_gold", ":faction_liege", ":king_gold"),
@@ -66762,9 +66762,9 @@ scripts = [
 			(this_or_next|is_between, ":merchant", heroes_begin, heroes_end),
 			(this_or_next|is_between, ":merchant", dplmc_employees_begin, dplmc_employees_end),
 			(is_between, ":merchant", walkers_end, tournament_champions_end),
-			(display_message, "@You sold {reg1} {reg3?items:item} to {s0} and gained {reg0} {reg3?denars:denar}."),
+			(display_message, "@You sold {reg1} {reg3?items:item} to {s0} and gained {reg0} {reg3?crowns:crown}."),
 		(else_try),
-			(display_message, "@You sold {reg1} {reg3?items:item} to the {s0} and gained {reg0} {reg3?denars:denar}."),
+			(display_message, "@You sold {reg1} {reg3?items:item} to the {s0} and gained {reg0} {reg3?crowns:crown}."),
 		(try_end),
 	(try_end),
 
@@ -66898,7 +66898,7 @@ scripts = [
       (store_sub, reg3, reg1, 1),
       (store_sub, reg4, reg2, 1),
       (eq, ":customer_in_player_party", 1),#<- added
-      (display_message, "@You have bought {reg2} {reg4?kinds:kind} of food and lost {reg1} {reg3?denars:denar}."),
+      (display_message, "@You have bought {reg2} {reg4?kinds:kind} of food and lost {reg1} {reg3?crowns:crown}."),
     (try_end),
 
     # sell rotten food
@@ -66945,7 +66945,7 @@ scripts = [
       (store_sub, reg3, reg1, 1),
       (store_sub, reg4, reg2, 1),
       (eq, ":customer_in_player_party", 1), #<- added
-      (display_message, "@You sold {reg2} {reg4?kinds:kind} of rotten food and gained {reg1} {reg3?denars:denar}."),
+      (display_message, "@You sold {reg2} {reg4?kinds:kind} of rotten food and gained {reg1} {reg3?crowns:crown}."),
     (try_end),
     ##added section begin, preserve registers
     (assign, reg1, ":save_reg1"),
@@ -70797,7 +70797,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
     (assign, reg0, ":cur_ransom"),
     #the amount calculated at the start, will differ from expected ransom
     (quest_get_slot, reg1, "qst_rescue_prisoner", slot_quest_target_amount),
-    (str_store_string, s1, "@You have raised {reg0}/{reg1} denars for the ransom"),
+    (str_store_string, s1, "@You have raised {reg0}/{reg1} crowns for the ransom"),
     (add_quest_note_from_sreg, "qst_rescue_prisoner", 4, s1, 1), #0:date, 1:giver, 2:desc 3:time
 
     #move actual gold
@@ -76558,7 +76558,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
     ]),
     
     #calculate based on # centers & game difficulty & faction sliders
-    # reports {reg0} (denars lost), {reg1} (% lost, not marginal tax ineff)
+    # reports {reg0} (crowns lost), {reg1} (% lost, not marginal tax ineff)
     ("cf_dplmc_calculate_tax_inefficiency", [
       (store_script_param, ":num_owned", 1),
       (store_script_param, ":tax_total", 2),
