@@ -83438,12 +83438,49 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 (call_script, "script_init_troop_age","trp_extra_lady_37", 0),
 (troop_set_slot,"trp_extra_lady_37",slot_lord_reputation_type,lrep_none),
 
-
-
-
-
-
 ]),
+
+#script_count_num_ready_combatants_in_field
+("count_num_ready_combatants_in_field",
+  [
+
+    (assign, ":num_us_ready_men", 0),
+    (assign, ":num_allies_ready_men", 0),    
+    (assign, ":num_enemies_ready_men", 0),
+    (assign, "$number_of_combatants", 0),
+    (assign, reg77, 0),
+
+    (try_for_agents,":cur_agent"),
+      (agent_is_human, ":cur_agent"),
+      (agent_get_party_id, ":agent_party", ":cur_agent"),
+      (try_begin),
+        (eq, ":agent_party", "p_main_party"),
+        (try_begin),
+          (agent_is_alive, ":cur_agent"),
+          (val_add, ":num_us_ready_men", 1),
+        (try_end),
+      (else_try),
+        (agent_is_ally, ":cur_agent"),
+        (try_begin),
+          (agent_is_alive, ":cur_agent"),
+          (val_add, ":num_allies_ready_men", 1),
+        (try_end),
+      (else_try),
+        (try_begin),
+          (agent_is_alive, ":cur_agent"),
+          (val_add, ":num_enemies_ready_men", 1),
+        (try_end),
+      (try_end),
+    (try_end),
+
+    (store_add, "$number_of_combatants", ":num_us_ready_men", ":num_allies_ready_men"),
+    (val_add, "$number_of_combatants", ":num_enemies_ready_men"),
+
+    (assign, reg77, "$number_of_combatants"),
+    (display_message, "@{reg77} combatants", color_bad_news),
+
+  ]),
+
 ]
 
 scripts = scripts + formAI_scripts

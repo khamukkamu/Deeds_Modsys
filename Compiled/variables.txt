@@ -1443,3 +1443,4 @@ battle_won
 formai_ai_control_troops
 form_options_overlay_5
 dac_counter
+number_of_combatants

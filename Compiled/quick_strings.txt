@@ -1,4 +1,4 @@
-1718
+1753
 qstr_Next_Page Next_Page
 qstr_Game_Rules:^ Game_Rules:^
 qstr_0 0
@@ -1717,3 +1717,38 @@ qstr_h_hood_narf_brown h_hood_narf_brown
 qstr_h_hood_narf_white h_hood_narf_white
 qstr_A_livestock_epidemic_ A_livestock_epidemic_has_killed_{reg5}_sheep_in_{s4}.
 qstr_A_livestock_epidemic_h A_livestock_epidemic_has_killed_{reg4}_cattle_and_{reg5}_sheep_in_{s4}.
+qstr_{s17}_has_{reg17}_cr {s17}_has_{reg17}_crowns
+qstr_We_currently_have_an_ We_currently_have_an_income_of_{reg0}_crowns_and_costs_of_{reg1}_crowns_from_our_fiefs_and_garrisons.
+qstr_{s6}_We_are_losing_{r {s6}_We_are_losing_{reg0}_crowns_due_to_tax_inefficiency._That_means_{reg1}_percent.
+qstr_{s6}_Overall_this_sum {s6}_Overall_this_sums_up_to_{reg0}_crowns.
+qstr__We_are_expecting_{re _We_are_expecting_{reg0}_crowns_for_rents
+qstr__The_troop_wages_for_ _The_troop_wages_for_{reg0}_troops_cost_us_{reg1}_crowns.
+qstr_{s61}_and_{reg0}_cro {s61}_and_{reg0}_crowns_for_tariffs
+qstr_{s9}_asked_you_to_collec {s9}_asked_you_to_collect_the_debt_of_{reg4}_crowns_{s3}_owes_to_{reg65?her:him}._{s3}_was_at_{s4}_when_you_were_given_this_quest.
+qstr_Guildmaster_of_{s4}_g Guildmaster_of_{s4}_gave_you_{reg12}_crowns_to_pay_the_ransom_of_a_girl_kidnapped_by_bandits._You_are_to_meet_the_bandits_near_{s3}_and_pay_them_the_ransom_fee._After_that_you_are_to_bring_the_girl_back_to_{s4}.
+qstr_Guildmaster_of_{s4}_pr Guildmaster_of_{s4}_promised_you_{reg12}_crowns_if_you_can_make_sure_that_{s12}_and_{s13}_no_longer_pose_a_threat_to_a_peace_settlement_between_{s15}_and_{s14}._In_order_to_do_that,_you_must_either_convince_them_or_make_sure_they_fall_captive_and_remain_so_until_a_peace_agreement_is_made.
+qstr_Guildmaster_of_{s10}_ Guildmaster_of_{s10}_asked_you_to_move_a_cattle_herd_to_{s13}._You_will_earn_{reg8}_crowns_in_return.
+qstr_{s2}_now_has_{reg2}_c {s2}_now_has_{reg2}_crowns_from_raiding
+qstr_{s2}_now_has_{reg2}_cr {s2}_now_has_{reg2}_crowns_from_being_raided
+qstr_{s0}_collects_{reg0}_ {s0}_collects_{reg0}_crowns_from_{s4},_current_wealth:_{reg1}_crowns
+qstr_{s10}_upgrades_{s3}{s {s10}_upgrades_{s3}{s11}_(costing_{s1})_in_{s4},_{reg0}_crowns_remaining.
+qstr_{s1}_spends_time_in_{ {s1}_spends_time_in_{s2},_{reg1}_->_{reg2}_crowns
+qstr_You_now_owe_{reg2}_c You_now_owe_{reg2}_crowns_to_{s1}.
+qstr_{reg0}_crowns_added_ {reg0}_crowns_added_to_treasury.
+qstr_{reg0}_crowns_remove {reg0}_crowns_removed_from_treasury.
+qstr_{!}{s6}_of_the_{s5}_r {!}{s6}_of_the_{s5}_retains_the_remaining_{reg0}_crowns_(dplmc_faction_leader_splits_gold)
+qstr_You_sold_{reg1}_{reg3? You_sold_{reg1}_{reg3?items:item}_to_{s0}_and_gained_{reg0}_{reg3?crowns:crown}.
+qstr_You_sold_{reg1}_{reg3?i You_sold_{reg1}_{reg3?items:item}_to_the_{s0}_and_gained_{reg0}_{reg3?crowns:crown}.
+qstr_You_have_bought_{reg2 You_have_bought_{reg2}_{reg4?kinds:kind}_of_food_and_lost_{reg1}_{reg3?crowns:crown}.
+qstr_You_sold_{reg2}_{reg4 You_sold_{reg2}_{reg4?kinds:kind}_of_rotten_food_and_gained_{reg1}_{reg3?crowns:crown}.
+qstr_You_have_raised_{reg0 You_have_raised_{reg0}/{reg1}_crowns_for_the_ransom
+qstr_{reg77}_combatants {reg77}_combatants
+qstr_Wealth:_{reg0}_crown Wealth:_{reg0}_crowns
+qstr_Inventory:_{reg0}_cr Inventory:_{reg0}_crowns
+qstr_You_paid_{reg0}_crow You_paid_{reg0}_crowns_in_cash_to_liquidate_a_debt
+qstr_1000_crowns 1000_crowns
+qstr___{reg1}_crowns_per_ _({reg1}_crowns_per_night)
+qstr_^Buying_{s4}_here_and ^Buying_{s4}_here_and_selling_it_at_{s5}_would_bring_a_profit_of_{reg6}_crowns_per_item.{s3}
+qstr_Moreover_you_earn_{ Moreover,_you_earn_{reg8}_crowns_from_the_clever_bets_you_placed_on_yourself...
+qstr_Autolykos_Morale_Tri Autolykos_Morale_Triggered
+qstr_JH_Morale_Triggered JH_Morale_Triggered

@@ -80,11 +80,11 @@ itemsfile version 3
  0
 0
 
- itm_practice_axe Practice_Axe Practice_Axe 1  w_onehanded_war_axe 0  80019458 9223388530091229198 221 262164 1.500000 100 0 0 0 9 0 97 0 70 0 512 546
+ itm_practice_axe Practice_Axe Practice_Axe 1  w_onehanded_war_axe 0  80019458 9223388530091229198 221 262164 1.500000 100 0 0 0 0 0 97 0 70 0 512 546
  0
 0
 
- itm_arena_axe Axe Axe 1  w_onehanded_war_axe 0  80019458 9223388530091229198 221 262164 1.500000 100 0 0 0 9 0 97 0 70 0 512 546
+ itm_arena_axe Axe Axe 1  w_onehanded_war_axe 0  80019458 9223388530091229198 221 262164 1.500000 100 0 0 0 0 0 97 0 70 0 512 546
  0
 0
 
@@ -92,11 +92,11 @@ itemsfile version 3
  0
 0
 
- itm_arena_sword_two_handed Two_Handed_Sword Two_Handed_Sword 2  w_twohanded_talhoffer 0  w_twohanded_talhoffer_scabbard 3458764513820540928  6356995 9223635954365890800 998 155668 2.500000 100 0 0 0 11 0 95 0 115 0 547 552
+ itm_arena_sword_two_handed Two_Handed_Sword Two_Handed_Sword 2  w_twohanded_talhoffer 0  w_twohanded_talhoffer_scabbard 3458764513820540928  6356995 9223635954365890800 998 155668 2.500000 100 0 0 0 0 0 95 0 115 0 547 552
  0
 0
 
- itm_arena_lance Lance Lance 1  w_native_spear_b 0  9007202614706180 9236601360760176896 214 8202 2.500000 100 0 0 0 9 0 88 0 175 0 539 512
+ itm_arena_lance Lance Lance 1  w_native_spear_b 0  9007202614706180 9236601360760176896 214 8202 2.500000 100 0 0 0 0 0 88 0 175 0 539 512
  0
 0
 
@@ -104,7 +104,7 @@ itemsfile version 3
  0
 0
 
- itm_practice_lance Practice_Lance Practice_Lance 1  w_native_spear_b 0  9007202614706180 9236601360760176896 214 8202 2.500000 100 0 0 0 9 0 88 0 175 0 539 512
+ itm_practice_lance Practice_Lance Practice_Lance 1  w_native_spear_b 0  9007202614706180 9236601360760176896 214 8202 2.500000 100 0 0 0 0 0 88 0 175 0 539 512
  0
 0
 
@@ -313,27 +313,27 @@ itemsfile version 3
 1
 -50.000000  2 1964 3 1585267068834416189 0 0 1978 3 1585267068834416306 0 0 
 
- itm_tourney_helm_white Tourney_Helm_White Tourney_Helm_White 1  o_hood_narf_base 0  2147487500 0 760 704643238 2.750000 100 30 0 0 0 0 0 0 0 0 0 0
+ itm_tourney_helm_white Tourney_Helm_White Tourney_Helm_White 1  o_hood_narf_base 0  3852 0 760 704643238 2.750000 100 30 0 0 0 0 0 0 0 0 0 0
  0
 1
 -50.000000  2 1964 3 1585267068834416186 0 0 1978 3 1585267068834416307 0 0 
 
- itm_tourney_helm_red Tourney_Helm_Red Tourney_Helm_Red 1  o_hood_narf_base 0  2147487500 0 760 704643238 2.750000 100 30 0 0 0 0 0 0 0 0 0 0
+ itm_tourney_helm_red Tourney_Helm_Red Tourney_Helm_Red 1  o_hood_narf_base 0  3852 0 760 704643238 2.750000 100 30 0 0 0 0 0 0 0 0 0 0
  0
 1
 -50.000000  2 1964 3 1585267068834416186 0 0 1978 3 1585267068834416303 0 0 
 
- itm_tourney_helm_blue Tourney_Helm_Blue Tourney_Helm_Blue 1  o_hood_narf_base 0  2147487500 0 760 704643238 2.750000 100 30 0 0 0 0 0 0 0 0 0 0
+ itm_tourney_helm_blue Tourney_Helm_Blue Tourney_Helm_Blue 1  o_hood_narf_base 0  3852 0 760 704643238 2.750000 100 30 0 0 0 0 0 0 0 0 0 0
  0
 1
 -50.000000  2 1964 3 1585267068834416186 0 0 1978 3 1585267068834416304 0 0 
 
- itm_tourney_helm_green Tourney_Helm_Green Tourney_Helm_Green 1  o_hood_narf_base 0  2147487500 0 760 704643238 2.750000 100 30 0 0 0 0 0 0 0 0 0 0
+ itm_tourney_helm_green Tourney_Helm_Green Tourney_Helm_Green 1  o_hood_narf_base 0  3852 0 760 704643238 2.750000 100 30 0 0 0 0 0 0 0 0 0 0
  0
 1
 -50.000000  2 1964 3 1585267068834416186 0 0 1978 3 1585267068834416305 0 0 
 
- itm_tourney_helm_yellow Tourney_Helm_Yellow Tourney_Helm_Yellow 1  o_hood_narf_base 0  2147487500 0 760 704643238 2.750000 100 30 0 0 0 0 0 0 0 0 0 0
+ itm_tourney_helm_yellow Tourney_Helm_Yellow Tourney_Helm_Yellow 1  o_hood_narf_base 0  3852 0 760 704643238 2.750000 100 30 0 0 0 0 0 0 0 0 0 0
  0
 1
 -50.000000  2 1964 3 1585267068834416186 0 0 1978 3 1585267068834416306 0 0 
@@ -804,11 +804,11 @@ itemsfile version 3
  0
 0
 
- itm_ho_tournament_horse_barded_white_chamfrom Barded_Horse_with_Chamfrom Barded_Horse_with_Chamfrom 1  ho_horse_barded_white_chamfrom 0  65537 0 983 110595670016 0.000000 40 0 30 0 0 120 38 42 108 0 538 0
+ itm_ho_tournament_horse_barded_white_chamfrom Barded_Horse_with_Chamfrom Barded_Horse_with_Chamfrom 1  ho_horse_barded_white_chamfrom 0  1 0 983 110595670016 0.000000 40 0 30 0 0 120 38 42 108 0 538 0
  0
 0
 
- itm_ho_tournament_horse_barded_black_chamfrom Barded_Horse_with_Chamfrom Barded_Horse_with_Chamfrom 1  ho_horse_barded_black_chamfrom 0  65537 0 983 110595670016 0.000000 40 0 30 0 0 120 38 42 108 0 538 0
+ itm_ho_tournament_horse_barded_black_chamfrom Barded_Horse_with_Chamfrom Barded_Horse_with_Chamfrom 1  ho_horse_barded_black_chamfrom 0  1 0 983 110595670016 0.000000 40 0 30 0 0 120 38 42 108 0 538 0
  0
 0
 
@@ -2676,15 +2676,15 @@ itemsfile version 3
  0
 0
 
- itm_w_pike_1 Pike Pike 1  w_pike_1 0  9007199664013316 9236601360760176896 497 8202 3.500000 100 0 0 0 0 0 78 0 450 0 286 530
+ itm_w_pike_1 Pike Pike 1  w_pike_1 0  9007201811496964 9236601360760176896 497 8202 3.500000 100 0 0 0 0 0 78 0 450 0 286 530
  0
 0
 
- itm_w_pike_swiss_1 Swiss_Pike Swiss_Pike 1  w_pike_swiss_1 0  9007199664013316 9236601360760176896 344 8202 3.000000 100 0 0 0 0 0 82 0 255 0 289 539
+ itm_w_pike_swiss_1 Swiss_Pike Swiss_Pike 1  w_pike_swiss_1 0  9007201811496964 9236601360760176896 344 8202 3.000000 100 0 0 0 0 0 82 0 255 0 289 539
  0
 0
 
- itm_w_pike_swiss_2 Swiss_Pike Swiss_Pike 1  w_pike_swiss_2 0  9007199664013316 9236601360760176896 336 8202 3.000000 100 0 0 0 0 0 82 0 246 0 291 536
+ itm_w_pike_swiss_2 Swiss_Pike Swiss_Pike 1  w_pike_swiss_2 0  9007201811496964 9236601360760176896 336 8202 3.000000 100 0 0 0 0 0 82 0 246 0 291 536
  0
 0
 
@@ -3300,12 +3300,12 @@ itemsfile version 3
  0
 0
 
- itm_w_handgonne_1 Handgonne Handgonne 1  w_handgonne_1 0  6291473 555930353664 1850 0 4.500000 90 0 0 95 0 0 58 160 0 1 356 0
+ itm_w_handgonne_1 Handgonne Handgonne 1  w_handgonne_1 0  274726929 555930353664 1850 0 4.500000 90 0 0 95 0 0 16 160 0 1 356 0
  0
 1
 -51.000000  4 600 1 1152921504606847102 720 2 1 0 721 2 1 112 1969 3 1008806316530991133 1 15 
 
- itm_w_handgonne_2 Handgonne Handgonne 1  w_handgonne_2 0  6291473 555930353664 2230 0 3.800000 90 0 0 98 0 0 60 180 0 1 376 0
+ itm_w_handgonne_2 Handgonne Handgonne 1  w_handgonne_2 0  274726929 555930353664 2230 0 3.800000 90 0 0 98 0 0 20 180 0 1 376 0
  0
 1
 -51.000000  4 600 1 1152921504606847102 720 2 1 0 721 2 1 107 1969 3 1008806316530991133 1 15 
