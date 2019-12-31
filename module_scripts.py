@@ -83448,7 +83448,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
     (assign, ":num_allies_ready_men", 0),    
     (assign, ":num_enemies_ready_men", 0),
     (assign, "$number_of_combatants", 0),
-    (assign, reg77, 0),
+    #(assign, reg77, 0),
 
     (try_for_agents,":cur_agent"),
       (agent_is_human, ":cur_agent"),
@@ -83476,8 +83476,8 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
     (store_add, "$number_of_combatants", ":num_us_ready_men", ":num_allies_ready_men"),
     (val_add, "$number_of_combatants", ":num_enemies_ready_men"),
 
-    (assign, reg77, "$number_of_combatants"),
-    (display_message, "@{reg77} combatants", color_bad_news),
+    #(assign, reg77, "$number_of_combatants"),
+    #(display_message, "@{reg77} combatants", color_bad_news),
 
   ]),
 
