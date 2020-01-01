@@ -5373,7 +5373,7 @@ scripts = [
       (set_trigger_result, reg0),
   ]),
 
-  # script_game_get_join_cost #Kham modified with VC Version
+  # script_game_get_join_cost #Kham modified with VC Version # Seek modified for DAC
   # This script is called from the game engine for calculating troop join cost.
   # Input:
   # param1: troop_id,
@@ -5381,40 +5381,36 @@ scripts = [
   
   ("game_get_join_cost",
     [
-      (store_script_param_1, ":troop_id"),
+    (store_script_param_1, ":troop_id"),
       
-      (assign,":join_cost", 0),
-      (try_begin),
+    (assign,":join_cost", 0),
+    (try_begin),
         (troop_is_hero, ":troop_id"),
-      (else_try),
+    (else_try),
         (store_character_level, ":troop_level", ":troop_id"),
         (assign, ":join_cost", ":troop_level"),
-        (try_begin),
-          (eq, ":troop_level", 18),
-          (val_add, ":join_cost", 10),
-        (else_try),
-          (val_add, ":join_cost", 20),
-        (try_end),
+        (val_add, ":join_cost", 20),
         (val_mul, ":join_cost", ":join_cost"),
-        (val_add, ":join_cost", 400), #was 40
-        (val_div, ":join_cost", 5),
-        #JuJu70
+        (val_add, ":join_cost", 50), #was 40
+        (val_div, ":join_cost", 10),
+    #JuJu70
         (try_begin),
-          (troop_get_slot, ":player_renown", "trp_player", slot_troop_renown),
-          (ge, ":player_renown", 400),
-          (val_min, ":player_renown" ,1000),
-          (val_sub, ":player_renown", 100),
-          (val_div, ":player_renown", 10),
-          (val_sub, ":join_cost", ":player_renown"),
+            (troop_get_slot, ":player_renown", "trp_player", slot_troop_renown),
+            (ge, ":player_renown", 400),
+            (val_min, ":player_renown" ,1000),
+            (val_sub, ":player_renown", 100),
+            (val_div, ":player_renown", 20), #Seek: Was 10
+            (val_sub, ":join_cost", ":player_renown"),
         (try_end),
-        #JuJu70 end
-        (try_begin), #mounted troops cost %100 more than the normal cost chief cambia
-          (troop_is_mounted, ":troop_id"),
-          (val_mul, ":join_cost", 2),
+    #JuJu70 end
+        (try_begin), #mounted troops cost %50 more than the normal cost
+            (troop_is_mounted, ":troop_id"),
+            (val_mul, ":join_cost", 3),
+            (val_div, ":join_cost", 2),            
         (try_end),
-      (try_end),
-      (assign, reg0, ":join_cost"),
-      (set_trigger_result, reg0),
+    (try_end),
+    (assign, reg0, ":join_cost"),
+    (set_trigger_result, reg0),
   ]),
 
   # script_game_get_upgrade_xp
