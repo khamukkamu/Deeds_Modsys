@@ -734,7 +734,7 @@ scripts = [
 
     #SB : default parameters for post-battle continuation
     (call_script, "script_setup_camera_keys"),
-    (assign, "$g_dplmc_cam_default", camera_keyboard),
+    (assign, "$g_dplmc_cam_default", camera_mouse),
     (assign, "$g_dplmc_player_disguise", disguise_pilgrim),
     (assign, "$g_dplmc_charge_when_dead", 1),
 
@@ -70926,7 +70926,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
         (try_begin),
           (neg|is_between, "$g_dplmc_cam_default", camera_keyboard, camera_follow + 1),
           (call_script, "script_setup_camera_keys"),
-          (assign, "$g_dplmc_cam_default", camera_keyboard),
+          (assign, "$g_dplmc_cam_default", camera_mouse),
         (try_end),
 
         (get_player_agent_no, "$g_player_agent"),

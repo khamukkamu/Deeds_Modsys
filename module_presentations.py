@@ -18716,7 +18716,7 @@ presentations = [
                         (assign, "$g_dplmc_horse_speed", 0),
                         (assign, "$g_dplmc_battle_continuation", 0),
                         (assign, "$g_horses_are_avaliable", 10),
-                        (assign, "$g_dplmc_cam_default", camera_keyboard),
+                        (assign, "$g_dplmc_cam_default", camera_mouse),
                         (assign, "$g_dplmc_player_disguise", disguise_pilgrim),
                         (assign, "$sneaked_into_town", disguise_none), #associated with above
                         (assign, "$g_dplmc_charge_when_dead", 1),
