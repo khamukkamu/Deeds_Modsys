@@ -114,17 +114,28 @@ dac_lancer_fix_siege_test = (3, 0, 0, [(lt,"$dac_counter",3)],[ # need to repeat
 
 # Autolykos begin
 
+dac_count_num_combatants = (
+  10, 0, 0, [
+  (store_mission_timer_a, ":elapsed_time"),
+  (ge, ":elapsed_time", 5),
+  (call_script, "script_count_num_ready_combatants_in_field"),
+], [])
+
 simple_battle_morale_check = (
   3, 0, 0, [
   (store_mission_timer_a, ":mission_time_s"),
-  (ge, ":mission_time_s", 30),
+  (ge, ":mission_time_s", 12), #changed from 30 secs - DAC Kham
+  (gt, "$number_of_combatants", 250),
+  #(display_message, "@JH Morale Triggered"),
   (call_script, "script_decide_team_rout"),
     ], [])
     
 common_battle_morale_check = (
-  0.1, 0, 0, [
+  0.5, 0, 0, [ #changed from 0.1 - DAC Kham
   (store_mission_timer_a_msec,":mission_time_ms"),
-  (ge,":mission_time_ms",10000),
+  (ge,":mission_time_ms",12000), #changed from 10000 msec  - DAC Kham
+  (le, "$number_of_combatants", 250),
+  #(display_message, "@Autolykos Morale Triggered"),
   (store_div,":mission_time_s",":mission_time_ms",1000),
   (store_div,":mission_time_ticks",":mission_time_ms",100),
   (try_for_agents, ":agent_no"),
@@ -4099,8 +4110,12 @@ mission_templates = [
 
       #common_battle_order_panel,
       common_battle_order_panel_tick,
-      #simple_battle_morale_check,
+      dac_count_num_combatants,
+      simple_battle_morale_check,
       common_battle_morale_check,
+
+    # Debug
+    #(0,0,0,[(key_clicked,key_v)], [(call_script, "script_count_num_ready_combatants_in_field")]), 
 
     ]
     ##diplomacy begin
@@ -4175,7 +4190,8 @@ mission_templates = [
       common_battle_inventory,
       #common_battle_order_panel,
       common_battle_order_panel_tick,
-      #simple_battle_morale_check,
+      dac_count_num_combatants,
+      simple_battle_morale_check,
       common_battle_morale_check,
 
     ]
@@ -4316,7 +4332,8 @@ mission_templates = [
       common_battle_inventory,
       #common_battle_order_panel,
       common_battle_order_panel_tick,
-      #simple_battle_morale_check,
+      dac_count_num_combatants,
+      simple_battle_morale_check,
       common_battle_morale_check,
 
 ##      #AI Tiggers
@@ -9655,7 +9672,8 @@ mission_templates = [
           (call_script, "script_init_death_cam"), #SB : add camera
          ]),
 
-      #simple_battle_morale_check,
+      dac_count_num_combatants,
+      simple_battle_morale_check,
       common_battle_morale_check,
       common_music_situation_update,
       custom_battle_check_victory_condition,
@@ -18325,7 +18343,8 @@ mission_templates = [
 
       common_battle_inventory,
       common_battle_order_panel_tick,
-      #simple_battle_morale_check,
+      dac_count_num_combatants,
+      simple_battle_morale_check,
       common_battle_morale_check,
 
     ]
