@@ -1,4 +1,4 @@
-1753
+1755
 qstr_Next_Page Next_Page
 qstr_Game_Rules:^ Game_Rules:^
 qstr_0 0
@@ -1752,3 +1752,5 @@ qstr_^Buying_{s4}_here_and ^Buying_{s4}_here_and_selling_it_at_{s5}_would_bring_
 qstr_Moreover_you_earn_{ Moreover,_you_earn_{reg8}_crowns_from_the_clever_bets_you_placed_on_yourself...
 qstr_Autolykos_Morale_Tri Autolykos_Morale_Triggered
 qstr_JH_Morale_Triggered JH_Morale_Triggered
+qstr_Start_battle_holding Start_battle_holding_position.
+qstr_Charge_the_enemy. Charge_the_enemy.
