@@ -67371,21 +67371,21 @@ scripts = [
 			#Otherwise set mode to 0, to always use the cultural alternative
 			(assign, ":mode", 0),
 		(try_end),
-
-		(try_begin),
-			(eq, ":speaker_faction", "fac_kingdom_2"),
-			(eq, ":mode", 0),#From feast: 50% chance of falling through to "wine"
-			(str_store_string, ":string_register", "@kvass"),#Vaegirs: kvass
-		(else_try),
-			(eq, ":speaker_faction", "fac_kingdom_3"),
-			(eq, ":mode", 0),#From feast: 50% chance of falling through to "wine"
-			(str_store_string, ":string_register", "@kumis"),#Khergits: kumis
-		(else_try),
-			(eq, ":speaker_faction", "fac_kingdom_4"),
-			(str_store_string, ":string_register", "@mead"),#Nords: mead
-		(else_try),
+# DAC Seek: Wine is just fine
+		# (try_begin),
+			# (eq, ":speaker_faction", "fac_kingdom_2"),
+			# (eq, ":mode", 0),#From feast: 50% chance of falling through to "wine"
+			# (str_store_string, ":string_register", "@kvass"),#Vaegirs: kvass
+		# (else_try),
+			# (eq, ":speaker_faction", "fac_kingdom_3"),
+			# (eq, ":mode", 0),#From feast: 50% chance of falling through to "wine"
+			# (str_store_string, ":string_register", "@kumis"),#Khergits: kumis
+		# (else_try),
+			# (eq, ":speaker_faction", "fac_kingdom_4"),
+			# (str_store_string, ":string_register", "@mead"),#Nords: mead
+		# (else_try),
 			(str_store_string, ":string_register", "@wine"),#Default: wine
-		(try_end),
+		# (try_end),
     (else_try),
 	#Error string
         (assign, ":save_reg0", reg0),

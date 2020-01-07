@@ -244,6 +244,7 @@ meshes = [
   ("tableau_mesh_heraldic_armor_d", 0, "tableau_mesh_heraldic_armor_d",  0, 0, 0, 0, 0, 0, 1, 1, 1),
   
  ### HYW Heraldic Armors Begin
+  ("tableau_mesh_heraldic_penon", 0, "tableau_mesh_heraldic_penon",  0, 0, 0, 0, 0, 0, 1, 1, 1),
   ("tableau_mesh_heraldic_churburg_13_tabard_banner", 0, "tableau_mesh_heraldic_churburg_13_tabard_banner",  0, 0, 0, 0, 0, 0, 1, 1, 1),
   ("tableau_mesh_heraldic_churburg_13_tabard", 0, "tableau_mesh_heraldic_churburg_13_tabard",  0, 0, 0, 0, 0, 0, 1, 1, 1),
   ("tableau_mesh_heraldic_churburg_13_brass_tabard_banner", 0, "tableau_mesh_heraldic_churburg_13_brass_tabard_banner",  0, 0, 0, 0, 0, 0, 1, 1, 1),
