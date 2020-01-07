@@ -42683,7 +42683,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
         (val_add, ":result_prosperity", 1),
         (val_add, ":result_relation", 1),
       (try_end),
-      (troop_remove_item, "itm_grain", 1),
+      (troop_remove_item, "trp_player", "itm_grain"),
       (val_sub, ":quest_target_amount", 1),
       (lt, ":quest_target_amount", 1),
       (assign, ":inv_size", 0), #break
