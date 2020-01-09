@@ -1,4 +1,4 @@
-1755
+1761
 qstr_Next_Page Next_Page
 qstr_Game_Rules:^ Game_Rules:^
 qstr_0 0
@@ -1754,3 +1754,9 @@ qstr_Autolykos_Morale_Tri Autolykos_Morale_Triggered
 qstr_JH_Morale_Triggered JH_Morale_Triggered
 qstr_Start_battle_holding Start_battle_holding_position.
 qstr_Charge_the_enemy. Charge_the_enemy.
+qstr_w_lance_1 w_lance_1
+qstr_w_lance_2 w_lance_2
+qstr_w_lance_3 w_lance_3
+qstr_w_lance_4 w_lance_4
+qstr_w_lance_5 w_lance_5
+qstr_w_lance_6 w_lance_6

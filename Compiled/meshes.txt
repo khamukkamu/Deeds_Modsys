@@ -1,4 +1,4 @@
-543
+544
 mesh_pic_bandits 0 pic_bandits 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 1.000000 1.000000
 mesh_pic_mb_warrior_1 0 ini_pic_mb_warrior_1 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 0.600000 1.000000 0.800000
 mesh_pic_messenger 0 pic_messenger 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 1.000000 1.000000
@@ -211,6 +211,7 @@ mesh_tableau_mesh_heraldic_armor_a 0 tableau_mesh_heraldic_armor_a 0.000000 0.00
 mesh_tableau_mesh_heraldic_armor_b 0 tableau_mesh_heraldic_armor_b 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 1.000000 1.000000
 mesh_tableau_mesh_heraldic_armor_c 0 tableau_mesh_heraldic_armor_c 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 1.000000 1.000000
 mesh_tableau_mesh_heraldic_armor_d 0 tableau_mesh_heraldic_armor_d 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 1.000000 1.000000
+mesh_tableau_mesh_heraldic_penon 0 tableau_mesh_heraldic_penon 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 1.000000 1.000000
 mesh_tableau_mesh_heraldic_churburg_13_tabard_banner 0 tableau_mesh_heraldic_churburg_13_tabard_banner 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 1.000000 1.000000
 mesh_tableau_mesh_heraldic_churburg_13_tabard 0 tableau_mesh_heraldic_churburg_13_tabard 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 1.000000 1.000000
 mesh_tableau_mesh_heraldic_churburg_13_brass_tabard_banner 0 tableau_mesh_heraldic_churburg_13_brass_tabard_banner 0.000000 0.000000 0.000000 0.000000 0.000000 0.000000 1.000000 1.000000 1.000000
