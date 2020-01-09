@@ -383,7 +383,7 @@ tableaus = [
        ]),		 
 
  ################### DAC HERALDRY Begin	
-  ("heraldic_penon", 0, "sample_shield_matte", 256, 512, 0, 0, 0, 0,
+  ("heraldic_penon", 0, "tableau_heraldic_penon", 256, 512, 0, 0, 0, 0,
    [
        (store_script_param, ":banner_mesh", 1),
 
