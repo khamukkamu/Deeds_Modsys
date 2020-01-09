@@ -44838,6 +44838,46 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 ## CC view regular's equipment
 ##diplomacy end+
 
+# DAC - Autolykos' upgrade troops with items
+  # Upgrade with items
+  [anyone|plyr,"regular_member_talk", [(ge,"$upgrade_troops_with_items",1),
+									   (neg|troop_is_hero, "$g_talk_troop"),
+									   (main_party_has_troop, "$g_talk_troop"), # just in case
+									   (troop_slot_ge, "$g_talk_troop", slot_soldier_elite_upgrade_to, 1),
+									   (troop_get_slot, ":required_item", "$g_talk_troop", slot_soldier_elite_upgrade_with),
+									   (is_between,":required_item",1,all_items_end), (player_has_item, ":required_item"),
+									   (str_store_item_name, s1, ":required_item"),
+  ], "I would like for you to use a {s1}.", "regular_member_give_item",[]],
+  # [anyone,"regular_member_give_item", [(troop_get_slot, ":upgrade_troop", "$g_talk_troop", slot_soldier_elite_upgrade_to),
+									   # (store_character_level, ":current_level", "$g_talk_troop"),
+									   # (store_character_level, ":upgrade_level", ":upgrade_troop"),
+									   # (lt, ":upgrade_level", ":current_level"),
+  # ], "I do, but I think I would be more effective with my current equipment. You really want me to take it?", "regular_member_give_item_confirm",[]],
+  [anyone,"regular_member_give_item", [], "It would be my honour {sir/madam}, are you sure?", "regular_member_give_item_confirm",[]],
+  [anyone|plyr,"regular_member_give_item_confirm", [], "Yes, it's yours now.", "regular_member_give_item_done",[(assign,reg1,1)]],
+  # [anyone|plyr,"regular_member_give_item_confirm", [
+										# (troop_get_slot, ":required_item", "$g_talk_troop", slot_soldier_elite_upgrade_with),
+										# (store_item_kind_count, ":num_items", ":required_item", "trp_player"),
+										# (party_count_members_of_type, reg2, "p_main_party", "$g_talk_troop"),
+										# (lt, reg2, ":num_items"),
+										# (gt, reg2, 1),
+  # ], "Here's {reg2} of them. Give one to each of your comrades.", "regular_member_give_item_done",[(assign,reg1,reg2)]],
+  # [anyone|plyr,"regular_member_give_item_confirm", [
+										# (troop_get_slot, ":required_item", "$g_talk_troop", slot_soldier_elite_upgrade_with),
+										# (party_count_members_of_type, ":num_troops", "p_main_party", "$g_talk_troop"),
+										# (store_item_kind_count, reg3, ":required_item", "trp_player"),
+										# (le, reg3, ":num_troops"),
+										# (gt, reg3, 1),
+  # ], "I have {reg3} of them. Distribute them among your comrades.", "regular_member_give_item_done",[(assign,reg1,reg3)]],
+  [anyone,"regular_member_give_item_done", [], "As you wish, {sir/madam}.", "close_window",[
+										(troop_get_slot, ":required_item", "$g_talk_troop", slot_soldier_elite_upgrade_with),
+										(troop_get_slot, ":upgrade_troop", "$g_talk_troop", slot_soldier_elite_upgrade_to),
+										(troop_remove_items, "trp_player", ":required_item", reg1),
+										(party_remove_members, "p_main_party", "$g_talk_troop", reg1),
+										(party_add_members, "p_main_party", ":upgrade_troop", reg1),
+									   ]],
+  [anyone|plyr,"regular_member_give_item_confirm", [], "Never mind.", "regular_member_pretalk",[]],
+
   [anyone|plyr,"regular_member_talk", [], "Nothing. Keep moving.", "close_window",[]],
 
 

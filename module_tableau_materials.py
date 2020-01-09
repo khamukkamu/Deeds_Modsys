@@ -397,7 +397,23 @@ tableaus = [
        (position_set_z, pos1, 100),
        (cur_tableau_add_mesh, "mesh_tableau_mesh_heraldic_penon", pos1, 0, 0),
        (cur_tableau_set_camera_parameters, 0, 200, 200, 0, 100000),
-       ]),		 
+       ]),	
+
+  ("heraldic_banner", 0, "tableau_heraldic_banner", 256, 512, 0, 0, 0, 0,
+   [
+       (store_script_param, ":banner_mesh", 1),
+
+       (set_fixed_point_multiplier, 100),
+
+       (init_position, pos1),
+       (position_set_x, pos1, -25),
+       (position_set_y, pos1, 200),
+       (cur_tableau_add_mesh, ":banner_mesh", pos1, 200, 0),
+       (init_position, pos1),
+       (position_set_z, pos1, 100),
+       (cur_tableau_add_mesh, "mesh_tableau_mesh_heraldic_banner", pos1, 0, 0),
+       (cur_tableau_set_camera_parameters, 0, 200, 200, 0, 100000),
+       ]),       
  
   ("heraldic_armor_a", 0, "sample_heraldic_armor_a", 512, 512, 0, 0, 0, 0,
    [

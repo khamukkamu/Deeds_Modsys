@@ -768,6 +768,7 @@ scripts = [
 
     (call_script, "script_initialize_custom_armor_data"), 
     (call_script, "script_init_weapon_switching"),	
+    (call_script, "script_initialize_troop_elite_upgrades"),	
 
     ]),
 
@@ -8083,6 +8084,7 @@ scripts = [
           (faction_set_slot, ":faction_no",  slot_faction_reinforcements_b, "pt_kingdom_1_reinforcements_b"),
           (faction_set_slot, ":faction_no",  slot_faction_reinforcements_c, "pt_kingdom_1_reinforcements_c"),
           (faction_set_slot, ":faction_no",  slot_faction_reinforcements_d, "pt_kingdom_1_reinforcements_d"),
+          (faction_set_slot, ":faction_no",  slot_faction_reinforcements_e, "pt_kingdom_1_reinforcements_e"),
         (else_try),
           (faction_slot_eq, ":faction_no", slot_faction_culture, "fac_culture_2"),
           
@@ -8095,6 +8097,7 @@ scripts = [
           (faction_set_slot, ":faction_no",  slot_faction_reinforcements_b, "pt_kingdom_2_reinforcements_b"),
           (faction_set_slot, ":faction_no",  slot_faction_reinforcements_c, "pt_kingdom_2_reinforcements_c"),
           (faction_set_slot, ":faction_no",  slot_faction_reinforcements_d, "pt_kingdom_2_reinforcements_d"),
+          (faction_set_slot, ":faction_no",  slot_faction_reinforcements_e, "pt_kingdom_2_reinforcements_e"),
           
         (else_try),
           (faction_slot_eq, ":faction_no", slot_faction_culture, "fac_culture_3"),
@@ -8108,6 +8111,7 @@ scripts = [
           (faction_set_slot, ":faction_no",  slot_faction_reinforcements_b, "pt_kingdom_3_reinforcements_b"),
           (faction_set_slot, ":faction_no",  slot_faction_reinforcements_c, "pt_kingdom_3_reinforcements_c"),
           (faction_set_slot, ":faction_no",  slot_faction_reinforcements_d, "pt_kingdom_3_reinforcements_d"),
+          (faction_set_slot, ":faction_no",  slot_faction_reinforcements_e, "pt_kingdom_3_reinforcements_e"),
           
         (else_try),
           (faction_slot_eq, ":faction_no", slot_faction_culture, "fac_culture_4"),
@@ -8121,6 +8125,7 @@ scripts = [
           (faction_set_slot, ":faction_no",  slot_faction_reinforcements_b, "pt_kingdom_4_reinforcements_b"),
           (faction_set_slot, ":faction_no",  slot_faction_reinforcements_c, "pt_kingdom_4_reinforcements_c"),
           (faction_set_slot, ":faction_no",  slot_faction_reinforcements_d, "pt_kingdom_4_reinforcements_d"),
+          (faction_set_slot, ":faction_no",  slot_faction_reinforcements_e, "pt_kingdom_4_reinforcements_e"),
         # (else_try),
           # (faction_slot_eq, ":faction_no", slot_faction_culture, "fac_culture_5"),
 
@@ -26558,6 +26563,7 @@ scripts = [
       (faction_get_slot, ":party_template_b", ":party_faction", slot_faction_reinforcements_b),
       (faction_get_slot, ":party_template_c", ":party_faction", slot_faction_reinforcements_c),
       (faction_get_slot, ":party_template_d", ":party_faction", slot_faction_reinforcements_d),	  
+      (faction_get_slot, ":party_template_e", ":party_faction", slot_faction_reinforcements_e),	  
 
       (assign, ":party_template", 0),
       (store_random_in_range, ":rand", 0, 100),
@@ -26614,7 +26620,13 @@ scripts = [
 
       (try_begin),
         (gt, ":party_template", 0),
-        (party_add_template, ":party_no", ":party_template"),
+            (try_begin),
+                (eq, ":party_template", ":party_template_d"),
+                (party_add_template, ":party_no", ":party_template"),
+                (party_add_template, ":party_no", ":party_template_e"),
+            (else_try),
+                (party_add_template, ":party_no", ":party_template"),
+            (try_end),
       (try_end),
   ]),
 
@@ -77829,8 +77841,8 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
           (troop_add_item, "trp_player","itm_heraldic_mail_tabard",0),
           (troop_add_item, "trp_player","itm_b_mail_chausses",0),
           (troop_add_item, "trp_player","itm_h_bascinet_fi_hood_custom",0),
-          (troop_add_item, "trp_player","itm_tab_shield_kite_c",0),
-          (troop_add_item, "trp_player","itm_w_native_spear_b",0),
+          (troop_add_item, "trp_player","itm_heraldic_banner",0),
+          # (troop_add_item, "trp_player","itm_w_native_spear_b",0),
           (troop_add_item, "trp_player","itm_w_onehanded_sword_knight_2",0),
           (troop_add_item, "trp_player","itm_g_mail_gauntlets",0),
           (troop_add_item, "trp_player","itm_ho_rouncey_1",0),
@@ -81124,6 +81136,39 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
     (try_end),
   (assign, reg0, ":removed"),
 ]),
+
+####################################################################################################################
+# DAC - Autolykos Upgrade Units with Items
+####################################################################################################################
+
+
+    ("initialize_troop_elite_upgrades",
+    [	(assign,"$upgrade_troops_with_items",1),
+	
+		# Heraldic Banner
+		# French Bannermen
+		(troop_set_slot, "trp_french_chevalier_banneret_a_pied",	slot_soldier_elite_upgrade_to,	"trp_french_bannerman"),
+		(troop_set_slot, "trp_french_chevalier_banneret_a_pied",	slot_soldier_elite_upgrade_with,"itm_heraldic_banner"),
+		(troop_set_slot, "trp_french_chevalier_banneret",		slot_soldier_elite_upgrade_to,	"trp_french_bannerman_mounted"),
+		(troop_set_slot, "trp_french_chevalier_banneret",		slot_soldier_elite_upgrade_with,"itm_heraldic_banner"),
+		# English Bannermen
+		(troop_set_slot, "trp_english_dismounted_knight",		slot_soldier_elite_upgrade_to,	"trp_english_bannerman"),
+		(troop_set_slot, "trp_english_dismounted_knight",		slot_soldier_elite_upgrade_with,"itm_heraldic_banner"),
+		(troop_set_slot, "trp_english_heavy_knight",		slot_soldier_elite_upgrade_to,	"trp_english_bannerman_mounted"),
+		(troop_set_slot, "trp_english_heavy_knight",		slot_soldier_elite_upgrade_with,"itm_heraldic_banner"),
+		# Burgundian Bannermen
+		(troop_set_slot, "trp_burgundian_elite_guard",			slot_soldier_elite_upgrade_to, "trp_burgundian_bannerman"),
+		(troop_set_slot, "trp_burgundian_elite_guard",			slot_soldier_elite_upgrade_with, "itm_heraldic_banner"),
+		(troop_set_slot, "trp_burgundian_heavy_knight",			slot_soldier_elite_upgrade_to, "trp_burgundian_bannerman_mounted"),
+		(troop_set_slot, "trp_burgundian_heavy_knight",			slot_soldier_elite_upgrade_with, "itm_heraldic_banner"),
+		# Breton Bannermen
+		(troop_set_slot, "trp_breton_dismounted_noble",		slot_soldier_elite_upgrade_to,	"trp_breton_bannerman"),
+		(troop_set_slot, "trp_breton_dismounted_noble",		slot_soldier_elite_upgrade_with,"itm_heraldic_banner"),
+		(troop_set_slot, "trp_breton_heavy_knight",         slot_soldier_elite_upgrade_to,"trp_breton_bannerman_mounted"),
+		(troop_set_slot, "trp_breton_heavy_knight",         slot_soldier_elite_upgrade_with,"itm_heraldic_banner"),
+
+
+	]),
 
 ####################################################################################################################
 # DAC - Autolykos alternate weapon modes

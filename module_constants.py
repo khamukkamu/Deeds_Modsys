@@ -175,6 +175,7 @@ slot_faction_political_issue_time 						 = 65 #Now is used
 
 
 #slot_faction_deserter_party_template       = 62
+slot_faction_reinforcements_e        = 75
 slot_faction_reinforcements_d        = 76
 slot_faction_reinforcements_a        = 77
 slot_faction_reinforcements_b        = 78
@@ -1162,6 +1163,13 @@ cb4_greed  = 6
 enctype_fighting_against_village_raid = 1
 enctype_catched_during_village_raid   = 2
 
+########################################################
+##  REGULAR TROOP SLOTS            #####################
+########################################################
+
+# Using items to upgrade (or sidegrade) troops
+slot_soldier_elite_upgrade_to		= 10
+slot_soldier_elite_upgrade_with		= 11
 
 ### Troop occupations slot_troop_occupation
 ##slto_merchant           = 1
