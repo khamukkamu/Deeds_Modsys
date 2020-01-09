@@ -1919,18 +1919,18 @@ common_siege_attacker_reinforcement_check = (
     (val_add,"$attacker_reinforcement_stage", 1),
     ])
 
-common_siege_attacker_do_not_stall = (
-  5, 0, 0, [],
-  [ #Make sure attackers do not stall on the ladders...
-    (try_for_agents, ":agent_no"),
-      (agent_is_human, ":agent_no"),
-      (agent_is_alive, ":agent_no"),
-      (agent_get_team, ":agent_team", ":agent_no"),
-      (this_or_next|eq, ":agent_team", "$attacker_team"),
-      (eq, ":agent_team", "$attacker_team_2"),
-      (agent_ai_set_always_attack_in_melee, ":agent_no", 1),
-    (try_end),
-    ])
+#common_siege_attacker_do_not_stall = (
+#  5, 0, 0, [],
+#  [ #Make sure attackers do not stall on the ladders...
+#    (try_for_agents, ":agent_no"),
+#      (agent_is_human, ":agent_no"),
+#      (agent_is_alive, ":agent_no"),
+#      (agent_get_team, ":agent_team", ":agent_no"),
+#      (this_or_next|eq, ":agent_team", "$attacker_team"),
+#      (eq, ":agent_team", "$attacker_team_2"),
+#      (agent_ai_set_always_attack_in_melee, ":agent_no", 1),
+#    (try_end),
+#    ])
 
 common_battle_check_friendly_kills = (
   2, 0, 0, [],
@@ -2051,26 +2051,48 @@ common_siege_init_ai_and_belfry = (
     (call_script, "script_siege_init_ai_and_belfry"),
     ], [])
 
+#run every frame for smooth wheel rotation
 common_siege_move_belfry = (
   0, 0, ti_once,
   [
     (call_script, "script_cf_siege_move_belfry"),
-    ], [])
-
-common_siege_rotate_belfry = (
-  0, 2, ti_once,
-  [
-    (call_script, "script_cf_siege_rotate_belfry_platform"),
-    ],
-  [
-    (assign, "$belfry_positioned", 3),
+    ], [ #modified from native
+    (call_script, "script_siege_rot_belfry_platform")
     ])
 
+#common_siege_rotate_belfry = (
+#  0, 2, ti_once,
+#  [
+#    (call_script, "script_cf_siege_rotate_belfry_platform"),
+#    ],
+#  [
+#    (assign, "$belfry_positioned", 3),
+#    ])
+
+#the belfry siege mechanism allows 20 seconds after mission start before archer are also allowed to push
+#the middle agent loop allows for infantry or cavalry to contribute
+#identical destinations allow for a tighter formation of 12, 2 at front, 1 mid, and 3 back
+#the player is also allowed to push (higher strenght = faster), although standing on any of the belfry props will cause this to fail
 common_siege_assign_men_to_belfry = (
-  0, 0, ti_once,
-  [
-    (call_script, "script_cf_siege_assign_men_to_belfry"),
-    ], [])
+  4, 0, ti_once,
+  [(call_script, "script_cf_siege_assign_men_to_belfry")],
+    [
+      (try_for_agents, ":cur_agent"),
+        (agent_is_active, ":cur_agent"),
+        (agent_is_alive, ":cur_agent"),
+        (agent_is_human, ":cur_agent"),
+        (agent_clear_scripted_mode, ":cur_agent"),
+        #turns out the stall script really doesn't do anything
+        (agent_ai_set_always_attack_in_melee, ":cur_agent", 0),
+        (agent_set_speed_limit, ":cur_agent", 100),
+      (try_end),
+      (set_show_messages, 0),
+      #clears out stand ground order
+      (team_give_order, "$attacker_team", grc_everyone, mordr_charge),
+      #makes sure they do not stall on ladder
+      (team_give_order, "$attacker_team", grc_everyone, mordr_use_melee_weapons),
+      (set_show_messages, 1),
+    ])
 
 tournament_triggers_diplo = [
   (ti_before_mission_start, 0, 0, [], [(call_script, "script_change_banners_and_chest"),
@@ -4860,7 +4882,7 @@ mission_templates = [
       common_siege_defender_reinforcement_check,
       common_siege_defender_reinforcement_archer_reposition,
       common_siege_attacker_reinforcement_check,
-      common_siege_attacker_do_not_stall,
+      #common_siege_attacker_do_not_stall,
       common_battle_check_friendly_kills,
       common_battle_check_victory_condition,
       common_battle_victory_display,
@@ -4871,7 +4893,7 @@ mission_templates = [
       common_inventory_not_available,
       common_siege_init_ai_and_belfry,
       common_siege_move_belfry,
-      common_siege_rotate_belfry,
+      #common_siege_rotate_belfry,
       common_siege_assign_men_to_belfry,
     ]
     ##diplomacy begin
@@ -4910,7 +4932,7 @@ mission_templates = [
       common_siege_defender_reinforcement_check,
       common_siege_defender_reinforcement_archer_reposition,
       common_siege_attacker_reinforcement_check,
-      common_siege_attacker_do_not_stall,
+      #common_siege_attacker_do_not_stall,
       common_battle_check_friendly_kills,
       common_battle_check_victory_condition,
       common_battle_victory_display,
@@ -9769,11 +9791,11 @@ mission_templates = [
       custom_battle_check_victory_condition,
       common_battle_victory_display,
       custom_battle_check_defeat_condition,
-      common_siege_attacker_do_not_stall,
+      #common_siege_attacker_do_not_stall,
       common_siege_refill_ammo,
       common_siege_init_ai_and_belfry,
       common_siege_move_belfry,
-      common_siege_rotate_belfry,
+      #common_siege_rotate_belfry,
       common_siege_assign_men_to_belfry,
       common_siege_ai_trigger_init_2,
       ],
