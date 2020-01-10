@@ -1,4 +1,4 @@
-1761
+1771
 qstr_Next_Page Next_Page
 qstr_Game_Rules:^ Game_Rules:^
 qstr_0 0
@@ -1760,3 +1760,13 @@ qstr_w_lance_3 w_lance_3
 qstr_w_lance_4 w_lance_4
 qstr_w_lance_5 w_lance_5
 qstr_w_lance_6 w_lance_6
+qstr_w_light_lance w_light_lance
+qstr_w_native_spear_b w_native_spear_b
+qstr_w_native_spear_f w_native_spear_f
+qstr_w_lance_colored_engl w_lance_colored_english_1
+qstr_w_lance_colored_engli w_lance_colored_english_2
+qstr_w_lance_colored_englis w_lance_colored_english_3
+qstr_w_lance_colored_fren w_lance_colored_french_1
+qstr_w_lance_colored_frenc w_lance_colored_french_2
+qstr_w_lance_colored_french w_lance_colored_french_3
+qstr_heraldic_banner_base heraldic_banner_base

@@ -527,8 +527,8 @@ formAI_scripts = [
               #adjust spacing for long swung weapons
               (store_add, ":slot", slot_team_d0_swung_weapon_length, grc_infantry),
               (team_get_slot, ":spacing", ":team_no", ":slot"),
-              (val_add, ":spacing", 25),	#rounding for 50cm
-              (val_div, ":spacing", 50),
+              #(val_add, ":spacing", 25),	#rounding for 50cm DAC Kham: commented out
+              (val_div, ":spacing", 100), #DAC Kham: was 50
               (store_add, ":slot", slot_team_d0_formation_space, grc_infantry),
               (team_set_slot, ":team_no", ":slot", ":spacing"),
               
