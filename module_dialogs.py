@@ -37839,10 +37839,10 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   #SB : minstrels
   [anyone|plyr, "tavern_traveler_talk", [], "I am looking for minstrels...", "tavern_traveler_minstrel_location", []],
 
-  [anyone, "tavern_traveler_minstrel_location",
-    [
-        (call_script, "script_cf_no_known_taverngoers", tavern_minstrels_begin, tavern_minstrels_end),
-    ], "I am sorry, I'm not really a big fan of their music.", "tavern_traveler_pretalk", []],
+  #[anyone, "tavern_traveler_minstrel_location",
+  #  [
+  #      (call_script, "script_cf_no_known_taverngoers", tavern_minstrels_begin, tavern_minstrels_end),
+  #  ], "I am sorry, I'm not really a big fan of their music.", "tavern_traveler_pretalk", []],
 
   [anyone, "tavern_traveler_minstrel_location", [], "I might have heard some ribald songs recently. For 30 crowns, I'll tell you where.", "tavern_traveler_minstrel_location_ask_money", []],
 
@@ -37865,10 +37865,10 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   #SB : change the following to use new utility scripts
   [anyone|plyr, "tavern_traveler_talk", [], "I am looking for book merchants...", "tavern_traveler_bookseller_location", []],
 
-  [anyone, "tavern_traveler_bookseller_location",
-    [
-        (call_script, "script_cf_no_known_taverngoers", tavern_booksellers_begin, tavern_booksellers_end),
-    ], "I am sorry I haven't run across any lately.", "tavern_traveler_pretalk", []],
+  #[anyone, "tavern_traveler_bookseller_location",
+  #  [
+  #      (call_script, "script_cf_no_known_taverngoers", tavern_booksellers_begin, tavern_booksellers_end),
+  #  ], "I am sorry I haven't run across any lately.", "tavern_traveler_pretalk", []],
 
   [anyone, "tavern_traveler_bookseller_location", [], "I might have crossed paths with one or two recently. For 100 crowns, I'll tell you where.", "tavern_traveler_bookseller_location_ask_money", []],
 
@@ -37910,10 +37910,10 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 
   [anyone|plyr, "tavern_traveler_talk", [], "I am looking for ransom brokers...", "tavern_traveler_ransom_broker_location", []],
 
-  [anyone, "tavern_traveler_ransom_broker_location",
-    [
-      (call_script, "script_cf_no_known_taverngoers", ransom_brokers_begin, ransom_brokers_end),
-    ], "I am sorry I haven't run across any lately.", "tavern_traveler_pretalk", []],
+  #[anyone, "tavern_traveler_ransom_broker_location",
+  #  [
+  #    (call_script, "script_cf_no_known_taverngoers", ransom_brokers_begin, ransom_brokers_end),
+  #  ], "I am sorry I haven't run across any lately.", "tavern_traveler_pretalk", []],
 
   [anyone, "tavern_traveler_ransom_broker_location", [], "I know where they are. For 50 crowns, I'll tell you.", "tavern_traveler_ransom_broker_location_ask_money", []],
 

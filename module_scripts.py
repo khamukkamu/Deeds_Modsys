@@ -40566,7 +40566,7 @@ scripts = [
        (assign, ":limit", 20),
        (try_for_range, ":unused", 0, ":limit"), #also exclude Tihr since it has Ramun
           (store_random_in_range, ":town_no", towns_begin, towns_end),
-          (neq, ":town_no", "p_town_2"),
+          #(neq, ":town_no", "p_town_2"), #DAC Kham: Remove Ramun
           #also exclude centers under siege
           (neg|party_slot_ge, ":town_no", slot_center_is_besieged_by, 1),
           (party_get_num_prisoners, ":prisoner_count", ":town_no"),
@@ -40579,7 +40579,7 @@ scripts = [
        (party_set_slot, ":town_no", slot_center_ransom_broker, ":troop_no"),
      (try_end),
 
-     (party_set_slot,"p_town_2",slot_center_ransom_broker,"trp_ramun_the_slave_trader"),
+     #(party_set_slot,"p_town_2",slot_center_ransom_broker,"trp_ramun_the_slave_trader"), DAC Kham: Remove Ramun
      ]),
 
   #script_update_tavern_travellers
