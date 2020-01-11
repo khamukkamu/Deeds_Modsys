@@ -31201,6 +31201,32 @@ scripts = [
         (val_sub, ":new_morale", "$g_player_party_morale_modifier_debt"),
       (try_end),
 
+      # DAC Kham: Morale Bonus for having banner men
+      (party_get_num_companion_stacks, ":num_stacks_2","p_main_party"), #Yea, redundant, but I like being sure.
+      (assign, ":num_banners", 0),
+      (try_for_range, ":i_stack_2", 1, ":num_stacks_2"),
+        (party_stack_get_troop_id, ":stack_troop_2","p_main_party",":i_stack_2"),
+        (this_or_next|eq, ":stack_troop_2", "trp_french_bannerman"),
+        (this_or_next|eq, ":stack_troop_2", "trp_french_bannerman_mounted"),
+        (this_or_next|eq, ":stack_troop_2", "trp_english_bannerman"),
+        (this_or_next|eq, ":stack_troop_2", "trp_english_bannerman_mounted"),
+        (this_or_next|eq, ":stack_troop_2", "trp_burgundian_bannerman"),
+        (this_or_next|eq, ":stack_troop_2", "trp_burgundian_bannerman_mounted"),
+        (this_or_next|eq, ":stack_troop_2", "trp_breton_bannerman"),
+        (             eq, ":stack_troop_2", "trp_breton_bannerman_mounted"),
+        (party_stack_get_size, ":stack_size_2", "p_main_party", ":i_stack_2"),
+        (val_add, ":num_banners", ":stack_size_2"),
+      (try_end),
+
+      (try_begin),
+        (gt, ":num_banners", 0),
+        (val_min, ":num_banners", 1, 5),
+        (store_mul, ":banner_bonus", ":num_banners", 3), #Max bonus of 15 morale
+        (val_add, ":new_morale", ":banner_bonus"),
+      (try_end),
+
+      # DAC Kham: Morale Bonus for having banner men END.
+
       (val_clamp, ":new_morale", 0, 100),
       (assign, reg0, ":new_morale"),
       ]),
@@ -80853,6 +80879,11 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
           (troop_is_hero, ":other_troop"),
         (val_mul, ":delta_phi", 10),
         (agent_get_item_slot, ":helmet", ":other_agent", 4),
+        (agent_get_wielded_item, ":banner", ":other_agent", 0),
+        (try_begin),
+          (eq, ":banner", "itm_heraldic_banner"),
+          (val_mul, ":delta_phi", 2), # DAC Kham: Banner gives a morale boost
+        (try_end),
         (try_begin),
           (lt, ":helmet", 0),
           (val_mul, ":delta_phi", 2), # Recognizing their leader gives a morale boost

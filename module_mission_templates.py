@@ -139,14 +139,14 @@ common_battle_morale_check = (
   (store_div,":mission_time_s",":mission_time_ms",1000),
   (store_div,":mission_time_ticks",":mission_time_ms",100),
   (try_for_agents, ":agent_no"),
-  (agent_is_active, ":agent_no"),
-  (agent_is_human, ":agent_no"),
-  (agent_is_alive, ":agent_no"),
-  # Only check every 50th agent each tick to reduce stutter
-  (store_mod,":ticks_mod",":mission_time_ticks",50),
-  (store_mod,":agent_mod",":agent_no",50),
-  (eq,":agent_mod",":ticks_mod"),
-  (call_script, "script_decide_run_away_or_not", ":agent_no", ":mission_time_s"),
+    (agent_is_active, ":agent_no"),
+    (agent_is_human, ":agent_no"),
+    (agent_is_alive, ":agent_no"),
+    # Only check every 50th agent each tick to reduce stutter
+    (store_mod,":ticks_mod",":mission_time_ticks",50),
+    (store_mod,":agent_mod",":agent_no",50),
+    (eq,":agent_mod",":ticks_mod"),
+    (call_script, "script_decide_run_away_or_not", ":agent_no", ":mission_time_s"),
   (try_end),    
     ], [])
     
