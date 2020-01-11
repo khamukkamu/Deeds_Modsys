@@ -2491,6 +2491,28 @@ game_menus = [
        (str_store_string, s6, "str_space"),
      (try_end),
 
+     (party_get_num_companion_stacks, ":num_stacks","p_main_party"),
+     (assign, ":num_banners", 0),
+     (try_for_range, ":i_stack", 1, ":num_stacks"),
+       (party_stack_get_troop_id, ":stack_troop","p_main_party",":i_stack"),
+       (troop_slot_eq, ":stack_troop", slot_troop_bannerman, 1), #Is a bannerman
+       (party_stack_get_size, ":stack_size", "p_main_party", ":i_stack"),
+       (val_add, ":num_banners", ":stack_size"),
+     (try_end),
+
+     (try_begin),
+       (is_between, ":num_banners", 1, 6),
+       (store_mul, reg68, ":num_banners", 3), #Max bonus of 15 morale
+       (str_store_string, s66, "@^Bonus From Bannermen: +{reg68}"),
+     (else_try),
+       (gt, ":num_banners", 5),
+       (store_mul, reg68, ":num_banners", 3), #Max bonus of 15 morale
+       (val_min, reg68, 15),
+       (str_store_string, s66, "@^Bonus From Bannermen: {reg68} (Max bonus reached)"),
+     (else_try),
+       (str_store_string, s66, "str_space"),
+     (try_end),
+
      (party_get_morale, reg5, "p_main_party"),
      (store_sub, reg4, reg5, ":target_morale"),
      (try_begin),
@@ -4350,10 +4372,10 @@ TOTAL:  {reg5}"),
    ( "camp_give_troops",0,
     "Troops to receive:","none",[],
     [   
-      ("give_troops_france",[],"Give French Troops", [(party_add_template, "p_main_party", "pt_kingdom_1_reinforcements_a"),(party_add_template, "p_main_party", "pt_kingdom_1_reinforcements_b"),(party_add_template, "p_main_party", "pt_kingdom_1_reinforcements_c"),(party_add_template, "p_main_party", "pt_kingdom_1_reinforcements_d"),]),
-      ("give_troops_england",[],"Give English Troops", [(party_add_template, "p_main_party", "pt_kingdom_2_reinforcements_a"),(party_add_template, "p_main_party", "pt_kingdom_2_reinforcements_b"),(party_add_template, "p_main_party", "pt_kingdom_2_reinforcements_c"),(party_add_template, "p_main_party", "pt_kingdom_2_reinforcements_d"),]),
-      ("give_troops_burgundy",[],"Give Burgundian Troops", [(party_add_template, "p_main_party", "pt_kingdom_3_reinforcements_a"),(party_add_template, "p_main_party", "pt_kingdom_3_reinforcements_b"),(party_add_template, "p_main_party", "pt_kingdom_3_reinforcements_c"),(party_add_template, "p_main_party", "pt_kingdom_3_reinforcements_d"),]),
-      ("give_troops_brittany",[],"Give Breton Troops", [(party_add_template, "p_main_party", "pt_kingdom_4_reinforcements_a"),(party_add_template, "p_main_party", "pt_kingdom_4_reinforcements_b"),(party_add_template, "p_main_party", "pt_kingdom_4_reinforcements_c"),(party_add_template, "p_main_party", "pt_kingdom_4_reinforcements_d"),]),	 
+      ("give_troops_france",[],"Give French Troops", [(party_add_template, "p_main_party", "pt_kingdom_1_reinforcements_a"),(party_add_template, "p_main_party", "pt_kingdom_1_reinforcements_b"),(party_add_template, "p_main_party", "pt_kingdom_1_reinforcements_c"),(party_add_template, "p_main_party", "pt_kingdom_1_reinforcements_d"),(party_add_template, "p_main_party", "pt_kingdom_1_reinforcements_e")]),
+      ("give_troops_england",[],"Give English Troops", [(party_add_template, "p_main_party", "pt_kingdom_2_reinforcements_a"),(party_add_template, "p_main_party", "pt_kingdom_2_reinforcements_b"),(party_add_template, "p_main_party", "pt_kingdom_2_reinforcements_c"),(party_add_template, "p_main_party", "pt_kingdom_2_reinforcements_d"),(party_add_template, "p_main_party", "pt_kingdom_2_reinforcements_e"),]),
+      ("give_troops_burgundy",[],"Give Burgundian Troops", [(party_add_template, "p_main_party", "pt_kingdom_3_reinforcements_a"),(party_add_template, "p_main_party", "pt_kingdom_3_reinforcements_b"),(party_add_template, "p_main_party", "pt_kingdom_3_reinforcements_c"),(party_add_template, "p_main_party", "pt_kingdom_3_reinforcements_d"),(party_add_template, "p_main_party", "pt_kingdom_3_reinforcements_e")]),
+      ("give_troops_brittany",[],"Give Breton Troops", [(party_add_template, "p_main_party", "pt_kingdom_4_reinforcements_a"),(party_add_template, "p_main_party", "pt_kingdom_4_reinforcements_b"),(party_add_template, "p_main_party", "pt_kingdom_4_reinforcements_c"),(party_add_template, "p_main_party", "pt_kingdom_4_reinforcements_d"),(party_add_template, "p_main_party", "pt_kingdom_4_reinforcements_e")]),	 
       ("resume_travelling",[],"Resume travelling.",[(change_screen_return),]), 
  ]),  	
 

@@ -1,4 +1,4 @@
-1771
+1774
 qstr_Next_Page Next_Page
 qstr_Game_Rules:^ Game_Rules:^
 qstr_0 0
@@ -1770,3 +1770,6 @@ qstr_w_lance_colored_fren w_lance_colored_french_1
 qstr_w_lance_colored_frenc w_lance_colored_french_2
 qstr_w_lance_colored_french w_lance_colored_french_3
 qstr_heraldic_banner_base heraldic_banner_base
+qstr_^Bonus_From_Bannerme ^Bonus_From_Bannermen:_{reg68}
+qstr_^Bonus_From_Bannermen ^Bonus_From_Bannermen:_{reg68}_(Max_bonus_reached)
+qstr_^Bonus_From_Bannermen: ^Bonus_From_Bannermen:_+{reg68}

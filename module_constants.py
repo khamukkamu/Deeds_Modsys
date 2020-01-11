@@ -2842,3 +2842,6 @@ arena_fighters_end = "trp_cattle"
 # TLD prisoners
 slot_agent_anim_status     	= 32
 slot_agent_last_hp		        = 33
+
+# Banner Men
+slot_troop_bannerman = 170

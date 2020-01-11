@@ -31206,14 +31206,7 @@ scripts = [
       (assign, ":num_banners", 0),
       (try_for_range, ":i_stack_2", 1, ":num_stacks_2"),
         (party_stack_get_troop_id, ":stack_troop_2","p_main_party",":i_stack_2"),
-        (this_or_next|eq, ":stack_troop_2", "trp_french_bannerman"),
-        (this_or_next|eq, ":stack_troop_2", "trp_french_bannerman_mounted"),
-        (this_or_next|eq, ":stack_troop_2", "trp_english_bannerman"),
-        (this_or_next|eq, ":stack_troop_2", "trp_english_bannerman_mounted"),
-        (this_or_next|eq, ":stack_troop_2", "trp_burgundian_bannerman"),
-        (this_or_next|eq, ":stack_troop_2", "trp_burgundian_bannerman_mounted"),
-        (this_or_next|eq, ":stack_troop_2", "trp_breton_bannerman"),
-        (             eq, ":stack_troop_2", "trp_breton_bannerman_mounted"),
+        (troop_slot_eq, ":stack_troop_2", slot_troop_bannerman, 1), #Is a bannerman
         (party_stack_get_size, ":stack_size_2", "p_main_party", ":i_stack_2"),
         (val_add, ":num_banners", ":stack_size_2"),
       (try_end),
@@ -81198,6 +81191,15 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 		(troop_set_slot, "trp_breton_heavy_knight",         slot_soldier_elite_upgrade_to,"trp_breton_bannerman_mounted"),
 		(troop_set_slot, "trp_breton_heavy_knight",         slot_soldier_elite_upgrade_with,"itm_heraldic_banner"),
 
+    # Piggyback on script for Banner Men
+    (troop_set_slot, "trp_french_bannerman", slot_troop_bannerman, 1),
+    (troop_set_slot, "trp_french_bannerman_mounted", slot_troop_bannerman, 1),
+    (troop_set_slot, "trp_english_bannerman", slot_troop_bannerman, 1),
+    (troop_set_slot, "trp_english_bannerman_mounted", slot_troop_bannerman, 1),
+    (troop_set_slot, "trp_burgundian_bannerman", slot_troop_bannerman, 1),
+    (troop_set_slot, "trp_burgundian_bannerman_mounted", slot_troop_bannerman, 1),
+    (troop_set_slot, "trp_breton_bannerman", slot_troop_bannerman, 1),
+    (troop_set_slot, "trp_breton_bannerman_mounted", slot_troop_bannerman, 1),
 
 	]),
 
