@@ -2508,7 +2508,7 @@ game_menus = [
        (gt, ":num_banners", 5),
        (store_mul, reg68, ":num_banners", 3), #Max bonus of 15 morale
        (val_min, reg68, 15),
-       (str_store_string, s66, "@^Bonus From Bannermen: {reg68} (Max bonus reached)"),
+       (str_store_string, s66, "@^Bonus From Bannermen: +{reg68} (Max bonus reached)"),
      (else_try),
        (str_store_string, s66, "str_space"),
      (try_end),
