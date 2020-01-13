@@ -29,6 +29,7 @@ tracks = [
 
 # Bandit Epic (num combatants >= 50),
   ("DAC-Battle-Bandits-1", "Battle/DAC-Battle-Bandits-1.mp3", mtf_module_track|mtf_sit_ambushed|mtf_culture_6, 0),
+  ("DAC-Battle-Bandits-2", "Battle/DAC-Battle-Bandits-2.ogg", mtf_module_track|mtf_sit_ambushed|mtf_culture_6, 0),
 
 # DAC Generic Battle Music (Ambient Sound [for now])
 
@@ -47,6 +48,7 @@ tracks = [
   ("DAC-Battle-Siege-1", "Battle/DAC-Battle-Siege-1.mp3", mtf_module_track|mtf_sit_siege, 0),
   ("DAC-Battle-Siege-2", "Battle/DAC-Battle-Siege-2.ogg", mtf_module_track|mtf_sit_siege, 0),  
   ("DAC-Battle-Siege-3", "Battle/DAC-Battle-Siege-3.ogg", mtf_module_track|mtf_sit_siege, 0),  
+  ("DAC-Battle-Siege-4", "Battle/DAC-Battle-Siege-4.ogg", mtf_module_track|mtf_sit_siege, 0),  
 
 # DAC Travel Music
 # Breton
@@ -133,14 +135,15 @@ tracks = [
   ("DAC-Court-Generic-1", "DAC-Court-Generic-1.mp3", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_night|mtf_sit_tavern|mtf_culture_all),
 
 # Town
-  ("DAC-Town-Generic-1", "DAC-Town-Generic-1.mp3", mtf_module_track|mtf_sit_town, mtf_sit_tavern|mtf_sit_night),
-  ("DAC-Town-Generic-2", "DAC-Town-Generic-2.mp3", mtf_module_track|mtf_sit_town, mtf_sit_tavern|mtf_sit_night),
-  ("DAC-Town-Generic-3", "DAC-Town-Generic-3.mp3", mtf_module_track|mtf_sit_town, mtf_sit_tavern|mtf_sit_night),
-  ("DAC-Town-Generic-4", "DAC-Town-Generic-4.mp3", mtf_module_track|mtf_sit_town, mtf_sit_tavern|mtf_sit_night),
-  ("DAC-Town-Generic-5", "DAC-Town-Generic-5.mp3", mtf_module_track|mtf_sit_town, mtf_sit_tavern|mtf_sit_night),
-  ("DAC-Town-Generic-6", "DAC-Town-Generic-6.mp3", mtf_module_track|mtf_sit_town, mtf_sit_tavern|mtf_sit_night),
-  ("DAC-Town-Generic-7", "DAC-Town-Generic-7.mp3", mtf_module_track|mtf_sit_town, mtf_sit_tavern|mtf_sit_night),
-  ("DAC-Town-Generic-8", "DAC-Town-Generic-8.mp3", mtf_module_track|mtf_sit_town, mtf_sit_tavern|mtf_sit_night),
+  ("DAC-Town-Generic-1", "DAC-Town-Generic-1.mp3", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),
+  ("DAC-Town-Generic-2", "DAC-Town-Generic-2.mp3", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),
+  ("DAC-Town-Generic-3", "DAC-Town-Generic-3.mp3", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),
+  ("DAC-Town-Generic-4", "DAC-Town-Generic-4.mp3", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),
+  ("DAC-Town-Generic-5", "DAC-Town-Generic-5.mp3", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),
+  ("DAC-Town-Generic-6", "DAC-Town-Generic-6.mp3", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),
+  ("DAC-Town-Generic-7", "DAC-Town-Generic-7.mp3", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),
+  ("DAC-Town-Generic-8", "DAC-Town-Generic-8.mp3", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),
+  ("DAC-Town-Generic-9", "DAC-Town-Generic-9.ogg", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),
 
 
 # Tavern

@@ -1,4 +1,4 @@
-108
+111
 cant_find_this.ogg 0 0
 DAC-Title.ogg 272629888 272629888
 Battle/DAC-Battle-Epic-1.ogg 268439552 268439615
@@ -8,6 +8,7 @@ Battle/DAC-Battle-Epic-4.mp3 268439552 268439615
 Battle/DAC-Battle-Epic-5.mp3 268439552 268439615
 Battle/DAC-Battle-Epic-6.ogg 268439552 268439615
 Battle/DAC-Battle-Bandits-1.mp3 268439584 268439584
+Battle/DAC-Battle-Bandits-2.ogg 268439584 268439584
 Battle/DAC-Battle-Generic-1.ogg 268567552 268567552
 Battle/DAC-Battle-Generic-2.ogg 268567552 268567552
 Battle/DAC-Battle-Generic-3.ogg 268567552 268567552
@@ -20,6 +21,7 @@ Battle/DAC-Battle-Generic-9.ogg 268567552 268567552
 Battle/DAC-Battle-Siege-1.mp3 268697600 268697600
 Battle/DAC-Battle-Siege-2.ogg 268697600 268697600
 Battle/DAC-Battle-Siege-3.ogg 268697600 268697600
+Battle/DAC-Battle-Siege-4.ogg 268697600 268697600
 Travel/Breton/DAC-Travel-Breton-1.mp3 268501000 268501000
 Travel/Breton/DAC-Travel-Breton-2.mp3 268501000 268501000
 Travel/Breton/DAC-Travel-Breton-3.mp3 268501000 268501000
@@ -97,6 +99,7 @@ DAC-Town-Generic-5.mp3 268443648 268968448
 DAC-Town-Generic-6.mp3 268443648 268968448
 DAC-Town-Generic-7.mp3 268443648 268968448
 DAC-Town-Generic-8.mp3 268443648 268968448
+DAC-Town-Generic-9.ogg 268443648 268968448
 DAC-Tavern-Generic-1.mp3 285213184 285213184
 DAC-Tavern-Generic-2.mp3 285213184 285213184
 DAC-Defeat-1.ogg 268468480 268468480
