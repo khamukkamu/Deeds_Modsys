@@ -18638,8 +18638,8 @@ presentations = [
 					(position_set_x, pos1, 800),
 					(position_set_y, pos1, 600),
 					(overlay_set_position, reg0, pos1),
-					(position_set_x, pos1, 2000),
-					(position_set_y, pos1, 2000),
+					(position_set_x, pos1, 1400),
+					(position_set_y, pos1, 1400),
 					(overlay_set_size, reg0, pos1),
 
 					(str_store_string, s0, "str_dplmc_setting_tt0"),

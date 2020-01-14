@@ -18059,8 +18059,8 @@ mission_templates = [
 # review troops (tld)
 ("review_troops",0,-1,"You review your troops",
 [(1,mtef_defenders|mtef_team_0,0,0,0,[]),(0,mtef_defenders|mtef_team_0,0,0,0,[]), # not used
- (1,mtef_attackers|mtef_team_1,0,0,1,[]), # player 
- (4,mtef_attackers|mtef_team_2,0,0,30,[]), # troops
+ (1,mtef_attackers|mtef_team_1,0,0,100,[]), # player 
+ (4,mtef_attackers|mtef_team_2,0,0,100,[]), # troops
  (4,mtef_visitor_source, af_prisoner, 0,0,[itm_feet_chains] ),  # prisoners (4)
  (4,mtef_visitor_source, af_prisoner, 0,0,[itm_feet_chains] ),  # prisoners
  (4,mtef_visitor_source, af_prisoner, 0,0,[itm_feet_chains] ),  # prisoners
@@ -18090,7 +18090,7 @@ mission_templates = [
     (position_move_y, pos1, 700, 0), # move player in front
     
     (party_get_num_companions, ":nc","p_main_party"),
-    (val_mul, ":nc", 50), (val_sub, ":nc", 50), (val_min, ":nc", 750),
+    #(val_mul, ":nc", 50), (val_sub, ":nc", 50), (val_min, ":nc", 750), #DAC Kham: Comment this out cause we want to see all of them
     (position_move_x, pos1, ":nc", 0),# center player on X
     #(position_rotate_z, pos1, 180), # rotate player to face troops ... if only this worked... sigh 
     (agent_set_position, ":agent_no", pos1),
