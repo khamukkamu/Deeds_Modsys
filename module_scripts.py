@@ -16496,7 +16496,19 @@ scripts = [
           (set_result_string, "@{s1}"),
           (set_trigger_result, color_good_news),
         (try_end),
-### HYW			
+### HYW	
+
+### DAC Seek: Extra text for banners
+      (else_try),
+        (eq, ":item_no", "itm_heraldic_banner"),
+        (try_begin),
+          (eq, ":extra_text_id", 0),
+          (str_store_string, s1, "@Can be given to certain noble units to turn into Bannermen ^Provides a morale bonus on the world map and in battles when wielded"),
+          (set_result_string, "@{s1}"),
+          (set_trigger_result, color_good_news),
+        (try_end),
+### Dac Seek End
+		
       (else_try),
 
       # sb : debug
