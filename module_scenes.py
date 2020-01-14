@@ -2034,7 +2034,7 @@ scenes = [
     [],[],"outer_terrain_plain"),
 
 # Moulins - Rus' Wenden
-  ("town_7_alley", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x00000000300798b2000380e3000037960000573900003f48",[], [], "outer_terrain_plain"), 
+  ("town_7_alley", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x0000000420000500000334ce00001d1100003d0600000d27",[], [], "outer_terrain_plain"), 
 
 
   ("town_8_alley",sf_generate,"none", "none", (0,0),(100,100),-100,"0x300bc5430001e0780000448a0000049f00007932",

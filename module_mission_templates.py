@@ -124,8 +124,8 @@ dac_count_num_combatants = (
 simple_battle_morale_check = (
   3, 0, 0, [
   (store_mission_timer_a, ":mission_time_s"),
-  (ge, ":mission_time_s", 12), #changed from 30 secs - DAC Kham
-  (gt, "$number_of_combatants", 250),
+  (ge, ":mission_time_s", 30), #changed from 30 secs - DAC Kham # DAC Seek: Changed back to 30s, time after which routing can happen
+  (gt, "$number_of_combatants", 150),
   #(display_message, "@JH Morale Triggered"),
   (call_script, "script_decide_team_rout"),
     ], [])
@@ -133,8 +133,8 @@ simple_battle_morale_check = (
 common_battle_morale_check = (
   0.5, 0, 0, [ #changed from 0.1 - DAC Kham
   (store_mission_timer_a_msec,":mission_time_ms"),
-  (ge,":mission_time_ms",12000), #changed from 10000 msec  - DAC Kham
-  (le, "$number_of_combatants", 250),
+  (ge,":mission_time_ms",30000), #changed from 10000 msec  - DAC Kham # DAC Seek: Changed back to 30s, time after which routing can happen
+  (le, "$number_of_combatants", 150),
   #(display_message, "@Autolykos Morale Triggered"),
   (store_div,":mission_time_s",":mission_time_ms",1000),
   (store_div,":mission_time_ticks",":mission_time_ms",100),

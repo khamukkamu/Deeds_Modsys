@@ -2375,7 +2375,7 @@ formAI_scripts = [
       (else_try),
         (this_or_next | eq, ":ffaction", fac_player_supporters_faction),
         (eq, ":ffaction", fac_player_faction),  #independent player
-        (assign, reg0, formation_ranks),
+        (assign, reg0, formation_shield),
       (else_try),
         (assign, reg0, formation_none), #riffraff don't use formations
       (try_end),]),

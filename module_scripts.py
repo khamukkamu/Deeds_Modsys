@@ -79471,7 +79471,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (item_set_slot, "itm_w_light_lance_custom", slot_item_num_components, 1),  
 
 ## Lances With Pennons
-      (try_for_range, ":item_no", "itm_w_lance_1_custom", "itm_dplmc_coat_of_plates_red_constable"), # Seek: All the lances share the same base
+      (try_for_range, ":item_no", "itm_w_lance_1_custom", "itm_w_light_lance_heraldic"), # Seek: All the lances share the same base
       (item_set_slot, ":item_no", slot_item_materials_begin, "str_o_triangular_pennon_small_l_blue"),
       (item_set_slot, ":item_no", slot_item_materials_end, "str_o_triangular_pennon_small_l_end"),
 # France
