@@ -2512,7 +2512,7 @@ disguise_bard = 32
 DPLMC_CURRENT_VERSION_CODE = 190101
 DPLMC_VERSION_LOW_7_BITS = 68 #Number that comes after the rest of the version code
 
-DPLMC_DIPLOMACY_VERSION_STRING = "4.3+ for Steam"
+DPLMC_DIPLOMACY_VERSION_STRING = "4.3+ for ^Deeds of Arms and Chivalry"
 DPLMC_NUM_PREFERENCE_OPTIONS = 12 #for prsnt_adv_diplomacy_preferences
 
 # #Perform a check to make sure constants are defined in a reasonable way.
@@ -2688,7 +2688,7 @@ reset_team_stats_end   = slot_team_d0_type
 minimum_ranged_ammo = 3	#below this not considered ranged type troop
 
 #Formation tweaks
-formation_minimum_spacing	= 50	#historical shieldwall was spaced about 47cm, the width of a man's shoulders. Here we loosen for ease of troop movement. DAC Kham: was 67
+formation_minimum_spacing	= 54	#historical shieldwall was spaced about 47cm, the width of a man's shoulders. Here we loosen for ease of troop movement. DAC Kham: was 67
 formation_minimum_spacing_horse_length	= 300
 formation_minimum_spacing_horse_width	= 200
 formation_start_spread_out	= 2	#extra 50cm spacings for ease of movement for new formations
