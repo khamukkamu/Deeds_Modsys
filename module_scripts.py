@@ -80872,18 +80872,18 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
           (troop_is_hero, ":other_troop"),
         (val_mul, ":delta_phi", 10),
         (agent_get_item_slot, ":helmet", ":other_agent", 4),
-        (agent_get_wielded_item, ":banner", ":other_agent", 0),
+        (agent_get_wielded_item, ":banner", ":other_agent", 1),
         (try_begin),
           (eq, ":banner", "itm_heraldic_banner"),
-          (val_mul, ":delta_phi", 2), # DAC Kham: Banner gives a morale boost
+          (val_add, ":delta_phi", 5), # DAC Kham: Banner gives a morale boost.
         (try_end),
         (try_begin),
           (lt, ":helmet", 0),
           (val_mul, ":delta_phi", 2), # Recognizing their leader gives a morale boost
-        (else_try),
-          (item_get_head_armor, ":head_armor", ":helmet"),
-          (lt, ":head_armor", 10), # This is probably a hat, not a helmet
-          (val_mul, ":delta_phi", 2),
+        #(else_try), #DAC Kham: Disabled for now until we find the range of hats.
+        #  (item_get_head_armor, ":head_armor", ":helmet"),
+        #  (lt, ":head_armor", 10), # This is probably a hat, not a helmet
+        #  (val_mul, ":delta_phi", 2),
         (try_end),
       (else_try),
           (agent_get_horse, ":horse", ":other_agent"),
