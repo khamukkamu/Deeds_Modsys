@@ -8645,6 +8645,18 @@ scripts = [
         (val_add, ":max_teams", 1),
     (call_script, "script_rand", 2, ":max_teams"),
     (assign, ":num_teams", reg0),
+    
+    #DAC Kham: No 3 teams for now due to bug.
+    (try_begin), 
+      (eq, ":num_teams", 3),
+      (try_begin),
+        (eq, ":max_teams", 2),
+        (assign, ":num_teams", 2),
+      (else_try),
+        (assign, ":num_teams", 4),
+      (try_end),
+    (try_end),
+
     (store_div, ":max_team_size", ":active_participants", ":num_teams"),
     (val_min, ":max_size", ":max_team_size"),
         (val_add, ":max_size", 1),
