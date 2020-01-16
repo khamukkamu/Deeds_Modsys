@@ -1,4 +1,4 @@
-1783
+1793
 qstr_Next_Page Next_Page
 qstr_Game_Rules:^ Game_Rules:^
 qstr_0 0
@@ -1782,3 +1782,13 @@ qstr____ ___
 qstr_{s2}{s1} {s2}{s1}
 qstr_{s1}: {s1}:
 qstr_Rulers: Rulers:
+qstr_Which_Kingdom_Do_You Which_Kingdom_Do_You_Serve?
+qstr_Go_Back... Go_Back...
+qstr_The_Kingdom_of_Franc The_Kingdom_of_France
+qstr_The_Kingdom_of_Engla The_Kingdom_of_England
+qstr_The_Duchy_of_Burgand The_Duchy_of_Burgandy
+qstr_The_Duchy_of_Brittan The_Duchy_of_Brittany
+qstr_The_Kingdom_^of_Fran The_Kingdom_^of_France
+qstr_The_Kingdom_^of_Engl The_Kingdom_^of_England
+qstr_The_Duchy_^of_Burgan The_Duchy_^of_Burgandy
+qstr_The_Duchy_^of_Britta The_Duchy_^of_Brittany

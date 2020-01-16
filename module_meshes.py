@@ -674,5 +674,11 @@ meshes = [
 ###VC presentations
     ("pic_troop_trees", 0, "meeting_window", 0, 0, 0, 0, 0, 0, 1, 1, 1),
     ("pic_units_details", 0, "meeting_window", 0, 0, 0, 0, 0, 0, 1, 1, 1),  
-  
+ 
+## Choose Faction presentation
+("choose_icon_france",   0, "icon_french_arms",   0, 0, 0, 0, 0, 0, 1, 1, 1), 
+("choose_icon_england",   0, "icon_england_arms",   0, 0, 0, 0, 0, 0, 1, 1, 1), 
+("choose_icon_burgandy",   0, "icon_burgandy_arms",   0, 0, 0, 0, 0, 0, 1, 1, 1), 
+("choose_icon_breton",   0, "icon_breton_arms",   0, 0, 0, 0, 0, 0, 1, 1, 1), 
+
 ]

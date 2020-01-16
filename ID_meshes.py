@@ -543,3 +543,7 @@ mesh_flag_d8 = 541
 mesh_flag_d9 = 542
 mesh_pic_troop_trees = 543
 mesh_pic_units_details = 544
+mesh_choose_icon_france = 545
+mesh_choose_icon_england = 546
+mesh_choose_icon_burgandy = 547
+mesh_choose_icon_breton = 548

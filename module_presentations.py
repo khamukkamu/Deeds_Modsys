@@ -22148,10 +22148,10 @@ presentations = [
         (else_try),
           (str_store_string, s1, "str_empty_string"),
         (try_end),
-        (create_text_overlay, reg1, "@{s1}", tf_center_justify),
+        (create_text_overlay, reg1, "@{s1}", tf_center_justify|tf_with_outline),
         (overlay_set_color, reg1, 0xFF000000),
         (position_set_x, pos1, 280), # Higher, means more toward the right
-        (position_set_y, pos1, 670), # Higher, means more toward the top
+        (position_set_y, pos1, 643), # Higher, means more toward the top
         (overlay_set_position, reg1, pos1),
         (position_set_x, pos1, 1000),
         (position_set_y, pos1, 1000),
@@ -22433,5 +22433,246 @@ presentations = [
     ]),
   ]),
 
+
+("faction_selection",0,mesh_load_window,[
+      (ti_on_presentation_load,
+       [  
+        (set_fixed_point_multiplier, 1000),
+
+        (str_store_string, s1, "@Which Kingdom Do You Serve?"),
+        (create_text_overlay, reg1, s1, tf_center_justify),
+        (position_set_x, pos1, 500),
+        (position_set_y, pos1, 600),
+        (overlay_set_position, reg1, pos1),
+        (position_set_x, pos1, 1750),
+        (position_set_y, pos1, 1750),
+        (overlay_set_size, reg1, pos1),
+        (overlay_set_text, reg1, s1),
+        (create_button_overlay, "$g_presentation_obj_1", "@Go Back...", tf_center_justify),
+        (position_set_x, pos1, 450),
+        (position_set_y, pos1, 50),
+        (overlay_set_position, "$g_presentation_obj_1", pos1),
+        
+    #FRANCE
+    #text
+     (create_text_overlay, "$g_option_france_text", "@The Kingdom ^of France", tf_center_justify|tf_with_outline),
+    #(create_button_overlay, "$g_presentation_obj_1", 0, tf_center_justify),
+        (position_set_x, pos1, 200), # Higher, means more toward the right
+        (position_set_y, pos1, 230), # Higher, means more toward the top
+        (overlay_set_position, "$g_option_france_text", pos1),
+    (overlay_set_alpha, "$g_option_france_text", 0x7D),
+    (overlay_set_color, "$g_option_france_text", 0x4980d8),
+
+    #logo
+      #(create_image_button_overlay_with_tableau_material, "$g_option_france", -1, "tableau_faction_note_mesh_banner", "fac_gondor"),
+      (create_image_button_overlay, "$g_option_france", "mesh_choose_icon_france", "mesh_choose_icon_france"),
+           (position_set_x, pos1, 205),
+           (position_set_y, pos1, 380),
+           (overlay_set_position, "$g_option_france", pos1),
+           (position_set_x, pos1, 350),
+           (position_set_y, pos1, 350),
+           (overlay_set_size, "$g_option_france", pos1),
+
+    #ENGLAND
+    #text
+     (create_text_overlay, "$g_option_england_text", "@The Kingdom ^of England", tf_center_justify|tf_with_outline),
+        (position_set_x, pos1, 400),
+        (position_set_y, pos1, 230),
+        (overlay_set_position, "$g_option_england_text", pos1),
+    (overlay_set_alpha, "$g_option_england_text", 0x7D),
+    (overlay_set_color, "$g_option_england_text", 0xb21010),
+
+    #logo
+      (create_image_button_overlay, "$g_option_england", "mesh_choose_icon_england", "mesh_choose_icon_england"),
+           (position_set_x, pos1, 405),
+           (position_set_y, pos1, 380),
+           (overlay_set_position, "$g_option_england", pos1),
+           (position_set_x, pos1, 350),
+           (position_set_y, pos1, 350),
+           (overlay_set_size, "$g_option_england",pos1),
+
+    #BURGANDY
+    #text
+     (create_text_overlay, "$g_presentation_obj_item_select_2", "@The Duchy ^of Burgandy", tf_center_justify|tf_with_outline),
+        (position_set_x, pos1, 600),
+        (position_set_y, pos1, 230),
+        (overlay_set_position, "$g_presentation_obj_item_select_2", pos1),
+    (overlay_set_alpha, "$g_presentation_obj_item_select_2", 0x7D),
+    (overlay_set_color, "$g_presentation_obj_item_select_2", 0xddb544),
+
+    #logo
+      (create_image_button_overlay, "$g_presentation_obj_item_select_3", "mesh_choose_icon_burgandy", "mesh_choose_icon_burgandy"),
+           (position_set_x, pos1, 605),
+           (position_set_y, pos1, 380),
+           (overlay_set_position, "$g_presentation_obj_item_select_3", pos1),
+           (position_set_x, pos1, 350),
+           (position_set_y, pos1, 350),
+           (overlay_set_size, "$g_presentation_obj_item_select_3",pos1),
+
+    #BRITTANY
+    #text
+     (create_text_overlay, "$g_presentation_obj_item_select_4", "@The Duchy ^of Brittany", tf_center_justify|tf_with_outline),
+        (position_set_x, pos1, 800),
+        (position_set_y, pos1, 230),
+        (overlay_set_position, "$g_presentation_obj_item_select_4", pos1),
+    (overlay_set_alpha, "$g_presentation_obj_item_select_4", 0x7D),
+    (overlay_set_color, "$g_presentation_obj_item_select_4", 0x9495a5),
+
+    #logo
+      (create_image_button_overlay, "$g_presentation_obj_item_select_5", "mesh_choose_icon_breton", "mesh_choose_icon_breton"),
+           (position_set_x, pos1, 805),
+           (position_set_y, pos1, 380),
+           (overlay_set_position, "$g_presentation_obj_item_select_5", pos1),
+           (position_set_x, pos1, 350),
+           (position_set_y, pos1, 350),
+           (overlay_set_size, "$g_presentation_obj_item_select_5",pos1),
+
+        (presentation_set_duration, 999999),
+        ]),
+    
+    (ti_on_presentation_event_state_change,
+       [(store_trigger_param_1, ":object"),
+      (try_begin),
+        (eq, ":object", "$g_presentation_obj_1"),
+        (presentation_set_duration, 0),
+        (jump_to_menu,"mnu_start_game_1"),
+        #(start_presentation, "prsnt_faction_selection"),
+      (else_try),
+        (eq, ":object", "$g_option_france"),
+        (assign, "$background_answer_3", "fac_kingdom_1"),
+        (jump_to_menu,"mnu_dac_choose_skill"),
+        (presentation_set_duration, 0),
+      (else_try),
+        (eq, ":object", "$g_option_england"),
+        (assign, "$background_answer_3", "fac_kingdom_2"),
+        (jump_to_menu,"mnu_dac_choose_skill"),
+        (presentation_set_duration, 0),
+      (else_try),
+        (eq, ":object", "$g_presentation_obj_item_select_3"),
+        (assign, "$background_answer_3", "fac_kingdom_3"),
+        (jump_to_menu,"mnu_dac_choose_skill"),
+        (presentation_set_duration, 0),
+      (else_try),
+        (eq, ":object", "$g_presentation_obj_item_select_5"),
+        (assign, "$background_answer_3", "fac_kingdom_4"),
+        (jump_to_menu,"mnu_dac_choose_skill"),
+        (presentation_set_duration, 0),
+      (try_end),
+    ]),
+
+(ti_on_presentation_mouse_enter_leave,[
+
+      (store_trigger_param_1, reg3),
+      (store_trigger_param_2, reg4),
+      (store_trigger_param_1, ":id"),
+      (store_trigger_param_2, ":stage"),
+
+      (try_begin),
+
+        (eq, ":id", "$g_option_france"),
+        (eq, ":stage", 0),
+        (position_set_x, pos1, 350),
+        (position_set_y, pos1, 350),
+        
+        (overlay_animate_to_size, "$g_option_england", 250, pos1),
+        (overlay_animate_to_size, "$g_presentation_obj_item_select_3", 250, pos1),
+        (overlay_animate_to_size, "$g_presentation_obj_item_select_5", 250, pos1),
+        (position_set_x, pos1, 500),
+        (position_set_y, pos1, 500),
+        
+        (overlay_animate_to_size, ":id", 50, pos1),
+       # (overlay_animate_to_alpha, ":id", 150, 0x7D),
+        (overlay_animate_to_alpha, "$g_option_france_text", 150, 0xFF),
+    (else_try),
+        
+        (eq, ":id", "$g_option_france"),
+        (eq, ":stage", 1),
+        (position_set_x, pos1, 450),
+        (position_set_y, pos1, 450),
+        
+        (overlay_animate_to_size, ":id", 50, pos1),
+       #(overlay_animate_to_alpha, ":id", 150, 0x0),
+        (overlay_animate_to_alpha, "$g_option_france_text", 150, 0x7D),
+    (else_try),
+
+      (eq, ":id", "$g_option_england"),
+      (eq, ":stage", 0),
+      (position_set_x, pos1, 350),
+      (position_set_y, pos1, 350),
+
+      (overlay_animate_to_size, "$g_option_france", 250, pos1),
+      (overlay_animate_to_size, "$g_presentation_obj_item_select_3", 250, pos1),
+      (overlay_animate_to_size, "$g_presentation_obj_item_select_5", 250, pos1),
+      (position_set_x, pos1, 500),
+      (position_set_y, pos1, 500),
+        
+      (overlay_animate_to_size, ":id", 50, pos1),
+     # (overlay_animate_to_alpha, ":id", 150, 0x7D),
+      (overlay_animate_to_alpha, "$g_option_england_text", 150, 0xFF),
+    (else_try),
+
+        (eq, ":id", "$g_option_england"),
+        (eq, ":stage", 1),
+        (position_set_x, pos1, 450),
+        (position_set_y, pos1, 450),
+        (overlay_animate_to_size, ":id", 50, pos1),
+      # (overlay_animate_to_alpha, ":id", 150, 0x0),
+        (overlay_animate_to_alpha, "$g_option_england_text", 150, 0x7D),  
+    
+    (else_try),
+
+        (eq, ":id", "$g_presentation_obj_item_select_3"),
+        (eq, ":stage", 0),
+        (position_set_x, pos1, 350),
+        (position_set_y, pos1, 350),
+        
+        (overlay_animate_to_size, "$g_option_france", 250, pos1),
+        (overlay_animate_to_size, "$g_option_england", 250, pos1),
+        (overlay_animate_to_size, "$g_presentation_obj_item_select_5", 250, pos1),
+        (position_set_x, pos1, 500),
+        (position_set_y, pos1, 500),
+      
+        (overlay_animate_to_size, ":id", 50, pos1),
+      # (overlay_animate_to_alpha, ":id", 150, 0x7D),
+        (overlay_animate_to_alpha, "$g_presentation_obj_item_select_2", 150, 0xFF),
+    (else_try),
+        (eq, ":id", "$g_presentation_obj_item_select_3"),
+        (eq, ":stage", 1),
+        (position_set_x, pos1, 450),
+        (position_set_y, pos1, 450),
+        (overlay_animate_to_size, ":id", 50, pos1),
+       #(overlay_animate_to_alpha, ":id", 150, 0x0),
+        (overlay_animate_to_alpha, "$g_presentation_obj_item_select_2", 150, 0x7D),  
+
+    (else_try),
+
+        (eq, ":id", "$g_presentation_obj_item_select_5"),
+        (eq, ":stage", 0),
+        (position_set_x, pos1, 350),
+        (position_set_y, pos1, 350),
+        
+        (overlay_animate_to_size, "$g_option_france", 250, pos1),
+        (overlay_animate_to_size, "$g_option_england", 250, pos1),
+        (overlay_animate_to_size, "$g_presentation_obj_item_select_3", 250, pos1),
+        (position_set_x, pos1, 500),
+        (position_set_y, pos1, 500),
+      
+        (overlay_animate_to_size, ":id", 50, pos1),
+      # (overlay_animate_to_alpha, ":id", 150, 0x7D),
+        (overlay_animate_to_alpha, "$g_presentation_obj_item_select_4", 150, 0xFF),
+    (else_try),
+        (eq, ":id", "$g_presentation_obj_item_select_5"),
+        (eq, ":stage", 1),
+        (position_set_x, pos1, 450),
+        (position_set_y, pos1, 450),
+        (overlay_animate_to_size, ":id", 50, pos1),
+       #(overlay_animate_to_alpha, ":id", 150, 0x0),
+        (overlay_animate_to_alpha, "$g_presentation_obj_item_select_4", 150, 0x7D),  
+    (try_end),
+
+    ]),
+
+  ]
+),
 
   ]

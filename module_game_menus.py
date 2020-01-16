@@ -1230,7 +1230,8 @@ game_menus = [
             (jump_to_menu,"mnu_dac_start_character_background"),
          (else_try),
             (eq, "$background_answer_2", 1), #DAC Kham: As Vassal
-            (jump_to_menu,"mnu_start_as_vassal_choose_faction"),
+            #(jump_to_menu,"mnu_start_as_vassal_choose_faction"),
+            (start_presentation, "prsnt_faction_selection"),
          (try_end),
         ]
        ),
@@ -2382,22 +2383,22 @@ game_menus = [
     [
       ("fac1",[],"Kingdom of France", [
          (assign, "$background_answer_3", "fac_kingdom_1"),
-         (jump_to_menu, "mnu_choose_skill"),
+         (jump_to_menu, "mnu_dac_choose_skill"),
       ]),
       
       ("fac2",[],"Kingdom of England", [
          (assign, "$background_answer_3", "fac_kingdom_2"),
-         (jump_to_menu, "mnu_choose_skill"),
+         (jump_to_menu, "mnu_dac_choose_skill"),
       ]),
 
       ("fac3",[],"Duchy of Burgundy", [
          (assign, "$background_answer_3", "fac_kingdom_3"),
-         (jump_to_menu, "mnu_choose_skill"),
+         (jump_to_menu, "mnu_dac_choose_skill"),
       ]),
 
       ("fac4",[],"Duchy of Brittany", [
          (assign, "$background_answer_3", "fac_kingdom_4"),
-         (jump_to_menu, "mnu_choose_skill"),
+         (jump_to_menu, "mnu_dac_choose_skill"),
       ]),
 
       ("go_back",[],"Go back", [ 
@@ -2517,7 +2518,19 @@ game_menus = [
       ),
 
       ("go_back_dot",[],"Go back.",[
-        (jump_to_menu,"mnu_dac_start_character_background"),
+        
+        (try_begin),
+          (eq, "$background_answer_2", 1),
+          #(jump_to_menu,"mnu_dac_start_character_background"),
+          (start_presentation, "prsnt_faction_selection"),
+        (else_try),
+          (eq, "$background_answer_2", 2),
+          (assign, "$character_info_id", -1),
+          (assign, "$background_answer_2", 2), 
+          (start_presentation, "prsnt_dac_select_lord_or_king"), 
+        (else_try),
+          (jump_to_menu, "mnu_dac_start_character_background"),
+        (try_end),
         ]),
     ]
   ),

@@ -69,3 +69,4 @@ prsnt_formation_mod_option = 67
 prsnt_battle = 68
 prsnt_customize_armor = 69
 prsnt_dac_select_lord_or_king = 70
+prsnt_faction_selection = 71
