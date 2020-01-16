@@ -23,7 +23,7 @@ from header_presentations import tf_left_align
   #### Autoloot improved by rubik begin
 from module_items import *
 from module_scripts_form import *
-from dac_character_creation.module_scripts_character_creation import *
+from dac_character_creation import character_creation_scripts
 
 from compiler import *
 
