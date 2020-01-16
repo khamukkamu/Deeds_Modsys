@@ -11,6 +11,7 @@ from header_terrain_types import *
 from header_music import *
 from ID_animations import *
 from module_items import items
+# from module_scripts_character_creation import *
 
 from compiler import *
 
