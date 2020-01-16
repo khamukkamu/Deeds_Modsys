@@ -22151,16 +22151,21 @@ presentations = [
         (create_text_overlay, reg1, "@{s1}", tf_center_justify|tf_with_outline),
         (overlay_set_color, reg1, 0xFF000000),
         (position_set_x, pos1, 280), # Higher, means more toward the right
-        (position_set_y, pos1, 643), # Higher, means more toward the top
+        (position_set_y, pos1, 645), # Higher, means more toward the top
         (overlay_set_position, reg1, pos1),
         (position_set_x, pos1, 1000),
         (position_set_y, pos1, 1000),
         (overlay_set_size, reg1, pos1),
 
+        (create_game_button_overlay, "$g_presentation_obj_2", "@_Back_"),
+        (position_set_x, pos1, 340), #Was 540
+        (position_set_y, pos1, 10),
+        (overlay_set_position, "$g_presentation_obj_2", pos1),
+
         (try_begin),
           (neq, "$character_info_id", -1),
           (create_game_button_overlay, "$g_presentation_obj_1", "@_Done_"),
-          (position_set_x, pos1, 540),
+          (position_set_x, pos1, 740), #Was 540
           (position_set_y, pos1, 10),
           (overlay_set_position, "$g_presentation_obj_1", pos1),
         (try_end),
@@ -22352,6 +22357,9 @@ presentations = [
         (eq, ":object", "$g_presentation_obj_1"),
         (assign, "$dac_selected_lord", "$character_info_id"),
         (jump_to_menu, "mnu_dac_choose_skill"),
+      (else_try),
+        (eq, ":object", "$g_presentation_obj_2"),
+        (jump_to_menu, "mnu_start_game_0"),
         (presentation_set_duration, 0),
       (else_try),
         (store_sub, ":num_lords", "trp_knight_4_18", "trp_kingdom_1_lord"),
@@ -22455,7 +22463,7 @@ presentations = [
         
     #FRANCE
     #text
-     (create_text_overlay, "$g_option_france_text", "@The Kingdom ^of France", tf_center_justify|tf_with_outline),
+     (create_text_overlay, "$g_option_france_text", "@The Kingdom^of France", tf_center_justify|tf_with_outline),
     #(create_button_overlay, "$g_presentation_obj_1", 0, tf_center_justify),
         (position_set_x, pos1, 200), # Higher, means more toward the right
         (position_set_y, pos1, 230), # Higher, means more toward the top
@@ -22466,7 +22474,7 @@ presentations = [
     #logo
       #(create_image_button_overlay_with_tableau_material, "$g_option_france", -1, "tableau_faction_note_mesh_banner", "fac_gondor"),
       (create_image_button_overlay, "$g_option_france", "mesh_choose_icon_france", "mesh_choose_icon_france"),
-           (position_set_x, pos1, 205),
+           (position_set_x, pos1, 200),
            (position_set_y, pos1, 380),
            (overlay_set_position, "$g_option_france", pos1),
            (position_set_x, pos1, 350),
@@ -22475,7 +22483,7 @@ presentations = [
 
     #ENGLAND
     #text
-     (create_text_overlay, "$g_option_england_text", "@The Kingdom ^of England", tf_center_justify|tf_with_outline),
+     (create_text_overlay, "$g_option_england_text", "@The Kingdom^of England", tf_center_justify|tf_with_outline),
         (position_set_x, pos1, 400),
         (position_set_y, pos1, 230),
         (overlay_set_position, "$g_option_england_text", pos1),
@@ -22484,7 +22492,7 @@ presentations = [
 
     #logo
       (create_image_button_overlay, "$g_option_england", "mesh_choose_icon_england", "mesh_choose_icon_england"),
-           (position_set_x, pos1, 405),
+           (position_set_x, pos1, 400),
            (position_set_y, pos1, 380),
            (overlay_set_position, "$g_option_england", pos1),
            (position_set_x, pos1, 350),
@@ -22493,7 +22501,7 @@ presentations = [
 
     #BURGANDY
     #text
-     (create_text_overlay, "$g_presentation_obj_item_select_2", "@The Duchy ^of Burgandy", tf_center_justify|tf_with_outline),
+     (create_text_overlay, "$g_presentation_obj_item_select_2", "@The Duchy^of Burgandy", tf_center_justify|tf_with_outline),
         (position_set_x, pos1, 600),
         (position_set_y, pos1, 230),
         (overlay_set_position, "$g_presentation_obj_item_select_2", pos1),
@@ -22502,7 +22510,7 @@ presentations = [
 
     #logo
       (create_image_button_overlay, "$g_presentation_obj_item_select_3", "mesh_choose_icon_burgandy", "mesh_choose_icon_burgandy"),
-           (position_set_x, pos1, 605),
+           (position_set_x, pos1, 600),
            (position_set_y, pos1, 380),
            (overlay_set_position, "$g_presentation_obj_item_select_3", pos1),
            (position_set_x, pos1, 350),
@@ -22511,7 +22519,7 @@ presentations = [
 
     #BRITTANY
     #text
-     (create_text_overlay, "$g_presentation_obj_item_select_4", "@The Duchy ^of Brittany", tf_center_justify|tf_with_outline),
+     (create_text_overlay, "$g_presentation_obj_item_select_4", "@The Duchy^of Brittany", tf_center_justify|tf_with_outline),
         (position_set_x, pos1, 800),
         (position_set_y, pos1, 230),
         (overlay_set_position, "$g_presentation_obj_item_select_4", pos1),
@@ -22520,7 +22528,7 @@ presentations = [
 
     #logo
       (create_image_button_overlay, "$g_presentation_obj_item_select_5", "mesh_choose_icon_breton", "mesh_choose_icon_breton"),
-           (position_set_x, pos1, 805),
+           (position_set_x, pos1, 800),
            (position_set_y, pos1, 380),
            (overlay_set_position, "$g_presentation_obj_item_select_5", pos1),
            (position_set_x, pos1, 350),

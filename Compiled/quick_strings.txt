@@ -1,4 +1,4 @@
-1793
+1798
 qstr_Next_Page Next_Page
 qstr_Game_Rules:^ Game_Rules:^
 qstr_0 0
@@ -1792,3 +1792,8 @@ qstr_The_Kingdom_^of_Fran The_Kingdom_^of_France
 qstr_The_Kingdom_^of_Engl The_Kingdom_^of_England
 qstr_The_Duchy_^of_Burgan The_Duchy_^of_Burgandy
 qstr_The_Duchy_^of_Britta The_Duchy_^of_Brittany
+qstr_The_Kingdom^of_Franc The_Kingdom^of_France
+qstr_The_Kingdom^of_Engla The_Kingdom^of_England
+qstr_The_Duchy^of_Burgand The_Duchy^of_Burgandy
+qstr_The_Duchy^of_Brittan The_Duchy^of_Brittany
+qstr__Back_ _Back_
