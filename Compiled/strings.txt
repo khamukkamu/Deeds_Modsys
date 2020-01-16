@@ -1,5 +1,5 @@
 stringsfile version 1
-4127
+4132
 str_no_string NO_STRING!
 str_empty_string _
 str_yes Yes.
@@ -4085,6 +4085,11 @@ str_dac_start_quest_forester ^^You_were_hunting_in_the_forest_when_you_ran_into_
 str_dac_start_quest_guard ^^You_were_patrolling_your_lord's_grounds_when_you_ran_into_some_disgruntled_farmers,_plotting_to_burn_the_lord's_manor...
 str_dac_start_quest_merchant ^^A_primary_competitor_of_the_town_you_are_visiting_has_sent_a_group_of_thugs_to_intimidate_you_to_leave_immediately..
 str_dac_start_quest_noble ^^A_minor_lord_felt_insulted_by_what_you_said_to_another_group_of_lords,_so_he_has_challenged_you_to_a_duel...
+str_sel_lord_fac_adj_0 All_Factions
+str_sel_lord_fac_adj_1 France
+str_sel_lord_fac_adj_2 English
+str_sel_lord_fac_adj_3 Burgandy
+str_sel_lord_fac_adj_4 Brittany
 str_skl_trade Trade
 str_skl_leadership Leadership
 str_skl_prisoner_management Prisoner_Management

@@ -78,9 +78,11 @@ game_menus = [
   "none",
     [],
     [
-     ("continue",[],"Continue...",
+     ("continue",[],"Start as an adventurer...",
        [
        #SB : randomized quick start
+        (assign, "$background_answer_2", 0), #DAC Kham: Piggyback on Global for Start as <BLANK> menus
+        (assign, "$background_answer_3", 0), #DAC Kham: Piggyback on Global for Start as <BLANK> menus (Faction Selection)
         (try_begin),
           (this_or_next|key_is_down, key_left_shift),
           (key_is_down, key_right_shift),
@@ -95,10 +97,27 @@ game_menus = [
           (assign, "$cheat_mode", 1),
           (jump_to_menu, "mnu_choose_skill"),
         (else_try),
+          (assign, "$background_answer_2", 0),  #DAC Kham: Start as Adventurer
           (jump_to_menu, "mnu_start_game_1"),
         (try_end),
         ]
        ),
+
+     #DAC Kham: KAOS Start as Ruler / Lord / Vassal Begin Part I
+
+      ("continue_vassal", [],"Start as vassal...", 
+        [ (assign, "$background_answer_2", 1), 
+          (jump_to_menu, "mnu_start_game_1"), 
+        ]),
+
+      ("continue_lord_or_king", [],"Start as lord or king...", 
+        [ (assign, "$character_info_id", -1),
+          (assign, "$background_answer_2", 2), 
+          (start_presentation, "prsnt_dac_select_lord_or_king"), 
+        ]),
+
+     #DAC Kham: KAOS Start as Ruler / Lord / Vassal END Part I
+
       ("go_back",[],"Go back",
        [
          (change_screen_quit),
@@ -1206,7 +1225,13 @@ game_menus = [
        [
          (troop_set_type,"trp_player", 0),
          (assign,"$character_gender", tf_male),
-         (jump_to_menu,"mnu_dac_start_character_background"),
+         (try_begin),
+            (eq, "$background_answer_2", 0), # DAC Kham: As Adventurer
+            (jump_to_menu,"mnu_dac_start_character_background"),
+         (else_try),
+            (eq, "$background_answer_2", 1), #DAC Kham: As Vassal
+            (jump_to_menu,"mnu_start_as_vassal_choose_faction"),
+         (try_end),
         ]
        ),
       ("start_female",[],"Female",
@@ -2348,6 +2373,46 @@ game_menus = [
     ]
   ),
 
+# DAC Kham: KAOS Start as Vassal BEGIN Part 2
+
+  ("start_as_vassal_choose_faction", mnf_disable_all_keys,
+    "Select your character's faction.",
+    "none",
+    [],
+    [
+      ("fac1",[],"Kingdom of France", [
+         (assign, "$background_answer_3", "fac_kingdom_1"),
+         (jump_to_menu, "mnu_choose_skill"),
+      ]),
+      
+      ("fac2",[],"Kingdom of England", [
+         (assign, "$background_answer_3", "fac_kingdom_2"),
+         (jump_to_menu, "mnu_choose_skill"),
+      ]),
+
+      ("fac3",[],"Duchy of Burgundy", [
+         (assign, "$background_answer_3", "fac_kingdom_3"),
+         (jump_to_menu, "mnu_choose_skill"),
+      ]),
+
+      ("fac4",[],"Duchy of Brittany", [
+         (assign, "$background_answer_3", "fac_kingdom_4"),
+         (jump_to_menu, "mnu_choose_skill"),
+      ]),
+
+      ("go_back",[],"Go back", [ 
+          (try_begin),
+            (eq, "$character_gender", tf_female),
+            (jump_to_menu,"mnu_dplmc_start_select_prejudice"), 
+          (else_try),
+            (jump_to_menu, "mnu_start_game_1"),
+          (try_end)
+      ]),
+    ]
+  ),
+
+# DAC Kham: KAOS Start as Vassal END Part 2
+
 (
     "dac_choose_skill",mnf_disable_all_keys,
     "Onwards, to France!",
@@ -2356,7 +2421,7 @@ game_menus = [
         #DAC-Kham: See "choose_skill" to see how it is done on Native
     [
 ##      
-      ("begin_adventuring",[],"Become an adventurer and ride to your destiny.",[
+      ("begin_adventuring",[(eq, "$background_answer_2", 0)],"Become an adventurer and ride to your destiny.",[
           #(set_show_messages, 0),
            
           (try_begin),
@@ -2433,6 +2498,23 @@ game_menus = [
       (try_end),
       #(set_show_messages, 1),
         ]),
+
+  #DAC Kham: KAOS Start as Ruler / Lord / Vassal BEGIN      
+
+      ("begin_ruling", [(eq, "$background_answer_2", 2),], "Become a ruler during the Hundred Years War",
+        [
+          (call_script, "script_kaos_start_as_king_or_lord", "$dac_selected_lord"),
+          (change_screen_return, 0),
+        ],
+      ),
+
+      ("begin_serving", [(eq, "$background_answer_2", 1),], "Become a vassal during the Hundred Years War",
+        [
+          (call_script, "script_kaos_start_as_vassal", "$background_answer_3"),
+          (jump_to_menu, "mnu_auto_return"),
+          (start_presentation, "prsnt_banner_selection"),
+        ],
+      ),
 
       ("go_back_dot",[],"Go back.",[
         (jump_to_menu,"mnu_dac_start_character_background"),
@@ -21043,13 +21125,25 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       ("dplmc_start_prejudice_yes",[],"I do not mind encountering sexism.",
        [
          (assign, "$g_disable_condescending_comments", 0),#Default value
-         (jump_to_menu,"mnu_dac_start_character_background"),
+         (try_begin),
+            (eq, "$background_answer_2", 0), #DAC Kham: As Adventurer
+            (jump_to_menu,"mnu_dac_start_character_background"),
+         (else_try),
+            (eq, "$background_answer_2", 1), #DAC Kham: As Vassal
+            (jump_to_menu,"mnu_start_as_vassal_choose_faction"),
+         (try_end),
         ]
        ),
       ("dplmc_start_prejudice_no",[],"I would prefer not to encounter as much sexism.",
        [
          (assign, "$g_disable_condescending_comments", 2),#Any value 2 or higher shuts off sexist setting elements
-         (jump_to_menu, "mnu_dac_start_character_background"),
+         (try_begin),
+            (eq, "$background_answer_2", 0),#DAC Kham: As Adventurer
+            (jump_to_menu,"mnu_dac_start_character_background"),
+         (else_try),
+            (eq, "$background_answer_2", 1),#DAC Kham: As Vassal
+            (jump_to_menu,"mnu_start_as_vassal_choose_faction"),
+         (try_end),
        ]
        ),
        #SB : enable dplmc_random_mixed_gender mission triggers

@@ -5710,6 +5710,15 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("dac_start_quest_guard", "^^You were patrolling your lord's grounds when you ran into some disgruntled farmers, plotting to burn the lord's manor..."),
 ("dac_start_quest_merchant", "^^A primary competitor of the town you are visiting has sent a group of thugs to intimidate you to leave immediately.."),
 ("dac_start_quest_noble", "^^A minor lord felt insulted by what you said to another group of lords, so he has challenged you to a duel..."),
+
+# DAC Start as Lord
+
+("sel_lord_fac_adj_0", "All Factions"),
+("sel_lord_fac_adj_1", "France"),
+("sel_lord_fac_adj_2", "English"),
+("sel_lord_fac_adj_3", "Burgandy"),
+("sel_lord_fac_adj_4", "Brittany"),
+
 #utility for skill names
 ]+[
 ("skl_"+skills[x][0], skills[x][1]) for x in range(0, len(skills))]
