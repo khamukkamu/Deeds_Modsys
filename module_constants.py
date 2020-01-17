@@ -1111,52 +1111,11 @@ slot_team_defeated_strength				= 3
 # character backgrounds
 cb_noble = 1
 cb_merchant = 2
-cb_guard = 3
-cb_forester = 4
-cb_nomad = 5
-cb_thief = 6
-cb_priest = 7
-
-#DAC
-cb_merc = cb_priest
-cb_healer = cb_nomad
-
-#SB : these should be moved up by one
-cb2_page = 0
-cb2_apprentice = 1
-cb2_urchin  = 2
-cb2_steppe_child = 3
-cb2_merchants_helper = 4
-##diplomacy start+ add background constants
-dplmc_cb2_mummer = 5
-dplmc_cb2_courtier = 6
-dplmc_cb2_noble = 7
-dplmc_cb2_acolyte = 8
-##diplomacy end+
-
-##diplomacy start+ add background constants
-dplmc_cb3_bravo = 1
-dplmc_cb3_merc = 2
-##diplomacy end+
-cb3_poacher = 3
-cb3_craftsman = 4
-cb3_peddler = 5
-##diplomacy start+ add background constants
-dplmc_cb3_preacher = 6
-##diplomacy end+
-cb3_troubadour = 7
-cb3_squire = 8
-cb3_lady_in_waiting = 9
-cb3_student = 10
-
-cb4_revenge = 1
-cb4_loss    = 2
-cb4_wanderlust =  3
-##diplomacy start+ add background constants
-dplmc_cb4_fervor = 4
-##diplomacy end+
-cb4_disown  = 5
-cb4_greed  = 6
+cb_soldier = 3
+cb_hunter = 4
+cb_mercenary = 5
+cb_peasant = 6
+cb_healer = 7 
 
 #NPC system changes end
 #Encounter types

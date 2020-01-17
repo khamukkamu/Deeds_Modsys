@@ -5714,10 +5714,10 @@ Even in the last case, the player can make formations up to four lines by orderi
 # DAC Start as Lord
 
 ("sel_lord_fac_adj_0", "All Factions"),
-("sel_lord_fac_adj_1", "France"),
-("sel_lord_fac_adj_2", "English"),
-("sel_lord_fac_adj_3", "Burgandy"),
-("sel_lord_fac_adj_4", "Brittany"),
+("sel_lord_fac_adj_1", "Kingdom of France"),
+("sel_lord_fac_adj_2", "Kingdom of England"),
+("sel_lord_fac_adj_3", "Duchy of Burgundy"),
+("sel_lord_fac_adj_4", "Duchy of Brittany"),
 
 #utility for skill names
 ]+[

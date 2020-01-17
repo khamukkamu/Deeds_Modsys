@@ -78,7 +78,20 @@ game_menus = [
   ##diplomacy end
   "none",
     [],
-    [
+    [     
+     #DAC Kham: KAOS Start as Ruler / Lord / Vassal Begin Part I    
+      ("continue_lord_or_king", [],"Start as a historical character...", 
+        [ (assign, "$character_info_id", -1),
+          (assign, "$background_answer_2", 2), 
+          (start_presentation, "prsnt_dac_select_lord_or_king"), 
+        ]),
+        
+      ("continue_vassal", [],"Start as a vassal...", 
+        [ (assign, "$background_answer_2", 1), 
+          (jump_to_menu, "mnu_start_game_1"), 
+        ]),
+     #DAC Kham: KAOS Start as Ruler / Lord / Vassal END Part I
+          
      ("continue",[],"Start as an adventurer...",
        [
        #SB : randomized quick start
@@ -90,35 +103,17 @@ game_menus = [
           (assign, "$g_disable_condescending_comments", 4),
           (store_random_in_range, "$character_gender", tf_male, tf_female + 1),
           (troop_set_type, "trp_player", "$character_gender"),
-          (store_random_in_range, "$background_type", cb_noble, cb_priest + 1),
-          (store_random_in_range, "$background_answer_2", cb2_page, dplmc_cb2_acolyte + 1),
-          (store_random_in_range, "$background_answer_3", dplmc_cb3_bravo, cb3_student + 1),
-          (store_random_in_range, "$background_answer_4", cb4_revenge, cb4_greed + 1),
-          (str_store_string, s13, "@Perhaps you have forgotten the face of your father."),
+          (store_random_in_range, "$background_type", cb_noble, cb_hunter + 1),
+          (assign, "$background_answer_2", 0),
           (assign, "$cheat_mode", 1),
-          (jump_to_menu, "mnu_choose_skill"),
+          (jump_to_menu, "mnu_dac_choose_skill"),
         (else_try),
           (assign, "$background_answer_2", 0),  #DAC Kham: Start as Adventurer
           (jump_to_menu, "mnu_start_game_1"),
         (try_end),
         ]
        ),
-
-     #DAC Kham: KAOS Start as Ruler / Lord / Vassal Begin Part I
-
-      ("continue_vassal", [],"Start as vassal...", 
-        [ (assign, "$background_answer_2", 1), 
-          (jump_to_menu, "mnu_start_game_1"), 
-        ]),
-
-      ("continue_lord_or_king", [],"Start as lord or king...", 
-        [ (assign, "$character_info_id", -1),
-          (assign, "$background_answer_2", 2), 
-          (start_presentation, "prsnt_dac_select_lord_or_king"), 
-        ]),
-
-     #DAC Kham: KAOS Start as Ruler / Lord / Vassal END Part I
-
+       
       ("go_back",[],"Go back",
        [
          (change_screen_quit),

@@ -409,7 +409,7 @@ character_creation_presentations = [
 
     #BURGANDY
     #text
-     (create_text_overlay, "$g_presentation_obj_item_select_2", "@The Duchy^of Burgandy", tf_center_justify|tf_with_outline),
+     (create_text_overlay, "$g_presentation_obj_item_select_2", "@The Duchy^of Burgundy", tf_center_justify|tf_with_outline),
         (position_set_x, pos1, 600),
         (position_set_y, pos1, 230),
         (overlay_set_position, "$g_presentation_obj_item_select_2", pos1),

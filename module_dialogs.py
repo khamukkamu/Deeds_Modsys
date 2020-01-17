@@ -239,7 +239,7 @@ dialogs = [
 ####################################################################################################################
 
 # Mercenary Discuss Options START
-[anyone,"start", [(eq, "$talk_context", tc_start_quest), (eq, "$background_type", cb_merc)], 
+[anyone,"start", [(eq, "$talk_context", tc_start_quest), (eq, "$background_type", cb_mercenary)], 
   "You're finally awake. Good.", "start_recap_merc",[]],
 
 [anyone|plyr,"start_recap_merc", [], 
@@ -260,7 +260,7 @@ dialogs = [
 [anyone|plyr,"start_quest_merc", [], 
   "We'll make a stand here.", "start_quest_fight",[]],
   
-[anyone|plyr,"start_quest_merc", [(eq, "$talk_context", tc_start_quest), (eq, "$background_type", cb_merc)], 
+[anyone|plyr,"start_quest_merc", [(eq, "$talk_context", tc_start_quest), (eq, "$background_type", cb_mercenary)], 
   "Skip this quest", "close_window",[(change_screen_map)]],
 
 [anyone,"start_quest_fight", [], 
@@ -272,13 +272,13 @@ dialogs = [
 
 
 # Hunter Discuss Options START
-[anyone,"start", [(eq, "$talk_context", tc_start_quest), (eq, "$background_type", cb_forester)], 
+[anyone,"start", [(eq, "$talk_context", tc_start_quest), (eq, "$background_type", cb_hunter)], 
   "What would you like to do, friend?", "start_quest_hunter",[]],
 
-[anyone|plyr,"start_quest_hunter", [(eq, "$talk_context", tc_start_quest), (eq, "$background_type", cb_forester)], 
+[anyone|plyr,"start_quest_hunter", [(eq, "$talk_context", tc_start_quest), (eq, "$background_type", cb_hunter)], 
   "Stand and fight", "start_quest_fight",[]],
 
-[anyone|plyr,"start_quest_hunter", [(eq, "$talk_context", tc_start_quest), (eq, "$background_type", cb_forester)], 
+[anyone|plyr,"start_quest_hunter", [(eq, "$talk_context", tc_start_quest), (eq, "$background_type", cb_hunter)], 
   "Skip this quest", "close_window",[(change_screen_map)]],
 
 [anyone,"start_quest_fight", [], 
@@ -288,13 +288,13 @@ dialogs = [
 # Hunter Discuss Options END
 
 # Guard Discuss Options START
-[anyone,"start", [(eq, "$talk_context", tc_start_quest), (eq, "$background_type", cb_guard)], 
+[anyone,"start", [(eq, "$talk_context", tc_start_quest), (eq, "$background_type", cb_soldier)], 
   "Sire, these bandits plot to destroy the manor! What do you want to do?", "start_quest_guard",[]],
 
-[anyone|plyr,"start_quest_guard", [(eq, "$talk_context", tc_start_quest), (eq, "$background_type", cb_guard)], 
+[anyone|plyr,"start_quest_guard", [(eq, "$talk_context", tc_start_quest), (eq, "$background_type", cb_soldier)], 
   "Stand and fight", "start_quest_fight",[]],
 
-[anyone|plyr,"start_quest_guard", [(eq, "$talk_context", tc_start_quest), (eq, "$background_type", cb_guard)], 
+[anyone|plyr,"start_quest_guard", [(eq, "$talk_context", tc_start_quest), (eq, "$background_type", cb_soldier)], 
   "Skip this quest", "close_window",[(change_screen_map)]],
 
 [anyone,"start_quest_fight", [], 
