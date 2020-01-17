@@ -5,14 +5,14 @@ dlga_start:close_window.1 69631 0  2 31 2 144115188075856110 14 33 3 14411518807
 dlga_start:close_window.1 69631 0  2 31 2 144115188075856110 14 33 3 144115188075855987 360287970189639938 360287970189639940 This_person_looks_quite_busy._I_think_I_shouldn't_interrupt...  6  0 NO_VOICEOVER 
 dlga_start:prisoner_chat 266239 0  2 31 2 144115188075856110 22 1729 2 144115188075855988 288230376151712667 ___  14  0 NO_VOICEOVER 
 dlga_start:member_chat 266239 0  1 31 2 144115188075856110 22 ___  13  0 NO_VOICEOVER 
-dlga_start:start_recap_merc 4095 0  2 31 2 144115188075856110 23 31 2 144115188075856171 7 You're_finally_awake._Good.  15  0 NO_VOICEOVER 
+dlga_start:start_recap_merc 4095 0  2 31 2 144115188075856110 23 31 2 144115188075856171 5 You're_finally_awake._Good.  15  0 NO_VOICEOVER 
 dlga_start_recap_merc:recap_quest_merc 69631 15  0 Can_someone_clue_me_in_on_what_is_going_on?  16  0 NO_VOICEOVER 
 dlga_recap_quest_merc:recap_quest_merc_cont 4095 16  0 You_took_quite_a_nasty_hit_so_I_don't_blame_you_for_being_a_bit_lost._Remember_that_last_contract_we_got?_Horseshite._Someone_was_looking_to_get_rid_of_us,_I_don't_think_those_that_we_faced_were_Routiers_at_all_and_they_knew_we_were_coming_their_way._We_walked_straight_into_an_ambush.  17  0 NO_VOICEOVER 
 dlga_recap_quest_merc_cont:recap_quest_merc_cont_2 69631 17  0 Where's_the_captain?_Where's_my_equipment?_Where_are_we?  18  0 NO_VOICEOVER 
 dlga_recap_quest_merc_cont_2:recap_quest_merc_end 4095 18  0 Cap's_dead._Your_equipment_was_in_bad_shape,_we_stripped_you_so_you_would_be_easier_to_carry._To_be_honest_we_didn't_think_you'd_survive_but_since_you_saved_our_asses_in_the_ambush_it's_the_least_we_could_do._It_doesn't_matter_much_where_we_are_right_now,_just_know_that_they_are_still_trying_to_finish_us_off.  19  0 NO_VOICEOVER 
 dlga_recap_quest_merc_end:start_quest_merc 4095 19  0 Here's_the_situation,_they_split_their_force_in_two_parties_to_cut_us_off_and_eventually_surround_us._Which_they_will_certainly_achieve_if_we_don't_make_a_move_soon._That's_your_call,_you're_next_in_line_for_command_since_the_captain's_demise.  20  0 NO_VOICEOVER 
 dlga_start_quest_merc:start_quest_fight 69631 20  0 We'll_make_a_stand_here.  21  0 NO_VOICEOVER 
-dlga_start_quest_merc:close_window 69631 20  2 31 2 144115188075856110 23 31 2 144115188075856171 7 Skip_this_quest  6  1 2052 0 NO_VOICEOVER 
+dlga_start_quest_merc:close_window 69631 20  2 31 2 144115188075856110 23 31 2 144115188075856171 5 Skip_this_quest  6  1 2052 0 NO_VOICEOVER 
 dlga_start_quest_fight:close_window 4095 21  0 Good._I'll_prepare_the_men.  6  1 2060 1 864691128455135497 NO_VOICEOVER 
 dlga_start:start_quest_hunter 4095 0  2 31 2 144115188075856110 23 31 2 144115188075856171 4 What_would_you_like_to_do,_friend?  22  0 NO_VOICEOVER 
 dlga_start_quest_hunter:start_quest_fight 69631 22  2 31 2 144115188075856110 23 31 2 144115188075856171 4 Stand_and_fight  21  0 NO_VOICEOVER 

@@ -25949,6 +25949,19 @@ scripts = [
 			(call_script, "script_give_center_to_lord", ":cur_village", ":lord_troop_id", 0),
         (try_end),
     (try_end),
+
+  # DAC Kham: Update Volunteer Troops ASAP
+    (try_begin),
+      (party_slot_eq, ":center_no",slot_party_type, spt_village),
+      (call_script, "script_update_volunteer_troops_in_village", ":center_no"),
+    (else_try),
+      (party_slot_eq, ":center_no",slot_party_type, spt_town),
+      (call_script, "script_update_volunteer_troops_in_town", ":center_no"),
+    (else_try),
+      (party_slot_eq, ":center_no",slot_party_type, spt_castle),
+      (call_script, "script_update_volunteer_troops_in_castle", ":center_no"),
+    (try_end),
+    
   ]),
 
 ##  # script_give_town_to_besiegers

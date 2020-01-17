@@ -144,7 +144,9 @@ tracks = [
   ("DAC-Town-Generic-7", "DAC-Town-Generic-7.mp3", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),
   ("DAC-Town-Generic-8", "DAC-Town-Generic-8.mp3", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),
   ("DAC-Town-Generic-9", "DAC-Town-Generic-9.ogg", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),
-
+  ("DAC-Town-Generic-10", "DAC-Town-Generic-10.ogg", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),
+  ("DAC-Town-Generic-11", "DAC-Town-Generic-11.ogg", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),
+  ("DAC-Town-Generic-12", "DAC-Town-Generic-12.ogg", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),
 
 # Tavern
   ("DAC-Tavern-Generic-1", "DAC-Tavern-Generic-1.mp3", mtf_module_track|mtf_sit_tavern|mtf_sit_feast, 0),
