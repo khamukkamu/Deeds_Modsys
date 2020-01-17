@@ -340,6 +340,13 @@ character_creation_scripts = [
 
     (call_script, "script_dac_equip_player_as_vassal", ":faction"),
 
+    (faction_get_slot, ":party_template_a", ":faction", slot_faction_reinforcements_a),
+    (faction_get_slot, ":party_template_b", ":faction", slot_faction_reinforcements_b),
+
+    (party_add_template, "p_main_party", ":party_template_a"),
+    (party_add_template, "p_main_party", ":party_template_b"),
+    
+
     (troop_add_gold, "trp_player", 15000),
 
     (set_show_messages, 1),
@@ -379,6 +386,12 @@ character_creation_scripts = [
     (str_store_troop_name, s10, ":troop"),
     (troop_set_name, "trp_player", s10),
     (troop_set_plural_name, "trp_player", s10),
+
+    (troop_get_type, ":type", ":troop"),
+    (try_begin),
+      (eq, ":type", tf_female),
+      (troop_set_type, "trp_player", tf_female),
+    (try_end),
 
     (troop_get_slot, ":troop_party", ":troop", slot_troop_leaded_party),
     (try_begin),
@@ -579,7 +592,20 @@ character_creation_scripts = [
     (call_script, "script_update_all_notes"), 
     #(troop_get_slot, ":wealth", ":troop", slot_troop_wealth),
     #(troop_add_gold, "trp_player", ":wealth"),
+
     (call_script, "script_dac_equip_player_as_lord", ":troop"),
+
+    (faction_get_slot, ":party_template_a", ":faction", slot_faction_reinforcements_a),
+    (faction_get_slot, ":party_template_b", ":faction", slot_faction_reinforcements_b),
+    (faction_get_slot, ":party_template_c", ":faction", slot_faction_reinforcements_c),
+    (faction_get_slot, ":party_template_d", ":faction", slot_faction_reinforcements_d),   
+    (faction_get_slot, ":party_template_e", ":faction", slot_faction_reinforcements_e),   
+
+    (party_add_template, "p_main_party", ":party_template_a"),
+    (party_add_template, "p_main_party", ":party_template_b"),
+    (party_add_template, "p_main_party", ":party_template_c"),
+    (party_add_template, "p_main_party", ":party_template_d"),
+    (party_add_template, "p_main_party", ":party_template_e"),
     
     (call_script, "script_change_troop_faction", ":troop", "fac_outlaws"),
 

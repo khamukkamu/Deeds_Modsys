@@ -3012,12 +3012,22 @@ scripts = [
   ("player_arrived",
    [
       # (assign, ":player_faction_culture", "fac_culture_1"),
+      
+      #DAC Kham: Change this
+      
       #SB : align start faction culture
-      (party_relocate_near_party, "p_main_party", "$g_starting_town", 2),
-      (party_get_slot, ":player_faction_culture", "$g_starting_town", slot_center_culture),
+      #(party_relocate_near_party, "p_main_party", "$g_starting_town", 2),
+      #(party_get_slot, ":player_faction_culture", "$g_starting_town", slot_center_culture),
+      
+      (store_random_in_range, ":player_faction_culture", npc_kingdoms_begin, npc_kingdoms_end), #Just make it random
       (faction_set_slot, "fac_player_supporters_faction",  slot_faction_culture, ":player_faction_culture"),
       (faction_set_slot, "fac_player_faction",  slot_faction_culture, ":player_faction_culture"),
+    
+      (store_random_in_range, ":destination", training_grounds_begin, training_grounds_end),
+      (party_set_flags, ":destination", pf_always_visible, 1),
+      (party_relocate_near_party, "p_main_party", ":destination", 3),
       (party_set_morale, "p_main_party", 100),
+
     ]),
 
 

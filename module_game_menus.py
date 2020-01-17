@@ -232,11 +232,19 @@ game_menus = [
       ("town_none",[], "Start your adventure..",
        [
          #(jump_to_menu, "mnu_start_phase_2_5"),
-         (store_random_in_range, ":destination", training_grounds_begin, training_grounds_end),
-         (party_set_flags, ":destination", pf_always_visible, 1),
-         # (store_add, ":destination", "$fac_index", "p_swadian_scouts_spawn_point"),
-         (party_relocate_near_party, "p_main_party", ":destination", 3),
-         (call_script, "script_player_arrived"),
+         #(store_random_in_range, ":destination", training_grounds_begin, training_grounds_end),
+         #(party_set_flags, ":destination", pf_always_visible, 1),
+         #(store_add, ":destination", "$fac_index", "p_swadian_scouts_spawn_point"),
+         #(party_relocate_near_party, "p_main_party", ":destination", 3),
+         
+         # DAC Kham: Only for Adventurer. Vassal and Lord/Ruler is set in its respective scripts
+         (try_begin),
+          (eq, "$background_answer_2", 0),
+          (call_script, "script_player_arrived"),
+         (else_try),
+          (party_set_morale, "p_main_party", 100),
+         (try_end),
+
          # (try_begin), #noble
            # (eq, "$g_player_banner_granted", 1),
            # (troop_slot_ge, "trp_player", slot_troop_renown, 160),
