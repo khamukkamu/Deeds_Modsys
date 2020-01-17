@@ -264,6 +264,7 @@ character_creation_presentations = [
         (eq, ":object", "$g_presentation_obj_1"),
         (assign, "$dac_selected_lord", "$character_info_id"),
         (jump_to_menu, "mnu_dac_choose_skill"),
+        (presentation_set_duration, 0),
       (else_try),
         (eq, ":object", "$g_presentation_obj_2"),
         (jump_to_menu, "mnu_start_game_0"),
