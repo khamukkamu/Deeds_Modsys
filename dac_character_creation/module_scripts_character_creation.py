@@ -315,7 +315,7 @@ character_creation_scripts = [
     (get_level_boundary, ":xp_required_for_levelling", 10),
     (add_xp_to_troop, ":xp_required_for_levelling", "trp_player"),
 
-    (troop_raise_skill, "trp_player",skl_weapon_master,2),
+    (troop_raise_skill, "trp_player",skl_weapon_master,3),
     (troop_raise_skill, "trp_player",skl_power_strike,2),
     (troop_raise_skill, "trp_player",skl_riding,2),
     (troop_raise_skill, "trp_player",skl_tactics,2),
@@ -451,9 +451,9 @@ character_creation_scripts = [
         (get_level_boundary, ":xp_required_for_levelling", 20),
         (add_xp_to_troop, ":xp_required_for_levelling", "trp_player"),        
 
-        (troop_raise_skill, "trp_player",skl_weapon_master,2),
+        (troop_raise_skill, "trp_player",skl_weapon_master,4),
         (troop_raise_skill, "trp_player",skl_power_strike,2),
-        (troop_raise_skill, "trp_player",skl_riding,2),
+        (troop_raise_skill, "trp_player",skl_riding,3),
         (troop_raise_skill, "trp_player",skl_tactics,2),
         (troop_raise_skill, "trp_player",skl_leadership,3),	  
 
@@ -558,9 +558,9 @@ character_creation_scripts = [
         (get_level_boundary, ":xp_required_for_levelling", 15),
         (add_xp_to_troop, ":xp_required_for_levelling", "trp_player"), 
 
-        (troop_raise_skill, "trp_player",skl_weapon_master,2),
+        (troop_raise_skill, "trp_player",skl_weapon_master,4),
         (troop_raise_skill, "trp_player",skl_power_strike,2),
-        (troop_raise_skill, "trp_player",skl_riding,2),
+        (troop_raise_skill, "trp_player",skl_riding,3),
         (troop_raise_skill, "trp_player",skl_tactics,2),
         (troop_raise_skill, "trp_player",skl_leadership,3),	  
 

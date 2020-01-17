@@ -1359,6 +1359,7 @@ simple_triggers = [
 			(faction_get_slot, ":faction_leader", ":faction", slot_faction_leader),
 			(gt, ":faction_leader", -1),
 			(neq, ":faction_leader", ":troop_no"),
+            
 			(neg|troop_slot_eq, ":faction_leader", slot_troop_spouse, ":troop_no"),
 			(neg|troop_slot_eq, ":troop_no", slot_troop_spouse, ":faction_leader"),
 
@@ -1392,7 +1393,8 @@ simple_triggers = [
 			(neq, ":troop_no", ":faction_leader"),
 			(neg|troop_slot_eq, ":troop_no", slot_troop_spouse, ":faction_leader"),
 			(neg|troop_slot_eq, ":faction_leader", slot_troop_spouse, ":troop_no"),
-
+            
+			(neq, ":troop_no", "trp_knight_1_5"), # DAC Seek: Making an exception for Jeanne
           #I don't know why these are necessary, but they appear to be
 			(neg|is_between, ":troop_no", kings_begin, kings_end), #SB : range consts
 			(neg|is_between, ":troop_no", pretenders_begin, pretenders_end),
@@ -1413,7 +1415,7 @@ simple_triggers = [
 		  (try_end),
 			
             (call_script, "script_troop_get_relation_with_troop", ":troop_no", ":faction_leader"),
-            (this_or_next|le, reg0, -50), #was -75
+            (this_or_next|le, reg0, -90), #was -50
             (eq, ":num_centers", 0), #if there is no walled centers that faction has defection happens 100%.
 
             (call_script, "script_cf_troop_can_intrigue", ":troop_no", 0), #Should include battle, prisoner, in a castle with others
@@ -1473,7 +1475,7 @@ simple_triggers = [
             (else_try),
               (neq, ":faction_leader", "trp_player"),
               (call_script, "script_troop_get_relation_with_troop", ":troop_no", ":faction_leader"),
-              (le, reg0, -50), #was -75
+              (le, reg0, -90), #was -50
               (call_script, "script_indict_lord_for_treason", ":troop_no", ":faction"),
             (try_end),
 
