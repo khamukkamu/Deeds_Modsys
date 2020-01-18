@@ -9302,8 +9302,8 @@ presentations = [
             (else_try),
               (presentation_set_duration, 0),
             (try_end),
-            # (try_begin), #companions are exempt from conflicting banners
-              # (eq, "$g_player_troop", "trp_player"),
+            (try_begin), #companions are exempt from conflicting banners
+              (eq, "$g_player_troop", "trp_player"),
               # (neg|is_between, "$g_player_troop", companions_begin, companions_end),
               # (assign, ":troop_to_change", 0),
               #SB : restore banner swap behaviour
@@ -9341,9 +9341,9 @@ presentations = [
               # (str_store_troop_name_link, s14, ":troop_to_give_back"),
               # (display_message, "@player replaced {s13} restored {s14}"),
 			  
-              # (try_for_range, ":cur_center", centers_begin, centers_end), ### DAC Seek: Adding banners to villages
-                # (party_slot_eq, ":cur_center", slot_town_lord, "$g_player_troop"),
-                # (party_set_banner_icon, ":cur_center", ":selected_banner_map_icon"),
+              (try_for_range, ":cur_center", centers_begin, centers_end), ### DAC Seek: Adding banners to villages
+                (party_slot_eq, ":cur_center", slot_town_lord, "$g_player_troop"),
+                (party_set_banner_icon, ":cur_center", ":selected_banner_map_icon"),
               # (else_try),
                 # (gt, ":troop_to_change", 0),
                 # (party_slot_eq, ":cur_center", slot_town_lord, ":troop_to_change"),
@@ -9352,8 +9352,8 @@ presentations = [
                 # (gt, ":troop_to_give_back", 0),
                 # (party_slot_eq, ":cur_center", slot_town_lord, ":troop_to_give_back"),
                 # (party_set_banner_icon, ":cur_center", ":player_cur_banner_icon"),
-              # (try_end),
-            # (try_end),
+              (try_end),
+            (try_end),
           (try_end),
         ]),
       (ti_on_presentation_run,
