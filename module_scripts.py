@@ -59963,6 +59963,11 @@ scripts = [
 	(display_log_message, s9, ":color"),#display_message changed to display_log_message
 	##diplomacy end+
 
+  # DAC Kham: Reset Controversy after being indicted. Have to think about this more too
+  # Wouldn't an indicted lord be known amongst the realm? Maybe we should give them a base number of controversy...
+
+  (troop_set_slot, ":troop_no", slot_troop_controversy, 0),
+
 	#Indictments, cont: Remove party
 	(troop_get_slot, ":led_party", ":troop_no", slot_troop_leaded_party),
 	(try_begin),
