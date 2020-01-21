@@ -579,6 +579,7 @@ scripts = [
       (call_script, "script_update_tavern_travellers"),
       (call_script, "script_update_tavern_minstrels"),
       (call_script, "script_update_booksellers"),
+      (call_script, "script_update_tavern_tailors"),
       (call_script, "script_refresh_center_inventories"),
 
       (try_for_range, ":village_no", villages_begin, villages_end),
@@ -40783,10 +40784,26 @@ scripts = [
        (party_set_slot, ":town_no", slot_center_tavern_bookseller, ":troop_no"),
        (troop_set_slot, ":troop_no", slot_troop_cur_center, ":town_no"), #SB : set troop slot
      (try_end),
-
-
-
      ]),
+     
+### DAC Seek: Tavern Tailors     
+  #script_update_tavern_tailors
+  # INPUT: none
+  # OUTPUT: none
+  ("update_tavern_tailors",
+    [(try_for_range, ":town_no", towns_begin, towns_end),
+       (neg|party_slot_ge, ":town_no", slot_center_is_besieged_by, 1), #keep them there
+       (party_set_slot, ":town_no", slot_center_tavern_tailor, 0),
+     (try_end),
+
+     (try_for_range, ":troop_no", tavern_tailors_begin, tavern_tailors_end),
+       (troop_get_slot, ":cur_center", ":troop_no", slot_troop_cur_center),
+       (neg|party_slot_ge, ":cur_center", slot_center_is_besieged_by, 1), #can't travel
+       (store_random_in_range, ":town_no", towns_begin, towns_end),
+       (party_set_slot, ":town_no", slot_center_tavern_tailor, ":troop_no"),
+       (troop_set_slot, ":troop_no", slot_troop_cur_center, ":town_no"), #SB : set troop slot
+     (try_end),
+     ]),     
 
   #script_update_tavern_minstels
   # INPUT: none
@@ -78639,8 +78656,59 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (call_script, "script_give_center_to_lord", "p_castle_85", "trp_knight_4_10", 0), # Forteresse_de_Roch'an - Alain X de Rohan
       (call_script, "script_give_center_to_lord", "p_castle_86", "trp_knight_4_1", 0), # Forteresse_de_Dol - Arthur de Richemont             
     
-    
-    
+##################################################################################################################################################################################################################################################################################################################
+###################################################################################################### DAC Village DISTRIBUTION ###################################################################################################################################################################################
+##################################################################################################################################################################################################################################################################################################################
+
+### French Villages    
+      (call_script, "script_give_center_to_lord", "p_village_3", "trp_knight_1_14", 0), # Ardon - Raoul VI de Gaucourt
+      (call_script, "script_give_center_to_lord", "p_village_4", "trp_knight_1_2", 0), # Tigy - Étienne de Vignolles
+      (call_script, "script_give_center_to_lord", "p_village_5", "trp_knight_1_10", 0), # Bueil - Jean V de Bueil
+      (call_script, "script_give_center_to_lord", "p_village_8", "trp_knight_1_41", 0), # Chauvigny - Guy III de Chauvigny
+      (call_script, "script_give_center_to_lord", "p_village_11", "trp_knight_1_17", 0), # Montpensier - Louis I de Bourbon
+      (call_script, "script_give_center_to_lord", "p_village_25", "trp_knight_1_47", 0), # Gramont - Girault de la Paillière
+      (call_script, "script_give_center_to_lord", "p_village_26", "trp_knight_1_26", 0), # Terraube - Thilbault de Termes d'Armagnac
+      (call_script, "script_give_center_to_lord", "p_village_29", "trp_knight_1_33", 0), # Castres - Jacques II de Bourbon de Vendôme
+      (call_script, "script_give_center_to_lord", "p_village_36", "trp_knight_1_30", 0), # Oiron - Christophe d'Harcourt
+      (call_script, "script_give_center_to_lord", "p_village_39", "trp_knight_1_52", 0), # Amilly - Denis de Chailly
+      (call_script, "script_give_center_to_lord", "p_village_40", "trp_knight_1_51", 0), # Mormant - André de Rambures
+      (call_script, "script_give_center_to_lord", "p_village_45", "trp_knight_1_14", 0), # Azay - Raoul VI de Gaucourt
+      (call_script, "script_give_center_to_lord", "p_village_48", "trp_knight_1_25", 0), # Tasque - Géraud de Termes d'Armagnac
+      (call_script, "script_give_center_to_lord", "p_village_51", "trp_knight_1_12", 0), # La Crête - Charles de Culant
+      (call_script, "script_give_center_to_lord", "p_village_57", "trp_knight_1_12", 0), # Jalognes - Charles de Culant
+      (call_script, "script_give_center_to_lord", "p_village_59", "trp_knight_1_27", 0), # Pavie - Renaud de Termes d'Armagnac
+      (call_script, "script_give_center_to_lord", "p_village_64", "trp_knight_1_6", 0), # Xaintrailles - Jean Poton de Xaintrailles
+      (call_script, "script_give_center_to_lord", "p_village_66", "trp_knight_1_18", 0), # Barbazan - Arnault Guilhem de Barbazan
+      (call_script, "script_give_center_to_lord", "p_village_74", "trp_knight_1_3", 0), # Brissac - Gilles de Rais
+      (call_script, "script_give_center_to_lord", "p_village_96", "trp_knight_1_21", 0), # Le Lion-d'Angers - Pierre de Beauvau
+
+### English Villages  
+      (call_script, "script_give_center_to_lord", "p_village_98", "trp_knight_2_48", 0), # Chailly - Sir John de la Pole
+      (call_script, "script_give_center_to_lord", "p_village_99", "trp_knight_2_49", 0), # Ury - Sir Alexander de la Pole
+      (call_script, "script_give_center_to_lord", "p_village_100", "trp_knight_2_50", 0), # Gasville - Sir Thomas de la Pole
+      (call_script, "script_give_center_to_lord", "p_village_102", "trp_knight_2_32", 0), # Barentin - John Salvayn
+      (call_script, "script_give_center_to_lord", "p_village_106", "trp_knight_2_46", 0), # Honfleur - Sir Robert de Vere
+      (call_script, "script_give_center_to_lord", "p_village_108", "trp_knight_2_19", 0), # Barfleur - Sir Robert Hungerford
+      (call_script, "script_give_center_to_lord", "p_village_109", "trp_knight_2_20", 0), # Valognes - Sir Edmund Hungerford
+      (call_script, "script_give_center_to_lord", "p_village_110", "trp_knight_2_22", 0), # Fréthun - Sir Richard II Woodville
+      (call_script, "script_give_center_to_lord", "p_village_119", "trp_knight_2_33", 0), # Ecouché - Sir Thomas Blount
+      (call_script, "script_give_center_to_lord", "p_village_126", "trp_knight_2_47", 0), # Aubigny - Sir Richard de Vere
+      (call_script, "script_give_center_to_lord", "p_village_129", "trp_knight_2_24", 0), # Vendôme - Sir William Glasdale
+      (call_script, "script_give_center_to_lord", "p_village_135", "trp_knight_2_41", 0), # Hambye - Sir Lewis Robessart
+      (call_script, "script_give_center_to_lord", "p_village_136", "trp_knight_2_36", 0), # Vire - Sir Robert Howard of Tendring
+      (call_script, "script_give_center_to_lord", "p_village_143", "trp_knight_2_35", 0), # Condé - John Beauchamp
+
+### Burgundian Villages 
+      (call_script, "script_give_center_to_lord", "p_village_187", "trp_knight_3_11", 0), # Arras - David de Brimeu
+
+##################################################################################################################################################################################################################################################################################################################
+###################################################################################################### DAC Fief DISTRIBUTION END ###################################################################################################################################################################################
+##################################################################################################################################################################################################################################################################################################################
+
+
+
+
+      
     #Add home centers for claimants
     # (troop_set_slot, "trp_kingdom_1_pretender", slot_troop_home, "p_town_4"),#Lady Isolle - Suno
     # (troop_set_slot, "trp_kingdom_2_pretender", slot_troop_home, "p_town_11"),#Prince Valdym - Curaw

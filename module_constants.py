@@ -439,6 +439,7 @@ slot_center_tavern_traveler       = 96
 slot_center_traveler_info_faction = 97
 slot_center_tavern_bookseller     = 98
 slot_center_tavern_minstrel       = 99
+slot_center_tavern_tailor         = 100
 
 num_party_loot_slots    = 5
 slot_party_next_looted_item_slot  = 109
@@ -1567,6 +1568,9 @@ tavern_travelers_end   = tavern_booksellers_begin
 
 ransom_brokers_begin = "trp_ransom_broker_1"
 ransom_brokers_end   = tavern_travelers_begin
+
+tavern_tailors_begin = "trp_tavern_tailor_1"
+tavern_tailors_end = "trp_tavern_tailor_end"
 
 mercenary_troops_begin = "trp_watchman"
 mercenary_troops_end = "trp_mercenaries_end"

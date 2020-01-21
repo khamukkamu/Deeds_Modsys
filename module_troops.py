@@ -721,6 +721,16 @@ troops = [
 ["ransom_broker_8","Ransom_Broker","Ransom_Broker",tf_hero|tf_randomize_face, 0, reserved, fac_commoners,[itm_a_cloth_vest_custom,itm_b_hosen_poulaines_custom],def_attrib|level(5),wp(20),knows_common,merchant_face_1,merchant_face_2],
 ["ransom_broker_9","Ransom_Broker","Ransom_Broker",tf_hero|tf_randomize_face, 0, reserved, fac_commoners,[itm_a_noble_shirt_red,itm_b_hosen_poulaines_custom],def_attrib|level(5),wp(20),knows_common,merchant_face_1,merchant_face_2],
 ["ransom_broker_10","Ransom_Broker","Ransom_Broker",tf_hero|tf_randomize_face, 0, reserved, fac_commoners,[itm_a_hunter_coat_custom,itm_b_hosen_shoes_custom],def_attrib|level(5),wp(20),knows_common,merchant_face_1,merchant_face_2],
+["ransom_broker_11", "Ransom_Broker", "Ransom_Broker", tf_hero|tf_randomize_face, no_scene, reserved, fac_commoners, [itm_a_merchant_outfit,itm_b_wrapping_boots], def_attrib|level(5), wp(20), knows_common, merchant_face_1, merchant_face_2 ],
+["ransom_broker_12", "Ransom_Broker", "Ransom_Broker", tf_hero|tf_randomize_face, no_scene, reserved, fac_commoners, [itm_h_highlander_beret_brown_2,itm_a_noble_shirt_brown,itm_b_hosen_poulaines_custom], def_attrib|level(5), wp(20), knows_common, merchant_face_1, merchant_face_2 ],
+["ransom_broker_13", "Ransom_Broker", "Ransom_Broker", tf_hero|tf_randomize_face, no_scene, reserved, fac_commoners, [itm_a_noble_shirt_blue,itm_b_hosen_shoes_custom], def_attrib|level(5), wp(20), knows_common, merchant_face_1, merchant_face_2 ],
+["ransom_broker_14", "Ransom_Broker", "Ransom_Broker", tf_hero|tf_randomize_face, no_scene, reserved, fac_commoners, [itm_a_noble_shirt_green,itm_b_hosen_poulaines_custom], def_attrib|level(5), wp(20), knows_common, merchant_face_1, merchant_face_2 ],
+["ransom_broker_15", "Ransom_Broker", "Ransom_Broker", tf_hero|tf_randomize_face, no_scene, reserved, fac_commoners, [itm_a_tabard,itm_b_leather_boots], def_attrib|level(5), wp(20), knows_common, merchant_face_1, merchant_face_2 ],
+["ransom_broker_16","Ransom_Broker","Ransom_Broker",tf_hero|tf_randomize_face, 0, reserved, fac_commoners,[itm_a_gambeson_white,itm_b_hosen_poulaines_custom],def_attrib|level(5),wp(20),knows_common,merchant_face_1,merchant_face_2],
+["ransom_broker_17","Ransom_Broker","Ransom_Broker",tf_hero|tf_randomize_face, 0, reserved, fac_commoners,[itm_a_leather_jerkin,itm_b_leather_boots],def_attrib|level(5),wp(20),knows_common,merchant_face_1,merchant_face_2],
+["ransom_broker_18","Ransom_Broker","Ransom_Broker",tf_hero|tf_randomize_face, 0, reserved, fac_commoners,[itm_a_cloth_vest_custom,itm_b_hosen_poulaines_custom],def_attrib|level(5),wp(20),knows_common,merchant_face_1,merchant_face_2],
+# ["ransom_broker_19","Ransom_Broker","Ransom_Broker",tf_hero|tf_randomize_face, 0, reserved, fac_commoners,[itm_a_noble_shirt_red,itm_b_hosen_poulaines_custom],def_attrib|level(5),wp(20),knows_common,merchant_face_1,merchant_face_2],
+# ["ransom_broker_20","Ransom_Broker","Ransom_Broker",tf_hero|tf_randomize_face, 0, reserved, fac_commoners,[itm_a_hunter_coat_custom,itm_b_hosen_shoes_custom],def_attrib|level(5),wp(20),knows_common,merchant_face_1,merchant_face_2],
 
 # Tavern traveler.
 ["tavern_traveler_1", "Traveller", "Traveller", tf_hero|tf_randomize_face, no_scene, reserved, fac_commoners, [itm_h_highlander_beret_brown,itm_a_noble_shirt_brown,itm_b_hosen_shoes_custom], def_attrib|level(5), wp(20), knows_common, merchant_face_1, merchant_face_2 ],
@@ -751,6 +761,15 @@ troops = [
 ["musican_male","Musician","Musician",tf_guarantee_boots|tf_guarantee_armor,0,0,fac_commoners,[itm_h_highlander_beret_red_2,itm_a_noble_shirt_red,itm_a_tabard,itm_b_hosen_poulaines_custom, itm_lute, itm_dedal_lutnia],def_attrib|level(4),wp(60),knows_common,man_face_young_1, man_face_old_2,itm_dedal_lutnia],
 ["musican_female","Musician","Musician",tf_female|tf_guarantee_boots|tf_guarantee_armor,0,0,fac_commoners,[itm_a_woman_common_dress_1_custom,itm_a_woman_common_dress_2_custom,itm_b_hosen_poulaines_custom,itm_h_court_wimple_1,itm_h_court_wimple_2, itm_dedal_lutnia],def_attrib|level(2),wp(40),knows_common,woman_face_1,woman_face_2],
 ["musicans_end","_","_",tf_inactive,0,0,0,[],0,0,0,0],
+
+["tavern_tailor_1", "Travelling Tailor", "Travelling Tailor", tf_hero|tf_is_merchant|tf_randomize_face, no_scene, reserved, fac_commoners, [itm_b_hosen_shoes_custom,itm_a_surgeon_dress], def_attrib|level(5), wp(20), knows_common, merchant_face_1, merchant_face_2 ],
+["tavern_tailor_2", "Travelling Tailor", "Travelling Tailor", tf_hero|tf_is_merchant|tf_randomize_face, no_scene, reserved, fac_commoners, [itm_a_noble_shirt_black,itm_b_hosen_shoes_custom,itm_h_leather_hat_d_black], def_attrib|level(5), wp(20), knows_common, merchant_face_1, merchant_face_2 ],
+["tavern_tailor_3", "Travelling Tailor", "Travelling Tailor", tf_hero|tf_randomize_face, no_scene, reserved, fac_commoners, [itm_a_merchant_outfit,itm_b_wrapping_boots], def_attrib|level(5), wp(20), knows_common, merchant_face_1, merchant_face_2 ],
+["tavern_tailor_4", "Travelling Tailor", "Travelling Tailor", tf_hero|tf_randomize_face, no_scene, reserved, fac_commoners, [itm_h_highlander_beret_brown,itm_a_noble_shirt_brown,itm_b_hosen_shoes_custom], def_attrib|level(5), wp(20), knows_common, merchant_face_1, merchant_face_2 ],
+["tavern_tailor_5", "Travelling Tailor", "Travelling Tailor", tf_hero|tf_randomize_face, no_scene, reserved, fac_commoners, [itm_h_leather_hat_c,itm_a_noble_shirt_brown,itm_b_hosen_shoes_custom], def_attrib|level(5), wp(20), knows_common, merchant_face_1, merchant_face_2 ],
+["tavern_tailor_6", "Travelling Tailor", "Travelling Tailor", tf_hero|tf_randomize_face, no_scene, reserved, fac_commoners, [itm_h_leather_hat_b,itm_a_noble_shirt_blue,itm_b_hosen_shoes_custom], def_attrib|level(5), wp(20), knows_common, merchant_face_1, merchant_face_2 ],
+["tavern_tailor_7", "Travelling Tailor", "Travelling Tailor", tf_hero|tf_randomize_face, no_scene, reserved, fac_commoners, [itm_h_felt_hat_red,itm_a_noble_shirt_red,itm_b_hosen_shoes_custom], def_attrib|level(5), wp(20), knows_common, merchant_face_1, merchant_face_2 ],
+["tavern_tailor_end","_","_",tf_inactive,0,0,0,[],0,0,0,0],
 
 #NPC system changes begin
 #Companions

@@ -3482,6 +3482,7 @@ simple_triggers = [
      (call_script, "script_update_tavern_travellers"),
      (call_script, "script_update_tavern_minstrels"),
      (call_script, "script_update_booksellers"),
+     (call_script, "script_update_tavern_tailors"),
      (call_script, "script_update_villages_infested_by_bandits"),
      (try_for_range, ":village_no", villages_begin, villages_end),
        (call_script, "script_update_volunteer_troops_in_village", ":village_no"),

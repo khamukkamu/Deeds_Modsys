@@ -2672,6 +2672,10 @@ TOTAL:  {reg5}"),
             (eq, ":slots", slot_center_tavern_bookseller),
             (assign, ":start", tavern_booksellers_begin),
             (assign, ":end", tavern_booksellers_end),
+          (else_try),
+            (eq, ":slots", slot_center_tavern_tailor),
+            (assign, ":start", tavern_tailors_begin),
+            (assign, ":end", tavern_tailors_end),            
           (try_end),
 
           #populate
@@ -11402,6 +11406,15 @@ TOTAL:  {reg5}"),
                (set_visitor, ":cur_entry", ":tavern_traveler"),
                (val_add, ":cur_entry", 1),
              (try_end),
+
+### DAC Seek: Tavern Tailors
+             (try_begin),
+               (party_get_slot, ":tavern_tailor", "$current_town", slot_center_tavern_tailor),
+               (is_between, ":tavern_tailor", tavern_tailors_begin, tavern_tailors_end), #SB : range check
+               (set_visitor, ":cur_entry", ":tavern_tailor"),
+               (val_add, ":cur_entry", 1),
+             (try_end),
+### DAC Seek End: Tavern Tailors
 
              (assign,":bard",0),#dedal
              (try_begin),

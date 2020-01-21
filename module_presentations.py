@@ -21989,6 +21989,11 @@ presentations = [
         (assign, ":continue", 0),
 
         (store_faction_of_party, ":tailor_faction", "$g_encountered_party"),
+        
+        (try_begin),
+            (is_between, "$g_talk_troop", tavern_tailors_begin, tavern_tailors_end),
+            (assign, ":tailor_faction", "fac_commoners"),
+        (try_end),
 
         (try_begin),
           (eq, ":tailor_faction", "fac_kingdom_1"), #France
@@ -22048,7 +22053,8 @@ presentations = [
           (assign, ":cont", 0),
           (store_sub, ":color", ":value", 1), #actual value, 0 is default
           (try_begin),
-            (is_between, "$g_talk_troop", armor_merchants_begin, armor_merchants_end),
+            (this_or_next|is_between, "$g_talk_troop", armor_merchants_begin, armor_merchants_end),
+            (is_between, "$g_talk_troop", tavern_tailors_begin, tavern_tailors_end),    ### DAC Seek: Added the tavern tailors to the range
             # (eq, "$g_talk_troop", "trp_comps_limoge"),
             (this_or_next|is_between, "$g_presentation_credits_obj_4", ":colors_begin", ":colors_end"),
             (item_slot_eq, "$g_current_opened_item_details", slot_item_player_color, "$custom_armour_current_colour"),

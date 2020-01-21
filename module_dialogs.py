@@ -37329,8 +37329,117 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 #  [anyone, "companion_recruit_yes", [(neg|hero_can_join, "p_main_party"),], "I don't think can lead any more men than you do now.\
 # You need to release someone from service if you want me to join your party.", "close_window", []],
 
+### Tavern tailors
+  ### DAC Kham - Armour Customization Dialogues START #####
+  
+  [anyone,"start", [(is_between, "$g_talk_troop", tavern_tailors_begin, tavern_tailors_end),
+					##diplomacy start+
+					#Use proper style of address in lieu of sir/madam if necessary (althoguh since these first-time
+					#meetings are likely to occur near the game's start, this will usually not make a difference).
+					(call_script, "script_dplmc_print_subordinate_says_sir_madame_to_s0"),#Write {sir/madame} or replacement to {s0}
+					],
+   "Greetings to you, {s0}. Is there anything I can do for you?", "tavern_tailor_talk",[]],#changed {sir/madam} to {s0}
 
+  [anyone|plyr,"tavern_tailor_talk",[(is_between,"$g_talk_troop",tavern_tailors_begin,tavern_tailors_end)], "I'd like to customize my equipment.", "tavern_tailor_custom_armor_start",[]],
 
+  [anyone|plyr,"tavern_tailor_talk",[(is_between,"$g_talk_troop",tavern_tailors_begin,tavern_tailors_end)], "Nothing right now.", "close_window", []],
+  
+  [anyone,"tavern_tailor_custom_armor_start",[], "I'll have you know that my rates are a bit higher than the average craftsman but so is my selection. With that said, what would you like to customize?", "tavern_tailor_custom_armor_ask",[]],
+
+  [anyone|plyr|repeat_for_100, "tavern_tailor_custom_armor_ask",
+    [
+      (store_repeat_object, ":custom_armour"),
+      (troop_get_inventory_slot, ":item_id", "trp_player", ":custom_armour"),
+      (ge, ":item_id", 0),
+      (item_slot_ge, ":item_id", slot_item_num_components, 1),
+      (str_store_item_name, s66, ":item_id"),
+
+   ], "{s66}", "tavern_tailor_custom_armor_choose", [
+	(store_repeat_object, ":custom_armour"),
+	(troop_get_inventory_slot, "$g_current_opened_item_details", "trp_player", ":custom_armour"),
+   ],
+  ],
+
+  [anyone|plyr,"tavern_tailor_custom_armor_ask",[], "On second thought, nevermind.", "close_window",[(assign, "$g_current_opened_item_details", -1)]],
+
+### DAC Seek: Made some changes to pricing, added skillchecks
+# Price Announcement
+  [anyone,"tavern_tailor_custom_armor_choose",
+  [
+	(item_get_value, ":price",  "$g_current_opened_item_details"),
+	(val_mul, ":price", 25),
+	(val_div, ":price", 100),
+	(assign,reg55, ":price"),
+
+  ], "{Sir/Madam}, this will cost you {reg55} crowns.", "tavern_tailor_custom_armor_confirm",[]],
+
+# Deal or no deal
+  [anyone|plyr,"tavern_tailor_custom_armor_confirm",
+  [
+	(store_troop_gold, ":gold", "trp_player"),
+	(ge, ":gold", reg55),
+	(store_skill_level, ":persuasion_level", "skl_persuasion", "trp_player"),
+	(store_skill_level, ":trade_level", "skl_trade", "trp_player"),
+	(eq, ":persuasion_level", 0),
+	(eq, ":trade_level", 0),
+  ],	"[Pay the asked price].", "tavern_tailor_finish",[
+	(troop_remove_gold, "trp_player", reg55),
+  ]
+  ],
+
+  [anyone|plyr,"tavern_tailor_custom_armor_confirm",
+  [
+	(assign,reg57, 20),
+	(store_troop_gold, ":gold", "trp_player"),
+	(ge, ":gold", reg55),
+	(store_skill_level, reg56, "skl_persuasion", "trp_player"),
+	(gt, reg56, 0),
+	(val_sub, reg57, reg56),
+	(item_get_value, ":price",  "$g_current_opened_item_details"),
+	(val_mul, ":price", reg57),
+	(val_div, ":price", 100),
+	(assign,reg55, ":price"),
+
+  ],	"[Persuasion {reg56}] I know travelling merchants have expenses to cover but so do I! {reg55} crowns is all I'm willing to pay.", "tavern_tailor_finish",[
+	(troop_remove_gold, "trp_player", reg55),
+  ]
+  ],
+
+  [anyone|plyr,"tavern_tailor_custom_armor_confirm",
+  [
+	(assign,reg57, 20),
+	(store_troop_gold, ":gold", "trp_player"),
+	(ge, ":gold", reg55),
+	(store_skill_level, reg56, "skl_trade", "trp_player"),
+	(gt, reg56, 0),
+	(val_sub, reg57, reg56),
+	(item_get_value, ":price",  "$g_current_opened_item_details"),
+	(val_mul, ":price", reg57),
+	(val_div, ":price", 100),
+	(assign,reg55, ":price"),
+
+  ],	"[Trade {reg56}] You know, I'm something of a merchant myself. I think {reg55} crowns is a more reasonable price between tradesmen.", "tavern_tailor_finish",[
+	(troop_remove_gold, "trp_player", reg55),
+  ]
+  ],
+
+# Finalize
+  [anyone|plyr,"tavern_tailor_custom_armor_confirm",
+  [
+	(store_troop_gold, ":gold", "trp_player"),
+	(le, ":gold", reg55),
+  ],	"I'm afraid I can't afford it at the moment.", "close_window",[(assign, "$g_current_opened_item_details", -1)]],
+
+  [anyone|plyr,"tavern_tailor_custom_armor_confirm",[], "I need to think about this, perhaps later.","close_window",[(assign, "$g_current_opened_item_details", -1)]],
+
+  [anyone,"tavern_tailor_finish",[], "I will work on it right away.", "close_window",
+    [
+	(item_get_slot, "$custom_armour_current_colour", "$g_current_opened_item_details", slot_item_player_color),
+	(start_presentation, "prsnt_customize_armor"),
+    ]
+  ],
+
+  ### DAC Kham - Armour Customization Dialogues END #####	
 
 #Tavern Talk (with ransom brokers)
 
@@ -37931,6 +38040,32 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
      ]],
 
   [anyone|plyr, "tavern_traveler_ransom_broker_location_ask_money", [], "Never mind.", "tavern_traveler_pretalk", []],
+  
+### DAC Seek: Tavern Tailors
+  [anyone|plyr, "tavern_traveler_talk", [], "I am looking for travelling tailors...", "tavern_traveler_tailor_location", []],
+
+  #[anyone, "tavern_traveler_ransom_broker_location",
+  #  [
+  #    (call_script, "script_cf_no_known_taverngoers", ransom_brokers_begin, ransom_brokers_end),
+  #  ], "I am sorry I haven't run across any lately.", "tavern_traveler_pretalk", []],
+
+  [anyone, "tavern_traveler_tailor_location", [], "I know where they are. For 50 crowns, I'll tell you.", "tavern_traveler_tailor_location_ask_money", []],
+
+  [anyone|plyr, "tavern_traveler_tailor_location_ask_money",
+   [
+     (store_troop_gold, ":cur_gold", "trp_player"),
+     (ge, ":cur_gold", 50),
+     ], "All right. Here is 50 crowns.", "tavern_traveler_npc_location_tell",
+   [ #SB : redirect dialog, set range
+     (troop_remove_gold, "trp_player", 50),
+     (call_script, "script_list_known_taverngoers", tavern_tailors_begin, tavern_tailors_end, slot_center_tavern_tailor),
+     # (assign, "$temp", slot_center_ransom_broker),
+     # (assign, "$temp_2", ransom_brokers_begin),
+     # (assign, "$temp_3", ransom_brokers_end),
+     ]],
+
+  [anyone|plyr, "tavern_traveler_tailor_location_ask_money", [], "Never mind.", "tavern_traveler_pretalk", []],
+### DAC Seek: Tavern Tailors End  
 
   [anyone, "tavern_traveler_npc_location_tell", [], "You can find them at {s11}.", "tavern_traveler_pretalk",
    [
@@ -44131,7 +44266,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 	(val_div, ":price", 100),
 	(assign,reg55, ":price"),
 
-  ],	"[Persuasion {reg56}] Make it {reg55} crowns and I'll be more inclined to come back for bussiness.", "town_merchant_finish",[
+  ],	"[Persuasion {reg56}] Make it {reg55} crowns and I'll be more inclined to come back for business.", "town_merchant_finish",[
 	(troop_remove_gold, "trp_player", reg55),
   ]
   ],
