@@ -49,6 +49,8 @@ tracks = [
   ("DAC-Battle-Siege-2", "Battle/DAC-Battle-Siege-2.ogg", mtf_module_track|mtf_sit_siege, 0),  
   ("DAC-Battle-Siege-3", "Battle/DAC-Battle-Siege-3.ogg", mtf_module_track|mtf_sit_siege, 0),  
   ("DAC-Battle-Siege-4", "Battle/DAC-Battle-Siege-4.ogg", mtf_module_track|mtf_sit_siege, 0),  
+  ("DAC-Battle-Siege-5", "Battle/DAC-Battle-Siege-5.ogg", mtf_module_track|mtf_sit_siege, 0),  
+  ("DAC-Battle-Siege-6", "Battle/DAC-Battle-Siege-6.ogg", mtf_module_track|mtf_sit_siege, 0),  
 
 # DAC Travel Music
 # Breton

@@ -1452,3 +1452,7 @@ g_option_france
 g_option_england_text
 g_option_england
 temp1
+temp3
+repair_wielded_item_slot
+repair_wielded_item_tareget_modifier
+current_dialog_cost

@@ -1,4 +1,4 @@
-114
+116
 cant_find_this.ogg 0 0
 DAC-Title.ogg 272629888 272629888
 Battle/DAC-Battle-Epic-1.ogg 268439552 268439615
@@ -22,6 +22,8 @@ Battle/DAC-Battle-Siege-1.mp3 268697600 268697600
 Battle/DAC-Battle-Siege-2.ogg 268697600 268697600
 Battle/DAC-Battle-Siege-3.ogg 268697600 268697600
 Battle/DAC-Battle-Siege-4.ogg 268697600 268697600
+Battle/DAC-Battle-Siege-5.ogg 268697600 268697600
+Battle/DAC-Battle-Siege-6.ogg 268697600 268697600
 Travel/Breton/DAC-Travel-Breton-1.mp3 268501000 268501000
 Travel/Breton/DAC-Travel-Breton-2.mp3 268501000 268501000
 Travel/Breton/DAC-Travel-Breton-3.mp3 268501000 268501000

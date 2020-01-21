@@ -251,7 +251,7 @@ strings = [
   ("cant_use_inventory_arena","Can't access inventory in the arena."),
   ("cant_use_inventory_disguised","Can't access inventory while you're disguised."),
   ("cant_use_inventory_tutorial","Can't access inventory in the training camp."),
-  ("1_denar", "1 denar"),
+  ("1_denar", "1 crown"),
   ("reg1_denars", "{reg1} crowns"),
   ("january_reg1_reg2", "January {reg1}, {reg2}"),
   ("february_reg1_reg2", "February {reg1}, {reg2}"),

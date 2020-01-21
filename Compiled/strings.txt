@@ -115,7 +115,7 @@ str_cant_use_inventory_now Can't_access_inventory_now.
 str_cant_use_inventory_arena Can't_access_inventory_in_the_arena.
 str_cant_use_inventory_disguised Can't_access_inventory_while_you're_disguised.
 str_cant_use_inventory_tutorial Can't_access_inventory_in_the_training_camp.
-str_1_denar 1_denar
+str_1_denar 1_crown
 str_reg1_denars {reg1}_crowns
 str_january_reg1_reg2 January_{reg1},_{reg2}
 str_february_reg1_reg2 February_{reg1},_{reg2}

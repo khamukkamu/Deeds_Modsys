@@ -44345,6 +44345,161 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [anyone,"merchant_trade", [], "Anything else?", "town_merchant_talk",[]],
   [anyone|plyr,"town_merchant_talk", [], "Tell me. What are people talking about these days?", "merchant_gossip",[]],
   [anyone,"merchant_gossip", [], "Well, nothing new lately. Prices, weather, the war, the same old things.", "town_merchant_talk",[]],
+  
+# DAC Kham: Upgrade Equipment Dialogue Start 
+
+#weapon fix begin
+  [anyone|plyr,"town_merchant_talk", [(is_between,"$g_talk_troop",weapon_merchants_begin,weapon_merchants_end),
+    ],
+    "I want to refine one of my weapons.", "smith_requested_repair_1",[]],
+  
+  [anyone,"smith_requested_repair_1", [],
+    "Which one?", "smith_requested_repair_2",[(assign, "$temp3", "trp_player"),]],
+  
+  [anyone|plyr,"smith_requested_repair_2",
+    [  (troop_get_inventory_slot, ":slot_item", "trp_player", ek_item_0),
+      (gt, ":slot_item", 0),
+      (str_store_item_name, s1, ":slot_item"),],
+    "{s1}.", "item_improve_1",
+    [  (assign, "$repair_wielded_item_slot", ek_item_0),]],
+  [anyone|plyr,"smith_requested_repair_2",
+    [  (troop_get_inventory_slot, ":slot_item", "trp_player", ek_item_1),
+      (gt, ":slot_item", 0),
+      (str_store_item_name, s1, ":slot_item"),],
+    "{s1}.", "item_improve_1",
+    [  (assign, "$repair_wielded_item_slot", ek_item_1),]],
+  [anyone|plyr,"smith_requested_repair_2",
+    [  (troop_get_inventory_slot, ":slot_item", "trp_player", ek_item_2),
+      (gt, ":slot_item", 0),
+      (str_store_item_name, s1, ":slot_item"),],
+    "{s1}.", "item_improve_1",
+    [  (assign, "$repair_wielded_item_slot", ek_item_2),]],
+  [anyone|plyr,"smith_requested_repair_2",
+    [  (troop_get_inventory_slot, ":slot_item", "trp_player", ek_item_3),
+      (gt, ":slot_item", 0),
+      (str_store_item_name, s1, ":slot_item"),],
+    "{s1}.", "item_improve_1",
+    [  (assign, "$repair_wielded_item_slot", ek_item_3),]],
+  
+  [anyone|plyr,"smith_requested_repair_2", [],
+    "Never mind.", "merchant_trade",[]],
+  
+  [anyone,"item_improve_1",
+    [
+      (assign, ":inventory_slot_no", "$repair_wielded_item_slot"),
+      (troop_get_inventory_slot, ":slot_item", "$temp3", ":inventory_slot_no"),
+      (gt, ":slot_item", 0),
+      (troop_get_inventory_slot_modifier, ":slot_item_imod", "$temp3", ":inventory_slot_no"),
+      (call_script, "script_get_next_higher_imod_for_item", ":slot_item", ":slot_item_imod"),
+      (assign, "$repair_wielded_item_tareget_modifier", reg0),
+      (neq, ":slot_item_imod", "$repair_wielded_item_tareget_modifier"),
+      
+      (str_store_item_name, s7, ":slot_item"),
+      
+      (store_item_value, ":plain_item_value", ":slot_item"),
+      (item_get_type, ":item_type", ":slot_item"),
+      
+      # current value
+      (str_store_string, s0, "@Plain"),
+      (call_script, "script_get_item_modifier_effects", ":item_type", ":slot_item_imod"),
+      (str_store_string, s8, s0),
+      (store_mul, ":curr_item_value", ":plain_item_value", reg5),
+      (val_div, ":curr_item_value", 100),
+      
+      # target value
+      (str_store_string, s0, "@Plain"),
+      (call_script, "script_get_item_modifier_effects", ":item_type", "$repair_wielded_item_tareget_modifier"),
+      (str_store_string, s9, s0),
+      (store_mul, ":target_item_value", ":plain_item_value", reg5),
+      (val_div, ":target_item_value", 100),
+      
+      (store_sub, "$current_dialog_cost", ":target_item_value", ":curr_item_value"),
+      
+      #trade skill influence
+      (call_script, "script_game_get_item_buy_price_factor", ":slot_item"),
+      #(val_add, reg0, 5),    #new: +5% penalty
+      (val_mul, "$current_dialog_cost", reg0),
+      (val_div, "$current_dialog_cost", 100),
+      (gt, "$current_dialog_cost", 0), 
+      (assign, reg1, "$current_dialog_cost"),
+    ],
+    "Hmm, let me take a look... Your {s7} is {s8}. I think I will be able to make it {s9} for {reg1} crowns. {s10}", "item_improve_2",[]],
+  
+  [anyone,"item_improve_1",
+    [
+      (str_clear, s1),
+      (try_begin),
+        (assign, ":inventory_slot_no", "$repair_wielded_item_slot"),
+        (troop_get_inventory_slot, ":slot_item", "$temp3", ":inventory_slot_no"),
+        (gt, ":slot_item", 0),
+        (str_store_item_name, s7, ":slot_item"),
+      (end_try),
+    ],
+    "Hmm, let me take a look... There is nothing I can do for your {s7}. I can't refine it.", "merchant_trade",[]],
+  
+  [anyone|plyr,"item_improve_2",
+    [
+      (store_troop_gold, reg7, "trp_player"),
+      (ge, reg7, "$current_dialog_cost"),
+    ],
+    "Agreed!", "item_improve_3",
+    [
+      (troop_remove_gold, "trp_player", "$current_dialog_cost"),
+      (store_conversation_troop, ":smith_troop"),
+      (troop_add_gold, ":smith_troop", "$current_dialog_cost"),
+      (troop_set_inventory_slot_modifier, "$temp3", "$repair_wielded_item_slot", "$repair_wielded_item_tareget_modifier"),
+  ]],
+  [anyone|plyr,"item_improve_2",
+    [
+      (store_troop_gold, reg7, "trp_player"),
+      (ge, reg7, "$current_dialog_cost"),
+    ],
+    "I changed my mind.", "merchant_trade", []],
+  [anyone|plyr,"item_improve_2", [], "I don't have enough money.", "merchant_trade", []],
+  
+  [anyone,"item_improve_3", [],
+    "Here you have your {s7} back. It's refined.", "merchant_trade",[]],
+  
+  #weapon fix end
+  
+  # armor fix begin
+  [anyone|plyr,"town_merchant_talk", [(is_between,"$g_talk_troop",armor_merchants_begin,armor_merchants_end),
+    ],
+    "I want to refine one of my armor parts.", "armorer_requested_repair_1",[]],
+  
+  [anyone,"armorer_requested_repair_1", [],
+    "Which one?", "armorer_requested_repair_2",[(assign, "$temp3", "trp_player"),]],
+  
+  [anyone|plyr,"armorer_requested_repair_2",
+    [ (troop_get_inventory_slot, ":slot_item", "trp_player", ek_head),
+      (gt, ":slot_item", 0),
+      (str_store_item_name, s1, ":slot_item"),],
+    "{s1}.", "item_improve_1",
+    [  (assign, "$repair_wielded_item_slot", ek_head),]],
+  [anyone|plyr,"armorer_requested_repair_2",
+    [  (troop_get_inventory_slot, ":slot_item", "trp_player", ek_body),
+      (gt, ":slot_item", 0),
+      (str_store_item_name, s1, ":slot_item"),],
+    "{s1}.", "item_improve_1",
+    [  (assign, "$repair_wielded_item_slot", ek_body),]],
+  [anyone|plyr,"armorer_requested_repair_2",
+    [  (troop_get_inventory_slot, ":slot_item", "trp_player", ek_gloves),
+      (gt, ":slot_item", 0),
+      (str_store_item_name, s1, ":slot_item"),],
+    "{s1}.", "item_improve_1",
+    [  (assign, "$repair_wielded_item_slot", ek_gloves),]],
+  [anyone|plyr,"armorer_requested_repair_2",
+    [  (troop_get_inventory_slot, ":slot_item", "trp_player", ek_foot),
+      (gt, ":slot_item", 0),
+      (str_store_item_name, s1, ":slot_item"),],
+    "{s1}.", "item_improve_1",
+    [  (assign, "$repair_wielded_item_slot", ek_foot),]],
+  
+  #armor fix end
+  
+
+# DAC Kham: Upgrade Equipment Dialogues END
+
   [anyone|plyr,"town_merchant_talk", [], "Good-bye.", "close_window",[]],
 
 

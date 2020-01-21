@@ -771,6 +771,7 @@ scripts = [
     (call_script, "script_initialize_custom_armor_data"), 
     (call_script, "script_init_weapon_switching"),	
     (call_script, "script_initialize_troop_elite_upgrades"),	
+    (call_script, "script_upgrade_lords_equipment"),
 
     ]),
 
@@ -83835,6 +83836,85 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 
 # Somebody's Improved Siege Tower Mechanics End
 
+# DAC Kham: Upgrade Items Begin
+
+# script_get_next_lower_imod_for_item
+# Component: Helper
+("get_next_lower_imod_for_item",[
+
+    (store_script_param_1, ":item_id"),
+    (store_script_param_2, ":current_imod"),
+    
+    (item_get_type, ":item_type", ":item_id"),
+    (call_script, "script_get_item_modifier_effects", ":item_type", ":current_imod"),
+    (assign, ":start_item_value", reg5),
+    (assign, ":compare_item_value", 0),
+    (assign, ":target_imod", ":current_imod"),
+    
+    (try_for_range, ":test_imod", imod_plain, imod_large_bag + 1),
+      (this_or_next | eq, ":test_imod", imod_plain),
+      (item_has_modifier, ":item_id", ":test_imod"), #Fails if <item_modifier_no> is not a valid modifier for <item_kind_no>
+      (neq, ":test_imod", ":current_imod"),
+      (call_script, "script_get_item_modifier_effects", ":item_type", ":test_imod"),
+      (is_between, reg5, ":compare_item_value", ":start_item_value"),
+      (assign, ":compare_item_value", reg5),
+      (assign, ":target_imod", ":test_imod"),
+    (end_try),
+    (assign, reg0, ":target_imod"),
+]),
+  
+# script_get_next_higher_imod_for_item
+# Component: Helper
+("get_next_higher_imod_for_item",[
+
+    (store_script_param_1, ":item_id"),
+    (store_script_param_2, ":current_imod"),
+    
+    (item_get_type, ":item_type", ":item_id"),
+    (call_script, "script_get_item_modifier_effects", ":item_type", ":current_imod"),
+    (assign, ":start_item_value", reg5),
+    (assign, ":compare_item_value", 1000),
+    (assign, ":target_imod", ":current_imod"),
+    
+    (try_for_range, ":test_imod", imod_plain, imod_large_bag + 1),
+      (this_or_next | eq, ":test_imod", imod_plain),
+      (item_has_modifier, ":item_id", ":test_imod"), #Fails if <item_modifier_no> is not a valid modifier for <item_kind_no>
+      (neq, ":test_imod", imod_swaybacked), # for some reason item_has_modifier and arrows dont fail for imod_swaybacked
+      (neq, ":test_imod", ":current_imod"),
+      (call_script, "script_get_item_modifier_effects", ":item_type", ":test_imod"),
+      (is_between, reg5, ":start_item_value", ":compare_item_value"),
+      (assign, ":compare_item_value", reg5),
+      (assign, ":target_imod", ":test_imod"),
+    (end_try),
+    (assign, reg0, ":target_imod"),
+]),
+  
+#script_upgrade_lords_equipment
+#INPUT: none
+#OUTPUT: none, changes lords' equipment
+
+("upgrade_lords_equipment", [
+
+(try_for_range,":t",heroes_begin,heroes_end),
+  (troop_get_inventory_capacity,":inv_cap",":t"),
+  (try_for_range, ":i_slot", 0, ":inv_cap"),
+    (troop_get_inventory_slot, ":item", ":t", ":i_slot"),
+    (ge, ":item", 0),
+    (store_character_level,":level",":t"),
+    (store_random_in_range,":rand",10,30),
+    (val_div,":level",":rand"),
+    (troop_get_inventory_slot_modifier, reg0, ":t", ":i_slot"),
+    (try_for_range,":unused",0,":level"),
+      (call_script, "script_get_next_higher_imod_for_item", ":item", reg0),
+    (try_end),
+    (troop_set_inventory_slot_modifier,":t",":i_slot",reg0),
+  (try_end),
+(try_end),
+
+]),
+
+
+# DAC Kham: Upgrade Items END
 
 ]
 
