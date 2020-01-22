@@ -1,6 +1,8 @@
 from ID_items import *
 from ID_quests import *
 from ID_factions import *
+from ID_parties import *
+
 
 from compiler import *
 ##############################################################
@@ -2808,3 +2810,85 @@ slot_agent_last_hp		        = 33
 
 # Banner Men
 slot_troop_bannerman = 170
+
+def concatenate_scripts(block_list):
+    result = []
+    for block in block_list:
+        result += block
+    return result
+
+center_list = [
+(p_town_1, [0]), 
+(p_town_2, [0]), 
+(p_town_3, [0]), 
+(p_town_4, [0]), 
+(p_town_5, [0]), 
+(p_town_6, [0]), 
+(p_town_7, [0]), 
+(p_town_8, [0]), 
+(p_town_9, [0]), 
+(p_town_10, [0]),
+(p_town_11, [0]),
+(p_town_12, [0]),
+(p_town_13, [0]),
+(p_town_14, [0]),
+(p_town_15, [0]),
+(p_town_16, [0]),
+(p_town_17, [0]),
+(p_town_18, [0]),
+(p_town_19, [0]),
+(p_town_20, [0]),
+(p_town_21, [0]),
+(p_town_22, [0]),
+(p_town_23, [0]),
+(p_town_24, [0]),
+(p_town_25, [0]),
+(p_town_26, [0]),
+(p_town_27, [0]),
+(p_town_28, [0]),
+(p_town_29, [0]),
+(p_town_30, [0]),
+(p_town_31, [0]),
+(p_town_32, [0]),
+(p_town_33, [0]),
+(p_town_34, [0]),
+(p_town_35, [0]),
+(p_town_36, [0]),
+(p_town_37, [0]),
+(p_town_38, [0]),
+(p_town_39, [0]),
+(p_town_40, [0]),
+(p_town_41, [0]),
+(p_town_42, [0]),
+(p_town_43, [0]),
+(p_town_44, [0]),
+(p_town_45, [0]),
+(p_town_46, [0]),
+(p_town_47, [0]),
+(p_town_48, [0]),
+(p_town_49, [0]),
+(p_town_50, [0]),
+(p_town_51, [0]),
+(p_town_52, [0]),
+(p_town_53, [0]),
+(p_town_54, [0]),
+(p_town_55, [0]),
+(p_town_56, [0]),
+(p_town_57, [0]),
+(p_town_58, [0]),
+(p_town_59, [0]),
+(p_town_60, [0]),
+(p_town_61, [0]),
+(p_town_62, [0]),
+(p_town_63, [0]),
+(p_town_64, [0]),
+(p_town_65, [0]),
+(p_town_66, [0]),
+(p_town_67, [0]),
+(p_town_68, [0]),
+(p_town_69, [0]),
+(p_town_70, [0]),
+(p_town_71, [0]),
+(p_town_72, [0]),
+(p_town_73, [0]),
+]

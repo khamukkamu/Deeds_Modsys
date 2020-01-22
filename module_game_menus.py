@@ -3055,33 +3055,73 @@ TOTAL:  {reg5}"),
 
 
 ("dac_camp_test_sieges", 0,
-    "Test Sieges: Join a faction first so you can actually join sieges", "none", [],
+    "Test Sieges: Join a faction first so you can actually join sieges.^ When Ordering a Faction to siege a center, make sure you are close to the faction you want to do the besieging.", "none", [],
     [
 
   ("dac_test_join_faction", [], "Join Faction: France", [(call_script, "script_player_join_faction", "fac_kingdom_1"),]),
-  
-  ("dac_test_french_siege_english", [
-        (troop_get_slot, ":knight_party", "trp_knight_1_1", slot_troop_leaded_party),
-        (party_is_active, ":knight_party"),
-      ], 
-        "Order Jean II d'Alencon to Besiege Cherbourg", [
-        
-        (troop_get_slot, ":knight_party", "trp_knight_1_1", slot_troop_leaded_party),
-        (party_detach, ":knight_party"),
-        (party_relocate_near_party, ":knight_party", "p_town_40", 0),
-        (party_set_slot, "p_town_40", slot_center_is_besieged_by, ":knight_party"),
-        (call_script, "script_party_set_ai_state", ":knight_party", spai_besieging_center, "p_town_40"),
-        (party_set_ai_behavior, ":knight_party", ai_bhvr_attack_party),
-        (party_set_ai_object, ":knight_party", "p_town_40"),
-        (party_set_flags, ":knight_party", pf_default_behavior, 1),
-        (party_set_slot, ":knight_party", slot_party_ai_substate, 1),
-        (display_message, "@Jean II d'Alencon besieges Cherbourg!", 0x30FFC8),
-        (change_screen_map),
- ]), 
 
- ("test_siege_resume_travelling",[],"Resume travelling.",[(change_screen_return),]),
+  ("dac_test_join_faction_eng", [], "Join Faction: English", [(call_script, "script_player_join_faction", "fac_kingdom_2"),]),
+  
+  ("dac_test_join_faction_burg", [], "Join Faction: Burgundy", [(call_script, "script_player_join_faction", "fac_kingdom_3"),]),
+
+  ("dac_test_join_faction_brit", [], "Join Faction: Breton", [(call_script, "script_player_join_faction", "fac_kingdom_4"),]),
+
+  ("dac_order_siege_list", [], "Order Closest Faction to Besiege...", [(jump_to_menu, "mnu_dac_test_sieges_france"),]),
+
+  ("test_siege_resume_travelling",[],"Resume travelling.",[(change_screen_return),]),
  
  ]),
+
+( "dac_test_sieges_france",0,
+   "Order {s1} to besiege...",
+   "none",
+   [  
+    (call_script, "script_get_closest_walled_center", "p_main_party"),
+    (assign, ":closest_center", reg0),
+    (store_faction_of_party, ":faction", ":closest_center"),
+    (str_store_faction_name, s1, ":faction"),
+   ],
+   [("test_siege_resume_travelling2",[],"Back to siege menu.", [(jump_to_menu, "mnu_dac_camp_test_sieges"),]),]
+  +
+  concatenate_scripts([[
+  (
+  "siege_town",
+  [  (party_is_active, center_list[y][0]),
+     (call_script, "script_get_closest_walled_center", "p_main_party"),
+     (assign, ":closest_center", reg0),
+     (store_faction_of_party, ":faction", ":closest_center"),
+     (faction_get_slot, ":king", ":faction", slot_faction_leader),
+     (troop_get_slot, ":king_party", ":king", slot_troop_leaded_party),
+     (party_is_active, ":king_party"),
+     (store_faction_of_party, ":town_faction", center_list[y][0]),
+     (store_relation, ":reln", ":town_faction", ":faction"),
+   (lt, ":reln", 0),
+     (party_slot_eq, center_list[y][0], slot_center_is_besieged_by, -1),
+     (str_store_party_name, s10, center_list[y][0]),],
+  "{s10}.",
+  [
+        #order ambient king to besiege
+        (call_script, "script_get_closest_walled_center", "p_main_party"),
+        (assign, ":closest_center", reg0),
+        (store_faction_of_party, ":faction", ":closest_center"),
+        (faction_get_slot, ":king", ":faction", slot_faction_leader),
+        (troop_get_slot, ":king_party", ":king", slot_troop_leaded_party),
+        (party_detach, ":king_party"),
+        (party_relocate_near_party, ":king_party", center_list[y][0], 0),
+        (party_set_slot, center_list[y][0], slot_center_is_besieged_by, ":king_party"),
+        (call_script, "script_party_set_ai_state", ":king_party", spai_besieging_center, center_list[y][0]),
+        (party_set_ai_behavior, ":king_party", ai_bhvr_attack_party),
+        (party_set_ai_object, ":king_party", center_list[y][0]),
+        (party_set_flags, ":king_party", pf_default_behavior, 1),
+        (party_set_slot, ":king_party", slot_party_ai_substate, 1),
+        (str_store_party_name, s10, center_list[y][0]),
+        (display_message, "@{s10} besieged!", 0x30FFC8),
+        (party_relocate_near_party, "p_main_party",  center_list[y][0], 3),
+        (change_screen_map),
+    ]
+  )
+  ]for y in range(len(center_list)) ])      
+ ),
 
 
 
