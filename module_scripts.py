@@ -70770,8 +70770,8 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 
       (assign, ":num_towns", 0),
       (try_for_range, ":troop_no", ":begin", ":end"),
-        (this_or_next|troop_slot_ge, ":troop_no", slot_troop_met, 1),
-        (troop_slot_eq, ":troop_no", slot_troop_cur_center, "$current_town"),
+        #(this_or_next|troop_slot_ge, ":troop_no", slot_troop_met, 1),
+        #(troop_slot_eq, ":troop_no", slot_troop_cur_center, "$current_town"),
         (troop_get_slot, ":town_no", ":troop_no", slot_troop_cur_center),
         (is_between, ":town_no", walled_centers_begin, walled_centers_end),
         # (neg|party_slot_eq, ":town_no", slot_center_ransom_broker, 0),
