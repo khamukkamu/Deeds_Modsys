@@ -3500,7 +3500,7 @@ itemsfile version 3
  0
 0
 
- itm_cartridges Cartridges Cartridges 1  cartridge_a 0  16875538 0 41 4398046511112 2.250000 90 0 0 0 0 0 0 0 3 50 257 0
+ itm_cartridges Bullets Bullets 1  cartridge_a 0  16875538 0 41 4398046511112 2.250000 90 0 0 0 0 0 0 0 3 50 257 0
  0
 0
 

@@ -1456,3 +1456,7 @@ temp3
 repair_wielded_item_slot
 repair_wielded_item_tareget_modifier
 current_dialog_cost
+bodyslide_spawn_block
+enable_bodysliding
+player_has_bodyslided
+bodysliding_last_troop

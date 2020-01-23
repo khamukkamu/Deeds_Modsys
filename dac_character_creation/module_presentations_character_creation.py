@@ -40,14 +40,14 @@ character_creation_presentations = [
         (position_set_y, pos1, 1000),
         (overlay_set_size, reg1, pos1),
 
-        (create_text_overlay, reg1, "@_Select Lord_", tf_center_justify),
-        (overlay_set_color, reg1, 0xDDDDDD),
-        (position_set_x, pos1, 500), # Higher, means more toward the right
-        (position_set_y, pos1, 705), # Higher, means more toward the top
-        (overlay_set_position, reg1, pos1),
-        (position_set_x, pos1, 2000),
-        (position_set_y, pos1, 2000),
-        (overlay_set_size, reg1, pos1),
+        #(create_text_overlay, reg1, "@_Select Lord_", tf_center_justify),
+        #(overlay_set_color, reg1, 0xDDDDDD),
+        #(position_set_x, pos1, 500), # Higher, means more toward the right
+        #(position_set_y, pos1, 705), # Higher, means more toward the top
+        #(overlay_set_position, reg1, pos1),
+        #(position_set_x, pos1, 2000),
+        #(position_set_y, pos1, 2000),
+        #(overlay_set_size, reg1, pos1),
 
         (try_begin),
           (neq, -1, "$character_info_id"),
@@ -56,39 +56,45 @@ character_creation_presentations = [
           (str_store_string, s1, "str_empty_string"),
         (try_end),
         (create_text_overlay, reg1, "@{s1}", tf_center_justify|tf_with_outline),
-        (overlay_set_color, reg1, 0xFF000000),
-        (position_set_x, pos1, 280), # Higher, means more toward the right
-        (position_set_y, pos1, 645), # Higher, means more toward the top
+        (overlay_set_color, reg1, 0xFFFFFFFF),
+        (position_set_x, pos1, 285), # Higher, means more toward the right
+        (position_set_y, pos1, 233), # Higher, means more toward the top
         (overlay_set_position, reg1, pos1),
         (position_set_x, pos1, 1000),
         (position_set_y, pos1, 1000),
         (overlay_set_size, reg1, pos1),
 
         (create_game_button_overlay, "$g_presentation_obj_2", "@_Back_"),
-        (position_set_x, pos1, 340), #Was 540
+        (position_set_x, pos1, 280), #Was 540
         (position_set_y, pos1, 10),
         (overlay_set_position, "$g_presentation_obj_2", pos1),
 
         (try_begin),
           (neq, "$character_info_id", -1),
           (create_game_button_overlay, "$g_presentation_obj_1", "@_Done_"),
-          (position_set_x, pos1, 740), #Was 540
+          (position_set_x, pos1, 762), #Was 540
           (position_set_y, pos1, 10),
           (overlay_set_position, "$g_presentation_obj_1", pos1),
         (try_end),
 
-        #(call_script, "script_get_info_about_lord", "$character_info_id"),
-        #(create_text_overlay, "$g_presentation_obj_2", s0, tf_left_align | tf_scrollable),
-        #(overlay_set_color, "$g_presentation_obj_2", 0xFFFFFF),
-        #(position_set_x, pos1, 55), # Higher, means more toward the right
-        #(position_set_y, pos1, 55), # Higher, means more toward the top
-        #(overlay_set_position, "$g_presentation_obj_2", pos1),
-        #(position_set_x, pos1, 1000), # smaller means smaller font
-        #(position_set_y, pos1, 1000),
-        #(overlay_set_size, "$g_presentation_obj_2", pos1),
-        #(position_set_x, pos1, 520 - 55 - 20), # smaller means smaller font
-        #(position_set_y, pos1, 210 - 55),
-        #(overlay_set_area_size, "$g_presentation_obj_2", pos1),
+        (try_begin),
+          (neq, -1, "$character_info_id"),
+          (call_script, "script_dac_get_info_about_lord", "$character_info_id", 0),
+        (else_try),
+          (str_store_string, s49, "str_empty_string"),
+        (try_end),
+
+        (create_text_overlay, "$g_presentation_obj_6", s49, tf_left_align | tf_scrollable),
+        (overlay_set_color, "$g_presentation_obj_6", 0xFFFFFF),
+        (position_set_x, pos1, 55), # Higher, means more toward the right
+        (position_set_y, pos1, 55), # Higher, means more toward the top
+        (overlay_set_position, "$g_presentation_obj_6", pos1),
+        (position_set_x, pos1, 1000), # smaller means smaller font
+        (position_set_y, pos1, 1000),
+        (overlay_set_size, "$g_presentation_obj_6", pos1),
+        (position_set_x, pos1, 520 - 55 - 20), # smaller means smaller font
+        (position_set_y, pos1, 210 - 55),
+        (overlay_set_area_size, "$g_presentation_obj_6", pos1),
 
         (create_combo_label_overlay, "$g_presentation_obj_5", "str_empty_string",0),
         (position_set_x, pos1, 755),

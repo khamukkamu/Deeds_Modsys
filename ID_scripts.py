@@ -990,3 +990,4 @@ script_dac_equip_player_as_vassal = 988
 script_dac_equip_player_as_lord = 989
 script_cf_select_lord_lord_in_culture = 990
 script_cf_neg_select_lord_lord_in_culture = 991
+script_dac_get_info_about_lord = 992

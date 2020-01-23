@@ -1,4 +1,4 @@
-1844
+1845
 qstr_Next_Page Next_Page
 qstr_Game_Rules:^ Game_Rules:^
 qstr_0 0
@@ -1843,3 +1843,4 @@ qstr_Large_bag_{s37} Large_bag_{s37}
 qstr_Plain Plain
 qstr_John_Talbot_besieges John_Talbot_besieges_Toulouse!
 qstr_{s10}_besieged! {s10}_besieged!
+qstr_You_have_assumed_con You_have_assumed_control_of_{s31}_to_continue_the_battle.
