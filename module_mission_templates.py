@@ -48,6 +48,166 @@ bard_disguise = [itm_h_highlander_beret_green_2,itm_a_noble_shirt_green,itm_b_ho
 af_castle_lord = af_override_horse | af_override_weapons| af_require_civilian
 af_prisoner       = af_override_horse | af_override_weapons | af_override_head | af_override_gloves | af_override_gloves | af_override_foot
 
+
+## TRIGGER: BODYSLIDING (1 OF 2)
+bodysliding_1 = (
+ti_before_mission_start, 0, 0, 
+	[],
+	[
+		#reset global variables
+		(assign, "$player_has_bodyslided", 0), #variable for player party after party rebalancing
+		(neq, "$enable_bodysliding", 0),  #is active player enabled?
+		
+		#backup player party
+		(assign, "$g_move_heroes", 1),
+		(party_clear, "p_temp_casualties_3"),
+		(call_script, "script_party_add_party", "p_temp_casualties_3", "p_main_party"),
+		(set_player_troop, "trp_player"), #just in case?
+		(assign, "$bodysliding_last_troop", "trp_player"),
+	])
+	
+## TRIGGER: BODYSLIDING (2 OF 2)
+bodysliding_2 = (
+5, 0, 0, 
+	[
+		(neq, "$enable_bodysliding", 0),
+		(get_player_agent_no,":agent"),
+		(neg|agent_is_alive, ":agent"),
+	],
+	[
+		(set_fixed_point_multiplier, 100),
+		(get_player_agent_no, ":player_agent"),
+		(agent_get_team, ":player_team", ":player_agent"),
+		(agent_get_group, ":player_group", ":player_agent"),
+		(agent_get_position, pos1, ":player_agent"),
+		# (agent_get_division, ":player_division", ":p_agent"),
+		(assign, ":spawned", 0),
+		(assign, ":bodyslide_target", -1),
+		(assign, ":bodyslide_agent", -1),
+		(assign, ":closest_distance", 1000000),
+		
+		## CHECK FOR COMPANIONS FIRST
+		(try_for_agents, ":agent_no"),
+			(eq, ":bodyslide_target", -1),
+			(agent_is_human, ":agent_no"),
+			(agent_is_alive, ":agent_no"),
+			(agent_get_team, ":agent_team", ":agent_no"),
+			(eq, ":agent_team", ":player_team"),
+			(agent_get_party_id, ":agent_party",":agent_no"),
+			(eq, ":agent_party", "p_main_party"),
+			(agent_get_troop_id, ":troop_no", ":agent_no"),
+			(is_between, ":troop_no", companions_begin, companions_end),
+			(troop_slot_eq, ":troop_no", slot_troop_occupation, slto_player_companion),
+			# Check for distance.
+			(agent_get_position, pos2, ":agent_no"),
+			(get_distance_between_positions_in_meters, ":distance", pos1, pos2),
+			(lt, ":distance", ":closest_distance"),
+			(assign, ":bodyslide_target", ":troop_no"),
+			(assign, ":bodyslide_agent", ":agent_no"),
+			(assign, ":closest_distance", ":distance"),
+			
+			### DIAGNOSTIC+ ###
+			# (assign, reg31, ":closest_distance"),
+			(str_store_troop_name, s31, ":bodyslide_target"),
+			(display_message, "@You have assumed control of {s31} to continue the battle.", color_good_news),
+			### DIAGNOSTIC- ###
+		(try_end),
+		
+		## IF NO COMPANION AVAILABLE, CHECK FOR ANOTHER TROOP TYPE.
+		(try_begin),
+			(eq, ":bodyslide_target", -1),
+			(eq, "$enable_bodysliding", BODYSLIDING_ALL_TROOPS),
+			(try_for_agents, ":agent_no"),
+				(eq, ":bodyslide_target", -1),
+				(agent_is_human, ":agent_no"),
+				(agent_is_alive, ":agent_no"),
+				(agent_get_team, ":agent_team", ":agent_no"),
+				(eq, ":agent_team", ":player_team"),
+				(agent_get_troop_id, ":troop_no", ":agent_no"),
+				(agent_get_party_id, ":agent_party",":agent_no"),
+				(eq, ":agent_party", "p_main_party"),
+				# Check for distance.
+				(agent_get_position, pos2, ":agent_no"),
+				(get_distance_between_positions_in_meters, ":distance", pos1, pos2),
+				(lt, ":distance", ":closest_distance"),
+				(assign, ":bodyslide_target", ":troop_no"),
+				(assign, ":bodyslide_agent", ":agent_no"),
+				(assign, ":closest_distance", ":distance"),
+				
+				### DIAGNOSTIC+ ###
+				# (assign, reg31, ":closest_distance"),
+				(str_store_troop_name, s31, ":bodyslide_target"),
+				(display_message, "@You have assumed control of {s31} to continue the battle.", color_good_news),
+				### DIAGNOSTIC- ###
+			(try_end),
+		(try_end),
+		
+		(try_begin),
+			(ge, ":bodyslide_target", 1),
+			(ge, ":bodyslide_agent", 0),
+			# (eq, ":spawned", 0),
+			# (agent_is_human, ":agent"),
+			# (agent_is_alive, ":agent"),
+			# (agent_get_team, ":agent_team", ":agent"),
+			# (agent_get_party_id, ":agent_party",":agent"),
+			# (eq, ":agent_party", "p_main_party"),
+			# (agent_get_division, ":agent_division", ":p_agent"),
+			# (agent_get_group, ":agent_group", ":p_agent"),
+			# # (eq, ":player_team", ":agent_team"),
+			# # (eq, ":player_division", ":agent_division"),
+			# (agent_get_troop_id,":troop_id", ":agent"),
+			# ##
+			# (this_or_next|troop_slot_eq, ":troop_id", slot_troop_occupation, slto_player_companion),
+			# ##
+			# (neg|is_between, ":troop_id", active_npcs_begin, active_npcs_end), #just in case
+			## Store Target Troop's Inventory
+			(call_script, "script_copy_inventory", ":bodyslide_target", BODYSLIDING_STORAGE),
+			(assign, "$bodysliding_last_troop", ":bodyslide_target"),
+			(set_player_troop, ":bodyslide_target"),
+			(store_agent_hit_points,":hp",":bodyslide_agent",1),
+			(agent_get_position, pos1, ":bodyslide_agent"),
+			(position_set_z, pos1, -2000), 
+			(position_set_x, pos1, 0), 
+			(position_set_y, pos1, 0), 
+			(agent_get_position, pos0, ":bodyslide_agent"),
+			(set_spawn_position, pos0),
+			(agent_get_horse, ":horse", ":bodyslide_agent"),
+			(try_begin),
+				(gt, ":horse", 0),
+				(agent_set_position,":horse",pos1),
+				(remove_agent, ":horse"),
+			(try_end),
+			(agent_set_position,":bodyslide_agent", pos1),
+			(agent_set_slot, ":bodyslide_agent", slot_agent_possessed, 1), 
+			(agent_get_slot, ":index", ":bodyslide_agent", slot_agent_index_value), #lance recruitment flag
+			(remove_agent, ":bodyslide_agent"),
+			(assign, "$bodyslide_spawn_block", 1),
+			(spawn_agent, ":bodyslide_target"),
+			(assign, "$bodyslide_spawn_block", 0),
+			(assign, ":player_agent", reg0),
+			(agent_set_slot, ":player_agent", slot_agent_index_value, ":index"),
+			(agent_set_team, ":player_agent", ":player_team"),
+			#(agent_set_division, ":player_agent", ":agent_division"),
+			(agent_set_hit_points, ":player_agent" ,":hp",1),
+			(agent_set_group, ":player_agent", ":player_group"),
+			(agent_set_slot, ":player_agent", slot_agent_possessed, 2), 
+			(agent_set_slot, ":player_agent", slot_agent_real_troop, ":bodyslide_target"),
+			(try_begin),
+				(agent_get_horse, ":p_horse", ":player_agent"),
+				(gt, ":p_horse", 0), #player is mounted
+				(lt, ":horse", 0), #AI is not mounted!
+				(agent_set_position,":p_horse",pos1),
+				(remove_agent, ":p_horse"),
+			(try_end),
+			(set_player_troop, "trp_player"),
+			(assign, ":spawned", 1),
+			(assign, "$player_has_bodyslided", 1), #checks that player spawned and will need to manualy correct party
+		(try_end),  
+		(eq, ":bodyslide_target", -1),
+		(eq, ":spawned", 0),
+		(eq, "$g_dplmc_cam_activated", 0),
+		(call_script, "script_cf_dplmc_battle_continuation"),
+	])
 # DAC Begin
 	
 dac_lancer_fix = (
@@ -768,6 +928,9 @@ dplmc_death_camera = (
   0, 0, 0,
   [(eq, "$g_dplmc_battle_continuation", 0),
    (eq, "$g_dplmc_cam_activated", camera_keyboard),
+    ## WINDYPLAINS+ ## - Bodysliding block
+    (eq, "$enable_bodysliding", 0),
+    ## WINDYPLAINS- ##
   ],
   [
     #(agent_get_look_position, pos47, ":player_agent"),
@@ -992,6 +1155,8 @@ deeds_common_battle_scripts = [
   common_ai_weapon_toggle,
   common_ai_weapon_toggle_check,
   dac_lancer_fix,
+  bodysliding_1,
+  bodysliding_2,
   # dac_lancer_fix_2,
   #customize_armor,
   #bright_nights
@@ -1010,6 +1175,8 @@ deeds_common_siege_scripts = [
     common_ai_weapon_toggle,
     common_ai_weapon_toggle_check,	
     dac_lancer_fix_siege,
+    bodysliding_1,
+    bodysliding_2,    
   #customize_armor,
   #bright_nights
   ] + battle_panel_triggers + utility_triggers
@@ -3915,7 +4082,9 @@ mission_templates = [
      (4,mtef_attackers|mtef_team_1,0,aif_start_alarmed,0,[]),
      ],
     [
-      (ti_on_agent_spawn, 0, 0, [],
+      (ti_on_agent_spawn, 0, 0, [
+		(eq, "$bodyslide_spawn_block", 0),      
+      ],
        [
          (store_trigger_param_1, ":agent_no"),
          (call_script, "script_agent_reassign_team", ":agent_no"),

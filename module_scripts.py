@@ -763,11 +763,12 @@ scripts = [
         (troop_set_slot, ":npc", slot_troop_cur_center, ":grounds"),
     (try_end),
 
-    #Kham - Init variables
+    #DAC Kham - Init variables
 
     (assign, "$first_time", 0), #squelch compiler warnings
     (assign, "$FormAI_AI_Control_Troops", 0), #AI Control Dead Player's Troops (FormV5)
-
+    (assign, "$enable_bodysliding", BODYSLIDING_ALL_TROOPS), # 1257 AD's player swapping scripts.
+    
     (call_script, "script_initialize_custom_armor_data"), 
     (call_script, "script_init_weapon_switching"),	
     (call_script, "script_initialize_troop_elite_upgrades"),	
@@ -70915,6 +70916,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
   #new camera setup scripts, setting up other calls
 
   ("cf_dplmc_battle_continuation", [
+    (eq, "$enable_bodysliding", 0),
     (eq, "$g_dplmc_battle_continuation", 0),
     (assign, ":num_allies", 0),
     (try_for_agents, ":agent"),
@@ -83912,6 +83914,27 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 (try_end),
 
 ]),
+
+#script_copy_inventory
+#INPUT: source, target
+#OUTPUT: inventory
+("copy_inventory", 
+	[
+		(store_script_param_1, ":source"),
+		(store_script_param_2, ":target"),
+		
+		(troop_clear_inventory, ":target"),
+		(troop_get_inventory_capacity, ":inv_cap", ":source"),
+		(try_for_range, ":i_slot", 0, ":inv_cap"),
+			(troop_get_inventory_slot, ":item", ":source", ":i_slot"),
+			(troop_set_inventory_slot, ":target", ":i_slot", ":item"),
+			(troop_get_inventory_slot_modifier, ":imod", ":source", ":i_slot"),
+			(troop_set_inventory_slot_modifier, ":target", ":i_slot", ":imod"),
+			(troop_inventory_slot_get_item_amount, ":amount", ":source", ":i_slot"),
+			(gt, ":amount", 0),
+			(troop_inventory_slot_set_item_amount, ":target", ":i_slot", ":amount"),
+		(try_end), 
+	]),
 
 
 # DAC Kham: Upgrade Items END

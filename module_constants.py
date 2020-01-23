@@ -2811,6 +2811,21 @@ slot_agent_last_hp		        = 33
 # Banner Men
 slot_troop_bannerman = 170
 
+## WINDYPLAINS+ ## - 1257 AD - Player assumes normal soldier on death.
+slot_agent_possessed              = 100
+slot_agent_real_troop             = 101
+slot_agent_index_value            = 102
+## WINDYPLAINS- ##
+
+## BODYSLIDING+ ##
+BODYSLIDING_STORAGE                = "trp_bodysliding_temp"
+
+# Modes of Operation:
+BODYSLIDING_DISABLED               = 0
+BODYSLIDING_HEROES_ONLY            = 1
+BODYSLIDING_ALL_TROOPS             = 2
+## BODYSLIDING- ##
+
 def concatenate_scripts(block_list):
     result = []
     for block in block_list:

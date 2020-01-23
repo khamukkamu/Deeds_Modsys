@@ -4555,7 +4555,61 @@ TOTAL:  {reg5}"),
     "{s11}^^Your Casualties:{s8}{s10}^^Enemy Casualties:{s9}",
     "none",
     [
-     (try_begin),
+		## WINDYPLAINS+ ## - BODY-SLIDING - Credit: Initial code from 1257
+		# copy backup to main party
+		(try_begin),
+			(eq, "$player_has_bodyslided", 1),
+			
+			## WINDYPLAINS+ ## - Added to correct for mounted troops losing their horses while the player is using them.
+			(call_script, "script_copy_inventory", BODYSLIDING_STORAGE, "$bodysliding_last_troop"),
+			(assign, "$bodysliding_last_troop", -1),
+			## WINDYPLAINS- ##
+			
+			###new method, adjust the main party, by the manually counted one
+			##adjust the party to pre battle
+			(party_get_num_companion_stacks, ":stack_num", "p_temp_casualties_3"),
+			(try_for_range, ":stack_no", 0, ":stack_num"),
+				(party_stack_get_troop_id, ":stack_troop", "p_temp_casualties_3",":stack_no"),
+				(neq, ":stack_troop", "trp_player"), #player does not count
+				(neg|troop_is_hero, ":stack_troop"), #heroes either
+				(party_count_members_of_type,":main_troop_count","p_main_party",":stack_troop"), #get number of troops from main
+				(party_count_members_of_type,":sub_troop_count","p_temp_casualties_3",":stack_troop"), #get number of troops from sub
+				(try_begin), 
+					(gt, ":sub_troop_count", ":main_troop_count"), #sub party has more members
+					(store_sub, ":amount", ":sub_troop_count", ":main_troop_count"), #calculate number of troops to adjust
+					(party_add_members, "p_main_party", ":stack_troop", ":amount"), #adjust number of troops in the main party
+				(else_try),
+					(lt, ":sub_troop_count", ":main_troop_count"), #sub party has less members
+					(store_sub, ":amount", ":main_troop_count", ":sub_troop_count"), #calculate number of troops to adjust
+					(party_remove_members, "p_main_party", ":stack_troop", ":amount"), #adjust number of troops in the main party
+				(try_end),
+				#wound the members, only if there are less wounded in the main party
+				(party_stack_get_num_wounded, ":num_wounded_sub", "p_temp_casualties_3", ":stack_troop"),
+				(party_stack_get_num_wounded, ":num_wounded_main", "p_main_party", ":stack_troop"),
+				(try_begin),
+					(gt, ":num_wounded_sub", ":num_wounded_main"), #sub has more wounded
+					(store_sub, ":amount", ":num_wounded_sub", ":num_wounded_main"), #calculate number of troops to wound
+					(party_wound_members, "p_main_party", ":stack_troop", ":amount"),
+				(try_end),
+			(try_end),
+
+			##adjust the party based on the casualties sustained on the battlefield
+			(party_get_num_companion_stacks, ":num_stacks","p_player_casualties"),
+			(try_for_range, ":stack_no", 0, ":num_stacks"),
+				(party_stack_get_troop_id, ":stack_troop","p_player_casualties",":stack_no"),
+				(neq, ":stack_troop", "trp_player"),
+				(party_stack_get_size, ":stack_size","p_player_casualties",":stack_no"),
+				(party_stack_get_num_wounded, ":num_wounded", "p_player_casualties", ":stack_no"),
+				(val_sub, ":stack_size", ":num_wounded"),
+				(party_remove_members, "p_main_party", ":stack_troop", ":stack_size"), 
+				(party_wound_members, "p_main_party", ":stack_troop", ":num_wounded"),
+			(try_end),
+
+			(party_clear, "p_temp_casualties_3"),
+			(assign, "$player_has_bodyslided", 0),
+		(try_end),
+		## WINDYPLAINS- ##
+	 (try_begin),
        (eq, "$g_battle_result", 1),
        (call_script, "script_change_troop_renown", "trp_player", "$battle_renown_value"),
        #SB : also distribute amount to companions, maybe pretender/spouse in party as well

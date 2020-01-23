@@ -2706,6 +2706,8 @@ troops = [
 #Lumos List Troop
 ["upgrades", "{!}Upgrade list", "{!}List of available upgrades", tf_hero, no_scene, reserved, fac_neutral,[],level(60),wp(800),knows_lord_1,merchant_face_1, merchant_face_2],
 
+# Bodysliding
+["bodysliding_temp","_","_",tf_inactive,0,0,0,[],0,0,0,0],
 
 # EXTRA LORDS & LADIES FOR ARISTOCRACY - DAC
 ["extra_lady_1", "Yolande d'Aragon", "Yolande d'Aragon", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_1, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_1], def_attrib|level(2), wp(50), knows_common|knows_riding_2, 0x00000000000050010558b239244d94d100000000001d98e30000000000000000 ],
