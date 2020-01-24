@@ -45046,10 +45046,10 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [anyone,"do_regular_member_view_char", [], "Anything else?", "regular_member_talk",[]],
 
 # Custom Troops begin #DAC Kham: Replaced with Merc Camp Quartermaster
-  [anyone|plyr,"regular_member_talk", [(is_between,"$g_talk_troop",customizable_troops_begin, customizable_troops_end)], "I'd like to select your equipment.", "customize_troop_equipment_requested",[]],
-  [anyone,"customize_troop_equipment_requested", [], "Aye {sir/madam}. Here is all the gear we have currently equipped. Your inventory will show the gear that you can assign to us.", "finish_custom_troop",[(call_script, "script_start_customizing", "$g_talk_troop")]],
-  [anyone,"finish_custom_troop", [], "Very good {sir/madam}. I will put on the new gear now.", "finish_custom_response",[]],
-  [anyone|plyr,"finish_custom_response", [], "Carry on.", "close_window",[(call_script, "script_finish_customizing", "$g_talk_troop")]],
+ # [anyone|plyr,"regular_member_talk", [(is_between,"$g_talk_troop",customizable_troops_begin, customizable_troops_end)], "I'd like to select your equipment.", "customize_troop_equipment_requested",[]],
+ # [anyone,"customize_troop_equipment_requested", [], "Aye {sir/madam}. Here is all the gear we have currently equipped. Your inventory will show the gear that you can assign to us.", "finish_custom_troop",[(call_script, "script_start_customizing", "$g_talk_troop")]],
+ # [anyone,"finish_custom_troop", [], "Very good {sir/madam}. I will put on the new gear now.", "finish_custom_response",[]],
+ # [anyone|plyr,"finish_custom_response", [], "Carry on.", "close_window",[(call_script, "script_finish_customizing", "$g_talk_troop")]],
 # Custom Troops end
 
 ##diplomacy start+
