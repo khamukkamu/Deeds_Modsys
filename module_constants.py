@@ -2907,3 +2907,8 @@ center_list = [
 (p_town_72, [0]),
 (p_town_73, [0]),
 ]
+
+## DAC Custom Troops (Merc Company Feature)
+customizable_troops_begin = "trp_custom_merc_recruit"
+customizable_troops_end = "trp_custom_mercs_end"
+## DAC Custom Troops (Merc Company Feature) End

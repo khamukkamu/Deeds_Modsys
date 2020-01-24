@@ -45045,6 +45045,13 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 ##diplomacy end+
   [anyone,"do_regular_member_view_char", [], "Anything else?", "regular_member_talk",[]],
 
+# Custom Troops begin #DAC Kham: Replaced with Merc Camp Quartermaster
+  [anyone|plyr,"regular_member_talk", [(is_between,"$g_talk_troop",customizable_troops_begin, customizable_troops_end)], "I'd like to select your equipment.", "customize_troop_equipment_requested",[]],
+  [anyone,"customize_troop_equipment_requested", [], "Aye {sir/madam}. Here is all the gear we have currently equipped. Your inventory will show the gear that you can assign to us.", "finish_custom_troop",[(call_script, "script_start_customizing", "$g_talk_troop")]],
+  [anyone,"finish_custom_troop", [], "Very good {sir/madam}. I will put on the new gear now.", "finish_custom_response",[]],
+  [anyone|plyr,"finish_custom_response", [], "Carry on.", "close_window",[(call_script, "script_finish_customizing", "$g_talk_troop")]],
+# Custom Troops end
+
 ##diplomacy start+
 #Allow viewing (but not changing) of the equipment of the troops you are leading.
 #Code credit to rubik's Custom Commander, with minor string changes.
@@ -45171,6 +45178,162 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [anyone|plyr,"regular_member_talk", [], "Nothing. Keep moving.", "close_window",[]],
 
 
+# DAC Kham: Custom Troops - Merc Camp Quartermaster
+  [anyone,"start", [(eq,"$g_talk_troop","trp_merc_company_quartermaster")], "Good day, Commander. What would you like to do today?", "camp_quartermaster_start",[]],
+
+  [anyone|plyr,"camp_quartermaster_start", 
+    [], 
+      "Any youngblood join the camp recently?", "camp_quartermaster_recruit",
+    []],
+
+  [anyone,"camp_quartermaster_recruit", 
+    [], 
+      "Aye... There are a few.", "camp_quartermaster_recruit_select", #placeholder. Will write script like refresh volunteers.
+    []],
+
+  [anyone|plyr,"camp_quartermaster_recruit_select", 
+    [], 
+      "Good. I'll take them all now.", "camp_quartermaster_recruit_take", #placeholder.
+    [(party_add_members, "p_main_party", "trp_custom_merc_recruit", 5),]],
+
+  [anyone,"camp_quartermaster_recruit_take", 
+    [], 
+      "Don't let them die all at once. ^Anything else?", "camp_quartermaster_start", #placeholder. Will write script like refresh volunteers.
+    []],
+
+  [anyone|plyr,"camp_quartermaster_start", 
+    [
+      (assign, ":continue", 0),
+      (party_get_num_companion_stacks, ":num_stacks", "p_main_party"),
+      (try_for_range, ":i_stack", 0, ":num_stacks"),
+        (eq, ":continue", 0),
+        (party_stack_get_troop_id, ":troop_id", "p_main_party", ":i_stack"),
+        (is_between, ":troop_id", customizable_troops_begin, customizable_troops_end),
+        (assign, ":continue", 1),
+      (try_end),
+      (eq, ":continue", 1),
+    ], 
+      "I'd like to look at what my company troops have access to right now.", "camp_quartermaster_equip_ask",
+    [(assign, "$g_target_custom_troop", -1)]],
+
+  [anyone|plyr,"camp_quartermaster_start", 
+    [
+      (assign, ":continue", 0),
+      (party_get_num_companion_stacks, ":num_stacks", "p_main_party"),
+      (try_for_range, ":i_stack", 0, ":num_stacks"),
+        (eq, ":continue", 0),
+        (party_stack_get_troop_id, ":troop_id", "p_main_party", ":i_stack"),
+        (is_between, ":troop_id", customizable_troops_begin, customizable_troops_end),
+        (assign, ":continue", 1),
+      (try_end),
+      (eq, ":continue", 1),
+    ], 
+      "I'd like to equip my company troops with new gear.", "camp_quartermaster_buy",
+    [(assign, "$g_item_to_buy", -1)]],
+
+  [anyone,"camp_quartermaster_equip_ask", 
+    [], 
+      "Which rank of troop do you want to look at? Remember, they all have access to the same armoury, but they may be too green to use some.", "camp_quartermaster_equip_troop",
+    []],
+
+  [anyone|plyr|repeat_for_troops,"camp_quartermaster_equip_troop", 
+    [
+      (store_repeat_object, ":troop_no"),
+      (is_between, ":troop_no", customizable_troops_begin, customizable_troops_end),
+      (neg|troop_is_hero, ":troop_no"),
+      (str_store_troop_name, s66, ":troop_no"),
+    ], 
+      "{s66}", "camp_quartermaster_equip",
+    [(store_repeat_object, "$g_target_custom_troop")]],
+
+  [anyone,"camp_quartermaster_equip", 
+    [], 
+      "Here is what they have access to right now. You can give them what you want them to equip from the camp's armoury.", "camp_quartermaster_equip_end",
+    [
+    (call_script, "script_start_customizing", "$g_target_custom_troop")]],
+
+  [anyone,"camp_quartermaster_equip_end", 
+    [], 
+      "Good...", "camp_quartermaster_equip_end_2",
+    []],
+
+  [anyone,"camp_quartermaster_equip_end_2", 
+    [], 
+      "They will start wearing that in battle now.^ Anything else?", "camp_quartermaster_start",
+    [(call_script, "script_finish_customizing", "$g_target_custom_troop")]],
+
+  [anyone,"camp_quartermaster_buy", 
+    [], 
+      "Great, this is always welcome. Remember, we have to make as much as we can to equip all current and future company troops. What do you have?", "camp_quartermaster_buy_ask",
+    []],
+
+  [anyone|plyr|repeat_for_100, "camp_quartermaster_buy_ask",
+    [
+      (store_repeat_object, ":item"),
+      (troop_get_inventory_slot, ":item_id", "trp_player", ":item"),
+      (ge, ":item_id", 0),
+      (is_between, ":item_id", "itm_heraldic_mail_with_surcoat_for_tableau", "itm_items_end"), 
+      (str_store_item_name, s66, ":item_id"),
+
+   ], "{s66}", "camp_quartermaster_buy_choose", [
+    (store_repeat_object, ":item"),
+    (troop_get_inventory_slot, "$g_item_to_buy", "trp_player", ":item"),
+   ],
+  ],
+
+  [anyone,"camp_quartermaster_buy_choose",
+  [
+    (item_get_value, ":price",  "$g_item_to_buy"),
+    (store_mul, ":base_price", ":price", 25),
+    (assign,reg55, ":base_price"),
+    (party_get_skill_level, ":trade_skill", "p_main_party", skl_trade),
+    (store_sub, ":multiplier", 25, ":trade_skill"),
+    (store_mul, ":discounted_price", ":price", ":multiplier"),
+    (assign, reg56, ":discounted_price"),
+    (str_store_string, s66, "@."),
+    (try_begin),
+      (gt, ":trade_skill", 0),
+      (str_store_string, s66, "@,but you have been making good contacts with some tradesmen and will actually cost you {reg56} crowns."),
+    (try_end),
+
+  ], "Making all these should cost you {reg55} crowns{s66}", "camp_quartermaster_buy_confirm",[]],
+
+  [anyone|plyr,"camp_quartermaster_buy_confirm",
+    [
+      (store_troop_gold, ":gold", "trp_player"),
+      (ge, ":gold", reg56),
+    ],  "Good. Prepare these and add them to the armoury.", "camp_quartermaster_buy_finished",[
+      (troop_remove_gold, "trp_player", reg56),
+      (call_script, "script_dac_add_item_to_custom_troop", "$g_item_to_buy"),
+    ]
+  ],
+
+  [anyone|plyr,"camp_quartermaster_buy_confirm",
+    [
+      (store_troop_gold, ":gold", "trp_player"),
+      (lt, ":gold", reg56),
+    ],  "I do not have enough crowns right now.", "camp_quartermaster_buy_not_enough",[
+    ]
+  ],
+
+  [anyone|plyr,"camp_quartermaster_buy_confirm",
+    [],  "Not right now.", "camp_quartermaster_buy_not_enough",[]
+  ],
+
+  [anyone,"camp_quartermaster_buy_not_enough", 
+  [], 
+    "Ok then. Anything else?", "camp_quartermaster_start",
+  []],
+
+  [anyone,"camp_quartermaster_buy_finished", 
+  [], 
+    "Good... We shall start making them now. You can access them in the armoury soon.^ Anything else?", "camp_quartermaster_start",
+  []],
+
+  [anyone|plyr,"camp_quartermaster_start", [], "Nothing today. Carry on.", "camp_quartermaster_back",[]],
+  [anyone,"camp_quartermaster_back", [], "Very well.", "close_window",[(change_screen_map)]],
+
+# DAC Kham: Custom Troops - Merc Camp Quartermaster END
 
 
 

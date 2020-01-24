@@ -6867,4 +6867,17 @@ simple_triggers = [
     ]),
 
   ##diplomacy end
+
+  #Custom Troops Begin
+  (0,
+    [
+      (map_free),
+      (troop_get_inventory_slot, ":item", customizable_troops_end, 10),
+      (eq,":item","itm_velvet"),
+      (call_script, "script_reload_custom_troops"),
+      (troop_clear_inventory, customizable_troops_end),
+    ]
+  ),
+#Custom Troops End
+
 ]

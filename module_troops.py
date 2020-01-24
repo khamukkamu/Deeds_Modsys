@@ -2792,6 +2792,135 @@ troops = [
 ["extra_lord_39", "Jean II d'Alençon, Duc d'Alençon", "Jean d'Alençon", tf_hero, no_scene, reserved, fac_kingdom_1, [itm_w_lance_colored_french_1,itm_tab_shield_heater_cav_b,itm_ho_horse_barded_blue_chamfrom,itm_h_zitta_bascinet_novisor,itm_heraldic_early_transitional,itm_b_splinted_greaves_spurs,itm_g_wisby_gauntlets_black,itm_b_hosen_shoes_custom,itm_a_tabard_heraldic,itm_w_bastard_sword_crecy], lord_attrib, wp(380), knows_lord_1, 0x000000000000800f49255229948d172300000000001d551a0000000000000000, 0x000000000000800f49255229948d172300000000001d551a0000000000000000 ],
 ["extra_lord_40", "Jean II d'Alençon, Duc d'Alençon", "Jean d'Alençon", tf_hero, no_scene, reserved, fac_kingdom_1, [itm_w_lance_colored_french_1,itm_tab_shield_heater_cav_b,itm_ho_horse_barded_blue_chamfrom,itm_h_zitta_bascinet_novisor,itm_heraldic_early_transitional,itm_b_splinted_greaves_spurs,itm_g_wisby_gauntlets_black,itm_b_hosen_shoes_custom,itm_a_tabard_heraldic,itm_w_bastard_sword_crecy], lord_attrib, wp(380), knows_lord_1, 0x000000000000800f49255229948d172300000000001d551a0000000000000000, 0x000000000000800f49255229948d172300000000001d551a0000000000000000 ],
 
+
+## DAC Custom Troops (Merc System)
+
+# FORMAT:
+# 1. Regular troop: this is the actual troop entry used for the troop. Ignore the equipment list, you can leave it blank.
+# 2. Equip troop: shows what the troop will be carrying when the game first starts. This is later used for saving the troop's custom selection
+# 3. Troop equipment selection: List of what is available to select during the customization phase. Can have up to around 80 items max, but recommended is maybe 50 max (to leave room so you can remove items from the current selection).
+
+## Tier 1 ##
+
+  ["custom_merc_recruit","Company Recruit","Company Recruits",tf_guarantee_all,0,0,fac_neutral,[],
+    level(10)|str_12|agi_12, 
+    wpex(120,80,80,80,80,80), 
+    knows_ironflesh_2|knows_power_strike_2|knows_shield_1|knows_athletics_3|knows_weapon_master_1,
+    mercenary_face_1, mercenary_face_2],
+  
+  ["custom_merc_recruit_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+   # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
+   [ 
+      itm_h_arming_cap,
+      itm_a_leather_vest_custom,
+      itm_a_cloth_vest_custom,
+      itm_b_hosen_shoes_custom,
+      itm_g_leather_gauntlet,
+      itm_w_onehanded_war_axe_4,
+      itm_w_archer_hatchet,
+      itm_w_spiked_club,
+      itm_b_ankle_boots,
+      itm_w_onehanded_sword_a,
+      itm_w_onehanded_sword_c,
+      itm_w_onehanded_sword_c_small,
+      itm_s_heater_shield_d1,
+      itm_h_pot_helmet_hood_custom,
+   ], def_attrib|level(1), wp(60),knows_common,0
+  ],
+  
+  ["custom_merc_recruit_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+    [ #Inventory Matters here. This is what they CAN BE ASKED to equip. Our system gives this troop weapons through dialogues.
+      itm_h_hood_custom,
+      itm_h_arming_cap,
+      itm_a_leather_vest_custom,
+      itm_a_cloth_vest_custom,
+      itm_a_gambeson_custom,
+      itm_b_hosen_shoes_custom,
+      itm_g_leather_gauntlet,
+      itm_w_onehanded_war_axe_4,
+      itm_w_archer_hatchet,
+      itm_w_spiked_club,
+      itm_b_ankle_boots,
+      itm_w_onehanded_sword_poitiers,
+      itm_w_onehanded_sword_a_long,
+      itm_w_onehanded_sword_a,
+      itm_w_onehanded_sword_c,
+      itm_w_onehanded_sword_c_long,
+      itm_w_onehanded_sword_c_small,
+      itm_s_heater_shield_b2,
+      itm_s_heater_shield_c2,
+      itm_s_heater_shield_d1,
+      itm_s_heater_shield_d1,
+      itm_h_pot_helmet_hood_custom,
+    ], def_attrib|level(1),wp(60),knows_common|knows_inventory_management_10,0],
+
+# Tier 2 #
+
+  ["custom_merc_veteran","Company Veteran","Company Recruits",tf_guarantee_all,0,0,fac_neutral,[],
+    level(15)|str_14|agi_14, 
+    wpex(140,80,80,80,80,80), 
+    knows_ironflesh_3|knows_power_strike_3|knows_shield_2|knows_athletics_3|knows_weapon_master_1,
+    mercenary_face_1, mercenary_face_2],
+  
+  ["custom_merc_veteran_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+   # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
+   [ 
+      itm_h_arming_cap,
+      itm_a_leather_vest_custom,
+      itm_a_cloth_vest_custom,
+      itm_b_hosen_shoes_custom,
+      itm_g_leather_gauntlet,
+      itm_w_onehanded_war_axe_4,
+      itm_w_archer_hatchet,
+      itm_w_spiked_club,
+      itm_b_ankle_boots,
+      itm_w_onehanded_sword_a,
+      itm_w_onehanded_sword_c,
+      itm_w_onehanded_sword_c_small,
+      itm_s_heater_shield_d1,
+      itm_h_pot_helmet_hood_custom,
+   ], def_attrib|level(1), wp(60),knows_common,0
+  ],
+  
+  ["custom_merc_veteran_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+    [ #Inventory Matters here. This is what they CAN BE ASKED to equip. Our system gives this troop weapons through dialogues.
+      itm_h_hood_custom,
+      itm_h_arming_cap,
+      itm_a_leather_vest_custom,
+      itm_a_cloth_vest_custom,
+      itm_a_gambeson_custom,
+      itm_b_hosen_shoes_custom,
+      itm_g_leather_gauntlet,
+      itm_w_onehanded_war_axe_4,
+      itm_w_archer_hatchet,
+      itm_w_spiked_club,
+      itm_b_ankle_boots,
+      itm_w_onehanded_sword_poitiers,
+      itm_w_onehanded_sword_a_long,
+      itm_w_onehanded_sword_a,
+      itm_w_onehanded_sword_c,
+      itm_w_onehanded_sword_c_long,
+      itm_w_onehanded_sword_c_small,
+      itm_s_heater_shield_b2,
+      itm_s_heater_shield_c2,
+      itm_s_heater_shield_d1,
+      itm_s_heater_shield_d1,
+      itm_h_pot_helmet_hood_custom,
+    ], def_attrib|level(1),wp(60),knows_common|knows_inventory_management_10,0],
+
+
+  ["custom_mercs_end","{!}na","{!}na",0,0,0,fac_neutral,[itm_velvet],def_attrib|level(1),wp(60),knows_common|knows_inventory_management_10,swadian_face_middle_1, swadian_face_older_2],
+
+  ["merc_company_quartermaster","Godefroy de Papincourt","Godefroy de Papincourt",tf_hero|tf_unmoveable_in_party_window,0,0,fac_commoners,
+   [itm_w_lance_colored_french_2_heraldic,itm_tab_shield_heater_cav_b,itm_ho_horse_barded_blue_chamfrom,itm_h_klappvisier_pigface_open,itm_heraldic_churburg_13_tabard,itm_b_shynbaulds,itm_g_plate_mittens,itm_b_hosen_shoes_custom,itm_a_tabard_heraldic,itm_w_bastard_sword_count],
+   def_attrib|level(20),wp(120),knows_common|knows_inventory_management_10|knows_power_draw_5, 0x00000001840834485914d426156ab55400000000000d35240000000000000000],
+
+  ["inventory_backup","{!}Inventory","{!}Inventory",tf_hero|tf_inactive,0,reserved,fac_neutral,[],def_attrib|level(18),wp(60),knows_inventory_management_10,0],
+  
+
+## DAC Custom Troops (Merc System) End
+
+
 ]
 ###################################################### FRENCH TROOPS
 ### Archer Line

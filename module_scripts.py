@@ -83922,7 +83922,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 	[
 		(store_script_param_1, ":source"),
 		(store_script_param_2, ":target"),
-		
+
 		(troop_clear_inventory, ":target"),
 		(troop_get_inventory_capacity, ":inv_cap", ":source"),
 		(try_for_range, ":i_slot", 0, ":inv_cap"),
@@ -83938,6 +83938,65 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 
 
 # DAC Kham: Upgrade Items END
+
+###################################
+# Custom Troops Scripts Begin
+
+  ("start_customizing", [
+    (store_script_param_1, ":troop"),
+    
+    (store_skill_level, "$g_player_inventory_management", skl_inventory_management, "$g_player_troop"),
+    (store_sub, ":skill_raise", 10, "$g_player_inventory_management"),
+    (troop_raise_skill, "$g_player_troop", skl_inventory_management, ":skill_raise"),
+    (call_script, "script_copy_inventory", "$g_player_troop", "trp_inventory_backup"),
+    (call_script, "script_unequip_troop", ":troop"),
+    (store_add, ":selection_troop", 2, ":troop"),
+    (call_script, "script_copy_inventory", ":selection_troop", "$g_player_troop"),
+    (change_screen_loot, ":troop"),
+  ]),
+
+  ("finish_customizing", [
+    (store_script_param_1, ":troop"),
+
+    (store_sub, ":skill_raise", "$g_player_inventory_management", 10),
+    (troop_raise_skill, "$g_player_troop", skl_inventory_management, ":skill_raise"),
+    (call_script, "script_copy_inventory", "trp_inventory_backup", "$g_player_troop"),
+    (call_script, "script_unequip_troop", ":troop"),
+    (store_add, ":bak_troop", 1, ":troop"),
+    (call_script, "script_copy_inventory", ":troop", ":bak_troop"),
+    (troop_equip_items, ":troop"),
+  ]),
+
+  ("unequip_troop", [
+    (store_script_param_1, ":troop"),
+    (try_for_range, ":i_slot", 0, 10),
+      (troop_get_inventory_slot, ":item",":troop", ":i_slot"),
+      (gt, ":item", 0),
+      (troop_get_inventory_slot_modifier, ":imod",":troop", ":i_slot"),
+      (troop_set_inventory_slot, ":troop", ":i_slot", -1),
+      (troop_add_item, ":troop", ":item", ":imod"),
+    (try_end),
+  ]),
+
+  ("reload_custom_troops", [
+    (try_for_range, ":troop", customizable_troops_begin,  customizable_troops_end),
+      (neg|troop_is_hero, ":troop"),
+      (store_add, ":bak_troop", 1, ":troop"),
+      (call_script, "script_copy_inventory", ":bak_troop", ":troop"),    
+      (troop_equip_items, ":troop"),
+    (try_end),
+  ]),
+
+  ("dac_add_item_to_custom_troop", [
+    
+    (store_script_param_1, ":item"),
+    (try_for_range, ":troop", customizable_troops_begin, customizable_troops_end),
+      (troop_is_hero, ":troop"), #DAC Kham: Inventory Troops are Heroes.
+      (store_add, ":armoury_troop", 1, ":troop"), #Access the Selection Troop (Armoury)
+      (troop_add_item, ":armoury_troop", ":item"),
+    (try_end),
+  ]),
+# Custom Troops End
 
 ]
 

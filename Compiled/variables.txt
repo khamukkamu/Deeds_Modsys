@@ -1460,3 +1460,6 @@ bodyslide_spawn_block
 enable_bodysliding
 player_has_bodyslided
 bodysliding_last_troop
+g_player_inventory_management
+g_target_custom_troop
+g_item_to_buy

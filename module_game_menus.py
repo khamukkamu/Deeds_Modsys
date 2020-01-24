@@ -3038,6 +3038,19 @@ TOTAL:  {reg5}"),
       ("camp_test_sieges",[],"Test Sieges", [
           (jump_to_menu, "mnu_dac_camp_test_sieges")]),  
 
+      ("camp_test_quartermaster",[],"Test Quartermaster Dialogues", [
+        (assign, "$g_talk_troop", "trp_merc_company_quartermaster"),
+        (call_script, "script_get_meeting_scene"), 
+        (assign, ":meeting_scene", reg0),
+        (modify_visitors_at_site,":meeting_scene"),
+        (reset_visitors),
+        (set_visitor,0,"trp_player"),
+        (set_visitor,17,"trp_merc_company_quartermaster"),
+        (set_jump_mission,"mt_conversation_encounter"),
+        (jump_to_scene,":meeting_scene"),
+        (change_screen_map_conversation, "trp_merc_company_quartermaster"),
+          ]),   
+
     ("dac_test_back",[],"Back",[(jump_to_menu, "mnu_camp")]),
  ]),
 
@@ -3050,6 +3063,7 @@ TOTAL:  {reg5}"),
       ("give_troops_england",[],"Give English Troops", [(party_add_template, "p_main_party", "pt_kingdom_2_reinforcements_a"),(party_add_template, "p_main_party", "pt_kingdom_2_reinforcements_b"),(party_add_template, "p_main_party", "pt_kingdom_2_reinforcements_c"),(party_add_template, "p_main_party", "pt_kingdom_2_reinforcements_d"),(party_add_template, "p_main_party", "pt_kingdom_2_reinforcements_e"),]),
       ("give_troops_burgundy",[],"Give Burgundian Troops", [(party_add_template, "p_main_party", "pt_kingdom_3_reinforcements_a"),(party_add_template, "p_main_party", "pt_kingdom_3_reinforcements_b"),(party_add_template, "p_main_party", "pt_kingdom_3_reinforcements_c"),(party_add_template, "p_main_party", "pt_kingdom_3_reinforcements_d"),(party_add_template, "p_main_party", "pt_kingdom_3_reinforcements_e")]),
       ("give_troops_brittany",[],"Give Breton Troops", [(party_add_template, "p_main_party", "pt_kingdom_4_reinforcements_a"),(party_add_template, "p_main_party", "pt_kingdom_4_reinforcements_b"),(party_add_template, "p_main_party", "pt_kingdom_4_reinforcements_c"),(party_add_template, "p_main_party", "pt_kingdom_4_reinforcements_d"),(party_add_template, "p_main_party", "pt_kingdom_4_reinforcements_e")]),	 
+      ("give_troops_custom",[],"Give Custom Troop", [(party_add_members, "p_main_party", "trp_custom_merc_recruit", 5)]),   
       ("resume_travelling",[],"Resume travelling.",[(change_screen_return),]), 
  ]),  	
 
