@@ -1,4 +1,4 @@
-1849
+1853
 qstr_Next_Page Next_Page
 qstr_Game_Rules:^ Game_Rules:^
 qstr_0 0
@@ -1848,3 +1848,7 @@ qstr_{s77} {s77}
 qstr_Custom_Troop Custom_Troop
 qstr_. .
 qstr_but_you_have_been_m ,but_you_have_been_making_good_contacts_with_some_tradesmen_and_will_actually_cost_you_{reg56}_crowns.
+qstr_{s0}s {s0}s
+qstr_this_troop this_troop
+qstr_What_will_you_name_t What_will_you_name_this_troop?
+qstr_{s7}s {s7}s

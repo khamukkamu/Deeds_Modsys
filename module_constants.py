@@ -2438,9 +2438,9 @@ camera_follow = 3
 rename_kingdom = 1
 rename_center = 2
 rename_party = 3
-# rename_troop = 4
 # rename_troop_plural = 5
 rename_companion = 4
+rename_troop = 5
 
 #recolor modes
 recolor_kingdom = 0

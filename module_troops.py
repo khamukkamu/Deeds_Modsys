@@ -2806,7 +2806,7 @@ troops = [
     level(10)|str_12|agi_12, 
     wpex(120,80,80,80,80,80), 
     knows_ironflesh_2|knows_power_strike_2|knows_shield_1|knows_athletics_3|knows_weapon_master_1,
-    mercenary_face_1, mercenary_face_2],
+    vaegir_face_young_1, vaegir_face_young_2],
   
   ["custom_merc_recruit_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
    # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
@@ -2856,11 +2856,11 @@ troops = [
 
 # Tier 2 #
 
-  ["custom_merc_veteran","Company Veteran","Company Recruits",tf_guarantee_all,0,0,fac_neutral,[],
+  ["custom_merc_veteran","Company Veteran","Company Veterans",tf_guarantee_all,0,0,fac_neutral,[],
     level(15)|str_14|agi_14, 
     wpex(140,80,80,80,80,80), 
     knows_ironflesh_3|knows_power_strike_3|knows_shield_2|knows_athletics_3|knows_weapon_master_1,
-    mercenary_face_1, mercenary_face_2],
+    vaegir_face_old_1, vaegir_face_old_2],
   
   ["custom_merc_veteran_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
    # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
@@ -2883,6 +2883,114 @@ troops = [
   ],
   
   ["custom_merc_veteran_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+    [ #Inventory Matters here. This is what they CAN BE ASKED to equip. Our system gives this troop weapons through dialogues.
+      itm_h_hood_custom,
+      itm_h_arming_cap,
+      itm_a_leather_vest_custom,
+      itm_a_cloth_vest_custom,
+      itm_a_gambeson_custom,
+      itm_b_hosen_shoes_custom,
+      itm_g_leather_gauntlet,
+      itm_w_onehanded_war_axe_4,
+      itm_w_archer_hatchet,
+      itm_w_spiked_club,
+      itm_b_ankle_boots,
+      itm_w_onehanded_sword_poitiers,
+      itm_w_onehanded_sword_a_long,
+      itm_w_onehanded_sword_a,
+      itm_w_onehanded_sword_c,
+      itm_w_onehanded_sword_c_long,
+      itm_w_onehanded_sword_c_small,
+      itm_s_heater_shield_b2,
+      itm_s_heater_shield_c2,
+      itm_s_heater_shield_d1,
+      itm_s_heater_shield_d1,
+      itm_h_pot_helmet_hood_custom,
+    ], def_attrib|level(1),wp(60),knows_common|knows_inventory_management_10,0],
+
+# Tier 3 #
+
+  ["custom_merc_elite","Company Elite","Company Elites",tf_guarantee_all,0,0,fac_neutral,[],
+    level(20)|str_16|agi_16, 
+    wpex(160,100,100,100,100,100), 
+    knows_ironflesh_4|knows_power_strike_4|knows_shield_3|knows_athletics_3|knows_weapon_master_2,
+    mercenary_face_1, mercenary_face_2],
+  
+  ["custom_merc_elite_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+   # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
+   [ 
+      itm_h_arming_cap,
+      itm_a_leather_vest_custom,
+      itm_a_cloth_vest_custom,
+      itm_b_hosen_shoes_custom,
+      itm_g_leather_gauntlet,
+      itm_w_onehanded_war_axe_4,
+      itm_w_archer_hatchet,
+      itm_w_spiked_club,
+      itm_b_ankle_boots,
+      itm_w_onehanded_sword_a,
+      itm_w_onehanded_sword_c,
+      itm_w_onehanded_sword_c_small,
+      itm_s_heater_shield_d1,
+      itm_h_pot_helmet_hood_custom,
+   ], def_attrib|level(1), wp(60),knows_common,0
+  ],
+  
+  ["custom_merc_elite_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+    [ #Inventory Matters here. This is what they CAN BE ASKED to equip. Our system gives this troop weapons through dialogues.
+      itm_h_hood_custom,
+      itm_h_arming_cap,
+      itm_a_leather_vest_custom,
+      itm_a_cloth_vest_custom,
+      itm_a_gambeson_custom,
+      itm_b_hosen_shoes_custom,
+      itm_g_leather_gauntlet,
+      itm_w_onehanded_war_axe_4,
+      itm_w_archer_hatchet,
+      itm_w_spiked_club,
+      itm_b_ankle_boots,
+      itm_w_onehanded_sword_poitiers,
+      itm_w_onehanded_sword_a_long,
+      itm_w_onehanded_sword_a,
+      itm_w_onehanded_sword_c,
+      itm_w_onehanded_sword_c_long,
+      itm_w_onehanded_sword_c_small,
+      itm_s_heater_shield_b2,
+      itm_s_heater_shield_c2,
+      itm_s_heater_shield_d1,
+      itm_s_heater_shield_d1,
+      itm_h_pot_helmet_hood_custom,
+    ], def_attrib|level(1),wp(60),knows_common|knows_inventory_management_10,0],
+
+# Tier 4 #
+
+  ["custom_merc_bodyguard","Company Bodyguard","Company Bodyguards",tf_guarantee_all,0,0,fac_neutral,[],
+    level(25)|str_20|agi_20, 
+    wp_melee(160), 
+    knows_ironflesh_5|knows_power_strike_5|knows_shield_3|knows_athletics_4|knows_weapon_master_5,
+    mercenary_face_1, mercenary_face_2],
+  
+  ["custom_merc_bodyguard_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+   # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
+   [ 
+      itm_h_arming_cap,
+      itm_a_leather_vest_custom,
+      itm_a_cloth_vest_custom,
+      itm_b_hosen_shoes_custom,
+      itm_g_leather_gauntlet,
+      itm_w_onehanded_war_axe_4,
+      itm_w_archer_hatchet,
+      itm_w_spiked_club,
+      itm_b_ankle_boots,
+      itm_w_onehanded_sword_a,
+      itm_w_onehanded_sword_c,
+      itm_w_onehanded_sword_c_small,
+      itm_s_heater_shield_d1,
+      itm_h_pot_helmet_hood_custom,
+   ], def_attrib|level(1), wp(60),knows_common,0
+  ],
+  
+  ["custom_merc_bodyguard_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
     [ #Inventory Matters here. This is what they CAN BE ASKED to equip. Our system gives this troop weapons through dialogues.
       itm_h_hood_custom,
       itm_h_arming_cap,
@@ -3043,3 +3151,9 @@ upgrade(troops,"mercenary_archer","mercenary_longbowman")
 
 upgrade(troops,"mercenary_scout","mercenary_light_cavalry")
 upgrade(troops,"mercenary_light_cavalry","mercenary_cavalry")
+
+###################################################### CUSTOM TROOPS
+
+upgrade(troops,"custom_merc_recruit","custom_merc_veteran")
+upgrade(troops,"custom_merc_veteran","custom_merc_elite")
+upgrade(troops,"custom_merc_elite","custom_merc_bodyguard")

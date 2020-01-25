@@ -45179,7 +45179,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 
 
 # DAC Kham: Custom Troops - Merc Camp Quartermaster
-  [anyone,"start", [(eq,"$g_talk_troop","trp_merc_company_quartermaster")], "Good day, Commander. What would you like to do today?", "camp_quartermaster_start",[]],
+  [anyone,"start", [(eq,"$g_talk_troop","trp_merc_company_quartermaster"),], "Good day, Commander. What would you like to do today?", "camp_quartermaster_start",[(assign, "$g_presentation_state", -1)]],
 
   [anyone|plyr,"camp_quartermaster_start", 
     [], 
@@ -45231,9 +45231,61 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
       "I'd like to equip my company troops with new gear.", "camp_quartermaster_buy",
     [(assign, "$g_item_to_buy", -1)]],
 
+  [anyone|plyr,"camp_quartermaster_start", 
+    [
+      (assign, ":continue", 0),
+      (party_get_num_companion_stacks, ":num_stacks", "p_main_party"),
+      (try_for_range, ":i_stack", 0, ":num_stacks"),
+        (eq, ":continue", 0),
+        (party_stack_get_troop_id, ":troop_id", "p_main_party", ":i_stack"),
+        (is_between, ":troop_id", customizable_troops_begin, customizable_troops_end),
+        (assign, ":continue", 1),
+      (try_end),
+      (eq, ":continue", 1),
+    ], 
+      "I'd like to change the title of our ranks.", "camp_quartermaster_change_name",
+    []],
+
+  [anyone,"camp_quartermaster_change_name", 
+    [], 
+      "Which rank of troop do you want to change the name to? ", "camp_quartermaster_change_name_ask",
+    []],
+
+  [anyone|plyr|repeat_for_troops,"camp_quartermaster_change_name_ask", 
+    [
+      (store_repeat_object, ":troop_no"),
+      (is_between, ":troop_no", customizable_troops_begin, customizable_troops_end),
+      (neg|troop_is_hero, ":troop_no"),
+      #(main_party_has_troop, ":troop_no"),
+      (str_store_troop_name, s66, ":troop_no"),
+    ], 
+      "{s66}", "camp_quartermaster_change_name_ask_do",
+    [(store_repeat_object, "$g_target_name_change")]],
+
+  [anyone|plyr,"camp_quartermaster_change_name_ask", 
+    [], 
+      "Nevermind", "camp_quartermaster_buy_not_enough",
+    []],
+
+  [anyone,"camp_quartermaster_change_name_ask_do", 
+    [], 
+      "Ok, what do you want to call them now?", "close_window",
+    [
+      (change_screen_map),
+      (jump_to_menu, "mnu_dac_name_troops"),
+      #(start_presentation, "prsnt_name_troop")
+    ]],
+  
+  [anyone,"start", 
+    [(eq, "$g_talk_troop", "trp_merc_company_quartermaster"), (eq, "$g_presentation_state", rename_troop)], 
+      "Sounds fierce.^Anything else?", "camp_quartermaster_start",
+    [
+    (assign, "$g_presentation_state", -1),
+    ]],
+
   [anyone,"camp_quartermaster_equip_ask", 
     [], 
-      "Which rank of troop do you want to look at? Remember, they all have access to the same armoury, but they may be too green to use some.", "camp_quartermaster_equip_troop",
+      "Which rank of troop do you want to look at? ^Remember, they all have access to the same armoury, but some may be too green to use certain equipment.", "camp_quartermaster_equip_troop",
     []],
 
   [anyone|plyr|repeat_for_troops,"camp_quartermaster_equip_troop", 
@@ -45241,10 +45293,16 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
       (store_repeat_object, ":troop_no"),
       (is_between, ":troop_no", customizable_troops_begin, customizable_troops_end),
       (neg|troop_is_hero, ":troop_no"),
+      (main_party_has_troop, ":troop_no"),
       (str_store_troop_name, s66, ":troop_no"),
     ], 
       "{s66}", "camp_quartermaster_equip",
     [(store_repeat_object, "$g_target_custom_troop")]],
+
+  [anyone|plyr,"camp_quartermaster_equip_troop", 
+    [], 
+      "Nevermind", "camp_quartermaster_buy_not_enough",
+    []],
 
   [anyone,"camp_quartermaster_equip", 
     [], 
@@ -45279,6 +45337,11 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
     (store_repeat_object, ":item"),
     (troop_get_inventory_slot, "$g_item_to_buy", "trp_player", ":item"),
    ],
+  ],
+
+  [anyone|plyr, "camp_quartermaster_buy_ask",
+    [], 
+    "Nevermind.", "camp_quartermaster_buy_not_enough", [],
   ],
 
   [anyone,"camp_quartermaster_buy_choose",

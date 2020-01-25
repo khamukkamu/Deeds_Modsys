@@ -22118,7 +22118,58 @@ presentations = [
     ]),
 
 
+("name_troop",0,mesh_load_window,[
+      (ti_on_presentation_load,
+       [(set_fixed_point_multiplier, 1000),
+        (str_store_string, s1, "@What will you name this troop?"),
+        (create_text_overlay, reg1, s1, tf_center_justify),
+        (position_set_x, pos1, 400),
+        (position_set_y, pos1, 500),
+        (overlay_set_position, reg1, pos1),
 
+        (create_simple_text_box_overlay, "$g_presentation_obj_name_kingdom_1"),
+        (position_set_x, pos1, 300),
+        (position_set_y, pos1, 400),
+        (overlay_set_position, "$g_presentation_obj_name_kingdom_1", pos1),
+        (assign, "$g_presentation_obj_banner_selection_1", -1),
+        #SB : set up text box
+        (str_store_troop_name, s0, "$g_target_name_change"),
+        (str_store_troop_name, s7, "$g_target_name_change"),
+        (overlay_set_text, "$g_presentation_obj_name_kingdom_1", s7),
+
+        (create_mesh_overlay_with_tableau_material, "$g_multiplayer_poll_to_show", -1, "tableau_troop_detail_dummy_pic","$g_target_name_change"),
+        (position_set_x, pos1, 400),
+        (position_set_y, pos1, 100),
+        (overlay_set_position, "$g_multiplayer_poll_to_show", pos1),
+        (position_set_x, pos1, 750),
+        (position_set_y, pos1, 750),
+        (overlay_set_size, "$g_multiplayer_poll_to_show", pos1),
+
+        (create_button_overlay, "$g_presentation_obj_name_kingdom_2", "str_continue_dot", tf_center_justify), #SB : continue str
+        (position_set_x, pos1, 400),
+        (position_set_y, pos1, 150),
+        (overlay_set_position, "$g_presentation_obj_name_kingdom_2", pos1),
+
+        (presentation_set_duration, 999999),
+        ]),
+      (ti_on_presentation_event_state_change,
+       [
+        (store_trigger_param_1, ":object"),
+        (try_begin),
+          (eq, ":object", "$g_presentation_obj_name_kingdom_1"),
+          (str_store_string, s7, s0),
+        (else_try),
+          (eq, ":object", "$g_presentation_obj_name_kingdom_2"),
+          (troop_set_name, "$g_target_name_change", s7),
+          (str_store_string, s77, "@{s7}s"),
+          (troop_set_plural_name, "$g_target_name_change", s77),
+          (presentation_set_duration, 0),
+          (jump_to_menu, "mnu_dac_name_troops_2"),
+          #(change_screen_map),
+
+        (try_end),
+        ]),
+      ]),
 
   ]
 
