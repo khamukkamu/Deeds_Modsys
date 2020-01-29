@@ -70916,7 +70916,6 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
   #new camera setup scripts, setting up other calls
 
   ("cf_dplmc_battle_continuation", [
-    (eq, "$enable_bodysliding", 0),
     (eq, "$g_dplmc_battle_continuation", 0),
     (assign, ":num_allies", 0),
     (try_for_agents, ":agent"),
@@ -70926,10 +70925,13 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
     (try_end),
     (gt, ":num_allies", 0),
     (try_begin),
+      (this_or_next|eq, "$g_cam_free", 1),
+      (eq, "$enable_bodysliding", 0),
       (eq, "$g_dplmc_cam_activated", 0),
       #(store_mission_timer_a, "$g_dplmc_main_hero_fallen_seconds"),
       (assign, "$g_dplmc_cam_activated", "$g_dplmc_cam_default"),
-
+      (assign, "$g_cam_free", 0),
+      
       (display_message, "@You have been knocked out by the enemy. Watch your men continue the fight without you or press Tab to retreat."),
       (store_add, ":string", "$g_dplmc_cam_activated", "str_camera_keyboard"),
       (val_sub, ":string", 1),

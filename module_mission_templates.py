@@ -56,6 +56,7 @@ ti_before_mission_start, 0, 0,
 	[
 		#reset global variables
 		(assign, "$player_has_bodyslided", 0), #variable for player party after party rebalancing
+		(assign, "$g_cam_free", 0),
 		(neq, "$enable_bodysliding", 0),  #is active player enabled?
 		
 		#backup player party
@@ -205,7 +206,8 @@ bodysliding_2 = (
 		(try_end),  
 		(eq, ":bodyslide_target", -1),
 		(eq, ":spawned", 0),
-		(eq, "$g_dplmc_cam_activated", 0),
+        (assign, "$g_cam_free", 1),
+		(call_script, "script_init_death_cam"),
 		(call_script, "script_cf_dplmc_battle_continuation"),
 	])
 # DAC Begin
@@ -929,6 +931,7 @@ dplmc_death_camera = (
   [(eq, "$g_dplmc_battle_continuation", 0),
    (eq, "$g_dplmc_cam_activated", camera_keyboard),
     ## WINDYPLAINS+ ## - Bodysliding block
+    (this_or_next|eq, "$g_cam_free", 1),
     (eq, "$enable_bodysliding", 0),
     ## WINDYPLAINS- ##
   ],

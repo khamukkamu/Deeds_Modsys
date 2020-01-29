@@ -4588,7 +4588,7 @@ TOTAL:  {reg5}"),
 		# copy backup to main party
 		(try_begin),
 			(eq, "$player_has_bodyslided", 1),
-			
+			(assign, "$g_cam_free", 0),			
 			## WINDYPLAINS+ ## - Added to correct for mounted troops losing their horses while the player is using them.
 			(call_script, "script_copy_inventory", BODYSLIDING_STORAGE, "$bodysliding_last_troop"),
 			(assign, "$bodysliding_last_troop", -1),
