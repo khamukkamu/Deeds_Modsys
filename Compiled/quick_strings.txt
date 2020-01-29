@@ -1,4 +1,4 @@
-1853
+1867
 qstr_Next_Page Next_Page
 qstr_Game_Rules:^ Game_Rules:^
 qstr_0 0
@@ -1852,3 +1852,17 @@ qstr_{s0}s {s0}s
 qstr_this_troop this_troop
 qstr_What_will_you_name_t What_will_you_name_this_troop?
 qstr_{s7}s {s7}s
+qstr_Troop_Inventory Troop_Inventory
+qstr_Click_on_pieces_of_g Click_on_pieces_of_gear_to_display_them.
+qstr_Troop_Equipment. Troop_Equipment.
+qstr_Troop_Equipment Troop_Equipment
+qstr_Click_on_pieces_of_ge Click_on_pieces_of_gear_to_add_to_troop_inventory.
+qstr_Armoury Armoury
+qstr_Click_on_pieces_of_gea Click_on_pieces_of_gear^to_add_to_troop_inventory.
+qstr_Left+Click_on_pieces Left+Click_on_pieces_of_gear_to_display_them.^_Right+Click_to_remove_item_from_troop_inventory.
+qstr_Left+Click__to_displ Left+Click__to_display_item_on_troop.^_Right+Click_to_remove_item_from_troop_inventory.
+qstr_Quartermaster Quartermaster
+qstr_This_Item_Can_Be_Scr This_Item_Can_Be_Scrapped_for_{reg75}_crowns.
+qstr_Sell Sell
+qstr_No No
+qstr_Purchase_Weapons_for Purchase_Weapons_for_Armoury

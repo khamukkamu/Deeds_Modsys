@@ -36,7 +36,7 @@ click = ti_on_presentation_mouse_press
 # Set debug_show_presentation_coordinates on module_constants.py
 coord_helper = [
   (load, [
-      (eq, debug_show_presentation_coordinates, 1),
+      #(eq, debug_show_presentation_coordinates, 1),
       (create_text_overlay, "$mouse_coordinates", "str_empty_string"),
       (overlay_set_color, "$mouse_coordinates", 0xFF0000),
       (position_set_x, pos1, 10),
@@ -44,7 +44,7 @@ coord_helper = [
       (overlay_set_position, "$mouse_coordinates", pos1),
   ]),
   (run, [
-      (eq, debug_show_presentation_coordinates, 1),
+      #(eq, debug_show_presentation_coordinates, 1),
       (set_fixed_point_multiplier, 1000),
       
       (mouse_get_position, pos1),
@@ -22121,15 +22121,15 @@ presentations = [
 ("name_troop",0,mesh_load_window,[
       (ti_on_presentation_load,
        [(set_fixed_point_multiplier, 1000),
-        (str_store_string, s1, "@What will you name this troop?"),
-        (create_text_overlay, reg1, s1, tf_center_justify),
-        (position_set_x, pos1, 400),
-        (position_set_y, pos1, 500),
-        (overlay_set_position, reg1, pos1),
+        #(str_store_string, s1, "@What will you name this troop?"),
+        #(create_text_overlay, reg1, s1, tf_center_justify),
+        #(position_set_x, pos1, 400),
+        #(position_set_y, pos1, 500),
+        #(overlay_set_position, reg1, pos1),
 
         (create_simple_text_box_overlay, "$g_presentation_obj_name_kingdom_1"),
-        (position_set_x, pos1, 300),
-        (position_set_y, pos1, 400),
+        (position_set_x, pos1, 400),
+        (position_set_y, pos1, 620),
         (overlay_set_position, "$g_presentation_obj_name_kingdom_1", pos1),
         (assign, "$g_presentation_obj_banner_selection_1", -1),
         #SB : set up text box
@@ -22137,39 +22137,82 @@ presentations = [
         (str_store_troop_name, s7, "$g_target_name_change"),
         (overlay_set_text, "$g_presentation_obj_name_kingdom_1", s7),
 
-        (create_mesh_overlay_with_tableau_material, "$g_multiplayer_poll_to_show", -1, "tableau_troop_detail_dummy_pic","$g_target_name_change"),
-        (position_set_x, pos1, 400),
-        (position_set_y, pos1, 100),
+        (call_script, "script_custom_troop_detail_inventory_left", "$g_target_name_change"),
+        (store_add, ":armoury", "$g_target_name_change", 2),
+        (call_script, "script_custom_troop_detail_inventory_right", ":armoury"),
+        
+        (store_mul, ":cur_troop", "$g_target_name_change", 2),#with weapons
+        (create_mesh_overlay_with_tableau_material, "$g_multiplayer_poll_to_show", -1, "tableau_troop_tree_pic",":cur_troop"),
+        (position_set_x, pos1, 300),
+        (position_set_y, pos1, 60),
         (overlay_set_position, "$g_multiplayer_poll_to_show", pos1),
-        (position_set_x, pos1, 750),
-        (position_set_y, pos1, 750),
+        (position_set_x, pos1, 650),
+        (position_set_y, pos1, 650),
         (overlay_set_size, "$g_multiplayer_poll_to_show", pos1),
 
-        (create_button_overlay, "$g_presentation_obj_name_kingdom_2", "str_continue_dot", tf_center_justify), #SB : continue str
-        (position_set_x, pos1, 400),
-        (position_set_y, pos1, 150),
+        (create_button_overlay, "$g_presentation_obj_name_kingdom_2", "str_continue_dot", tf_left_align), #SB : continue str
+        (position_set_x, pos1, 450),
+        (position_set_y, pos1, 75),
         (overlay_set_position, "$g_presentation_obj_name_kingdom_2", pos1),
+
+        #(str_store_string, s60, "@Purchase Weapons for Armoury"),
+        #(create_button_overlay, "$g_presentation_obj_1", s60, tf_right_align), #SB : continue str
+        #(position_set_x, pos1, 750),
+        #(position_set_y, pos1, 75),
+        #(overlay_set_position, "$g_presentation_obj_1", pos1),
 
         (presentation_set_duration, 999999),
         ]),
-      (ti_on_presentation_event_state_change,
-       [
-        (store_trigger_param_1, ":object"),
+
+      (hover,[
+        (call_script, "script_custom_troop_detail_inventory_tooltip"),
+        (call_script, "script_custom_troop_detail_inventory_tooltip_right"),
+      ]),
+
+
+    (event, 
+      [
+        (store_trigger_param_1, ":object_id"),
+        (eq, ":object_id", "$g_presentation_obj_name_kingdom_1"), # Change Name
+        (str_store_string, s7, s0),
+        (troop_set_name, "$g_target_name_change", s7),
+        (str_store_string, s77, "@{s7}s"),
+        (troop_set_plural_name, "$g_target_name_change", s77),
+      ]),
+
+    (click,
+    [
+      (store_trigger_param_1, ":object_id"),
+      (store_trigger_param_2, ":mouse_state"),
         (try_begin),
-          (eq, ":object", "$g_presentation_obj_name_kingdom_1"),
-          (str_store_string, s7, s0),
+          (eq, ":mouse_state", 1), #Right Click
+          (call_script, "script_custom_troop_detail_remove_item_from_troop", "$g_target_name_change", ":object_id"),
         (else_try),
-          (eq, ":object", "$g_presentation_obj_name_kingdom_2"),
+          (eq, ":object_id", "$g_presentation_obj_name_kingdom_1"), # Change Name
+          (str_store_string, s7, s0),
+          (troop_set_name, "$g_target_name_change", s7),
+          (str_store_string, s77, "@{s7}s"),
+          (troop_set_plural_name, "$g_target_name_change", s77),
+        (else_try),
+          (eq, ":object_id", "$g_presentation_obj_name_kingdom_2"), # Continue
           (troop_set_name, "$g_target_name_change", s7),
           (str_store_string, s77, "@{s7}s"),
           (troop_set_plural_name, "$g_target_name_change", s77),
           (presentation_set_duration, 0),
           (jump_to_menu, "mnu_dac_name_troops_2"),
           #(change_screen_map),
-
+        #(else_try),
+        #  (eq, ":object_id", "$g_presentation_obj_1"),
+        #  (start_presentation, "prsnt_dac_ct_buy_weapons_for_armoury"),
+        (else_try),
+              (call_script, "script_troop_detail_update_dummy", "$g_target_name_change", ":object_id"),
+              (call_script, "script_custom_troop_detail_add_item_from_armoury", "$g_target_name_change", ":object_id"),
         (try_end),
-        ]),
-      ]),
+    ]),
+
+
+      ] #+ coord_helper 
+        + prsnt_escape_close),
 
   ]
 
