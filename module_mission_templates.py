@@ -207,8 +207,8 @@ bodysliding_2 = (
 		(eq, ":bodyslide_target", -1),
 		(eq, ":spawned", 0),
         (assign, "$g_cam_free", 1),
-		(call_script, "script_init_death_cam"),
-		(call_script, "script_cf_dplmc_battle_continuation"),
+		#(call_script, "script_init_death_cam"),
+		#(call_script, "script_cf_dplmc_battle_continuation"),
 	])
 # DAC Begin
 	

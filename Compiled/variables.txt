@@ -1464,3 +1464,4 @@ g_player_inventory_management
 g_target_custom_troop
 g_item_to_buy
 g_target_name_change
+g_cam_free
