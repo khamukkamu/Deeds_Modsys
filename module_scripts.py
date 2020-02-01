@@ -42535,6 +42535,7 @@ scripts = [
          (try_begin),
            (agent_get_troop_id, ":routed_ag_troop_id", ":cur_agent"),
            (agent_get_party_id, ":routed_ag_party_id", ":cur_agent"),
+           (gt, ":routed_ag_party_id", 0), # DAC Seek fix attempt
            #only enemies
            #only regulars
            (store_faction_of_party, ":faction_of_routed_agent_party", ":routed_ag_party_id"),

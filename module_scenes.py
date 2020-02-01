@@ -351,7 +351,7 @@ scenes = [
 
 # Cherbourg - BM's Rivacheg
 ("town_40_center",sf_generate,"none", "none",(0,0),(100,100),-100,"0x000000033000124c000acab40000280700000c9f00000ab5",
-  [],["bonus_chest_1"],"outer_terrain_beach"),
+  [],["bonus_chest_1"],"outer_terrain_beach_roto"),
 
 ("town_41_center",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002300491830004a529000036230000312a00003653",
   [],[],"outer_terrain_plain"),
@@ -430,7 +430,7 @@ scenes = [
 
 # Boulogne - DNO's Town 8
 ("town_61_center",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000033000124c000acab40000280700000c9f00000ab5",
-  [],[],"outer_terrain_beach"),
+  [],[],"outer_terrain_beach_roto"),
 
 
 ("town_62_center",sf_generate,"none", "none",(0,0),(100,100),-100,"0x3000148000025896000074e600006c260000125a",
@@ -1892,7 +1892,7 @@ scenes = [
 
   # Cherbourg - BM's Rivacheg
   ("town_40_walls", sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000033000124c000acab40000280700000c9f00000ab5",
-    [],[],"outer_terrain_beach"),
+    [],[],"outer_terrain_beach_roto"),
   
 
   ("town_41_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002300015e300063d8800002757000055df00001b08",
@@ -1964,7 +1964,7 @@ scenes = [
   
 # Boulogne - DNO's Town 8
   ("town_61_walls",sf_generate,"none", "none", (0,0),(300,300),-100,"0x000000033000124c000acab40000280700000c9f00000ab5",
-    [],[],"outer_terrain_beach"),
+    [],[],"outer_terrain_beach_roto"),
   
   ("town_62_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000013002491600055157000000d20000152a0000611a",
     [],[],"outer_terrain_plain"),
@@ -2506,7 +2506,7 @@ scenes = [
     [],[]),
 
   ("castle_35_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030015f2b000350d4000011a4000017ee000054af",
-    [],[],"outer_terrain_plain"),
+    [],[],"outer_terrain_beach"),
   ("castle_35_interior",sf_indoors, "castle_h_interior_a", "bo_castle_h_interior_a", (-100,-100),(100,100),-100,"0",
     ["exit"],["castle_35_seneschal"]),
   ("castle_35_prison",sf_indoors,"interior_prison_f", "bo_interior_prison_f", (-100,-100),(100,100),-100,"0",
@@ -2558,7 +2558,7 @@ scenes = [
     [],[]),
 #       3 Plain
   ("castle_42_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030015f2b000350d4000011a4000017ee000054af",
-    [],[],"outer_terrain_plain"),
+    [],[],"outer_terrain_beach"),
   ("castle_42_interior",sf_indoors, "interior_castle_m", "bo_interior_castle_m", (-100,-100),(100,100),-100,"0",
     ["exit"],["castle_3_seneschal"]),
   ("castle_42_prison",sf_indoors,"interior_prison_e", "bo_interior_prison_e", (-100,-100),(100,100),-100,"0",
