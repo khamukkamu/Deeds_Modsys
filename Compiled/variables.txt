@@ -1464,4 +1464,10 @@ g_player_inventory_management
 g_target_custom_troop
 g_item_to_buy
 g_target_name_change
+<<<<<<< Updated upstream
 g_cam_free
+=======
+g_target_armoury
+g_item_to_scrap
+>>>>>>> Stashed changes
+g_presetation_obj_name_kingdom_2

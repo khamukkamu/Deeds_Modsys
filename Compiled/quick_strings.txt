@@ -1,4 +1,4 @@
-1867
+1893
 qstr_Next_Page Next_Page
 qstr_Game_Rules:^ Game_Rules:^
 qstr_0 0
@@ -1866,3 +1866,29 @@ qstr_This_Item_Can_Be_Scr This_Item_Can_Be_Scrapped_for_{reg75}_crowns.
 qstr_Sell Sell
 qstr_No No
 qstr_Purchase_Weapons_for Purchase_Weapons_for_Armoury
+qstr_Selling_this_item_fo Selling_this_item_for_scrap_will_cost_X_crowns
+qstr_{s77}_to_be_scrapped {s77}_to_be_scrapped
+qstr_Selling_this_item_for Selling_this_item_for_scrap^will_cost_X_crowns
+qstr_Selling_this_item_for_ Selling_this_item_for_scrap^will_cost_{reg75}_crowns
+qstr__however_you_have_b ,_however_you_have_been_making_good_contacts_with_some_tradesmen_and_will_actually_cost_you_{reg76}_crowns
+qstr_Buying_this_item_^wi Buying_this_item_^will_cost_{reg75}_crowns{s3}
+qstr_Buy Buy
+qstr_{s7}_scrapped_for_{r {s7}_scrapped_for_{reg75}_crowns
+qstr_{s7}_bought_for_the_ {s7}_bought_for_the_armoury_for_{reg76}_crowns
+qstr_{s7}_bought_for_the_a {s7}_bought_for_the_armoury_for_{reg75}_crowns
+qstr_Right_Click_Select_ Right_Click,_Select_For_Scrap
+qstr_Left_Click_Select_F Left_Click,_Select_For_Buy
+qstr_Left_Click_Buy Left_Click,_Buy
+qstr_Right_Click_Select_F Right_Click,_Select_For_Buy
+qstr_Left+Click__to_displa Left+Click__to_display_item_on_troop.^Right+Click_to_remove_item_from_troop_inventory.
+qstr_Left+Click_to_remove Left+Click_to_remove_item_from_troop_inventory.^Right+Click_to_sell_item_for_scrap.
+qstr_Item_removed_from_ar Item_removed_from_armoury.
+qstr_Quit. Quit.
+qstr_Buying_this_item_^wil Buying_this_item_^will_cost_{reg80}_crowns{s3}
+qstr_{s7}_bought_for_the_ar {s7}_bought_for_the_armoury_for_{reg80}_crowns
+qstr_Reproducing_this_ite Reproducing_this_item_for_the_armoury^will_cost_{reg80}_crowns{s3}
+qstr_Left+Click_to_buy_an Left+Click_to_buy_an_item_for_the_armoury.
+qstr_^however_you_have_b ,^however_you_have_been_making_good_contacts_with_some_tradesmen^and_will_actually_cost_you_{reg76}_crowns
+qstr_^however_you_have_be ,^however_you_have_been_making_good_contacts_with_some_tradesmen^and_will_actually_cost_you_{reg81}_crowns
+qstr_{s7}_bought_for_the_arm {s7}_bought_for_the_armoury_for_{reg81}_crowns
+qstr_^however_made_good_ ,^however_made_good_contacts^with_some_tradesmen^and_will_actually_cost_you_{reg81}_crowns
