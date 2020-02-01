@@ -3038,6 +3038,12 @@ TOTAL:  {reg5}"),
       ("camp_test_sieges",[],"Test Sieges", [
           (jump_to_menu, "mnu_dac_camp_test_sieges")]),  
 
+    #  ("camp_test_armoury",[],"Test CT Armoury", [
+    #    (assign, "$g_target_name_change", "trp_custom_merc_recruit"),
+    #    (assign, "$g_presentation_state", 0),
+    #    (assign, "$g_item_to_scrap", 0),
+    #    (start_presentation, "prsnt_dac_ct_view_armoury")]), 
+
       ("camp_test_quartermaster",[],"Test Quartermaster Dialogues", [
         (assign, "$g_talk_troop", "trp_merc_company_quartermaster"),
         (call_script, "script_get_meeting_scene"), 
@@ -3217,6 +3223,13 @@ TOTAL:  {reg5}"),
     [#(call_script, "script_setup_troop_meeting", "trp_merc_company_quartermaster", -1)
       (change_screen_map),
     ],[]
+ ),
+
+
+( "dac_view_armoury",0,
+    "This menu automatically returns to caller.",
+    "none",
+    [(start_presentation, "prsnt_dac_ct_view_armoury")],[]
  ),
 
   ("camp_action",0,

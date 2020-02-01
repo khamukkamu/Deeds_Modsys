@@ -84441,8 +84441,227 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
         (try_end),
       (try_end),
       
-      (start_presentation, "prsnt_name_troop"),
+      (try_begin),
+        (is_presentation_active, "prsnt_name_troop"),
+        (start_presentation, "prsnt_name_troop"),
+      (else_try),
+        (start_presentation, "prsnt_dac_ct_view_armoury"),
+      (try_end),
   ]),
+
+  # "script_custom_troop_detail_select_item_for_scrap"
+  # Input: troop_id, $temp2: quantity of items, trp_temp_array_a,
+  # trp_temp_array_b
+  # Output: reg10 : should update presentation
+  ("custom_troop_detail_select_item_for_scrap",
+    [
+      (store_script_param_1, ":object"),
+      (assign, "$g_item_to_scrap", 0),
+      
+      (try_begin),
+        # Change gear
+        (assign, ":end_loop", "$temp2"),
+        (val_add, ":end_loop", 1),
+        (assign, ":new_item", -1),
+        
+        (try_for_range, ":i", 1, ":end_loop"),
+          (troop_get_slot, reg1, "trp_temp_array_a", ":i"),
+          (eq, ":object", reg1),
+          (troop_get_slot, ":new_item", "trp_temp_array_b", ":i"),
+          
+          (assign, ":end_loop", 0),
+          (assign, "$g_item_to_scrap", ":new_item"),
+          (item_get_value, reg75, "$g_item_to_scrap"),
+        (try_end),
+      (try_end),
+      (assign, "$g_presentation_state", 1),
+      (try_begin),
+        (is_presentation_active, "prsnt_dac_ct_view_armoury"),
+        (start_presentation, "prsnt_dac_ct_view_armoury"),
+      (else_try),
+        (start_presentation, "prsnt_dac_ct_buy_items_for_armoury"),
+      (try_end),
+  ]),
+
+  # "script_custom_troop_detail_select_item_for_buying"
+  # Input: troop_id, $temp2: quantity of items, trp_temp_array_a,
+  # trp_temp_array_b
+  # Output: reg10 : should update presentation
+  ("custom_troop_detail_select_item_for_buying",
+    [
+      (store_script_param_1, ":object"),
+      (assign, "$g_item_to_buy", 0),
+      (try_begin),
+        # Change gear
+        (assign, ":end_loop", "$temp"),
+        (val_add, ":end_loop", 1),
+        (assign, ":new_item", -1),
+        
+        (try_for_range, ":i", 1, ":end_loop"),
+          (troop_get_slot, reg11, "trp_temp_array_d", ":i"),
+          (eq, ":object", reg11),
+          (troop_get_slot, ":new_item", "trp_temp_array_e", ":i"),
+
+          (assign, ":end_loop", 0),
+          (assign, "$g_item_to_buy", ":new_item"),
+          (item_get_value, reg75, "$g_item_to_buy"),
+        (try_end),
+      (try_end),
+      (assign, "$g_presentation_state", 2),
+      
+      (start_presentation, "prsnt_dac_ct_view_armoury"),
+  ]),
+
+
+# Uses trp_temp_troop to gather the items
+  # "script_custom_troop_detail_inventory"
+  # Output: $temp2 with the quantity of items on inventory
+  # Output: trp_temp_array_a, trp_temp_array_b, trp_temp_array_c
+  ("custom_troop_detail_inventory_armoury",
+    [# Container 1: selection
+
+      (store_script_param_1, ":troop_id"),
+      (create_text_overlay, ":gear_container", "str_empty_string", tf_scrollable),
+      (position_set_x, pos1, 80),(position_set_y, pos1, 190),
+      (overlay_set_position, ":gear_container", pos1),
+      (position_set_x, pos1, 470),(position_set_y, pos1, 380),
+      (overlay_set_area_size, ":gear_container", pos1),
+      (set_container_overlay, ":gear_container"),
+      
+      (troop_sort_inventory, ":troop_id"),
+      (troop_get_inventory_capacity, ":num_slots", ":troop_id"),
+      (store_free_inventory_capacity, ":num_free_slots", ":troop_id"),
+      (store_sub, ":num_items", ":num_slots", ":num_free_slots"),
+      #(val_sub, ":num_items", 10),
+      
+      (store_div, ":y_max", ":num_items", 3),
+      
+      (assign, ":box_incr", 115),
+      (val_max, ":y_max", 3),
+      (val_mul, ":y_max", ":box_incr"),
+      
+      (assign, ":x_item", 60),
+      (store_add, ":y_item", ":y_max", 60),
+      (assign, ":count", 0),
+      (assign, ":x_box", 0),
+      (assign, ":y_box", ":y_max"),
+      
+      # 0-70 for body armor, 71-140 for helmet, 141-210 for boots, 211-299 rest
+      # 300+ for imod of each item
+      (assign, ":limit_temp_c", 300),
+      (store_mul, reg0, ":limit_temp_c", 2),
+      
+      (try_for_range, ":slot", 0, reg0),
+        (troop_set_slot, "trp_temp_array_a", ":slot", -1),
+        (troop_set_slot, "trp_temp_array_b", ":slot", -1),
+        (troop_set_slot, "trp_temp_array_c", ":slot", -1),
+      (try_end),
+      
+      (assign, ":armor_slot", 0),
+      (assign, ":helmet_slot", 71),
+      (assign, ":boots_slot", 141),
+      (assign, ":rest_slot", 211),
+      (assign, ":imod_slot_add", 300),
+      
+      (try_for_range, ":slot", 0, ":num_slots"),
+        (troop_get_inventory_slot, ":item", ":troop_id", ":slot"),
+        (neq, ":item", -1),
+        (troop_get_inventory_slot_modifier, ":item_imod", ":troop_id", ":slot"),
+        (is_between, ":item", "itm_heraldic_mail_with_surcoat_for_tableau", "itm_items_end"),
+        (item_get_type, ":type", ":item"),
+        
+        (try_begin),
+          (eq, ":type", itp_type_body_armor),
+          (troop_set_slot, "trp_temp_array_c", ":armor_slot", ":item"),
+          (store_add, reg0, ":armor_slot", ":imod_slot_add"),
+          (troop_set_slot, "trp_temp_array_c", reg0, ":item_imod"),
+          (val_add, ":armor_slot", 1),
+        (else_try),
+          (eq, ":type", itp_type_head_armor),
+          (troop_set_slot, "trp_temp_array_c", ":helmet_slot", ":item"),
+          (store_add, reg0, ":helmet_slot", ":imod_slot_add"),
+          (troop_set_slot, "trp_temp_array_c", reg0, ":item_imod"),
+          (val_add, ":helmet_slot", 1),
+        (else_try),
+          (eq, ":type", itp_type_foot_armor),
+          (troop_set_slot, "trp_temp_array_c", ":boots_slot", ":item"),
+          (store_add, reg0, ":boots_slot", ":imod_slot_add"),
+          (troop_set_slot, "trp_temp_array_c", reg0, ":item_imod"),
+          (val_add, ":boots_slot", 1),
+        (else_try),
+          (troop_set_slot, "trp_temp_array_c", ":rest_slot", ":item"),
+          (store_add, reg0, ":rest_slot", ":imod_slot_add"),
+          (troop_set_slot, "trp_temp_array_c", reg0, ":item_imod"),
+          (val_add, ":rest_slot", 1),
+        (try_end),
+      (try_end),
+      
+      (try_for_range, ":slot", 0, ":limit_temp_c"),
+        (troop_get_slot, ":item", "trp_temp_array_c", ":slot"),
+        
+        (try_begin),
+          (neq, ":item", -1),
+          (store_add, reg0, ":slot", 300),
+          (troop_get_slot, ":item_imod", "trp_temp_array_c", reg0),
+          
+          (val_add, ":count", 1),
+          
+          (create_mesh_overlay, reg1, "mesh_mp_inventory_choose"),
+          (position_set_x, pos1, ":x_box"),(position_set_y, pos1, ":y_box"),
+          (overlay_set_position, reg1, pos1),
+          (position_set_x, pos1, 900),(position_set_y, pos1, 900),
+          (overlay_set_size, reg1, pos1),
+          (overlay_set_alpha, reg1, 0xFF),
+          
+          (create_mesh_overlay_with_item_id, reg1, ":item"),
+          (position_set_x, pos1, ":x_item"),(position_set_y, pos1, ":y_item"),
+          (overlay_set_position, reg1, pos1),
+          (position_set_x, pos1, 1250),(position_set_y, pos1, 1250),
+          (overlay_set_size, reg1, pos1),
+          
+          (val_add, ":x_item", 115),
+          (val_add, ":x_box", 115),
+          
+          (try_begin),# next row items
+            (store_mod, ":mod", ":count", 4),
+            (eq, ":mod", 0),
+            (val_sub, ":y_item", 115),
+            (val_sub, ":y_box", 115),
+            (assign, ":x_item", 60),
+            (assign, ":x_box", 0),
+          (try_end),
+          
+          #tooltip
+          (store_add, reg0, ":count", ":imod_slot_add"),
+          (troop_set_slot, "trp_temp_array_a", ":count", reg1),
+          (troop_set_slot, "trp_temp_array_b", ":count", ":item"),
+          (troop_set_slot, "trp_temp_array_b", reg0, ":item_imod"),
+        (try_end),
+      (try_end),
+      
+      (assign, "$temp2", ":count"),
+      (set_container_overlay, -1),
+      
+      (try_begin),
+        (is_presentation_active, "prsnt_dac_ct_view_armoury"),
+        (str_store_string, s57, "@Left+Click to remove item from troop inventory.^Right+Click to sell item for scrap."),
+      (else_try),
+        (str_store_string, s57, "@Left+Click to buy an item for the armoury."),
+      (try_end),
+      # Text about troop inventory
+      (try_begin),
+        (create_text_overlay, reg1,
+          s57,
+        tf_left_align),
+        (position_set_x, pos1, 85),(position_set_y, pos1, 145),
+        (overlay_set_position, reg1, pos1),
+        (position_set_x, pos1, font_small),(position_set_y, pos1, font_small),
+        (overlay_set_size, reg1, pos1),
+        (overlay_set_color, reg1, 0x000000),
+      (try_end),
+  ]),
+
+
 
 # Custom Troops End
 
