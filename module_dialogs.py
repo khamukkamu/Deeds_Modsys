@@ -45189,7 +45189,8 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [anyone,"camp_quartermaster_recruit", 
     [], 
       "Aye... There are a few.", "camp_quartermaster_recruit_select", #placeholder. Will write script like refresh volunteers.
-    []],
+    [ 
+    ]],
 
   [anyone|plyr,"camp_quartermaster_recruit_select", 
     [], 
@@ -45233,85 +45234,6 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
       "I'd like to see what is in our armoury right now", "camp_quartermaster_armoury",
     []],
 
-
-# DAC Kham - Replaced with Custom Presentation. Commented out for now.
-
-#  [anyone|plyr,"camp_quartermaster_start", 
-#    [
-#      (assign, ":continue", 0),
-#      (party_get_num_companion_stacks, ":num_stacks", "p_main_party"),
-#      (try_for_range, ":i_stack", 0, ":num_stacks"),
-#        (eq, ":continue", 0),
-#        (party_stack_get_troop_id, ":troop_id", "p_main_party", ":i_stack"),
-#        (is_between, ":troop_id", customizable_troops_begin, customizable_troops_end),
-#        (assign, ":continue", 1),
-#      (try_end),
-#      (eq, ":continue", 1),
-#    ], 
-#      "I'd like to change the title of our ranks.", "camp_quartermaster_change_name",
-#    []],
-#
-#  [anyone,"camp_quartermaster_change_name", 
-#    [], 
-#      "Which rank of troop do you want to change the name to? ", "camp_quartermaster_change_name_ask",
-#    []],
-#
-#  [anyone|plyr|repeat_for_troops,"camp_quartermaster_change_name_ask", 
-#    [
-#      (store_repeat_object, ":troop_no"),
-#      (is_between, ":troop_no", customizable_troops_begin, customizable_troops_end),
-#      (neg|troop_is_hero, ":troop_no"),
-#      #(main_party_has_troop, ":troop_no"),
-#      (str_store_troop_name, s66, ":troop_no"),
-#    ], 
-#      "{s66}", "camp_quartermaster_change_name_ask_do",
-#    [(store_repeat_object, "$g_target_name_change")]],
-#
-#  [anyone|plyr,"camp_quartermaster_change_name_ask", 
-#    [], 
-#      "Nevermind", "camp_quartermaster_buy_not_enough",
-#    []],
-#
-#  [anyone,"camp_quartermaster_change_name_ask_do", 
-#    [], 
-#      "Ok, what do you want to call them now?", "close_window",
-#    [
-#      (change_screen_map),
-#
-#      # Clone dummy gear
-#        (troop_clear_inventory, "trp_temp_troop"),
-#        (troop_get_inventory_capacity, ":slots", "trp_temp_troop"),
-#        (try_for_range, ":i", 0, ":slots"),
-#          (troop_set_inventory_slot, "trp_temp_troop", ":i", -1),
-#          (troop_set_inventory_slot_modifier, "trp_temp_troop", ":i", 0),
-#        (try_end),
-#        
-#        (assign, ":clone_slot", 10),
-#        (troop_set_auto_equip, "trp_temp_troop", 0),
-#        
-#        (try_for_range, ":i", 0, ":slots"),
-#          (troop_get_inventory_slot, ":item_id", "$g_target_name_change", ":i"),
-#          (neq, ":item_id", -1),
-#          (troop_get_inventory_slot_modifier, ":item_imod", "$g_target_name_change", ":i"),
-#          (troop_set_inventory_slot, "trp_temp_troop",  ":clone_slot", ":item_id"),
-#          (troop_set_inventory_slot_modifier, "trp_temp_troop", ":clone_slot", ":item_imod"),
-#          
-#          (val_add, ":clone_slot", 1),
-#        (try_end),
-#        (assign, "$troop_detail_dummy_angle", 0),
-#      (jump_to_menu, "mnu_dac_name_troops"),
-#      #(start_presentation, "prsnt_name_troop")
-#    ]],
-  
-#  [anyone,"start", 
-#    [(eq, "$g_talk_troop", "trp_merc_company_quartermaster"), (eq, "$g_presentation_state", rename_troop)], 
-#      "Sounds fierce.^Anything else?", "camp_quartermaster_start",
-#    [
-#    (assign, "$g_presentation_state", -1),
-#    ]],
-
-# DAC Kham - End Comment Out
-
   [anyone,"camp_quartermaster_equip_ask", 
     [], 
       "Which rank of troop do you want to look at? ^Remember, they all have access to the same armoury, but some may be too green to use certain equipment.", "camp_quartermaster_equip_troop",
@@ -45330,16 +45252,13 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 
   [anyone|plyr,"camp_quartermaster_equip_troop", 
     [], 
-      "Nevermind", "camp_quartermaster_buy_not_enough",
+      "Nevermind", "camp_quartermaster_nevermind",
     []],
 
   [anyone,"camp_quartermaster_equip", 
     [], 
       "Here is what they have access to right now. You can give them what you want them to equip from the camp's armoury.", "close_window",
-    [
-    
-    #(call_script, "script_start_customizing", "$g_target_custom_troop") #DAC Kham - Replaced with Custom Presentation.
-    
+    [  
     (change_screen_map),
 
     # Clone dummy gear
@@ -45367,21 +45286,11 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 
     ]],
 
- # DAC Kham - Replaced with Custom Presentation. Commented out for now. 
- # [anyone,"camp_quartermaster_equip_end", 
- #   [], 
- #     "Good...", "camp_quartermaster_equip_end_2",
- #   []],
-#
-#  [anyone,"camp_quartermaster_equip_end_2", 
-#   [], 
-#    "They will start wearing that in battle now.^ Anything else?", "camp_quartermaster_start",
-#  [(call_script, "script_finish_customizing", "$g_target_custom_troop")]],
-#
-
 
   [anyone,"camp_quartermaster_armoury", 
-    [], 
+    [
+    (troop_slot_eq, "trp_merc_company_quartermaster", slot_quartermaster_creating_item, -1),
+    ], 
       "Go on, take a look. We can also reproduce any item you give us. Remember, we have to make as much as we can to equip all current and future company troops.", "close_window",
     [
         (assign, "$g_target_name_change", "trp_custom_merc_recruit"),
@@ -45390,76 +45299,28 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
          (jump_to_menu, "mnu_dac_view_armoury"),
     ]],
 
-#  [anyone|plyr|repeat_for_100, "camp_quartermaster_buy_ask",
-#    [
-#      (store_repeat_object, ":item"),
-#      (troop_get_inventory_slot, ":item_id", "trp_player", ":item"),
-#      (ge, ":item_id", 0),
-#      (is_between, ":item_id", "itm_heraldic_mail_with_surcoat_for_tableau", "itm_items_end"), 
-#      (str_store_item_name, s66, ":item_id"),
-#
-#   ], "{s66}", "camp_quartermaster_buy_choose", [
-#    (store_repeat_object, ":item"),
-#    (troop_get_inventory_slot, "$g_item_to_buy", "trp_player", ":item"),
-#   ],
-#  ],
-#
-#  [anyone|plyr, "camp_quartermaster_buy_ask",
-#    [], 
-#    "Nevermind.", "camp_quartermaster_buy_not_enough", [],
-#  ],
-#
-#  [anyone,"camp_quartermaster_buy_choose",
-#  [
-#    (item_get_value, ":price",  "$g_item_to_buy"),
-#    (store_mul, ":base_price", ":price", 25),
-#    (assign,reg55, ":base_price"),
-#    (party_get_skill_level, ":trade_skill", "p_main_party", skl_trade),
-#    (store_sub, ":multiplier", 25, ":trade_skill"),
-#    (store_mul, ":discounted_price", ":price", ":multiplier"),
-#    (assign, reg56, ":discounted_price"),
-#    (str_store_string, s66, "@."),
-#    (try_begin),
-#      (gt, ":trade_skill", 0),
-#      (str_store_string, s66, "@,but you have been making good contacts with some tradesmen and will actually cost you {reg56} crowns."),
-#    (try_end),
-#
-#  ], "Making all these should cost you {reg55} crowns{s66}", "camp_quartermaster_buy_confirm",[]],
-#
-#  [anyone|plyr,"camp_quartermaster_buy_confirm",
-#    [
-#      (store_troop_gold, ":gold", "trp_player"),
-#      (ge, ":gold", reg56),
-#    ],  "Good. Prepare these and add them to the armoury.", "camp_quartermaster_buy_finished",[
-#      (troop_remove_gold, "trp_player", reg56),
-#      (call_script, "script_dac_add_item_to_custom_troop", "$g_item_to_buy"),
-#    ]
-#  ],
-#
-#  [anyone|plyr,"camp_quartermaster_buy_confirm",
-#    [
-#      (store_troop_gold, ":gold", "trp_player"),
-#      (lt, ":gold", reg56),
-#    ],  "I do not have enough crowns right now.", "camp_quartermaster_buy_not_enough",[
-#    ]
-#  ],
-#
-#  [anyone|plyr,"camp_quartermaster_buy_confirm",
-#    [],  "Not right now.", "camp_quartermaster_buy_not_enough",[]
-#  ],
-#
+    [anyone,"camp_quartermaster_armoury", 
+    [
+    (neg|troop_slot_eq, "trp_merc_company_quartermaster", slot_quartermaster_creating_item, -1),
+    (troop_get_slot, ":item", "trp_merc_company_quartermaster", slot_quartermaster_creating_item),
+    (troop_get_slot, ":days_til_complete", "trp_merc_company_quartermaster", slot_quartermaster_days_til_finished),
+    (store_current_day, ":cur_day"),
+    (store_sub, reg40, ":days_til_complete", ":cur_day"),
+    (str_store_item_name, s15, ":item"),
+    (try_begin),
+      (gt, reg40, 1),
+      (str_store_string, s16, "@{reg40} days."),
+    (else_try),
+      (str_store_string, s16, "@one more day."),
+    (try_end),
+    ], 
+      "We are still procuring the {s15}, and it will take {s16}", "camp_quartermaster_start",
+    []],
 
-  [anyone,"camp_quartermaster_buy_not_enough", 
+  [anyone,"camp_quartermaster_nevermind", 
   [], 
     "Ok then. Anything else?", "camp_quartermaster_start",
   []],
-
-#  [anyone,"camp_quartermaster_buy_finished", 
-#  [], 
-#    "Good... We shall start making them now. You can access them in the armoury soon.^ Anything else?", "camp_quartermaster_start",
-#  []],
-
-# DAC Kham - End Comment Out
 
   [anyone|plyr,"camp_quartermaster_start", [], "Nothing today. Carry on.", "camp_quartermaster_back",[]],
   [anyone,"camp_quartermaster_back", [], "Very well.", "close_window",[(change_screen_map)]],

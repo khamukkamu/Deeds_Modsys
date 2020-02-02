@@ -1,4 +1,4 @@
-1893
+1904
 qstr_Next_Page Next_Page
 qstr_Game_Rules:^ Game_Rules:^
 qstr_0 0
@@ -1892,3 +1892,14 @@ qstr_^however_you_have_b ,^however_you_have_been_making_good_contacts_with_some_
 qstr_^however_you_have_be ,^however_you_have_been_making_good_contacts_with_some_tradesmen^and_will_actually_cost_you_{reg81}_crowns
 qstr_{s7}_bought_for_the_arm {s7}_bought_for_the_armoury_for_{reg81}_crowns
 qstr_^however_made_good_ ,^however_made_good_contacts^with_some_tradesmen^and_will_actually_cost_you_{reg81}_crowns
+qstr_^{reg82}_{reg83}_ho ,^{reg82}_{reg83}_however_made_good_contacts^with_some_tradesmen^and_will_actually_cost_you_{reg81}_crowns
+qstr_Left+Click_to_sell_i Left+Click_to_sell_item_for_scrap.
+qstr_This_is_your_Company This_is_your_Company's_Armoury._All_your_Company_Troops_have_access^however,_some_may_not_have_the_stats_to_use_them^Left+Click_to_sell_item_for_scrap.
+qstr_You_can_only_reprodu You_can_only_reproduce_what_you_present_to_your_Quartermaster.^Left+Click_to_buy_an_item_for_the_armoury.
+qstr_These_will_also_take These_will_also_take_{reg85}_days_to_make.
+qstr_Not_Enough_Crowns Not_Enough_Crowns
+qstr_{s7}_will_be_made_fo {s7}_will_be_made_for_the_armoury_for_{reg81}_crowns_and_will_take_{reg85}_days.
+qstr_{s7}_bought_for_the_armo {s7}_bought_for_the_armoury_for_{reg80}_crowns_and_will_take_{reg85}_days
+qstr_{reg40}_days. {reg40}_days.
+qstr_one_more_day. one_more_day.
+qstr_Your_Quartermaster_h Your_Quartermaster_has_procured_your_requested_items_and_have_added_it_to_your_armoury

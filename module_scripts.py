@@ -774,6 +774,10 @@ scripts = [
     (call_script, "script_initialize_troop_elite_upgrades"),	
     (call_script, "script_upgrade_lords_equipment"),
 
+    #DAC Kham - Custom Troops
+    (troop_set_slot, "trp_merc_company_quartermaster", slot_quartermaster_creating_item, -1),
+    (troop_set_slot, "trp_merc_company_quartermaster", slot_quartermaster_days_til_finished, -1),
+
     ]),
 
   #script_game_get_use_string
@@ -84473,6 +84477,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
           (assign, ":end_loop", 0),
           (assign, "$g_item_to_scrap", ":new_item"),
           (item_get_value, reg75, "$g_item_to_scrap"),
+          (item_get_difficulty, reg85, "$g_item_to_scrap"),
         (try_end),
       (try_end),
       (assign, "$g_presentation_state", 1),
@@ -84645,9 +84650,9 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       
       (try_begin),
         (is_presentation_active, "prsnt_dac_ct_view_armoury"),
-        (str_store_string, s57, "@Left+Click to remove item from troop inventory.^Right+Click to sell item for scrap."),
+        (str_store_string, s57, "@This is your Company's Armoury. All your Company Troops have access^however, some may not have the stats to use them^Left+Click to sell item for scrap."),
       (else_try),
-        (str_store_string, s57, "@Left+Click to buy an item for the armoury."),
+        (str_store_string, s57, "@You can only reproduce what you present to your Quartermaster.^Left+Click to buy an item for the armoury."),
       (try_end),
       # Text about troop inventory
       (try_begin),

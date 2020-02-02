@@ -22405,7 +22405,6 @@ presentations = [
     (click,
     [
       (store_trigger_param_1, ":object_id"),
-      (store_trigger_param_2, ":mouse_state"),
 
         (try_begin),
           (eq, ":object_id", "$g_presentation_obj_name_kingdom_2"), # Continue
@@ -22415,15 +22414,8 @@ presentations = [
         (else_try),
           (eq, ":object_id", "$g_presentation_obj_name_kingdom_1"), # Quartermaster
           (assign, "$g_presentation_state", 0),
-          #(presentation_set_duration, 0),
           (start_presentation, "prsnt_dac_ct_buy_items_for_armoury"),
         (else_try),
-          (neq, ":mouse_state", 1),
-          (eq, "$g_presentation_state", 0),
-          (neq, ":object_id", "$g_presentation_obj_name_kingdom_2"),
-          (call_script, "script_custom_troop_detail_remove_item_from_troop", "$g_target_armoury", ":object_id"),
-        (else_try),
-          (eq, ":mouse_state", 1), #Right Click
           (call_script, "script_custom_troop_detail_select_item_for_scrap",":object_id"),
         (else_try),
           (eq, "$g_presentation_state", 1),
@@ -22439,7 +22431,7 @@ presentations = [
     ]),
 
 
-      ] + coord_helper 
+      ] #+ coord_helper 
         + prsnt_escape_close),
 
 ("dac_ct_buy_items_for_armoury",0,mesh_load_window,[
@@ -22467,7 +22459,7 @@ presentations = [
           (try_begin),
             (ge, ":trade_skill", 1),
             (store_sub, ":multiplier", 25, ":trade_skill"),
-            (store_mul, ":discounted_price", ":base_price", ":multiplier"),
+            (store_mul, ":discounted_price", reg75, ":multiplier"),
             (assign, reg81, ":discounted_price"),
             (str_store_string, s3, "@,^however made good contacts^with some tradesmen^and will actually cost you {reg81} crowns"),
           (else_try),
@@ -22479,10 +22471,40 @@ presentations = [
           (position_set_y, pos1, 500),
           (overlay_set_position, "$g_multiplayer_poll_to_show", pos1),
           
-          (str_store_string, s4, "@Buy"),
-          (create_button_overlay, "$g_presentation_obj_2", s4, tf_center_justify), #SB : continue str
+          (item_get_type, ":type", "$g_item_to_scrap"),
+          (try_begin),
+            (is_between, ":type", itp_type_one_handed_wpn, itp_type_arrows), #weapons
+            (val_add, reg85, 5),
+          (else_try),
+            (is_between, ":type", itp_type_head_armor, itp_type_pistol), #armour
+            (val_add, reg85, 3),
+          (else_try),
+            (is_between, ":type", itp_type_bow, itp_type_thrown), #bows/crossbow
+            (val_add, reg85, 4),
+          (else_try),
+            (val_add, reg85, 2),
+          (try_end),
+
+          (str_store_string, s4, "@These will also take {reg85} days to make."),
+          (create_button_overlay, "$g_presentation_obj_1", s4, tf_center_justify), #SB : continue str
           (position_set_x, pos1, 770),
           (position_set_y, pos1, 430),
+          (overlay_set_position, "$g_presentation_obj_1", pos1),
+
+          (store_troop_gold, ":gold", "trp_player"),
+          (try_begin),
+            (ge, ":trade_skill", 1),
+            (ge, ":gold", reg81),
+            (str_store_string, s5, "@Buy"),
+          (else_try),
+            (ge, ":gold", reg80),
+            (str_store_string, s5, "@Buy"),
+          (else_try),
+            (str_store_string, s5, "@Not Enough Crowns"),
+          (try_end),
+          (create_button_overlay, "$g_presentation_obj_2", s5, tf_center_justify), #SB : continue str
+          (position_set_x, pos1, 770),
+          (position_set_y, pos1, 330),
           (overlay_set_position, "$g_presentation_obj_2", pos1),
         (try_end),
 
@@ -22527,7 +22549,6 @@ presentations = [
         (else_try),
           (eq, ":object_id", "$g_presentation_obj_name_kingdom_1"), # Quartermaster
           (assign, "$g_presentation_state", 0),
-          #(presentation_set_duration, 0),
           (start_presentation, "prsnt_dac_ct_view_armoury"),
         (else_try),
           (neq, ":object_id", "$g_presentation_obj_2"),
@@ -22535,16 +22556,31 @@ presentations = [
         (else_try),
           (eq, "$g_presentation_state", 1),
           (eq, ":object_id", "$g_presentation_obj_2"),
-          (troop_add_item,"$g_target_armoury", "$g_item_to_scrap"),
           (str_store_item_name, s7, "$g_item_to_scrap"),
           (store_skill_level, ":trade_skill", skl_trade, "trp_player"),
+          (store_troop_gold, ":gold", "trp_player"),
           (try_begin),
             (ge, ":trade_skill", 1),
+            (ge, ":gold", reg81),
             (troop_remove_gold, "trp_player", reg81),
-            (display_message, "@{s7} bought for the armoury for {reg81} crowns", color_good_news),
+            (display_message, "@{s7} will be made for the armoury for {reg81} crowns and will take {reg85} days.", color_good_news),
+            (store_current_day, ":cur_day"),
+            (store_add, ":days_til_completed", ":cur_day", reg85),
+            (troop_set_slot, "trp_merc_company_quartermaster", slot_quartermaster_days_til_finished, ":days_til_completed"),
+            (troop_set_slot, "trp_merc_company_quartermaster", slot_quartermaster_creating_item, "$g_item_to_scrap"),
           (else_try),
+            (ge, ":gold", reg80),
             (troop_remove_gold, "trp_player", reg80),
-            (display_message, "@{s7} bought for the armoury for {reg80} crowns", color_good_news),
+            (display_message, "@{s7} bought for the armoury for {reg80} crowns and will take {reg85} days", color_good_news),
+            (store_current_day, ":cur_day"),
+            (store_add, ":days_til_completed", ":cur_day", reg85),
+            (troop_set_slot, "trp_merc_company_quartermaster", slot_quartermaster_days_til_finished, ":days_til_completed"),
+            (troop_set_slot, "trp_merc_company_quartermaster", slot_quartermaster_creating_item, "$g_item_to_scrap"),
+            (assign, "$g_presentation_state", 0),
+            (presentation_set_duration, 0),
+            (jump_to_menu, "mnu_dac_name_troops_2"),
+          (else_try),
+            (display_message, "@Not Enough Crowns", color_bad_news),
           (try_end),
           (assign, "$g_presentation_state", 0),
           (start_presentation, "prsnt_dac_ct_buy_items_for_armoury"),
@@ -22552,7 +22588,7 @@ presentations = [
     ]),
 
 
-      ] + coord_helper 
+      ] #+ coord_helper 
         + prsnt_escape_close),
 
 

@@ -6809,6 +6809,26 @@ simple_triggers = [
 
    (24,
    [
+      
+      # Piggyback for CT Quartermaster - DAC Kham
+      (try_begin),
+        (neg|troop_slot_eq, "trp_merc_company_quartermaster", slot_quartermaster_days_til_finished, -1),
+        (troop_get_slot, ":item", "trp_merc_company_quartermaster", slot_quartermaster_creating_item),
+        (troop_get_slot, ":days_til_finished", "trp_merc_company_quartermaster", slot_quartermaster_days_til_finished),
+        (store_current_day, ":days"),
+
+        (try_begin),
+          (gt, ":days", ":days_til_finished"),
+          (display_message, "@Your Quartermaster has procured your requested items and have added it to your armoury", color_neutral_news),
+          (call_script, "script_dac_add_item_to_custom_troop", ":item"),
+          (troop_set_slot, "trp_merc_company_quartermaster", slot_quartermaster_creating_item, -1),
+          (troop_set_slot, "trp_merc_company_quartermaster", slot_quartermaster_days_til_finished, -1),
+        (else_try),
+          (val_sub, ":days_til_finished", ":days"),
+          (troop_set_slot, "trp_merc_company_quartermaster", slot_quartermaster_days_til_finished, ":days_til_finished"),
+        (try_end),
+      (try_end),
+
       (try_for_range, ":faction1", npc_kingdoms_begin, npc_kingdoms_end),
         (assign, ":attitude_change", 2), #positive means good attitude
         (try_for_range, ":faction2", kingdoms_begin, kingdoms_end),
