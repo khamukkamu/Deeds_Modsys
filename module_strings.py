@@ -5098,9 +5098,10 @@ Only you know exactly what caused you to give up your old life and become an adv
   ("dplmc_setting_tt5", "This option lets you decide the AI strength level. The higher this level is, the better the AI. High level is experimental and may brings some bugs to your game."),
   ("dplmc_setting_tt6", "This option changes the economical and behavior values to be more realistic. High level is experimental and may brings some bugs to your game."),
   ("dplmc_setting_tt7", "This option lets you decide the level of sexism in the game."),
-  ("dplmc_setting_tt8", "This option toggles whether companions suffer from incompatible moralities and grievance penalties."),
-  ("dplmc_setting_tt9", "This option enables a more complex disguise system while entering hostile centers."),
-  ("dplmc_setting_tt10", "This option enables various cheat menus and debug features."),
+  ("dplmc_setting_tt8", "This option lets you take control of a troop when you fall in combat. You can chose to take control of any troop, only companion or disable the option."),
+  ("dplmc_setting_tt9", "This option toggles whether companions suffer from incompatible moralities and grievance penalties."),
+  ("dplmc_setting_tt10", "This option enables a more complex disguise system while entering hostile centers."),
+  ("dplmc_setting_tt11", "This option enables various cheat menus and debug features."),
   # ("dplmc_setting_tt10", "This option toggles the camera modes."),
 
   #yet to be determined <-known to be {s4} -> here

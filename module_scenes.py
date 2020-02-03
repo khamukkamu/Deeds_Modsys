@@ -1481,7 +1481,7 @@ scenes = [
     [],[],"outer_terrain_plain"),
 
   ("town_68_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030001d9300031ccb0000156f000048ba0000361c",
-    [],[],"outer_terrain_town_beach"),
+    [],[],"outer_terrain_town_thir_1"),
 
 # Kemper - Rus' Plock
   ("town_69_arena", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x30050d0d0002d4b300000e2f000027d200005f66",[], [], "outer_terrain_plain"),

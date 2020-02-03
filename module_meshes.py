@@ -644,6 +644,7 @@ meshes = [
   ("pic_mb_warrior_2", 0, "ini_pic_mb_warrior_2", 0, 0, 0, 0, 0, 0, 0.8, 1, 1),
   ("pic_mb_warrior_3", 0, "ini_pic_mb_warrior_3", 0, 0, 0, 0, 0, 0, 0.4, 1, 0.5),
   ("pic_mb_warrior_4", 0, "ini_pic_mb_warrior_4", 0, 0, 0, 0, 0, 0, 0.8, 1, 1),
+  ("pic_mercenary", 0, "pic_mercenary",  0, 0, 0, 0, 0, 0, 1, 1, 1),
 ##SB : icons to represent item type meta-upgrades
   ("icon_morningstar", 0, "ico_morningstar", 0, 0, 0, 0, 0, 0, 0.3, 0.3, 0.3),
   ("icon_lance", 0, "ico_couchedlance", 0, 0, 0, 0, 0, 0, 0.3, 0.3, 0.3),

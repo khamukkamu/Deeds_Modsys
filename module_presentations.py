@@ -18548,6 +18548,49 @@ presentations = [
                     (troop_set_slot, "trp_temp_array_c", ":num_options", reg0),
                     (val_add, ":num_options", 1),
                     
+### DAC Seek Bodysliding options
+						## Bodysliding
+					(create_text_overlay, reg0, "@Bodysliding Setting:", tf_vertical_align_center),
+					(position_set_y, pos1, ":texts_y"),
+					(overlay_set_position, reg0, pos1),
+                    (troop_set_slot, "trp_temp_array_a", ":num_options", reg0),
+					(val_sub, ":texts_y", ":y_increment"),
+					# (assign, "$adv_diplomacy_texts_prejudice_level", reg0),
+
+					(create_combo_button_overlay, reg0),
+                    (troop_set_slot, "trp_temp_array_b", ":num_options", reg0),
+					(position_set_x, pos2, 485),
+					(val_sub, ":inputs_y", 8),
+					(position_set_y, pos2, ":inputs_y"),
+					(overlay_set_position, reg0, pos2),
+					(overlay_set_size, reg0, pos5),
+					(overlay_add_item, reg0, "@{!} Disabled "),
+					(overlay_add_item, reg0, "@{!} Companions Only "),
+					(overlay_add_item, reg0, "@{!} All Troops "),
+                    # (overlay_add_item, reg0, "str_randomize"),
+                    # (overlay_add_item, reg0, "str_dplmc_setting_2"),
+                    # (overlay_add_item, reg0, "str_dplmc_setting_off"),
+                    # (overlay_add_item, reg0, "str_default"),
+					(position_set_x, pos2, 450),
+					(val_add, ":inputs_y", 8),
+					(val_sub, ":inputs_y", ":y_increment"),
+					# (assign, "$g_presentation_obj_admin_panel_7", reg0),
+
+                    (overlay_set_val, reg0, "$enable_bodysliding"),
+                    
+                    (assign, reg1, "$enable_bodysliding"),
+                    # (display_message, "@Bodysliding set to {reg1}"),
+
+                    (set_container_overlay, -1),
+                    (create_mesh_overlay, reg0, "mesh_pic_wounded"),
+                    (set_container_overlay, ":container"),
+                    (overlay_set_size, reg0, pos4),
+                    (overlay_set_position, reg0, pos3),
+#                    (overlay_set_alpha, reg0, 0),
+                    (troop_set_slot, "trp_temp_array_c", ":num_options", reg0),
+                    (val_add, ":num_options", 1),
+### DAC Seek End
+                    
                     ## NPC Complaints
 					(create_text_overlay, reg0, "@Disable Companions Complaints:", tf_vertical_align_center),
 					(position_set_y, pos1, ":texts_y"),
@@ -18726,6 +18769,7 @@ presentations = [
                         (assign, "$g_dplmc_ai_changes", DPLMC_AI_CHANGES_LOW),
                         (assign, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_LOW),
                         (assign, "$g_disable_condescending_comments", 0),
+                        (assign, "$enable_bodysliding", 2),                        
                         (assign, "$disable_npc_complaints", 0),
                         # (call_script, "script_dplmc_update_info_settings"),
                         (start_presentation, "prsnt_adv_diplomacy_preferences"),
@@ -18832,16 +18876,19 @@ presentations = [
                           (assign, "$g_disable_condescending_comments", 4),
                         (try_end),
                         (call_script, "script_dplmc_init_faction_gender_ratio", 1),
-                    (else_try), ## Complaints
+                    (else_try), ## Bodysliding
                         (troop_slot_eq, "trp_temp_array_b", 9, ":object"),
+                        (assign, "$enable_bodysliding", ":value"),
+                    (else_try), ## Complaints
+                        (troop_slot_eq, "trp_temp_array_b", 10, ":object"),
                         (assign, "$disable_npc_complaints", ":value"),
                     (else_try), ## Disguise
-                        (troop_slot_eq, "trp_temp_array_b", 10, ":object"),
+                        (troop_slot_eq, "trp_temp_array_b", 11, ":object"),
                         # (eq, ":object", "$g_presentation_obj_admin_panel_5"),
                         (assign, "$g_dplmc_player_disguise", ":value"),
                         (assign, "$sneaked_into_town", disguise_none), #so as to not proc trigger
                     (else_try), ## CHEATS MENU
-                        (troop_slot_eq, "trp_temp_array_b", 11, ":object"),
+                        (troop_slot_eq, "trp_temp_array_b", 12, ":object"),
                         (assign, "$cheat_mode", ":value"),
                     (try_end),
                 ]
