@@ -1,4 +1,4 @@
-1904
+1909
 qstr_Next_Page Next_Page
 qstr_Game_Rules:^ Game_Rules:^
 qstr_0 0
@@ -1903,3 +1903,8 @@ qstr_{s7}_bought_for_the_armo {s7}_bought_for_the_armoury_for_{reg80}_crowns_and
 qstr_{reg40}_days. {reg40}_days.
 qstr_one_more_day. one_more_day.
 qstr_Your_Quartermaster_h Your_Quartermaster_has_procured_your_requested_items_and_have_added_it_to_your_armoury
+qstr_Good_day_Commander. Good_day,_Commander._What_would_you_like_to_do_today?^_(This_is_a_test_for_Custom_Troops,_for_the_planned_'Mercenary_Company'_feature).
+qstr_Bodysliding_Setting: Bodysliding_Setting:
+qstr_{!}_Disabled_ {!}_Disabled_
+qstr_{!}_Companions_Only_ {!}_Companions_Only_
+qstr_{!}_All_Troops_ {!}_All_Troops_

@@ -22533,7 +22533,7 @@ presentations = [
           (try_end),
 
           (str_store_string, s4, "@These will also take {reg85} days to make."),
-          (create_button_overlay, "$g_presentation_obj_1", s4, tf_center_justify), #SB : continue str
+          (create_text_overlay, "$g_presentation_obj_1", s4, tf_center_justify), #SB : continue str
           (position_set_x, pos1, 770),
           (position_set_y, pos1, 430),
           (overlay_set_position, "$g_presentation_obj_1", pos1),

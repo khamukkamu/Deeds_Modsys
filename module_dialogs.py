@@ -45179,7 +45179,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 
 
 # DAC Kham: Custom Troops - Merc Camp Quartermaster
-  [anyone,"start", [(eq,"$g_talk_troop","trp_merc_company_quartermaster"),], "Good day, Commander. What would you like to do today?", "camp_quartermaster_start",[(assign, "$g_presentation_state", -1)]],
+  [anyone,"start", [(eq,"$g_talk_troop","trp_merc_company_quartermaster"), (str_store_string, s33, "@Good day, Commander. What would you like to do today?^ (This is a test for Custom Troops, for the planned 'Mercenary Company' feature).")], "{s33}", "camp_quartermaster_start",[(assign, "$g_presentation_state", -1)]],
 
   [anyone|plyr,"camp_quartermaster_start", 
     [], 
@@ -45187,15 +45187,28 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
     []],
 
   [anyone,"camp_quartermaster_recruit", 
-    [], 
-      "Aye... There are a few.", "camp_quartermaster_recruit_select", #placeholder. Will write script like refresh volunteers.
+    [(call_script, "script_game_get_join_cost", "trp_custom_merc_recruit"),
+      (val_mul, reg0, 10),], 
+      "Aye... There are a few. Each one will cost {reg0} crowns. (Placeholder)", "camp_quartermaster_recruit_select", #placeholder. Will write script like refresh volunteers.
     [ 
     ]],
 
   [anyone|plyr,"camp_quartermaster_recruit_select", 
-    [], 
+    [(store_troop_gold, ":gold", "trp_player"),
+     (ge, ":gold", reg0),], 
       "Good. I'll take them all now.", "camp_quartermaster_recruit_take", #placeholder.
-    [(party_add_members, "p_main_party", "trp_custom_merc_recruit", 5),]],
+    [(party_add_members, "p_main_party", "trp_custom_merc_recruit", 1),]],
+
+  [anyone|plyr,"camp_quartermaster_recruit_select", 
+    [(store_troop_gold, ":gold", "trp_player"),
+     (lt, ":gold", reg0),], 
+      "I don't have enough gold...", "camp_quartermaster_nevermind", #placeholder.
+    []],
+
+  [anyone|plyr,"camp_quartermaster_recruit_select", 
+    [], 
+      "Nevermind.", "camp_quartermaster_nevermind", #placeholder.
+    []],
 
   [anyone,"camp_quartermaster_recruit_take", 
     [], 
@@ -45214,7 +45227,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
       (try_end),
       (eq, ":continue", 1),
     ], 
-      "I'd like to look at what my company troops have access to right now.", "camp_quartermaster_equip_ask",
+      "I'd like to look at what my company troops have access to.", "camp_quartermaster_equip_ask",
     [(assign, "$g_target_custom_troop", -1)]],
 
 
@@ -45231,12 +45244,12 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
       (try_end),
       (eq, ":continue", 1),
     ], 
-      "I'd like to see what is in our armoury right now", "camp_quartermaster_armoury",
+      "I'd like to see what is in our armoury.", "camp_quartermaster_armoury",
     []],
 
   [anyone,"camp_quartermaster_equip_ask", 
     [], 
-      "Which rank of troop do you want to look at? ^Remember, they all have access to the same armoury, but some may be too green to use certain equipment.", "camp_quartermaster_equip_troop",
+      "Which rank of troop do you want to look at? ^Remember, they all have access to the same armoury, but some may be too green to use certain equipment.^(Currently, all troops may be able to use items. Restriction is not yet implemented).", "camp_quartermaster_equip_troop",
     []],
 
   [anyone|plyr|repeat_for_troops,"camp_quartermaster_equip_troop", 
