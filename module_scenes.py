@@ -2290,14 +2290,14 @@ scenes = [
 #       4 Plain
   ("castle_4_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300032630004d53700003e24000029a300001809",
     [],[],"outer_terrain_plain"),
-  ("castle_4_interior",sf_indoors, "interior_castle_k", "bo_interior_castle_k", (-100,-100),(100,100),-100,"0",
+  ("castle_4_interior",sf_indoors, "interior_castle_a", "bo_interior_castle_a", (-100,-100),(100,100),-100,"0",
     ["exit"],["castle_4_seneschal"]),
   ("castle_4_prison",sf_indoors,"interior_prison_l", "bo_interior_prison_l", (-100,-100),(100,100),-100,"0",
     [],[]),
 #       5 Plain
   ("castle_5_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300730ba00064d93000039c100002d9600004ced",
     [],[],"outer_terrain_plain"),
-  ("castle_5_interior",sf_indoors, "interior_castle_j", "bo_interior_castle_j", (-100,-100),(100,100),-100,"0",
+  ("castle_5_interior",sf_indoors, "interior_castle_y", "bo_interior_castle_y", (-100,-100),(100,100),-100,"0",
     ["exit"],["castle_5_seneschal"]),
   ("castle_5_prison",sf_indoors,"interior_prison_l", "bo_interior_prison_l", (-100,-100),(100,100),-100,"0",
     [],[]),
@@ -2360,7 +2360,7 @@ scenes = [
 #       Plain
   ("castle_14_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000230025b8d0006459400006a3700002adb00007091",
     [],[],"outer_terrain_plain"),
-  ("castle_14_interior",sf_indoors, "interior_castle_j", "bo_interior_castle_j" , (-100,-100),(100,100),-100,"0",
+  ("castle_14_interior",sf_indoors, "interior_castle_y", "bo_interior_castle_y" , (-100,-100),(100,100),-100,"0",
     ["exit"],["castle_14_seneschal"]),
   ("castle_14_prison",sf_indoors,"interior_prison_m", "bo_interior_prison_m", (-100,-100),(100,100),-100,"0",
     [],[]),
@@ -2374,7 +2374,7 @@ scenes = [
 #       Plain
   ("castle_16_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000b0064a008006bdb9000052f500004725000020c7",
     [],[],"outer_terrain_plain"),
-  ("castle_16_interior",sf_indoors, "interior_castle_k", "bo_interior_castle_k", (-100,-100),(100,100),-100,"0",
+  ("castle_16_interior",sf_indoors, "interior_castle_o", "bo_interior_castle_o", (-100,-100),(100,100),-100,"0",
     ["exit"],["castle_16_seneschal"]),
   ("castle_16_prison",sf_indoors,"interior_prison_l", "bo_interior_prison_l", (-100,-100),(100,100),-100,"0",
     [],[]),
@@ -2472,7 +2472,7 @@ scenes = [
 
   ("castle_30_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000230011ab20005d57800003a2600004b7a000071ef",
     [],[],"outer_terrain_plain"),
-  ("castle_30_interior",sf_indoors, "interior_castle_g_square_keep", "bo_interior_castle_g_square_keep", (-100,-100),(100,100),-100,"0",
+  ("castle_30_interior",sf_indoors, "interior_castle_y", "bo_interior_castle_y", (-100,-100),(100,100),-100,"0",
     ["exit"],["castle_30_seneschal"]),
   ("castle_30_prison",sf_indoors,"interior_prison_n", "bo_interior_prison_n", (-100,-100),(100,100),-100,"0",
     [],[]),
@@ -2521,14 +2521,14 @@ scenes = [
 
   ("castle_37_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001300009838009024000002b0f0000336a00007686",
     [],[],"outer_terrain_plain"),
-  ("castle_37_interior",sf_indoors, "interior_castle_k", "bo_interior_castle_k", (-100,-100),(100,100),-100,"0",
+  ("castle_37_interior",sf_indoors, "interior_castle_y", "bo_interior_castle_y", (-100,-100),(100,100),-100,"0",
     ["exit"],["castle_37_seneschal"]),
   ("castle_37_prison",sf_indoors,"interior_prison_l", "bo_interior_prison_l", (-100,-100),(100,100),-100,"0",
     [],[]),
 
   ("castle_38_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001300009838009024000002b0f0000336a00007686",
     [],[],"outer_terrain_steppe"),
-  ("castle_38_interior",sf_generate, "none", "none", (-100,-100),(100,100),-100,"0x00000007300005000002308c00004a840000624700004fda",
+  ("castle_38_interior",sf_indoors, "interior_castle_y", "bo_interior_castle_y", (-100,-100),(100,100),-100,"0",
     ["exit"],["castle_38_seneschal"]),
   ("castle_38_prison",sf_indoors,"interior_prison_o", "bo_interior_prison_o", (-100,-100),(100,100),-100,"0",
     [],[]),
@@ -2634,14 +2634,14 @@ scenes = [
 #       4 Plain
   ("castle_52_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001300009838009024000002b0f0000336a00007686",
     [],[],"outer_terrain_plain"),
-  ("castle_52_interior",sf_indoors, "interior_castle_k", "bo_interior_castle_k", (-100,-100),(100,100),-100,"0",
+  ("castle_52_interior",sf_indoors, "interior_castle_y", "bo_interior_castle_y", (-100,-100),(100,100),-100,"0",
     ["exit"],["castle_4_seneschal"]),
   ("castle_52_prison",sf_indoors,"interior_prison_l", "bo_interior_prison_l", (-100,-100),(100,100),-100,"0",
     [],[]),
 #       5 Plain
   ("castle_53_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000013004d81100057963000062ce0000255800004c09",
     [],[],"outer_terrain_plain"),
-  ("castle_53_interior",sf_indoors, "interior_castle_j", "bo_interior_castle_j", (-100,-100),(100,100),-100,"0",
+  ("castle_53_interior",sf_indoors, "interior_castle_o", "bo_interior_castle_o", (-100,-100),(100,100),-100,"0",
     ["exit"],["castle_5_seneschal"]),
   ("castle_53_prison",sf_indoors,"interior_prison_j", "bo_interior_prison_j", (-100,-100),(100,100),-100,"0",
     [],[]),
@@ -2676,7 +2676,7 @@ scenes = [
 #       10 Steppe  
   ("castle_58_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000003000018000055d4a000041ef00005ae800003c55",
     [],[],"outer_terrain_plain"),
-  ("castle_58_interior",sf_indoors, "interior_castle_j", "bo_interior_castle_j", (-100,-100),(100,100),-100,"0",
+  ("castle_58_interior",sf_indoors, "interior_castle_o", "bo_interior_castle_o", (-100,-100),(100,100),-100,"0",
     ["exit"],["castle_10_seneschal"]),
   ("castle_58_prison",sf_indoors,"interior_prison_l", "bo_interior_prison_l", (-100,-100),(100,100),-100,"0",
     [],[]),
@@ -2704,7 +2704,7 @@ scenes = [
 #       Plain
   ("castle_62_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000013006199a0004e5370000494f000028fc00006cf6",
     [],[],"outer_terrain_plain"),
-  ("castle_62_interior",sf_indoors, "interior_castle_j", "bo_interior_castle_j" , (-100,-100),(100,100),-100,"0",
+  ("castle_62_interior",sf_indoors, "interior_castle_y", "bo_interior_castle_y" , (-100,-100),(100,100),-100,"0",
     ["exit"],["castle_14_seneschal"]),
   ("castle_62_prison",sf_indoors,"interior_prison_m", "bo_interior_prison_m", (-100,-100),(100,100),-100,"0",
     [],[]),
@@ -2718,7 +2718,7 @@ scenes = [
 #       Plain
   ("castle_64_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000b0064a008006bdb9000052f500004725000020c7",
     [],[],"outer_terrain_plain"),
-  ("castle_64_interior",sf_indoors, "interior_castle_k", "bo_interior_castle_k", (-100,-100),(100,100),-100,"0",
+  ("castle_64_interior",sf_indoors, "interior_castle_y", "bo_interior_castle_y", (-100,-100),(100,100),-100,"0",
     ["exit"],["castle_16_seneschal"]),
   ("castle_64_prison",sf_indoors,"interior_prison_l", "bo_interior_prison_l", (-100,-100),(100,100),-100,"0",
     [],[]),
@@ -2816,7 +2816,7 @@ scenes = [
 
   ("castle_78_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002300796b20005053e000042ed0000199b000037cd",
     [],[],"outer_terrain_plain"),
-  ("castle_78_interior",sf_indoors, "interior_castle_g_square_keep", "bo_interior_castle_g_square_keep", (-100,-100),(100,100),-100,"0",
+  ("castle_78_interior",sf_indoors, "interior_castle_o", "bo_interior_castle_o", (-100,-100),(100,100),-100,"0",
     ["exit"],["castle_30_seneschal"]),
   ("castle_78_prison",sf_indoors,"interior_prison_n", "bo_interior_prison_n", (-100,-100),(100,100),-100,"0",
     [],[]),
