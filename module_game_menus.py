@@ -3044,7 +3044,7 @@ TOTAL:  {reg5}"),
     #    (assign, "$g_item_to_scrap", 0),
     #    (start_presentation, "prsnt_dac_ct_view_armoury")]), 
 
-      ("camp_test_quartermaster",[],"Test Quartermaster Dialogues", [
+      ("camp_test_quartermaster",[],"Custom Troop Test", [
         (assign, "$g_talk_troop", "trp_merc_company_quartermaster"),
         (call_script, "script_get_meeting_scene"), 
         (assign, ":meeting_scene", reg0),
@@ -3069,7 +3069,6 @@ TOTAL:  {reg5}"),
       ("give_troops_england",[],"Give English Troops", [(party_add_template, "p_main_party", "pt_kingdom_2_reinforcements_a"),(party_add_template, "p_main_party", "pt_kingdom_2_reinforcements_b"),(party_add_template, "p_main_party", "pt_kingdom_2_reinforcements_c"),(party_add_template, "p_main_party", "pt_kingdom_2_reinforcements_d"),(party_add_template, "p_main_party", "pt_kingdom_2_reinforcements_e"),]),
       ("give_troops_burgundy",[],"Give Burgundian Troops", [(party_add_template, "p_main_party", "pt_kingdom_3_reinforcements_a"),(party_add_template, "p_main_party", "pt_kingdom_3_reinforcements_b"),(party_add_template, "p_main_party", "pt_kingdom_3_reinforcements_c"),(party_add_template, "p_main_party", "pt_kingdom_3_reinforcements_d"),(party_add_template, "p_main_party", "pt_kingdom_3_reinforcements_e")]),
       ("give_troops_brittany",[],"Give Breton Troops", [(party_add_template, "p_main_party", "pt_kingdom_4_reinforcements_a"),(party_add_template, "p_main_party", "pt_kingdom_4_reinforcements_b"),(party_add_template, "p_main_party", "pt_kingdom_4_reinforcements_c"),(party_add_template, "p_main_party", "pt_kingdom_4_reinforcements_d"),(party_add_template, "p_main_party", "pt_kingdom_4_reinforcements_e")]),	 
-      ("give_troops_custom",[],"Give Custom Troop", [(party_add_members, "p_main_party", "trp_custom_merc_recruit", 5)]),   
       ("resume_travelling",[],"Resume travelling.",[(change_screen_return),]), 
  ]),  	
 
