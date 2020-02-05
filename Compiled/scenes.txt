@@ -2592,7 +2592,7 @@ scn_castle_4_exterior castle_4_exterior 256 none none 0.000000 0.000000 100.0000
   0 
   0 
  outer_terrain_plain 
-scn_castle_4_interior castle_4_interior 1 interior_castle_k bo_interior_castle_k -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+scn_castle_4_interior castle_4_interior 1 interior_castle_a bo_interior_castle_a -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
   1  100000 
   1  668 
  0 
@@ -2604,7 +2604,7 @@ scn_castle_5_exterior castle_5_exterior 256 none none 0.000000 0.000000 100.0000
   0 
   0 
  outer_terrain_plain 
-scn_castle_5_interior castle_5_interior 1 interior_castle_j bo_interior_castle_j -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+scn_castle_5_interior castle_5_interior 1 interior_castle_y bo_interior_castle_y -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
   1  100000 
   1  669 
  0 
@@ -2712,7 +2712,7 @@ scn_castle_14_exterior castle_14_exterior 256 none none 0.000000 0.000000 100.00
   0 
   0 
  outer_terrain_plain 
-scn_castle_14_interior castle_14_interior 1 interior_castle_j bo_interior_castle_j -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+scn_castle_14_interior castle_14_interior 1 interior_castle_y bo_interior_castle_y -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
   1  100000 
   1  678 
  0 
@@ -2736,7 +2736,7 @@ scn_castle_16_exterior castle_16_exterior 256 none none 0.000000 0.000000 100.00
   0 
   0 
  outer_terrain_plain 
-scn_castle_16_interior castle_16_interior 1 interior_castle_k bo_interior_castle_k -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+scn_castle_16_interior castle_16_interior 1 interior_castle_o bo_interior_castle_o -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
   1  100000 
   1  680 
  0 
@@ -2904,7 +2904,7 @@ scn_castle_30_exterior castle_30_exterior 256 none none 0.000000 0.000000 100.00
   0 
   0 
  outer_terrain_plain 
-scn_castle_30_interior castle_30_interior 1 interior_castle_g_square_keep bo_interior_castle_g_square_keep -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+scn_castle_30_interior castle_30_interior 1 interior_castle_y bo_interior_castle_y -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
   1  100000 
   1  694 
  0 
@@ -2988,7 +2988,7 @@ scn_castle_37_exterior castle_37_exterior 256 none none 0.000000 0.000000 100.00
   0 
   0 
  outer_terrain_plain 
-scn_castle_37_interior castle_37_interior 1 interior_castle_k bo_interior_castle_k -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+scn_castle_37_interior castle_37_interior 1 interior_castle_y bo_interior_castle_y -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
   1  100000 
   1  701 
  0 
@@ -3000,7 +3000,7 @@ scn_castle_38_exterior castle_38_exterior 256 none none 0.000000 0.000000 100.00
   0 
   0 
  outer_terrain_steppe 
-scn_castle_38_interior castle_38_interior 256 none none -100.000000 -100.000000 100.000000 100.000000 -100.000000 0x00000007300005000002308c00004a840000624700004fda 
+scn_castle_38_interior castle_38_interior 1 interior_castle_y bo_interior_castle_y -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
   1  100000 
   1  702 
  0 
@@ -3168,7 +3168,7 @@ scn_castle_52_exterior castle_52_exterior 256 none none 0.000000 0.000000 100.00
   0 
   0 
  outer_terrain_plain 
-scn_castle_52_interior castle_52_interior 1 interior_castle_k bo_interior_castle_k -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+scn_castle_52_interior castle_52_interior 1 interior_castle_y bo_interior_castle_y -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
   1  100000 
   1  668 
  0 
@@ -3180,7 +3180,7 @@ scn_castle_53_exterior castle_53_exterior 256 none none 0.000000 0.000000 100.00
   0 
   0 
  outer_terrain_plain 
-scn_castle_53_interior castle_53_interior 1 interior_castle_j bo_interior_castle_j -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+scn_castle_53_interior castle_53_interior 1 interior_castle_o bo_interior_castle_o -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
   1  100000 
   1  669 
  0 
@@ -3240,7 +3240,7 @@ scn_castle_58_exterior castle_58_exterior 256 none none 0.000000 0.000000 100.00
   0 
   0 
  outer_terrain_plain 
-scn_castle_58_interior castle_58_interior 1 interior_castle_j bo_interior_castle_j -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+scn_castle_58_interior castle_58_interior 1 interior_castle_o bo_interior_castle_o -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
   1  100000 
   1  674 
  0 
@@ -3288,7 +3288,7 @@ scn_castle_62_exterior castle_62_exterior 256 none none 0.000000 0.000000 100.00
   0 
   0 
  outer_terrain_plain 
-scn_castle_62_interior castle_62_interior 1 interior_castle_j bo_interior_castle_j -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+scn_castle_62_interior castle_62_interior 1 interior_castle_y bo_interior_castle_y -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
   1  100000 
   1  678 
  0 
@@ -3312,7 +3312,7 @@ scn_castle_64_exterior castle_64_exterior 256 none none 0.000000 0.000000 100.00
   0 
   0 
  outer_terrain_plain 
-scn_castle_64_interior castle_64_interior 1 interior_castle_k bo_interior_castle_k -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+scn_castle_64_interior castle_64_interior 1 interior_castle_y bo_interior_castle_y -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
   1  100000 
   1  680 
  0 
@@ -3480,7 +3480,7 @@ scn_castle_78_exterior castle_78_exterior 256 none none 0.000000 0.000000 100.00
   0 
   0 
  outer_terrain_plain 
-scn_castle_78_interior castle_78_interior 1 interior_castle_g_square_keep bo_interior_castle_g_square_keep -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+scn_castle_78_interior castle_78_interior 1 interior_castle_o bo_interior_castle_o -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
   1  100000 
   1  694 
  0 

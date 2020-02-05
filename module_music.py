@@ -149,10 +149,16 @@ tracks = [
   ("DAC-Town-Generic-10", "DAC-Town-Generic-10.ogg", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),
   ("DAC-Town-Generic-11", "DAC-Town-Generic-11.ogg", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),
   ("DAC-Town-Generic-12", "DAC-Town-Generic-12.ogg", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),
+  ("DAC-Town-Generic-13", "DAC-Town-Generic-13.ogg", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),
+  ("DAC-Town-Generic-14", "DAC-Town-Generic-14.ogg", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),
 
 # Tavern
   ("DAC-Tavern-Generic-1", "DAC-Tavern-Generic-1.mp3", mtf_module_track|mtf_sit_tavern|mtf_sit_feast, 0),
   ("DAC-Tavern-Generic-2", "DAC-Tavern-Generic-2.mp3", mtf_module_track|mtf_sit_tavern|mtf_sit_feast, 0),
+  ("DAC-Tavern-Generic-3", "DAC-Tavern-Generic-3.ogg", mtf_module_track|mtf_sit_tavern|mtf_sit_feast, 0),
+
+# Feast
+  ("DAC-Feast-Generic-1", "DAC-Feast-Generic-1.ogg", mtf_module_track|mtf_sit_feast, 0),
 
 # Defeat
   ("DAC-Defeat-1", "DAC-Defeat-1.ogg", mtf_module_track|mtf_persist_until_finished|mtf_sit_killed, 0),
