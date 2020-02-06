@@ -10,6 +10,7 @@ from ID_info_pages import *
 from header_triggers import key_left_shift, key_right_shift
 from module_constants import *
 from dac_character_creation import character_creation_menus
+from dac_mercenary_company import mercenary_company_menus
 
 from compiler import *
 ####################################################################################################################
@@ -21537,4 +21538,4 @@ choose_scene_template = Game_Menu_Template(
   ]
 )
 
-game_menus += character_creation_menus + choose_scene_template.generate_menus(sorted_scenes)
+game_menus += character_creation_menus + mercenary_company_menus + choose_scene_template.generate_menus(sorted_scenes)
