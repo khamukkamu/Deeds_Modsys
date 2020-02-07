@@ -3025,7 +3025,7 @@ troops = [
 
   ["custom_mercs_end","{!}na","{!}na",0,0,0,fac_neutral,[itm_velvet],def_attrib|level(1),wp(60),knows_common|knows_inventory_management_10,swadian_face_middle_1, swadian_face_older_2],
 
-  ["merc_company_quartermaster","Godefroy de Papincourt","Godefroy de Papincourt",tf_hero|tf_unmoveable_in_party_window,0,0,fac_commoners,
+  ["merc_company_quartermaster","Godefroy de Papincourt","Godefroy de Papincourt",tf_hero|tf_unmoveable_in_party_window,scn_player_camp|entry(2),0,fac_commoners,
    [itm_w_lance_colored_french_2_heraldic,itm_tab_shield_heater_cav_b,itm_ho_horse_barded_blue_chamfrom,itm_h_klappvisier_pigface_open,itm_heraldic_churburg_13_tabard,itm_b_shynbaulds,itm_g_plate_mittens,itm_b_hosen_shoes_custom,itm_a_tabard_heraldic,itm_w_bastard_sword_count],
    def_attrib|level(20),wp(120),knows_common|knows_inventory_management_10|knows_power_draw_5, 0x00000001840834485914d426156ab55400000000000d35240000000000000000],
 

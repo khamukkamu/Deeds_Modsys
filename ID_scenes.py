@@ -1201,4 +1201,5 @@ scn_enterprise_oil_press = 1198
 scn_conversation_scene_tld_plain = 1199
 scn_conversation_scene_tld_snow = 1200
 scn_conversation_scene_tld_forest = 1201
+scn_player_camp = 1202
 scn_exit = 100000

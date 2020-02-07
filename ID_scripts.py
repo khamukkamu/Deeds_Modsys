@@ -1005,3 +1005,4 @@ script_custom_troop_detail_remove_item_from_troop = 1003
 script_custom_troop_detail_select_item_for_scrap = 1004
 script_custom_troop_detail_select_item_for_buying = 1005
 script_custom_troop_detail_inventory_armoury = 1006
+script_dac_upgrade_player_camp = 1007

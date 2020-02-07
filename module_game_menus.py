@@ -11,6 +11,7 @@ from header_triggers import key_left_shift, key_right_shift
 from module_constants import *
 from dac_character_creation import character_creation_menus
 from dac_mercenary_company import mercenary_company_menus
+# from dac_mercenary_company import mercenary_company_creation_menus
 
 from compiler import *
 ####################################################################################################################
@@ -3237,8 +3238,25 @@ TOTAL:  {reg5}"),
    "none",
    [
      ],
-    [
-
+    [ 
+## DAC Seek: Player Camp    
+      ("action_create_camp",[(eq, "$player_camp_built", 0),],"Set up an encampment here.",
+       [
+        (party_relocate_near_party, "p_player_camp", "p_main_party"),
+        (enable_party, "p_player_camp"),
+        (party_set_slot, "p_player_camp", slot_player_camp_level, 1),
+        (assign, "$player_camp_built", 1),
+        (change_screen_return),
+        ]
+       ),
+      ("action_relocate_camp",[(eq, "$player_camp_built", 1),],"Relocate the encampment here.",
+       [
+        (party_relocate_near_party, "p_player_camp", "p_main_party"),
+        (enable_party, "p_player_camp"),
+        (change_screen_return),
+        ]
+       ),       
+## DAC Seek: Player Camp End
 
       ("camp_recruit_prisoners",
        [(troops_can_join, 1),

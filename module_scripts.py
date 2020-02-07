@@ -776,6 +776,7 @@ scripts = [
     (call_script, "script_upgrade_lords_equipment"),
 
     #DAC Kham - Custom Troops
+    (assign, "$player_camp_built", 0),
     (troop_set_slot, "trp_merc_company_quartermaster", slot_quartermaster_creating_item, -1),
     (troop_set_slot, "trp_merc_company_quartermaster", slot_quartermaster_days_til_finished, -1),
 
@@ -3683,6 +3684,11 @@ scripts = [
          (else_try),
            (eq, "$g_encountered_party", "p_camp_bandits"),
            (jump_to_menu, "mnu_camp"),
+         (else_try),
+## DAC Seek: Player Camp         
+           (eq, "$g_encountered_party", "p_player_camp"),
+           (jump_to_menu, "mnu_player_camp_encounter"),
+## DAC Seek: Player Camp End
          (else_try),
            (jump_to_menu, "mnu_simple_encounter"),
          (try_end),

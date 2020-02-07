@@ -722,4 +722,24 @@ mercenary_company_scripts = [
 
 
 # Custom Troops End
+
+### DAC Seek: Player Camp Scripts
+("dac_upgrade_player_camp", [
+    (party_get_slot, ":player_camp_level", "p_player_camp", slot_player_camp_level),
+    (try_begin),
+        (eq, ":player_camp_level", 1),
+        (party_set_icon, "p_player_camp", "icon_camp"),
+    (else_try), 
+        (eq, ":player_camp_level", 2),
+        (party_set_icon, "p_player_camp", "icon_training_ground"),
+    (else_try),         
+        (eq, ":player_camp_level", 3),
+        (party_set_icon, "p_player_camp", "icon_castle_e"),
+    (else_try), 
+        (eq, ":player_camp_level", 4),
+        (party_set_icon, "p_player_camp", "icon_castle_a"),
+    (try_end), 
+
+  ]),
+
 ]
