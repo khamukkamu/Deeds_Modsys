@@ -11,7 +11,7 @@ from header_terrain_types import *
 from module_factions import dplmc_factions_end
 from ID_info_pages import ip_morale
 ##diplomacy end+
-
+from dac_mercenary_company import mercenary_company_simple_triggers
 from module_constants import *
 
 from compiler import *
@@ -6901,3 +6901,4 @@ simple_triggers = [
 #Custom Troops End
 
 ]
+simple_triggers += mercenary_company_simple_triggers

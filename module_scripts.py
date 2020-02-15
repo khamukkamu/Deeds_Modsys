@@ -774,11 +774,9 @@ scripts = [
     (call_script, "script_init_weapon_switching"),	
     (call_script, "script_initialize_troop_elite_upgrades"),	
     (call_script, "script_upgrade_lords_equipment"),
+    (call_script, "script_dac_init_custom_troops"),
 
-    #DAC Kham - Custom Troops
-    (assign, "$player_camp_built", 0),
-    (troop_set_slot, "trp_merc_company_quartermaster", slot_quartermaster_creating_item, -1),
-    (troop_set_slot, "trp_merc_company_quartermaster", slot_quartermaster_days_til_finished, -1),
+
 
     ]),
 

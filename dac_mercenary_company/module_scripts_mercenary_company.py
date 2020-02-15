@@ -20,6 +20,20 @@ mercenary_company_scripts = [
 ###################################
 # Custom Troops Scripts Begin
 
+### DAC Seek: Init Custom Troops and player camp variables for game_start
+("dac_init_custom_troops", [
+    # Player Camp
+    (assign, "$player_camp_built", 0),
+    (party_set_slot, "p_player_camp", slot_player_camp_archery_range, -1),    
+    (party_set_slot, "p_player_camp", slot_player_camp_smithy, -1),    
+    (party_set_slot, "p_player_camp", slot_player_camp_corral, -1),    
+    (party_set_slot, "p_player_camp", slot_player_camp_market, -1),    
+    (party_set_slot, "p_player_camp", slot_player_camp_chapterhouse, -1),    
+    # Custom Troops
+    (troop_set_slot, "trp_merc_company_quartermaster", slot_quartermaster_creating_item, -1),
+    (troop_set_slot, "trp_merc_company_quartermaster", slot_quartermaster_days_til_finished, -1),
+  ]),  
+
   ("start_customizing", [
     (store_script_param_1, ":troop"),
     
@@ -723,9 +737,10 @@ mercenary_company_scripts = [
 
 # Custom Troops End
 
-### DAC Seek: Player Camp Scripts
+### DAC Seek: Player Camp Script
 ("dac_upgrade_player_camp", [
     (party_get_slot, ":player_camp_level", "p_player_camp", slot_player_camp_level),
+    
     (try_begin),
         (eq, ":player_camp_level", 1),
         (party_set_icon, "p_player_camp", "icon_camp"),
@@ -739,7 +754,79 @@ mercenary_company_scripts = [
         (eq, ":player_camp_level", 4),
         (party_set_icon, "p_player_camp", "icon_castle_a"),
     (try_end), 
+]),
+  
+("improve_player_camp", [
+    (store_script_param, ":center_no", 1),
+    (store_script_param, ":improvement_time", 2),
+    
+    (party_set_slot, ":center_no", slot_center_current_improvement, "$g_improvement_type"),
+    (store_current_hours, ":cur_hours"),
+    (store_mul, ":hours_takes", ":improvement_time", 24),
+    (val_add, ":hours_takes", ":cur_hours"),
+    (party_set_slot, ":center_no", slot_center_improvement_end_hour, ":hours_takes"),
+    (assign, reg6, ":improvement_time"),
+    (call_script, "script_player_camp_get_improvement_details", "$g_improvement_type"),
+    (add_party_note_from_sreg, ":center_no", 2, "@A {s0} is being built. It will finish in {reg6} days", 1),
+    
+    (try_begin),
+        (eq, "$g_improvement_type", slot_player_camp_level),
+        (party_get_slot, ":player_camp_level", "p_player_camp", slot_player_camp_level),
+        (lt, ":player_camp_level", 4),  
+        (val_add, ":player_camp_level", 1),
+        (party_set_slot, "p_player_camp", slot_player_camp_level, ":player_camp_level"),
+        (call_script, "script_dac_upgrade_player_camp"),
+    (try_end),  
+]),  
 
-  ]),
+  ("player_camp_get_improvement_details",
+    [
+    (store_script_param, ":improvement_no", 1),
+    (try_begin),
+        (eq, ":improvement_no", slot_player_camp_smithy),
+        (str_store_string, s0, "@Smithy"),
+        (str_store_string, s1, "@A smithy allows the option to produce new equipment for your mercenary company."),
+        (assign, reg0, 5000),
+    (else_try),
+        (eq, ":improvement_no", slot_player_camp_archery_range),
+        (str_store_string, s0, "@Archery Range"),
+        (str_store_string, s1, "@An archery range grants you access to ranged troops for your mercenary company."),
+        (assign, reg0, 3000),
+    (else_try),
+        (eq, ":improvement_no", slot_player_camp_corral),
+        (str_store_string, s0, "@Corral"),
+        (str_store_string, s1, "@A corral grants you access to mounted troops for your mercenary company."),
+        (assign, reg0, 5000),
+    (else_try),
+        (eq, ":improvement_no", slot_player_camp_market),
+        (str_store_string, s0, "@Marketplace"),
+        (str_store_string, s1, "@A marketplace grants you access to a trader and slightly reduces the upkeep for your mercenary company troops."),
+        (assign, reg0, 2500),
+    (else_try),
+        (eq, ":improvement_no", slot_player_camp_chapterhouse),
+        (str_store_string, s0, "@Chapterhouse"),
+        (str_store_string, s1, "@A chapterhouse grants you access to knights and allows you to create your own knighthood order."),
+        (assign, reg0, 1500),
+    (else_try),
+        (eq, ":improvement_no", slot_player_camp_level),
+        (party_get_slot, ":player_camp_level", "p_player_camp", slot_player_camp_level),
+        (try_begin),
+            (eq, ":player_camp_level", 1),
+            (str_store_string, s0, "@Camp Upgrade Outpost"),
+            (str_store_string, s1, "@Upgrading the encampment to an outpost grants you access to the archery range and marketplace buildings. ^Warning: Upgrading the base will lock access to it until the improvements are finished."),
+            (assign, reg0, 5000),        
+        (else_try),
+            (eq, ":player_camp_level", 2),
+            (str_store_string, s0, "@Camp Upgrade Manor"),
+            (str_store_string, s1, "@Upgrading the outpost to a manor grants you access to the corral building. ^Warning: Upgrading the base will lock access to it until the improvements are finished."),
+            (assign, reg0, 10000),        
+        (else_try),
+            (eq, ":player_camp_level", 3),
+            (str_store_string, s0, "@Camp Upgrade Stronghold"),
+            (str_store_string, s1, "@Upgrading the manor to a stronghold grants you access to the chapterhouse building. ^Warning: Upgrading the base will lock access to it until the improvements are finished."),
+            (assign, reg0, 20000),        
+        (try_end),
+    (try_end),
+]),
 
 ]
