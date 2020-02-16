@@ -135,8 +135,10 @@ mercenary_company_menus = [
     ("player_camp_upgrade",
        [
         (eq, reg6, 0),
+        (lt, reg10, 4),
+
        ],
-    "Upgrade the encampment. (Current level: {reg1}, Max level: 4)",[
+    "Upgrade the encampment. (Current level: {reg10}, Max level: 4)",[
         (assign, "$g_improvement_type", slot_player_camp_level),
         (jump_to_menu, "mnu_player_camp_build_improvements"),
     ]),  
