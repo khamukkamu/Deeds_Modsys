@@ -2911,8 +2911,8 @@ center_list = [
 ## DAC Custom Troops (Merc Company Feature)
 customizable_troops_begin = "trp_custom_merc_recruit"
 customizable_troops_end = "trp_custom_mercs_end"
-slot_quartermaster_days_til_finished = slot_troop_home #Piggyback on this slot.
-slot_quartermaster_creating_item = slot_troop_first_encountered #piggyback on this slot
+slot_camp_smith_days_til_finished = slot_troop_home #Piggyback on this slot.
+slot_camp_smith_creating_item = slot_troop_first_encountered #piggyback on this slot
 # Camp buildings
 slot_player_camp_smithy = 350
 slot_player_camp_archery_range = 351

@@ -45230,23 +45230,6 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
       "I'd like to look at what my company troops have access to.", "camp_quartermaster_equip_ask",
     [(assign, "$g_target_custom_troop", -1)]],
 
-
-
-  [anyone|plyr,"camp_quartermaster_start", 
-    [
-      (assign, ":continue", 0),
-      (party_get_num_companion_stacks, ":num_stacks", "p_main_party"),
-      (try_for_range, ":i_stack", 0, ":num_stacks"),
-        (eq, ":continue", 0),
-        (party_stack_get_troop_id, ":troop_id", "p_main_party", ":i_stack"),
-        (is_between, ":troop_id", customizable_troops_begin, customizable_troops_end),
-        (assign, ":continue", 1),
-      (try_end),
-      (eq, ":continue", 1),
-    ], 
-      "I'd like to see what is in our armoury.", "camp_quartermaster_armoury",
-    []],
-
   [anyone,"camp_quartermaster_equip_ask", 
     [], 
       "Which rank of troop do you want to look at? ^Remember, they all have access to the same armoury, but some may be too green to use certain equipment.^(Currently, all troops may be able to use items. Restriction is not yet implemented).", "camp_quartermaster_equip_troop",
@@ -45299,37 +45282,6 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 
     ]],
 
-
-  [anyone,"camp_quartermaster_armoury", 
-    [
-    (troop_slot_eq, "trp_merc_company_quartermaster", slot_quartermaster_creating_item, -1),
-    ], 
-      "Go on, take a look. We can also reproduce any item you give us. Remember, we have to make as much as we can to equip all current and future company troops.", "close_window",
-    [
-        (assign, "$g_target_name_change", "trp_custom_merc_recruit"),
-         (assign, "$g_presentation_state", 0),
-         (assign, "$g_item_to_scrap", 0),
-         (jump_to_menu, "mnu_dac_view_armoury"),
-    ]],
-
-    [anyone,"camp_quartermaster_armoury", 
-    [
-    (neg|troop_slot_eq, "trp_merc_company_quartermaster", slot_quartermaster_creating_item, -1),
-    (troop_get_slot, ":item", "trp_merc_company_quartermaster", slot_quartermaster_creating_item),
-    (troop_get_slot, ":days_til_complete", "trp_merc_company_quartermaster", slot_quartermaster_days_til_finished),
-    (store_current_day, ":cur_day"),
-    (store_sub, reg40, ":days_til_complete", ":cur_day"),
-    (str_store_item_name, s15, ":item"),
-    (try_begin),
-      (gt, reg40, 1),
-      (str_store_string, s16, "@{reg40} days."),
-    (else_try),
-      (str_store_string, s16, "@one more day."),
-    (try_end),
-    ], 
-      "We are still procuring the {s15}, and it will take {s16}", "camp_quartermaster_start",
-    []],
-
   [anyone,"camp_quartermaster_nevermind", 
   [], 
     "Ok then. Anything else?", "camp_quartermaster_start",
@@ -45340,8 +45292,56 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 
 # DAC Kham: Custom Troops - Merc Camp Quartermaster END
 
+# DAC Seek: Custom Troops - Merc Camp Smith
+  [anyone,"start", [(eq,"$g_talk_troop","trp_merc_company_smith"), (str_store_string, s33, "@Good day, Commander. What would you like to do today?^ (This is a test for Custom Troops, for the planned 'Mercenary Company' feature).")], "{s33}", "camp_smith_start",[(assign, "$g_presentation_state", -1)]],
 
+  [anyone|plyr,"camp_smith_start", 
+    [
+      (assign, ":continue", 0),
+      (party_get_num_companion_stacks, ":num_stacks", "p_main_party"),
+      (try_for_range, ":i_stack", 0, ":num_stacks"),
+        (eq, ":continue", 0),
+        (party_stack_get_troop_id, ":troop_id", "p_main_party", ":i_stack"),
+        (is_between, ":troop_id", customizable_troops_begin, customizable_troops_end),
+        (assign, ":continue", 1),
+      (try_end),
+      (eq, ":continue", 1),
+    ], 
+      "I'd like to see what is in our armoury.", "camp_smith_armoury",
+    []],
 
+  [anyone,"camp_smith_armoury", 
+    [
+    (troop_slot_eq, "trp_merc_company_smith", slot_camp_smith_creating_item, -1),
+    ], 
+      "Go on, take a look. We can also reproduce any item you give us. Remember, we have to make as much as we can to equip all current and future company troops.", "close_window",
+    [
+        (assign, "$g_target_name_change", "trp_custom_merc_recruit"),
+         (assign, "$g_presentation_state", 0),
+         (assign, "$g_item_to_scrap", 0),
+         (jump_to_menu, "mnu_dac_view_armoury"),
+    ]],
+
+    [anyone,"camp_smith_armoury", 
+    [
+    (neg|troop_slot_eq, "trp_merc_company_smith", slot_camp_smith_creating_item, -1),
+    (troop_get_slot, ":item", "trp_merc_company_smith", slot_camp_smith_creating_item),
+    (troop_get_slot, ":days_til_complete", "trp_merc_company_smith", slot_camp_smith_days_til_finished),
+    (store_current_day, ":cur_day"),
+    (store_sub, reg40, ":days_til_complete", ":cur_day"),
+    (str_store_item_name, s15, ":item"),
+    (try_begin),
+      (gt, reg40, 1),
+      (str_store_string, s16, "@{reg40} days."),
+    (else_try),
+      (str_store_string, s16, "@one more day."),
+    (try_end),
+    ], 
+      "We are still procuring the {s15}, and it will take {s16}", "camp_smith_start",
+    []],
+    
+  [anyone|plyr,"camp_smith_start", [], "Nothing today. Carry on.", "camp_smith_back",[]],
+  [anyone,"camp_smith_back", [], "Very well.", "close_window",[(change_screen_map)]],    
 ######################################
 # GENERIC PARTY ENCOUNTER
 ######################################

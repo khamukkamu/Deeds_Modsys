@@ -1893,4 +1893,5 @@ trp_custom_merc_bodyguard_equip = 1891
 trp_custom_merc_bodyguard_selection = 1892
 trp_custom_mercs_end = 1893
 trp_merc_company_quartermaster = 1894
-trp_inventory_backup = 1895
+trp_merc_company_smith = 1895
+trp_inventory_backup = 1896

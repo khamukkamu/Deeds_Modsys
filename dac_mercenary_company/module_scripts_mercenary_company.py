@@ -30,8 +30,8 @@ mercenary_company_scripts = [
     (party_set_slot, "p_player_camp", slot_player_camp_market, -1),    
     (party_set_slot, "p_player_camp", slot_player_camp_chapterhouse, -1),    
     # Custom Troops
-    (troop_set_slot, "trp_merc_company_quartermaster", slot_quartermaster_creating_item, -1),
-    (troop_set_slot, "trp_merc_company_quartermaster", slot_quartermaster_days_til_finished, -1),
+    (troop_set_slot, "trp_merc_company_smith", slot_camp_smith_creating_item, -1),
+    (troop_set_slot, "trp_merc_company_smith", slot_camp_smith_days_til_finished, -1),
   ]),  
 
   ("start_customizing", [
