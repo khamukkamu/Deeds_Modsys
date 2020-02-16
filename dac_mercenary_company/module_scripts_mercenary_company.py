@@ -61,6 +61,7 @@ mercenary_company_scripts = [
 
   ("unequip_troop", [
     (store_script_param_1, ":troop"),
+    
     (try_for_range, ":i_slot", 0, 10),
       (troop_get_inventory_slot, ":item",":troop", ":i_slot"),
       (gt, ":item", 0),
@@ -80,8 +81,8 @@ mercenary_company_scripts = [
   ]),
 
   ("dac_add_item_to_custom_troop", [
-    
     (store_script_param_1, ":item"),
+    
     (try_for_range, ":troop", customizable_troops_begin, customizable_troops_end),
       (troop_is_hero, ":troop"), #DAC Kham: Inventory Troops are Heroes.
       (store_add, ":armoury_troop", 1, ":troop"), #Access the Selection Troop (Armoury)
@@ -744,16 +745,24 @@ mercenary_company_scripts = [
     (try_begin),
         (eq, ":player_camp_level", 1),
         (party_set_icon, "p_player_camp", "icon_camp"),
+        (str_store_string, s1, "@Encampment"),
     (else_try), 
         (eq, ":player_camp_level", 2),
         (party_set_icon, "p_player_camp", "icon_village_a"),
+        (str_store_string, s1, "@Outpost"),
     (else_try),         
         (eq, ":player_camp_level", 3),
         (party_set_icon, "p_player_camp", "icon_castle_e"),
+        (str_store_string, s1, "@Manor"),
     (else_try), 
         (eq, ":player_camp_level", 4),
         (party_set_icon, "p_player_camp", "icon_castle_a"),
+        (str_store_string, s1, "@Stronghold"),
     (try_end), 
+    
+    (str_store_troop_name_plural, s0, "trp_merc_company_name"),
+    (str_store_string, s1, "str_s0_s1"),    
+    (party_set_name, "p_player_camp", s1),
 ]),
   
 ("improve_player_camp", [

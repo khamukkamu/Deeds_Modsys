@@ -74,3 +74,4 @@ prsnt_name_troop = 72
 prsnt_dac_ct_view_armoury_buggy = 73
 prsnt_dac_ct_view_armoury = 74
 prsnt_dac_ct_buy_items_for_armoury = 75
+prsnt_rename_company = 76

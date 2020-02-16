@@ -530,6 +530,62 @@ mercenary_company_presentations = [
 
       ] #+ coord_helper 
         + prsnt_escape_close),
+        
+  ("rename_company",0,mesh_load_window,[
+      (ti_on_presentation_load,
+       [
+        (set_fixed_point_multiplier, 1000),
+        (str_store_string, s1, "@Enter the name of your company"),
+        (create_text_overlay, reg1, s1, tf_center_justify),
+        (position_set_x, pos1, 500),
+        (position_set_y, pos1, 500),
+        (overlay_set_position, reg1, pos1),
+
+        (create_simple_text_box_overlay, "$g_presentation_obj_name_company"),
+        (position_set_x, pos1, 400),
+        (position_set_y, pos1, 400),
+        (overlay_set_position, "$g_presentation_obj_name_company", pos1),
+
+        (str_store_troop_name, s7, "trp_merc_company_name"),
+
+        (overlay_set_text, "$g_presentation_obj_name_company", s7),
+
+        (create_button_overlay, "$g_presentation_obj_name_company_2", "str_continue_dot", tf_center_justify), #SB : continue str
+        (position_set_x, pos1, 500),
+        (position_set_y, pos1, 150),
+        (overlay_set_position, "$g_presentation_obj_name_company_2", pos1),
+
+        (presentation_set_duration, 999999),
+        ]),
+        
+    (event, 
+        [
+        (store_trigger_param_1, ":object_id"),
+        (try_begin),
+            (eq, ":object_id", "$g_presentation_obj_name_company"), # Change Name
+            (str_store_string, s7, s0),
+            (troop_set_name, "trp_merc_company_name", s7),
+            (troop_set_plural_name, "trp_merc_company_name", s7),
+            (call_script, "script_dac_upgrade_player_camp"),
+        (else_try),
+            (eq, ":object_id", "$g_presentation_obj_name_company_2"),
+            (assign, "$g_presentation_next_presentation", -1), #break out
+            (presentation_set_duration, 0),
+        (try_end),
+    ]),
+      # (ti_on_presentation_event_state_change,
+       # [
+        # (store_trigger_param_1, ":object"),
+        # (try_begin),
+            # (eq, ":object", "$g_presentation_obj_name_company"),
+            # (str_store_string, s7, s0),
+        # (else_try),
+
+        # (try_end),
+            # (assign, "$g_presentation_next_presentation", -1), #break out
+            # (presentation_set_duration, 0),
+        # ]),
+      ]),
 
 
 

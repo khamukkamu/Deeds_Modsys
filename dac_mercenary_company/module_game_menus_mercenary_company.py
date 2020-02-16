@@ -141,6 +141,13 @@ mercenary_company_menus = [
     (assign, reg10, ":player_camp_level"),    
     ],
     [    
+    ("player_camp_change_name",[],"Change the name of your company.",
+       [
+       # (assign, "$g_presentation_state", rename_companion),
+       # (assign, "$g_player_troop", "trp_merc_company_name"),
+       # (start_presentation, "prsnt_name_kingdom"),
+       (start_presentation, "prsnt_rename_company"),
+       ]),
     ("player_camp_upgrade",
        [
         (eq, reg6, 0),

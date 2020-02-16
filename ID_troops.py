@@ -1895,3 +1895,4 @@ trp_custom_mercs_end = 1893
 trp_merc_company_quartermaster = 1894
 trp_merc_company_smith = 1895
 trp_inventory_backup = 1896
+trp_merc_company_name = 1897

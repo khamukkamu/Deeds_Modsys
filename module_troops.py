@@ -3035,6 +3035,7 @@ troops = [
 
   ["inventory_backup","{!}Inventory","{!}Inventory",tf_hero|tf_inactive,0,reserved,fac_neutral,[],def_attrib|level(18),wp(60),knows_inventory_management_10,0],
   
+  ["merc_company_name","Mercenary Company","Mercenary Company",tf_hero|tf_inactive,0,reserved,fac_neutral,[],def_attrib|level(18),wp(60),knows_inventory_management_10,0],
 
 ## DAC Custom Troops (Merc System) End
 
