@@ -491,7 +491,8 @@ itc_spear_upstab =  itc_spear|itcf_force_64_bits|itcf_overswing_spear|itcf_overs
 itc_lance_upstab =  itc_spear|itcf_force_64_bits|itcf_overswing_spear|itcf_overswing_musket
 itc_great_lance_upstab =  itc_greatlance|itcf_force_64_bits|itcf_overswing_spear|itcf_overswing_musket
 itc_pike_upstab = itc_parry_polearm|itcf_force_64_bits|itcf_overswing_spear|itcf_thrust_polearm
-
+itc_halberd_upstab = itc_parry_polearm|itcf_force_64_bits|itcf_overswing_spear|itcf_thrust_polearm|itcf_slashright_polearm|itcf_slashleft_polearm
+itc_halfswording = itc_parry_two_handed | itcf_force_64_bits | (itcf_slashright_twohanded | itcf_slashleft_twohanded | itcf_overswing_spear | itcf_horseback_slashright_onehanded|itcf_horseback_slashleft_onehanded) | itcf_thrust_polearm
 #EXtra Mesh IDs
 ixmesh_inventory   = 0x1000000000000000
 ixmesh_flying_ammo = 0x2000000000000000

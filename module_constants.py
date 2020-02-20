@@ -2379,13 +2379,13 @@ DPLMC_FACTION_STANDING_UNAFFILIATED = 0
 ##INVASION/CAPTAIN COOP
 
 captain_multiplayer_troops_begin = "trp_farmer"
-captain_multiplayer_troops_end = "trp_swadian_crossbowman"
+captain_multiplayer_troops_end = "trp_manhunter"
 
-captain_multiplayer_new_troops_begin = "trp_swadian_crossbowman"
-captain_multiplayer_new_troops_end = "trp_khergit_lancer"
+captain_multiplayer_new_troops_begin = "trp_farmer"
+captain_multiplayer_new_troops_end = "trp_manhunter"
 
-captain_multiplayer_coop_new_troops_begin = "trp_khergit_lancer"
-captain_multiplayer_coop_new_troops_end = "trp_slaver_chief"
+captain_multiplayer_coop_new_troops_begin = "trp_farmer"
+captain_multiplayer_coop_new_troops_end = "trp_manhunter"
 
 
 

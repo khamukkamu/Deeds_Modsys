@@ -40984,7 +40984,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 								# (try_end),
 								(val_max, "$g_mayor_given_political_dialog", 1),
 
-  ], "Well, to answer your question generally, each monarch claims to be the rightful heir to the old Calradic emperors. Some of these claims are based on forgotten dynastic marriages and others are based on obscure promises, while {s22} Rhodoks invoke the empire's unwritten constitution. So in theory, any one realm has the right to declare war on any other realm at any time.", "mayor_war_description_2",[]],
+  ], "Well, to answer your question generally, each monarch claims to be the rightful heir to the French throne. Some of these claims are based on dynastic marriages and others are based on obscure promises. So in theory, any one realm has the right to declare war on any other realm at any time.", "mayor_war_description_2",[]],
   
   ##SB : cut off dialogue here if high ranking
   [anyone,"mayor_war_description_2",[
