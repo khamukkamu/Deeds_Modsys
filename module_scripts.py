@@ -81148,6 +81148,30 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 	(store_add, ":next_item", ":item_no", 1),
 	(item_set_slot, ":item_no", slot_item_weapon_switch_to, ":next_item"),
 	(item_set_slot, ":next_item", slot_item_weapon_switch_to, ":item_no"),
+    
+	(item_set_slot, "itm_w_twohanded_sword_claymore", slot_item_weapon_switch_to, "itm_w_twohanded_sword_claymore_halfswording"),    
+	(item_set_slot, "itm_w_twohanded_sword_claymore_halfswording", slot_item_weapon_switch_to, "itm_w_twohanded_sword_claymore_mordhau"),    
+	(item_set_slot, "itm_w_twohanded_sword_claymore_mordhau", slot_item_weapon_switch_to, "itm_w_twohanded_sword_claymore"),    
+
+	(item_set_slot, "itm_w_twohanded_sword_danish", slot_item_weapon_switch_to, "itm_w_twohanded_sword_danish_halfswording"),    
+	(item_set_slot, "itm_w_twohanded_sword_danish_halfswording", slot_item_weapon_switch_to, "itm_w_twohanded_sword_danish_mordhau"),    
+	(item_set_slot, "itm_w_twohanded_sword_danish_mordhau", slot_item_weapon_switch_to, "itm_w_twohanded_sword_danish"),    
+
+	(item_set_slot, "itm_w_twohanded_sword_steward", slot_item_weapon_switch_to, "itm_w_twohanded_sword_steward_halfswording"),    
+	(item_set_slot, "itm_w_twohanded_sword_steward_halfswording", slot_item_weapon_switch_to, "itm_w_twohanded_sword_steward_mordhau"),    
+	(item_set_slot, "itm_w_twohanded_sword_steward_mordhau", slot_item_weapon_switch_to, "itm_w_twohanded_sword_steward"),    
+
+	(item_set_slot, "itm_w_twohanded_talhoffer", slot_item_weapon_switch_to, "itm_w_twohanded_talhoffer_halfswording"),    
+	(item_set_slot, "itm_w_twohanded_talhoffer_halfswording", slot_item_weapon_switch_to, "itm_w_twohanded_talhoffer_mordhau"),    
+	(item_set_slot, "itm_w_twohanded_talhoffer_mordhau", slot_item_weapon_switch_to, "itm_w_twohanded_talhoffer"),    
+
+	(item_set_slot, "itm_w_twohanded_sword_steward_2", slot_item_weapon_switch_to, "itm_w_twohanded_sword_steward_2_halfswording"),    
+	(item_set_slot, "itm_w_twohanded_sword_steward_2_halfswording", slot_item_weapon_switch_to, "itm_w_twohanded_sword_steward_2_mordhau"),    
+	(item_set_slot, "itm_w_twohanded_sword_steward_2_mordhau", slot_item_weapon_switch_to, "itm_w_twohanded_sword_steward_2"),    
+
+	(item_set_slot, "itm_w_twohanded_talhoffer_2", slot_item_weapon_switch_to, "itm_w_twohanded_talhoffer_2_halfswording"),    
+	(item_set_slot, "itm_w_twohanded_talhoffer_2_halfswording", slot_item_weapon_switch_to, "itm_w_twohanded_talhoffer_2_mordhau"),    
+	(item_set_slot, "itm_w_twohanded_talhoffer_2_mordhau", slot_item_weapon_switch_to, "itm_w_twohanded_talhoffer_2"),    
 ]),
 
 ####################################################################################################################
