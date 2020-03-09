@@ -3,6 +3,7 @@ from header_parties import *
 from ID_troops import *
 from ID_factions import *
 from ID_map_icons import *
+from dac_mercenary_company import mercenary_company_party_templates
 
 pmf_is_prisoner = 0x0001
 
@@ -162,3 +163,4 @@ party_templates = [
 #recruiter kit end
    ##diplomacy end
 ]
+party_templates = party_templates + mercenary_company_party_templates

@@ -1009,3 +1009,4 @@ script_custom_troop_detail_inventory_armoury = 1007
 script_dac_upgrade_player_camp = 1008
 script_improve_player_camp = 1009
 script_player_camp_get_improvement_details = 1010
+script_refresh_mercenary_camp_troops = 1011

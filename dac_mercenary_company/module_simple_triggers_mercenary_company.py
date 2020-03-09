@@ -70,6 +70,11 @@ mercenary_company_simple_triggers = [
         (try_end),
     (try_end),
     
+    (try_begin),
+        (eq, "$player_camp_built", 1),
+        (call_script, "script_refresh_mercenary_camp_troops"),
+    (try_end),
+    
     ]),
 
 ]

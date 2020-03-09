@@ -4,6 +4,7 @@ from module_game_menus_mercenary_company import *
 from module_presentations_mercenary_company import *
 from module_scripts_mercenary_company import *
 from module_simple_triggers_mercenary_company import *
+from module_party_templates_mercenary_company import *
 
 
 

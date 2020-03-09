@@ -45181,39 +45181,13 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 # DAC Kham: Custom Troops - Merc Camp Quartermaster
   [anyone,"start", [(eq,"$g_talk_troop","trp_merc_company_quartermaster"), (str_store_string, s33, "@Good day, Commander. What would you like to do today?^ (This is a test for Custom Troops, for the planned 'Mercenary Company' feature).")], "{s33}", "camp_quartermaster_start",[(assign, "$g_presentation_state", -1)]],
 
-  [anyone|plyr,"camp_quartermaster_start", 
-    [], 
-      "Any youngblood join the camp recently?", "camp_quartermaster_recruit",
-    []],
+  [anyone|plyr,"camp_quartermaster_start", [], "I wish to enlist some troops.", "camp_quartermaster_recruit",[]],
 
-  [anyone,"camp_quartermaster_recruit", 
-    [(call_script, "script_game_get_join_cost", "trp_custom_merc_recruit"),
-      (val_mul, reg0, 10),], 
-      "Aye... There are a few. Each one will cost {reg0} crowns. (Placeholder)", "camp_quartermaster_recruit_select", #placeholder. Will write script like refresh volunteers.
-    [ 
-    ]],
-
-  [anyone|plyr,"camp_quartermaster_recruit_select", 
-    [(store_troop_gold, ":gold", "trp_player"),
-     (ge, ":gold", reg0),], 
-      "Good. I'll take them all now.", "camp_quartermaster_recruit_take", #placeholder.
-    [(party_add_members, "p_main_party", "trp_custom_merc_recruit", 1),]],
-
-  [anyone|plyr,"camp_quartermaster_recruit_select", 
-    [(store_troop_gold, ":gold", "trp_player"),
-     (lt, ":gold", reg0),], 
-      "I don't have enough gold...", "camp_quartermaster_nevermind", #placeholder.
-    []],
-
-  [anyone|plyr,"camp_quartermaster_recruit_select", 
-    [], 
-      "Nevermind.", "camp_quartermaster_nevermind", #placeholder.
-    []],
-
-  [anyone,"camp_quartermaster_recruit_take", 
-    [], 
-      "Don't let them die all at once. ^Anything else?", "camp_quartermaster_start", #placeholder. Will write script like refresh volunteers.
-    []],
+  [anyone,"camp_quartermaster_recruit", [], "Certainly, let's see if there's some available.", "camp_quartermaster_nevermind",
+  [
+  (set_mercenary_source_party,"$g_talk_troop_party"),
+  (change_screen_buy_mercenaries)  
+  ]],
 
   [anyone|plyr,"camp_quartermaster_start", 
     [
@@ -45284,7 +45258,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 
   [anyone,"camp_quartermaster_nevermind", 
   [], 
-    "Ok then. Anything else?", "camp_quartermaster_start",
+    "Alright then. Anything else?", "camp_quartermaster_start",
   []],
 
   [anyone|plyr,"camp_quartermaster_start", [], "Nothing today. Carry on.", "camp_quartermaster_back",[]],

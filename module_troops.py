@@ -367,7 +367,7 @@ troops = [
 #Farmer Troop Tree continues after mercenaries.
 
 #Mercenaries Begin
-############################################################################################################## HYW New mercenaries
+############################################################################################################## DAC New mercenaries
 ### Generic Mercenaries
 ["watchman", "Watchman", "Watchmen", tf_guarantee_boots|tf_guarantee_armor, no_scene, reserved, fac_commoners, [itm_h_padded_coif_black,itm_h_padded_coif_blue,itm_h_padded_coif_brown,itm_h_padded_coif_green,itm_h_padded_coif_red,itm_h_padded_coif_white,itm_h_padded_coif_yellow,itm_a_gambeson_custom,itm_h_arming_cap,itm_h_simple_coif,itm_b_hosen_shoes_custom,itm_b_hosen_poulaines_custom,itm_tab_shield_kite_a,itm_w_spiked_club,itm_w_archers_maul,itm_w_archer_hatchet,itm_w_dagger_pikeman,itm_w_dagger_bollock,itm_w_fork_1,itm_w_fork_2], level(10)|str_12|agi_12, wpex(120,80,80,80,80,80), knows_ironflesh_2|knows_power_strike_2|knows_shield_1|knows_athletics_3|knows_weapon_master_1, swadian_face_young_1, swadian_face_old_2 ],
 ["caravan_guard", "Caravan_Guard", "Caravan_Guards", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_horse|tf_guarantee_shield, no_scene, reserved, fac_commoners, [itm_h_pot_helmet_hood_custom,itm_h_round_kettlehat_hood_custom,itm_h_kettlehat_hood_custom,itm_h_chapel_de_fer_1_hood_custom,itm_h_cerveliere_hood_custom,itm_h_bascinet_fi_hood_custom,itm_a_leather_armor_custom,itm_b_leather_boots,itm_a_leather_jerkin,itm_g_leather_gauntlet,itm_a_leather_vest_custom,itm_a_cloth_vest_custom,itm_w_spear_1,itm_w_spear_2,itm_w_spear_3,itm_w_spear_4,itm_w_spear_5,itm_w_onehanded_sword_a,itm_w_onehanded_sword_c,itm_w_onehanded_sword_c_small,itm_w_onehanded_sword_d,itm_w_mace_spiked,itm_w_mace_knobbed,itm_w_onehanded_war_axe_2,itm_w_onehanded_war_axe_3,itm_tab_shield_kite_b], level(15)|str_14|agi_14, wpex(140,80,80,80,80,80), knows_ironflesh_3|knows_power_strike_3|knows_shield_2|knows_athletics_3|knows_weapon_master_1, swadian_face_young_1, swadian_face_old_2 ],
@@ -402,7 +402,7 @@ troops = [
 ["mercenary_german_knight", "German Knight", "German Knights", tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_horse|tf_guarantee_shield|tf_guarantee_polearm, no_scene, reserved, fac_flemish_mercenaries, [itm_h_bascinet_great_fi,itm_h_klappvisier_pigface,itm_h_houndskull_fi,itm_a_gothic_armour_narf,itm_b_shynbaulds,itm_g_hourglass_gauntlets,itm_w_lance_1,itm_w_lance_2,itm_w_lance_3,itm_w_lance_4,itm_w_lance_5,itm_w_lance_6,itm_w_onehanded_sword_knight,itm_w_onehanded_sword_ritter,itm_w_onehanded_sword_knight_2,itm_w_onehanded_sword_ritter_2,itm_w_german_knight_axe,itm_w_german_knight_axe_2,itm_s_heater_shield_a2,itm_s_heater_shield_c1,itm_s_heater_shield_c2,itm_ho_horse_barded_brown,itm_ho_horse_barded_brown_chamfrom,itm_ho_horse_barded_black_chamfrom,itm_ho_horse_barded_black], level(30)|str_24|agi_24, wp_melee(220), knows_ironflesh_8|knows_power_strike_6|knows_shield_4|knows_athletics_4|knows_weapon_master_6|knows_riding_6, swadian_face_middle_1, swadian_face_older_2 ],
 ["mercenary_german_dismounted_knight", "German Dismounted Knight", "German Dismounted Knights", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm, no_scene, reserved, fac_flemish_mercenaries, [itm_h_zitta_bascinet,itm_h_hounskull_narf,itm_h_klappvisier_pigface,itm_h_klappvisier_pigface_open,itm_h_houndskull_fi,itm_a_early_transitional_narf_custom,itm_b_shynbaulds,itm_g_wisby_gauntlets_black,itm_g_wisby_gauntlets_red,itm_w_bastard_sword_german,itm_w_german_knight_axe,itm_w_german_knight_axe_2,itm_s_heater_shield_a2,itm_s_heater_shield_c1,itm_s_heater_shield_c2,itm_w_polehammer_lucern,itm_w_bec_de_corbin,itm_w_bastard_sword_german], level(30)|str_24|agi_24, wp_melee(220), knows_ironflesh_7|knows_power_strike_7|knows_shield_4|knows_athletics_4|knows_weapon_master_6, swadian_face_middle_1, swadian_face_older_2 ],
 
-############################################################################################################### HYW New Mercenaries End
+############################################################################################################### DAC New Mercenaries End
 ["genoese_crossbowman", "Genoese Crossbowman", "Genoese Crossbowmen", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield|tf_guarantee_ranged, no_scene, reserved, fac_neutral, [itm_h_barbute_1_mail,itm_h_barbute_2_mail,itm_h_bascinet_fi_mail,itm_h_sallet_mail,itm_h_cerveliere_mail,itm_a_corrazina_narf_custom,itm_b_leather_boots,itm_g_leather_gauntlet,itm_w_crossbow_siege,itm_w_bolt_bodkin,itm_w_bolt_broadhead,itm_tab_shield_pavise_e,itm_w_onehanded_sword_milanese,itm_w_onehanded_sword_italian,itm_w_onehanded_flachion_italian,itm_w_dagger_italian,itm_w_warhammer_2,itm_w_warhammer_1], level(22)|str_18|agi_16, wpex(140,80,80,80,180,80), knows_ironflesh_5|knows_power_strike_3|knows_shield_3|knows_athletics_3|knows_weapon_master_3, 0x000000000710a05236d26cbb59a5e6db00000000001db6db0000000000000000, 0x000000003e10b0d236d26cbb59a5e6db00000000001db6db0000000000000000 ],
 
 ["mercenaries_end","mercenaries_end","mercenaries_end",0,no_scene,reserved,fac_commoners,[],def_attrib|level(4),wp(60),knows_common,mercenary_face_1,mercenary_face_2],
@@ -452,7 +452,7 @@ troops = [
 ["french_castle_guard", "Castle Guard", "Castle Guards", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield, no_scene, reserved, fac_kingdom_1, [itm_h_bascinet_fi_hood_custom,itm_a_brigandine_bogmir_custom,itm_b_mail_chausses,itm_g_mail_gauntlets,itm_w_onehanded_sword_castellan], def_attrib|level(25), wp(130), knows_common|knows_shield_3|knows_ironflesh_3|knows_power_strike_3, french_face_mature_1, french_face_old_2 ],
 
 ##################################################################################################################################################################################################################################################################################################################
-###################################################################################################### HYW ENGLISH TROOPS ########################################################################################################################################################################################
+###################################################################################################### DAC ENGLISH TROOPS ########################################################################################################################################################################################
 ##################################################################################################################################################################################################################################################################################################################
 
 ### Archer Line
@@ -499,7 +499,7 @@ troops = [
 ["english_castle_guard", "Castle Guard", "Castle Guards", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield, no_scene, reserved, fac_kingdom_2, [itm_h_bascinet_fi_hood_custom,itm_a_brigandine_bogmir_custom,itm_b_mail_chausses,itm_g_mail_gauntlets,itm_w_onehanded_sword_castellan], def_attrib|level(24), wp(130), knows_athletics_3|knows_shield_2|knows_ironflesh_3, english_face_mature_1, english_face_old_2 ],
 
 ##################################################################################################################################################################################################################################################################################################################
-###################################################################################################### HYW BURGUNDIAN TROOPS #####################################################################################################################################################################################
+###################################################################################################### DAC BURGUNDIAN TROOPS #####################################################################################################################################################################################
 ##################################################################################################################################################################################################################################################################################################################
 
 ### Archer Line
@@ -547,7 +547,7 @@ troops = [
 ["burgundian_castle_guard", "Burgundian Castle Guard", "Burgundian Castle Guards", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield, no_scene, reserved, fac_kingdom_3, [itm_h_bascinet_fi_hood_custom,itm_a_brigandine_bogmir_custom,itm_b_mail_boots,itm_g_mail_gauntlets,itm_w_onehanded_sword_castellan_2], def_attrib|level(24), wp(130), knows_athletics_1|knows_shield_2|knows_ironflesh_1, burgundian_face_mature_1, burgundian_face_old_2 ],
 
 ##################################################################################################################################################################################################################################################################################################################
-###################################################################################################### HYW BRETON TROOPS #########################################################################################################################################################################################
+###################################################################################################### DAC BRETON TROOPS #########################################################################################################################################################################################
 ##################################################################################################################################################################################################################################################################################################################
 
 ### Archer Line
@@ -593,7 +593,7 @@ troops = [
 ["breton_castle_guard", "Dungeon Guard", "Dungeon Guards", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield, no_scene, reserved, fac_kingdom_4, [itm_h_bascinet_fi_hood_custom,itm_a_brigandine_bogmir_custom,itm_b_mail_chausses,itm_g_mail_gauntlets,itm_w_onehanded_sword_castellan_2], def_attrib|level(24), wp(130), knows_athletics_1|knows_shield_2|knows_ironflesh_1, breton_face_mature_1, breton_face_old_2 ],
 
 ##################################################################################################################################################################################################################################################################################################################
-###################################################################################################### HYW BANDIT TROOPS #########################################################################################################################################################################################
+###################################################################################################### DAC BANDIT TROOPS #########################################################################################################################################################################################
 ##################################################################################################################################################################################################################################################################################################################
 
 ### Routiers
@@ -840,7 +840,7 @@ troops = [
 # ["kingdom_6_lord",  "Sultan Hakim",  "Hakim",  tf_hero, 0,reserved,  fac_kingdom_6,[itm_warhorse_sarranid,     itm_mamluke_mail,          itm_sarranid_boots_c,       itm_sarranid_mail_coif,  itm_mail_mittens,      itm_sarranid_cavalry_sword,    itm_tab_shield_small_round_c],         knight_attrib_4,wp(220),knight_skills_5|knows_trainer_5, 0x0000000a4b103354189c71d6d386e8ac00000000001e24eb0000000000000000, rhodok_face_old_2],
 
 ##################################################################################################################################################################################################################################################################################################################
-###################################################################################################### HYW FRENCH LORDS ##########################################################################################################################################################################################
+###################################################################################################### DAC FRENCH LORDS ##########################################################################################################################################################################################
 ##################################################################################################################################################################################################################################################################################################################
 
 ["knight_1_1", "Jean II d'Alençon, Duc d'Alençon", "Jean d'Alençon", tf_hero, no_scene, reserved, fac_kingdom_1, [itm_w_lance_colored_french_1_heraldic,itm_tab_shield_heater_cav_b,itm_ho_horse_barded_blue_chamfrom,itm_h_zitta_bascinet_novisor,itm_heraldic_early_transitional,itm_b_splinted_greaves_spurs,itm_g_wisby_gauntlets_black,itm_b_hosen_shoes_custom,itm_a_tabard_heraldic,itm_w_bastard_sword_crecy], lord_attrib, wp(380), knows_lord_1, 0x000000002110c00b555b95c4a36ec68c00000000001e464c0000000000000000, 0x000000002110c00b555b95c4a36ec68c00000000001e464c0000000000000000 ],
@@ -904,7 +904,7 @@ troops = [
 ["knight_1_54", "Nicolas de Giresme, Chevalier Hospitalier de Rhodes, Commandeur de la Croix-en-Brie", "Nicolas de Giresme", tf_hero, no_scene, reserved, fac_kingdom_1, [itm_w_lance_colored_french_1_heraldic,itm_tab_shield_heater_cav_b,itm_ho_horse_barded_blue_chamfrom,itm_h_hounskull_narf,itm_heraldic_brigandine_narf_padded_jackchain_full_plate_hose_custom,itm_b_shynbaulds,itm_g_hourglass_gauntlets,itm_b_hosen_shoes_custom,itm_a_tabard_heraldic,itm_w_bastard_sword_sempach_2], lord_attrib, wp(380), knows_lord_1, 0x00000004ff08100554da6656a26d293300000000001ea36b0000000000000000, 0x00000004ff08100554da6656a26d293300000000001ea36b0000000000000000 ],
 
 ##################################################################################################################################################################################################################################################################################################################
-###################################################################################################### HYW ENGLISH LORDS #########################################################################################################################################################################################
+###################################################################################################### DAC ENGLISH LORDS #########################################################################################################################################################################################
 ##################################################################################################################################################################################################################################################################################################################
 
 ["knight_2_1", "John Talbot, Baron Talbot and Furnival", "John Talbot", tf_hero, no_scene, reserved, fac_kingdom_2, [itm_tab_shield_heater_cav_b,itm_w_lance_colored_english_2_heraldic,itm_ho_horse_barded_red_chamfrom,itm_h_zitta_bascinet,itm_heraldic_brigandine_native,itm_b_shynbaulds,itm_g_demi_gauntlets,itm_b_hosen_shoes_custom,itm_a_tabard_heraldic,itm_w_bastard_sword_english], lord_attrib, wp(380), knows_lord_1, 0x00000008b80810025b2b70b96c824b9500000000001f151b0000000000000000, 0x00000008b80810025b2b70b96c824b9500000000001f151b0000000000000000 ],
@@ -966,7 +966,7 @@ troops = [
 ["knight_2_52", "Sir Richard Hankford", "Richard Hankford", tf_hero, no_scene, reserved, fac_kingdom_2, [itm_tab_shield_heater_cav_b,itm_w_lance_colored_english_3_heraldic,itm_ho_horse_barded_red_chamfrom,itm_h_hounskull_narf,itm_heraldic_brigandine_native,itm_b_shynbaulds,itm_g_hourglass_gauntlets,itm_b_hosen_shoes_custom,itm_a_tabard_heraldic,itm_w_bastard_sword_duke_2], lord_attrib, wp(380), knows_lord_1, 0x00000005bc00100438f3319a8c5464e100000000001e44e30000000000000000, 0x00000005bc00100438f3319a8c5464e100000000001e44e30000000000000000 ],
 
 ##################################################################################################################################################################################################################################################################################################################
-###################################################################################################### HYW BURGUNDIAN LORDS ######################################################################################################################################################################################
+###################################################################################################### DAC BURGUNDIAN LORDS ######################################################################################################################################################################################
 ##################################################################################################################################################################################################################################################################################################################
 
 ["knight_3_1", "Antoine de Toulongeon, Seigneur de Buxy, La Bastie, Montrichard et de Traves", "Antoine de Toulongeon", tf_hero, no_scene, reserved, fac_kingdom_3, [itm_tab_shield_heater_cav_b,itm_w_lance_2_heraldic,itm_ho_horse_barded_brown_chamfrom,itm_h_zitta_bascinet,itm_heraldic_brigandine_narf_plate_disc_mail_full_plate_hose_custom,itm_b_shynbaulds,itm_g_hourglass_gauntlets_ornate,itm_b_hosen_shoes_custom,itm_a_tabard_heraldic,itm_w_bastard_sword_d], lord_attrib, wp(380), knows_lord_1, 0x0000000a3f0c600b54db6fb4db46524200000000001da35d0000000000000000, 0x0000000a3f0c600b54db6fb4db46524200000000001da35d0000000000000000 ],
@@ -992,7 +992,7 @@ troops = [
 ["knight_3_20", "Thibaud VI de Rougemont, Vicomte de Besançon, Seigneur de Rougemont", "Thibaud VI de Rougemont", tf_hero, no_scene, reserved, fac_kingdom_3, [itm_tab_shield_heater_cav_b,itm_w_lance_4_heraldic,itm_ho_horse_barded_brown_chamfrom,itm_h_zitta_bascinet_novisor,itm_heraldic_early_transitional,itm_b_splinted_greaves_spurs,itm_g_wisby_gauntlets_black,itm_b_hosen_shoes_custom,itm_a_tabard_heraldic,itm_w_bastard_sword_regent], lord_attrib, wp(380), knows_lord_1, 0x000000055604108d49237ab8ec70c55b00000000001d36590000000000000000, 0x000000055604108d49237ab8ec70c55b00000000001d36590000000000000000 ],
 
 ##################################################################################################################################################################################################################################################################################################################
-###################################################################################################### HYW BRETON LORDS ##########################################################################################################################################################################################
+###################################################################################################### DAC BRETON LORDS ##########################################################################################################################################################################################
 ##################################################################################################################################################################################################################################################################################################################
 
 ["knight_4_1", "Arthur de Richemont, Connétable de Richemont", "Arthur de Richemont", tf_hero, no_scene, reserved, fac_kingdom_4, [itm_tab_shield_heater_cav_b,itm_w_lance_1_heraldic,itm_ho_horse_barded_black_chamfrom,itm_h_zitta_bascinet_novisor,itm_heraldic_jupon,itm_b_splinted_greaves_spurs,itm_g_wisby_gauntlets_black,itm_b_hosen_shoes_custom,itm_a_tabard_heraldic,itm_w_bastard_sword_d], lord_attrib, wp(380), knows_lord_1, 0x0000000c560430004d0b2e7a5e8c1da400000000001eb7620000000000000000, 0x0000000c560430004d0b2e7a5e8c1da400000000001eb7620000000000000000 ],
@@ -1035,7 +1035,10 @@ troops = [
 
 ["knight_1_1_wife", "Error - knight_1_1_wife should not appear in game", "knight_1_1_wife", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_commoners, [], def_attrib|level(2), wp(50), knows_common|knows_riding_2, 0x000000055910200107632d675a92b92d00000000001e45620000000000000000 ],
 
-#Swadian ladies - eight mothers, eight daughters, four sisters
+##################################################################################################################################################################################################################################################################################################################
+###################################################################################################### DAC FRENCH LADIES ##########################################################################################################################################################################################
+##################################################################################################################################################################################################################################################################################################################
+
 ["kingdom_1_lady_1", "Jeanne d'Orléans", "Jeanne d'Orléans", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_1, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_1], def_attrib|level(2), wp(50), knows_common|knows_riding_2, 0x00000000000050010558b239244d94d100000000001d98e30000000000000000 ],
 ["kingdom_1_lady_2", "Marie d'Anjou", "Marie d'Anjou", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_1, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_2], def_attrib|level(2), wp(50), knows_common|knows_riding_2, 0x0000000000005002469b6e24e44e324b00000000001da6d30000000000000000 ],
 ["kingdom_1_lady_3", "Catherine de Thouars", "Catherine de Thouars", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_1, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_3], def_attrib|level(2), wp(50), knows_common|knows_riding_2, 0x0000000000000003469b6e24e44e324b00000000001da6d30000000000000000 ],
@@ -1046,6 +1049,7 @@ troops = [
 ["kingdom_1_lady_8", "Agnès de Bueil", "Agnès de Bueil", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_1, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_5], def_attrib|level(2), wp(50), knows_common|knows_riding_2, 0x0000000014002004391aca36dc12249300000000001da6db0000000000000000 ],
 ["kingdom_1_lady_9", "Isabelle de Lorraine", "Isabelle de Lorraine", tf_female|tf_hero|tf_randomize_face|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_1, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_4], def_attrib|level(2), wp(50), knows_common|knows_riding_2, swadian_woman_face_1, swadian_woman_face_2 ],
 ["kingdom_1_lady_10", "Jeanne de Montjean", "Jeanne de Montjean", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_1, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_3], def_attrib|level(2), wp(50), knows_common|knows_riding_2, 0x000000001200300236d9edb6dc41379800000000001db6db0000000000000000 ],
+
 ["kingdom_1_lady_11", "Jeanne de Châtillon", "Jeanne de Châtillon", tf_female|tf_hero|tf_randomize_face|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_1, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_2], def_attrib|level(2), wp(50), knows_common|knows_riding_2, swadian_woman_face_1, swadian_woman_face_2 ],
 ["kingdom_1_lady_12", "Catherine de Laval", "Catherine de Laval", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_1, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_1], def_attrib|level(2), wp(50), knows_common|knows_riding_2, 0x000000095400400224db8a18db7136d300000000001db6eb0000000000000000 ],
 ["kingdom_1_lady_13", "Marie d'Armagnac", "Marie d'Armagnac", tf_female|tf_hero|tf_randomize_face|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_1, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_6], def_attrib|level(2), wp(50), knows_common|knows_riding_2, swadian_woman_face_1, swadian_woman_face_2 ],
@@ -1057,7 +1061,6 @@ troops = [
 ["kingdom_1_lady_19", "Anne de Launay", "Anne de Launay", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_1, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_2], def_attrib|level(2), wp(50), knows_common|knows_riding_2, swadian_woman_face_1 ],
 ["kingdom_1_lady_20", "Jeanne de Joyeuse", "Jeanne de Joyeuse", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_1, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_3], def_attrib|level(2), wp(50), knows_common|knows_riding_2, swadian_woman_face_2 ],
 
-#New French ladies
 ["kingdom_1_lady_21", "Jacquette du Peschin", "Jacquette du Peschin", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_1, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_3], def_attrib|level(2), wp(50), knows_common|knows_riding_2, swadian_woman_face_2 ],
 ["kingdom_1_lady_22", "Isabelle de Navarre", "Isabelle de Navarre", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_1, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_3], def_attrib|level(2), wp(50), knows_common|knows_riding_2, swadian_woman_face_2 ],
 ["kingdom_1_lady_23", "Eléonore de Bourbon", "Eléonore de Bourbon", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_1, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_3], def_attrib|level(2), wp(50), knows_common|knows_riding_2, swadian_woman_face_2 ],
@@ -1068,6 +1071,7 @@ troops = [
 ["kingdom_1_lady_28", "Gabrielle de Lastic", "Gabrielle de Lastic", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_1, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_3], def_attrib|level(2), wp(50), knows_common|knows_riding_2, swadian_woman_face_2 ],
 ["kingdom_1_lady_29", "Cécile d'Altier", "Cécile d'Altier", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_1, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_3], def_attrib|level(2), wp(50), knows_common|knows_riding_2, swadian_woman_face_2 ],
 ["kingdom_1_lady_30", "Marguerite de Corbie", "Marguerite de Corbie", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_1, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_3], def_attrib|level(2), wp(50), knows_common|knows_riding_2, swadian_woman_face_2 ],
+
 ["kingdom_1_lady_31", "Anne de Montlaur", "Anne de Montlaur", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_1, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_3], def_attrib|level(2), wp(50), knows_common|knows_riding_2, swadian_woman_face_2 ],
 ["kingdom_1_lady_32", "Blanche de Gimel", "Blanche de Gimel", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_1, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_3], def_attrib|level(2), wp(50), knows_common|knows_riding_2, swadian_woman_face_2 ],
 ["kingdom_1_lady_33", "Isabeau de Lignières", "Isabeau de Lignières", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_1, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_3], def_attrib|level(2), wp(50), knows_common|knows_riding_2, swadian_woman_face_2 ],
@@ -1078,6 +1082,7 @@ troops = [
 ["kingdom_1_lady_38", "Denise Pisdoë", "Denise Pisdoë", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_1, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_3], def_attrib|level(2), wp(50), knows_common|knows_riding_2, swadian_woman_face_2 ],
 ["kingdom_1_lady_39", "Isabeau de la Tour d'Auvergne", "Isabeau de la Tour d'Auvergne", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_1, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_3], def_attrib|level(2), wp(50), knows_common|knows_riding_2, swadian_woman_face_2 ],
 ["kingdom_1_lady_40", "Bonne d'Armagnac", "Bonne d'Armagnac", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_1, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_3], def_attrib|level(2), wp(50), knows_common|knows_riding_2, swadian_woman_face_2 ],
+
 ["kingdom_1_lady_41", "Corneille de Barbazan", "Corneille de Barbazan", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_1, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_3], def_attrib|level(2), wp(50), knows_common|knows_riding_2, swadian_woman_face_2 ],
 ["kingdom_1_lady_42", "Jeanne de Chailly", "Jeanne de Chailly", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_1, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_3], def_attrib|level(2), wp(50), knows_common|knows_riding_2, swadian_woman_face_2 ],
 ["kingdom_1_lady_43", "Blanche de Gamaches", "Blanche de Gamaches", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_1, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_3], def_attrib|level(2), wp(50), knows_common|knows_riding_2, swadian_woman_face_2 ],
@@ -1088,12 +1093,16 @@ troops = [
 ["kingdom_1_lady_48", "Jehannette de Bourbon", "Jehannette de Bourbon", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_1, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_3], def_attrib|level(2), wp(50), knows_common|knows_riding_2, swadian_woman_face_2 ],
 ["kingdom_1_lady_49", "Johaneta de Foix", "Johaneta de Foix", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_1, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_3], def_attrib|level(2), wp(50), knows_common|knows_riding_2, swadian_woman_face_2 ],
 ["kingdom_1_lady_50", "Jacqueline de Lignières", "Jacqueline de Lignières", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_1, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_3], def_attrib|level(2), wp(50), knows_common|knows_riding_2, swadian_woman_face_2 ],
+
 ["kingdom_1_lady_51", "Jeanne de Poitiers", "Jeanne de Poitiers", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_1, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_3], def_attrib|level(2), wp(50), knows_common|knows_riding_2, swadian_woman_face_2 ],
 ["kingdom_1_lady_52", "Marguerite d'Harcourt", "Marguerite d'Harcourt", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_1, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_3], def_attrib|level(2), wp(50), knows_common|knows_riding_2, swadian_woman_face_2 ],
 ["kingdom_1_lady_53", "Dauphine de Murol", "Dauphine de Murol", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_1, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_3], def_attrib|level(2), wp(50), knows_common|knows_riding_2, swadian_woman_face_2 ],
 ["kingdom_1_lady_54", "Louise de Chalençon-Polignac", "Louise de Chalençon-Polignac", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_1, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_3], def_attrib|level(2), wp(50), knows_common|knows_riding_2, swadian_woman_face_2 ],
 
-#Vaegir ladies
+##################################################################################################################################################################################################################################################################################################################
+###################################################################################################### DAC ENGLISH LADIES ##########################################################################################################################################################################################
+##################################################################################################################################################################################################################################################################################################################
+
 ["kingdom_2_lady_1", "Margareth Beauchamp", "Margareth Beauchamp", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_2, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_4], def_attrib|level(2), wp(50), knows_common|knows_riding_2, 0x000000000400100324da81a6dd6ca6d200000000001dc7130000000000000000 ],
 ["kingdom_2_lady_2", "Millicent Tibetot", "Millicent Tibetot", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_2, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_5], def_attrib|level(2), wp(50), knows_common|knows_riding_2, 0x000000000400200324da81a6dd6ca6d200000000001dc7130000000000000000 ],
 ["kingdom_2_lady_3", "Alice Chaucer", "Alice Chaucer", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_2, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_6], def_attrib|level(2), wp(50), knows_common|knows_riding_2, 0x0000000ac400200424da81a6dd6ca6d200000000001dc7130000000000000000 ],
@@ -1104,6 +1113,7 @@ troops = [
 ["kingdom_2_lady_8", "Eleanor Beauchamp", "Eleanor Beauchamp", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_2, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_2], def_attrib|level(2), wp(50), knows_common|knows_riding_2, 0x000000094400000124da81a6dd6ca6d200000000001dc7130000000000000000 ],
 ["kingdom_2_lady_9", "Katherine Neville", "Katherine Neville", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_2, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_1], def_attrib|level(2), wp(50), knows_common|knows_riding_2, 0x0000000d4400400124da81a6dd6ca6d200000000001dc7130000000000000000 ],
 ["kingdom_2_lady_10", "Elizabeth Grey", "Elizabeth Grey", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_2, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_1], def_attrib|level(2), wp(50), knows_common|knows_riding_2, 0x00000003ff00500124da81a6dd6ca6d200000000001dc7130000000000000000 ],
+
 ["kingdom_2_lady_11", "Anne Neville", "Anne Neville", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_2, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_2], def_attrib|level(2), wp(50), knows_common|knows_riding_2, 0x000000002d04500654e1722b8b2dbe1600000000000c97510000000000000000 ],
 ["kingdom_2_lady_12", "Joan Grey", "Joan Grey", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_2, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_3], def_attrib|level(2), wp(50), knows_common|knows_riding_2, 0x000000001c1030012722c6cba169b69300000000001daca90000000000000000 ],
 ["kingdom_2_lady_13", "Joan de Astley", "Joan de Astley", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_2, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_4], def_attrib|level(2), wp(50), knows_common|knows_riding_2, 0x000000000b080004593385a723755cdd00000000000c9b640000000000000000 ],
@@ -1115,7 +1125,6 @@ troops = [
 ["kingdom_2_lady_19", "Elizabeth Woodville", "Elizabeth Woodville", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_2, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_3], def_attrib|level(2), wp(50), knows_common|knows_riding_2, 0x000000003f04000645a13b379251b6de00000000001d92a30000000000000000 ],
 ["kingdom_2_lady_20", "Joan Woodville", "Joan Woodville",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2,  [ itm_b_hosen_shoes_custom,itm_a_woman_court_dress_5], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000000e0000013b178a366cf6c8db00000000001724890000000000000000],
 
-#New English ladies
 ["kingdom_2_lady_21","Joan Bittlesgate","Joan Bittlesgate",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2,  [ itm_b_hosen_shoes_custom,itm_a_woman_court_dress_5], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000000e0000013b178a366cf6c8db00000000001724890000000000000000],
 ["kingdom_2_lady_22","Mary Oldhall","Mary Oldhall",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2,  [ itm_b_hosen_shoes_custom,itm_a_woman_court_dress_5], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000000e0000013b178a366cf6c8db00000000001724890000000000000000],
 ["kingdom_2_lady_23","Eleanor Holland","Eleanor Holland",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2,  [ itm_b_hosen_shoes_custom,itm_a_woman_court_dress_5], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000000e0000013b178a366cf6c8db00000000001724890000000000000000],
@@ -1126,6 +1135,7 @@ troops = [
 ["kingdom_2_lady_28","Anne Stafford","Anne Stafford",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2,  [ itm_b_hosen_shoes_custom,itm_a_woman_court_dress_5], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000000e0000013b178a366cf6c8db00000000001724890000000000000000],
 ["kingdom_2_lady_29","Elizabeth Courtenay","Elizabeth Courtenay",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2,  [ itm_b_hosen_shoes_custom,itm_a_woman_court_dress_5], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000000e0000013b178a366cf6c8db00000000001724890000000000000000],
 ["kingdom_2_lady_30","Jane Gonville","Jane Gonville",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2,  [ itm_b_hosen_shoes_custom,itm_a_woman_court_dress_5], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000000e0000013b178a366cf6c8db00000000001724890000000000000000],
+
 ["kingdom_2_lady_31","Margareth Moythe","Margareth Moythe",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2,  [ itm_b_hosen_shoes_custom,itm_a_woman_court_dress_5], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000000e0000013b178a366cf6c8db00000000001724890000000000000000],
 ["kingdom_2_lady_32","Katherine Howard of Trending","Katherine Howard of Trending",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2,  [ itm_b_hosen_shoes_custom,itm_a_woman_court_dress_5], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000000e0000013b178a366cf6c8db00000000001724890000000000000000],
 ["kingdom_2_lady_33","Margery Gresley","Margery Gresley",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2,  [ itm_b_hosen_shoes_custom,itm_a_woman_court_dress_5], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000000e0000013b178a366cf6c8db00000000001724890000000000000000],
@@ -1136,6 +1146,7 @@ troops = [
 ["kingdom_2_lady_38","Maud Lovell","Maud Lovell",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2,  [ itm_b_hosen_shoes_custom,itm_a_woman_court_dress_5], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000000e0000013b178a366cf6c8db00000000001724890000000000000000],
 ["kingdom_2_lady_39","Isabel of Cambridge of York","Isabel of Cambridge of York",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2,  [ itm_b_hosen_shoes_custom,itm_a_woman_court_dress_5], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000000e0000013b178a366cf6c8db00000000001724890000000000000000],
 ["kingdom_2_lady_40","Jane Kerdeston","Jane Kerdeston",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2,  [ itm_b_hosen_shoes_custom,itm_a_woman_court_dress_5], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000000e0000013b178a366cf6c8db00000000001724890000000000000000],
+
 ["kingdom_2_lady_41","Elizabeth Bourchier","Elizabeth Bourchier",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2,  [ itm_b_hosen_shoes_custom,itm_a_woman_court_dress_5], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000000e0000013b178a366cf6c8db00000000001724890000000000000000],
 ["kingdom_2_lady_42","Isabeau de Preissac","Isabeau de Preissac",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2,  [ itm_b_hosen_shoes_custom,itm_a_woman_court_dress_5], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000000e0000013b178a366cf6c8db00000000001724890000000000000000],
 ["kingdom_2_lady_43","Jouyne de Pommiers","Jouyne de Pommiers",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2,  [ itm_b_hosen_shoes_custom,itm_a_woman_court_dress_5], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000000e0000013b178a366cf6c8db00000000001724890000000000000000],
@@ -1146,12 +1157,14 @@ troops = [
 ["kingdom_2_lady_48","Judiote de Durfort","Judiote de Durfort",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2,  [ itm_b_hosen_shoes_custom,itm_a_woman_court_dress_5], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000000e0000013b178a366cf6c8db00000000001724890000000000000000],
 ["kingdom_2_lady_49","Margaret Warren","Margaret Warren",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2,  [ itm_b_hosen_shoes_custom,itm_a_woman_court_dress_5], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000000e0000013b178a366cf6c8db00000000001724890000000000000000],
 ["kingdom_2_lady_50","Joan Warren","Joan Warren",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2,  [ itm_b_hosen_shoes_custom,itm_a_woman_court_dress_5], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000000e0000013b178a366cf6c8db00000000001724890000000000000000],
+
 ["kingdom_2_lady_51","Margery de Bulkeley","Margery de Bulkeley",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2,  [ itm_b_hosen_shoes_custom,itm_a_woman_court_dress_5], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000000e0000013b178a366cf6c8db00000000001724890000000000000000],
 ["kingdom_2_lady_52","Anne Montacute","Anne Montacute",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2,  [ itm_b_hosen_shoes_custom,itm_a_woman_court_dress_5], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000000e0000013b178a366cf6c8db00000000001724890000000000000000],
 ["kingdom_2_lady_53","Anne de Bourgogne","Anne de Bourgogne",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2,  [ itm_b_hosen_shoes_custom,itm_a_woman_court_dress_5], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000000e0000013b178a366cf6c8db00000000001724890000000000000000],
-#["kingdom_2_lady_54","Lady Valka","Valka",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2,  [ itm_b_hosen_shoes_custom,itm_a_woman_court_dress_5], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000000e0000013b178a366cf6c8db00000000001724890000000000000000],
 
-
+##################################################################################################################################################################################################################################################################################################################
+###################################################################################################### DAC BURGUNDIAN LADIES ##########################################################################################################################################################################################
+##################################################################################################################################################################################################################################################################################################################
 
 ["kingdom_3_lady_1","Béatrice de Saint-Chéron","Béatrice de Saint-Chéron",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_3, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_2 ],    def_attrib|level(2),wp(50),knows_common|knows_riding_2, khergit_woman_face_1],
 ["kingdom_3_lady_2","Corneille de Bourgogne","Corneille de Bourgogne",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_3, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_3 ],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000001000500556d991bcd53248f1000000000011c30c0000000000000000],
@@ -1163,6 +1176,7 @@ troops = [
 ["kingdom_3_lady_8","Agnès de Saulx ","Agnès de Saulx ",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_3,  [ itm_b_hosen_shoes_custom,itm_a_woman_court_dress_3], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x00000006d508200763a2b538a2c93ad500000000001639550000000000000000],
 ["kingdom_3_lady_9","Catherine d'Anguissola","Catherine d'Anguissola",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_3, [ itm_b_hosen_shoes_custom,itm_a_woman_court_dress_3 ],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x00000006c50000012b7b7218eed5a6a300000000001de85a0000000000000000],
 ["kingdom_3_lady_10","Jeanne de Vallangoujard","Jeanne de Vallangoujard",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_3, [ itm_b_hosen_shoes_custom,itm_a_woman_court_dress_2],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x00000006db1010063ae491e6632a389a00000000000e54e20000000000000000],
+
 ["kingdom_3_lady_11","Marie-Marguerite de Montagu","Marie-Marguerite de Montagu",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_3,  [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_1 ], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x00000006c30c5001464c6ddb2c95a6d900000000001ce8b30000000000000000],
 ["kingdom_3_lady_12","Marie du Bois","Marie du Bois",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_3,  [ itm_b_hosen_shoes_custom,itm_a_woman_court_dress_2],   def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x00000006ea04300336ec9749624f28e5000000000002d5040000000000000000],
 ["kingdom_3_lady_13","Jacqueline d'Amboise","Jacqueline d'Amboise",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_3, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_3 ],      def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x00000006d91010053c338cb51b6cccc9000000000009b6d10000000000000000],
@@ -1174,10 +1188,12 @@ troops = [
 ["kingdom_3_lady_19","Margaretha van der Clite","Margaretha van der Clite",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_3,  [ itm_b_hosen_shoes_custom,itm_a_woman_court_dress_1],   def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x00000006f41050051d35c8c70a4f371300000000001356690000000000000000],
 ["kingdom_3_lady_20","Ermengarde de Rougemont","Ermengarde de Rougemont",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_3,  [ itm_b_hosen_shoes_custom,itm_a_woman_court_dress_2],   def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x00000006fd101003459b6bb8ac8ef663000000000011cae70000000000000000],
 
-# New Burgundian Ladies
 ["kingdom_3_lady_21","Marianne de Brimeu","Marianne de Brimeu",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_3,  [ itm_b_hosen_shoes_custom,itm_a_woman_court_dress_2],   def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x00000006fd101003459b6bb8ac8ef663000000000011cae70000000000000000],
 
-#1429
+##################################################################################################################################################################################################################################################################################################################
+###################################################################################################### DAC BRETON LADIES ##########################################################################################################################################################################################
+##################################################################################################################################################################################################################################################################################################################
+
 ["kingdom_4_lady_1","Marguerite de Bourgogne","Marguerite de Bourgogne",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_4, [  itm_b_hosen_shoes_custom,itm_a_woman_court_dress_1     ],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x00000006c0044003235cacbef38ea8d600000000001e08dd0000000000000000],
 ["kingdom_4_lady_2","Marguerite d'Orléans","Marguerite d'Orléans",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_4, [  itm_b_hosen_shoes_custom,itm_a_woman_court_dress_2     ],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x00000006c50850022d1b86b674cd3d4900000000001cc6550000000000000000],
 ["kingdom_4_lady_3","Marguerite de Malestroit","Marguerite de Malestroit",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_4,  [ itm_b_hosen_shoes_custom,itm_a_woman_court_dress_3    ], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x00000006e404200537968e4ead8e2d1a00000000001d279f0000000000000000],
@@ -1188,6 +1204,7 @@ troops = [
 ["kingdom_4_lady_8","Isabelle de Bretagne","Isabelle de Bretagne",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_4,  [  itm_b_hosen_shoes_custom,itm_a_woman_court_dress_2    ], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000a830c30046adbd6b8e486b6a600000000000ec76b0000000000000000],
 ["kingdom_4_lady_9","Jacquette de Bretagne","Jacquette de Bretagne",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_4, [  itm_b_hosen_shoes_custom,itm_a_woman_court_dress_1    ],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000a9b00200547a475589b75e924000000000009990b0000000000000000],
 ["kingdom_4_lady_10","Katell Penmarc'h","Katell Penmarc'h",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_4, [      itm_b_hosen_shoes_custom,itm_a_woman_court_dress_2 ],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000abd10000228d4922b726a98e400000000001f57330000000000000000],
+
 ["kingdom_4_lady_11","Catherine du Guesclin","Catherine du Guesclin",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_4,  [ itm_b_hosen_shoes_custom,itm_a_woman_court_dress_3     ], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000a8f0c2004575caa2b1e92494c0000000000066b640000000000000000],
 ["kingdom_4_lady_12","Gwendoline de Coëtquen","Gwendoline de Coëtquen",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_4,  [   itm_b_hosen_shoes_custom,itm_a_woman_court_dress_4   ], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000a81045001389d29b96a89c7220000000000090b9a0000000000000000],
 ["kingdom_4_lady_13","Jeanne de Lespervez","Jeanne de Lespervez",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_4, [    itm_b_hosen_shoes_custom,itm_a_woman_court_dress_5   ],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x00000007c004300268a4819524652c5b00000000001cd9530000000000000000],
@@ -1197,90 +1214,7 @@ troops = [
 ["kingdom_4_lady_17","Marguerite de Châteaugiron-Malestroit","Marguerite de Châteaugiron-Malestroit",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_4, [       itm_b_hosen_shoes_custom,itm_a_woman_court_dress_3 ],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000001200200538dca6b8dd8d36d200000000001ca72b0000000000000000],
 ["kingdom_4_lady_18","Jeanne du Plessis-Anger","Jeanne du Plessis-Anger",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_4, [       itm_b_hosen_shoes_custom,itm_a_woman_court_dress_3],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000001200300236d9edb6dc41379800000000001db6db0000000000000000],
 
-#["kingdom_4_lady_19","Lady Alfrun","Alfrun",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_3,  [   itm_b_hosen_shoes_custom,itm_a_woman_court_dress_5   ], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x00000000000050010558b239244d94d100000000001d98e30000000000000000],
-#["kingdom_4_lady_20","Lady Afrid","Afrid",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_3,  [   itm_b_hosen_shoes_custom,itm_a_woman_court_dress_6   ], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000000005002469b6e24e44e324b00000000001da6d30000000000000000],
-
-
-# ["kingdom_5_lady_1","Lady Brina","Brina",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_3, [     itm_b_hosen_shoes_custom,itm_a_woman_court_dress_1     ],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000000000003469b6e24e44e324b00000000001da6d30000000000000000],
-# ["kingdom_5_lady_2","Lady Aliena","Aliena",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_3, [      itm_b_hosen_shoes_custom,itm_a_woman_court_dress_2     ],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000017002003391aca36dc12249300000000001da6db0000000000000000],
-# ["kingdom_5_lady_3","Lady Aneth","Aneth",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_3,  [   itm_b_hosen_shoes_custom,itm_a_woman_court_dress_3   ], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000014002004391aca36dc12249300000000001da6db0000000000000000],
-# ["kingdom_5_lady_4","Lady Reada","Reada",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_3,  [    itm_b_hosen_shoes_custom,itm_a_woman_court_dress_4  ], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x00000008940030063918ea36dc12249300000000001da6db0000000000000000],
-# ["kingdom_5_5_wife","Lady Saraten","Saraten",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2, [    itm_b_hosen_shoes_custom,itm_a_woman_court_dress_5     ],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, swadian_woman_face_1],
-# ["kingdom_5_2b_wife_1","Lady Baotheia","Baotheia",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_6    ],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000095400400224db8a18db7136d300000000001db6eb0000000000000000],
-# ["kingdom_5_1c_daughter_1","Lady Eleandra","Eleandra",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2,  [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_2       ], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000c3c00000524db8a18db7136d300000000001db6eb0000000000000000],
-# ["kingdom_5_2c_daughter_1","Lady Meraced","Meraced",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2,  [    itm_b_hosen_shoes_custom,itm_a_woman_court_dress_1   ], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000003c00100424db6218db7136d300000000001db6eb0000000000000000],
-# ["kingdom_5_1c_wife_1","Lady Adelisa","Adelisa",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2, [    itm_b_hosen_shoes_custom,itm_a_woman_court_dress_3    ],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000000400000224da81a6dd6ca6d200000000001dc7130000000000000000],
-# ["kingdom_5_2c_wife_1","Lady Calantina","Calantina",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2, [    itm_b_hosen_shoes_custom,itm_a_woman_court_dress_2    ],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000000400100324da81a6dd6ca6d200000000001dc7130000000000000000],
-# ["kingdom_5_1c_daughter_2","Lady Forbesa","Forbesa",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2,  [  itm_b_hosen_shoes_custom,itm_a_woman_court_dress_1  ], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000000400200324da81a6dd6ca6d200000000001dc7130000000000000000],
-# ["kingdom_5_2c_daughter_2","Lady Claudora","Claudora",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2,  [   itm_b_hosen_shoes_custom,itm_a_woman_court_dress_5 ], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000ac400200424da81a6dd6ca6d200000000001dc7130000000000000000],
-# ["kingdom_5_1b_wife","Lady Anais","Anais",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2, [     itm_b_hosen_shoes_custom,itm_a_woman_court_dress_6   ],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000000400300424da81a6dd6ca6d200000000001dc7130000000000000000],
-# ["kingdom_5_2b_wife_2","Lady Miraeia","Miraeia",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2, [     itm_b_hosen_shoes_custom,itm_a_woman_court_dress_2   ],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000000400400424da81a6dd6ca6d200000000001dc7130000000000000000],
-# ["kingdom_5_1c_daughter_3","Lady Agasia","Agasia",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2,  [   itm_b_hosen_shoes_custom,itm_a_woman_court_dress_1 ], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000094400400624da81a6dd6ca6d200000000001dc7130000000000000000],
-# ["kingdom_5_lady_16","Lady Geneiava","Geneiava",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2,  [  itm_b_hosen_shoes_custom,itm_a_woman_court_dress_2  ], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000094400500724da81a6dd6ca6d200000000001dc7130000000000000000],
-# ["kingdom_5_1c_wife_2","Lady Gwenael","Gwenael",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2, [     itm_b_hosen_shoes_custom,itm_a_woman_court_dress_3   ],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000ac400200424da81a6dd6ca6d200000000001dc7130000000000000000],
-# ["kingdom_5_2c_wife_2","Lady Ysueth","Ysueth",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2, [     itm_b_hosen_shoes_custom,itm_a_woman_court_dress_4  ],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000000400400424da81a6dd6ca6d200000000001dc7130000000000000000],
-# ["kingdom_5_1c_daughter_4","Lady Ellian","Ellian",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2,  [ itm_b_hosen_shoes_custom,itm_a_woman_court_dress_4   ], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000094400000124da81a6dd6ca6d200000000001dc7130000000000000000],
-# ["kingdom_5_lady_20","Lady Timethi","Timethi",tf_hero|tf_female|tf_unmoveable_in_party_window,0,reserved,fac_kingdom_2,  [   itm_b_hosen_shoes_custom,itm_a_woman_court_dress_5 ], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x0000000d4400100324da81a6dd6ca6d200000000001dc7130000000000000000],
-
-#Sarranid ladies
-# ["kingdom_6_lady_1", "Lady Rayma", "Rayma", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_4, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_1], def_attrib|level(2), wp(50), knows_common|knows_riding_2, 0x0000000d4400200524da81a6dd6ca6d200000000001dc7130000000000000000 ],
-# ["kingdom_6_lady_2", "Lady Thanaikha", "Thanaikha", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_4, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_2], def_attrib|level(2), wp(50), knows_common|knows_riding_2, 0x0000000d4400400124da81a6dd6ca6d200000000001dc7130000000000000000 ],
-# ["kingdom_6_lady_3", "Lady Sulaha", "Sulaha", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_4, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_3], def_attrib|level(2), wp(50), knows_common|knows_riding_2, 0x00000003ff00500124da81a6dd6ca6d200000000001dc7130000000000000000 ],
-# ["kingdom_6_lady_4", "Lady Shatha", "Shatha", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_4, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_4], def_attrib|level(2), wp(50), knows_common|knows_riding_2, 0x000000001c1030012722c6cba169b69300000000001daca90000000000000000 ],
-# ["kingdom_6_lady_5", "Lady Bawthan", "Bawthan", tf_female|tf_hero|tf_randomize_face|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_4, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_5], def_attrib|level(2), wp(50), knows_common|knows_riding_2, swadian_woman_face_1, swadian_woman_face_2 ],
-# ["kingdom_6_lady_6", "Lady Mahayl", "Mahayl", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_4, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_6], def_attrib|level(2), wp(50), knows_common|knows_riding_2, 0x000000000b080004593385a723755cdd00000000000c9b640000000000000000 ],
-# ["kingdom_6_lady_7", "Lady Isna", "Isna", tf_female|tf_hero|tf_randomize_face|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_4, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_6], def_attrib|level(2), wp(50), knows_common|knows_riding_2, swadian_woman_face_1, swadian_woman_face_2 ],
-# ["kingdom_6_lady_8", "Lady Siyafan", "Siyafan", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_4, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_5], def_attrib|level(2), wp(50), knows_common|knows_riding_2, 0x000000000f10300528cd44c88a7138eb000000000000a54a0000000000000000 ],
-# ["kingdom_6_lady_9", "Lady Ifar", "Ifar", tf_female|tf_hero|tf_randomize_face|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_4, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_5], def_attrib|level(2), wp(50), knows_common|knows_riding_2, swadian_woman_face_1, swadian_woman_face_2 ],
-# ["kingdom_6_lady_10", "Lady Yasmin", "Yasmin", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_4, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_4], def_attrib|level(2), wp(50), knows_common|knows_riding_2, 0x0000000023102007408b49f95b48bb8c0000000000199ccb0000000000000000 ],
-# ["kingdom_6_lady_11", "Lady Dula", "Dula", tf_female|tf_hero|tf_randomize_face|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_4, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_3], def_attrib|level(2), wp(50), knows_common|knows_riding_2, swadian_woman_face_1, swadian_woman_face_2 ],
-# ["kingdom_6_lady_12", "Lady Ruwa", "Ruwa", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_4, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_2], def_attrib|level(2), wp(50), knows_common|knows_riding_2, 0x000000003e0c10032d53a54b2668c83600000000001e14e20000000000000000 ],
-# ["kingdom_6_lady_13", "Lady Luqa", "Luqa", tf_female|tf_hero|tf_randomize_face|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_4, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_1], def_attrib|level(2), wp(50), knows_common|knows_riding_2, swadian_woman_face_1, swadian_woman_face_2 ],
-# ["kingdom_6_lady_14", "Lady Zandina", "Zandina", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_4, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_2], def_attrib|level(2), wp(50), knows_common|knows_riding_2, 0x000000003500200638e2c6b9346f9724000000000005a7af0000000000000000 ],
-# ["kingdom_6_lady_15", "Lady Lulya", "Lulya", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_kingdom_4, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_3], def_attrib|level(2), wp(50), knows_common|knows_riding_2, swadian_woman_face_1, swadian_woman_face_2 ],
-# ["kingdom_6_lady_16", "Lady Zahara", "Zahara", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_player_supporters_faction, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_3], def_attrib|level(2), wp(50), knows_common|knows_riding_2, 0x000000003f04000645a13b379251b6de00000000001d92a30000000000000000 ],
-# ["kingdom_6_lady_17", "Lady Safiya", "Safiya", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_player_supporters_faction, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_4], def_attrib|level(2), wp(50), knows_common|knows_riding_2, 0x000000000608300137774ab79a6a18c4000000000008c4e10000000000000000 ],
-# ["kingdom_6_lady_18", "Lady Khalisa", "Khalisa", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_player_supporters_faction, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_5], def_attrib|level(2), wp(50), knows_common|knows_riding_2, 0x000000001000500556d991bcd53248f1000000000011c30c0000000000000000 ],
-# ["kingdom_6_lady_19", "Lady Janab", "Janab", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_player_supporters_faction, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_5], def_attrib|level(2), wp(50), knows_common|knows_riding_2, swadian_woman_face_1 ],
-# ["kingdom_6_lady_20", "Lady Sur", "Sur", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_player_supporters_faction, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_1], def_attrib|level(2), wp(50), knows_common|knows_riding_2, swadian_woman_face_2 ],
-
-
-
-
-#  ["kingdom_11_lord_daughter","kingdom_11_lord_daughter","kingdom_11_lord_daughter",tf_hero|tf_female,0,reserved,fac_kingdom_10,  [ itm_lady_dress_blue ,   itm_turret_hat_blue,    itm_leather_boots], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000000008300701c08d34a450ce43],
-#  ["kingdom_13_lord_daughter","kingdom_13_lord_daughter","kingdom_13_lord_daughter",tf_hero|tf_female,0,reserved,fac_kingdom_10,  [ itm_lady_dress_green,   itm_turret_hat_green,   itm_leather_boots], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000000008000401db10a45b41d6d8],
-##  ["kingdom_1_lady_a","kingdom_1_lady_a","kingdom_1_lady_a",tf_hero|tf_female,0,reserved,fac_kingdom_1, [   itm_lady_dress_blue ,   itm_turret_hat_blue,    itm_leather_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000000008500201d8ad93708e4694],
-##  ["kingdom_1_lady_b","kingdom_1_lady_b","kingdom_1_lady_b",tf_hero|tf_female,0,reserved,fac_kingdom_1, [   itm_lady_dress_ruby ,   itm_turret_hat_ruby,    itm_leather_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000000004000101c3ae68e0e944ac],
-##  ["kingdom_2_lady_a","Kingdom 2 Lady a","Kingdom 2 Lady a",tf_hero|tf_female,0,reserved,fac_kingdom_2, [               itm_lady_dress_green,   itm_turret_hat_green,   itm_leather_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000000008100501d8ad93708e4694],
-##  ["kingdom_2_lady_b","Kingdom 2 Lady b","Kingdom 2 Lady b",tf_hero|tf_female,0,reserved,fac_kingdom_2, [               itm_lady_dress_blue ,   itm_turret_hat_blue,    itm_leather_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000000004000401d8ad93708e4694],
-##  ["kingdom_3_lady_a","Kingdom 3 Lady a","Kingdom 3 Lady a",tf_hero|tf_female,0,reserved,fac_kingdom_3, [               itm_lady_dress_ruby ,   itm_turret_hat_ruby,    itm_leather_boots],     def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000000010500301d8ad93708e4694],
-##
-##  ["kingdom_3_lady_b","Kingdom 3 Lady b","Kingdom 3 Lady b",tf_hero|tf_female,0,reserved,fac_kingdom_3,  [                         itm_lady_dress_ruby ,   itm_turret_hat_ruby,    itm_leather_boots], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000000000100601d8b08d76d14a24],
-##  ["kingdom_4_lady_a","Kingdom 4 Lady a","Kingdom 4 Lady a",tf_hero|tf_female,0,reserved,fac_kingdom_4,  [                         itm_lady_dress_green,   itm_turret_hat_green,   itm_leather_boots], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000000010500601d8ad93708e4694],
-##  ["kingdom_4_lady_b","Kingdom 4 Lady b","Kingdom 4 Lady b",tf_hero|tf_female,0,reserved,fac_kingdom_4,  [                         itm_lady_dress_blue ,   itm_turret_hat_blue,    itm_leather_boots], def_attrib|level(2),wp(50),knows_common|knows_riding_2, 0x000000000008500201d8ad93708e4694],
-
 ["heroes_end", "{!}heroes end", "{!}heroes end", tf_hero, 0,reserved,  fac_neutral,[],def_attrib|level(2),wp(20),knows_common, 0x000000000008318101f390c515555594],
-#Merchants                                                                              AT                      SILAH                   ZIRH                        BOT                         Head_wear
-##  ["merchant_1", "merchant_1_F", "merchant_1_F",tf_hero|tf_female,  0,0, fac_kingdom_1,[itm_courser,            itm_fighting_axe,       itm_a_leather_jerkin,         itm_leather_boots,          itm_straw_hat],              def_attrib|level(15),wp(100),knows_inventory_management_10, 0x000000000008200201e54c137a940c91],
-##  ["merchant_2", "merchant_2", "merchant_2", tf_hero,               0,0, fac_kingdom_2,[itm_saddle_horse,       itm_arming_sword,       itm_light_leather,          itm_woolen_hose,                            ],              def_attrib|level(15),wp(100),knows_inventory_management_10, 0x000000000000000601db6db6db6db6db],
-##  ["merchant_3", "merchant_3", "merchant_3", tf_hero,               0,0, fac_kingdom_3,[itm_courser,            itm_nordic_sword,       itm_a_leather_jerkin,         itm_woolen_hose,                            ],              def_attrib|level(15),wp(100),knows_inventory_management_10, 0x000000000008100701db6db6db6db6db],
-##  ["merchant_4", "merchant_4_F", "merchant_4_F",tf_hero|tf_female,  0,0, fac_kingdom_4,[itm_saddle_horse,       itm_falchion,           itm_light_leather,          itm_blue_hose,                              ],              def_attrib|level(15),wp(100),knows_inventory_management_10, 0x000000000010500401e54c137a945c91],
-##  ["merchant_5", "merchant_5", "merchant_5", tf_hero,               0,0, fac_kingdom_5,[itm_saddle_horse,       itm_sword,              itm_ragged_outfit,          itm_b_ankle_boots,                             ],              def_attrib|level(15),wp(100),knows_inventory_management_10, 0x000000000008038001e54c135a945c91],
-##  ["merchant_6", "merchant_6", "merchant_6", tf_hero,               0,0, fac_kingdom_1,[itm_saddle_horse,      itm_scimitar,           itm_a_leather_jerkin,         itm_leather_boots,                          ],              def_attrib|level(15),wp(100),knows_inventory_management_10, 0x000000000000248e01e54c1b5a945c91],
-##  ["merchant_7", "merchant_7_F", "merchant_7_F",tf_hero|tf_female,  0,0, fac_kingdom_2,[itm_hunter,            itm_arming_sword,       itm_padded_leather,         itm_blue_hose,                              ],              def_attrib|level(15),wp(100),knows_inventory_management_10, 0x000000000004200601c98ad39c97557a],
-##  ["merchant_8", "merchant_8", "merchant_8", tf_hero,               0,0, fac_kingdom_3,[itm_saddle_horse,      itm_nordic_sword,       itm_light_leather,          itm_leather_boots,          itm_woolen_hood],              def_attrib|level(15),wp(100),knows_inventory_management_10, 0x00000000001095ce01d6aad3a497557a],
-##  ["merchant_9", "merchant_9", "merchant_9", tf_hero,               0,0, fac_kingdom_4,[itm_saddle_horse,      itm_sword,              itm_padded_leather,         itm_b_ankle_boots,                             ],              def_attrib|level(15),wp(100),knows_inventory_management_10, 0x000000000010519601ec26ae99898697],
-##  ["merchant_10","merchant_10","merchant_10",tf_hero,               0,0, fac_merchants,[itm_hunter,             itm_bastard_sword,      itm_light_leather,          itm_woolen_hose,                            ],              def_attrib|level(15),wp(100),knows_inventory_management_10, 0x00000000000884c401f6837d3294e28a],
-##  ["merchant_11","merchant_11","merchant_11",tf_hero,               0,0, fac_merchants,[itm_saddle_horse,       itm_sword,              itm_leather_jacket,         itm_woolen_hose,                            ],              def_attrib|level(15),wp(100),knows_inventory_management_10, 0x00000000000c450501e289dd2c692694],
-##  ["merchant_12","merchant_12","merchant_12",tf_hero,               0,0, fac_merchants,[itm_hunter,             itm_falchion,           itm_a_leather_jerkin,         itm_b_ankle_boots,                             ],              def_attrib|level(15),wp(100),knows_inventory_management_10, 0x00000000000c660a01e5af3cb2763401],
-##  ["merchant_13","merchant_13","merchant_13",tf_hero,               0,0, fac_merchants,[itm_sumpter_horse,      itm_nordic_sword,       itm_padded_leather,         itm_leather_boots,                          ],              def_attrib|level(15),wp(100),knows_inventory_management_10, 0x00000000001001d601ec912a89e4d534],
-##  ["merchant_14","merchant_14","merchant_14",tf_hero,               0,0, fac_merchants,[itm_courser,            itm_bastard_sword,      itm_light_leather,          itm_b_ankle_boots,                             ],              def_attrib|level(15),wp(100),knows_inventory_management_10, 0x000000000004335601ea2c04a8b6a394],
-##  ["merchant_15","merchant_15","merchant_15",tf_hero,               0,0, fac_merchants,[itm_saddle_horse,       itm_sword,              itm_padded_leather,         itm_woolen_hose,            itm_fur_hat],              def_attrib|level(15),wp(100),knows_inventory_management_10, 0x000000000008358e01dbf27b6436089d],
-##  ["merchant_16","merchant_16_F","merchant_16_F",tf_hero|tf_female, 0,0, fac_merchants,[itm_hunter,             itm_bastard_sword,      itm_light_leather,          itm_b_ankle_boots,                             ],              def_attrib|level(15),wp(100),knows_inventory_management_10, 0x00000000000c300101db0b9921494add],
-##  ["merchant_17","merchant_17","merchant_17",tf_hero,               0,0, fac_merchants,[itm_saddle_horse,       itm_sword,              itm_leather_jacket,         itm_blue_hose,                              ],              def_attrib|level(15),wp(100),knows_inventory_management_10, 0x000000000008740f01e945c360976a0a],
-##  ["merchant_18","merchant_18","merchant_18",tf_hero,               0,0, fac_merchants,[itm_saddle_horse,       itm_nordic_sword,       itm_padded_leather,         itm_leather_boots,                          ],              def_attrib|level(15),wp(100),knows_inventory_management_10, 0x000000000008020c01fc2db3b4c97685],
-##  ["merchant_19","merchant_19","merchant_19",tf_hero,               0,0, fac_merchants,[itm_saddle_horse,       itm_falchion,           itm_a_leather_jerkin,         itm_woolen_hose,                            ],              def_attrib|level(15),wp(100),knows_inventory_management_10, 0x000000000008118301f02af91892725b],
-##  ["merchant_20","merchant_20_F","merchant_20_F",tf_hero|tf_female, 0,0, fac_merchants,[itm_courser,            itm_arming_sword,       itm_padded_leather,         itm_leather_boots,                          ],              def_attrib|level(15),wp(100),knows_inventory_management_10, 0x000000000010500401f6837d27688212],
 
 
 #Seneschals
@@ -2799,228 +2733,410 @@ troops = [
 ["extra_lord_40", "Jean II d'Alençon, Duc d'Alençon", "Jean d'Alençon", tf_hero, no_scene, reserved, fac_kingdom_1, [itm_w_lance_colored_french_1,itm_tab_shield_heater_cav_b,itm_ho_horse_barded_blue_chamfrom,itm_h_zitta_bascinet_novisor,itm_heraldic_early_transitional,itm_b_splinted_greaves_spurs,itm_g_wisby_gauntlets_black,itm_b_hosen_shoes_custom,itm_a_tabard_heraldic,itm_w_bastard_sword_crecy], lord_attrib, wp(380), knows_lord_1, 0x000000000000800f49255229948d172300000000001d551a0000000000000000, 0x000000000000800f49255229948d172300000000001d551a0000000000000000 ],
 
 
-## DAC Custom Troops (Merc System)
+##################################################################################################################################################################################################################################################################################################################
+###################################################################################################### DAC CUSTOM TROOPS ##########################################################################################################################################################################################
+##################################################################################################################################################################################################################################################################################################################
+
 
 # FORMAT:
 # 1. Regular troop: this is the actual troop entry used for the troop. Ignore the equipment list, you can leave it blank.
 # 2. Equip troop: shows what the troop will be carrying when the game first starts. This is later used for saving the troop's custom selection
 # 3. Troop equipment selection: List of what is available to select during the customization phase. Can have up to around 80 items max, but recommended is maybe 50 max (to leave room so you can remove items from the current selection).
 
+##################################################################################################################################################################################################################################################################################################################
+###################################################################################################### DAC CUSTOM TROOPS INFANTRY ##########################################################################################################################################################################################
+##################################################################################################################################################################################################################################################################################################################
+
 ## Tier 1 ##
 
   ["custom_merc_recruit","Company Recruit","Company Recruits",tf_guarantee_all,0,0,fac_neutral,[],
     level(10)|str_12|agi_12, 
-    wpex(120,80,80,80,80,80), 
+    wp_melee(120), 
     knows_ironflesh_2|knows_power_strike_2|knows_shield_1|knows_athletics_3|knows_weapon_master_1,
     vaegir_face_young_1, vaegir_face_young_2],
   
   ["custom_merc_recruit_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
    # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
    [ 
-      itm_h_arming_cap,
-      itm_a_leather_vest_custom,
-      itm_a_cloth_vest_custom,
-      itm_b_hosen_shoes_custom,
-      itm_g_leather_gauntlet,
-      itm_w_onehanded_war_axe_4,
-      itm_w_archer_hatchet,
-      itm_w_spiked_club,
-      itm_b_ankle_boots,
-      itm_w_onehanded_sword_a,
-      itm_w_onehanded_sword_c,
-      itm_w_onehanded_sword_c_small,
-      itm_s_heater_shield_d1,
-      itm_h_pot_helmet_hood_custom,
+    itm_h_arming_cap,
+    itm_a_leather_vest_custom,
+    itm_a_cloth_vest_custom,
+    itm_b_hosen_shoes_custom,
+    itm_g_leather_gauntlet,
+    itm_w_onehanded_war_axe_4,
+    itm_w_archer_hatchet,
+    itm_w_spiked_club,
+    itm_b_ankle_boots,
+    itm_w_onehanded_sword_a,
+    itm_w_onehanded_sword_c,
+    itm_w_onehanded_sword_c_small,
+    itm_s_heater_shield_d1,
+    itm_h_pot_helmet_hood_custom,
    ], def_attrib|level(1), wp(60),knows_common,0
   ],
   
   ["custom_merc_recruit_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
     [ #Inventory Matters here. This is what they CAN BE ASKED to equip. Our system gives this troop weapons through dialogues.
-      itm_h_hood_custom,
-      itm_h_arming_cap,
-      itm_a_leather_vest_custom,
-      itm_a_cloth_vest_custom,
-      itm_a_gambeson_custom,
-      itm_b_hosen_shoes_custom,
-      itm_g_leather_gauntlet,
-      itm_w_onehanded_war_axe_4,
-      itm_w_archer_hatchet,
-      itm_w_spiked_club,
-      itm_b_ankle_boots,
-      itm_w_onehanded_sword_poitiers,
-      itm_w_onehanded_sword_a_long,
-      itm_w_onehanded_sword_a,
-      itm_w_onehanded_sword_c,
-      itm_w_onehanded_sword_c_long,
-      itm_w_onehanded_sword_c_small,
-      itm_s_heater_shield_b2,
-      itm_s_heater_shield_c2,
-      itm_s_heater_shield_d1,
-      itm_s_heater_shield_d1,
-      itm_h_pot_helmet_hood_custom,
+    itm_h_hood_custom,
+    itm_h_arming_cap,
+    itm_a_leather_vest_custom,
+    itm_a_cloth_vest_custom,
+    itm_a_gambeson_custom,
+    itm_b_hosen_shoes_custom,
+    itm_g_leather_gauntlet,
+    itm_w_onehanded_war_axe_4,
+    itm_w_archer_hatchet,
+    itm_w_spiked_club,
+    itm_b_ankle_boots,
+    itm_w_onehanded_sword_poitiers,
+    itm_w_onehanded_sword_a_long,
+    itm_w_onehanded_sword_a,
+    itm_w_onehanded_sword_c,
+    itm_w_onehanded_sword_c_long,
+    itm_w_onehanded_sword_c_small,
+    itm_s_heater_shield_b2,
+    itm_s_heater_shield_c2,
+    itm_s_heater_shield_d1,
+    itm_s_heater_shield_d1,
+    itm_h_pot_helmet_hood_custom,
     ], def_attrib|level(1),wp(60),knows_common|knows_inventory_management_10,0],
 
 # Tier 2 #
 
-  ["custom_merc_veteran","Company Veteran","Company Veterans",tf_guarantee_all,0,0,fac_neutral,[],
+  ["custom_merc_footman","Company Footman","Company Footmen",tf_guarantee_all,0,0,fac_neutral,[],
     level(15)|str_14|agi_14, 
-    wpex(140,80,80,80,80,80), 
+    wp_melee(140), 
     knows_ironflesh_3|knows_power_strike_3|knows_shield_2|knows_athletics_3|knows_weapon_master_1,
     vaegir_face_old_1, vaegir_face_old_2],
+  
+  ["custom_merc_footman_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+   # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
+   [ 
+    itm_h_arming_cap,
+    itm_a_leather_vest_custom,
+    itm_a_cloth_vest_custom,
+    itm_b_hosen_shoes_custom,
+    itm_g_leather_gauntlet,
+    itm_w_onehanded_war_axe_4,
+    itm_w_archer_hatchet,
+    itm_w_spiked_club,
+    itm_b_ankle_boots,
+    itm_w_onehanded_sword_a,
+    itm_w_onehanded_sword_c,
+    itm_w_onehanded_sword_c_small,
+    itm_s_heater_shield_d1,
+    itm_h_pot_helmet_hood_custom,
+   ], def_attrib|level(1), wp(60),knows_common,0
+  ],
+  
+  ["custom_merc_footman_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+    [ #Inventory Matters here. This is what they CAN BE ASKED to equip. Our system gives this troop weapons through dialogues.
+    itm_h_hood_custom,
+    itm_h_arming_cap,
+    itm_a_leather_vest_custom,
+    itm_a_cloth_vest_custom,
+    itm_a_gambeson_custom,
+    itm_b_hosen_shoes_custom,
+    itm_g_leather_gauntlet,
+    itm_w_onehanded_war_axe_4,
+    itm_w_archer_hatchet,
+    itm_w_spiked_club,
+    itm_b_ankle_boots,
+    itm_w_onehanded_sword_poitiers,
+    itm_w_onehanded_sword_a_long,
+    itm_w_onehanded_sword_a,
+    itm_w_onehanded_sword_c,
+    itm_w_onehanded_sword_c_long,
+    itm_w_onehanded_sword_c_small,
+    itm_s_heater_shield_b2,
+    itm_s_heater_shield_c2,
+    itm_s_heater_shield_d1,
+    itm_s_heater_shield_d1,
+    itm_h_pot_helmet_hood_custom,
+    ], def_attrib|level(1),wp(60),knows_common|knows_inventory_management_10,0],
+
+# Tier 3 #
+
+  ["custom_merc_veteran","Company Veteran","Company Veterans",tf_guarantee_all,0,0,fac_neutral,[],
+    level(20)|str_16|agi_16, 
+    wp_melee(160), 
+    knows_ironflesh_4|knows_power_strike_4|knows_shield_3|knows_athletics_3|knows_weapon_master_2,
+    mercenary_face_1, mercenary_face_2],
   
   ["custom_merc_veteran_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
    # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
    [ 
-      itm_h_arming_cap,
-      itm_a_leather_vest_custom,
-      itm_a_cloth_vest_custom,
-      itm_b_hosen_shoes_custom,
-      itm_g_leather_gauntlet,
-      itm_w_onehanded_war_axe_4,
-      itm_w_archer_hatchet,
-      itm_w_spiked_club,
-      itm_b_ankle_boots,
-      itm_w_onehanded_sword_a,
-      itm_w_onehanded_sword_c,
-      itm_w_onehanded_sword_c_small,
-      itm_s_heater_shield_d1,
-      itm_h_pot_helmet_hood_custom,
+    itm_h_arming_cap,
+    itm_a_leather_vest_custom,
+    itm_a_cloth_vest_custom,
+    itm_b_hosen_shoes_custom,
+    itm_g_leather_gauntlet,
+    itm_w_onehanded_war_axe_4,
+    itm_w_archer_hatchet,
+    itm_w_spiked_club,
+    itm_b_ankle_boots,
+    itm_w_onehanded_sword_a,
+    itm_w_onehanded_sword_c,
+    itm_w_onehanded_sword_c_small,
+    itm_s_heater_shield_d1,
+    itm_h_pot_helmet_hood_custom,
    ], def_attrib|level(1), wp(60),knows_common,0
   ],
   
   ["custom_merc_veteran_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
     [ #Inventory Matters here. This is what they CAN BE ASKED to equip. Our system gives this troop weapons through dialogues.
-      itm_h_hood_custom,
-      itm_h_arming_cap,
-      itm_a_leather_vest_custom,
-      itm_a_cloth_vest_custom,
-      itm_a_gambeson_custom,
-      itm_b_hosen_shoes_custom,
-      itm_g_leather_gauntlet,
-      itm_w_onehanded_war_axe_4,
-      itm_w_archer_hatchet,
-      itm_w_spiked_club,
-      itm_b_ankle_boots,
-      itm_w_onehanded_sword_poitiers,
-      itm_w_onehanded_sword_a_long,
-      itm_w_onehanded_sword_a,
-      itm_w_onehanded_sword_c,
-      itm_w_onehanded_sword_c_long,
-      itm_w_onehanded_sword_c_small,
-      itm_s_heater_shield_b2,
-      itm_s_heater_shield_c2,
-      itm_s_heater_shield_d1,
-      itm_s_heater_shield_d1,
-      itm_h_pot_helmet_hood_custom,
-    ], def_attrib|level(1),wp(60),knows_common|knows_inventory_management_10,0],
-
-# Tier 3 #
-
-  ["custom_merc_elite","Company Elite","Company Elites",tf_guarantee_all,0,0,fac_neutral,[],
-    level(20)|str_16|agi_16, 
-    wpex(160,100,100,100,100,100), 
-    knows_ironflesh_4|knows_power_strike_4|knows_shield_3|knows_athletics_3|knows_weapon_master_2,
-    mercenary_face_1, mercenary_face_2],
-  
-  ["custom_merc_elite_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
-   # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
-   [ 
-      itm_h_arming_cap,
-      itm_a_leather_vest_custom,
-      itm_a_cloth_vest_custom,
-      itm_b_hosen_shoes_custom,
-      itm_g_leather_gauntlet,
-      itm_w_onehanded_war_axe_4,
-      itm_w_archer_hatchet,
-      itm_w_spiked_club,
-      itm_b_ankle_boots,
-      itm_w_onehanded_sword_a,
-      itm_w_onehanded_sword_c,
-      itm_w_onehanded_sword_c_small,
-      itm_s_heater_shield_d1,
-      itm_h_pot_helmet_hood_custom,
-   ], def_attrib|level(1), wp(60),knows_common,0
-  ],
-  
-  ["custom_merc_elite_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
-    [ #Inventory Matters here. This is what they CAN BE ASKED to equip. Our system gives this troop weapons through dialogues.
-      itm_h_hood_custom,
-      itm_h_arming_cap,
-      itm_a_leather_vest_custom,
-      itm_a_cloth_vest_custom,
-      itm_a_gambeson_custom,
-      itm_b_hosen_shoes_custom,
-      itm_g_leather_gauntlet,
-      itm_w_onehanded_war_axe_4,
-      itm_w_archer_hatchet,
-      itm_w_spiked_club,
-      itm_b_ankle_boots,
-      itm_w_onehanded_sword_poitiers,
-      itm_w_onehanded_sword_a_long,
-      itm_w_onehanded_sword_a,
-      itm_w_onehanded_sword_c,
-      itm_w_onehanded_sword_c_long,
-      itm_w_onehanded_sword_c_small,
-      itm_s_heater_shield_b2,
-      itm_s_heater_shield_c2,
-      itm_s_heater_shield_d1,
-      itm_s_heater_shield_d1,
-      itm_h_pot_helmet_hood_custom,
+    itm_h_hood_custom,
+    itm_h_arming_cap,
+    itm_a_leather_vest_custom,
+    itm_a_cloth_vest_custom,
+    itm_a_gambeson_custom,
+    itm_b_hosen_shoes_custom,
+    itm_g_leather_gauntlet,
+    itm_w_onehanded_war_axe_4,
+    itm_w_archer_hatchet,
+    itm_w_spiked_club,
+    itm_b_ankle_boots,
+    itm_w_onehanded_sword_poitiers,
+    itm_w_onehanded_sword_a_long,
+    itm_w_onehanded_sword_a,
+    itm_w_onehanded_sword_c,
+    itm_w_onehanded_sword_c_long,
+    itm_w_onehanded_sword_c_small,
+    itm_s_heater_shield_b2,
+    itm_s_heater_shield_c2,
+    itm_s_heater_shield_d1,
+    itm_s_heater_shield_d1,
+    itm_h_pot_helmet_hood_custom,
     ], def_attrib|level(1),wp(60),knows_common|knows_inventory_management_10,0],
 
 # Tier 4 #
 
-  ["custom_merc_bodyguard","Company Bodyguard","Company Bodyguards",tf_guarantee_all,0,0,fac_neutral,[],
+  ["custom_merc_sergeant","Company Sergeant","Company Sergeants",tf_guarantee_all,0,0,fac_neutral,[],
     level(25)|str_20|agi_20, 
-    wp_melee(160), 
+    wp_melee(180), 
     knows_ironflesh_5|knows_power_strike_5|knows_shield_3|knows_athletics_4|knows_weapon_master_5,
     mercenary_face_1, mercenary_face_2],
   
-  ["custom_merc_bodyguard_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+  ["custom_merc_sergeant_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
    # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
    [ 
-      itm_h_arming_cap,
-      itm_a_leather_vest_custom,
-      itm_a_cloth_vest_custom,
-      itm_b_hosen_shoes_custom,
-      itm_g_leather_gauntlet,
-      itm_w_onehanded_war_axe_4,
-      itm_w_archer_hatchet,
-      itm_w_spiked_club,
-      itm_b_ankle_boots,
-      itm_w_onehanded_sword_a,
-      itm_w_onehanded_sword_c,
-      itm_w_onehanded_sword_c_small,
-      itm_s_heater_shield_d1,
-      itm_h_pot_helmet_hood_custom,
+    itm_h_arming_cap,
+    itm_a_leather_vest_custom,
+    itm_a_cloth_vest_custom,
+    itm_b_hosen_shoes_custom,
+    itm_g_leather_gauntlet,
+    itm_w_onehanded_war_axe_4,
+    itm_w_archer_hatchet,
+    itm_w_spiked_club,
+    itm_b_ankle_boots,
+    itm_w_onehanded_sword_a,
+    itm_w_onehanded_sword_c,
+    itm_w_onehanded_sword_c_small,
+    itm_s_heater_shield_d1,
+    itm_h_pot_helmet_hood_custom,
    ], def_attrib|level(1), wp(60),knows_common,0
   ],
   
-  ["custom_merc_bodyguard_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+  ["custom_merc_sergeant_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
     [ #Inventory Matters here. This is what they CAN BE ASKED to equip. Our system gives this troop weapons through dialogues.
-      itm_h_hood_custom,
-      itm_h_arming_cap,
-      itm_a_leather_vest_custom,
-      itm_a_cloth_vest_custom,
-      itm_a_gambeson_custom,
-      itm_b_hosen_shoes_custom,
-      itm_g_leather_gauntlet,
-      itm_w_onehanded_war_axe_4,
-      itm_w_archer_hatchet,
-      itm_w_spiked_club,
-      itm_b_ankle_boots,
-      itm_w_onehanded_sword_poitiers,
-      itm_w_onehanded_sword_a_long,
-      itm_w_onehanded_sword_a,
-      itm_w_onehanded_sword_c,
-      itm_w_onehanded_sword_c_long,
-      itm_w_onehanded_sword_c_small,
-      itm_s_heater_shield_b2,
-      itm_s_heater_shield_c2,
-      itm_s_heater_shield_d1,
-      itm_s_heater_shield_d1,
-      itm_h_pot_helmet_hood_custom,
+    itm_h_hood_custom,
+    itm_h_arming_cap,
+    itm_a_leather_vest_custom,
+    itm_a_cloth_vest_custom,
+    itm_a_gambeson_custom,
+    itm_b_hosen_shoes_custom,
+    itm_g_leather_gauntlet,
+    itm_w_onehanded_war_axe_4,
+    itm_w_archer_hatchet,
+    itm_w_spiked_club,
+    itm_b_ankle_boots,
+    itm_w_onehanded_sword_poitiers,
+    itm_w_onehanded_sword_a_long,
+    itm_w_onehanded_sword_a,
+    itm_w_onehanded_sword_c,
+    itm_w_onehanded_sword_c_long,
+    itm_w_onehanded_sword_c_small,
+    itm_s_heater_shield_b2,
+    itm_s_heater_shield_c2,
+    itm_s_heater_shield_d1,
+    itm_s_heater_shield_d1,
+    itm_h_pot_helmet_hood_custom,
     ], def_attrib|level(1),wp(60),knows_common|knows_inventory_management_10,0],
+    
+##################################################################################################################################################################################################################################################################################################################
+###################################################################################################### DAC CUSTOM TROOPS RANGED ##########################################################################################################################################################################################
+##################################################################################################################################################################################################################################################################################################################
+
+  ["custom_merc_skirmisher","Company Skirmisher","Company Skirmishers", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_ranged,0,0,fac_neutral,[],
+    level(8)|str_10|agi_12,  
+    wpex(90,80,80,100,80,80), 
+    knows_ironflesh_1|knows_power_strike_1|knows_power_draw_2|knows_athletics_4|knows_weapon_master_1,
+    mercenary_face_1, mercenary_face_2],
+    
+  ["custom_merc_skirmisher_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+   # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
+   [ 
+    itm_h_hood_custom,
+    itm_h_hood_fi_custom,
+    itm_h_simple_coif,
+    itm_h_simple_coif_brown,
+    itm_h_leather_hat_d,
+    itm_h_leather_hat_d_black,
+    itm_h_leather_hat_b,
+    itm_a_peasant_man_custom,
+    itm_b_hosen_poulaines_custom,
+    itm_w_short_bow_elm,
+    itm_w_short_bow_oak,
+    itm_w_short_bow_ash,
+    itm_w_arrow_triangular,
+    itm_w_arrow_triangular,
+    itm_w_dagger_pikeman,
+    itm_w_onehanded_war_axe_2,
+    itm_w_onehanded_war_axe_3,
+    itm_w_spiked_club,
+    itm_w_mace_knobbed,
+   ], def_attrib|level(1), wp(60),knows_common,0
+  ],
+  
+  ["custom_merc_skirmisher_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+    [ #Inventory Matters here. This is what they CAN BE ASKED to equip. Our system gives this troop weapons through dialogues.
+    itm_h_hood_custom,
+    itm_h_hood_fi_custom,
+    itm_h_simple_coif,
+    itm_h_simple_coif_brown,
+    itm_h_leather_hat_d,
+    itm_h_leather_hat_d_black,
+    itm_h_leather_hat_b,
+    itm_a_peasant_man_custom,
+    itm_b_hosen_poulaines_custom,
+    itm_w_short_bow_elm,
+    itm_w_short_bow_oak,
+    itm_w_short_bow_ash,
+    itm_w_arrow_triangular,
+    itm_w_arrow_triangular,
+    itm_w_dagger_pikeman,
+    itm_w_onehanded_war_axe_2,
+    itm_w_onehanded_war_axe_3,
+    itm_w_spiked_club,
+    itm_w_mace_knobbed,
+    ], def_attrib|level(1),wp(60),knows_common|knows_inventory_management_10,0], 
+    
+  ["custom_merc_ranger","Company Ranger","Company Rangers", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_ranged,0,0,fac_neutral,[],
+    level(12)|str_12|agi_14,  
+    wpex(100,80,80,120,80,80), 
+    knows_ironflesh_2|knows_power_draw_3|knows_power_strike_2|knows_athletics_4|knows_weapon_master_2,
+    mercenary_face_1, mercenary_face_2],
+ 
+  ["custom_merc_ranger_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+   # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
+   [ 
+    itm_h_hood_custom,
+    itm_h_hood_fi_custom,
+    itm_h_simple_coif,
+    itm_h_simple_coif_brown,
+    itm_h_leather_hat_d,
+    itm_h_leather_hat_d_black,
+    itm_h_leather_hat_b,
+    itm_a_peasant_man_custom,
+    itm_b_hosen_poulaines_custom,
+    itm_w_short_bow_elm,
+    itm_w_short_bow_oak,
+    itm_w_short_bow_ash,
+    itm_w_arrow_triangular,
+    itm_w_arrow_triangular,
+    itm_w_dagger_pikeman,
+    itm_w_onehanded_war_axe_2,
+    itm_w_onehanded_war_axe_3,
+    itm_w_spiked_club,
+    itm_w_mace_knobbed,
+   ], def_attrib|level(1), wp(60),knows_common,0
+  ],
+  
+  ["custom_merc_ranger_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+    [ #Inventory Matters here. This is what they CAN BE ASKED to equip. Our system gives this troop weapons through dialogues.
+    itm_h_hood_custom,
+    itm_h_hood_fi_custom,
+    itm_h_simple_coif,
+    itm_h_simple_coif_brown,
+    itm_h_leather_hat_d,
+    itm_h_leather_hat_d_black,
+    itm_h_leather_hat_b,
+    itm_a_peasant_man_custom,
+    itm_b_hosen_poulaines_custom,
+    itm_w_short_bow_elm,
+    itm_w_short_bow_oak,
+    itm_w_short_bow_ash,
+    itm_w_arrow_triangular,
+    itm_w_arrow_triangular,
+    itm_w_dagger_pikeman,
+    itm_w_onehanded_war_axe_2,
+    itm_w_onehanded_war_axe_3,
+    itm_w_spiked_club,
+    itm_w_mace_knobbed,
+    ], def_attrib|level(1),wp(60),knows_common|knows_inventory_management_10,0], 
+    
+  ["custom_merc_marksman","Company Marksman","Company Marksmen", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_ranged,0,0,fac_neutral,[],
+    level(18)|str_14|agi_16,  
+    wpex(120,80,80,150,80,80), 
+    knows_ironflesh_3|knows_power_draw_3|knows_power_strike_2|knows_athletics_4|knows_weapon_master_3,
+    mercenary_face_1, mercenary_face_2],
+   
+  ["custom_merc_marksman_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+   # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
+   [ 
+    itm_h_hood_custom,
+    itm_h_hood_fi_custom,
+    itm_h_simple_coif,
+    itm_h_simple_coif_brown,
+    itm_h_leather_hat_d,
+    itm_h_leather_hat_d_black,
+    itm_h_leather_hat_b,
+    itm_a_peasant_man_custom,
+    itm_b_hosen_poulaines_custom,
+    itm_w_short_bow_elm,
+    itm_w_short_bow_oak,
+    itm_w_short_bow_ash,
+    itm_w_arrow_triangular,
+    itm_w_arrow_triangular,
+    itm_w_dagger_pikeman,
+    itm_w_onehanded_war_axe_2,
+    itm_w_onehanded_war_axe_3,
+    itm_w_spiked_club,
+    itm_w_mace_knobbed,
+   ], def_attrib|level(1), wp(60),knows_common,0
+  ],
+  
+  ["custom_merc_marksman_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+    [ #Inventory Matters here. This is what they CAN BE ASKED to equip. Our system gives this troop weapons through dialogues.
+    itm_h_hood_custom,
+    itm_h_hood_fi_custom,
+    itm_h_simple_coif,
+    itm_h_simple_coif_brown,
+    itm_h_leather_hat_d,
+    itm_h_leather_hat_d_black,
+    itm_h_leather_hat_b,
+    itm_a_peasant_man_custom,
+    itm_b_hosen_poulaines_custom,
+    itm_w_short_bow_elm,
+    itm_w_short_bow_oak,
+    itm_w_short_bow_ash,
+    itm_w_arrow_triangular,
+    itm_w_arrow_triangular,
+    itm_w_dagger_pikeman,
+    itm_w_onehanded_war_axe_2,
+    itm_w_onehanded_war_axe_3,
+    itm_w_spiked_club,
+    itm_w_mace_knobbed,
+    ], def_attrib|level(1),wp(60),knows_common|knows_inventory_management_10,0], 
+ 
+
+##################################################################################################################################################################################################################################################################################################################
+###################################################################################################### DAC CUSTOM TROOPS CAVALRY ##########################################################################################################################################################################################
+##################################################################################################################################################################################################################################################################################################################
+
+##################################################################################################################################################################################################################################################################################################################
+###################################################################################################### DAC CUSTOM TROOPS KNIGHTS ##########################################################################################################################################################################################
+##################################################################################################################################################################################################################################################################################################################
 
 
   ["custom_mercs_end","{!}na","{!}na",0,0,0,fac_neutral,[itm_velvet],def_attrib|level(1),wp(60),knows_common|knows_inventory_management_10,swadian_face_middle_1, swadian_face_older_2],
@@ -3029,7 +3145,7 @@ troops = [
    [itm_w_lance_colored_french_2_heraldic,itm_tab_shield_heater_cav_b,itm_ho_horse_barded_blue_chamfrom,itm_h_klappvisier_pigface_open,itm_heraldic_churburg_13_tabard,itm_b_shynbaulds,itm_g_plate_mittens,itm_b_hosen_shoes_custom,itm_a_tabard_heraldic,itm_w_bastard_sword_count],
    def_attrib|level(20),wp(120),knows_common|knows_inventory_management_10, 0x00000001840834485914d426156ab55400000000000d35240000000000000000],
    
-  ["merc_company_smith","Henri the Smith","Henri the Smith",tf_hero|tf_unmoveable_in_party_window,scn_player_camp|entry(2),0,fac_commoners,
+  ["merc_company_smith","Henri the Smith","Henri the Smith",tf_hero|tf_unmoveable_in_party_window,scn_player_camp|entry(3),0,fac_commoners,
    [itm_h_arming_cap,itm_a_commoner_apron,itm_b_ankle_boots],
    def_attrib|level(20),wp(120),knows_common|knows_inventory_management_10, 0x00000001840834485914d426156ab55400000000000d35240000000000000000],
 
@@ -3165,6 +3281,9 @@ upgrade(troops,"mercenary_light_cavalry","mercenary_cavalry")
 
 ###################################################### CUSTOM TROOPS
 
-upgrade(troops,"custom_merc_recruit","custom_merc_veteran")
-upgrade(troops,"custom_merc_veteran","custom_merc_elite")
-upgrade(troops,"custom_merc_elite","custom_merc_bodyguard")
+upgrade(troops,"custom_merc_recruit","custom_merc_footman")
+upgrade(troops,"custom_merc_footman","custom_merc_veteran")
+upgrade(troops,"custom_merc_veteran","custom_merc_sergeant")
+
+upgrade(troops,"custom_merc_skirmisher","custom_merc_ranger")
+upgrade(troops,"custom_merc_ranger","custom_merc_marksman")

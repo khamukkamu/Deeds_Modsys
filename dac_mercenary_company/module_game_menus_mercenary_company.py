@@ -12,15 +12,6 @@ from module_constants import *
 
 from compiler import *
 
-# mercenary_company_creation_menus = [
-      # ("action_create_camp",[],"Set up an encampment here.",
-       # [
-        # (party_relocate_near_party, "p_player_camp", "p_main_party"),
-        # (enable_party, "p_player_camp"),
-        # ]
-       # ),
-# ]
-
 mercenary_company_menus = [
 
 ## DAC Seek: Player Camp Encounter
@@ -80,10 +71,10 @@ mercenary_company_menus = [
             (set_visitor, 3, "trp_merc_company_smith"),
         (try_end),
         (set_visitor, 5, "trp_custom_merc_recruit"),
-        (set_visitor, 6, "trp_custom_merc_veteran"),
-        (set_visitor, 7, "trp_custom_merc_veteran"),
-        (set_visitor, 8, "trp_custom_merc_elite"),
-        (set_visitor, 9, "trp_custom_merc_elite"),
+        (set_visitor, 6, "trp_custom_merc_footman"),
+        (set_visitor, 7, "trp_custom_merc_footman"),
+        (set_visitor, 8, "trp_custom_merc_veteran"),
+        (set_visitor, 9, "trp_custom_merc_sergeant"),
         (set_jump_mission,"mt_visit_town_castle"),
         (jump_to_scene,"scn_player_camp"),
         (change_screen_mission),		

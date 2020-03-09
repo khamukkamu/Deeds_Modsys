@@ -738,7 +738,8 @@ mercenary_company_scripts = [
 
 # Custom Troops End
 
-### DAC Seek: Player Camp Script
+### DAC Seek: Player Camp Scripts
+
 ("dac_upgrade_player_camp", [
     (party_get_slot, ":player_camp_level", "p_player_camp", slot_player_camp_level),
     
@@ -837,5 +838,39 @@ mercenary_company_scripts = [
         (try_end),
     (try_end),
 ]),
+
+  # script_refresh_mercenary_camp_troops
+  # Input: none
+  # Output: none
+  ("refresh_mercenary_camp_troops",
+    [
+    (assign, ":ideal_size", 20),
+    (party_get_num_companions, ":party_size", "p_player_camp"),	
+    
+    (try_begin),
+        (party_slot_eq, "p_player_camp", slot_player_camp_archery_range, 1),
+        (val_add, ":ideal_size", 10),
+    (try_end),
+    
+    # Debug
+    (assign, reg30, ":ideal_size"),
+    (display_message, "@Player camp max size set to {reg30}"),
+
+    (try_begin),
+        (gt, ":party_size", ":ideal_size"), # We're past the ideal number of troops in the camp
+        (party_clear,"p_player_camp"), # Reset the troop pool
+    (try_end), 
+    
+    (try_begin),
+        (party_slot_eq, "p_player_camp", slot_player_camp_archery_range, 1),
+        (party_add_template, "p_player_camp", "pt_mercenary_company_infantry"),	  
+        (party_add_template, "p_player_camp", "pt_mercenary_company_ranged"),	  
+        (display_message, "@Ranged template added to camp"),
+    (else_try),
+        (party_add_template, "p_player_camp", "pt_mercenary_company_infantry"),		
+        (display_message, "@Melee template added to camp"),
+    (try_end),
+  ]),
+
 
 ]

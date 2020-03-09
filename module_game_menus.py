@@ -3246,6 +3246,7 @@ TOTAL:  {reg5}"),
         (enable_party, "p_player_camp"),
         (party_set_slot, "p_player_camp", slot_player_camp_level, 1),
         (assign, "$player_camp_built", 1),
+        (call_script, "script_refresh_mercenary_camp_troops"),
         (change_screen_return),
         ]
        ),

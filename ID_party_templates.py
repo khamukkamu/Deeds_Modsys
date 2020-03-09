@@ -64,3 +64,5 @@ pt_kingdom_4_reinforcements_e = 62
 pt_dplmc_spouse = 63
 pt_dplmc_gift_caravan = 64
 pt_dplmc_recruiter = 65
+pt_mercenary_company_infantry = 66
+pt_mercenary_company_ranged = 67
