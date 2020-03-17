@@ -84013,6 +84013,41 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 
 # DAC Kham: Upgrade Items END
 
+("agent_get_num_enemies_nearby",
+    [
+      (store_script_param, ":agent_no", 1),
+      (store_script_param, ":distance", 2),
+      
+      (try_begin),
+        (agent_is_alive, ":agent_no"),
+        (agent_is_human, ":agent_no"),
+        (agent_get_position, pos1, ":agent_no"),
+        (assign, ":num_enemies", 0),
+        (set_fixed_point_multiplier, 100),
+        (try_for_agents,":cur_agent"),
+          (neq, ":cur_agent", ":agent_no"),
+          (agent_is_alive, ":cur_agent"),
+          (agent_is_human, ":cur_agent"),
+          (assign, ":continue", 0),
+          (try_begin),
+            (agent_is_ally, ":agent_no"),
+            (neg|agent_is_ally, ":cur_agent"),
+            (assign, ":continue", 1),
+          (else_try),
+            (neg|agent_is_ally, ":agent_no"),
+            (agent_is_ally, ":cur_agent"),
+            (assign, ":continue", 1),
+          (try_end),
+          (eq, ":continue", 1),
+          (agent_get_position, pos2, ":cur_agent"),
+          (get_distance_between_positions, ":cur_distance", pos1, pos2),
+          (le, ":cur_distance", ":distance"),
+          (val_add, ":num_enemies", 1),
+        (try_end),
+        (assign, reg0, ":num_enemies"),
+      (try_end),
+  ]),
+
 ]
 
 scripts = scripts + formAI_scripts + character_creation_scripts + mercenary_company_scripts

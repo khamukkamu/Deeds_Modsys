@@ -1471,3 +1471,6 @@ g_target_armoury
 g_item_to_scrap
 >>>>>>> Stashed changes
 g_presetation_obj_name_kingdom_2
+player_camp_built
+g_presentation_obj_name_company
+g_presentation_obj_name_company_2
