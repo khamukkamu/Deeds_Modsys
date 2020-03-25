@@ -1,4 +1,4 @@
-1938
+1949
 qstr_Next_Page Next_Page
 qstr_Game_Rules:^ Game_Rules:^
 qstr_0 0
@@ -1937,3 +1937,14 @@ qstr_Enter_the_name_of_yo Enter_the_name_of_your_company
 qstr_The_camp_has_no_impr The_camp_has_no_improvements.
 qstr_The_camp_has_the_fol The_camp_has_the_following_improvements:_{s18}.
 qstr_Min_level_reached! Min_level_reached!
+qstr_DAC_Mod_Options DAC_Mod_Options
+qstr_Formations___Put_pla Formations_-_Put_player_in_division:_
+qstr_Formations___Army_ro Formations_-_Army_rotates_to_face_enemy_center:_
+qstr_Formations___Prevent Formations_-_Prevent_AI_from_taking_defensive:_
+qstr__Formations___AI_Con _Formations_-_AI_Controls_Troops_When_Player_is_KO'd:_
+qstr_Size_of_Forest_Battl Size_of_Forest_Battlefields_
+qstr_Small Small
+qstr_Normal Normal
+qstr_Large Large
+qstr_Extra_large Extra_large
+qstr_Size_of_Other_Battle Size_of_Other_Battlefields:
