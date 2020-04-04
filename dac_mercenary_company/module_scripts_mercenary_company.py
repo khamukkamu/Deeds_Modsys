@@ -789,7 +789,7 @@ mercenary_company_scripts = [
     (try_end),  
 ]),  
 
-  ("player_camp_get_improvement_details",
+("player_camp_get_improvement_details",
     [
     (store_script_param, ":improvement_no", 1),
     (try_begin),
@@ -818,6 +818,20 @@ mercenary_company_scripts = [
         (str_store_string, s1, "@A chapterhouse grants you access to knights and allows you to create your own knighthood order."),
         (assign, reg0, 1500),
     (else_try),
+        (party_get_slot, ":cur_improvement", "p_player_camp", slot_center_current_improvement),
+        (eq, ":cur_improvement", slot_player_camp_level),
+        (party_get_slot, ":player_camp_level", "p_player_camp", slot_player_camp_level),
+        (try_begin),
+            (eq, ":player_camp_level", 2),
+            (str_store_string, s0, "@Outpost"),   
+        (else_try),
+            (eq, ":player_camp_level", 3),
+            (str_store_string, s0, "@Manor"),      
+        (else_try),
+            (eq, ":player_camp_level", 4),
+            (str_store_string, s0, "@Stronghold"),    
+        (try_end),
+    (else_try),        
         (eq, ":improvement_no", slot_player_camp_level),
         (party_get_slot, ":player_camp_level", "p_player_camp", slot_player_camp_level),
         (try_begin),
@@ -844,11 +858,33 @@ mercenary_company_scripts = [
   # Output: none
   ("refresh_mercenary_camp_troops",
     [
-    (assign, ":ideal_size", 20),
-    (party_get_num_companions, ":party_size", "p_player_camp"),	
+    (party_get_slot, ":player_camp_level", "p_player_camp", slot_player_camp_level),
+    
+    (try_begin),
+        (eq, ":player_camp_level", 1),
+        (assign, ":ideal_size", 10),
+    (else_try),
+        (eq, ":player_camp_level", 2),
+        (assign, ":ideal_size", 20),
+    (else_try),
+        (eq, ":player_camp_level", 3),
+        (assign, ":ideal_size", 30),
+    (else_try),
+        (assign, ":ideal_size", 40),        
+    (try_end),
     
     (try_begin),
         (party_slot_eq, "p_player_camp", slot_player_camp_archery_range, 1),
+        (val_add, ":ideal_size", 10),
+    (try_end),
+    
+    (try_begin),
+        (party_slot_eq, "p_player_camp", slot_player_camp_corral, 1),
+        (val_add, ":ideal_size", 5),
+    (try_end),
+    
+    (try_begin),
+        (party_slot_eq, "p_player_camp", slot_player_camp_chapterhouse, 1),
         (val_add, ":ideal_size", 10),
     (try_end),
     
@@ -856,17 +892,38 @@ mercenary_company_scripts = [
     (assign, reg30, ":ideal_size"),
     (display_message, "@Player camp max size set to {reg30}"),
 
+    (party_get_num_companions, ":party_size", "p_player_camp"),	
     (try_begin),
         (gt, ":party_size", ":ideal_size"), # We're past the ideal number of troops in the camp
         (party_clear,"p_player_camp"), # Reset the troop pool
     (try_end), 
     
     (try_begin),
+        (party_slot_eq, "p_player_camp", slot_player_camp_corral, 1),
+        (party_add_template, "p_player_camp", "pt_mercenary_company_cavalry"),	  
+        (display_message, "@Cavalry template added to camp"),
+    (try_end),
+    
+    (try_begin),
         (party_slot_eq, "p_player_camp", slot_player_camp_archery_range, 1),
-        (party_add_template, "p_player_camp", "pt_mercenary_company_infantry"),	  
         (party_add_template, "p_player_camp", "pt_mercenary_company_ranged"),	  
         (display_message, "@Ranged template added to camp"),
-    (else_try),
+    (try_end),
+    
+    (try_begin),
+        (party_slot_eq, "p_player_camp", slot_player_camp_chapterhouse, 1),
+        (party_add_template, "p_player_camp", "pt_mercenary_company_noble_infantry"),	  
+        (display_message, "@Noble Infantry template added to camp"),
+    (try_end),
+    
+    (try_begin),
+        (party_slot_eq, "p_player_camp", slot_player_camp_corral, 1),
+        (party_slot_eq, "p_player_camp", slot_player_camp_chapterhouse, 1),
+        (party_add_template, "p_player_camp", "pt_mercenary_company_noble_cavalry"),	  
+        (display_message, "@Noble cavalry template added to camp"),
+    (try_end),
+    
+    (try_begin),
         (party_add_template, "p_player_camp", "pt_mercenary_company_infantry"),		
         (display_message, "@Melee template added to camp"),
     (try_end),

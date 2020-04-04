@@ -66,3 +66,6 @@ pt_dplmc_gift_caravan = 64
 pt_dplmc_recruiter = 65
 pt_mercenary_company_infantry = 66
 pt_mercenary_company_ranged = 67
+pt_mercenary_company_cavalry = 68
+pt_mercenary_company_noble_infantry = 69
+pt_mercenary_company_noble_cavalry = 70

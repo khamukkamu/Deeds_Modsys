@@ -14,6 +14,12 @@ mercenary_company_simple_triggers = [
   # Checking center upgrades
   (12,
    [
+   
+    (try_begin),
+        (eq, "$player_camp_built", 1),
+        (call_script, "script_refresh_mercenary_camp_troops"),
+    (try_end),
+    
     # DAC Seek: Player Camp buildings
     (party_get_slot, ":cur_improvement", "p_player_camp", slot_center_current_improvement),
     (gt, ":cur_improvement", 0),
@@ -68,11 +74,6 @@ mercenary_company_simple_triggers = [
             (val_sub, ":days_til_finished", ":days"),
             (troop_set_slot, "trp_merc_company_smith", slot_camp_smith_days_til_finished, ":days_til_finished"),
         (try_end),
-    (try_end),
-    
-    (try_begin),
-        (eq, "$player_camp_built", 1),
-        (call_script, "script_refresh_mercenary_camp_troops"),
     (try_end),
     
     ]),
