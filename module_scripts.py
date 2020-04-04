@@ -770,6 +770,8 @@ scripts = [
     (assign, "$first_time", 0), #squelch compiler warnings
     (assign, "$FormAI_AI_Control_Troops", 0), #AI Control Dead Player's Troops (FormV5)
     (assign, "$enable_bodysliding", BODYSLIDING_ALL_TROOPS), # 1257 AD's player swapping scripts.
+    (assign, "$g_random_scene_size", 1), # CC's Random Scene Size Selection
+    (assign, "$g_random_scene_size_forests", 1), # CC's Random Scene Size Selection
     
     (call_script, "script_initialize_custom_armor_data"), 
     (call_script, "script_init_weapon_switching"),	
@@ -32873,6 +32875,22 @@ scripts = [
         (eq, ":terrain_type", rt_bridge),
         (assign, ":scene_to_use", "scn_random_scene_plain"),
       (try_end),
+      ## CC
+      (party_get_battle_opponent, ":opponent", "p_main_party"),
+      (try_begin),
+        (le, ":opponent", 0), # do nothing
+      # (else_try),
+        # (eq, "$cant_leave_encounter", 1),
+        # (val_sub, ":scene_to_use", 1), # can leave, must be small battlefield
+      (else_try), # forests
+        (is_between, ":terrain_type", rt_mountain_forest, rt_desert_forest+1),
+        (val_add, ":scene_to_use", "$g_random_scene_size_forests"),
+        (val_sub, ":scene_to_use", 1),
+      (else_try),
+        (val_add, ":scene_to_use", "$g_random_scene_size"),
+        (val_sub, ":scene_to_use", 1),
+      (try_end),
+      ## CC
       (assign, reg0, ":scene_to_use"),
       (jump_to_scene,":scene_to_use"),
   ]),
@@ -84013,6 +84031,41 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 
 
 # DAC Kham: Upgrade Items END
+
+("agent_get_num_enemies_nearby",
+    [
+      (store_script_param, ":agent_no", 1),
+      (store_script_param, ":distance", 2),
+      
+      (try_begin),
+        (agent_is_alive, ":agent_no"),
+        (agent_is_human, ":agent_no"),
+        (agent_get_position, pos1, ":agent_no"),
+        (assign, ":num_enemies", 0),
+        (set_fixed_point_multiplier, 100),
+        (try_for_agents,":cur_agent"),
+          (neq, ":cur_agent", ":agent_no"),
+          (agent_is_alive, ":cur_agent"),
+          (agent_is_human, ":cur_agent"),
+          (assign, ":continue", 0),
+          (try_begin),
+            (agent_is_ally, ":agent_no"),
+            (neg|agent_is_ally, ":cur_agent"),
+            (assign, ":continue", 1),
+          (else_try),
+            (neg|agent_is_ally, ":agent_no"),
+            (agent_is_ally, ":cur_agent"),
+            (assign, ":continue", 1),
+          (try_end),
+          (eq, ":continue", 1),
+          (agent_get_position, pos2, ":cur_agent"),
+          (get_distance_between_positions, ":cur_distance", pos1, pos2),
+          (le, ":cur_distance", ":distance"),
+          (val_add, ":num_enemies", 1),
+        (try_end),
+        (assign, reg0, ":num_enemies"),
+      (try_end),
+  ]),
 
 ]
 

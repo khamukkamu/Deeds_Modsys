@@ -2530,7 +2530,7 @@ TOTAL:  {reg5}"),
            (assign, "$g_presentation_next_presentation", -1),
         ]),
 
-      ("formation_mod_option",[],"Formations mod options.", [(start_presentation, "prsnt_formation_mod_option")]),
+      ("formation_mod_option",[],"DAC mod options.", [(start_presentation, "prsnt_formation_mod_option")]),
 
 ##diplomacy end
       ("camp_action",[],"Take an action.",

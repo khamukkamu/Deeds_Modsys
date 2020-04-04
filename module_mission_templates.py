@@ -242,8 +242,140 @@ dac_lancer_fix = (
 	# (display_message, "@dac_lancer_fix called"),
     # ], [])		
 
+dac_agent_weapons_switching =(
+  1, 0, 0, [],
+    [
+      (get_player_agent_no, ":player_agent"),
+      (try_for_agents, ":agent_no"),
+        (agent_is_active, ":agent_no"),
+        (agent_is_alive, ":agent_no"),
+        (agent_is_human, ":agent_no"),
+        (agent_get_troop_id, ":troop_no", ":agent_no"),
+        (neq, ":agent_no", ":player_agent"),
+        (agent_get_team, ":agent_team", ":agent_no"),
+        (agent_get_division, ":agent_division", ":agent_no"),
+        (team_get_weapon_usage_order, ":weapon_usage_order", ":agent_team", ":agent_division"),
+        (eq, ":weapon_usage_order", wordr_use_any_weapon),
+        (agent_get_ammo, ":num_ammo", ":agent_no"),
+        (store_skill_level, ":skill_level", "skl_horse_archery", ":troop_no"),
+        (try_begin),
+          (gt, ":num_ammo", 0), # horse archer
+          (assign, ":switch_to_ranger_wpns", 0), # 0 = not switch, 1 = switch to ranger weapons, -1 = switch to short weapons
+          (agent_get_wielded_item, ":weapon_item", ":agent_no", 0),
+          (agent_get_horse, ":horse_agent", ":agent_no"),
+          # decide switch aim
+          (try_begin),
+            (ge, ":horse_agent", 0),
+            (set_fixed_point_multiplier, 10),
+            (agent_get_speed, pos1, ":agent_no"),
+            (position_get_y, ":agent_speed", pos1),
+            (try_begin),
+              (ge, ":agent_speed", 80),
+              (gt, ":skill_level", 0), 
+              (assign, ":switch_to_ranger_wpns", 1),
+            (else_try),
+              (le, ":agent_speed", 40),
+              (call_script, "script_agent_get_num_enemies_nearby", ":agent_no", 200),
+              (assign, ":num_enemies", reg0),
+              (ge, ":num_enemies", 1),
+              (assign, ":switch_to_ranger_wpns", -1),
+            (try_end),
+          (try_end),
+          # execute switch aim
+          (try_begin),
+            (eq, ":switch_to_ranger_wpns", -1),
+            (try_begin),
+              (gt, ":weapon_item", 0),
+              # ranger weapon
+              (is_between, ":weapon_item", ranged_weapons_begin, ranged_weapons_end),
+              (try_for_range, ":cur_slot", 0, 4),
+                (agent_get_item_slot, ":cur_weapon", ":agent_no", ":cur_slot"),
+                (gt, ":cur_weapon", 0),
+                (item_get_type, ":i_type", ":cur_weapon"),
+                (neq, ":i_type", itp_type_shield),
+                # not ranger weapon
+                (neg|is_between, ":cur_weapon", ranged_weapons_begin, ranged_weapons_end),
+                (agent_set_wielded_item, ":agent_no", ":cur_weapon"),
+              (try_end),
+            (try_end),
+          (else_try),
+            (eq, ":switch_to_ranger_wpns", 1),
+            (try_begin),
+              (gt, ":weapon_item", 0),
+              # not ranger weapon
+              (neg|is_between, ":weapon_item", ranged_weapons_begin, ranged_weapons_end),
+              (try_for_range, ":cur_slot", 0, 4),
+                (agent_get_item_slot, ":cur_weapon", ":agent_no", ":cur_slot"),
+                (gt, ":cur_weapon", 0),
+                # ranger weapon
+                (is_between, ":cur_weapon", ranged_weapons_begin, ranged_weapons_end),
+                (neg|is_between, ":cur_weapon", "itm_w_crossbow_hunting", "itm_w_handgonne_1"),
+                (agent_set_wielded_item, ":agent_no", ":cur_weapon"),
+              (try_end),
+            (try_end),
+          (try_end),
+        (else_try),
+          # (le, ":num_ammo", 0), # melee
+          (assign, ":switch_to_lances", 0), # 0 = not switch, 1 = switch to lances, -1 = switch to short weapons
+          (agent_get_wielded_item, ":weapon_item", ":agent_no", 0),
+          (agent_get_horse, ":horse_agent", ":agent_no"),
+          # decide switch aim
+          (try_begin),
+            (ge, ":horse_agent", 0),
+            (set_fixed_point_multiplier, 10),
+            (agent_get_speed, pos1, ":agent_no"),
+            (position_get_y, ":agent_speed", pos1),
+            (try_begin),
+              (ge, ":agent_speed", 80),
+              (assign, ":switch_to_lances", 1),
+            (else_try),
+              (le, ":agent_speed", 40),
+              (call_script, "script_agent_get_num_enemies_nearby", ":agent_no", 200),
+              (assign, ":num_enemies", reg0),
+              (ge, ":num_enemies", 1),
+              (assign, ":switch_to_lances", -1),
+            (try_end),
+          (else_try),
+            (assign, ":switch_to_lances", -1), 
+          (try_end),
+          # execute switch aim
+          (try_begin),
+            (eq, ":switch_to_lances", -1),
+            (try_begin),
+              (gt, ":weapon_item", 0),
+              # couchable weapon
+              (item_has_property, ":weapon_item", itp_couchable),
+              (try_for_range, ":cur_slot", 0, 4),
+                (agent_get_item_slot, ":cur_weapon", ":agent_no", ":cur_slot"),
+                (gt, ":cur_weapon", 0),
+                (item_get_type, ":i_type", ":cur_weapon"),
+                (neq, ":i_type", itp_type_shield),
+                # not couchable weapon
+                (neg|item_has_property, ":cur_weapon", itp_couchable),
+                (agent_set_wielded_item, ":agent_no", ":cur_weapon"),
+              (try_end),
+            (try_end),
+          (else_try),
+            (eq, ":switch_to_lances", 1),
+            (try_begin),
+              (gt, ":weapon_item", 0),
+              # not couchable weapon
+              (neg|item_has_property, ":weapon_item", itp_couchable),
+              (try_for_range, ":cur_slot", 0, 4),
+                (agent_get_item_slot, ":cur_weapon", ":agent_no", ":cur_slot"),
+                (gt, ":cur_weapon", 0),
+                # couchable weapon
+                (item_has_property, ":cur_weapon", itp_couchable),
+                (agent_set_wielded_item, ":agent_no", ":cur_weapon"),
+              (try_end),
+            (try_end),
+          (try_end),
+        (try_end),
+      (try_end),
+    ])
+
 # Make sure there are no units that have no backup weapons 
-dac_lancer_fix_siege = (
+dac_lancer_fix_siege_test = (
   ti_on_agent_spawn, 1, 0, [
 	(store_trigger_param_1, ":agent"), 
 	(agent_is_alive, ":agent"),
@@ -263,12 +395,23 @@ dac_lancer_fix_siege = (
 	
 
    
-dac_lancer_fix_siege_test = (3, 0, 0, [(lt,"$dac_counter",3)],[ # need to repeat orders several times for the bitches to listen
+dac_lancer_fix_siege = (3, 0, 0, [(lt,"$dac_counter",3)],[ # need to repeat orders several times for the bitches to listen
         
       (try_for_agents, ":agent"),
+        (agent_is_active, ":agent"),
         (agent_is_alive, ":agent"),
+        (agent_is_human, ":agent"),
         (agent_is_non_player, ":agent"),
-        (call_script, "script_equip_best_melee_weapon", ":agent", 0, 0, 0), 
+        (try_for_range, ":item_slot", ek_item_0, ek_head),
+          (agent_get_item_slot, ":item", ":agent", ":item_slot"),
+          (gt, ":item", itm_no_item),
+          (item_has_property, ":item", itp_couchable),    
+          # (item_get_type, ":weapon_type", ":item"),
+          # (eq, ":weapon_type", itp_type_polearm), 
+          # (this_or_next|item_has_capability, ":item", itc_greatlance),
+          # (item_has_capability, ":item", itc_lance_upstab),
+          (agent_unequip_item, ":agent", ":item"),
+        (try_end),
       (try_end),
       (val_add, "$dac_counter", 1),
     ])
@@ -1191,6 +1334,7 @@ dplmc_battle_mode_triggers = [
     common_move_deathcam, common_rotate_deathcam,
     custom_commander_camera, deathcam_cycle_forwards, deathcam_cycle_backwards,
     dplmc_death_camera,
+    dac_agent_weapons_switching,
   ] + deeds_common_battle_scripts
 ##diplomacy end
 

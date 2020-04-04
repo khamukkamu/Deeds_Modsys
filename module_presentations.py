@@ -19880,7 +19880,7 @@ presentations = [
         (presentation_set_duration, 999999),
         (set_fixed_point_multiplier, 1000),
         
-        (create_text_overlay, reg1, "@Extended Formations and AI Options", tf_center_justify),
+        (create_text_overlay, reg1, "@DAC Mod Options", tf_center_justify),
         (position_set_x, pos0, Screen_Width/2),
         #  (position_set_y, pos0, Screen_Title_Height),
         (position_set_y, pos0, 600),
@@ -19905,7 +19905,7 @@ presentations = [
         (val_sub, ":y_pos", Screen_Text_Height),
         
         #Player division assignment
-        (create_text_overlay, reg1, "@Put player in division: ", tf_right_align),
+        (create_text_overlay, reg1, "@Formations - Put player in division: ", tf_right_align),
         (position_set_y, pos0, ":y_pos"),
         (overlay_set_position, reg1, pos0),
         
@@ -19931,7 +19931,7 @@ presentations = [
         (val_sub, ":y_pos", Screen_Text_Height),
         
         #Autorotate formations option
-        (create_text_overlay, reg1, "@Army rotates to face enemy center: ", tf_right_align),
+        (create_text_overlay, reg1, "@Formations - Army rotates to face enemy center: ", tf_right_align),
         (position_set_y, pos0, ":y_pos"),
         (overlay_set_position, reg1, pos0),
         
@@ -19946,7 +19946,7 @@ presentations = [
         (val_sub, ":y_pos", Screen_Text_Height),
         
         #Prevent AI from taking defensive
-        (create_text_overlay, reg1, "@Prevent AI from taking defensive: ", tf_right_align),
+        (create_text_overlay, reg1, "@Formations - Prevent AI from taking defensive: ", tf_right_align),
         (position_set_y, pos0, ":y_pos"),
         (overlay_set_position, reg1, pos0),
         
@@ -19961,7 +19961,7 @@ presentations = [
         (val_sub, ":y_pos", Screen_Text_Height),
 
         #Have AI control troops when Player is KO'd
-        (create_text_overlay, reg1, "@AI Controls Troops When Player is KO'd: ", tf_right_align),
+        (create_text_overlay, reg1, "@ Formations - AI Controls Troops When Player is KO'd: ", tf_right_align),
         (position_set_y, pos0, ":y_pos"),
         (overlay_set_position, reg1, pos0),
         
@@ -19975,6 +19975,51 @@ presentations = [
         
         (val_sub, ":y_pos", Screen_Text_Height),
         
+        # CC Scene Size (Forests)
+        (create_text_overlay, reg1, "@Size of Forest Battlefields ", tf_right_align),
+        (position_set_y, pos0, ":y_pos"),
+        (overlay_set_position, reg1, pos0),
+        
+        (create_combo_button_overlay, "$g_presentation_obj_admin_panel_5"),
+        (overlay_add_item, "$g_presentation_obj_admin_panel_5", "@Small"),
+        (overlay_add_item, "$g_presentation_obj_admin_panel_5", "@Normal"),
+        (overlay_add_item, "$g_presentation_obj_admin_panel_5", "@Large"),
+        (overlay_add_item, "$g_presentation_obj_admin_panel_5", "@Extra large"),
+
+        (copy_position, pos1, pos0),
+        (store_add, reg2, ":y_pos", 0),
+        (position_set_y, pos1, reg2),
+        (position_get_x, ":x_pos", pos1),
+        (val_add, ":x_pos", 130),
+        (position_set_x, pos1, ":x_pos"),
+        (overlay_set_position, "$g_presentation_obj_admin_panel_5", pos1),
+        (overlay_set_val,  "$g_presentation_obj_admin_panel_5", "$g_random_scene_size_forests"),
+        (val_sub, ":y_pos", Screen_Text_Height),
+
+
+        # CC Scene Size (non-Forests)
+        (create_text_overlay, reg1, "@Size of Other Battlefields:", tf_right_align),
+        (position_set_y, pos0, ":y_pos"),
+        (overlay_set_position, reg1, pos0),
+
+        (create_combo_button_overlay, "$g_presentation_obj_admin_panel_6"),
+        (overlay_add_item, "$g_presentation_obj_admin_panel_6", "@Small"),
+        (overlay_add_item, "$g_presentation_obj_admin_panel_6", "@Normal"),
+        (overlay_add_item, "$g_presentation_obj_admin_panel_6", "@Large"),
+        (overlay_add_item, "$g_presentation_obj_admin_panel_6", "@Extra large"),
+        (overlay_set_val,  "$g_presentation_obj_admin_panel_6", "$g_random_scene_size"),
+        
+        (copy_position, pos1, pos0),
+        (store_add, reg2, ":y_pos", 0),
+        (position_set_y, pos1, reg2),
+        (position_get_x, ":x_pos", pos1),
+        (val_add, ":x_pos", 130),
+        (position_set_x, pos1, ":x_pos"),
+        (overlay_set_position, "$g_presentation_obj_admin_panel_6", pos1),
+        (overlay_set_val,  "$g_presentation_obj_admin_panel_6", "$g_random_scene_size"),
+        
+        (val_sub, ":y_pos", Screen_Text_Height),
+
         # This is for Done button
         (assign, "$form_options_overlay_exit", 0), # forced initialization
         (create_game_button_overlay, "$form_options_overlay_exit", "str_done"),
@@ -20011,6 +20056,12 @@ presentations = [
         (else_try),
           (eq, ":object", "$form_options_overlay_5"),
           (assign, "$FormAI_AI_Control_Troops", ":value"),
+        (else_try),
+          (eq, ":object", "$g_presentation_obj_admin_panel_5"),
+          (assign, "$g_random_scene_size_forests", ":value"),
+        (else_try),
+          (eq, ":object", "$g_presentation_obj_admin_panel_6"),
+          (assign, "$g_random_scene_size", ":value"),
         (else_try),
           (eq, ":object", "$form_options_overlay_exit"),
           (presentation_set_duration, 0),
