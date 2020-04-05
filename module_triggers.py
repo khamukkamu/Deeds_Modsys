@@ -5,7 +5,7 @@ from header_items import *
 from header_skills import *
 from header_triggers import *
 from header_troops import *
-
+from dac_mercenary_company import mercenary_company_triggers
 from module_constants import *
 
 from compiler import *
@@ -1702,3 +1702,4 @@ triggers = [
 
 ##diplomacy end
 ]
+triggers += mercenary_company_triggers

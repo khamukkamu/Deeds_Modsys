@@ -1011,3 +1011,4 @@ script_dac_upgrade_player_camp = 1009
 script_improve_player_camp = 1010
 script_player_camp_get_improvement_details = 1011
 script_refresh_mercenary_camp_troops = 1012
+script_refresh_mercenary_camp_merchant_inventory = 1013

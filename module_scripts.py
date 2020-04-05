@@ -5430,6 +5430,12 @@ scripts = [
             (val_sub, ":join_cost", ":player_renown"),
         (try_end),
     #JuJu70 end
+    # DAC Seek: Reduce cost of player company mercs
+        (try_begin), #mounted troops cost %50 more than the normal cost
+            (is_between, ":troop_id", "trp_custom_merc_recruit", "trp_custom_mercs_end"),
+            (val_div, ":join_cost", 4),            
+        (try_end),
+    # DAC Seek END
         (try_begin), #mounted troops cost %50 more than the normal cost
             (troop_is_mounted, ":troop_id"),
             (val_mul, ":join_cost", 3),

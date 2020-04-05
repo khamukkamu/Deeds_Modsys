@@ -14,12 +14,51 @@ from compiler import *
 
 mercenary_company_menus = [
 
+## DAC Seek: Player Camp Notification
+  (
+    "player_camp_notification",0,
+    "Yet another day is spent on the road... ^Feeling weary and tired, you sit to rest by the campfire as thoughts cycle through your mind. You think of the war and your place in the world, you wonder why the great mercenary companies never reformed as the short-lived peace was broken. Certainly it would be very profitable for a distinguished mercenary company to sell its services to one of the belligerent factions, perhaps you could be the one? You believe you have the experience and the renown to establish your own mercenary company, should you wish to do so. ^(You can now create a mercenary company from the camp menu under 'Take an Action')",
+    "none",
+    [(set_background_mesh, "mesh_pic_castle1"),],
+    [ 
+    ("player_camp_start_quest",
+       [],
+    "Make it your priority.",[
+        (change_screen_return),
+    ]),  
+    ("player_camp_ignore",
+       [],
+    "Discard that thought.",[
+        (change_screen_return),
+    ]),  
+  ]),
+
 ## DAC Seek: Player Camp Encounter
   (
     "player_camp_encounter",0,
-    "You approach your encampment... ^{reg6?^^You are currently upgrading to {s7}. The process will take {reg8} day{reg9?s:} and you won't be able to access the camp until the work is finished.:}",
+    "You approach your {s11}... ^{reg6?^^You are currently upgrading to: {s7}. The process will take {reg8} day{reg9?s:} and you won't be able to access the camp until the work is finished.:}",
     "none",
     [
+    (str_clear, s11),
+    (party_get_slot, ":player_camp_level", "p_player_camp", slot_player_camp_level),
+    
+    (try_begin),
+        (eq, ":player_camp_level", 1),
+        (str_store_string, s11, "@Camp"),
+        (set_background_mesh, "mesh_pic_camp"),
+    (else_try),
+        (eq, ":player_camp_level", 2),
+        (str_store_string, s11, "@Outpost"),
+        (set_background_mesh, "mesh_pic_village_s"),
+    (else_try),
+        (eq, ":player_camp_level", 3),
+        (str_store_string, s11, "@Manor"),
+        (set_background_mesh, "mesh_pic_village_p"),
+    (else_try),
+        (str_store_string, s11, "@Stronghold"),
+        (set_background_mesh, "mesh_pic_castle1"),
+    (try_end),
+        
     (assign, reg6, 0),
     (try_begin),
         (party_get_slot, ":cur_improvement", "p_player_camp", slot_center_current_improvement),
@@ -58,9 +97,20 @@ mercenary_company_menus = [
         (jump_to_scene,"scn_player_camp"),
         (change_screen_map_conversation, "trp_merc_company_smith"),
     ]),   
+    ("player_camp_meet_merchant",
+       [(eq, reg6, 0),(party_slot_eq, "p_player_camp", slot_player_camp_market, 1),],
+    "Speak to the Merchant.",[
+        (modify_visitors_at_site,"scn_player_camp"),
+        (reset_visitors),    
+        (assign, "$g_mt_mode", tcm_default),   		
+        (set_jump_entry, 1),
+        (set_visitor, 4, "trp_merc_company_merchant"),
+        (jump_to_scene,"scn_player_camp"),
+        (change_screen_map_conversation, "trp_merc_company_merchant"),
+    ]), 
     ("player_camp_enter",
         [(eq, reg6, 0),],
-    "Enter the Encampment.",[
+    "Enter the {s11}.",[
         (modify_visitors_at_site,"scn_player_camp"),
         (reset_visitors),    
         (assign, "$g_mt_mode", tcm_default),   		
@@ -69,6 +119,10 @@ mercenary_company_menus = [
         (try_begin),
             (party_slot_eq, "p_player_camp", slot_player_camp_smithy, 1),
             (set_visitor, 3, "trp_merc_company_smith"),
+        (try_end),
+        (try_begin),
+            (party_slot_eq, "p_player_camp", slot_player_camp_market, 1),
+            (set_visitor, 4, "trp_merc_company_merchant"),
         (try_end),
         (set_visitor, 5, "trp_custom_merc_recruit"),
         (set_visitor, 6, "trp_custom_merc_footman"),
@@ -79,7 +133,7 @@ mercenary_company_menus = [
         (jump_to_scene,"scn_player_camp"),
         (change_screen_mission),		
 	]),	
-      ("player_camp_manage",[(eq, reg6, 0),],"Manage the encampment.",[(jump_to_menu, "mnu_player_camp_management"),]),
+      ("player_camp_manage",[(eq, reg6, 0),],"Manage the {s11}.",[(jump_to_menu, "mnu_player_camp_management"),]),
       ("leave",[],"Leave.",[(leave_encounter),(change_screen_return)]),
     ]
   ),  
@@ -91,6 +145,22 @@ mercenary_company_menus = [
     "Management Options ^{s19}^{reg6?^^You are currently building {s7}. The building will be completed after {reg8} day{reg9?s:}.:}",
     "none",
     [
+    (str_clear, s11),
+    (party_get_slot, ":player_camp_level", "p_player_camp", slot_player_camp_level),
+    
+    (try_begin),
+        (eq, ":player_camp_level", 1),
+        (str_store_string, s11, "@Camp"),
+    (else_try),
+        (eq, ":player_camp_level", 2),
+        (str_store_string, s11, "@Outpost"),
+    (else_try),
+        (eq, ":player_camp_level", 3),
+        (str_store_string, s11, "@Manor"),
+    (else_try),
+        (str_store_string, s11, "@Stronghold"),
+    (try_end),
+    
     (assign, ":num_improvements", 0),
     (str_clear, s18),  
 
@@ -108,9 +178,9 @@ mercenary_company_menus = [
 
     (try_begin),
         (eq,  ":num_improvements", 0),
-        (str_store_string, s19, "@The camp has no improvements."),
+        (str_store_string, s19, "@The {s11} has no improvements."),
     (else_try),
-        (str_store_string, s19, "@The camp has the following improvements: {s18}."),
+        (str_store_string, s19, "@The {s11} has the following improvements: {s18}."),
     (try_end),   
 
     (assign, reg6, 0),
@@ -145,27 +215,27 @@ mercenary_company_menus = [
         (lt, reg10, 4),
 
        ],
-    "Upgrade the encampment. (Current level: {reg10}, Max level: 4)",[
+    "Upgrade the {s11}. (Current level: {reg10}, Max level: 4)",[
         (assign, "$g_improvement_type", slot_player_camp_level),
         (jump_to_menu, "mnu_player_camp_build_improvements"),
     ]),  
-    ("player_camp_degrade", # This is just for testing, disable it after system implementation
-       [
-        (party_get_slot, ":player_camp_level", "p_player_camp", slot_player_camp_level),    
-        (assign, reg1, ":player_camp_level"),
-       ],
-    "Degrade the encampment. (Current level: {reg1})",[
-        (party_get_slot, ":player_camp_level", "p_player_camp", slot_player_camp_level),
-        (try_begin),
-            (gt, ":player_camp_level", 1),  
-            (val_sub, ":player_camp_level", 1),
-            (party_set_slot, "p_player_camp", slot_player_camp_level, ":player_camp_level"),
-            (call_script, "script_dac_upgrade_player_camp"),
-        (else_try),
-            (display_message, "@Min level reached!"),
-        (try_end),
-        (jump_to_menu, "mnu_player_camp_management"),
-    ]),     
+    # ("player_camp_degrade", # This is just for testing, disable it after system implementation
+       # [
+        # (party_get_slot, ":player_camp_level", "p_player_camp", slot_player_camp_level),    
+        # (assign, reg1, ":player_camp_level"),
+       # ],
+    # "Degrade the {s11}. (Current level: {reg1})",[
+        # (party_get_slot, ":player_camp_level", "p_player_camp", slot_player_camp_level),
+        # (try_begin),
+            # (gt, ":player_camp_level", 1),  
+            # (val_sub, ":player_camp_level", 1),
+            # (party_set_slot, "p_player_camp", slot_player_camp_level, ":player_camp_level"),
+            # (call_script, "script_dac_upgrade_player_camp"),
+        # (else_try),
+            # (display_message, "@Min level reached!"),
+        # (try_end),
+        # (jump_to_menu, "mnu_player_camp_management"),
+    # ]),     
     ("player_camp_build_smithy",
        [
         (eq, reg6, 0), 

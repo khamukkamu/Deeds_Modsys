@@ -45316,6 +45316,18 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
     
   [anyone|plyr,"camp_smith_start", [], "Nothing today. Carry on.", "camp_smith_back",[]],
   [anyone,"camp_smith_back", [], "Very well.", "close_window",[(change_screen_map)]],    
+  
+# DAC Seek: Camp Merchant Dialog
+  [anyone, "start", [(eq, "$g_talk_troop", "trp_merc_company_merchant"),
+                     ],
+   "Good day {playername}, here to take a look at my wares?", "camp_merchant_start", []],
+  [anyone|plyr, "camp_merchant_start", [], "Yes. Show me what you have for sale.", "camp_merchant_trade", []],
+
+  [anyone,"camp_merchant_trade", [], "Certainly, have a look.", "camp_merchant_trade_completed",[[change_screen_trade]]],
+  [anyone,"camp_merchant_trade_completed", [], "Anything else?", "camp_merchant_start",[]],
+
+  [anyone|plyr,"camp_merchant_start", [], "I have what I need, thanks.", "close_window",[]],
+  
 ######################################
 # GENERIC PARTY ENCOUNTER
 ######################################
