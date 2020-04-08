@@ -2922,3 +2922,7 @@ slot_player_camp_chapterhouse = 354
 # Camp level 1-4
 slot_player_camp_level = 355
 ## DAC Custom Troops (Merc Company Feature) End
+slot_item_armor_tier = 120
+slot_item_footwear_tier = 121
+slot_item_helmet_tier = 122
+slot_item_gauntlet_tier = 123

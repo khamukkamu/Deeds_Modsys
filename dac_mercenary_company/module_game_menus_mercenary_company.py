@@ -36,7 +36,7 @@ mercenary_company_menus = [
 ## DAC Seek: Player Camp Encounter
   (
     "player_camp_encounter",0,
-    "You approach your {s11}... ^{reg6?^^You are currently upgrading to: {s7}. The process will take {reg8} day{reg9?s:} and you won't be able to access the camp until the work is finished.:}",
+    "You approach your {s11}... ^{reg6?^^You are currently upgrading to: {s7}. ^The process will take {reg8} day{reg9?s:} and you won't be able to access the camp until the work is finished.:}",
     "none",
     [
     (str_clear, s11),
@@ -298,7 +298,7 @@ mercenary_company_menus = [
 ## DAC Seek: Player Camp Building Begin
   (
     "player_camp_build_improvements",0,
-    "{s19} As the party member with the highest engineer skill ({reg2}), {reg3?you reckon:{s3} reckons} that building the {s4} will cost you {reg5} crowns and will take {reg6} days.",
+    "{s19} ^As the party member with the highest engineer skill ({reg2}), {reg3?you reckon:{s3} reckons} that building the {s4} will cost you {reg5} crowns and will take {reg6} days.",
     "none",
     [
     (call_script, "script_player_camp_get_improvement_details", "$g_improvement_type"),

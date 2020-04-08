@@ -16,7 +16,7 @@ mercenary_company_triggers = [
     (map_free,0),
   ], 
   [
-    (jump_to_menu, "mnu_player_camp_notification"),
+    # (jump_to_menu, "mnu_player_camp_notification"),
   ]),
   
 

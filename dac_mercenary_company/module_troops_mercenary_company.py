@@ -301,7 +301,7 @@ mercenary_company_troops = [
 
 ## Tier 1 ##
 
-  ["custom_merc_recruit","Company Recruit","Company Recruits",tf_guarantee_all,0,0,fac_neutral,[],
+  ["custom_merc_recruit","Company Recruit","Company Recruits",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm,0,0,fac_neutral,[],
     level(10)|str_12|agi_12, 
     wp_melee(120), 
     knows_ironflesh_2|knows_power_strike_2|knows_shield_1|knows_athletics_3|knows_weapon_master_1,
@@ -310,52 +310,73 @@ mercenary_company_troops = [
   ["custom_merc_recruit_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
    # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
    [ 
+    itm_h_hood_custom,
+    itm_h_hood_fi_custom,
     itm_h_arming_cap,
-    itm_a_leather_vest_custom,
+    itm_h_simple_coif,
+    itm_h_leather_hat_c,
+    itm_h_padded_coif_white,
+    
     itm_a_cloth_vest_custom,
-    itm_b_hosen_shoes_custom,
-    itm_g_leather_gauntlet,
-    itm_w_onehanded_war_axe_4,
-    itm_w_archer_hatchet,
-    itm_w_spiked_club,
+    itm_a_leather_vest_custom,
+    
     itm_b_ankle_boots,
+    itm_b_leather_boots,
+    
+    itm_g_leather_gauntlet,
+    
     itm_w_onehanded_sword_a,
     itm_w_onehanded_sword_c,
     itm_w_onehanded_sword_c_small,
+    itm_w_archer_hatchet,
+    itm_w_onehanded_war_axe_2,
+    itm_w_spiked_club,
+    
+    itm_s_heater_shield_b2,
+    itm_s_heater_shield_c2,
     itm_s_heater_shield_d1,
-    itm_h_pot_helmet_hood_custom,
+    itm_s_heater_shield_d1,
    ], def_attrib|level(1), wp(60),knows_common,0
   ],
   
   ["custom_merc_recruit_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
     [ #Inventory Matters here. This is what they CAN BE ASKED to equip. Our system gives this troop weapons through dialogues.
     itm_h_hood_custom,
+    itm_h_hood_fi_custom,
     itm_h_arming_cap,
-    itm_a_leather_vest_custom,
+    itm_h_simple_coif,
+    itm_h_leather_hat_c,
+    itm_h_padded_coif_white,
+    
     itm_a_cloth_vest_custom,
-    itm_a_gambeson_custom,
-    itm_b_hosen_shoes_custom,
-    itm_g_leather_gauntlet,
-    itm_w_onehanded_war_axe_4,
-    itm_w_archer_hatchet,
-    itm_w_spiked_club,
+    itm_a_leather_vest_custom,
+    
     itm_b_ankle_boots,
-    itm_w_onehanded_sword_poitiers,
-    itm_w_onehanded_sword_a_long,
+    itm_b_leather_boots,
+    
+    itm_g_leather_gauntlet,
+    
     itm_w_onehanded_sword_a,
     itm_w_onehanded_sword_c,
-    itm_w_onehanded_sword_c_long,
     itm_w_onehanded_sword_c_small,
+    itm_w_archer_hatchet,
+    itm_w_onehanded_war_axe_2,
+    itm_w_spiked_club,
+    itm_w_fauchard_1,
+    itm_w_glaive_1,
+    itm_w_spear_1,
+    itm_w_awlpike_1,
+    itm_w_mace_knobbed,
+    
     itm_s_heater_shield_b2,
     itm_s_heater_shield_c2,
     itm_s_heater_shield_d1,
     itm_s_heater_shield_d1,
-    itm_h_pot_helmet_hood_custom,
     ], def_attrib|level(1),wp(60),knows_common|knows_inventory_management_10,0],
 
 # Tier 2 #
 
-  ["custom_merc_footman","Company Footman","Company Footmen",tf_guarantee_all,0,0,fac_neutral,[],
+  ["custom_merc_footman","Company Footman","Company Footmen",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm,0,0,fac_neutral,[],
     level(15)|str_14|agi_14, 
     wp_melee(140), 
     knows_ironflesh_3|knows_power_strike_3|knows_shield_2|knows_athletics_3|knows_weapon_master_1,
@@ -409,7 +430,7 @@ mercenary_company_troops = [
 
 # Tier 3 #
 
-  ["custom_merc_veteran","Company Veteran","Company Veterans",tf_guarantee_all,0,0,fac_neutral,[],
+  ["custom_merc_veteran","Company Veteran","Company Veterans",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm,0,0,fac_neutral,[],
     level(20)|str_16|agi_16, 
     wp_melee(160), 
     knows_ironflesh_4|knows_power_strike_4|knows_shield_3|knows_athletics_3|knows_weapon_master_2,
@@ -463,7 +484,7 @@ mercenary_company_troops = [
 
 # Tier 4 #
 
-  ["custom_merc_sergeant","Company Sergeant","Company Sergeants",tf_guarantee_all,0,0,fac_neutral,[],
+  ["custom_merc_sergeant","Company Sergeant","Company Sergeants",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm,0,0,fac_neutral,[],
     level(25)|str_20|agi_20, 
     wp_melee(180), 
     knows_ironflesh_5|knows_power_strike_5|knows_shield_3|knows_athletics_4|knows_weapon_master_5,
@@ -519,9 +540,9 @@ mercenary_company_troops = [
 ###################################################################################################### DAC CUSTOM TROOPS RANGED ##########################################################################################################################################################################################
 ##################################################################################################################################################################################################################################################################################################################
 
-  ["custom_merc_skirmisher","Company Skirmisher","Company Skirmishers", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_ranged,0,0,fac_neutral,[],
+  ["custom_merc_skirmisher","Company Skirmisher","Company Skirmishers", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm|tf_guarantee_ranged,0,0,fac_neutral,[],
     level(8)|str_10|agi_12,  
-    wpex(90,80,80,100,80,80), 
+    wpex(90,90,90,100,100,100), 
     knows_ironflesh_1|knows_power_strike_1|knows_power_draw_2|knows_athletics_4|knows_weapon_master_1,
     mercenary_face_1, mercenary_face_2],
     
@@ -535,13 +556,21 @@ mercenary_company_troops = [
     itm_h_leather_hat_d,
     itm_h_leather_hat_d_black,
     itm_h_leather_hat_b,
+    
     itm_a_peasant_man_custom,
+    itm_a_peasant_shirt_custom,
+    
+    itm_b_hosen_shoes_custom,
     itm_b_hosen_poulaines_custom,
+    itm_b_wrapping_boots,
+    
     itm_w_short_bow_elm,
     itm_w_short_bow_oak,
     itm_w_short_bow_ash,
+    
     itm_w_arrow_triangular,
     itm_w_arrow_triangular,
+    
     itm_w_dagger_pikeman,
     itm_w_onehanded_war_axe_2,
     itm_w_onehanded_war_axe_3,
@@ -559,13 +588,21 @@ mercenary_company_troops = [
     itm_h_leather_hat_d,
     itm_h_leather_hat_d_black,
     itm_h_leather_hat_b,
+    
     itm_a_peasant_man_custom,
+    itm_a_peasant_shirt_custom,
+    
+    itm_b_hosen_shoes_custom,
     itm_b_hosen_poulaines_custom,
+    itm_b_wrapping_boots,
+    
     itm_w_short_bow_elm,
     itm_w_short_bow_oak,
     itm_w_short_bow_ash,
+    
     itm_w_arrow_triangular,
     itm_w_arrow_triangular,
+    
     itm_w_dagger_pikeman,
     itm_w_onehanded_war_axe_2,
     itm_w_onehanded_war_axe_3,
@@ -573,112 +610,153 @@ mercenary_company_troops = [
     itm_w_mace_knobbed,
     ], def_attrib|level(1),wp(60),knows_common|knows_inventory_management_10,0], 
     
-  ["custom_merc_ranger","Company Ranger","Company Rangers", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_ranged,0,0,fac_neutral,[],
+  ["custom_merc_ranger","Company Ranger","Company Rangers", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm|tf_guarantee_ranged,0,0,fac_neutral,[],
     level(12)|str_12|agi_14,  
-    wpex(100,80,80,120,80,80), 
+    wpex(100,100,100,120,120,120), 
     knows_ironflesh_2|knows_power_draw_3|knows_power_strike_2|knows_athletics_4|knows_weapon_master_2,
     mercenary_face_1, mercenary_face_2],
  
   ["custom_merc_ranger_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
    # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
    [ 
-    itm_h_hood_custom,
-    itm_h_hood_fi_custom,
-    itm_h_simple_coif,
-    itm_h_simple_coif_brown,
-    itm_h_leather_hat_d,
-    itm_h_leather_hat_d_black,
-    itm_h_leather_hat_b,
-    itm_a_peasant_man_custom,
-    itm_b_hosen_poulaines_custom,
-    itm_w_short_bow_elm,
-    itm_w_short_bow_oak,
-    itm_w_short_bow_ash,
+    itm_h_pot_helmet_hood_custom,
+    itm_h_round_kettlehat_hood_custom,
+    itm_h_kettlehat_hood_custom,
+    
+    itm_a_gambeson_custom,
+    itm_a_padded_armor_custom,
+    itm_a_padded_cloth_custom,
+    
+    itm_b_ankle_boots,
+    itm_b_leather_boots,
+    
+    itm_g_leather_gauntlet,
+    
+    itm_w_war_bow_ash,
+    itm_w_war_bow_elm,
     itm_w_arrow_triangular,
-    itm_w_arrow_triangular,
-    itm_w_dagger_pikeman,
-    itm_w_onehanded_war_axe_2,
-    itm_w_onehanded_war_axe_3,
+    
+    itm_w_crossbow_light,
+    itm_w_bolt_triangular,
+    
     itm_w_spiked_club,
     itm_w_mace_knobbed,
+    itm_w_onehanded_war_axe_2,
+    itm_w_onehanded_sword_c_small,
+    itm_w_onehanded_sword_a,
    ], def_attrib|level(1), wp(60),knows_common,0
   ],
   
   ["custom_merc_ranger_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
     [ #Inventory Matters here. This is what they CAN BE ASKED to equip. Our system gives this troop weapons through dialogues.
-    itm_h_hood_custom,
-    itm_h_hood_fi_custom,
-    itm_h_simple_coif,
-    itm_h_simple_coif_brown,
-    itm_h_leather_hat_d,
-    itm_h_leather_hat_d_black,
-    itm_h_leather_hat_b,
-    itm_a_peasant_man_custom,
-    itm_b_hosen_poulaines_custom,
-    itm_w_short_bow_elm,
-    itm_w_short_bow_oak,
-    itm_w_short_bow_ash,
+    itm_h_pot_helmet_hood_custom,
+    itm_h_round_kettlehat_hood_custom,
+    itm_h_kettlehat_hood_custom,
+    itm_h_kettlehat_2_hood_custom,
+    itm_h_kettlehat_3_hood_custom,
+    itm_h_kettlehat_4_hood_custom,
+    itm_h_chapel_de_fer_1_hood_custom,
+    itm_h_chapel_de_fer_2_hood_custom,
+    itm_h_chapel_de_fer_3_hood_custom,
+    itm_h_chapel_de_fer_4_hood_custom,
+    itm_h_pot_helmet_padded,
+    itm_h_pot_helmet_mail,
+    
+    itm_a_gambeson_custom,
+    itm_a_padded_armor_custom,
+    itm_a_padded_cloth_custom,
+    itm_a_leather_vest_custom,
+    itm_a_leather_armor_custom,
+    
+    itm_b_ankle_boots,
+    itm_b_leather_boots,
+    
+    itm_g_leather_gauntlet,
+    
+    itm_w_war_bow_ash,
+    itm_w_war_bow_elm,
     itm_w_arrow_triangular,
-    itm_w_arrow_triangular,
-    itm_w_dagger_pikeman,
-    itm_w_onehanded_war_axe_2,
-    itm_w_onehanded_war_axe_3,
+    
+    itm_w_crossbow_light,
+    itm_w_bolt_triangular,
+    
     itm_w_spiked_club,
     itm_w_mace_knobbed,
+    itm_w_onehanded_war_axe_2,
+    itm_w_onehanded_sword_c_small,
+    itm_w_onehanded_sword_a,
     ], def_attrib|level(1),wp(60),knows_common|knows_inventory_management_10,0], 
     
-  ["custom_merc_marksman","Company Marksman","Company Marksmen", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_ranged,0,0,fac_neutral,[],
+  ["custom_merc_marksman","Company Marksman","Company Marksmen", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm|tf_guarantee_ranged,0,0,fac_neutral,[],
     level(18)|str_14|agi_16,  
-    wpex(120,80,80,150,80,80), 
+    wpex(120,120,120,150,150,150), 
     knows_ironflesh_3|knows_power_draw_3|knows_power_strike_2|knows_athletics_4|knows_weapon_master_3,
     mercenary_face_1, mercenary_face_2],
    
   ["custom_merc_marksman_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
    # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
    [ 
-    itm_h_hood_custom,
-    itm_h_hood_fi_custom,
-    itm_h_simple_coif,
-    itm_h_simple_coif_brown,
-    itm_h_leather_hat_d,
-    itm_h_leather_hat_d_black,
-    itm_h_leather_hat_b,
-    itm_a_peasant_man_custom,
-    itm_b_hosen_poulaines_custom,
-    itm_w_short_bow_elm,
-    itm_w_short_bow_oak,
-    itm_w_short_bow_ash,
+    itm_h_round_kettlehat_padded,
+    itm_h_kettlehat_padded,
+    
+    itm_a_aketon_narf_custom,
+    itm_a_aketon_jackchain_narf_custom,
+    
+    itm_b_leather_boots,
+    
+    itm_g_leather_gauntlet,
+    itm_g_demi_gauntlets,
+    
+    itm_w_long_bow_ash,
+    itm_w_long_bow_elm,
     itm_w_arrow_triangular,
-    itm_w_arrow_triangular,
-    itm_w_dagger_pikeman,
+    
+    itm_w_crossbow_medium,
+    itm_w_bolt_triangular,
+    
+    itm_w_mace_spiked,
     itm_w_onehanded_war_axe_2,
     itm_w_onehanded_war_axe_3,
-    itm_w_spiked_club,
-    itm_w_mace_knobbed,
+    itm_w_onehanded_sword_c,
+    itm_w_onehanded_sword_c_small,
    ], def_attrib|level(1), wp(60),knows_common,0
   ],
   
   ["custom_merc_marksman_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
     [ #Inventory Matters here. This is what they CAN BE ASKED to equip. Our system gives this troop weapons through dialogues.
-    itm_h_hood_custom,
-    itm_h_hood_fi_custom,
-    itm_h_simple_coif,
-    itm_h_simple_coif_brown,
-    itm_h_leather_hat_d,
-    itm_h_leather_hat_d_black,
-    itm_h_leather_hat_b,
-    itm_a_peasant_man_custom,
-    itm_b_hosen_poulaines_custom,
-    itm_w_short_bow_elm,
-    itm_w_short_bow_oak,
-    itm_w_short_bow_ash,
+    itm_h_bascinet_fi_hood_custom,
+    itm_h_cerveliere_hood_custom,
+    itm_h_round_kettlehat_padded,
+    itm_h_sallet_hood_custom,
+    itm_h_kettlehat_padded,
+    itm_h_kettlehat_2_padded,
+    itm_h_kettlehat_3_padded,
+    itm_h_kettlehat_4_padded,
+    itm_h_chapel_de_fer_1_padded,
+    itm_h_chapel_de_fer_2_padded,
+    itm_h_chapel_de_fer_3_padded,
+    itm_h_chapel_de_fer_4_padded,
+    
+    itm_a_aketon_narf_custom,
+    itm_a_aketon_jackchain_narf_custom,
+    
+    itm_b_leather_boots,
+    
+    itm_g_leather_gauntlet,
+    itm_g_demi_gauntlets,
+    
+    itm_w_long_bow_ash,
+    itm_w_long_bow_elm,
     itm_w_arrow_triangular,
-    itm_w_arrow_triangular,
-    itm_w_dagger_pikeman,
+    
+    itm_w_crossbow_medium,
+    itm_w_bolt_triangular,
+    
+    itm_w_mace_spiked,
     itm_w_onehanded_war_axe_2,
     itm_w_onehanded_war_axe_3,
-    itm_w_spiked_club,
-    itm_w_mace_knobbed,
+    itm_w_onehanded_sword_c,
+    itm_w_onehanded_sword_c_small,
     ], def_attrib|level(1),wp(60),knows_common|knows_inventory_management_10,0], 
  
 
@@ -686,10 +764,10 @@ mercenary_company_troops = [
 ###################################################################################################### DAC CUSTOM TROOPS CAVALRY ##########################################################################################################################################################################################
 ##################################################################################################################################################################################################################################################################################################################
 
-  ["custom_merc_scout","Company Scout","Company Scouts", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_ranged,0,0,fac_neutral,[],
-    level(8)|str_10|agi_12,  
-    wpex(90,80,80,100,80,80), 
-    knows_ironflesh_1|knows_power_strike_1|knows_power_draw_2|knows_athletics_4|knows_weapon_master_1,
+  ["custom_merc_scout","Company Scout","Company Scouts", tf_guarantee_all|tf_mounted|tf_guarantee_polearm,0,0,fac_neutral,[],
+    level(15)|str_16|agi_16,  
+    wp_melee(120), 
+    knows_ironflesh_3|knows_power_strike_3|knows_shield_1|knows_athletics_3|knows_weapon_master_3|knows_riding_2,
     mercenary_face_1, mercenary_face_2],
     
   ["custom_merc_scout_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
@@ -740,10 +818,10 @@ mercenary_company_troops = [
     itm_w_mace_knobbed,
     ], def_attrib|level(1),wp(60),knows_common|knows_inventory_management_10,0], 
     
-  ["custom_merc_mounted_sergeant","Company Mounted Sergeant","Company Mounted Sergeants", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_ranged,0,0,fac_neutral,[],
-    level(8)|str_10|agi_12,  
-    wpex(90,80,80,100,80,80), 
-    knows_ironflesh_1|knows_power_strike_1|knows_power_draw_2|knows_athletics_4|knows_weapon_master_1,
+  ["custom_merc_mounted_sergeant","Company Mounted Sergeant","Company Mounted Sergeants", tf_guarantee_all|tf_mounted|tf_guarantee_polearm,0,0,fac_neutral,[],
+    level(25)|str_20|agi_20,  
+    wp_melee(180), 
+    knows_ironflesh_5|knows_power_strike_5|knows_shield_3|knows_athletics_4|knows_weapon_master_5|knows_riding_4,
     mercenary_face_1, mercenary_face_2],
     
   ["custom_merc_mounted_sergeant_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
@@ -798,10 +876,10 @@ mercenary_company_troops = [
 ###################################################################################################### DAC CUSTOM TROOPS DISMOUNTED KNIGHTS ##########################################################################################################################################################################################
 ##################################################################################################################################################################################################################################################################################################################
 
-  ["custom_merc_foot_squire","Company Foot Squire","Company Foot Squires", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_ranged,0,0,fac_neutral,[],
-    level(8)|str_10|agi_12,  
-    wpex(90,80,80,100,80,80), 
-    knows_ironflesh_1|knows_power_strike_1|knows_power_draw_2|knows_athletics_4|knows_weapon_master_1,
+  ["custom_merc_foot_squire","Company Foot Squire","Company Foot Squires", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm,0,0,fac_neutral,[],
+    level(25)|str_20|agi_20,  
+    wp_melee(150), 
+    knows_ironflesh_5|knows_power_strike_5|knows_shield_3|knows_athletics_4|knows_weapon_master_5,
     mercenary_face_1, mercenary_face_2],
     
   ["custom_merc_foot_squire_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
@@ -852,10 +930,10 @@ mercenary_company_troops = [
     itm_w_mace_knobbed,
     ], def_attrib|level(1),wp(60),knows_common|knows_inventory_management_10,0], 
     
-  ["custom_merc_footman_at_arms","Company Footman-At-Arms","Company Footmen-At-Arms", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_ranged,0,0,fac_neutral,[],
-    level(8)|str_10|agi_12,  
-    wpex(90,80,80,100,80,80), 
-    knows_ironflesh_1|knows_power_strike_1|knows_power_draw_2|knows_athletics_4|knows_weapon_master_1,
+  ["custom_merc_footman_at_arms","Company Footman-At-Arms","Company Footmen-At-Arms", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm,0,0,fac_neutral,[],
+    level(28)|str_22|agi_22,  
+    wp_melee(180), 
+    knows_ironflesh_6|knows_power_strike_5|knows_shield_3|knows_athletics_4|knows_weapon_master_5,
     mercenary_face_1, mercenary_face_2],
     
   ["custom_merc_footman_at_arms_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
@@ -906,10 +984,10 @@ mercenary_company_troops = [
     itm_w_mace_knobbed,
     ], def_attrib|level(1),wp(60),knows_common|knows_inventory_management_10,0], 
     
-  ["custom_merc_dismounted_knight","Company Dismounted Knight","Company Dismounted Knights", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_ranged,0,0,fac_neutral,[],
-    level(8)|str_10|agi_12,  
-    wpex(90,80,80,100,80,80), 
-    knows_ironflesh_1|knows_power_strike_1|knows_power_draw_2|knows_athletics_4|knows_weapon_master_1,
+  ["custom_merc_dismounted_knight","Company Dismounted Knight","Company Dismounted Knights", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm,0,0,fac_neutral,[],
+    level(30)|str_24|agi_24,  
+    wp_melee(200), 
+    knows_ironflesh_7|knows_power_strike_6|knows_shield_4|knows_athletics_4|knows_weapon_master_6,
     mercenary_face_1, mercenary_face_2],
     
   ["custom_merc_dismounted_knight_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
@@ -964,10 +1042,10 @@ mercenary_company_troops = [
 ###################################################################################################### DAC CUSTOM TROOPS KNIGHTS ##########################################################################################################################################################################################
 ##################################################################################################################################################################################################################################################################################################################
 
-  ["custom_merc_squire","Company Squire","Company Squires", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_ranged,0,0,fac_neutral,[],
-    level(8)|str_10|agi_12,  
-    wpex(90,80,80,100,80,80), 
-    knows_ironflesh_1|knows_power_strike_1|knows_power_draw_2|knows_athletics_4|knows_weapon_master_1,
+  ["custom_merc_squire","Company Squire","Company Squires", tf_guarantee_all|tf_mounted|tf_guarantee_polearm,0,0,fac_neutral,[],
+    level(25)|str_20|agi_20,  
+    wp_melee(150), 
+    knows_ironflesh_5|knows_power_strike_5|knows_shield_3|knows_athletics_4|knows_weapon_master_5|knows_riding_4,
     mercenary_face_1, mercenary_face_2],
     
   ["custom_merc_squire_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
@@ -1018,10 +1096,10 @@ mercenary_company_troops = [
     itm_w_mace_knobbed,
     ], def_attrib|level(1),wp(60),knows_common|knows_inventory_management_10,0], 
     
-  ["custom_merc_man_at_arms","Company Man-At-Arms","Company Men-At-Arms", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_ranged,0,0,fac_neutral,[],
-    level(8)|str_10|agi_12,  
-    wpex(90,80,80,100,80,80), 
-    knows_ironflesh_1|knows_power_strike_1|knows_power_draw_2|knows_athletics_4|knows_weapon_master_1,
+  ["custom_merc_man_at_arms","Company Man-At-Arms","Company Men-At-Arms", tf_guarantee_all|tf_mounted|tf_guarantee_polearm,0,0,fac_neutral,[],
+    level(30)|str_24|agi_24,  
+    wp_melee(200), 
+    knows_ironflesh_7|knows_power_strike_6|knows_shield_4|knows_athletics_4|knows_weapon_master_6|knows_riding_5,
     mercenary_face_1, mercenary_face_2],
     
   ["custom_merc_man_at_arms_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
@@ -1072,10 +1150,10 @@ mercenary_company_troops = [
     itm_w_mace_knobbed,
     ], def_attrib|level(1),wp(60),knows_common|knows_inventory_management_10,0], 
     
-  ["custom_merc_knight","Company Knight","Company Knights", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_ranged,0,0,fac_neutral,[],
-    level(8)|str_10|agi_12,  
-    wpex(90,80,80,100,80,80), 
-    knows_ironflesh_1|knows_power_strike_1|knows_power_draw_2|knows_athletics_4|knows_weapon_master_1,
+  ["custom_merc_knight","Company Knight","Company Knights", tf_guarantee_all|tf_mounted|tf_guarantee_polearm,0,0,fac_neutral,[],
+    level(35)|str_28|agi_28,  
+    wp_melee(250), 
+    knows_ironflesh_8|knows_power_strike_8|knows_shield_4|knows_athletics_4|knows_weapon_master_8|knows_riding_5,
     mercenary_face_1, mercenary_face_2],
     
   ["custom_merc_knight_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
@@ -1136,11 +1214,11 @@ mercenary_company_troops = [
 
   ["merc_company_quartermaster","Quartermaster Godefroy de Papincourt","Quartermaster Godefroy de Papincourt",tf_hero|tf_unmoveable_in_party_window,scn_player_camp|entry(2),0,fac_commoners,
    [itm_w_lance_colored_french_2_heraldic,itm_tab_shield_heater_cav_b,itm_ho_horse_barded_blue_chamfrom,itm_h_klappvisier_pigface_open,itm_heraldic_churburg_13_tabard,itm_b_shynbaulds,itm_g_plate_mittens,itm_b_hosen_shoes_custom,itm_a_tabard_heraldic,itm_w_bastard_sword_count],
-   def_attrib|level(20),wp(120),knows_common|knows_inventory_management_10, 0x00000001840834485914d426156ab55400000000000d35240000000000000000],
+   def_attrib|level(20),wp(120),knows_common|knows_inventory_management_10, 0x000000063f0011425723719b326ec55c00000000001cb72a0000000000000000],
    
   ["merc_company_smith","Henri the Smith","Henri the Smith",tf_hero|tf_unmoveable_in_party_window,scn_player_camp|entry(3),0,fac_commoners,
    [itm_h_arming_cap,itm_a_commoner_apron,itm_b_ankle_boots],
-   def_attrib|level(20),wp(120),knows_common|knows_inventory_management_10, 0x00000001840834485914d426156ab55400000000000d35240000000000000000],
+   def_attrib|level(20),wp(120),knows_common|knows_inventory_management_10, 0x00000003bf100144266b7339a169555100000000001db7090000000000000000],
 
   ["merc_company_merchant","Guy the Merchant","Guy the Merchant",tf_hero|tf_is_merchant|tf_unmoveable_in_party_window,scn_player_camp|entry(4),0,fac_commoners,
    [itm_h_highlander_beret_red_2,itm_a_merchant_outfit,itm_b_leather_boots],
