@@ -2913,6 +2913,7 @@ customizable_troops_begin = "trp_custom_merc_recruit"
 customizable_troops_end = "trp_custom_mercs_end"
 slot_camp_smith_days_til_finished = slot_troop_home #Piggyback on this slot.
 slot_camp_smith_creating_item = slot_troop_first_encountered #piggyback on this slot
+#Party Slots
 # Camp buildings
 slot_player_camp_smithy = 350
 slot_player_camp_archery_range = 351
@@ -2921,8 +2922,11 @@ slot_player_camp_market = 353
 slot_player_camp_chapterhouse = 354
 # Camp level 1-4
 slot_player_camp_level = 355
-## DAC Custom Troops (Merc Company Feature) End
+# Item slots
 slot_item_armor_tier = 120
 slot_item_footwear_tier = 121
 slot_item_helmet_tier = 122
 slot_item_gauntlet_tier = 123
+# Troop Slots
+slot_troop_tier_custom_troop = 180
+## DAC Custom Troops (Merc Company Feature) End

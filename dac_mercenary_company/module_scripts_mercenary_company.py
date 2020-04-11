@@ -33,6 +33,7 @@ mercenary_company_scripts = [
     (troop_set_slot, "trp_merc_company_smith", slot_camp_smith_creating_item, -1),
     (troop_set_slot, "trp_merc_company_smith", slot_camp_smith_days_til_finished, -1),
     (call_script, "script_initialize_item_tiers"),
+    (call_script, "script_initialize_custom_troop_tiers"),
   ]),  
 
   ("start_customizing", [
@@ -813,7 +814,38 @@ mercenary_company_scripts = [
     (try_end),
 ]),  
 
-
+("initialize_custom_troop_tiers", [
+    (try_for_range, ":troop_no", customizable_troops_begin, customizable_troops_end),
+        (try_begin),
+            (this_or_next|eq, ":troop_no", "trp_custom_merc_recruit"),
+            (eq, ":troop_no", "trp_custom_merc_skirmisher"),
+            (troop_set_slot, ":troop_no", slot_troop_tier_custom_troop, 1),
+        (else_try),
+            (this_or_next|eq, ":troop_no", "trp_custom_merc_footman"),
+            (eq, ":troop_no", "trp_custom_merc_ranger"),
+            (troop_set_slot, ":troop_no", slot_troop_tier_custom_troop, 2), 
+        (else_try),
+            (this_or_next|eq, ":troop_no", "trp_custom_merc_veteran"),
+            (this_or_next|eq, ":troop_no", "trp_custom_merc_marksman"),
+            (eq, ":troop_no", "trp_custom_merc_scout"),
+            (troop_set_slot, ":troop_no", slot_troop_tier_custom_troop, 3),  
+        (else_try),
+            (this_or_next|eq, ":troop_no", "trp_custom_merc_sergeant"),
+            (this_or_next|eq, ":troop_no", "trp_custom_merc_mounted_sergeant"),
+            (this_or_next|eq, ":troop_no", "trp_custom_merc_foot_squire"),
+            (eq, ":troop_no", "trp_custom_merc_squire"),
+            (troop_set_slot, ":troop_no", slot_troop_tier_custom_troop, 4), 
+        (else_try),
+            (this_or_next|eq, ":troop_no", "trp_custom_merc_footman_at_arms"),
+            (eq, ":troop_no", "trp_custom_merc_man_at_arms"),
+            (troop_set_slot, ":troop_no", slot_troop_tier_custom_troop, 5),   
+        (else_try),
+            (this_or_next|eq, ":troop_no", "trp_custom_merc_dismounted_knight"),
+            (eq, ":troop_no", "trp_custom_merc_knight"),
+            (troop_set_slot, ":troop_no", slot_troop_tier_custom_troop, 6),          
+        (try_end),
+    (try_end),
+]),
 # Custom Troops End
 
 ### DAC Seek: Player Camp Scripts
