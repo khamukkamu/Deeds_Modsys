@@ -2929,4 +2929,5 @@ slot_item_helmet_tier = 122
 slot_item_gauntlet_tier = 123
 # Troop Slots
 slot_troop_tier_custom_troop = 180
+slot_troop_custom_can_use_item = 181
 ## DAC Custom Troops (Merc Company Feature) End

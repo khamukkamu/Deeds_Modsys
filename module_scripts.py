@@ -26517,7 +26517,7 @@ scripts = [
       (assign, ":upgrade_possible", 0),
       (call_script, "script_list_clear", "trp_upgrades"),
       (try_for_range, ":center_no", centers_begin, centers_end),
-        (party_slot_eq, ":center_no", slot_town_lord, ":party_no"),
+        (party_slot_eq, ":center_no", slot_town_lord, ":troop_no"),
         (party_slot_eq, ":center_no", slot_center_current_improvement, 0),
         (call_script, "script_list_add", "trp_upgrades", ":center_no"),
         (assign, ":upgrade_possible", 1),

@@ -846,6 +846,30 @@ mercenary_company_scripts = [
         (try_end),
     (try_end),
 ]),
+
+("check_if_custom_troop_has_access_to_item", [
+    (store_trigger_param_1, ":troop_no"),
+    (store_trigger_param_2, ":item_no"),
+    
+    (item_get_type, ":item_type", ":item_no"),
+    
+    (try_begin),
+        (troop_slot_eq, ":troop_no", slot_troop_tier_custom_troop, 1),
+        (try_begin),
+            (eq, ":item_type", itp_type_head_armor),
+            (item_slot_eq, ":item_no", slot_item_helmet_tier, 1),
+            (troop_set_slot, ":troop_no", slot_troop_custom_can_use_item, ":item_no"),
+        (else_try),
+            (eq, ":item_type", itp_type_body_armor),
+            (item_slot_eq, ":item_no", slot_item_armor_tier, 1),
+            (troop_set_slot, ":troop_no", slot_troop_custom_can_use_item, ":item_no"),
+        (else_try),
+            (eq, ":item_type", itp_type_foot_armor),
+            (item_slot_eq, ":item_no", slot_item_footwear_tier, 1),
+            (troop_set_slot, ":troop_no", slot_troop_custom_can_use_item, ":item_no"),
+        (try_end),
+    (try_end),
+]),
 # Custom Troops End
 
 ### DAC Seek: Player Camp Scripts
