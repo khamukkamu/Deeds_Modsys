@@ -334,6 +334,7 @@ mercenary_company_scripts = [
         
         (try_begin),
           (neq, ":item", -1),
+
           (store_add, reg0, ":slot", 300),
           (troop_get_slot, ":item_imod", "trp_temp_array_f", reg0),
           
@@ -345,7 +346,8 @@ mercenary_company_scripts = [
           (position_set_x, pos1, 900),(position_set_y, pos1, 900),
           (overlay_set_size, reg1, pos1),
           (overlay_set_alpha, reg1, 0xFF),
-          
+
+          (call_script, "script_cf_custom_troop_has_access_to_item","$g_target_name_change", ":item"),
           (create_mesh_overlay_with_item_id, reg1, ":item"),
           (position_set_x, pos1, ":x_item"),(position_set_y, pos1, ":y_item"),
           (overlay_set_position, reg1, pos1),
@@ -848,8 +850,8 @@ mercenary_company_scripts = [
 ]),
 
 ("check_if_custom_troop_has_access_to_item", [
-    (store_trigger_param_1, ":troop_no"),
-    (store_trigger_param_2, ":item_no"),
+    (store_script_param_1, ":troop_no"),
+    (store_script_param_2, ":item_no"),
     
     (item_get_type, ":item_type", ":item_no"),
     
@@ -870,6 +872,55 @@ mercenary_company_scripts = [
         (try_end),
     (try_end),
 ]),
+
+
+("cf_custom_troop_has_access_to_item", [
+    (store_script_param_1, ":troop_no"),
+    (store_script_param_2, ":item_no"),
+    
+    (assign, ":pass", 0),
+    (item_get_type, ":item_type", ":item_no"), 
+    (troop_get_slot, ":troop_tier", ":troop_no", slot_troop_tier_custom_troop),
+    (item_get_slot, ":helmet_tier", ":item_no", slot_item_helmet_tier),
+    (item_get_slot, ":armor_tier", ":item_no", slot_item_armor_tier),
+    (item_get_slot, ":foot_tier", ":item_no", slot_item_footwear_tier),
+    (item_get_slot, ":glove_tier", ":item_no", slot_item_gauntlet_tier),
+
+    (try_begin),
+        (eq, ":item_type", itp_type_head_armor),
+        (ge, ":troop_tier", ":helmet_tier"),
+        (assign, ":pass", 1),
+    (else_try),
+        (eq, ":item_type", itp_type_body_armor),
+        (ge, ":troop_tier", ":armor_tier"),
+        (assign, ":pass", 1),
+    (else_try),
+        (eq, ":item_type", itp_type_foot_armor),
+        (ge, ":troop_tier", ":foot_tier"),
+        (assign, ":pass", 1),
+    (else_try),
+        (eq, ":item_type", itp_type_hand_armor),
+        (ge, ":troop_tier", ":glove_tier"),
+        (assign, ":pass", 1),
+    (else_try),
+        (this_or_next|is_between, ":item_type", itp_type_one_handed_wpn, itp_type_goods),
+        (is_between, ":item_type", itp_type_pistol, itp_type_animal),
+        (assign, ":pass", 1),
+    (try_end),
+
+    #Debug
+    (assign, reg80, ":troop_tier"),
+    (assign, reg81, ":helmet_tier"),
+    (assign, reg82, ":armor_tier"),
+    (assign, reg83, ":foot_tier"),
+    (assign, reg84, ":glove_tier"),
+    (display_message, "@Troop Tier - {reg80}", color_good_news),
+    (display_message, "@Helm Tier - {reg81}^ Armor Tier - {reg82}^ Foot Tier - {reg83}^ Glove Tier - {reg84}", color_neutral_news),
+    
+    (eq, ":pass", 1),
+]),
+
+
 # Custom Troops End
 
 ### DAC Seek: Player Camp Scripts

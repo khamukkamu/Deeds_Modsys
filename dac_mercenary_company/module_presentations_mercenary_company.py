@@ -96,11 +96,12 @@ mercenary_company_presentations = [
         (position_set_y, pos1, 75),
         (overlay_set_position, "$g_presentation_obj_name_kingdom_2", pos1),
 
-        #(str_store_string, s60, "@Purchase Weapons for Armoury"),
-        #(create_button_overlay, "$g_presentation_obj_1", s60, tf_right_align), #SB : continue str
-        #(position_set_x, pos1, 750),
-        #(position_set_y, pos1, 75),
-        #(overlay_set_position, "$g_presentation_obj_1", pos1),
+        (troop_get_slot, reg22, "$g_target_name_change", slot_troop_tier_custom_troop),
+        (str_store_string, s60, "@Troop Tier - {reg22}"),
+        (create_text_overlay, "$g_presentation_obj_1", s60, tf_center_justify), #SB : continue str
+        (position_set_x, pos1, 470),
+        (position_set_y, pos1, 105),
+        (overlay_set_position, "$g_presentation_obj_1", pos1),
 
         (presentation_set_duration, 999999),
         ]),

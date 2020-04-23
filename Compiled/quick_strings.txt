@@ -1,4 +1,4 @@
-1949
+1968
 qstr_Next_Page Next_Page
 qstr_Game_Rules:^ Game_Rules:^
 qstr_0 0
@@ -1948,3 +1948,22 @@ qstr_Normal Normal
 qstr_Large Large
 qstr_Extra_large Extra_large
 qstr_Size_of_Other_Battle Size_of_Other_Battlefields:
+qstr_Helmet_tier:_{reg3} Helmet_tier:_{reg3}
+qstr_Armor_tier:_{reg3} Armor_tier:_{reg3}
+qstr_Footwear_tier:_{reg3 Footwear_tier:_{reg3}
+qstr_Gauntlet_tier:_{reg3 Gauntlet_tier:_{reg3}
+qstr_Cavalry_template_add Cavalry_template_added_to_camp
+qstr_Noble_Infantry_templ Noble_Infantry_template_added_to_camp
+qstr_Noble_cavalry_templa Noble_cavalry_template_added_to_camp
+qstr_Camp Camp
+qstr_The_{s11}_has_no_imp The_{s11}_has_no_improvements.
+qstr_The_{s11}_has_the_fo The_{s11}_has_the_following_improvements:_{s18}.
+qstr_Troop_Tier___{reg99} Troop_Tier_-_{reg99}
+qstr_Helm_Tier___{reg100} Helm_Tier_-_{reg100}^_Armor_Tier_-_{reg101}^_Foot_Tier_-_{reg102}
+qstr_Troop_Tier___{reg111 Troop_Tier_-_{reg111}
+qstr_Troop_Tier___{reg22} Troop_Tier_-_{reg22}
+qstr_Troop_Tier___{reg80} Troop_Tier_-_{reg80}
+qstr_Helm_Tier___{reg81}^ Helm_Tier_-_{reg81}^_Armor_Tier_-_{reg82}^_Foot_Tier_-_{reg83}
+qstr_{reg24} {reg24}
+qstr_{reg24}___{reg25} {reg24}_-_{reg25}
+qstr_Helm_Tier___{reg81}^_ Helm_Tier_-_{reg81}^_Armor_Tier_-_{reg82}^_Foot_Tier_-_{reg83}^_Glove_Tier_-_{reg84}

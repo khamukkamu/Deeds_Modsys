@@ -1,5 +1,5 @@
 partytemplatesfile version 1
-68
+71
 pt_none none 2 0 1 7 -1 -1 -1 -1 -1 -1 
 pt_rescued_prisoners Rescued_Prisoners 2 0 1 7 -1 -1 -1 -1 -1 -1 
 pt_enemy Enemy 2 0 27 7 -1 -1 -1 -1 -1 -1 
@@ -68,3 +68,6 @@ pt_dplmc_gift_caravan Your_Caravan 7036874421960751 0 1 11 199 1 1 0 28 5 25 0 -
 pt_dplmc_recruiter Recruiter 4194309 0 3 7 1798 1 1 0 -1 -1 -1 -1 -1 
 pt_mercenary_company_infantry Mercenary_Company_Infantry 0 0 1 0 1881 2 6 0 1884 2 4 0 1887 1 3 0 1890 1 2 0 -1 -1 
 pt_mercenary_company_ranged Mercenary_Company_Ranged 0 0 1 0 1893 2 6 0 1896 2 4 0 1899 1 3 0 -1 -1 -1 
+pt_mercenary_company_cavalry Mercenary_Company_Cavalry 0 0 1 0 1902 2 4 0 1905 1 3 0 -1 -1 -1 -1 
+pt_mercenary_company_noble_infantry Mercenary_Company_Noble_Infantry 0 0 1 0 1908 2 4 0 1911 1 3 0 1914 1 1 0 -1 -1 -1 
+pt_mercenary_company_noble_cavalry Mercenary_Company_Noble_Cavalry 0 0 1 0 1917 2 4 0 1920 1 3 0 1923 1 1 0 -1 -1 -1 

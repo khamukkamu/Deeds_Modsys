@@ -1792,6 +1792,9 @@ camp_quartermaster_back
 camp_smith_start
 camp_smith_armoury
 camp_smith_back
+camp_merchant_start
+camp_merchant_trade
+camp_merchant_trade_completed
 party_encounter_hostile_attacker
 party_encounter_hostile_defender
 party_encounter_hostile_ultimatum_surrender
