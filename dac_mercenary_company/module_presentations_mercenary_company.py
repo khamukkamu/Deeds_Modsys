@@ -78,7 +78,7 @@ mercenary_company_presentations = [
         (overlay_set_position, "$g_presentation_obj_name_kingdom_1", pos1),
         (assign, "$g_presentation_obj_banner_selection_1", -1),
         #SB : set up text box
-        (str_store_troop_name, s0, "$g_target_name_change"),
+        # (str_store_troop_name, s0, "$g_target_name_change"),
         (str_store_troop_name, s7, "$g_target_name_change"),
         (overlay_set_text, "$g_presentation_obj_name_kingdom_1", s7),
 
@@ -97,7 +97,7 @@ mercenary_company_presentations = [
         (overlay_set_position, "$g_presentation_credits_obj_1", pos1),
         (assign, "$g_presentation_obj_banner_selection_1", -1),
         #SB : set up text box
-        (str_store_troop_name_plural, s11, "$g_target_name_change"),
+        # (str_store_troop_name_plural, s11, "$g_target_name_change"),
         (str_store_troop_name_plural, s8, "$g_target_name_change"),
         (overlay_set_text, "$g_presentation_credits_obj_1", s8),
 
@@ -142,9 +142,12 @@ mercenary_company_presentations = [
           (eq, ":object_id", "$g_presentation_obj_name_kingdom_1"), # Change Name
           (str_store_string, s7, s0),
           (troop_set_name, "$g_target_name_change", s7),
-        (else_try),
+        (try_end),
+        (try_begin),        
           (eq, ":object_id", "$g_presentation_credits_obj_1"), #Change Plural Name
-          (str_store_string, s8, s11),
+          (str_store_string, s8, s0),
+          (display_message, "@Break 1 - {s8}", color_bad_news),
+          (display_message, "@Break 1 s0 - {s0}", color_bad_news),
           (troop_set_plural_name, "$g_target_name_change", s8),
         (try_end),
       ]),
@@ -162,12 +165,16 @@ mercenary_company_presentations = [
           (troop_set_name, "$g_target_name_change", s7),
         (else_try),
           (eq, ":object_id", "$g_presentation_credits_obj_1"), #Change Plural Name
-          (str_store_string, s8, s11),
+          (str_store_string, s8, s0),
+          (display_message, "@Break 2 - {s8}", color_bad_news),
+          (display_message, "@Break 2 s0 - {s0}", color_bad_news),
           (troop_set_plural_name, "$g_target_name_change", s8),
         (else_try),
           (eq, ":object_id", "$g_presentation_obj_name_kingdom_2"), # Continue
           (troop_set_name, "$g_target_name_change", s7),
           (troop_set_plural_name, "$g_target_name_change", s8),
+          (display_message, "@Break 3 - {s8}", color_bad_news),
+          (display_message, "@Break 3 s0 - {s0}", color_bad_news),
           (presentation_set_duration, 0),
           (jump_to_menu, "mnu_dac_name_troops_2"),
           #(change_screen_map),
