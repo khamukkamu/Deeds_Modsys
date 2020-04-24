@@ -62,21 +62,44 @@ mercenary_company_presentations = [
 ("name_troop",0,mesh_load_window,[
       (ti_on_presentation_load,
        [(set_fixed_point_multiplier, 1000),
-        #(str_store_string, s1, "@What will you name this troop?"),
-        #(create_text_overlay, reg1, s1, tf_center_justify),
-        #(position_set_x, pos1, 400),
-        #(position_set_y, pos1, 500),
-        #(overlay_set_position, reg1, pos1),
+        
+        (str_store_string, s4, "@What will you name this troop?"),
+        (create_text_overlay, reg1, s4, tf_left_align),
+        (position_set_x, pos1, 800),
+        (position_set_y, pos1, 800),
+        (overlay_set_size, reg1, pos1),
+        (position_set_x, pos1, 390),
+        (position_set_y, pos1, 640),
+        (overlay_set_position, reg1, pos1),
 
         (create_simple_text_box_overlay, "$g_presentation_obj_name_kingdom_1"),
         (position_set_x, pos1, 400),
-        (position_set_y, pos1, 620),
+        (position_set_y, pos1, 610),
         (overlay_set_position, "$g_presentation_obj_name_kingdom_1", pos1),
         (assign, "$g_presentation_obj_banner_selection_1", -1),
         #SB : set up text box
         (str_store_troop_name, s0, "$g_target_name_change"),
         (str_store_troop_name, s7, "$g_target_name_change"),
         (overlay_set_text, "$g_presentation_obj_name_kingdom_1", s7),
+
+        (str_store_string, s5, "@Plural Name"),
+        (create_text_overlay, reg1, s5, tf_left_align),
+        (position_set_x, pos1, 800),
+        (position_set_y, pos1, 800),
+        (overlay_set_size, reg1, pos1),
+        (position_set_x, pos1, 450),
+        (position_set_y, pos1, 590),
+        (overlay_set_position, reg1, pos1),
+
+        (create_simple_text_box_overlay, "$g_presentation_credits_obj_1"),
+        (position_set_x, pos1, 400),
+        (position_set_y, pos1, 565),
+        (overlay_set_position, "$g_presentation_credits_obj_1", pos1),
+        (assign, "$g_presentation_obj_banner_selection_1", -1),
+        #SB : set up text box
+        (str_store_troop_name_plural, s11, "$g_target_name_change"),
+        (str_store_troop_name_plural, s8, "$g_target_name_change"),
+        (overlay_set_text, "$g_presentation_credits_obj_1", s8),
 
         (call_script, "script_custom_troop_detail_inventory_left", "$g_target_name_change"),
         (store_add, ":armoury", "$g_target_name_change", 2),
@@ -85,7 +108,7 @@ mercenary_company_presentations = [
         (store_mul, ":cur_troop", "$g_target_name_change", 2),#with weapons
         (create_mesh_overlay_with_tableau_material, "$g_multiplayer_poll_to_show", -1, "tableau_troop_tree_pic",":cur_troop"),
         (position_set_x, pos1, 300),
-        (position_set_y, pos1, 60),
+        (position_set_y, pos1, 50),
         (overlay_set_position, "$g_multiplayer_poll_to_show", pos1),
         (position_set_x, pos1, 650),
         (position_set_y, pos1, 650),
@@ -115,11 +138,15 @@ mercenary_company_presentations = [
     (event, 
       [
         (store_trigger_param_1, ":object_id"),
-        (eq, ":object_id", "$g_presentation_obj_name_kingdom_1"), # Change Name
-        (str_store_string, s7, s0),
-        (troop_set_name, "$g_target_name_change", s7),
-        (str_store_string, s77, "@{s7}s"),
-        (troop_set_plural_name, "$g_target_name_change", s77),
+        (try_begin),
+          (eq, ":object_id", "$g_presentation_obj_name_kingdom_1"), # Change Name
+          (str_store_string, s7, s0),
+          (troop_set_name, "$g_target_name_change", s7),
+        (else_try),
+          (eq, ":object_id", "$g_presentation_credits_obj_1"), #Change Plural Name
+          (str_store_string, s8, s11),
+          (troop_set_plural_name, "$g_target_name_change", s8),
+        (try_end),
       ]),
 
     (click,
@@ -133,13 +160,14 @@ mercenary_company_presentations = [
           (eq, ":object_id", "$g_presentation_obj_name_kingdom_1"), # Change Name
           (str_store_string, s7, s0),
           (troop_set_name, "$g_target_name_change", s7),
-          (str_store_string, s77, "@{s7}s"),
-          (troop_set_plural_name, "$g_target_name_change", s77),
+        (else_try),
+          (eq, ":object_id", "$g_presentation_credits_obj_1"), #Change Plural Name
+          (str_store_string, s8, s11),
+          (troop_set_plural_name, "$g_target_name_change", s8),
         (else_try),
           (eq, ":object_id", "$g_presentation_obj_name_kingdom_2"), # Continue
           (troop_set_name, "$g_target_name_change", s7),
-          (str_store_string, s77, "@{s7}s"),
-          (troop_set_plural_name, "$g_target_name_change", s77),
+          (troop_set_plural_name, "$g_target_name_change", s8),
           (presentation_set_duration, 0),
           (jump_to_menu, "mnu_dac_name_troops_2"),
           #(change_screen_map),
