@@ -142,8 +142,7 @@ mercenary_company_presentations = [
           (eq, ":object_id", "$g_presentation_obj_name_kingdom_1"), # Change Name
           (str_store_string, s7, s0),
           (troop_set_name, "$g_target_name_change", s7),
-        (try_end),
-        (try_begin),        
+        (else_try),       
           (eq, ":object_id", "$g_presentation_credits_obj_1"), #Change Plural Name
           (str_store_string, s8, s0),
           (display_message, "@Break 1 - {s8}", color_bad_news),

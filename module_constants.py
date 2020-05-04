@@ -2938,6 +2938,9 @@ slot_item_crossbow_tier = 131
 slot_item_arrow_tier = 132
 slot_item_bolt_tier = 133
 slot_item_shield_tier = 134
+
+slot_item_tiers_begin = slot_item_armor_tier
+slot_item_tiers_end = 135
 # Troop Slots
 slot_troop_tier_custom_troop = 180
 slot_troop_custom_can_use_item = 181

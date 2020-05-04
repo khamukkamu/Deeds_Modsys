@@ -1,4 +1,4 @@
-1969
+1975
 qstr_Next_Page Next_Page
 qstr_Game_Rules:^ Game_Rules:^
 qstr_0 0
@@ -1968,3 +1968,9 @@ qstr_{reg24} {reg24}
 qstr_{reg24}___{reg25} {reg24}_-_{reg25}
 qstr_Helm_Tier___{reg81}^_ Helm_Tier_-_{reg81}^_Armor_Tier_-_{reg82}^_Foot_Tier_-_{reg83}^_Glove_Tier_-_{reg84}
 qstr_Plural_Name Plural_Name
+qstr_Break_1___{s8} Break_1_-_{s8}
+qstr_Break_1_s0___{s0} Break_1_s0_-_{s0}
+qstr_Break_2___{s8} Break_2_-_{s8}
+qstr_Break_2_s0___{s0} Break_2_s0_-_{s0}
+qstr_Break_3___{s8} Break_3_-_{s8}
+qstr_Break_3_s0___{s0} Break_3_s0_-_{s0}
