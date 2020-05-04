@@ -2927,6 +2927,17 @@ slot_item_armor_tier = 120
 slot_item_footwear_tier = 121
 slot_item_helmet_tier = 122
 slot_item_gauntlet_tier = 123
+slot_item_axe_tier = 124
+slot_item_sword_tier = 125
+slot_item_two_handed_axe_tier = 126
+slot_item_two_handed_sword_tier = 127
+slot_item_polearm_slash_tier = 128
+slot_item_polearm_thrust_tier = 129
+slot_item_bow_tier = 130
+slot_item_crossbow_tier = 131
+slot_item_arrow_tier = 132
+slot_item_bolt_tier = 133
+slot_item_shield_tier = 134
 # Troop Slots
 slot_troop_tier_custom_troop = 180
 slot_troop_custom_can_use_item = 181
