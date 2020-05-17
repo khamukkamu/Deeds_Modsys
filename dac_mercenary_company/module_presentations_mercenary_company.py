@@ -120,7 +120,7 @@ mercenary_company_presentations = [
         (overlay_set_position, "$g_presentation_obj_name_kingdom_2", pos1),
 
         (troop_get_slot, reg22, "$g_target_name_change", slot_troop_tier_custom_troop),
-        (str_store_string, s60, "@Troop Tier - {reg22}"),
+        (str_store_string, s60, "@Troop Tier: {reg22}"),
         (create_text_overlay, "$g_presentation_obj_1", s60, tf_center_justify), #SB : continue str
         (position_set_x, pos1, 470),
         (position_set_y, pos1, 105),
@@ -145,8 +145,8 @@ mercenary_company_presentations = [
         (else_try),       
           (eq, ":object_id", "$g_presentation_credits_obj_1"), #Change Plural Name
           (str_store_string, s8, s0),
-          (display_message, "@Break 1 - {s8}", color_bad_news),
-          (display_message, "@Break 1 s0 - {s0}", color_bad_news),
+          # (display_message, "@Break 1 - {s8}", color_bad_news),
+          # (display_message, "@Break 1 s0 - {s0}", color_bad_news),
           (troop_set_plural_name, "$g_target_name_change", s8),
         (try_end),
       ]),
@@ -165,15 +165,15 @@ mercenary_company_presentations = [
         (else_try),
           (eq, ":object_id", "$g_presentation_credits_obj_1"), #Change Plural Name
           (str_store_string, s8, s0),
-          (display_message, "@Break 2 - {s8}", color_bad_news),
-          (display_message, "@Break 2 s0 - {s0}", color_bad_news),
+          # (display_message, "@Break 2 - {s8}", color_bad_news),
+          # (display_message, "@Break 2 s0 - {s0}", color_bad_news),
           (troop_set_plural_name, "$g_target_name_change", s8),
         (else_try),
           (eq, ":object_id", "$g_presentation_obj_name_kingdom_2"), # Continue
           (troop_set_name, "$g_target_name_change", s7),
           (troop_set_plural_name, "$g_target_name_change", s8),
-          (display_message, "@Break 3 - {s8}", color_bad_news),
-          (display_message, "@Break 3 s0 - {s0}", color_bad_news),
+          # (display_message, "@Break 3 - {s8}", color_bad_news),
+          # (display_message, "@Break 3 s0 - {s0}", color_bad_news),
           (presentation_set_duration, 0),
           (jump_to_menu, "mnu_dac_name_troops_2"),
           #(change_screen_map),

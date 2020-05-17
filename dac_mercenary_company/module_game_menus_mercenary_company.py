@@ -314,7 +314,7 @@ mercenary_company_menus = [
     (val_mul, ":improvement_cost", ":multiplier"),
     (val_div, ":improvement_cost", 20),
 
-    (store_div, ":improvement_time", ":improvement_cost", 200),
+    (store_div, ":improvement_time", ":improvement_cost", 250),
 
     (assign, reg5, ":improvement_cost"),
     (assign, reg6, ":improvement_time"),
