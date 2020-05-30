@@ -19,7 +19,9 @@ mercenary_company_menus = [
     "player_camp_notification",0,
     "Yet another day is spent on the road... ^Feeling weary and tired, you sit to rest by the campfire as thoughts cycle through your mind. You think of the war and your place in the world, you wonder why the great mercenary companies never reformed as the short-lived peace was broken. Certainly it would be very profitable for a distinguished mercenary company to sell its services to one of the belligerent factions, perhaps you could be the one? You believe you have the experience and the renown to establish your own mercenary company, should you wish to do so. ^(You can now create a mercenary company from the camp menu under 'Take an Action')",
     "none",
-    [(set_background_mesh, "mesh_pic_castle1"),],
+    [
+    # (set_background_mesh, "mesh_pic_castle1"),
+    ],
     [ 
     ("player_camp_start_quest",
        [],

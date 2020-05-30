@@ -14,9 +14,11 @@ mercenary_company_triggers = [
 
   (24, 0, ti_once, [
     (map_free,0),
+    (troop_slot_ge, "trp_player", slot_troop_renown, 50),
   ], 
   [
-    # (jump_to_menu, "mnu_player_camp_notification"),
+    (assign, "$player_camp_available", 1),
+    (jump_to_menu, "mnu_player_camp_notification"),
   ]),
   
 

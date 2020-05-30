@@ -3240,7 +3240,7 @@ TOTAL:  {reg5}"),
      ],
     [ 
 ## DAC Seek: Player Camp    
-      ("action_create_camp",[(eq, "$player_camp_built", 0),],"Set up an encampment here.",
+      ("action_create_camp",[(eq, "$player_camp_built", 0),(eq, "$player_camp_available", 1),],"Set up an encampment here.",
        [
         (party_relocate_near_party, "p_player_camp", "p_main_party"),
         (enable_party, "p_player_camp"),
@@ -3249,6 +3249,7 @@ TOTAL:  {reg5}"),
         (call_script, "script_refresh_mercenary_camp_troops"),
         (call_script, "script_dac_upgrade_player_camp"),
         (change_screen_return),
+        (rest_for_hours, 24, 8, 0),
         ]
        ),
       ("action_relocate_camp",[(eq, "$player_camp_built", 1),],"Relocate the encampment here.",
