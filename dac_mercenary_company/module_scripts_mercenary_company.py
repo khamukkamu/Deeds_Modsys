@@ -24,6 +24,7 @@ mercenary_company_scripts = [
 ("dac_init_custom_troops", [
     # Player Camp
     (assign, "$player_camp_available", -1),
+    (assign, "$player_camp_troop_color_scheme", -1),
     (assign, "$player_camp_built", 0),
     (party_set_slot, "p_player_camp", slot_player_camp_archery_range, -1),    
     (party_set_slot, "p_player_camp", slot_player_camp_smithy, -1),    

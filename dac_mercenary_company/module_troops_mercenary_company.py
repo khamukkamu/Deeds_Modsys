@@ -301,13 +301,13 @@ mercenary_company_troops = [
 
 ## Tier 1 ##
 
-  ["custom_merc_recruit","Company Recruit","Company Recruits",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm,0,0,fac_neutral,[],
+  ["custom_merc_recruit","Company Recruit","Company Recruits",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm,0,0,fac_player_faction,[],
     level(10)|str_12|agi_12, 
     wp_melee(120), 
     knows_ironflesh_2|knows_power_strike_2|knows_shield_1|knows_athletics_3|knows_weapon_master_1,
     vaegir_face_young_1, vaegir_face_young_2],
   
-  ["custom_merc_recruit_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+  ["custom_merc_recruit_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
    # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
    [ 
     itm_h_hood_custom,
@@ -338,7 +338,7 @@ mercenary_company_troops = [
    ], def_attrib|level(1), wp(60),knows_common,0
   ],
   
-  ["custom_merc_recruit_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+  ["custom_merc_recruit_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
     [ #Inventory Matters here. This is what they CAN BE ASKED to equip. Our system gives this troop weapons through dialogues.
     itm_h_hood_custom,
     itm_h_hood_fi_custom,
@@ -383,13 +383,13 @@ mercenary_company_troops = [
 
 # Tier 2 #
 
-  ["custom_merc_footman","Company Footman","Company Footmen",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm,0,0,fac_neutral,[],
+  ["custom_merc_footman","Company Footman","Company Footmen",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm,0,0,fac_player_faction,[],
     level(15)|str_14|agi_14, 
     wp_melee(140), 
     knows_ironflesh_3|knows_power_strike_3|knows_shield_2|knows_athletics_3|knows_weapon_master_1,
     vaegir_face_old_1, vaegir_face_old_2],
   
-  ["custom_merc_footman_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+  ["custom_merc_footman_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
    # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
    [ 
     itm_h_mail_coif,
@@ -420,7 +420,7 @@ mercenary_company_troops = [
    ], def_attrib|level(1), wp(60),knows_common,0
   ],
   
-  ["custom_merc_footman_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+  ["custom_merc_footman_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
     [ #Inventory Matters here. This is what they CAN BE ASKED to equip. Our system gives this troop weapons through dialogues.
     itm_h_mail_coif,
     itm_h_mail_coif_balaclava,
@@ -470,13 +470,13 @@ mercenary_company_troops = [
 
 # Tier 3 #
 
-  ["custom_merc_veteran","Company Veteran","Company Veterans",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm,0,0,fac_neutral,[],
+  ["custom_merc_veteran","Company Veteran","Company Veterans",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm,0,0,fac_player_faction,[],
     level(20)|str_16|agi_16, 
     wp_melee(160), 
     knows_ironflesh_4|knows_power_strike_4|knows_shield_3|knows_athletics_3|knows_weapon_master_2,
     mercenary_face_1, mercenary_face_2],
   
-  ["custom_merc_veteran_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+  ["custom_merc_veteran_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
    # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
    [ 
     itm_h_pot_helmet_mail,
@@ -508,7 +508,7 @@ mercenary_company_troops = [
    ], def_attrib|level(1), wp(60),knows_common,0
   ],
   
-  ["custom_merc_veteran_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+  ["custom_merc_veteran_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
     [ #Inventory Matters here. This is what they CAN BE ASKED to equip. Our system gives this troop weapons through dialogues.
     itm_h_pot_helmet_mail,
     itm_h_cerveliere_hood_custom,
@@ -566,13 +566,13 @@ mercenary_company_troops = [
 
 # Tier 4 #
 
-  ["custom_merc_sergeant","Company Sergeant","Company Sergeants",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm,0,0,fac_neutral,[],
+  ["custom_merc_sergeant","Company Sergeant","Company Sergeants",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm,0,0,fac_player_faction,[],
     level(25)|str_20|agi_20, 
     wp_melee(180), 
     knows_ironflesh_5|knows_power_strike_5|knows_shield_3|knows_athletics_4|knows_weapon_master_5,
     mercenary_face_1, mercenary_face_2],
   
-  ["custom_merc_sergeant_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+  ["custom_merc_sergeant_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
    # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
    [ 
     itm_h_bascinet_fi_padded,
@@ -612,7 +612,7 @@ mercenary_company_troops = [
    ], def_attrib|level(1), wp(60),knows_common,0
   ],
   
-  ["custom_merc_sergeant_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+  ["custom_merc_sergeant_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
     [ #Inventory Matters here. This is what they CAN BE ASKED to equip. Our system gives this troop weapons through dialogues.
     itm_h_bascinet_fi_padded,
     itm_h_bascinet_fi_mail,
@@ -671,13 +671,13 @@ mercenary_company_troops = [
 ###################################################################################################### DAC CUSTOM TROOPS RANGED ##########################################################################################################################################################################################
 ##################################################################################################################################################################################################################################################################################################################
 
-  ["custom_merc_skirmisher","Company Skirmisher","Company Skirmishers", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm|tf_guarantee_ranged,0,0,fac_neutral,[],
+  ["custom_merc_skirmisher","Company Skirmisher","Company Skirmishers", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm|tf_guarantee_ranged,0,0,fac_player_faction,[],
     level(8)|str_10|agi_12,  
     wpex(90,90,90,100,100,100), 
     knows_ironflesh_1|knows_power_strike_1|knows_power_draw_2|knows_athletics_4|knows_weapon_master_1,
     mercenary_face_1, mercenary_face_2],
     
-  ["custom_merc_skirmisher_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+  ["custom_merc_skirmisher_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
    # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
    [ 
     itm_h_hood_custom,
@@ -710,7 +710,7 @@ mercenary_company_troops = [
    ], def_attrib|level(1), wp(60),knows_common,0
   ],
   
-  ["custom_merc_skirmisher_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+  ["custom_merc_skirmisher_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
     [ #Inventory Matters here. This is what they CAN BE ASKED to equip. Our system gives this troop weapons through dialogues.
     itm_h_hood_custom,
     itm_h_hood_fi_custom,
@@ -741,13 +741,13 @@ mercenary_company_troops = [
     itm_w_mace_knobbed,
     ], def_attrib|level(1),wp(60),knows_common|knows_inventory_management_10,0], 
     
-  ["custom_merc_ranger","Company Ranger","Company Rangers", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm|tf_guarantee_ranged,0,0,fac_neutral,[],
+  ["custom_merc_ranger","Company Ranger","Company Rangers", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm|tf_guarantee_ranged,0,0,fac_player_faction,[],
     level(12)|str_12|agi_14,  
     wpex(100,100,100,120,120,120), 
     knows_ironflesh_2|knows_power_draw_3|knows_power_strike_2|knows_athletics_4|knows_weapon_master_2,
     mercenary_face_1, mercenary_face_2],
  
-  ["custom_merc_ranger_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+  ["custom_merc_ranger_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
    # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
    [ 
     itm_h_pot_helmet_hood_custom,
@@ -778,7 +778,7 @@ mercenary_company_troops = [
    ], def_attrib|level(1), wp(60),knows_common,0
   ],
   
-  ["custom_merc_ranger_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+  ["custom_merc_ranger_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
     [ #Inventory Matters here. This is what they CAN BE ASKED to equip. Our system gives this troop weapons through dialogues.
     itm_h_pot_helmet_hood_custom,
     itm_h_round_kettlehat_hood_custom,
@@ -818,13 +818,13 @@ mercenary_company_troops = [
     itm_w_onehanded_sword_a,
     ], def_attrib|level(1),wp(60),knows_common|knows_inventory_management_10,0], 
     
-  ["custom_merc_marksman","Company Marksman","Company Marksmen", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm|tf_guarantee_ranged,0,0,fac_neutral,[],
+  ["custom_merc_marksman","Company Marksman","Company Marksmen", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm|tf_guarantee_ranged,0,0,fac_player_faction,[],
     level(18)|str_14|agi_16,  
     wpex(120,120,120,150,150,150), 
     knows_ironflesh_3|knows_power_draw_3|knows_power_strike_2|knows_athletics_4|knows_weapon_master_3,
     mercenary_face_1, mercenary_face_2],
    
-  ["custom_merc_marksman_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+  ["custom_merc_marksman_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
    # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
    [ 
     itm_h_round_kettlehat_padded,
@@ -853,7 +853,7 @@ mercenary_company_troops = [
    ], def_attrib|level(1), wp(60),knows_common,0
   ],
   
-  ["custom_merc_marksman_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+  ["custom_merc_marksman_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
     [ #Inventory Matters here. This is what they CAN BE ASKED to equip. Our system gives this troop weapons through dialogues.
     itm_h_bascinet_fi_hood_custom,
     itm_h_cerveliere_hood_custom,
@@ -895,13 +895,13 @@ mercenary_company_troops = [
 ###################################################################################################### DAC CUSTOM TROOPS CAVALRY ##########################################################################################################################################################################################
 ##################################################################################################################################################################################################################################################################################################################
 
-  ["custom_merc_scout","Company Scout","Company Scouts", tf_guarantee_all|tf_mounted|tf_guarantee_polearm,0,0,fac_neutral,[],
+  ["custom_merc_scout","Company Scout","Company Scouts", tf_guarantee_all|tf_mounted|tf_guarantee_polearm,0,0,fac_player_faction,[],
     level(15)|str_16|agi_16,  
     wp_melee(120), 
     knows_ironflesh_3|knows_power_strike_3|knows_shield_1|knows_athletics_3|knows_weapon_master_3|knows_riding_2,
     mercenary_face_1, mercenary_face_2],
     
-  ["custom_merc_scout_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+  ["custom_merc_scout_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
    # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
    [ 
     itm_h_pot_helmet_mail,
@@ -935,7 +935,7 @@ mercenary_company_troops = [
    ], def_attrib|level(1), wp(60),knows_common,0
   ],
   
-  ["custom_merc_scout_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+  ["custom_merc_scout_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
     [ #Inventory Matters here. This is what they CAN BE ASKED to equip. Our system gives this troop weapons through dialogues.
     itm_h_pot_helmet_mail,
     itm_h_cerveliere_hood_custom,
@@ -997,13 +997,13 @@ mercenary_company_troops = [
     itm_ho_courser_10,
     ], def_attrib|level(1),wp(60),knows_common|knows_inventory_management_10,0], 
     
-  ["custom_merc_mounted_sergeant","Company Mounted Sergeant","Company Mounted Sergeants", tf_guarantee_all|tf_mounted|tf_guarantee_polearm,0,0,fac_neutral,[],
+  ["custom_merc_mounted_sergeant","Company Mounted Sergeant","Company Mounted Sergeants", tf_guarantee_all|tf_mounted|tf_guarantee_polearm,0,0,fac_player_faction,[],
     level(25)|str_20|agi_20,  
     wp_melee(180), 
     knows_ironflesh_5|knows_power_strike_5|knows_shield_3|knows_athletics_4|knows_weapon_master_5|knows_riding_4,
     mercenary_face_1, mercenary_face_2],
     
-  ["custom_merc_mounted_sergeant_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+  ["custom_merc_mounted_sergeant_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
    # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
    [ 
     itm_h_bascinet_fi_padded,
@@ -1042,7 +1042,7 @@ mercenary_company_troops = [
    ], def_attrib|level(1), wp(60),knows_common,0
   ],
   
-  ["custom_merc_mounted_sergeant_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+  ["custom_merc_mounted_sergeant_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
     [ #Inventory Matters here. This is what they CAN BE ASKED to equip. Our system gives this troop weapons through dialogues.
     itm_h_bascinet_fi_padded,
     itm_h_bascinet_fi_mail,
@@ -1099,13 +1099,13 @@ mercenary_company_troops = [
 ###################################################################################################### DAC CUSTOM TROOPS DISMOUNTED KNIGHTS ##########################################################################################################################################################################################
 ##################################################################################################################################################################################################################################################################################################################
 
-  ["custom_merc_foot_squire","Company Foot Squire","Company Foot Squires", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm,0,0,fac_neutral,[],
+  ["custom_merc_foot_squire","Company Foot Squire","Company Foot Squires", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm,0,0,fac_player_faction,[],
     level(25)|str_20|agi_20,  
     wp_melee(150), 
     knows_ironflesh_5|knows_power_strike_5|knows_shield_3|knows_athletics_4|knows_weapon_master_5,
     mercenary_face_1, mercenary_face_2],
     
-  ["custom_merc_foot_squire_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+  ["custom_merc_foot_squire_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
    # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
    [ 
     itm_h_sallet_mail,
@@ -1138,7 +1138,7 @@ mercenary_company_troops = [
    ], def_attrib|level(1), wp(60),knows_common,0
   ],
   
-  ["custom_merc_foot_squire_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+  ["custom_merc_foot_squire_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
     [ #Inventory Matters here. This is what they CAN BE ASKED to equip. Our system gives this troop weapons through dialogues.
     itm_h_sallet_mail,
     itm_h_chapel_de_fer_1_mail,
@@ -1188,13 +1188,13 @@ mercenary_company_troops = [
     itm_tab_shield_heater_c,
     ], def_attrib|level(1),wp(60),knows_common|knows_inventory_management_10,0], 
     
-  ["custom_merc_footman_at_arms","Company Footman-At-Arms","Company Footmen-At-Arms", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm,0,0,fac_neutral,[],
+  ["custom_merc_footman_at_arms","Company Footman-At-Arms","Company Footmen-At-Arms", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm,0,0,fac_player_faction,[],
     level(28)|str_22|agi_22,  
     wp_melee(180), 
     knows_ironflesh_6|knows_power_strike_5|knows_shield_3|knows_athletics_4|knows_weapon_master_5,
     mercenary_face_1, mercenary_face_2],
     
-  ["custom_merc_footman_at_arms_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+  ["custom_merc_footman_at_arms_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
    # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
    [ 
     itm_h_zitta_bascinet_novisor,
@@ -1227,7 +1227,7 @@ mercenary_company_troops = [
    ], def_attrib|level(1), wp(60),knows_common,0
   ],
   
-  ["custom_merc_footman_at_arms_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+  ["custom_merc_footman_at_arms_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
     [ #Inventory Matters here. This is what they CAN BE ASKED to equip. Our system gives this troop weapons through dialogues.
     itm_h_zitta_bascinet_novisor,
     itm_h_bascinet_oniontop,
@@ -1277,13 +1277,13 @@ mercenary_company_troops = [
     itm_w_poleaxe_1,
     ], def_attrib|level(1),wp(60),knows_common|knows_inventory_management_10,0], 
     
-  ["custom_merc_dismounted_knight","Company Dismounted Knight","Company Dismounted Knights", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm,0,0,fac_neutral,[],
+  ["custom_merc_dismounted_knight","Company Dismounted Knight","Company Dismounted Knights", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm,0,0,fac_player_faction,[],
     level(30)|str_24|agi_24,  
     wp_melee(200), 
     knows_ironflesh_7|knows_power_strike_6|knows_shield_4|knows_athletics_4|knows_weapon_master_6,
     mercenary_face_1, mercenary_face_2],
     
-  ["custom_merc_dismounted_knight_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+  ["custom_merc_dismounted_knight_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
    # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
    [ 
     itm_h_bascinet_great,
@@ -1322,7 +1322,7 @@ mercenary_company_troops = [
    ], def_attrib|level(1), wp(60),knows_common,0
   ],
   
-  ["custom_merc_dismounted_knight_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+  ["custom_merc_dismounted_knight_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
     [ #Inventory Matters here. This is what they CAN BE ASKED to equip. Our system gives this troop weapons through dialogues.
     itm_h_bascinet_great,
     itm_h_zitta_bascinet,
@@ -1375,13 +1375,13 @@ mercenary_company_troops = [
 ###################################################################################################### DAC CUSTOM TROOPS KNIGHTS ##########################################################################################################################################################################################
 ##################################################################################################################################################################################################################################################################################################################
 
-  ["custom_merc_squire","Company Squire","Company Squires", tf_guarantee_all|tf_mounted|tf_guarantee_polearm,0,0,fac_neutral,[],
+  ["custom_merc_squire","Company Squire","Company Squires", tf_guarantee_all|tf_mounted|tf_guarantee_polearm,0,0,fac_player_faction,[],
     level(25)|str_20|agi_20,  
     wp_melee(150), 
     knows_ironflesh_5|knows_power_strike_5|knows_shield_3|knows_athletics_4|knows_weapon_master_5|knows_riding_4,
     mercenary_face_1, mercenary_face_2],
     
-  ["custom_merc_squire_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+  ["custom_merc_squire_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
    # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
    [ 
     itm_h_mail_coif,
@@ -1419,7 +1419,7 @@ mercenary_company_troops = [
    ], def_attrib|level(1), wp(60),knows_common,0
   ],
   
-  ["custom_merc_squire_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+  ["custom_merc_squire_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
     [ #Inventory Matters here. This is what they CAN BE ASKED to equip. Our system gives this troop weapons through dialogues.
     itm_h_mail_coif,
     itm_h_mail_coif_balaclava,
@@ -1473,13 +1473,13 @@ mercenary_company_troops = [
     itm_ho_rouncey_6,
     ], def_attrib|level(1),wp(60),knows_common|knows_inventory_management_10,0], 
     
-  ["custom_merc_man_at_arms","Company Man-At-Arms","Company Men-At-Arms", tf_guarantee_all|tf_mounted|tf_guarantee_polearm,0,0,fac_neutral,[],
+  ["custom_merc_man_at_arms","Company Man-At-Arms","Company Men-At-Arms", tf_guarantee_all|tf_mounted|tf_guarantee_polearm,0,0,fac_player_faction,[],
     level(30)|str_24|agi_24,  
     wp_melee(200), 
     knows_ironflesh_7|knows_power_strike_6|knows_shield_4|knows_athletics_4|knows_weapon_master_6|knows_riding_5,
     mercenary_face_1, mercenary_face_2],
     
-  ["custom_merc_man_at_arms_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+  ["custom_merc_man_at_arms_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
    # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
    [ 
     itm_h_bascinet_fi_noseguard,
@@ -1518,7 +1518,7 @@ mercenary_company_troops = [
    ], def_attrib|level(1), wp(60),knows_common,0
   ],
   
-  ["custom_merc_man_at_arms_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+  ["custom_merc_man_at_arms_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
     [ #Inventory Matters here. This is what they CAN BE ASKED to equip. Our system gives this troop weapons through dialogues.
     itm_h_bascinet_fi_noseguard,
     itm_h_zitta_bascinet_novisor,
@@ -1582,13 +1582,13 @@ mercenary_company_troops = [
     itm_s_kite_shield_d2,
     ], def_attrib|level(1),wp(60),knows_common|knows_inventory_management_10,0], 
     
-  ["custom_merc_knight","Company Knight","Company Knights", tf_guarantee_all|tf_mounted|tf_guarantee_polearm,0,0,fac_neutral,[],
+  ["custom_merc_knight","Company Knight","Company Knights", tf_guarantee_all|tf_mounted|tf_guarantee_polearm,0,0,fac_player_faction,[],
     level(35)|str_28|agi_28,  
     wp_melee(250), 
     knows_ironflesh_8|knows_power_strike_8|knows_shield_4|knows_athletics_4|knows_weapon_master_8|knows_riding_5,
     mercenary_face_1, mercenary_face_2],
     
-  ["custom_merc_knight_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+  ["custom_merc_knight_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
    # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
    [ 
     itm_h_bascinet_great,
@@ -1628,7 +1628,7 @@ mercenary_company_troops = [
    ], def_attrib|level(1), wp(60),knows_common,0
   ],
   
-  ["custom_merc_knight_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_neutral,
+  ["custom_merc_knight_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
     [ #Inventory Matters here. This is what they CAN BE ASKED to equip. Our system gives this troop weapons through dialogues.
     itm_h_bascinet_great,
     itm_h_bascinet_great_fi,
@@ -1697,7 +1697,7 @@ mercenary_company_troops = [
     ], def_attrib|level(1),wp(60),knows_common|knows_inventory_management_10,0], 
     
 
-  ["custom_mercs_end","{!}na","{!}na",0,0,0,fac_neutral,[itm_velvet],def_attrib|level(1),wp(60),knows_common|knows_inventory_management_10,swadian_face_middle_1, swadian_face_older_2],
+  ["custom_mercs_end","{!}na","{!}na",0,0,0,fac_player_faction,[itm_velvet],def_attrib|level(1),wp(60),knows_common|knows_inventory_management_10,swadian_face_middle_1, swadian_face_older_2],
 
 
 ##################################################################################################################################################################################################################################################################################################################
@@ -1716,9 +1716,9 @@ mercenary_company_troops = [
    [itm_h_highlander_beret_red_2,itm_a_merchant_outfit,itm_b_leather_boots],
    def_attrib|level(20),wp(120),knows_common|knows_inventory_management_10, 0x00000001840834485914d426156ab55400000000000d35240000000000000000],
 
-  ["inventory_backup","{!}Inventory","{!}Inventory",tf_hero|tf_inactive,0,reserved,fac_neutral,[],def_attrib|level(18),wp(60),knows_inventory_management_10,0],
+  ["inventory_backup","{!}Inventory","{!}Inventory",tf_hero|tf_inactive,0,reserved,fac_player_faction,[],def_attrib|level(18),wp(60),knows_inventory_management_10,0],
   
-  ["merc_company_name","Mercenary Company","Mercenary Company",tf_hero|tf_inactive,0,reserved,fac_neutral,[],def_attrib|level(18),wp(60),knows_inventory_management_10,0],
+  ["merc_company_name","Mercenary Company","Mercenary Company",tf_hero|tf_inactive,0,reserved,fac_player_faction,[],def_attrib|level(18),wp(60),knows_inventory_management_10,0],
 
 ## DAC Custom Troops (Merc System) End
 

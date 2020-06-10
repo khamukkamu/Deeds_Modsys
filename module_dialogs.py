@@ -45179,9 +45179,46 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 
 
 # DAC Kham: Custom Troops - Merc Camp Quartermaster
-  [anyone,"start", [(eq,"$g_talk_troop","trp_merc_company_quartermaster"), (str_store_string, s33, "@Good day, Commander. What would you like to do today?^ (This is a test for Custom Troops, for the planned 'Mercenary Company' feature).")], "{s33}", "camp_quartermaster_start",[(assign, "$g_presentation_state", -1)]],
+  [anyone,"start", [(eq,"$g_talk_troop","trp_merc_company_quartermaster"), (str_store_string, s33, "@Good day, Commander. What would you like to do today?")], "{s33}", "camp_quartermaster_start",[(assign, "$g_presentation_state", -1)]],
 
   [anyone|plyr,"camp_quartermaster_start", [], "I wish to enlist some troops.", "camp_quartermaster_recruit",[]],
+  
+  [anyone|plyr,"camp_quartermaster_start", [], "I would like to change the color scheme of our troops.", "camp_quartermaster_color_scheme",[]],
+  
+  [anyone,"camp_quartermaster_color_scheme", [
+                                        (try_begin),
+                                            (eq, "$player_camp_troop_color_scheme", 1),
+                                            (str_store_string, s11, "@a French colour scheme"),
+                                        (else_try),
+                                            (eq, "$player_camp_troop_color_scheme", 2),
+                                            (str_store_string, s11, "@an English colour scheme"),
+                                        (else_try),
+                                            (eq, "$player_camp_troop_color_scheme", 3),
+                                            (str_store_string, s11, "@a Burgundian colour scheme"),
+                                        (else_try),
+                                            (eq, "$player_camp_troop_color_scheme", 4),
+                                            (str_store_string, s11, "@a Breton colour scheme"),
+                                        (else_try),
+                                            (eq, "$player_camp_troop_color_scheme", 5),
+                                            (str_store_string, s11, "@a Flemish colour scheme"),
+                                        (else_try),
+                                            (eq, "$player_camp_troop_color_scheme", 6),
+                                            (str_store_string, s11, "@a Mercenary colour scheme"),
+                                        (else_try),
+                                            (str_store_string, s11, "@a mix of everything"),
+                                        (try_end),
+  ], "Certainly, currently we are using {s11}. ^What kind of colours should our troops use?", "camp_quartermaster_color_scheme_pick",[]],
+  
+  [anyone|plyr,"camp_quartermaster_color_scheme_pick", [], "We should copy the French.", "camp_quartermaster_color_scheme_end",[(assign, "$player_camp_troop_color_scheme", 1),]],
+  [anyone|plyr,"camp_quartermaster_color_scheme_pick", [], "We should copy the English.", "camp_quartermaster_color_scheme_end",[(assign, "$player_camp_troop_color_scheme", 2),]],
+  [anyone|plyr,"camp_quartermaster_color_scheme_pick", [], "We should copy the Burgundians.", "camp_quartermaster_color_scheme_end",[(assign, "$player_camp_troop_color_scheme", 3),]],
+  [anyone|plyr,"camp_quartermaster_color_scheme_pick", [], "We should copy the Bretons.", "camp_quartermaster_color_scheme_end",[(assign, "$player_camp_troop_color_scheme", 4),]],
+  [anyone|plyr,"camp_quartermaster_color_scheme_pick", [], "We should copy the Flemish.", "camp_quartermaster_color_scheme_end",[(assign, "$player_camp_troop_color_scheme", 5),]],
+  [anyone|plyr,"camp_quartermaster_color_scheme_pick", [], "We should copy the Mercenaries.", "camp_quartermaster_color_scheme_end",[(assign, "$player_camp_troop_color_scheme", 6),]],
+  [anyone|plyr,"camp_quartermaster_color_scheme_pick", [], "We should use everything available.", "camp_quartermaster_color_scheme_end",[(assign, "$player_camp_troop_color_scheme", -1),]],
+  [anyone|plyr,"camp_quartermaster_color_scheme_pick", [], "On second thought, let's keep it how it is.", "camp_quartermaster_color_scheme_end",[]],
+  
+  [anyone,"camp_quartermaster_color_scheme_end", [], "Very well {Sir/Madam}, it shall be as you desire.", "camp_quartermaster_nevermind",[]],
 
   [anyone,"camp_quartermaster_recruit", [], "Certainly, let's see if there's some available.", "camp_quartermaster_nevermind",
   [

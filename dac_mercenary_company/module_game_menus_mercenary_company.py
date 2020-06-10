@@ -135,7 +135,7 @@ mercenary_company_menus = [
         (jump_to_scene,"scn_player_camp"),
         (change_screen_mission),		
 	]),	
-      ("player_camp_manage",[(eq, reg6, 0),],"Manage the {s11}.",[(jump_to_menu, "mnu_player_camp_management"),]),
+      ("player_camp_wait",[],"Wait here for some time.",[(rest_for_hours_interactive, 24 * 7, 5, 0),(change_screen_return)]),
       ("leave",[],"Leave.",[(leave_encounter),(change_screen_return)]),
     ]
   ),  
