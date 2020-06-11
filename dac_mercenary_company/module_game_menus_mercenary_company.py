@@ -13,6 +13,29 @@ from module_constants import *
 from compiler import *
 
 mercenary_company_menus = [
+# DAC Custom Troops - Renaming Automenu
+
+( "dac_name_troops",0,
+    "This menu automatically returns to caller.",
+    "none",
+    [(start_presentation, "prsnt_name_troop")],[]
+ ),
+
+( "dac_name_troops_2",0,
+    "This menu automatically returns to caller.",
+    "none",
+    [#(call_script, "script_setup_troop_meeting", "trp_merc_company_quartermaster", -1)
+      # (change_screen_return),
+      (jump_to_menu, "mnu_player_camp_encounter"),
+    ],[]
+ ),
+
+
+( "dac_view_armoury",0,
+    "This menu automatically returns to caller.",
+    "none",
+    [(start_presentation, "prsnt_dac_ct_view_armoury")],[]
+ ),
 
 ## DAC Seek: Player Camp Notification
   (
@@ -135,6 +158,7 @@ mercenary_company_menus = [
         (jump_to_scene,"scn_player_camp"),
         (change_screen_mission),		
 	]),	
+      ("player_camp_manage",[(eq, reg6, 0),],"Manage the {s11}.",[(jump_to_menu, "mnu_player_camp_management"),]),
       ("player_camp_wait",[],"Wait here for some time.",[(rest_for_hours_interactive, 24 * 7, 5, 0),(change_screen_return)]),
       ("leave",[],"Leave.",[(leave_encounter),(change_screen_return)]),
     ]

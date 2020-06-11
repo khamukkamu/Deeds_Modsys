@@ -3210,29 +3210,6 @@ TOTAL:  {reg5}"),
 
   ]),
 
-# DAC Custom Troops - Renaming Automenu
-
-( "dac_name_troops",0,
-    "This menu automatically returns to caller.",
-    "none",
-    [(start_presentation, "prsnt_name_troop")],[]
- ),
-
-( "dac_name_troops_2",0,
-    "This menu automatically returns to caller.",
-    "none",
-    [#(call_script, "script_setup_troop_meeting", "trp_merc_company_quartermaster", -1)
-      (change_screen_map),
-    ],[]
- ),
-
-
-( "dac_view_armoury",0,
-    "This menu automatically returns to caller.",
-    "none",
-    [(start_presentation, "prsnt_dac_ct_view_armoury")],[]
- ),
-
   ("camp_action",0,
    "Choose an action:",
    "none",

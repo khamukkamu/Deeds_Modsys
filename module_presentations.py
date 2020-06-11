@@ -9197,10 +9197,10 @@ presentations = [
         (set_container_overlay, reg1),
 
         (assign, ":try_end", banner_meshes_end_minus_one),
-        (store_sub, ":num_npc_kingdoms", npc_kingdoms_end, npc_kingdoms_begin), ## CC
-        (val_add, ":num_npc_kingdoms", 10),
+        # (store_sub, ":num_npc_kingdoms", npc_kingdoms_end, npc_kingdoms_begin), ## CC
+        # (val_add, ":num_npc_kingdoms", 10),
         #SB : de-list 10 duplicate banners in g-series from being picked by the player
-        (val_sub, ":try_end", ":num_npc_kingdoms"), #do not allow kingdom banners to be selected
+        # (val_sub, ":try_end", ":num_npc_kingdoms"), #do not allow kingdom banners to be selected
         # (store_mul, ":begin_mesh", 16, "$g_presentation_page_no"),
         # (val_add, ":begin_mesh", banner_meshes_begin),
         # (store_add, ":try_end_2", ":begin_mesh", 16),
