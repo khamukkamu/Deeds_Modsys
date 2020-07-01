@@ -779,7 +779,7 @@ scripts = [
     (call_script, "script_upgrade_lords_equipment"),
     (call_script, "script_dac_init_custom_troops"),
 
-
+    (party_set_slot, "p_castle_27", slot_party_last_toll_paid_hours, -24),
 
     ]),
 
@@ -1172,7 +1172,7 @@ scripts = [
       (item_set_slot, "itm_w_twohanded_sword_claymore", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_sword),
       (item_set_slot, "itm_w_twohanded_sword_danish", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_sword),
       (item_set_slot, "itm_w_twohanded_sword_steward", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_sword),
-      (item_set_slot, "itm_w_twohanded_talhoffer", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_sword),
+      (item_set_slot, "itm_w_twohanded_sword_talhoffer", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_sword),
 
       #axe
       (item_set_slot, "itm_w_archer_hatchet", slot_item_multiplayer_item_class, multi_item_class_type_axe),
@@ -81267,17 +81267,9 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 	(item_set_slot, "itm_w_twohanded_sword_steward_halfswording", slot_item_weapon_switch_to, "itm_w_twohanded_sword_steward_mordhau"),    
 	(item_set_slot, "itm_w_twohanded_sword_steward_mordhau", slot_item_weapon_switch_to, "itm_w_twohanded_sword_steward"),    
 
-	(item_set_slot, "itm_w_twohanded_talhoffer", slot_item_weapon_switch_to, "itm_w_twohanded_talhoffer_halfswording"),    
-	(item_set_slot, "itm_w_twohanded_talhoffer_halfswording", slot_item_weapon_switch_to, "itm_w_twohanded_talhoffer_mordhau"),    
-	(item_set_slot, "itm_w_twohanded_talhoffer_mordhau", slot_item_weapon_switch_to, "itm_w_twohanded_talhoffer"),    
-
-	(item_set_slot, "itm_w_twohanded_sword_steward_2", slot_item_weapon_switch_to, "itm_w_twohanded_sword_steward_2_halfswording"),    
-	(item_set_slot, "itm_w_twohanded_sword_steward_2_halfswording", slot_item_weapon_switch_to, "itm_w_twohanded_sword_steward_2_mordhau"),    
-	(item_set_slot, "itm_w_twohanded_sword_steward_2_mordhau", slot_item_weapon_switch_to, "itm_w_twohanded_sword_steward_2"),    
-
-	(item_set_slot, "itm_w_twohanded_talhoffer_2", slot_item_weapon_switch_to, "itm_w_twohanded_talhoffer_2_halfswording"),    
-	(item_set_slot, "itm_w_twohanded_talhoffer_2_halfswording", slot_item_weapon_switch_to, "itm_w_twohanded_talhoffer_2_mordhau"),    
-	(item_set_slot, "itm_w_twohanded_talhoffer_2_mordhau", slot_item_weapon_switch_to, "itm_w_twohanded_talhoffer_2"),    
+	(item_set_slot, "itm_w_twohanded_sword_talhoffer", slot_item_weapon_switch_to, "itm_w_twohanded_sword_talhoffer_halfswording"),    
+	(item_set_slot, "itm_w_twohanded_sword_talhoffer_halfswording", slot_item_weapon_switch_to, "itm_w_twohanded_sword_talhoffer_mordhau"),    
+	(item_set_slot, "itm_w_twohanded_sword_talhoffer_mordhau", slot_item_weapon_switch_to, "itm_w_twohanded_sword_talhoffer"),     
 ]),
 
 ####################################################################################################################
@@ -81544,6 +81536,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 #script_dac_initialize_aristocracy_french_lords
 ("dac_initialize_aristocracy_french_lords",
   [
+
 # King
 #Charles_VII, Regent of France, le Dauphin
 (troop_set_slot,"trp_kingdom_1_lord",slot_troop_spouse,"trp_kingdom_1_lady_2"),

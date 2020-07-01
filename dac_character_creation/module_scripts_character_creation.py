@@ -50,7 +50,7 @@ character_creation_scripts = [
         (troop_add_item, "trp_player","itm_h_bascinet_fi_hood_custom",0),
         (troop_add_item, "trp_player","itm_tab_shield_kite_c",0),
         (troop_add_item, "trp_player","itm_w_native_spear_b_custom",0),
-        (troop_add_item, "trp_player","itm_w_onehanded_sword_knight_2",0),
+        (troop_add_item, "trp_player","itm_w_onehanded_sword_knight",0),
         (troop_add_item, "trp_player","itm_g_mail_gauntlets",0),
         (troop_add_item, "trp_player","itm_ho_rouncey_1",0),
         (troop_add_item, "trp_player","itm_smoked_fish",0),
@@ -82,7 +82,7 @@ character_creation_scripts = [
         (troop_add_item, "trp_player","itm_h_bascinet_fi_hood_custom",0),
         (troop_add_item, "trp_player","itm_tab_shield_kite_c",0),
         (troop_add_item, "trp_player","itm_w_native_spear_b_custom",0),
-        (troop_add_item, "trp_player","itm_w_onehanded_sword_knight_2",0),
+        (troop_add_item, "trp_player","itm_w_onehanded_sword_knight",0),
         (troop_add_item, "trp_player","itm_g_mail_gauntlets",0),
         (troop_add_item, "trp_player","itm_ho_rouncey_1",0),
         (troop_add_item, "trp_player","itm_smoked_fish",0),
@@ -612,7 +612,7 @@ character_creation_scripts = [
 
     (try_begin), 
         (eq, ":faction_no", "fac_kingdom_1"), #DAC Kham: Copied from knight_1_51
-        (troop_add_item, "trp_player", "itm_w_bastard_sword_mercenary_2"),
+        (troop_add_item, "trp_player", "itm_w_bastard_sword_mercenary"),
         (troop_add_item, "trp_player", "itm_w_lance_colored_french_2_heraldic"),
         (troop_add_item, "trp_player", "itm_tab_shield_heater_cav_b"),
         (troop_add_item, "trp_player", "itm_ho_horse_barded_blue_chamfrom"),
@@ -623,7 +623,7 @@ character_creation_scripts = [
         (troop_add_item, "trp_player", "itm_b_hosen_shoes_custom"),
     (else_try),
         (eq, ":faction_no", "fac_kingdom_2"), #DAC Kham: Copied from knight_2_51
-        (troop_add_item, "trp_player", "itm_w_bastard_sword_duke_2"),
+        (troop_add_item, "trp_player", "itm_w_bastard_sword_duke"),
         (troop_add_item, "trp_player", "itm_tab_shield_heater_cav_b"),
         (troop_add_item, "trp_player", "itm_w_lance_colored_english_3_heraldic"),
         (troop_add_item, "trp_player", "itm_ho_horse_barded_red_chamfrom"),
@@ -645,7 +645,7 @@ character_creation_scripts = [
         (troop_add_item, "trp_player", "itm_b_hosen_shoes_custom"),
     (else_try),
         #(eq, ":faction_no", "fac_kingdom_4"),  #DAC Kham: Copied from knight_4_18
-        (troop_add_item, "trp_player", "itm_w_bastard_sword_crecy_2"),
+        (troop_add_item, "trp_player", "itm_w_bastard_sword_crecy"),
         (troop_add_item, "trp_player", "itm_tab_shield_heater_cav_b"),
         (troop_add_item, "trp_player", "itm_w_lance_1_heraldic"),
         (troop_add_item, "trp_player", "itm_ho_horse_barded_black_chamfrom"),

@@ -2190,7 +2190,7 @@ common_siege_defender_reinforcement_check = (
    (add_reinforcements_to_entry,4, 7),
    (val_add,"$defender_reinforcement_stage",1),
    (try_begin),
-     (gt, ":mission_time", 300), #5 minutes, don't let small armies charge
+     # (gt, ":mission_time", 300), #5 minutes, don't let small armies charge # DAC Seek: disabled the timer as a test
      (get_player_agent_no, ":player_agent"),
      (agent_get_team, ":player_team", ":player_agent"),
      (neq, ":player_team", "$defender_team"), #player should be the attacker

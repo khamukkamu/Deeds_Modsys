@@ -603,9 +603,7 @@ mercenary_company_troops = [
     itm_w_spear_5,
 
     itm_w_onehanded_sword_baron,
-    itm_w_onehanded_sword_baron_2,
     itm_w_onehanded_sword_ritter,
-    itm_w_onehanded_sword_ritter_2,
     
     itm_tab_shield_heater_d,
     itm_tab_shield_kite_d,
@@ -649,9 +647,7 @@ mercenary_company_troops = [
     itm_w_onehanded_sword_baron,
     itm_w_bastard_sword_a,
     itm_w_bastard_sword_b,
-    itm_w_onehanded_sword_baron_2,
     itm_w_onehanded_sword_ritter,
-    itm_w_onehanded_sword_ritter_2,
     
     itm_s_war_shield_a1,
     itm_s_war_shield_a2,
@@ -1027,9 +1023,7 @@ mercenary_company_troops = [
     itm_w_native_spear_f_custom,
 
     itm_w_onehanded_sword_baron,
-    itm_w_onehanded_sword_baron_2,
     itm_w_onehanded_sword_ritter,
-    itm_w_onehanded_sword_ritter_2,
     
     itm_tab_shield_kite_cav_b,
     
@@ -1071,9 +1065,7 @@ mercenary_company_troops = [
     itm_w_onehanded_sword_baron,
     itm_w_bastard_sword_a,
     itm_w_bastard_sword_b,
-    itm_w_onehanded_sword_baron_2,
     itm_w_onehanded_sword_ritter,
-    itm_w_onehanded_sword_ritter_2,
     
     itm_s_war_shield_a1,
     itm_s_war_shield_a2,
@@ -1164,10 +1156,6 @@ mercenary_company_troops = [
     itm_w_bastard_sword_agincourt,
     itm_w_bastard_sword_baron,
     itm_w_bastard_sword_mercenary,
-    itm_w_bastard_sword_agincourt_2,
-    itm_w_bastard_sword_baron_2,
-    itm_w_bastard_sword_duke_2,
-    itm_w_bastard_sword_mercenary_2,
     
     itm_w_warhammer_2,
     itm_w_warhammer_1,
@@ -1249,10 +1237,6 @@ mercenary_company_troops = [
     itm_w_bastard_sword_agincourt,
     itm_w_bastard_sword_crecy,
     itm_w_bastard_sword_duke,
-    itm_w_bastard_sword_agincourt_2,
-    itm_w_bastard_sword_crecy_2,
-    itm_w_bastard_sword_duke_2,
-    itm_w_bastard_sword_landgraf_2,
     
     itm_tab_shield_heater_d,
     itm_s_battle_shield_charles,
@@ -1309,9 +1293,7 @@ mercenary_company_troops = [
     itm_w_bastard_sword_c,
     
     itm_w_twohanded_war_axe_3,
-    itm_w_twohanded_talhoffer_2,
-    itm_w_twohanded_sword_steward_2,
-    itm_w_twohanded_talhoffer,
+    itm_w_twohanded_sword_talhoffer,
     itm_w_twohanded_sword_steward,
     itm_w_poleaxe_3,
     itm_w_poleaxe_2,
@@ -1359,9 +1341,7 @@ mercenary_company_troops = [
     itm_w_bastard_sword_c,
     
     itm_w_twohanded_war_axe_3,
-    itm_w_twohanded_talhoffer_2,
-    itm_w_twohanded_sword_steward_2,
-    itm_w_twohanded_talhoffer,
+    itm_w_twohanded_sword_talhoffer,
     itm_w_twohanded_sword_steward,
     itm_w_poleaxe_3,
     itm_w_poleaxe_2,
@@ -1438,10 +1418,7 @@ mercenary_company_troops = [
     itm_g_mail_gauntlets,
     
     itm_w_onehanded_sword_squire,
-    itm_w_onehanded_sword_squire_2,
-    itm_w_onehanded_sword_hospitaller_2,
     itm_w_onehanded_sword_templar,
-    itm_w_onehanded_sword_templar_2,
     itm_w_onehanded_sword_hospitaller,
     itm_w_onehanded_sword_d_long,
     itm_w_onehanded_sword_c_long,
@@ -1541,10 +1518,6 @@ mercenary_company_troops = [
     itm_w_onehanded_sword_squire,
     itm_w_onehanded_sword_laird,
     itm_w_onehanded_sword_poitiers,
-    itm_w_onehanded_sword_knight_2,
-    itm_w_onehanded_sword_poitiers_2,
-    itm_w_onehanded_sword_squire_2,
-    itm_w_onehanded_sword_laird_2,
     itm_w_horseman_axe_1,
     itm_w_horseman_axe_2,
     itm_w_horseman_axe_3,
@@ -1665,10 +1638,6 @@ mercenary_company_troops = [
     itm_w_bastard_sword_landgraf,
     itm_w_bastard_sword_sempach,
     itm_w_bastard_sword_crecy,
-    itm_w_bastard_sword_agincourt_2,
-    itm_w_bastard_sword_crecy_2,
-    itm_w_bastard_sword_landgraf_2,
-    itm_w_bastard_sword_sempach_2,
     itm_w_horseman_axe_2,
     itm_w_horseman_axe_3,
     itm_w_knight_battle_axe,

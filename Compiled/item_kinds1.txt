@@ -92,7 +92,7 @@ itemsfile version 3
  0
 0
 
- itm_arena_sword_two_handed Two_Handed_Sword Two_Handed_Sword 2  w_twohanded_talhoffer 0  w_twohanded_talhoffer_scabbard 3458764513820540928  2251799820042243 9223635954365890800 998 155668 2.500000 100 0 0 0 0 0 95 0 115 0 547 552
+ itm_arena_sword_two_handed Two_Handed_Sword Two_Handed_Sword 2  w_twohanded_sword_talhoffer 0  w_twohanded_sword_talhoffer_scabbard 3458764513820540928  2251799820042243 9223635954365890800 998 155668 2.500000 100 0 0 0 0 0 95 0 115 0 547 552
  0
 0
 
@@ -2466,15 +2466,15 @@ itemsfile version 3
  0
 0
 
- itm_w_twohanded_talhoffer Talhoffer_Greatsword Talhoffer_Greatsword 2  w_twohanded_talhoffer 0  w_twohanded_talhoffer_scabbard 3458764513820540928  2251799820042243 9223635954365890800 998 155668 2.500000 100 0 0 0 11 0 95 0 115 0 291 40
+ itm_w_twohanded_sword_talhoffer Talhoffer_Greatsword Talhoffer_Greatsword 2  w_twohanded_sword_talhoffer 0  w_twohanded_sword_talhoffer_scabbard 3458764513820540928  2251799820042243 9223635954365890800 998 155668 2.500000 100 0 0 0 11 0 95 0 115 0 291 40
  0
 0
 
- itm_w_twohanded_talhoffer_halfswording Talhoffer_Greatsword Talhoffer_Greatsword 2  w_twohanded_talhoffer 0  w_twohanded_talhoffer_scabbard 3458764513820540928  11258999074783235 9232643153553523136 998 155668 2.500000 100 0 0 0 11 0 95 0 115 0 291 40
+ itm_w_twohanded_sword_talhoffer_halfswording Talhoffer_Greatsword Talhoffer_Greatsword 2  w_twohanded_sword_talhoffer 0  w_twohanded_sword_talhoffer_scabbard 3458764513820540928  11258999074783235 9232643153553523136 998 155668 2.500000 100 0 0 0 11 0 95 0 115 0 291 40
  0
 0
 
- itm_w_twohanded_talhoffer_mordhau Talhoffer_Greatsword Talhoffer_Greatsword 2  w_twohanded_talhoffer 0  w_twohanded_talhoffer_scabbard 3458764513820540928  3377699726884868 4222159278837248 998 155668 2.500000 100 0 0 0 11 0 95 0 115 0 0 544
+ itm_w_twohanded_sword_talhoffer_mordhau Talhoffer_Greatsword Talhoffer_Greatsword 2  w_twohanded_sword_talhoffer 0  w_twohanded_sword_talhoffer_scabbard 3458764513820540928  3377699726884868 4222159278837248 998 155668 2.500000 100 0 0 0 11 0 95 0 115 0 0 544
  0
 0
 
@@ -2493,17 +2493,17 @@ itemsfile version 3
 1
 -50.000000  1 1978 3 1585267068834416185 0 0 
 
- itm_w_twohanded_talhoffer_2 Talhoffer_Greatsword Talhoffer_Greatsword 2  w_twohanded_talhoffer 0  w_twohanded_talhoffer_scabbard 3458764513820540928  2251799820042243 9223635954365890800 998 155668 2.500000 100 0 0 0 11 0 95 0 115 0 291 40
+ itm_w_twohanded_sword_talhoffer_2 Talhoffer_Greatsword Talhoffer_Greatsword 2  w_twohanded_sword_talhoffer 0  w_twohanded_sword_talhoffer_scabbard 3458764513820540928  2251799820042243 9223635954365890800 998 155668 2.500000 100 0 0 0 11 0 95 0 115 0 291 40
  0
 1
 -50.000000  1 1978 3 1585267068834416185 0 0 
 
- itm_w_twohanded_talhoffer_2_halfswording Talhoffer_Greatsword Talhoffer_Greatsword 2  w_twohanded_talhoffer 0  w_twohanded_talhoffer_scabbard 3458764513820540928  11258999074783235 9232643153553523136 998 155668 2.500000 100 0 0 0 11 0 95 0 115 0 291 40
+ itm_w_twohanded_sword_talhoffer_2_halfswording Talhoffer_Greatsword Talhoffer_Greatsword 2  w_twohanded_sword_talhoffer 0  w_twohanded_sword_talhoffer_scabbard 3458764513820540928  11258999074783235 9232643153553523136 998 155668 2.500000 100 0 0 0 11 0 95 0 115 0 291 40
  0
 1
 -50.000000  1 1978 3 1585267068834416185 0 0 
 
- itm_w_twohanded_talhoffer_2_mordhau Talhoffer_Greatsword Talhoffer_Greatsword 2  w_twohanded_talhoffer 0  w_twohanded_talhoffer_scabbard 3458764513820540928  3377699726884868 4222159278837248 998 155668 2.500000 100 0 0 0 11 0 95 0 115 0 0 544
+ itm_w_twohanded_sword_talhoffer_2_mordhau Talhoffer_Greatsword Talhoffer_Greatsword 2  w_twohanded_sword_talhoffer 0  w_twohanded_sword_talhoffer_scabbard 3458764513820540928  3377699726884868 4222159278837248 998 155668 2.500000 100 0 0 0 11 0 95 0 115 0 0 544
  0
 1
 -50.000000  1 1978 3 1585267068834416185 0 0 

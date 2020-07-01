@@ -6880,5 +6880,6 @@ simple_triggers = [
   ),
 #Custom Troops End
 
+
 ]
 simple_triggers += mercenary_company_simple_triggers

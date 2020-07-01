@@ -442,8 +442,8 @@ scenes = [
 ("town_51_center",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001300785320004c93200002bc700005e48000008d2",
   [],[],"outer_terrain_plain"),
 
-# Dijon - Rus' Krakow
-("town_52_center", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x0000000230078563000541320000775f000047e900002417",[], [], "outer_terrain_plain"),
+# Dijon - Rigo
+("town_52_center", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x0000000030000500000b26c4000077c40000755f000036f6",[], [], "outer_terrain_plain"),
 
 
 # Besancon - BM's Suno
@@ -707,7 +707,7 @@ scenes = [
   ("town_51_castle",sf_indoors, "interior_castle_v", "bo_interior_castle_v", (-100,-100),(100,100),-100,"0",
     ["exit"],["town_51_seneschal"]),
 
-# Dijon - Rus' Krakow
+# Dijon - Rigo
   ("town_52_castle", sf_indoors, "interior_castle_x", "bo_interior_castle_x", (-100, -100), (100, 100), -100, "0",
   ["exit"], ["town_52_seneschal"]),
 
@@ -965,7 +965,7 @@ scenes = [
   ("town_51_tavern",sf_indoors, "interior_town_house_f", "bo_interior_town_house_f", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
 
-# Dijon - Rus' Krakow
+# Dijon - Rigo
   ("town_52_tavern", sf_indoors, "interior_town_house_aa", "bo_interior_town_house_aa", (-100, -100), (100, 100), -100, "0",["exit"], []),
 
 # Besancon - BM's Suno
@@ -1216,7 +1216,7 @@ scenes = [
   ("town_51_store",sf_indoors, "interior_house_a", "bo_interior_house_a", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
 
-# Dijon - Rus' Krakow
+# Dijon - Rigo
   ("town_52_store", sf_indoors, "interior_house_a", "bo_interior_house_a", (-100, -100), (100, 100), -100, "0",["exit"], []),
 
 # Besancon - BM's Suno
@@ -1471,7 +1471,7 @@ scenes = [
   ("town_51_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0xa0001d9300031ccb0000156f000048ba0000361c",
     [],[],"outer_terrain_plain"),
 
-# Dijon - Rus' Krakow
+# Dijon - Rigo
   ("town_52_arena", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0xa0001d9300031ccb0000156f000048ba0000361c",[], [], "outer_terrain_town_thir_1"),
 
 
@@ -1725,7 +1725,7 @@ scenes = [
   ("town_51_prison",sf_indoors,"interior_prison_i", "bo_interior_prison_i", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
 
-# Dijon - Rus' Krakow
+# Dijon - Rigo
   ("town_52_prison", sf_indoors, "interior_prison_d", "bo_interior_prison_d", (-100, -100), (100, 100), -100, "0",["exit"], []),
 
 # Besancon - BM's Suno
@@ -1980,8 +1980,8 @@ scenes = [
   ("town_51_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000013002491600055157000000d20000152a0000611a",
     [],[],"outer_terrain_plain"),
 
-# Dijon - Rus' Krakow
-  ("town_52_walls", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x0000000230078563000541320000775f000047e900002417",[], [], "outer_terrain_plain"),
+# Dijon - Rigo
+  ("town_52_walls", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x0000000030000500000b26c4000077c40000755f000036f6",[], [], "outer_terrain_plain"),
 
 # Besancon - BM's Suno
   ("town_53_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030000500000d2348000030c4000053ae00001d83",
@@ -2232,7 +2232,7 @@ scenes = [
   ("town_51_alley",sf_generate,"none", "none", (0,0),(100,100),-100,"0x20008a110002589600006af30000356b00002c27",
     [],[],"outer_terrain_plain"),
 
-# Dijon - Rus' Krakow
+# Dijon - Rigo
   ("town_52_alley", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x300bc5430001e0780000448a0000049f00007932",[], [], "outer_terrain_town_thir_1"),
 
 # Besancon - BM's Suno
@@ -3130,7 +3130,8 @@ scenes = [
     [],[],"outer_terrain_town_thir_1"),
   ("village_95",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002300027b200065d9700004dcf0000212800001bf0",
     [],[],"outer_terrain_plain"),
-  ("village_96",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002300018e38005e58300000376000027e70000015c",
+# Lion D'Angers - Rigo
+  ("village_96",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000004fd4500006fed000029db00001edd",
     [],[],"outer_terrain_plain"),
   ("village_97",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002300022a60005314c0000428100007e0100002e97",
     [],[],"outer_terrain_plain"),

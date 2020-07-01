@@ -45178,6 +45178,8 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [anyone|plyr,"regular_member_talk", [], "Nothing. Keep moving.", "close_window",[]],
 
 
+
+
 # DAC Kham: Custom Troops - Merc Camp Quartermaster
   [anyone,"start", [(eq,"$g_talk_troop","trp_merc_company_quartermaster"), (str_store_string, s33, "@Good day, Commander. What would you like to do today?")], "{s33}", "camp_quartermaster_start",[(assign, "$g_presentation_state", -1)]],
 
@@ -45298,10 +45300,39 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
     "Alright then. Anything else?", "camp_quartermaster_start",
   []],
 
+
+  
+# DAC Seek: Questions
+  
+  [anyone|plyr,"camp_quartermaster_start", [], "I have some questions for you.", "camp_quartermaster_question_start",[]],
+  [anyone,"camp_quartermaster_question_start", [], "What can I help you with?", "camp_quartermaster_questions",[]],
+  
+  [anyone|plyr,"camp_quartermaster_questions", [], "How do I get access to more troops?", "camp_quartermaster_question_troops",[]],
+  [anyone,"camp_quartermaster_question_troops", [], "You can build an archery range to start training archers, a corral to train cavalry and a chapter house to recruit knights. ^Keep in mind that some of those buildings will require you to expand the camp first.", "camp_quartermaster_questions",[]],
+  
+  [anyone|plyr,"camp_quartermaster_questions", [], "How can I change the equipment of my troops?", "camp_quartermaster_question_troop_equipment",[]],
+  [anyone,"camp_quartermaster_question_troop_equipment", [], "Come talk to me when you have recruited some troops and I will help you change their equipment.", "camp_quartermaster_questions",[]],
+  
+  [anyone|plyr,"camp_quartermaster_questions", [], "How can I get new equipment for my troops?", "camp_quartermaster_question_equipment",[]],
+  [anyone,"camp_quartermaster_question_equipment", [], "You will need to build a smithy first, once it is build just go ahead and talk to the blacksmith. You can commission items from him as long as you have the coin and the item you want for your troops. Keep in mind that troops will only have access to items that are adequate to their rank.", "camp_quartermaster_questions",[]],
+  
+  [anyone|plyr,"camp_quartermaster_questions", [], "That's all I have to ask.", "camp_quartermaster_nevermind",[]],
+
+# DAC Seek: End Dialog
   [anyone|plyr,"camp_quartermaster_start", [], "Nothing today. Carry on.", "camp_quartermaster_back",[]],
   [anyone,"camp_quartermaster_back", [], "Very well.", "close_window",[(change_screen_map)]],
 
 # DAC Kham: Custom Troops - Merc Camp Quartermaster END
+
+
+
+
+
+
+
+
+
+
 
 # DAC Seek: Custom Troops - Merc Camp Smith
   [anyone,"start", [(eq,"$g_talk_troop","trp_merc_company_smith"), (str_store_string, s33, "@Good day, Commander. What would you like to do today?^ (This is a test for Custom Troops, for the planned 'Mercenary Company' feature).")], "{s33}", "camp_smith_start",[(assign, "$g_presentation_state", -1)]],
