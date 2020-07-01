@@ -857,6 +857,10 @@ items = [
 ["a_plate_harness_2", "Plate Harness", [("a_plate_harness_2",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0, 6230, weight(30)|abundance(100)|head_armor(0)|body_armor(62)|leg_armor(24)|difficulty(9), imodbits_armor],
 ["a_plate_harness_3", "Plate Harness", [("a_plate_harness_3",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0, 6230, weight(30)|abundance(100)|head_armor(0)|body_armor(62)|leg_armor(24)|difficulty(9), imodbits_armor],
 
+["a_plate_harness_brass_1", "Plate Harness", [("a_plate_harness_brass_1",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0, 6500, weight(30)|abundance(100)|head_armor(0)|body_armor(62)|leg_armor(24)|difficulty(9), imodbits_armor],
+["a_plate_harness_brass_2", "Plate Harness", [("a_plate_harness_brass_2",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0, 6500, weight(30)|abundance(100)|head_armor(0)|body_armor(62)|leg_armor(24)|difficulty(9), imodbits_armor],
+["a_plate_harness_brass_3", "Plate Harness", [("a_plate_harness_brass_3",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0, 6500, weight(30)|abundance(100)|head_armor(0)|body_armor(62)|leg_armor(24)|difficulty(9), imodbits_armor],
+
 ["a_english_plate_harness", "English Plate Harness", [("a_english_plate_harness",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0, 6230, weight(30)|abundance(100)|head_armor(0)|body_armor(62)|leg_armor(24)|difficulty(9), imodbits_armor],
 ["a_english_plate_harness_2", "English Plate Harness (TEST)", [("a_english_plate_harness_torso",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0, 6230, weight(30)|abundance(100)|head_armor(0)|body_armor(62)|leg_armor(24)|difficulty(9), imodbits_armor,[(ti_on_init_item,[(cur_item_add_mesh, "@a_english_plate_harness_limbs", 0, 0),])]],
 ["a_plate_english", "English Plate Armour", [("a_english_plate",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0, 6540, weight(29)|abundance(100)|head_armor(0)|body_armor(64)|leg_armor(24)|difficulty(9), imodbits_armor ],
