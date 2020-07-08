@@ -4212,6 +4212,9 @@ scene_props = [
 # from 'sc_missing_props.brf': end (OpenBRF)
 
 # from 'bb_terrain.brf': begin (OpenBRF)
+	( "wheat_field_small"                          ,0,"wheat_field_small","0",[]),
+	( "wheat_field_medium"                         ,0,"wheat_field_medium","0",[]),
+	( "wheat_field_large"                          ,0,"wheat_field_large","0",[]),
 	( "terrain_desert_cliff_01"                    ,0,"terrain_desert_cliff_01","bo_terrain_cliff_01",[]),
 	( "terrain_desert_cliff_02"                    ,0,"terrain_desert_cliff_02","bo_terrain_cliff_02",[]),
 	( "terrain_desert_cliff_03"                    ,0,"terrain_desert_cliff_03","bo_terrain_cliff_03",[]),

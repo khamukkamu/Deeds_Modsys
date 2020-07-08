@@ -21514,6 +21514,33 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     # ]
   # ),
   
+  ("toll_crossing", 0,
+    "You have reached the Green Fork Crossing, to cross this land you will need to pay a toll.", "none", [],
+    [
+    
+    ("pay",[
+    
+        (party_get_num_companions,":player_party_size", "p_main_party"),
+        (assign, ":toll_price", ":player_party_size"),
+        (val_mul, ":toll_price", 5),
+        
+        (store_troop_gold, ":cur_gold", "trp_player"),
+        (ge,":cur_gold", ":toll_price"),
+        
+        (assign, reg1, ":toll_price"),
+    
+    ],"Pay the toll. ({reg1} Dragons)",[
+        (troop_remove_gold, "trp_player", reg1),
+        (store_current_hours, ":cur_hours"),
+        (store_add, ":toll_finish_time", ":cur_hours", 24),
+        (party_set_slot, "p_castle_27", slot_party_last_toll_paid_hours, ":toll_finish_time"),
+        (change_screen_return),
+    ]), 
+    
+    ("leave",[],"Leave the menu.",[(change_screen_return),]),
+    
+  ]),
+  
   
  ]
 

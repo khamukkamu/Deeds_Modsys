@@ -239,6 +239,7 @@ imodbits_plate  = imodbit_cracked | imodbit_rusty | imodbit_battered | imodbit_c
 imodbits_polearm = imodbit_cracked | imodbit_bent | imodbit_balanced
 imodbits_shield  = imodbit_cracked | imodbit_battered |imodbit_thick | imodbit_reinforced
 imodbits_sword   = imodbit_rusty | imodbit_balanced | imodbit_masterwork
+imodbits_sword_alt   = imodbit_rusty | imodbit_masterwork
 imodbits_sword_high   = imodbit_rusty | imodbit_chipped | imodbit_balanced |imodbit_tempered|imodbit_masterwork
 imodbits_axe   = imodbit_rusty | imodbit_chipped | imodbit_heavy
 imodbits_mace   = imodbit_rusty | imodbit_chipped | imodbit_heavy
@@ -853,13 +854,13 @@ items = [
 ["a_milanese_armour_narf", "Milanese Armour", [("a_milanese_armour_narf",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0, 5660, weight(28)|abundance(100)|head_armor(0)|body_armor(60)|leg_armor(22)|difficulty(10), imodbits_plate ],
 ["a_gothic_armour_narf", "Gothic Armour", [("a_gothic_armour_narf",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0, 6230, weight(30)|abundance(100)|head_armor(0)|body_armor(62)|leg_armor(24)|difficulty(0), imodbits_plate ],
 
-["a_plate_harness_1", "Plate Harness", [("a_plate_harness_1",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0, 6230, weight(30)|abundance(100)|head_armor(0)|body_armor(62)|leg_armor(24)|difficulty(9), imodbits_armor],
-["a_plate_harness_2", "Plate Harness", [("a_plate_harness_2",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0, 6230, weight(30)|abundance(100)|head_armor(0)|body_armor(62)|leg_armor(24)|difficulty(9), imodbits_armor],
-["a_plate_harness_3", "Plate Harness", [("a_plate_harness_3",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0, 6230, weight(30)|abundance(100)|head_armor(0)|body_armor(62)|leg_armor(24)|difficulty(9), imodbits_armor],
+["a_plate_harness_1", "Plate Harness", [("a_plate_harness_1",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0, 6230, weight(30)|abundance(100)|head_armor(0)|body_armor(60)|leg_armor(24)|difficulty(9), imodbits_armor],
+["a_plate_harness_2", "Plate Harness", [("a_plate_harness_2",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0, 6350, weight(30)|abundance(100)|head_armor(0)|body_armor(62)|leg_armor(24)|difficulty(9), imodbits_armor],
+# ["a_plate_harness_3", "Plate Harness", [("a_plate_harness_3",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0, 6230, weight(30)|abundance(100)|head_armor(0)|body_armor(62)|leg_armor(24)|difficulty(9), imodbits_armor],
 
-["a_plate_harness_brass_1", "Plate Harness", [("a_plate_harness_brass_1",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0, 6500, weight(30)|abundance(100)|head_armor(0)|body_armor(62)|leg_armor(24)|difficulty(9), imodbits_armor],
-["a_plate_harness_brass_2", "Plate Harness", [("a_plate_harness_brass_2",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0, 6500, weight(30)|abundance(100)|head_armor(0)|body_armor(62)|leg_armor(24)|difficulty(9), imodbits_armor],
-["a_plate_harness_brass_3", "Plate Harness", [("a_plate_harness_brass_3",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0, 6500, weight(30)|abundance(100)|head_armor(0)|body_armor(62)|leg_armor(24)|difficulty(9), imodbits_armor],
+# ["a_plate_harness_brass_1", "Plate Harness", [("a_plate_harness_brass_1",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0, 6500, weight(30)|abundance(100)|head_armor(0)|body_armor(62)|leg_armor(24)|difficulty(9), imodbits_armor],
+# ["a_plate_harness_brass_2", "Plate Harness", [("a_plate_harness_brass_2",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0, 6500, weight(30)|abundance(100)|head_armor(0)|body_armor(62)|leg_armor(24)|difficulty(9), imodbits_armor],
+# ["a_plate_harness_brass_3", "Plate Harness", [("a_plate_harness_brass_3",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0, 6500, weight(30)|abundance(100)|head_armor(0)|body_armor(62)|leg_armor(24)|difficulty(9), imodbits_armor],
 
 ["a_english_plate_harness", "English Plate Harness", [("a_english_plate_harness",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0, 6230, weight(30)|abundance(100)|head_armor(0)|body_armor(62)|leg_armor(24)|difficulty(9), imodbits_armor],
 ["a_english_plate_harness_2", "English Plate Harness (TEST)", [("a_english_plate_harness_torso",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0, 6230, weight(30)|abundance(100)|head_armor(0)|body_armor(62)|leg_armor(24)|difficulty(9), imodbits_armor,[(ti_on_init_item,[(cur_item_add_mesh, "@a_english_plate_harness_limbs", 0, 0),])]],
@@ -1088,20 +1089,6 @@ items = [
 # Onehanded Swords with Scabbards
 ["w_onehanded_flachion_italian", "Italian Falchion", [("w_onehanded_flachion_italian",0),("w_onehanded_flachion_italian_scabbard", ixmesh_carry)], itp_type_one_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
 325 , weight(1.2)|difficulty(0)|spd_rtng(103) | weapon_length(70)|swing_damage(34 , cut) | thrust_damage(19 ,  pierce),imodbits_sword ],
-["w_onehanded_sword_a", "Sword", [("w_onehanded_sword_a",0),("w_onehanded_sword_a_scabbard", ixmesh_carry)], itp_type_one_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
-488 , weight(1.4)|difficulty(0)|spd_rtng(100) | weapon_length(95)|swing_damage(28 , cut) | thrust_damage(26 ,  pierce),imodbits_sword_high ],
-["w_onehanded_sword_a_long", "Longsword", [("w_onehanded_sword_a_long",0),("w_onehanded_sword_a_long_scabbard", ixmesh_carry)], itp_type_one_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
-572 , weight(1.5)|difficulty(0)|spd_rtng(99) | weapon_length(101)|swing_damage(29 , cut) | thrust_damage(25 ,  pierce),imodbits_sword_high ],
-["w_onehanded_sword_c", "Sword", [("w_onehanded_sword_c",0),("w_onehanded_sword_c_scabbard", ixmesh_carry)], itp_type_one_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
-400 , weight(1.4)|difficulty(0)|spd_rtng(100) | weapon_length(95)|swing_damage(29 , cut) | thrust_damage(25 ,  pierce),imodbits_sword_high ],
-["w_onehanded_sword_c_long", "Longsword", [("w_onehanded_sword_c_long",0),("w_onehanded_sword_c_long_scabbard", ixmesh_carry)], itp_type_one_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
-572 , weight(1.5)|difficulty(0)|spd_rtng(99) | weapon_length(101)|swing_damage(30 , cut) | thrust_damage(24 ,  pierce),imodbits_sword_high ],
-["w_onehanded_sword_c_small", "Shortsword", [("w_onehanded_sword_c_small",0),("w_onehanded_sword_c_small_scabbard", ixmesh_carry)], itp_type_one_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
-533 , weight(1.3)|difficulty(0)|spd_rtng(102) | weapon_length(81)|swing_damage(28 , cut) | thrust_damage(26 ,  pierce),imodbits_sword_high ],
-["w_onehanded_sword_d", "Sword", [("w_onehanded_sword_d",0),("w_onehanded_sword_d_scabbard", ixmesh_carry)], itp_type_one_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
-488 , weight(1.4)|difficulty(0)|spd_rtng(100) | weapon_length(95)|swing_damage(29 , cut) | thrust_damage(25 ,  pierce),imodbits_sword_high ],
-["w_onehanded_sword_d_long", "Longsword", [("w_onehanded_sword_d_long",0),("w_onehanded_sword_d_long_scabbard", ixmesh_carry)], itp_type_one_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
-572 , weight(1.5)|difficulty(0)|spd_rtng(99) | weapon_length(101)|swing_damage(30 , cut) | thrust_damage(24 ,  pierce),imodbits_sword_high ],
 ["w_onehanded_sword_flemish", "Flemish Sword", [("w_onehanded_sword_flemish",0),("w_onehanded_sword_flemish_scabbard", ixmesh_carry)], itp_type_one_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
 582 , weight(1.5)|difficulty(0)|spd_rtng(99) | weapon_length(100)|swing_damage(28 , cut) | thrust_damage(30 ,  pierce),imodbits_sword_high ],
 ["w_onehanded_sword_italian", "Italian Sword", [("w_onehanded_sword_italian",0),("w_onehanded_sword_italian_scabbard", ixmesh_carry)], itp_type_one_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
@@ -1117,7 +1104,51 @@ items = [
 ["w_onehanded_sword_scottish", "Scottish Shortsword", [("w_onehanded_sword_scottish",0),("w_onehanded_sword_scottish_scabbard", ixmesh_carry)], itp_type_one_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
 406 , weight(1.3)|difficulty(0)|spd_rtng(102) | weapon_length(81)|swing_damage(26 , cut) | thrust_damage(31 ,  pierce),imodbits_sword_high ],
 
-["w_onehanded_sword_baron", "Bayeux Sword", 
+["w_onehanded_sword_a", "Sword", 
+[("w_regular_onehanded_sword_a",0),("w_rusty_onehanded_sword_a",imodbit_rusty),("w_fine_onehanded_sword_a",imodbit_balanced),("w_masterwork_onehanded_sword_a",imodbit_masterwork),
+("w_regular_onehanded_sword_a_scabbard", ixmesh_carry),("w_rusty_onehanded_sword_a_scabbard", ixmesh_carry|imodbit_rusty),("w_fine_onehanded_sword_a_scabbard", ixmesh_carry|imodbit_balanced),("w_masterwork_onehanded_sword_a_scabbard", ixmesh_carry|imodbit_masterwork),], 
+itp_type_one_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
+488 , weight(1.4)|difficulty(0)|spd_rtng(100) | weapon_length(95)|swing_damage(28 , cut) | thrust_damage(26 ,  pierce),imodbits_sword ],
+
+["w_onehanded_sword_a_long", "Longsword", 
+[("w_regular_onehanded_sword_a_long",0),("w_rusty_onehanded_sword_a_long",imodbit_rusty),("w_fine_onehanded_sword_a_long",imodbit_balanced),("w_masterwork_onehanded_sword_a_long",imodbit_masterwork),
+("w_regular_onehanded_sword_a_long_scabbard", ixmesh_carry),("w_rusty_onehanded_sword_a_long_scabbard", ixmesh_carry|imodbit_rusty),("w_fine_onehanded_sword_a_long_scabbard", ixmesh_carry|imodbit_balanced),("w_masterwork_onehanded_sword_a_long_scabbard", ixmesh_carry|imodbit_masterwork),], 
+itp_type_one_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
+572 , weight(1.5)|difficulty(0)|spd_rtng(99) | weapon_length(101)|swing_damage(29 , cut) | thrust_damage(25 ,  pierce),imodbits_sword ],
+
+["w_onehanded_sword_c", "Sword", 
+[("w_regular_onehanded_sword_c",0),("w_rusty_onehanded_sword_c",imodbit_rusty),("w_fine_onehanded_sword_c",imodbit_balanced),("w_masterwork_onehanded_sword_c",imodbit_masterwork),
+("w_regular_onehanded_sword_c_scabbard", ixmesh_carry),("w_rusty_onehanded_sword_c_scabbard", ixmesh_carry|imodbit_rusty),("w_fine_onehanded_sword_c_scabbard", ixmesh_carry|imodbit_balanced),("w_masterwork_onehanded_sword_c_scabbard", ixmesh_carry|imodbit_masterwork),], 
+itp_type_one_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
+400 , weight(1.4)|difficulty(0)|spd_rtng(100) | weapon_length(95)|swing_damage(29 , cut) | thrust_damage(25 ,  pierce),imodbits_sword ],
+
+["w_onehanded_sword_c_long", "Longsword", 
+[("w_regular_onehanded_sword_c_long",0),("w_rusty_onehanded_sword_c_long",imodbit_rusty),("w_fine_onehanded_sword_c_long",imodbit_balanced),("w_masterwork_onehanded_sword_c_long",imodbit_masterwork),
+("w_regular_onehanded_sword_c_long_scabbard", ixmesh_carry),("w_rusty_onehanded_sword_c_long_scabbard", ixmesh_carry|imodbit_rusty),("w_fine_onehanded_sword_c_long_scabbard", ixmesh_carry|imodbit_balanced),("w_masterwork_onehanded_sword_c_long_scabbard", ixmesh_carry|imodbit_masterwork),], 
+itp_type_one_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
+572 , weight(1.5)|difficulty(0)|spd_rtng(99) | weapon_length(101)|swing_damage(30 , cut) | thrust_damage(24 ,  pierce),imodbits_sword ],
+
+["w_onehanded_sword_c_small", "Shortsword", 
+[("w_regular_onehanded_sword_c_small",0),("w_rusty_onehanded_sword_c_small",imodbit_rusty),("w_fine_onehanded_sword_c_small",imodbit_balanced),("w_masterwork_onehanded_sword_c_small",imodbit_masterwork),
+("w_regular_onehanded_sword_c_small_scabbard", ixmesh_carry),("w_rusty_onehanded_sword_c_small_scabbard", ixmesh_carry|imodbit_rusty),("w_fine_onehanded_sword_c_small_scabbard", ixmesh_carry|imodbit_balanced),("w_masterwork_onehanded_sword_c_small_scabbard", ixmesh_carry|imodbit_masterwork),], 
+itp_type_one_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
+533 , weight(1.3)|difficulty(0)|spd_rtng(102) | weapon_length(81)|swing_damage(28 , cut) | thrust_damage(26 ,  pierce),imodbits_sword ],
+
+["w_onehanded_sword_d", "Sword", 
+[("w_regular_onehanded_sword_d",0),("w_rusty_onehanded_sword_d",imodbit_rusty),("w_fine_onehanded_sword_d",imodbit_balanced),("w_masterwork_onehanded_sword_d",imodbit_masterwork),
+("w_regular_onehanded_sword_d_scabbard", ixmesh_carry),("w_rusty_onehanded_sword_d_scabbard", ixmesh_carry|imodbit_rusty),("w_fine_onehanded_sword_d_scabbard", ixmesh_carry|imodbit_balanced),("w_masterwork_onehanded_sword_d_scabbard", ixmesh_carry|imodbit_masterwork),], 
+itp_type_one_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
+488 , weight(1.4)|difficulty(0)|spd_rtng(100) | weapon_length(95)|swing_damage(29 , cut) | thrust_damage(25 ,  pierce),imodbits_sword ],
+
+["w_onehanded_sword_d_long", "Longsword", 
+[("w_regular_onehanded_sword_d_long",0),("w_rusty_onehanded_sword_d_long",imodbit_rusty),("w_fine_onehanded_sword_d_long",imodbit_balanced),("w_masterwork_onehanded_sword_d_long",imodbit_masterwork),
+("w_regular_onehanded_sword_d_long_scabbard", ixmesh_carry),("w_rusty_onehanded_sword_d_long_scabbard", ixmesh_carry|imodbit_rusty),("w_fine_onehanded_sword_d_long_scabbard", ixmesh_carry|imodbit_balanced),("w_masterwork_onehanded_sword_d_long_scabbard", ixmesh_carry|imodbit_masterwork),], 
+itp_type_one_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
+572 , weight(1.5)|difficulty(0)|spd_rtng(99) | weapon_length(101)|swing_damage(30 , cut) | thrust_damage(24 ,  pierce),imodbits_sword ],
+
+
+
+["w_onehanded_sword_bayeux", "Bayeux Sword", 
 [("w_regular_onehanded_sword_bayeux",0),("w_rusty_onehanded_sword_bayeux",imodbit_rusty),("w_fine_onehanded_sword_bayeux",imodbit_balanced),("w_masterwork_onehanded_sword_bayeux",imodbit_masterwork),
 ("w_regular_onehanded_sword_bayeux_scabbard", ixmesh_carry),("w_rusty_onehanded_sword_bayeux_scabbard", ixmesh_carry|imodbit_rusty),("w_fine_onehanded_sword_bayeux_scabbard", ixmesh_carry|imodbit_balanced),("w_masterwork_onehanded_sword_bayeux_scabbard", ixmesh_carry|imodbit_masterwork),], 
 itp_type_one_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
@@ -1129,23 +1160,11 @@ itp_type_one_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_longsword|i
 itp_type_one_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
 582 , weight(1.5)|difficulty(0)|spd_rtng(99) | weapon_length(103)|swing_damage(30 , cut) | thrust_damage(25 ,  pierce),imodbits_sword ],
 
-["w_onehanded_sword_castellan", "Castelan Sword", 
-[("w_regular_onehanded_sword_castellan",0),("w_rusty_onehanded_sword_castellan",imodbit_rusty),("w_fine_onehanded_sword_castellan",imodbit_balanced),("w_masterwork_onehanded_sword_castellan",imodbit_masterwork),
-("w_regular_onehanded_sword_castellan_scabbard", ixmesh_carry),("w_rusty_onehanded_sword_castellan_scabbard", ixmesh_carry|imodbit_rusty),("w_fine_onehanded_sword_castellan_scabbard", ixmesh_carry|imodbit_balanced),("w_masterwork_onehanded_sword_castellan_scabbard", ixmesh_carry|imodbit_masterwork),], 
+["w_onehanded_sword_defiant", "Defiant Sword", 
+[("w_regular_onehanded_sword_defiant",0),("w_rusty_onehanded_sword_defiant",imodbit_rusty),("w_masterwork_onehanded_sword_defiant",imodbit_masterwork),
+("w_regular_onehanded_sword_defiant_scabbard", ixmesh_carry),("w_rusty_onehanded_sword_defiant_scabbard", ixmesh_carry|imodbit_rusty),("w_masterwork_onehanded_sword_defiant_scabbard", ixmesh_carry|imodbit_masterwork),], 
 itp_type_one_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
-508 , weight(1.4)|difficulty(0)|spd_rtng(100) | weapon_length(97)|swing_damage(27 , cut) | thrust_damage(34 ,  pierce),imodbits_sword ],
-
-["w_onehanded_sword_constable", "Constable Sword", 
-[("w_regular_onehanded_sword_constable",0),("w_rusty_onehanded_sword_constable",imodbit_rusty),("w_fine_onehanded_sword_constable",imodbit_balanced),("w_masterwork_onehanded_sword_constable",imodbit_masterwork),
-("w_regular_onehanded_sword_constable_scabbard", ixmesh_carry),("w_rusty_onehanded_sword_constable_scabbard", ixmesh_carry|imodbit_rusty),("w_fine_onehanded_sword_constable_scabbard", ixmesh_carry|imodbit_balanced),("w_masterwork_onehanded_sword_constable_scabbard", ixmesh_carry|imodbit_masterwork),], 
-itp_type_one_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
-514 , weight(1.4)|difficulty(0)|spd_rtng(100) | weapon_length(99)|swing_damage(28 , cut) | thrust_damage(34 ,  pierce),imodbits_sword ],
-
-["w_onehanded_sword_hospitaller", "Hospitaller Sword", 
-[("w_regular_onehanded_sword_hospitaller",0),("w_rusty_onehanded_sword_hospitaller",imodbit_rusty),("w_fine_onehanded_sword_hospitaller",imodbit_balanced),("w_masterwork_onehanded_sword_hospitaller",imodbit_masterwork),
-("w_regular_onehanded_sword_hospitaller_scabbard", ixmesh_carry),("w_rusty_onehanded_sword_hospitaller_scabbard", ixmesh_carry|imodbit_rusty),("w_fine_onehanded_sword_hospitaller_scabbard", ixmesh_carry|imodbit_balanced),("w_masterwork_onehanded_sword_hospitaller_scabbard", ixmesh_carry|imodbit_masterwork),], 
-itp_type_one_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
-577 , weight(1.5)|difficulty(0)|spd_rtng(100) | weapon_length(99)|swing_damage(29 , cut) | thrust_damage(27 ,  pierce),imodbits_sword ],
+577 , weight(1.5)|difficulty(0)|spd_rtng(100) | weapon_length(97)|swing_damage(27 , cut) | thrust_damage(30 ,  pierce),imodbits_sword_alt ],
 
 ["w_onehanded_sword_knight", "Knight Sword", 
 [("w_regular_onehanded_sword_knight",0),("w_rusty_onehanded_sword_knight",imodbit_rusty),("w_fine_onehanded_sword_knight",imodbit_balanced),("w_masterwork_onehanded_sword_knight",imodbit_masterwork),
@@ -1171,11 +1190,11 @@ itp_type_one_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_longsword|i
 itp_type_one_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
 505 , weight(1.4)|difficulty(0)|spd_rtng(100) | weapon_length(96)|swing_damage(31 , cut) | thrust_damage(29 ,  pierce),imodbits_sword ],
 
-["w_onehanded_sword_ritter", "Ritter Longsword", 
-[("w_regular_onehanded_sword_ritter",0),("w_rusty_onehanded_sword_ritter",imodbit_rusty),("w_fine_onehanded_sword_ritter",imodbit_balanced),("w_masterwork_onehanded_sword_ritter",imodbit_masterwork),
-("w_regular_onehanded_sword_ritter_scabbard", ixmesh_carry),("w_rusty_onehanded_sword_ritter_scabbard", ixmesh_carry|imodbit_rusty),("w_fine_onehanded_sword_ritter_scabbard", ixmesh_carry|imodbit_balanced),("w_masterwork_onehanded_sword_ritter_scabbard", ixmesh_carry|imodbit_masterwork),], 
+["w_onehanded_sword_forsaken", "Forsaken Longsword", 
+[("w_regular_onehanded_sword_forsaken",0),("w_rusty_onehanded_sword_forsaken",imodbit_rusty),("w_masterwork_onehanded_sword_forsaken",imodbit_masterwork),
+("w_regular_onehanded_sword_forsaken_scabbard", ixmesh_carry),("w_rusty_onehanded_sword_forsaken_scabbard", ixmesh_carry|imodbit_rusty),("w_masterwork_onehanded_sword_forsaken_scabbard", ixmesh_carry|imodbit_masterwork),], 
 itp_type_one_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
-570 , weight(1.5)|difficulty(0)|spd_rtng(99) | weapon_length(102)|swing_damage(31 , cut) | thrust_damage(20 ,  pierce),imodbits_sword ],
+570 , weight(1.5)|difficulty(0)|spd_rtng(100) | weapon_length(97)|swing_damage(28 , cut) | thrust_damage(29 ,  pierce),imodbits_sword_alt ],
 
 ["w_onehanded_sword_sovereign", "Sovereign Shortsword", 
 [("w_regular_onehanded_sword_sovereign",0),("w_rusty_onehanded_sword_sovereign",imodbit_rusty),("w_fine_onehanded_sword_sovereign",imodbit_balanced),("w_masterwork_onehanded_sword_sovereign",imodbit_masterwork),
@@ -1189,21 +1208,33 @@ itp_type_one_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_longsword|i
 itp_type_one_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
 499 , weight(1.4)|difficulty(0)|spd_rtng(100) | weapon_length(97)|swing_damage(29 , cut) | thrust_damage(27 ,  pierce),imodbits_sword ],
 
-["w_onehanded_sword_templar", "Templar Longsword", 
-[("w_regular_onehanded_sword_templar",0),("w_rusty_onehanded_sword_templar",imodbit_rusty),("w_fine_onehanded_sword_templar",imodbit_balanced),("w_masterwork_onehanded_sword_templar",imodbit_masterwork),
-("w_regular_onehanded_sword_templar_scabbard", ixmesh_carry),("w_rusty_onehanded_sword_templar_scabbard", ixmesh_carry|imodbit_rusty),("w_fine_onehanded_sword_templar_scabbard", ixmesh_carry|imodbit_balanced),("w_masterwork_onehanded_sword_templar_scabbard", ixmesh_carry|imodbit_masterwork),], 
+["w_onehanded_sword_martyr", "Martyr Longsword", 
+[("w_regular_onehanded_sword_martyr",0),("w_rusty_onehanded_sword_martyr",imodbit_rusty),("w_masterwork_onehanded_sword_martyr",imodbit_masterwork),
+("w_regular_onehanded_sword_martyr_scabbard", ixmesh_carry),("w_rusty_onehanded_sword_martyr_scabbard", ixmesh_carry|imodbit_rusty),("w_masterwork_onehanded_sword_martyr_scabbard", ixmesh_carry|imodbit_masterwork),], 
 itp_type_one_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
-577 , weight(1.5)|difficulty(0)|spd_rtng(99) | weapon_length(102)|swing_damage(30 , cut) | thrust_damage(24 ,  pierce),imodbits_sword ],
+577 , weight(1.4)|difficulty(0)|spd_rtng(100) | weapon_length(97)|swing_damage(30 , cut) | thrust_damage(26 ,  pierce),imodbits_sword_alt ],
 
 # Bastard Swords with Scabbards
-["w_bastard_sword_a", "Bastard Sword", [("w_bastard_sword_a",0),("w_bastard_sword_a_scabbard",ixmesh_carry)], itp_type_two_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_bastardsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
-294, weight(2.0)|difficulty(9)|spd_rtng(98)|weapon_length(99)|swing_damage(35,cut)|thrust_damage(26,pierce), imodbits_sword_high ],
-["w_bastard_sword_b", "Bastard Sword", [("w_bastard_sword_b",0),("w_bastard_sword_b_scabbard",ixmesh_carry)], itp_type_two_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_bastardsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
-526, weight(2.25)|difficulty(9)|spd_rtng(97)|weapon_length(104)|swing_damage(37,cut)|thrust_damage(27,pierce), imodbits_sword_high ],
-["w_bastard_sword_c", "Bastard Sword", [("w_bastard_sword_c",0),("w_bastard_sword_c_scabbard",ixmesh_carry)], itp_type_two_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_bastardsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
-548, weight(2.5)|difficulty(9)|spd_rtng(97)|weapon_length(104)|swing_damage(38,cut)|thrust_damage(27,pierce), imodbits_sword_high ],
+["w_bastard_sword_a", "Bastard Sword", 
+[("w_regular_bastard_sword_a",0),("w_rusty_bastard_sword_a",imodbit_rusty),("w_fine_bastard_sword_a",imodbit_balanced),("w_masterwork_bastard_sword_a",imodbit_masterwork),
+("w_regular_bastard_sword_a_scabbard", ixmesh_carry),("w_rusty_bastard_sword_a_scabbard", ixmesh_carry|imodbit_rusty),("w_fine_bastard_sword_a_scabbard", ixmesh_carry|imodbit_balanced),("w_masterwork_bastard_sword_a_scabbard", ixmesh_carry|imodbit_masterwork),], 
+itp_type_two_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_bastardsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
+294, weight(2.0)|difficulty(9)|spd_rtng(98)|weapon_length(99)|swing_damage(35,cut)|thrust_damage(26,pierce), imodbits_sword ],
+
+["w_bastard_sword_b", "Bastard Sword", 
+[("w_regular_bastard_sword_b",0),("w_rusty_bastard_sword_b",imodbit_rusty),("w_fine_bastard_sword_b",imodbit_balanced),("w_masterwork_bastard_sword_b",imodbit_masterwork),
+("w_regular_bastard_sword_b_scabbard", ixmesh_carry),("w_rusty_bastard_sword_b_scabbard", ixmesh_carry|imodbit_rusty),("w_fine_bastard_sword_b_scabbard", ixmesh_carry|imodbit_balanced),("w_masterwork_bastard_sword_b_scabbard", ixmesh_carry|imodbit_masterwork),], 
+itp_type_two_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_bastardsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
+526, weight(2.25)|difficulty(9)|spd_rtng(97)|weapon_length(104)|swing_damage(37,cut)|thrust_damage(27,pierce), imodbits_sword ],
+
+["w_bastard_sword_c", "Bastard Sword", 
+[("w_regular_bastard_sword_c",0),("w_rusty_bastard_sword_c",imodbit_rusty),("w_fine_bastard_sword_c",imodbit_balanced),("w_masterwork_bastard_sword_c",imodbit_masterwork),
+("w_regular_bastard_sword_c_scabbard", ixmesh_carry),("w_rusty_bastard_sword_c_scabbard", ixmesh_carry|imodbit_rusty),("w_fine_bastard_sword_c_scabbard", ixmesh_carry|imodbit_balanced),("w_masterwork_bastard_sword_c_scabbard", ixmesh_carry|imodbit_masterwork),], 
+itp_type_two_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_bastardsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
+548, weight(2.5)|difficulty(9)|spd_rtng(97)|weapon_length(104)|swing_damage(38,cut)|thrust_damage(27,pierce), imodbits_sword ],
+
 ["w_bastard_sword_d", "Bastard Sword", [("w_bastard_sword_d",0),("w_bastard_sword_d_scabbard",ixmesh_carry)], itp_type_two_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_bastardsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
-698, weight(2.25)|difficulty(9)|spd_rtng(98)|weapon_length(99)|swing_damage(38,cut)|thrust_damage(31,pierce), imodbits_sword_high ],
+698, weight(2.25)|difficulty(9)|spd_rtng(98)|weapon_length(99)|swing_damage(38,cut)|thrust_damage(31,pierce), imodbits_sword ],
 
 ["w_bastard_sword_english", "English Bastard Sword", [("w_bastard_sword_english",0),("w_bastard_sword_english_scabbard",ixmesh_carry)], itp_type_two_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_bastardsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
 676, weight(2)|difficulty(9)|spd_rtng(99)|weapon_length(101)|swing_damage(37,cut)|thrust_damage(33,pierce), imodbits_sword_high ],
@@ -1224,6 +1255,18 @@ itp_type_two_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_bastardswor
 ("w_regular_bastard_sword_baron_scabbard", ixmesh_carry),("w_rusty_bastard_sword_baron_scabbard", ixmesh_carry|imodbit_rusty),("w_fine_bastard_sword_baron_scabbard", ixmesh_carry|imodbit_balanced),("w_masterwork_bastard_sword_baron_scabbard", ixmesh_carry|imodbit_masterwork),], 
 itp_type_two_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_bastardsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn,  
 831, weight(2.5)|difficulty(9)|spd_rtng(96)|weapon_length(110)|swing_damage(41,cut)|thrust_damage(30,pierce), imodbits_sword ],
+
+["w_bastard_sword_castellan", "Castelan Bastard Sword", 
+[("w_regular_bastard_sword_castellan",0),("w_rusty_bastard_sword_castellan",imodbit_rusty),("w_fine_bastard_sword_castellan",imodbit_balanced),("w_masterwork_bastard_sword_castellan",imodbit_masterwork),
+("w_regular_bastard_sword_castellan_scabbard", ixmesh_carry),("w_rusty_bastard_sword_castellan_scabbard", ixmesh_carry|imodbit_rusty),("w_fine_bastard_sword_castellan_scabbard", ixmesh_carry|imodbit_balanced),("w_masterwork_bastard_sword_castellan_scabbard", ixmesh_carry|imodbit_masterwork),], 
+itp_type_two_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_bastardsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn,  
+808 , weight(1.4)|difficulty(0)|spd_rtng(100) | weapon_length(97)|swing_damage(30 , cut) | thrust_damage(36 ,  pierce),imodbits_sword ],
+
+["w_bastard_sword_constable", "Constable Bastard Sword", 
+[("w_regular_bastard_sword_constable",0),("w_rusty_bastard_sword_constable",imodbit_rusty),("w_fine_bastard_sword_constable",imodbit_balanced),("w_masterwork_bastard_sword_constable",imodbit_masterwork),
+("w_regular_bastard_sword_constable_scabbard", ixmesh_carry),("w_rusty_bastard_sword_constable_scabbard", ixmesh_carry|imodbit_rusty),("w_fine_bastard_sword_constable_scabbard", ixmesh_carry|imodbit_balanced),("w_masterwork_bastard_sword_constable_scabbard", ixmesh_carry|imodbit_masterwork),], 
+itp_type_two_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_bastardsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn,  
+814 , weight(1.4)|difficulty(0)|spd_rtng(100) | weapon_length(99)|swing_damage(31 , cut) | thrust_damage(36 ,  pierce),imodbits_sword ],
 
 ["w_bastard_sword_count", "Count Bastard Sword", 
 [("w_regular_bastard_sword_count",0),("w_rusty_bastard_sword_count",imodbit_rusty),("w_fine_bastard_sword_count",imodbit_balanced),("w_masterwork_bastard_sword_count",imodbit_masterwork),

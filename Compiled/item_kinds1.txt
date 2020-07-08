@@ -2200,7 +2200,7 @@ itemsfile version 3
  0
 0
 
- itm_w_onehanded_sword_baron Baron_Sword Baron_Sword 2  w_onehanded_sword_baron 0  w_onehanded_sword_baron_scabbard 3458764513820540928  2251799817945090 9223388564182532111 487 155668 1.400000 100 0 0 0 0 0 101 0 93 0 279 30
+ itm_w_onehanded_sword_bayeux Baron_Sword Baron_Sword 2  w_onehanded_sword_bayeux 0  w_onehanded_sword_bayeux_scabbard 3458764513820540928  2251799817945090 9223388564182532111 487 155668 1.400000 100 0 0 0 0 0 101 0 93 0 279 30
  0
 0
 
@@ -2208,15 +2208,15 @@ itemsfile version 3
  0
 0
 
- itm_w_onehanded_sword_castellan Castelan_Sword Castelan_Sword 2  w_onehanded_sword_castellan 0  w_onehanded_sword_castellan_scabbard 3458764513820540928  2251799817945090 9223388564182532111 508 155668 1.400000 100 0 0 0 0 0 100 0 97 0 290 27
+ itm_w_bastard_sword_castellan Castelan_Sword Castelan_Sword 2  w_bastard_sword_castellan 0  w_bastard_sword_castellan_scabbard 3458764513820540928  2251799817945090 9223388564182532111 508 155668 1.400000 100 0 0 0 0 0 100 0 97 0 290 27
  0
 0
 
- itm_w_onehanded_sword_constable Constable_Sword Constable_Sword 2  w_onehanded_sword_constable 0  w_onehanded_sword_constable_scabbard 3458764513820540928  2251799817945090 9223388564182532111 514 155668 1.400000 100 0 0 0 0 0 100 0 99 0 290 28
+ itm_w_bastard_sword_constable Constable_Sword Constable_Sword 2  w_bastard_sword_constable 0  w_bastard_sword_constable_scabbard 3458764513820540928  2251799817945090 9223388564182532111 514 155668 1.400000 100 0 0 0 0 0 100 0 99 0 290 28
  0
 0
 
- itm_w_onehanded_sword_hospitaller Hospitaller_Sword Hospitaller_Sword 2  w_onehanded_sword_hospitaller 0  w_onehanded_sword_hospitaller_scabbard 3458764513820540928  2251799817945090 9223388564182532111 577 155668 1.500000 100 0 0 0 0 0 100 0 99 0 283 29
+ itm_w_onehanded_sword_defiant Hospitaller_Sword Hospitaller_Sword 2  w_onehanded_sword_defiant 0  w_onehanded_sword_defiant_scabbard 3458764513820540928  2251799817945090 9223388564182532111 577 155668 1.500000 100 0 0 0 0 0 100 0 99 0 283 29
  0
 0
 
@@ -2236,7 +2236,7 @@ itemsfile version 3
  0
 0
 
- itm_w_onehanded_sword_ritter Ritter_Longsword Ritter_Longsword 2  w_onehanded_sword_ritter 0  w_onehanded_sword_ritter_scabbard 3458764513820540928  2251799817945090 9223388564182532111 570 155668 1.500000 100 0 0 0 0 0 99 0 102 0 276 31
+ itm_w_onehanded_sword_forsaken Ritter_Longsword Ritter_Longsword 2  w_onehanded_sword_forsaken 0  w_onehanded_sword_forsaken_scabbard 3458764513820540928  2251799817945090 9223388564182532111 570 155668 1.500000 100 0 0 0 0 0 99 0 102 0 276 31
  0
 0
 
@@ -2248,11 +2248,11 @@ itemsfile version 3
  0
 0
 
- itm_w_onehanded_sword_templar Templar_Longsword Templar_Longsword 2  w_onehanded_sword_templar 0  w_onehanded_sword_templar_scabbard 3458764513820540928  2251799817945090 9223388564182532111 577 155668 1.500000 100 0 0 0 0 0 99 0 102 0 280 30
+ itm_w_onehanded_sword_martyr Templar_Longsword Templar_Longsword 2  w_onehanded_sword_martyr 0  w_onehanded_sword_martyr_scabbard 3458764513820540928  2251799817945090 9223388564182532111 577 155668 1.500000 100 0 0 0 0 0 99 0 102 0 280 30
  0
 0
 
- itm_w_onehanded_sword_baron_2 Baron_Sword Baron_Sword 2  w_onehanded_sword_baron 0  w_onehanded_sword_baron_scabbard 3458764513820540928  2251799817945090 9223388564182532111 487 155668 1.400000 100 0 0 0 0 0 101 0 93 0 279 30
+ itm_w_onehanded_sword_bayeux_2 Baron_Sword Baron_Sword 2  w_onehanded_sword_bayeux 0  w_onehanded_sword_bayeux_scabbard 3458764513820540928  2251799817945090 9223388564182532111 487 155668 1.400000 100 0 0 0 0 0 101 0 93 0 279 30
  0
 1
 -50.000000  1 1978 3 1585267068834416185 0 0 
@@ -2262,17 +2262,17 @@ itemsfile version 3
 1
 -50.000000  1 1978 3 1585267068834416185 0 0 
 
- itm_w_onehanded_sword_castellan_2 Castelan_Sword Castelan_Sword 2  w_onehanded_sword_castellan 0  w_onehanded_sword_castellan_scabbard 3458764513820540928  2251799817945090 9223388564182532111 508 155668 1.400000 100 0 0 0 0 0 100 0 97 0 290 27
+ itm_w_bastard_sword_castellan_2 Castelan_Sword Castelan_Sword 2  w_bastard_sword_castellan 0  w_bastard_sword_castellan_scabbard 3458764513820540928  2251799817945090 9223388564182532111 508 155668 1.400000 100 0 0 0 0 0 100 0 97 0 290 27
  0
 1
 -50.000000  1 1978 3 1585267068834416185 0 0 
 
- itm_w_onehanded_sword_constable_2 Constable_Sword Constable_Sword 2  w_onehanded_sword_constable 0  w_onehanded_sword_constable_scabbard 3458764513820540928  2251799817945090 9223388564182532111 514 155668 1.400000 100 0 0 0 0 0 100 0 99 0 290 28
+ itm_w_bastard_sword_constable_2 Constable_Sword Constable_Sword 2  w_bastard_sword_constable 0  w_bastard_sword_constable_scabbard 3458764513820540928  2251799817945090 9223388564182532111 514 155668 1.400000 100 0 0 0 0 0 100 0 99 0 290 28
  0
 1
 -50.000000  1 1978 3 1585267068834416185 0 0 
 
- itm_w_onehanded_sword_hospitaller_2 Hospitaller_Sword Hospitaller_Sword 2  w_onehanded_sword_hospitaller 0  w_onehanded_sword_hospitaller_scabbard 3458764513820540928  2251799817945090 9223388564182532111 577 155668 1.500000 100 0 0 0 0 0 100 0 99 0 283 29
+ itm_w_onehanded_sword_defiant_2 Hospitaller_Sword Hospitaller_Sword 2  w_onehanded_sword_defiant 0  w_onehanded_sword_defiant_scabbard 3458764513820540928  2251799817945090 9223388564182532111 577 155668 1.500000 100 0 0 0 0 0 100 0 99 0 283 29
  0
 1
 -50.000000  1 1978 3 1585267068834416185 0 0 
@@ -2297,7 +2297,7 @@ itemsfile version 3
 1
 -50.000000  1 1978 3 1585267068834416185 0 0 
 
- itm_w_onehanded_sword_ritter_2 Ritter_Longsword Ritter_Longsword 2  w_onehanded_sword_ritter 0  w_onehanded_sword_ritter_scabbard 3458764513820540928  2251799817945090 9223388564182532111 570 155668 1.500000 100 0 0 0 0 0 99 0 102 0 276 31
+ itm_w_onehanded_sword_forsaken_2 Ritter_Longsword Ritter_Longsword 2  w_onehanded_sword_forsaken 0  w_onehanded_sword_forsaken_scabbard 3458764513820540928  2251799817945090 9223388564182532111 570 155668 1.500000 100 0 0 0 0 0 99 0 102 0 276 31
  0
 1
 -50.000000  1 1978 3 1585267068834416185 0 0 
@@ -2312,7 +2312,7 @@ itemsfile version 3
 1
 -50.000000  1 1978 3 1585267068834416185 0 0 
 
- itm_w_onehanded_sword_templar_2 Templar_Longsword Templar_Longsword 2  w_onehanded_sword_templar 0  w_onehanded_sword_templar_scabbard 3458764513820540928  2251799817945090 9223388564182532111 577 155668 1.500000 100 0 0 0 0 0 99 0 102 0 280 30
+ itm_w_onehanded_sword_martyr_2 Templar_Longsword Templar_Longsword 2  w_onehanded_sword_martyr 0  w_onehanded_sword_martyr_scabbard 3458764513820540928  2251799817945090 9223388564182532111 577 155668 1.500000 100 0 0 0 0 0 99 0 102 0 280 30
  0
 1
 -50.000000  1 1978 3 1585267068834416185 0 0 
@@ -4062,7 +4062,7 @@ itemsfile version 3
  0
 0
 
- itm_backstabber Backstabber Backstabber 2  w_onehanded_sword_baron 0  w_onehanded_sword_baron_scabbard 3458764513820540928  2251799817879554 9223388564182532111 0 155668 1.250000 100 0 0 0 0 0 103 0 86 0 269 20
+ itm_backstabber Backstabber Backstabber 2  w_onehanded_sword_bayeux 0  w_onehanded_sword_bayeux_scabbard 3458764513820540928  2251799817879554 9223388564182532111 0 155668 1.250000 100 0 0 0 0 0 103 0 86 0 269 20
  0
 0
 

@@ -545,7 +545,7 @@ mercenary_company_troops = [
     itm_w_spear_1,
     itm_w_spear_8,
     
-    itm_w_onehanded_sword_ritter,
+    itm_w_onehanded_sword_forsaken,
     itm_w_onehanded_sword_squire,
     itm_w_onehanded_sword_a_long,
     itm_w_onehanded_sword_a,
@@ -602,8 +602,8 @@ mercenary_company_troops = [
     itm_w_spear_4,
     itm_w_spear_5,
 
-    itm_w_onehanded_sword_baron,
-    itm_w_onehanded_sword_ritter,
+    itm_w_onehanded_sword_bayeux,
+    itm_w_onehanded_sword_forsaken,
     
     itm_tab_shield_heater_d,
     itm_tab_shield_kite_d,
@@ -644,10 +644,10 @@ mercenary_company_troops = [
     itm_w_spear_4,
     itm_w_spear_5,
 
-    itm_w_onehanded_sword_baron,
+    itm_w_onehanded_sword_bayeux,
     itm_w_bastard_sword_a,
     itm_w_bastard_sword_b,
-    itm_w_onehanded_sword_ritter,
+    itm_w_onehanded_sword_forsaken,
     
     itm_s_war_shield_a1,
     itm_s_war_shield_a2,
@@ -964,7 +964,7 @@ mercenary_company_troops = [
     itm_w_native_spear_b_custom,
     itm_w_native_spear_f_custom,
     
-    itm_w_onehanded_sword_ritter,
+    itm_w_onehanded_sword_forsaken,
     itm_w_onehanded_sword_squire,
     itm_w_onehanded_sword_a_long,
     itm_w_onehanded_sword_a,
@@ -1022,8 +1022,8 @@ mercenary_company_troops = [
     itm_w_native_spear_b_custom,
     itm_w_native_spear_f_custom,
 
-    itm_w_onehanded_sword_baron,
-    itm_w_onehanded_sword_ritter,
+    itm_w_onehanded_sword_bayeux,
+    itm_w_onehanded_sword_forsaken,
     
     itm_tab_shield_kite_cav_b,
     
@@ -1062,10 +1062,10 @@ mercenary_company_troops = [
     itm_w_native_spear_b_custom,
     itm_w_native_spear_f_custom,
 
-    itm_w_onehanded_sword_baron,
+    itm_w_onehanded_sword_bayeux,
     itm_w_bastard_sword_a,
     itm_w_bastard_sword_b,
-    itm_w_onehanded_sword_ritter,
+    itm_w_onehanded_sword_forsaken,
     
     itm_s_war_shield_a1,
     itm_s_war_shield_a2,
@@ -1278,7 +1278,6 @@ mercenary_company_troops = [
     
     itm_a_plate_harness_1,
     itm_a_plate_harness_2,
-    itm_a_plate_harness_3,
     
     itm_b_shynbaulds,
     
@@ -1314,7 +1313,6 @@ mercenary_company_troops = [
     
     itm_a_plate_harness_1,
     itm_a_plate_harness_2,
-    itm_a_plate_harness_3,
     
     itm_b_shynbaulds,
     
@@ -1418,8 +1416,8 @@ mercenary_company_troops = [
     itm_g_mail_gauntlets,
     
     itm_w_onehanded_sword_squire,
-    itm_w_onehanded_sword_templar,
-    itm_w_onehanded_sword_hospitaller,
+    itm_w_onehanded_sword_martyr,
+    itm_w_onehanded_sword_defiant,
     itm_w_onehanded_sword_d_long,
     itm_w_onehanded_sword_c_long,
     itm_w_onehanded_sword_a_long,

@@ -2542,7 +2542,7 @@ scenes = [
   ("castle_32_prison",sf_indoors,"interior_prison_j", "bo_interior_prison_j", (-100,-100),(100,100),-100,"0",
     [],[]),
 
-  ("castle_33_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000230029cb2000709c200003c9500004b9b00002f4d",
+  ("castle_33_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000006f9bc000011c5000035d100000e36",
     [],[],"outer_terrain_plain"),
   ("castle_33_interior",sf_indoors, "interior_castle_v", "bo_interior_castle_v", (-100,-100),(100,100),-100,"0",
     ["exit"],["castle_33_seneschal"]),
@@ -3200,7 +3200,7 @@ scenes = [
     [],[],),
   ("village_128",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000024003561a00070dbe000016f8000010ca000069f8",
     [],[],"outer_terrain_plain"),
-  ("village_129",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000024003991e0006f1bc000055cc0000085600001563",
+  ("village_129",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000006f9bc000011c5000035d100000e36",
     [],[],"outer_terrain_plain"),
   ("village_130",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000024003d7d20007d1f40000374100001e120000097b",
     [],[],"outer_terrain_plain"),

@@ -6880,6 +6880,31 @@ simple_triggers = [
   ),
 #Custom Troops End
 
+   # (1,
+   # [
+        # (store_distance_to_party_from_party, ":distance", "p_main_party", "p_castle_27"),
+        
+        ## Debug messages:
+        # (party_get_slot, ":last_paid_hours", "p_castle_27", slot_party_last_toll_paid_hours),
+        
+        # (assign, reg3, ":distance"),
+        # (assign, reg4, ":last_paid_hours"),
+        # (display_message, "@Player party at {reg3} from the Sisters, last paid hours: {reg4}"),
+        ##
+        
+        # (lt, ":distance", 3),
+
+        # (try_begin),
+            # (store_current_hours, ":cur_hours"),
+            # (party_slot_ge, "p_castle_27", slot_party_last_toll_paid_hours, ":cur_hours"),
+            # (display_message, "@You have recently paid the toll so the guards let you pass."),
+        # (else_try),
+            # (jump_to_menu, "mnu_toll_crossing"),
+        # (try_end),
+        
+
+
+    # ]),
 
 ]
 simple_triggers += mercenary_company_simple_triggers
