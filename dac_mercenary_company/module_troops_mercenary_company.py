@@ -602,7 +602,7 @@ mercenary_company_troops = [
     itm_w_spear_4,
     itm_w_spear_5,
 
-    itm_w_onehanded_sword_bayeux,
+    itm_w_onehanded_sword_monarch,
     itm_w_onehanded_sword_forsaken,
     
     itm_tab_shield_heater_d,
@@ -644,7 +644,7 @@ mercenary_company_troops = [
     itm_w_spear_4,
     itm_w_spear_5,
 
-    itm_w_onehanded_sword_bayeux,
+    itm_w_onehanded_sword_monarch,
     itm_w_bastard_sword_a,
     itm_w_bastard_sword_b,
     itm_w_onehanded_sword_forsaken,
@@ -1022,7 +1022,7 @@ mercenary_company_troops = [
     itm_w_native_spear_b_custom,
     itm_w_native_spear_f_custom,
 
-    itm_w_onehanded_sword_bayeux,
+    itm_w_onehanded_sword_monarch,
     itm_w_onehanded_sword_forsaken,
     
     itm_tab_shield_kite_cav_b,
@@ -1062,7 +1062,7 @@ mercenary_company_troops = [
     itm_w_native_spear_b_custom,
     itm_w_native_spear_f_custom,
 
-    itm_w_onehanded_sword_bayeux,
+    itm_w_onehanded_sword_monarch,
     itm_w_bastard_sword_a,
     itm_w_bastard_sword_b,
     itm_w_onehanded_sword_forsaken,

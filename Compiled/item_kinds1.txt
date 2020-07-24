@@ -2140,7 +2140,7 @@ itemsfile version 3
  0
 0
 
- itm_w_onehanded_flachion_italian Italian_Falchion Italian_Falchion 2  w_onehanded_flachion_italian 0  w_onehanded_flachion_italian_scabbard 3458764513820540928  2251799817945090 9223388564182532111 325 24596 1.200000 100 0 0 0 0 0 103 0 70 0 275 34
+ itm_w_onehanded_falchion_italian Italian_Falchion Italian_Falchion 2  w_onehanded_falchion_italian 0  w_onehanded_falchion_italian_scabbard 3458764513820540928  2251799817945090 9223388564182532111 325 24596 1.200000 100 0 0 0 0 0 103 0 70 0 275 34
  0
 0
 
@@ -2188,7 +2188,7 @@ itemsfile version 3
  0
 0
 
- itm_w_onehanded_messer Messer Messer 2  w_onehanded_messer 0  w_onehanded_messer_scabbard 3458764513820540928  2251799817945090 9223388564182532111 415 155668 1.300000 100 0 0 0 0 0 102 0 85 0 277 36
+ itm_w_onehanded_sword_messer Messer Messer 2  w_onehanded_sword_messer 0  w_onehanded_sword_messer_scabbard 3458764513820540928  2251799817945090 9223388564182532111 415 155668 1.300000 100 0 0 0 0 0 102 0 85 0 277 36
  0
 0
 
@@ -2200,7 +2200,7 @@ itemsfile version 3
  0
 0
 
- itm_w_onehanded_sword_bayeux Baron_Sword Baron_Sword 2  w_onehanded_sword_bayeux 0  w_onehanded_sword_bayeux_scabbard 3458764513820540928  2251799817945090 9223388564182532111 487 155668 1.400000 100 0 0 0 0 0 101 0 93 0 279 30
+ itm_w_onehanded_sword_monarch Baron_Sword Baron_Sword 2  w_onehanded_sword_monarch 0  w_onehanded_sword_monarch_scabbard 3458764513820540928  2251799817945090 9223388564182532111 487 155668 1.400000 100 0 0 0 0 0 101 0 93 0 279 30
  0
 0
 
@@ -2252,7 +2252,7 @@ itemsfile version 3
  0
 0
 
- itm_w_onehanded_sword_bayeux_2 Baron_Sword Baron_Sword 2  w_onehanded_sword_bayeux 0  w_onehanded_sword_bayeux_scabbard 3458764513820540928  2251799817945090 9223388564182532111 487 155668 1.400000 100 0 0 0 0 0 101 0 93 0 279 30
+ itm_w_onehanded_sword_monarch_2 Baron_Sword Baron_Sword 2  w_onehanded_sword_monarch 0  w_onehanded_sword_monarch_scabbard 3458764513820540928  2251799817945090 9223388564182532111 487 155668 1.400000 100 0 0 0 0 0 101 0 93 0 279 30
  0
 1
 -50.000000  1 1978 3 1585267068834416185 0 0 
@@ -2426,7 +2426,7 @@ itemsfile version 3
 1
 -50.000000  1 1978 3 1585267068834416185 0 0 
 
- itm_w_twohanded_messer Grosse_Messer Grosse_Messer 2  w_twohanded_messer 0  w_twohanded_messer_scabbard 3458764513820540928  2251799820042243 9223635954365890800 920 155668 2.200000 100 0 0 0 10 0 99 0 93 0 277 44
+ itm_w_twohanded_sword_messer Grosse_Messer Grosse_Messer 2  w_twohanded_sword_messer 0  w_twohanded_sword_messer_scabbard 3458764513820540928  2251799820042243 9223635954365890800 920 155668 2.200000 100 0 0 0 10 0 99 0 93 0 277 44
  0
 0
 
@@ -4062,7 +4062,7 @@ itemsfile version 3
  0
 0
 
- itm_backstabber Backstabber Backstabber 2  w_onehanded_sword_bayeux 0  w_onehanded_sword_bayeux_scabbard 3458764513820540928  2251799817879554 9223388564182532111 0 155668 1.250000 100 0 0 0 0 0 103 0 86 0 269 20
+ itm_backstabber Backstabber Backstabber 2  w_onehanded_sword_monarch 0  w_onehanded_sword_monarch_scabbard 3458764513820540928  2251799817879554 9223388564182532111 0 155668 1.250000 100 0 0 0 0 0 103 0 86 0 269 20
  0
 0
 

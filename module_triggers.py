@@ -1560,7 +1560,7 @@ triggers = [
 
 		 (ge, ":item_id", 0),
 
-	 	 (this_or_next|eq, ":item_id", "itm_w_twohanded_messer"),
+	 	 (this_or_next|eq, ":item_id", "itm_w_twohanded_sword_messer"),
 	 	 (this_or_next|eq, ":item_id", "itm_w_twohanded_sword_claymore"),
 		 (eq, ":item_id", "itm_w_twohanded_sword_danish"),
 

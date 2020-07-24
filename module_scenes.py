@@ -353,8 +353,8 @@ scenes = [
 ("town_27_center",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030000500000d2348000030c4000053ae00001d83",
   [],[],"outer_terrain_plain"),
 
-#Angers - Rus' Poznan
-("town_28_center", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x00000003b00787520004dd3d000072a000003c780000409f",[], [], "outer_terrain_steppe"),
+#Angers - Rigo
+("town_28_center", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x0000000330000500000d2348000010610000490600002ff9",[], [], "outer_terrain_steppe"),
 
 ### Foix
 ("town_29_center",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001300785320004c93200002bc700005e48000008d2",

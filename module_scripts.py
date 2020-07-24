@@ -1117,7 +1117,7 @@ scripts = [
       (item_set_slot, "itm_w_dagger_pikeman", slot_item_multiplayer_item_class, multi_item_class_type_sword),
       (item_set_slot, "itm_w_dagger_italian", slot_item_multiplayer_item_class, multi_item_class_type_sword),
 
-      (item_set_slot, "itm_w_onehanded_flachion_italian", slot_item_multiplayer_item_class, multi_item_class_type_sword),
+      (item_set_slot, "itm_w_onehanded_falchion_italian", slot_item_multiplayer_item_class, multi_item_class_type_sword),
       (item_set_slot, "itm_w_onehanded_sword_a", slot_item_multiplayer_item_class, multi_item_class_type_sword),
       (item_set_slot, "itm_w_onehanded_sword_a_long", slot_item_multiplayer_item_class, multi_item_class_type_sword),
       (item_set_slot, "itm_w_onehanded_sword_c", slot_item_multiplayer_item_class, multi_item_class_type_sword),
@@ -1130,10 +1130,10 @@ scripts = [
       (item_set_slot, "itm_w_onehanded_sword_italian", slot_item_multiplayer_item_class, multi_item_class_type_sword),
       (item_set_slot, "itm_w_onehanded_sword_irish", slot_item_multiplayer_item_class, multi_item_class_type_sword),
       (item_set_slot, "itm_w_onehanded_sword_longbowman", slot_item_multiplayer_item_class, multi_item_class_type_sword),
-      (item_set_slot, "itm_w_onehanded_messer", slot_item_multiplayer_item_class, multi_item_class_type_sword),
+      (item_set_slot, "itm_w_onehanded_sword_messer", slot_item_multiplayer_item_class, multi_item_class_type_sword),
       (item_set_slot, "itm_w_onehanded_sword_milanese", slot_item_multiplayer_item_class, multi_item_class_type_sword),
       (item_set_slot, "itm_w_onehanded_sword_scottish", slot_item_multiplayer_item_class, multi_item_class_type_sword),
-      (item_set_slot, "itm_w_onehanded_sword_bayeux", slot_item_multiplayer_item_class, multi_item_class_type_sword),
+      (item_set_slot, "itm_w_onehanded_sword_monarch", slot_item_multiplayer_item_class, multi_item_class_type_sword),
       (item_set_slot, "itm_w_onehanded_sword_caithness", slot_item_multiplayer_item_class, multi_item_class_type_sword),
 	  
       (item_set_slot, "itm_w_bastard_sword_castellan", slot_item_multiplayer_item_class, multi_item_class_type_sword),
@@ -1168,7 +1168,7 @@ scripts = [
       (item_set_slot, "itm_w_bastard_sword_regent", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_sword),
       (item_set_slot, "itm_w_bastard_sword_sempach", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_sword),
 
-      (item_set_slot, "itm_w_twohanded_messer", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_sword),
+      (item_set_slot, "itm_w_twohanded_sword_messer", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_sword),
       (item_set_slot, "itm_w_twohanded_sword_claymore", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_sword),
       (item_set_slot, "itm_w_twohanded_sword_danish", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_sword),
       (item_set_slot, "itm_w_twohanded_sword_steward", slot_item_multiplayer_item_class, multi_item_class_type_two_handed_sword),
@@ -1722,7 +1722,7 @@ scripts = [
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_c_small", "trp_french_crossbowman_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_d", "trp_french_crossbowman_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_d_long", "trp_french_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_bayeux", "trp_french_crossbowman_multiplayer"),	  
+      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_monarch", "trp_french_crossbowman_multiplayer"),	  
 	  
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_war_axe", "trp_french_crossbowman_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_war_axe_2", "trp_french_crossbowman_multiplayer"),
@@ -1804,7 +1804,7 @@ scripts = [
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_c_small", "trp_french_infantry_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_d", "trp_french_infantry_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_d_long", "trp_french_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_bayeux", "trp_french_infantry_multiplayer"),	  
+      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_monarch", "trp_french_infantry_multiplayer"),	  
 	  
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_war_axe", "trp_french_infantry_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_war_axe_2", "trp_french_infantry_multiplayer"),
@@ -1939,7 +1939,7 @@ scripts = [
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_lance_6", "trp_french_chevalier_multiplayer"),
 
       # Onehanded	 	  
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_bayeux", "trp_french_chevalier_multiplayer"),
+      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_monarch", "trp_french_chevalier_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_bastard_sword_castellan", "trp_french_chevalier_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_bastard_sword_constable", "trp_french_chevalier_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_defiant", "trp_french_chevalier_multiplayer"),
@@ -2092,7 +2092,7 @@ scripts = [
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_c_small", "trp_english_infantry_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_d", "trp_english_infantry_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_d_long", "trp_english_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_bayeux", "trp_english_infantry_multiplayer"),	  
+      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_monarch", "trp_english_infantry_multiplayer"),	  
 	  
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_war_axe", "trp_english_infantry_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_war_axe_2", "trp_english_infantry_multiplayer"),
@@ -2219,7 +2219,7 @@ scripts = [
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_lance_6", "trp_english_knight_multiplayer"),
 
       # Onehanded	 	  
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_bayeux", "trp_english_knight_multiplayer"),
+      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_monarch", "trp_english_knight_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_bastard_sword_castellan", "trp_english_knight_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_bastard_sword_constable", "trp_english_knight_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_defiant", "trp_english_knight_multiplayer"),
@@ -2369,7 +2369,7 @@ scripts = [
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_c_small", "trp_burgundian_infantry_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_d", "trp_burgundian_infantry_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_d_long", "trp_burgundian_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_bayeux", "trp_burgundian_infantry_multiplayer"),	  
+      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_monarch", "trp_burgundian_infantry_multiplayer"),	  
 	  
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_war_axe", "trp_burgundian_infantry_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_war_axe_2", "trp_burgundian_infantry_multiplayer"),
@@ -2452,7 +2452,7 @@ scripts = [
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_c_small", "trp_burgundian_man_at_arms_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_d", "trp_burgundian_man_at_arms_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_d_long", "trp_burgundian_man_at_arms_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_bayeux", "trp_burgundian_man_at_arms_multiplayer"),	  
+      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_monarch", "trp_burgundian_man_at_arms_multiplayer"),	  
 	  
       ###3d- Burgundian Knight
 	  
@@ -2504,7 +2504,7 @@ scripts = [
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_lance_6", "trp_burgundian_knight_multiplayer"),
 
       # Onehanded	 	  
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_bayeux", "trp_burgundian_knight_multiplayer"),
+      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_monarch", "trp_burgundian_knight_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_bastard_sword_castellan", "trp_burgundian_knight_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_bastard_sword_constable", "trp_burgundian_knight_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_defiant", "trp_burgundian_knight_multiplayer"),
@@ -2580,7 +2580,7 @@ scripts = [
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_c_small", "trp_breton_crossbowman_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_d", "trp_breton_crossbowman_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_d_long", "trp_breton_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_bayeux", "trp_breton_crossbowman_multiplayer"),	  
+      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_monarch", "trp_breton_crossbowman_multiplayer"),	  
 	  
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_war_axe", "trp_breton_crossbowman_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_war_axe_2", "trp_breton_crossbowman_multiplayer"),
@@ -2662,7 +2662,7 @@ scripts = [
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_c_small", "trp_breton_infantry_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_d", "trp_breton_infantry_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_d_long", "trp_breton_infantry_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_bayeux", "trp_breton_infantry_multiplayer"),	  
+      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_monarch", "trp_breton_infantry_multiplayer"),	  
 	  
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_war_axe", "trp_breton_infantry_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_war_axe_2", "trp_breton_infantry_multiplayer"),
@@ -2786,7 +2786,7 @@ scripts = [
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_lance_6", "trp_breton_knight_multiplayer"),
 
       # Onehanded	 	  
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_bayeux", "trp_breton_knight_multiplayer"),
+      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_monarch", "trp_breton_knight_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_bastard_sword_castellan", "trp_breton_knight_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_bastard_sword_constable", "trp_breton_knight_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_defiant", "trp_breton_knight_multiplayer"),
@@ -8533,7 +8533,7 @@ scripts = [
       (party_set_slot, ":town", slot_town_tournament_weapon_maybe_horse, slot_town_tournament_weapon_1),
       (party_set_slot, ":town", slot_town_tournament_weapon_no_horse, slot_town_tournament_weapon_1),
       (party_set_slot, ":town", slot_town_tournament_weapon_1, "itm_w_bastard_sword_a"),
-      (party_set_slot, ":town", slot_town_tournament_weapon_2, "itm_w_twohanded_messer"),
+      (party_set_slot, ":town", slot_town_tournament_weapon_2, "itm_w_twohanded_sword_messer"),
       (party_set_slot, ":town", slot_town_tournament_weapon_3, "itm_w_mace_knobbed"),
       (party_set_slot, ":town", slot_town_tournament_weapon_4, "itm_w_halberd_1"),
     (try_end),
@@ -37040,7 +37040,7 @@ scripts = [
          (eq,":walker_type", walkert_spy),
          (faction_get_slot, ":original_walker", ":center_culture", ":original_walker_slot"),
          # restore spy inventory
-         (try_for_range,":item_no","itm_w_dagger_bollock","itm_w_onehanded_flachion_italian"),
+         (try_for_range,":item_no","itm_w_dagger_bollock","itm_w_onehanded_falchion_italian"),
             (store_item_kind_count,":num_items",":item_no",":original_walker"),
             (ge,":num_items",1),
             (store_item_kind_count,":num_items",":item_no",":walker_troop_id"),
@@ -37050,7 +37050,7 @@ scripts = [
          # determine spy recognition item
          (store_random_in_range,":spy_item_type",itp_type_head_armor,itp_type_hand_armor),
          (assign,":num",0),
-         (try_for_range,":item_no","itm_w_dagger_bollock","itm_w_onehanded_flachion_italian"),
+         (try_for_range,":item_no","itm_w_dagger_bollock","itm_w_onehanded_falchion_italian"),
             (store_item_kind_count,":num_items",":item_no",":walker_troop_id"),
             (ge,":num_items",1),
             (item_get_type, ":itp", ":item_no"),
@@ -37060,7 +37060,7 @@ scripts = [
          (try_end),
          (store_random_in_range,":random_item",0,":num"),
          (assign,":num",-1),
-         (try_for_range,":item_no","itm_w_dagger_bollock","itm_w_onehanded_flachion_italian"),
+         (try_for_range,":item_no","itm_w_dagger_bollock","itm_w_onehanded_falchion_italian"),
             (store_item_kind_count,":num_items",":item_no",":original_walker"),
             (ge,":num_items",1),
             (item_get_type, ":itp", ":item_no"),
@@ -59896,7 +59896,7 @@ scripts = [
           (store_random_in_range, ":r", 0,2),
           (try_begin),
             (eq, ":r", 0), #dagger
-            (store_random_in_range, ":item_no", "itm_w_dagger_bollock", "itm_w_onehanded_flachion_italian"),
+            (store_random_in_range, ":item_no", "itm_w_dagger_bollock", "itm_w_onehanded_falchion_italian"),
             (mission_tpl_entry_add_override_item, "mt_town_fight", ":entry_no", ":item_no"),
           (else_try), #club
             (store_random_in_range, ":item_no", "itm_w_spiked_club", "itm_w_mace_winged"),
@@ -59940,7 +59940,7 @@ scripts = [
 
       #dckplmc weapons
       (mission_tpl_entry_set_override_flags, "mt_town_fight", 3, af_override_weapons),
-      (store_random_in_range, ":item_no", "itm_w_onehanded_flachion_italian", "itm_w_bastard_sword_a"), #random sword
+      (store_random_in_range, ":item_no", "itm_w_onehanded_falchion_italian", "itm_w_bastard_sword_a"), #random sword
       (mission_tpl_entry_add_override_item, "mt_town_fight", 3, ":item_no"),
       (set_visitors, 3, ":troop_of_merchant", 1),
 

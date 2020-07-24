@@ -162,7 +162,7 @@ w_onehanded_sword_scottish
 w_onehanded_sword_sovereign
 w_onehanded_sword_sovereign_2
 w_bastard_sword_italian
-w_twohanded_messer
+w_twohanded_sword_messer
 w_twohanded_sword_claymore
 w_twohanded_sword_danish
 w_gallowglass_axe
