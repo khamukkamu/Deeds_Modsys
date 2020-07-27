@@ -976,6 +976,23 @@ mercenary_company_scripts = [
             (try_end),
         (try_end),
         
+        (try_begin),
+            (eq, ":item_type", itp_type_horse),
+            (item_get_body_armor, ":horse_armour", ":item_no"),
+            (try_begin),
+                (is_between, ":horse_armour", 0, 12),
+                (item_set_slot, ":item_no", slot_item_horse_tier, 1),
+            (else_try),
+                (is_between, ":horse_armour", 12, 14),
+                (item_set_slot, ":item_no", slot_item_horse_tier, 2), 
+            (else_try),
+                (is_between, ":horse_armour", 14, 20),
+                (item_set_slot, ":item_no", slot_item_horse_tier, 3),                 
+            (else_try),
+                (item_set_slot, ":item_no", slot_item_horse_tier, 4),                 
+            (try_end),
+        (try_end),
+        
     (try_end),
 ]),  
 

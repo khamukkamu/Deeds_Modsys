@@ -907,6 +907,11 @@ items = [
 
 ["heraldic_plate", "Heraldic Plate Harness", [("heraldic_plate",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0, 6550, weight(29)|abundance(100)|head_armor(0)|body_armor(62)|leg_armor(24)|difficulty(9), imodbits_plate  , [(ti_on_init_item,[(store_trigger_param_1,":agent_no"),(store_trigger_param_2,":troop_no"),(call_script,"script_shield_item_set_banner","tableau_heraldic_plate",":agent_no",":troop_no"),])] ],
 
+["a_heraldic_cuirass", "Heraldic Cuirass", [("a_heraldic_cuirass",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0, 6550, weight(29)|abundance(100)|head_armor(0)|body_armor(62)|leg_armor(24)|difficulty(9), imodbits_plate  , [(ti_on_init_item,[(store_trigger_param_1,":agent_no"),(store_trigger_param_2,":troop_no"),(call_script,"script_shield_item_set_banner","tableau_heraldic_plate_cuirass",":agent_no",":troop_no"),(cur_item_add_mesh, "@a_brigandine_narf_arms_mail_plate", 0, 0),(cur_item_add_mesh, "@o_hosen_brigandine_plate_full", 0, 0),])] ],
+
+["a_english_plate_mail_heraldic", "Heraldic English Plate Armour", [("a_english_plate_mail_heraldic",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0, 5550, weight(29)|abundance(100)|head_armor(0)|body_armor(60)|leg_armor(24)|difficulty(9), imodbits_armor,[(ti_on_init_item, [(store_trigger_param_1, ":agent_no"),(store_trigger_param_2, ":troop_no"),(call_script, "script_shield_item_set_banner", "tableau_heraldic_english_plate_mail", ":agent_no", ":troop_no")])]],
+["a_english_plate_heraldic", "Heraldic English Plate Armour", [("a_english_plate_heraldic",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0, 6540, weight(29)|abundance(100)|head_armor(0)|body_armor(64)|leg_armor(24)|difficulty(9), imodbits_armor,[(ti_on_init_item, [(store_trigger_param_1, ":agent_no"),(store_trigger_param_2, ":troop_no"),(call_script, "script_shield_item_set_banner", "tableau_heraldic_english_plate", ":agent_no", ":troop_no")])]],
+
 ["a_tabard_heraldic", "Heraldic Tabard", [("a_tabard_heraldic",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian ,0,
  147 , weight(2)|abundance(100)|head_armor(0)|body_armor(14)|leg_armor(6)|difficulty(7) ,imodbits_cloth,
  [(ti_on_init_item, [(store_trigger_param_1, ":agent_no"),(store_trigger_param_2, ":troop_no"),(call_script, "script_shield_item_set_banner", "tableau_heraldic_tabard", ":agent_no", ":troop_no")])]],
@@ -2165,14 +2170,6 @@ itp_type_polearm|itp_merchandise| itp_two_handed|itp_primary|itp_no_blur|itp_off
 ["tab_shield_small_round_c", "Elite Cavalry Shield", [("tableau_shield_small_round_2",0)], itp_type_shield, itcf_carry_round_shield,370 , weight(3)|hit_points(250)|body_armor(22)|spd_rtng(100)|shield_width(40),imodbits_shield, [(ti_on_init_item, [(store_trigger_param_1, ":agent_no"),(store_trigger_param_2, ":troop_no"),(call_script, "script_shield_item_set_banner", "tableau_small_round_shield_2", ":agent_no", ":troop_no")])]],
 
 ["heraldic_banner", "Heraldic Banner", [("heraldic_banner" ,0),("heraldic_banner_inventory", ixmesh_inventory)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_kite_shield,1500 , weight(2.5)|hit_points(999)|body_armor(0)|spd_rtng(90)|shield_width(2)|shield_height(100),imodbits_shield, [(ti_on_init_item, [(store_trigger_param_1, ":agent_no"),(store_trigger_param_2, ":troop_no"),(call_script, "script_shield_item_set_banner", "tableau_heraldic_banner", ":agent_no", ":troop_no"),(cur_item_add_mesh, "@heraldic_banner_base", 0, 0),])]],
-
-
-["test_sword", "Sword", 
-[("w_regular_onehanded_sword_c",0),
-("w_regular_onehanded_sword_c_scabbard", ixmesh_carry),], 
-itp_type_one_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
-400 , weight(1.4)|difficulty(0)|spd_rtng(100) | weapon_length(95)|swing_damage(29 , cut) | thrust_damage(25 ,  pierce),imodbits_sword_alt,[(ti_on_init_item,[(cur_item_set_material, "@w_swords_new_masterwork", 0, 0),(cur_item_set_material, "@w_swords_new_masterwork", "@ixmesh_carry", 0),])]],
-
 
 #SB : replace items_end to fit invasion items
 ["items_end", "Items End", [("w_war_bow_ash",0)], 0, 0, 1, 0, 0],

@@ -757,8 +757,79 @@ tableaus = [
        (cur_tableau_add_mesh, "mesh_tableau_mesh_heraldic_jupon", pos1, 0, 0),
 		 
        (cur_tableau_set_camera_parameters, 0, 200, 200, 0, 100000),
-       ]),		   
+       ]),	
+
+  ("heraldic_plate_cuirass", 0, "sample_heraldic_plate_cuirass", 2048, 2048, 0, 0, 0, 0,
+   [
+       (store_script_param, ":banner_mesh", 1),
+
+       (set_fixed_point_multiplier, 100),
+        (store_sub, ":background_slot", ":banner_mesh", arms_meshes_begin), #banner_meshes_begin),
+       (troop_get_slot, ":background_color", "trp_banner_background_color_array", ":background_slot"),
+       (cur_tableau_set_background_color, ":background_color"),
+
+       (init_position, pos1),
+       # (cur_tableau_add_mesh_with_vertex_color, "mesh_heraldic_armor_bg", pos1, 100, 100, ":background_color"),	 
+       (init_position, pos1),
+
+       (position_set_x, pos1, 48),
+       (position_set_y, pos1, 115),
+       (cur_tableau_add_mesh, ":banner_mesh", pos1, 100, 0), # was 98
+
+       (init_position, pos1),
+       (position_set_z, pos1, 100), # 100
+       (cur_tableau_add_mesh, "mesh_tableau_mesh_plate_cuirass_heraldic", pos1, 0, 0),
 		 
+       (cur_tableau_set_camera_parameters, 0, 200, 200, 0, 100000),
+       ]),			   
+		 
+  ("heraldic_english_plate", 0, "sample_a_english_plate_heraldic", 1024, 1024, 0, 0, 0, 0,
+   [
+       (store_script_param, ":banner_mesh", 1),
+
+       (set_fixed_point_multiplier, 100),
+        (store_sub, ":background_slot", ":banner_mesh", arms_meshes_begin), #banner_meshes_begin),
+       (troop_get_slot, ":background_color", "trp_banner_background_color_array", ":background_slot"),
+       (cur_tableau_set_background_color, ":background_color"),
+
+       (init_position, pos1),
+       # (cur_tableau_add_mesh_with_vertex_color, "mesh_heraldic_armor_bg", pos1, 100, 100, ":background_color"),	 
+       (init_position, pos1),
+
+       (position_set_x, pos1, -53),
+       (position_set_y, pos1, 115),
+       (cur_tableau_add_mesh, ":banner_mesh", pos1, 81, 0), # was 98
+
+       (init_position, pos1),
+       (position_set_z, pos1, 100), # 100
+       (cur_tableau_add_mesh, "mesh_tableau_mesh_heraldic_english_plate", pos1, 0, 0),
+		 
+       (cur_tableau_set_camera_parameters, 0, 200, 200, 0, 100000),
+       ]),	
+       
+  ("heraldic_english_plate_mail", 0, "sample_a_english_plate_mail_heraldic", 1024, 1024, 0, 0, 0, 0,
+   [
+       (store_script_param, ":banner_mesh", 1),
+
+       (set_fixed_point_multiplier, 100),
+        (store_sub, ":background_slot", ":banner_mesh", arms_meshes_begin), #banner_meshes_begin),
+       (troop_get_slot, ":background_color", "trp_banner_background_color_array", ":background_slot"),
+       (cur_tableau_set_background_color, ":background_color"),
+
+       (init_position, pos1),
+       # (cur_tableau_add_mesh_with_vertex_color, "mesh_heraldic_armor_bg", pos1, 100, 100, ":background_color"),	 
+       (init_position, pos1),
+
+       (position_set_x, pos1, -53),
+       (position_set_y, pos1, 115),
+       (cur_tableau_add_mesh, ":banner_mesh", pos1, 81, 0), # was 98
+
+       (init_position, pos1),
+       (position_set_z, pos1, 100), # 100
+       (cur_tableau_add_mesh, "mesh_tableau_mesh_heraldic_english_plate_mail", pos1, 0, 0),
+		 
+       (cur_tableau_set_camera_parameters, 0, 200, 200, 0, 100000),
+       ]),	
 ################### HYW HERALDRY END		 
 
   ("troop_note_alpha_mask", 0, "mat_troop_portrait_mask", 1024, 1024, 0, 0, 400, 400,
