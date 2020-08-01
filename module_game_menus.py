@@ -1184,6 +1184,13 @@ game_menus = [
      (else_try),
        (str_store_string, s66, "str_space"),
      (try_end),
+     
+    # DAC Seek: Morale bonus from Charisma
+    (store_attribute_level, ":player_charisma", "trp_player", ca_charisma),
+    (store_mul, reg69, ":player_charisma", 5), # 5 morale per charisma point
+    (str_store_string, s67, "@^Charisma: +{reg69}"),
+    
+    # DAC END
 
      (party_get_morale, reg5, "p_main_party"),
      (store_sub, reg4, reg5, ":target_morale"),

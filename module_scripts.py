@@ -31262,38 +31262,38 @@ scripts = [
   # Output: reg0 = player_party_morale_target
   ("get_player_party_morale_values",
     [
-      (party_get_num_companion_stacks, ":num_stacks","p_main_party"),
-      (assign, ":num_men", 0),
-      (try_for_range, ":i_stack", 1, ":num_stacks"),
+    (party_get_num_companion_stacks, ":num_stacks","p_main_party"),
+    (assign, ":num_men", 0),
+    (try_for_range, ":i_stack", 1, ":num_stacks"),
         (party_stack_get_troop_id, ":stack_troop","p_main_party",":i_stack"),
         (try_begin),
-          (troop_is_hero, ":stack_troop"),
-          (val_add, ":num_men", 1), #it was 3 in "Mount&Blade", now it is 1 in Warband
+            (troop_is_hero, ":stack_troop"),
+            (val_add, ":num_men", 1), #it was 3 in "Mount&Blade", now it is 1 in Warband
         (else_try),
-          (party_stack_get_size, ":stack_size","p_main_party",":i_stack"),
-          (val_add, ":num_men", ":stack_size"),
+            (party_stack_get_size, ":stack_size","p_main_party",":i_stack"),
+            (val_add, ":num_men", ":stack_size"),
         (try_end),
-      (try_end),
-      (assign, "$g_player_party_morale_modifier_party_size", ":num_men"),
+    (try_end),
+    (assign, "$g_player_party_morale_modifier_party_size", ":num_men"),
 
-      (store_skill_level, ":player_leadership", "skl_leadership", "trp_player"),
+    (store_skill_level, ":player_leadership", "skl_leadership", "trp_player"),
 
-      (try_begin),
+    (try_begin),
         (eq, "$players_kingdom", "fac_player_supporters_faction"),
         (faction_get_slot, ":cur_faction_king", "$players_kingdom", slot_faction_leader),
         (eq, ":cur_faction_king", "trp_player"),
         (store_mul, "$g_player_party_morale_modifier_leadership", ":player_leadership", 15),
-      (else_try),
+    (else_try),
         (store_mul, "$g_player_party_morale_modifier_leadership", ":player_leadership", 12),
-      (try_end),
+    (try_end),
 
-      (assign, ":new_morale", "$g_player_party_morale_modifier_leadership"),
-      (val_sub, ":new_morale", "$g_player_party_morale_modifier_party_size"),
+    (assign, ":new_morale", "$g_player_party_morale_modifier_leadership"),
+    (val_sub, ":new_morale", "$g_player_party_morale_modifier_party_size"),
 
-      (val_add, ":new_morale", 50),
+    (val_add, ":new_morale", 50),
 
-      (assign, "$g_player_party_morale_modifier_food", 0),
-      (try_for_range, ":cur_edible", food_begin, food_end),
+    (assign, "$g_player_party_morale_modifier_food", 0),
+    (try_for_range, ":cur_edible", food_begin, food_end),
         (call_script, "script_cf_player_has_item_without_modifier", ":cur_edible", imod_rotten),
         (item_get_slot, ":food_bonus", ":cur_edible", slot_item_food_bonus),
 
@@ -31301,23 +31301,23 @@ scripts = [
 # LAV MODIFICATIONS START (TRADE GOODS MOD)
 ########################################################################################################################
         (try_begin),
-          (eq, reg0, imod_cheap),
-          (val_sub, ":food_bonus", 2),
+            (eq, reg0, imod_cheap),
+            (val_sub, ":food_bonus", 2),
         (else_try),
-          (eq, reg0, imod_fine),
-          (val_add, ":food_bonus", 1),
+            (eq, reg0, imod_fine),
+            (val_add, ":food_bonus", 1),
         (else_try),
-          (eq, reg0, imod_well_made),
-          (val_add, ":food_bonus", 2),
+            (eq, reg0, imod_well_made),
+            (val_add, ":food_bonus", 2),
         (else_try),
-          (eq, reg0, imod_strong),
-          (val_add, ":food_bonus", 3),
+            (eq, reg0, imod_strong),
+            (val_add, ":food_bonus", 3),
         (else_try),
-          (eq, reg0, imod_lordly),
-          (val_add, ":food_bonus", 5),
+            (eq, reg0, imod_lordly),
+            (val_add, ":food_bonus", 5),
         (else_try),
-          (eq, reg0, imod_exquisite),
-          (val_add, ":food_bonus", 6),
+            (eq, reg0, imod_exquisite),
+            (val_add, ":food_bonus", 6),
         (try_end),
 ########################################################################################################################
 # LAV MODIFICATIONS END (TRADE GOODS MOD)
@@ -31327,50 +31327,57 @@ scripts = [
         (val_div, ":food_bonus", 2),
 
         (val_add, "$g_player_party_morale_modifier_food", ":food_bonus"),
-      (try_end),
-      (val_add, ":new_morale", "$g_player_party_morale_modifier_food"),
+    (try_end),
+    (val_add, ":new_morale", "$g_player_party_morale_modifier_food"),
 
-      (try_begin),
+    (try_begin),
         (eq, "$g_player_party_morale_modifier_food", 0),
         (assign, "$g_player_party_morale_modifier_no_food", 30),
         (val_sub, ":new_morale", "$g_player_party_morale_modifier_no_food"),
-      (else_try),
+    (else_try),
         (assign, "$g_player_party_morale_modifier_no_food", 0),
-      (try_end),
+    (try_end),
 
-      (assign, "$g_player_party_morale_modifier_debt", 0),
-      (try_begin),
+    (assign, "$g_player_party_morale_modifier_debt", 0),
+    (try_begin),
         (gt, "$g_player_debt_to_party_members", 0),
         (call_script, "script_calculate_player_faction_wage"),
         (assign, ":total_wages", reg0),
         (store_mul, "$g_player_party_morale_modifier_debt", "$g_player_debt_to_party_members", 10),
-		(val_max, ":total_wages", 1),
+        (val_max, ":total_wages", 1),
         (val_div, "$g_player_party_morale_modifier_debt", ":total_wages"),
         (val_clamp, "$g_player_party_morale_modifier_debt", 1, 31),
         (val_sub, ":new_morale", "$g_player_party_morale_modifier_debt"),
-      (try_end),
+    (try_end),
 
-      # DAC Kham: Morale Bonus for having banner men
-      (party_get_num_companion_stacks, ":num_stacks_2","p_main_party"), #Yea, redundant, but I like being sure.
-      (assign, ":num_banners", 0),
-      (try_for_range, ":i_stack_2", 1, ":num_stacks_2"),
+# DAC Kham: Morale Bonus for having banner men
+    (party_get_num_companion_stacks, ":num_stacks_2","p_main_party"), #Yea, redundant, but I like being sure.
+    (assign, ":num_banners", 0),
+    (try_for_range, ":i_stack_2", 1, ":num_stacks_2"),
         (party_stack_get_troop_id, ":stack_troop_2","p_main_party",":i_stack_2"),
         (troop_slot_eq, ":stack_troop_2", slot_troop_bannerman, 1), #Is a bannerman
         (party_stack_get_size, ":stack_size_2", "p_main_party", ":i_stack_2"),
         (val_add, ":num_banners", ":stack_size_2"),
-      (try_end),
+    (try_end),
 
-      (try_begin),
+    (try_begin),
         (gt, ":num_banners", 0),
         (val_min, ":num_banners", 1, 5),
         (store_mul, ":banner_bonus", ":num_banners", 3), #Max bonus of 15 morale
         (val_add, ":new_morale", ":banner_bonus"),
-      (try_end),
+    (try_end),
 
-      # DAC Kham: Morale Bonus for having banner men END.
+# DAC Kham: Morale Bonus for having banner men END.
 
-      (val_clamp, ":new_morale", 0, 100),
-      (assign, reg0, ":new_morale"),
+# DAC Seek: Morale Bonus from Charisma
+    (store_attribute_level, ":player_charisma", "trp_player", ca_charisma),
+    (store_mul, ":charisma_bonus", ":player_charisma", 5), # 5 morale per charisma point
+    (val_add, ":new_morale", ":charisma_bonus"),
+
+# DAC END
+
+    (val_clamp, ":new_morale", 0, 100),
+    (assign, reg0, ":new_morale"),
       ]),
 
   # script_diplomacy_start_war_between_kingdoms

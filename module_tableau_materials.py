@@ -383,6 +383,70 @@ tableaus = [
        ]),		 
 
  ################### DAC HERALDRY Begin	
+  ("heater_shield_heraldic", 0, "sample_shield_heater", 512, 512, 0, 0, 0, 0,
+   [
+       (store_script_param, ":banner_mesh", 1),
+
+       (set_fixed_point_multiplier, 100),
+
+       (init_position, pos1),
+       (position_set_x, pos1, -55),
+       (position_set_y, pos1, 142),
+       (cur_tableau_add_mesh, ":banner_mesh", pos1, 107, 0),
+       (init_position, pos1),
+       (position_set_z, pos1, 10),
+       (cur_tableau_add_mesh, "mesh_tableau_mesh_shield_heater", pos1, 0, 0),
+       (cur_tableau_set_camera_parameters, 0, 200, 200, 0, 100000),
+       ]),	
+       
+  ("heraldic_shield_leather", 0, "sample_shield_heraldic_leather", 512, 512, 0, 0, 0, 0,
+   [
+       (store_script_param, ":banner_mesh", 1),
+
+       (set_fixed_point_multiplier, 100),
+
+       (init_position, pos1),
+       (position_set_x, pos1, -44),
+       (position_set_y, pos1, 170),
+       (cur_tableau_add_mesh, ":banner_mesh", pos1, 140, 0),
+       (init_position, pos1),
+       (position_set_z, pos1, 10),
+       (cur_tableau_add_mesh, "mesh_tableau_mesh_shield_heraldic_leather", pos1, 0, 0),
+       (cur_tableau_set_camera_parameters, 0, 200, 200, 0, 100000),
+       ]),	
+       
+  ("heraldic_shield_metal", 0, "sample_shield_heraldic_metal", 512, 512, 0, 0, 0, 0,
+   [
+       (store_script_param, ":banner_mesh", 1),
+
+       (set_fixed_point_multiplier, 100),
+
+       (init_position, pos1),
+       (position_set_x, pos1, -44),
+       (position_set_y, pos1, 170),
+       (cur_tableau_add_mesh, ":banner_mesh", pos1, 140, 0),
+       (init_position, pos1),
+       (position_set_z, pos1, 10),
+       (cur_tableau_add_mesh, "mesh_tableau_mesh_shield_heraldic_metal", pos1, 0, 0),
+       (cur_tableau_set_camera_parameters, 0, 200, 200, 0, 100000),
+       ]),	
+       
+  ("heraldic_shield_bouche", 0, "sample_shield_bouche", 512, 512, 0, 0, 0, 0,
+   [
+       (store_script_param, ":banner_mesh", 1),
+
+       (set_fixed_point_multiplier, 100),
+
+       (init_position, pos1),
+       (position_set_x, pos1, -28),
+       (position_set_y, pos1, 150),
+       (cur_tableau_add_mesh, ":banner_mesh", pos1, 110, 0),
+       (init_position, pos1),
+       (position_set_z, pos1, 100),
+       (cur_tableau_add_mesh, "mesh_tableau_mesh_shield_bouche", pos1, 0, 0),
+       (cur_tableau_set_camera_parameters, 0, 200, 200, 0, 100000),
+       ]),	
+ 
   ("heraldic_penon", 0, "tableau_heraldic_penon", 256, 512, 0, 0, 0, 0,
    [
        (store_script_param, ":banner_mesh", 1),
@@ -773,7 +837,7 @@ tableaus = [
        (init_position, pos1),
 
        (position_set_x, pos1, 48),
-       (position_set_y, pos1, 115),
+       (position_set_y, pos1, 125),
        (cur_tableau_add_mesh, ":banner_mesh", pos1, 100, 0), # was 98
 
        (init_position, pos1),

@@ -218,6 +218,10 @@ meshes = [
   ("tableau_mesh_custom_banner_tall", 0, "tableau_mesh_custom_banner_tall", 0, 0, 0, 0, 0, 0, 10, 10, 10),
   ("tableau_mesh_custom_banner_short", 0, "tableau_mesh_custom_banner_short", 0, 0, 0, 0, 0, 0, 10, 10, 10),
 
+  ("tableau_mesh_shield_bouche",  0, "tableau_mesh_shield_bouche", 0, 0, 0, 0, 0, 0, 10, 10, 10),
+  ("tableau_mesh_shield_heraldic_leather",  0, "tableau_mesh_shield_heraldic_leather", 0, 0, 0, 0, 0, 0, 10, 10, 10),
+  ("tableau_mesh_shield_heraldic_metal",  0, "tableau_mesh_shield_heraldic_metal", 0, 0, 0, 0, 0, 0, 10, 10, 10),
+  ("tableau_mesh_shield_heater",  0, "tableau_mesh_shield_heater", 0, 0, 0, 0, 0, 0, 10, 10, 10),
   ("tableau_mesh_shield_round_1",  0, "tableau_mesh_shield_round_1", 0, 0, 0, 0, 0, 0, 10, 10, 10),
   ("tableau_mesh_shield_round_2",  0, "tableau_mesh_shield_round_2", 0, 0, 0, 0, 0, 0, 10, 10, 10),
   ("tableau_mesh_shield_round_3",  0, "tableau_mesh_shield_round_3", 0, 0, 0, 0, 0, 0, 10, 10, 10),
