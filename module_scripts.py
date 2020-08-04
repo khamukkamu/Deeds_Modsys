@@ -81311,6 +81311,14 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 	(item_set_slot, "itm_w_twohanded_sword_talhoffer", slot_item_weapon_switch_to, "itm_w_twohanded_sword_talhoffer_halfswording"),    
 	(item_set_slot, "itm_w_twohanded_sword_talhoffer_halfswording", slot_item_weapon_switch_to, "itm_w_twohanded_sword_talhoffer_mordhau"),    
 	(item_set_slot, "itm_w_twohanded_sword_talhoffer_mordhau", slot_item_weapon_switch_to, "itm_w_twohanded_sword_talhoffer"),     
+    
+	(item_set_slot, "itm_w_twohanded_sword_munich", slot_item_weapon_switch_to, "itm_w_twohanded_sword_munich_halfswording"),    
+	(item_set_slot, "itm_w_twohanded_sword_munich_halfswording", slot_item_weapon_switch_to, "itm_w_twohanded_sword_munich_mordhau"),    
+	(item_set_slot, "itm_w_twohanded_sword_munich_mordhau", slot_item_weapon_switch_to, "itm_w_twohanded_sword_munich"),    
+    
+	(item_set_slot, "itm_w_twohanded_sword_earl", slot_item_weapon_switch_to, "itm_w_twohanded_sword_earl_halfswording"),    
+	(item_set_slot, "itm_w_twohanded_sword_earl_halfswording", slot_item_weapon_switch_to, "itm_w_twohanded_sword_earl_mordhau"),    
+	(item_set_slot, "itm_w_twohanded_sword_earl_mordhau", slot_item_weapon_switch_to, "itm_w_twohanded_sword_earl"),   
 ]),
 
 ####################################################################################################################
