@@ -5702,6 +5702,33 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("o_triangular_pennon_small_l_black", "o_triangular_pennon_small_l_black"),  
 ("o_triangular_pennon_small_l_end", "o_triangular_pennon_small_l_end"),
 
+## Armour Patches
+# French 
+("a_patch_french_1", "a_patch_french_1"),
+("a_patch_french_2", "a_patch_french_2"),
+("a_patch_french_3", "a_patch_french_3"),
+("a_patch_french_4", "a_patch_french_4"),
+("a_patch_french_5", "a_patch_french_5"),
+("a_patch_french_6", "a_patch_french_6"),
+("a_patch_french_7", "a_patch_french_7"),
+("a_patch_french_8", "a_patch_french_8"),
+("a_patch_french_9", "a_patch_french_9"),
+# English                   
+("a_patch_english_1", "a_patch_english_1"),
+("a_patch_english_2", "a_patch_english_2"),
+("a_patch_english_3", "a_patch_english_3"),
+# Burgundian                
+("a_patch_burgundy_1", "a_patch_burgundy_1"),
+("a_patch_burgundy_2", "a_patch_burgundy_2"),
+("a_patch_burgundy_3", "a_patch_burgundy_3"),
+("a_patch_burgundy_4", "a_patch_burgundy_4"),
+("a_patch_burgundy_5", "a_patch_burgundy_5"),
+# Breton                    
+("a_patch_brittany_1", "a_patch_brittany_1"),  
+("a_patch_brittany_2", "a_patch_brittany_2"),
+("a_patch_brittany_3", "a_patch_brittany_3"),
+("a_patch_end", "a_patch_end"),
+
 
 # DAC Starting Quest Strings  
 

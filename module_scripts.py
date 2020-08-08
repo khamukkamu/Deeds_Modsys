@@ -16576,7 +16576,7 @@ scripts = [
         (eq, ":item_no", "itm_heraldic_banner"),
         (try_begin),
           (eq, ":extra_text_id", 0),
-          (str_store_string, s1, "@Can be given to certain noble units to turn into Bannermen ^Provides a morale bonus on the world map and in battles when wielded"),
+          (str_store_string, s1, "@Can be given to certain noble units to turn into Bannermen ^Bannermen increase the morale of troops."),
           (set_result_string, "@{s1}"),
           (set_trigger_result, color_good_news),
         (try_end),
@@ -79032,7 +79032,24 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 # Rebels    
       (item_set_slot, "itm_a_gambeson_custom", slot_item_rebel_materials_begin, "str_a_gambeson_green"),
       (item_set_slot, "itm_a_gambeson_custom", slot_item_rebel_materials_end, "str_a_gambeson_end"),      
-      (item_set_slot, "itm_a_gambeson_custom", slot_item_num_components, 1),        
+      (item_set_slot, "itm_a_gambeson_custom", slot_item_num_components, 1),  
+
+## Asher's Gambeson
+      (item_set_slot, "itm_a_gambeson_asher_custom", slot_item_materials_begin, "str_a_patch_french_1"),
+      (item_set_slot, "itm_a_gambeson_asher_custom", slot_item_materials_end, "str_a_patch_end"),
+# France
+      (item_set_slot, "itm_a_gambeson_asher_custom", slot_item_france_materials_begin, "str_a_patch_french_1"),
+      (item_set_slot, "itm_a_gambeson_asher_custom", slot_item_france_materials_end, "str_a_patch_english_1"),
+# England
+      (item_set_slot, "itm_a_gambeson_asher_custom", slot_item_english_materials_begin, "str_a_patch_english_1"),
+      (item_set_slot, "itm_a_gambeson_asher_custom", slot_item_english_materials_end, "str_a_patch_burgundy_1"),
+# Burgundy
+      (item_set_slot, "itm_a_gambeson_asher_custom", slot_item_burgundy_materials_begin, "str_a_patch_burgundy_1"),
+      (item_set_slot, "itm_a_gambeson_asher_custom", slot_item_burgundy_materials_end, "str_a_patch_brittany_1"),
+# Brittany    
+      (item_set_slot, "itm_a_gambeson_asher_custom", slot_item_breton_materials_begin, "str_a_patch_brittany_1"),
+      (item_set_slot, "itm_a_gambeson_asher_custom", slot_item_breton_materials_end, "str_a_patch_end"), 
+      (item_set_slot, "itm_a_gambeson_asher_custom", slot_item_num_components, 1),          
     
 ## Padded Armor
       (item_set_slot, "itm_a_padded_armor_custom", slot_item_materials_begin, "str_a_padded_armor_blue"),
@@ -81298,7 +81315,11 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
     
 	(item_set_slot, "itm_w_twohanded_sword_claymore", slot_item_weapon_switch_to, "itm_w_twohanded_sword_claymore_halfswording"),    
 	(item_set_slot, "itm_w_twohanded_sword_claymore_halfswording", slot_item_weapon_switch_to, "itm_w_twohanded_sword_claymore_mordhau"),    
-	(item_set_slot, "itm_w_twohanded_sword_claymore_mordhau", slot_item_weapon_switch_to, "itm_w_twohanded_sword_claymore"),    
+	(item_set_slot, "itm_w_twohanded_sword_claymore_mordhau", slot_item_weapon_switch_to, "itm_w_twohanded_sword_claymore"),  
+
+	(item_set_slot, "itm_w_twohanded_sword_claymore_b", slot_item_weapon_switch_to, "itm_w_twohanded_sword_claymore_b_halfswording"),    
+	(item_set_slot, "itm_w_twohanded_sword_claymore_b_halfswording", slot_item_weapon_switch_to, "itm_w_twohanded_sword_claymore_b_mordhau"),    
+	(item_set_slot, "itm_w_twohanded_sword_claymore_b_mordhau", slot_item_weapon_switch_to, "itm_w_twohanded_sword_claymore_b"),      
 
 	(item_set_slot, "itm_w_twohanded_sword_danish", slot_item_weapon_switch_to, "itm_w_twohanded_sword_danish_halfswording"),    
 	(item_set_slot, "itm_w_twohanded_sword_danish_halfswording", slot_item_weapon_switch_to, "itm_w_twohanded_sword_danish_mordhau"),    
