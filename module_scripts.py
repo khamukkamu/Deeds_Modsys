@@ -81269,13 +81269,13 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 ("init_weapon_switching", [
 # Allowing Weapons to be switched
 ### Axes	  
-	  (call_script, "script_item_weapon_switch_with_next", "itm_w_horseman_axe_1"),
-	  (call_script, "script_item_weapon_switch_with_next", "itm_w_horseman_axe_2"),
-	  (call_script, "script_item_weapon_switch_with_next", "itm_w_horseman_axe_3"),
-	  (call_script, "script_item_weapon_switch_with_next", "itm_w_german_knight_axe"),
-	  (call_script, "script_item_weapon_switch_with_next", "itm_w_german_knight_axe_2"),
-	  (call_script, "script_item_weapon_switch_with_next", "itm_w_knight_battle_axe"),
-	  (call_script, "script_item_weapon_switch_with_next", "itm_w_twohanded_war_axe_3"),
+    (call_script, "script_item_weapon_switch_with_next", "itm_w_horseman_axe_1"),
+    (call_script, "script_item_weapon_switch_with_next", "itm_w_horseman_axe_2"),
+    (call_script, "script_item_weapon_switch_with_next", "itm_w_horseman_axe_3"),
+    (call_script, "script_item_weapon_switch_with_next", "itm_w_german_knight_axe"),
+    (call_script, "script_item_weapon_switch_with_next", "itm_w_german_knight_axe_2"),
+    (call_script, "script_item_weapon_switch_with_next", "itm_w_knight_battle_axe"),
+    (call_script, "script_item_weapon_switch_with_next", "itm_w_twohanded_war_axe_3"),
 	  
 ### Warhammers
 	(call_script, "script_item_weapon_switch_with_next", "itm_w_warhammer_1"),

@@ -1266,9 +1266,16 @@ common_player_weapon_toggle = (
     (agent_get_wielded_item, ":item", ":player_agent", 0),
     (item_get_slot, ":alternate", ":item", slot_item_weapon_switch_to),
     (gt, ":alternate", 1),
-    (agent_unequip_item, ":player_agent", ":item"),
-    (agent_equip_item, ":player_agent", ":alternate"),
-    (agent_set_wielded_item, ":player_agent", ":alternate"),
+    
+# DAC Seek: Made changes to take into account item modifiers
+    (try_for_range, ":cur_slot", 0, 4),
+        (agent_get_item_slot, ":cur_weapon", ":player_agent", ":cur_slot"),
+        (eq, ":cur_weapon", ":item"),
+        (troop_get_inventory_slot_modifier, ":imod", "trp_player", ":cur_slot"),     
+        (agent_unequip_item, ":player_agent", ":item", ":cur_slot"),
+        (agent_equip_item, ":player_agent", ":alternate", ":cur_slot",":imod"),
+        (agent_set_wielded_item, ":player_agent", ":alternate"),
+    (try_end),
   ])
   
 common_ai_weapon_toggle = (
