@@ -2563,9 +2563,10 @@ scenes = [
   ("castle_35_prison",sf_indoors,"interior_prison_f", "bo_interior_prison_f", (-100,-100),(100,100),-100,"0",
     [],[]),
 
-  ("castle_36_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000003000ad340004d537000024650000253c00000461",
+# iJustWant2bPure's Château de Verneuil
+  ("castle_36_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000230000500000d234800000f570000698500002872",
     [],[],"outer_terrain_plain"),
-  ("castle_36_interior",sf_indoors, "castle_h_interior_b", "bo_castle_h_interior_b", (-100,-100),(100,100),-100,"0",
+  ("castle_36_interior",sf_indoors, "interior_castle_w", "bo_interior_castle_w", (-100,-100),(100,100),-100,"0",
     ["exit"],["castle_36_seneschal"]),
   ("castle_36_prison",sf_indoors,"interior_prison_h", "bo_interior_prison_h", (-100,-100),(100,100),-100,"0",
     [],[]),
@@ -2907,16 +2908,15 @@ scenes = [
   ("castle_83_prison",sf_indoors,"interior_prison_f", "bo_interior_prison_f", (-100,-100),(100,100),-100,"0",
     [],[]),
 
-
-# Castle 84 - 86 replaced with castle 25 - 27
-
-  ("castle_84_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000003000000000047919000041ef00005ae800003c55",
+# iJustWant2bPure's Suscinio
+  ("castle_84_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000033000050000094a52000025d20000002400005ffc",
     [],[],"outer_terrain_plain"),
-  ("castle_84_interior",sf_indoors, "castle_h_interior_b", "bo_castle_h_interior_b", (-100,-100),(100,100),-100,"0",
+  ("castle_84_interior",sf_indoors, "interior_castle_p", "bo_interior_castle_p", (-100,-100),(100,100),-100,"0",
     ["exit"],["castle_25_seneschal"]),
   ("castle_84_prison",sf_indoors,"interior_prison_a", "bo_interior_prison_a", (-100,-100),(100,100),-100,"0",
     [],[]),
 
+# Castle 85 - 86 replaced with castle 25 - 27
   ("castle_85_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002300796b20005053e000042ed0000199b000037cd",
     [],[],"outer_terrain_plain"),
   ("castle_85_interior",sf_indoors, "castle_h_interior_a", "bo_castle_h_interior_a", (-100,-100),(100,100),-100,"0",
@@ -3218,7 +3218,8 @@ scenes = [
     [],[],"outer_terrain_plain"),
   ("village_137",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000013001b2320004a52900004d390000518c00001ab1",
     [],[],"outer_terrain_plain"),
-  ("village_138",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000022002de4c00077ddd00007e1300000af400006de1",
+# iJustWant2bPure's Verneuil
+  ("village_138",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000230000500000d234800000f570000698500002872",
     [],[],"outer_terrain_steppe"),
   ("village_139",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000023007b2320004f93c000023ed000053e500002949",
     [],[],"outer_terrain_plain"),

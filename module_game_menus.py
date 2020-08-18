@@ -3224,7 +3224,7 @@ TOTAL:  {reg5}"),
      ],
     [ 
 ## DAC Seek: Player Camp    
-      ("action_create_camp",[(eq, "$player_camp_built", 0),(eq, "$player_camp_available", 1),],"Set up an encampment here.",
+      ("action_create_camp",[(eq, "$player_camp_built", 0),(troop_slot_ge, "trp_player", slot_troop_renown, 50),],"Set up an encampment here.",
        [
         (party_relocate_near_party, "p_player_camp", "p_main_party"),
         (enable_party, "p_player_camp"),

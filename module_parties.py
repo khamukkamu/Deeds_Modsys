@@ -215,7 +215,7 @@ parties = [
   ("castle_33","Château_de_Vendôme",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-2.06, 26.59),[],287),
   ("castle_34","Château_de_Beauvau",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-33.73, 16.73),[],260),
   ("castle_35","Château_Gontier",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-42.52, 28.97),[],260),
-  ("castle_36","Château_de_Verneuil",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(4.13, 66.97),[],123),
+  ("castle_36","Château_de_Verneuil",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(5.29, 66.51),[],123),
   ("castle_37","Château_de_Mortain",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-45.65, 67.58),[],46),       ### NEW     
   ("castle_38","Château_de_Langoiran",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-30.36, -111.97),[],335),       ### NEW     
   ("castle_39","Forteresse_de_Landiras",icon_castle_a|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-42.3, -111.9),[],288),       ### NEW     
@@ -436,8 +436,8 @@ parties = [
   ("village_135", "Hambye",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-61.95, 79.15),[], 176),
   ("village_136", "Vire",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-47.85, 77.93),[], 343),
   ("village_137", "Sartilly",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-65.06, 75.14),[], 49),  
-  ("village_138", "Verneuil",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(4.3, 64.36),[], 13),
-  ("village_139", "L'Aigle",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-2.06, 68.37),[], 47),
+  ("village_138", "Verneuil",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(5.8, 69.23),[], 169),
+  ("village_139", "L'Aigle",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-2, 66.05),[], 268),
   ("village_140", "Dieppe",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-7.38, 115.95),[], 198),
   
   ("village_141", "Blangy",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(12.47, 112.09),[], 100),

@@ -78171,7 +78171,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (party_set_slot,"p_town_16", slot_center_siege_with_belfry, 1),
 
       (party_set_slot,"p_castle_1", slot_center_siege_with_belfry, 1),
-      (party_set_slot,"p_castle_2", slot_center_siege_with_belfry, 1),
+      # (party_set_slot,"p_castle_2", slot_center_siege_with_belfry, 1),
       (party_set_slot,"p_castle_4", slot_center_siege_with_belfry, 1),
       (party_set_slot,"p_castle_7", slot_center_siege_with_belfry, 1),
       (party_set_slot,"p_castle_8", slot_center_siege_with_belfry, 1),

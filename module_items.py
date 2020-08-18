@@ -2208,6 +2208,13 @@ itp_type_polearm|itp_merchandise| itp_two_handed|itp_primary|itp_no_blur|itp_off
 ["s_heraldic_shield_french_6", "Heraldic Shield",   [("s_heraldic_shield_french_6" ,0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_kite_shield,105 , weight(2)|hit_points(210)|body_armor(6)|spd_rtng(95)|shield_width(50)|shield_height(85),imodbits_shield],
 ["s_heraldic_shield_french_7", "Heraldic Shield",   [("s_heraldic_shield_french_7" ,0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_kite_shield,105 , weight(2)|hit_points(210)|body_armor(6)|spd_rtng(95)|shield_width(50)|shield_height(85),imodbits_shield],
 
+["s_heraldic_shield_english_1", "Heraldic Shield",   [("s_heraldic_shield_english_1" ,0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_kite_shield,105 , weight(2)|hit_points(210)|body_armor(6)|spd_rtng(95)|shield_width(50)|shield_height(85),imodbits_shield],
+["s_heraldic_shield_english_2", "Heraldic Shield",   [("s_heraldic_shield_english_2" ,0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_kite_shield,105 , weight(2)|hit_points(210)|body_armor(6)|spd_rtng(95)|shield_width(50)|shield_height(85),imodbits_shield],
+["s_heraldic_shield_english_3", "Heraldic Shield",   [("s_heraldic_shield_english_3" ,0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_kite_shield,105 , weight(2)|hit_points(210)|body_armor(6)|spd_rtng(95)|shield_width(50)|shield_height(85),imodbits_shield],
+["s_heraldic_shield_english_4", "Heraldic Shield",   [("s_heraldic_shield_english_4" ,0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_kite_shield,105 , weight(2)|hit_points(210)|body_armor(6)|spd_rtng(95)|shield_width(50)|shield_height(85),imodbits_shield],
+["s_heraldic_shield_english_5", "Heraldic Shield",   [("s_heraldic_shield_english_5" ,0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_kite_shield,105 , weight(2)|hit_points(210)|body_armor(6)|spd_rtng(95)|shield_width(50)|shield_height(85),imodbits_shield],
+["s_heraldic_shield_english_6", "Heraldic Shield",   [("s_heraldic_shield_english_6" ,0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_kite_shield,105 , weight(2)|hit_points(210)|body_armor(6)|spd_rtng(95)|shield_width(50)|shield_height(85),imodbits_shield],
+["s_heraldic_shield_english_7", "Heraldic Shield",   [("s_heraldic_shield_english_7" ,0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_kite_shield,105 , weight(2)|hit_points(210)|body_armor(6)|spd_rtng(95)|shield_width(50)|shield_height(85),imodbits_shield],
 
 
 
