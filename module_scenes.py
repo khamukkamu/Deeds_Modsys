@@ -2795,10 +2795,11 @@ scenes = [
     ["exit"],["castle_19_seneschal"]),
   ("castle_67_prison",sf_indoors,"interior_prison_e", "bo_interior_prison_e", (-100,-100),(100,100),-100,"0",
     [],[]),
-#       Plain
-  ("castle_68_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000013006199a0004e5370000494f000028fc00006cf6",
+
+# iJustWant2bPure's Château de Clisson
+  ("castle_68_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000013002cf05800465160000251900001eee0000306a",
     [],[],"outer_terrain_plain"),
-  ("castle_68_interior",sf_indoors, "interior_castle_a", "bo_interior_castle_a", (-100,-100),(100,100),-100,"0",
+  ("castle_68_interior",sf_indoors, "interior_castle_z", "bo_interior_castle_z", (-100,-100),(100,100),-100,"0",
     ["exit"],["castle_20_seneschal"]),
   ("castle_68_prison",sf_indoors,"interior_prison_d", "bo_interior_prison_d", (-100,-100),(100,100),-100,"0",
     [],[]),
@@ -2831,9 +2832,10 @@ scenes = [
   ("castle_72_prison",sf_indoors,"interior_prison_f", "bo_interior_prison_f", (-100,-100),(100,100),-100,"0",
     [],[]),
 
-  ("castle_73_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001300009838009024000002b0f0000336a00007686",
+# iJustWant2bPure's Château de Tonquédec
+  ("castle_73_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000130000500000761da00003e3f000034b400002490",
     [],[],"outer_terrain_plain"),
-  ("castle_73_interior",sf_indoors, "castle_h_interior_b", "bo_castle_h_interior_b", (-100,-100),(100,100),-100,"0",
+  ("castle_73_interior",sf_indoors, "interior_castle_o", "bo_interior_castle_o", (-100,-100),(100,100),-100,"0",
     ["exit"],["castle_25_seneschal"]),
   ("castle_73_prison",sf_indoors,"interior_prison_a", "bo_interior_prison_a", (-100,-100),(100,100),-100,"0",
     [],[]),
@@ -2852,8 +2854,9 @@ scenes = [
   ("castle_75_prison",sf_indoors,"interior_prison_i", "bo_interior_prison_i", (-100,-100),(100,100),-100,"0",
     [],[]),
 
-  ("castle_76_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000003000018000055d4a000041ef00005ae800003c55",
-    [],[],"outer_terrain_plain"),
+# iJustWant2bPure's Château de Trémazan
+  ("castle_76_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030000500000a0748000042490000478a00006309",
+    [],[],"outer_terrain_beach"),
   ("castle_76_interior",sf_indoors, "castle_h_interior_a", "bo_castle_h_interior_a", (-100,-100),(100,100),-100,"0",
     ["exit"],["castle_28_seneschal"]),
   ("castle_76_prison",sf_indoors,"interior_prison_j", "bo_interior_prison_j", (-100,-100),(100,100),-100,"0",
@@ -3369,8 +3372,9 @@ scenes = [
     [],[],"outer_terrain_plain"),
   ("village_210",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000143c08f060004e53a00000a500000187700007c9b",
     [],[],"outer_terrain_plain"),
-  ("village_211",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000013007a6b20006258b00006bb8000074df00002f18",
-    [],[],"outer_terrain_plain"),
+# iJustWant2bPure's Trémazan
+  ("village_211",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030000500000a0748000042490000478a00006309",
+    [],[],"outer_terrain_beach"),
   ("village_212",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001300410320005a96800006b5300004edc00000d11",
     [],[],"outer_terrain_plain"),
   ("village_213",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000013004d8320006358b00006d2b000005d5000023e5",

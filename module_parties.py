@@ -263,7 +263,7 @@ parties = [
   ("castle_73","Château_de_Tonquédec",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-104.83, 73.75),[],233),
   ("castle_74","Château_de_Rosmadec",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-136.72, 54.94),[],266),
   ("castle_75","Château_de_Coëtivy",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-137.71, 66.68),[],109),
-  ("castle_76","Château_de_Trémazan",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-145.29, 71.28),[],203),
+  ("castle_76","Château_de_Trémazan",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-145.13, 70.29),[],203),
   ("castle_77","Château_de_Kermoysan",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-112.91, 70.43),[],101),
   ("castle_78","Château_de_Coëtquen",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-80.26, 63.3),[],13),
   ("castle_79","Château_de_Penhoët",icon_castle_c|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-121.89, 66.17),[],306),
@@ -522,7 +522,7 @@ parties = [
   ("village_209", "Trégueux",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-94.91, 64.48),[], 200),
   ("village_210", "Lamballe",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-90.77, 62.74),[], 274),
   
-  ("village_211", "Saint-Renan",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-145.47, 67.6),[], 155),
+  ("village_211", "Trémazan",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-147.53, 71.3),[], 232),
   ("village_212", "Guérande",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-83.91, 14.32),[], 359),
   ("village_213", "Beaumanoir",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-81.89, 59.78),[], 235),
   ("village_214", "Romagné",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-59.16, 55.72),[], 89),
