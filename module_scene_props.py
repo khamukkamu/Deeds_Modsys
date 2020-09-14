@@ -585,13 +585,10 @@ scene_props = [
 
 
   ("ship",0,"ship","bo_ship", []),
-
   ("ship_b",0,"ship_b","bo_ship_b", []),
   ("ship_c",0,"ship_c","bo_ship_c", []),
-
-
-
   ("ship_d",0,"ship_d","bo_ship_d", []),
+  ("ship_fishing_boat",0,"ship_fishing_boat","bo_ship_fishing_boat", []),
 
   ("snowy_barrel_a",0,"snowy_barrel_a","bo_snowy_barrel_a", []),
   ("snowy_fence",0,"snowy_fence","bo_snowy_fence", []),
@@ -4356,5 +4353,11 @@ scene_props = [
 	( "window_gothic_large"                        ,0,"window_gothic_large","0",[]),
 	( "window_gothic_high"                         ,0,"window_gothic_high","0",[]),
 # from 'DAC_cathedral.brf': end (OpenBRF)
+
+
+# from 'DAC_props_town_houses_paris.brf': begin (OpenBRF)
+	( "paris_town_house_a"                         ,0,"paris_town_house_a","bo_paris_town_house_b",[]),
+	( "paris_town_house_b"                         ,0,"paris_town_house_b","bo_paris_town_house_b",[]),
+# from 'DAC_props_town_houses_paris.brf': end (OpenBRF)
 
 ]

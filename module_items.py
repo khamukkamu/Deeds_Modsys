@@ -31,17 +31,31 @@ def heraldic(item_tableau):
   (call_script, "script_shield_item_set_banner", item_tableau, ":agent_no", ":troop_no")
   ])
   
-# def add_mesh(item_meshes):
-  # cur_meshes = [(store_trigger_param_1, ":agent_no"),(ge, ":agent_no", 0)]
-  # for mesh in item_meshes if not isinstance(item_meshes, basestring) else [item_meshes]:
-    # cur_meshes.append((str_store_string, s1, mesh))
-    # cur_meshes.append((cur_item_add_mesh, s1))
-  # return (ti_on_init_item, cur_meshes)
+def add_meshes(item_meshes):
+  cur_meshes = [(store_trigger_param_1, ":agent_no"),(ge, ":agent_no", 0)]
+  for mesh in item_meshes if not isinstance(item_meshes, basestring) else [item_meshes]:
+    cur_meshes.append((str_store_string, s1, mesh))
+    cur_meshes.append((cur_item_add_mesh, s1))
+  return (ti_on_init_item, cur_meshes)
   
-def reskin(item_material):
+def add_mesh(item_mesh):
+  return (ti_on_init_item, [
+  (str_store_string, s1, item_mesh),
+  (cur_item_add_mesh, s1),
+  ])
+  
+def reskin(item_material, mesh_no):
   return (ti_on_init_item, [
   (str_store_string, s1, item_material),
-  (cur_item_set_material, s1, 0),
+  (cur_item_set_material, s1, mesh_no),
+  ])
+  
+def add_mesh_reskin(item_mesh, item_material, mesh_no):
+  return (ti_on_init_item, [
+  (str_store_string, s1, item_mesh),
+  (str_store_string, s2, item_material),
+  (cur_item_add_mesh, s1),
+  (cur_item_set_material, s2, mesh_no, 0),
   ])
   
 def custom_reskin(item):
@@ -229,6 +243,45 @@ def custom_remodel(item):
       (cur_item_add_mesh, s1, 0),
     (try_end),
     ])	
+    
+    
+def aketon_patch():
+  return (ti_on_init_item, [
+    # (store_trigger_param_1, ":agent_no"), #disabled to suppress compiler warnings
+    (store_trigger_param_2, ":troop_no"),
+    (str_clear, s1),
+
+    (try_begin),
+        (gt, ":troop_no", -1),
+        (neg|troop_is_hero, ":troop_no"),
+        (store_troop_faction, ":faction", ":troop_no"),
+            (try_begin),
+                (eq, ":faction", "fac_kingdom_1"),
+                (store_random_in_range, ":value", "str_a_patch_french_1", "str_a_patch_english_1"),
+            (else_try),
+                (eq, ":faction", "fac_kingdom_2"),
+                (store_random_in_range, ":value", "str_a_patch_english_1", "str_a_patch_burgundy_1"),
+            (else_try),
+                (eq, ":faction", "fac_kingdom_3"),
+                (store_random_in_range, ":value", "str_a_patch_burgundy_1", "str_a_patch_brittany_1"),
+            (else_try),
+                (eq, ":faction", "fac_kingdom_4"),
+                (store_random_in_range, ":value", "str_a_patch_brittany_1", "str_a_patch_invisible"),
+            (try_end),
+    (else_try),
+        (assign, ":value", "str_a_patch_invisible"), #invisible string
+    (try_end),
+
+    (try_begin),
+      (eq, ":value", "str_no_string"),
+      (assign, ":value", "str_a_patch_invisible"),
+    (try_end),
+    (try_begin),
+        (str_store_string, s1, ":value"),
+        (cur_item_set_material, s1, 0),
+        # (display_message, "@Material is {s1}"),
+    (try_end),
+    ])	 
 	
 # Some constants for ease of use.
 imodbits_none = 0
@@ -837,6 +890,92 @@ items = [
 ["a_gambeson_red", "Gambeson", [("a_gambeson_white",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 260 , weight(5)|abundance(100)|head_armor(0)|body_armor(20)|leg_armor(5)|difficulty(0) ,imodbits_cloth ,[(ti_on_init_item,[(cur_item_set_material, "@a_gambeson_red", 0, 0),])]],
 ["a_gambeson_white", "Gambeson", [("a_gambeson_white",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 260 , weight(5)|abundance(100)|head_armor(0)|body_armor(20)|leg_armor(5)|difficulty(0) ,imodbits_cloth ],
 
+# Asher's Aketons
+# Base version
+["a_aketon_asher_beige_1", "Aketon", [("a_aketon_asher_patch",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(21)|leg_armor(5)|difficulty(0) ,imodbits_cloth,
+ [aketon_patch(),add_mesh("@a_aketon_asher"),add_mesh("@a_aketon_asher_arms_a"),add_mesh("@a_aketon_asher_sleeve_2"),add_mesh("@o_hosen_brigandine")],],
+["a_aketon_asher_beige_2", "Aketon", [("a_aketon_asher_patch",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(21)|leg_armor(5)|difficulty(0) ,imodbits_cloth,
+ [aketon_patch(),add_mesh("@a_aketon_asher"),add_mesh("@a_aketon_asher_arms_b"),add_mesh("@a_aketon_asher_sleeve_2"),add_mesh("@o_hosen_brigandine")],],
+
+["a_aketon_asher_white_1", "Aketon", [("a_aketon_asher_patch",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(21)|leg_armor(5)|difficulty(0) ,imodbits_cloth,
+ [aketon_patch(),add_mesh("@a_aketon_asher"),add_mesh("@a_aketon_asher_arms_a"),add_mesh("@a_aketon_asher_sleeve_2"),add_mesh("@o_hosen_brigandine"),reskin("@a_aketon_asher_white",1),reskin("@a_aketon_asher_arms_white",2)],],
+["a_aketon_asher_white_2", "Aketon", [("a_aketon_asher_patch",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(21)|leg_armor(5)|difficulty(0) ,imodbits_cloth,
+ [aketon_patch(),add_mesh("@a_aketon_asher"),add_mesh("@a_aketon_asher_arms_b"),add_mesh("@a_aketon_asher_sleeve_2"),add_mesh("@o_hosen_brigandine"),reskin("@a_aketon_asher_white",1),reskin("@a_aketon_asher_arms_white",2)],],
+
+["a_aketon_asher_blue_1", "Aketon", [("a_aketon_asher_patch",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(21)|leg_armor(5)|difficulty(0) ,imodbits_cloth,
+ [aketon_patch(),add_mesh("@a_aketon_asher"),add_mesh("@a_aketon_asher_arms_a"),add_mesh("@a_aketon_asher_sleeve_1"),add_mesh("@o_hosen_brigandine"),reskin("@a_aketon_asher_blue",1),reskin("@a_aketon_asher_arms_blue",2),reskin("@a_aketon_asher_arms_blue",3)],],
+["a_aketon_asher_blue_2", "Aketon", [("a_aketon_asher_patch",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(21)|leg_armor(5)|difficulty(0) ,imodbits_cloth,
+ [aketon_patch(),add_mesh("@a_aketon_asher"),add_mesh("@a_aketon_asher_arms_b"),add_mesh("@a_aketon_asher_sleeve_1"),add_mesh("@o_hosen_brigandine"),reskin("@a_aketon_asher_blue",1),reskin("@a_aketon_asher_arms_blue",2),reskin("@a_aketon_asher_arms_blue",3)],],
+
+["a_aketon_asher_green_1", "Aketon", [("a_aketon_asher_patch",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(21)|leg_armor(5)|difficulty(0) ,imodbits_cloth,
+ [aketon_patch(),add_mesh("@a_aketon_asher"),add_mesh("@a_aketon_asher_arms_a"),add_mesh("@a_aketon_asher_sleeve_1"),add_mesh("@o_hosen_brigandine"),reskin("@a_aketon_asher_green",1),reskin("@a_aketon_asher_arms_green",2),reskin("@a_aketon_asher_arms_green",3)],],
+["a_aketon_asher_green_2", "Aketon", [("a_aketon_asher_patch",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(21)|leg_armor(5)|difficulty(0) ,imodbits_cloth,
+ [aketon_patch(),add_mesh("@a_aketon_asher"),add_mesh("@a_aketon_asher_arms_b"),add_mesh("@a_aketon_asher_sleeve_1"),add_mesh("@o_hosen_brigandine"),reskin("@a_aketon_asher_green",1),reskin("@a_aketon_asher_arms_green",2),reskin("@a_aketon_asher_arms_green",3)],],
+
+# Vandyked
+["a_aketon_asher_vandyked_blue_1", "Aketon", [("a_aketon_asher_patch",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(21)|leg_armor(5)|difficulty(0) ,imodbits_cloth,
+ [aketon_patch(),add_mesh("@a_aketon_asher_vandyked"),add_mesh("@a_aketon_asher_arms_a"),add_mesh("@a_aketon_asher_sleeve_2"),add_mesh("@o_hosen_brigandine"),reskin("@a_aketon_asher_vandyked_blue",1),reskin("@a_aketon_asher_arms_blue",2),reskin("@a_aketon_asher_arms_blue",3)],],
+["a_aketon_asher_vandyked_blue_2", "Aketon", [("a_aketon_asher_patch",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(21)|leg_armor(5)|difficulty(0) ,imodbits_cloth,
+ [aketon_patch(),add_mesh("@a_aketon_asher_vandyked"),add_mesh("@a_aketon_asher_arms_b"),add_mesh("@a_aketon_asher_sleeve_2"),add_mesh("@o_hosen_brigandine"),reskin("@a_aketon_asher_vandyked_blue",1),reskin("@a_aketon_asher_arms_blue",2),reskin("@a_aketon_asher_arms_blue",3)],],
+
+["a_aketon_asher_vandyked_red_1", "Aketon", [("a_aketon_asher_patch",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(21)|leg_armor(5)|difficulty(0) ,imodbits_cloth,
+ [aketon_patch(),add_mesh("@a_aketon_asher_vandyked"),add_mesh("@a_aketon_asher_arms_a"),add_mesh("@a_aketon_asher_sleeve_1"),add_mesh("@o_hosen_brigandine"),reskin("@a_aketon_asher_vandyked_red",1),reskin("@a_aketon_asher_arms_red",2),reskin("@a_aketon_asher_arms_red",3)],],
+["a_aketon_asher_vandyked_red_2", "Aketon", [("a_aketon_asher_patch",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(21)|leg_armor(5)|difficulty(0) ,imodbits_cloth,
+ [aketon_patch(),add_mesh("@a_aketon_asher_vandyked"),add_mesh("@a_aketon_asher_arms_b"),add_mesh("@a_aketon_asher_sleeve_1"),add_mesh("@o_hosen_brigandine"),reskin("@a_aketon_asher_vandyked_red",1),reskin("@a_aketon_asher_arms_red",2),reskin("@a_aketon_asher_arms_red",3)],],
+
+# Dagged
+["a_aketon_asher_dagged_beige_1", "Aketon", [("a_aketon_asher_patch",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(21)|leg_armor(5)|difficulty(0) ,imodbits_cloth,
+ [aketon_patch(),add_mesh("@a_aketon_asher_dagged"),add_mesh("@a_aketon_asher_arms_a"),add_mesh("@a_aketon_asher_sleeve_2"),add_mesh("@o_hosen_brigandine"),reskin("@a_aketon_asher_dagged_beige",1),reskin("@a_aketon_asher_arms_beige",2),reskin("@a_aketon_asher_arms_beige",3)],],
+["a_aketon_asher_dagged_beige_2", "Aketon", [("a_aketon_asher_patch",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(21)|leg_armor(5)|difficulty(0) ,imodbits_cloth,
+ [aketon_patch(),add_mesh("@a_aketon_asher_dagged"),add_mesh("@a_aketon_asher_arms_b"),add_mesh("@a_aketon_asher_sleeve_1"),add_mesh("@o_hosen_brigandine"),reskin("@a_aketon_asher_dagged_beige",1),reskin("@a_aketon_asher_arms_beige",2),reskin("@a_aketon_asher_arms_beige",3)],],
+
+["a_aketon_asher_dagged_white_1", "Aketon", [("a_aketon_asher_patch",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(21)|leg_armor(5)|difficulty(0) ,imodbits_cloth,
+ [aketon_patch(),add_mesh("@a_aketon_asher_dagged"),add_mesh("@a_aketon_asher_arms_a"),add_mesh("@a_aketon_asher_sleeve_2"),add_mesh("@o_hosen_brigandine"),reskin("@a_aketon_asher_dagged_white",1),reskin("@a_aketon_asher_arms_white",2),reskin("@a_aketon_asher_arms_white",3)],],
+["a_aketon_asher_dagged_white_2", "Aketon", [("a_aketon_asher_patch",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(21)|leg_armor(5)|difficulty(0) ,imodbits_cloth,
+ [aketon_patch(),add_mesh("@a_aketon_asher_dagged"),add_mesh("@a_aketon_asher_arms_b"),add_mesh("@a_aketon_asher_sleeve_1"),add_mesh("@o_hosen_brigandine"),reskin("@a_aketon_asher_dagged_white",1),reskin("@a_aketon_asher_arms_white",2),reskin("@a_aketon_asher_arms_white",3)],],
+
+["a_aketon_asher_dagged_blue_1", "Aketon", [("a_aketon_asher_patch",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(21)|leg_armor(5)|difficulty(0) ,imodbits_cloth,
+ [aketon_patch(),add_mesh("@a_aketon_asher_dagged"),add_mesh("@a_aketon_asher_arms_a"),add_mesh("@a_aketon_asher_sleeve_4"),add_mesh("@o_hosen_brigandine"),reskin("@a_aketon_asher_dagged_blue",1),reskin("@a_aketon_asher_arms_blue",2),reskin("@a_aketon_asher_arms_blue",3)],],
+["a_aketon_asher_dagged_blue_2", "Aketon", [("a_aketon_asher_patch",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(21)|leg_armor(5)|difficulty(0) ,imodbits_cloth,
+ [aketon_patch(),add_mesh("@a_aketon_asher_dagged"),add_mesh("@a_aketon_asher_arms_b"),add_mesh("@a_aketon_asher_sleeve_5"),add_mesh("@o_hosen_brigandine"),reskin("@a_aketon_asher_dagged_blue",1),reskin("@a_aketon_asher_arms_blue",2),reskin("@a_aketon_asher_arms_blue",3)],],
+
+["a_aketon_asher_dagged_green_1", "Aketon", [("a_aketon_asher_patch",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(21)|leg_armor(5)|difficulty(0) ,imodbits_cloth,
+ [aketon_patch(),add_mesh("@a_aketon_asher_dagged"),add_mesh("@a_aketon_asher_arms_a"),add_mesh("@a_aketon_asher_sleeve_4"),add_mesh("@o_hosen_brigandine"),reskin("@a_aketon_asher_dagged_green",1),reskin("@a_aketon_asher_arms_green",2),reskin("@a_aketon_asher_arms_green",3)],],
+["a_aketon_asher_dagged_green_2", "Aketon", [("a_aketon_asher_patch",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(21)|leg_armor(5)|difficulty(0) ,imodbits_cloth,
+ [aketon_patch(),add_mesh("@a_aketon_asher_dagged"),add_mesh("@a_aketon_asher_arms_b"),add_mesh("@a_aketon_asher_sleeve_3"),add_mesh("@o_hosen_brigandine"),reskin("@a_aketon_asher_dagged_green",1),reskin("@a_aketon_asher_arms_green",2),reskin("@a_aketon_asher_arms_green",3)],],
+
+["a_aketon_asher_dagged_red_1", "Aketon", [("a_aketon_asher_patch",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(21)|leg_armor(5)|difficulty(0) ,imodbits_cloth,
+ [aketon_patch(),add_mesh("@a_aketon_asher_dagged"),add_mesh("@a_aketon_asher_arms_a"),add_mesh("@a_aketon_asher_sleeve_2"),add_mesh("@o_hosen_brigandine"),reskin("@a_aketon_asher_dagged_red",1),reskin("@a_aketon_asher_arms_red",2),reskin("@a_aketon_asher_arms_red",3)],],
+["a_aketon_asher_dagged_red_2", "Aketon", [("a_aketon_asher_patch",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(21)|leg_armor(5)|difficulty(0) ,imodbits_cloth,
+ [aketon_patch(),add_mesh("@a_aketon_asher_dagged"),add_mesh("@a_aketon_asher_arms_b"),add_mesh("@a_aketon_asher_sleeve_3"),add_mesh("@o_hosen_brigandine"),reskin("@a_aketon_asher_dagged_red",1),reskin("@a_aketon_asher_arms_red",2),reskin("@a_aketon_asher_arms_red",3)],],
+
+["a_aketon_asher_dagged_thick_beige_1", "Aketon", [("a_aketon_asher_patch",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(21)|leg_armor(5)|difficulty(0) ,imodbits_cloth,
+ [aketon_patch(),add_mesh("@a_aketon_asher_dagged"),add_mesh("@a_aketon_asher_arms_a"),add_mesh("@a_aketon_asher_sleeve_2"),add_mesh("@o_hosen_brigandine"),reskin("@a_aketon_asher_dagged_thick_beige",1),reskin("@a_aketon_asher_arms_beige",2),reskin("@a_aketon_asher_arms_beige",3)],],
+["a_aketon_asher_dagged_thick_beige_2", "Aketon", [("a_aketon_asher_patch",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(21)|leg_armor(5)|difficulty(0) ,imodbits_cloth,
+ [aketon_patch(),add_mesh("@a_aketon_asher_dagged"),add_mesh("@a_aketon_asher_arms_b"),add_mesh("@a_aketon_asher_sleeve_4"),add_mesh("@o_hosen_brigandine"),reskin("@a_aketon_asher_dagged_thick_beige",1),reskin("@a_aketon_asher_arms_beige",2),reskin("@a_aketon_asher_arms_beige",3)],],
+
+["a_aketon_asher_dagged_thick_white_1", "Aketon", [("a_aketon_asher_patch",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(21)|leg_armor(5)|difficulty(0) ,imodbits_cloth,
+ [aketon_patch(),add_mesh("@a_aketon_asher_dagged"),add_mesh("@a_aketon_asher_arms_a"),add_mesh("@a_aketon_asher_sleeve_5"),add_mesh("@o_hosen_brigandine"),reskin("@a_aketon_asher_dagged_thick_white",1),reskin("@a_aketon_asher_arms_white",2),reskin("@a_aketon_asher_arms_white",3)],],
+["a_aketon_asher_dagged_thick_white_2", "Aketon", [("a_aketon_asher_patch",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(21)|leg_armor(5)|difficulty(0) ,imodbits_cloth,
+ [aketon_patch(),add_mesh("@a_aketon_asher_dagged"),add_mesh("@a_aketon_asher_arms_b"),add_mesh("@a_aketon_asher_sleeve_4"),add_mesh("@o_hosen_brigandine"),reskin("@a_aketon_asher_dagged_thick_white",1),reskin("@a_aketon_asher_arms_white",2),reskin("@a_aketon_asher_arms_white",3)],],
+
+["a_aketon_asher_dagged_thick_blue_1", "Aketon", [("a_aketon_asher_patch",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(21)|leg_armor(5)|difficulty(0) ,imodbits_cloth,
+ [aketon_patch(),add_mesh("@a_aketon_asher_dagged"),add_mesh("@a_aketon_asher_arms_a"),add_mesh("@a_aketon_asher_sleeve_1"),add_mesh("@o_hosen_brigandine"),reskin("@a_aketon_asher_dagged_thick_blue",1),reskin("@a_aketon_asher_arms_blue",2),reskin("@a_aketon_asher_arms_blue",3)],],
+["a_aketon_asher_dagged_thick_blue_2", "Aketon", [("a_aketon_asher_patch",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(21)|leg_armor(5)|difficulty(0) ,imodbits_cloth,
+ [aketon_patch(),add_mesh("@a_aketon_asher_dagged"),add_mesh("@a_aketon_asher_arms_b"),add_mesh("@a_aketon_asher_sleeve_3"),add_mesh("@o_hosen_brigandine"),reskin("@a_aketon_asher_dagged_thick_blue",1),reskin("@a_aketon_asher_arms_blue",2),reskin("@a_aketon_asher_arms_blue",3)],],
+
+["a_aketon_asher_dagged_thick_red_1", "Aketon", [("a_aketon_asher_patch",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(21)|leg_armor(5)|difficulty(0) ,imodbits_cloth,
+ [aketon_patch(),add_mesh("@a_aketon_asher_dagged"),add_mesh("@a_aketon_asher_arms_a"),add_mesh("@a_aketon_asher_sleeve_4"),add_mesh("@o_hosen_brigandine"),reskin("@a_aketon_asher_dagged_thick_red",1),reskin("@a_aketon_asher_arms_red",2),reskin("@a_aketon_asher_arms_red",3)],],
+["a_aketon_asher_dagged_thick_red_2", "Aketon", [("a_aketon_asher_patch",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(21)|leg_armor(5)|difficulty(0) ,imodbits_cloth,
+ [aketon_patch(),add_mesh("@a_aketon_asher_dagged"),add_mesh("@a_aketon_asher_arms_b"),add_mesh("@a_aketon_asher_sleeve_5"),add_mesh("@o_hosen_brigandine"),reskin("@a_aketon_asher_dagged_thick_red",1),reskin("@a_aketon_asher_arms_red",2),reskin("@a_aketon_asher_arms_red",3)],],
+
+["a_aketon_asher_dagged_thick_black_1", "Aketon", [("a_aketon_asher_patch",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(21)|leg_armor(5)|difficulty(0) ,imodbits_cloth,
+ [aketon_patch(),add_mesh("@a_aketon_asher_dagged"),add_mesh("@a_aketon_asher_arms_a"),add_mesh("@a_aketon_asher_sleeve_2"),add_mesh("@o_hosen_brigandine"),reskin("@a_aketon_asher_dagged_thick_black",1),reskin("@a_aketon_asher_arms_black",2),reskin("@a_aketon_asher_arms_black",3)],],
+["a_aketon_asher_dagged_thick_black_2", "Aketon", [("a_aketon_asher_patch",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(21)|leg_armor(5)|difficulty(0) ,imodbits_cloth,
+ [aketon_patch(),add_mesh("@a_aketon_asher_dagged"),add_mesh("@a_aketon_asher_arms_b"),add_mesh("@a_aketon_asher_sleeve_1"),add_mesh("@o_hosen_brigandine"),reskin("@a_aketon_asher_dagged_thick_black",1),reskin("@a_aketon_asher_arms_black",2),reskin("@a_aketon_asher_arms_black",3)],],
+
+
+
 ["a_hauberk_narf", "Mail Hauberk", [("a_hauberk_narf_base",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(8)|difficulty(7) ,imodbits_armor ,[(ti_on_init_item,[(cur_item_add_mesh, "@a_hauberk_narf_aketon_base", 0, 0),(cur_item_add_mesh, "@a_hauberk_narf_arms_aketon", 0, 0),(cur_item_add_mesh, "@a_hauberk_narf_arms_aketon_mail", 0, 0),(cur_item_add_mesh, "@o_hosen_hauberk", 0, 0),])]],
 ["a_hauberk_narf_plate_hose", "Mail Hauberk", [("a_hauberk_narf_base",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1420 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(18)|difficulty(7) ,imodbits_armor ,[(ti_on_init_item,[(cur_item_add_mesh, "@a_hauberk_narf_aketon_base", 0, 0),(cur_item_add_mesh, "@a_hauberk_narf_arms_aketon", 0, 0),(cur_item_add_mesh, "@a_hauberk_narf_arms_aketon_mail", 0, 0),(cur_item_add_mesh, "@o_hosen_hauberk_plate", 0, 0),])]],
 ["a_hauberk_narf_full_plate_hose", "Mail Hauberk", [("a_hauberk_narf_base",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1480 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(24)|difficulty(7) ,imodbits_armor ,[(ti_on_init_item,[(cur_item_add_mesh, "@a_hauberk_narf_aketon_base", 0, 0),(cur_item_add_mesh, "@a_hauberk_narf_arms_aketon", 0, 0),(cur_item_add_mesh, "@a_hauberk_narf_arms_aketon_mail", 0, 0),(cur_item_add_mesh, "@o_hosen_hauberk_plate_full", 0, 0),])]],
@@ -1007,7 +1146,6 @@ items = [
 ["a_hunter_coat_custom", "Pelt Coat", [("a_hunter_coat",0)],  itp_merchandise|itp_type_body_armor  |itp_covers_legs ,0, 14, weight(2)|abundance(100)|head_armor(0)|body_armor(9)|leg_armor(1)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_hunter_coat_custom")]], 
 ["a_nobleman_court_outfit_custom", "Noble Outfit", [("a_nobleman_court_outfit_base",0)],  itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian   ,0, 348 , weight(4)|abundance(100)|head_armor(0)|body_armor(15)|leg_armor(12)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_nobleman_court_outfit_custom")]], 
 ["a_gambeson_custom", "Gambeson", [("a_gambeson_white",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(21)|leg_armor(5)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_gambeson_custom")]], 
-["a_gambeson_asher_custom", "Gambeson", [("a_gambeson_asher_patch",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(21)|leg_armor(5)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_gambeson_asher_custom"),(ti_on_init_item,[(cur_item_add_mesh, "@a_gambeson_asher_base", 0, 0),(cur_item_add_mesh, "@a_gambeson_asher_arms", 0, 0),(cur_item_add_mesh, "@o_hosen_brigandine", 0, 0),])],],
 ["a_padded_armor_custom", "Padded Jack", [("a_padded_armor_base",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs|itp_civilian,0, 364 , weight(7)|abundance(100)|head_armor(0)|body_armor(24)|leg_armor(8)|difficulty(0) ,imodbits_cloth ,[custom_reskin("itm_a_padded_armor_custom")]], 
 ["a_gambeson_narf_custom", "Padded Jack", [("a_gambeson_narf",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 415 , weight(6)|abundance(100)|head_armor(0)|body_armor(28)|leg_armor(6)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_gambeson_narf_custom")]], 
 ["a_padded_cloth_custom", "Padded Cloth", [("a_padded_cloth_white",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 297 , weight(11)|abundance(100)|head_armor(0)|body_armor(22)|leg_armor(6)|difficulty(0) ,imodbits_cloth, [custom_reskin("itm_a_padded_cloth_custom")]], 
@@ -2216,7 +2354,21 @@ itp_type_polearm|itp_merchandise| itp_two_handed|itp_primary|itp_no_blur|itp_off
 ["s_heraldic_shield_english_6", "Heraldic Shield",   [("s_heraldic_shield_english_6" ,0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_kite_shield,105 , weight(2)|hit_points(210)|body_armor(6)|spd_rtng(95)|shield_width(50)|shield_height(85),imodbits_shield],
 ["s_heraldic_shield_english_7", "Heraldic Shield",   [("s_heraldic_shield_english_7" ,0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_kite_shield,105 , weight(2)|hit_points(210)|body_armor(6)|spd_rtng(95)|shield_width(50)|shield_height(85),imodbits_shield],
 
+["s_heraldic_shield_burgundian_1", "Heraldic Shield",   [("s_heraldic_shield_burgundian_1" ,0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_kite_shield,105 , weight(2)|hit_points(210)|body_armor(6)|spd_rtng(95)|shield_width(50)|shield_height(85),imodbits_shield],
+["s_heraldic_shield_burgundian_2", "Heraldic Shield",   [("s_heraldic_shield_burgundian_2" ,0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_kite_shield,105 , weight(2)|hit_points(210)|body_armor(6)|spd_rtng(95)|shield_width(50)|shield_height(85),imodbits_shield],
+["s_heraldic_shield_burgundian_3", "Heraldic Shield",   [("s_heraldic_shield_burgundian_3" ,0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_kite_shield,105 , weight(2)|hit_points(210)|body_armor(6)|spd_rtng(95)|shield_width(50)|shield_height(85),imodbits_shield],
+["s_heraldic_shield_burgundian_4", "Heraldic Shield",   [("s_heraldic_shield_burgundian_4" ,0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_kite_shield,105 , weight(2)|hit_points(210)|body_armor(6)|spd_rtng(95)|shield_width(50)|shield_height(85),imodbits_shield],
+["s_heraldic_shield_burgundian_5", "Heraldic Shield",   [("s_heraldic_shield_burgundian_5" ,0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_kite_shield,105 , weight(2)|hit_points(210)|body_armor(6)|spd_rtng(95)|shield_width(50)|shield_height(85),imodbits_shield],
+["s_heraldic_shield_burgundian_6", "Heraldic Shield",   [("s_heraldic_shield_burgundian_6" ,0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_kite_shield,105 , weight(2)|hit_points(210)|body_armor(6)|spd_rtng(95)|shield_width(50)|shield_height(85),imodbits_shield],
+["s_heraldic_shield_burgundian_7", "Heraldic Shield",   [("s_heraldic_shield_burgundian_7" ,0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_kite_shield,105 , weight(2)|hit_points(210)|body_armor(6)|spd_rtng(95)|shield_width(50)|shield_height(85),imodbits_shield],
 
+["s_heraldic_shield_breton_1", "Heraldic Shield",   [("s_heraldic_shield_breton_1" ,0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_kite_shield,105 , weight(2)|hit_points(210)|body_armor(6)|spd_rtng(95)|shield_width(50)|shield_height(85),imodbits_shield],
+["s_heraldic_shield_breton_2", "Heraldic Shield",   [("s_heraldic_shield_breton_2" ,0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_kite_shield,105 , weight(2)|hit_points(210)|body_armor(6)|spd_rtng(95)|shield_width(50)|shield_height(85),imodbits_shield],
+["s_heraldic_shield_breton_3", "Heraldic Shield",   [("s_heraldic_shield_breton_3" ,0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_kite_shield,105 , weight(2)|hit_points(210)|body_armor(6)|spd_rtng(95)|shield_width(50)|shield_height(85),imodbits_shield],
+["s_heraldic_shield_breton_4", "Heraldic Shield",   [("s_heraldic_shield_breton_4" ,0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_kite_shield,105 , weight(2)|hit_points(210)|body_armor(6)|spd_rtng(95)|shield_width(50)|shield_height(85),imodbits_shield],
+["s_heraldic_shield_breton_5", "Heraldic Shield",   [("s_heraldic_shield_breton_5" ,0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_kite_shield,105 , weight(2)|hit_points(210)|body_armor(6)|spd_rtng(95)|shield_width(50)|shield_height(85),imodbits_shield],
+["s_heraldic_shield_breton_6", "Heraldic Shield",   [("s_heraldic_shield_breton_6" ,0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_kite_shield,105 , weight(2)|hit_points(210)|body_armor(6)|spd_rtng(95)|shield_width(50)|shield_height(85),imodbits_shield],
+["s_heraldic_shield_breton_7", "Heraldic Shield",   [("s_heraldic_shield_breton_7" ,0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_kite_shield,105 , weight(2)|hit_points(210)|body_armor(6)|spd_rtng(95)|shield_width(50)|shield_height(85),imodbits_shield],
 
 
 ["s_heater_shield_a1", "Heater Shield",   [("s_heater_shield_a1" ,0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_kite_shield,100 , weight(2)|hit_points(200)|body_armor(6)|spd_rtng(95)|shield_width(50)|shield_height(85),imodbits_shield],
@@ -2297,18 +2449,6 @@ itp_type_polearm|itp_merchandise| itp_two_handed|itp_primary|itp_no_blur|itp_off
 ["tab_shield_small_round_c", "Elite Cavalry Shield", [("tableau_shield_small_round_2",0)], itp_type_shield, itcf_carry_round_shield,370 , weight(3)|hit_points(250)|body_armor(22)|spd_rtng(100)|shield_width(40),imodbits_shield, [(ti_on_init_item, [(store_trigger_param_1, ":agent_no"),(store_trigger_param_2, ":troop_no"),(call_script, "script_shield_item_set_banner", "tableau_small_round_shield_2", ":agent_no", ":troop_no")])]],
 
 ["heraldic_banner", "Heraldic Banner", [("heraldic_banner" ,0),("heraldic_banner_inventory", ixmesh_inventory)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_kite_shield,1500 , weight(2.5)|hit_points(999)|body_armor(0)|spd_rtng(90)|shield_width(2)|shield_height(100),imodbits_shield, [(ti_on_init_item, [(store_trigger_param_1, ":agent_no"),(store_trigger_param_2, ":troop_no"),(call_script, "script_shield_item_set_banner", "tableau_heraldic_banner", ":agent_no", ":troop_no"),(cur_item_add_mesh, "@heraldic_banner_base", 0, 0),])]],
-
-
-["w_twohanded_sword_talhoffer_test", "Talhoffer Greatsword", 
-[("w_regular_twohanded_sword_talhoffer",0),("w_rusty_twohanded_sword_talhoffer",imodbit_rusty),("w_masterwork_twohanded_sword_talhoffer",imodbit_masterwork),
-("w_regular_twohanded_sword_talhoffer_scabbard", ixmesh_carry),("w_rusty_twohanded_sword_talhoffer_scabbard", ixmesh_carry|imodbit_rusty),("w_masterwork_twohanded_sword_talhoffer_scabbard", ixmesh_carry|imodbit_masterwork),], 
-itp_type_two_handed_wpn|itp_merchandise| itp_two_handed|itp_primary|itp_no_blur|itp_next_item_as_melee, itc_greatsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn,  
-998 , weight(2.5)|difficulty(11)|spd_rtng(95) | weapon_length(115)|swing_damage(40 , cut) | thrust_damage(35 ,  pierce),imodbits_sword_alt ],
-["w_twohanded_sword_talhoffer_test_alt", "Talhoffer Greatsword", 
-[("w_regular_twohanded_sword_talhoffer",0),("w_rusty_twohanded_sword_talhoffer",imodbit_rusty),("w_masterwork_twohanded_sword_talhoffer",imodbit_masterwork),
-("w_regular_twohanded_sword_talhoffer_scabbard", ixmesh_carry),("w_rusty_twohanded_sword_talhoffer_scabbard", ixmesh_carry|imodbit_rusty),("w_masterwork_twohanded_sword_talhoffer_scabbard", ixmesh_carry|imodbit_masterwork),], 
-itp_type_two_handed_wpn|itp_merchandise| itp_two_handed|itp_primary|itp_no_blur|itp_has_upper_stab, itc_halfswording|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn,  
-998 , weight(2.5)|difficulty(11)|spd_rtng(95) | weapon_length(115)|swing_damage(40 , cut) | thrust_damage(35 ,  pierce),imodbits_sword_alt ],
 
 #SB : replace items_end to fit invasion items
 ["items_end", "Items End", [("w_war_bow_ash",0)], 0, 0, 1, 0, 0],

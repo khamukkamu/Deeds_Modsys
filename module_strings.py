@@ -5727,7 +5727,7 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("a_patch_brittany_1", "a_patch_brittany_1"),  
 ("a_patch_brittany_2", "a_patch_brittany_2"),
 ("a_patch_brittany_3", "a_patch_brittany_3"),
-("a_patch_end", "a_patch_end"),
+("a_patch_invisible", "a_patch_invisible"),
 
 
 # DAC Starting Quest Strings  

@@ -79035,21 +79035,21 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (item_set_slot, "itm_a_gambeson_custom", slot_item_num_components, 1),  
 
 ## Asher's Gambeson
-      (item_set_slot, "itm_a_gambeson_asher_custom", slot_item_materials_begin, "str_a_patch_french_1"),
-      (item_set_slot, "itm_a_gambeson_asher_custom", slot_item_materials_end, "str_a_patch_end"),
+      # (item_set_slot, "itm_a_gambeson_asher_custom", slot_item_materials_begin, "str_a_patch_french_1"),
+      # (item_set_slot, "itm_a_gambeson_asher_custom", slot_item_materials_end, "str_a_patch_end"),
 # France
-      (item_set_slot, "itm_a_gambeson_asher_custom", slot_item_france_materials_begin, "str_a_patch_french_1"),
-      (item_set_slot, "itm_a_gambeson_asher_custom", slot_item_france_materials_end, "str_a_patch_english_1"),
+      # (item_set_slot, "itm_a_gambeson_asher_custom", slot_item_france_materials_begin, "str_a_patch_french_1"),
+      # (item_set_slot, "itm_a_gambeson_asher_custom", slot_item_france_materials_end, "str_a_patch_english_1"),
 # England
-      (item_set_slot, "itm_a_gambeson_asher_custom", slot_item_english_materials_begin, "str_a_patch_english_1"),
-      (item_set_slot, "itm_a_gambeson_asher_custom", slot_item_english_materials_end, "str_a_patch_burgundy_1"),
+      # (item_set_slot, "itm_a_gambeson_asher_custom", slot_item_english_materials_begin, "str_a_patch_english_1"),
+      # (item_set_slot, "itm_a_gambeson_asher_custom", slot_item_english_materials_end, "str_a_patch_burgundy_1"),
 # Burgundy
-      (item_set_slot, "itm_a_gambeson_asher_custom", slot_item_burgundy_materials_begin, "str_a_patch_burgundy_1"),
-      (item_set_slot, "itm_a_gambeson_asher_custom", slot_item_burgundy_materials_end, "str_a_patch_brittany_1"),
+      # (item_set_slot, "itm_a_gambeson_asher_custom", slot_item_burgundy_materials_begin, "str_a_patch_burgundy_1"),
+      # (item_set_slot, "itm_a_gambeson_asher_custom", slot_item_burgundy_materials_end, "str_a_patch_brittany_1"),
 # Brittany    
-      (item_set_slot, "itm_a_gambeson_asher_custom", slot_item_breton_materials_begin, "str_a_patch_brittany_1"),
-      (item_set_slot, "itm_a_gambeson_asher_custom", slot_item_breton_materials_end, "str_a_patch_end"), 
-      (item_set_slot, "itm_a_gambeson_asher_custom", slot_item_num_components, 1),          
+      # (item_set_slot, "itm_a_gambeson_asher_custom", slot_item_breton_materials_begin, "str_a_patch_brittany_1"),
+      # (item_set_slot, "itm_a_gambeson_asher_custom", slot_item_breton_materials_end, "str_a_patch_end"), 
+      # (item_set_slot, "itm_a_gambeson_asher_custom", slot_item_num_components, 1),          
     
 ## Padded Armor
       (item_set_slot, "itm_a_padded_armor_custom", slot_item_materials_begin, "str_a_padded_armor_blue"),

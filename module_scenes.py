@@ -1904,8 +1904,8 @@ scenes = [
     [],[],"outer_terrain_plain"),
 
 
-#Paris - BM's Uxkhal   
-  ("town_30_walls",sf_generate|sf_muddy_water,"none", "none", (0,0),(100,100),-100,"0x0000000030000500000d2348000030c4000053ae00001d83",
+#Paris - iJustWant2bPure   
+  ("town_30_walls",sf_generate|sf_muddy_water,"none", "none", (0,0),(100,100),-100,"0x0000000230000000000fffff000041ef00005ae800003c55",
     [],[],"outer_terrain_plain"),
 
 
