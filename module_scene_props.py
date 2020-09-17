@@ -4360,4 +4360,59 @@ scene_props = [
 	( "paris_town_house_b"                         ,0,"paris_town_house_b","bo_paris_town_house_b",[]),
 # from 'DAC_props_town_houses_paris.brf': end (OpenBRF)
 
+# from 'DAC_props_town_houses_slate.brf': begin (OpenBRF)
+	( "slate_small_timber_frame_house_a"           ,0,"slate_small_timber_frame_house_a","0",[]),
+	( "slate_tf_house_b"                           ,0,"slate_tf_house_b","bo_slate_tf_house_b",[]),
+	( "slate_tf_house_c"                           ,0,"slate_tf_house_c","bo_slate_tf_house_c",[]),
+	( "slate_town_house_a"                         ,0,"slate_town_house_a","bo_slate_town_house_a",[]),
+	( "slate_town_house_aa"                        ,0,"slate_town_house_aa","bo_slate_town_house_aa",[]),
+	( "slate_town_house_b"                         ,0,"slate_town_house_b","bo_slate_town_house_b",[]),
+	( "slate_town_house_c"                         ,0,"slate_town_house_c","bo_slate_town_house_c",[]),
+	( "slate_town_house_d"                         ,0,"slate_town_house_d","bo_slate_town_house_d",[]),
+	( "slate_town_house_e"                         ,0,"slate_town_house_e","bo_slate_town_house_e",[]),
+	( "slate_town_house_f"                         ,0,"slate_town_house_f","bo_slate_town_house_f",[]),
+	( "slate_town_house_g"                         ,0,"slate_town_house_g","bo_slate_town_house_g",[]),
+	( "slate_town_house_h"                         ,0,"slate_town_house_h","bo_slate_town_house_h",[]),
+	( "slate_town_house_i"                         ,0,"slate_town_house_i","bo_slate_town_house_i",[]),
+	( "slate_town_house_j"                         ,0,"slate_town_house_j","bo_slate_town_house_j",[]),
+	( "slate_town_house_l"                         ,0,"slate_town_house_l","bo_slate_town_house_l",[]),
+	( "slate_town_house_m"                         ,0,"slate_town_house_m","bo_slate_town_house_m",[]),
+	( "slate_town_house_n"                         ,0,"slate_town_house_n","bo_slate_town_house_n",[]),
+	( "slate_town_house_o"                         ,0,"slate_town_house_o","bo_slate_town_house_o",[]),
+	( "slate_town_house_p"                         ,0,"slate_town_house_p","bo_slate_town_house_p",[]),
+	( "slate_town_house_q"                         ,0,"slate_town_house_q","bo_slate_town_house_q",[]),
+	( "slate_town_house_r"                         ,0,"slate_town_house_r","bo_slate_town_house_r",[]),
+	( "slate_town_house_s"                         ,0,"slate_town_house_s","bo_slate_town_house_s",[]),
+	( "slate_town_house_t"                         ,0,"slate_town_house_t","bo_slate_town_house_t",[]),
+	( "slate_town_house_u"                         ,0,"slate_town_house_u","bo_slate_town_house_u",[]),
+	( "slate_town_house_v"                         ,0,"slate_town_house_v","bo_slate_town_house_v",[]),
+	( "slate_town_house_w"                         ,0,"slate_town_house_w","bo_slate_town_house_w",[]),
+	( "slate_town_house_y"                         ,0,"slate_town_house_y","bo_slate_town_house_y",[]),
+	( "slate_town_house_z"                         ,0,"slate_town_house_z","bo_slate_town_house_z",[]),
+	( "slate_town_house_za"                        ,0,"slate_town_house_za","bo_slate_town_house_za",[]),
+# from 'DAC_props_town_houses_slate.brf': end (OpenBRF)
+
+# from 'DAC_props_fake_houses_slate.brf': begin (OpenBRF)
+	( "slate_fake_house_a"                         ,0,"slate_fake_house_a","bo_slate_fake_house_a",[]),
+	( "slate_fake_house_b"                         ,0,"slate_fake_house_b","bo_slate_fake_house_b",[]),
+	( "slate_fake_house_c"                         ,0,"slate_fake_house_c","bo_slate_fake_house_c",[]),
+	( "slate_fake_house_d"                         ,0,"slate_fake_house_d","bo_slate_fake_house_d",[]),
+	( "slate_fake_house_e"                         ,0,"slate_fake_house_e","bo_slate_fake_house_e",[]),
+	( "slate_fake_house_f"                         ,0,"slate_fake_house_f","bo_slate_fake_house_f",[]),
+	( "slate_fake_house_snowy_a"                   ,0,"slate_fake_house_snowy_a","0",[]),
+	( "slate_fake_house_snowy_b"                   ,0,"slate_fake_house_snowy_b","0",[]),
+	( "slate_fake_house_snowy_c"                   ,0,"slate_fake_house_snowy_c","0",[]),
+	( "slate_fake_house_snowy_d"                   ,0,"slate_fake_house_snowy_d","0",[]),
+# from 'DAC_props_fake_houses_slate.brf': end (OpenBRF)
+
+# from 'DAC_props_city_slate.brf': begin (OpenBRF)
+	( "slate_city_swad_01"                         ,0,"slate_city_swad_01","bo_slate_city_swad_01",[]),
+	( "slate_city_swad_02"                         ,0,"slate_city_swad_02","bo_slate_city_swad_02",[]),
+	( "slate_city_swad_03"                         ,0,"slate_city_swad_03","bo_slate_city_swad_03",[]),
+	( "slate_city_swad_04"                         ,0,"slate_city_swad_04","bo_slate_city_swad_04",[]),
+	( "slate_city_swad_05"                         ,0,"slate_city_swad_05","bo_slate_city_swad_05",[]),
+	( "slate_city_swad_passage_01"                 ,0,"slate_city_swad_passage_01","bo_slate_city_swad_passage_01",[]),
+# from 'DAC_props_city_slate.brf': end (OpenBRF)
+
+
 ]

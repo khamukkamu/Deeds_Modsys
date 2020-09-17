@@ -446,6 +446,38 @@ tableaus = [
        (cur_tableau_add_mesh, "mesh_tableau_mesh_shield_bouche", pos1, 0, 0),
        (cur_tableau_set_camera_parameters, 0, 200, 200, 0, 100000),
        ]),	
+       
+  ("heraldic_shield_pavise", 0, "sample_shield_pavise", 512, 512, 0, 0, 0, 0,
+   [
+       (store_script_param, ":banner_mesh", 1),
+
+       (set_fixed_point_multiplier, 100),
+
+       (init_position, pos1),
+       (position_set_x, pos1, -49),
+       (position_set_y, pos1, 115),
+       (cur_tableau_add_mesh, ":banner_mesh", pos1, 134, 0),
+       (init_position, pos1),
+       (position_set_z, pos1, 100),
+       (cur_tableau_add_mesh, "mesh_tableau_mesh_shield_pavise", pos1, 0, 0),
+       (cur_tableau_set_camera_parameters, 0, 200, 200, 0, 100000),
+       ]),	
+       
+  ("heraldic_shield_pavise_native", 0, "sample_shield_pavise_native", 512, 512, 0, 0, 0, 0,
+   [
+       (store_script_param, ":banner_mesh", 1),
+
+       (set_fixed_point_multiplier, 100),
+
+       (init_position, pos1),
+       (position_set_x, pos1, -53),
+       (position_set_y, pos1, 120),
+       (cur_tableau_add_mesh, ":banner_mesh", pos1, 122, 0),
+       (init_position, pos1),
+       (position_set_z, pos1, 100),
+       (cur_tableau_add_mesh, "mesh_tableau_mesh_shield_pavise_native", pos1, 0, 0),
+       (cur_tableau_set_camera_parameters, 0, 200, 200, 0, 100000),
+       ]),	
  
   ("heraldic_penon", 0, "tableau_heraldic_penon", 256, 512, 0, 0, 0, 0,
    [
