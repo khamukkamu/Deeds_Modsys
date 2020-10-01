@@ -3404,10 +3404,10 @@ scene_props = [
 	( "church_dac_buttress_simple_b"               ,0,"church_dac_buttress_simple_b","bo_church_dac_buttress_simple_b",[]),
 	( "church_dac_flying_buttress_a"               ,0,"church_dac_flying_buttress_a","bo_church_dac_flying_buttress_a",[]),
 	( "church_dac_flying_buttress_b"               ,0,"church_dac_flying_buttress_b","bo_church_dac_flying_buttress_b",[]),
-	( "church_dac_roman_a"                         ,0,"church_dac_roman_a","bo_church_dac_roman_a",[]),
-	( "church_dac_roman_b"                         ,0,"church_dac_roman_b","bo_church_dac_roman_b",[]),
-	( "church_dac_roman_c"                         ,0,"church_dac_roman_c","bo_church_dac_roman_c",[]),
-	( "church_dac_roman_d"                         ,0,"church_dac_roman_d","bo_church_dac_roman_d",[]),
+	( "church_dac_roman_a"                         ,0,"church_dac_roman_a","bo_church_dac_roman",[]),
+	( "church_dac_roman_b"                         ,0,"church_dac_roman_b","bo_church_dac_roman",[]),
+	( "church_dac_roman_c"                         ,0,"church_dac_roman_c","bo_church_dac_roman",[]),
+	( "church_dac_roman_d"                         ,0,"church_dac_roman_d","bo_church_dac_roman",[]),
 	( "church_dac_sc_sr_a"                         ,0,"church_dac_sc_sr_a","bo_church_dac_sc_sr_a",[]),
 	( "church_dac_sc_sr_b"                         ,0,"church_dac_sc_sr_b","bo_church_dac_sc_sr_b",[]),
 	( "church_dac_sc_sr_tower_a"                   ,0,"church_dac_sc_sr_tower_a","bo_church_dac_sc_sr_tower_a",[]),
@@ -4414,5 +4414,154 @@ scene_props = [
 	( "slate_city_swad_passage_01"                 ,0,"slate_city_swad_passage_01","bo_slate_city_swad_passage_01",[]),
 # from 'DAC_props_city_slate.brf': end (OpenBRF)
 
+# from 'DAC_props_market.brf': begin (OpenBRF)
+	( "basket_1"                                   ,0,"basket_1","bo_basket_1",[]),
+	( "basket_2"                                   ,0,"basket_2","bo_basket_2",[]),
+	( "basket_3"                                   ,0,"basket_3","bo_basket_3",[]),
+	( "cart_goods"                                 ,0,"cart_goods","bo_cart_goods",[]),
+	( "chair_stool"                                ,0,"chair_stool","bo_chair_stool",[]),
+	( "jug_new"                                    ,0,"jug_new","0",[]),
+	( "market_barrel_1"                            ,0,"market_barrel_1","bo_market_barrel_1",[]),
+	( "market_basket"                              ,0,"market_basket","0",[]),
+	( "market_basket_apples"                       ,0,"market_basket_apples","bo_market_basket_apples",[]),
+	( "market_basket_cherries"                     ,0,"market_basket_cherries","bo_market_basket_cherries",[]),
+	( "market_basket_figs"                         ,0,"market_basket_figs","bo_market_basket_figs",[]),
+	( "market_basket_oranges"                      ,0,"market_basket_oranges","bo_market_basket_oranges",[]),
+	( "market_basket_pears"                        ,0,"market_basket_pears","bo_market_basket_pears",[]),
+	( "market_basket_plums"                        ,0,"market_basket_plums","bo_market_basket_plums",[]),
+	( "market_basket_raisins"                      ,0,"market_basket_raisins","bo_market_basket_raisins",[]),
+	( "market_baskets"                             ,0,"market_baskets","bo_market_baskets",[]),
+	( "market_box_1"                               ,0,"market_box_1","bo_market_box_1",[]),
+	( "market_box_rectangular"                     ,0,"market_box_rectangular","bo_market_box_rectangular",[]),
+	( "market_butcher_a"                           ,0,"market_butcher_a","bo_market_butcher_a",[]),
+	( "market_butcher_b"                           ,0,"market_butcher_b","bo_market_butcher_b",[]),
+	( "market_butcher_c"                           ,0,"market_butcher_c","bo_market_butcher_c",[]),
+	( "market_butcher_d"                           ,0,"market_butcher_d","bo_market_butcher_d",[]),
+	( "market_butcher_e"                           ,0,"market_butcher_e","0",[]),
+	( "market_butcher_f"                           ,0,"market_butcher_f","0",[]),
+	( "market_butcher_h"                           ,0,"market_butcher_h","0",[]),
+	( "market_butcher_k"                           ,0,"market_butcher_k","0",[]),
+	( "market_chests"                              ,0,"market_chests","bo_market_chests",[]),
+	( "market_cloth_1_black"                       ,0,"market_cloth_1_black","0",[]),
+	( "market_cloth_1_brown"                       ,0,"market_cloth_1_brown","0",[]),
+	( "market_cloth_1_white"                       ,0,"market_cloth_1_white","0",[]),
+	( "market_cloth_2_black"                       ,0,"market_cloth_2_black","0",[]),
+	( "market_cloth_2_blue"                        ,0,"market_cloth_2_blue","0",[]),
+	( "market_cloth_2_brown"                       ,0,"market_cloth_2_brown","0",[]),
+	( "market_cloth_2_red"                         ,0,"market_cloth_2_red","0",[]),
+	( "market_clutter_1"                           ,0,"market_clutter_1","bo_market_clutter_1",[]),
+	( "market_clutter_2"                           ,0,"market_clutter_2","bo_market_clutter_2",[]),
+	( "market_clutter_222"                         ,0,"market_clutter_222","0",[]),
+	( "market_fish_bundle_large"                   ,0,"market_fish_bundle_large","0",[]),
+	( "market_fish_bundle_small"                   ,0,"market_fish_bundle_small","0",[]),
+	( "market_fish_pink"                           ,0,"market_fish_pink","0",[]),
+	( "market_fish_pink_2"                         ,0,"market_fish_pink_2","0",[]),
+	( "market_fish_small"                          ,0,"market_fish_small","0",[]),
+	( "market_fish_sword"                          ,0,"market_fish_sword","0",[]),
+	( "market_fish_table"                          ,0,"market_fish_table","0",[]),
+	( "market_fruits_display_apples"               ,0,"market_fruits_display_apples","bo_market_fruits_display_apples",[]),
+	( "market_fruits_display_figs"                 ,0,"market_fruits_display_figs","bo_market_fruits_display_figs",[]),
+	( "market_fruits_display_pears"                ,0,"market_fruits_display_pears","bo_market_fruits_display_pears",[]),
+	( "market_fruits_display_plums"                ,0,"market_fruits_display_plums","bo_market_fruits_display_plums",[]),
+	( "market_herbs_J"                             ,0,"market_herbs_J","0",[]),
+	( "market_herbs_L"                             ,0,"market_herbs_L","0",[]),
+	( "market_herbs_Q"                             ,0,"market_herbs_Q","0",[]),
+	( "market_herbs_a"                             ,0,"market_herbs_a","0",[]),
+	( "market_herbs_b"                             ,0,"market_herbs_b","0",[]),
+	( "market_herbs_c"                             ,0,"market_herbs_c","0",[]),
+	( "market_herbs_d"                             ,0,"market_herbs_d","0",[]),
+	( "market_herbs_e"                             ,0,"market_herbs_e","0",[]),
+	( "market_herbs_f"                             ,0,"market_herbs_f","0",[]),
+	( "market_herbs_g"                             ,0,"market_herbs_g","0",[]),
+	( "market_herbs_h"                             ,0,"market_herbs_h","0",[]),
+	( "market_herbs_i"                             ,0,"market_herbs_i","0",[]),
+	( "market_herbs_k"                             ,0,"market_herbs_k","0",[]),
+	( "market_herbs_m"                             ,0,"market_herbs_m","0",[]),
+	( "market_herbs_n"                             ,0,"market_herbs_n","0",[]),
+	( "market_herbs_o"                             ,0,"market_herbs_o","0",[]),
+	( "market_herbs_p"                             ,0,"market_herbs_p","0",[]),
+	( "market_herbs_r"                             ,0,"market_herbs_r","0",[]),
+	( "market_herbs_s"                             ,0,"market_herbs_s","0",[]),
+	( "market_herbs_t"                             ,0,"market_herbs_t","0",[]),
+	( "market_herbs_u"                             ,0,"market_herbs_u","0",[]),
+	( "market_herbs_v"                             ,0,"market_herbs_v","0",[]),
+	( "market_kettle"                              ,0,"market_kettle","bo_market_kettle",[]),
+	( "market_stall_hooks"                         ,0,"market_stall_hooks","0",[]),
+	( "market_stand_blood"                         ,0,"market_stand_blood","bo_market_stand_blood",[]),
+	( "market_stand_blue"                          ,0,"market_stand_blue","bo_market_stand_blue",[]),
+	( "market_stand_carpets"                       ,0,"market_stand_carpets","bo_market_stand_carpets",[]),
+	( "market_stand_coal"                          ,0,"market_stand_coal","bo_market_stand_coal",[]),
+	( "market_stand_green"                         ,0,"market_stand_green","bo_market_stand_green",[]),
+	( "market_stand_grey"                          ,0,"market_stand_grey","bo_market_stand_grey",[]),
+	( "market_stand_red"                           ,0,"market_stand_red","bo_market_stand_red",[]),
+	( "market_stand_white"                         ,0,"market_stand_white","bo_market_stand_white",[]),
+	( "plate_silver"                               ,0,"plate_silver","0",[]),
+	( "rug_oriental"                               ,0,"rug_oriental","0",[]),
+	( "tent_messy"                                 ,0,"tent_messy","bo_tent_messy",[]),
+# from 'DAC_props_market.brf': end (OpenBRF)
 
+
+# DAC Seek: Animal Spawners
+  ("spawn_chicken",sokf_invisible,"entry_arrow",0,    [
+   (ti_on_scene_prop_init,
+    [
+        (spawn_horse, "itm_animal_chicken", 0),
+    ]),
+   ]),
+   
+  ("spawn_cow",sokf_invisible,"entry_arrow",0,    [
+   (ti_on_scene_prop_init,
+    [
+        (spawn_horse, "itm_animal_cow", 0),
+    ]),
+   ]),
+
+  ("spawn_horse_a",sokf_invisible,"entry_arrow",0,    [
+   (ti_on_scene_prop_init,
+    [
+        (spawn_horse, "itm_animal_horse_light_a", 0),
+    ]),
+   ]),
+   
+  ("spawn_horse_b",sokf_invisible,"entry_arrow",0,    [
+   (ti_on_scene_prop_init,
+    [
+        (spawn_horse, "itm_animal_horse_light_b", 0),
+    ]),
+   ]),
+   
+  ("spawn_horse_c",sokf_invisible,"entry_arrow",0,    [
+   (ti_on_scene_prop_init,
+    [
+        (spawn_horse, "itm_animal_horse_light_c", 0),
+    ]),
+   ]),
+
+  ("spawn_pack_horse",sokf_invisible,"entry_arrow",0,    [
+   (ti_on_scene_prop_init,
+    [
+        (spawn_horse, "itm_animal_old_horse_a", 0),
+    ]),
+   ]),
+   
+  ("spawn_pig",sokf_invisible,"entry_arrow",0,    [
+   (ti_on_scene_prop_init,
+    [
+        (spawn_horse, "itm_animal_pig", 0),
+    ]),
+   ]),
+   
+  ("spawn_sheep_a",sokf_invisible,"entry_arrow",0,    [
+   (ti_on_scene_prop_init,
+    [
+        (spawn_horse, "itm_animal_sheep_a", 0),
+    ]),
+   ]),
+   
+  ("spawn_sheep_b",sokf_invisible,"entry_arrow",0,    [
+   (ti_on_scene_prop_init,
+    [
+        (spawn_horse, "itm_animal_sheep_b", 0),
+    ]),
+   ]),
 ]
