@@ -4315,7 +4315,7 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
     (call_script, "script_dplmc_get_item_score_with_imod", ":cur_armor", ":imod"),
   (try_end),
   (lt, reg0, 66 + 6 + 6), #base heraldic armor + lordly*2
-  (store_random_in_range, ":item_no","itm_mail_long_surcoat_new_heraldic", "itm_b_wrapping_boots"),
+  (store_random_in_range, ":item_no","itm_heraldic_brigandine_native", "itm_b_wrapping_boots"),
   # (troop_add_item, "$g_talk_troop", ":armor", imod_lordly),
   # (store_item_value, ":item_cost", ":item_no"),
   # (ge, ":initial_gold", ":item_cost"),
@@ -4345,23 +4345,23 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 #SB : add a faction-appropriate tableau shield
 (troop_get_slot, ":faction_no", "$g_talk_troop", slot_troop_original_faction),
 #this slot is set even if it was 0 before from the fief_culture
-(assign, ":item_no", "itm_tab_shield_heater_d"), #brown lion shield
+(assign, ":item_no", "itm_s_heraldic_shield_leather"), #brown lion shield
 (try_begin),
   (eq, ":faction_no", "fac_kingdom_1"),#heater for swadian/rhodok
-  (assign, ":item_no", "itm_tab_shield_heater_cav_b"),
+  (assign, ":item_no", "itm_s_heraldic_shield_leather"),
 # (else_try),
   # (eq, ":faction_no", "fac_kingdom_5"),  #heater for swadian/rhodok
   # (assign, ":item_no", "itm_tab_shield_heater_d"),
 (else_try),
   (eq, ":faction_no", "fac_kingdom_2"),  #kite for vaegir
-  (assign, ":item_no", "itm_tab_shield_kite_cav_b"),
+  (assign, ":item_no", "itm_s_heraldic_shield_leather"),
 # (else_try),
   # (this_or_next|eq, ":faction_no", "fac_kingdom_3"),
   # (eq, ":faction_no", "fac_kingdom_6"),  #cav for khergit/sarranid
   # (assign, ":item_no", "itm_tab_shield_small_round_c"),
 (else_try),
   (eq, ":faction_no", "fac_kingdom_4"),  #huscarl for nord
-  (assign, ":item_no", "itm_tab_shield_kite_cav_b"),
+  (assign, ":item_no", "itm_s_heraldic_shield_leather"),
 (try_end),
 (store_random_in_range, ":imod", imod_sturdy, imod_superb),
 (troop_add_item, "$g_talk_troop", ":item_no", ":imod"),

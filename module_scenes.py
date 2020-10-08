@@ -361,8 +361,8 @@ scenes = [
   [],[],"outer_terrain_plain"),
 
  ### DAC English Towns
-#Paris - BM's Uxkhal   
-("town_30_center",sf_generate|sf_muddy_water,"none", "none", (0,0),(100,100),-100,"0x0000000030000500000d2348000030c4000053ae00001d83",
+#Paris - iJustWant2bPure 
+("town_30_center",sf_generate|sf_muddy_water,"none", "none", (0,0),(100,100),-100,"0x0000000230000000000fffff000041ef00005ae800003c55",
   [],[],"outer_terrain_plain"),
 
 
@@ -634,8 +634,8 @@ scenes = [
     ["exit"],["town_29_seneschal"]),
 
 
-#Paris - BM's Uxkhal   
-  ("town_30_castle",sf_indoors, "interior_castle_v", "bo_interior_castle_v", (-100,-100),(100,100),-100,"0",
+#Paris - iJustWant2bPure 
+  ("town_30_castle",sf_indoors, "castle_h_interior_b2", "bo_castle_h_interior_b2", (-100,-100),(100,100),-100,"0",
     ["exit"],["town_30_seneschal"]),
 
 
@@ -894,7 +894,7 @@ scenes = [
     ["exit"],[]),
 
 
-#Paris - BM's Uxkhal   
+#Paris - iJustWant2bPure 
   ("town_30_tavern",sf_indoors, "interior_tavern_d", "bo_interior_tavern_d", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
 
@@ -1146,7 +1146,7 @@ scenes = [
     ["exit"],[]),
 
 
-#Paris - BM's Uxkhal   
+#Paris - iJustWant2bPure 
   ("town_30_store",sf_indoors, "interior_tavern_f", "bo_interior_tavern_f", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
 
@@ -1396,7 +1396,7 @@ scenes = [
     [],[],"outer_terrain_plain"),
 
 
-#Paris - BM's Uxkhal   
+#Paris - iJustWant2bPure 
   ("town_30_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0xa0001d9300031ccb0000156f000048ba0000361c",
     [],[],"outer_terrain_plain"),
 
@@ -1651,7 +1651,7 @@ scenes = [
     ["exit"],[]),
 
 
-#Paris - BM's Uxkhal   
+#Paris - iJustWant2bPure 
   ("town_30_prison",sf_indoors,"interior_prison_i", "bo_interior_prison_i", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
 
@@ -2160,7 +2160,7 @@ scenes = [
     [],[],"outer_terrain_plain"),
 
 
-#Paris - BM's Uxkhal   
+#Paris - iJustWant2bPure   
   ("town_30_alley",sf_generate|sf_muddy_water,"none", "none", (0,0),(100,100),-100,"0x0000000030000500000d2348000030c4000053ae00001d83",
     [],[],"outer_terrain_plain"),
 

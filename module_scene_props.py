@@ -4451,7 +4451,6 @@ scene_props = [
 	( "market_cloth_2_red"                         ,0,"market_cloth_2_red","0",[]),
 	( "market_clutter_1"                           ,0,"market_clutter_1","bo_market_clutter_1",[]),
 	( "market_clutter_2"                           ,0,"market_clutter_2","bo_market_clutter_2",[]),
-	( "market_clutter_222"                         ,0,"market_clutter_222","0",[]),
 	( "market_fish_bundle_large"                   ,0,"market_fish_bundle_large","0",[]),
 	( "market_fish_bundle_small"                   ,0,"market_fish_bundle_small","0",[]),
 	( "market_fish_pink"                           ,0,"market_fish_pink","0",[]),
@@ -4499,6 +4498,7 @@ scene_props = [
 	( "rug_oriental"                               ,0,"rug_oriental","0",[]),
 	( "tent_messy"                                 ,0,"tent_messy","bo_tent_messy",[]),
 # from 'DAC_props_market.brf': end (OpenBRF)
+
 
 
 # DAC Seek: Animal Spawners

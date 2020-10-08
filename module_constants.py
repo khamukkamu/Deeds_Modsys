@@ -1836,7 +1836,7 @@ ammo_begin = "itm_w_arrow_triangular"
 ammo_end = "itm_dedal_kufel"
 ranged_weapons_begin = "itm_w_short_bow_ash"
 ranged_weapons_end = "itm_w_arrow_triangular"
-shields_begin = "itm_s_battle_shield_charles"
+shields_begin = "itm_s_pavise_native_french_1"
 shields_end = "itm_items_end"
 
 #INVASION MODE START

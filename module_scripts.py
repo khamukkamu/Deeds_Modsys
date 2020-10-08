@@ -1332,52 +1332,52 @@ scripts = [
       (item_set_slot, "itm_w_lance_colored_french_3", slot_item_multiplayer_item_class, multi_item_class_type_lance),
 
       #shields
-      (item_set_slot, "itm_s_battle_shield_a1", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_s_battle_shield_a2", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_s_battle_shield_b1", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_s_battle_shield_b2", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_s_battle_shield_e1", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_s_battle_shield_e2", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_s_battle_shield_f1", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_s_battle_shield_f2", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_s_battle_shield_a1", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_s_battle_shield_a2", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_s_battle_shield_b1", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_s_battle_shield_b2", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_s_battle_shield_e1", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_s_battle_shield_e2", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_s_battle_shield_f1", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_s_battle_shield_f2", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
 
-      (item_set_slot, "itm_s_kite_shield_a1", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_s_kite_shield_a2", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_s_kite_shield_b1", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_s_kite_shield_b2", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_s_kite_shield_c1", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_s_kite_shield_c2", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_s_kite_shield_d1", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_s_kite_shield_d2", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),	
+      # (item_set_slot, "itm_s_kite_shield_a1", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_s_kite_shield_a2", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_s_kite_shield_b1", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_s_kite_shield_b2", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_s_kite_shield_c1", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_s_kite_shield_c2", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_s_kite_shield_d1", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_s_kite_shield_d2", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),	
 
-      (item_set_slot, "itm_s_war_shield_a1", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_s_war_shield_a2", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_s_war_shield_c1", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_s_war_shield_c2", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_s_war_shield_d1", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_s_war_shield_d2", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_s_war_shield_e1", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_s_war_shield_e2", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),		  
-      (item_set_slot, "itm_s_war_shield_f1", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_s_war_shield_f2", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_s_war_shield_a1", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_s_war_shield_a2", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_s_war_shield_c1", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_s_war_shield_c2", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_s_war_shield_d1", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_s_war_shield_d2", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_s_war_shield_e1", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_s_war_shield_e2", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),		  
+      # (item_set_slot, "itm_s_war_shield_f1", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_s_war_shield_f2", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
 
-      (item_set_slot, "itm_s_heraldic_shield_a1", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_s_heraldic_shield_a2", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_s_heraldic_shield_b1", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_s_heraldic_shield_b2", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_s_heraldic_shield_c1", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_s_heraldic_shield_c2", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_s_heraldic_shield_d1", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_s_heraldic_shield_d2", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_s_heraldic_shield_a1", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_s_heraldic_shield_a2", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_s_heraldic_shield_b1", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_s_heraldic_shield_b2", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_s_heraldic_shield_c1", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_s_heraldic_shield_c2", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_s_heraldic_shield_d1", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_s_heraldic_shield_d2", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
 	  
-      (item_set_slot, "itm_s_heater_shield_a1", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_s_heater_shield_a2", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_s_heater_shield_b1", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_s_heater_shield_b2", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_s_heater_shield_c1", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_s_heater_shield_c2", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_s_heater_shield_d1", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_s_heater_shield_d2", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_s_heater_shield_a1", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_s_heater_shield_a2", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_s_heater_shield_b1", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_s_heater_shield_b2", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_s_heater_shield_c1", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_s_heater_shield_c2", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_s_heater_shield_d1", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_s_heater_shield_d2", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
 
       (item_set_slot, "itm_s_heater_shield_french_1", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
       (item_set_slot, "itm_s_heater_shield_french_2", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
@@ -1396,26 +1396,32 @@ scripts = [
 
       (item_set_slot, "itm_s_steel_buckler", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
       (item_set_slot, "itm_s_steel_buckler_2", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      (item_set_slot, "itm_s_heraldic_shield_pavise_native", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      (item_set_slot, "itm_s_heraldic_shield_pavise", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      (item_set_slot, "itm_s_heraldic_shield_heater", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      (item_set_slot, "itm_s_heraldic_shield_leather", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      (item_set_slot, "itm_s_heraldic_shield_metal", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      (item_set_slot, "itm_s_heraldic_shield_bouche", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
 	  
-      (item_set_slot, "itm_tab_shield_kite_a", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_tab_shield_kite_b", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_tab_shield_kite_c", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_tab_shield_kite_d", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_tab_shield_kite_cav_a", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_tab_shield_kite_cav_b", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_tab_shield_kite_a", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_tab_shield_kite_b", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_tab_shield_kite_c", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_tab_shield_kite_d", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_tab_shield_kite_cav_a", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_tab_shield_kite_cav_b", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
 
-      (item_set_slot, "itm_tab_shield_heater_a", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_tab_shield_heater_b", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_tab_shield_heater_c", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_tab_shield_heater_d", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_tab_shield_heater_cav_a", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_tab_shield_heater_cav_b", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_tab_shield_heater_a", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_tab_shield_heater_b", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_tab_shield_heater_c", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_tab_shield_heater_d", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_tab_shield_heater_cav_a", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_tab_shield_heater_cav_b", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
 
-      (item_set_slot, "itm_tab_shield_pavise_a", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_tab_shield_pavise_b", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_tab_shield_pavise_c", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_tab_shield_pavise_d", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
-      (item_set_slot, "itm_tab_shield_pavise_e", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_tab_shield_pavise_a", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_tab_shield_pavise_b", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_tab_shield_pavise_c", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_tab_shield_pavise_d", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
+      # (item_set_slot, "itm_tab_shield_pavise_e", slot_item_multiplayer_item_class, multi_item_class_type_small_shield),
 		  
       #throwing
       # (item_set_slot, "itm_darts", slot_item_multiplayer_item_class, multi_item_class_type_throwing),
@@ -1436,7 +1442,6 @@ scripts = [
       (item_set_slot, "itm_a_aketon_plate_hose_narf_custom", slot_item_multiplayer_item_class,multi_item_class_type_medium_armor),
       (item_set_slot, "itm_a_aketon_jackchain_plate_hose_narf_custom", slot_item_multiplayer_item_class,multi_item_class_type_medium_armor),
       (item_set_slot, "itm_a_brigandine_bogmir_custom", slot_item_multiplayer_item_class,multi_item_class_type_medium_armor),
-      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_multiplayer_item_class,multi_item_class_type_medium_armor),
       (item_set_slot, "itm_a_mail_shirt_custom", slot_item_multiplayer_item_class,multi_item_class_type_medium_armor),
       (item_set_slot, "itm_a_gambeson_narf_breastplate_custom", slot_item_multiplayer_item_class,multi_item_class_type_medium_armor),
       (item_set_slot, "itm_a_hauberk_narf", slot_item_multiplayer_item_class,multi_item_class_type_medium_armor),
@@ -1471,19 +1476,16 @@ scripts = [
 
      (item_set_slot, "itm_a_churburg_narf_custom", slot_item_multiplayer_item_class, multi_item_class_type_heavy_armor),
      (item_set_slot, "itm_a_churburg_brass_narf_custom", slot_item_multiplayer_item_class, multi_item_class_type_heavy_armor),
-     (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_multiplayer_item_class, multi_item_class_type_heavy_armor),
      (item_set_slot, "itm_a_corrazina_narf_custom", slot_item_multiplayer_item_class, multi_item_class_type_heavy_armor),
      (item_set_slot, "itm_a_corrazina_leather_custom", slot_item_multiplayer_item_class, multi_item_class_type_heavy_armor),
      (item_set_slot, "itm_a_churburg_jupon_custom", slot_item_multiplayer_item_class, multi_item_class_type_heavy_armor),
      
      (item_set_slot, "itm_a_churburg_narf_mail", slot_item_multiplayer_item_class, multi_item_class_type_heavy_armor),
      (item_set_slot, "itm_a_milanese_armour_narf", slot_item_multiplayer_item_class, multi_item_class_type_heavy_armor),
-     (item_set_slot, "itm_a_gothic_armour_narf", slot_item_multiplayer_item_class, multi_item_class_type_heavy_armor),
      (item_set_slot, "itm_a_plate_harness_1", slot_item_multiplayer_item_class, multi_item_class_type_heavy_armor),
      (item_set_slot, "itm_a_plate_harness_2", slot_item_multiplayer_item_class, multi_item_class_type_heavy_armor),
      (item_set_slot, "itm_a_plate_english", slot_item_multiplayer_item_class, multi_item_class_type_heavy_armor),
  
-     (item_set_slot, "itm_mail_long_surcoat_new_heraldic", slot_item_multiplayer_item_class, multi_item_class_type_heavy_armor),
      (item_set_slot, "itm_heraldic_brigandine_native", slot_item_multiplayer_item_class, multi_item_class_type_heavy_armor),
      (item_set_slot, "itm_heraldic_brigandine_narf_padded_full_plate_hose_custom", slot_item_multiplayer_item_class, multi_item_class_type_heavy_armor),
      (item_set_slot, "itm_heraldic_brigandine_narf_padded_jackchain_full_plate_hose_custom", slot_item_multiplayer_item_class, multi_item_class_type_heavy_armor),
@@ -1496,7 +1498,6 @@ scripts = [
      (item_set_slot, "itm_heraldic_mail_tabard", slot_item_multiplayer_item_class, multi_item_class_type_heavy_armor),
      (item_set_slot, "itm_heraldic_churburg_13_tabard", slot_item_multiplayer_item_class, multi_item_class_type_heavy_armor),
      (item_set_slot, "itm_heraldic_churburg_13_brass_tabard", slot_item_multiplayer_item_class, multi_item_class_type_heavy_armor),
-     (item_set_slot, "itm_heraldic_early_transitional", slot_item_multiplayer_item_class, multi_item_class_type_heavy_armor),
      (item_set_slot, "itm_heraldic_jupon", slot_item_multiplayer_item_class, multi_item_class_type_heavy_armor),
      (item_set_slot, "itm_heraldic_plate", slot_item_multiplayer_item_class, multi_item_class_type_heavy_armor),
      (item_set_slot, "itm_a_tabard_heraldic", slot_item_multiplayer_item_class, multi_item_class_type_heavy_armor),
@@ -1639,8 +1640,6 @@ scripts = [
      (item_set_slot, "itm_ho_courser_6", slot_item_multiplayer_item_class, multi_item_class_type_horse),
      (item_set_slot, "itm_ho_courser_7", slot_item_multiplayer_item_class, multi_item_class_type_horse),
      (item_set_slot, "itm_ho_courser_8", slot_item_multiplayer_item_class, multi_item_class_type_horse),
-     (item_set_slot, "itm_ho_courser_9", slot_item_multiplayer_item_class, multi_item_class_type_horse),
-     (item_set_slot, "itm_ho_courser_10", slot_item_multiplayer_item_class, multi_item_class_type_horse),
 	 
       (item_set_slot, "itm_ho_hunting_horse_france", slot_item_multiplayer_item_class, multi_item_class_type_horse),
       (item_set_slot, "itm_ho_hunting_horse_england", slot_item_multiplayer_item_class, multi_item_class_type_horse),
@@ -1749,11 +1748,11 @@ scripts = [
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_bolt_broadhead", "trp_french_crossbowman_multiplayer"),	  
 			  
       # Shields	  
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_pavise_a", "trp_french_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_pavise_b", "trp_french_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_pavise_c", "trp_french_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_pavise_d", "trp_french_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_pavise_e", "trp_french_crossbowman_multiplayer"), 
+      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_s_heraldic_shield_pavise_native", "trp_french_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_pavise_b", "trp_french_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_pavise_c", "trp_french_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_pavise_d", "trp_french_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_pavise_e", "trp_french_crossbowman_multiplayer"), 
 		  
 
       ###1b-French Infantry
@@ -1904,7 +1903,6 @@ scripts = [
       # Armor	  
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_heraldic_mail_tabard", "trp_french_chevalier_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_heraldic_tunic_new", "trp_french_chevalier_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_heraldic_early_transitional", "trp_french_chevalier_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_heraldic_brigandine_native", "trp_french_chevalier_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_heraldic_brigandine_narf_padded_full_plate_hose_custom", "trp_french_chevalier_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_heraldic_brigandine_narf_padded_plate_full_plate_hose_custom", "trp_french_chevalier_multiplayer"),
@@ -1949,12 +1947,10 @@ scripts = [
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_squire", "trp_french_chevalier_multiplayer"),
 
       # Shields	 	  
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_a", "trp_french_chevalier_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_b", "trp_french_chevalier_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_c", "trp_french_chevalier_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_d", "trp_french_chevalier_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_cav_a", "trp_french_chevalier_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_cav_b", "trp_french_chevalier_multiplayer"),
+      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_s_heraldic_shield_heater", "trp_french_chevalier_multiplayer"),
+      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_s_heraldic_shield_leather", "trp_french_chevalier_multiplayer"),
+      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_s_heraldic_shield_metal", "trp_french_chevalier_multiplayer"),
+      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_s_heraldic_shield_bouche", "trp_french_chevalier_multiplayer"),
 
       # Horses	 	  
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_ho_rouncey_1", "trp_french_chevalier_multiplayer"),
@@ -2184,7 +2180,6 @@ scripts = [
       # Armor	  
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_heraldic_mail_tabard", "trp_english_knight_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_heraldic_tunic_new", "trp_english_knight_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_heraldic_early_transitional", "trp_english_knight_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_heraldic_brigandine_native", "trp_english_knight_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_heraldic_brigandine_narf_padded_full_plate_hose_custom", "trp_english_knight_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_heraldic_brigandine_narf_padded_plate_full_plate_hose_custom", "trp_english_knight_multiplayer"),
@@ -2229,12 +2224,10 @@ scripts = [
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_squire", "trp_english_knight_multiplayer"),
 
       # Shields	 	  
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_a", "trp_english_knight_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_b", "trp_english_knight_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_c", "trp_english_knight_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_d", "trp_english_knight_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_cav_a", "trp_english_knight_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_cav_b", "trp_english_knight_multiplayer"),
+      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_s_heraldic_shield_heater", "trp_english_knight_multiplayer"),
+      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_s_heraldic_shield_leather", "trp_english_knight_multiplayer"),
+      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_s_heraldic_shield_metal", "trp_english_knight_multiplayer"),
+      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_s_heraldic_shield_bouche", "trp_english_knight_multiplayer"),
 
       # Horses	 	  
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_ho_rouncey_1", "trp_english_knight_multiplayer"),
@@ -2469,7 +2462,6 @@ scripts = [
       # Armor	  
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_heraldic_mail_tabard", "trp_burgundian_knight_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_heraldic_tunic_new", "trp_burgundian_knight_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_heraldic_early_transitional", "trp_burgundian_knight_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_heraldic_brigandine_native", "trp_burgundian_knight_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_heraldic_brigandine_narf_padded_full_plate_hose_custom", "trp_burgundian_knight_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_heraldic_brigandine_narf_padded_plate_full_plate_hose_custom", "trp_burgundian_knight_multiplayer"),
@@ -2514,12 +2506,10 @@ scripts = [
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_squire", "trp_burgundian_knight_multiplayer"),
 
       # Shields	 	  
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_a", "trp_burgundian_knight_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_b", "trp_burgundian_knight_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_c", "trp_burgundian_knight_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_d", "trp_burgundian_knight_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_cav_a", "trp_burgundian_knight_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_cav_b", "trp_burgundian_knight_multiplayer"),
+      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_s_heraldic_shield_heater", "trp_burgundian_knight_multiplayer"),
+      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_s_heraldic_shield_leather", "trp_burgundian_knight_multiplayer"),
+      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_s_heraldic_shield_metal", "trp_burgundian_knight_multiplayer"),
+      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_s_heraldic_shield_bouche", "trp_burgundian_knight_multiplayer"),
 
       # Horses	 	  
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_ho_rouncey_1", "trp_burgundian_knight_multiplayer"),
@@ -2607,11 +2597,8 @@ scripts = [
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_bolt_broadhead", "trp_breton_crossbowman_multiplayer"),	  
 			  
       # Shields	  
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_pavise_a", "trp_breton_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_pavise_b", "trp_breton_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_pavise_c", "trp_breton_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_pavise_d", "trp_breton_crossbowman_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_pavise_e", "trp_breton_crossbowman_multiplayer"), 
+      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_s_heraldic_shield_pavise_native", "trp_breton_crossbowman_multiplayer"),
+
 		  
 
       ###4b- Breton Infantry
@@ -2751,7 +2738,6 @@ scripts = [
       # Armor	  
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_heraldic_mail_tabard", "trp_breton_knight_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_heraldic_tunic_new", "trp_breton_knight_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_heraldic_early_transitional", "trp_breton_knight_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_heraldic_brigandine_native", "trp_breton_knight_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_heraldic_brigandine_narf_padded_full_plate_hose_custom", "trp_breton_knight_multiplayer"),
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_heraldic_brigandine_narf_padded_plate_full_plate_hose_custom", "trp_breton_knight_multiplayer"),
@@ -2796,12 +2782,10 @@ scripts = [
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_w_onehanded_sword_squire", "trp_breton_knight_multiplayer"),
 
       # Shields	 	  
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_a", "trp_breton_knight_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_b", "trp_breton_knight_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_c", "trp_breton_knight_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_d", "trp_breton_knight_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_cav_a", "trp_breton_knight_multiplayer"),
-      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_tab_shield_kite_cav_b", "trp_breton_knight_multiplayer"),
+      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_s_heraldic_shield_heater", "trp_breton_knight_multiplayer"),
+      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_s_heraldic_shield_leather", "trp_breton_knight_multiplayer"),
+      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_s_heraldic_shield_metal", "trp_breton_knight_multiplayer"),
+      (call_script, "script_multiplayer_set_item_available_for_troop", "itm_s_heraldic_shield_bouche", "trp_breton_knight_multiplayer"),
 
       # Horses	 	  
       (call_script, "script_multiplayer_set_item_available_for_troop", "itm_ho_rouncey_1", "trp_breton_knight_multiplayer"),
@@ -42307,7 +42291,7 @@ scripts = [
         (cur_tableau_add_override_item, "itm_b_hosen_poulaines_custom"),
         (assign, ":animation", "anim_pose_4"),
       (else_try),
-        (cur_tableau_add_override_item, "itm_heraldic_early_transitional"),
+        (cur_tableau_add_override_item, "itm_heraldic_brigandine_native"),
         (cur_tableau_add_override_item, "itm_b_steel_greaves"),
         # (cur_tableau_add_override_item, "itm_sword_medieval_c"),
         (assign, ":animation", "anim_pose_5"),
@@ -72524,7 +72508,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
         (try_begin),
           (eq, ":with_weapon", 1),
           (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_w_warhammer_1"),
-          (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_tab_shield_round_c"),
+          (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_s_heraldic_shield_leather"),
           (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_w_spear_7"),
         (try_end),
       (else_try),
@@ -76233,7 +76217,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (troop_add_item, "trp_bonus_chest_2","itm_torch", imod_old),
 
       (troop_add_item, "trp_bonus_chest_3","itm_b_steel_greaves_full", imod_lordly),
-      (troop_add_item, "trp_bonus_chest_3","itm_a_gothic_armour_narf", imod_lordly),
+      (troop_add_item, "trp_bonus_chest_3","itm_a_kastenbrust_mail", imod_lordly),
       (troop_add_item, "trp_bonus_chest_3","itm_h_bascinet_great", imod_lordly),
       # (troop_add_item, "trp_bonus_chest_3","itm_steel_shield", imod_lordly),
       (troop_add_item, "trp_bonus_chest_3","itm_h_bascinet_great", imod_lordly), #charger_plate_1
@@ -79149,41 +79133,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 # Brittany    
       (item_set_slot, "itm_a_padded_over_mail_custom", slot_item_breton_materials_begin, "str_a_padded_over_mail_brown"),
       (item_set_slot, "itm_a_padded_over_mail_custom", slot_item_breton_materials_end, "str_a_padded_over_mail_end"),     
-      (item_set_slot, "itm_a_padded_over_mail_custom", slot_item_num_components, 1),      
-    
-## Coat of Plates
-      (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_materials_begin, "str_a_coat_of_plates_blue"),
-      (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_materials_end, "str_a_coat_of_plates_end"),
-# France
-      (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_france_materials_begin, "str_a_coat_of_plates_blue"),
-      (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_france_materials_end, "str_a_coat_of_plates_red"),
-# England
-      (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_english_materials_begin, "str_a_coat_of_plates_white"),
-      (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_english_materials_end, "str_a_coat_of_plates_brown"),  
-# Burgundy
-      (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_burgundy_materials_begin, "str_a_coat_of_plates_red"),
-      (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_burgundy_materials_end, "str_a_coat_of_plates_black"), 	  
-# Brittany    
-      (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_breton_materials_begin, "str_a_coat_of_plates_brown"),
-      (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_breton_materials_end, "str_a_coat_of_plates_end"),     	  
-      (item_set_slot, "itm_a_coat_of_plates_custom", slot_item_num_components, 1),        
-
-## Surcoat Over Mail
-      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_materials_begin, "str_a_surcoat_over_mail_blue"),
-      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_materials_end, "str_a_surcoat_over_mail_end"),
-# France
-      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_france_materials_begin, "str_a_surcoat_over_mail_blue"),
-      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_france_materials_end, "str_a_surcoat_over_mail_red"),
-# England
-      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_english_materials_begin, "str_a_surcoat_over_mail_red"),
-      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_english_materials_end, "str_a_surcoat_over_mail_blue_3"), 
-# Burgundy
-      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_burgundy_materials_begin, "str_a_surcoat_over_mail_blue_3"),
-      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_burgundy_materials_end, "str_a_surcoat_over_mail_black"), 	  
-# Brittany    
-      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_breton_materials_begin, "str_a_surcoat_over_mail_brown"),
-      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_breton_materials_end, "str_a_surcoat_over_mail_end"),     
-      (item_set_slot, "itm_a_surcoat_over_mail_custom", slot_item_num_components, 1),     
+      (item_set_slot, "itm_a_padded_over_mail_custom", slot_item_num_components, 1),        
     
 ## Churburg
       (item_set_slot, "itm_a_churburg_narf_custom", slot_item_materials_begin, "str_a_churburg_blue"),
@@ -79275,26 +79225,6 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (item_set_slot, "itm_a_corrazina_leather_custom", slot_item_breton_materials_begin, "str_a_corrazina_leather_brown"),
       (item_set_slot, "itm_a_corrazina_leather_custom", slot_item_breton_materials_end, "str_a_corrazina_leather_end"),   
       (item_set_slot, "itm_a_corrazina_leather_custom", slot_item_num_components, 1),   	  	  
-    
-## Early Transitional Plate
-      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_materials_begin, "str_a_early_transitional_french_1"),
-      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_materials_end, "str_a_early_transitional_end"),
-# France
-      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_france_materials_begin, "str_a_early_transitional_french_1"),
-      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_france_materials_end, "str_a_early_transitional_english_1"),
-# England
-      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_english_materials_begin, "str_a_early_transitional_white"),
-      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_english_materials_end, "str_a_early_transitional_english_2"), 
-# Burgundy
-      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_burgundy_materials_begin, "str_a_early_transitional_burgundian"),
-      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_burgundy_materials_end, "str_a_early_transitional_breton"),   
-# Brittany    
-      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_breton_materials_begin, "str_a_early_transitional_breton"),
-      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_breton_materials_end, "str_a_early_transitional_black"),    
-# Flemish Mercenaries   
-      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_flemish_materials_begin, "str_a_early_transitional_black"),
-      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_flemish_materials_end, "str_a_early_transitional_end"),
-      (item_set_slot, "itm_a_early_transitional_narf_custom", slot_item_num_components, 1),       
         
 ## Narf Brigandine 
       (try_for_range, ":item_no", "itm_a_brigandine_narf_padded_custom", "itm_a_churburg_narf_custom"), # Seek: All the Brigandines share the same base

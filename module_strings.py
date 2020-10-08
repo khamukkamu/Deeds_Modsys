@@ -5419,36 +5419,6 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("a_padded_over_mail_black", "a_padded_over_mail_black"),  
 ("a_padded_over_mail_end", "a_padded_over_mail_end"),
 
-## Coat of Plates
-# French 
-("a_coat_of_plates_blue", "a_coat_of_plates_blue"),  
-("a_coat_of_plates_white", "a_coat_of_plates_white"),  
-# English
-("a_coat_of_plates_red", "a_coat_of_plates_red"),  
-# Burgundian
-("a_coat_of_plates_brown", "a_coat_of_plates_brown"),  
-# Breton
-("a_coat_of_plates_white_2", "a_coat_of_plates_white"),  
-("a_coat_of_plates_black", "a_coat_of_plates_black"),  
-("a_coat_of_plates_end", "a_coat_of_plates_end"),
-
-## Surcoat over Mail
-# French 
-("a_surcoat_over_mail_blue", "a_surcoat_over_mail_blue"),  
-("a_surcoat_over_mail_blue_2", "a_surcoat_over_mail_blue_2"),  
-# English
-("a_surcoat_over_mail_red", "a_surcoat_over_mail_red"),  
-("a_surcoat_over_mail_red_2", "a_surcoat_over_mail_red_2"),  
-("a_surcoat_over_mail_red_3", "a_surcoat_over_mail_red_3"),  
-# Burgundian
-("a_surcoat_over_mail_blue_3", "a_surcoat_over_mail_blue_3"),  
-("a_surcoat_over_mail_brown", "a_surcoat_over_mail_brown"),  
-("a_surcoat_over_mail_brown_2", "a_surcoat_over_mail_brown_2"),  
-# Breton
-("a_surcoat_over_mail_black", "a_surcoat_over_mail_black"),  
-("a_surcoat_over_mail_black_2", "a_surcoat_over_mail_black_2"),  
-("a_surcoat_over_mail_end", "a_surcoat_over_mail_end"),
-
 ## Churburg
 # French 
 ("a_churburg_blue", "a_churburg_blue"),  
@@ -5519,25 +5489,6 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("a_corrazina_leather_white_2", "a_corrazina_leather_white"),
 ("a_corrazina_leather_black", "a_corrazina_leather_black"),
 ("a_corrazina_leather_end", "a_corrazina_leather_end"),
-
-## Early Transitional Plate
-# French 
-("a_early_transitional_french_1", "a_early_transitional_french_1"),  
-("a_early_transitional_french_2", "a_early_transitional_french_2"),  
-("a_early_transitional_white", "a_early_transitional_white"),  
-# English
-("a_early_transitional_english_1", "a_early_transitional_english_1"),  
-("a_early_transitional_english_2", "a_early_transitional_english_2"),  
-# Burgundian
-("a_early_transitional_burgundian", "a_early_transitional_burgundian"),  
-# Breton  
-("a_early_transitional_breton", "a_early_transitional_breton"),  
-("a_early_transitional_white_2", "a_early_transitional_white"),
-# Flemish
-("a_early_transitional_black", "a_early_transitional_black"),
-("a_early_transitional_yellow", "a_early_transitional_yellow"),
-("a_early_transitional_yellow_black", "a_early_transitional_yellow_black"),
-("a_early_transitional_end", "a_early_transitional_end"),
 
 ## Narf Hoods for the Helmets
 # French 
