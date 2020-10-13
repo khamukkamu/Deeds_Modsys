@@ -5698,6 +5698,14 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("sel_lord_fac_adj_3", "Duchy of Burgundy"),
 ("sel_lord_fac_adj_4", "Duchy of Brittany"),
 
+### DAC Seek: Camp troop dialog
+("camp_soldier_line_1", "Keeping watch {sir/madam}."),  
+("camp_soldier_line_2", "Hello {sir/madam}."),
+("camp_soldier_line_3", "Do you need anything?"),
+("camp_soldier_line_4", "Will we be on the move soon?"),
+("camp_soldier_line_5", "Greetings m'{lord/lady}"),
+("camp_soldier_line_end", "none"),
+
 #utility for skill names
 ]+[
 ("skl_"+skills[x][0], skills[x][1]) for x in range(0, len(skills))]

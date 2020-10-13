@@ -1015,3 +1015,4 @@ script_improve_player_camp = 1013
 script_player_camp_get_improvement_details = 1014
 script_refresh_mercenary_camp_troops = 1015
 script_refresh_mercenary_camp_merchant_inventory = 1016
+script_player_camp_set_props = 1017

@@ -45396,6 +45396,19 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 
   [anyone|plyr,"camp_merchant_start", [], "I have what I need, thanks.", "close_window",[]],
   
+  
+### DAC Seek: Generic troops dialog
+[anyone,"start", [ 
+    (is_between, "$g_talk_troop", customizable_troops_begin, customizable_troops_end),
+    (store_random_in_range, ":string", player_camp_dialog_begin, player_camp_dialog_end),
+    (str_store_string, s20, ":string"),
+    ],
+   "{s20}", "close_window", []],
+  
+  
+  
+  
+  
 ######################################
 # GENERIC PARTY ENCOUNTER
 ######################################

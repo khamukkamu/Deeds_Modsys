@@ -17,6 +17,61 @@ from compiler import *
 #  5) Triggers: Simple triggers that are associated with the scene prop
 ####################################################################################################################
 
+def agent_spawner(troop_id):
+  return (ti_on_scene_prop_init, [
+        (store_trigger_param_1, ":scene_prop_id"),
+        
+        (prop_instance_get_variation_id_2, ":var_id_2_level", ":scene_prop_id"),
+        
+        (spawn_agent, troop_id),
+        
+        (agent_get_horse, ":horse", reg0),
+        (try_begin),
+            (gt, ":horse", 0),
+            (remove_agent, ":horse"),
+            
+            (agent_set_visibility, ":horse", 0),
+            (agent_stop_sound, ":horse"),
+            (agent_stop_sound, reg0),
+        (try_end),
+        
+        (val_div, ":var_id_2_level", 10),
+        
+        (try_begin),
+            (eq, ":var_id_2_level", 1),
+            (agent_set_stand_animation, reg0, "anim_sitting_low"),
+            (agent_set_animation, reg0, "anim_sitting_low"),
+            (store_random_in_range, ":random_no", 0, 100),
+            (agent_set_animation_progress, reg0, ":random_no"),	
+            (agent_ai_set_interact_with_player, reg0, 0),
+        (else_try),
+            (eq, ":var_id_2_level", 2),
+            (agent_equip_item, reg0, "itm_dedal_kufel"),
+            (agent_set_wielded_item, reg0, "itm_dedal_kufel"),
+            (agent_set_stand_animation, reg0, "anim_sitting_drinking_low"),
+            (agent_set_animation, reg0, "anim_sitting_drinking_low"),
+            (store_random_in_range, ":random_no", 0, 100),
+            (agent_set_animation_progress, reg0, ":random_no"),	
+            (agent_ai_set_interact_with_player, reg0, 0),
+        (else_try),
+            (eq, ":var_id_2_level", 3),
+            (agent_equip_item, reg0, "itm_dedal_lutnia"),
+            (agent_set_wielded_item, reg0, "itm_dedal_lutnia"),
+            (agent_set_stand_animation, reg0, "anim_lute_standing"),
+            (agent_set_animation, reg0, "anim_lute_standing"),
+            (store_random_in_range, ":random_no", 0, 100),
+            (agent_set_animation_progress, reg0, ":random_no"),	
+            (agent_play_sound,reg0,"snd_dedal_tavern_lute"),
+            (agent_ai_set_interact_with_player, reg0, 0),
+        (else_try),
+            (agent_set_stand_animation, reg0, "anim_stand_townguard"),
+            (agent_set_animation, reg0, "anim_stand_townguard"),
+            (store_random_in_range, ":random_no", 0, 100),
+            (agent_set_animation_progress, reg0, ":random_no"),	
+            (agent_ai_set_interact_with_player, reg0, 0),
+        (try_end),
+  ])
+  
 check_item_use_trigger = (ti_on_scene_prop_use,
     [
       (store_trigger_param_1, ":agent_id"),
@@ -4499,6 +4554,39 @@ scene_props = [
 	( "tent_messy"                                 ,0,"tent_messy","bo_tent_messy",[]),
 # from 'DAC_props_market.brf': end (OpenBRF)
 
+# from 'DAC_props_tents.brf': begin (OpenBRF)
+	( "tent_blue_1"                                ,0,"tent_blue_1","bo_tent_small_open",[]),
+	( "tent_blue_2"                                ,0,"tent_blue_2","bo_tent_small_open",[]),
+	( "tent_fake_blue_1"                           ,0,"tent_fake_blue_1","bo_tent_small_closed",[]),
+	( "tent_fake_blue_2"                           ,0,"tent_fake_blue_2","bo_tent_small_closed",[]),
+	( "tent_fake_green"                            ,0,"tent_fake_green","bo_tent_small_closed",[]),
+	( "tent_fake_large_gold"                       ,0,"tent_fake_large_gold","bo_tent_large_closed",[]),
+	( "tent_fake_large_red"                        ,0,"tent_fake_large_red","bo_tent_large_closed",[]),
+	( "tent_fake_large_royal"                      ,0,"tent_fake_large_royal","bo_tent_large_closed",[]),
+	( "tent_fake_red_1"                            ,0,"tent_fake_red_1","bo_tent_small_closed",[]),
+	( "tent_fake_red_2"                            ,0,"tent_fake_red_2","bo_tent_small_closed",[]),
+	( "tent_fake_royal"                            ,0,"tent_fake_royal","bo_tent_small_closed",[]),
+	( "tent_fake_tan_1"                            ,0,"tent_fake_tan_1","bo_tent_small_closed",[]),
+	( "tent_fake_tan_2"                            ,0,"tent_fake_tan_2","bo_tent_small_closed",[]),
+	( "tent_fake_tan_3"                            ,0,"tent_fake_tan_3","bo_tent_small_closed",[]),
+	( "tent_fake_white_1"                          ,0,"tent_fake_white_1","bo_tent_small_closed",[]),
+	( "tent_fake_white_2"                          ,0,"tent_fake_white_2","bo_tent_small_closed",[]),
+	( "tent_fake_white_3"                          ,0,"tent_fake_white_3","bo_tent_small_closed",[]),
+	( "tent_green"                                 ,0,"tent_green","bo_tent_small_open",[]),
+	( "tent_large_gold"                            ,0,"tent_large_gold","bo_tent_large_open",[]),
+	( "tent_large_red"                             ,0,"tent_large_red","bo_tent_large_open",[]),
+	( "tent_large_royal"                           ,0,"tent_large_royal","bo_tent_large_open",[]),
+	( "tent_red_1"                                 ,0,"tent_red_1","bo_tent_small_open",[]),
+	( "tent_red_2"                                 ,0,"tent_red_2","bo_tent_small_open",[]),
+	( "tent_royal"                                 ,0,"tent_royal","bo_tent_small_open",[]),
+	( "tent_tan_1"                                 ,0,"tent_tan_1","bo_tent_small_open",[]),
+	( "tent_tan_2"                                 ,0,"tent_tan_2","bo_tent_small_open",[]),
+	( "tent_tan_3"                                 ,0,"tent_tan_3","bo_tent_small_open",[]),
+	( "tent_white_1"                               ,0,"tent_white_1","bo_tent_small_open",[]),
+	( "tent_white_2"                               ,0,"tent_white_2","bo_tent_small_open",[]),
+	( "tent_white_3"                               ,0,"tent_white_3","bo_tent_small_open",[]),
+# from 'DAC_props_tents.brf': end (OpenBRF)
+
 
 
 # DAC Seek: Animal Spawners
@@ -4564,4 +4652,65 @@ scene_props = [
         (spawn_horse, "itm_animal_sheep_b", 0),
     ]),
    ]),
+   
+  ("spawn_camp_recruit",sokf_invisible,"entry_arrow",0,    [
+    agent_spawner("trp_custom_merc_recruit")
+   ]),
+   
+  ("spawn_camp_footman",sokf_invisible,"entry_arrow",0,    [
+    agent_spawner("trp_custom_merc_footman")
+   ]),
+
+  ("spawn_camp_veteran",sokf_invisible,"entry_arrow",0,    [
+    agent_spawner("trp_custom_merc_veteran")
+   ]),
+   
+  ("spawn_camp_sergeant",sokf_invisible,"entry_arrow",0,    [
+    agent_spawner("trp_custom_merc_sergeant")
+   ]),
+   
+  ("spawn_camp_skirmisher",sokf_invisible,"entry_arrow",0,    [
+    agent_spawner("trp_custom_merc_skirmisher")
+   ]),
+   
+  ("spawn_camp_ranger",sokf_invisible,"entry_arrow",0,    [
+    agent_spawner("trp_custom_merc_ranger")
+   ]),
+   
+  ("spawn_camp_marksman",sokf_invisible,"entry_arrow",0,    [
+    agent_spawner("trp_custom_merc_marksman")
+   ]),
+   
+  ("spawn_camp_scout",sokf_invisible,"entry_arrow",0,    [
+    agent_spawner("trp_custom_merc_scout")
+   ]),
+   
+  ("spawn_camp_mounted_sergeant",sokf_invisible,"entry_arrow",0,    [
+    agent_spawner("trp_custom_merc_mounted_sergeant")
+   ]),
+   
+  ("spawn_camp_foot_squire",sokf_invisible,"entry_arrow",0,    [
+    agent_spawner("trp_custom_merc_foot_squire")
+   ]),
+   
+  ("spawn_camp_footman_at_arms",sokf_invisible,"entry_arrow",0,    [
+    agent_spawner("trp_custom_merc_footman_at_arms")
+   ]),
+   
+  ("spawn_camp_dismounted_knight",sokf_invisible,"entry_arrow",0,    [
+    agent_spawner("trp_custom_merc_dismounted_knight")
+   ]),
+   
+  ("spawn_camp_squire",sokf_invisible,"entry_arrow",0,    [
+    agent_spawner("trp_custom_merc_squire")
+   ]),
+   
+  ("spawn_camp_man_at_arms",sokf_invisible,"entry_arrow",0,    [
+    agent_spawner("trp_custom_merc_man_at_arms")
+   ]),
+   
+  ("spawn_camp_knight",sokf_invisible,"entry_arrow",0,    [
+    agent_spawner("trp_custom_merc_knight")
+   ]),
+
 ]

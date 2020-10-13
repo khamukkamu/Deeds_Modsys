@@ -26,6 +26,7 @@ mercenary_company_scripts = [
     (assign, "$player_camp_available", -1),
     (assign, "$player_camp_troop_color_scheme", -1),
     (assign, "$player_camp_built", 0),
+    (assign, "$player_camp_edit_mode", 0),
     (party_set_slot, "p_player_camp", slot_player_camp_archery_range, -1),    
     (party_set_slot, "p_player_camp", slot_player_camp_smithy, -1),    
     (party_set_slot, "p_player_camp", slot_player_camp_corral, -1),    
@@ -1361,6 +1362,63 @@ mercenary_company_scripts = [
     (try_end),
 
   ]),
+  
+("player_camp_set_props", [
+
+    (eq, "$player_camp_edit_mode", 0),
+    (party_get_slot, ":player_camp_level", "p_player_camp", slot_player_camp_level),
+
+    (try_for_prop_instances, ":prop_instance"),
+        (prop_instance_get_variation_id, ":var_id_level", ":prop_instance"),
+        (prop_instance_get_variation_id_2, ":var_id_2_level", ":prop_instance"),
+        
+        (val_mod, ":var_id_2_level", 10),
+            
+        # var_id_level -> Compare to camp level
+        # var_id_2_level:
+        # Smithy -> 3
+        # Market -> 4
+        # Range -> 5
+        # Corral -> 6
+        # Chapterhouse -> 7
+        
+        (try_begin),
+            (eq, ":var_id_2_level", 3), 
+            (this_or_next|party_slot_eq, "p_player_camp", slot_player_camp_smithy, -1),
+            (gt, ":var_id_level", ":player_camp_level"),  
+            (replace_prop_instance, ":prop_instance", "spr_empty"),
+        (else_try),
+            (eq, ":var_id_2_level", 4), 
+            (this_or_next|party_slot_eq, "p_player_camp", slot_player_camp_market, -1),
+            (gt, ":var_id_level", ":player_camp_level"),  
+            (replace_prop_instance, ":prop_instance", "spr_empty"),
+        (else_try),
+            (eq, ":var_id_2_level", 5), 
+            (this_or_next|party_slot_eq, "p_player_camp", slot_player_camp_archery_range, -1),
+            (gt, ":var_id_level", ":player_camp_level"),  
+            (replace_prop_instance, ":prop_instance", "spr_empty"),
+        (else_try),
+            (eq, ":var_id_2_level", 6), 
+            (this_or_next|party_slot_eq, "p_player_camp", slot_player_camp_corral, -1),
+            (gt, ":var_id_level", ":player_camp_level"),  
+            (replace_prop_instance, ":prop_instance", "spr_empty"),
+        (else_try),
+            (eq, ":var_id_2_level", 7), 
+            (this_or_next|party_slot_eq, "p_player_camp", slot_player_camp_chapterhouse, -1),
+            (gt, ":var_id_level", ":player_camp_level"),  
+            (replace_prop_instance, ":prop_instance", "spr_empty"),
+        (else_try),
+            (gt, ":var_id_level", ":player_camp_level"),
+            (replace_prop_instance, ":prop_instance", "spr_empty"),
+        (try_end),
+        
+            (assign, reg30, ":var_id_level"),
+            (assign, reg31, ":player_camp_level"),
+            (display_message, "@ ID Level: {reg30}, Camp Level: {reg31}"),
+            
+    (try_end),
+
+  ]),  
 
 
 

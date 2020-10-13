@@ -51,3 +51,4 @@ mt_multiplayer_duel = 49
 mt_review_troops = 50
 mt_custom_lead_charge = 51
 mt_custom_duel_with_lord = 52
+mt_player_camp = 53

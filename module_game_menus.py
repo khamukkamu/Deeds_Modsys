@@ -3223,7 +3223,18 @@ TOTAL:  {reg5}"),
    [
      ],
     [ 
-## DAC Seek: Player Camp    
+## DAC Seek: Player Camp  
+      ("action_create_camp_cheat",[(eq, "$player_camp_built", 0),(ge, "$cheat_mode", 1),],"Cheat: Instantly build the Camp.",
+       [
+        (party_relocate_near_party, "p_player_camp", "p_main_party"),
+        (enable_party, "p_player_camp"),
+        (party_set_slot, "p_player_camp", slot_player_camp_level, 1),
+        (assign, "$player_camp_built", 1),
+        (call_script, "script_refresh_mercenary_camp_troops"),
+        (call_script, "script_dac_upgrade_player_camp"),
+        (change_screen_return),
+        ]
+       ),  
       ("action_create_camp",[(eq, "$player_camp_built", 0),(troop_slot_ge, "trp_player", slot_troop_renown, 50),],"Set up an encampment here.",
        [
         (party_relocate_near_party, "p_player_camp", "p_main_party"),

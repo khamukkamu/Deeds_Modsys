@@ -18741,4 +18741,145 @@ mission_templates = [
            ]),
     ],
   ),
+  
+# DAC Seek Player Camp Mission Templates
+
+  (
+    "player_camp",0,-1,
+    "Player Camp.",
+    [
+        (0,mtef_scene_source|mtef_team_0,af_override_horse,0,1,[]),
+        (1,mtef_scene_source|mtef_team_0,0,0,1,[]),
+        (2,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+        (3,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+        (4,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+        (5,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+        (6,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+        (7,mtef_visitor_source|mtef_team_0,af_override_horse,0,1,[]),
+        (8,mtef_visitor_source,af_override_horse,0,1,[]),
+        (9,mtef_visitor_source,af_override_horse,0,1,[]),
+        (10,mtef_visitor_source,af_override_horse,0,1,[]),
+        (11,mtef_visitor_source,af_override_horse,0,1,[]),
+        (12,mtef_visitor_source,af_override_horse,0,1,[]),
+        (13,mtef_visitor_source,af_override_horse,0,1,[]),
+        (14,mtef_visitor_source,af_override_horse,0,1,[]),
+        (15,mtef_visitor_source,af_override_horse,0,1,[]),
+        (16,mtef_visitor_source,af_override_horse,0,1,[]),
+        (17,mtef_visitor_source,af_override_horse,0,1,[]),
+        (18,mtef_visitor_source,af_override_horse,0,1,[]),
+        (19,mtef_visitor_source,af_override_horse,0,1,[]),
+        (20,mtef_visitor_source,af_override_horse,0,1,[]),
+        (21,mtef_visitor_source,af_override_horse,0,1,[]),
+        (22,mtef_visitor_source,af_override_horse,0,1,[]),
+        (23,mtef_visitor_source,af_override_horse,0,1,[]),
+        (24,mtef_visitor_source,af_override_horse,0,1,[]),
+        (25,mtef_visitor_source,af_override_horse,0,1,[]),
+        (26,mtef_visitor_source,af_override_horse,0,1,[]),
+        (27,mtef_visitor_source,af_override_horse,0,1,[]),
+        (28,mtef_visitor_source,af_override_horse,0,1,[]),
+        (29,mtef_visitor_source,af_override_horse,0,1,[]),
+        (30,mtef_visitor_source,af_override_horse,0,1,[]),
+        (31,mtef_visitor_source,af_override_horse,0,1,[]),
+        (32,mtef_visitor_source,af_override_horse,0,1,[]),
+        (33,mtef_visitor_source,af_override_horse,0,1,[]),
+        (34,mtef_visitor_source,af_override_horse,0,1,[]),
+        (35,mtef_visitor_source,af_override_horse,0,1,[]),
+        (36,mtef_visitor_source,af_override_horse,0,1,[]),
+        (37,mtef_visitor_source,af_override_horse,0,1,[]),
+        (38,mtef_visitor_source,af_override_horse,0,1,[]),
+        (39,mtef_visitor_source,af_override_horse,0,1,[]),
+        (40,mtef_visitor_source,af_override_horse,0,1,[]),
+        (41,mtef_visitor_source,af_override_horse,0,1,[]),
+        (42,mtef_visitor_source,af_override_horse,0,1,[]),
+        (43,mtef_visitor_source,af_override_horse,0,1,[]),
+        (44,mtef_visitor_source,af_override_horse,0,1,[]),
+        (45,mtef_visitor_source,af_override_horse,0,1,[]),
+        (46,mtef_visitor_source,af_override_horse,0,1,[]),
+        (47,mtef_visitor_source,af_override_horse,0,1,[]),
+        (48,mtef_visitor_source,af_override_horse,0,1,[]),
+        (49,mtef_visitor_source,af_override_horse,0,1,[]),
+        (50,mtef_visitor_source,af_override_horse,0,1,[]),
+        (51,mtef_visitor_source,af_override_horse,0,1,[]),
+        (52,mtef_visitor_source,af_override_horse,0,1,[]),
+        (53,mtef_visitor_source,af_override_horse,0,1,[]),
+        (54,mtef_visitor_source,af_override_horse,0,1,[]),
+        (55,mtef_visitor_source,af_override_horse,0,1,[]),
+        (56,mtef_visitor_source,af_override_horse,0,1,[]),
+        (57,mtef_visitor_source,af_override_horse,0,1,[]),
+        (58,mtef_visitor_source,af_override_horse,0,1,[]),
+        (59,mtef_visitor_source,af_override_horse,0,1,[]),
+        (60,mtef_visitor_source,af_override_horse,0,1,[]),
+        (61,mtef_visitor_source,af_override_horse,0,1,[]),
+        (62,mtef_visitor_source,af_override_horse,0,1,[]),
+        (63,mtef_visitor_source,af_override_horse,0,1,[]),
+        (64,mtef_visitor_source,af_override_horse,0,1,[]),
+    ],
+    [
+      
+### HYW Seek: Camp troop spawn/dialog
+    # (ti_on_agent_spawn, 1, 0, [],
+    # [
+        # (store_trigger_param_1, ":agent_no"),
+        # (agent_get_troop_id, ":agent_troop_id", ":agent_no"),	
+
+        # (try_begin),
+            # (is_between, ":agent_troop_id", customizable_troops_begin, customizable_troops_end),
+            # (agent_set_stand_animation, ":agent_no", "anim_stand_townguard"),
+            # (agent_set_animation, ":agent_no", "anim_stand_townguard"),
+            # (store_random_in_range, ":random_no", 0, 100),
+            # (agent_set_animation_progress, ":agent_no", ":random_no"),	
+        # (try_end),
+    # ]),
+      
+      
+    (1, 0, ti_once,
+    [],
+    [
+        # (music_set_situation, 0),
+        # (try_begin),
+            # (store_time_of_day, ":cur_hour"),
+            # (ge, ":cur_hour", 5),
+            # (lt, ":cur_hour", 21),
+            # (play_sound, "snd_plaines1", sf_looping),
+        # (else_try),
+            # (play_sound, "snd_nuit_1", sf_looping),
+        # (try_end),
+        (call_script, "script_change_banners_and_chest"),
+    ]),
+      
+    (ti_inventory_key_pressed, 0, 0, [(set_trigger_result,1)], []),
+      
+    (ti_tab_pressed, 0, 0,
+    [
+        # (assign, "$entre_camp", 0),
+        ### HYW Seek: Stop looping sounds
+        (stop_all_sounds, 1),	
+        (set_trigger_result,1)
+    ],
+    []),
+    
+    (0, 0, 1, [(key_clicked, key_k)], 
+                     
+    [
+        (is_edit_mode_enabled),	
+        
+        (try_begin),
+            (eq, "$player_camp_edit_mode", 0),
+            (assign, "$player_camp_edit_mode", 1),
+            (display_message, "@Edit mode enabled", color_good_news),
+        (else_try),
+            (assign, "$player_camp_edit_mode", 0),
+            (display_message, "@Edit mode disabled", color_bad_news),
+        (try_end),
+    ]),
+
+### DAC Seek: Dynamic camp levels		  
+    (ti_before_mission_start, 0, 0, [],
+    [	
+        (call_script, "script_player_camp_set_props"),
+    ]),		  
+      
+    ],
+  ),
+  
 ]

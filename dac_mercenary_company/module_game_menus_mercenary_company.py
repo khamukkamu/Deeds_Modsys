@@ -149,12 +149,7 @@ mercenary_company_menus = [
             (party_slot_eq, "p_player_camp", slot_player_camp_market, 1),
             (set_visitor, 4, "trp_merc_company_merchant"),
         (try_end),
-        (set_visitor, 5, "trp_custom_merc_recruit"),
-        (set_visitor, 6, "trp_custom_merc_footman"),
-        (set_visitor, 7, "trp_custom_merc_footman"),
-        (set_visitor, 8, "trp_custom_merc_veteran"),
-        (set_visitor, 9, "trp_custom_merc_sergeant"),
-        (set_jump_mission,"mt_visit_town_castle"),
+        (set_jump_mission,"mt_player_camp"),
         (jump_to_scene,"scn_player_camp"),
         (change_screen_mission),		
 	]),	
@@ -244,24 +239,7 @@ mercenary_company_menus = [
     "Upgrade the {s11}. (Current level: {reg10}, Max level: 4)",[
         (assign, "$g_improvement_type", slot_player_camp_level),
         (jump_to_menu, "mnu_player_camp_build_improvements"),
-    ]),  
-    # ("player_camp_degrade", # This is just for testing, disable it after system implementation
-       # [
-        # (party_get_slot, ":player_camp_level", "p_player_camp", slot_player_camp_level),    
-        # (assign, reg1, ":player_camp_level"),
-       # ],
-    # "Degrade the {s11}. (Current level: {reg1})",[
-        # (party_get_slot, ":player_camp_level", "p_player_camp", slot_player_camp_level),
-        # (try_begin),
-            # (gt, ":player_camp_level", 1),  
-            # (val_sub, ":player_camp_level", 1),
-            # (party_set_slot, "p_player_camp", slot_player_camp_level, ":player_camp_level"),
-            # (call_script, "script_dac_upgrade_player_camp"),
-        # (else_try),
-            # (display_message, "@Min level reached!"),
-        # (try_end),
-        # (jump_to_menu, "mnu_player_camp_management"),
-    # ]),     
+    ]),    
     ("player_camp_build_smithy",
        [
         (eq, reg6, 0), 
@@ -315,6 +293,10 @@ mercenary_company_menus = [
       "Cancel building the {s7}.",[
         (party_set_slot, "p_player_camp", slot_center_current_improvement, 0),
         (jump_to_menu, "mnu_player_camp_management"),
+        ]),
+    ("camp_build_cheats",[(ge, "$cheat_mode", 1),],
+      "Cheat Menu.",[
+        (jump_to_menu, "mnu_player_camp_cheats"),
         ]),
       ("return",[],"Return.",[(jump_to_menu, "mnu_player_camp_encounter"),]),
     ]
@@ -385,6 +367,134 @@ mercenary_company_menus = [
     ],
     "I don't have enough money for that.", []),
       ("forget_it",[], "Forget it.", [(jump_to_menu,"mnu_player_camp_management")]),
+
+    ],
+  ),
+  
+## DAC Seek: Player Camp Building Begin
+  (
+    "player_camp_cheats",0,
+    "Instant Build Cheat Menu.",
+    "none",
+    [],
+    [ 
+    ("player_camp_upgrade", 
+       [
+        (party_get_slot, ":player_camp_level", "p_player_camp", slot_player_camp_level),    
+        (assign, reg1, ":player_camp_level"),
+       ],
+    "Upgrade the {s11}. (Current level: {reg1})",[
+        (party_get_slot, ":player_camp_level", "p_player_camp", slot_player_camp_level),
+        (try_begin),
+            (lt, ":player_camp_level", 4),  
+            (val_add, ":player_camp_level", 1),
+            (party_set_slot, "p_player_camp", slot_player_camp_level, ":player_camp_level"),
+            (call_script, "script_dac_upgrade_player_camp"),
+        (else_try),
+            (display_message, "@Max level reached!", color_bad_news),
+        (try_end),
+    ]), 
+    ("player_camp_degrade", 
+       [
+        (party_get_slot, ":player_camp_level", "p_player_camp", slot_player_camp_level),    
+        (assign, reg1, ":player_camp_level"),
+       ],
+    "Degrade the {s11}. (Current level: {reg1})",[
+        (party_get_slot, ":player_camp_level", "p_player_camp", slot_player_camp_level),
+        (try_begin),
+            (gt, ":player_camp_level", 1),  
+            (val_sub, ":player_camp_level", 1),
+            (party_set_slot, "p_player_camp", slot_player_camp_level, ":player_camp_level"),
+            (call_script, "script_dac_upgrade_player_camp"),
+        (else_try),
+            (display_message, "@Min level reached!", color_bad_news),
+        (try_end),
+    ]),   
+    ("player_camp_build_smithy",
+       [
+        (party_slot_eq, "p_player_camp", slot_player_camp_smithy, -1),
+       ],
+    "Build the Smithy.",[
+        (party_set_slot, "p_player_camp", slot_player_camp_smithy, 1),
+        (display_message, "@Smithy Built!", color_good_news),
+    ]),  
+    ("player_camp_dismantle_smithy",
+       [
+        (party_slot_eq, "p_player_camp", slot_player_camp_smithy, 1),
+       ],
+    "Dismantle the Smithy.",[
+        (party_set_slot, "p_player_camp", slot_player_camp_smithy, -1),
+        (display_message, "@Smithy Dismantled!", color_bad_news),
+    ]), 
+    
+    ("player_camp_build_archery_range",
+       [
+        (party_slot_eq, "p_player_camp", slot_player_camp_archery_range, -1),
+       ],
+    "Build the Archery Range.",[
+        (party_set_slot, "p_player_camp", slot_player_camp_archery_range, 1),
+        (display_message, "@Archery Range Built!", color_good_news),
+    ]),  
+    ("player_camp_dismantle_archery_range",
+       [
+        (party_slot_eq, "p_player_camp", slot_player_camp_archery_range, 1),
+       ],
+    "Dismantle the Archery Range.",[
+        (party_set_slot, "p_player_camp", slot_player_camp_archery_range, -1),
+        (display_message, "@Archery Range Dismantled!", color_bad_news),
+    ]), 
+    
+    ("player_camp_build_corral",
+       [
+        (party_slot_eq, "p_player_camp", slot_player_camp_corral, -1),
+       ],
+    "Build the Corral.",[
+        (party_set_slot, "p_player_camp", slot_player_camp_corral, 1),
+        (display_message, "@Corral Built!", color_good_news),
+    ]),  
+    ("player_camp_dismantle_corral",
+       [
+        (party_slot_eq, "p_player_camp", slot_player_camp_corral, 1),
+       ],
+    "Dismantle the Corral.",[
+        (party_set_slot, "p_player_camp", slot_player_camp_corral, -1),
+        (display_message, "@Corral Dismantled!", color_bad_news),
+    ]), 
+    
+    ("player_camp_build_market",
+       [
+        (party_slot_eq, "p_player_camp", slot_player_camp_market, -1),
+       ],
+    "Build the Market.",[
+        (party_set_slot, "p_player_camp", slot_player_camp_market, 1),
+        (display_message, "@Market Built!", color_good_news),
+    ]),  
+    ("player_camp_dismantle_market",
+       [
+        (party_slot_eq, "p_player_camp", slot_player_camp_market, 1),
+       ],
+    "Dismantle the Market.",[
+        (party_set_slot, "p_player_camp", slot_player_camp_market, -1),
+        (display_message, "@Market Dismantled!", color_bad_news),
+    ]), 
+    
+    ("player_camp_build_chapterhouse",
+       [
+        (party_slot_eq, "p_player_camp", slot_player_camp_chapterhouse, -1),
+       ],
+    "Build the Chapterhouse.",[
+        (party_set_slot, "p_player_camp", slot_player_camp_chapterhouse, 1),
+        (display_message, "@Chapterhouse Built!", color_good_news),
+    ]),  
+    ("player_camp_dismantle_chapterhouse",
+       [
+        (party_slot_eq, "p_player_camp", slot_player_camp_chapterhouse, 1),
+       ],
+    "Dismantle the Chapterhouse.",[
+        (party_set_slot, "p_player_camp", slot_player_camp_chapterhouse, -1),
+        (display_message, "@Chapterhouse Dismantled!", color_bad_news),
+    ]), 
+      ("return",[], "Return.", [(jump_to_menu,"mnu_player_camp_management")]),
 
     ],
   ),

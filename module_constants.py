@@ -2946,3 +2946,5 @@ slot_item_tiers_end = 136
 slot_troop_tier_custom_troop = 180
 slot_troop_custom_can_use_item = 181
 ## DAC Custom Troops (Merc Company Feature) End
+player_camp_dialog_begin = "str_camp_soldier_line_1"
+player_camp_dialog_end = "str_camp_soldier_line_end"
