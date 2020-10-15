@@ -43,6 +43,7 @@ mercenary_company_simple_triggers = [
     (ge, ":cur_hours", ":cur_improvement_end_time"),
     
     (try_begin),  
+        (this_or_next|neq, ":cur_improvement", slot_player_camp_level),
         (neq, ":cur_improvement", slot_player_camp_level),
         (party_set_slot, "p_player_camp", ":cur_improvement", 1),
     (try_end),    

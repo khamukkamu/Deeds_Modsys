@@ -3247,11 +3247,33 @@ TOTAL:  {reg5}"),
         (rest_for_hours, 24, 8, 0),
         ]
        ),
-      ("action_relocate_camp",[(eq, "$player_camp_built", 1),],"Relocate the encampment here.",
+      ("action_relocate_camp",[
+        (eq, "$player_camp_built", 1),
+      
+        (assign, reg6, 0),
+        (try_begin),
+            (party_get_slot, ":cur_improvement", "p_player_camp", slot_center_current_improvement),
+            (gt, ":cur_improvement", 0),
+            (call_script, "script_player_camp_get_improvement_details", ":cur_improvement"),
+            (str_store_string, s7, s0),
+            (assign, reg6, 1),
+            (store_current_hours, ":cur_hours"),
+            (party_get_slot, ":finish_time", "p_player_camp", slot_center_improvement_end_hour),
+            (val_sub, ":finish_time", ":cur_hours"),
+            (store_div, reg8, ":finish_time", 24),
+            (val_max, reg8, 1),
+            (store_sub, reg9, reg8, 1),
+        (try_end),    
+      
+      ],"Relocate the encampment here.",
        [
-        (party_relocate_near_party, "p_player_camp", "p_main_party"),
-        (enable_party, "p_player_camp"),
-        (change_screen_return),
+        (try_begin),
+            (eq, reg6, 0),
+            (jump_to_menu, "mnu_player_camp_relocate"),
+        (else_try),
+            (display_message, "@You are currently building {s7}. The building will be completed after {reg8} day{reg9?s:}.", color_bad_news),
+            (display_message, "@You cannot relocate the camp until the building project is completed.", color_bad_news),
+        (try_end),
         ]
        ),       
 ## DAC Seek: Player Camp End

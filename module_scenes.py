@@ -3580,6 +3580,6 @@ scenes = [
 ("conversation_scene_tld_snow",sf_generate,"none", "none", (-40,-40),(40,40),-100,"0x00000006300005000002308c00003005000018b300001d92",[],[],"outer_terrain_snow"),
 ("conversation_scene_tld_forest",sf_generate,"none", "none", (-40,-40),(40,40),-100,"0x00000006300005000002308c00003005000018b300001d92",[],[],"outer_terrain_town_thir_1"),
 
-("player_camp",sf_generate,"none", "none", (-40,-40),(40,40),-100,"0x00000006300005000002308c00003005000018b300001d92",[],[],"outer_terrain_plain"),
+("player_camp",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000130014287000fffff000041ef00005ae800003c55",[],[],"outer_terrain_plain"),
 
 ]

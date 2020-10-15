@@ -4555,6 +4555,12 @@ scene_props = [
 # from 'DAC_props_market.brf': end (OpenBRF)
 
 # from 'DAC_props_tents.brf': begin (OpenBRF)
+	( "raw_tent_blue"                              ,0,"raw_tent_blue","bo_raw_tent",[]),
+	( "raw_tent_brown"                             ,0,"raw_tent_brown","bo_raw_tent",[]),
+	( "raw_tent_green"                             ,0,"raw_tent_green","bo_raw_tent",[]),
+	( "raw_tent_red"                               ,0,"raw_tent_red","bo_raw_tent",[]),
+	( "raw_tent_tan"                               ,0,"raw_tent_tan","bo_raw_tent",[]),
+	( "raw_tent_white"                             ,0,"raw_tent_white","bo_raw_tent",[]),
 	( "tent_blue_1"                                ,0,"tent_blue_1","bo_tent_small_open",[]),
 	( "tent_blue_2"                                ,0,"tent_blue_2","bo_tent_small_open",[]),
 	( "tent_fake_blue_1"                           ,0,"tent_fake_blue_1","bo_tent_small_closed",[]),

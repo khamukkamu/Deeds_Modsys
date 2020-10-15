@@ -87,7 +87,8 @@ mercenary_company_menus = [
     (assign, reg6, 0),
     (try_begin),
         (party_get_slot, ":cur_improvement", "p_player_camp", slot_center_current_improvement),
-        (eq, ":cur_improvement", slot_player_camp_level),
+        (this_or_next|eq, ":cur_improvement", slot_player_camp_level),
+        (eq, ":cur_improvement", slot_player_camp_relocation_project),
         (call_script, "script_player_camp_get_improvement_details", ":cur_improvement"),
         (str_store_string, s7, s0),
         (assign, reg6, 1),
@@ -495,6 +496,94 @@ mercenary_company_menus = [
         (display_message, "@Chapterhouse Dismantled!", color_bad_news),
     ]), 
       ("return",[], "Return.", [(jump_to_menu,"mnu_player_camp_management")]),
+
+    ],
+  ),
+  
+  (
+    "player_camp_relocate",0,
+    "Do you wish to relocate the {s11} to your current position? ^As the party member with the highest engineer skill ({reg2}), {reg3?you reckon:{s3} reckons} that relocating will cost you {reg5} crowns and will take {reg6} days. ^Until the relocation you won't be able to access the camp functionalities, do you wish to proceed anyway?",
+    "none",
+    [
+    (store_distance_to_party_from_party, "$relocation_distance", "p_main_party", "p_player_camp"),
+    
+    (str_clear, s11),
+    (party_get_slot, ":player_camp_level", "p_player_camp", slot_player_camp_level),
+    
+    (try_begin),
+        (eq, ":player_camp_level", 1),
+        (str_store_string, s11, "@Camp"),
+    (else_try),
+        (eq, ":player_camp_level", 2),
+        (str_store_string, s11, "@Outpost"),
+    (else_try),
+        (eq, ":player_camp_level", 3),
+        (str_store_string, s11, "@Manor"),
+    (else_try),
+        (str_store_string, s11, "@Stronghold"),
+    (try_end),
+    
+    (assign, "$g_improvement_type", slot_player_camp_relocation_project),
+    (call_script, "script_player_camp_get_improvement_details", "$g_improvement_type"),
+    (assign, ":improvement_cost", reg0),
+    (call_script, "script_get_max_skill_of_player_party", "skl_engineer"),
+    (assign, ":max_skill", reg0),
+    (assign, ":max_skill_owner", reg1),
+    (assign, reg2, ":max_skill"),
+
+    (store_sub, ":multiplier", 20, ":max_skill"),
+    (val_mul, ":improvement_cost", ":multiplier"),
+    (val_div, ":improvement_cost", 20),
+
+    (store_div, ":improvement_time", ":improvement_cost", 250),
+
+    (assign, reg5, ":improvement_cost"),
+    (assign, reg6, ":improvement_time"),
+
+    #SB : tableau at bottom
+    (try_begin),
+        (eq, ":max_skill_owner", "trp_player"),
+        (assign, reg3, 1),
+    (else_try),
+        (assign, reg3, 0),
+        (str_store_troop_name, s3, ":max_skill_owner"),
+    (try_end),
+
+    #SB : assign globals to be safe
+    (assign, "$diplomacy_var", ":improvement_cost"),
+    (assign, "$diplomacy_var2", ":improvement_time"),
+    (set_fixed_point_multiplier, 100),
+    (position_set_x, pos0, 70),
+    (position_set_y, pos0, 5),
+    (position_set_z, pos0, 75),
+    (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", ":max_skill_owner", pos0),
+    
+    ],
+    [ 
+    ("Relocate",[
+        (store_troop_gold, ":cur_gold", "trp_player"),
+        (ge, ":cur_gold", "$diplomacy_var")],
+    "Relocate the {s11}.", [
+        (try_begin), #fast build
+            (ge, "$cheat_mode", 1),
+            (assign, "$diplomacy_var2", 0),
+        (else_try),
+            (troop_remove_gold, "trp_player", "$diplomacy_var"),
+        (try_end),
+        (call_script, "script_improve_player_camp", "p_player_camp", "$diplomacy_var2"),
+    
+        (party_relocate_near_party, "p_player_camp", "p_main_party"),
+        (enable_party, "p_player_camp"),
+        (change_screen_return),
+    ]),
+    ("relocation_condition_not_met",[
+        (store_troop_gold, ":cur_gold", "trp_player"),
+        (lt, ":cur_gold", "$diplomacy_var"),
+        #SB : disable_menu_option
+        (disable_menu_option),
+    ],
+    "I don't have enough money for that.", []),
+      ("return",[], "Return.", [(change_screen_return),]),
 
     ],
   ),

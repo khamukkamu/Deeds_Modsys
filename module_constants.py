@@ -2922,6 +2922,7 @@ slot_player_camp_market = 353
 slot_player_camp_chapterhouse = 354
 # Camp level 1-4
 slot_player_camp_level = 355
+slot_player_camp_relocation_project = 356
 # Item slots
 slot_item_armor_tier = 120
 slot_item_footwear_tier = 121
