@@ -1383,8 +1383,19 @@ mercenary_company_scripts = [
         (prop_instance_get_variation_id, ":var_id_level", ":prop_instance"),
         (prop_instance_get_variation_id_2, ":var_id_2_level", ":prop_instance"),
         
-        (val_mod, ":var_id_2_level", 10),
-            
+        
+        (store_div, ":night_level", ":var_id_level", 10),
+        
+        (try_begin),
+            (eq, ":night_level", 1), 
+            (neg|is_currently_night), 
+            (replace_prop_instance, ":prop_instance", "spr_empty"),
+        (else_try),
+            (eq, ":night_level", 2),
+            (is_currently_night),
+            (replace_prop_instance, ":prop_instance", "spr_empty"),
+        (try_end),
+        
         # var_id_level -> Compare to camp level
         # var_id_2_level:
         # Smithy -> 3
@@ -1392,6 +1403,9 @@ mercenary_company_scripts = [
         # Range -> 5
         # Corral -> 6
         # Chapterhouse -> 7
+        
+        (val_mod, ":var_id_level", 10),
+        (val_mod, ":var_id_2_level", 10),
         
         (try_begin),
             (eq, ":var_id_2_level", 3), 
@@ -1423,9 +1437,9 @@ mercenary_company_scripts = [
             (replace_prop_instance, ":prop_instance", "spr_empty"),
         (try_end),
         
-            (assign, reg30, ":var_id_level"),
-            (assign, reg31, ":player_camp_level"),
-            (display_message, "@ ID Level: {reg30}, Camp Level: {reg31}"),
+            # (assign, reg30, ":var_id_level"),
+            # (assign, reg31, ":player_camp_level"),
+            # (display_message, "@ ID Level: {reg30}, Camp Level: {reg31}"),
             
     (try_end),
 

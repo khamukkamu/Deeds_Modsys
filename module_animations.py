@@ -1979,7 +1979,12 @@ animations = [
    [2.05, "dedal_lyre_sitting", 3, 7, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],],
  ["lyre_standing", acf_enforce_all, amf_priority_die|amf_play,
    [2.05, "dedal_lyre_standing", 3, 7, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],],
-
+   
+ ["sitting_ground", acf_enforce_all, amf_priority_die|amf_play,
+   [2.00, "sitting", 0, 199, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],],
+ ["standing_torch", acf_enforce_all, amf_priority_die|amf_play,
+   [5.00, "stand_torch_1", 0, 99, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+   [5.00, "stand_torch_2", 0, 99, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],],
 # Commented out for TLD cheer
 # ["unused_human_anim_44", 0, 0, [1.0, "anim_human", 0, 1, 0]],
 # ["unused_human_anim_45", 0, 0, [1.0, "anim_human", 0, 1, 0]],
@@ -2001,8 +2006,8 @@ animations = [
  #["unused_human_anim_57", 0, 0, [1.0, "anim_human", 0, 1, 0]],
  #["unused_human_anim_58", 0, 0, [1.0, "anim_human", 0, 1, 0]],
  
- ["unused_human_anim_59", 0, 0, [1.0, "anim_human", 0, 1, 0]],
- ["unused_human_anim_60", 0, 0, [1.0, "anim_human", 0, 1, 0]],
+ # ["unused_human_anim_59", 0, 0, [1.0, "anim_human", 0, 1, 0]],
+ # ["unused_human_anim_60", 0, 0, [1.0, "anim_human", 0, 1, 0]],
  ["unused_human_anim_61", 0, 0, [1.0, "anim_human", 0, 1, 0]],
  ["unused_human_anim_62", 0, 0, [1.0, "anim_human", 0, 1, 0]],
  ["unused_human_anim_63", 0, 0, [1.0, "anim_human", 0, 1, 0]],

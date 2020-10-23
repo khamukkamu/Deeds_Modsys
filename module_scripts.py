@@ -16546,7 +16546,7 @@ scripts = [
         (neg|is_presentation_active, "prsnt_dac_ct_view_armoury"),
         (neg|is_presentation_active, "prsnt_dac_ct_buy_items_for_armoury"),
         (neg|is_presentation_active, "prsnt_name_troop"),
-        (is_between, ":item_no", "itm_h_bascinet_fi_hood_custom", "itm_dplmc_coat_of_plates_red_constable"),
+        (is_between, ":item_no", "itm_h_sallet_curved_visored_1_custom", "itm_dplmc_coat_of_plates_red_constable"),
         (try_begin),
           (eq, ":extra_text_id", 0),
           (str_store_string, s1, "@Customizable"),
@@ -79271,7 +79271,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (try_end),
 
 ## Custom Hoods for the helmets
-      (try_for_range, ":item_no", "itm_h_bascinet_fi_hood_custom", "itm_a_peasant_man_custom"), # Seek: All the Helmets share the same base
+      (try_for_range, ":item_no", "itm_h_sallet_curved_visored_1_custom", "itm_a_peasant_man_custom"), # Seek: All the Helmets share the same base
       (item_set_slot, ":item_no", slot_item_materials_begin, "str_h_hood_narf_blue"),
       (item_set_slot, ":item_no", slot_item_materials_end, "str_h_hood_narf_end"),
   # France
@@ -79479,7 +79479,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (try_end),       
 
       #Init Custom Armors
-      (try_for_range, ":item_no", "itm_h_bascinet_fi_hood_custom", "itm_dplmc_coat_of_plates_red_constable"), # Seek: Changed the range
+      (try_for_range, ":item_no", "itm_h_sallet_curved_visored_1_custom", "itm_dplmc_coat_of_plates_red_constable"), # Seek: Changed the range
           (item_get_slot, ":materials_begin", ":item_no", slot_item_materials_begin),
           (item_get_slot, ":materials_end", ":item_no", slot_item_materials_end),
           (store_random_in_range, ":random_material", ":materials_begin", ":materials_end"),
