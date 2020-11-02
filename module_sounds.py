@@ -19,8 +19,8 @@ sounds = [
  ("sword_clash_2", sf_priority_5|sf_vol_9,["s_swordClash2.wav"]),
  ("sword_clash_3", sf_priority_5|sf_vol_9,["s_swordClash3.wav"]),
  ("sword_swing", sf_vol_8|sf_priority_2,["s_swordSwing.wav"]),
- ("footstep_grass", sf_vol_4|sf_priority_1,["footstep_1.ogg","footstep_2.ogg","footstep_3.ogg","footstep_4.ogg"]),
- ("footstep_wood", sf_vol_5|sf_priority_1,["footstep_wood_1.ogg","footstep_wood_2.ogg","footstep_wood_4.ogg"]),
+ ("footstep_grass", sf_vol_4|sf_priority_1,["silence.wav"]),
+ ("footstep_wood", sf_vol_5|sf_priority_1,["silence.wav"]),
 # ("footstep_wood", sf_vol_3|sf_priority_1,["footstep_stone_1.ogg","footstep_stone_3.ogg","footstep_stone_4.ogg"]),
  ("footstep_water", sf_vol_4|sf_priority_3,["water_walk_1.ogg","water_walk_2.ogg","water_walk_3.ogg","water_walk_4.ogg"]),
  ("footstep_horse",sf_priority_3|sf_vol_8, ["footstep_horse_5.ogg","footstep_horse_2.ogg","footstep_horse_3.ogg","footstep_horse_4.ogg"]),
@@ -238,4 +238,8 @@ sounds = [
  ("ccoop_sea_raider_taunt_3",sf_vol_8, ["encounter_sea_raider_10.ogg"]),
  ("sounds_end", sf_priority_10|sf_vol_10, ["enemy_scored_a_point.ogg"]),
  #INVASION MODE END
+
+("dac_footstep_grass", sf_vol_4|sf_priority_1,["footstep_1.ogg","footstep_2.ogg","footstep_3.ogg","footstep_4.ogg"]),
+("dac_footstep_wood", sf_vol_5|sf_priority_1,["footstep_wood_1.ogg","footstep_wood_2.ogg","footstep_wood_4.ogg"]),
+
 ]

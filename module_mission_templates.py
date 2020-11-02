@@ -415,6 +415,35 @@ dac_lancer_fix_siege = (3, 0, 0, [(lt,"$dac_counter",3)],[ # need to repeat orde
       (try_end),
       (val_add, "$dac_counter", 1),
     ])
+
+dac_footstep_sounds = (0,0,0.3,[],
+  [ 
+    (store_mission_timer_a, ":timer"),
+    (ge, ":timer", 3), #just for spawning.
+
+    (get_player_agent_no, ":player"),
+    
+    # Player Only
+    (try_begin),
+      (agent_get_animation, ":anim", ":player"),
+      (is_between, ":anim", "anim_run_forward", "anim_walk_forward_crouch"),
+      (agent_play_sound, ":player", "snd_dac_footstep_wood"), # Change sound here
+    (try_end),
+
+    # Limited (maybe randomize? 10% of troops only?)
+    (try_for_agents, ":agent"),
+      (agent_is_active, ":agent"),
+      (agent_is_alive, ":agent"),
+      (agent_is_human, ":agent"),
+      (neq, ":agent", ":player"),
+      (agent_get_animation, ":anim_2", ":agent"),
+      (is_between, ":anim_2", "anim_run_forward", "anim_walk_forward_crouch"),
+      #(call_script, "script_rand", 0, 100),
+      #(le, reg0, 10),
+      (agent_play_sound, ":agent", "snd_dac_footstep_wood"), #Change sound here
+    (try_end),
+  ])
+
   # DAC End
 
 # Autolykos begin
@@ -1313,6 +1342,7 @@ deeds_common_battle_scripts = [
   # dac_lancer_fix_2,
   #customize_armor,
   #bright_nights
+  dac_footstep_sounds,
   ] + battle_panel_triggers + utility_triggers + extended_battle_menu + common_division_data + division_order_processing + real_deployment + formations_triggers + AI_triggers
 
 deeds_common_siege_scripts = [
@@ -1332,6 +1362,7 @@ deeds_common_siege_scripts = [
     bodysliding_2,    
   #customize_armor,
   #bright_nights
+  dac_footstep_sounds,
   ] + battle_panel_triggers + utility_triggers
 
 ##SB : new camera triggers
