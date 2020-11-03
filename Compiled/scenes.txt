@@ -1,5 +1,5 @@
 scenesfile version 1
- 1230
+ 1231
 scn_random_scene_small random_scene_small 1792 none none 0.000000 0.000000 240.000000 240.000000 -0.500000 0x30002800000320c80000034e00004b34000059be 
   0 
   0 
@@ -432,7 +432,7 @@ scn_town_27_center town_27_center 256 none none 0.000000 0.000000 100.000000 100
   0 
   0 
  outer_terrain_plain 
-scn_town_28_center town_28_center 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x00000003b00787520004dd3d000072a000003c780000409f 
+scn_town_28_center town_28_center 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000330000500000d2348000010610000490600002ff9 
   0 
   0 
  outer_terrain_steppe 
@@ -440,7 +440,7 @@ scn_town_29_center town_29_center 256 none none 0.000000 0.000000 100.000000 100
   0 
   0 
  outer_terrain_plain 
-scn_town_30_center town_30_center 4352 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000030000500000d2348000030c4000053ae00001d83 
+scn_town_30_center town_30_center 4352 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000230000000000fffff000041ef00005ae800003c55 
   0 
   0 
  outer_terrain_plain 
@@ -528,7 +528,7 @@ scn_town_51_center town_51_center 256 none none 0.000000 0.000000 100.000000 100
   0 
   0 
  outer_terrain_plain 
-scn_town_52_center town_52_center 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000230078563000541320000775f000047e900002417 
+scn_town_52_center town_52_center 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000030000500000b26c4000077c40000755f000036f6 
   0 
   0 
  outer_terrain_plain 
@@ -732,7 +732,7 @@ scn_town_29_castle town_29_castle 1 interior_castle_v bo_interior_castle_v -100.
   1  100000 
   1  620 
  0 
-scn_town_30_castle town_30_castle 1 interior_castle_v bo_interior_castle_v -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+scn_town_30_castle town_30_castle 1 castle_h_interior_b2 bo_castle_h_interior_b2 -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
   1  100000 
   1  621 
  0 
@@ -2192,7 +2192,7 @@ scn_town_29_walls town_29_walls 256 none none 0.000000 0.000000 100.000000 100.0
   0 
   0 
  outer_terrain_plain 
-scn_town_30_walls town_30_walls 4352 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000030000500000d2348000030c4000053ae00001d83 
+scn_town_30_walls town_30_walls 4352 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000230000000000fffff000041ef00005ae800003c55 
   0 
   0 
  outer_terrain_plain 
@@ -2280,7 +2280,7 @@ scn_town_51_walls town_51_walls 256 none none 0.000000 0.000000 100.000000 100.0
   0 
   0 
  outer_terrain_plain 
-scn_town_52_walls town_52_walls 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000230078563000541320000775f000047e900002417 
+scn_town_52_walls town_52_walls 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000030000500000b26c4000077c40000755f000036f6 
   0 
   0 
  outer_terrain_plain 
@@ -3044,7 +3044,7 @@ scn_castle_32_prison castle_32_prison 1 interior_prison_j bo_interior_prison_j -
   0 
   0 
  0 
-scn_castle_33_exterior castle_33_exterior 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000230029cb2000709c200003c9500004b9b00002f4d 
+scn_castle_33_exterior castle_33_exterior 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x00000000300005000006f9bc000011c5000035d100000e36 
   0 
   0 
  outer_terrain_plain 
@@ -3080,11 +3080,11 @@ scn_castle_35_prison castle_35_prison 1 interior_prison_f bo_interior_prison_f -
   0 
   0 
  0 
-scn_castle_36_exterior castle_36_exterior 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x000000003000ad340004d537000024650000253c00000461 
+scn_castle_36_exterior castle_36_exterior 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000230000500000d234800000f570000698500002872 
   0 
   0 
  outer_terrain_plain 
-scn_castle_36_interior castle_36_interior 1 castle_h_interior_b bo_castle_h_interior_b -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+scn_castle_36_interior castle_36_interior 1 interior_castle_w bo_interior_castle_w -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
   1  100000 
   1  700 
  0 
@@ -3464,11 +3464,11 @@ scn_castle_67_prison castle_67_prison 1 interior_prison_e bo_interior_prison_e -
   0 
   0 
  0 
-scn_castle_68_exterior castle_68_exterior 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x000000013006199a0004e5370000494f000028fc00006cf6 
+scn_castle_68_exterior castle_68_exterior 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x000000013002cf05800465160000251900001eee0000306a 
   0 
   0 
  outer_terrain_plain 
-scn_castle_68_interior castle_68_interior 1 interior_castle_a bo_interior_castle_a -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+scn_castle_68_interior castle_68_interior 1 interior_castle_z bo_interior_castle_z -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
   1  100000 
   1  684 
  0 
@@ -3524,11 +3524,11 @@ scn_castle_72_prison castle_72_prison 1 interior_prison_f bo_interior_prison_f -
   0 
   0 
  0 
-scn_castle_73_exterior castle_73_exterior 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x00000001300009838009024000002b0f0000336a00007686 
+scn_castle_73_exterior castle_73_exterior 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000130000500000761da00003e3f000034b400002490 
   0 
   0 
  outer_terrain_plain 
-scn_castle_73_interior castle_73_interior 1 castle_h_interior_b bo_castle_h_interior_b -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+scn_castle_73_interior castle_73_interior 1 interior_castle_o bo_interior_castle_o -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
   1  100000 
   1  689 
  0 
@@ -3560,10 +3560,10 @@ scn_castle_75_prison castle_75_prison 1 interior_prison_i bo_interior_prison_i -
   0 
   0 
  0 
-scn_castle_76_exterior castle_76_exterior 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x000000003000018000055d4a000041ef00005ae800003c55 
+scn_castle_76_exterior castle_76_exterior 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000030000500000a0748000042490000478a00006309 
   0 
   0 
- outer_terrain_plain 
+ outer_terrain_beach 
 scn_castle_76_interior castle_76_interior 1 castle_h_interior_a bo_castle_h_interior_a -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
   1  100000 
   1  692 
@@ -3656,11 +3656,11 @@ scn_castle_83_prison castle_83_prison 1 interior_prison_f bo_interior_prison_f -
   0 
   0 
  0 
-scn_castle_84_exterior castle_84_exterior 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x000000003000000000047919000041ef00005ae800003c55 
+scn_castle_84_exterior castle_84_exterior 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x000000033000050000094a52000025d20000002400005ffc 
   0 
   0 
  outer_terrain_plain 
-scn_castle_84_interior castle_84_interior 1 castle_h_interior_b bo_castle_h_interior_b -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
+scn_castle_84_interior castle_84_interior 1 interior_castle_p bo_interior_castle_p -100.000000 -100.000000 100.000000 100.000000 -100.000000 0 
   1  100000 
   1  689 
  0 
@@ -4072,7 +4072,7 @@ scn_village_95 village_95 256 none none 0.000000 0.000000 100.000000 100.000000 
   0 
   0 
  outer_terrain_plain 
-scn_village_96 village_96 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x00000002300018e38005e58300000376000027e70000015c 
+scn_village_96 village_96 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x00000000300005000004fd4500006fed000029db00001edd 
   0 
   0 
  outer_terrain_plain 
@@ -4204,7 +4204,7 @@ scn_village_128 village_128 256 none none 0.000000 0.000000 100.000000 100.00000
   0 
   0 
  outer_terrain_plain 
-scn_village_129 village_129 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x000000024003991e0006f1bc000055cc0000085600001563 
+scn_village_129 village_129 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x00000000300005000006f9bc000011c5000035d100000e36 
   0 
   0 
  outer_terrain_plain 
@@ -4240,7 +4240,7 @@ scn_village_137 village_137 256 none none 0.000000 0.000000 100.000000 100.00000
   0 
   0 
  outer_terrain_plain 
-scn_village_138 village_138 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x000000022002de4c00077ddd00007e1300000af400006de1 
+scn_village_138 village_138 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000230000500000d234800000f570000698500002872 
   0 
   0 
  outer_terrain_steppe 
@@ -4532,10 +4532,10 @@ scn_village_210 village_210 256 none none 0.000000 0.000000 100.000000 100.00000
   0 
   0 
  outer_terrain_plain 
-scn_village_211 village_211 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x000000013007a6b20006258b00006bb8000074df00002f18 
+scn_village_211 village_211 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000030000500000a0748000042490000478a00006309 
   0 
   0 
- outer_terrain_plain 
+ outer_terrain_beach 
 scn_village_212 village_212 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x00000001300410320005a96800006b5300004edc00000d11 
   0 
   0 
@@ -4916,7 +4916,11 @@ scn_conversation_scene_tld_forest conversation_scene_tld_forest 256 none none -4
   0 
   0 
  outer_terrain_town_thir_1 
-scn_player_camp player_camp 256 none none -40.000000 -40.000000 40.000000 40.000000 -100.000000 0x00000006300005000002308c00003005000018b300001d92 
+scn_player_camp player_camp 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x0000000130014287000fffff000041ef00005ae800003c55 
+  0 
+  0 
+ outer_terrain_plain 
+scn_player_camp_forest player_camp_forest 256 none none 0.000000 0.000000 100.000000 100.000000 -100.000000 0x00000001b00142870009f2800000bc1f00007d09000052b0 
   0 
   0 
  outer_terrain_plain 
