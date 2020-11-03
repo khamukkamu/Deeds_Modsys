@@ -1484,7 +1484,7 @@ scripts = [
      (item_set_slot, "itm_a_milanese_armour_narf", slot_item_multiplayer_item_class, multi_item_class_type_heavy_armor),
      (item_set_slot, "itm_a_plate_harness_1", slot_item_multiplayer_item_class, multi_item_class_type_heavy_armor),
      (item_set_slot, "itm_a_plate_harness_2", slot_item_multiplayer_item_class, multi_item_class_type_heavy_armor),
-     (item_set_slot, "itm_a_plate_english", slot_item_multiplayer_item_class, multi_item_class_type_heavy_armor),
+     (item_set_slot, "itm_a_english_plate_mail", slot_item_multiplayer_item_class, multi_item_class_type_heavy_armor),
  
      (item_set_slot, "itm_heraldic_brigandine_native", slot_item_multiplayer_item_class, multi_item_class_type_heavy_armor),
      (item_set_slot, "itm_heraldic_brigandine_narf_padded_full_plate_hose_custom", slot_item_multiplayer_item_class, multi_item_class_type_heavy_armor),

@@ -1566,7 +1566,7 @@ itemsfile version 3
  0
 0
 
- itm_a_plate_english English_Plate_Armour English_Plate_Armour 1  a_english_plate 0  16842765 0 6540 704643236 29.000000 100 8 64 24 9 0 0 0 0 0 0 0
+ itm_a_english_plate_mail English_Plate_Armour English_Plate_Armour 1  a_english_plate 0  16842765 0 6540 704643236 29.000000 100 8 64 24 9 0 0 0 0 0 0 0
  0
 0
 
