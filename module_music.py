@@ -14,7 +14,7 @@ from compiler import *
 tracks = [
 
   ("bogus", "cant_find_this.ogg", 0, 0),
-  #("mount_and_blade_title_screen", "DAC-Title-Old.ogg", mtf_module_track|mtf_sit_main_title|mtf_start_immediately, 0), #Old HYW Title Song
+  ("mount_and_blade_title_screen_old", "DAC-Title-Old.ogg", mtf_module_track|mtf_sit_main_title|mtf_start_immediately, 0), #Old HYW Title Song
   ("mount_and_blade_title_screen", "DAC-Title.ogg", mtf_module_track|mtf_sit_main_title|mtf_start_immediately, 0), #BenjaminR Deeds of Arms & Chivalry (Feb 3, 2020)
 
 # DAC Changes Begin
@@ -30,7 +30,7 @@ tracks = [
 # Bandit Epic (num combatants >= 50),
   ("DAC-Battle-Bandits-1", "Battle/DAC-Battle-Bandits-1.mp3", mtf_module_track|mtf_sit_ambushed|mtf_culture_6, 0),
   ("DAC-Battle-Bandits-2", "Battle/DAC-Battle-Bandits-2.ogg", mtf_module_track|mtf_sit_ambushed|mtf_culture_6, 0), #BenjaminR Silver Plate (Jan 13, 2020)
-  ("DAC-Battle-Bandits-3", "Battle/DAC-Battle-Bandits-3.ogg", mtf_module_track|mtf_sit_ambushed|mtf_culture_6, 0), #BenjaminR OneOSix (May 5, 2020)
+  ("DAC-Battle-Bandits-3", "Battle/DAC-Battle-Bandits-3.mp3", mtf_module_track|mtf_sit_ambushed|mtf_culture_6, 0), #BenjaminR OneOSix (May 5, 2020)
 
 # DAC Generic Battle Music (Ambient Sound [for now])
 
@@ -136,7 +136,7 @@ tracks = [
 
 # Court
   ("DAC-Court-Generic-1", "DAC-Court-Generic-1.mp3", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_night|mtf_sit_tavern|mtf_culture_all),
-  ("DAC-Court-Generic-2", "DAC-Court-Generic-1.mp3", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_night|mtf_sit_tavern|mtf_culture_all), #BenjaminR Lulle Me Beyond Thee Edit (Jan 21, 2020)
+  ("DAC-Court-Generic-2", "DAC-Court-Generic-2.ogg", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_night|mtf_sit_tavern|mtf_culture_all), #BenjaminR Lulle Me Beyond Thee Edit (Jan 21, 2020)
 
 # Town
   ("DAC-Town-Generic-1", "DAC-Town-Generic-1.mp3", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),
@@ -176,7 +176,7 @@ tracks = [
   ("victorious_evil", "victorious_evil.ogg", mtf_persist_until_finished|mtf_sit_victorious, 0), # Native
   ("escape", "escape.ogg", mtf_persist_until_finished|mtf_sit_victorious, 0), #Native
   
-  ("DAC-Victorious-1", "DAC-Victorious-1.ogg", mtf_persist_until_finished|mtf_sit_victorious, 0), # BenjaminR Victory 2 (Feb 19, 2020)
+  ("DAC-Victorious-1", "DAC-Victorious-1.ogg", mtf_module_track|mtf_persist_until_finished|mtf_sit_victorious, 0), # BenjaminR Victory 2 (Feb 19, 2020)
 
 # DAC Changes END
 

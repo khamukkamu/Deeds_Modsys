@@ -15,7 +15,7 @@ sounds = [
  ("rain",sf_2d|sf_priority_10|sf_vol_4|sf_looping, ["rain_1.ogg"]),
  ("money_received",sf_2d|sf_priority_10|sf_vol_4, ["coins_dropped_1.ogg"]),
  ("money_paid",sf_2d|sf_priority_10|sf_vol_10, ["coins_dropped_2.ogg"]),
- ("sword_clash_1", sf_priority_5|sf_vol_8,["sword_clank_metal_09.ogg","sword_clank_metal_09b.ogg","sword_clank_metal_10.ogg","sword_clank_metal_10b.ogg","sword_clank_metal_12.ogg","sword_clank_metal_12b.ogg","sword_clank_metal_13.ogg","sword_clank_metal_13b.ogg"]),
+ ("sword_clash_1", sf_priority_5|sf_vol_8,["sword_clank_metal_09.wav","sword_clank_metal_09b.wav","sword_clank_metal_10.wav","sword_clank_metal_10b.wav","sword_clank_metal_12.wav","sword_clank_metal_12b.wav","sword_clank_metal_13.wav","sword_clank_metal_13b.wav"]),
  ("sword_clash_2", sf_priority_5|sf_vol_9,["s_swordClash2.wav"]),
  ("sword_clash_3", sf_priority_5|sf_vol_9,["s_swordClash3.wav"]),
  ("sword_swing", sf_vol_8|sf_priority_2,["swing_01.wav","swing_02.wav","swing_03.wav","swing_04.wav"]),
@@ -46,11 +46,11 @@ sounds = [
  ("horse_jump_end_water", sf_vol_6|sf_priority_9,["jump_end_water.ogg"]),
 
  ("release_bow",sf_vol_4, ["bow_shoot_01.ogg","bow_shoot_02.ogg","bow_shoot_03.ogg","bow_shoot_04.ogg","bow_shoot_05.ogg","bow_shoot_06.ogg","bow_shoot_07.ogg","bow_shoot_08.ogg","bow_shoot_09.ogg","bow_shoot_10.ogg"]),
- ("release_crossbow",sf_vol_7, ["crossbow_shoot_01.ogg","crossbow_shoot_02.ogg","crossbow_shoot_03.ogg","crossbow_shoot_04.ogg","crossbow_shoot_05.ogg","crossbow_shoot_06.ogg","crossbow_shoot_07.ogg","crossbow_shoot_08.ogg","crossbow_shoot_09.ogg","crossbow_shoot_10.ogg","crossbow_shoot_11.ogg","crossbow_shoot_12.ogg","crossbow_shoot_13.ogg","crossbow_shoot_14.ogg","crossbow_shoot_15.ogg","crossbow_shoot_16.ogg","crossbow_shoot_17.ogg","crossbow_shoot_18.ogg","crossbow_shoot_19.ogg","crossbow_shoot_20.ogg"]),
+ ("release_crossbow",sf_vol_7, ["crossbow_shoot_01.ogg","crossbow_shoot_02.ogg","crossbow_shoot_03.ogg","crossbow_shoot_04.ogg","crossbow_shoot_05.ogg","crossbow_shoot_06.ogg","crossbow_shoot_07.wav","crossbow_shoot_08.wav","crossbow_shoot_09.wav","crossbow_shoot_10.wav","crossbow_shoot_11.wav","crossbow_shoot_12.wav","crossbow_shoot_13.wav","crossbow_shoot_14.wav","crossbow_shoot_15.wav","crossbow_shoot_16.wav","crossbow_shoot_17.wav","crossbow_shoot_18.wav","crossbow_shoot_19.wav","crossbow_shoot_20.wav"]),
  ("throw_javelin",sf_vol_5, ["throw_javelin_2.ogg"]),
  ("throw_axe",sf_vol_7, ["throw_axe_1.ogg"]),
  ("throw_knife",sf_vol_5, ["throw_knife_1.ogg"]),
- ("throw_stone",sf_vol_7, ["throw_stone_1.ogg","throw_stone_2.ogg","throw_stone_3.ogg"]),
+ ("throw_stone",sf_vol_7, ["throw_stone_01.ogg","throw_stone_02.ogg","throw_stone_03.ogg"]),
 
  ("reload_crossbow",sf_vol_3, ["pull_crossbow_string_01.ogg","pull_crossbow_string_02.ogg","pull_crossbow_string_03.ogg","pull_crossbow_string_04.ogg","pull_crossbow_string_05.ogg",]),
  ("reload_crossbow_continue",sf_vol_6, ["put_back_dagger.ogg"]),
@@ -154,8 +154,8 @@ sounds = [
  ("man_grunt",sf_priority_6|sf_vol_4, ["man_excercise_01.ogg","man_excercise_02.ogg","man_excercise_03.ogg","man_excercise_04.ogg"]),
  ("man_breath_hard",sf_priority_3|sf_vol_8, ["man_ugh_1.ogg","man_ugh_2.ogg","man_ugh_4.ogg","man_ugh_7.ogg","man_ugh_12.ogg","man_ugh_13.ogg","man_ugh_17.ogg"]),
  ("man_stun",sf_priority_3|sf_vol_8, ["man_stun_1.ogg"]),
- ("man_grunt_long",sf_priority_6|sf_vol_7, ["man_grunt_1.ogg","man_grunt_2.ogg","man_grunt_3.ogg","man_grunt_4.ogg","man_grunt_5.ogg","man_grunt_6.ogg","man_grunt_7.ogg","man_grunt_8.ogg","man_grunt_9.ogg","man_grunt_10.ogg","man_grunt_11.ogg","man_grunt_12.ogg","man_grunt_13.ogg","man_grunt_14.ogg","man_grunt_15.ogg","man_grunt_16.wav","man_grunt_17.wav","man_grunt_18.wav","man_grunt_19.wav","man_grunt_20.wav","man_grunt_21.wav"]),
- ("man_yell",sf_priority_5|sf_vol_8, ["man_yell_01.ogg","man_yell_02.ogg","man_yell_03.ogg","man_yell_04.ogg","man_yell_05.ogg","man_yell_06.ogg","man_yell_07.ogg","man_yell_08.ogg","man_yell_09.ogg","man_yell_10.ogg","man_yell_11.ogg","man_yell_12.ogg","man_yell_13.ogg","man_yell_14.ogg","man_yell_15.ogg","man_yell_16.ogg","man_yell_17.ogg","man_yell_18.ogg","man_yell_19.ogg","man_yell_20.ogg","man_yell_21.ogg","man_yell_22.ogg","man_shortyell_01.ogg","man_shortyell_02.ogg","man_shortyell_03.ogg","man_shortyell_04.ogg","man_shortyell_05.ogg","man_shortyell_06.ogg"]),
+ ("man_grunt_long",sf_priority_6|sf_vol_7, ["man_grunt_01.ogg","man_grunt_02.ogg","man_grunt_03.ogg","man_grunt_04.ogg","man_grunt_05.ogg","man_grunt_06.ogg","man_grunt_07.ogg","man_grunt_08.ogg","man_grunt_09.ogg","man_grunt_10.ogg","man_grunt_11.ogg","man_grunt_12.ogg","man_grunt_13.ogg","man_grunt_14.ogg","man_grunt_15.ogg","man_grunt_16.wav","man_grunt_17.wav","man_grunt_18.wav","man_grunt_19.wav","man_grunt_20.wav","man_grunt_21.wav"]),
+ ("man_yell",sf_priority_5|sf_vol_8, ["man_yell_01.ogg","man_yell_02.ogg","man_yell_03.ogg","man_yell_04.ogg","man_yell_05.ogg","man_yell_06.ogg","man_yell_07.ogg","man_yell_08.ogg","man_yell_09.ogg","man_yell_10.ogg","man_yell_11.ogg","man_yell_12.ogg","man_yell_13.ogg","man_yell_14.ogg","man_yell_15.ogg","man_yell_16.ogg","man_yell_17.ogg","man_yell_18.ogg","man_yell_19.ogg","man_yell_20.ogg","man_yell_21.ogg","man_yell_22.ogg","man_yell_23.ogg","man_yell_24.ogg","man_shortyell_01.ogg","man_shortyell_02.ogg","man_shortyell_03.ogg","man_shortyell_04.ogg","man_shortyell_05.ogg","man_shortyell_06.ogg"]),
 ## not adequate, removed: "man_yell_b_21.ogg","man_yell_b_22.ogg","man_yell_b_23.ogg"]),
 #TODONOW:
  ("man_warcry",sf_priority_5, ["man_insult_1.ogg","man_insult_2.ogg","man_insult_3.ogg","man_insult_4.ogg","man_insult_5.ogg","man_insult_6.ogg","man_insult_7.ogg","man_insult_8.ogg","man_insult_9.ogg","man_insult_10.ogg","man_insult_11.ogg","man_insult_12.ogg","man_insult_13.ogg","man_insult_14.ogg"]),
