@@ -200,3 +200,5 @@ snd_ccoop_sea_raider_taunt_1 = 198
 snd_ccoop_sea_raider_taunt_2 = 199
 snd_ccoop_sea_raider_taunt_3 = 200
 snd_sounds_end = 201
+snd_dac_footstep_grass = 202
+snd_dac_footstep_wood = 203
