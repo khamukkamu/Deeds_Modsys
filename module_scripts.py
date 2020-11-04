@@ -48651,11 +48651,14 @@ scripts = [
         (ge, ":num_combatants", 50),
         (this_or_next|ge, ":num_allies", 25),
         (ge, ":num_enemies", 25),
-        (play_track, "track_DAC-Battle-Bandits-1",0),
+        (music_set_situation, mtf_sit_fight),
+        (music_set_culture, mtf_culture_6), #Bandit Epic Music
       (else_try),
         (eq, ":situation", mtf_sit_fight),
         (eq, ":culture", mtf_culture_6), #Bandits
-        (play_track, "track_DAC-Battle-Generic-1", 0), 
+        (call_script, "script_rand", "track_DAC-Battle-Generic-1", "track_DAC-Battle-Siege-1"),
+        (assign, ":track", reg0),
+        (play_track, ":track", 0), #Kham: Need to vary Bandit music too
       (try_end),
      ]),
 

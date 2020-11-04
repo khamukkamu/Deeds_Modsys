@@ -19,8 +19,8 @@ sounds = [
  ("sword_clash_2", sf_priority_5|sf_vol_9,["s_swordClash2.wav"]),
  ("sword_clash_3", sf_priority_5|sf_vol_9,["s_swordClash3.wav"]),
  ("sword_swing", sf_vol_8|sf_priority_2,["swing_01.wav","swing_02.wav","swing_03.wav","swing_04.wav"]),
- ("footstep_grass", sf_vol_4|sf_priority_1,["silence.wav"]),
- ("footstep_wood", sf_vol_5|sf_priority_1,["silence.wav"]),
+ ("footstep_grass", sf_vol_5|sf_priority_1,["footstep_1.ogg","footstep_2.ogg","footstep_3.ogg","footstep_4.ogg"]),
+ ("footstep_wood", sf_vol_6|sf_priority_1,["footstep_wood_1.ogg","footstep_wood_2.ogg","footstep_wood_4.ogg"]),
 # ("footstep_wood", sf_vol_3|sf_priority_1,["footstep_stone_1.ogg","footstep_stone_3.ogg","footstep_stone_4.ogg"]),
  ("footstep_water", sf_vol_4|sf_priority_3,["water_walk_1.ogg","water_walk_2.ogg","water_walk_3.ogg","water_walk_4.ogg"]),
  ("footstep_horse",sf_priority_3|sf_vol_8, ["footstep_horse_5.ogg","footstep_horse_2.ogg","footstep_horse_3.ogg","footstep_horse_4.ogg"]),
@@ -235,8 +235,11 @@ sounds = [
  ("sounds_end", sf_priority_10|sf_vol_10, ["enemy_scored_a_point.ogg"]),
  #INVASION MODE END
 
-("dac_footstep_grass", sf_vol_4|sf_priority_1,["footstep_1.ogg","footstep_2.ogg","footstep_3.ogg","footstep_4.ogg"]),
-("dac_footstep_wood", sf_vol_5|sf_priority_1,["footstep_wood_1.ogg","footstep_wood_2.ogg","footstep_wood_4.ogg"]),
+("dac_lightstep_mail", sf_vol_8|sf_priority_2,["lightstep_01.mp3","lightstep_02.mp3","lightstep_03.mp3","lightstep_04.mp3","lightstep_05.mp3","lightstep_06.mp3","lightstep_07.mp3","lightstep_08.mp3","lightstep_09.mp3",
+	"lightstep_10.mp3","lightstep_11.mp3","lightstep_12.mp3","lightstep_13.mp3","lightstep_14.mp3","lightstep_15.mp3","lightstep_16.mp3","lightstep_17.mp3","lightstep_18.mp3","lightstep_19.mp3"]),
+
+("dac_heavystep_plate", sf_vol_3|sf_priority_2,["heavystep_01.mp3","heavystep_02.mp3","heavystep_03.mp3","heavystep_04.mp3","heavystep_05.mp3","heavystep_06.mp3","heavystep_07.mp3","heavystep_08.mp3","heavystep_09.mp3",
+	"heavystep_10.mp3","heavystep_11.mp3","heavystep_12.mp3","heavystep_13.mp3","heavystep_14.mp3","heavystep_15.mp3","heavystep_16.mp3","heavystep_17.mp3","heavystep_18.mp3","heavystep_19.mp3"]),
 
 ]
 

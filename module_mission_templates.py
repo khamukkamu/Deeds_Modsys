@@ -416,32 +416,56 @@ dac_lancer_fix_siege = (3, 0, 0, [(lt,"$dac_counter",3)],[ # need to repeat orde
       (val_add, "$dac_counter", 1),
     ])
 
-dac_footstep_sounds = (0,0,0.3,[],
+dac_footstep_sounds = (0,0.3,0, #0.3 timed with footfall
+  [
+    (set_fixed_point_multiplier, 1),
+    (troop_get_inventory_slot, ":body_armour", "trp_player", ek_body), # For player only for now
+    (ge, ":body_armour", 0), #Should have something
+    (item_get_weight, ":weight", ":body_armour"),
+
+    (ge, ":weight", 8), # At this weight, we start the armoured sounds.
+  ], 
+  
   [ 
-    (store_mission_timer_a, ":timer"),
-    (ge, ":timer", 3), #just for spawning.
 
-    (get_player_agent_no, ":player"),
-    
+    #(store_mission_timer_a, ":timer"),
+    #(ge, ":timer", 2), #just for spawning. No need for now, when only player
+
     # Player Only
+    (set_fixed_point_multiplier, 1),
+    (get_player_agent_no, ":player"),
+    (troop_get_inventory_slot, ":body_armour", "trp_player", ek_body),
+    (ge, ":body_armour", 0), #Should have something
+    (item_get_weight, ":weight", ":body_armour"),
+
+    (ge, ":weight", 8), # At this weight, we start the armoured sounds.
+
     (try_begin),
-      (agent_get_animation, ":anim", ":player"),
-      (is_between, ":anim", "anim_run_forward", "anim_walk_forward_crouch"),
-      (agent_play_sound, ":player", "snd_dac_footstep_wood"), # Change sound here
+      (is_between, ":weight", 8, 21), #Mail
+      (assign, ":track", "snd_dac_lightstep_mail"),
+    (else_try),
+      (ge, ":weight", 21),
+      (assign, ":track", "snd_dac_heavystep_plate"),
     (try_end),
 
-    # Limited (maybe randomize? 10% of troops only?)
-    (try_for_agents, ":agent"),
-      (agent_is_active, ":agent"),
-      (agent_is_alive, ":agent"),
-      (agent_is_human, ":agent"),
-      (neq, ":agent", ":player"),
-      (agent_get_animation, ":anim_2", ":agent"),
-      (is_between, ":anim_2", "anim_run_forward", "anim_walk_forward_crouch"),
-      #(call_script, "script_rand", 0, 100),
-      #(le, reg0, 10),
-      (agent_play_sound, ":agent", "snd_dac_footstep_wood"), #Change sound here
-    (try_end),
+    (agent_get_animation, ":anim", ":player"),
+    (is_between, ":anim", "anim_run_forward", "anim_walk_forward_crouch"),
+    (agent_play_sound, ":player", ":track"), # Change sound here
+    
+
+
+    # Limited (maybe randomize? 10% of troops only?) - Commented out, focus on the player first.
+   # (try_for_agents, ":agent"),
+   #   (agent_is_active, ":agent"),
+   #   (agent_is_alive, ":agent"),
+   #   (agent_is_human, ":agent"),
+   #   (neq, ":agent", ":player"),
+   #   (agent_get_animation, ":anim_2", ":agent"),
+   #   (is_between, ":anim_2", "anim_run_forward", "anim_walk_forward_crouch"),
+   #   #(call_script, "script_rand", 0, 100),
+   #   #(le, reg0, 10),
+   #   (agent_play_sound, ":agent", "snd_dac_heavystep_plate"), #Change sound here
+   # (try_end),
   ])
 
   # DAC End
@@ -3680,7 +3704,7 @@ mission_templates = [
        (troop_slot_ge, ":dead_agent_troop_no", slot_troop_mission_participation, mp_prison_break_fight),
        (troop_set_slot, ":dead_agent_troop_no", slot_troop_mission_participation, mp_prison_break_caught),
      (try_end),
-   ]),
+   ]), dac_footstep_sounds,
   ]),
 
   (
@@ -3811,9 +3835,9 @@ mission_templates = [
     (else_try), #villagers?
       (call_script, "script_change_player_relation_with_center", "$current_town", -1),
     (try_end),
-   ]),
-    ],
-  ),
+   ]), dac_footstep_sounds,
+    ]
+  ), 
 
   (
     "bandits_at_night",0,-1,

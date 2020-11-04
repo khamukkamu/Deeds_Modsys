@@ -1476,3 +1476,7 @@ g_presentation_obj_name_company
 g_presentation_obj_name_company_2
 g_random_scene_size_forests
 g_random_scene_size
+player_camp_troop_color_scheme
+player_camp_edit_mode
+player_camp_available
+relocation_distance

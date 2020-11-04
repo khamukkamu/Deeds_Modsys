@@ -14,8 +14,8 @@ from compiler import *
 tracks = [
 
   ("bogus", "cant_find_this.ogg", 0, 0),
-  ("mount_and_blade_title_screen", "DAC-Title.ogg", mtf_module_track|mtf_sit_main_title|mtf_start_immediately, 0),
-
+  #("mount_and_blade_title_screen", "DAC-Title-Old.ogg", mtf_module_track|mtf_sit_main_title|mtf_start_immediately, 0), #Old HYW Title Song
+  ("mount_and_blade_title_screen", "DAC-Title.ogg", mtf_module_track|mtf_sit_main_title|mtf_start_immediately, 0), #BenjaminR Deeds of Arms & Chivalry (Feb 3, 2020)
 
 # DAC Changes Begin
 # Ambush = Epic (num combatants >= 150)
@@ -29,7 +29,8 @@ tracks = [
 
 # Bandit Epic (num combatants >= 50),
   ("DAC-Battle-Bandits-1", "Battle/DAC-Battle-Bandits-1.mp3", mtf_module_track|mtf_sit_ambushed|mtf_culture_6, 0),
-  ("DAC-Battle-Bandits-2", "Battle/DAC-Battle-Bandits-2.ogg", mtf_module_track|mtf_sit_ambushed|mtf_culture_6, 0),
+  ("DAC-Battle-Bandits-2", "Battle/DAC-Battle-Bandits-2.ogg", mtf_module_track|mtf_sit_ambushed|mtf_culture_6, 0), #BenjaminR Silver Plate (Jan 13, 2020)
+  ("DAC-Battle-Bandits-3", "Battle/DAC-Battle-Bandits-3.ogg", mtf_module_track|mtf_sit_ambushed|mtf_culture_6, 0), #BenjaminR OneOSix (May 5, 2020)
 
 # DAC Generic Battle Music (Ambient Sound [for now])
 
@@ -48,9 +49,9 @@ tracks = [
   ("DAC-Battle-Siege-1", "Battle/DAC-Battle-Siege-1.mp3", mtf_module_track|mtf_sit_siege, 0),
   ("DAC-Battle-Siege-2", "Battle/DAC-Battle-Siege-2.ogg", mtf_module_track|mtf_sit_siege, 0),  
   ("DAC-Battle-Siege-3", "Battle/DAC-Battle-Siege-3.ogg", mtf_module_track|mtf_sit_siege, 0),  
-  ("DAC-Battle-Siege-4", "Battle/DAC-Battle-Siege-4.ogg", mtf_module_track|mtf_sit_siege, 0),  
-  ("DAC-Battle-Siege-5", "Battle/DAC-Battle-Siege-5.ogg", mtf_module_track|mtf_sit_siege, 0),  
-  ("DAC-Battle-Siege-6", "Battle/DAC-Battle-Siege-6.ogg", mtf_module_track|mtf_sit_siege, 0),  
+  ("DAC-Battle-Siege-4", "Battle/DAC-Battle-Siege-4.ogg", mtf_module_track|mtf_sit_siege, 0),  #BenjaminR Hundred Years War (Jan 13, 2020)
+  ("DAC-Battle-Siege-5", "Battle/DAC-Battle-Siege-5.ogg", mtf_module_track|mtf_sit_siege, 0),  #BenjaminR Death Legion (Jan 21, 2020)
+  ("DAC-Battle-Siege-6", "Battle/DAC-Battle-Siege-6.ogg", mtf_module_track|mtf_sit_siege, 0),  #BenjaminR Siege of Chateau Gallard (Jan 21, 2020)
 
 # DAC Travel Music
 # Breton
@@ -135,6 +136,7 @@ tracks = [
 
 # Court
   ("DAC-Court-Generic-1", "DAC-Court-Generic-1.mp3", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_night|mtf_sit_tavern|mtf_culture_all),
+  ("DAC-Court-Generic-2", "DAC-Court-Generic-1.mp3", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_night|mtf_sit_tavern|mtf_culture_all), #BenjaminR Lulle Me Beyond Thee Edit (Jan 21, 2020)
 
 # Town
   ("DAC-Town-Generic-1", "DAC-Town-Generic-1.mp3", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),
@@ -145,20 +147,21 @@ tracks = [
   ("DAC-Town-Generic-6", "DAC-Town-Generic-6.mp3", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),
   ("DAC-Town-Generic-7", "DAC-Town-Generic-7.mp3", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),
   ("DAC-Town-Generic-8", "DAC-Town-Generic-8.mp3", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),
-  ("DAC-Town-Generic-9", "DAC-Town-Generic-9.ogg", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),
-  ("DAC-Town-Generic-10", "DAC-Town-Generic-10.ogg", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),
-  ("DAC-Town-Generic-11", "DAC-Town-Generic-11.ogg", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),
-  ("DAC-Town-Generic-12", "DAC-Town-Generic-12.ogg", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),
-  ("DAC-Town-Generic-13", "DAC-Town-Generic-13.ogg", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),
-  ("DAC-Town-Generic-14", "DAC-Town-Generic-14.ogg", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),
+  ("DAC-Town-Generic-9", "DAC-Town-Generic-9.ogg", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),   #BenjaminR O Rosa Bella Edit (Jan 13, 2020)
+  ("DAC-Town-Generic-10", "DAC-Town-Generic-10.ogg", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night), #BenjaminR All in a Garden Green Edit (Jan 17, 2020)
+  ("DAC-Town-Generic-11", "DAC-Town-Generic-11.ogg", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night), #BenjaminR Lauro (Jan 17, 2020)
+  ("DAC-Town-Generic-12", "DAC-Town-Generic-12.ogg", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night), #BenjaminR Charlotte Bransle Edit (Jan 17, 2020)
+  ("DAC-Town-Generic-13", "DAC-Town-Generic-13.ogg", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night), #BenjaminR Viv El Gran Re Don Fernando Edit (Feb 4, 2020)
+  ("DAC-Town-Generic-14", "DAC-Town-Generic-14.ogg", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night), #BenjaminR The Bonny Bonny Broome Edit (Feb 4, 2020)
+  ("DAC-Town-Generic-15", "DAC-Town-Generic-15.ogg", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night), #BenjaminR Bizzariad Amore Edit (Feb 4, 2020)
 
 # Tavern
   ("DAC-Tavern-Generic-1", "DAC-Tavern-Generic-1.mp3", mtf_module_track|mtf_sit_tavern|mtf_sit_feast, 0),
   ("DAC-Tavern-Generic-2", "DAC-Tavern-Generic-2.mp3", mtf_module_track|mtf_sit_tavern|mtf_sit_feast, 0),
-  ("DAC-Tavern-Generic-3", "DAC-Tavern-Generic-3.ogg", mtf_module_track|mtf_sit_tavern|mtf_sit_feast, 0),
+  ("DAC-Tavern-Generic-3", "DAC-Tavern-Generic-3.ogg", mtf_module_track|mtf_sit_tavern|mtf_sit_feast, 0), #BenjaminR The Three Ravens (Feb 4, 2020)
 
 # Feast
-  ("DAC-Feast-Generic-1", "DAC-Feast-Generic-1.ogg", mtf_module_track|mtf_sit_feast, 0),
+  ("DAC-Feast-Generic-1", "DAC-Feast-Generic-1.ogg", mtf_module_track|mtf_sit_feast, 0), #BenjaminR Medieval Party (Feb 4, 2020)
 
 # Defeat
   ("DAC-Defeat-1", "DAC-Defeat-1.ogg", mtf_module_track|mtf_persist_until_finished|mtf_sit_killed, 0),
@@ -172,6 +175,8 @@ tracks = [
 # Victory
   ("victorious_evil", "victorious_evil.ogg", mtf_persist_until_finished|mtf_sit_victorious, 0), # Native
   ("escape", "escape.ogg", mtf_persist_until_finished|mtf_sit_victorious, 0), #Native
+  
+  ("DAC-Victorious-1", "DAC-Victorious-1.ogg", mtf_persist_until_finished|mtf_sit_victorious, 0), # BenjaminR Victory 2 (Feb 19, 2020)
 
 # DAC Changes END
 
@@ -202,6 +207,21 @@ tracks = [
   ("coronation", "coronation.ogg", mtf_persist_until_finished, 0),
 
 
+## BenjaminR Tracks NOT YET Added
+# Across the Eight Hills (Jan 25, 2020) - Kham: Maybe victory music?
+# CeF (Feb 4, 2020) - Kham: Sounds East Asian?
+# 18.2 (Feb 18, 2020) - Kham: bit too fan-fareish? Could be feast music
+# Victory 3 (Feb 19, 2020) - Kham: cuts too short? too long?
+# Battle Music (Feb 21, 2020) - Kham: Prolonged version of Victory 2 to become battle music
+# For Glory (Apr 26, 2020) - Kham: Might be too epic lol
+# TenFiveTwo... (May 10, 2020) - Kham: Not sure where to put this... Sounds like battle / travel. Gives a feel of adventure, definitely.
+# Tsueseki (May 31, 2020) - Kham: Had a good beginning, then became too crazy for us :D
+# A Spring March in the Orleans Forest (Jun 10, 2020) - Kham - Bit too fan-fareish again.
+# Thieves and Beggards (Jun 11, 2020) - Kham - Was OK in the beginning, good epic bandit music, then became too bouncy at the end 
+# Royal Oak (Jun 11, 2020) - Kham - Tavern or feast music, but got too fast for me :O
+# Paramount (Jul 4, 2020) - Kham - Not for us
+# 4.7 test (Jul 4, 2020) - Kham - too vocal
+# test 10 (Jul 10, 2020) - Kham - Epic battle? Siege?
 
-  
+
 ]
