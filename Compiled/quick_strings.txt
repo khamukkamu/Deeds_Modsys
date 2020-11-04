@@ -1,4 +1,4 @@
-2062
+2065
 qstr_Next_Page Next_Page
 qstr_Game_Rules:^ Game_Rules:^
 qstr_0 0
@@ -2061,3 +2061,6 @@ qstr_Market_Built! Market_Built!
 qstr_Market_Dismantled! Market_Dismantled!
 qstr_Chapterhouse_Built! Chapterhouse_Built!
 qstr_Chapterhouse_Dismant Chapterhouse_Dismantled!
+qstr_Weight:_{reg88} Weight:_{reg88}
+qstr_Light_Step Light_Step
+qstr_Heavy_Step Heavy_Step

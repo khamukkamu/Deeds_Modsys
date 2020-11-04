@@ -1,5 +1,5 @@
 soundsfile version 3
-747
+785
  drum_3.ogg 769
  tutorial_1.ogg 1793
  tutorial_2.ogg 1793
@@ -26,13 +26,13 @@ soundsfile version 3
  swing_02.wav 2080
  swing_03.wav 2080
  swing_04.wav 2080
- footstep_1.ogg 1040
- footstep_2.ogg 1040
- footstep_3.ogg 1040
- footstep_4.ogg 1040
- footstep_wood_1.ogg 1296
- footstep_wood_2.ogg 1296
- footstep_wood_4.ogg 1296
+ footstep_1.ogg 1296
+ footstep_2.ogg 1296
+ footstep_3.ogg 1296
+ footstep_4.ogg 1296
+ footstep_wood_1.ogg 1552
+ footstep_wood_2.ogg 1552
+ footstep_wood_4.ogg 1552
  water_walk_1.ogg 1072
  water_walk_2.ogg 1072
  water_walk_3.ogg 1072
@@ -747,6 +747,44 @@ soundsfile version 3
  dedal_tavern_lyre_1.ogg 1634
  dedal_tavern_lyre_2.ogg 1634
  dedal_tavern_lyre_3.ogg 1634
+ lightstep_01.mp3 2080
+ lightstep_02.mp3 2080
+ lightstep_03.mp3 2080
+ lightstep_04.mp3 2080
+ lightstep_05.mp3 2080
+ lightstep_06.mp3 2080
+ lightstep_07.mp3 2080
+ lightstep_08.mp3 2080
+ lightstep_09.mp3 2080
+ lightstep_10.mp3 2080
+ lightstep_11.mp3 2080
+ lightstep_12.mp3 2080
+ lightstep_13.mp3 2080
+ lightstep_14.mp3 2080
+ lightstep_15.mp3 2080
+ lightstep_16.mp3 2080
+ lightstep_17.mp3 2080
+ lightstep_18.mp3 2080
+ lightstep_19.mp3 2080
+ heavystep_01.mp3 800
+ heavystep_02.mp3 800
+ heavystep_03.mp3 800
+ heavystep_04.mp3 800
+ heavystep_05.mp3 800
+ heavystep_06.mp3 800
+ heavystep_07.mp3 800
+ heavystep_08.mp3 800
+ heavystep_09.mp3 800
+ heavystep_10.mp3 800
+ heavystep_11.mp3 800
+ heavystep_12.mp3 800
+ heavystep_13.mp3 800
+ heavystep_14.mp3 800
+ heavystep_15.mp3 800
+ heavystep_16.mp3 800
+ heavystep_17.mp3 800
+ heavystep_18.mp3 800
+ heavystep_19.mp3 800
 204
 snd_click 769 1 0 0 
 snd_tutorial_1 1793 1 1 0 
@@ -765,8 +803,8 @@ snd_sword_clash_1 2128 8 12 0 13 0 14 0 15 0 16 0 17 0 18 0 19 0
 snd_sword_clash_2 2384 1 20 0 
 snd_sword_clash_3 2384 1 21 0 
 snd_sword_swing 2080 4 22 0 23 0 24 0 25 0 
-snd_footstep_grass 1040 4 26 0 27 0 28 0 29 0 
-snd_footstep_wood 1296 3 30 0 31 0 32 0 
+snd_footstep_grass 1296 4 26 0 27 0 28 0 29 0 
+snd_footstep_wood 1552 3 30 0 31 0 32 0 
 snd_footstep_water 1072 4 33 0 34 0 35 0 36 0 
 snd_footstep_horse 2096 4 37 0 38 0 39 0 40 0 
 snd_footstep_horse_1b 2096 4 41 0 42 0 43 0 44 0 
@@ -950,5 +988,5 @@ snd_ccoop_sea_raider_taunt_1 2048 1 635 0
 snd_ccoop_sea_raider_taunt_2 2048 1 636 0 
 snd_ccoop_sea_raider_taunt_3 2048 1 637 0 
 snd_sounds_end 2720 1 740 0 
-snd_dac_footstep_grass 1040 4 26 0 27 0 28 0 29 0 
-snd_dac_footstep_wood 1296 3 30 0 31 0 32 0 
+snd_dac_lightstep_mail 2080 19 747 0 748 0 749 0 750 0 751 0 752 0 753 0 754 0 755 0 756 0 757 0 758 0 759 0 760 0 761 0 762 0 763 0 764 0 765 0 
+snd_dac_heavystep_plate 800 19 766 0 767 0 768 0 769 0 770 0 771 0 772 0 773 0 774 0 775 0 776 0 777 0 778 0 779 0 780 0 781 0 782 0 783 0 784 0 
