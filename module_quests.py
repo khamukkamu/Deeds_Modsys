@@ -1,4 +1,5 @@
 from header_quests import *
+from dac_mercenary_company import mercenary_company_quests
 
 from compiler import *
 ####################################################################################################################
@@ -412,6 +413,8 @@ quests = [
   ("save_town_from_bandits", "Save Town from Bandits", 0,
   "{!}placeholder."
   ),   
-  
+
+
  ("quests_end", "Quests End", 0, "{!}."),
 ]
+quests += mercenary_company_quests

@@ -7,6 +7,7 @@ from module_simple_triggers_mercenary_company import *
 from module_party_templates_mercenary_company import *
 from module_triggers_mercenary_company import *
 from module_troops_mercenary_company import *
+from module_quests_mercenary_company import *
 
 
 

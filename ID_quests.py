@@ -89,3 +89,4 @@ qst_learn_where_merchant_brother_is = 87
 qst_save_relative_of_merchant = 88
 qst_save_town_from_bandits = 89
 qst_quests_end = 90
+qst_merc_company_tutorial = 91

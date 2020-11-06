@@ -88,4 +88,15 @@ mercenary_company_simple_triggers = [
     (try_end),
     
     ]),
+
+    # Merc Company Quest / Tutorial Start
+  (24,
+   [
+    (troop_slot_ge, "trp_player", slot_troop_renown, 50),
+    (quest_slot_eq, "qst_merc_company_tutorial", slot_quest_current_state, 0),
+    
+    (assign, "$player_camp_available", 1),
+    (jump_to_menu, "mnu_player_camp_notification"),
+    
+    ]),
 ]

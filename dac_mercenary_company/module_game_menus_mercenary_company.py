@@ -50,13 +50,101 @@ mercenary_company_menus = [
        [],
     "Make it your priority.",[
         (change_screen_return),
+        (try_begin),
+            (setup_quest_text, "qst_merc_company_tutorial"),
+            (str_store_string, s2, "@You can now create a mercenary company from the camp menu under 'Take an Action'"),
+            (call_script, "script_start_quest", "qst_merc_company_tutorial", "trp_player"),
+            (quest_set_slot, "qst_merc_company_tutorial", slot_quest_current_state, MERC_CAMP_TUTORIAL_START), 
+        (try_end),
     ]),  
     ("player_camp_ignore",
        [],
     "Discard that thought.",[
+        (quest_set_slot, "qst_merc_company_tutorial", slot_quest_current_state, MERC_CAMP_TUTORIAL_REJECTED),
         (change_screen_return),
+
     ]),  
   ]),
+
+# DAC Kham: Create Merc Camp Checks:
+
+ ("dac_create_merc_camp",0,
+   "^^Creating a Mercenary Camp requires you to have {reg44} troops, and will cost {reg45} gold, {reg46} tools, and {reg47} wool cloth.",
+   "none",
+   [
+        (assign, reg44, MERC_CAMP_TROOP_REQ),
+        (assign, reg45, MERC_CAMP_GOLD_REQ),
+        (assign, reg46, MERC_CAMP_TOOLS_REQ),
+        (assign, reg47, MERC_CAMP_WOOL_REQ),
+   ],
+    [ 
+      ("dac_create_merc_camp_create",
+        [
+          (party_get_num_companions, ":companions", "p_main_party"),
+          (store_troop_gold, ":gold", "trp_player"),
+
+        #Check Item Requirements
+          (troop_get_inventory_capacity, ":inv_cap", "trp_player"),
+          (assign, ":total_units_tools", 0),
+          (try_for_range, ":i_slot_t", 10, ":inv_cap"),
+            (troop_get_inventory_slot, ":item_no_t", "trp_player", ":i_slot_t"),
+            (eq, ":item_no_t", "itm_tools"),
+            (val_add, ":total_units_tools", 1),
+          (try_end),
+
+          (assign, ":total_units_wool", 0),
+          (try_for_range, ":i_slot_w", 10, ":inv_cap"),
+            (troop_get_inventory_slot, ":item_no_w", "trp_player", ":i_slot_w"),
+            (eq, ":item_no_w", "itm_wool_cloth"),
+            (val_add, ":total_units_wool", 1),
+          (try_end),
+         
+         # Debug:
+          (assign, reg54, ":companions"),
+          (assign, reg55, ":gold"),
+          (assign, reg56, ":total_units_tools"),
+          (assign, reg57, ":total_units_wool"),
+
+          (display_message, "@{reg54} troops, {reg55} gold, {reg56} tools, {reg57} wool"),
+        # Debug end.
+
+          (ge, ":companions", MERC_CAMP_TROOP_REQ), #Do we have enough troops?
+          (ge, ":gold", MERC_CAMP_GOLD_REQ), #Do we have enough gold?
+          (ge, ":total_units_tools", MERC_CAMP_TOOLS_REQ), #Do we have enough gold?
+          (ge, ":total_units_wool", MERC_CAMP_WOOL_REQ), #Do we have enough gold?
+          
+
+
+        ],
+          "Set up Mercenary Camp.", 
+        [
+          (party_relocate_near_party, "p_player_camp", "p_main_party"),
+          (enable_party, "p_player_camp"),
+          (party_set_slot, "p_player_camp", slot_player_camp_level, 1),
+          (assign, "$player_camp_built", 1),
+          (call_script, "script_refresh_mercenary_camp_troops"),
+          (call_script, "script_dac_upgrade_player_camp"),
+
+          # Remove Requirements
+          (troop_remove_items, "trp_player", "itm_tools", MERC_CAMP_TOOLS_REQ),
+          (troop_remove_items, "trp_player", "itm_wool_cloth", MERC_CAMP_WOOL_REQ),
+          (troop_remove_gold, "trp_player", MERC_CAMP_GOLD_REQ),
+
+          (try_begin),
+            (quest_slot_eq, "qst_merc_company_tutorial", slot_quest_current_state, MERC_CAMP_TUTORIAL_START),
+            (add_xp_as_reward, 10),
+            (str_store_string, s2, "@Talk to your Quartermaster within the camp."),
+            (add_quest_note_from_sreg, "qst_merc_company_tutorial", 2, s2, 0),
+            (quest_set_slot, "qst_merc_company_tutorial", slot_quest_current_state, 2),
+          (try_end),
+          
+          (change_screen_return),
+        ]),
+
+      ("dac_create_merc_camp_back",[],"Back to camp menu.", [(jump_to_menu, "mnu_camp"),]),
+    ]
+ ),
+ 
 
 ## DAC Seek: Player Camp Encounter
   (

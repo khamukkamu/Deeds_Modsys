@@ -1,4 +1,4 @@
-2065
+2073
 qstr_Next_Page Next_Page
 qstr_Game_Rules:^ Game_Rules:^
 qstr_0 0
@@ -2064,3 +2064,11 @@ qstr_Chapterhouse_Dismant Chapterhouse_Dismantled!
 qstr_Weight:_{reg88} Weight:_{reg88}
 qstr_Light_Step Light_Step
 qstr_Heavy_Step Heavy_Step
+qstr_a_english_plate_mail_ a_english_plate_mail_brass
+qstr_a_english_plate_besa a_english_plate_besagews_square
+qstr_a_english_plate_besag a_english_plate_besagews_round
+qstr_This_is_a_plugin_tes This_is_a_plugin_test_injection!!
+qstr_This_is_a_plugin_test This_is_a_plugin_test_injection!
+qstr_You_can_now_create_a You_can_now_create_a_mercenary_company_from_the_camp_menu_under_'Take_an_Action'
+qstr_{reg54}_troops_{reg {reg54}_troops,_{reg55}_gold,_{reg56}_tools,_{reg57}_wool
+qstr_Talk_to_your_Quarter Talk_to_your_Quartermaster_within_the_camp.

@@ -781,6 +781,10 @@ scripts = [
 
     (party_set_slot, "p_castle_27", slot_party_last_toll_paid_hours, -24),
 
+    inject('display_test_message'),## plugin test
+    inject('display_test_message'),## plugin test
+    inject('display_test_message'),## plugin test
+    
     ]),
 
   #script_game_get_use_string

@@ -1,5 +1,5 @@
 soundsfile version 3
-785
+787
  drum_3.ogg 769
  tutorial_1.ogg 1793
  tutorial_2.ogg 1793
@@ -12,14 +12,14 @@ soundsfile version 3
  rain_1.ogg 1187
  coins_dropped_1.ogg 1185
  coins_dropped_2.ogg 2721
- sword_clank_metal_09.ogg 2128
- sword_clank_metal_09b.ogg 2128
- sword_clank_metal_10.ogg 2128
- sword_clank_metal_10b.ogg 2128
- sword_clank_metal_12.ogg 2128
- sword_clank_metal_12b.ogg 2128
- sword_clank_metal_13.ogg 2128
- sword_clank_metal_13b.ogg 2128
+ sword_clank_metal_09.wav 2128
+ sword_clank_metal_09b.wav 2128
+ sword_clank_metal_10.wav 2128
+ sword_clank_metal_10b.wav 2128
+ sword_clank_metal_12.wav 2128
+ sword_clank_metal_12b.wav 2128
+ sword_clank_metal_13.wav 2128
+ sword_clank_metal_13b.wav 2128
  s_swordClash2.wav 2384
  s_swordClash3.wav 2384
  swing_01.wav 2080
@@ -76,26 +76,26 @@ soundsfile version 3
  crossbow_shoot_04.ogg 1792
  crossbow_shoot_05.ogg 1792
  crossbow_shoot_06.ogg 1792
- crossbow_shoot_07.ogg 1792
- crossbow_shoot_08.ogg 1792
- crossbow_shoot_09.ogg 1792
- crossbow_shoot_10.ogg 1792
- crossbow_shoot_11.ogg 1792
- crossbow_shoot_12.ogg 1792
- crossbow_shoot_13.ogg 1792
- crossbow_shoot_14.ogg 1792
- crossbow_shoot_15.ogg 1792
- crossbow_shoot_16.ogg 1792
- crossbow_shoot_17.ogg 1792
- crossbow_shoot_18.ogg 1792
- crossbow_shoot_19.ogg 1792
- crossbow_shoot_20.ogg 1792
+ crossbow_shoot_07.wav 1792
+ crossbow_shoot_08.wav 1792
+ crossbow_shoot_09.wav 1792
+ crossbow_shoot_10.wav 1792
+ crossbow_shoot_11.wav 1792
+ crossbow_shoot_12.wav 1792
+ crossbow_shoot_13.wav 1792
+ crossbow_shoot_14.wav 1792
+ crossbow_shoot_15.wav 1792
+ crossbow_shoot_16.wav 1792
+ crossbow_shoot_17.wav 1792
+ crossbow_shoot_18.wav 1792
+ crossbow_shoot_19.wav 1792
+ crossbow_shoot_20.wav 1792
  throw_javelin_2.ogg 1280
  throw_axe_1.ogg 1792
  throw_knife_1.ogg 1280
- throw_stone_1.ogg 1792
- throw_stone_2.ogg 1792
- throw_stone_3.ogg 1792
+ throw_stone_01.ogg 1792
+ throw_stone_02.ogg 1792
+ throw_stone_03.ogg 1792
  pull_crossbow_string_01.ogg 768
  pull_crossbow_string_02.ogg 768
  pull_crossbow_string_03.ogg 768
@@ -555,15 +555,15 @@ soundsfile version 3
  man_ugh_13.ogg 2096
  man_ugh_17.ogg 2096
  man_stun_1.ogg 2096
- man_grunt_1.ogg 1888
- man_grunt_2.ogg 1888
- man_grunt_3.ogg 1888
- man_grunt_4.ogg 1888
- man_grunt_5.ogg 1888
- man_grunt_6.ogg 1888
- man_grunt_7.ogg 1888
- man_grunt_8.ogg 1888
- man_grunt_9.ogg 1888
+ man_grunt_01.ogg 1888
+ man_grunt_02.ogg 1888
+ man_grunt_03.ogg 1888
+ man_grunt_04.ogg 1888
+ man_grunt_05.ogg 1888
+ man_grunt_06.ogg 1888
+ man_grunt_07.ogg 1888
+ man_grunt_08.ogg 1888
+ man_grunt_09.ogg 1888
  man_grunt_10.ogg 1888
  man_grunt_11.ogg 1888
  man_grunt_12.ogg 1888
@@ -598,6 +598,8 @@ soundsfile version 3
  man_yell_20.ogg 2128
  man_yell_21.ogg 2128
  man_yell_22.ogg 2128
+ man_yell_23.ogg 2128
+ man_yell_24.ogg 2128
  man_shortyell_01.ogg 2128
  man_shortyell_02.ogg 2128
  man_shortyell_03.ogg 2128
@@ -917,76 +919,76 @@ snd_man_grunt 1120 4 543 0 544 0 545 0 546 0
 snd_man_breath_hard 2096 7 547 0 548 0 549 0 550 0 551 0 552 0 553 0 
 snd_man_stun 2096 1 554 0 
 snd_man_grunt_long 1888 21 555 0 556 0 557 0 558 0 559 0 560 0 561 0 562 0 563 0 564 0 565 0 566 0 567 0 568 0 569 0 570 0 571 0 572 0 573 0 574 0 575 0 
-snd_man_yell 2128 28 576 0 577 0 578 0 579 0 580 0 581 0 582 0 583 0 584 0 585 0 586 0 587 0 588 0 589 0 590 0 591 0 592 0 593 0 594 0 595 0 596 0 597 0 598 0 599 0 600 0 601 0 602 0 603 0 
-snd_man_warcry 80 14 604 0 605 0 606 0 607 0 608 0 609 0 610 0 611 0 612 0 613 0 614 0 615 0 616 0 617 0 
-snd_encounter_looters 2049 5 618 0 619 0 620 0 621 0 622 0 
-snd_encounter_bandits 2049 7 623 0 624 0 625 0 626 0 627 0 628 0 629 0 
-snd_encounter_farmers 2049 4 630 0 631 0 632 0 633 0 
-snd_encounter_sea_raiders 2049 4 634 0 635 0 636 0 637 0 
-snd_encounter_steppe_bandits 2049 5 638 0 639 0 640 0 641 0 642 0 
-snd_encounter_nobleman 2049 1 643 0 
-snd_encounter_vaegirs_ally 2049 2 644 0 645 0 
-snd_encounter_vaegirs_neutral 2049 4 646 0 647 0 648 0 649 0 
-snd_encounter_vaegirs_enemy 2049 4 646 0 647 0 648 0 649 0 
-snd_sneak_town_halt 1 2 650 0 651 0 
-snd_horse_walk 1328 8 652 0 653 0 654 0 655 0 656 0 657 0 658 0 659 0 
-snd_horse_trot 1600 10 660 0 661 0 662 0 663 0 664 0 665 0 666 0 667 0 668 0 669 0 
-snd_horse_canter 1856 8 670 0 671 0 672 0 673 0 674 0 675 0 676 0 677 0 
-snd_horse_gallop 2128 10 678 0 679 0 680 0 681 0 682 0 683 0 684 0 685 0 686 0 687 0 
-snd_horse_breath 1040 4 688 0 689 0 690 0 691 0 
-snd_horse_snort 528 5 692 0 693 0 694 0 695 0 696 0 
-snd_horse_low_whinny 3072 2 697 0 698 0 
-snd_block_fist 0 2 699 0 700 0 
+snd_man_yell 2128 30 576 0 577 0 578 0 579 0 580 0 581 0 582 0 583 0 584 0 585 0 586 0 587 0 588 0 589 0 590 0 591 0 592 0 593 0 594 0 595 0 596 0 597 0 598 0 599 0 600 0 601 0 602 0 603 0 604 0 605 0 
+snd_man_warcry 80 14 606 0 607 0 608 0 609 0 610 0 611 0 612 0 613 0 614 0 615 0 616 0 617 0 618 0 619 0 
+snd_encounter_looters 2049 5 620 0 621 0 622 0 623 0 624 0 
+snd_encounter_bandits 2049 7 625 0 626 0 627 0 628 0 629 0 630 0 631 0 
+snd_encounter_farmers 2049 4 632 0 633 0 634 0 635 0 
+snd_encounter_sea_raiders 2049 4 636 0 637 0 638 0 639 0 
+snd_encounter_steppe_bandits 2049 5 640 0 641 0 642 0 643 0 644 0 
+snd_encounter_nobleman 2049 1 645 0 
+snd_encounter_vaegirs_ally 2049 2 646 0 647 0 
+snd_encounter_vaegirs_neutral 2049 4 648 0 649 0 650 0 651 0 
+snd_encounter_vaegirs_enemy 2049 4 648 0 649 0 650 0 651 0 
+snd_sneak_town_halt 1 2 652 0 653 0 
+snd_horse_walk 1328 8 654 0 655 0 656 0 657 0 658 0 659 0 660 0 661 0 
+snd_horse_trot 1600 10 662 0 663 0 664 0 665 0 666 0 667 0 668 0 669 0 670 0 671 0 
+snd_horse_canter 1856 8 672 0 673 0 674 0 675 0 676 0 677 0 678 0 679 0 
+snd_horse_gallop 2128 10 680 0 681 0 682 0 683 0 684 0 685 0 686 0 687 0 688 0 689 0 
+snd_horse_breath 1040 4 690 0 691 0 692 0 693 0 
+snd_horse_snort 528 5 694 0 695 0 696 0 697 0 698 0 
+snd_horse_low_whinny 3072 2 699 0 700 0 
+snd_block_fist 0 2 701 0 702 0 
 snd_man_hit_blunt_weak 2640 8 304 0 305 0 306 0 307 0 308 0 310 0 319 0 316 0 
 snd_man_hit_blunt_strong 2640 9 303 0 305 0 312 0 319 0 306 0 314 0 301 0 309 0 313 0 
 snd_man_hit_pierce_weak 2640 7 303 0 304 0 305 0 319 0 315 0 316 0 317 0 
 snd_man_hit_pierce_strong 2640 8 301 0 309 0 313 0 306 0 314 0 301 0 309 0 313 0 
 snd_man_hit_cut_weak 2640 8 303 0 308 0 310 0 305 0 318 0 315 0 316 0 317 0 
 snd_man_hit_cut_strong 2640 6 300 0 306 0 314 0 301 0 309 0 313 0 
-snd_man_victory 2640 15 701 0 702 0 703 0 704 0 705 0 706 0 707 0 708 0 709 0 710 0 711 0 712 0 713 0 714 0 715 0 
-snd_fire_loop 1174 1 716 0 
-snd_torch_loop 1174 1 716 0 
-snd_dummy_hit 144 2 717 0 718 0 
+snd_man_victory 2640 15 703 0 704 0 705 0 706 0 707 0 708 0 709 0 710 0 711 0 712 0 713 0 714 0 715 0 716 0 717 0 
+snd_fire_loop 1174 1 718 0 
+snd_torch_loop 1174 1 718 0 
+snd_dummy_hit 144 2 719 0 720 0 
 snd_dummy_destroyed 144 1 299 0 
 snd_gourd_destroyed 144 1 299 0 
-snd_cow_moo 2193 1 719 0 
-snd_cow_slaughter 2193 1 720 0 
-snd_distant_dog_bark 2097 4 721 0 722 0 723 0 724 0 
-snd_distant_owl 2353 3 725 0 726 0 727 0 
-snd_distant_chicken 2097 2 728 0 729 0 
-snd_distant_carpenter 817 2 730 0 731 0 
-snd_distant_blacksmith 1073 1 732 0 
-snd_arena_ambiance 899 1 733 0 
-snd_town_ambiance 899 1 734 0 
-snd_tutorial_fail 1793 1 735 0 
-snd_your_flag_taken 2721 1 736 0 
-snd_enemy_flag_taken 2721 1 737 0 
-snd_flag_returned 2721 1 738 0 
-snd_team_scored_a_point 2721 1 739 0 
-snd_enemy_scored_a_point 2721 1 740 0 
-snd_dedal_tavern_lute 1378 3 741 0 742 0 743 0 
-snd_dedal_tavern_lyre 1634 3 744 0 745 0 746 0 
-snd_ccoop_spawn_companion_0 2048 1 630 0 
-snd_ccoop_spawn_companion_1 2048 1 631 0 
-snd_ccoop_spawn_companion_2 2048 1 632 0 
-snd_ccoop_spawn_companion_3 2048 1 633 0 
-snd_ccoop_nobleman_taunt 2048 1 643 0 
-snd_ccoop_looter_taunt_0 2048 1 618 0 
-snd_ccoop_looter_taunt_1 2048 1 619 0 
-snd_ccoop_looter_taunt_2 2048 1 620 0 
-snd_ccoop_looter_taunt_3 2048 1 621 0 
-snd_ccoop_looter_taunt_4 2048 1 622 0 
-snd_ccoop_bandit_taunt_0 2048 1 623 0 
-snd_ccoop_bandit_taunt_1 2048 1 624 0 
-snd_ccoop_bandit_taunt_2 2048 1 625 0 
-snd_ccoop_bandit_taunt_3 2048 1 626 0 
-snd_ccoop_bandit_taunt_4 2048 1 627 0 
-snd_ccoop_bandit_taunt_5 2048 1 628 0 
-snd_ccoop_bandit_taunt_6 2048 1 629 0 
-snd_ccoop_sea_raider_taunt_0 2048 1 634 0 
-snd_ccoop_sea_raider_taunt_1 2048 1 635 0 
-snd_ccoop_sea_raider_taunt_2 2048 1 636 0 
-snd_ccoop_sea_raider_taunt_3 2048 1 637 0 
-snd_sounds_end 2720 1 740 0 
-snd_dac_lightstep_mail 2080 19 747 0 748 0 749 0 750 0 751 0 752 0 753 0 754 0 755 0 756 0 757 0 758 0 759 0 760 0 761 0 762 0 763 0 764 0 765 0 
-snd_dac_heavystep_plate 800 19 766 0 767 0 768 0 769 0 770 0 771 0 772 0 773 0 774 0 775 0 776 0 777 0 778 0 779 0 780 0 781 0 782 0 783 0 784 0 
+snd_cow_moo 2193 1 721 0 
+snd_cow_slaughter 2193 1 722 0 
+snd_distant_dog_bark 2097 4 723 0 724 0 725 0 726 0 
+snd_distant_owl 2353 3 727 0 728 0 729 0 
+snd_distant_chicken 2097 2 730 0 731 0 
+snd_distant_carpenter 817 2 732 0 733 0 
+snd_distant_blacksmith 1073 1 734 0 
+snd_arena_ambiance 899 1 735 0 
+snd_town_ambiance 899 1 736 0 
+snd_tutorial_fail 1793 1 737 0 
+snd_your_flag_taken 2721 1 738 0 
+snd_enemy_flag_taken 2721 1 739 0 
+snd_flag_returned 2721 1 740 0 
+snd_team_scored_a_point 2721 1 741 0 
+snd_enemy_scored_a_point 2721 1 742 0 
+snd_dedal_tavern_lute 1378 3 743 0 744 0 745 0 
+snd_dedal_tavern_lyre 1634 3 746 0 747 0 748 0 
+snd_ccoop_spawn_companion_0 2048 1 632 0 
+snd_ccoop_spawn_companion_1 2048 1 633 0 
+snd_ccoop_spawn_companion_2 2048 1 634 0 
+snd_ccoop_spawn_companion_3 2048 1 635 0 
+snd_ccoop_nobleman_taunt 2048 1 645 0 
+snd_ccoop_looter_taunt_0 2048 1 620 0 
+snd_ccoop_looter_taunt_1 2048 1 621 0 
+snd_ccoop_looter_taunt_2 2048 1 622 0 
+snd_ccoop_looter_taunt_3 2048 1 623 0 
+snd_ccoop_looter_taunt_4 2048 1 624 0 
+snd_ccoop_bandit_taunt_0 2048 1 625 0 
+snd_ccoop_bandit_taunt_1 2048 1 626 0 
+snd_ccoop_bandit_taunt_2 2048 1 627 0 
+snd_ccoop_bandit_taunt_3 2048 1 628 0 
+snd_ccoop_bandit_taunt_4 2048 1 629 0 
+snd_ccoop_bandit_taunt_5 2048 1 630 0 
+snd_ccoop_bandit_taunt_6 2048 1 631 0 
+snd_ccoop_sea_raider_taunt_0 2048 1 636 0 
+snd_ccoop_sea_raider_taunt_1 2048 1 637 0 
+snd_ccoop_sea_raider_taunt_2 2048 1 638 0 
+snd_ccoop_sea_raider_taunt_3 2048 1 639 0 
+snd_sounds_end 2720 1 742 0 
+snd_dac_lightstep_mail 2080 19 749 0 750 0 751 0 752 0 753 0 754 0 755 0 756 0 757 0 758 0 759 0 760 0 761 0 762 0 763 0 764 0 765 0 766 0 767 0 
+snd_dac_heavystep_plate 800 19 768 0 769 0 770 0 771 0 772 0 773 0 774 0 775 0 776 0 777 0 778 0 779 0 780 0 781 0 782 0 783 0 784 0 785 0 786 0 

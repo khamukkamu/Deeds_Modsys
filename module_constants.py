@@ -2947,5 +2947,18 @@ slot_item_tiers_end = 136
 slot_troop_tier_custom_troop = 180
 slot_troop_custom_can_use_item = 181
 ## DAC Custom Troops (Merc Company Feature) End
+
+# DAC Merc Camp Constants Begin
 player_camp_dialog_begin = "str_camp_soldier_line_1"
 player_camp_dialog_end = "str_camp_soldier_line_end"
+
+# Merc Camp Tutorial States
+MERC_CAMP_TUTORIAL_START = 1 
+MERC_CAMP_TUTORIAL_QUARTERMASTER = 2 
+MERC_CAMP_TUTORIAL_REJECTED = 11
+
+# Merc Camp Creation Requirements
+MERC_CAMP_TROOP_REQ = 15
+MERC_CAMP_GOLD_REQ = 1000
+MERC_CAMP_TOOLS_REQ = 2
+MERC_CAMP_WOOL_REQ = 5

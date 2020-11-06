@@ -1,5 +1,6 @@
-124
+125
 cant_find_this.ogg 0 0
+DAC-Title-Old.ogg 272629888 272629888
 DAC-Title.ogg 272629888 272629888
 Battle/DAC-Battle-Epic-1.ogg 268439552 268439615
 Battle/DAC-Battle-Epic-2.ogg 268439552 268439615
@@ -9,7 +10,7 @@ Battle/DAC-Battle-Epic-5.mp3 268439552 268439615
 Battle/DAC-Battle-Epic-6.ogg 268439552 268439615
 Battle/DAC-Battle-Bandits-1.mp3 268439584 268439584
 Battle/DAC-Battle-Bandits-2.ogg 268439584 268439584
-Battle/DAC-Battle-Bandits-3.ogg 268439584 268439584
+Battle/DAC-Battle-Bandits-3.mp3 268439584 268439584
 Battle/DAC-Battle-Generic-1.ogg 268567552 268567552
 Battle/DAC-Battle-Generic-2.ogg 268567552 268567552
 Battle/DAC-Battle-Generic-3.ogg 268567552 268567552
@@ -94,7 +95,7 @@ Travel/Burgandy/DAC-Travel-Burgandy-26.mp3 268500996 268500996
 Travel/Burgandy/DAC-Travel-Burgandy-27.mp3 268500996 268500996
 Travel/Burgandy/DAC-Travel-Burgandy-28.mp3 268500996 268500996
 DAC-Court-Generic-1.mp3 268443648 268968511
-DAC-Court-Generic-1.mp3 268443648 268968511
+DAC-Court-Generic-2.ogg 268443648 268968511
 DAC-Town-Generic-1.mp3 268443648 268968448
 DAC-Town-Generic-2.mp3 268443648 268968448
 DAC-Town-Generic-3.mp3 268443648 268968448
@@ -120,6 +121,6 @@ empty_village.ogg 33024 33024
 calm_night_2.ogg 16384 16384
 victorious_evil.ogg 8388864 8388864
 escape.ogg 8388864 8388864
-DAC-Victorious-1.ogg 8388864 8388864
+DAC-Victorious-1.ogg 276824320 276824320
 wedding.ogg 256 256
 coronation.ogg 256 256
