@@ -2779,15 +2779,15 @@ itemsfile version 3
  0
 0
 
- itm_w_dagger_bollock Bollock_Dagger Bollock_Dagger 6  w_regular_dagger_bollock 0  w_rusty_dagger_bollock 4  w_masterwork_dagger_bollock 131072  w_regular_dagger_bollock_scabbard 3458764513820540928  w_rusty_dagger_bollock_scabbard 3458764513820540932  w_masterwork_dagger_bollock_scabbard 3458764513820672000  2251799826350082 9223372072313421839 73 131076 0.500000 100 0 0 0 0 0 105 0 47 0 287 22
+ itm_w_dagger_bollock Bollock_Dagger Bollock_Dagger 6  w_regular_dagger_bollock 0  w_rusty_dagger_bollock 4  w_masterwork_dagger_bollock 131072  w_regular_dagger_bollock_scabbard 3458764513820540928  w_rusty_dagger_bollock_scabbard 3458764513820540932  w_masterwork_dagger_bollock_scabbard 3458764513820672000  2251799826333698 9223372072313421839 73 131076 0.500000 100 0 0 0 0 0 105 0 47 0 287 22
  0
 0
 
- itm_w_dagger_pikeman Pikeman_Dagger Pikeman_Dagger 6  w_regular_dagger_pikeman 0  w_rusty_dagger_pikeman 4  w_masterwork_dagger_pikeman 131072  w_regular_dagger_pikeman_scabbard 3458764513820540928  w_rusty_dagger_pikeman_scabbard 3458764513820540932  w_masterwork_dagger_pikeman_scabbard 3458764513820672000  2251799826350082 9223372072313421839 122 131076 0.700000 100 0 0 0 0 0 108 0 41 0 283 28
+ itm_w_dagger_pikeman Pikeman_Dagger Pikeman_Dagger 6  w_regular_dagger_pikeman 0  w_rusty_dagger_pikeman 4  w_masterwork_dagger_pikeman 131072  w_regular_dagger_pikeman_scabbard 3458764513820540928  w_rusty_dagger_pikeman_scabbard 3458764513820540932  w_masterwork_dagger_pikeman_scabbard 3458764513820672000  2251799826333698 9223372072313421839 122 131076 0.700000 100 0 0 0 0 0 108 0 41 0 283 28
  0
 0
 
- itm_w_dagger_italian Italian_Dagger Italian_Dagger 6  w_regular_dagger_italian 0  w_rusty_dagger_italian 4  w_masterwork_dagger_italian 131072  w_regular_dagger_italian_scabbard 3458764513820540928  w_rusty_dagger_italian_scabbard 3458764513820540932  w_masterwork_dagger_italian_scabbard 3458764513820672000  2251799826350082 9223372072313421839 136 131076 0.600000 100 0 0 0 0 0 105 0 47 0 285 25
+ itm_w_dagger_italian Italian_Dagger Italian_Dagger 6  w_regular_dagger_italian 0  w_rusty_dagger_italian 4  w_masterwork_dagger_italian 131072  w_regular_dagger_italian_scabbard 3458764513820540928  w_rusty_dagger_italian_scabbard 3458764513820540932  w_masterwork_dagger_italian_scabbard 3458764513820672000  2251799826333698 9223372072313421839 136 131076 0.600000 100 0 0 0 0 0 105 0 47 0 285 25
  0
 0
 
@@ -4179,397 +4179,397 @@ itemsfile version 3
  0
 0
 
- itm_s_pavise_native_french_1 Pavise_Shield Pavise_Shield 1  s_pavise_native_french_1 0  268763143 6442450944 210 167772194 4.500000 100 0 10 0 0 430 81 100 43 0 0 0
+ itm_s_pavise_native_french_1 Pavise_Shield Pavise_Shield 1  s_pavise_native_french_1 0  268763143 6442450944 550 167772194 4.500000 100 0 32 0 0 660 82 120 55 0 0 0
  0
 0
 
- itm_s_pavise_native_french_2 Pavise_Shield Pavise_Shield 1  s_pavise_native_french_2 0  268763143 6442450944 210 167772194 4.500000 100 0 10 0 0 430 81 100 43 0 0 0
+ itm_s_pavise_native_french_2 Pavise_Shield Pavise_Shield 1  s_pavise_native_french_2 0  268763143 6442450944 550 167772194 4.500000 100 0 32 0 0 660 82 120 55 0 0 0
  0
 0
 
- itm_s_pavise_native_french_3 Pavise_Shield Pavise_Shield 1  s_pavise_native_french_3 0  268763143 6442450944 210 167772194 4.500000 100 0 10 0 0 430 81 100 43 0 0 0
+ itm_s_pavise_native_french_3 Pavise_Shield Pavise_Shield 1  s_pavise_native_french_3 0  268763143 6442450944 550 167772194 4.500000 100 0 32 0 0 660 82 120 55 0 0 0
  0
 0
 
- itm_s_pavise_native_french_4 Pavise_Shield Pavise_Shield 1  s_pavise_native_french_4 0  268763143 6442450944 210 167772194 4.500000 100 0 10 0 0 430 81 100 43 0 0 0
+ itm_s_pavise_native_french_4 Pavise_Shield Pavise_Shield 1  s_pavise_native_french_4 0  268763143 6442450944 550 167772194 4.500000 100 0 32 0 0 660 82 120 55 0 0 0
  0
 0
 
- itm_s_pavise_native_burgundian_1 Pavise_Shield Pavise_Shield 1  s_pavise_native_burgundian_1 0  268763143 6442450944 210 167772194 4.500000 100 0 10 0 0 430 81 100 43 0 0 0
+ itm_s_pavise_native_burgundian_1 Pavise_Shield Pavise_Shield 1  s_pavise_native_burgundian_1 0  268763143 6442450944 550 167772194 4.500000 100 0 32 0 0 660 82 120 55 0 0 0
  0
 0
 
- itm_s_pavise_native_burgundian_2 Pavise_Shield Pavise_Shield 1  s_pavise_native_burgundian_2 0  268763143 6442450944 210 167772194 4.500000 100 0 10 0 0 430 81 100 43 0 0 0
+ itm_s_pavise_native_burgundian_2 Pavise_Shield Pavise_Shield 1  s_pavise_native_burgundian_2 0  268763143 6442450944 550 167772194 4.500000 100 0 32 0 0 660 82 120 55 0 0 0
  0
 0
 
- itm_s_pavise_native_burgundian_3 Pavise_Shield Pavise_Shield 1  s_pavise_native_burgundian_3 0  268763143 6442450944 210 167772194 4.500000 100 0 10 0 0 430 81 100 43 0 0 0
+ itm_s_pavise_native_burgundian_3 Pavise_Shield Pavise_Shield 1  s_pavise_native_burgundian_3 0  268763143 6442450944 550 167772194 4.500000 100 0 32 0 0 660 82 120 55 0 0 0
  0
 0
 
- itm_s_pavise_native_burgundian_4 Pavise_Shield Pavise_Shield 1  s_pavise_native_burgundian_4 0  268763143 6442450944 210 167772194 4.500000 100 0 10 0 0 430 81 100 43 0 0 0
+ itm_s_pavise_native_burgundian_4 Pavise_Shield Pavise_Shield 1  s_pavise_native_burgundian_4 0  268763143 6442450944 550 167772194 4.500000 100 0 32 0 0 660 82 120 55 0 0 0
  0
 0
 
- itm_s_pavise_native_breton_1 Pavise_Shield Pavise_Shield 1  s_pavise_native_breton_1 0  268763143 6442450944 210 167772194 4.500000 100 0 10 0 0 430 81 100 43 0 0 0
+ itm_s_pavise_native_breton_1 Pavise_Shield Pavise_Shield 1  s_pavise_native_breton_1 0  268763143 6442450944 550 167772194 4.500000 100 0 32 0 0 660 82 100 55 0 0 0
  0
 0
 
- itm_s_pavise_native_breton_2 Pavise_Shield Pavise_Shield 1  s_pavise_native_breton_2 0  268763143 6442450944 210 167772194 4.500000 100 0 10 0 0 430 81 100 43 0 0 0
+ itm_s_pavise_native_breton_2 Pavise_Shield Pavise_Shield 1  s_pavise_native_breton_2 0  268763143 6442450944 550 167772194 4.500000 100 0 32 0 0 660 82 100 55 0 0 0
  0
 0
 
- itm_s_pavise_native_breton_3 Pavise_Shield Pavise_Shield 1  s_pavise_native_breton_3 0  268763143 6442450944 210 167772194 4.500000 100 0 10 0 0 430 81 100 43 0 0 0
+ itm_s_pavise_native_breton_3 Pavise_Shield Pavise_Shield 1  s_pavise_native_breton_3 0  268763143 6442450944 550 167772194 4.500000 100 0 32 0 0 660 82 100 55 0 0 0
  0
 0
 
- itm_s_pavise_native_genoese_1 Pavise_Shield Pavise_Shield 1  s_pavise_native_genoese_1 0  268763143 6442450944 210 167772194 4.500000 100 0 10 0 0 430 81 100 43 0 0 0
+ itm_s_pavise_native_genoese_1 Pavise_Shield Pavise_Shield 1  s_pavise_native_genoese_1 0  268763143 6442450944 550 167772194 4.500000 100 0 10 0 0 660 82 100 55 0 0 0
  0
 0
 
- itm_s_pavise_french_1 Pavise_Shield Pavise_Shield 1  s_pavise_french_1 0  268763143 6442450944 210 167772194 4.500000 100 0 10 0 0 430 81 100 43 0 0 0
+ itm_s_pavise_french_1 Pavise_Shield Pavise_Shield 1  s_pavise_french_1 0  268763143 6442450944 420 167772194 3.500000 100 0 30 0 0 380 86 85 45 0 0 0
  0
 0
 
- itm_s_pavise_french_2 Pavise_Shield Pavise_Shield 1  s_pavise_french_2 0  268763143 6442450944 210 167772194 4.500000 100 0 10 0 0 430 81 100 43 0 0 0
+ itm_s_pavise_french_2 Pavise_Shield Pavise_Shield 1  s_pavise_french_2 0  268763143 6442450944 420 167772194 3.500000 100 0 30 0 0 380 86 85 45 0 0 0
  0
 0
 
- itm_s_pavise_french_3 Pavise_Shield Pavise_Shield 1  s_pavise_french_3 0  268763143 6442450944 210 167772194 4.500000 100 0 10 0 0 430 81 100 43 0 0 0
+ itm_s_pavise_french_3 Pavise_Shield Pavise_Shield 1  s_pavise_french_3 0  268763143 6442450944 420 167772194 3.500000 100 0 30 0 0 380 86 85 45 0 0 0
  0
 0
 
- itm_s_pavise_french_4 Pavise_Shield Pavise_Shield 1  s_pavise_french_4 0  268763143 6442450944 210 167772194 4.500000 100 0 10 0 0 430 81 100 43 0 0 0
+ itm_s_pavise_french_4 Pavise_Shield Pavise_Shield 1  s_pavise_french_4 0  268763143 6442450944 420 167772194 3.500000 100 0 30 0 0 380 86 85 45 0 0 0
  0
 0
 
- itm_s_pavise_burgundian_1 Pavise_Shield Pavise_Shield 1  s_pavise_burgundian_1 0  268763143 6442450944 210 167772194 4.500000 100 0 10 0 0 430 81 100 43 0 0 0
+ itm_s_pavise_burgundian_1 Pavise_Shield Pavise_Shield 1  s_pavise_burgundian_1 0  268763143 6442450944 420 167772194 3.500000 100 0 30 0 0 380 86 85 45 0 0 0
  0
 0
 
- itm_s_pavise_burgundian_2 Pavise_Shield Pavise_Shield 1  s_pavise_burgundian_2 0  268763143 6442450944 210 167772194 4.500000 100 0 10 0 0 430 81 100 43 0 0 0
+ itm_s_pavise_burgundian_2 Pavise_Shield Pavise_Shield 1  s_pavise_burgundian_2 0  268763143 6442450944 420 167772194 3.500000 100 0 30 0 0 380 86 85 45 0 0 0
  0
 0
 
- itm_s_pavise_burgundian_3 Pavise_Shield Pavise_Shield 1  s_pavise_burgundian_3 0  268763143 6442450944 210 167772194 4.500000 100 0 10 0 0 430 81 100 43 0 0 0
+ itm_s_pavise_burgundian_3 Pavise_Shield Pavise_Shield 1  s_pavise_burgundian_3 0  268763143 6442450944 420 167772194 3.500000 100 0 30 0 0 380 86 85 45 0 0 0
  0
 0
 
- itm_s_pavise_burgundian_4 Pavise_Shield Pavise_Shield 1  s_pavise_burgundian_4 0  268763143 6442450944 210 167772194 4.500000 100 0 10 0 0 430 81 100 43 0 0 0
+ itm_s_pavise_burgundian_4 Pavise_Shield Pavise_Shield 1  s_pavise_burgundian_4 0  268763143 6442450944 420 167772194 3.500000 100 0 30 0 0 380 86 85 45 0 0 0
  0
 0
 
- itm_s_pavise_flemish_1 Pavise_Shield Pavise_Shield 1  s_pavise_flemish_1 0  268763143 6442450944 210 167772194 4.500000 100 0 10 0 0 430 81 100 43 0 0 0
+ itm_s_pavise_flemish_1 Pavise_Shield Pavise_Shield 1  s_pavise_flemish_1 0  268763143 6442450944 420 167772194 3.500000 100 0 30 0 0 380 86 85 45 0 0 0
  0
 0
 
- itm_s_pavise_flemish_2 Pavise_Shield Pavise_Shield 1  s_pavise_flemish_2 0  268763143 6442450944 210 167772194 4.500000 100 0 10 0 0 430 81 100 43 0 0 0
+ itm_s_pavise_flemish_2 Pavise_Shield Pavise_Shield 1  s_pavise_flemish_2 0  268763143 6442450944 420 167772194 3.500000 100 0 30 0 0 380 86 85 45 0 0 0
  0
 0
 
- itm_s_pavise_flemish_3 Pavise_Shield Pavise_Shield 1  s_pavise_flemish_3 0  268763143 6442450944 210 167772194 4.500000 100 0 10 0 0 430 81 100 43 0 0 0
+ itm_s_pavise_flemish_3 Pavise_Shield Pavise_Shield 1  s_pavise_flemish_3 0  268763143 6442450944 420 167772194 3.500000 100 0 30 0 0 380 86 85 45 0 0 0
  0
 0
 
- itm_s_pavise_flemish_4 Pavise_Shield Pavise_Shield 1  s_pavise_flemish_4 0  268763143 6442450944 210 167772194 4.500000 100 0 10 0 0 430 81 100 43 0 0 0
+ itm_s_pavise_flemish_4 Pavise_Shield Pavise_Shield 1  s_pavise_flemish_4 0  268763143 6442450944 420 167772194 3.500000 100 0 30 0 0 380 86 85 45 0 0 0
  0
 0
 
- itm_s_pavise_breton_1 Pavise_Shield Pavise_Shield 1  s_pavise_breton_1 0  268763143 6442450944 210 167772194 4.500000 100 0 10 0 0 430 81 100 43 0 0 0
+ itm_s_pavise_breton_1 Pavise_Shield Pavise_Shield 1  s_pavise_breton_1 0  268763143 6442450944 420 167772194 3.500000 100 0 30 0 0 380 86 85 45 0 0 0
  0
 0
 
- itm_s_pavise_breton_2 Pavise_Shield Pavise_Shield 1  s_pavise_breton_2 0  268763143 6442450944 210 167772194 4.500000 100 0 10 0 0 430 81 100 43 0 0 0
+ itm_s_pavise_breton_2 Pavise_Shield Pavise_Shield 1  s_pavise_breton_2 0  268763143 6442450944 420 167772194 3.500000 100 0 30 0 0 380 86 85 45 0 0 0
  0
 0
 
- itm_s_pavise_breton_3 Pavise_Shield Pavise_Shield 1  s_pavise_breton_3 0  268763143 6442450944 210 167772194 4.500000 100 0 10 0 0 430 81 100 43 0 0 0
+ itm_s_pavise_breton_3 Pavise_Shield Pavise_Shield 1  s_pavise_breton_3 0  268763143 6442450944 420 167772194 3.500000 100 0 30 0 0 380 86 85 45 0 0 0
  0
 0
 
- itm_s_heraldic_shield_french_1 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_french_1 0  327687 4831838208 105 167772194 2.000000 100 0 6 0 0 210 95 85 50 0 0 0
+ itm_s_heraldic_shield_french_1 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_french_1 0  327687 4831838208 340 167772194 2.200000 100 0 25 0 0 350 92 70 50 0 0 0
  0
 0
 
- itm_s_heraldic_shield_french_2 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_french_2 0  327687 4831838208 105 167772194 2.000000 100 0 6 0 0 210 95 85 50 0 0 0
+ itm_s_heraldic_shield_french_2 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_french_2 0  327687 4831838208 340 167772194 2.200000 100 0 25 0 0 350 92 70 50 0 0 0
  0
 0
 
- itm_s_heraldic_shield_french_3 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_french_3 0  327687 4831838208 105 167772194 2.000000 100 0 6 0 0 210 95 85 50 0 0 0
+ itm_s_heraldic_shield_french_3 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_french_3 0  327687 4831838208 340 167772194 2.200000 100 0 25 0 0 350 92 70 50 0 0 0
  0
 0
 
- itm_s_heraldic_shield_french_4 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_french_4 0  327687 4831838208 105 167772194 2.000000 100 0 6 0 0 210 95 85 50 0 0 0
+ itm_s_heraldic_shield_french_4 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_french_4 0  327687 4831838208 340 167772194 2.200000 100 0 25 0 0 350 92 70 50 0 0 0
  0
 0
 
- itm_s_heraldic_shield_french_5 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_french_5 0  327687 4831838208 105 167772194 2.000000 100 0 6 0 0 210 95 85 50 0 0 0
+ itm_s_heraldic_shield_french_5 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_french_5 0  327687 4831838208 340 167772194 2.200000 100 0 25 0 0 350 92 70 50 0 0 0
  0
 0
 
- itm_s_heraldic_shield_french_6 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_french_6 0  327687 4831838208 105 167772194 2.000000 100 0 6 0 0 210 95 85 50 0 0 0
+ itm_s_heraldic_shield_french_6 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_french_6 0  327687 4831838208 340 167772194 2.200000 100 0 25 0 0 350 92 70 50 0 0 0
  0
 0
 
- itm_s_heraldic_shield_french_7 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_french_7 0  327687 4831838208 105 167772194 2.000000 100 0 6 0 0 210 95 85 50 0 0 0
+ itm_s_heraldic_shield_french_7 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_french_7 0  327687 4831838208 340 167772194 2.200000 100 0 25 0 0 350 92 70 50 0 0 0
  0
 0
 
- itm_s_heraldic_shield_english_1 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_english_1 0  327687 4831838208 105 167772194 2.000000 100 0 6 0 0 210 95 85 50 0 0 0
+ itm_s_heraldic_shield_english_1 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_english_1 0  327687 4831838208 340 167772194 2.200000 100 0 25 0 0 350 92 70 50 0 0 0
  0
 0
 
- itm_s_heraldic_shield_english_2 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_english_2 0  327687 4831838208 105 167772194 2.000000 100 0 6 0 0 210 95 85 50 0 0 0
+ itm_s_heraldic_shield_english_2 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_english_2 0  327687 4831838208 340 167772194 2.200000 100 0 25 0 0 350 92 70 50 0 0 0
  0
 0
 
- itm_s_heraldic_shield_english_3 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_english_3 0  327687 4831838208 105 167772194 2.000000 100 0 6 0 0 210 95 85 50 0 0 0
+ itm_s_heraldic_shield_english_3 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_english_3 0  327687 4831838208 340 167772194 2.200000 100 0 25 0 0 350 92 70 50 0 0 0
  0
 0
 
- itm_s_heraldic_shield_english_4 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_english_4 0  327687 4831838208 105 167772194 2.000000 100 0 6 0 0 210 95 85 50 0 0 0
+ itm_s_heraldic_shield_english_4 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_english_4 0  327687 4831838208 340 167772194 2.200000 100 0 25 0 0 350 92 70 50 0 0 0
  0
 0
 
- itm_s_heraldic_shield_english_5 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_english_5 0  327687 4831838208 105 167772194 2.000000 100 0 6 0 0 210 95 85 50 0 0 0
+ itm_s_heraldic_shield_english_5 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_english_5 0  327687 4831838208 340 167772194 2.200000 100 0 25 0 0 350 92 70 50 0 0 0
  0
 0
 
- itm_s_heraldic_shield_english_6 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_english_6 0  327687 4831838208 105 167772194 2.000000 100 0 6 0 0 210 95 85 50 0 0 0
+ itm_s_heraldic_shield_english_6 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_english_6 0  327687 4831838208 340 167772194 2.200000 100 0 25 0 0 350 92 70 50 0 0 0
  0
 0
 
- itm_s_heraldic_shield_english_7 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_english_7 0  327687 4831838208 105 167772194 2.000000 100 0 6 0 0 210 95 85 50 0 0 0
+ itm_s_heraldic_shield_english_7 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_english_7 0  327687 4831838208 340 167772194 2.200000 100 0 25 0 0 350 92 70 50 0 0 0
  0
 0
 
- itm_s_heraldic_shield_burgundian_1 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_burgundian_1 0  327687 4831838208 105 167772194 2.000000 100 0 6 0 0 210 95 85 50 0 0 0
+ itm_s_heraldic_shield_burgundian_1 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_burgundian_1 0  327687 4831838208 340 167772194 2.200000 100 0 25 0 0 350 92 70 50 0 0 0
  0
 0
 
- itm_s_heraldic_shield_burgundian_2 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_burgundian_2 0  327687 4831838208 105 167772194 2.000000 100 0 6 0 0 210 95 85 50 0 0 0
+ itm_s_heraldic_shield_burgundian_2 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_burgundian_2 0  327687 4831838208 340 167772194 2.200000 100 0 25 0 0 350 92 70 50 0 0 0
  0
 0
 
- itm_s_heraldic_shield_burgundian_3 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_burgundian_3 0  327687 4831838208 105 167772194 2.000000 100 0 6 0 0 210 95 85 50 0 0 0
+ itm_s_heraldic_shield_burgundian_3 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_burgundian_3 0  327687 4831838208 340 167772194 2.200000 100 0 25 0 0 350 92 70 50 0 0 0
  0
 0
 
- itm_s_heraldic_shield_burgundian_4 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_burgundian_4 0  327687 4831838208 105 167772194 2.000000 100 0 6 0 0 210 95 85 50 0 0 0
+ itm_s_heraldic_shield_burgundian_4 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_burgundian_4 0  327687 4831838208 340 167772194 2.200000 100 0 25 0 0 350 92 70 50 0 0 0
  0
 0
 
- itm_s_heraldic_shield_burgundian_5 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_burgundian_5 0  327687 4831838208 105 167772194 2.000000 100 0 6 0 0 210 95 85 50 0 0 0
+ itm_s_heraldic_shield_burgundian_5 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_burgundian_5 0  327687 4831838208 340 167772194 2.200000 100 0 25 0 0 350 92 70 50 0 0 0
  0
 0
 
- itm_s_heraldic_shield_burgundian_6 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_burgundian_6 0  327687 4831838208 105 167772194 2.000000 100 0 6 0 0 210 95 85 50 0 0 0
+ itm_s_heraldic_shield_burgundian_6 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_burgundian_6 0  327687 4831838208 340 167772194 2.200000 100 0 25 0 0 350 92 70 50 0 0 0
  0
 0
 
- itm_s_heraldic_shield_burgundian_7 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_burgundian_7 0  327687 4831838208 105 167772194 2.000000 100 0 6 0 0 210 95 85 50 0 0 0
+ itm_s_heraldic_shield_burgundian_7 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_burgundian_7 0  327687 4831838208 340 167772194 2.200000 100 0 25 0 0 350 92 70 50 0 0 0
  0
 0
 
- itm_s_heraldic_shield_breton_1 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_breton_1 0  327687 4831838208 105 167772194 2.000000 100 0 6 0 0 210 95 85 50 0 0 0
+ itm_s_heraldic_shield_breton_1 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_breton_1 0  327687 4831838208 340 167772194 2.200000 100 0 25 0 0 350 92 70 50 0 0 0
  0
 0
 
- itm_s_heraldic_shield_breton_2 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_breton_2 0  327687 4831838208 105 167772194 2.000000 100 0 6 0 0 210 95 85 50 0 0 0
+ itm_s_heraldic_shield_breton_2 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_breton_2 0  327687 4831838208 340 167772194 2.200000 100 0 25 0 0 350 92 70 50 0 0 0
  0
 0
 
- itm_s_heraldic_shield_breton_3 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_breton_3 0  327687 4831838208 105 167772194 2.000000 100 0 6 0 0 210 95 85 50 0 0 0
+ itm_s_heraldic_shield_breton_3 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_breton_3 0  327687 4831838208 340 167772194 2.200000 100 0 25 0 0 350 92 70 50 0 0 0
  0
 0
 
- itm_s_heraldic_shield_breton_4 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_breton_4 0  327687 4831838208 105 167772194 2.000000 100 0 6 0 0 210 95 85 50 0 0 0
+ itm_s_heraldic_shield_breton_4 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_breton_4 0  327687 4831838208 340 167772194 2.200000 100 0 25 0 0 350 92 70 50 0 0 0
  0
 0
 
- itm_s_heraldic_shield_breton_5 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_breton_5 0  327687 4831838208 105 167772194 2.000000 100 0 6 0 0 210 95 85 50 0 0 0
+ itm_s_heraldic_shield_breton_5 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_breton_5 0  327687 4831838208 340 167772194 2.200000 100 0 25 0 0 350 92 70 50 0 0 0
  0
 0
 
- itm_s_heraldic_shield_breton_6 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_breton_6 0  327687 4831838208 105 167772194 2.000000 100 0 6 0 0 210 95 85 50 0 0 0
+ itm_s_heraldic_shield_breton_6 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_breton_6 0  327687 4831838208 340 167772194 2.200000 100 0 25 0 0 350 92 70 50 0 0 0
  0
 0
 
- itm_s_heraldic_shield_breton_7 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_breton_7 0  327687 4831838208 105 167772194 2.000000 100 0 6 0 0 210 95 85 50 0 0 0
+ itm_s_heraldic_shield_breton_7 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_breton_7 0  327687 4831838208 340 167772194 2.200000 100 0 25 0 0 350 92 70 50 0 0 0
  0
 0
 
- itm_s_heraldic_shield_german_1 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_german_1 0  327687 4831838208 105 167772194 2.000000 100 0 6 0 0 210 95 85 50 0 0 0
+ itm_s_heraldic_shield_german_1 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_german_1 0  327687 4831838208 340 167772194 2.200000 100 0 25 0 0 350 92 70 50 0 0 0
  0
 0
 
- itm_s_heraldic_shield_german_2 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_german_2 0  327687 4831838208 105 167772194 2.000000 100 0 6 0 0 210 95 85 50 0 0 0
+ itm_s_heraldic_shield_german_2 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_german_2 0  327687 4831838208 340 167772194 2.200000 100 0 25 0 0 350 92 70 50 0 0 0
  0
 0
 
- itm_s_heraldic_shield_german_3 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_german_3 0  327687 4831838208 105 167772194 2.000000 100 0 6 0 0 210 95 85 50 0 0 0
+ itm_s_heraldic_shield_german_3 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_german_3 0  327687 4831838208 340 167772194 2.200000 100 0 25 0 0 350 92 70 50 0 0 0
  0
 0
 
- itm_s_heraldic_shield_german_4 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_german_4 0  327687 4831838208 105 167772194 2.000000 100 0 6 0 0 210 95 85 50 0 0 0
+ itm_s_heraldic_shield_german_4 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_german_4 0  327687 4831838208 340 167772194 2.200000 100 0 25 0 0 350 92 70 50 0 0 0
  0
 0
 
- itm_s_heraldic_shield_german_5 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_german_5 0  327687 4831838208 105 167772194 2.000000 100 0 6 0 0 210 95 85 50 0 0 0
+ itm_s_heraldic_shield_german_5 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_german_5 0  327687 4831838208 340 167772194 2.200000 100 0 25 0 0 350 92 70 50 0 0 0
  0
 0
 
- itm_s_heraldic_shield_german_6 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_german_6 0  327687 4831838208 105 167772194 2.000000 100 0 6 0 0 210 95 85 50 0 0 0
+ itm_s_heraldic_shield_german_6 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_german_6 0  327687 4831838208 340 167772194 2.200000 100 0 25 0 0 350 92 70 50 0 0 0
  0
 0
 
- itm_s_heraldic_shield_german_7 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_german_7 0  327687 4831838208 105 167772194 2.000000 100 0 6 0 0 210 95 85 50 0 0 0
+ itm_s_heraldic_shield_german_7 Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_german_7 0  327687 4831838208 340 167772194 2.200000 100 0 25 0 0 350 92 70 50 0 0 0
  0
 0
 
- itm_s_heater_shield_french_1 Heater_Shield Heater_Shield 1  s_heater_shield_french_1 0  327687 4831838208 100 167772194 2.000000 100 0 6 0 0 200 95 85 50 0 0 0
+ itm_s_heater_shield_french_1 Heater_Shield Heater_Shield 1  s_heater_shield_french_1 0  327687 4831838208 220 167772194 1.600000 100 0 22 0 0 400 94 85 48 0 0 0
  0
 0
 
- itm_s_heater_shield_french_2 Heater_Shield Heater_Shield 1  s_heater_shield_french_2 0  327687 4831838208 100 167772194 2.000000 100 0 6 0 0 200 95 85 50 0 0 0
+ itm_s_heater_shield_french_2 Heater_Shield Heater_Shield 1  s_heater_shield_french_2 0  327687 4831838208 220 167772194 1.600000 100 0 22 0 0 400 94 85 48 0 0 0
  0
 0
 
- itm_s_heater_shield_french_3 Heater_Shield Heater_Shield 1  s_heater_shield_french_3 0  327687 4831838208 100 167772194 2.000000 100 0 6 0 0 200 95 85 50 0 0 0
+ itm_s_heater_shield_french_3 Heater_Shield Heater_Shield 1  s_heater_shield_french_3 0  327687 4831838208 220 167772194 1.600000 100 0 22 0 0 400 94 85 48 0 0 0
  0
 0
 
- itm_s_heater_shield_french_4 Heater_Shield Heater_Shield 1  s_heater_shield_french_4 0  327687 4831838208 100 167772194 2.000000 100 0 6 0 0 200 95 85 50 0 0 0
+ itm_s_heater_shield_french_4 Heater_Shield Heater_Shield 1  s_heater_shield_french_4 0  327687 4831838208 220 167772194 1.600000 100 0 22 0 0 400 94 85 48 0 0 0
  0
 0
 
- itm_s_heater_shield_french_5 Heater_Shield Heater_Shield 1  s_heater_shield_french_5 0  327687 4831838208 100 167772194 2.000000 100 0 6 0 0 200 95 85 50 0 0 0
+ itm_s_heater_shield_french_5 Heater_Shield Heater_Shield 1  s_heater_shield_french_5 0  327687 4831838208 220 167772194 1.600000 100 0 22 0 0 400 94 85 48 0 0 0
  0
 0
 
- itm_s_heater_shield_french_6 Heater_Shield Heater_Shield 1  s_heater_shield_french_6 0  327687 4831838208 100 167772194 2.000000 100 0 6 0 0 200 95 85 50 0 0 0
+ itm_s_heater_shield_french_6 Heater_Shield Heater_Shield 1  s_heater_shield_french_6 0  327687 4831838208 220 167772194 1.600000 100 0 22 0 0 400 94 85 48 0 0 0
  0
 0
 
- itm_s_heater_shield_french_7 Heater_Shield Heater_Shield 1  s_heater_shield_french_7 0  327687 4831838208 100 167772194 2.000000 100 0 6 0 0 200 95 85 50 0 0 0
+ itm_s_heater_shield_french_7 Heater_Shield Heater_Shield 1  s_heater_shield_french_7 0  327687 4831838208 220 167772194 1.600000 100 0 22 0 0 400 94 85 48 0 0 0
  0
 0
 
- itm_s_heater_shield_french_8 Heater_Shield Heater_Shield 1  s_heater_shield_french_8 0  327687 4831838208 100 167772194 2.000000 100 0 6 0 0 200 95 85 50 0 0 0
+ itm_s_heater_shield_french_8 Heater_Shield Heater_Shield 1  s_heater_shield_french_8 0  327687 4831838208 220 167772194 1.600000 100 0 22 0 0 400 94 85 48 0 0 0
  0
 0
 
- itm_s_heater_shield_english_1 Heater_Shield Heater_Shield 1  s_heater_shield_english_1 0  327687 4831838208 100 167772194 2.000000 100 0 6 0 0 200 95 85 50 0 0 0
+ itm_s_heater_shield_english_1 Heater_Shield Heater_Shield 1  s_heater_shield_english_1 0  327687 4831838208 220 167772194 1.600000 100 0 22 0 0 400 94 85 48 0 0 0
  0
 0
 
- itm_s_heater_shield_english_2 Heater_Shield Heater_Shield 1  s_heater_shield_english_2 0  327687 4831838208 100 167772194 2.000000 100 0 6 0 0 200 95 85 50 0 0 0
+ itm_s_heater_shield_english_2 Heater_Shield Heater_Shield 1  s_heater_shield_english_2 0  327687 4831838208 220 167772194 1.600000 100 0 22 0 0 400 94 85 48 0 0 0
  0
 0
 
- itm_s_heater_shield_english_3 Heater_Shield Heater_Shield 1  s_heater_shield_english_3 0  327687 4831838208 100 167772194 2.000000 100 0 6 0 0 200 95 85 50 0 0 0
+ itm_s_heater_shield_english_3 Heater_Shield Heater_Shield 1  s_heater_shield_english_3 0  327687 4831838208 220 167772194 1.600000 100 0 22 0 0 400 94 85 48 0 0 0
  0
 0
 
- itm_s_heater_shield_english_4 Heater_Shield Heater_Shield 1  s_heater_shield_english_4 0  327687 4831838208 100 167772194 2.000000 100 0 6 0 0 200 95 85 50 0 0 0
+ itm_s_heater_shield_english_4 Heater_Shield Heater_Shield 1  s_heater_shield_english_4 0  327687 4831838208 220 167772194 1.600000 100 0 22 0 0 400 94 85 48 0 0 0
  0
 0
 
- itm_s_heater_shield_english_5 Heater_Shield Heater_Shield 1  s_heater_shield_english_5 0  327687 4831838208 100 167772194 2.000000 100 0 6 0 0 200 95 85 50 0 0 0
+ itm_s_heater_shield_english_5 Heater_Shield Heater_Shield 1  s_heater_shield_english_5 0  327687 4831838208 220 167772194 1.600000 100 0 22 0 0 400 94 85 48 0 0 0
  0
 0
 
- itm_s_heater_shield_english_6 Heater_Shield Heater_Shield 1  s_heater_shield_english_6 0  327687 4831838208 100 167772194 2.000000 100 0 6 0 0 200 95 85 50 0 0 0
+ itm_s_heater_shield_english_6 Heater_Shield Heater_Shield 1  s_heater_shield_english_6 0  327687 4831838208 220 167772194 1.600000 100 0 22 0 0 400 94 85 48 0 0 0
  0
 0
 
- itm_s_heater_shield_english_7 Heater_Shield Heater_Shield 1  s_heater_shield_english_7 0  327687 4831838208 100 167772194 2.000000 100 0 6 0 0 200 95 85 50 0 0 0
+ itm_s_heater_shield_english_7 Heater_Shield Heater_Shield 1  s_heater_shield_english_7 0  327687 4831838208 220 167772194 1.600000 100 0 22 0 0 400 94 85 48 0 0 0
  0
 0
 
- itm_s_heater_shield_english_8 Heater_Shield Heater_Shield 1  s_heater_shield_english_8 0  327687 4831838208 100 167772194 2.000000 100 0 6 0 0 200 95 85 50 0 0 0
+ itm_s_heater_shield_english_8 Heater_Shield Heater_Shield 1  s_heater_shield_english_8 0  327687 4831838208 220 167772194 1.600000 100 0 22 0 0 400 94 85 48 0 0 0
  0
 0
 
- itm_s_heater_shield_burgundian_1 Heater_Shield Heater_Shield 1  s_heater_shield_burgundian_1 0  327687 4831838208 100 167772194 2.000000 100 0 6 0 0 200 95 85 50 0 0 0
+ itm_s_heater_shield_burgundian_1 Heater_Shield Heater_Shield 1  s_heater_shield_burgundian_1 0  327687 4831838208 220 167772194 1.600000 100 0 22 0 0 400 94 85 48 0 0 0
  0
 0
 
- itm_s_heater_shield_burgundian_2 Heater_Shield Heater_Shield 1  s_heater_shield_burgundian_2 0  327687 4831838208 100 167772194 2.000000 100 0 6 0 0 200 95 85 50 0 0 0
+ itm_s_heater_shield_burgundian_2 Heater_Shield Heater_Shield 1  s_heater_shield_burgundian_2 0  327687 4831838208 220 167772194 1.600000 100 0 22 0 0 400 94 85 48 0 0 0
  0
 0
 
- itm_s_heater_shield_burgundian_3 Heater_Shield Heater_Shield 1  s_heater_shield_burgundian_3 0  327687 4831838208 100 167772194 2.000000 100 0 6 0 0 200 95 85 50 0 0 0
+ itm_s_heater_shield_burgundian_3 Heater_Shield Heater_Shield 1  s_heater_shield_burgundian_3 0  327687 4831838208 220 167772194 1.600000 100 0 22 0 0 400 94 85 48 0 0 0
  0
 0
 
- itm_s_heater_shield_burgundian_4 Heater_Shield Heater_Shield 1  s_heater_shield_burgundian_4 0  327687 4831838208 100 167772194 2.000000 100 0 6 0 0 200 95 85 50 0 0 0
+ itm_s_heater_shield_burgundian_4 Heater_Shield Heater_Shield 1  s_heater_shield_burgundian_4 0  327687 4831838208 220 167772194 1.600000 100 0 22 0 0 400 94 85 48 0 0 0
  0
 0
 
- itm_s_heater_shield_burgundian_5 Heater_Shield Heater_Shield 1  s_heater_shield_burgundian_5 0  327687 4831838208 100 167772194 2.000000 100 0 6 0 0 200 95 85 50 0 0 0
+ itm_s_heater_shield_burgundian_5 Heater_Shield Heater_Shield 1  s_heater_shield_burgundian_5 0  327687 4831838208 220 167772194 1.600000 100 0 22 0 0 400 94 85 48 0 0 0
  0
 0
 
- itm_s_heater_shield_burgundian_6 Heater_Shield Heater_Shield 1  s_heater_shield_burgundian_6 0  327687 4831838208 100 167772194 2.000000 100 0 6 0 0 200 95 85 50 0 0 0
+ itm_s_heater_shield_burgundian_6 Heater_Shield Heater_Shield 1  s_heater_shield_burgundian_6 0  327687 4831838208 220 167772194 1.600000 100 0 22 0 0 400 94 85 48 0 0 0
  0
 0
 
- itm_s_heater_shield_breton_1 Heater_Shield Heater_Shield 1  s_heater_shield_breton_1 0  327687 4831838208 100 167772194 2.000000 100 0 6 0 0 200 95 85 50 0 0 0
+ itm_s_heater_shield_breton_1 Heater_Shield Heater_Shield 1  s_heater_shield_breton_1 0  327687 4831838208 220 167772194 1.600000 100 0 22 0 0 400 94 85 48 0 0 0
  0
 0
 
- itm_s_heater_shield_breton_2 Heater_Shield Heater_Shield 1  s_heater_shield_breton_2 0  327687 4831838208 100 167772194 2.000000 100 0 6 0 0 200 95 85 50 0 0 0
+ itm_s_heater_shield_breton_2 Heater_Shield Heater_Shield 1  s_heater_shield_breton_2 0  327687 4831838208 220 167772194 1.600000 100 0 22 0 0 400 94 85 48 0 0 0
  0
 0
 
- itm_s_heater_shield_breton_3 Heater_Shield Heater_Shield 1  s_heater_shield_breton_3 0  327687 4831838208 100 167772194 2.000000 100 0 6 0 0 200 95 85 50 0 0 0
+ itm_s_heater_shield_breton_3 Heater_Shield Heater_Shield 1  s_heater_shield_breton_3 0  327687 4831838208 220 167772194 1.600000 100 0 22 0 0 400 94 85 48 0 0 0
  0
 0
 
- itm_s_heater_shield_breton_4 Heater_Shield Heater_Shield 1  s_heater_shield_breton_4 0  327687 4831838208 100 167772194 2.000000 100 0 6 0 0 200 95 85 50 0 0 0
+ itm_s_heater_shield_breton_4 Heater_Shield Heater_Shield 1  s_heater_shield_breton_4 0  327687 4831838208 220 167772194 1.600000 100 0 22 0 0 400 94 85 48 0 0 0
  0
 0
 
- itm_s_steel_buckler Steel_Buckler Steel_Buckler 1  s_steel_buckler 0  65543 5368709120 80 167772194 2.000000 100 0 20 0 0 100 100 0 33 0 0 0
+ itm_s_steel_buckler Steel_Buckler Steel_Buckler 1  s_steel_buckler 0  65543 5368709120 180 167772194 1.100000 100 0 40 0 0 115 100 0 33 0 0 0
  0
 0
 
- itm_s_steel_buckler_2 Steel_Buckler Steel_Buckler 1  s_steel_buckler_2 0  65543 5368709120 95 167772194 2.000000 100 0 20 0 0 120 100 45 30 0 0 0
+ itm_s_steel_buckler_2 Steel_Buckler Steel_Buckler 1  s_steel_buckler_2 0  65543 5368709120 195 167772194 1.200000 100 0 40 0 0 135 100 45 30 0 0 0
  0
 0
 
- itm_s_heraldic_shield_heater Heraldic_Heater_Shield Heraldic_Heater_Shield 1  s_heraldic_shield_heater 0  327687 4831838208 100 167772194 2.000000 100 0 6 0 0 200 95 85 50 0 0 0
+ itm_s_heraldic_shield_heater Heraldic_Heater_Shield Heraldic_Heater_Shield 1  s_heraldic_shield_heater 0  327687 4831838208 260 167772194 1.600000 100 0 22 0 0 400 94 85 48 0 0 0
  0
 1
 -50.000000  3 2071 1 1224979098644774912 2072 1 1224979098644774913 1 4 936748722493063606 1729382256910270469 1224979098644774912 1224979098644774913 
 
- itm_s_heraldic_shield_bouche Heraldic_Bouche_Shield Heraldic_Bouche_Shield 1  s_heraldic_shield_bouche 0  327687 4831838208 100 167772194 2.000000 100 0 6 0 0 200 95 85 50 0 0 0
+ itm_s_heraldic_shield_bouche Heraldic_Bouche_Shield Heraldic_Bouche_Shield 1  s_heraldic_shield_bouche 0  327687 4831838208 440 167772194 2.000000 100 0 26 0 0 260 90 65 40 0 0 0
  0
 1
 -50.000000  3 2071 1 1224979098644774912 2072 1 1224979098644774913 1 4 936748722493063606 1729382256910270472 1224979098644774912 1224979098644774913 
 
- itm_s_heraldic_shield_leather Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_leather 0  327687 4831838208 100 167772194 2.000000 100 0 6 0 0 200 95 85 50 0 0 0
+ itm_s_heraldic_shield_leather Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_leather 0  327687 4831838208 380 167772194 2.200000 100 0 25 0 0 350 92 70 50 0 0 0
  0
 1
 -50.000000  3 2071 1 1224979098644774912 2072 1 1224979098644774913 1 4 936748722493063606 1729382256910270470 1224979098644774912 1224979098644774913 
 
- itm_s_heraldic_shield_metal Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_metal 0  327687 4831838208 100 167772194 2.000000 100 0 6 0 0 200 95 85 50 0 0 0
+ itm_s_heraldic_shield_metal Heraldic_Shield Heraldic_Shield 1  s_heraldic_shield_metal 0  327687 4831838208 420 167772194 2.400000 100 0 28 0 0 350 91 70 50 0 0 0
  0
 1
 -50.000000  3 2071 1 1224979098644774912 2072 1 1224979098644774913 1 4 936748722493063606 1729382256910270471 1224979098644774912 1224979098644774913 
 
- itm_s_heraldic_shield_pavise Heraldic_Pavise_Shield Heraldic_Pavise_Shield 1  s_heraldic_shield_pavise 0  327687 4831838208 100 167772194 2.000000 100 0 6 0 0 200 95 85 50 0 0 0
+ itm_s_heraldic_shield_pavise Heraldic_Pavise_Shield Heraldic_Pavise_Shield 1  s_heraldic_shield_pavise 0  327687 4831838208 460 167772194 3.500000 100 0 30 0 0 380 86 85 45 0 0 0
  0
 1
 -50.000000  3 2071 1 1224979098644774912 2072 1 1224979098644774913 1 4 936748722493063606 1729382256910270473 1224979098644774912 1224979098644774913 
 
- itm_s_heraldic_shield_pavise_native Heraldic_Pavise_Shield Heraldic_Pavise_Shield 1  s_heraldic_shield_pavise_native 0  268763143 6442450944 210 167772194 4.500000 100 0 10 0 0 430 81 100 43 0 0 0
+ itm_s_heraldic_shield_pavise_native Heraldic_Pavise_Shield Heraldic_Pavise_Shield 1  s_heraldic_shield_pavise_native 0  268763143 6442450944 590 167772194 4.500000 100 0 32 0 0 660 82 120 55 0 0 0
  0
 1
 -50.000000  3 2071 1 1224979098644774912 2072 1 1224979098644774913 1 4 936748722493063606 1729382256910270474 1224979098644774912 1224979098644774913 
 
- itm_heraldic_banner Heraldic_Banner Heraldic_Banner 2  heraldic_banner 0  heraldic_banner_inventory 1152921504606846976  327687 4831838208 1500 167772194 2.500000 100 0 0 0 0 999 90 100 2 0 0 0
+ itm_heraldic_banner Heraldic_Banner Heraldic_Banner 2  heraldic_banner 0  heraldic_banner_inventory 1152921504606846976  327687 4831838208 1500 167772194 3.000000 100 0 4 0 0 999 88 100 1 0 0 0
  0
 1
 -50.000000  4 2071 1 1224979098644774912 2072 1 1224979098644774913 1 4 936748722493063606 1729382256910270476 1224979098644774912 1224979098644774913 1964 3 1585267068834416362 0 0 

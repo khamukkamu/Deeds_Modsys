@@ -132,10 +132,10 @@ mercenary_company_menus = [
 
           (try_begin),
             (quest_slot_eq, "qst_merc_company_tutorial", slot_quest_current_state, MERC_CAMP_TUTORIAL_START),
-            (add_xp_as_reward, 10),
+            (add_xp_to_troop, 50, "trp_player"),
             (str_store_string, s2, "@Talk to your Quartermaster within the camp."),
             (add_quest_note_from_sreg, "qst_merc_company_tutorial", 2, s2, 0),
-            (quest_set_slot, "qst_merc_company_tutorial", slot_quest_current_state, 2),
+            (quest_set_slot, "qst_merc_company_tutorial", slot_quest_current_state, MERC_CAMP_TUTORIAL_QUARTERMASTER),
           (try_end),
           
           (change_screen_return),

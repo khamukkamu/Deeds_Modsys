@@ -2955,6 +2955,7 @@ player_camp_dialog_end = "str_camp_soldier_line_end"
 # Merc Camp Tutorial States
 MERC_CAMP_TUTORIAL_START = 1 
 MERC_CAMP_TUTORIAL_QUARTERMASTER = 2 
+MERC_CAMP_TUTORIAL_DONE = 3
 MERC_CAMP_TUTORIAL_REJECTED = 11
 
 # Merc Camp Creation Requirements

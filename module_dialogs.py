@@ -45181,7 +45181,15 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 
 
 # DAC Kham: Custom Troops - Merc Camp Quartermaster
-  [anyone,"start", [(eq,"$g_talk_troop","trp_merc_company_quartermaster"), (str_store_string, s33, "@Good day, Commander. What would you like to do today?")], "{s33}", "camp_quartermaster_start",[(assign, "$g_presentation_state", -1)]],
+  [anyone,"start", [(eq,"$g_talk_troop","trp_merc_company_quartermaster"), (str_store_string, s33, "@Good day, Commander. What would you like to do today?")], "{s33}", "camp_quartermaster_start",[
+    (assign, "$g_presentation_state", -1),
+    (try_begin),
+      (quest_slot_eq, "qst_merc_company_tutorial", slot_quest_current_state, MERC_CAMP_TUTORIAL_QUARTERMASTER),
+      (quest_set_slot, "qst_merc_company_tutorial", slot_quest_xp_reward, 100),
+      (quest_set_slot, "qst_merc_company_tutorial", slot_quest_gold_reward, 100),
+      (call_script, "script_end_quest", "qst_merc_company_tutorial"),
+      (quest_set_slot, "qst_merc_company_tutorial", slot_quest_current_state, MERC_CAMP_TUTORIAL_DONE),
+    (try_end)]],
 
   [anyone|plyr,"camp_quartermaster_start", [], "I wish to enlist some troops.", "camp_quartermaster_recruit",[]],
   
