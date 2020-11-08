@@ -481,18 +481,43 @@ dac_count_num_combatants = (
 
 simple_battle_morale_check = (
   3, 0, 0, [
+  (assign, ":continue", 0),
+
+  #DAC Kham - Give player choice for which morale system is in effect
+  (try_begin),
+    (eq, "$DAC_MORALE_SYSTEM", HYBRID_MORALE_SYSTEM),
+    (gt, "$number_of_combatants", 150),
+    (assign, ":continue", 1),
+  (else_try),
+    (eq, "$DAC_MORALE_SYSTEM", SIMPLE_MORALE_SYSTEM),
+    (assign, ":continue", 1),
+  (try_end),
+  (eq, ":continue", 1),
+
   (store_mission_timer_a, ":mission_time_s"),
   (ge, ":mission_time_s", 30), #changed from 30 secs - DAC Kham # DAC Seek: Changed back to 30s, time after which routing can happen
-  (gt, "$number_of_combatants", 150),
   #(display_message, "@JH Morale Triggered"),
   (call_script, "script_decide_team_rout"),
     ], [])
     
 common_battle_morale_check = (
   0.5, 0, 0, [ #changed from 0.1 - DAC Kham
+
+  (assign, ":continue", 0),
+  #DAC Kham - Give player choice for which morale system is in effect
+  (try_begin),
+    (eq, "$DAC_MORALE_SYSTEM", HYBRID_MORALE_SYSTEM),
+    (le, "$number_of_combatants", 150),
+    (assign, ":continue", 1),
+  (else_try),
+    (eq, "$DAC_MORALE_SYSTEM", NEW_MORALE_SYSTEM),
+    (assign, ":continue", 1),
+  (try_end),
+  (eq, ":continue", 1),
+
   (store_mission_timer_a_msec,":mission_time_ms"),
   (ge,":mission_time_ms",30000), #changed from 10000 msec  - DAC Kham # DAC Seek: Changed back to 30s, time after which routing can happen
-  (le, "$number_of_combatants", 150),
+
   #(display_message, "@Autolykos Morale Triggered"),
   (store_div,":mission_time_s",":mission_time_ms",1000),
   (store_div,":mission_time_ticks",":mission_time_ms",100),

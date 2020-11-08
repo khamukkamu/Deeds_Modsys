@@ -1480,3 +1480,4 @@ player_camp_troop_color_scheme
 player_camp_edit_mode
 player_camp_available
 relocation_distance
+dac_morale_system

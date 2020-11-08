@@ -772,6 +772,7 @@ scripts = [
     (assign, "$enable_bodysliding", BODYSLIDING_ALL_TROOPS), # 1257 AD's player swapping scripts.
     (assign, "$g_random_scene_size", 1), # CC's Random Scene Size Selection
     (assign, "$g_random_scene_size_forests", 1), # CC's Random Scene Size Selection
+    (assign, "$DAC_MORALE_SYSTEM", HYBRID_MORALE_SYSTEM), #DAC Kham: Hybrid Default
     
     (call_script, "script_initialize_custom_armor_data"), 
     (call_script, "script_init_weapon_switching"),	
@@ -80865,7 +80866,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (val_sub, ":local_potential", ":delta_phi"),
       (else_try),
       (try_begin),
-          (troop_is_hero, ":other_troop"),
+        (troop_is_hero, ":other_troop"),
         (val_mul, ":delta_phi", 10),
         (agent_get_item_slot, ":helmet", ":other_agent", 4),
         (agent_get_wielded_item, ":banner", ":other_agent", 1),
@@ -80905,12 +80906,12 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
     (try_end),
     (try_begin),
       (troop_is_hero, ":troop_id"),
-    (val_mul, ":troop_lvl", 10), # Heroes are a lot less likely to run.
+    (val_mul, ":troop_lvl", HERO_LEVEL_MORALE_MULTIPLIER), # Heroes are a lot less likely to run. DAC Kham: default multiplier is 10
     (try_end),
     (store_mul, ":rout_threshold", ":troop_lvl", ":individual_morale"),
-    (val_mul, ":rout_threshold", -10),
-    (store_sub, ":rally_threshold", 200, ":individual_morale"),
-    (val_mul, ":rally_threshold", 5),
+    (val_mul, ":rout_threshold", ROUT_THRESHOLD_MULTIPLIER), #default is -10
+    (store_sub, ":rally_threshold", BASE_RALLY_THRESHOLD, ":individual_morale"), #DAC Kham: Base is 200
+    (val_mul, ":rally_threshold", RALLY_THRESHOLD_MULTIPLIER), #DACK Kham: Default is 5
 
       (agent_get_slot, ":is_cur_agent_running_away", ":cur_agent", slot_agent_is_running_away),
       (try_begin),
@@ -80973,6 +80974,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
     (agent_is_human, ":cur_agent"),
     (agent_is_active, ":cur_agent"),
     (agent_get_troop_id, ":cur_troop", ":cur_agent"),
+    (ge, ":cur_troop", 0), #DAC Kham - Just in case
     (store_character_level, ":troop_level", ":cur_troop"),
     (agent_get_team, ":agent_team", ":cur_agent"),
     (try_begin),
@@ -81013,7 +81015,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
     (try_end),
   (try_end),
   # Second pass: Apply effects
-  (val_mul, ":battle_score", 150), # Will get divided by health+morale (1..200)
+  (val_mul, ":battle_score", BATTLE_SCORE_MULTIPLIER), # Will get divided by health+morale (1..200) DAC Kham: Default is 150
   (try_for_agents, ":cur_agent"),
     (agent_is_human, ":cur_agent"),
     (agent_is_active, ":cur_agent"),

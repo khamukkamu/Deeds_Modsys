@@ -3066,8 +3066,42 @@ TOTAL:  {reg5}"),
         (change_screen_map_conversation, "trp_merc_company_quartermaster"),
           ]),   
 
+    ("camp_morale_system",[     (try_begin),(eq,"$DAC_MORALE_SYSTEM",0),(str_store_string, s7, "@Hybrid Morale System (Default)"),
+              (else_try),(eq,"$DAC_MORALE_SYSTEM",1),(str_store_string, s7, "@Simple Morale System"),
+              (else_try),(eq,"$DAC_MORALE_SYSTEM",2),(str_store_string, s7, "@New Morale System"), (try_end),
+    ],"Morale System Active:  {s7}",[
+    (val_add, "$DAC_MORALE_SYSTEM", 1,),(val_mod, "$DAC_MORALE_SYSTEM", 3),(jump_to_menu, "mnu_auto_dac_test_menu"),]),
+
+    ("spawn_enemy_horde",[],"Spawn Enemy Horde", [(set_spawn_radius,3),(spawn_around_party, "p_main_party", "pt_kingdom_1_reinforcements_a"),(assign, ":enemy_party", reg0), (party_set_name, ":enemy_party", "@Angry Horde"), (party_set_faction, ":enemy_party", "fac_undeads"),
+     (try_for_range, ":unused", 0, 11), 
+      (try_for_range, ":template", "pt_kingdom_1_reinforcements_a", "pt_kingdom_2_reinforcements_a"),
+        (party_add_template, ":enemy_party", ":template"),
+      (try_end),
+     (try_end),
+      (display_message, "@Enemy Horde Spawned!"),]),
+    
+    ("give_player_horde",[],"Give yourself a horde (and some stats)", [
+     (troop_raise_skill, "trp_player", skl_leadership, 10),
+     (troop_raise_attribute, "trp_player", ca_charisma, 80),
+     (troop_set_slot, "trp_player", slot_troop_renown, 5000),
+     (try_for_range, ":unused", 0, 11), 
+      (try_for_range, ":template", "pt_kingdom_2_reinforcements_b", "pt_kingdom_3_reinforcements_a"),
+        (party_add_template, "p_main_party", ":template"),
+      (try_end),
+     (try_end),
+     (display_message, "@You have been given a Horde!"),
+
+     ]),
+
     ("dac_test_back",[],"Back",[(jump_to_menu, "mnu_camp")]),
+
  ]),
+
+( "auto_dac_test_menu",0,
+    "This menu automatically returns to caller.",
+    "none",
+    [(jump_to_menu, "mnu_dac_test_menu")],[]
+ ),
 
  ## DAC Test Menu END
  

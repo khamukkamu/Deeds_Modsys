@@ -1,4 +1,4 @@
-2073
+2079
 qstr_Next_Page Next_Page
 qstr_Game_Rules:^ Game_Rules:^
 qstr_0 0
@@ -2072,3 +2072,9 @@ qstr_This_is_a_plugin_test This_is_a_plugin_test_injection!
 qstr_You_can_now_create_a You_can_now_create_a_mercenary_company_from_the_camp_menu_under_'Take_an_Action'
 qstr_{reg54}_troops_{reg {reg54}_troops,_{reg55}_gold,_{reg56}_tools,_{reg57}_wool
 qstr_Talk_to_your_Quarter Talk_to_your_Quartermaster_within_the_camp.
+qstr_Hybrid_Morale_System Hybrid_Morale_System_(Default)
+qstr_Simple_Morale_System Simple_Morale_System
+qstr_New_Morale_System New_Morale_System
+qstr_Enemy_Horde_Spawned! Enemy_Horde_Spawned!
+qstr_Angry_Horde Angry_Horde
+qstr_You_have_been_given_ You_have_been_given_a_Horde!

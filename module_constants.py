@@ -1109,7 +1109,6 @@ slot_team_fighting_strength				= 1
 slot_team_routing_strength				= 2
 slot_team_defeated_strength				= 3
 
-
 #Rebellion changes end
 # character backgrounds
 cb_noble = 1
@@ -2947,6 +2946,36 @@ slot_item_tiers_end = 136
 slot_troop_tier_custom_troop = 180
 slot_troop_custom_can_use_item = 181
 ## DAC Custom Troops (Merc Company Feature) End
+
+#MORALE DEBUGGING & TWEAKING
+# Battle Morale System Choice:
+# Checked via Global Var $DAC_MORALE_SYSTEM
+
+HYBRID_MORALE_SYSTEM = 0
+SIMPLE_MORALE_SYSTEM = 1
+NEW_MORALE_SYSTEM = 2
+
+#For script_decide_run_away_or_not (Combatants =< 150 troops)
+# Individual Morale = taken from the game engine + relative percentile health (0-100) of the agent.
+# Rally Threshold = Base Rally Threshold - individual morale.
+# Rout Threshold = Troop Level * Individual morale
+# If local potential is < rout threshold, the agent runs away
+# If local potential is > rally threshold, and the agent was running away, they rally
+
+BASE_RALLY_THRESHOLD = 200  #The agent's morale is then subtracted from this number and multiplied by a multiplier to check if a routing agent can rally (stop running away)
+HERO_LEVEL_MORALE_MULTIPLIER = 10 #Hero's level is multiplied by this , which is then multiplied with the agent's morale in order to determine the route threshold (when agent decides to run away)
+RALLY_THRESHOLD_MULTIPLIER = 5 #Used to multiply with the rally threshold, before comparing it against the local potential
+ROUT_THRESHOLD_MULTIPLIER = -10 #Used to multiply with the rout threshold, before comparing it against the local potential
+
+
+#For script_decide_team_rout (Combatants > 150 troops)
+# Battle Score = Number of Troops Not Fighting (routed / dead) Added (if current team is enemy team) / Subtracted (if current team is ally team). Starts at 0 
+# Individual Morale = taken from the game engine + relative percentile health (0-100) of the agent.
+# Individual Score = Battle Score / Individual Morale
+# If Individual Score < Ally Rout Threshold, allies run away
+# If Individual Score > Enemy Rout threshold, enemies run away
+
+BATTLE_SCORE_MULTIPLIER = 150 #Multiplied with battle score, which is then divided by health+morale
 
 # DAC Merc Camp Constants Begin
 player_camp_dialog_begin = "str_camp_soldier_line_1"
