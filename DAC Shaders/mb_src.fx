@@ -3075,6 +3075,178 @@ PS_OUTPUT ps_main_standart ( VS_OUTPUT_STANDART In, uniform const int PcfMode,
 }
 
 
+PS_OUTPUT ps_main_standart_fresnel ( VS_OUTPUT_STANDART In, uniform const int PcfMode, 
+									uniform const bool use_bumpmap, uniform const bool use_specularfactor, 
+									uniform const bool use_specularmap, uniform const bool ps2x, 
+									uniform const bool use_aniso, uniform const bool terrain_color_ambient = true )
+{ 
+	PS_OUTPUT Output;
+
+	float3 normal;
+	if(use_bumpmap) {
+		normal = (2.0f * tex2D(NormalTextureSampler, In.Tex0) - 1.0f);
+	}
+	else 
+	{
+		normal = In.SunLightDir;
+	}
+	
+	float sun_amount = 1;
+	if (PcfMode != PCF_NONE)
+	{
+		if((PcfMode == PCF_NVIDIA) || ps2x)		//we have more ins count for shadow, add some ambient factor to sun amount
+			sun_amount = 0.05f + GetSunAmount(PcfMode, In.ShadowTexCoord, In.ShadowTexelPos);
+		else
+			sun_amount = GetSunAmount(PcfMode, In.ShadowTexCoord, In.ShadowTexelPos);
+	}
+		
+	//define ambient term:
+	const int ambientTermType = ( terrain_color_ambient && (ps2x || !use_specularfactor) ) ? 1 : 0;
+	const float3 DirToSky = use_bumpmap ? In.SkyLightDir : float3(0.0f, 0.0f, 1.0f);
+	float4 total_light = get_ambientTerm(ambientTermType, normal, DirToSky, sun_amount);
+	
+	
+	float3 aniso_specular = 0;
+	if(use_aniso) {
+		if(!ps2x){
+			GIVE_ERROR_HERE;
+		}
+		float3 direction = float3(0,1,0);
+		aniso_specular  = calculate_hair_specular(normal, direction, ((use_bumpmap) ?  In.SunLightDir : -vSunDir), In.ViewDir, In.Tex0);
+	}
+		
+	if( use_bumpmap) 
+	{
+		total_light.rgb += (saturate(dot(In.SunLightDir.xyz, normal.xyz)) + aniso_specular) * sun_amount * vSunColor;
+	
+		if(ps2x || !use_specularfactor) {
+			total_light += saturate(dot(In.SkyLightDir.xyz, normal.xyz)) * vSkyLightColor;
+		}
+		#ifdef INCLUDE_VERTEX_LIGHTING
+		if(ps2x || !use_specularfactor || (PcfMode == PCF_NONE))
+		{
+			total_light.rgb += In.VertexLighting;
+		}
+		#endif
+		
+		#ifndef USE_LIGHTING_PASS 
+			float light_atten = In.PointLightDir.a;
+			const int effective_light_index = iLightIndices[0];
+			total_light += saturate(dot(In.PointLightDir.xyz, normal.xyz) * vLightDiffuse[effective_light_index]  * light_atten);
+		#endif
+	}
+	else {
+		total_light.rgb += (saturate(dot(-vSunDir, normal.xyz)) + aniso_specular) * sun_amount * vSunColor;
+		
+		if(ambientTermType != 1 && !ps2x) {
+			total_light += saturate(dot(-vSkyLightDir.xyz, normal.xyz)) * vSkyLightColor;
+		}
+		#ifdef INCLUDE_VERTEX_LIGHTING
+		total_light.rgb += In.VertexLighting;
+		#endif
+	}
+	
+	
+		
+	//FRESNEL
+	float3 vView = normalize(In.ViewDir);
+	float3 fresnel = 1-(saturate(dot(vView, normal)));
+	fresnel = 0.0204f + 0.9796 * (fresnel* fresnel * fresnel * fresnel);
+	fresnel *= 4.0;
+	total_light.rgb += total_light*fresnel; 
+	fresnel = pow(fresnel,2);
+	total_light.rgb += 0.020*(total_light*fresnel); 
+//	total_light = saturate(total_light);
+///////////	
+
+	
+	
+
+	if (PcfMode != PCF_NONE)
+		Output.RGBColor.rgb = total_light.rgb;
+	else
+		Output.RGBColor.rgb = min(total_light.rgb, 2.0f);
+		
+	// Output.RGBColor.rgb = total_light.rgb;	//saturate?
+	Output.RGBColor.rgb *= vMaterialColor.rgb;
+	
+	float4 tex_col = tex2D(MeshTextureSampler, In.Tex0);
+	INPUT_TEX_GAMMA(tex_col.rgb);
+
+	Output.RGBColor.rgb *= tex_col.rgb;
+	Output.RGBColor.rgb *= In.VertexColor.rgb;
+	
+	//add specular terms 
+	if(use_specularfactor) {
+		float4 fSpecular = 0;
+		
+		float4 specColor = 0.1 * spec_coef * vSpecularColor;
+		if(use_specularmap) {
+			float spec_tex_factor = dot(tex2D(SpecularTextureSampler, In.Tex0).rgb,0.33);	//get more precision from specularmap
+			specColor *= spec_tex_factor;
+		}
+		else //if(use_specular_alpha)	//is that always true?
+		{
+			specColor *= tex_col.a;
+		}
+		
+		float4 sun_specColor = specColor * vSunColor * sun_amount;
+		
+		//sun specular
+		float3 vHalf = normalize( In.ViewDir + ((use_bumpmap) ?  In.SunLightDir : -vSunDir) );
+		fSpecular = sun_specColor * pow( saturate(dot(vHalf, normal)), fMaterialPower);
+		if(PcfMode != PCF_DEFAULT)	//we have 64 ins limit 
+		{
+			fSpecular *= In.VertexColor;
+		}
+		
+		if(use_bumpmap) 
+		{
+			if(PcfMode == PCF_NONE)	//add point lights' specular color for indoors
+			{
+				fSpecular.rgb += specColor * In.ShadowTexCoord.rgb;	//ShadowTexCoord => point lights specular! (calculate_point_lights_specular)
+			}
+			
+			//add more effects for ps2a version:
+			if(ps2x || (PcfMode == PCF_NONE)) {
+			
+				#ifndef USE_LIGHTING_PASS 
+				//effective point light specular
+				float light_atten = In.PointLightDir.a;
+				const int effective_light_index = iLightIndices[0];
+				float4 light_specColor = specColor * vLightDiffuse[effective_light_index] * (light_atten * 0.5); 	//dec. spec term to remove "effective light change" artifacts
+				vHalf = normalize( In.ViewDir + In.PointLightDir );
+				fSpecular += light_specColor * pow( saturate(dot(vHalf, normal)), fMaterialPower);
+				#endif
+			}
+		}
+		else
+		{
+			fSpecular.rgb += specColor * In.SkyLightDir * 0.1;	//SkyLightDir-> holds lights specular color (calculate_point_lights_specular)
+		}
+			
+		Output.RGBColor += fSpecular;
+	}
+	else if(use_specularmap) {
+		GIVE_ERROR_HERE; 
+	}
+	
+	OUTPUT_GAMMA(Output.RGBColor.rgb);	
+	
+	
+	//if we dont use alpha channel for specular-> use it for alpha
+	Output.RGBColor.a = In.VertexColor.a;	//we dont control bUseMotionBlur to fit in 64 instruction
+	
+	if( (!use_specularfactor) || use_specularmap) {
+		Output.RGBColor.a *= tex_col.a;
+	}
+
+	return Output;
+}
+
+
+
+
 PS_OUTPUT ps_main_standart_old_good( VS_OUTPUT_STANDART In, uniform const int PcfMode, uniform const bool use_specularmap, uniform const bool use_aniso )
 {
 	PS_OUTPUT Output;
@@ -3184,7 +3356,21 @@ VertexShader standart_vs_nvidia[] = { 	compile vs_2_0 vs_main_standart(PCF_NVIDI
 				{ pass P0 { VertexShader = compile vs_2_0 vs_main_standart(PCF_NVIDIA, use_bumpmap, use_skinning); \
 							PixelShader = compile ps_2_a ps_main_standart(PCF_NVIDIA, use_bumpmap, use_specularfactor, use_specularmap, true, use_aniso, terraincolor);} } \
 				DEFINE_LIGHTING_TECHNIQUE(tech_name, 0, use_bumpmap, use_skinning, use_specularfactor, use_specularmap)
-				
+
+////FRESNEL				
+#define DEFINE_STANDART_TECHNIQUE_HIGH_FRESNEL(tech_name, use_bumpmap, use_skinning, use_specularfactor, use_specularmap, use_aniso, terraincolor)	\
+				technique tech_name	\
+				{ pass P0 { VertexShader = compile vs_2_0 vs_main_standart(PCF_NONE, use_bumpmap, use_skinning); \
+							PixelShader = compile PS_2_X ps_main_standart_fresnel(PCF_NONE, use_bumpmap, use_specularfactor, use_specularmap, true, use_aniso, terraincolor);} } \
+				technique tech_name##_SHDW	\
+				{ pass P0 { VertexShader = compile vs_2_0 vs_main_standart(PCF_DEFAULT, use_bumpmap, use_skinning); \
+							PixelShader = compile PS_2_X ps_main_standart_fresnel(PCF_DEFAULT, use_bumpmap, use_specularfactor, use_specularmap, true, use_aniso, terraincolor);} } \
+				technique tech_name##_SHDWNVIDIA	\
+				{ pass P0 { VertexShader = compile vs_2_0 vs_main_standart(PCF_NVIDIA, use_bumpmap, use_skinning); \
+							PixelShader = compile PS_2_X ps_main_standart_fresnel(PCF_NVIDIA, use_bumpmap, use_specularfactor, use_specularmap, true, use_aniso, terraincolor);} } \
+				DEFINE_LIGHTING_TECHNIQUE(tech_name, 0, use_bumpmap, use_skinning, use_specularfactor, use_specularmap)
+//////
+
 #define DEFINE_STANDART_TECHNIQUE_INSTANCED(tech_name, use_bumpmap, use_skinning, use_specularfactor, use_specularmap, use_aniso, terraincolor)	\
 				technique tech_name	\
 				{ pass P0 { VertexShader = compile vs_2_0 vs_main_standart_Instanced(PCF_NONE, use_bumpmap, false); \
@@ -3235,7 +3421,21 @@ VertexShader standart_vs_nvidia[] = { 	compile vs_2_0 vs_main_standart(PCF_NVIDI
 				{ pass P0 { VertexShader = compile vs_2_0 vs_main_standart(PCF_NVIDIA, use_bumpmap, use_skinning); \
 							PixelShader = compile ps_2_a ps_main_standart(PCF_NVIDIA, use_bumpmap, use_specularfactor, use_specularmap, true, use_aniso);} } \
 				DEFINE_LIGHTING_TECHNIQUE(tech_name, 0, use_bumpmap, use_skinning, use_specularfactor, use_specularmap)
-				
+
+///FRESNEL				
+#define DEFINE_STANDART_TECHNIQUE_HIGH_FRESNEL(tech_name, use_bumpmap, use_skinning, use_specularfactor, use_specularmap, use_aniso)	\
+				technique tech_name	\
+				{ pass P0 { VertexShader = compile vs_2_0 vs_main_standart(PCF_NONE, use_bumpmap, use_skinning); \
+							PixelShader = compile PS_2_X ps_main_standart_fresnel(PCF_NONE, use_bumpmap, use_specularfactor, use_specularmap, true, use_aniso);} } \
+				technique tech_name##_SHDW	\
+				{ pass P0 { VertexShader = compile vs_2_0 vs_main_standart(PCF_DEFAULT, use_bumpmap, use_skinning); \
+							PixelShader = compile PS_2_X ps_main_standart_fresnel(PCF_DEFAULT, use_bumpmap, use_specularfactor, use_specularmap, true, use_aniso);} } \
+				technique tech_name##_SHDWNVIDIA	\
+				{ pass P0 { VertexShader = compile vs_2_0 vs_main_standart(PCF_NVIDIA, use_bumpmap, use_skinning); \
+							PixelShader = compile PS_2_X ps_main_standart_fresnel(PCF_NVIDIA, use_bumpmap, use_specularfactor, use_specularmap, true, use_aniso);} } \
+				DEFINE_LIGHTING_TECHNIQUE(tech_name, 0, use_bumpmap, use_skinning, use_specularfactor, use_specularmap)
+/////////////////	
+
 #define DEFINE_STANDART_TECHNIQUE_INSTANCED(tech_name, use_bumpmap, use_skinning, use_specularfactor, use_specularmap, use_aniso)	\
 				technique tech_name	\
 				{ pass P0 { VertexShader = compile vs_2_0 vs_main_standart_Instanced(PCF_NONE, use_bumpmap, false); \
@@ -3270,6 +3470,11 @@ DEFINE_STANDART_TECHNIQUE( standart_skin_bump_specmap, 					true, true,  true, t
 //high versions: 
 DEFINE_STANDART_TECHNIQUE_HIGH( standart_skin_bump_nospecmap_high, 		true, true,  true, false, false, true)
 DEFINE_STANDART_TECHNIQUE_HIGH( standart_skin_bump_specmap_high, 		true, true,  true, true , false, true)
+
+//fresnel
+DEFINE_STANDART_TECHNIQUE_HIGH_FRESNEL(standart_skin_bump_specmap_high_fresnel, 		true, true,  true, true , false, true)
+///
+
 DEFINE_STANDART_TECHNIQUE_HIGH( standart_noskin_bump_nospecmap_high, 	true, false,  true, false, false, true)
 DEFINE_STANDART_TECHNIQUE_HIGH( standart_noskin_bump_specmap_high, 		true, false,  true, true , false, true)
                                                                                       

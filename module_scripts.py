@@ -80833,6 +80833,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
     (else_try), # Only need to calculate "potential" if retreat was not ordered
     (agent_get_position, pos0, ":cur_agent"), 
       (try_for_agents, ":other_agent"),
+      
       # First, make sure the other agent is actually a combatant
       (agent_is_human, ":other_agent"),
       (agent_is_active, ":other_agent"),
@@ -80842,6 +80843,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (neq, ":cur_agent", ":other_agent"),
       (agent_get_troop_id, ":other_troop", ":other_agent"),
       (ge, ":other_troop", 0), # Just in case
+
       # Second, calculate the agent's local effect
       (agent_get_position, pos1, ":other_agent"), 
           (get_sq_distance_between_positions, ":dist2", pos0, pos1), # cm^2
@@ -80859,6 +80861,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
           (assign, ":delta_phi", 0), # Otherwise, rallying routed troops is impossible
       (try_end),
       (try_end),
+
       # Finally, apply it to the local potential
       (try_begin),
         (agent_get_team, ":other_team", ":other_agent"),
@@ -83622,23 +83625,27 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
     #(assign, reg77, 0),
 
     (try_for_agents,":cur_agent"),
+      (agent_is_active, ":cur_agent"),
       (agent_is_human, ":cur_agent"),
       (agent_get_party_id, ":agent_party", ":cur_agent"),
       (try_begin),
         (eq, ":agent_party", "p_main_party"),
         (try_begin),
           (agent_is_alive, ":cur_agent"),
+          (neg|agent_is_wounded, ":cur_agent"),
           (val_add, ":num_us_ready_men", 1),
         (try_end),
       (else_try),
         (agent_is_ally, ":cur_agent"),
         (try_begin),
           (agent_is_alive, ":cur_agent"),
+          (neg|agent_is_wounded, ":cur_agent"),
           (val_add, ":num_allies_ready_men", 1),
         (try_end),
       (else_try),
         (try_begin),
           (agent_is_alive, ":cur_agent"),
+          (neg|agent_is_wounded, ":cur_agent"),
           (val_add, ":num_enemies_ready_men", 1),
         (try_end),
       (try_end),
