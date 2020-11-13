@@ -3148,11 +3148,11 @@ PS_OUTPUT ps_main_standart_fresnel ( VS_OUTPUT_STANDART In, uniform const int Pc
 	
 	
 		
-	//FRESNEL
+	//FRESNEL (Orig VC fresnel *=4.0)
 	float3 vView = normalize(In.ViewDir);
 	float3 fresnel = 1-(saturate(dot(vView, normal)));
 	fresnel = 0.0204f + 0.9796 * (fresnel* fresnel * fresnel * fresnel);
-	fresnel *= 4.0;
+	fresnel *= 2.5;
 	total_light.rgb += total_light*fresnel; 
 	fresnel = pow(fresnel,2);
 	total_light.rgb += 0.020*(total_light*fresnel); 

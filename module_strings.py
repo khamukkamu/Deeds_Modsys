@@ -5089,6 +5089,16 @@ Only you know exactly what caused you to give up your old life and become an adv
   ("dplmc_setting_on", "Enabled"),
   ("dplmc_setting_freq", "Frequent"),
   ("dplmc_setting_tt0", "Mouse-over options for further information. More detailed description of mechanics can be found in the game concepts information pages."),
+  
+  ("dplmc_setting_dac1", "This option turns Complex Formations & Advanced Battle AI on/off"),
+  ("dplmc_setting_dac2", "This option puts the player in a specific division during battle.^ 0 = None, 1 = Infantry, 2 = Archers, 3 = Cavalry, and any other Custom Division."),
+  ("dplmc_setting_dac3", "This option lets your troop automatically rotate to face enemy center while in formation"),
+  ("dplmc_setting_dac4", "This option makes sure enemy AI are not overly defensive during the Formations phase"),
+  ("dplmc_setting_dac5", "This option lets Formations AI control your troops when you fall in battle"),
+  ("dplmc_setting_dac6", "This option changese the type of Morale System active^ Hybrid switches between the two morale systems depending on number of combatants in the field. ^ Complex is more performance intensive, but takes more factors into account to determine whether a troop will rout. ^ Simple is less performance intensive and some fighting and dying has to occur before a rout can occur."),
+  ("dplmc_setting_dac7", "This option lets you choose the size of Forest Battlefields"),
+  ("dplmc_setting_dac8", "This option lets you choose the size of Other Battlefields"),
+
   ("dplmc_setting_tt1", "This option makes every horse in battle lose movement speed directly proportional to their lost Health Points."),
   ("dplmc_setting_tt1a", "This option causes riderless horses in battle to start running away after 1 minute and being culled 30 seconds later. The default tic rate is 10 seconds, and a rate of 0 means culling is disabled. Riding a horse will reset its timer and other horses within 5 meters of the player will not be subject to culling."),
   ("dplmc_setting_tt2", "This option let your troops continue fighting should you fall in battle."),

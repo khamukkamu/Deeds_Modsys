@@ -2530,14 +2530,14 @@ TOTAL:  {reg5}"),
             # (assign, "$g_presentation_next_presentation", -1),
         # ]
     # ),
-      ("dplmc_camp_preferences",[],"Diplomacy preferences.",
+      ("dplmc_camp_preferences",[],"DaC preferences.",
        [
            # (jump_to_menu, "mnu_dplmc_preferences"),
            (start_presentation, "prsnt_adv_diplomacy_preferences"),
            (assign, "$g_presentation_next_presentation", -1),
         ]),
 
-      ("formation_mod_option",[],"DAC mod options.", [(start_presentation, "prsnt_formation_mod_option")]),
+      #("formation_mod_option",[],"DaC mod options.", [(start_presentation, "prsnt_formation_mod_option")]),
 
 ##diplomacy end
       ("camp_action",[],"Take an action.",
@@ -3053,24 +3053,24 @@ TOTAL:  {reg5}"),
     #    (assign, "$g_item_to_scrap", 0),
     #    (start_presentation, "prsnt_dac_ct_view_armoury")]), 
 
-      ("camp_test_quartermaster",[],"Custom Troop Test", [
-        (assign, "$g_talk_troop", "trp_merc_company_quartermaster"),
-        (call_script, "script_get_meeting_scene"), 
-        (assign, ":meeting_scene", reg0),
-        (modify_visitors_at_site,":meeting_scene"),
-        (reset_visitors),
-        (set_visitor,0,"trp_player"),
-        (set_visitor,17,"trp_merc_company_quartermaster"),
-        (set_jump_mission,"mt_conversation_encounter"),
-        (jump_to_scene,":meeting_scene"),
-        (change_screen_map_conversation, "trp_merc_company_quartermaster"),
-          ]),   
+   #   ("camp_test_quartermaster",[],"Custom Troop Test", [
+   #     (assign, "$g_talk_troop", "trp_merc_company_quartermaster"),
+   #     (call_script, "script_get_meeting_scene"), 
+   #     (assign, ":meeting_scene", reg0),
+   #     (modify_visitors_at_site,":meeting_scene"),
+   #     (reset_visitors),
+   #     (set_visitor,0,"trp_player"),
+   #     (set_visitor,17,"trp_merc_company_quartermaster"),
+   #     (set_jump_mission,"mt_conversation_encounter"),
+   #     (jump_to_scene,":meeting_scene"),
+   #     (change_screen_map_conversation, "trp_merc_company_quartermaster"),
+   #       ]),   
 
-    ("camp_morale_system",[     (try_begin),(eq,"$DAC_MORALE_SYSTEM",0),(str_store_string, s7, "@Hybrid Morale System (Default)"),
-              (else_try),(eq,"$DAC_MORALE_SYSTEM",1),(str_store_string, s7, "@Simple Morale System"),
-              (else_try),(eq,"$DAC_MORALE_SYSTEM",2),(str_store_string, s7, "@New Morale System"), (try_end),
-    ],"Morale System Active:  {s7}",[
-    (val_add, "$DAC_MORALE_SYSTEM", 1,),(val_mod, "$DAC_MORALE_SYSTEM", 3),(jump_to_menu, "mnu_auto_dac_test_menu"),]),
+ #   ("camp_morale_system",[     (try_begin),(eq,"$DAC_MORALE_SYSTEM",0),(str_store_string, s7, "@Hybrid Morale System (Default)"),
+ #             (else_try),(eq,"$DAC_MORALE_SYSTEM",1),(str_store_string, s7, "@Simple Morale System"),
+ #             (else_try),(eq,"$DAC_MORALE_SYSTEM",2),(str_store_string, s7, "@New Morale System"), (try_end),
+ #   ],"Morale System Active:  {s7}",[
+ #   (val_add, "$DAC_MORALE_SYSTEM", 1,),(val_mod, "$DAC_MORALE_SYSTEM", 3),(jump_to_menu, "mnu_auto_dac_test_menu"),]),
 
     ("spawn_enemy_horde",[],"Spawn Enemy Horde", [(set_spawn_radius,3),(spawn_around_party, "p_main_party", "pt_kingdom_1_reinforcements_a"),(assign, ":enemy_party", reg0), (party_set_name, ":enemy_party", "@Angry Horde"), (party_set_faction, ":enemy_party", "fac_undeads"),
      (try_for_range, ":unused", 0, 11), 

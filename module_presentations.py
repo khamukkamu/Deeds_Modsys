@@ -18160,18 +18160,18 @@ presentations = [
 					##(create_text_overlay, reg0, s0, tf_scrollable),
 					(create_text_overlay, ":container", s0, tf_scrollable),
 					(position_set_x, pos1, 25),
-					(position_set_y, pos1, 50),
+					(position_set_y, pos1, 30),
 					(overlay_set_position, ":container", pos1),
 					(position_set_x, pos1, 550),
-					(position_set_y, pos1, 630),
+					(position_set_y, pos1, 600),
 					(overlay_set_area_size, ":container", pos1),
 					(set_container_overlay, ":container"),
 
 					## VARIABLE VERTICAL POSITIONS AND INCREMENTS
 					# (assign, ":num_options", 15),
-					(assign, ":y_increment", 50),
+					(assign, ":y_increment", 40),
 					(store_mul, ":texts_y", ":y_increment", DPLMC_NUM_PREFERENCE_OPTIONS),
-					(store_sub, ":inputs_y", ":texts_y", 8),
+					(store_sub, ":inputs_y", ":texts_y", 15),
 
                     (try_for_range, ":slot_no", 0, DPLMC_NUM_PREFERENCE_OPTIONS),
                       (troop_set_slot, "trp_temp_array_a", ":slot_no", 0), #label
@@ -18196,6 +18196,228 @@ presentations = [
 					(position_set_x, pos5, 700),
 					(position_set_y, pos5, 800),
 
+
+      ## Disable mod formations:
+          (create_text_overlay, reg0, "@Disable mod formations:", tf_vertical_align_center),
+          (position_set_y, pos1, ":texts_y"),
+          (overlay_set_position, reg0, pos1),
+          (val_sub, ":texts_y", ":y_increment"),
+                    (troop_set_slot, "trp_temp_array_a", ":num_options", reg0),
+          # (assign, "$adv_diplomacy_texts_horse_speed", reg0),
+
+          (create_check_box_overlay, reg0, "mesh_checkbox_off", "mesh_checkbox_on"),
+          (position_set_y, pos2, ":inputs_y"),
+          (overlay_set_position, reg0, pos2),
+          (val_sub, ":inputs_y", ":y_increment"),
+
+          (troop_set_slot, "trp_temp_array_b", ":num_options", reg0),
+          (overlay_set_val, reg0, "$FormAI_off"),
+          
+
+          (set_container_overlay, -1),
+          (create_mesh_overlay, reg0, "mesh_pic_charge"),
+          (overlay_set_size, reg0, pos4),
+          (overlay_set_position, reg0, pos3),
+          (troop_set_slot, "trp_temp_array_c", ":num_options", reg0),
+          (val_add, ":num_options", 1),
+          (set_container_overlay, ":container"),
+
+      ## Player division assignment
+                    (create_text_overlay, reg0, "@Put player in division:", tf_vertical_align_center),
+                    (position_set_y, pos1, ":texts_y"),
+                    (overlay_set_position, reg0, pos1),
+                    (val_sub, ":texts_y", ":y_increment"),
+                    (troop_set_slot, "trp_temp_array_a", ":num_options", reg0),
+
+                    (create_number_box_overlay, reg0, 0, 10),
+                    (position_set_y, pos2, ":inputs_y"),
+                    (overlay_set_position, reg0, pos2),       
+                    (store_sub, reg2, "$FormAI_player_in_division", 1),
+                    (overlay_set_val, reg0, "$FormAI_player_in_division"),
+                    (val_sub, ":inputs_y", ":y_increment"),
+                    (troop_set_slot, "trp_temp_array_b", ":num_options", reg0),
+
+                    (set_container_overlay, -1),
+                    (create_mesh_overlay, reg0, "mesh_pic_defeat"),
+                    (set_container_overlay, ":container"),
+                    (overlay_set_size, reg0, pos4),
+                    (overlay_set_position, reg0, pos3),
+                    (troop_set_slot, "trp_temp_array_c", ":num_options", reg0),
+                    (val_add, ":num_options", 1),
+
+ ## Autorotate formations option
+          (create_text_overlay, reg0, "@Army autorotates in Formation:", tf_vertical_align_center),
+          (position_set_y, pos1, ":texts_y"),
+          (overlay_set_position, reg0, pos1),
+          (val_sub, ":texts_y", ":y_increment"),
+                    (troop_set_slot, "trp_temp_array_a", ":num_options", reg0),
+          # (assign, "$adv_diplomacy_texts_horse_speed", reg0),
+
+          (create_check_box_overlay, reg0, "mesh_checkbox_off", "mesh_checkbox_on"),
+          (position_set_y, pos2, ":inputs_y"),
+          (overlay_set_position, reg0, pos2),
+          (val_sub, ":inputs_y", ":y_increment"),
+
+          (troop_set_slot, "trp_temp_array_b", ":num_options", reg0),
+          (overlay_set_val, reg0, "$FormAI_autorotate"),
+          
+
+          (set_container_overlay, -1),
+          (create_mesh_overlay, reg0, "mesh_pic_charge"),
+          (overlay_set_size, reg0, pos4),
+          (overlay_set_position, reg0, pos3),
+          (troop_set_slot, "trp_temp_array_c", ":num_options", reg0),
+          (val_add, ":num_options", 1),
+          (set_container_overlay, ":container"),
+
+          ## Autorotate formations option
+          (create_text_overlay, reg0, "@Combat AI Defensive Position:", tf_vertical_align_center),
+          (position_set_y, pos1, ":texts_y"),
+          (overlay_set_position, reg0, pos1),
+          (val_sub, ":texts_y", ":y_increment"),
+                    (troop_set_slot, "trp_temp_array_a", ":num_options", reg0),
+          # (assign, "$adv_diplomacy_texts_horse_speed", reg0),
+
+          (create_check_box_overlay, reg0, "mesh_checkbox_off", "mesh_checkbox_on"),
+          (position_set_y, pos2, ":inputs_y"),
+          (overlay_set_position, reg0, pos2),
+          (val_sub, ":inputs_y", ":y_increment"),
+
+          (troop_set_slot, "trp_temp_array_b", ":num_options", reg0),
+          (overlay_set_val, reg0, "$FormAI_AI_no_defense"),
+          
+
+          (set_container_overlay, -1),
+          (create_mesh_overlay, reg0, "mesh_pic_charge"),
+          (overlay_set_size, reg0, pos4),
+          (overlay_set_position, reg0, pos3),
+          (troop_set_slot, "trp_temp_array_c", ":num_options", reg0),
+          (val_add, ":num_options", 1),
+          (set_container_overlay, ":container"),
+
+          ## Have AI control troops when Player is KO'd
+          (create_text_overlay, reg0, "@AI Controls Troops on Death", tf_vertical_align_center),
+          (position_set_y, pos1, ":texts_y"),
+          (overlay_set_position, reg0, pos1),
+          (val_sub, ":texts_y", ":y_increment"),
+                    (troop_set_slot, "trp_temp_array_a", ":num_options", reg0),
+          # (assign, "$adv_diplomacy_texts_horse_speed", reg0),
+
+          (create_check_box_overlay, reg0, "mesh_checkbox_off", "mesh_checkbox_on"),
+          (position_set_y, pos2, ":inputs_y"),
+          (overlay_set_position, reg0, pos2),
+          (val_sub, ":inputs_y", ":y_increment"),
+
+          (troop_set_slot, "trp_temp_array_b", ":num_options", reg0),
+          (overlay_set_val, reg0, "$FormAI_AI_Control_Troops"),
+          
+
+          (set_container_overlay, -1),
+          (create_mesh_overlay, reg0, "mesh_pic_charge"),
+          (overlay_set_size, reg0, pos4),
+          (overlay_set_position, reg0, pos3),
+          (troop_set_slot, "trp_temp_array_c", ":num_options", reg0),
+          (val_add, ":num_options", 1),
+          (set_container_overlay, ":container"),
+
+          ## Morale System Option
+          (create_text_overlay, reg0, "@Morale System Active:", tf_vertical_align_center),
+          (position_set_y, pos1, ":texts_y"),
+          (overlay_set_position, reg0, pos1),
+          (val_sub, ":texts_y", ":y_increment"),
+          (troop_set_slot, "trp_temp_array_a", ":num_options", reg0),
+
+
+          (create_combo_button_overlay, reg0),
+          (position_set_x, pos2, 485),
+          (val_sub, ":inputs_y", 8),
+          (position_set_y, pos2, ":inputs_y"),
+          (overlay_set_position, reg0, pos2),
+          (overlay_set_size, reg0, pos5),
+          (overlay_add_item, reg0, "@Hybrid"),
+          (overlay_add_item, reg0, "@Simple"),
+          (overlay_add_item, reg0, "@Complex"),
+          (position_set_x, pos2, 450),
+          (val_add, ":inputs_y", 8),
+          (val_sub, ":inputs_y", ":y_increment"),
+          (troop_set_slot, "trp_temp_array_b", ":num_options", reg0),
+          (overlay_set_val, reg0, "$DAC_MORALE_SYSTEM"),
+                    
+          (set_container_overlay, -1),
+          (create_mesh_overlay, reg0, "mesh_pic_sally_out"),
+          (set_container_overlay, ":container"),
+          (overlay_set_position, reg0, pos3),
+          (overlay_set_size, reg0, pos6), #
+          (troop_set_slot, "trp_temp_array_c", ":num_options", reg0),
+          (val_add, ":num_options", 1),
+
+
+          ## Scene Size (Forests)
+          (create_text_overlay, reg0, "@Size of Forest Battlefields:", tf_vertical_align_center),
+          (position_set_y, pos1, ":texts_y"),
+          (overlay_set_position, reg0, pos1),
+          (val_sub, ":texts_y", ":y_increment"),
+          (troop_set_slot, "trp_temp_array_a", ":num_options", reg0),
+
+
+          (create_combo_button_overlay, reg0),
+          (position_set_x, pos2, 485),
+          (val_sub, ":inputs_y", 8),
+          (position_set_y, pos2, ":inputs_y"),
+          (overlay_set_position, reg0, pos2),
+          (overlay_set_size, reg0, pos5),
+          (overlay_add_item, reg0, "@Small"),
+          (overlay_add_item, reg0, "@Normal"),
+          (overlay_add_item, reg0, "@Large"),
+          (overlay_add_item, reg0, "@Extra large"),
+
+          (position_set_x, pos2, 450),
+          (val_add, ":inputs_y", 8),
+          (val_sub, ":inputs_y", ":y_increment"),
+          (troop_set_slot, "trp_temp_array_b", ":num_options", reg0),
+          (overlay_set_val, reg0, "$g_random_scene_size_forests"),
+                    
+          (set_container_overlay, -1),
+          (create_mesh_overlay, reg0, "mesh_pic_sally_out"),
+          (set_container_overlay, ":container"),
+          (overlay_set_position, reg0, pos3),
+          (overlay_set_size, reg0, pos6), #
+          (troop_set_slot, "trp_temp_array_c", ":num_options", reg0),
+          (val_add, ":num_options", 1),
+
+          ## Scene Size (non-Forests)
+          (create_text_overlay, reg0, "@Size of Other Battlefields:", tf_vertical_align_center),
+          (position_set_y, pos1, ":texts_y"),
+          (overlay_set_position, reg0, pos1),
+          (val_sub, ":texts_y", ":y_increment"),
+                    (troop_set_slot, "trp_temp_array_a", ":num_options", reg0),
+          # (assign, "$adv_diplomacy_texts_ai_changes", reg0),
+
+          (create_combo_button_overlay, reg0),
+          (position_set_x, pos2, 485),
+          (val_sub, ":inputs_y", 8),
+          (position_set_y, pos2, ":inputs_y"),
+          (overlay_set_position, reg0, pos2),
+          (overlay_set_size, reg0, pos5),
+          (overlay_add_item, reg0, "@Small"),
+          (overlay_add_item, reg0, "@Normal"),
+          (overlay_add_item, reg0, "@Large"),
+          (overlay_add_item, reg0, "@Extra large"),
+
+          (position_set_x, pos2, 450),
+          (val_add, ":inputs_y", 8),
+          (val_sub, ":inputs_y", ":y_increment"),
+          (troop_set_slot, "trp_temp_array_b", ":num_options", reg0),
+          (overlay_set_val, reg0, "$g_random_scene_size"),
+                    
+          (set_container_overlay, -1),
+          (create_mesh_overlay, reg0, "mesh_pic_sally_out"),
+          (set_container_overlay, ":container"),
+          (overlay_set_position, reg0, pos3),
+          (overlay_set_size, reg0, pos6), #
+          (troop_set_slot, "trp_temp_array_c", ":num_options", reg0),
+          (val_add, ":num_options", 1),
+
 					## HORSE SPEED
 					(create_text_overlay, reg0, "@Horse Speed Fix:", tf_vertical_align_center),
 					(position_set_y, pos1, ":texts_y"),
@@ -18219,41 +18441,41 @@ presentations = [
 						# (assign, ":actual_input_value", 0),
 					# (try_end),
 
-                    (set_container_overlay, -1),
-                    (create_mesh_overlay, reg0, "mesh_pic_charge"),
-                    (overlay_set_size, reg0, pos4),
-                    (overlay_set_position, reg0, pos3),
+          (set_container_overlay, -1),
+          (create_mesh_overlay, reg0, "mesh_pic_charge"),
+          (overlay_set_size, reg0, pos4),
+          (overlay_set_position, reg0, pos3),
 #                    (overlay_set_alpha, reg0, 0),
-                    (troop_set_slot, "trp_temp_array_c", ":num_options", reg0),
-                    (val_add, ":num_options", 1),
-                    (set_container_overlay, ":container"),
-                    
-                    ## HORSE CULL
-                    (create_text_overlay, reg0, "@Horse Culling:", tf_vertical_align_center),
-                    (position_set_y, pos1, ":texts_y"),
-                    (overlay_set_position, reg0, pos1),
-                    (val_sub, ":texts_y", ":y_increment"),
-                    (troop_set_slot, "trp_temp_array_a", ":num_options", reg0),
+          (troop_set_slot, "trp_temp_array_c", ":num_options", reg0),
+          (val_add, ":num_options", 1),
+          (set_container_overlay, ":container"),
+          
+          ## HORSE CULL
+          (create_text_overlay, reg0, "@Horse Culling:", tf_vertical_align_center),
+          (position_set_y, pos1, ":texts_y"),
+          (overlay_set_position, reg0, pos1),
+          (val_sub, ":texts_y", ":y_increment"),
+          (troop_set_slot, "trp_temp_array_a", ":num_options", reg0),
 
-                    (create_number_box_overlay, reg0, 0, 31),
-                    (position_set_y, pos2, ":inputs_y"),
-                    (overlay_set_position, reg0, pos2),
-                    (try_begin),
-                      (neg|is_between, "$g_horses_are_avaliable", 0, 31),
-                      (assign, "$g_horses_are_avaliable", 10),
-                    (try_end),
-                    (overlay_set_val, reg0, "$g_horses_are_avaliable"),
-                    (val_sub, ":inputs_y", ":y_increment"),
-                    (troop_set_slot, "trp_temp_array_b", ":num_options", reg0),
+          (create_number_box_overlay, reg0, 0, 31),
+          (position_set_y, pos2, ":inputs_y"),
+          (overlay_set_position, reg0, pos2),
+          (try_begin),
+            (neg|is_between, "$g_horses_are_avaliable", 0, 31),
+            (assign, "$g_horses_are_avaliable", 10),
+          (try_end),
+          (overlay_set_val, reg0, "$g_horses_are_avaliable"),
+          (val_sub, ":inputs_y", ":y_increment"),
+          (troop_set_slot, "trp_temp_array_b", ":num_options", reg0),
 
-                    (set_container_overlay, -1),
-                    (create_mesh_overlay, reg0, "mesh_pic_defeat"),
-                    (set_container_overlay, ":container"),
-                    (overlay_set_size, reg0, pos4),
-                    (overlay_set_position, reg0, pos3),
+          (set_container_overlay, -1),
+          (create_mesh_overlay, reg0, "mesh_pic_defeat"),
+          (set_container_overlay, ":container"),
+          (overlay_set_size, reg0, pos4),
+          (overlay_set_position, reg0, pos3),
 #                    (overlay_set_alpha, reg0, 0),
-                    (troop_set_slot, "trp_temp_array_c", ":num_options", reg0),
-                    (val_add, ":num_options", 1),
+          (troop_set_slot, "trp_temp_array_c", ":num_options", reg0),
+          (val_add, ":num_options", 1),
                     
 					## BATTLE CONTINUATION
 					(create_text_overlay, reg0, "@Battle Continuation:", tf_vertical_align_center),
@@ -18679,11 +18901,19 @@ presentations = [
 #                    (overlay_set_alpha, reg0, 0),
                     (troop_set_slot, "trp_temp_array_c", ":num_options", reg0),
                     (val_add, ":num_options", 1),
+
+          ## Spacer
+          (create_text_overlay, reg0, "@.", tf_vertical_align_center),
+          #(troop_set_slot, "trp_temp_array_a", ":num_options", reg0),
+          (position_set_y, pos1, ":texts_y"),
+          (overlay_set_position, reg0, pos1),
+          (val_sub, ":texts_y", ":y_increment"),
+          (val_add, ":num_options", 1),
                     
 					(set_container_overlay, -1),
 
 					## MOUSE-OVER TIPS
-					(create_text_overlay, reg0, "@DIPLOMACY^" + DPLMC_DIPLOMACY_VERSION_STRING+ "^Preferences", tf_center_justify|tf_with_outline),
+					(create_text_overlay, reg0, "@Deeds of Arms & Chivlary^ with DIPLOMACY " + DPLMC_DIPLOMACY_VERSION_STRING+ "^Preferences", tf_center_justify|tf_with_outline),
 					(overlay_set_color, reg0, 0xFFFFFFFF),
 					(position_set_x, pos1, 800),
 					(position_set_y, pos1, 600),
@@ -18763,8 +18993,17 @@ presentations = [
 					(try_begin),
                         (eq, ":object", "$g_presentation_obj_profile_banner_selection_1"),
                         (assign, "$cheat_mode", 0),
+
+                        (assign, "$FormAI_off", 0),
+                        (assign, "$FormAI_player_in_division", 0),
+                        (assign, "$FormAI_autorotate", 0),
+                        (assign, "$FormAI_AI_no_defense", 0),
+                        (assign, "$FormAI_AI_Control_Troops", 0),
+                        (assign, "$DAC_MORALE_SYSTEM", 0),
+                        (assign, "$g_random_scene_size_forests", 1),
+                        (assign, "$g_random_scene_size", 1),
                         (assign, "$g_dplmc_horse_speed", 0),
-                        (assign, "$g_dplmc_battle_continuation", 0),
+                        (assign, "$g_dplmc_battle_continuation", 0), 
                         (assign, "$g_horses_are_avaliable", 10),
                         (assign, "$g_dplmc_cam_default", camera_mouse),
                         (assign, "$g_dplmc_player_disguise", disguise_pilgrim),
@@ -18802,27 +19041,39 @@ presentations = [
                       (eq, ":object", "$g_dplmc_cam_activated"),
                       (assign, "$g_presentation_next_presentation", "prsnt_redefine_keys"),
                       (start_presentation, "prsnt_redefine_keys"),
+          (else_try), ## FormAI
+            (troop_slot_eq, "trp_temp_array_b", 0, ":object"),
+            (store_sub, "$FormAI_off", 1, ":value"),
+          (else_try), ## Form Player Division
+            (troop_slot_eq, "trp_temp_array_b", 1, ":object"),
+            (assign, "$FormAI_player_in_division", ":value"),
+          (else_try), ## Form Autorotate
+            (troop_slot_eq, "trp_temp_array_b", 2, ":object"),
+            (assign, "$FormAI_autorotate", ":value"),
+          (else_try), ## Form Prevent AI from taking defensive
+            (troop_slot_eq, "trp_temp_array_b", 3, ":object"),
+            (assign, "$FormAI_AI_no_defense", ":value"),
+          (else_try), ## Form AI Controls Troops When Player is KO'd
+            (troop_slot_eq, "trp_temp_array_b", 4, ":object"),
+            (assign, "$FormAI_AI_Control_Troops", ":value"),
+          (else_try), ## Morale Systems
+            (troop_slot_eq, "trp_temp_array_b", 5, ":object"),
+            (assign, "$DAC_MORALE_SYSTEM", ":value"),
+          (else_try), ## Scene Size (Forests)
+            (troop_slot_eq, "trp_temp_array_b", 6, ":object"),
+            (assign, "$g_random_scene_size_forests", ":value"),
+          (else_try), ## Scene Size (non-Forests)
+            (troop_slot_eq, "trp_temp_array_b", 7, ":object"),
+            (assign, "$g_random_scene_size", ":value"),
 					(else_try), ## HORSE SPEED
-						(troop_slot_eq, "trp_temp_array_b", 0, ":object"),
+						(troop_slot_eq, "trp_temp_array_b", 8, ":object"),
 						(store_sub, "$g_dplmc_horse_speed", 1, ":value"),
-						# (try_begin),
-							# (eq, ":value", 0),
-							# (assign, "$adv_diplomacy_var_horse_speed", 1),
-						# (else_try),
-							# (assign, "$adv_diplomacy_var_horse_speed", 0),
-						# (try_end),
-					(else_try), ## HORSE SPEED
-						(troop_slot_eq, "trp_temp_array_b", 1, ":object"),
+					(else_try), ## HORSE CULL
+						(troop_slot_eq, "trp_temp_array_b", 9, ":object"),
 						(assign, "$g_horses_are_avaliable", ":value"),
-						# (try_begin),
-							# (eq, ":value", 0),
-							# (assign, "$adv_diplomacy_var_horse_speed", 1),
-						# (else_try),
-							# (assign, "$adv_diplomacy_var_horse_speed", 0),
-						# (try_end),
 					(else_try), ## BATTLE CONTINUATION
 						# (eq, ":object", "$g_presentation_obj_admin_panel_2"),
-                        (troop_slot_eq, "trp_temp_array_b", 2, ":object"),
+                        (troop_slot_eq, "trp_temp_array_b", 10, ":object"),
 						(store_sub, "$g_dplmc_battle_continuation", 1, ":value"),
                         #refresh presentation to show new options
                         # (presentation_set_duration, 0),
@@ -18835,11 +19086,11 @@ presentations = [
 						# (try_end),
 					(else_try), ## Charge after death
 						# (eq, ":object", "$g_presentation_obj_admin_panel_3"),
-                        (troop_slot_eq, "trp_temp_array_b", 3, ":object"),
+                        (troop_slot_eq, "trp_temp_array_b", 11, ":object"),
 						(assign, "$g_dplmc_charge_when_dead", ":value"),
 					(else_try), ## TERRAIN ADVANTAGE
 						# (eq, ":object", "$g_presentation_obj_admin_panel_3"),
-                        (troop_slot_eq, "trp_temp_array_b", 4, ":object"),
+                        (troop_slot_eq, "trp_temp_array_b", 12, ":object"),
 						(store_sub, "$g_dplmc_terrain_advantage", ":value", 1),
 						# (try_begin),
 							# (eq, ":value", 0),
@@ -18849,7 +19100,7 @@ presentations = [
 						# (try_end),
 					(else_try), ## LORDS RETURNING FROM EXILE
 						# (eq, ":object", "$g_presentation_obj_admin_panel_4"),
-                        (troop_slot_eq, "trp_temp_array_b", 5, ":object"),
+                        (troop_slot_eq, "trp_temp_array_b", 13, ":object"),
 						(store_sub, "$g_dplmc_lord_recycling", ":value", 1),
 						# (try_begin),
 							# (eq, ":value", 0),
@@ -18858,13 +19109,13 @@ presentations = [
 							# (assign, "$adv_diplomacy_var_lords_returning", DPLMC_LORD_RECYCLING_ENABLE),
 						# (try_end),
                     (else_try), #AI
-                        (troop_slot_eq, "trp_temp_array_b", 6, ":object"),
+                        (troop_slot_eq, "trp_temp_array_b", 14, ":object"),
                         (store_sub, "$g_dplmc_ai_changes", DPLMC_AI_CHANGES_HIGH, ":value"),
                     (else_try), #ECO
-                        (troop_slot_eq, "trp_temp_array_b", 7, ":object"),
+                        (troop_slot_eq, "trp_temp_array_b", 15, ":object"),
                         (store_sub, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_HIGH, ":value"),
                     (else_try), #Prejudice
-                        (troop_slot_eq, "trp_temp_array_b", 8, ":object"),
+                        (troop_slot_eq, "trp_temp_array_b", 16, ":object"),
                         # (assign, reg0, ":value"),
                         # (assign, reg1, "$g_disable_condescending_comments"),
                         # (display_message, "@option {reg0}: was {reg1}"),
@@ -18883,18 +19134,18 @@ presentations = [
                         (try_end),
                         (call_script, "script_dplmc_init_faction_gender_ratio", 1),
                     (else_try), ## Bodysliding
-                        (troop_slot_eq, "trp_temp_array_b", 9, ":object"),
+                        (troop_slot_eq, "trp_temp_array_b", 17, ":object"),
                         (assign, "$enable_bodysliding", ":value"),
                     (else_try), ## Complaints
-                        (troop_slot_eq, "trp_temp_array_b", 10, ":object"),
+                        (troop_slot_eq, "trp_temp_array_b", 18, ":object"),
                         (assign, "$disable_npc_complaints", ":value"),
                     (else_try), ## Disguise
-                        (troop_slot_eq, "trp_temp_array_b", 11, ":object"),
+                        (troop_slot_eq, "trp_temp_array_b", 19, ":object"),
                         # (eq, ":object", "$g_presentation_obj_admin_panel_5"),
                         (assign, "$g_dplmc_player_disguise", ":value"),
                         (assign, "$sneaked_into_town", disguise_none), #so as to not proc trigger
                     (else_try), ## CHEATS MENU
-                        (troop_slot_eq, "trp_temp_array_b", 12, ":object"),
+                        (troop_slot_eq, "trp_temp_array_b", 20, ":object"),
                         (assign, "$cheat_mode", ":value"),
                     (try_end),
                 ]
@@ -18914,7 +19165,7 @@ presentations = [
                         (try_for_range, ":slot_no", 0, ":num_options"),
                           (this_or_next|troop_slot_eq, "trp_temp_array_a", ":slot_no", ":object"),
                           (troop_slot_eq, "trp_temp_array_b", ":slot_no", ":object"),
-                          (store_add, ":string", "str_dplmc_setting_tt1", ":slot_no"),
+                          (store_add, ":string", "str_dplmc_setting_dac1", ":slot_no"),
                           # (display_message, ":string"),
                           (overlay_set_text, "$g_presentation_obj_admin_panel_container", ":string"),
                           (assign, ":num_options", -1),
@@ -19885,14 +20136,14 @@ presentations = [
         (presentation_set_duration, 999999),
         (set_fixed_point_multiplier, 1000),
         
-        (create_text_overlay, reg1, "@DAC Mod Options", tf_center_justify),
+        (create_text_overlay, reg1, "@DaC Mod Options", tf_center_justify),
         (position_set_x, pos0, Screen_Width/2),
-        #  (position_set_y, pos0, Screen_Title_Height),
-        (position_set_y, pos0, 600),
+          (position_set_y, pos0, Screen_Title_Height),
+       # (position_set_y, pos0, 600),
         (overlay_set_position, reg1, pos0),
         
-        #  (assign, ":y_pos", Screen_Title_Height-Screen_Text_Height-Screen_Text_Height),
-        (assign, ":y_pos", 450),
+          (assign, ":y_pos", Screen_Title_Height-Screen_Text_Height-Screen_Text_Height),
+        #(assign, ":y_pos", 450),
         
         #Disable formations option
         (create_text_overlay, reg1, "@Disable mod formations: ", tf_right_align),
@@ -19910,7 +20161,7 @@ presentations = [
         (val_sub, ":y_pos", Screen_Text_Height),
         
         #Player division assignment
-        (create_text_overlay, reg1, "@Formations - Put player in division: ", tf_right_align),
+        (create_text_overlay, reg1, "@Form: Put player in division: ", tf_right_align),
         (position_set_y, pos0, ":y_pos"),
         (overlay_set_position, reg1, pos0),
         
@@ -19936,7 +20187,7 @@ presentations = [
         (val_sub, ":y_pos", Screen_Text_Height),
         
         #Autorotate formations option
-        (create_text_overlay, reg1, "@Formations - Army rotates to face enemy center: ", tf_right_align),
+        (create_text_overlay, reg1, "@Form: Army rotates to face enemy center: ", tf_right_align),
         (position_set_y, pos0, ":y_pos"),
         (overlay_set_position, reg1, pos0),
         
@@ -19951,7 +20202,7 @@ presentations = [
         (val_sub, ":y_pos", Screen_Text_Height),
         
         #Prevent AI from taking defensive
-        (create_text_overlay, reg1, "@Formations - Prevent AI from taking defensive: ", tf_right_align),
+        (create_text_overlay, reg1, "@Form: Prevent AI from taking defensive: ", tf_right_align),
         (position_set_y, pos0, ":y_pos"),
         (overlay_set_position, reg1, pos0),
         
@@ -19966,7 +20217,7 @@ presentations = [
         (val_sub, ":y_pos", Screen_Text_Height),
 
         #Have AI control troops when Player is KO'd
-        (create_text_overlay, reg1, "@ Formations - AI Controls Troops When Player is KO'd: ", tf_right_align),
+        (create_text_overlay, reg1, "@Form: AI Controls Troops When Player is KO'd: ", tf_right_align),
         (position_set_y, pos0, ":y_pos"),
         (overlay_set_position, reg1, pos0),
         
@@ -19979,6 +20230,28 @@ presentations = [
         (overlay_set_val, "$form_options_overlay_5", "$FormAI_AI_Control_Troops"),
         
         (val_sub, ":y_pos", Screen_Text_Height),
+
+        # Morale System Option
+        (create_text_overlay, reg1, "@Morale System Active: ", tf_right_align),
+        (position_set_y, pos0, ":y_pos"),
+        (overlay_set_position, reg1, pos0),
+        
+        (create_combo_button_overlay, "$g_presentation_obj_admin_panel_7"),
+        (overlay_add_item, "$g_presentation_obj_admin_panel_7", "@Hybrid"),
+        (overlay_add_item, "$g_presentation_obj_admin_panel_7", "@Simple"),
+        (overlay_add_item, "$g_presentation_obj_admin_panel_7", "@Complex"),
+
+        (copy_position, pos1, pos0),
+        (store_add, reg2, ":y_pos", 0),
+        (position_set_y, pos1, reg2),
+        (position_get_x, ":x_pos", pos1),
+        (val_add, ":x_pos", 130),
+        (position_set_x, pos1, ":x_pos"),
+        (overlay_set_position, "$g_presentation_obj_admin_panel_7", pos1),
+        (overlay_set_val,  "$g_presentation_obj_admin_panel_7", "$DAC_MORALE_SYSTEM"),
+        (val_sub, ":y_pos", Screen_Text_Height),
+
+
         
         # CC Scene Size (Forests)
         (create_text_overlay, reg1, "@Size of Forest Battlefields ", tf_right_align),
@@ -20031,6 +20304,20 @@ presentations = [
         (position_set_x, pos1, 2*Screen_Width/3),
         (position_set_y, pos1, Screen_Border_Width),
         (overlay_set_position, "$form_options_overlay_exit", pos1),
+
+        # Mouse Over
+          (str_store_string, s0, "str_empty_string"),
+          (create_text_overlay, reg0, s0, tf_double_space|tf_scrollable),
+          (position_set_x, pos1, 760),
+          (position_set_y, pos1, 195),
+          (overlay_set_position, reg0, pos1),
+          (position_set_x, pos1, 600),
+          (position_set_y, pos1, 600),
+          (overlay_set_size, reg0, pos1),
+          (position_set_x, pos1, 200),
+          (position_set_y, pos1, 300),
+          (overlay_set_area_size, reg0, pos1),
+          (assign, "$g_presentation_obj_admin_panel_container", reg0),
     ]),
     
     (ti_on_presentation_run, [
@@ -20068,11 +20355,35 @@ presentations = [
           (eq, ":object", "$g_presentation_obj_admin_panel_6"),
           (assign, "$g_random_scene_size", ":value"),
         (else_try),
+          (eq, ":object", "$g_presentation_obj_admin_panel_7"),
+          (assign, "$DAC_MORALE_SYSTEM", ":value"),
+        (else_try),
           (eq, ":object", "$form_options_overlay_exit"),
           (presentation_set_duration, 0),
         (try_end),
     ]),
-]),
+
+    (ti_on_presentation_mouse_enter_leave, #Mouse-Over Pref-Tips
+        [
+          (store_trigger_param_1, ":object"),
+          (store_trigger_param_2, ":enter_leave"), #0 if mouse enters, 1 if mouse leaves
+          ##IF THE EVENT IS "ENTER", WE CHOOSE THE TEXT THAT WILL BE SHOWED
+          (try_begin),
+            (eq, ":enter_leave", 0),
+            (gt, ":object", 0), #not the overlay
+            #could use overlay_set_material but stretching
+            #(assign, ":selected_option", -1),
+            (eq, ":object", "$g_presentation_obj_admin_panel_7"),
+            (overlay_set_display, "$g_presentation_obj_admin_panel_container", 1),
+            (overlay_set_text, "$g_presentation_obj_admin_panel_container", "@Morale Systems:^^ Hybrid switches between the two morale systems depending on number of combatants in the field. ^^ Complex is more performance intensive, but takes more factors into account to determine whether a troop will rout. ^^ Simple is less performance intensive and some fighting and dying has to occur before a rout can occur."),
+          (else_try),
+            (eq, ":enter_leave", 1),
+            (gt, ":object", 0),
+            (overlay_set_display, "$g_presentation_obj_admin_panel_container", 0),
+
+          (try_end),
+    ]),
+]+ coord_helper + prsnt_escape_close), 
 
 #update for formations and fixes
 ("battle",0,0,[
