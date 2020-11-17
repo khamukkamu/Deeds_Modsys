@@ -79947,7 +79947,8 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
   ("cf_item_can_be_sold", # itp_merchandise can't be checked, so we'll make unsellable items unique to fac_no_faction
   [ (store_script_param, ":item", 1),
   (this_or_next|item_has_faction, ":item", "fac_commoners"),
-  (neg|item_has_faction, ":item", "fac_no_faction"),
+  (this_or_next|neg|item_has_faction, ":item", "fac_no_faction"),
+  (neg|item_has_property, ":item", itp_merchandise),
   ]),
   ("item_abundance",
   [ (store_script_param, ":item", 1),
@@ -80995,6 +80996,8 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
     (else_try),
         (team_get_slot, ":fighting", ":agent_team", slot_team_fighting_strength),
     (val_add, ":fighting", ":troop_level"),
+    (val_add, ":fighting", ":troop_level"), #DaC Kham: give bonus to ready troops
+    (val_add, ":fighting", ":troop_level"), #DaC Kham: give bonus to ready troops
         (team_set_slot, ":agent_team", slot_team_fighting_strength, ":fighting"),
     (try_end),
   (try_end),
