@@ -80992,6 +80992,8 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
     (else_try),
         (team_get_slot, ":fighting", ":agent_team", slot_team_fighting_strength),
     (val_add, ":fighting", ":troop_level"),
+    (val_add, ":fighting", ":troop_level"), #DaC Kham: give bonus to ready troops
+    (val_add, ":fighting", ":troop_level"), #DaC Kham: give bonus to ready troops
         (team_set_slot, ":agent_team", slot_team_fighting_strength, ":fighting"),
     (try_end),
   (try_end),
