@@ -1284,11 +1284,6 @@ scripts = [
       (item_set_slot, "itm_w_halberd_12", slot_item_multiplayer_item_class, multi_item_class_type_spear),
       (item_set_slot, "itm_w_halberd_13", slot_item_multiplayer_item_class, multi_item_class_type_spear),
       (item_set_slot, "itm_w_halberd_flemish", slot_item_multiplayer_item_class, multi_item_class_type_spear),
-
-      (item_set_slot, "itm_w_polehammer_1", slot_item_multiplayer_item_class, multi_item_class_type_spear),
-      (item_set_slot, "itm_w_polehammer_2", slot_item_multiplayer_item_class, multi_item_class_type_spear),
-      (item_set_slot, "itm_w_polehammer_lucern", slot_item_multiplayer_item_class, multi_item_class_type_spear),
-      (item_set_slot, "itm_w_polehammer_milan", slot_item_multiplayer_item_class, multi_item_class_type_spear),
 	  
       (item_set_slot, "itm_w_spear_1", slot_item_multiplayer_item_class, multi_item_class_type_spear),
       (item_set_slot, "itm_w_spear_2", slot_item_multiplayer_item_class, multi_item_class_type_spear),
@@ -79946,8 +79941,10 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
   ]),
   ("cf_item_can_be_sold", # itp_merchandise can't be checked, so we'll make unsellable items unique to fac_no_faction
   [ (store_script_param, ":item", 1),
+
   (this_or_next|item_has_faction, ":item", "fac_commoners"),
-  (neg|item_has_faction, ":item", "fac_no_faction"),
+  (this_or_next|neg|item_has_faction, ":item", "fac_no_faction"),
+  (neg|item_has_property, ":item", itp_merchandise),
   ]),
   ("item_abundance",
   [ (store_script_param, ":item", 1),
@@ -81226,14 +81223,15 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 	(call_script, "script_item_weapon_switch_with_next", "itm_w_knight_warhammer_2"),
 	  
 ### Polearms 	  
-	(call_script, "script_item_weapon_switch_with_next", "itm_w_bec_de_corbin"),
-	(call_script, "script_item_weapon_switch_with_next", "itm_w_poleaxe_english"),
-	(call_script, "script_item_weapon_switch_with_next", "itm_w_polehammer_1"),
-	(call_script, "script_item_weapon_switch_with_next", "itm_w_polehammer_2"),
-	(call_script, "script_item_weapon_switch_with_next", "itm_w_polehammer_lucern"),
-	(call_script, "script_item_weapon_switch_with_next", "itm_w_polehammer_milan"),
+	# (call_script, "script_item_weapon_switch_with_next", "itm_w_bec_de_corbin"),
+	# (call_script, "script_item_weapon_switch_with_next", "itm_w_poleaxe_english"),
+	# (call_script, "script_item_weapon_switch_with_next", "itm_w_polehammer_1"),
+	# (call_script, "script_item_weapon_switch_with_next", "itm_w_polehammer_2"),
+	# (call_script, "script_item_weapon_switch_with_next", "itm_w_polehammer_lucern"),
+	# (call_script, "script_item_weapon_switch_with_next", "itm_w_polehammer_milan"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_w_voulge_swiss_3"), 
 
+### Spears
 	(call_script, "script_item_weapon_switch_with_next", "itm_w_spear_1"), 
 	(call_script, "script_item_weapon_switch_with_next", "itm_w_spear_2"), 
 	(call_script, "script_item_weapon_switch_with_next", "itm_w_spear_3"), 
@@ -81246,7 +81244,91 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 	(call_script, "script_item_weapon_switch_with_next", "itm_w_native_spear_d"), 
 	(call_script, "script_item_weapon_switch_with_next", "itm_w_native_spear_g"), 
 	(call_script, "script_item_weapon_switch_with_next", "itm_w_native_spear_h"), 
-	(call_script, "script_item_weapon_switch_with_next", "itm_w_native_spear_i"), 
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_native_spear_i"),
+
+### Blunt Pollaxes
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_blunt_01_french_ash"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_blunt_01_french_brown"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_blunt_01_french_red"),
+    
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_blunt_02_french_ash"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_blunt_02_french_ebony_trim"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_blunt_02_french_red_trim"),
+    
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_blunt_03_ash"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_blunt_03_brown"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_blunt_03_ebony_trim"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_blunt_03_red_trim"),
+    
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_blunt_04_english_ash"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_blunt_04_english_brown_trim"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_blunt_04_english_dark"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_blunt_04_english_red_trim"),
+    
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_blunt_05_ash"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_blunt_05_brown"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_blunt_05_ebony"),
+    
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_blunt_06_italian_ash"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_blunt_06_italian_brown"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_blunt_06_italian_red"),
+    
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_blunt_07_ash"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_blunt_07_brown"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_blunt_07_ebony"),
+    
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_blunt_08_ash"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_blunt_08_brown"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_blunt_08_red"),
+    
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_blunt_09_ash"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_blunt_09_brown"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_blunt_09_ebony"),
+    
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_blunt_10_ash"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_blunt_10_brown"),
+    
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_blunt_11_ash"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_blunt_11_ebony"),
+    
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_blunt_12_brown"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_blunt_12_ash"),
+    
+### Axe-head Pollaxes
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_cut_01_burgundian_ash"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_cut_01_burgundian_brown_trim"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_cut_01_burgundian_dark"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_cut_01_burgundian_ebony_trim"),
+    
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_cut_02_french_ash"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_cut_02_french_spiked_dark"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_cut_02_french_spiked_red"),
+    
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_cut_03_ash"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_cut_03_brown"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_cut_03_red"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_cut_03_red_trim"),
+    
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_cut_04_english_ash"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_cut_04_english_brown"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_cut_04_english_ebony"),
+    
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_cut_05_ash"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_cut_05_brown"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_cut_05_red"),
+    
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_cut_06_ash"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_cut_06_ebony"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_cut_06_red"),
+    
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_cut_07_ash"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_cut_07_brown"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_cut_07_red"),
+    
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_cut_09_ash"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_cut_09_brown"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_pollaxe_cut_09_ebony"),
+
  ]),
 	 
 ("item_weapon_switch_with_next", [
