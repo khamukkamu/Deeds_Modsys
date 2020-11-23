@@ -80815,133 +80815,144 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
     [
       (store_script_param, ":cur_agent", 1),
       (store_script_param, ":unused", 2),
-	  
+
       (val_mul, ":unused", 1), ### DAC Seek: Stopping the compiler from complaining	  
-            
+
       (assign, ":force_retreat", 0),
       (assign, ":local_potential", 0), # Each non-routed troop affects local "potential" with Level/Distance^2, sign depends on team.
       (agent_get_team, ":agent_team", ":cur_agent"),
       (agent_get_division, ":agent_division", ":cur_agent"),
+
       (try_begin),
         (lt, ":agent_division", 9), #static classes
         (team_get_movement_order, ":agent_movement_order", ":agent_team", ":agent_division"),
         (eq, ":agent_movement_order", mordr_retreat),
         (assign, ":force_retreat", 1),
-    (else_try), # Only need to calculate "potential" if retreat was not ordered
-    (agent_get_position, pos0, ":cur_agent"), 
-      (try_for_agents, ":other_agent"),
-      
-      # First, make sure the other agent is actually a combatant
-      (agent_is_human, ":other_agent"),
-      (agent_is_active, ":other_agent"),
-      (agent_is_alive, ":other_agent"),
-      (neg|agent_is_wounded, ":other_agent"),
-      (neg|agent_is_routed, ":other_agent"),
-      (neq, ":cur_agent", ":other_agent"),
-      (agent_get_troop_id, ":other_troop", ":other_agent"),
-      (ge, ":other_troop", 0), # Just in case
+      (else_try), # Only need to calculate "potential" if retreat was not ordered
+        (agent_get_position, pos0, ":cur_agent"), 
+        
+        (try_for_agents, ":other_agent"),
 
-      # Second, calculate the agent's local effect
-      (agent_get_position, pos1, ":other_agent"), 
+          # First, make sure the other agent is actually a combatant
+          (agent_is_human, ":other_agent"),
+          (agent_is_active, ":other_agent"),
+          (agent_is_alive, ":other_agent"),
+          (neg|agent_is_wounded, ":other_agent"),
+          (neg|agent_is_routed, ":other_agent"),
+          (neq, ":cur_agent", ":other_agent"),
+          (agent_get_troop_id, ":other_troop", ":other_agent"),
+          (ge, ":other_troop", 0), # Just in case
+
+          # Second, calculate the agent's local effect
+          (agent_get_position, pos1, ":other_agent"), 
           (get_sq_distance_between_positions, ":dist2", pos0, pos1), # cm^2
-      (le, ":dist2", 100000000), # Ignore troops further away than 100 m
-      (val_max, ":dist2", 10000), # Closer than 1m does not increase effect
-      (store_character_level, ":other_level", ":other_troop"),
-      (store_mul, ":delta_phi", ":other_level", 1000000),
-      (val_div, ":delta_phi", ":dist2"),
-      (try_begin),
-        (agent_slot_eq, ":other_agent", slot_agent_is_running_away, 1),
-      (try_begin),
-        (agent_slot_eq, ":cur_agent", slot_agent_is_running_away, 0),
-          (val_mul, ":delta_phi", -1),
-      (else_try),
-          (assign, ":delta_phi", 0), # Otherwise, rallying routed troops is impossible
-      (try_end),
-      (try_end),
+          (le, ":dist2", 100000000), # Ignore troops further away than 100 m
+          (val_max, ":dist2", 10000), # Closer than 1m does not increase effect
+          (store_character_level, ":other_level", ":other_troop"),
+          (store_character_level, ":agent_level", ":cur_agent"), #DaC Kham: Store Agent Level and compare with other agent for buff
+          (store_mul, ":delta_phi", ":other_level", 1000000),
+          (val_div, ":delta_phi", ":dist2"),
+          (try_begin),
+            (agent_slot_eq, ":other_agent", slot_agent_is_running_away, 1),
+            (try_begin),
+              (agent_slot_eq, ":cur_agent", slot_agent_is_running_away, 0),
+              (val_mul, ":delta_phi", -1),
+            (else_try),
+              (assign, ":delta_phi", 0), # Otherwise, rallying routed troops is impossible
+            (try_end),
+          (try_end),
 
-      # Finally, apply it to the local potential
-      (try_begin),
-        (agent_get_team, ":other_team", ":other_agent"),
-        (teams_are_enemies, ":agent_team", ":other_team"), 
-      (val_sub, ":local_potential", ":delta_phi"),
-      (else_try),
-      (try_begin),
-        (troop_is_hero, ":other_troop"),
-        (val_mul, ":delta_phi", 10),
-        (agent_get_item_slot, ":helmet", ":other_agent", 4),
-        (agent_get_wielded_item, ":banner", ":other_agent", 1),
-        (try_begin),
-          (eq, ":banner", "itm_heraldic_banner"),
-          (val_add, ":delta_phi", 5), # DAC Kham: Banner gives a morale boost.
-        (try_end),
-        (try_begin),
-          (lt, ":helmet", 0),
-          (val_mul, ":delta_phi", 2), # Recognizing their leader gives a morale boost
-        #(else_try), #DAC Kham: Disabled for now until we find the range of hats.
-        #  (item_get_head_armor, ":head_armor", ":helmet"),
-        #  (lt, ":head_armor", 10), # This is probably a hat, not a helmet
-        #  (val_mul, ":delta_phi", 2),
-        (try_end),
-      (else_try),
-          (agent_get_horse, ":horse", ":other_agent"),
-        (ge, ":horse", 0),
-        (val_mul, ":delta_phi", 2),
-      (try_end),
-      (val_add, ":local_potential", ":delta_phi"),
-      (try_end),
-    (try_end),
-      (try_end),
+          # Finally, apply it to the local potential
+          (try_begin), #If enemy is nearby, reduce local potential (reduce morale)
+            (agent_get_team, ":other_team", ":other_agent"),
+            (teams_are_enemies, ":agent_team", ":other_team"), 
+            (val_sub, ":local_potential", ":delta_phi"),
+          (else_try), # If teammate is nearby, increase local potentail (inc. morale), depending on type of ally
+            (try_begin),
+              (troop_is_hero, ":other_troop"),
+              (val_mul, ":delta_phi", 10),
+              (agent_get_item_slot, ":helmet", ":other_agent", 4),
+              (agent_get_wielded_item, ":banner", ":other_agent", 1),
+              (try_begin),
+                (eq, ":banner", "itm_heraldic_banner"),
+                (val_add, ":delta_phi", 5), # DAC Kham: Banner gives a morale boost.
+              (try_end),
+              (try_begin),
+                (lt, ":helmet", 0),
+                (val_mul, ":delta_phi", 2), # Recognizing their leader gives a morale boost
+                #(else_try), #DAC Kham: Disabled for now until we find the range of hats.
+                #  (item_get_head_armor, ":head_armor", ":helmet"),
+                #  (lt, ":head_armor", 10), # This is probably a hat, not a helmet
+                #  (val_mul, ":delta_phi", 2),
+              (try_end),
+            (else_try),
+              (agent_get_horse, ":horse", ":other_agent"),
+              (ge, ":horse", 0),
+              (val_mul, ":delta_phi", 2),
+            (else_try),
+              (gt, ":other_level", ":agent_level"),
+              (val_add, ":delta_phi", 3), #DaC Kham: If other agent nearby is of higher level (veteran), give troop a boost.
+            (try_end),
+            (val_add, ":local_potential", ":delta_phi"),
+            #(val_add, ":local_potential", ":delta_phi"), #DaC Kham: Slight buff when teammates are nearby. Commented out for now.
+          (try_end), # End Apply to Local Potential
+        (try_end),   # End Try  for Agent loop
+      (try_end),     # End order retreat
     
     (agent_get_troop_id, ":troop_id", ":cur_agent"),
     (store_character_level, ":troop_lvl", ":troop_id"),
     (store_agent_hit_points, ":agent_health", ":cur_agent"),
     (call_script, "script_battle_agent_base_morale", ":cur_agent"),
     (get_player_agent_no, ":player_agent"),
+    
     (try_begin),
-    (agent_get_team, ":player_team", ":player_agent"),
-    (eq, ":agent_team", ":player_team"),
-    (store_add, ":individual_morale", reg0, ":agent_health"), 
+      (agent_get_team, ":player_team", ":player_agent"),
+      (eq, ":agent_team", ":player_team"),
+      (store_add, ":individual_morale", reg0, ":agent_health"), 
     (else_try),
-    (store_add, ":individual_morale", reg1, ":agent_health"), 
+      (store_add, ":individual_morale", reg1, ":agent_health"), 
     (try_end),
+    
     (try_begin),
       (troop_is_hero, ":troop_id"),
-    (val_mul, ":troop_lvl", HERO_LEVEL_MORALE_MULTIPLIER), # Heroes are a lot less likely to run. DAC Kham: default multiplier is 10
+      (val_mul, ":troop_lvl", HERO_LEVEL_MORALE_MULTIPLIER), # Heroes are a lot less likely to run. DAC Kham: default multiplier is 10
     (try_end),
+    
     (store_mul, ":rout_threshold", ":troop_lvl", ":individual_morale"),
     (val_mul, ":rout_threshold", ROUT_THRESHOLD_MULTIPLIER), #default is -10
     (store_sub, ":rally_threshold", BASE_RALLY_THRESHOLD, ":individual_morale"), #DAC Kham: Base is 200
     (val_mul, ":rally_threshold", RALLY_THRESHOLD_MULTIPLIER), #DACK Kham: Default is 5
 
-      (agent_get_slot, ":is_cur_agent_running_away", ":cur_agent", slot_agent_is_running_away),
+    (agent_get_slot, ":is_cur_agent_running_away", ":cur_agent", slot_agent_is_running_away),
+      
+    (try_begin),
+      (eq, ":is_cur_agent_running_away", 0),
       (try_begin),
-        (eq, ":is_cur_agent_running_away", 0),
+        (eq, ":force_retreat", 1),
+        (agent_start_running_away, ":cur_agent"),
+        (agent_set_slot, ":cur_agent",  slot_agent_is_running_away, 1),
+      (else_try),
+        (lt, ":local_potential", ":rout_threshold"),
+        (neq, ":cur_agent", ":player_agent"), # The player does not run!
+        (agent_start_running_away, ":cur_agent"),
+        (agent_set_slot, ":cur_agent",  slot_agent_is_running_away, 1),
+        (str_store_agent_name, s1, ":cur_agent"),
         (try_begin),
-          (eq, ":force_retreat", 1),
-          (agent_start_running_away, ":cur_agent"),
-          (agent_set_slot, ":cur_agent",  slot_agent_is_running_away, 1),
+          (agent_is_ally, ":cur_agent"),
+          (display_message, "str_s1_routed", color_msg_ally_routed),
         (else_try),
-      (lt, ":local_potential", ":rout_threshold"),
-      (neq, ":cur_agent", ":player_agent"), # The player does not run!
-          (agent_start_running_away, ":cur_agent"),
-          (agent_set_slot, ":cur_agent",  slot_agent_is_running_away, 1),
-      (str_store_agent_name, s1, ":cur_agent"),
-      (try_begin),
-        (agent_is_ally, ":cur_agent"),
-        (display_message, "str_s1_routed", color_msg_ally_routed),
-      (else_try),
-        (display_message, "str_s1_routed", color_msg_enemy_routed),
-      (try_end),
+          (display_message, "str_s1_routed", color_msg_enemy_routed),
         (try_end),
-      (else_try),
-        (neq, ":force_retreat", 1),
-    (ge, ":local_potential", ":rally_threshold"),
-    (agent_stop_running_away, ":cur_agent"),
-        (agent_set_slot, ":cur_agent",  slot_agent_is_running_away, 0),
-    (eq, ":agent_team", ":player_team"),
-    (str_store_agent_name, s1, ":cur_agent"),
-    (display_message, "str_s1_rallied", color_msg_ally_rallied),
-      (try_end),      
+      (try_end),
+    (else_try),
+      (neq, ":force_retreat", 1),
+      (ge, ":local_potential", ":rally_threshold"),
+      (agent_stop_running_away, ":cur_agent"),
+      (agent_set_slot, ":cur_agent",  slot_agent_is_running_away, 0),
+      (eq, ":agent_team", ":player_team"),
+      (str_store_agent_name, s1, ":cur_agent"),
+      (display_message, "str_s1_rallied", color_msg_ally_rallied),
+    (try_end),      
   ]),
 
   # script_decide_team_rout
