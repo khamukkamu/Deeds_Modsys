@@ -78231,12 +78231,12 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (try_end),
       # (assign, ":num_other_lords_assigned", 0),
 
-      (try_for_range, ":kingdom_hero", active_npcs_begin, active_npcs_end),
-        (this_or_next|troop_slot_eq, ":kingdom_hero", slot_troop_occupation, slto_kingdom_hero),
-        (troop_slot_eq, ":kingdom_hero", slot_troop_occupation, slto_inactive_pretender),
+      # (try_for_range, ":kingdom_hero", active_npcs_begin, active_npcs_end),
+        # (this_or_next|troop_slot_eq, ":kingdom_hero", slot_troop_occupation, slto_kingdom_hero),
+        # (troop_slot_eq, ":kingdom_hero", slot_troop_occupation, slto_inactive_pretender),
 
-        (store_troop_faction, ":kingdom_hero_faction", ":kingdom_hero"),
-        (neg|faction_slot_eq, ":kingdom_hero_faction", slot_faction_leader, ":kingdom_hero"),
+        # (store_troop_faction, ":kingdom_hero_faction", ":kingdom_hero"),
+        # (neg|faction_slot_eq, ":kingdom_hero_faction", slot_faction_leader, ":kingdom_hero"),
 		
 ### DAC Seek: Manual banner assignment
 # French lords	
@@ -78417,7 +78417,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
           # (gt, ":banner_id", banner_scene_props_end_minus_one),
           # (display_message, "@{!}ERROR: Not enough banners for heroes!"),
         # (try_end),
-      (try_end),
+      # (try_end),
     ]), 
 
 # script_assign_major_centers

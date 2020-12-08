@@ -44,15 +44,15 @@ def agent_spawner(troop_id):
         (spawn_agent, troop_id),
         (assign, ":agent_no", reg0),
         
-        (agent_get_horse, ":horse", ":agent_no"),
-        (try_begin),
-            (gt, ":horse", 0),
-            (remove_agent, ":horse"),
+        # (agent_get_horse, ":horse", ":agent_no"),
+        # (try_begin),
+            # (gt, ":horse", 0),
+            # (remove_agent, ":horse"),
             
-            (agent_set_visibility, ":horse", 0),
-            (agent_stop_sound, ":horse"),
-            (agent_stop_sound, ":agent_no"),
-        (try_end),
+            # (agent_set_visibility, ":horse", 0),
+            # (agent_stop_sound, ":horse"),
+            # (agent_stop_sound, ":agent_no"),
+        # (try_end),
         
         (val_div, ":var_id_2_level", 10),
         

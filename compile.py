@@ -136,7 +136,9 @@ try:
 		WRECK.current_module = 'skyboxes'
 		from Skyboxes import *	
 		WRECK.current_module = 'ground_specs'
-		from Ground_specs import *	        
+		from Ground_specs import *	
+		WRECK.current_module = 'flora_kinds'
+		from Flora_kinds import *	        
 		WRECK.current_module = None
 
 	except Exception, e:
