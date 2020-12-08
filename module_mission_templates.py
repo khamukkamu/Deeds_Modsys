@@ -3603,7 +3603,7 @@ mission_templates = [
 
     (2, 0, 0,
     [
-      (call_script, "script_center_ambiance_sounds")
+      (call_script, "script_dac_center_ambiance_sounds")
     ],
     []),
 
@@ -18049,7 +18049,7 @@ mission_templates = [
 
       (2, 0, 0,
       [
-        (call_script, "script_center_ambiance_sounds")
+        (call_script, "script_dac_center_ambiance_sounds")
       ],
       []),
 

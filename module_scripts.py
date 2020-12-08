@@ -37002,6 +37002,84 @@ scripts = [
         (try_end),
   ]),
 
+  # script_dac_center_ambiance_sounds #DaC Kham
+  # Input: none 
+  # Output: none
+  # to be called every two seconds
+  ("dac_center_ambiance_sounds",
+    [
+        
+        (assign, ":sound", -1),
+        (assign, ":extra_sound", -1),
+
+        (try_begin),
+          (party_slot_eq, "$g_encountered_party", slot_party_type, spt_village),
+          (try_begin),
+            (neg|is_currently_night),
+            (call_script, "script_rand", "snd_dac_town_day_1", "snd_dac_town_night"),
+            (assign, ":sound", reg0),
+          (else_try),
+            (assign, ":sound", "snd_dac_town_night"),
+          (try_end),
+        (else_try),
+          (party_slot_eq, "$g_encountered_party", slot_party_type, spt_town),
+          (try_begin),
+            (neg|is_currently_night),
+            (call_script, "script_rand", "snd_dac_town_day_1", "snd_dac_town_night"),
+            (assign, ":sound", reg0),
+          (else_try),
+            (assign, ":sound", "snd_dac_town_night"),
+          (try_end),
+        (try_end),
+
+        (try_begin),
+          (gt, ":sound", 0),
+          (play_sound, ":sound"),
+        (try_end),
+
+        # Extra Day Sounds #
+        (try_begin),
+          (party_slot_eq, "$g_encountered_party", slot_party_type, spt_town), 
+          (neg|is_currently_night),
+          (get_player_agent_no, ":player"),
+          (agent_get_position, pos55, ":player"),
+          (entry_point_get_position, pos45, 9), #Blacksmith
+          (entry_point_get_position, pos46, 10), #Blacksmith
+          (entry_point_get_position, pos47, 11), #Merchant
+          (entry_point_get_position, pos48, 12), #Horse Merchant
+          (get_distance_between_positions_in_meters, ":distance_bs_1", pos55, pos45),
+          (get_distance_between_positions_in_meters, ":distance_bs_2", pos55, pos46),
+          (get_distance_between_positions_in_meters, ":distance_merchant", pos55, pos47),
+          (get_distance_between_positions_in_meters, ":distance_horse_merchant", pos55, pos48),
+
+          #Debug
+          #(assign, reg75, ":distance_bs_1"),
+          #(assign, reg76, ":distance_bs_2"),
+          #(assign, reg77, ":distance_merchant"),
+          #(assign, reg78, ":distance_horse_merchant"),
+          #(display_message, "@BS1: {reg75} -- BS2: {reg76} -- M: {reg77} -- HM: {reg78}", color_bad_news),
+
+
+          (try_begin),
+            (this_or_next|le, ":distance_bs_1", 10),
+            (le, ":distance_bs_2", 10),
+            (assign, ":extra_sound", "snd_dac_town_blacksmith"),
+          (else_try),
+            (le, ":distance_merchant", 30),
+            (assign, ":extra_sound", "snd_dac_town_merchant"),
+          (else_try),
+            (le, ":distance_horse_merchant", 10),
+            (assign, ":extra_sound", "snd_dac_town_horse_merchant"),
+          (try_end),
+
+          (gt, ":extra_sound", 0),
+          (play_sound, ":extra_sound"),
+        (try_end),
+
+
+  ]),
+
+
   # script_center_set_walker_to_type
   # Input: arg1 = center_no, arg2 = walker_no, arg3 = walker_type,
   # Output: none
