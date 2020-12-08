@@ -241,6 +241,23 @@ sounds = [
 ("dac_heavystep_plate", sf_vol_3|sf_priority_2,["heavystep_01.mp3","heavystep_02.mp3","heavystep_03.mp3","heavystep_04.mp3","heavystep_05.mp3","heavystep_06.mp3","heavystep_07.mp3","heavystep_08.mp3","heavystep_09.mp3",
 	"heavystep_10.mp3","heavystep_11.mp3","heavystep_12.mp3","heavystep_13.mp3","heavystep_14.mp3","heavystep_15.mp3","heavystep_16.mp3","heavystep_17.mp3","heavystep_18.mp3","heavystep_19.mp3"]),
 
+# DaC New Ambient Sounds
+
+("dac_town_day_1", sf_2d|sf_priority_3|sf_vol_8, ["dac_town_day_bell1.wav","dac_town_day_birds1.wav","dac_town_distant_wagon1.wav","dac_town_day_pour.wav","dac_town_day_chains.wav","dac_town_day_coconuts.wav", "dac_town_window.wav", "d_carpenter1.ogg","d_saw_short3.ogg", "d_blacksmith2.ogg","d_dog1.ogg","d_dog2.ogg","d_dog3.ogg","d_dog7.ogg"]),
+("dac_town_day_2", sf_2d|sf_priority_3|sf_vol_8, ["dac_town_day_bell2.wav","dac_town_day_birds2.wav","dac_town_distant_wagon2.wav","dac_town_day_pour2.wav","dac_town_day_chains.wav","dac_town_day_coconuts.wav", "dac_town_window.wav", "d_carpenter1.ogg","d_saw_short3.ogg","d_blacksmith2.ogg", "d_dog1.ogg","d_dog2.ogg","d_dog3.ogg","d_dog7.ogg"]),
+("dac_town_day_3", sf_2d|sf_priority_3|sf_vol_8, ["dac_town_day_bell3.wav","dac_town_day_birds3.wav","dac_town_distant_wagon3.wav","dac_town_day_pour.wav","dac_town_day_chains.wav","dac_town_day_coconuts.wav", "dac_town_window.wav", "d_carpenter1.ogg","d_saw_short3.ogg","d_blacksmith2.ogg", "d_dog1.ogg","d_dog2.ogg","d_dog3.ogg","d_dog7.ogg"]),
+("dac_town_day_4", sf_2d|sf_priority_3|sf_vol_8, ["dac_town_day_bell4.wav","dac_town_day_birds4.wav","dac_town_distant_wagon4.wav","dac_town_day_pour2.wav","dac_town_day_chains.wav","dac_town_day_coconuts.wav", "dac_town_window.wav", "d_carpenter1.ogg","d_saw_short3.ogg","d_blacksmith2.ogg", "d_dog1.ogg","d_dog2.ogg","d_dog3.ogg","d_dog7.ogg"]),
+
+("dac_town_night", sf_2d|sf_priority_3|sf_vol_8, ["dac_town_night_barnowl.wav","dac_town_night_barnowl2.wav","dac_town_night_catfight.wav","d_dog1.ogg","d_dog2.ogg","d_dog3.ogg","d_dog7.ogg"]),
+
+("dac_town_horse_merchant", sf_2d|sf_priority_3|sf_vol_8, ["dac_merchant_horse_in_barn_1.wav","dac_merchant_horse_in_barn_2.wav",]),
+
+("dac_town_merchant", sf_2d|sf_priority_3|sf_vol_8, ["dac_town_day_market.wav","dac_town_day_market_chop.wav","dac_town_distant_cow1.wav", "dac_town_distant_cow2.wav","dac_town_distant_cow3.wav", "dac_town_distant_cow4.wav", "dac_town_distant_pigs.wav", "dac_town_distant_sheep.wav"]),
+
+("dac_town_close_church", sf_2d|sf_priority_3|sf_vol_8, ["dac_town_bell_near.wav",]),
+
+("dac_town_blacksmith", sf_2d|sf_priority_3|sf_vol_8, ["dac_blacksmith_hammers1.wav","dac_blacksmith_hammers2.wav", "dac_blacksmith_hammers3.wav", "dac_blacksmith_tinkering1.wav", "dac_blacksmith_tinkering2.wav"]),
+
 ]
 
 

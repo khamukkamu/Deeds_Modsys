@@ -1,4 +1,4 @@
-2111
+2112
 qstr_Next_Page Next_Page
 qstr_Game_Rules:^ Game_Rules:^
 qstr_0 0
@@ -2110,3 +2110,4 @@ qstr_Combat_AI_Defensive_ Combat_AI_Defensive_Position:
 qstr_Deeds_of_Arms_&_Chiv Deeds_of_Arms_&_Chivlary_with^DIPLOMACY^4.3+_for_^Deeds_of_Arms_and_Chivalry^Preferences
 qstr_Deeds_of_Arms_&_Chivl Deeds_of_Arms_&_Chivlary_with^DIPLOMACY^4.3+^Preferences
 qstr_Deeds_of_Arms_&_Chivla Deeds_of_Arms_&_Chivlary^_with_DIPLOMACY_4.3+^Preferences
+qstr_BS1:_{reg75}____BS2: BS1:_{reg75}_--_BS2:_{reg76}_--_M:_{reg77}_--_HM:_{reg78}
