@@ -1,4 +1,4 @@
-2112
+2113
 qstr_Next_Page Next_Page
 qstr_Game_Rules:^ Game_Rules:^
 qstr_0 0
@@ -2111,3 +2111,4 @@ qstr_Deeds_of_Arms_&_Chiv Deeds_of_Arms_&_Chivlary_with^DIPLOMACY^4.3+_for_^Deed
 qstr_Deeds_of_Arms_&_Chivl Deeds_of_Arms_&_Chivlary_with^DIPLOMACY^4.3+^Preferences
 qstr_Deeds_of_Arms_&_Chivla Deeds_of_Arms_&_Chivlary^_with_DIPLOMACY_4.3+^Preferences
 qstr_BS1:_{reg75}____BS2: BS1:_{reg75}_--_BS2:_{reg76}_--_M:_{reg77}_--_HM:_{reg78}
+qstr_{reg88}_Armour_Weigh {reg88}_Armour_Weight

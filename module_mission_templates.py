@@ -418,12 +418,21 @@ dac_lancer_fix_siege = (3, 0, 0, [(lt,"$dac_counter",3)],[ # need to repeat orde
 
 dac_footstep_sounds = (0,0.3,0, #0.3 timed with footfall
   [
-    (set_fixed_point_multiplier, 1),
+    #(set_fixed_point_multiplier, 1), #This damned thing broke AI pathfinding.
     (troop_get_inventory_slot, ":body_armour", "trp_player", ek_body), # For player only for now
     (ge, ":body_armour", 0), #Should have something
     (item_get_weight, ":weight", ":body_armour"),
+    
+    # Debug
+    #(assign, reg88, ":weight"),
+    #(call_script, "script_rand", 0, 100),
+    #(assign, ":rand", reg0),
+    #(try_begin),
+    #  (ge, ":rand", 80),
+    #  (display_message, "@{reg88} Armour Weight"),
+    #(try_end),
 
-    (ge, ":weight", 8), # At this weight, we start the armoured sounds.
+    (ge, ":weight", 800), # At this weight/100, we start the armoured sounds. 
   ], 
   
   [ 
@@ -432,19 +441,19 @@ dac_footstep_sounds = (0,0.3,0, #0.3 timed with footfall
     #(ge, ":timer", 2), #just for spawning. No need for now, when only player
 
     # Player Only
-    (set_fixed_point_multiplier, 1),
+    #(set_fixed_point_multiplier, 1),
     (get_player_agent_no, ":player"),
     (troop_get_inventory_slot, ":body_armour", "trp_player", ek_body),
     (ge, ":body_armour", 0), #Should have something
     (item_get_weight, ":weight", ":body_armour"),
 
-    (ge, ":weight", 8), # At this weight, we start the armoured sounds.
+    (ge, ":weight", 800), # At this weight/100, we start the armoured sounds. 
 
     (try_begin),
-      (is_between, ":weight", 8, 21), #Mail
+      (is_between, ":weight", 800, 2100), #Mail
       (assign, ":track", "snd_dac_lightstep_mail"),
     (else_try),
-      (ge, ":weight", 21),
+      (ge, ":weight", 2100),
       (assign, ":track", "snd_dac_heavystep_plate"),
     (try_end),
 

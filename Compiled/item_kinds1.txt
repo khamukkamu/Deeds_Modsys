@@ -2779,15 +2779,15 @@ itemsfile version 3
  0
 0
 
- itm_w_dagger_bollock Bollock_Dagger Bollock_Dagger 6  w_regular_dagger_bollock 0  w_rusty_dagger_bollock 4  w_masterwork_dagger_bollock 131072  w_regular_dagger_bollock_scabbard 3458764513820540928  w_rusty_dagger_bollock_scabbard 3458764513820540932  w_masterwork_dagger_bollock_scabbard 3458764513820672000  2251799826333698 9223372072313421839 73 131076 0.500000 100 0 0 0 0 0 105 0 47 0 287 22
+ itm_w_dagger_bollock Bollock_Dagger Bollock_Dagger 6  w_regular_dagger_bollock 0  w_rusty_dagger_bollock 4  w_masterwork_dagger_bollock 131072  w_regular_dagger_bollock_scabbard 3458764513820540928  w_rusty_dagger_bollock_scabbard 3458764513820540932  w_masterwork_dagger_bollock_scabbard 3458764513820672000  2251799826333698 9223388564987838479 73 131076 0.500000 100 0 0 0 0 0 105 0 47 0 287 22
  0
 0
 
- itm_w_dagger_pikeman Pikeman_Dagger Pikeman_Dagger 6  w_regular_dagger_pikeman 0  w_rusty_dagger_pikeman 4  w_masterwork_dagger_pikeman 131072  w_regular_dagger_pikeman_scabbard 3458764513820540928  w_rusty_dagger_pikeman_scabbard 3458764513820540932  w_masterwork_dagger_pikeman_scabbard 3458764513820672000  2251799826333698 9223372072313421839 122 131076 0.700000 100 0 0 0 0 0 108 0 41 0 283 28
+ itm_w_dagger_pikeman Pikeman_Dagger Pikeman_Dagger 6  w_regular_dagger_pikeman 0  w_rusty_dagger_pikeman 4  w_masterwork_dagger_pikeman 131072  w_regular_dagger_pikeman_scabbard 3458764513820540928  w_rusty_dagger_pikeman_scabbard 3458764513820540932  w_masterwork_dagger_pikeman_scabbard 3458764513820672000  2251799826333698 9223388564987838479 122 131076 0.700000 100 0 0 0 0 0 108 0 41 0 283 28
  0
 0
 
- itm_w_dagger_italian Italian_Dagger Italian_Dagger 6  w_regular_dagger_italian 0  w_rusty_dagger_italian 4  w_masterwork_dagger_italian 131072  w_regular_dagger_italian_scabbard 3458764513820540928  w_rusty_dagger_italian_scabbard 3458764513820540932  w_masterwork_dagger_italian_scabbard 3458764513820672000  2251799826333698 9223372072313421839 136 131076 0.600000 100 0 0 0 0 0 105 0 47 0 285 25
+ itm_w_dagger_italian Italian_Dagger Italian_Dagger 6  w_regular_dagger_italian 0  w_rusty_dagger_italian 4  w_masterwork_dagger_italian 131072  w_regular_dagger_italian_scabbard 3458764513820540928  w_rusty_dagger_italian_scabbard 3458764513820540932  w_masterwork_dagger_italian_scabbard 3458764513820672000  2251799826333698 9223388564987838479 136 131076 0.600000 100 0 0 0 0 0 105 0 47 0 285 25
  0
 0
 
