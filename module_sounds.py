@@ -250,13 +250,13 @@ sounds = [
 
 ("dac_town_night", sf_2d|sf_priority_3|sf_vol_8, ["dac_town_night_barnowl.wav","dac_town_night_barnowl2.wav","dac_town_night_catfight.wav","d_dog1.ogg","d_dog2.ogg","d_dog3.ogg","d_dog7.ogg"]),
 
-("dac_town_horse_merchant", sf_2d|sf_priority_3|sf_vol_8, ["dac_merchant_horse_in_barn_1.wav","dac_merchant_horse_in_barn_2.wav",]),
+("dac_town_horse_merchant", sf_priority_3|sf_vol_8, ["dac_merchant_horse_in_barn_1.wav","dac_merchant_horse_in_barn_2.wav",]),
 
-("dac_town_merchant", sf_2d|sf_priority_3|sf_vol_8, ["dac_town_day_market.wav","dac_town_day_market_chop.wav","dac_town_distant_cow1.wav", "dac_town_distant_cow2.wav","dac_town_distant_cow3.wav", "dac_town_distant_cow4.wav", "dac_town_distant_pigs.wav", "dac_town_distant_sheep.wav"]),
+("dac_town_merchant", sf_priority_3|sf_vol_8, ["dac_town_day_market.wav","dac_town_day_market_chop.wav","dac_town_distant_cow1.wav", "dac_town_distant_cow2.wav","dac_town_distant_cow3.wav", "dac_town_distant_cow4.wav", "dac_town_distant_pigs.wav", "dac_town_distant_sheep.wav"]),
 
-("dac_town_close_church", sf_2d|sf_priority_3|sf_vol_8, ["dac_town_bell_near.wav",]),
+("dac_town_close_church", sf_priority_3|sf_vol_8, ["dac_town_bell_near.wav",]),
 
-("dac_town_blacksmith", sf_2d|sf_priority_3|sf_vol_8, ["dac_blacksmith_hammers1.wav","dac_blacksmith_hammers2.wav", "dac_blacksmith_hammers3.wav", "dac_blacksmith_tinkering1.wav", "dac_blacksmith_tinkering2.wav"]),
+("dac_town_blacksmith", sf_priority_3|sf_vol_8, ["dac_blacksmith_hammers1.wav","dac_blacksmith_hammers2.wav", "dac_blacksmith_hammers3.wav", "dac_blacksmith_tinkering1.wav", "dac_blacksmith_tinkering2.wav"]),
 
 ]
 
