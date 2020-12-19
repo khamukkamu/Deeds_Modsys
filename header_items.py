@@ -475,6 +475,7 @@ itc_morningstar = itc_cut_two_handed |  itc_parry_two_handed |itc_cleaver
 itc_parry_polearm = itcf_parry_forward_polearm | itcf_parry_up_polearm | itcf_parry_right_polearm | itcf_parry_left_polearm
 itc_poleaxe    = itc_parry_polearm| itcf_overswing_polearm |itcf_thrust_polearm|itcf_slashright_polearm|itcf_slashleft_polearm
 itc_voulge    = itc_parry_polearm| itcf_overswing_polearm |itcf_slashright_polearm|itcf_slashleft_polearm
+itc_bardiche    = itc_parry_polearm| itcf_overswing_twohanded |itcf_slashright_polearm|itcf_slashleft_polearm
 
 itc_staff      = itc_parry_polearm| itcf_thrust_onehanded_lance |itcf_thrust_onehanded_lance_horseback| itcf_overswing_polearm |itcf_thrust_polearm|itcf_slashright_polearm|itcf_slashleft_polearm
 itc_spear      = itc_parry_polearm| itcf_thrust_onehanded_lance |itcf_thrust_onehanded_lance_horseback | itcf_thrust_polearm| itcf_overswing_spear|itcf_slashright_polearm|itcf_slashleft_polearm|itcf_overswing_musket

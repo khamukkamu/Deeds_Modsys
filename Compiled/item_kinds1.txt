@@ -3055,63 +3055,63 @@ itemsfile version 3
  0
 0
 
- itm_w_onehanded_war_axe_2 Onehanded_War_Axe Onehanded_War_Axe 1  w_onehanded_war_axe_2 0  2251799893704706 9223388530091229198 87 262164 1.500000 100 0 0 0 9 0 96 0 71 0 256 32
+ itm_w_onehanded_war_axe_02 Onehanded_War_Axe Onehanded_War_Axe 1  w_onehanded_war_axe_02 0  2251799893704706 9223388530091229198 87 262164 1.500000 100 0 0 0 9 0 96 0 71 0 256 32
  0
 0
 
- itm_w_onehanded_war_axe_3 Onehanded_War_Axe Onehanded_War_Axe 1  w_onehanded_war_axe_3 0  2251799893704706 9223388530091229198 142 262164 2.000000 100 0 0 0 9 0 95 0 71 0 256 33
+ itm_w_onehanded_war_axe_03 Onehanded_War_Axe Onehanded_War_Axe 1  w_onehanded_war_axe_03 0  2251799893704706 9223388530091229198 142 262164 2.000000 100 0 0 0 9 0 95 0 71 0 256 33
  0
 0
 
- itm_w_onehanded_war_axe_4 Onehanded_War_Axe Onehanded_War_Axe 1  w_onehanded_war_axe_4 0  2251799893704706 9223388530091229198 190 262164 1.750000 100 0 0 0 9 0 96 0 73 0 256 34
+ itm_w_onehanded_war_axe_04 Onehanded_War_Axe Onehanded_War_Axe 1  w_onehanded_war_axe_04 0  2251799893704706 9223388530091229198 190 262164 1.750000 100 0 0 0 9 0 96 0 73 0 256 34
  0
 0
 
- itm_w_horseman_axe_1 Horseman_Axe Horseman_Axe 1  w_horseman_axe_1 0  2251799893704706 9223388530091229198 202 262164 1.500000 100 0 0 0 9 0 98 0 77 0 256 31
+ itm_w_onehanded_horseman_axe_01 Horseman_Axe Horseman_Axe 1  w_onehanded_horseman_axe_01 0  2251799893704706 9223388530091229198 202 262164 1.500000 100 0 0 0 9 0 98 0 77 0 256 31
  0
 0
 
- itm_w_horseman_axe_1_alt Horseman_Axe Horseman_Axe 1  w_horseman_axe_1_alt 0  2251799893639170 9223388530091229198 202 262164 1.500000 100 0 0 0 9 0 98 0 77 0 256 282
+ itm_w_onehanded_horseman_axe_01_alt Horseman_Axe Horseman_Axe 1  w_onehanded_horseman_axe_01_alt 0  2251799893639170 9223388530091229198 202 262164 1.500000 100 0 0 0 9 0 98 0 77 0 256 282
  0
 0
 
- itm_w_horseman_axe_2 Horseman_Axe Horseman_Axe 1  w_horseman_axe_2 0  2251799893704706 9223388530091229198 176 262164 1.750000 100 0 0 0 9 0 97 0 73 0 256 30
+ itm_w_onehanded_horseman_axe_02 Horseman_Axe Horseman_Axe 1  w_onehanded_horseman_axe_02 0  2251799893704706 9223388530091229198 176 262164 1.750000 100 0 0 0 9 0 97 0 73 0 256 30
  0
 0
 
- itm_w_horseman_axe_2_alt Horseman_Axe Horseman_Axe 1  w_horseman_axe_2_alt 0  2251799893639170 9223388530091229198 176 262164 1.750000 100 0 0 0 9 0 97 0 73 0 256 279
+ itm_w_onehanded_horseman_axe_02_alt Horseman_Axe Horseman_Axe 1  w_onehanded_horseman_axe_02_alt 0  2251799893639170 9223388530091229198 176 262164 1.750000 100 0 0 0 9 0 97 0 73 0 256 279
  0
 0
 
- itm_w_horseman_axe_3 Horseman_Axe Horseman_Axe 1  w_horseman_axe_3 0  2251799893704706 9223388530091229198 234 262164 1.500000 100 0 0 0 9 0 98 0 79 0 256 32
+ itm_w_onehanded_horseman_axe_03 Horseman_Axe Horseman_Axe 1  w_onehanded_horseman_axe_03 0  2251799893704706 9223388530091229198 234 262164 1.500000 100 0 0 0 9 0 98 0 79 0 256 32
  0
 0
 
- itm_w_horseman_axe_3_alt Horseman_Axe Horseman_Axe 1  w_horseman_axe_3_alt 0  2251799893639170 9223388530091229198 234 262164 1.500000 100 0 0 0 9 0 98 0 79 0 256 276
+ itm_w_onehanded_horseman_axe_03_alt Horseman_Axe Horseman_Axe 1  w_onehanded_horseman_axe_03_alt 0  2251799893639170 9223388530091229198 234 262164 1.500000 100 0 0 0 9 0 98 0 79 0 256 276
  0
 0
 
- itm_w_german_knight_axe German_Knight_Axe German_Knight_Axe 1  w_german_knight_axe 0  2251799893704706 9223388530091229199 354 262164 3.000000 100 0 0 0 9 0 94 0 94 0 275 35
+ itm_w_onehanded_knight_axe_german_01 German_Knight_Axe German_Knight_Axe 1  w_onehanded_knight_axe_german_01 0  2251799893704706 9223388530091229199 354 262164 3.000000 100 0 0 0 9 0 94 0 94 0 275 35
  0
 0
 
- itm_w_german_knight_axe_alt German_Knight_Axe German_Knight_Axe 1  w_german_knight_axe_alt 0  2251799893639170 9223388530091229199 354 262164 3.000000 100 0 0 0 9 0 94 0 94 0 275 283
+ itm_w_onehanded_knight_axe_german_01_alt German_Knight_Axe German_Knight_Axe 1  w_onehanded_knight_axe_german_01_alt 0  2251799893639170 9223388530091229199 354 262164 3.000000 100 0 0 0 9 0 94 0 94 0 275 283
  0
 0
 
- itm_w_german_knight_axe_2 German_Knight_Axe German_Knight_Axe 1  w_german_knight_axe_2 0  2251799893704706 9223388530091229198 246 262164 2.000000 100 0 0 0 9 0 96 0 79 0 256 34
+ itm_w_onehanded_knight_axe_german_02 German_Knight_Axe German_Knight_Axe 1  w_onehanded_knight_axe_german_02 0  2251799893704706 9223388530091229198 246 262164 2.000000 100 0 0 0 9 0 96 0 79 0 256 34
  0
 0
 
- itm_w_german_knight_axe_2_alt German_Knight_Axe German_Knight_Axe 1  w_german_knight_axe_2_alt 0  2251799893639170 9223388530091229198 246 262164 2.000000 100 0 0 0 9 0 96 0 79 0 256 279
+ itm_w_onehanded_knight_axe_german_02_alt German_Knight_Axe German_Knight_Axe 1  w_onehanded_knight_axe_german_02_alt 0  2251799893639170 9223388530091229198 246 262164 2.000000 100 0 0 0 9 0 96 0 79 0 256 279
  0
 0
 
- itm_w_knight_battle_axe Knight_Battle_Axe Knight_Battle_Axe 1  w_knight_battle_axe 0  2251799893704706 9223388530091229199 371 262164 3.000000 100 0 0 0 9 0 94 0 97 0 274 36
+ itm_w_twohanded_knight_battle_axe_01 Knight_Battle_Axe Knight_Battle_Axe 1  w_twohanded_knight_battle_axe_01 0  2251799893704706 9223388530091229199 371 262164 3.000000 100 0 0 0 9 0 94 0 97 0 274 36
  0
 0
 
- itm_w_knight_battle_axe_alt Knight_Battle_Axe Knight_Battle_Axe 1  w_knight_battle_axe_alt 0  2251799893639170 9223388530091229199 371 262164 3.000000 100 0 0 0 9 0 94 0 97 0 274 277
+ itm_w_twohanded_knight_battle_axe_01_alt Knight_Battle_Axe Knight_Battle_Axe 1  w_twohanded_knight_battle_axe_01_alt 0  2251799893639170 9223388530091229199 371 262164 3.000000 100 0 0 0 9 0 94 0 97 0 274 277
  0
 0
 
@@ -3119,15 +3119,15 @@ itemsfile version 3
  0
 0
 
- itm_w_twohanded_war_axe_2 Twohanded_War_Axe Twohanded_War_Axe 1  w_twohanded_war_axe_2 0  2251799887413251 9223635923965575392 287 262164 4.000000 100 0 0 0 10 0 94 0 98 0 512 43
+ itm_w_twohanded_war_axe_02 Twohanded_War_Axe Twohanded_War_Axe 1  w_twohanded_war_axe_02 0  2251799887413251 9223635923965575392 287 262164 4.000000 100 0 0 0 10 0 94 0 98 0 512 43
  0
 0
 
- itm_w_twohanded_war_axe_3 Twohanded_War_Axe Twohanded_War_Axe 1  w_twohanded_war_axe_3 0  2251799887413251 9223635923965575392 321 262164 4.000000 100 0 0 0 10 0 95 0 99 0 512 44
+ itm_w_twohanded_war_axe_03 Twohanded_War_Axe Twohanded_War_Axe 1  w_twohanded_war_axe_03 0  2251799887413251 9223635923965575392 321 262164 4.000000 100 0 0 0 10 0 95 0 99 0 512 44
  0
 0
 
- itm_w_twohanded_war_axe_3_alt Twohanded_War_Axe Twohanded_War_Axe 1  w_twohanded_war_axe_3_alt 0  2251799887347715 9223635923965575392 321 262164 4.000000 100 0 0 0 10 0 95 0 99 0 0 286
+ itm_w_twohanded_war_axe_03_alt Twohanded_War_Axe Twohanded_War_Axe 1  w_twohanded_war_axe_03_alt 0  2251799887347715 9223635923965575392 321 262164 4.000000 100 0 0 0 10 0 95 0 99 0 0 286
  0
 0
 
