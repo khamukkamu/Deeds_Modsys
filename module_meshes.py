@@ -353,7 +353,7 @@ meshes = [
   ("banner_d16", 0, "banner_d16", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("banner_d17", 0, "banner_d17", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("banner_d18", 0, "banner_d18", 0, 0, 0, -90, 0, 0, 1, 1, 1),
-  # ("banner_d19", 0, "banner_d19", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("banner_d19", 0, "banner_d19", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   # ("banner_d20", 0, "banner_d20", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   # ("banner_d21", 0, "banner_d21", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   
@@ -504,7 +504,7 @@ meshes = [
   ("arms_d16", 0, "arms_d16", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("arms_d17", 0, "arms_d17", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("arms_d18", 0, "arms_d18", 0, 0, 0, -90, 0, 0, 1, 1, 1),
-  # ("arms_d19", 0, "arms_d19", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("arms_d19", 0, "arms_d19", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   # ("arms_d20", 0, "arms_d20", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   # ("arms_d21", 0, "arms_d21", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   
@@ -552,10 +552,10 @@ meshes = [
   # ("arms_f20", 0, "arms_f20", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   # ("arms_f21", 0, "arms_f21", 0, 0, 0, -90, 0, 0, 1, 1, 1),
 
-  ("arms_kingdom_a", 0, "banner_kingdom_a", 0, 0, 0, -90, 0, 0, 1, 1, 1),
-  ("arms_kingdom_b", 0, "banner_kingdom_b", 0, 0, 0, -90, 0, 0, 1, 1, 1),
-  ("arms_kingdom_c", 0, "banner_kingdom_c", 0, 0, 0, -90, 0, 0, 1, 1, 1),
-  ("arms_kingdom_d", 0, "banner_kingdom_d", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("arms_kingdom_a", 0, "arms_kingdom_a", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("arms_kingdom_b", 0, "arms_kingdom_b", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("arms_kingdom_c", 0, "arms_kingdom_c", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("arms_kingdom_d", 0, "arms_kingdom_d", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   # ("arms_kingdom_e", 0, "banner_kingdom_e", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   # ("arms_kingdom_f", 0, "banner_kingdom_f", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("arms_f14", 0, "banner_f14", 0, 0, 0, -90, 0, 0, 1, 1, 1),

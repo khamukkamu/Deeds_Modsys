@@ -1289,7 +1289,7 @@ scene_props = [
   ("banner_d16",0,"banner_d16","0", []),
   ("banner_d17",0,"banner_d17","0", []),
   ("banner_d18",0,"banner_d18","0", []),
-  # ("banner_d19",0,"banner_d19","0", []),
+  ("banner_d19",0,"banner_d19","0", []),
   # ("banner_d20",0,"banner_d20","0", []),
   # ("banner_d21",0,"banner_d21","0", []),
   
