@@ -629,6 +629,19 @@ items = [
 ["h_great_bascinet_2_brass", "Great Bascinet", [("h_great_bascinet_base",0)], itp_merchandise|itp_type_head_armor| itp_attach_armature   ,0, 
 1800 , weight(2.8)|abundance(100)|head_armor(58)|body_armor(6)|leg_armor(0)|difficulty(10) ,imodbits_plate,[add_mesh("@h_great_bascinet_visor_2"),add_mesh("@h_great_bascinet_hinges"),reskin("@h_great_bascinet_trim",0),reskin("@h_great_bascinet_brass_visors",1),reskin("@h_hounskull_narf_brass",2),],],
 
+["h_great_bascinet_1_open", "Great Bascinet", [("h_great_bascinet_base",0)], itp_merchandise|itp_type_head_armor| itp_attach_armature   ,0, 
+1800 , weight(2.8)|abundance(100)|head_armor(58)|body_armor(6)|leg_armor(0)|difficulty(10) ,imodbits_plate,[add_mesh("@h_great_bascinet_open_visor_1"),add_mesh("@h_great_bascinet_open_hinges"),],],
+["h_great_bascinet_2_open", "Great Bascinet", [("h_great_bascinet_base",0)], itp_merchandise|itp_type_head_armor| itp_attach_armature   ,0, 
+1800 , weight(2.8)|abundance(100)|head_armor(58)|body_armor(6)|leg_armor(0)|difficulty(10) ,imodbits_plate,[add_mesh("@h_great_bascinet_open_visor_2"),add_mesh("@h_great_bascinet_open_hinges"),],],
+["h_great_bascinet_1_trim_open", "Great Bascinet", [("h_great_bascinet_base",0)], itp_merchandise|itp_type_head_armor| itp_attach_armature   ,0, 
+1800 , weight(2.8)|abundance(100)|head_armor(58)|body_armor(6)|leg_armor(0)|difficulty(10) ,imodbits_plate,[add_mesh("@h_great_bascinet_open_visor_1"),add_mesh("@h_great_bascinet_open_hinges"),reskin("@h_great_bascinet_trim",0),reskin("@h_great_bascinet_trim_visors",1),reskin("@h_hounskull_narf_brass",2),],],
+["h_great_bascinet_2_trim_open", "Great Bascinet", [("h_great_bascinet_base",0)], itp_merchandise|itp_type_head_armor| itp_attach_armature   ,0, 
+1800 , weight(2.8)|abundance(100)|head_armor(58)|body_armor(6)|leg_armor(0)|difficulty(10) ,imodbits_plate,[add_mesh("@h_great_bascinet_open_visor_2"),add_mesh("@h_great_bascinet_open_hinges"),reskin("@h_great_bascinet_trim",0),reskin("@h_great_bascinet_trim_visors",1),reskin("@h_hounskull_narf_brass",2),],],
+["h_great_bascinet_1_brass_open", "Great Bascinet", [("h_great_bascinet_base",0)], itp_merchandise|itp_type_head_armor| itp_attach_armature   ,0, 
+1800 , weight(2.8)|abundance(100)|head_armor(58)|body_armor(6)|leg_armor(0)|difficulty(10) ,imodbits_plate,[add_mesh("@h_great_bascinet_open_visor_1"),add_mesh("@h_great_bascinet_open_hinges"),reskin("@h_great_bascinet_trim",0),reskin("@h_great_bascinet_brass_visors",1),reskin("@h_hounskull_narf_brass",2),],],
+["h_great_bascinet_2_brass_open", "Great Bascinet", [("h_great_bascinet_base",0)], itp_merchandise|itp_type_head_armor| itp_attach_armature   ,0, 
+1800 , weight(2.8)|abundance(100)|head_armor(58)|body_armor(6)|leg_armor(0)|difficulty(10) ,imodbits_plate,[add_mesh("@h_great_bascinet_open_visor_2"),add_mesh("@h_great_bascinet_open_hinges"),reskin("@h_great_bascinet_trim",0),reskin("@h_great_bascinet_brass_visors",1),reskin("@h_hounskull_narf_brass",2),],],
+
 
 ["h_great_bascinet_venetian", "Venetian Great Bascinet", [("h_great_bascinet_base",0)], itp_merchandise|itp_type_head_armor| itp_attach_armature   ,0, 
 1800 , weight(2.8)|abundance(100)|head_armor(58)|body_armor(6)|leg_armor(0)|difficulty(10) ,imodbits_plate,[add_mesh("@h_great_bascinet_visor_venetian"),add_mesh("@h_great_bascinet_hinges"),],],
@@ -637,10 +650,23 @@ items = [
 ["h_great_bascinet_venetian_brass", "Venetian Great Bascinet", [("h_great_bascinet_base",0)], itp_merchandise|itp_type_head_armor| itp_attach_armature   ,0, 
 1800 , weight(2.8)|abundance(100)|head_armor(58)|body_armor(6)|leg_armor(0)|difficulty(10) ,imodbits_plate,[add_mesh("@h_great_bascinet_visor_venetian"),add_mesh("@h_great_bascinet_hinges"),reskin("@h_great_bascinet_trim",0),reskin("@h_great_bascinet_brass_visors",1),reskin("@h_hounskull_narf_brass",2),],],
 
+["h_great_bascinet_venetian_open", "Venetian Great Bascinet", [("h_great_bascinet_base",0)], itp_merchandise|itp_type_head_armor| itp_attach_armature   ,0, 
+1800 , weight(2.8)|abundance(100)|head_armor(58)|body_armor(6)|leg_armor(0)|difficulty(10) ,imodbits_plate,[add_mesh("@h_great_bascinet_open_visor_venetian"),add_mesh("@h_great_bascinet_open_hinges"),],],
+["h_great_bascinet_venetian_trim_open", "Venetian Great Bascinet", [("h_great_bascinet_base",0)], itp_merchandise|itp_type_head_armor| itp_attach_armature   ,0, 
+1800 , weight(2.8)|abundance(100)|head_armor(58)|body_armor(6)|leg_armor(0)|difficulty(10) ,imodbits_plate,[add_mesh("@h_great_bascinet_open_visor_venetian"),add_mesh("@h_great_bascinet_open_hinges"),reskin("@h_great_bascinet_trim",0),reskin("@h_great_bascinet_trim_visors",1),reskin("@h_hounskull_narf_brass",2),],],
+["h_great_bascinet_venetian_brass_open", "Venetian Great Bascinet", [("h_great_bascinet_base",0)], itp_merchandise|itp_type_head_armor| itp_attach_armature   ,0, 
+1800 , weight(2.8)|abundance(100)|head_armor(58)|body_armor(6)|leg_armor(0)|difficulty(10) ,imodbits_plate,[add_mesh("@h_great_bascinet_open_visor_venetian"),add_mesh("@h_great_bascinet_open_hinges"),reskin("@h_great_bascinet_trim",0),reskin("@h_great_bascinet_brass_visors",1),reskin("@h_hounskull_narf_brass",2),],],
+
+
 ["h_great_bascinet_houndskull", "Great Bascinet", [("h_great_bascinet_houndskull_base",0)], itp_merchandise|itp_type_head_armor| itp_attach_armature   ,0, 
 1800 , weight(2.8)|abundance(100)|head_armor(58)|body_armor(6)|leg_armor(0)|difficulty(10) ,imodbits_plate,[add_mesh("@h_great_bascinet_visor_houndskull"),],],
 ["h_great_bascinet_houndskull_brass", "Brass Great Bascinet", [("h_great_bascinet_houndskull_base",0)], itp_merchandise|itp_type_head_armor| itp_attach_armature   ,0, 
 1800 , weight(2.8)|abundance(100)|head_armor(58)|body_armor(6)|leg_armor(0)|difficulty(10) ,imodbits_plate,[add_mesh("@h_great_bascinet_visor_houndskull"),reskin("@h_great_bascinet_trim",0),reskin("@h_hounskull_narf_brass",1),],],
+
+["h_great_bascinet_houndskull_open", "Great Bascinet", [("h_great_bascinet_houndskull_base",0)], itp_merchandise|itp_type_head_armor| itp_attach_armature   ,0, 
+1800 , weight(2.8)|abundance(100)|head_armor(58)|body_armor(6)|leg_armor(0)|difficulty(10) ,imodbits_plate,[add_mesh("@h_great_bascinet_open_visor_houndskull"),],],
+["h_great_bascinet_houndskull_brass_open", "Brass Great Bascinet", [("h_great_bascinet_houndskull_base",0)], itp_merchandise|itp_type_head_armor| itp_attach_armature   ,0, 
+1800 , weight(2.8)|abundance(100)|head_armor(58)|body_armor(6)|leg_armor(0)|difficulty(10) ,imodbits_plate,[add_mesh("@h_great_bascinet_open_visor_houndskull"),reskin("@h_great_bascinet_trim",0),reskin("@h_hounskull_narf_brass",1),],],
 
 
 ["h_great_bascinet_open_trim", "Great Bascinet", [("h_great_bascinet_base",0)], itp_merchandise|itp_type_head_armor| itp_attach_armature   ,0, 
