@@ -81341,10 +81341,24 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 	  
 ### Warhammers
 	(call_script, "script_item_weapon_switch_with_next", "itm_w_warhammer_1"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_warhammer_1_brown"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_warhammer_1_red"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_w_warhammer_2"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_warhammer_2_brown"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_warhammer_2_red"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_w_knight_warhammer_1"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_knight_warhammer_1_brown"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_knight_warhammer_1_ebony"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_w_knight_warhammer_2"),
-	  
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_knight_warhammer_2_brown"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_knight_warhammer_2_ebony"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_knight_warhammer_3"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_knight_warhammer_3_brown"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_knight_warhammer_3_ebony"),	  
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_kriegshammer"),	  
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_kriegshammer_brown"),	  
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_kriegshammer_ebony"),	  
+    
 ### Polearms 	  
 	# (call_script, "script_item_weapon_switch_with_next", "itm_w_bec_de_corbin"),
 	# (call_script, "script_item_weapon_switch_with_next", "itm_w_poleaxe_english"),
