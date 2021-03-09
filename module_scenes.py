@@ -3583,4 +3583,6 @@ scenes = [
 ("player_camp",sf_generate|sf_no_horses,"none", "none", (0,0),(100,100),-100,"0x0000000130014287000fffff000041ef00005ae800003c55",[],[],"outer_terrain_plain"),
 ("player_camp_forest",sf_generate|sf_no_horses,"none", "none", (0,0),(100,100),-100,"0x00000001b00142870009f2800000bc1f00007d09000052b0",[],[],"outer_terrain_plain"),
 
+
+("camp_test_scene",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000130014287000fffff000041ef00005ae800003c55",[],[],"outer_terrain_plain"),
 ]

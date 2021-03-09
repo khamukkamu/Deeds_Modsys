@@ -1230,4 +1230,5 @@ scn_conversation_scene_tld_snow = 1227
 scn_conversation_scene_tld_forest = 1228
 scn_player_camp = 1229
 scn_player_camp_forest = 1230
+scn_camp_test_scene = 1231
 scn_exit = 100000

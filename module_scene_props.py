@@ -103,6 +103,70 @@ def agent_spawner(troop_id):
             (agent_ai_set_interact_with_player, ":agent_no", 0),
   ])
   
+def agent_spawner_city(troop_id):
+  return (ti_on_scene_prop_init, [
+        (store_trigger_param_1, ":scene_prop_id"),
+        
+        (prop_instance_get_variation_id, ":var_id_level", ":scene_prop_id"),
+        (prop_instance_get_variation_id_2, ":var_id_2_level", ":scene_prop_id"),
+        
+        (assign, ":continue", -1),
+        (call_script, "script_rand", 0, 101),
+        (assign, ":spawn_chance", reg0),
+
+        (try_begin),
+            (eq, "$player_camp_edit_mode", 1),
+            (assign, ":continue", 1),
+        (else_try),
+            (is_currently_night, 0),
+            (le, ":spawn_chance", 30),
+            (assign, ":continue", 1),
+        (else_try),
+            (le, ":spawn_chance", 70),
+            (assign, ":continue", 1),
+        (try_end),
+        
+        (eq, ":continue", 1),
+        (spawn_agent, troop_id),
+        (assign, ":agent_no", reg0),
+        
+        (try_begin),
+            (eq, ":var_id_2_level", 1),
+            (agent_set_stand_animation, ":agent_no", "anim_sitting_low"),
+            (agent_set_animation, ":agent_no", "anim_sitting_low"),
+        (else_try),
+            (eq, ":var_id_2_level", 2),
+            (agent_equip_item, ":agent_no", "itm_dedal_kufel"),
+            (agent_set_wielded_item, ":agent_no", "itm_dedal_kufel"),
+            (agent_set_stand_animation, ":agent_no", "anim_sitting_drinking_low"),
+            (agent_set_animation, ":agent_no", "anim_sitting_drinking_low"),
+        (else_try),
+            (eq, ":var_id_2_level", 3),
+            (agent_equip_item, ":agent_no", "itm_dedal_lutnia"),
+            (agent_set_wielded_item, ":agent_no", "itm_dedal_lutnia"),
+            (agent_set_stand_animation, ":agent_no", "anim_lute_standing"),
+            (agent_set_animation, ":agent_no", "anim_lute_standing"),
+            (agent_play_sound,":agent_no","snd_dedal_tavern_lute"),
+        (else_try),
+            (eq, ":var_id_2_level", 4),
+            (agent_set_stand_animation, ":agent_no", "anim_sitting_ground"),
+            (agent_set_animation, ":agent_no", "anim_sitting_ground"),
+        (else_try),
+            (eq, ":var_id_2_level", 5),
+            (agent_equip_item, ":agent_no", "itm_torch_hands"),
+            (agent_set_wielded_item, ":agent_no", "itm_torch_hands"),            
+            (agent_set_stand_animation, ":agent_no", "anim_standing_torch"),
+            (agent_set_animation, ":agent_no", "anim_standing_torch"),
+        (else_try),
+            (agent_set_stand_animation, ":agent_no", "anim_stand_townguard"),
+            (agent_set_animation, ":agent_no", "anim_stand_townguard"),
+        (try_end),
+        
+            (store_random_in_range, ":random_no", 0, 100),
+            (agent_set_animation_progress, ":agent_no", ":random_no"),	
+            (agent_ai_set_interact_with_player, ":agent_no", 0),
+  ])
+  
 check_item_use_trigger = (ti_on_scene_prop_use,
     [
       (store_trigger_param_1, ":agent_id"),

@@ -3046,6 +3046,9 @@ TOTAL:  {reg5}"),
           (jump_to_menu, "mnu_camp_give_troops")]),	 
       ("camp_test_sieges",[],"Test Sieges", [
           (jump_to_menu, "mnu_dac_camp_test_sieges")]),  
+          
+      ("camp_scene_test",[],"Test Scene", [
+          (jump_to_menu, "mnu_camp_test_scene")]),	 
 
     #  ("camp_test_armoury",[],"Test CT Armoury", [
     #    (assign, "$g_target_name_change", "trp_custom_merc_recruit"),
@@ -3097,6 +3100,15 @@ TOTAL:  {reg5}"),
 
  ]),
 
+( "camp_test_scene",0,
+    "Test scene for the skyboxes",
+    "none",
+    [],
+    [
+    ("skybox_test",[],"Test Skyboxes", [(set_jump_entry, 1),(set_jump_mission, "mt_camp_test"),(jump_to_scene, "scn_camp_test_scene"),(change_screen_mission),]),
+    ("return",[],"Go back.",[(jump_to_menu, "mnu_dac_test_menu")]), 
+ ]),
+ 
 ( "auto_dac_test_menu",0,
     "This menu automatically returns to caller.",
     "none",

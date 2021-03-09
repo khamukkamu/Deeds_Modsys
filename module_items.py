@@ -282,6 +282,41 @@ def aketon_patch():
         # (display_message, "@Material is {s1}"),
     (try_end),
     ])	 
+    
+# def add_pants():
+  # return (ti_on_init_item, [
+    # (store_trigger_param_1, ":agent_no"), 
+    # (store_trigger_param_2, ":troop_no"),
+    # (str_clear, s1),
+
+    # (try_begin),
+        # (gt, ":agent_no", -1),
+        # (try_begin),
+            # (agent_get_item_slot, ":footwear", ":agent_no", 6),
+            # (gt, ":footwear", -1),
+            
+            # (try_begin),
+                # (eq, ":footwear", "itm_b_hosen_poulaines_custom"),	  
+                # (assign, ":string", "@b_narf_hose_grey_new"),
+            # (try_end),
+            
+        # (else_try),
+            # (assign, ":string", "@b_narf_hose_grey_new"),
+        # (try_end),
+    # (try_end),
+    
+    
+
+    # (try_begin),
+      # (eq, ":string", "str_no_string"),
+      # (assign, ":string", "str_a_patch_invisible"),
+    # (try_end),
+    
+    # (try_begin),
+        # (str_store_string, s1, ":string"),
+        # (cur_item_add_mesh, s1),
+    # (try_end),
+    # ])	 
 	
 # Some constants for ease of use.
 imodbits_none = 0
