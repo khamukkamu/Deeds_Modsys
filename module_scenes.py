@@ -2528,8 +2528,9 @@ scenes = [
   ("castle_30_prison",sf_indoors,"interior_prison_n", "bo_interior_prison_n", (-100,-100),(100,100),-100,"0",
     [],[]),
 
-  ("castle_31_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000230025b8d0006459400006a3700002adb00007091",
-    [],[],"outer_terrain_plain"),
+# iJustWant2bPure's Château de Falaise
+  ("castle_31_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000230000500000d22ca000052c1000079e200004298",
+    [],[],"outer_terrain_plain_2"),
   ("castle_31_interior",sf_indoors, "interior_castle_y", "bo_interior_castle_y", (-100,-100),(100,100),-100,"0",
     ["exit"],["castle_31_seneschal"]),
   ("castle_31_prison",sf_indoors,"interior_prison_i", "bo_interior_prison_i", (-100,-100),(100,100),-100,"0",
@@ -3584,5 +3585,5 @@ scenes = [
 ("player_camp_forest",sf_generate|sf_no_horses,"none", "none", (0,0),(100,100),-100,"0x00000001b00142870009f2800000bc1f00007d09000052b0",[],[],"outer_terrain_plain"),
 
 
-("camp_test_scene",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000130014287000fffff000041ef00005ae800003c55",[],[],"outer_terrain_plain"),
+("camp_test_scene",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000230000500000d22ca000052c1000079e200004298",[],[],"outer_terrain_plain"),
 ]
