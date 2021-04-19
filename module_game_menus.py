@@ -7010,7 +7010,7 @@ TOTAL:  {reg5}"),
               (str_store_string, s3, "@You're preparing to attack the walls, the work should finish in {reg9} hours."),
             (else_try),
               (eq, "$g_siege_method", 2),
-              (str_store_string, s3, "@Your forces are building a siege tower. They estimate another {reg9} hours to complete construction."), #SB : "the build -> construction"
+              (str_store_string, s3, "@Your forces are building siege equipment. They estimate another {reg9} hours to complete construction."), #SB : "the build -> construction"
             (try_end),
           (else_try),
             (try_begin),
@@ -7018,7 +7018,7 @@ TOTAL:  {reg5}"),
               (str_store_string, s3, "@You are ready to attack the walls at any time."),
             (else_try),
               (eq, "$g_siege_method", 2),
-              (str_store_string, s3, "@The siege tower is built and ready to make an assault."),
+              (str_store_string, s3, "@The siege equipment is built and ready to make an assault."),
             (try_end),
           (try_end),
         (try_end),
@@ -7182,6 +7182,14 @@ TOTAL:  {reg5}"),
            (assign, "$g_siege_final_menu", "mnu_castle_besiege"),
            (assign, "$g_next_menu", "mnu_castle_besiege_inner_battle"),
            (assign, "$g_siege_method", 0), #reset siege timer
+           
+           # DAC Seek: Special scene for Mont St Michel
+            (try_begin),
+                (eq, "$g_encountered_party", "p_castle_17"),
+                (assign, ":battle_scene", "scn_mont_st_michel"),
+                (set_jump_mission,"mt_castle_attack_walls_ladder_staged_two"),
+            (try_end),
+           
            (jump_to_scene,":battle_scene"),
            (try_begin),
              (eq, ":siege_sally", 1),
@@ -7204,7 +7212,7 @@ TOTAL:  {reg5}"),
        "Prepare ladders to attack the walls.", [(jump_to_menu,"mnu_construct_ladders")]),
 
       ("build_siege_tower",[(party_slot_eq, "$current_town", slot_center_siege_with_belfry, 1),(eq, "$g_siege_method", 0)],
-       "Build a siege tower.", [(jump_to_menu,"mnu_construct_siege_tower")]),
+       "Build siege equipment.", [(jump_to_menu,"mnu_construct_siege_tower")]),
 
       ("cheat_castle_lead_attack",[(eq, "$cheat_mode", 1),
                                    (eq, "$g_siege_method", 0)],
@@ -7406,7 +7414,7 @@ TOTAL:  {reg5}"),
 
   (
     "construct_siege_tower",0,
-    "As the party member with the highest Engineer skill ({reg2}), {reg3?you estimate:{s3} estimates} that building a siege tower will take\
+    "As the party member with the highest Engineer skill ({reg2}), {reg3?you estimate:{s3} estimates} that building siege equipment will take\
  {reg4} hours.",
     "none",
     [(call_script, "script_get_max_skill_of_player_party", "skl_engineer"),
@@ -8659,29 +8667,40 @@ TOTAL:  {reg5}"),
          (neg|troop_is_wounded, "trp_player"),
          ],
           "Join the battle.",[
-              (party_set_next_battle_simulation_time, "$g_encountered_party", -1),
-              (assign, "$g_battle_result", 0),
-              (try_begin),
-                (party_slot_eq, "$g_encountered_party", slot_party_type, spt_town),
-                (party_get_slot, ":battle_scene", "$g_encountered_party", slot_town_walls),
-              (else_try),
-                (party_get_slot, ":battle_scene", "$g_encountered_party", slot_castle_exterior),
-              (try_end),
-              (call_script, "script_calculate_battle_advantage"),
-              (val_mul, reg0, 2),
-              (val_div, reg0, 3), #scale down the advantage a bit.
-              (set_battle_advantage, reg0),
-              (set_party_battle_mode),
-              (try_begin),
-                (party_slot_eq, "$current_town", slot_center_siege_with_belfry, 1),
-                (set_jump_mission,"mt_castle_attack_walls_belfry"),
-              (else_try),
-                (set_jump_mission,"mt_castle_attack_walls_ladder"),
-              (try_end),
-              (jump_to_scene,":battle_scene"),
-              (assign, "$g_next_menu", "mnu_siege_started_defender"),
-              (jump_to_menu, "mnu_battle_debrief"),
-              (change_screen_mission)]),
+        (party_set_next_battle_simulation_time, "$g_encountered_party", -1),
+        (assign, "$g_battle_result", 0),
+        
+        (try_begin),
+            (party_slot_eq, "$g_encountered_party", slot_party_type, spt_town),
+            (party_get_slot, ":battle_scene", "$g_encountered_party", slot_town_walls),
+        (else_try),
+            (party_get_slot, ":battle_scene", "$g_encountered_party", slot_castle_exterior),
+        (try_end),
+        
+        (call_script, "script_calculate_battle_advantage"),
+        (val_mul, reg0, 2),
+        (val_div, reg0, 3), #scale down the advantage a bit.
+        (set_battle_advantage, reg0),
+        (set_party_battle_mode),
+        
+        (try_begin),
+            (party_slot_eq, "$current_town", slot_center_siege_with_belfry, 1),
+            (set_jump_mission,"mt_castle_attack_walls_belfry"),
+        (else_try),
+            (set_jump_mission,"mt_castle_attack_walls_ladder"),
+        (try_end),
+        
+        # DAC Seek: Special scene for Mont-St-Michel
+        (try_begin),
+            (eq, "$g_encountered_party", "p_castle_17"),
+            (assign, ":battle_scene", "scn_mont_st_michel"),
+            (set_jump_mission,"mt_castle_attack_walls_ladder_staged_two"),
+        (try_end),
+        
+        (jump_to_scene,":battle_scene"),
+        (assign, "$g_next_menu", "mnu_siege_started_defender"),
+        (jump_to_menu, "mnu_battle_debrief"),
+        (change_screen_mission)]),
       ("siege_defender_troops_join_battle",[(call_script, "script_party_count_members_with_full_health", "p_main_party"),
                                             (this_or_next|troop_is_wounded,  "trp_player"),
                                             (ge, reg0, 3)],
@@ -21602,32 +21621,32 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     # ]
   # ),
   
-  ("toll_crossing", 0,
-    "You have reached the Green Fork Crossing, to cross this land you will need to pay a toll.", "none", [],
-    [
+  # ("toll_crossing", 0,
+    # "You have reached the Green Fork Crossing, to cross this land you will need to pay a toll.", "none", [],
+    # [
     
-    ("pay",[
+    # ("pay",[
     
-        (party_get_num_companions,":player_party_size", "p_main_party"),
-        (assign, ":toll_price", ":player_party_size"),
-        (val_mul, ":toll_price", 5),
+        # (party_get_num_companions,":player_party_size", "p_main_party"),
+        # (assign, ":toll_price", ":player_party_size"),
+        # (val_mul, ":toll_price", 5),
         
-        (store_troop_gold, ":cur_gold", "trp_player"),
-        (ge,":cur_gold", ":toll_price"),
+        # (store_troop_gold, ":cur_gold", "trp_player"),
+        # (ge,":cur_gold", ":toll_price"),
         
-        (assign, reg1, ":toll_price"),
+        # (assign, reg1, ":toll_price"),
     
-    ],"Pay the toll. ({reg1} Dragons)",[
-        (troop_remove_gold, "trp_player", reg1),
-        (store_current_hours, ":cur_hours"),
-        (store_add, ":toll_finish_time", ":cur_hours", 24),
-        (party_set_slot, "p_castle_27", slot_party_last_toll_paid_hours, ":toll_finish_time"),
-        (change_screen_return),
-    ]), 
+    # ],"Pay the toll. ({reg1} Dragons)",[
+        # (troop_remove_gold, "trp_player", reg1),
+        # (store_current_hours, ":cur_hours"),
+        # (store_add, ":toll_finish_time", ":cur_hours", 24),
+        # (party_set_slot, "p_castle_27", slot_party_last_toll_paid_hours, ":toll_finish_time"),
+        # (change_screen_return),
+    # ]), 
     
-    ("leave",[],"Leave the menu.",[(change_screen_return),]),
+    # ("leave",[],"Leave the menu.",[(change_screen_return),]),
     
-  ]),
+  # ]),
   
   
  ]

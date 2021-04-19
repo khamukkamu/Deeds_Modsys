@@ -2429,8 +2429,8 @@ scenes = [
     ["exit"],["castle_16_seneschal"]),
   ("castle_16_prison",sf_indoors,"interior_prison_l", "bo_interior_prison_l", (-100,-100),(100,100),-100,"0",
     [],[]),
-#       Steppe
-  ("castle_17_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300399c5000fffff0000290a0000409c00000c49",
+# Mont-St-Michel by iJustWant2bPure
+  ("castle_17_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000230000000000fffff000041ef00005ae800003c55",
     [],[],"outer_terrain_beach"),
   ("castle_17_interior",sf_indoors, "interior_castle_l", "bo_interior_castle_l", (-100,-100),(100,100),-100,"0",
     ["exit"],["castle_17_seneschal"]),
@@ -3586,4 +3586,6 @@ scenes = [
 
 
 ("camp_test_scene",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000230000500000d22ca000052c1000079e200004298",[],[],"outer_terrain_plain"),
+
+("mont_st_michel",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000230000000000fffff000041ef00005ae800003c55",[],[],"outer_terrain_beach"),
 ]

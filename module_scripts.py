@@ -780,7 +780,7 @@ scripts = [
     (call_script, "script_upgrade_lords_equipment"),
     (call_script, "script_dac_init_custom_troops"),
 
-    (party_set_slot, "p_castle_27", slot_party_last_toll_paid_hours, -24),
+    # (party_set_slot, "p_castle_27", slot_party_last_toll_paid_hours, -24),
 
     inject('display_test_message'),## plugin test
     inject('display_test_message'),## plugin test
@@ -78243,6 +78243,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (party_set_slot,"p_castle_9", slot_center_siege_with_belfry, 1),
       (party_set_slot,"p_castle_11", slot_center_siege_with_belfry, 1),
       (party_set_slot,"p_castle_13", slot_center_siege_with_belfry, 1),
+      (party_set_slot,"p_castle_17", slot_center_siege_with_belfry, 1),
       (party_set_slot,"p_castle_21", slot_center_siege_with_belfry, 1),
       (party_set_slot,"p_castle_25", slot_center_siege_with_belfry, 1),
       (party_set_slot,"p_castle_34", slot_center_siege_with_belfry, 1),
