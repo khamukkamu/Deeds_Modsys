@@ -69,7 +69,7 @@ simple_triggers = [
         # #fix for hiding test_scene in older savegames
         # (disable_party, "p_test_scene"),
         # #fix for correcting town_1 siege type
-        # (party_set_slot, "p_town_1", slot_center_siege_with_belfry, 0),
+        # (party_set_slot, "p_french_town_1", slot_center_siege_with_belfry, 0),
         # #fix for hiding player_faction notes
         # (faction_set_note_available, "fac_player_faction", 0),
         # #fix for hiding faction 0 notes
@@ -6882,10 +6882,10 @@ simple_triggers = [
 
    # (1,
    # [
-        # (store_distance_to_party_from_party, ":distance", "p_main_party", "p_castle_27"),
+        # (store_distance_to_party_from_party, ":distance", "p_main_party", "p_english_castle_2"),
         
         ## Debug messages:
-        # (party_get_slot, ":last_paid_hours", "p_castle_27", slot_party_last_toll_paid_hours),
+        # (party_get_slot, ":last_paid_hours", "p_english_castle_2", slot_party_last_toll_paid_hours),
         
         # (assign, reg3, ":distance"),
         # (assign, reg4, ":last_paid_hours"),
@@ -6896,7 +6896,7 @@ simple_triggers = [
 
         # (try_begin),
             # (store_current_hours, ":cur_hours"),
-            # (party_slot_ge, "p_castle_27", slot_party_last_toll_paid_hours, ":cur_hours"),
+            # (party_slot_ge, "p_english_castle_2", slot_party_last_toll_paid_hours, ":cur_hours"),
             # (display_message, "@You have recently paid the toll so the guards let you pass."),
         # (else_try),
             # (jump_to_menu, "mnu_toll_crossing"),

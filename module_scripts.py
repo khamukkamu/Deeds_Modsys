@@ -284,23 +284,23 @@ scripts = [
       (try_end),
 
 	  #set territorial disputes/outstanding border issues
-	   #(party_set_slot, "p_town_42", slot_center_ex_faction, "fac_kingdom_3"), #Burgandy claims English-held Calais
-	    (party_set_slot, "p_town_20", slot_center_ex_faction, "fac_kingdom_3"), #Burgandy claims French-held Tournai
-	    (party_set_slot, "p_town_2",  slot_center_ex_faction, "fac_kingdom_2"), #English claim French-held Orleans
-      (party_set_slot, "p_town_21", slot_center_ex_faction, "fac_kingdom_2"), #English claim French-held Gien
-      (party_set_slot, "p_town_54", slot_center_ex_faction, "fac_kingdom_1"), #French claim Burgandy-held Nevers
-      (party_set_slot, "p_town_7",  slot_center_ex_faction, "fac_kingdom_3"), #Burgandy claim French-held Moulins
-      (party_set_slot, "p_town_9",  slot_center_ex_faction, "fac_kingdom_3"), #Burgandy claim French-held Lyon
-      (party_set_slot, "p_town_25", slot_center_ex_faction, "fac_kingdom_2"), #English claim French-held Perigueux
-      (party_set_slot, "p_town_24", slot_center_ex_faction, "fac_kingdom_2"), #English claim French-held Bergerac
-      (party_set_slot, "p_town_23", slot_center_ex_faction, "fac_kingdom_2"), #English claim French-held Albret
-      (party_set_slot, "p_town_14", slot_center_ex_faction, "fac_kingdom_2"), #English claim French-held Tarbes
-      (party_set_slot, "p_town_47", slot_center_ex_faction, "fac_kingdom_1"), #French claim English-held Libourne
-      (party_set_slot, "p_town_35", slot_center_ex_faction, "fac_kingdom_1"), #French claim English-held Bordeaux
-      (party_set_slot, "p_town_45", slot_center_ex_faction, "fac_kingdom_1"), #French claim English-held Tartas
-      (party_set_slot, "p_town_46", slot_center_ex_faction, "fac_kingdom_1"), #French claim English-held Dax
-      (party_set_slot, "p_town_31", slot_center_ex_faction, "fac_kingdom_1"), #French claim English-held Bayonne
-      (party_set_slot, "p_town_50", slot_center_ex_faction, "fac_kingdom_4"), #Bretons claim English-held Avranches
+	   #(party_set_slot, "p_english_town_13", slot_center_ex_faction, "fac_kingdom_3"), #Burgandy claims English-held Calais
+	    (party_set_slot, "p_french_town_20", slot_center_ex_faction, "fac_kingdom_3"), #Burgandy claims French-held Tournai
+	    (party_set_slot, "p_french_town_2",  slot_center_ex_faction, "fac_kingdom_2"), #English claim French-held Orleans
+      (party_set_slot, "p_french_town_21", slot_center_ex_faction, "fac_kingdom_2"), #English claim French-held Gien
+      (party_set_slot, "p_burgundian_town_3", slot_center_ex_faction, "fac_kingdom_1"), #French claim Burgandy-held Nevers
+      (party_set_slot, "p_french_town_7",  slot_center_ex_faction, "fac_kingdom_3"), #Burgandy claim French-held Moulins
+      (party_set_slot, "p_french_town_9",  slot_center_ex_faction, "fac_kingdom_3"), #Burgandy claim French-held Lyon
+      (party_set_slot, "p_french_town_25", slot_center_ex_faction, "fac_kingdom_2"), #English claim French-held Perigueux
+      (party_set_slot, "p_french_town_24", slot_center_ex_faction, "fac_kingdom_2"), #English claim French-held Bergerac
+      (party_set_slot, "p_french_town_23", slot_center_ex_faction, "fac_kingdom_2"), #English claim French-held Albret
+      (party_set_slot, "p_french_town_14", slot_center_ex_faction, "fac_kingdom_2"), #English claim French-held Tarbes
+      (party_set_slot, "p_english_town_18", slot_center_ex_faction, "fac_kingdom_1"), #French claim English-held Libourne
+      (party_set_slot, "p_english_town_6", slot_center_ex_faction, "fac_kingdom_1"), #French claim English-held Bordeaux
+      (party_set_slot, "p_english_town_16", slot_center_ex_faction, "fac_kingdom_1"), #French claim English-held Tartas
+      (party_set_slot, "p_english_town_17", slot_center_ex_faction, "fac_kingdom_1"), #French claim English-held Dax
+      (party_set_slot, "p_english_town_2", slot_center_ex_faction, "fac_kingdom_1"), #French claim English-held Bayonne
+      (party_set_slot, "p_english_town_21", slot_center_ex_faction, "fac_kingdom_4"), #Bretons claim English-held Avranches
 
 
       (call_script, "script_update_village_market_towns"),
@@ -690,10 +690,10 @@ scripts = [
 	  # (faction_set_slot, "fac_kingdom_6", slot_faction_adjective, "str_kingdom_6_adjective"),
 
 ##      (assign, "$players_kingdom", "fac_kingdom_1"),
-##      (call_script, "script_give_center_to_lord", "p_town_7", "trp_player", 0),
-##      (call_script, "script_give_center_to_lord", "p_town_16", "trp_player", 0),
-####      (call_script, "script_give_center_to_lord", "p_castle_10", "trp_player", 0),
-##      (assign, "$g_castle_requested_by_player", "p_castle_10"),
+##      (call_script, "script_give_center_to_lord", "p_french_town_7", "trp_player", 0),
+##      (call_script, "script_give_center_to_lord", "p_french_town_16", "trp_player", 0),
+####      (call_script, "script_give_center_to_lord", "p_french_castle_10", "trp_player", 0),
+##      (assign, "$g_castle_requested_by_player", "p_french_castle_10"),
       (call_script, "script_get_player_party_morale_values"),
       (party_set_morale, "p_main_party", reg0),
 
@@ -780,7 +780,7 @@ scripts = [
     (call_script, "script_upgrade_lords_equipment"),
     (call_script, "script_dac_init_custom_troops"),
 
-    # (party_set_slot, "p_castle_27", slot_party_last_toll_paid_hours, -24),
+    # (party_set_slot, "p_english_castle_2", slot_party_last_toll_paid_hours, -24),
 
     inject('display_test_message'),## plugin test
     inject('display_test_message'),## plugin test
@@ -7707,247 +7707,308 @@ scripts = [
     
     # French Towns
     #Bourges
-    (call_script, "script_set_trade_route_between_centers","p_town_1","p_town_21"),
-    (call_script, "script_set_trade_route_between_centers","p_town_1","p_town_2"),
-    (call_script, "script_set_trade_route_between_centers","p_town_1","p_town_3"),
-    (call_script, "script_set_trade_route_between_centers","p_town_1","p_town_19"),
-    (call_script, "script_set_trade_route_between_centers","p_town_1","p_town_4"),
-    (call_script, "script_set_trade_route_between_centers","p_town_1","p_town_27"),
-    (call_script, "script_set_trade_route_between_centers","p_town_1","p_town_6"),
-    (call_script, "script_set_trade_route_between_centers","p_town_1","p_town_7"),
-    (call_script, "script_set_trade_route_between_centers","p_town_1","p_town_15"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_1","p_french_town_21"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_1","p_french_town_2"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_1","p_french_town_3"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_1","p_french_town_19"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_1","p_french_town_4"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_1","p_french_town_27"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_1","p_french_town_6"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_1","p_french_town_7"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_1","p_french_town_15"),
 
 
     #Orleans
-    (call_script, "script_set_trade_route_between_centers","p_town_2","p_town_22"),
-    (call_script, "script_set_trade_route_between_centers","p_town_2","p_town_21"),
-    (call_script, "script_set_trade_route_between_centers","p_town_2","p_town_3"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_2","p_french_town_22"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_2","p_french_town_21"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_2","p_french_town_3"),
 
 
     #Tours
-    (call_script, "script_set_trade_route_between_centers","p_town_3","p_town_21"),
-    (call_script, "script_set_trade_route_between_centers","p_town_3","p_town_6"),
-    (call_script, "script_set_trade_route_between_centers","p_town_3","p_town_4"),
-    (call_script, "script_set_trade_route_between_centers","p_town_3","p_town_19"),
-    (call_script, "script_set_trade_route_between_centers","p_town_3","p_town_28"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_3","p_french_town_21"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_3","p_french_town_6"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_3","p_french_town_4"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_3","p_french_town_19"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_3","p_french_town_28"),
 
 
     #Poitiers
-    (call_script, "script_set_trade_route_between_centers","p_town_4","p_town_27"),
-    (call_script, "script_set_trade_route_between_centers","p_town_4","p_town_25"),
-    (call_script, "script_set_trade_route_between_centers","p_town_4","p_town_26"),
-    (call_script, "script_set_trade_route_between_centers","p_town_4","p_town_5"),
-    (call_script, "script_set_trade_route_between_centers","p_town_4","p_town_19"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_4","p_french_town_27"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_4","p_french_town_25"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_4","p_french_town_26"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_4","p_french_town_5"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_4","p_french_town_19"),
 
 
     #La Rochelle
-    (call_script, "script_set_trade_route_between_centers","p_town_5","p_town_19"),
-    (call_script, "script_set_trade_route_between_centers","p_town_5","p_town_4"),
-    (call_script, "script_set_trade_route_between_centers","p_town_5","p_town_27"),
-    (call_script, "script_set_trade_route_between_centers","p_town_5","p_town_26"),
-    (call_script, "script_set_trade_route_between_centers","p_town_5","p_town_67"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_5","p_french_town_19"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_5","p_french_town_4"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_5","p_french_town_27"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_5","p_french_town_26"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_5","p_breton_town_2"),
 
 
     #Clermont
-    (call_script, "script_set_trade_route_between_centers","p_town_6","p_town_7"),
-    (call_script, "script_set_trade_route_between_centers","p_town_6","p_town_10"),
-    (call_script, "script_set_trade_route_between_centers","p_town_6","p_town_8"),
-    (call_script, "script_set_trade_route_between_centers","p_town_6","p_town_25"),
-    (call_script, "script_set_trade_route_between_centers","p_town_6","p_town_27"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_6","p_french_town_7"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_6","p_french_town_10"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_6","p_french_town_8"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_6","p_french_town_25"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_6","p_french_town_27"),
 
 
     #Moulin
-    (call_script, "script_set_trade_route_between_centers","p_town_7","p_town_9"),
-    (call_script, "script_set_trade_route_between_centers","p_town_7","p_town_10"),
-    (call_script, "script_set_trade_route_between_centers","p_town_7","p_town_21"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_7","p_french_town_9"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_7","p_french_town_10"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_7","p_french_town_21"),
 
 
     #Aurillac
-    (call_script, "script_set_trade_route_between_centers","p_town_8","p_town_10"),
-    (call_script, "script_set_trade_route_between_centers","p_town_8","p_town_12"),
-    (call_script, "script_set_trade_route_between_centers","p_town_8","p_town_11"),
-    (call_script, "script_set_trade_route_between_centers","p_town_8","p_town_24"),
-    (call_script, "script_set_trade_route_between_centers","p_town_8","p_town_25"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_8","p_french_town_10"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_8","p_french_town_12"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_8","p_french_town_11"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_8","p_french_town_24"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_8","p_french_town_25"),
 
 
     #Lyon
-    (call_script, "script_set_trade_route_between_centers","p_town_9","p_town_18"),
-    (call_script, "script_set_trade_route_between_centers","p_town_9","p_town_1"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_9","p_french_town_18"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_9","p_french_town_1"),
 
 
     #Le_Puy
-    (call_script, "script_set_trade_route_between_centers","p_town_10","p_town_27"),  (call_script, "script_set_trade_route_between_centers","p_town_10","p_town_9"), (call_script, "script_set_trade_route_between_centers","p_town_10","p_town_15"),  (call_script, "script_set_trade_route_between_centers","p_town_10","p_town_52"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_10","p_french_town_27"),  
+    (call_script, "script_set_trade_route_between_centers","p_french_town_10","p_french_town_9"), 
+    (call_script, "script_set_trade_route_between_centers","p_french_town_10","p_french_town_15"),  
+    (call_script, "script_set_trade_route_between_centers","p_french_town_10","p_burgundian_town_1"),
 
 
 
     #Cahors
-    (call_script, "script_set_trade_route_between_centers","p_town_11","p_town_12"),
-    (call_script, "script_set_trade_route_between_centers","p_town_11","p_town_15"),
-    (call_script, "script_set_trade_route_between_centers","p_town_11","p_town_13"),
-    (call_script, "script_set_trade_route_between_centers","p_town_11","p_town_24"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_11","p_french_town_12"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_11","p_french_town_15"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_11","p_french_town_13"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_11","p_french_town_24"),
 
 
     #Rodez
-    (call_script, "script_set_trade_route_between_centers","p_town_12","p_town_13"),
-    (call_script, "script_set_trade_route_between_centers","p_town_12","p_town_15"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_12","p_french_town_13"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_12","p_french_town_15"),
 
 
     #Lectoure
-    (call_script, "script_set_trade_route_between_centers","p_town_13","p_town_15"),
-    (call_script, "script_set_trade_route_between_centers","p_town_13","p_town_14"),
-    (call_script, "script_set_trade_route_between_centers","p_town_13","p_town_24"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_13","p_french_town_15"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_13","p_french_town_14"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_13","p_french_town_24"),
 
 
     #Tarbes
-    (call_script, "script_set_trade_route_between_centers","p_town_14","p_town_15"),
-    (call_script, "script_set_trade_route_between_centers","p_town_14","p_town_16"),
-    (call_script, "script_set_trade_route_between_centers","p_town_14","p_town_29"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_14","p_french_town_15"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_14","p_french_town_16"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_14","p_french_town_29"),
 
 
     #Toulouse
-    (call_script, "script_set_trade_route_between_centers","p_town_15","p_town_8"), (call_script, "script_set_trade_route_between_centers","p_town_15","p_town_16"),  (call_script, "script_set_trade_route_between_centers","p_town_15","p_town_29"),  (call_script, "script_set_trade_route_between_centers","p_town_15","p_town_35"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_15","p_french_town_8"), (call_script, "script_set_trade_route_between_centers","p_french_town_15","p_french_town_16"),  (call_script, "script_set_trade_route_between_centers","p_french_town_15","p_french_town_29"),  (call_script, "script_set_trade_route_between_centers","p_french_town_15","p_english_town_6"),
 
 
     #Carcassonne
-    (call_script, "script_set_trade_route_between_centers","p_town_16","p_town_29"),
-    (call_script, "script_set_trade_route_between_centers","p_town_16","p_town_12"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_16","p_french_town_29"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_16","p_french_town_12"),
 
 
     #Montpellier
-    (call_script, "script_set_trade_route_between_centers","p_town_17","p_town_18"),
-    (call_script, "script_set_trade_route_between_centers","p_town_17","p_town_12"),
-    (call_script, "script_set_trade_route_between_centers","p_town_17","p_town_15"),
-    (call_script, "script_set_trade_route_between_centers","p_town_17","p_town_16"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_17","p_french_town_18"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_17","p_french_town_12"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_17","p_french_town_15"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_17","p_french_town_16"),
 
 
     #Thouars
-    (call_script, "script_set_trade_route_between_centers","p_town_19","p_town_28"),
-    (call_script, "script_set_trade_route_between_centers","p_town_19","p_town_67"),
-    (call_script, "script_set_trade_route_between_centers","p_town_19","p_town_5"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_19","p_french_town_28"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_19","p_breton_town_2"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_19","p_french_town_5"),
 
 
     #Tournai
-    (call_script, "script_set_trade_route_between_centers","p_town_20","p_town_22"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_20","p_french_town_22"),
 
 
     #Gien
-    (call_script, "script_set_trade_route_between_centers","p_town_21","p_town_22"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_21","p_french_town_22"),
 
     #Albret
-    (call_script, "script_set_trade_route_between_centers","p_town_23","p_town_14"),
-    (call_script, "script_set_trade_route_between_centers","p_town_23","p_town_13"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_23","p_french_town_14"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_23","p_french_town_13"),
 
     #Perigueux
-    (call_script, "script_set_trade_route_between_centers","p_town_25","p_town_27"),
-    (call_script, "script_set_trade_route_between_centers","p_town_25","p_town_24"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_25","p_french_town_27"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_25","p_french_town_24"),
 
     #Angouleme
-    (call_script, "script_set_trade_route_between_centers","p_town_26","p_town_27"),
-    (call_script, "script_set_trade_route_between_centers","p_town_26","p_town_25"),
-    (call_script, "script_set_trade_route_between_centers","p_town_26","p_town_24"),
-    (call_script, "script_set_trade_route_between_centers","p_town_26","p_town_5"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_26","p_french_town_27"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_26","p_french_town_25"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_26","p_french_town_24"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_26","p_french_town_5"),
 
     #Limoges
-    (call_script, "script_set_trade_route_between_centers","p_town_27","p_town_6"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_27","p_french_town_6"),
 
     #Angers
-    (call_script, "script_set_trade_route_between_centers","p_town_28","p_town_67"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_28","p_breton_town_2"),
 
     #Foix
-    (call_script, "script_set_trade_route_between_centers","p_town_29","p_town_17"),
+    (call_script, "script_set_trade_route_between_centers","p_french_town_29","p_french_town_17"),
 
 
     #English Towns
     #Paris 
-    (call_script, "script_set_trade_route_between_centers","p_town_30","p_town_32"),  (call_script, "script_set_trade_route_between_centers","p_town_30","p_town_36"),  (call_script, "script_set_trade_route_between_centers","p_town_30","p_town_43"),  (call_script, "script_set_trade_route_between_centers","p_town_30","p_town_44"),  (call_script, "script_set_trade_route_between_centers","p_town_30","p_town_37"),  (call_script, "script_set_trade_route_between_centers","p_town_30","p_town_42"),  (call_script, "script_set_trade_route_between_centers","p_town_30","p_town_57"),  (call_script, "script_set_trade_route_between_centers","p_town_30","p_town_1"), (call_script, "script_set_trade_route_between_centers","p_town_30","p_town_52"),
+    (call_script, "script_set_trade_route_between_centers","p_english_town_1","p_english_town_3"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_1","p_english_town_7"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_1","p_english_town_14"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_1","p_english_town_15"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_1","p_english_town_8"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_1","p_english_town_13"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_1","p_burgundian_town_6"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_1","p_french_town_1"), 
+    (call_script, "script_set_trade_route_between_centers","p_english_town_1","p_burgundian_town_1"),
     #Bayonne 
-    (call_script, "script_set_trade_route_between_centers","p_town_31","p_town_35"),  (call_script, "script_set_trade_route_between_centers","p_town_31","p_town_45"),  (call_script, "script_set_trade_route_between_centers","p_town_31","p_town_46"),  (call_script, "script_set_trade_route_between_centers","p_town_31","p_town_14"),          
+    (call_script, "script_set_trade_route_between_centers","p_english_town_2","p_english_town_6"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_2","p_english_town_16"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_2","p_english_town_17"), 
+    (call_script, "script_set_trade_route_between_centers","p_english_town_2","p_french_town_14"),          
     #Nemours
-    (call_script, "script_set_trade_route_between_centers","p_town_32","p_town_63"),  (call_script, "script_set_trade_route_between_centers","p_town_32","p_town_56"),  (call_script, "script_set_trade_route_between_centers","p_town_32","p_town_55"),  (call_script, "script_set_trade_route_between_centers","p_town_32","p_town_22"),  (call_script, "script_set_trade_route_between_centers","p_town_32","p_town_21"),  (call_script, "script_set_trade_route_between_centers","p_town_32","p_town_2"), (call_script, "script_set_trade_route_between_centers","p_town_32","p_town_36"),    
+    (call_script, "script_set_trade_route_between_centers","p_english_town_3","p_burgundian_town_12"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_3","p_burgundian_town_5"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_3","p_burgundian_town_4"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_3","p_french_town_22"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_3","p_french_town_21"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_3","p_french_town_2"), 
+    (call_script, "script_set_trade_route_between_centers","p_english_town_3","p_english_town_7"),    
     #Laval
-    (call_script, "script_set_trade_route_between_centers","p_town_33","p_town_50"),  (call_script, "script_set_trade_route_between_centers","p_town_33","p_town_44"),  (call_script, "script_set_trade_route_between_centers","p_town_33","p_town_43"),  (call_script, "script_set_trade_route_between_centers","p_town_33","p_town_34"),  (call_script, "script_set_trade_route_between_centers","p_town_33","p_town_3"), (call_script, "script_set_trade_route_between_centers","p_town_33","p_town_28"),  (call_script, "script_set_trade_route_between_centers","p_town_33","p_town_67"),  (call_script, "script_set_trade_route_between_centers","p_town_33","p_town_68"),  (call_script, "script_set_trade_route_between_centers","p_town_33","p_town_66"),
+    (call_script, "script_set_trade_route_between_centers","p_english_town_4","p_english_town_21"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_4","p_english_town_15"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_4","p_english_town_14"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_4","p_english_town_5"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_4","p_french_town_3"), 
+    (call_script, "script_set_trade_route_between_centers","p_english_town_4","p_french_town_28"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_4","p_breton_town_2"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_4","p_breton_town_3"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_4","p_breton_town_1"),
     #Le_Mans
-    (call_script, "script_set_trade_route_between_centers","p_town_34","p_town_43"),  (call_script, "script_set_trade_route_between_centers","p_town_34","p_town_36"),  (call_script, "script_set_trade_route_between_centers","p_town_34","p_town_2"), (call_script, "script_set_trade_route_between_centers","p_town_34","p_town_3"), (call_script, "script_set_trade_route_between_centers","p_town_34","p_town_28"),        
+    (call_script, "script_set_trade_route_between_centers","p_english_town_5","p_english_town_14"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_5","p_english_town_7"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_5","p_french_town_2"), 
+    (call_script, "script_set_trade_route_between_centers","p_english_town_5","p_french_town_3"), 
+    (call_script, "script_set_trade_route_between_centers","p_english_town_5","p_french_town_28"),        
     #Bordeaux
-    (call_script, "script_set_trade_route_between_centers","p_town_35","p_town_47"),  (call_script, "script_set_trade_route_between_centers","p_town_35","p_town_23"),  (call_script, "script_set_trade_route_between_centers","p_town_35","p_town_45"),  (call_script, "script_set_trade_route_between_centers","p_town_35","p_town_46"),  (call_script, "script_set_trade_route_between_centers","p_town_35","p_town_1"), (call_script, "script_set_trade_route_between_centers","p_town_35","p_town_67"),
+    (call_script, "script_set_trade_route_between_centers","p_english_town_6","p_english_town_18"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_6","p_french_town_23"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_6","p_english_town_16"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_6","p_english_town_17"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_6","p_french_town_1"), 
+    (call_script, "script_set_trade_route_between_centers","p_english_town_6","p_breton_town_2"),
     #Chartres
-    (call_script, "script_set_trade_route_between_centers","p_town_36","p_town_37"),  (call_script, "script_set_trade_route_between_centers","p_town_36","p_town_43"),  (call_script, "script_set_trade_route_between_centers","p_town_36","p_town_2"),           
+    (call_script, "script_set_trade_route_between_centers","p_english_town_7","p_english_town_8"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_7","p_english_town_14"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_7","p_french_town_2"),           
     #Rouen
-    (call_script, "script_set_trade_route_between_centers","p_town_37","p_town_42"),  (call_script, "script_set_trade_route_between_centers","p_town_37","p_town_44"),  (call_script, "script_set_trade_route_between_centers","p_town_37","p_town_38"),  (call_script, "script_set_trade_route_between_centers","p_town_37","p_town_39"),  (call_script, "script_set_trade_route_between_centers","p_town_37","p_town_49"),        
+    (call_script, "script_set_trade_route_between_centers","p_english_town_8","p_english_town_13"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_8","p_english_town_15"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_8","p_english_town_9"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_8","p_english_town_10"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_8","p_english_town_20"),        
     #Caen
-    (call_script, "script_set_trade_route_between_centers","p_town_38","p_town_44"),  (call_script, "script_set_trade_route_between_centers","p_town_38","p_town_50"),  (call_script, "script_set_trade_route_between_centers","p_town_38","p_town_48"),  (call_script, "script_set_trade_route_between_centers","p_town_38","p_town_41"),          
+    (call_script, "script_set_trade_route_between_centers","p_english_town_9","p_english_town_15"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_9","p_english_town_21"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_9","p_english_town_19"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_9","p_english_town_12"),          
     #Harfleur
-    (call_script, "script_set_trade_route_between_centers","p_town_39","p_town_49"),                
+    (call_script, "script_set_trade_route_between_centers","p_english_town_10","p_english_town_20"),                
     #Cherbourg
-    (call_script, "script_set_trade_route_between_centers","p_town_40","p_town_41"),  (call_script, "script_set_trade_route_between_centers","p_town_40","p_town_51"),  (call_script, "script_set_trade_route_between_centers","p_town_40","p_town_48"),            
+    (call_script, "script_set_trade_route_between_centers","p_english_town_11","p_english_town_12"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_11","p_english_town_22"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_11","p_english_town_19"),            
     #Bayeux
-    (call_script, "script_set_trade_route_between_centers","p_town_41","p_town_51"),                
+    (call_script, "script_set_trade_route_between_centers","p_english_town_12","p_english_town_22"),                
     #Calais
-    (call_script, "script_set_trade_route_between_centers","p_town_42","p_town_58"),  (call_script, "script_set_trade_route_between_centers","p_town_42","p_town_59"),  (call_script, "script_set_trade_route_between_centers","p_town_42","p_town_20"),  (call_script, "script_set_trade_route_between_centers","p_town_42","p_town_65"),  (call_script, "script_set_trade_route_between_centers","p_town_42","p_town_64"),  (call_script, "script_set_trade_route_between_centers","p_town_42","p_town_49"),  (call_script, "script_set_trade_route_between_centers","p_town_42","p_town_61"),    
+    (call_script, "script_set_trade_route_between_centers","p_english_town_13","p_burgundian_town_7"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_13","p_burgundian_town_8"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_13","p_french_town_20"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_13","p_burgundian_town_14"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_13","p_burgundian_town_13"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_13","p_english_town_20"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_13","p_burgundian_town_10"),    
     #Alençon
-    (call_script, "script_set_trade_route_between_centers","p_town_43","p_town_37"),  (call_script, "script_set_trade_route_between_centers","p_town_43","p_town_44"),              
+    (call_script, "script_set_trade_route_between_centers","p_english_town_14","p_english_town_8"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_14","p_english_town_15"),              
     #Argentan
-    (call_script, "script_set_trade_route_between_centers","p_town_44","p_town_50"),                
+    (call_script, "script_set_trade_route_between_centers","p_english_town_15","p_english_town_21"),                
     #Tartas
-    (call_script, "script_set_trade_route_between_centers","p_town_45","p_town_46"),  (call_script, "script_set_trade_route_between_centers","p_town_45","p_town_23"),              
+    (call_script, "script_set_trade_route_between_centers","p_english_town_16","p_english_town_17"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_16","p_french_town_23"),              
     #Dax                 
     #Libourne
-    (call_script, "script_set_trade_route_between_centers","p_town_47","p_town_25"),  (call_script, "script_set_trade_route_between_centers","p_town_47","p_town_24"),  (call_script, "script_set_trade_route_between_centers","p_town_47","p_town_11"),            
+    (call_script, "script_set_trade_route_between_centers","p_english_town_18","p_french_town_25"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_18","p_french_town_24"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_18","p_french_town_11"),            
     #Saint-Lô
-    (call_script, "script_set_trade_route_between_centers","p_town_48","p_town_51"),  (call_script, "script_set_trade_route_between_centers","p_town_48","p_town_50"),              
+    (call_script, "script_set_trade_route_between_centers","p_english_town_19","p_english_town_22"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_19","p_english_town_21"),              
     #Eu
-    (call_script, "script_set_trade_route_between_centers","p_town_49","p_town_64"),                
+    (call_script, "script_set_trade_route_between_centers","p_english_town_20","p_burgundian_town_13"),                
     #Avranches
-    (call_script, "script_set_trade_route_between_centers","p_town_50","p_town_51"),  (call_script, "script_set_trade_route_between_centers","p_town_50","p_town_70"),  (call_script, "script_set_trade_route_between_centers","p_town_50","p_town_66"),            
+    (call_script, "script_set_trade_route_between_centers","p_english_town_21","p_english_town_22"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_21","p_breton_town_5"),  
+    (call_script, "script_set_trade_route_between_centers","p_english_town_21","p_breton_town_1"),            
     #Coutances                 
 
     #Burgandian Towns
     #Dijon
-    (call_script, "script_set_trade_route_between_centers","p_town_52","p_town_53"),  (call_script, "script_set_trade_route_between_centers","p_town_52","p_town_9"), (call_script, "script_set_trade_route_between_centers","p_town_52","p_town_7"), (call_script, "script_set_trade_route_between_centers","p_town_52","p_town_54"),  (call_script, "script_set_trade_route_between_centers","p_town_52","p_town_21"),  (call_script, "script_set_trade_route_between_centers","p_town_52","p_town_55"),  (call_script, "script_set_trade_route_between_centers","p_town_52","p_town_56"),  (call_script, "script_set_trade_route_between_centers","p_town_52","p_town_63"),  (call_script, "script_set_trade_route_between_centers","p_town_52","p_town_61"),  (call_script, "script_set_trade_route_between_centers","p_town_52","p_town_1"),
+    (call_script, "script_set_trade_route_between_centers","p_burgundian_town_1","p_burgundian_town_2"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_1","p_french_town_9"), (call_script, "script_set_trade_route_between_centers","p_burgundian_town_1","p_french_town_7"), (call_script, "script_set_trade_route_between_centers","p_burgundian_town_1","p_burgundian_town_3"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_1","p_french_town_21"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_1","p_burgundian_town_4"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_1","p_burgundian_town_5"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_1","p_burgundian_town_12"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_1","p_burgundian_town_10"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_1","p_french_town_1"),
     #Besançon
-    (call_script, "script_set_trade_route_between_centers","p_town_53","p_town_9"), (call_script, "script_set_trade_route_between_centers","p_town_53","p_town_56"),  (call_script, "script_set_trade_route_between_centers","p_town_53","p_town_60"),              
+    (call_script, "script_set_trade_route_between_centers","p_burgundian_town_2","p_french_town_9"), (call_script, "script_set_trade_route_between_centers","p_burgundian_town_2","p_burgundian_town_5"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_2","p_burgundian_town_9"),              
     #Nevers
-    (call_script, "script_set_trade_route_between_centers","p_town_54","p_town_1"), (call_script, "script_set_trade_route_between_centers","p_town_54","p_town_21"),  (call_script, "script_set_trade_route_between_centers","p_town_54","p_town_7"),             
+    (call_script, "script_set_trade_route_between_centers","p_burgundian_town_3","p_french_town_1"), (call_script, "script_set_trade_route_between_centers","p_burgundian_town_3","p_french_town_21"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_3","p_french_town_7"),             
     #Auxerre 
-    (call_script, "script_set_trade_route_between_centers","p_town_55","p_town_54"),  (call_script, "script_set_trade_route_between_centers","p_town_55","p_town_22"),  (call_script, "script_set_trade_route_between_centers","p_town_55","p_town_21"),  (call_script, "script_set_trade_route_between_centers","p_town_55","p_town_56"),            
+    (call_script, "script_set_trade_route_between_centers","p_burgundian_town_4","p_burgundian_town_3"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_4","p_french_town_22"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_4","p_french_town_21"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_4","p_burgundian_town_5"),            
     #Troyes
-    (call_script, "script_set_trade_route_between_centers","p_town_56","p_town_63"),  (call_script, "script_set_trade_route_between_centers","p_town_56","p_town_57"),  (call_script, "script_set_trade_route_between_centers","p_town_56","p_town_65"),  (call_script, "script_set_trade_route_between_centers","p_town_56","p_town_64"),            
+    (call_script, "script_set_trade_route_between_centers","p_burgundian_town_5","p_burgundian_town_12"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_5","p_burgundian_town_6"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_5","p_burgundian_town_14"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_5","p_burgundian_town_13"),            
     #Compiègne
-    (call_script, "script_set_trade_route_between_centers","p_town_57","p_town_64"),  (call_script, "script_set_trade_route_between_centers","p_town_57","p_town_65"),  (call_script, "script_set_trade_route_between_centers","p_town_57","p_town_63"),  (call_script, "script_set_trade_route_between_centers","p_town_57","p_town_32"),  (call_script, "script_set_trade_route_between_centers","p_town_57","p_town_37"),          
+    (call_script, "script_set_trade_route_between_centers","p_burgundian_town_6","p_burgundian_town_13"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_6","p_burgundian_town_14"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_6","p_burgundian_town_12"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_6","p_english_town_3"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_6","p_english_town_8"),          
     #Bruges
-    (call_script, "script_set_trade_route_between_centers","p_town_58","p_town_60"),  (call_script, "script_set_trade_route_between_centers","p_town_58","p_town_59"),  (call_script, "script_set_trade_route_between_centers","p_town_58","p_town_20"),  (call_script, "script_set_trade_route_between_centers","p_town_58","p_town_65"),  (call_script, "script_set_trade_route_between_centers","p_town_58","p_town_64"),  (call_script, "script_set_trade_route_between_centers","p_town_58","p_town_37"),  (call_script, "script_set_trade_route_between_centers","p_town_58","p_town_61"),  (call_script, "script_set_trade_route_between_centers","p_town_58","p_town_52"),
+    (call_script, "script_set_trade_route_between_centers","p_burgundian_town_7","p_burgundian_town_9"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_7","p_burgundian_town_8"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_7","p_french_town_20"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_7","p_burgundian_town_14"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_7","p_burgundian_town_13"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_7","p_english_town_8"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_7","p_burgundian_town_10"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_7","p_burgundian_town_1"),
     #Gand 
-    (call_script, "script_set_trade_route_between_centers","p_town_59","p_town_20"),  (call_script, "script_set_trade_route_between_centers","p_town_59","p_town_63"),                
+    (call_script, "script_set_trade_route_between_centers","p_burgundian_town_8","p_french_town_20"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_8","p_burgundian_town_12"),                
     #Malines 
-    (call_script, "script_set_trade_route_between_centers","p_town_60","p_town_63"),  (call_script, "script_set_trade_route_between_centers","p_town_60","p_town_56"),  (call_script, "script_set_trade_route_between_centers","p_town_60","p_town_52"),  (call_script, "script_set_trade_route_between_centers","p_town_60","p_town_53"),  (call_script, "script_set_trade_route_between_centers","p_town_60","p_town_61"),  (call_script, "script_set_trade_route_between_centers","p_town_60","p_town_42"),        
+    (call_script, "script_set_trade_route_between_centers","p_burgundian_town_9","p_burgundian_town_12"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_9","p_burgundian_town_5"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_9","p_burgundian_town_1"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_9","p_burgundian_town_2"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_9","p_burgundian_town_10"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_9","p_english_town_13"),        
     #Boulogne  
-    (call_script, "script_set_trade_route_between_centers","p_town_61","p_town_64"),  (call_script, "script_set_trade_route_between_centers","p_town_61","p_town_30"),  (call_script, "script_set_trade_route_between_centers","p_town_61","p_town_37"),  (call_script, "script_set_trade_route_between_centers","p_town_61","p_town_39"),            
+    (call_script, "script_set_trade_route_between_centers","p_burgundian_town_10","p_burgundian_town_13"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_10","p_english_town_1"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_10","p_english_town_8"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_10","p_english_town_10"),            
     #Châlons-en-Champagne 
-    (call_script, "script_set_trade_route_between_centers","p_town_62","p_town_63"),  (call_script, "script_set_trade_route_between_centers","p_town_62","p_town_56"),  (call_script, "script_set_trade_route_between_centers","p_town_62","p_town_52"),  (call_script, "script_set_trade_route_between_centers","p_town_62","p_town_53"),            
+    (call_script, "script_set_trade_route_between_centers","p_burgundian_town_11","p_burgundian_town_12"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_11","p_burgundian_town_5"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_11","p_burgundian_town_1"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_11","p_burgundian_town_2"),            
     #Reims 
-    (call_script, "script_set_trade_route_between_centers","p_town_63","p_town_20"),  (call_script, "script_set_trade_route_between_centers","p_town_63","p_town_30"),                
+    (call_script, "script_set_trade_route_between_centers","p_burgundian_town_12","p_french_town_20"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_12","p_english_town_1"),                
     #Amiens 
-    (call_script, "script_set_trade_route_between_centers","p_town_64","p_town_30"),  (call_script, "script_set_trade_route_between_centers","p_town_64","p_town_37"),                
+    (call_script, "script_set_trade_route_between_centers","p_burgundian_town_13","p_english_town_1"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_13","p_english_town_8"),                
     #Peronne
-    (call_script, "script_set_trade_route_between_centers","p_town_65","p_town_20"),  (call_script, "script_set_trade_route_between_centers","p_town_65","p_town_64"),                
+    (call_script, "script_set_trade_route_between_centers","p_burgundian_town_14","p_french_town_20"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_14","p_burgundian_town_13"),                
 
     #Breton Towns
     #Rennes
-    (call_script, "script_set_trade_route_between_centers","p_town_66","p_town_70"),  (call_script, "script_set_trade_route_between_centers","p_town_66","p_town_73"),  (call_script, "script_set_trade_route_between_centers","p_town_66","p_town_68"),  (call_script, "script_set_trade_route_between_centers","p_town_66","p_town_67"),  (call_script, "script_set_trade_route_between_centers","p_town_66","p_town_28"),  (call_script, "script_set_trade_route_between_centers","p_town_66","p_town_72"),  (call_script, "script_set_trade_route_between_centers","p_town_66","p_town_37"),  (call_script, "script_set_trade_route_between_centers","p_town_66","p_town_30"),
+    (call_script, "script_set_trade_route_between_centers","p_breton_town_1","p_breton_town_5"),  (call_script, "script_set_trade_route_between_centers","p_breton_town_1","p_breton_town_8"),  (call_script, "script_set_trade_route_between_centers","p_breton_town_1","p_breton_town_3"),  (call_script, "script_set_trade_route_between_centers","p_breton_town_1","p_breton_town_2"),  (call_script, "script_set_trade_route_between_centers","p_breton_town_1","p_french_town_28"),  (call_script, "script_set_trade_route_between_centers","p_breton_town_1","p_breton_town_7"),  (call_script, "script_set_trade_route_between_centers","p_breton_town_1","p_english_town_8"),  (call_script, "script_set_trade_route_between_centers","p_breton_town_1","p_english_town_1"),
     #Nantes
-    (call_script, "script_set_trade_route_between_centers","p_town_67","p_town_28"),  (call_script, "script_set_trade_route_between_centers","p_town_67","p_town_68"),  (call_script, "script_set_trade_route_between_centers","p_town_67","p_town_73"),  (call_script, "script_set_trade_route_between_centers","p_town_67","p_town_69"),  (call_script, "script_set_trade_route_between_centers","p_town_67","p_town_70"),  (call_script, "script_set_trade_route_between_centers","p_town_67","p_town_1"), (call_script, "script_set_trade_route_between_centers","p_town_67","p_town_37"),  (call_script, "script_set_trade_route_between_centers","p_town_67","p_town_30"),
+    (call_script, "script_set_trade_route_between_centers","p_breton_town_2","p_french_town_28"),  (call_script, "script_set_trade_route_between_centers","p_breton_town_2","p_breton_town_3"),  (call_script, "script_set_trade_route_between_centers","p_breton_town_2","p_breton_town_8"),  (call_script, "script_set_trade_route_between_centers","p_breton_town_2","p_breton_town_4"),  (call_script, "script_set_trade_route_between_centers","p_breton_town_2","p_breton_town_5"),  (call_script, "script_set_trade_route_between_centers","p_breton_town_2","p_french_town_1"), (call_script, "script_set_trade_route_between_centers","p_breton_town_2","p_english_town_8"),  (call_script, "script_set_trade_route_between_centers","p_breton_town_2","p_english_town_1"),
     #Vannes
-    (call_script, "script_set_trade_route_between_centers","p_town_68","p_town_73"),  (call_script, "script_set_trade_route_between_centers","p_town_68","p_town_69"),  (call_script, "script_set_trade_route_between_centers","p_town_68","p_town_70"),  (call_script, "script_set_trade_route_between_centers","p_town_68","p_town_71"),        
+    (call_script, "script_set_trade_route_between_centers","p_breton_town_3","p_breton_town_8"),  (call_script, "script_set_trade_route_between_centers","p_breton_town_3","p_breton_town_4"),  (call_script, "script_set_trade_route_between_centers","p_breton_town_3","p_breton_town_5"),  (call_script, "script_set_trade_route_between_centers","p_breton_town_3","p_breton_town_6"),        
     #Kemper
-    (call_script, "script_set_trade_route_between_centers","p_town_69","p_town_73"),  (call_script, "script_set_trade_route_between_centers","p_town_69","p_town_70"),  (call_script, "script_set_trade_route_between_centers","p_town_69","p_town_72"),          
+    (call_script, "script_set_trade_route_between_centers","p_breton_town_4","p_breton_town_8"),  (call_script, "script_set_trade_route_between_centers","p_breton_town_4","p_breton_town_5"),  (call_script, "script_set_trade_route_between_centers","p_breton_town_4","p_breton_town_7"),          
     #Saint-Malo
-    (call_script, "script_set_trade_route_between_centers","p_town_70","p_town_71"),  (call_script, "script_set_trade_route_between_centers","p_town_70","p_town_73"),            
+    (call_script, "script_set_trade_route_between_centers","p_breton_town_5","p_breton_town_6"),  (call_script, "script_set_trade_route_between_centers","p_breton_town_5","p_breton_town_8"),            
     #Saint-Brieuc
-    (call_script, "script_set_trade_route_between_centers","p_town_71","p_town_72"),              
+    (call_script, "script_set_trade_route_between_centers","p_breton_town_6","p_breton_town_7"),              
     #Saint-Pol-de-Léon
-    (call_script, "script_set_trade_route_between_centers","p_town_72","p_town_67"),              
+    (call_script, "script_set_trade_route_between_centers","p_breton_town_7","p_breton_town_2"),              
     #Rohan
-    (call_script, "script_set_trade_route_between_centers","p_town_73","p_town_72"),              
+    (call_script, "script_set_trade_route_between_centers","p_breton_town_8","p_breton_town_7"),              
 
 
   ]),
@@ -9334,112 +9395,112 @@ scripts = [
     (try_end),
 
 	#Sargoth (linen, wine)
-	(party_set_slot, "p_town_1", slot_center_linen_looms, 15),
-	(party_set_slot, "p_town_1", slot_center_wine_presses, 4),
+	(party_set_slot, "p_french_town_1", slot_center_linen_looms, 15),
+	(party_set_slot, "p_french_town_1", slot_center_wine_presses, 4),
 
 	#Tihr (salt, smoked fish, linen)
-	(party_set_slot, "p_town_2", slot_center_salt_pans, 3),
-	(party_set_slot, "p_town_2", slot_center_fishing_fleet, 25),
-	(party_set_slot, "p_town_2", slot_center_linen_looms, 15),
+	(party_set_slot, "p_french_town_2", slot_center_salt_pans, 3),
+	(party_set_slot, "p_french_town_2", slot_center_fishing_fleet, 25),
+	(party_set_slot, "p_french_town_2", slot_center_linen_looms, 15),
 
 	#Veluca	(wine, velvet)
-	(party_set_slot, "p_town_3", slot_center_wine_presses, 10),
-	(party_set_slot, "p_town_3", slot_center_silk_looms, 12),
+	(party_set_slot, "p_french_town_3", slot_center_wine_presses, 10),
+	(party_set_slot, "p_french_town_3", slot_center_silk_looms, 12),
 
 	#Suno (velvet, oil)
-	(party_set_slot, "p_town_4", slot_center_silk_looms, 12),
-	(party_set_slot, "p_town_4", slot_center_olive_presses, 15),
+	(party_set_slot, "p_french_town_4", slot_center_silk_looms, 12),
+	(party_set_slot, "p_french_town_4", slot_center_olive_presses, 15),
 
 	#Jelkala (velvet, smoked fish)
-	(party_set_slot, "p_town_5", slot_center_silk_looms, 24),
-	(party_set_slot, "p_town_5", slot_center_fishing_fleet, 30),
+	(party_set_slot, "p_french_town_5", slot_center_silk_looms, 24),
+	(party_set_slot, "p_french_town_5", slot_center_fishing_fleet, 30),
 
 	#Praven (ale, leatherwork, smoked fish)
-	(party_set_slot, "p_town_6", slot_center_breweries, 10),
-	(party_set_slot, "p_town_6", slot_center_tanneries, 4),
-	(party_set_slot, "p_town_6", slot_center_fishing_fleet, 10),
+	(party_set_slot, "p_french_town_6", slot_center_breweries, 10),
+	(party_set_slot, "p_french_town_6", slot_center_tanneries, 4),
+	(party_set_slot, "p_french_town_6", slot_center_fishing_fleet, 10),
 
 	#Uxkhal (bread, leatherwork, oil)
-	(party_set_slot, "p_town_7", slot_center_mills, 15),
-	(party_set_slot, "p_town_7", slot_center_tanneries, 4),
-	(party_set_slot, "p_town_7", slot_center_olive_presses, 5),
+	(party_set_slot, "p_french_town_7", slot_center_mills, 15),
+	(party_set_slot, "p_french_town_7", slot_center_tanneries, 4),
+	(party_set_slot, "p_french_town_7", slot_center_olive_presses, 5),
 
 	#Reyvadin (tools, wool cloth, wine)
-	(party_set_slot, "p_town_8", slot_center_smithies, 25),
-	(party_set_slot, "p_town_8", slot_center_wool_looms, 35),
-	(party_set_slot, "p_town_8", slot_center_wine_presses, 4),
+	(party_set_slot, "p_french_town_8", slot_center_smithies, 25),
+	(party_set_slot, "p_french_town_8", slot_center_wool_looms, 35),
+	(party_set_slot, "p_french_town_8", slot_center_wine_presses, 4),
 
 	#Khudan (tools, leatherwork, smoked fish)
-	(party_set_slot, "p_town_9", slot_center_smithies, 18),
-	(party_set_slot, "p_town_9", slot_center_tanneries, 3),
-	(party_set_slot, "p_town_9", slot_center_fishing_fleet, 5),
+	(party_set_slot, "p_french_town_9", slot_center_smithies, 18),
+	(party_set_slot, "p_french_town_9", slot_center_tanneries, 3),
+	(party_set_slot, "p_french_town_9", slot_center_fishing_fleet, 5),
 
 	#Tulga (salt, spice)
-	(party_set_slot, "p_town_10", slot_center_salt_pans, 2),
+	(party_set_slot, "p_french_town_10", slot_center_salt_pans, 2),
 	#also produces 100 spice
 
 	#Curaw (tools, iron, smoked fish)
-	(party_set_slot, "p_town_11", slot_center_smithies, 19),
-	(party_set_slot, "p_town_11", slot_center_iron_deposits, 10),
-	(party_set_slot, "p_town_11", slot_center_fishing_fleet, 10),
+	(party_set_slot, "p_french_town_11", slot_center_smithies, 19),
+	(party_set_slot, "p_french_town_11", slot_center_iron_deposits, 10),
+	(party_set_slot, "p_french_town_11", slot_center_fishing_fleet, 10),
 
 	#Wercheg (salt, smoked fish)
-    (party_set_slot, "p_town_12", slot_center_salt_pans, 3),
-	(party_set_slot, "p_town_12", slot_center_fishing_fleet, 25),
+    (party_set_slot, "p_french_town_12", slot_center_salt_pans, 3),
+	(party_set_slot, "p_french_town_12", slot_center_fishing_fleet, 25),
 
 	#Rivacheg (wool cloth, leatherwork, smoked fish)
-	(party_set_slot, "p_town_13", slot_center_wool_looms, 30),
-	(party_set_slot, "p_town_13", slot_center_tanneries, 5),
-	(party_set_slot, "p_town_13", slot_center_fishing_fleet, 20),
+	(party_set_slot, "p_french_town_13", slot_center_wool_looms, 30),
+	(party_set_slot, "p_french_town_13", slot_center_tanneries, 5),
+	(party_set_slot, "p_french_town_13", slot_center_fishing_fleet, 20),
 
 	#Halmar (leatherwork, pottery)
-	(party_set_slot, "p_town_14", slot_center_tanneries, 3),
-	(party_set_slot, "p_town_14", slot_center_pottery_kilns, 18),
+	(party_set_slot, "p_french_town_14", slot_center_tanneries, 3),
+	(party_set_slot, "p_french_town_14", slot_center_pottery_kilns, 18),
 
 	#Yalen (tools, wine, oil, smoked fish)
-	(party_set_slot, "p_town_15", slot_center_smithies, 20),
-	(party_set_slot, "p_town_15", slot_center_wine_presses, 6),
-	(party_set_slot, "p_town_15", slot_center_olive_presses, 5),
-	(party_set_slot, "p_town_15", slot_center_fishing_fleet, 25),
+	(party_set_slot, "p_french_town_15", slot_center_smithies, 20),
+	(party_set_slot, "p_french_town_15", slot_center_wine_presses, 6),
+	(party_set_slot, "p_french_town_15", slot_center_olive_presses, 5),
+	(party_set_slot, "p_french_town_15", slot_center_fishing_fleet, 25),
 
 	#Dhirim (tools, leatherwork)
-	(party_set_slot, "p_town_16", slot_center_smithies, 30),
-	(party_set_slot, "p_town_16", slot_center_tanneries, 4),
+	(party_set_slot, "p_french_town_16", slot_center_smithies, 30),
+	(party_set_slot, "p_french_town_16", slot_center_tanneries, 4),
 
 	#Ichamur (wool cloth, spice)
-	(party_set_slot, "p_town_17", slot_center_wool_looms, 40),
+	(party_set_slot, "p_french_town_17", slot_center_wool_looms, 40),
 	#also produces 50 spice
 
 	#Narra (wool cloth, oil)
-	(party_set_slot, "p_town_18", slot_center_wool_looms, 35),
-	(party_set_slot, "p_town_18", slot_center_olive_presses, 10),
+	(party_set_slot, "p_french_town_18", slot_center_wool_looms, 35),
+	(party_set_slot, "p_french_town_18", slot_center_olive_presses, 10),
 
 	#Shariz (leatherwork, smoked fish, oil)
-	(party_set_slot, "p_town_19", slot_center_tanneries, 5),
-	(party_set_slot, "p_town_19", slot_center_breweries, 0), 	    #no alcohol (ale) in arabic region
-	(party_set_slot, "p_town_19", slot_center_wine_presses, 0), 	#no alcohol (wine) in arabic region
-	(party_set_slot, "p_town_19", slot_center_fishing_fleet, 5),
-	(party_set_slot, "p_town_19", slot_center_olive_presses, 5),
+	(party_set_slot, "p_french_town_19", slot_center_tanneries, 5),
+	(party_set_slot, "p_french_town_19", slot_center_breweries, 0), 	    #no alcohol (ale) in arabic region
+	(party_set_slot, "p_french_town_19", slot_center_wine_presses, 0), 	#no alcohol (wine) in arabic region
+	(party_set_slot, "p_french_town_19", slot_center_fishing_fleet, 5),
+	(party_set_slot, "p_french_town_19", slot_center_olive_presses, 5),
 	#also produces 50 spice
 
 	#Darquba (linen, pottery, oil)
-	(party_set_slot, "p_town_20", slot_center_breweries, 0), 	    #no alcohol (ale) in arabic region
-	(party_set_slot, "p_town_20", slot_center_wine_presses, 0), 	#no alcohol (wine) in arabic region
-	(party_set_slot, "p_town_20", slot_center_linen_looms, 15),
-	(party_set_slot, "p_town_20", slot_center_pottery_kilns, 12),
-	(party_set_slot, "p_town_19", slot_center_olive_presses, 3),
+	(party_set_slot, "p_french_town_20", slot_center_breweries, 0), 	    #no alcohol (ale) in arabic region
+	(party_set_slot, "p_french_town_20", slot_center_wine_presses, 0), 	#no alcohol (wine) in arabic region
+	(party_set_slot, "p_french_town_20", slot_center_linen_looms, 15),
+	(party_set_slot, "p_french_town_20", slot_center_pottery_kilns, 12),
+	(party_set_slot, "p_french_town_19", slot_center_olive_presses, 3),
 
 	#Ahmerrad (pottery, salt)
-	(party_set_slot, "p_town_21", slot_center_breweries, 0), 	    #no alcohol (ale) in arabic region
-	(party_set_slot, "p_town_21", slot_center_wine_presses, 0), 	#no alcohol (wine) in arabic region
-	(party_set_slot, "p_town_21", slot_center_pottery_kilns, 24),
-	(party_set_slot, "p_town_21", slot_center_salt_pans, 1),
+	(party_set_slot, "p_french_town_21", slot_center_breweries, 0), 	    #no alcohol (ale) in arabic region
+	(party_set_slot, "p_french_town_21", slot_center_wine_presses, 0), 	#no alcohol (wine) in arabic region
+	(party_set_slot, "p_french_town_21", slot_center_pottery_kilns, 24),
+	(party_set_slot, "p_french_town_21", slot_center_salt_pans, 1),
 
 	#Bariyye (salt, pottery, spice)
-	(party_set_slot, "p_town_22", slot_center_breweries, 0), 	    #no alcohol (ale) in arabic region
-	(party_set_slot, "p_town_22", slot_center_wine_presses, 0), 	#no alcohol (wine) in arabic region
-	(party_set_slot, "p_town_22", slot_center_pottery_kilns, 12),
-	(party_set_slot, "p_town_22", slot_center_salt_pans, 2),
+	(party_set_slot, "p_french_town_22", slot_center_breweries, 0), 	    #no alcohol (ale) in arabic region
+	(party_set_slot, "p_french_town_22", slot_center_wine_presses, 0), 	#no alcohol (wine) in arabic region
+	(party_set_slot, "p_french_town_22", slot_center_pottery_kilns, 12),
+	(party_set_slot, "p_french_town_22", slot_center_salt_pans, 2),
 	#also produces 50 spice
 
     (try_for_range, ":village_no", villages_begin, villages_end),
@@ -9451,29 +9512,29 @@ scripts = [
 	    (this_or_next|eq, ":village_is_at_desert", rt_desert),
 	    (eq, ":village_is_at_desert", rt_desert_forest),#If false, will fall through and be assigned to 0 below
 	    (assign, ":village_is_at_desert", 1),
-      (else_try),
-	    (lt, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_LOW), #Fall back to old behavior
+      # (else_try),
+	    # (lt, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_LOW), #Fall back to old behavior
       ##diplomacy end+
-	    (this_or_next|eq, ":village_no", "p_village_93"), #mazigh
-		(this_or_next|eq, ":village_no", "p_village_94"), #sekhtem
-		(this_or_next|eq, ":village_no", "p_village_95"), #qalyut
-		(this_or_next|eq, ":village_no", "p_village_96"), #tilimsal
-		(this_or_next|eq, ":village_no", "p_village_97"), #shibal zumr
-		(this_or_next|eq, ":village_no", "p_village_102"), #tamnuh
-		(this_or_next|eq, ":village_no", "p_village_109"), #habba
-		(this_or_next|eq, ":village_no", "p_village_98"), #mawiti
-		(this_or_next|eq, ":village_no", "p_village_103"), #mijayet
-		(this_or_next|eq, ":village_no", "p_village_105"), #aab
-		(this_or_next|eq, ":village_no", "p_village_99"), #fishara
-		(this_or_next|eq, ":village_no", "p_village_100"), #iqbayl
-		(this_or_next|eq, ":village_no", "p_village_107"), #unriya
-		(this_or_next|eq, ":village_no", "p_village_101"), #uzgha
-		(this_or_next|eq, ":village_no", "p_village_104"), #tazjunat
-        (this_or_next|eq, ":village_no", "p_village_110"), #rushdigh
-		(this_or_next|eq, ":village_no", "p_village_108"), #mit nun
-		(eq, ":village_no", "p_village_92"), #dhibbain
+	    # (this_or_next|eq, ":village_no", "p_english_village_18"), #mazigh
+		# (this_or_next|eq, ":village_no", "p_english_village_19"), #sekhtem
+		# (this_or_next|eq, ":village_no", "p_english_village_20"), #qalyut
+		# (this_or_next|eq, ":village_no", "p_english_village_21"), #tilimsal
+		# (this_or_next|eq, ":village_no", "p_english_village_22"), #shibal zumr
+		# (this_or_next|eq, ":village_no", "p_english_village_27"), #tamnuh
+		# (this_or_next|eq, ":village_no", "p_english_village_34"), #habba
+		# (this_or_next|eq, ":village_no", "p_english_village_23"), #mawiti
+		# (this_or_next|eq, ":village_no", "p_english_village_28"), #mijayet
+		# (this_or_next|eq, ":village_no", "p_english_village_30"), #aab
+		# (this_or_next|eq, ":village_no", "p_english_village_24"), #fishara
+		# (this_or_next|eq, ":village_no", "p_english_village_25"), #iqbayl
+		# (this_or_next|eq, ":village_no", "p_english_village_32"), #unriya
+		# (this_or_next|eq, ":village_no", "p_english_village_26"), #uzgha
+		# (this_or_next|eq, ":village_no", "p_english_village_29"), #tazjunat
+        # (this_or_next|eq, ":village_no", "p_english_village_35"), #rushdigh
+		# (this_or_next|eq, ":village_no", "p_english_village_33"), #mit nun
+		# (eq, ":village_no", "p_village_92"), #dhibbain
 
-		(assign, ":village_is_at_desert", 1),
+		# (assign, ":village_is_at_desert", 1),
 	  (else_try),
 		(assign, ":village_is_at_desert", 0),
 	  (try_end),
@@ -9549,63 +9610,63 @@ scripts = [
 
 	  #Sargoth (village productions : Ambean, Fearichen and Fenada)
 	  (try_begin),
-	    (party_slot_eq, ":village_no", slot_village_market_town, "p_town_1"),
+	    (party_slot_eq, ":village_no", slot_village_market_town, "p_french_town_1"),
 		(party_set_slot, ":village_no", slot_center_acres_flax, 4000),
 		(party_set_slot, ":village_no", slot_center_acres_vineyard, 8000),
 
 	  #Tihr (village productions : Kulum, Haen and Aldelen)
 		(else_try),
-	    (party_slot_eq, ":village_no", slot_village_market_town, "p_town_2"),
+	    (party_slot_eq, ":village_no", slot_village_market_town, "p_french_town_2"),
 		(party_set_slot, ":village_no", slot_center_acres_vineyard, 8000),
 		(party_set_slot, ":village_no", slot_center_household_gardens, 10),
 
 	  #Veluca (village productions : Emer, Fedner, Chaeza and Sarimish)
 		(else_try),
-	    (party_slot_eq, ":village_no", slot_village_market_town, "p_town_3"),
+	    (party_slot_eq, ":village_no", slot_village_market_town, "p_french_town_3"),
 		(party_set_slot, ":village_no", slot_center_acres_vineyard, 6000),
 		(party_set_slot, ":village_no", slot_center_acres_olives, 6000),
 
 	  #Suno (village productions : Ruluns and Lyindah)
 		(else_try),
-	    (party_slot_eq, ":village_no", slot_village_market_town, "p_town_4"),
+	    (party_slot_eq, ":village_no", slot_village_market_town, "p_french_town_4"),
 		(party_set_slot, ":village_no", slot_center_fur_traps, 2),
 		(party_set_slot, ":village_no", slot_center_acres_olives, 8000),
 
 	  #Jelkala (village productions : Buvran, Ruldi and Chelez)
 		(else_try),
-	    (party_slot_eq, ":village_no", slot_village_market_town, "p_town_5"),
+	    (party_slot_eq, ":village_no", slot_village_market_town, "p_french_town_5"),
 		(party_set_slot, ":village_no", slot_center_silk_farms, 1500),
 		(party_set_slot, ":village_no", slot_center_kirmiz_farms, 1500),
 
 	  #Praven (village productions : Azgad, Veidar, Elberl and Gisim)
 		(else_try),
-	    (party_slot_eq, ":village_no", slot_village_market_town, "p_town_6"),
+	    (party_slot_eq, ":village_no", slot_village_market_town, "p_french_town_6"),
 		(party_set_slot, ":village_no", slot_center_acres_flax, 4000),
 		(party_set_slot, ":village_no", slot_center_breweries, 4),
 
 	  #Uxkhal (village productions : Nomar, Ibiran and Tahlberl)
 		(else_try),
-	    (party_slot_eq, ":village_no", slot_village_market_town, "p_town_7"),
+	    (party_slot_eq, ":village_no", slot_village_market_town, "p_french_town_7"),
 		(party_set_slot, ":village_no", slot_center_fur_traps, 1),
 		(party_set_slot, ":village_no", slot_center_acres_olives, 8000),
 		(party_set_slot, ":village_no", slot_center_apiaries, 8),
 
       #Reyvadin (village productions : Ulburban and Ayyike)
 		(else_try),
-	    (party_slot_eq, ":village_no", slot_village_market_town, "p_town_8"),
+	    (party_slot_eq, ":village_no", slot_village_market_town, "p_french_town_8"),
 		(party_set_slot, ":village_no", slot_center_fur_traps, 2),
 			(party_set_slot, ":village_no", slot_center_head_cattle, 100),
 		(party_set_slot, ":village_no", slot_center_iron_deposits, 6),
 
       #Khudan (village productions : Uslum, Shulus and Tismirr)
 		(else_try),
-	    (party_slot_eq, ":village_no", slot_village_market_town, "p_town_9"),
+	    (party_slot_eq, ":village_no", slot_village_market_town, "p_french_town_9"),
 		(party_set_slot, ":village_no", slot_center_fur_traps, 2),
 		(party_set_slot, ":village_no", slot_center_acres_olives, 4000),
 
       #Tulga (village productions : Dusturil and Dashbigha)
 		(else_try),
-	    (party_slot_eq, ":village_no", slot_village_market_town, "p_town_10"),
+	    (party_slot_eq, ":village_no", slot_village_market_town, "p_french_town_10"),
 			(party_set_slot, ":village_no", slot_center_head_sheep, 150),
 			(party_set_slot, ":village_no", slot_center_salt_pans, 1),
 			(party_set_slot, ":village_no", slot_center_fur_traps, 1),
@@ -9613,53 +9674,53 @@ scripts = [
 
       #Curaw (village productions : Bazeck and Rebache)
 		(else_try),
-	    (party_slot_eq, ":village_no", slot_village_market_town, "p_town_11"),
+	    (party_slot_eq, ":village_no", slot_village_market_town, "p_french_town_11"),
 		(party_set_slot, ":village_no", slot_center_iron_deposits, 6),
 		(party_set_slot, ":village_no", slot_center_fur_traps, 2),
 
       #Wercheg (village productions : Ruvar and Odasan)
 		(else_try),
-	    (party_slot_eq, ":village_no", slot_village_market_town, "p_town_12"),
+	    (party_slot_eq, ":village_no", slot_village_market_town, "p_french_town_12"),
 		(party_set_slot, ":village_no", slot_center_acres_vineyard, 8000),
 		(party_set_slot, ":village_no", slot_center_household_gardens, 10),
 		(party_set_slot, ":village_no", slot_center_salt_pans, 1),
 
       #Rivacheg (village productions : Shapeshte, Vezin and Fisdnar)
 		(else_try),
-	    (party_slot_eq, ":village_no", slot_village_market_town, "p_town_13"),
+	    (party_slot_eq, ":village_no", slot_village_market_town, "p_french_town_13"),
 		(party_set_slot, ":village_no", slot_center_fur_traps, 2),
 		(party_set_slot, ":village_no", slot_center_head_cattle, 100),
 		(party_set_slot, ":village_no", slot_center_silk_farms, 1500),
 
       #Halmar (village productions : Peshmi)
 		(else_try),
-	    (party_slot_eq, ":village_no", slot_village_market_town, "p_town_14"),
+	    (party_slot_eq, ":village_no", slot_village_market_town, "p_french_town_14"),
 		(party_set_slot, ":village_no", slot_center_acres_grain, 40000),
 		(party_set_slot, ":village_no", slot_center_mills, 5),
 
       #Yalen (village productions : Ilvia, Glunmar, Epeshe and Istiniar)
 		(else_try),
-	    (party_slot_eq, ":village_no", slot_village_market_town, "p_town_15"),
+	    (party_slot_eq, ":village_no", slot_village_market_town, "p_french_town_15"),
 		(party_set_slot, ":village_no", slot_center_acres_vineyard, 8000),
 		(party_set_slot, ":village_no", slot_center_acres_olives, 8000),
 		(party_set_slot, ":village_no", slot_center_household_gardens, 10),
 
       #Dhirim (village productions : Burglen, Amere, Ushkuru, Tshibtin and Yalibe)
 		(else_try),
-        (party_slot_eq, ":village_no", slot_village_market_town, "p_town_16"),
+        (party_slot_eq, ":village_no", slot_village_market_town, "p_french_town_16"),
         (party_set_slot, ":village_no", slot_center_acres_grain, 40000),
         (party_set_slot, ":village_no", slot_center_iron_deposits, 3),
 		(party_set_slot, ":village_no", slot_center_mills, 5),
 
       #Ichamur (village productions : Ada Kulun and Drigh Aban)
 		(else_try),
-        (party_slot_eq, ":village_no", slot_village_market_town, "p_town_17"),
+        (party_slot_eq, ":village_no", slot_village_market_town, "p_french_town_17"),
         (party_set_slot, ":village_no", slot_center_acres_grain, 20000),
 			(party_set_slot, ":village_no", slot_center_fur_traps, 1),
 
       #Narra (village productions : Zagush and Kedelke)
 		(else_try),
-        (party_slot_eq, ":village_no", slot_village_market_town, "p_town_18"),
+        (party_slot_eq, ":village_no", slot_village_market_town, "p_french_town_18"),
         (party_set_slot, ":village_no", slot_center_acres_grain, 20000),
         (party_set_slot, ":village_no", slot_center_iron_deposits, 3),
 		(party_set_slot, ":village_no", slot_center_apiaries, 8),
@@ -9667,7 +9728,7 @@ scripts = [
 
       #Shariz (village productions : Ayn Assuadi, Dhibbain, Qalyut, Tilimsal and Rushdigh)
 		(else_try),
-        (party_slot_eq, ":village_no", slot_village_market_town, "p_town_19"),
+        (party_slot_eq, ":village_no", slot_village_market_town, "p_french_town_19"),
         (party_set_slot, ":village_no", slot_center_acres_grain, 6000), #low grain (partially desert)
 			(party_set_slot, ":village_no", slot_center_acres_flax, 2000),
 			(party_set_slot, ":village_no", slot_center_acres_olives, 3000),
@@ -9675,21 +9736,21 @@ scripts = [
 
       #Durquba (village productions : Tamnuh and Sekhtem)
 		(else_try),
-        (party_slot_eq, ":village_no", slot_village_market_town, "p_town_20"),
+        (party_slot_eq, ":village_no", slot_village_market_town, "p_french_town_20"),
         (party_set_slot, ":village_no", slot_center_acres_grain, 3000), #low grain (heavy desert)
         (party_set_slot, ":village_no", slot_center_acres_dates, 10000),
 			(party_set_slot, ":village_no", slot_center_salt_pans, 1),
 
       #Ahmerrad (village productions : Mawiti, Uzgha and Mijayet)
 		(else_try),
-        (party_slot_eq, ":village_no", slot_village_market_town, "p_town_21"),
+        (party_slot_eq, ":village_no", slot_village_market_town, "p_french_town_21"),
         (party_set_slot, ":village_no", slot_center_acres_grain, 3000), #low grain (heavy desert)
         (party_set_slot, ":village_no", slot_center_acres_dates, 5000),
 		(party_set_slot, ":village_no", slot_center_kirmiz_farms, 1500),
 
       #Bariyye (village productions : Fishara and Iqbayl)
 		(else_try),
-        (party_slot_eq, ":village_no", slot_village_market_town, "p_town_22"),
+        (party_slot_eq, ":village_no", slot_village_market_town, "p_french_town_22"),
         (party_set_slot, ":village_no", slot_center_acres_grain, 2000), #low grain (heavy desert)
 			(party_set_slot, ":village_no", slot_center_acres_flax, 2000),
         (party_set_slot, ":village_no", slot_center_acres_dates, 10000),
@@ -9728,40 +9789,40 @@ scripts = [
 	(try_end),
 
 	#Ocean and river villages, new map
-    (party_set_slot, "p_village_1", slot_center_fishing_fleet, 15), #Yaragar
-    (party_set_slot, "p_village_3", slot_center_fishing_fleet, 15), #Azgad
-    (party_set_slot, "p_village_5", slot_center_fishing_fleet, 15), #Kulum
+    (party_set_slot, "p_french_village_1", slot_center_fishing_fleet, 15), #Yaragar
+    (party_set_slot, "p_french_village_3", slot_center_fishing_fleet, 15), #Azgad
+    (party_set_slot, "p_french_village_5", slot_center_fishing_fleet, 15), #Kulum
 
-    (party_set_slot, "p_village_8", slot_center_fishing_fleet, 15), #Haen
-    (party_set_slot, "p_village_9", slot_center_fishing_fleet, 15), #Buvran
+    (party_set_slot, "p_french_village_8", slot_center_fishing_fleet, 15), #Haen
+    (party_set_slot, "p_french_village_9", slot_center_fishing_fleet, 15), #Buvran
 
-    (party_set_slot, "p_village_20", slot_center_fishing_fleet, 15), #Uslum
-    (party_set_slot, "p_village_21", slot_center_fishing_fleet, 15), #Bazeck
-    (party_set_slot, "p_village_23", slot_center_fishing_fleet, 15), #Ilvia
-    (party_set_slot, "p_village_27", slot_center_fishing_fleet, 15), #Glunmar
+    (party_set_slot, "p_french_village_20", slot_center_fishing_fleet, 15), #Uslum
+    (party_set_slot, "p_french_village_21", slot_center_fishing_fleet, 15), #Bazeck
+    (party_set_slot, "p_french_village_23", slot_center_fishing_fleet, 15), #Ilvia
+    (party_set_slot, "p_french_village_27", slot_center_fishing_fleet, 15), #Glunmar
 
-    (party_set_slot, "p_village_30", slot_center_fishing_fleet, 20), #Ruvar
-    (party_set_slot, "p_village_31", slot_center_fishing_fleet, 15), #Ambean
-    (party_set_slot, "p_village_35", slot_center_fishing_fleet, 15), #Feacharin
+    (party_set_slot, "p_french_village_30", slot_center_fishing_fleet, 20), #Ruvar
+    (party_set_slot, "p_french_village_31", slot_center_fishing_fleet, 15), #Ambean
+    (party_set_slot, "p_french_village_35", slot_center_fishing_fleet, 15), #Feacharin
 
-    (party_set_slot, "p_village_47", slot_center_fishing_fleet, 15), #Epeshe
-    (party_set_slot, "p_village_49", slot_center_fishing_fleet, 15), #Tismirr
+    (party_set_slot, "p_french_village_47", slot_center_fishing_fleet, 15), #Epeshe
+    (party_set_slot, "p_french_village_49", slot_center_fishing_fleet, 15), #Tismirr
 
-    (party_set_slot, "p_village_51", slot_center_fishing_fleet, 15), #Jelbegi
-    (party_set_slot, "p_village_56", slot_center_fishing_fleet, 15), #Fenada
+    (party_set_slot, "p_french_village_51", slot_center_fishing_fleet, 15), #Jelbegi
+    (party_set_slot, "p_french_village_56", slot_center_fishing_fleet, 15), #Fenada
 
-    (party_set_slot, "p_village_66", slot_center_fishing_fleet, 15), #Fisdnar
-    (party_set_slot, "p_village_68", slot_center_fishing_fleet, 15), #Ibdeles
-    (party_set_slot, "p_village_69", slot_center_fishing_fleet, 15), #Kwynn
+    (party_set_slot, "p_french_village_66", slot_center_fishing_fleet, 15), #Fisdnar
+    (party_set_slot, "p_french_village_68", slot_center_fishing_fleet, 15), #Ibdeles
+    (party_set_slot, "p_french_village_69", slot_center_fishing_fleet, 15), #Kwynn
 
-    (party_set_slot, "p_village_77", slot_center_fishing_fleet, 25), #Rizi - Estuary
-    (party_set_slot, "p_village_79", slot_center_fishing_fleet, 15), #Istiniar
+    (party_set_slot, "p_english_village_2", slot_center_fishing_fleet, 25), #Rizi - Estuary
+    (party_set_slot, "p_english_village_4", slot_center_fishing_fleet, 15), #Istiniar
 
-    (party_set_slot, "p_village_81", slot_center_fishing_fleet, 15), #Odasan
-    (party_set_slot, "p_village_85", slot_center_fishing_fleet, 15), #Ismirala
-    (party_set_slot, "p_village_87", slot_center_fishing_fleet, 15), #Udiniad
+    (party_set_slot, "p_english_village_6", slot_center_fishing_fleet, 15), #Odasan
+    (party_set_slot, "p_english_village_10", slot_center_fishing_fleet, 15), #Ismirala
+    (party_set_slot, "p_english_village_12", slot_center_fishing_fleet, 15), #Udiniad
 
-    (party_set_slot, "p_village_90", slot_center_fishing_fleet, 15), #Jamiche
+    (party_set_slot, "p_english_village_15", slot_center_fishing_fleet, 15), #Jamiche
 
 	#Initialize pastureland
 	(try_for_range, ":center", centers_begin, centers_end),
@@ -17747,26 +17808,26 @@ scripts = [
 		(else_try),
 			(eq, ":cur_good", "itm_spice"),
 			(try_begin),
-				(eq, ":center_no", "p_town_10"), #Tulga
+				(eq, ":center_no", "p_french_town_10"), #Tulga
 				(assign, ":base_production", 100),
 			(else_try),
-				(eq, ":center_no", "p_town_17"), #Ichamur
+				(eq, ":center_no", "p_french_town_17"), #Ichamur
 				(assign, ":base_production", 50),
 			(else_try),
-				(eq, ":center_no", "p_town_19"), #Shariz
+				(eq, ":center_no", "p_french_town_19"), #Shariz
 				(assign, ":base_production", 50),
 			(else_try),
-				(eq, ":center_no", "p_town_22"), #Bariyye
+				(eq, ":center_no", "p_french_town_22"), #Bariyye
 				(assign, ":base_production", 50),
 			(else_try),
-				(this_or_next|eq, ":center_no", "p_village_11"), #Dusturil (village of Tulga)
-				(eq, ":center_no", "p_village_25"), #Dashbigha (village of Tulga)
+				(this_or_next|eq, ":center_no", "p_french_village_11"), #Dusturil (village of Tulga)
+				(eq, ":center_no", "p_french_village_25"), #Dashbigha (village of Tulga)
 				(assign, ":base_production", 50),
 			(else_try),
-				(this_or_next|eq, ":center_no", "p_village_37"), #Ada Kulun (village of Ichlamur)
-				(this_or_next|eq, ":center_no", "p_village_42"), #Dirigh Aban (village of Ichlamur)
-				(this_or_next|eq, ":center_no", "p_village_99"), #Fishara (village of Bariyye)
-				(eq, ":center_no", "p_village_100"), #Iqbayl (village of Bariyye)
+				(this_or_next|eq, ":center_no", "p_french_village_37"), #Ada Kulun (village of Ichlamur)
+				(this_or_next|eq, ":center_no", "p_french_village_42"), #Dirigh Aban (village of Ichlamur)
+				(this_or_next|eq, ":center_no", "p_english_village_24"), #Fishara (village of Bariyye)
+				(eq, ":center_no", "p_english_village_25"), #Iqbayl (village of Bariyye)
 				(assign, ":base_production", 25),
 			(try_end),
 		(try_end),
@@ -17878,11 +17939,11 @@ scripts = [
 			(lt, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_LOW),
 #If economic changes are disabled, use the Native desert-check logic.
 ##diplomacy end+
-			(this_or_next|is_between, ":center_no", "p_town_19", towns_end),
-				(is_between, ":center_no", "p_village_91", villages_end), #SB : limit range
-			(item_slot_ge, ":cur_good", slot_item_desert_demand, 0), #Otherwise use rural or urban
-			(item_get_slot, ":consumer_consumption", ":cur_good", slot_item_desert_demand),
-		(else_try),
+			# (this_or_next|is_between, ":center_no", "p_french_town_19", towns_end),
+				# (is_between, ":center_no", "p_village_91", villages_end), #SB : limit range
+			# (item_slot_ge, ":cur_good", slot_item_desert_demand, 0), #Otherwise use rural or urban
+			# (item_get_slot, ":consumer_consumption", ":cur_good", slot_item_desert_demand),
+		# (else_try),
 			(is_between, ":center_no", villages_begin, villages_end),
 			(item_get_slot, ":consumer_consumption", ":cur_good", slot_item_rural_demand),
 		(else_try),
@@ -40852,7 +40913,7 @@ scripts = [
        (assign, ":limit", 20),
        (try_for_range, ":unused", 0, ":limit"), #also exclude Tihr since it has Ramun
           (store_random_in_range, ":town_no", towns_begin, towns_end),
-          #(neq, ":town_no", "p_town_2"), #DAC Kham: Remove Ramun
+          #(neq, ":town_no", "p_french_town_2"), #DAC Kham: Remove Ramun
           #also exclude centers under siege
           (neg|party_slot_ge, ":town_no", slot_center_is_besieged_by, 1),
           (party_get_num_prisoners, ":prisoner_count", ":town_no"),
@@ -40865,7 +40926,7 @@ scripts = [
        (party_set_slot, ":town_no", slot_center_ransom_broker, ":troop_no"),
      (try_end),
 
-     #(party_set_slot,"p_town_2",slot_center_ransom_broker,"trp_ramun_the_slave_trader"), DAC Kham: Remove Ramun
+     #(party_set_slot,"p_french_town_2",slot_center_ransom_broker,"trp_ramun_the_slave_trader"), DAC Kham: Remove Ramun
      ]),
 
   #script_update_tavern_travellers
@@ -40909,7 +40970,7 @@ scripts = [
     (try_end),
 
      #SB : let its own script update every 24 hours
-	 # (troop_set_slot, "trp_belligerent_drunk", slot_troop_cur_center, "p_town_1"),
+	 # (troop_set_slot, "trp_belligerent_drunk", slot_troop_cur_center, "p_french_town_1"),
      ]),
 
   #script_update_villages_infested_by_bandits
@@ -43319,11 +43380,11 @@ scripts = [
         (troop_set_slot, "trp_npc1", slot_troop_personalityclash_object, "trp_npc7"),  #William Reynes - Diane du Bois
         (troop_set_slot, "trp_npc1", slot_troop_personalityclash2_object, "trp_npc4"),  #William Reynes - Jean, bâtard du Guesclin
         (troop_set_slot, "trp_npc1", slot_troop_personalitymatch_object, "trp_npc13"),  #William Reynes - Thomas Gower
-        (troop_set_slot, "trp_npc1", slot_troop_home, "p_town_38"), #Caen
+        (troop_set_slot, "trp_npc1", slot_troop_home, "p_english_town_9"), #Caen
         (troop_set_slot, "trp_npc1", slot_troop_payment_request, 300),
 		(troop_set_slot, "trp_npc1", slot_troop_kingsupport_argument, argument_claim),
 		(troop_set_slot, "trp_npc1", slot_troop_kingsupport_opponent, "trp_npc4"), # Jean, bâtard du Guesclin
-		(troop_set_slot, "trp_npc1", slot_troop_town_with_contacts, "p_town_38"),
+		(troop_set_slot, "trp_npc1", slot_troop_town_with_contacts, "p_english_town_9"),
 		(troop_set_slot, "trp_npc1", slot_troop_original_faction, fac_kingdom_2),
 		(troop_set_slot, "trp_npc1", slot_lord_reputation_type, lrep_martial), #
     (troop_set_slot, "trp_npc1", slot_troop_fights_in_tournaments, 0),
@@ -43337,11 +43398,11 @@ scripts = [
         (troop_set_slot, "trp_npc2", slot_troop_personalityclash_object, "trp_npc14"), #Frans Demaar - John Crichton
         (troop_set_slot, "trp_npc2", slot_troop_personalityclash2_object, "trp_npc8"), #Frans Demaar - Baudouin de Limoges
         (troop_set_slot, "trp_npc2", slot_troop_personalitymatch_object, "trp_npc15"),  #Frans Demaar - Gaspard Bureau
-        (troop_set_slot, "trp_npc2", slot_troop_home, "p_town_58"), #Bruges
+        (troop_set_slot, "trp_npc2", slot_troop_home, "p_burgundian_town_7"), #Bruges
         (troop_set_slot, "trp_npc2", slot_troop_payment_request, 0),
 		(troop_set_slot, "trp_npc2", slot_troop_kingsupport_argument, argument_victory),
 		(troop_set_slot, "trp_npc2", slot_troop_kingsupport_opponent, "trp_npc14"), # John Crichton
-		(troop_set_slot, "trp_npc2", slot_troop_town_with_contacts, "p_town_58"), #Bruges
+		(troop_set_slot, "trp_npc2", slot_troop_town_with_contacts, "p_burgundian_town_7"), #Bruges
 		(troop_set_slot, "trp_npc2", slot_troop_original_faction, 0),
 		(troop_set_slot, "trp_npc2", slot_lord_reputation_type, lrep_custodian), #
     (troop_set_slot, "trp_npc2", slot_troop_fights_in_tournaments, 0),
@@ -43354,11 +43415,11 @@ scripts = [
         (troop_set_slot, "trp_npc3", slot_troop_personalityclash_object, "trp_npc14"), #Ymira - artimenner
         (troop_set_slot, "trp_npc3", slot_troop_personalityclash2_object, "trp_npc8"), #Ymira - matheld
         (troop_set_slot, "trp_npc3", slot_troop_personalitymatch_object, "trp_npc9"), #Ymira - alayen
-        (troop_set_slot, "trp_npc3", slot_troop_home, "p_town_3"), #Veluca
+        (troop_set_slot, "trp_npc3", slot_troop_home, "p_french_town_3"), #Veluca
         (troop_set_slot, "trp_npc3", slot_troop_payment_request, 0),
 		(troop_set_slot, "trp_npc3", slot_troop_kingsupport_argument, argument_lords),
 		(troop_set_slot, "trp_npc3", slot_troop_kingsupport_opponent, "trp_npc5"), #klethi
-		(troop_set_slot, "trp_npc3", slot_troop_town_with_contacts, "p_town_15"), #yalen
+		(troop_set_slot, "trp_npc3", slot_troop_town_with_contacts, "p_french_town_15"), #yalen
 		(troop_set_slot, "trp_npc3", slot_troop_original_faction, 0),
 		(troop_set_slot, "trp_npc3", slot_lord_reputation_type, lrep_benefactor), #
     (troop_set_slot, "trp_npc3", slot_troop_fights_in_tournaments, 0),
@@ -43372,12 +43433,12 @@ scripts = [
         (troop_set_slot, "trp_npc4", slot_troop_personalityclash_object, "trp_npc10"), #Rolf - bunduk
         (troop_set_slot, "trp_npc4", slot_troop_personalityclash2_object, "trp_npc7"), #Rolf - deshavi
         (troop_set_slot, "trp_npc4", slot_troop_personalitymatch_object, "trp_npc5"), #Rolf - beheshtur
-        (troop_set_slot, "trp_npc4", slot_troop_home, "p_village_34"), #Ehlerdah
+        (troop_set_slot, "trp_npc4", slot_troop_home, "p_french_village_34"), #Ehlerdah
         (troop_set_slot, "trp_npc4", slot_troop_payment_request, 300),
         (troop_set_slot, "trp_npc4", slot_troop_renown, 100), #SB : renown
 		(troop_set_slot, "trp_npc4", slot_troop_kingsupport_argument, argument_claim),
 		(troop_set_slot, "trp_npc4", slot_troop_kingsupport_opponent, "trp_npc6"), #firentis
-		(troop_set_slot, "trp_npc4", slot_troop_town_with_contacts, "p_town_3"), #veluca
+		(troop_set_slot, "trp_npc4", slot_troop_town_with_contacts, "p_french_town_3"), #veluca
 		(troop_set_slot, "trp_npc4", slot_troop_original_faction, 0),
 		(troop_set_slot, "trp_npc4", slot_lord_reputation_type, lrep_cunning), #
     (troop_set_slot, "trp_npc4", slot_troop_fights_in_tournaments, 1),
@@ -43390,12 +43451,12 @@ scripts = [
         (troop_set_slot, "trp_npc5", slot_troop_personalityclash_object, "trp_npc2"),  #beheshtur - marnid
         (troop_set_slot, "trp_npc5", slot_troop_personalityclash2_object, "trp_npc11"),  #beheshtur- katrin
         (troop_set_slot, "trp_npc5", slot_troop_personalitymatch_object, "trp_npc4"),  #beheshtur - rolf
-        (troop_set_slot, "trp_npc5", slot_troop_home, "p_town_14"), #Halmar
+        (troop_set_slot, "trp_npc5", slot_troop_home, "p_french_town_14"), #Halmar
         (troop_set_slot, "trp_npc5", slot_troop_payment_request, 400),
         (troop_set_slot, "trp_npc5", slot_troop_renown, 100), #SB : renown
 		(troop_set_slot, "trp_npc5", slot_troop_kingsupport_argument, argument_ruler),
 		(troop_set_slot, "trp_npc5", slot_troop_kingsupport_opponent, "trp_npc9"), #firentis
-		(troop_set_slot, "trp_npc5", slot_troop_town_with_contacts, "p_town_10"), #tulga
+		(troop_set_slot, "trp_npc5", slot_troop_town_with_contacts, "p_french_town_10"), #tulga
 		(troop_set_slot, "trp_npc5", slot_troop_original_faction, "fac_kingdom_3"), #khergit
 		(troop_set_slot, "trp_npc5", slot_lord_reputation_type, lrep_cunning), #
     (troop_set_slot, "trp_npc5", slot_troop_fights_in_tournaments, 0),
@@ -43409,12 +43470,12 @@ scripts = [
         (troop_set_slot, "trp_npc6", slot_troop_personalityclash_object, "trp_npc11"), #firenz
         (troop_set_slot, "trp_npc6", slot_troop_personalityclash2_object, "trp_npc13"), #firenz - nizar
         (troop_set_slot, "trp_npc6", slot_troop_personalitymatch_object, "trp_npc12"),  #firenz - jeremus
-        (troop_set_slot, "trp_npc6", slot_troop_home, "p_town_4"), #Suno
+        (troop_set_slot, "trp_npc6", slot_troop_home, "p_french_town_4"), #Suno
         (troop_set_slot, "trp_npc6", slot_troop_payment_request, 0),
         (troop_set_slot, "trp_npc6", slot_troop_renown, 50), #SB : renown
 		(troop_set_slot, "trp_npc6", slot_troop_kingsupport_argument, argument_victory),
 		(troop_set_slot, "trp_npc6", slot_troop_kingsupport_opponent, "trp_npc8"), #firentis
-		(troop_set_slot, "trp_npc6", slot_troop_town_with_contacts, "p_town_7"), #uxkhal
+		(troop_set_slot, "trp_npc6", slot_troop_town_with_contacts, "p_french_town_7"), #uxkhal
 		(troop_set_slot, "trp_npc6", slot_troop_original_faction, "fac_kingdom_1"), #swadia
 		(troop_set_slot, "trp_npc6", slot_lord_reputation_type, lrep_upstanding), #
     (troop_set_slot, "trp_npc6", slot_troop_fights_in_tournaments, 0),
@@ -43428,11 +43489,11 @@ scripts = [
         (troop_set_slot, "trp_npc7", slot_troop_personalityclash_object, "trp_npc1"),  #deshavi
         (troop_set_slot, "trp_npc7", slot_troop_personalityclash2_object, "trp_npc4"),  #deshavi - rolf
         (troop_set_slot, "trp_npc7", slot_troop_personalitymatch_object, "trp_npc16"),  #deshavi - klethi
-        (troop_set_slot, "trp_npc7", slot_troop_home, "p_village_5"), #Kulum
+        (troop_set_slot, "trp_npc7", slot_troop_home, "p_french_village_5"), #Kulum
 #        (troop_set_slot, "trp_npc7", slot_troop_payment_request, 300),
 		(troop_set_slot, "trp_npc7", slot_troop_kingsupport_argument, argument_victory),
 		(troop_set_slot, "trp_npc7", slot_troop_kingsupport_opponent, "trp_npc3"), #ymira
-		(troop_set_slot, "trp_npc7", slot_troop_town_with_contacts, "p_town_2"), #tihr
+		(troop_set_slot, "trp_npc7", slot_troop_town_with_contacts, "p_french_town_2"), #tihr
 		(troop_set_slot, "trp_npc7", slot_troop_original_faction, 0), #swadia
 		(troop_set_slot, "trp_npc7", slot_lord_reputation_type, lrep_custodian), #
     (troop_set_slot, "trp_npc7", slot_troop_fights_in_tournaments, 0),
@@ -43446,12 +43507,12 @@ scripts = [
         (troop_set_slot, "trp_npc8", slot_troop_personalityclash_object, "trp_npc12"), #matheld
         (troop_set_slot, "trp_npc8", slot_troop_personalityclash2_object, "trp_npc3"), #matheld - ymira
         (troop_set_slot, "trp_npc8", slot_troop_personalitymatch_object, "trp_npc13"),  #matheld - nizar
-        (troop_set_slot, "trp_npc8", slot_troop_home, "p_village_35"), #Fearichen
+        (troop_set_slot, "trp_npc8", slot_troop_home, "p_french_village_35"), #Fearichen
         (troop_set_slot, "trp_npc8", slot_troop_payment_request, 500),
         (troop_set_slot, "trp_npc8", slot_troop_renown, 75), #SB : renown
 		(troop_set_slot, "trp_npc8", slot_troop_kingsupport_argument, argument_lords),
 		(troop_set_slot, "trp_npc8", slot_troop_kingsupport_opponent, "trp_npc2"), #marnid
-		(troop_set_slot, "trp_npc8", slot_troop_town_with_contacts, "p_town_12"), #wercheg
+		(troop_set_slot, "trp_npc8", slot_troop_town_with_contacts, "p_french_town_12"), #wercheg
 		(troop_set_slot, "trp_npc8", slot_troop_original_faction, "fac_kingdom_4"), #nords
 		(troop_set_slot, "trp_npc8", slot_lord_reputation_type, lrep_martial), #
     (troop_set_slot, "trp_npc8", slot_troop_fights_in_tournaments, 1),
@@ -43464,12 +43525,12 @@ scripts = [
         (troop_set_slot, "trp_npc9", slot_troop_personalityclash_object, "trp_npc13"), #alayen vs nizar
         (troop_set_slot, "trp_npc9", slot_troop_personalityclash2_object, "trp_npc2"), #alayen vs marnid
         (troop_set_slot, "trp_npc9", slot_troop_personalitymatch_object, "trp_npc3"),  #alayen - ymira
-        (troop_set_slot, "trp_npc9", slot_troop_home, "p_town_13"), #Rivacheg
+        (troop_set_slot, "trp_npc9", slot_troop_home, "p_french_town_13"), #Rivacheg
         (troop_set_slot, "trp_npc9", slot_troop_payment_request, 300),
         (troop_set_slot, "trp_npc9", slot_troop_renown, 100), #SB : renown
 		(troop_set_slot, "trp_npc9", slot_troop_kingsupport_argument, argument_lords),
 		(troop_set_slot, "trp_npc9", slot_troop_kingsupport_opponent, "trp_npc1"), #borcha
-		(troop_set_slot, "trp_npc9", slot_troop_town_with_contacts, "p_town_8"), #reyvadin
+		(troop_set_slot, "trp_npc9", slot_troop_town_with_contacts, "p_french_town_8"), #reyvadin
 		(troop_set_slot, "trp_npc9", slot_troop_original_faction, "fac_kingdom_2"), #vaegirs
 		(troop_set_slot, "trp_npc9", slot_lord_reputation_type, lrep_martial), #
     (troop_set_slot, "trp_npc9", slot_troop_fights_in_tournaments, 1),
@@ -43482,12 +43543,12 @@ scripts = [
         (troop_set_slot, "trp_npc10", slot_troop_personalityclash_object, "trp_npc4"), #bunduk vs rolf
         (troop_set_slot, "trp_npc10", slot_troop_personalityclash2_object, "trp_npc14"), #bunduk vs lazalet
         (troop_set_slot, "trp_npc10", slot_troop_personalitymatch_object, "trp_npc11"),  #bunduk likes katrin
-        (troop_set_slot, "trp_npc10", slot_troop_home, "p_castle_28"), #Grunwalder Castle
+        (troop_set_slot, "trp_npc10", slot_troop_home, "p_english_castle_3"), #Grunwalder Castle
         (troop_set_slot, "trp_npc10", slot_troop_payment_request, 200),
         (troop_set_slot, "trp_npc10", slot_troop_renown, 75), #SB : renown
 		(troop_set_slot, "trp_npc10", slot_troop_kingsupport_argument, argument_ruler),
 		(troop_set_slot, "trp_npc10", slot_troop_kingsupport_opponent, "trp_npc7"), #nizar
-		(troop_set_slot, "trp_npc10", slot_troop_town_with_contacts, "p_town_5"), #jelkala
+		(troop_set_slot, "trp_npc10", slot_troop_town_with_contacts, "p_french_town_5"), #jelkala
 		(troop_set_slot, "trp_npc10", slot_troop_original_faction, "fac_kingdom_1"), #rhodoks
 		(troop_set_slot, "trp_npc10", slot_lord_reputation_type, lrep_benefactor), #
     (troop_set_slot, "trp_npc10", slot_troop_fights_in_tournaments, 0),
@@ -43501,11 +43562,11 @@ scripts = [
         (troop_set_slot, "trp_npc11", slot_troop_personalityclash_object, "trp_npc6"),  #katrin vs firenz
         (troop_set_slot, "trp_npc11", slot_troop_personalityclash2_object, "trp_npc5"),  #katrin - beheshtur
         (troop_set_slot, "trp_npc11", slot_troop_personalitymatch_object, "trp_npc10"),  #katrin likes bunduk
-        (troop_set_slot, "trp_npc11", slot_troop_home, "p_town_6"), #Praven
+        (troop_set_slot, "trp_npc11", slot_troop_home, "p_french_town_6"), #Praven
         (troop_set_slot, "trp_npc11", slot_troop_payment_request, 100),
 		(troop_set_slot, "trp_npc11", slot_troop_kingsupport_argument, argument_claim),
 		(troop_set_slot, "trp_npc11", slot_troop_kingsupport_opponent, "trp_npc15"), #borcha
-		(troop_set_slot, "trp_npc11", slot_troop_town_with_contacts, "p_town_6"), #praven
+		(troop_set_slot, "trp_npc11", slot_troop_town_with_contacts, "p_french_town_6"), #praven
 		(troop_set_slot, "trp_npc11", slot_troop_original_faction, 0), #
 		(troop_set_slot, "trp_npc11", slot_lord_reputation_type, lrep_custodian), #
 
@@ -43517,12 +43578,12 @@ scripts = [
         (troop_set_slot, "trp_npc12", slot_troop_personalityclash_object, "trp_npc8"), #jerem
         (troop_set_slot, "trp_npc12", slot_troop_personalityclash2_object, "trp_npc15"), #jeremus - artimenner
         (troop_set_slot, "trp_npc12", slot_troop_personalitymatch_object, "trp_npc6"),  #jeremus - firenz
-        (troop_set_slot, "trp_npc12", slot_troop_home, "p_castle_16"), #undetermined #University
+        (troop_set_slot, "trp_npc12", slot_troop_home, "p_french_castle_16"), #undetermined #University
         (troop_set_slot, "trp_npc12", slot_troop_payment_request, 0),
         (troop_set_slot, "trp_npc12", slot_troop_renown, 100), #SB : renown
 		(troop_set_slot, "trp_npc12", slot_troop_kingsupport_argument, argument_claim),
 		(troop_set_slot, "trp_npc12", slot_troop_kingsupport_opponent, "trp_npc13"), #nizar
-		(troop_set_slot, "trp_npc12", slot_troop_town_with_contacts, "p_town_14"), #halmar
+		(troop_set_slot, "trp_npc12", slot_troop_town_with_contacts, "p_french_town_14"), #halmar
 		(troop_set_slot, "trp_npc12", slot_troop_original_faction, 0), #
 		(troop_set_slot, "trp_npc12", slot_lord_reputation_type, lrep_benefactor), #
     (troop_set_slot, "trp_npc12", slot_troop_fights_in_tournaments, 0),
@@ -43536,12 +43597,12 @@ scripts = [
         (troop_set_slot, "trp_npc13", slot_troop_personalityclash_object, "trp_npc9"), #nizar
         (troop_set_slot, "trp_npc13", slot_troop_personalityclash2_object, "trp_npc6"), #nizar - firenz
         (troop_set_slot, "trp_npc13", slot_troop_personalitymatch_object, "trp_npc8"), #nizar - matheld
-        (troop_set_slot, "trp_npc13", slot_troop_home, "p_castle_15"), #Ergellon Castle
+        (troop_set_slot, "trp_npc13", slot_troop_home, "p_french_castle_15"), #Ergellon Castle
         (troop_set_slot, "trp_npc13", slot_troop_payment_request, 300),
         (troop_set_slot, "trp_npc13", slot_troop_renown, 75), #SB : renown
 		(troop_set_slot, "trp_npc13", slot_troop_kingsupport_argument, argument_claim),
 		(troop_set_slot, "trp_npc13", slot_troop_kingsupport_opponent, "trp_npc10"), #nizar
-		(troop_set_slot, "trp_npc13", slot_troop_town_with_contacts, "p_town_4"), #suno
+		(troop_set_slot, "trp_npc13", slot_troop_town_with_contacts, "p_french_town_4"), #suno
 		(troop_set_slot, "trp_npc13", slot_troop_original_faction, 0), #
 		(troop_set_slot, "trp_npc13", slot_lord_reputation_type, lrep_roguish), #
     (troop_set_slot, "trp_npc13", slot_troop_fights_in_tournaments, 1),
@@ -43555,12 +43616,12 @@ scripts = [
         (troop_set_slot, "trp_npc14", slot_troop_personalityclash_object, "trp_npc3"), #lezalit
         (troop_set_slot, "trp_npc14", slot_troop_personalityclash2_object, "trp_npc10"), #lezalit - bunduk
         (troop_set_slot, "trp_npc14", slot_troop_personalitymatch_object, "trp_npc15"), #lezalit - artimenner
-        (troop_set_slot, "trp_npc14", slot_troop_home, "p_castle_18"), #Ismirala Castle
+        (troop_set_slot, "trp_npc14", slot_troop_home, "p_french_castle_18"), #Ismirala Castle
         (troop_set_slot, "trp_npc14", slot_troop_payment_request, 400),
         (troop_set_slot, "trp_npc14", slot_troop_renown, 100), #SB : renown
 		(troop_set_slot, "trp_npc14", slot_troop_kingsupport_argument, argument_victory),
 		(troop_set_slot, "trp_npc14", slot_troop_kingsupport_opponent, "trp_npc11"), #nizar
-		(troop_set_slot, "trp_npc14", slot_troop_town_with_contacts, "p_town_16"), #dhirim
+		(troop_set_slot, "trp_npc14", slot_troop_town_with_contacts, "p_french_town_16"), #dhirim
 		(troop_set_slot, "trp_npc14", slot_troop_original_faction, 0), #
 		(troop_set_slot, "trp_npc14", slot_lord_reputation_type, lrep_selfrighteous), #
     (troop_set_slot, "trp_npc14", slot_troop_fights_in_tournaments, 1),
@@ -43572,12 +43633,12 @@ scripts = [
         (troop_set_slot, "trp_npc15", slot_troop_personalityclash_object, "trp_npc16"), #artimenner - klethi
         (troop_set_slot, "trp_npc15", slot_troop_personalityclash2_object, "trp_npc12"), #artimenner - jeremus
         (troop_set_slot, "trp_npc15", slot_troop_personalitymatch_object, "trp_npc14"), #lazalit - artimenner
-        (troop_set_slot, "trp_npc15", slot_troop_home, "p_castle_1"), #Culmarr Castle
+        (troop_set_slot, "trp_npc15", slot_troop_home, "p_french_castle_1"), #Culmarr Castle
         (troop_set_slot, "trp_npc15", slot_troop_payment_request, 300),
         (troop_set_slot, "trp_npc15", slot_troop_renown, 100), #SB : renown
 		(troop_set_slot, "trp_npc15", slot_troop_kingsupport_argument, argument_ruler),
 		(troop_set_slot, "trp_npc15", slot_troop_kingsupport_opponent, "trp_npc4"), #nizar
- 		(troop_set_slot, "trp_npc15", slot_troop_town_with_contacts, "p_town_20"), #durquba
+ 		(troop_set_slot, "trp_npc15", slot_troop_town_with_contacts, "p_french_town_20"), #durquba
 		(troop_set_slot, "trp_npc15", slot_lord_reputation_type, lrep_custodian), #
     (troop_set_slot, "trp_npc15", slot_troop_fights_in_tournaments, 1),
 
@@ -43589,11 +43650,11 @@ scripts = [
         (troop_set_slot, "trp_npc16", slot_troop_personalityclash_object, "trp_npc15"), #klethi
         (troop_set_slot, "trp_npc16", slot_troop_personalityclash2_object, "trp_npc1"), #klethi - borcha
         (troop_set_slot, "trp_npc16", slot_troop_personalitymatch_object, "trp_npc7"),  #deshavi - klethi
-        (troop_set_slot, "trp_npc16", slot_troop_home, "p_village_20"), #Uslum
+        (troop_set_slot, "trp_npc16", slot_troop_home, "p_french_village_20"), #Uslum
         (troop_set_slot, "trp_npc16", slot_troop_payment_request, 200),
         (troop_set_slot, "trp_npc16", slot_troop_kingsupport_argument, argument_lords),
         (troop_set_slot, "trp_npc16", slot_troop_kingsupport_opponent, "trp_npc12"), #nizar
-        (troop_set_slot, "trp_npc16", slot_troop_town_with_contacts, "p_town_9"), #khudan
+        (troop_set_slot, "trp_npc16", slot_troop_town_with_contacts, "p_french_town_9"), #khudan
         (troop_set_slot, "trp_npc16", slot_lord_reputation_type, lrep_roguish), #
         (troop_set_slot, "trp_npc16", slot_troop_fights_in_tournaments, 0),
 
@@ -43629,18 +43690,18 @@ scripts = [
         # (troop_set_slot, "trp_kingdom_5_pretender",  slot_troop_original_faction, "fac_kingdom_5"),
         # (troop_set_slot, "trp_kingdom_6_pretender",  slot_troop_original_faction, "fac_kingdom_6"),
 
-    #        (troop_set_slot, "trp_kingdom_1_pretender", slot_troop_support_base,     "p_town_4"), #suno
-    #        (troop_set_slot, "trp_kingdom_2_pretender", slot_troop_support_base,     "p_town_11"), #curaw
-           # (troop_set_slot, "trp_kingdom_3_pretender", slot_troop_support_base,     "p_town_60"), # Philippe de Saint-Pol, Malines
-           # (troop_set_slot, "trp_kingdom_4_pretender", slot_troop_support_base,     "p_town_27"), # Olivier de Blois, Limoges
-    #        (troop_set_slot, "trp_kingdom_5_pretender", slot_troop_support_base,     "p_town_3"), #veluca
+    #        (troop_set_slot, "trp_kingdom_1_pretender", slot_troop_support_base,     "p_french_town_4"), #suno
+    #        (troop_set_slot, "trp_kingdom_2_pretender", slot_troop_support_base,     "p_french_town_11"), #curaw
+           # (troop_set_slot, "trp_kingdom_3_pretender", slot_troop_support_base,     "p_burgundian_town_9"), # Philippe de Saint-Pol, Malines
+           # (troop_set_slot, "trp_kingdom_4_pretender", slot_troop_support_base,     "p_french_town_27"), # Olivier de Blois, Limoges
+    #        (troop_set_slot, "trp_kingdom_5_pretender", slot_troop_support_base,     "p_french_town_3"), #veluca
         ##diplomacy start+
-        # (troop_set_slot, "trp_kingdom_1_pretender", slot_troop_home, "p_town_4"),#Lady Isolle - Suno
-        # (troop_set_slot, "trp_kingdom_2_pretender", slot_troop_home, "p_town_11"),#Prince Valdym - Curaw
-        (troop_set_slot, "trp_kingdom_3_pretender", slot_troop_home, "p_town_60"), # Philippe de Saint-Pol, Malines
-        (troop_set_slot, "trp_kingdom_4_pretender", slot_troop_home, "p_town_27"), # Olivier de Blois, Limoges
-        # (troop_set_slot, "trp_kingdom_5_pretender", slot_troop_home, "p_town_3"),#Lord Kastor - Veluca
-        # (troop_set_slot, "trp_kingdom_6_pretender", slot_troop_home, "p_town_20"),#Arwa the Pearled One - Durquba
+        # (troop_set_slot, "trp_kingdom_1_pretender", slot_troop_home, "p_french_town_4"),#Lady Isolle - Suno
+        # (troop_set_slot, "trp_kingdom_2_pretender", slot_troop_home, "p_french_town_11"),#Prince Valdym - Curaw
+        (troop_set_slot, "trp_kingdom_3_pretender", slot_troop_home, "p_burgundian_town_9"), # Philippe de Saint-Pol, Malines
+        (troop_set_slot, "trp_kingdom_4_pretender", slot_troop_home, "p_french_town_27"), # Olivier de Blois, Limoges
+        # (troop_set_slot, "trp_kingdom_5_pretender", slot_troop_home, "p_french_town_3"),#Lord Kastor - Veluca
+        # (troop_set_slot, "trp_kingdom_6_pretender", slot_troop_home, "p_french_town_20"),#Arwa the Pearled One - Durquba
         ##diplomacy end+
         (try_for_range, ":pretender", pretenders_begin, pretenders_end),
             (troop_set_slot, ":pretender", slot_lord_reputation_type, lrep_conventional),
@@ -57143,7 +57204,7 @@ scripts = [
 	(str_store_party_name, s4, ":center_no"),
 	##diplomacy start+ Determine whether the center should use "desert" consumption values.
   	#Native uses the following logic:
-	#  (this_or_next|is_between, ":center_no", "p_town_19", "p_castle_1"),
+	#  (this_or_next|is_between, ":center_no", "p_french_town_19", "p_french_castle_1"),
 	#  (ge, ":center_no", "p_village_91"),
 	##This is very vulnerable to map changes, though, so I would prefer to check the terrain type.
 	(party_get_current_terrain, ":terrain_type", ":center_no"),
@@ -57151,15 +57212,15 @@ scripts = [
 	   (eq, reg0, rt_desert_forest),
 	   (assign, ":terrain_type", rt_desert),
 	(try_end),
-	(try_begin),
-     (lt, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_LOW),
+	# (try_begin),
+     # (lt, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_LOW),
      #To be consistent with script_center_get_consumption and script_initialize_economic_information
      #use the Native desert-determination scheme when economic changes are disabled.
-    (assign, ":terrain_type", rt_plain), #SB : use
-    (this_or_next|is_between, ":center_no", "p_town_19", towns_end),
-    (is_between, ":center_no", "p_village_91", villages_end),
-    (assign, ":terrain_type", rt_desert),
-	(try_end),
+    # (assign, ":terrain_type", rt_plain), #SB : use
+    # (this_or_next|is_between, ":center_no", "p_french_town_19", towns_end),
+    # (is_between, ":center_no", "p_village_91", villages_end),
+    # (assign, ":terrain_type", rt_desert),
+	# (try_end),
 	##diplomacy end+
 
 	(assign, ":hardship_index", 0),
@@ -63896,7 +63957,7 @@ scripts = [
     (try_for_range, ":center_no", walled_centers_begin, walled_centers_end),
       (party_slot_eq, ":center_no", slot_town_lord, "trp_player"),
       (store_sub, ":chest_troop", ":center_no", towns_begin),
-      (val_add, ":chest_troop", "trp_town_1_seneschal"),
+      (val_add, ":chest_troop", "trp_french_town_1_seneschal"),
       (store_troop_gold, ":cur_gold", ":chest_troop"),
       (troop_remove_gold, ":chest_troop", ":cur_gold"),
       (troop_add_gold, "trp_household_possessions", ":cur_gold"), #no script call
@@ -71866,7 +71927,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
     (else_try), #assume troops same order as parties
         # (party_get_slot, ":chest_troop", ":party_no", slot_town_seneschal),
         (val_sub, ":party_no", towns_begin),
-        (store_add, ":chest_troop", ":party_no", "trp_town_1_seneschal"),
+        (store_add, ":chest_troop", ":party_no", "trp_french_town_1_seneschal"),
     (try_end),
     (assign, reg0, ":chest_troop"),
   ]),
@@ -72237,11 +72298,11 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
             (store_sub, ":result", craftsman_end, ":direction"),
           (try_end),
         (else_try),
-          (is_between, ":troop_no", "trp_town_1_seneschal", arena_masters_begin),
+          (is_between, ":troop_no", "trp_french_town_1_seneschal", arena_masters_begin),
           (str_store_string, ":sreg", "@court chests"),
           (try_begin),
             (eq, ":direction", -1),
-            (assign, ":result", "trp_town_1_seneschal"),
+            (assign, ":result", "trp_french_town_1_seneschal"),
           (else_try),
             (eq, ":direction", 1),
             (store_sub, ":result", arena_masters_begin, ":direction"),
@@ -75628,22 +75689,22 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       # (party_set_name, "p_desert_bandit_spawn_point_1", "str_the_deserts"),
 
       #this to correct inappropriate home strings - Katrin to Uxkhal, Matheld to Fearichen
-      # (troop_set_slot, "trp_npc11", slot_troop_home, "p_town_7"),
-      (troop_set_slot, "trp_npc8", slot_troop_home, "p_village_35"),
+      # (troop_set_slot, "trp_npc11", slot_troop_home, "p_french_town_7"),
+      (troop_set_slot, "trp_npc8", slot_troop_home, "p_french_village_35"),
 
-      (troop_set_slot, "trp_npc15", slot_troop_town_with_contacts, "p_town_20"), #durquba
+      (troop_set_slot, "trp_npc15", slot_troop_town_with_contacts, "p_french_town_20"), #durquba
 
       #this to correct linen production at villages of durquba
-      (party_set_slot, "p_village_93", slot_center_linen_looms, 0), #mazigh
-      (party_set_slot, "p_village_94", slot_center_linen_looms, 0), #sekhtem
-      (party_set_slot, "p_village_95", slot_center_linen_looms, 0), #qalyut
-      (party_set_slot, "p_village_96", slot_center_linen_looms, 0), #tilimsal
-      (party_set_slot, "p_village_97", slot_center_linen_looms, 0), #shibal zumr
-      (party_set_slot, "p_village_102", slot_center_linen_looms, 0), #tamnuh
-      (party_set_slot, "p_village_109", slot_center_linen_looms, 0), #habba
+      # (party_set_slot, "p_village_93", slot_center_linen_looms, 0), #mazigh
+      # (party_set_slot, "p_village_94", slot_center_linen_looms, 0), #sekhtem
+      # (party_set_slot, "p_village_95", slot_center_linen_looms, 0), #qalyut
+      # (party_set_slot, "p_village_96", slot_center_linen_looms, 0), #tilimsal
+      # (party_set_slot, "p_village_97", slot_center_linen_looms, 0), #shibal zumr
+      # (party_set_slot, "p_village_102", slot_center_linen_looms, 0), #tamnuh
+      # (party_set_slot, "p_village_109", slot_center_linen_looms, 0), #habba
 
-      (party_set_slot, "p_village_67", slot_center_fishing_fleet, 0), #Tebandra
-      (party_set_slot, "p_village_5", slot_center_fishing_fleet, 15), #Kulum
+      (party_set_slot, "p_french_village_67", slot_center_fishing_fleet, 0), #Tebandra
+      (party_set_slot, "p_french_village_5", slot_center_fishing_fleet, 15), #Kulum
 
       ##diplomacy start+
       #End the changes in Native
@@ -75655,24 +75716,24 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (lt, ":diplomacy_version_code", 1),
 
       #Add home centers for claimants (mods not using standard NPCs or map may wish to remove this)
-      # (troop_set_slot, "trp_kingdom_1_pretender", slot_troop_home, "p_town_4"),#Lady Isolle - Suno
-      # (troop_set_slot, "trp_kingdom_2_pretender", slot_troop_home, "p_town_11"),#Prince Valdym - Curaw
-      # (troop_set_slot, "trp_kingdom_3_pretender", slot_troop_home, "p_town_18"),#Dustum Khan - Narra
-      # (troop_set_slot, "trp_kingdom_4_pretender", slot_troop_home, "p_town_12"),#Lethwin Far-Seeker - Wercheg
-      # (troop_set_slot, "trp_kingdom_5_pretender", slot_troop_home, "p_town_3"),#Lord Kastor - Veluca
-      # (troop_set_slot, "trp_kingdom_6_pretender", slot_troop_home, "p_town_20"),#Arwa the Pearled One - Durquba
+      # (troop_set_slot, "trp_kingdom_1_pretender", slot_troop_home, "p_french_town_4"),#Lady Isolle - Suno
+      # (troop_set_slot, "trp_kingdom_2_pretender", slot_troop_home, "p_french_town_11"),#Prince Valdym - Curaw
+      # (troop_set_slot, "trp_kingdom_3_pretender", slot_troop_home, "p_french_town_18"),#Dustum Khan - Narra
+      # (troop_set_slot, "trp_kingdom_4_pretender", slot_troop_home, "p_french_town_12"),#Lethwin Far-Seeker - Wercheg
+      # (troop_set_slot, "trp_kingdom_5_pretender", slot_troop_home, "p_french_town_3"),#Lord Kastor - Veluca
+      # (troop_set_slot, "trp_kingdom_6_pretender", slot_troop_home, "p_french_town_20"),#Arwa the Pearled One - Durquba
       #add ancestral fiefs to home slots (mods not using standard NPCs or map should remove this)
-      # (troop_set_slot, "trp_knight_2_10", slot_troop_home, "p_castle_29"), #Nelag_Castle
-      # (troop_set_slot, "trp_knight_3_4", slot_troop_home, "p_castle_30"), #Asugan_Castle
-      # (troop_set_slot, "trp_knight_1_3", slot_troop_home, "p_castle_35"), #Haringoth_Castle
-      # (troop_set_slot, "trp_knight_5_11", slot_troop_home, "p_castle_33"), #Etrosq_Castle
+      # (troop_set_slot, "trp_knight_2_10", slot_troop_home, "p_english_castle_4"), #Nelag_Castle
+      # (troop_set_slot, "trp_knight_3_4", slot_troop_home, "p_english_castle_5"), #Asugan_Castle
+      # (troop_set_slot, "trp_knight_1_3", slot_troop_home, "p_english_castle_10"), #Haringoth_Castle
+      # (troop_set_slot, "trp_knight_5_11", slot_troop_home, "p_english_castle_8"), #Etrosq_Castle
       #Also the primary six towns (mods not using standard NPCs or map may wish to remove this)
-      # (troop_set_slot, "trp_kingdom_1_lord", slot_troop_home, "p_town_6"),#King Harlaus to Praven
-      # (troop_set_slot, "trp_kingdom_2_lord", slot_troop_home, "p_town_8"),#King Yaroglek to Reyvadin
-      # (troop_set_slot, "trp_kingdom_3_lord", slot_troop_home, "p_town_10"),#Sanjar Khan to Tulga
-      # (troop_set_slot, "trp_kingdom_4_lord", slot_troop_home, "p_town_1"),#King Ragnar to Sargoth
-      # (troop_set_slot, "trp_kingdom_5_lord", slot_troop_home, "p_town_5"),#King Graveth to Jelkala
-      # (troop_set_slot, "trp_kingdom_6_lord", slot_troop_home, "p_town_19"),#Sultan Hakim to Shariz
+      # (troop_set_slot, "trp_kingdom_1_lord", slot_troop_home, "p_french_town_6"),#King Harlaus to Praven
+      # (troop_set_slot, "trp_kingdom_2_lord", slot_troop_home, "p_french_town_8"),#King Yaroglek to Reyvadin
+      # (troop_set_slot, "trp_kingdom_3_lord", slot_troop_home, "p_french_town_10"),#Sanjar Khan to Tulga
+      # (troop_set_slot, "trp_kingdom_4_lord", slot_troop_home, "p_french_town_1"),#King Ragnar to Sargoth
+      # (troop_set_slot, "trp_kingdom_5_lord", slot_troop_home, "p_french_town_5"),#King Graveth to Jelkala
+      # (troop_set_slot, "trp_kingdom_6_lord", slot_troop_home, "p_french_town_19"),#Sultan Hakim to Shariz
 
       (call_script, "script_dplmc_init_domestic_policy"),
        #Set the "original lord" values corresponding to the above.
@@ -78179,7 +78240,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (try_for_range, ":town_no", towns_begin, towns_end),
         (store_sub, ":offset", ":town_no", towns_begin),
         (party_set_slot,":town_no", slot_party_type, spt_town),
-        #(store_add, ":cur_object_no", "trp_town_1_seneschal", ":offset"),
+        #(store_add, ":cur_object_no", "trp_french_town_1_seneschal", ":offset"),
         #(party_set_slot,":town_no", slot_town_seneschal, ":cur_object_no"),
         (store_add, ":cur_object_no", "scn_town_1_center", ":offset"),
         (party_set_slot,":town_no", slot_town_center, ":cur_object_no"),
@@ -78197,17 +78258,17 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
         (party_set_slot,":town_no", slot_town_arena, ":cur_object_no"),
         (store_add, ":cur_object_no", "scn_town_1_alley", ":offset"),
         (party_set_slot,":town_no", slot_town_alley, ":cur_object_no"),
-        (store_add, ":cur_object_no", "trp_town_1_mayor", ":offset"),
+        (store_add, ":cur_object_no", "trp_french_town_1_mayor", ":offset"),
         (party_set_slot,":town_no", slot_town_elder, ":cur_object_no"),
-        (store_add, ":cur_object_no", "trp_town_1_tavernkeeper", ":offset"),
+        (store_add, ":cur_object_no", "trp_french_town_1_tavernkeeper", ":offset"),
         (party_set_slot,":town_no", slot_town_tavernkeeper, ":cur_object_no"),
-        (store_add, ":cur_object_no", "trp_town_1_weaponsmith", ":offset"),
+        (store_add, ":cur_object_no", "trp_french_town_1_weaponsmith", ":offset"),
         (party_set_slot,":town_no", slot_town_weaponsmith, ":cur_object_no"),
-        (store_add, ":cur_object_no", "trp_town_1_armorer", ":offset"),
+        (store_add, ":cur_object_no", "trp_french_town_1_armorer", ":offset"),
         (party_set_slot,":town_no", slot_town_armorer, ":cur_object_no"),
-        (store_add, ":cur_object_no", "trp_town_1_merchant", ":offset"),
+        (store_add, ":cur_object_no", "trp_french_town_1_merchant", ":offset"),
         (party_set_slot,":town_no", slot_town_merchant, ":cur_object_no"),
-        (store_add, ":cur_object_no", "trp_town_1_horse_merchant", ":offset"),
+        (store_add, ":cur_object_no", "trp_french_town_1_horse_merchant", ":offset"),
         (party_set_slot,":town_no", slot_town_horse_merchant, ":cur_object_no"),
         (store_add, ":cur_object_no", "scn_town_1_center", ":offset"),
         (party_set_slot,":town_no", slot_town_center, ":cur_object_no"),
@@ -78232,29 +78293,29 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (try_end),
 
 # Set which castles need to be attacked with siege towers.
-      (party_set_slot,"p_town_13", slot_center_siege_with_belfry, 1),
-      (party_set_slot,"p_town_16", slot_center_siege_with_belfry, 1),
+      (party_set_slot,"p_french_town_13", slot_center_siege_with_belfry, 1),
+      (party_set_slot,"p_french_town_16", slot_center_siege_with_belfry, 1),
 
-      (party_set_slot,"p_castle_1", slot_center_siege_with_belfry, 1),
-      # (party_set_slot,"p_castle_2", slot_center_siege_with_belfry, 1),
-      (party_set_slot,"p_castle_4", slot_center_siege_with_belfry, 1),
-      (party_set_slot,"p_castle_7", slot_center_siege_with_belfry, 1),
-      (party_set_slot,"p_castle_8", slot_center_siege_with_belfry, 1),
-      (party_set_slot,"p_castle_9", slot_center_siege_with_belfry, 1),
-      (party_set_slot,"p_castle_11", slot_center_siege_with_belfry, 1),
-      (party_set_slot,"p_castle_13", slot_center_siege_with_belfry, 1),
-      (party_set_slot,"p_castle_17", slot_center_siege_with_belfry, 1),
-      (party_set_slot,"p_castle_21", slot_center_siege_with_belfry, 1),
-      (party_set_slot,"p_castle_25", slot_center_siege_with_belfry, 1),
-      (party_set_slot,"p_castle_34", slot_center_siege_with_belfry, 1),
-      (party_set_slot,"p_castle_35", slot_center_siege_with_belfry, 1),
-      (party_set_slot,"p_castle_38", slot_center_siege_with_belfry, 1),
-      (party_set_slot,"p_castle_40", slot_center_siege_with_belfry, 1),
-      (party_set_slot,"p_castle_41", slot_center_siege_with_belfry, 1),
-      (party_set_slot,"p_castle_42", slot_center_siege_with_belfry, 1),
-      (party_set_slot,"p_castle_43", slot_center_siege_with_belfry, 1),
+      (party_set_slot,"p_french_castle_1", slot_center_siege_with_belfry, 1),
+      # (party_set_slot,"p_french_castle_2", slot_center_siege_with_belfry, 1),
+      (party_set_slot,"p_french_castle_4", slot_center_siege_with_belfry, 1),
+      (party_set_slot,"p_french_castle_7", slot_center_siege_with_belfry, 1),
+      (party_set_slot,"p_french_castle_8", slot_center_siege_with_belfry, 1),
+      (party_set_slot,"p_french_castle_9", slot_center_siege_with_belfry, 1),
+      (party_set_slot,"p_french_castle_11", slot_center_siege_with_belfry, 1),
+      (party_set_slot,"p_french_castle_13", slot_center_siege_with_belfry, 1),
+      (party_set_slot,"p_french_castle_17", slot_center_siege_with_belfry, 1),
+      (party_set_slot,"p_french_castle_21", slot_center_siege_with_belfry, 1),
+      (party_set_slot,"p_french_castle_25", slot_center_siege_with_belfry, 1),
+      (party_set_slot,"p_english_castle_9", slot_center_siege_with_belfry, 1),
+      (party_set_slot,"p_english_castle_10", slot_center_siege_with_belfry, 1),
+      (party_set_slot,"p_english_castle_13", slot_center_siege_with_belfry, 1),
+      (party_set_slot,"p_english_castle_15", slot_center_siege_with_belfry, 1),
+      (party_set_slot,"p_english_castle_16", slot_center_siege_with_belfry, 1),
+      (party_set_slot,"p_english_castle_17", slot_center_siege_with_belfry, 1),
+      (party_set_slot,"p_english_castle_18", slot_center_siege_with_belfry, 1),
       
-      (party_set_slot,"p_castle_76", slot_center_siege_with_belfry, 1), # Château_de_Trémazan - iJustWant2bPure
+      (party_set_slot,"p_breton_castle_12", slot_center_siege_with_belfry, 1), # Château_de_Trémazan - iJustWant2bPure
 
     # Villages characters
       (try_for_range, ":village_no", villages_begin, villages_end),
@@ -78263,7 +78324,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
         (store_add, ":exterior_scene_no", "scn_village_1", ":offset"),
         (party_set_slot,":village_no", slot_castle_exterior, ":exterior_scene_no"),
 
-        (store_add, ":store_troop_no", "trp_village_1_elder", ":offset"),
+        (store_add, ":store_troop_no", "trp_french_village_1_elder", ":offset"),
         (party_set_slot,":village_no", slot_town_elder, ":store_troop_no"),
 
         (party_set_slot,":village_no", slot_party_type, spt_village),
@@ -78510,194 +78571,194 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 
 #Give centers to factions first, to ensure more equal distributions
 ### French Towns
-    (call_script, "script_give_center_to_faction_aux", "p_town_1", "fac_kingdom_1"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_2", "fac_kingdom_1"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_3", "fac_kingdom_1"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_4", "fac_kingdom_1"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_5", "fac_kingdom_1"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_6", "fac_kingdom_1"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_7", "fac_kingdom_1"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_8", "fac_kingdom_1"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_9", "fac_kingdom_1"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_10", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_french_town_1", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_french_town_2", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_french_town_3", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_french_town_4", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_french_town_5", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_french_town_6", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_french_town_7", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_french_town_8", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_french_town_9", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_french_town_10", "fac_kingdom_1"),
     
-    (call_script, "script_give_center_to_faction_aux", "p_town_11", "fac_kingdom_1"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_12", "fac_kingdom_1"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_13", "fac_kingdom_1"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_14", "fac_kingdom_1"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_15", "fac_kingdom_1"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_16", "fac_kingdom_1"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_17", "fac_kingdom_1"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_18", "fac_kingdom_1"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_19", "fac_kingdom_1"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_20", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_french_town_11", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_french_town_12", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_french_town_13", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_french_town_14", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_french_town_15", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_french_town_16", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_french_town_17", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_french_town_18", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_french_town_19", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_french_town_20", "fac_kingdom_1"),
     
-    (call_script, "script_give_center_to_faction_aux", "p_town_21", "fac_kingdom_1"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_22", "fac_kingdom_1"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_23", "fac_kingdom_1"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_24", "fac_kingdom_1"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_25", "fac_kingdom_1"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_26", "fac_kingdom_1"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_27", "fac_kingdom_1"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_28", "fac_kingdom_1"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_29", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_french_town_21", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_french_town_22", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_french_town_23", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_french_town_24", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_french_town_25", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_french_town_26", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_french_town_27", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_french_town_28", "fac_kingdom_1"),
+    (call_script, "script_give_center_to_faction_aux", "p_french_town_29", "fac_kingdom_1"),
     
 ### English Towns   
-    (call_script, "script_give_center_to_faction_aux", "p_town_30", "fac_kingdom_2"),
+    (call_script, "script_give_center_to_faction_aux", "p_english_town_1", "fac_kingdom_2"),
     
-    (call_script, "script_give_center_to_faction_aux", "p_town_31", "fac_kingdom_2"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_32", "fac_kingdom_2"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_33", "fac_kingdom_2"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_34", "fac_kingdom_2"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_35", "fac_kingdom_2"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_36", "fac_kingdom_2"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_37", "fac_kingdom_2"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_38", "fac_kingdom_2"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_39", "fac_kingdom_2"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_40", "fac_kingdom_2"),
+    (call_script, "script_give_center_to_faction_aux", "p_english_town_2", "fac_kingdom_2"),
+    (call_script, "script_give_center_to_faction_aux", "p_english_town_3", "fac_kingdom_2"),
+    (call_script, "script_give_center_to_faction_aux", "p_english_town_4", "fac_kingdom_2"),
+    (call_script, "script_give_center_to_faction_aux", "p_english_town_5", "fac_kingdom_2"),
+    (call_script, "script_give_center_to_faction_aux", "p_english_town_6", "fac_kingdom_2"),
+    (call_script, "script_give_center_to_faction_aux", "p_english_town_7", "fac_kingdom_2"),
+    (call_script, "script_give_center_to_faction_aux", "p_english_town_8", "fac_kingdom_2"),
+    (call_script, "script_give_center_to_faction_aux", "p_english_town_9", "fac_kingdom_2"),
+    (call_script, "script_give_center_to_faction_aux", "p_english_town_10", "fac_kingdom_2"),
+    (call_script, "script_give_center_to_faction_aux", "p_english_town_11", "fac_kingdom_2"),
     
-    (call_script, "script_give_center_to_faction_aux", "p_town_41", "fac_kingdom_2"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_42", "fac_kingdom_2"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_43", "fac_kingdom_2"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_44", "fac_kingdom_2"),   
-    (call_script, "script_give_center_to_faction_aux", "p_town_45", "fac_kingdom_2"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_46", "fac_kingdom_2"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_47", "fac_kingdom_2"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_48", "fac_kingdom_2"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_49", "fac_kingdom_2"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_50", "fac_kingdom_2"),
+    (call_script, "script_give_center_to_faction_aux", "p_english_town_12", "fac_kingdom_2"),
+    (call_script, "script_give_center_to_faction_aux", "p_english_town_13", "fac_kingdom_2"),
+    (call_script, "script_give_center_to_faction_aux", "p_english_town_14", "fac_kingdom_2"),
+    (call_script, "script_give_center_to_faction_aux", "p_english_town_15", "fac_kingdom_2"),   
+    (call_script, "script_give_center_to_faction_aux", "p_english_town_16", "fac_kingdom_2"),
+    (call_script, "script_give_center_to_faction_aux", "p_english_town_17", "fac_kingdom_2"),
+    (call_script, "script_give_center_to_faction_aux", "p_english_town_18", "fac_kingdom_2"),
+    (call_script, "script_give_center_to_faction_aux", "p_english_town_19", "fac_kingdom_2"),
+    (call_script, "script_give_center_to_faction_aux", "p_english_town_20", "fac_kingdom_2"),
+    (call_script, "script_give_center_to_faction_aux", "p_english_town_21", "fac_kingdom_2"),
     
     
-    (call_script, "script_give_center_to_faction_aux", "p_town_51", "fac_kingdom_2"),
+    (call_script, "script_give_center_to_faction_aux", "p_english_town_22", "fac_kingdom_2"),
   
 ### Burgundian Towns  
-    (call_script, "script_give_center_to_faction_aux", "p_town_52", "fac_kingdom_3"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_53", "fac_kingdom_3"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_54", "fac_kingdom_3"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_55", "fac_kingdom_3"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_56", "fac_kingdom_3"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_57", "fac_kingdom_3"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_58", "fac_kingdom_3"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_59", "fac_kingdom_3"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_60", "fac_kingdom_3"),
+    (call_script, "script_give_center_to_faction_aux", "p_burgundian_town_1", "fac_kingdom_3"),
+    (call_script, "script_give_center_to_faction_aux", "p_burgundian_town_2", "fac_kingdom_3"),
+    (call_script, "script_give_center_to_faction_aux", "p_burgundian_town_3", "fac_kingdom_3"),
+    (call_script, "script_give_center_to_faction_aux", "p_burgundian_town_4", "fac_kingdom_3"),
+    (call_script, "script_give_center_to_faction_aux", "p_burgundian_town_5", "fac_kingdom_3"),
+    (call_script, "script_give_center_to_faction_aux", "p_burgundian_town_6", "fac_kingdom_3"),
+    (call_script, "script_give_center_to_faction_aux", "p_burgundian_town_7", "fac_kingdom_3"),
+    (call_script, "script_give_center_to_faction_aux", "p_burgundian_town_8", "fac_kingdom_3"),
+    (call_script, "script_give_center_to_faction_aux", "p_burgundian_town_9", "fac_kingdom_3"),
     
-    (call_script, "script_give_center_to_faction_aux", "p_town_61", "fac_kingdom_3"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_62", "fac_kingdom_3"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_63", "fac_kingdom_3"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_64", "fac_kingdom_3"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_65", "fac_kingdom_3"),
+    (call_script, "script_give_center_to_faction_aux", "p_burgundian_town_10", "fac_kingdom_3"),
+    (call_script, "script_give_center_to_faction_aux", "p_burgundian_town_11", "fac_kingdom_3"),
+    (call_script, "script_give_center_to_faction_aux", "p_burgundian_town_12", "fac_kingdom_3"),
+    (call_script, "script_give_center_to_faction_aux", "p_burgundian_town_13", "fac_kingdom_3"),
+    (call_script, "script_give_center_to_faction_aux", "p_burgundian_town_14", "fac_kingdom_3"),
 
 ### Breton Towns
-    (call_script, "script_give_center_to_faction_aux", "p_town_66", "fac_kingdom_4"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_67", "fac_kingdom_4"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_68", "fac_kingdom_4"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_69", "fac_kingdom_4"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_70", "fac_kingdom_4"),
+    (call_script, "script_give_center_to_faction_aux", "p_breton_town_1", "fac_kingdom_4"),
+    (call_script, "script_give_center_to_faction_aux", "p_breton_town_2", "fac_kingdom_4"),
+    (call_script, "script_give_center_to_faction_aux", "p_breton_town_3", "fac_kingdom_4"),
+    (call_script, "script_give_center_to_faction_aux", "p_breton_town_4", "fac_kingdom_4"),
+    (call_script, "script_give_center_to_faction_aux", "p_breton_town_5", "fac_kingdom_4"),
     
-    (call_script, "script_give_center_to_faction_aux", "p_town_71", "fac_kingdom_4"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_72", "fac_kingdom_4"),
-    (call_script, "script_give_center_to_faction_aux", "p_town_73", "fac_kingdom_4"),   
+    (call_script, "script_give_center_to_faction_aux", "p_breton_town_6", "fac_kingdom_4"),
+    (call_script, "script_give_center_to_faction_aux", "p_breton_town_7", "fac_kingdom_4"),
+    (call_script, "script_give_center_to_faction_aux", "p_breton_town_8", "fac_kingdom_4"),   
 
 ### French Castles    
-      (call_script, "script_give_center_to_faction_aux", "p_castle_1", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_2", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_3", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_4", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_5", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_6", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_7", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_8", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_9", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_10", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_french_castle_1", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_french_castle_2", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_french_castle_3", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_french_castle_4", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_french_castle_5", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_french_castle_6", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_french_castle_7", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_french_castle_8", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_french_castle_9", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_french_castle_10", "fac_kingdom_1"),
     
-      (call_script, "script_give_center_to_faction_aux", "p_castle_11", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_12", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_13", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_14", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_15", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_16", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_17", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_18", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_19", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_20", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_french_castle_11", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_french_castle_12", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_french_castle_13", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_french_castle_14", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_french_castle_15", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_french_castle_16", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_french_castle_17", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_french_castle_18", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_french_castle_19", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_french_castle_20", "fac_kingdom_1"),
     
-      (call_script, "script_give_center_to_faction_aux", "p_castle_21", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_22", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_23", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_24", "fac_kingdom_1"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_25", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_french_castle_21", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_french_castle_22", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_french_castle_23", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_french_castle_24", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_french_castle_25", "fac_kingdom_1"),
 
 ### English Castles     
-      (call_script, "script_give_center_to_faction_aux", "p_castle_26", "fac_kingdom_2"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_27", "fac_kingdom_2"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_28", "fac_kingdom_2"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_29", "fac_kingdom_2"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_30", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_english_castle_1", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_english_castle_2", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_english_castle_3", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_english_castle_4", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_english_castle_5", "fac_kingdom_2"),
     
-      (call_script, "script_give_center_to_faction_aux", "p_castle_31", "fac_kingdom_2"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_32", "fac_kingdom_2"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_33", "fac_kingdom_2"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_34", "fac_kingdom_2"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_35", "fac_kingdom_2"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_36", "fac_kingdom_2"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_37", "fac_kingdom_2"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_38", "fac_kingdom_2"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_39", "fac_kingdom_2"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_40", "fac_kingdom_2"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_41", "fac_kingdom_2"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_42", "fac_kingdom_2"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_43", "fac_kingdom_2"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_44", "fac_kingdom_2"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_45", "fac_kingdom_2"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_46", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_english_castle_6", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_english_castle_7", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_english_castle_8", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_english_castle_9", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_english_castle_10", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_english_castle_11", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_english_castle_12", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_english_castle_13", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_english_castle_14", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_english_castle_15", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_english_castle_16", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_english_castle_17", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_english_castle_18", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_english_castle_19", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_english_castle_20", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_english_castle_21", "fac_kingdom_2"),
     
 ### Burgundian Castles      
-      (call_script, "script_give_center_to_faction_aux", "p_castle_47", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_48", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_49", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_50", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_burgundian_castle_1", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_burgundian_castle_2", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_burgundian_castle_3", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_burgundian_castle_4", "fac_kingdom_3"),
     
-      (call_script, "script_give_center_to_faction_aux", "p_castle_51", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_52", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_53", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_54", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_55", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_56", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_57", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_58", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_59", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_60", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_burgundian_castle_5", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_burgundian_castle_6", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_burgundian_castle_7", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_burgundian_castle_8", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_burgundian_castle_9", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_burgundian_castle_10", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_burgundian_castle_11", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_burgundian_castle_12", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_burgundian_castle_13", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_burgundian_castle_14", "fac_kingdom_3"),
     
-      (call_script, "script_give_center_to_faction_aux", "p_castle_61", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_62", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_63", "fac_kingdom_3"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_64", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_burgundian_castle_15", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_burgundian_castle_16", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_burgundian_castle_17", "fac_kingdom_3"),
+      (call_script, "script_give_center_to_faction_aux", "p_burgundian_castle_18", "fac_kingdom_3"),
 
 ### Breton Castles      
-      (call_script, "script_give_center_to_faction_aux", "p_castle_65", "fac_kingdom_4"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_66", "fac_kingdom_4"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_67", "fac_kingdom_4"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_68", "fac_kingdom_4"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_69", "fac_kingdom_4"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_70", "fac_kingdom_4"),
+      (call_script, "script_give_center_to_faction_aux", "p_breton_castle_1", "fac_kingdom_4"),
+      (call_script, "script_give_center_to_faction_aux", "p_breton_castle_2", "fac_kingdom_4"),
+      (call_script, "script_give_center_to_faction_aux", "p_breton_castle_3", "fac_kingdom_4"),
+      (call_script, "script_give_center_to_faction_aux", "p_breton_castle_4", "fac_kingdom_4"),
+      (call_script, "script_give_center_to_faction_aux", "p_breton_castle_5", "fac_kingdom_4"),
+      (call_script, "script_give_center_to_faction_aux", "p_breton_castle_6", "fac_kingdom_4"),
     
-      (call_script, "script_give_center_to_faction_aux", "p_castle_71", "fac_kingdom_4"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_72", "fac_kingdom_4"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_73", "fac_kingdom_4"),
-      (call_script, "script_give_center_to_faction_aux", "p_castle_74", "fac_kingdom_4"),   
-      (call_script, "script_give_center_to_faction_aux", "p_castle_75", "fac_kingdom_4"),   
-      (call_script, "script_give_center_to_faction_aux", "p_castle_76", "fac_kingdom_4"),   
-      (call_script, "script_give_center_to_faction_aux", "p_castle_77", "fac_kingdom_4"),   
-      (call_script, "script_give_center_to_faction_aux", "p_castle_78", "fac_kingdom_4"),   
-      (call_script, "script_give_center_to_faction_aux", "p_castle_79", "fac_kingdom_4"),   
-      (call_script, "script_give_center_to_faction_aux", "p_castle_80", "fac_kingdom_4"),   
+      (call_script, "script_give_center_to_faction_aux", "p_breton_castle_7", "fac_kingdom_4"),
+      (call_script, "script_give_center_to_faction_aux", "p_breton_castle_8", "fac_kingdom_4"),
+      (call_script, "script_give_center_to_faction_aux", "p_breton_castle_9", "fac_kingdom_4"),
+      (call_script, "script_give_center_to_faction_aux", "p_breton_castle_10", "fac_kingdom_4"),   
+      (call_script, "script_give_center_to_faction_aux", "p_breton_castle_11", "fac_kingdom_4"),   
+      (call_script, "script_give_center_to_faction_aux", "p_breton_castle_12", "fac_kingdom_4"),   
+      (call_script, "script_give_center_to_faction_aux", "p_breton_castle_13", "fac_kingdom_4"),   
+      (call_script, "script_give_center_to_faction_aux", "p_breton_castle_14", "fac_kingdom_4"),   
+      (call_script, "script_give_center_to_faction_aux", "p_breton_castle_15", "fac_kingdom_4"),   
+      (call_script, "script_give_center_to_faction_aux", "p_breton_castle_16", "fac_kingdom_4"),   
 
-      (call_script, "script_give_center_to_faction_aux", "p_castle_81", "fac_kingdom_4"),   
-      (call_script, "script_give_center_to_faction_aux", "p_castle_82", "fac_kingdom_4"),   
-      (call_script, "script_give_center_to_faction_aux", "p_castle_83", "fac_kingdom_4"),   
-      (call_script, "script_give_center_to_faction_aux", "p_castle_84", "fac_kingdom_4"),   
-      (call_script, "script_give_center_to_faction_aux", "p_castle_85", "fac_kingdom_4"),   
-      (call_script, "script_give_center_to_faction_aux", "p_castle_86", "fac_kingdom_4"),   
+      (call_script, "script_give_center_to_faction_aux", "p_breton_castle_17", "fac_kingdom_4"),   
+      (call_script, "script_give_center_to_faction_aux", "p_breton_castle_18", "fac_kingdom_4"),   
+      (call_script, "script_give_center_to_faction_aux", "p_breton_castle_19", "fac_kingdom_4"),   
+      (call_script, "script_give_center_to_faction_aux", "p_breton_castle_20", "fac_kingdom_4"),   
+      (call_script, "script_give_center_to_faction_aux", "p_breton_castle_21", "fac_kingdom_4"),   
+      (call_script, "script_give_center_to_faction_aux", "p_breton_castle_22", "fac_kingdom_4"),   
       # (call_script, "script_give_center_to_faction_aux", "p_castle_87", "fac_kingdom_4"),   
       # (call_script, "script_give_center_to_faction_aux", "p_castle_88", "fac_kingdom_4"),   
     
@@ -78709,92 +78770,92 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 
     
 # French towns    
-      (call_script, "script_give_center_to_lord", "p_town_1",  "trp_kingdom_1_lord", 0),# Bourges - Charles_VII
-      (call_script, "script_give_center_to_lord", "p_town_2",  "trp_knight_1_9", 0),# Orléans - Jean D'Orléans, Le Bâtard  
-      (call_script, "script_give_center_to_lord", "p_town_3",  "trp_knight_1_10", 0), # Tours - Jean V de Bueil
-      (call_script, "script_give_center_to_lord", "p_town_4",  "trp_kingdom_1_lord", 0),# Poitiers - Charles_VII
-      (call_script, "script_give_center_to_lord", "p_town_5",  "trp_kingdom_1_lord", 0),# La_Rochelle - Charles_VII
-      (call_script, "script_give_center_to_lord", "p_town_6",  "trp_knight_1_17", 0),# Clermont - Louis I de Bourbon, Comte de Clermont
-      (call_script, "script_give_center_to_lord", "p_town_7",  "trp_knight_1_16", 0),# Moulins - Charles I de Bourbon, Duc de Bourbon et d'Auvergne
-      (call_script, "script_give_center_to_lord", "p_town_8",  "trp_knight_1_16", 0),# Aurillac - Charles I de Bourbon, Duc de Bourbon et d'Auvergne
-      (call_script, "script_give_center_to_lord", "p_town_9",  "trp_knight_1_16", 0),# Lyon - Charles I de Bourbon, Duc de Bourbon et d'Auvergne
-      (call_script, "script_give_center_to_lord", "p_town_10", "trp_knight_1_53", 0),# Le_Puy - Louis-Armand XII de Polignac, Vicomte de Polignac, Gouverneur du Velay
+      (call_script, "script_give_center_to_lord", "p_french_town_1",  "trp_kingdom_1_lord", 0),# Bourges - Charles_VII
+      (call_script, "script_give_center_to_lord", "p_french_town_2",  "trp_knight_1_9", 0),# Orléans - Jean D'Orléans, Le Bâtard  
+      (call_script, "script_give_center_to_lord", "p_french_town_3",  "trp_knight_1_10", 0), # Tours - Jean V de Bueil
+      (call_script, "script_give_center_to_lord", "p_french_town_4",  "trp_kingdom_1_lord", 0),# Poitiers - Charles_VII
+      (call_script, "script_give_center_to_lord", "p_french_town_5",  "trp_kingdom_1_lord", 0),# La_Rochelle - Charles_VII
+      (call_script, "script_give_center_to_lord", "p_french_town_6",  "trp_knight_1_17", 0),# Clermont - Louis I de Bourbon, Comte de Clermont
+      (call_script, "script_give_center_to_lord", "p_french_town_7",  "trp_knight_1_16", 0),# Moulins - Charles I de Bourbon, Duc de Bourbon et d'Auvergne
+      (call_script, "script_give_center_to_lord", "p_french_town_8",  "trp_knight_1_16", 0),# Aurillac - Charles I de Bourbon, Duc de Bourbon et d'Auvergne
+      (call_script, "script_give_center_to_lord", "p_french_town_9",  "trp_knight_1_16", 0),# Lyon - Charles I de Bourbon, Duc de Bourbon et d'Auvergne
+      (call_script, "script_give_center_to_lord", "p_french_town_10", "trp_knight_1_53", 0),# Le_Puy - Louis-Armand XII de Polignac, Vicomte de Polignac, Gouverneur du Velay
     
-      (call_script, "script_give_center_to_lord", "p_town_11", "trp_kingdom_1_lord", 0),# Cahors - Charles VII
-      (call_script, "script_give_center_to_lord", "p_town_12", "trp_knight_1_22", 0),# Rodez - Jean IV d'Armagnac
-      (call_script, "script_give_center_to_lord", "p_town_13", "trp_knight_1_22", 0),# Lectoure - Jean IV d'Armagnac
-      (call_script, "script_give_center_to_lord", "p_town_14", "trp_knight_1_46", 0),# Tarbes - Jean de Foix, Comte de Foix et de Bigorre, Vicomte de Béarn, Gouverneur du Languedoc
-      (call_script, "script_give_center_to_lord", "p_town_15", "trp_knight_1_46", 0),# Toulouse - Jean de Foix, Comte de Foix et de Bigorre, Vicomte de Béarn, Gouverneur du Languedoc
-      (call_script, "script_give_center_to_lord", "p_town_16", "trp_kingdom_1_lord", 0),# Carcassonne - Charles_VII
-      (call_script, "script_give_center_to_lord", "p_town_17", "trp_knight_1_13", 0),# Montpellier - Raymond de Villars, Sénéchal de Beaucaire et Nîmes
-      (call_script, "script_give_center_to_lord", "p_town_18", "trp_knight_1_31", 0),# Valence - Charles II de Poitiers, Seigneur de Saint-Vallier
-      (call_script, "script_give_center_to_lord", "p_town_19", "trp_knight_1_7", 0),# Thouars - Louis d'Amboise, Vicomte de Thouars
-      (call_script, "script_give_center_to_lord", "p_town_20", "trp_kingdom_1_lord", 0),# Tournai - Charles_VII
+      (call_script, "script_give_center_to_lord", "p_french_town_11", "trp_kingdom_1_lord", 0),# Cahors - Charles VII
+      (call_script, "script_give_center_to_lord", "p_french_town_12", "trp_knight_1_22", 0),# Rodez - Jean IV d'Armagnac
+      (call_script, "script_give_center_to_lord", "p_french_town_13", "trp_knight_1_22", 0),# Lectoure - Jean IV d'Armagnac
+      (call_script, "script_give_center_to_lord", "p_french_town_14", "trp_knight_1_46", 0),# Tarbes - Jean de Foix, Comte de Foix et de Bigorre, Vicomte de Béarn, Gouverneur du Languedoc
+      (call_script, "script_give_center_to_lord", "p_french_town_15", "trp_knight_1_46", 0),# Toulouse - Jean de Foix, Comte de Foix et de Bigorre, Vicomte de Béarn, Gouverneur du Languedoc
+      (call_script, "script_give_center_to_lord", "p_french_town_16", "trp_kingdom_1_lord", 0),# Carcassonne - Charles_VII
+      (call_script, "script_give_center_to_lord", "p_french_town_17", "trp_knight_1_13", 0),# Montpellier - Raymond de Villars, Sénéchal de Beaucaire et Nîmes
+      (call_script, "script_give_center_to_lord", "p_french_town_18", "trp_knight_1_31", 0),# Valence - Charles II de Poitiers, Seigneur de Saint-Vallier
+      (call_script, "script_give_center_to_lord", "p_french_town_19", "trp_knight_1_7", 0),# Thouars - Louis d'Amboise, Vicomte de Thouars
+      (call_script, "script_give_center_to_lord", "p_french_town_20", "trp_kingdom_1_lord", 0),# Tournai - Charles_VII
     
-      (call_script, "script_give_center_to_lord", "p_town_21", "trp_knight_1_9", 0),# Gien - Jean D'Orleans
-      (call_script, "script_give_center_to_lord", "p_town_22", "trp_kingdom_1_lord", 0),# Montargis-le-Franc - Charles_VII
-      (call_script, "script_give_center_to_lord", "p_town_23",  "trp_knight_1_4", 0), # Albret - Charles II d'Albret, Sire d'Albret, Vicomte de Tartas
-      (call_script, "script_give_center_to_lord", "p_town_24",  "trp_knight_1_9", 0), # Bergerac - Jean D'Orléans, le Bâtard     
-      (call_script, "script_give_center_to_lord", "p_town_25",  "trp_knight_1_9", 0), # Périgueux - Jean D'Orléans, le Bâtard 
-      (call_script, "script_give_center_to_lord", "p_town_26",  "trp_knight_1_9", 0), # Angoulême - Jean D'Orléans, le Bâtard     
-      (call_script, "script_give_center_to_lord", "p_town_27",  "trp_knight_1_6", 0), # Limoges - Jean Poton de Xaintrailles, seigneur de Xaintrailles, sénéchal du Limousin
-      (call_script, "script_give_center_to_lord", "p_town_28",  "trp_knight_1_37", 0), # Angers - Louis III d'Anjou, Duc d'Anjou    
-      (call_script, "script_give_center_to_lord", "p_town_29", "trp_knight_1_46", 0),# Foix Jean de Foix, Comte de Foix et de Bigorre, Vicomte de Béarn et de Marsan
+      (call_script, "script_give_center_to_lord", "p_french_town_21", "trp_knight_1_9", 0),# Gien - Jean D'Orleans
+      (call_script, "script_give_center_to_lord", "p_french_town_22", "trp_kingdom_1_lord", 0),# Montargis-le-Franc - Charles_VII
+      (call_script, "script_give_center_to_lord", "p_french_town_23",  "trp_knight_1_4", 0), # Albret - Charles II d'Albret, Sire d'Albret, Vicomte de Tartas
+      (call_script, "script_give_center_to_lord", "p_french_town_24",  "trp_knight_1_9", 0), # Bergerac - Jean D'Orléans, le Bâtard     
+      (call_script, "script_give_center_to_lord", "p_french_town_25",  "trp_knight_1_9", 0), # Périgueux - Jean D'Orléans, le Bâtard 
+      (call_script, "script_give_center_to_lord", "p_french_town_26",  "trp_knight_1_9", 0), # Angoulême - Jean D'Orléans, le Bâtard     
+      (call_script, "script_give_center_to_lord", "p_french_town_27",  "trp_knight_1_6", 0), # Limoges - Jean Poton de Xaintrailles, seigneur de Xaintrailles, sénéchal du Limousin
+      (call_script, "script_give_center_to_lord", "p_french_town_28",  "trp_knight_1_37", 0), # Angers - Louis III d'Anjou, Duc d'Anjou    
+      (call_script, "script_give_center_to_lord", "p_french_town_29", "trp_knight_1_46", 0),# Foix Jean de Foix, Comte de Foix et de Bigorre, Vicomte de Béarn et de Marsan
 
 
 # English Towns
-      (call_script, "script_give_center_to_lord", "p_town_30",  "trp_kingdom_2_lord", 0), # Paris - John of Lancaster, Duc de Bedford
-      (call_script, "script_give_center_to_lord", "p_town_31",  "trp_knight_2_45", 0), # Bayonne - Jean-Gaillard de Durfort, Seigneur de Duras, prévôt de Bayonne
-      (call_script, "script_give_center_to_lord", "p_town_32",  "trp_knight_2_3", 0), # Nemours - William de la Pole, Earl of Suffolk
-      (call_script, "script_give_center_to_lord", "p_town_33",  "trp_knight_2_1", 0), # Laval - John Talbot, Baron Talbot and Furnival
-      (call_script, "script_give_center_to_lord", "p_town_34",  "trp_knight_2_1", 0), # Le_Mans - John Talbot, Baron Talbot and Furnival
-      (call_script, "script_give_center_to_lord", "p_town_35",  "trp_knight_2_42", 0), # Bordeaux - Bertrand III de Montferrand
-      (call_script, "script_give_center_to_lord", "p_town_36",  "trp_knight_2_4", 0), # Chartres - Thomas de Scales, Baron de Scales
-      (call_script, "script_give_center_to_lord", "p_town_37",  "trp_kingdom_2_lord", 0), # Rouen - John of Lancaster, Duc de Bedford
-      (call_script, "script_give_center_to_lord", "p_town_38",  "trp_knight_2_13", 0), # Caen - Reginald Grey, Baron Grey de Ruthyn
-      (call_script, "script_give_center_to_lord", "p_town_39",  "trp_knight_2_2", 0), # Harfleur - John Fastolf, Lieutenant-general of Normandy
-      (call_script, "script_give_center_to_lord", "p_town_40",  "trp_knight_2_18", 0), # Cherbourg - Sir Walter Hungerford
+      (call_script, "script_give_center_to_lord", "p_english_town_1",  "trp_kingdom_2_lord", 0), # Paris - John of Lancaster, Duc de Bedford
+      (call_script, "script_give_center_to_lord", "p_english_town_2",  "trp_knight_2_45", 0), # Bayonne - Jean-Gaillard de Durfort, Seigneur de Duras, prévôt de Bayonne
+      (call_script, "script_give_center_to_lord", "p_english_town_3",  "trp_knight_2_3", 0), # Nemours - William de la Pole, Earl of Suffolk
+      (call_script, "script_give_center_to_lord", "p_english_town_4",  "trp_knight_2_1", 0), # Laval - John Talbot, Baron Talbot and Furnival
+      (call_script, "script_give_center_to_lord", "p_english_town_5",  "trp_knight_2_1", 0), # Le_Mans - John Talbot, Baron Talbot and Furnival
+      (call_script, "script_give_center_to_lord", "p_english_town_6",  "trp_knight_2_42", 0), # Bordeaux - Bertrand III de Montferrand
+      (call_script, "script_give_center_to_lord", "p_english_town_7",  "trp_knight_2_4", 0), # Chartres - Thomas de Scales, Baron de Scales
+      (call_script, "script_give_center_to_lord", "p_english_town_8",  "trp_kingdom_2_lord", 0), # Rouen - John of Lancaster, Duc de Bedford
+      (call_script, "script_give_center_to_lord", "p_english_town_9",  "trp_knight_2_13", 0), # Caen - Reginald Grey, Baron Grey de Ruthyn
+      (call_script, "script_give_center_to_lord", "p_english_town_10",  "trp_knight_2_2", 0), # Harfleur - John Fastolf, Lieutenant-general of Normandy
+      (call_script, "script_give_center_to_lord", "p_english_town_11",  "trp_knight_2_18", 0), # Cherbourg - Sir Walter Hungerford
 
-      (call_script, "script_give_center_to_lord", "p_town_41",  "trp_kingdom_2_lord", 0), # Bayeux - John of Lancaster, Duc de Bedford
-      (call_script, "script_give_center_to_lord", "p_town_42",  "trp_knight_2_21", 0), # Calais - Richard Woodville, Baron Wodville, Lieutenant of Calais
-      (call_script, "script_give_center_to_lord", "p_town_43",  "trp_knight_2_7", 0), # Alençon - Thomas Beaufort, Count of Perche
-      (call_script, "script_give_center_to_lord", "p_town_44",  "trp_knight_2_27", 0), # Argentan - Sir William Oldhall   
-      (call_script, "script_give_center_to_lord", "p_town_45",  "trp_knight_2_43", 0), # Tartas - François de Montferrand, Gouverneur de Dax
-      (call_script, "script_give_center_to_lord", "p_town_46",  "trp_knight_2_43", 0), # Dax - François de Montferrand, Gouverneur de Dax
-      (call_script, "script_give_center_to_lord", "p_town_47",  "trp_knight_2_16", 0), # Libourne - Sir John Radcliffe
-      (call_script, "script_give_center_to_lord", "p_town_48",  "trp_knight_2_10", 0), # Saint-Lô - Richard Beauchamp
-      (call_script, "script_give_center_to_lord", "p_town_49",  "trp_knight_2_39", 0), # Eu - Henry Bourchier, Count of Eu
-      (call_script, "script_give_center_to_lord", "p_town_50",  "trp_knight_2_9", 0), # Avranches - John Mowbray, Earl of Norfolk
+      (call_script, "script_give_center_to_lord", "p_english_town_12",  "trp_kingdom_2_lord", 0), # Bayeux - John of Lancaster, Duc de Bedford
+      (call_script, "script_give_center_to_lord", "p_english_town_13",  "trp_knight_2_21", 0), # Calais - Richard Woodville, Baron Wodville, Lieutenant of Calais
+      (call_script, "script_give_center_to_lord", "p_english_town_14",  "trp_knight_2_7", 0), # Alençon - Thomas Beaufort, Count of Perche
+      (call_script, "script_give_center_to_lord", "p_english_town_15",  "trp_knight_2_27", 0), # Argentan - Sir William Oldhall   
+      (call_script, "script_give_center_to_lord", "p_english_town_16",  "trp_knight_2_43", 0), # Tartas - François de Montferrand, Gouverneur de Dax
+      (call_script, "script_give_center_to_lord", "p_english_town_17",  "trp_knight_2_43", 0), # Dax - François de Montferrand, Gouverneur de Dax
+      (call_script, "script_give_center_to_lord", "p_english_town_18",  "trp_knight_2_16", 0), # Libourne - Sir John Radcliffe
+      (call_script, "script_give_center_to_lord", "p_english_town_19",  "trp_knight_2_10", 0), # Saint-Lô - Richard Beauchamp
+      (call_script, "script_give_center_to_lord", "p_english_town_20",  "trp_knight_2_39", 0), # Eu - Henry Bourchier, Count of Eu
+      (call_script, "script_give_center_to_lord", "p_english_town_21",  "trp_knight_2_9", 0), # Avranches - John Mowbray, Earl of Norfolk
 
-      (call_script, "script_give_center_to_lord", "p_town_51",  "trp_knight_2_40", 0), # Coutances - John Robessart
+      (call_script, "script_give_center_to_lord", "p_english_town_22",  "trp_knight_2_40", 0), # Coutances - John Robessart
     
 # Burgundian Towns
-      (call_script, "script_give_center_to_lord", "p_town_52",  "trp_kingdom_3_lord", 0), # Dijon - Philippe the Good, Duke of Burgundy
-      (call_script, "script_give_center_to_lord", "p_town_53",  "trp_knight_3_20", 0), # Besançon - Thibaud VI de Rougemont, Vicomte de Besançon et Seigneur de Rougemont
-      (call_script, "script_give_center_to_lord", "p_town_54",  "trp_knight_3_3", 0), # Nevers - Guy de Bourgogne, Comte de Nevers et de Rethel
-      (call_script, "script_give_center_to_lord", "p_town_55",  "trp_kingdom_3_lord", 0), # Auxerre - Philippe the Good, Duke of Burgundy
-      (call_script, "script_give_center_to_lord", "p_town_56",  "trp_kingdom_3_lord", 0), # Troyes - Philippe the Good, Duke of Burgundy
-      (call_script, "script_give_center_to_lord", "p_town_57",  "trp_knight_3_10", 0), # Compiègne - Jean de Villiers de l'Isle-Adam, Seigneur de L'Isle-Adam
-      (call_script, "script_give_center_to_lord", "p_town_58",  "trp_knight_3_19", 0), # Bruges - Roland d'Uytkerke, Seigneur d'Uytkerke
-      (call_script, "script_give_center_to_lord", "p_town_59",  "trp_kingdom_3_lord", 0), # Gand - Philippe the Good, Duke of Burgundy
-      (call_script, "script_give_center_to_lord", "p_town_60",  "trp_kingdom_3_lord", 0), # Malines - Philippe the Good, Duke of Burgundy
+      (call_script, "script_give_center_to_lord", "p_burgundian_town_1",  "trp_kingdom_3_lord", 0), # Dijon - Philippe the Good, Duke of Burgundy
+      (call_script, "script_give_center_to_lord", "p_burgundian_town_2",  "trp_knight_3_20", 0), # Besançon - Thibaud VI de Rougemont, Vicomte de Besançon et Seigneur de Rougemont
+      (call_script, "script_give_center_to_lord", "p_burgundian_town_3",  "trp_knight_3_3", 0), # Nevers - Guy de Bourgogne, Comte de Nevers et de Rethel
+      (call_script, "script_give_center_to_lord", "p_burgundian_town_4",  "trp_kingdom_3_lord", 0), # Auxerre - Philippe the Good, Duke of Burgundy
+      (call_script, "script_give_center_to_lord", "p_burgundian_town_5",  "trp_kingdom_3_lord", 0), # Troyes - Philippe the Good, Duke of Burgundy
+      (call_script, "script_give_center_to_lord", "p_burgundian_town_6",  "trp_knight_3_10", 0), # Compiègne - Jean de Villiers de l'Isle-Adam, Seigneur de L'Isle-Adam
+      (call_script, "script_give_center_to_lord", "p_burgundian_town_7",  "trp_knight_3_19", 0), # Bruges - Roland d'Uytkerke, Seigneur d'Uytkerke
+      (call_script, "script_give_center_to_lord", "p_burgundian_town_8",  "trp_kingdom_3_lord", 0), # Gand - Philippe the Good, Duke of Burgundy
+      (call_script, "script_give_center_to_lord", "p_burgundian_town_9",  "trp_kingdom_3_lord", 0), # Malines - Philippe the Good, Duke of Burgundy
 
-      (call_script, "script_give_center_to_lord", "p_town_61",  "trp_kingdom_3_lord", 0), # Boulogne - Philippe the Good, Duke of Burgundy
-      (call_script, "script_give_center_to_lord", "p_town_62",  "trp_knight_3_3", 0), # Châlons-en-Champagne - Guy de Bourgogne, Comte de Nevers et de Rethel
-      (call_script, "script_give_center_to_lord", "p_town_63",  "trp_knight_3_3", 0), # Reims - Guy de Bourgogne, Comte de Nevers et de Rethel
-      (call_script, "script_give_center_to_lord", "p_town_64", "trp_knight_3_11", 0), # Amiens - David de Brimeu, Seigneur de Ligny
-      (call_script, "script_give_center_to_lord", "p_town_65", "trp_knight_3_10", 0), # Peronne - Jean de Villiers de l'Isle-Adam
+      (call_script, "script_give_center_to_lord", "p_burgundian_town_10",  "trp_kingdom_3_lord", 0), # Boulogne - Philippe the Good, Duke of Burgundy
+      (call_script, "script_give_center_to_lord", "p_burgundian_town_11",  "trp_knight_3_3", 0), # Châlons-en-Champagne - Guy de Bourgogne, Comte de Nevers et de Rethel
+      (call_script, "script_give_center_to_lord", "p_burgundian_town_12",  "trp_knight_3_3", 0), # Reims - Guy de Bourgogne, Comte de Nevers et de Rethel
+      (call_script, "script_give_center_to_lord", "p_burgundian_town_13", "trp_knight_3_11", 0), # Amiens - David de Brimeu, Seigneur de Ligny
+      (call_script, "script_give_center_to_lord", "p_burgundian_town_14", "trp_knight_3_10", 0), # Peronne - Jean de Villiers de l'Isle-Adam
       
 # Breton Towns
-      (call_script, "script_give_center_to_lord", "p_town_66",  "trp_kingdom_4_lord", 0), # Rennes - Jean V de Montfort, Duke of Brittany
-      (call_script, "script_give_center_to_lord", "p_town_67",  "trp_kingdom_4_lord", 0), # Nantes - Jean V de Montfort, Duke of Brittany
-      (call_script, "script_give_center_to_lord", "p_town_68",  "trp_kingdom_4_lord", 0), # Vannes - Jean V de Montfort, Duke of Brittany
-      (call_script, "script_give_center_to_lord", "p_town_69",  "trp_knight_4_13", 0), # Kemper - Guillaume de Rosmadec, Baron de Rosmadec
-      (call_script, "script_give_center_to_lord", "p_town_70",  "trp_knight_4_14", 0), # Saint-Malo - Pierre de Rochefort, Seigneur de Rieux et de Rochefort
+      (call_script, "script_give_center_to_lord", "p_breton_town_1",  "trp_kingdom_4_lord", 0), # Rennes - Jean V de Montfort, Duke of Brittany
+      (call_script, "script_give_center_to_lord", "p_breton_town_2",  "trp_kingdom_4_lord", 0), # Nantes - Jean V de Montfort, Duke of Brittany
+      (call_script, "script_give_center_to_lord", "p_breton_town_3",  "trp_kingdom_4_lord", 0), # Vannes - Jean V de Montfort, Duke of Brittany
+      (call_script, "script_give_center_to_lord", "p_breton_town_4",  "trp_knight_4_13", 0), # Kemper - Guillaume de Rosmadec, Baron de Rosmadec
+      (call_script, "script_give_center_to_lord", "p_breton_town_5",  "trp_knight_4_14", 0), # Saint-Malo - Pierre de Rochefort, Seigneur de Rieux et de Rochefort
 
-      (call_script, "script_give_center_to_lord", "p_town_71",  "trp_kingdom_4_lord", 0), # Saint-Brieuc - Jean V de Montfort, Duke of Brittany
-      (call_script, "script_give_center_to_lord", "p_town_72",  "trp_knight_4_10", 0), # Saint-Pol-de-Léon - Alain X de Rohan, Vicomte de Léon
-      (call_script, "script_give_center_to_lord", "p_town_73",  "trp_knight_4_9", 0), # Rohan - Alain IX de Rohan, Vicomte de Rohan
+      (call_script, "script_give_center_to_lord", "p_breton_town_6",  "trp_kingdom_4_lord", 0), # Saint-Brieuc - Jean V de Montfort, Duke of Brittany
+      (call_script, "script_give_center_to_lord", "p_breton_town_7",  "trp_knight_4_10", 0), # Saint-Pol-de-Léon - Alain X de Rohan, Vicomte de Léon
+      (call_script, "script_give_center_to_lord", "p_breton_town_8",  "trp_knight_4_9", 0), # Rohan - Alain IX de Rohan, Vicomte de Rohan
     
 
 
@@ -78803,152 +78864,152 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 ##################################################################################################################################################################################################################################################################################################################
 
 ### French Castles
-      (call_script, "script_give_center_to_lord", "p_castle_1", "trp_kingdom_1_lord", 0), # Forteresse_de_Chinon - Charles_VII
-      (call_script, "script_give_center_to_lord", "p_castle_2", "trp_knight_1_39", 0), # Châteauroux - Guy III de Chauvigny, Baron de Châteauroux
-      (call_script, "script_give_center_to_lord", "p_castle_3", "trp_knight_1_1", 0), # Niort - Jean II d'Alençon
-      (call_script, "script_give_center_to_lord", "p_castle_4", "trp_knight_1_24", 0), # Tour_de_Termes - Jean IV de Termes d’Armagnac, Seigneur de Termes
-      (call_script, "script_give_center_to_lord", "p_castle_5", "trp_knight_1_28", 0), # Château_de_Murol - Jean de Murol
-      (call_script, "script_give_center_to_lord", "p_castle_6", "trp_knight_1_53", 0), # Château_de_Polignac - Louis-Armand XII de Chalençon-Polignac
-      (call_script, "script_give_center_to_lord", "p_castle_7", "trp_knight_1_11", 0), # Château_de_Culant - Louis de Culant
-      (call_script, "script_give_center_to_lord", "p_castle_8", "trp_knight_1_8", 0), # Château_de_Chaumont - Pierre d'Amboise
-      (call_script, "script_give_center_to_lord", "p_castle_9", "trp_knight_1_15", 0), # Château_de_Boussac - Jean de Brosse
-      (call_script, "script_give_center_to_lord", "p_castle_10", "trp_knight_1_54", 0), # Yèvre-le-Châtel - Nicolas de Giresme
+      (call_script, "script_give_center_to_lord", "p_french_castle_1", "trp_kingdom_1_lord", 0), # Forteresse_de_Chinon - Charles_VII
+      (call_script, "script_give_center_to_lord", "p_french_castle_2", "trp_knight_1_39", 0), # Châteauroux - Guy III de Chauvigny, Baron de Châteauroux
+      (call_script, "script_give_center_to_lord", "p_french_castle_3", "trp_knight_1_1", 0), # Niort - Jean II d'Alençon
+      (call_script, "script_give_center_to_lord", "p_french_castle_4", "trp_knight_1_24", 0), # Tour_de_Termes - Jean IV de Termes d’Armagnac, Seigneur de Termes
+      (call_script, "script_give_center_to_lord", "p_french_castle_5", "trp_knight_1_28", 0), # Château_de_Murol - Jean de Murol
+      (call_script, "script_give_center_to_lord", "p_french_castle_6", "trp_knight_1_53", 0), # Château_de_Polignac - Louis-Armand XII de Chalençon-Polignac
+      (call_script, "script_give_center_to_lord", "p_french_castle_7", "trp_knight_1_11", 0), # Château_de_Culant - Louis de Culant
+      (call_script, "script_give_center_to_lord", "p_french_castle_8", "trp_knight_1_8", 0), # Château_de_Chaumont - Pierre d'Amboise
+      (call_script, "script_give_center_to_lord", "p_french_castle_9", "trp_knight_1_15", 0), # Château_de_Boussac - Jean de Brosse
+      (call_script, "script_give_center_to_lord", "p_french_castle_10", "trp_knight_1_54", 0), # Yèvre-le-Châtel - Nicolas de Giresme
     
-      (call_script, "script_give_center_to_lord", "p_castle_11", "trp_knight_1_42", 0), # Château_de_La_Fayette - Gilbert Motier de La Fayette
-      (call_script, "script_give_center_to_lord", "p_castle_12", "trp_knight_1_43", 0), # La_Tour_d'Auvergne - Bertrand V de La Tour d'Auvergne
-      (call_script, "script_give_center_to_lord", "p_castle_13", "trp_knight_1_20", 0), # chateaux de Charlus - Antoine de Chabannes 
-      (call_script, "script_give_center_to_lord", "p_castle_14", "trp_knight_1_17", 0), # Château_de_Sancerre - Louis I de Bourbon
-      (call_script, "script_give_center_to_lord", "p_castle_15", "trp_knight_1_4", 0), # Castelnau_Tursan - Charles II d'Albret
-      (call_script, "script_give_center_to_lord", "p_castle_16", "trp_knight_1_23", 0), # Forteresse_d'Auch - Bernard VIII D'Armagnac
-      (call_script, "script_give_center_to_lord", "p_castle_17", "trp_knight_1_50", 0), # Mont-St-Michel - Louis d’Estouteville, Seigneur d'Estouteville et de Valmont
-      (call_script, "script_give_center_to_lord", "p_castle_18", "trp_knight_1_32", 0), # Château_de_Turenne - Pierre de Beaufort de Turenne, Comte de Beaufort, Vicomte de Turenne
-      (call_script, "script_give_center_to_lord", "p_castle_19", "trp_knight_1_23", 0), # Sévérac-le-Château - Bernard VIII d’Armagnac
-      (call_script, "script_give_center_to_lord", "p_castle_20", "trp_knight_1_45", 0), # Saint-Germain Beaupré - Jean Foucault, seigneur de St- germain
+      (call_script, "script_give_center_to_lord", "p_french_castle_11", "trp_knight_1_42", 0), # Château_de_La_Fayette - Gilbert Motier de La Fayette
+      (call_script, "script_give_center_to_lord", "p_french_castle_12", "trp_knight_1_43", 0), # La_Tour_d'Auvergne - Bertrand V de La Tour d'Auvergne
+      (call_script, "script_give_center_to_lord", "p_french_castle_13", "trp_knight_1_20", 0), # chateaux de Charlus - Antoine de Chabannes 
+      (call_script, "script_give_center_to_lord", "p_french_castle_14", "trp_knight_1_17", 0), # Château_de_Sancerre - Louis I de Bourbon
+      (call_script, "script_give_center_to_lord", "p_french_castle_15", "trp_knight_1_4", 0), # Castelnau_Tursan - Charles II d'Albret
+      (call_script, "script_give_center_to_lord", "p_french_castle_16", "trp_knight_1_23", 0), # Forteresse_d'Auch - Bernard VIII D'Armagnac
+      (call_script, "script_give_center_to_lord", "p_french_castle_17", "trp_knight_1_50", 0), # Mont-St-Michel - Louis d’Estouteville, Seigneur d'Estouteville et de Valmont
+      (call_script, "script_give_center_to_lord", "p_french_castle_18", "trp_knight_1_32", 0), # Château_de_Turenne - Pierre de Beaufort de Turenne, Comte de Beaufort, Vicomte de Turenne
+      (call_script, "script_give_center_to_lord", "p_french_castle_19", "trp_knight_1_23", 0), # Sévérac-le-Château - Bernard VIII d’Armagnac
+      (call_script, "script_give_center_to_lord", "p_french_castle_20", "trp_knight_1_45", 0), # Saint-Germain Beaupré - Jean Foucault, seigneur de St- germain
     
-      (call_script, "script_give_center_to_lord", "p_castle_21", "trp_knight_1_17", 0), # Château_de_Virieu - Louis I de Bourbon
-      (call_script, "script_give_center_to_lord", "p_castle_22", "trp_knight_1_19", 0), # Château de La Palice - Jacques de Chabannes, Seigneur de La Palice
-      (call_script, "script_give_center_to_lord", "p_castle_23", "trp_knight_1_29", 0), # Château du Cheylard - Hugues de Cubières du Cheylard
-      (call_script, "script_give_center_to_lord", "p_castle_24", "trp_kingdom_1_lord", 0), # Château de Vaucouleurs - Charles VII 
-      (call_script, "script_give_center_to_lord", "p_castle_25", "trp_knight_1_10", 0), # La Tour De Marmande - (dans le Poitou) Jean V de Bueil
+      (call_script, "script_give_center_to_lord", "p_french_castle_21", "trp_knight_1_17", 0), # Château_de_Virieu - Louis I de Bourbon
+      (call_script, "script_give_center_to_lord", "p_french_castle_22", "trp_knight_1_19", 0), # Château de La Palice - Jacques de Chabannes, Seigneur de La Palice
+      (call_script, "script_give_center_to_lord", "p_french_castle_23", "trp_knight_1_29", 0), # Château du Cheylard - Hugues de Cubières du Cheylard
+      (call_script, "script_give_center_to_lord", "p_french_castle_24", "trp_kingdom_1_lord", 0), # Château de Vaucouleurs - Charles VII 
+      (call_script, "script_give_center_to_lord", "p_french_castle_25", "trp_knight_1_10", 0), # La Tour De Marmande - (dans le Poitou) Jean V de Bueil
 
 
 ### English Castles   
-      (call_script, "script_give_center_to_lord", "p_castle_26", "trp_knight_2_17", 0), # Château_de_Castelnaud [Forteresses de routier] - Sir Thomas Radcliffe
-      (call_script, "script_give_center_to_lord", "p_castle_27", "trp_knight_2_44", 0), # Forteresse_de_Rauzan - Jean de Montferrand, Seigneur de Langoiran
-      (call_script, "script_give_center_to_lord", "p_castle_28", "trp_knight_2_28", 0), # Château_de_Montréal [Forteresses de routier] - John Holland ?
-      (call_script, "script_give_center_to_lord", "p_castle_29", "trp_knight_2_4", 0), # Château_du_Lude - Thomas de Scales, Baron de Scales
-      (call_script, "script_give_center_to_lord", "p_castle_30", "trp_knight_2_44", 0), # Château_de_Nérac - Jean de Montferrand, Seigneur de Langoiran
+      (call_script, "script_give_center_to_lord", "p_english_castle_1", "trp_knight_2_17", 0), # Château_de_Castelnaud [Forteresses de routier] - Sir Thomas Radcliffe
+      (call_script, "script_give_center_to_lord", "p_english_castle_2", "trp_knight_2_44", 0), # Forteresse_de_Rauzan - Jean de Montferrand, Seigneur de Langoiran
+      (call_script, "script_give_center_to_lord", "p_english_castle_3", "trp_knight_2_28", 0), # Château_de_Montréal [Forteresses de routier] - John Holland ?
+      (call_script, "script_give_center_to_lord", "p_english_castle_4", "trp_knight_2_4", 0), # Château_du_Lude - Thomas de Scales, Baron de Scales
+      (call_script, "script_give_center_to_lord", "p_english_castle_5", "trp_knight_2_44", 0), # Château_de_Nérac - Jean de Montferrand, Seigneur de Langoiran
 
-      (call_script, "script_give_center_to_lord", "p_castle_31", "trp_knight_2_14", 0), # Château_de_Falaise - John Grey, Lord Grey de Ruthyn
-      (call_script, "script_give_center_to_lord", "p_castle_32", "trp_kingdom_2_lord", 0), # Château-Gaillard - John of Lancaster, duc de Bedford
-      (call_script, "script_give_center_to_lord", "p_castle_33", "trp_knight_2_34", 0), # Château_de_Vendôme - Robert Willoughby, Lord Willoughby of Eresby
-      (call_script, "script_give_center_to_lord", "p_castle_34", "trp_knight_2_2", 0), # Château_de_Beauvau - John Fastolf, Governor of Anjou
-      (call_script, "script_give_center_to_lord", "p_castle_35", "trp_knight_2_34", 0), # Château_Gontier - Robert Willoughby, Lord Willoughby of Eresby
-      (call_script, "script_give_center_to_lord", "p_castle_36", "trp_knight_2_7", 0), # Château_de_Verneuil - Thomas Beaufort, Count of Perche
-      (call_script, "script_give_center_to_lord", "p_castle_37", "trp_knight_2_8", 0), # Château de Mortain - Edmund Beaufort, Count of Mortain
-      (call_script, "script_give_center_to_lord", "p_castle_38", "trp_knight_2_44", 0), # Château de Langoiran - Jean de Montferrand, Seigneur de Langoiran
-      (call_script, "script_give_center_to_lord", "p_castle_39", "trp_knight_2_42", 0), # Forteresse de Landiras - Bertrand III de Montferrand, Seigneur de Landiras
-      (call_script, "script_give_center_to_lord", "p_castle_40", "trp_knight_2_16", 0), # Château de Fronsac - Sir John Radcliffe, Seneschal of Guyenne, Captain of Fronsac
+      (call_script, "script_give_center_to_lord", "p_english_castle_6", "trp_knight_2_14", 0), # Château_de_Falaise - John Grey, Lord Grey de Ruthyn
+      (call_script, "script_give_center_to_lord", "p_english_castle_7", "trp_kingdom_2_lord", 0), # Château-Gaillard - John of Lancaster, duc de Bedford
+      (call_script, "script_give_center_to_lord", "p_english_castle_8", "trp_knight_2_34", 0), # Château_de_Vendôme - Robert Willoughby, Lord Willoughby of Eresby
+      (call_script, "script_give_center_to_lord", "p_english_castle_9", "trp_knight_2_2", 0), # Château_de_Beauvau - John Fastolf, Governor of Anjou
+      (call_script, "script_give_center_to_lord", "p_english_castle_10", "trp_knight_2_34", 0), # Château_Gontier - Robert Willoughby, Lord Willoughby of Eresby
+      (call_script, "script_give_center_to_lord", "p_english_castle_11", "trp_knight_2_7", 0), # Château_de_Verneuil - Thomas Beaufort, Count of Perche
+      (call_script, "script_give_center_to_lord", "p_english_castle_12", "trp_knight_2_8", 0), # Château de Mortain - Edmund Beaufort, Count of Mortain
+      (call_script, "script_give_center_to_lord", "p_english_castle_13", "trp_knight_2_44", 0), # Château de Langoiran - Jean de Montferrand, Seigneur de Langoiran
+      (call_script, "script_give_center_to_lord", "p_english_castle_14", "trp_knight_2_42", 0), # Forteresse de Landiras - Bertrand III de Montferrand, Seigneur de Landiras
+      (call_script, "script_give_center_to_lord", "p_english_castle_15", "trp_knight_2_16", 0), # Château de Fronsac - Sir John Radcliffe, Seneschal of Guyenne, Captain of Fronsac
 
-      (call_script, "script_give_center_to_lord", "p_castle_41", "trp_knight_2_42", 0), # Château de Montferrand - Bertrand III de Montferrand
-      (call_script, "script_give_center_to_lord", "p_castle_42", "trp_knight_2_28", 0), # Forteresse de Blaye - John Holland, Earl of Huntingdon, Amiral
-      (call_script, "script_give_center_to_lord", "p_castle_43", "trp_knight_2_9", 0), # Château de Montbray - John Mowbray, Earl of Norfolk
-      (call_script, "script_give_center_to_lord", "p_castle_44", "trp_knight_2_6", 0), # Château de Gacé - Thomas Rempston, Baron Rempston and Gacé
-      (call_script, "script_give_center_to_lord", "p_castle_45", "trp_knight_2_1", 0), # Château de Sainte-Suzanne - John Talbot, Baron Talbot and Furnival
-      (call_script, "script_give_center_to_lord", "p_castle_46", "trp_knight_2_2", 0), # Château de Durtal - John Fastolf
+      (call_script, "script_give_center_to_lord", "p_english_castle_16", "trp_knight_2_42", 0), # Château de Montferrand - Bertrand III de Montferrand
+      (call_script, "script_give_center_to_lord", "p_english_castle_17", "trp_knight_2_28", 0), # Forteresse de Blaye - John Holland, Earl of Huntingdon, Amiral
+      (call_script, "script_give_center_to_lord", "p_english_castle_18", "trp_knight_2_9", 0), # Château de Montbray - John Mowbray, Earl of Norfolk
+      (call_script, "script_give_center_to_lord", "p_english_castle_19", "trp_knight_2_6", 0), # Château de Gacé - Thomas Rempston, Baron Rempston and Gacé
+      (call_script, "script_give_center_to_lord", "p_english_castle_20", "trp_knight_2_1", 0), # Château de Sainte-Suzanne - John Talbot, Baron Talbot and Furnival
+      (call_script, "script_give_center_to_lord", "p_english_castle_21", "trp_knight_2_2", 0), # Château de Durtal - John Fastolf
   
 ### Burgundian Castles    
-      (call_script, "script_give_center_to_lord", "p_castle_47", "trp_kingdom_3_lord", 0), # Château_de_Tonerre - Philippe Le Bon
-      (call_script, "script_give_center_to_lord", "p_castle_48", "trp_kingdom_3_lord", 0), # Forteresse_d'Avallon - Philippe Le Bon
-      (call_script, "script_give_center_to_lord", "p_castle_49", "trp_knight_3_16", 0), # Château_de_Varenne-lès-Mâcon - Guillaume IV de Vienne
-      (call_script, "script_give_center_to_lord", "p_castle_50", "trp_knight_3_1", 0), # Château_de_Toulongeon - Antoine de Toulongeon
+      (call_script, "script_give_center_to_lord", "p_burgundian_castle_1", "trp_kingdom_3_lord", 0), # Château_de_Tonerre - Philippe Le Bon
+      (call_script, "script_give_center_to_lord", "p_burgundian_castle_2", "trp_kingdom_3_lord", 0), # Forteresse_d'Avallon - Philippe Le Bon
+      (call_script, "script_give_center_to_lord", "p_burgundian_castle_3", "trp_knight_3_16", 0), # Château_de_Varenne-lès-Mâcon - Guillaume IV de Vienne
+      (call_script, "script_give_center_to_lord", "p_burgundian_castle_4", "trp_knight_3_1", 0), # Château_de_Toulongeon - Antoine de Toulongeon
 
-      (call_script, "script_give_center_to_lord", "p_castle_51", "trp_knight_3_4", 0), # Château_de_Ligny-en-Barrois - Pierre Ier de Luxembourg
-      (call_script, "script_give_center_to_lord", "p_castle_52", "trp_knight_3_13", 0), # Château_de_Jonvelle - Jean de La Trémoille
-      (call_script, "script_give_center_to_lord", "p_castle_53", "trp_knight_3_7", 0), # Forteresse_de_Noyelles - Baudot de Noyelles
-      (call_script, "script_give_center_to_lord", "p_castle_54", "trp_knight_3_8", 0), # Château_de_Montfort - Pierre de Bauffremont
-      (call_script, "script_give_center_to_lord", "p_castle_55", "trp_knight_3_9", 0), # Forteresse_de_La_Rochepot - Régnier Pot
-      (call_script, "script_give_center_to_lord", "p_castle_56", "trp_knight_3_14", 0), # Château_de_Vergy - Antoine de Vergy
-      (call_script, "script_give_center_to_lord", "p_castle_57", "trp_knight_3_12", 0), # Château_de_Brimeu - Jacques de Brimeu
-      (call_script, "script_give_center_to_lord", "p_castle_58", "trp_knight_3_11", 0), # Château_de_Bellemotte - David de Brimeu
-      (call_script, "script_give_center_to_lord", "p_castle_59", "trp_knight_3_19", 0), # Forteresse_d'Uytkerke - Roland d'Uytkerke
-      (call_script, "script_give_center_to_lord", "p_castle_60", "trp_knight_3_3", 0), # Château_de_La_Charité-sur-Loire - Guy de Bourgogne
+      (call_script, "script_give_center_to_lord", "p_burgundian_castle_5", "trp_knight_3_4", 0), # Château_de_Ligny-en-Barrois - Pierre Ier de Luxembourg
+      (call_script, "script_give_center_to_lord", "p_burgundian_castle_6", "trp_knight_3_13", 0), # Château_de_Jonvelle - Jean de La Trémoille
+      (call_script, "script_give_center_to_lord", "p_burgundian_castle_7", "trp_knight_3_7", 0), # Forteresse_de_Noyelles - Baudot de Noyelles
+      (call_script, "script_give_center_to_lord", "p_burgundian_castle_8", "trp_knight_3_8", 0), # Château_de_Montfort - Pierre de Bauffremont
+      (call_script, "script_give_center_to_lord", "p_burgundian_castle_9", "trp_knight_3_9", 0), # Forteresse_de_La_Rochepot - Régnier Pot
+      (call_script, "script_give_center_to_lord", "p_burgundian_castle_10", "trp_knight_3_14", 0), # Château_de_Vergy - Antoine de Vergy
+      (call_script, "script_give_center_to_lord", "p_burgundian_castle_11", "trp_knight_3_12", 0), # Château_de_Brimeu - Jacques de Brimeu
+      (call_script, "script_give_center_to_lord", "p_burgundian_castle_12", "trp_knight_3_11", 0), # Château_de_Bellemotte - David de Brimeu
+      (call_script, "script_give_center_to_lord", "p_burgundian_castle_13", "trp_knight_3_19", 0), # Forteresse_d'Uytkerke - Roland d'Uytkerke
+      (call_script, "script_give_center_to_lord", "p_burgundian_castle_14", "trp_knight_3_3", 0), # Château_de_La_Charité-sur-Loire - Guy de Bourgogne
 
-      (call_script, "script_give_center_to_lord", "p_castle_61", "trp_knight_3_10", 0), # Forteresse_de_L'Isle_Adam - Jean de Villiers de l'Isle-Adam
-      (call_script, "script_give_center_to_lord", "p_castle_62", "trp_kingdom_3_lord", 0), # Château_de_Senlis - Philippe Le Bon
-      (call_script, "script_give_center_to_lord", "p_castle_63", "trp_knight_3_17", 0), # Château_de_Montcornet - Antoine I de Croÿ
-      (call_script, "script_give_center_to_lord", "p_castle_64", "trp_knight_3_18", 0), # Château_de_Chimay - Jean II de Croÿ  
+      (call_script, "script_give_center_to_lord", "p_burgundian_castle_15", "trp_knight_3_10", 0), # Forteresse_de_L'Isle_Adam - Jean de Villiers de l'Isle-Adam
+      (call_script, "script_give_center_to_lord", "p_burgundian_castle_16", "trp_kingdom_3_lord", 0), # Château_de_Senlis - Philippe Le Bon
+      (call_script, "script_give_center_to_lord", "p_burgundian_castle_17", "trp_knight_3_17", 0), # Château_de_Montcornet - Antoine I de Croÿ
+      (call_script, "script_give_center_to_lord", "p_burgundian_castle_18", "trp_knight_3_18", 0), # Château_de_Chimay - Jean II de Croÿ  
  
 ### Breton Castles    
-      (call_script, "script_give_center_to_lord", "p_castle_65", "trp_knight_4_1", 0), # Château_de_Fougères - Arthur de Richemont
-      (call_script, "script_give_center_to_lord", "p_castle_66", "trp_knight_4_15", 0), # Châteaubriant - Bertrand de Dinan
-      (call_script, "script_give_center_to_lord", "p_castle_67", "trp_knight_4_16", 0), # Château_de_Dinan - Jacques de Dinan
-      (call_script, "script_give_center_to_lord", "p_castle_68", "trp_knight_4_2", 0), # Château_de_Clisson - Richard de Montfort
-      (call_script, "script_give_center_to_lord", "p_castle_69", "trp_knight_4_9", 0), # Château_de_Josselin - Alain IX de Rohan
-      (call_script, "script_give_center_to_lord", "p_castle_70", "trp_knight_4_9", 0), # Forteresse_de_Roch'Morvan - Alain IX de Rohan
+      (call_script, "script_give_center_to_lord", "p_breton_castle_1", "trp_knight_4_1", 0), # Château_de_Fougères - Arthur de Richemont
+      (call_script, "script_give_center_to_lord", "p_breton_castle_2", "trp_knight_4_15", 0), # Châteaubriant - Bertrand de Dinan
+      (call_script, "script_give_center_to_lord", "p_breton_castle_3", "trp_knight_4_16", 0), # Château_de_Dinan - Jacques de Dinan
+      (call_script, "script_give_center_to_lord", "p_breton_castle_4", "trp_knight_4_2", 0), # Château_de_Clisson - Richard de Montfort
+      (call_script, "script_give_center_to_lord", "p_breton_castle_5", "trp_knight_4_9", 0), # Château_de_Josselin - Alain IX de Rohan
+      (call_script, "script_give_center_to_lord", "p_breton_castle_6", "trp_knight_4_9", 0), # Forteresse_de_Roch'Morvan - Alain IX de Rohan
 
-      (call_script, "script_give_center_to_lord", "p_castle_71", "trp_knight_4_11", 0), # Château_de_Guéméné - Charles de Rohan-Guéméné
-      (call_script, "script_give_center_to_lord", "p_castle_72", "trp_knight_4_14", 0), # Château_de_Rochefort - Pierre de Rochefort, Seigneur de Rieux et de Rochefort   
-      (call_script, "script_give_center_to_lord", "p_castle_73", "trp_knight_4_18", 0), # Château_de_Tonquédec - Rolland III de Coëtmen
-      (call_script, "script_give_center_to_lord", "p_castle_74", "trp_knight_4_13", 0), # Château_de_Rosmadec - Guillaume de Rosmadec
-      (call_script, "script_give_center_to_lord", "p_castle_75", "trp_knight_4_5", 0), # Château_de_Coëtivy - Prigent VII de Coëtivy
-      (call_script, "script_give_center_to_lord", "p_castle_76", "trp_knight_4_4", 0), # Château_de_Trémazan - Tanneguy III Du Chastel
-      (call_script, "script_give_center_to_lord", "p_castle_77", "trp_knight_4_6", 0), # Château_de_Kermoysan - Tugdual de Kermoysan
-      (call_script, "script_give_center_to_lord", "p_castle_78", "trp_knight_4_17", 0), # Château_de_Coëtquen - Raoul V de Coëtquen
-      (call_script, "script_give_center_to_lord", "p_castle_79", "trp_knight_4_3", 0), # Château_de_Penhoët - Jean de Penhoët
+      (call_script, "script_give_center_to_lord", "p_breton_castle_7", "trp_knight_4_11", 0), # Château_de_Guéméné - Charles de Rohan-Guéméné
+      (call_script, "script_give_center_to_lord", "p_breton_castle_8", "trp_knight_4_14", 0), # Château_de_Rochefort - Pierre de Rochefort, Seigneur de Rieux et de Rochefort   
+      (call_script, "script_give_center_to_lord", "p_breton_castle_9", "trp_knight_4_18", 0), # Château_de_Tonquédec - Rolland III de Coëtmen
+      (call_script, "script_give_center_to_lord", "p_breton_castle_10", "trp_knight_4_13", 0), # Château_de_Rosmadec - Guillaume de Rosmadec
+      (call_script, "script_give_center_to_lord", "p_breton_castle_11", "trp_knight_4_5", 0), # Château_de_Coëtivy - Prigent VII de Coëtivy
+      (call_script, "script_give_center_to_lord", "p_breton_castle_12", "trp_knight_4_4", 0), # Château_de_Trémazan - Tanneguy III Du Chastel
+      (call_script, "script_give_center_to_lord", "p_breton_castle_13", "trp_knight_4_6", 0), # Château_de_Kermoysan - Tugdual de Kermoysan
+      (call_script, "script_give_center_to_lord", "p_breton_castle_14", "trp_knight_4_17", 0), # Château_de_Coëtquen - Raoul V de Coëtquen
+      (call_script, "script_give_center_to_lord", "p_breton_castle_15", "trp_knight_4_3", 0), # Château_de_Penhoët - Jean de Penhoët
 
-      (call_script, "script_give_center_to_lord", "p_castle_80", "trp_knight_4_7", 0), # Château_de_Penmarc'h - Henri Penmarc'h
-      (call_script, "script_give_center_to_lord", "p_castle_81", "trp_knight_4_1", 0), # Forteresse_de_Kemperlé - Arthur de Richemont
-      (call_script, "script_give_center_to_lord", "p_castle_82", "trp_knight_4_12", 0), # Château_d'Hen_Bont - Louis I de Rohan-Guéméné   
-      (call_script, "script_give_center_to_lord", "p_castle_83", "trp_knight_4_14", 0), # Château_de_Derval - Pierre de Rochefort
-      (call_script, "script_give_center_to_lord", "p_castle_84", "trp_knight_4_1", 0), # Château_de_Suscinio - Arthur de Richemont
-      (call_script, "script_give_center_to_lord", "p_castle_85", "trp_knight_4_10", 0), # Forteresse_de_Roch'an - Alain X de Rohan
-      (call_script, "script_give_center_to_lord", "p_castle_86", "trp_knight_4_1", 0), # Forteresse_de_Dol - Arthur de Richemont             
+      (call_script, "script_give_center_to_lord", "p_breton_castle_16", "trp_knight_4_7", 0), # Château_de_Penmarc'h - Henri Penmarc'h
+      (call_script, "script_give_center_to_lord", "p_breton_castle_17", "trp_knight_4_1", 0), # Forteresse_de_Kemperlé - Arthur de Richemont
+      (call_script, "script_give_center_to_lord", "p_breton_castle_18", "trp_knight_4_12", 0), # Château_d'Hen_Bont - Louis I de Rohan-Guéméné   
+      (call_script, "script_give_center_to_lord", "p_breton_castle_19", "trp_knight_4_14", 0), # Château_de_Derval - Pierre de Rochefort
+      (call_script, "script_give_center_to_lord", "p_breton_castle_20", "trp_knight_4_1", 0), # Château_de_Suscinio - Arthur de Richemont
+      (call_script, "script_give_center_to_lord", "p_breton_castle_21", "trp_knight_4_10", 0), # Forteresse_de_Roch'an - Alain X de Rohan
+      (call_script, "script_give_center_to_lord", "p_breton_castle_22", "trp_knight_4_1", 0), # Forteresse_de_Dol - Arthur de Richemont             
     
 ##################################################################################################################################################################################################################################################################################################################
 ###################################################################################################### DAC Village DISTRIBUTION ###################################################################################################################################################################################
 ##################################################################################################################################################################################################################################################################################################################
 
 ### French Villages    
-      (call_script, "script_give_center_to_lord", "p_village_3", "trp_knight_1_14", 0), # Ardon - Raoul VI de Gaucourt
-      (call_script, "script_give_center_to_lord", "p_village_4", "trp_knight_1_2", 0), # Tigy - Étienne de Vignolles
-      (call_script, "script_give_center_to_lord", "p_village_5", "trp_knight_1_10", 0), # Bueil - Jean V de Bueil
-      (call_script, "script_give_center_to_lord", "p_village_8", "trp_knight_1_41", 0), # Chauvigny - Guy III de Chauvigny
-      (call_script, "script_give_center_to_lord", "p_village_11", "trp_knight_1_17", 0), # Montpensier - Louis I de Bourbon
-      (call_script, "script_give_center_to_lord", "p_village_25", "trp_knight_1_47", 0), # Gramont - Girault de la Paillière
-      (call_script, "script_give_center_to_lord", "p_village_26", "trp_knight_1_26", 0), # Terraube - Thilbault de Termes d'Armagnac
-      (call_script, "script_give_center_to_lord", "p_village_29", "trp_knight_1_33", 0), # Castres - Jacques II de Bourbon de Vendôme
-      (call_script, "script_give_center_to_lord", "p_village_36", "trp_knight_1_30", 0), # Oiron - Christophe d'Harcourt
-      (call_script, "script_give_center_to_lord", "p_village_39", "trp_knight_1_52", 0), # Amilly - Denis de Chailly
-      (call_script, "script_give_center_to_lord", "p_village_40", "trp_knight_1_51", 0), # Mormant - André de Rambures
-      (call_script, "script_give_center_to_lord", "p_village_45", "trp_knight_1_14", 0), # Azay - Raoul VI de Gaucourt
-      (call_script, "script_give_center_to_lord", "p_village_48", "trp_knight_1_25", 0), # Tasque - Géraud de Termes d'Armagnac
-      (call_script, "script_give_center_to_lord", "p_village_51", "trp_knight_1_12", 0), # La Crête - Charles de Culant
-      (call_script, "script_give_center_to_lord", "p_village_57", "trp_knight_1_12", 0), # Jalognes - Charles de Culant
-      (call_script, "script_give_center_to_lord", "p_village_59", "trp_knight_1_27", 0), # Pavie - Renaud de Termes d'Armagnac
-      (call_script, "script_give_center_to_lord", "p_village_64", "trp_knight_1_6", 0), # Xaintrailles - Jean Poton de Xaintrailles
-      (call_script, "script_give_center_to_lord", "p_village_66", "trp_knight_1_18", 0), # Barbazan - Arnault Guilhem de Barbazan
-      (call_script, "script_give_center_to_lord", "p_village_74", "trp_knight_1_3", 0), # Brissac - Gilles de Rais
-      (call_script, "script_give_center_to_lord", "p_village_96", "trp_knight_1_21", 0), # Le Lion-d'Angers - Pierre de Beauvau
+      (call_script, "script_give_center_to_lord", "p_french_village_3", "trp_knight_1_14", 0), # Ardon - Raoul VI de Gaucourt
+      (call_script, "script_give_center_to_lord", "p_french_village_4", "trp_knight_1_2", 0), # Tigy - Étienne de Vignolles
+      (call_script, "script_give_center_to_lord", "p_french_village_5", "trp_knight_1_10", 0), # Bueil - Jean V de Bueil
+      (call_script, "script_give_center_to_lord", "p_french_village_8", "trp_knight_1_41", 0), # Chauvigny - Guy III de Chauvigny
+      (call_script, "script_give_center_to_lord", "p_french_village_11", "trp_knight_1_17", 0), # Montpensier - Louis I de Bourbon
+      (call_script, "script_give_center_to_lord", "p_french_village_25", "trp_knight_1_47", 0), # Gramont - Girault de la Paillière
+      (call_script, "script_give_center_to_lord", "p_french_village_26", "trp_knight_1_26", 0), # Terraube - Thilbault de Termes d'Armagnac
+      (call_script, "script_give_center_to_lord", "p_french_village_29", "trp_knight_1_33", 0), # Castres - Jacques II de Bourbon de Vendôme
+      (call_script, "script_give_center_to_lord", "p_french_village_36", "trp_knight_1_30", 0), # Oiron - Christophe d'Harcourt
+      (call_script, "script_give_center_to_lord", "p_french_village_39", "trp_knight_1_52", 0), # Amilly - Denis de Chailly
+      (call_script, "script_give_center_to_lord", "p_french_village_40", "trp_knight_1_51", 0), # Mormant - André de Rambures
+      (call_script, "script_give_center_to_lord", "p_french_village_45", "trp_knight_1_14", 0), # Azay - Raoul VI de Gaucourt
+      (call_script, "script_give_center_to_lord", "p_french_village_48", "trp_knight_1_25", 0), # Tasque - Géraud de Termes d'Armagnac
+      (call_script, "script_give_center_to_lord", "p_french_village_51", "trp_knight_1_12", 0), # La Crête - Charles de Culant
+      (call_script, "script_give_center_to_lord", "p_french_village_57", "trp_knight_1_12", 0), # Jalognes - Charles de Culant
+      (call_script, "script_give_center_to_lord", "p_french_village_59", "trp_knight_1_27", 0), # Pavie - Renaud de Termes d'Armagnac
+      (call_script, "script_give_center_to_lord", "p_french_village_64", "trp_knight_1_6", 0), # Xaintrailles - Jean Poton de Xaintrailles
+      (call_script, "script_give_center_to_lord", "p_french_village_66", "trp_knight_1_18", 0), # Barbazan - Arnault Guilhem de Barbazan
+      (call_script, "script_give_center_to_lord", "p_french_village_74", "trp_knight_1_3", 0), # Brissac - Gilles de Rais
+      (call_script, "script_give_center_to_lord", "p_english_village_21", "trp_knight_1_21", 0), # Le Lion-d'Angers - Pierre de Beauvau
 
 ### English Villages  
-      (call_script, "script_give_center_to_lord", "p_village_98", "trp_knight_2_48", 0), # Chailly - Sir John de la Pole
-      (call_script, "script_give_center_to_lord", "p_village_99", "trp_knight_2_49", 0), # Ury - Sir Alexander de la Pole
-      (call_script, "script_give_center_to_lord", "p_village_100", "trp_knight_2_50", 0), # Gasville - Sir Thomas de la Pole
-      (call_script, "script_give_center_to_lord", "p_village_102", "trp_knight_2_32", 0), # Barentin - John Salvayn
-      (call_script, "script_give_center_to_lord", "p_village_106", "trp_knight_2_46", 0), # Honfleur - Sir Robert de Vere
-      (call_script, "script_give_center_to_lord", "p_village_108", "trp_knight_2_19", 0), # Barfleur - Sir Robert Hungerford
-      (call_script, "script_give_center_to_lord", "p_village_109", "trp_knight_2_20", 0), # Valognes - Sir Edmund Hungerford
-      (call_script, "script_give_center_to_lord", "p_village_110", "trp_knight_2_22", 0), # Fréthun - Sir Richard II Woodville
-      (call_script, "script_give_center_to_lord", "p_village_119", "trp_knight_2_33", 0), # Ecouché - Sir Thomas Blount
-      (call_script, "script_give_center_to_lord", "p_village_126", "trp_knight_2_47", 0), # Aubigny - Sir Richard de Vere
-      (call_script, "script_give_center_to_lord", "p_village_129", "trp_knight_2_24", 0), # Vendôme - Sir William Glasdale
-      (call_script, "script_give_center_to_lord", "p_village_135", "trp_knight_2_41", 0), # Hambye - Sir Lewis Robessart
-      (call_script, "script_give_center_to_lord", "p_village_136", "trp_knight_2_36", 0), # Vire - Sir Robert Howard of Tendring
-      (call_script, "script_give_center_to_lord", "p_village_143", "trp_knight_2_35", 0), # Condé - John Beauchamp
+      (call_script, "script_give_center_to_lord", "p_english_village_23", "trp_knight_2_48", 0), # Chailly - Sir John de la Pole
+      (call_script, "script_give_center_to_lord", "p_english_village_24", "trp_knight_2_49", 0), # Ury - Sir Alexander de la Pole
+      (call_script, "script_give_center_to_lord", "p_english_village_25", "trp_knight_2_50", 0), # Gasville - Sir Thomas de la Pole
+      (call_script, "script_give_center_to_lord", "p_english_village_27", "trp_knight_2_32", 0), # Barentin - John Salvayn
+      (call_script, "script_give_center_to_lord", "p_english_village_31", "trp_knight_2_46", 0), # Honfleur - Sir Robert de Vere
+      (call_script, "script_give_center_to_lord", "p_english_village_33", "trp_knight_2_19", 0), # Barfleur - Sir Robert Hungerford
+      (call_script, "script_give_center_to_lord", "p_english_village_34", "trp_knight_2_20", 0), # Valognes - Sir Edmund Hungerford
+      (call_script, "script_give_center_to_lord", "p_english_village_35", "trp_knight_2_22", 0), # Fréthun - Sir Richard II Woodville
+      (call_script, "script_give_center_to_lord", "p_english_village_44", "trp_knight_2_33", 0), # Ecouché - Sir Thomas Blount
+      (call_script, "script_give_center_to_lord", "p_english_village_51", "trp_knight_2_47", 0), # Aubigny - Sir Richard de Vere
+      (call_script, "script_give_center_to_lord", "p_english_village_54", "trp_knight_2_24", 0), # Vendôme - Sir William Glasdale
+      (call_script, "script_give_center_to_lord", "p_english_village_60", "trp_knight_2_41", 0), # Hambye - Sir Lewis Robessart
+      (call_script, "script_give_center_to_lord", "p_english_village_61", "trp_knight_2_36", 0), # Vire - Sir Robert Howard of Tendring
+      (call_script, "script_give_center_to_lord", "p_english_village_68", "trp_knight_2_35", 0), # Condé - John Beauchamp
 
 ### Burgundian Villages 
-      (call_script, "script_give_center_to_lord", "p_village_187", "trp_knight_3_11", 0), # Arras - David de Brimeu
+      (call_script, "script_give_center_to_lord", "p_burgundian_village_39", "trp_knight_3_11", 0), # Arras - David de Brimeu
 
 ##################################################################################################################################################################################################################################################################################################################
 ###################################################################################################### DAC Fief DISTRIBUTION END ###################################################################################################################################################################################
@@ -78959,24 +79020,24 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 
       
     #Add home centers for claimants
-    # (troop_set_slot, "trp_kingdom_1_pretender", slot_troop_home, "p_town_4"),#Lady Isolle - Suno
-    # (troop_set_slot, "trp_kingdom_2_pretender", slot_troop_home, "p_town_11"),#Prince Valdym - Curaw
-      (troop_set_slot, "trp_kingdom_3_pretender", slot_troop_home, "p_town_60"),# Philippe de Saint-Pol, Malines
-      (troop_set_slot, "trp_kingdom_4_pretender", slot_troop_home, "p_town_27"),# Olivier de Blois, Limoges
-      # (troop_set_slot, "trp_kingdom_5_pretender", slot_troop_home, "p_town_3"),#Lord Kastor - Veluca
-    # (troop_set_slot, "trp_kingdom_6_pretender", slot_troop_home, "p_town_20"),#Arwa the Pearled One - Durquba
+    # (troop_set_slot, "trp_kingdom_1_pretender", slot_troop_home, "p_french_town_4"),#Lady Isolle - Suno
+    # (troop_set_slot, "trp_kingdom_2_pretender", slot_troop_home, "p_french_town_11"),#Prince Valdym - Curaw
+      (troop_set_slot, "trp_kingdom_3_pretender", slot_troop_home, "p_burgundian_town_9"),# Philippe de Saint-Pol, Malines
+      (troop_set_slot, "trp_kingdom_4_pretender", slot_troop_home, "p_french_town_27"),# Olivier de Blois, Limoges
+      # (troop_set_slot, "trp_kingdom_5_pretender", slot_troop_home, "p_french_town_3"),#Lord Kastor - Veluca
+    # (troop_set_slot, "trp_kingdom_6_pretender", slot_troop_home, "p_french_town_20"),#Arwa the Pearled One - Durquba
     #add ancestral fiefs to home slots (mods not using standard NPCs should remove this)
-      # (troop_set_slot, "trp_knight_2_10", slot_troop_home, "p_castle_29"), #Nelag_Castle
-      # (troop_set_slot, "trp_knight_3_4", slot_troop_home, "p_castle_30"), #Asugan_Castle
-      # (troop_set_slot, "trp_knight_1_3", slot_troop_home, "p_castle_35"), #Haringoth_Castle
-      # (troop_set_slot, "trp_knight_5_11", slot_troop_home, "p_castle_33"), #Etrosq_Castle
+      # (troop_set_slot, "trp_knight_2_10", slot_troop_home, "p_english_castle_4"), #Nelag_Castle
+      # (troop_set_slot, "trp_knight_3_4", slot_troop_home, "p_english_castle_5"), #Asugan_Castle
+      # (troop_set_slot, "trp_knight_1_3", slot_troop_home, "p_english_castle_10"), #Haringoth_Castle
+      # (troop_set_slot, "trp_knight_5_11", slot_troop_home, "p_english_castle_8"), #Etrosq_Castle
     #Also the primary six towns:
-    # (troop_set_slot, "trp_kingdom_1_lord", slot_troop_home, "p_town_6"),#King Harlaus to Praven
-    # (troop_set_slot, "trp_kingdom_2_lord", slot_troop_home, "p_town_8"),#King Yaroglek to Reyvadin
-    # (troop_set_slot, "trp_kingdom_3_lord", slot_troop_home, "p_town_10"),#Sanjar Khan to Tulga
-    # (troop_set_slot, "trp_kingdom_4_lord", slot_troop_home, "p_town_1"),#King Ragnar to Sargoth
-    # (troop_set_slot, "trp_kingdom_5_lord", slot_troop_home, "p_town_5"),#King Graveth to Jelkala
-    # (troop_set_slot, "trp_kingdom_6_lord", slot_troop_home, "p_town_19"),#Sultan Hakim to Shariz
+    # (troop_set_slot, "trp_kingdom_1_lord", slot_troop_home, "p_french_town_6"),#King Harlaus to Praven
+    # (troop_set_slot, "trp_kingdom_2_lord", slot_troop_home, "p_french_town_8"),#King Yaroglek to Reyvadin
+    # (troop_set_slot, "trp_kingdom_3_lord", slot_troop_home, "p_french_town_10"),#Sanjar Khan to Tulga
+    # (troop_set_slot, "trp_kingdom_4_lord", slot_troop_home, "p_french_town_1"),#King Ragnar to Sargoth
+    # (troop_set_slot, "trp_kingdom_5_lord", slot_troop_home, "p_french_town_5"),#King Graveth to Jelkala
+    # (troop_set_slot, "trp_kingdom_6_lord", slot_troop_home, "p_french_town_19"),#Sultan Hakim to Shariz
     
     
       ##Also set home slots for starting quest merchants (merchant of praven, merchant of reyvadin, etc.)

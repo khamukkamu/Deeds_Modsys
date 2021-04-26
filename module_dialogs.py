@@ -38071,7 +38071,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    [
       # (assign, ":num_towns", 0),
       # (try_for_range, ":town_no", towns_begin, towns_end),
-        # (neq, ":town_no", "p_town_2"),
+        # (neq, ":town_no", "p_french_town_2"),
         # (neg|party_slot_eq, ":town_no", slot_center_ransom_broker, 0),
         # (party_get_slot, ":broker", ":town_no", slot_center_ransom_broker),#addition - fixed 2011-03-29
         # (troop_slot_ge, ":broker", slot_troop_met, 1),#addition # removed 2011-03-29
@@ -43102,60 +43102,60 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 ##"You can buy tools from here at a very good price.\
 ## The best place to sell them would be Tulga. Heard they pay quite well for tools over there.\
 ## And next time you come here bring some salt. I will pay well for salt.", "goods_merchant_town_info_completed",[]],
-##  [anyone,"goods_merchant_town_info", [(store_encountered_party,reg(1)),(eq,reg(1),"p_town_1")],
+##  [anyone,"goods_merchant_town_info", [(store_encountered_party,reg(1)),(eq,reg(1),"p_french_town_1")],
 ##"Sargoth is famous for its fine linen. Many caravans come here to buy that.\
 ## I heard you can sell it at Halmar and make a nice profit.\
 ## And next time you come here bring some iron. I will pay well for iron.", "goods_merchant_town_info_completed",[]],
-##  [anyone,"goods_merchant_town_info", [[store_encountered_party,reg(1)],[eq,reg(1),"p_town_2"]],
+##  [anyone,"goods_merchant_town_info", [[store_encountered_party,reg(1)],[eq,reg(1),"p_french_town_2"]],
 ##"I can sell you some smoked fish with a special price.\
 ## I heard that caravans take smoked fish to Uxkhal and make a good profit.\
 ## And next time you come here bring some wool. I will pay you well for wool.", "goods_merchant_town_info_completed",[]],
-##  [anyone,"goods_merchant_town_info", [[store_encountered_party,reg(1)],[eq,reg(1),"p_town_3"]],
+##  [anyone,"goods_merchant_town_info", [[store_encountered_party,reg(1)],[eq,reg(1),"p_french_town_3"]],
 ##"I can sell you some wine with a special price.\
 ## I heard that caravans buy wine from here and sell it at Wercheg, making a good profit.\
 ## And next time you come here, bring some dried meat. I will pay you well for dried meat.", "goods_merchant_town_info_completed",[]],
-##  [anyone,"goods_merchant_town_info", [[store_encountered_party,reg(1)],[eq,reg(1),"p_town_4"]],
+##  [anyone,"goods_merchant_town_info", [[store_encountered_party,reg(1)],[eq,reg(1),"p_french_town_4"]],
 ##"I have a stock of oil which I can sell you with a good price.\
 ## They say they offer a fortune for oil in Rivacheg, so maybe you can sell it there.\
 ## And next time you come here, bring some furs. I will pay you well for furs.", "goods_merchant_town_info_completed",[]],
-##  [anyone,"goods_merchant_town_info", [[store_encountered_party,reg(1)],[eq,reg(1),"p_town_5"]],
+##  [anyone,"goods_merchant_town_info", [[store_encountered_party,reg(1)],[eq,reg(1),"p_french_town_5"]],
 ##"Jelkala is famous for its velvet. Many caravans come here to buy that.\
 ## They say merchants will buy it at insane prices in Reyvadin, so maybe you can take it there.\
 ## And next time you come here, bring some pottery. I will pay you well for pottery.", "goods_merchant_town_info_completed",[]],
-##  [anyone,"goods_merchant_town_info", [[store_encountered_party,reg(1)],[eq,reg(1),"p_town_6"]],
+##  [anyone,"goods_merchant_town_info", [[store_encountered_party,reg(1)],[eq,reg(1),"p_french_town_6"]],
 ##"We produce some excellent ale here in Praven. Most caravans come here to buy that.\
 ## They say that the folks at Khudan will sell their right arms for ale, so maybe you can take it there.\
 ## And next time you come here, bring some spice. I have sold out my stock of spice and I will pay you well for it.", "goods_merchant_town_info_completed",[]],
-##  [anyone,"goods_merchant_town_info", [[store_encountered_party,reg(1)],[eq,reg(1),"p_town_7"]],
+##  [anyone,"goods_merchant_town_info", [[store_encountered_party,reg(1)],[eq,reg(1),"p_french_town_7"]],
 ##"We produce mostly wheat here in Uxkhal. I would suggest you buy that.\
 ## I heard you can sell it with a good profit in Tulga, so maybe you can take it there.\
 ## And next time you come here, bring some smoked fish. I will pay you well for it.", "goods_merchant_town_info_completed",[]],
 ##
-##  [anyone,"goods_merchant_town_info", [[store_encountered_party,reg(1)],[eq,reg(1),"p_town_8"]],
+##  [anyone,"goods_merchant_town_info", [[store_encountered_party,reg(1)],[eq,reg(1),"p_french_town_8"]],
 ##"Most caravans come to Reyvadin to buy wool.\
 ## I heard that they take it to Tihr where they pay well for wool.\
 ## And next time you come here, bring some velvet. I will buy it from you at a good price.", "goods_merchant_town_info_completed",[]],
-##  [anyone,"goods_merchant_town_info", [[store_encountered_party,reg(1)],[eq,reg(1),"p_town_9"]],
+##  [anyone,"goods_merchant_town_info", [[store_encountered_party,reg(1)],[eq,reg(1),"p_french_town_9"]],
 ##"Most caravans come to Khudan to buy furs.\
 ## I heard that they take it to Suno where they pay well for it.\
 ## And next time you come here, bring some ale. I will buy it from you at a good price.", "goods_merchant_town_info_completed",[]],
-##  [anyone,"goods_merchant_town_info", [[store_encountered_party,reg(1)],[eq,reg(1),"p_town_10"]],
+##  [anyone,"goods_merchant_town_info", [[store_encountered_party,reg(1)],[eq,reg(1),"p_french_town_10"]],
 ##"Most caravans come to Tulga to buy spice.\
 ## They say that in Praven they pay well for spice, so you may think of selling it to the mechants there.\
 ## And next time you come here, bring some wheat. I will buy it from you at a good price.", "goods_merchant_town_info_completed",[]],
-##  [anyone,"goods_merchant_town_info", [[store_encountered_party,reg(1)],[eq,reg(1),"p_town_11"]],
+##  [anyone,"goods_merchant_town_info", [[store_encountered_party,reg(1)],[eq,reg(1),"p_french_town_11"]],
 ##"We mine a lot of iron here in Curaw. I would suggest you buy that.\
 ## I heard you can take it to Sargoth and sell it with a good profit.\
 ## And next time you come here, bring some dried meat. I will pay you well for it.", "goods_merchant_town_info_completed",[]],
-##  [anyone,"goods_merchant_town_info", [[store_encountered_party,reg(1)],[eq,reg(1),"p_town_12"]],
+##  [anyone,"goods_merchant_town_info", [[store_encountered_party,reg(1)],[eq,reg(1),"p_french_town_12"]],
 ##"I can sell you some smoked fish with a special price.\
 ## I heard that caravans take smoked fish to Uxkhal and make a good profit.\
 ## And next time you come here bring some wine. I will pay you well for wine.", "goods_merchant_town_info_completed",[]],
-##  [anyone,"goods_merchant_town_info", [[store_encountered_party,reg(1)],[eq,reg(1),"p_town_13"]],
+##  [anyone,"goods_merchant_town_info", [[store_encountered_party,reg(1)],[eq,reg(1),"p_french_town_13"]],
 ##"I have a stock of dried meat which I can sell you with a good price.\
 ## They say they pay very well for dried meat in Veluca, so maybe you can sell it there.\
 ## And next time you come here, bring some oil. I have sold out my stock of oil and I will pay you well for it.", "goods_merchant_town_info_completed",[]],
-##  [anyone,"goods_merchant_town_info", [[store_encountered_party,reg(1)],[eq,reg(1),"p_town_14"]],
+##  [anyone,"goods_merchant_town_info", [[store_encountered_party,reg(1)],[eq,reg(1),"p_french_town_14"]],
 ##"We produce some good quality pottery here in Halmar. Most caravans come here to buy that.\
 ## I heard that caravans buy pottery from here and sell it at Jelkala, making a good profit.\
 ## And next time you come here, bring some linen. I have sold out my stock of linen and I will pay you well for it.", "goods_merchant_town_info_completed",[]],

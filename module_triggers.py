@@ -405,7 +405,7 @@ triggers = [
 
 ##  (0, 0, ti_once,
 ##   [
-##       (entering_town,"p_town_1"),
+##       (entering_town,"p_french_town_1"),
 ##       (main_party_has_troop,"trp_borcha"),
 ##       (eq,"$borcha_freed",0)
 ##    ],
