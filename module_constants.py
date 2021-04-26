@@ -1717,8 +1717,8 @@ centers_end   = villages_end
 training_grounds_begin   = "p_training_ground_1"
 training_grounds_end     = "p_Bridge_1"
 
-scenes_begin = "scn_town_1_center"
-scenes_end = "scn_castle_1_exterior"
+scenes_begin = "scn_french_town_1_center"
+scenes_end = "scn_french_castle_1_exterior"
 
 spawn_points_begin = "p_zendar"
 spawn_points_end = "p_spawn_points_end"
