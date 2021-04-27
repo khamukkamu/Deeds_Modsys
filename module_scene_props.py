@@ -4388,6 +4388,9 @@ scene_props = [
 	( "terrain_earth_plane_01"                     ,0,"terrain_earth_plane_01","bo_terrain_plane_01",[]),
 	( "terrain_earth_rockpile_01"                  ,0,"terrain_earth_rockpile_01","bo_terrain_rockpile_01",[]),
     
+	( "terrain_farm"                               ,0,"terrain_farm","bo_terrain_plane_01",[]),
+	( "terrain_farm_large"                         ,0,"terrain_farm_large","bo_terrain_farm_large",[]),
+    
 	( "terrain_forest_cliff_01"                    ,0,"terrain_forest_cliff_01","bo_terrain_cliff_01",[]),
 	( "terrain_forest_cliff_02"                    ,0,"terrain_forest_cliff_02","bo_terrain_cliff_02",[]),
 	( "terrain_forest_cliff_03"                    ,0,"terrain_forest_cliff_03","bo_terrain_cliff_03",[]),
@@ -4502,6 +4505,7 @@ scene_props = [
 	( "window_gothic_low"                          ,0,"window_gothic_low","0",[]),
 	( "window_gothic_large"                        ,0,"window_gothic_large","0",[]),
 	( "window_gothic_high"                         ,0,"window_gothic_high","0",[]),
+	( "spire"                                      ,0,"spire","bo_spire",[]),
 # from 'DAC_cathedral.brf': end (OpenBRF)
 
 

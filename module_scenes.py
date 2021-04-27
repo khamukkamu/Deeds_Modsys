@@ -2381,11 +2381,11 @@ scenes = [
   ("french_castle_9_prison",sf_indoors,"interior_prison_d", "bo_interior_prison_d", (-100,-100),(100,100),-100,"0",
     [],[]),
 #       10 Steppe  
-  ("castle_10_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300000000005a16d000041ef00005ae800003c55",
+  ("french_castle_10_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300000000005a16d000041ef00005ae800003c55",
     [],[],"outer_terrain_plain"),
-  ("castle_10_interior",sf_indoors, "interior_castle_g", "bo_interior_castle_g", (-100,-100),(100,100),-100,"0",
+  ("french_castle_10_interior",sf_indoors, "interior_castle_g", "bo_interior_castle_g", (-100,-100),(100,100),-100,"0",
     ["exit"],["french_castle_10_seneschal"]),
-  ("castle_10_prison",sf_indoors,"interior_prison_d", "bo_interior_prison_d", (-100,-100),(100,100),-100,"0",
+  ("french_castle_10_prison",sf_indoors,"interior_prison_d", "bo_interior_prison_d", (-100,-100),(100,100),-100,"0",
     [],[]),
 #       11 Plain
   ("french_castle_11_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030044e900003dd02000077b20000400100005697",
