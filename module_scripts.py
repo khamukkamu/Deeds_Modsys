@@ -1263,9 +1263,6 @@ scripts = [
       (item_set_slot, "itm_w_glaive_4", slot_item_multiplayer_item_class, multi_item_class_type_spear),
       (item_set_slot, "itm_w_glaive_5", slot_item_multiplayer_item_class, multi_item_class_type_spear),
       (item_set_slot, "itm_w_glaive_6", slot_item_multiplayer_item_class, multi_item_class_type_spear),
-      (item_set_slot, "itm_w_glaive_7", slot_item_multiplayer_item_class, multi_item_class_type_spear),
-      (item_set_slot, "itm_w_glaive_8", slot_item_multiplayer_item_class, multi_item_class_type_spear),
-      (item_set_slot, "itm_w_glaive_burgundy", slot_item_multiplayer_item_class, multi_item_class_type_spear),
 	  
       (item_set_slot, "itm_w_goedendag", slot_item_multiplayer_item_class, multi_item_class_type_spear),
       (item_set_slot, "itm_w_goedendag_burgundy", slot_item_multiplayer_item_class, multi_item_class_type_spear),
@@ -9345,10 +9342,10 @@ scripts = [
 	# (troop_set_slot, "trp_banner_background_color_array", 125, 0xFFbd9631),
 	
 #Kindgom Banners	
-	(troop_set_slot, "trp_banner_background_color_array", 110, 0xFF1d5996),
-	(troop_set_slot, "trp_banner_background_color_array", 111, 0xFFb52c29),
-	(troop_set_slot, "trp_banner_background_color_array", 112, 0xFFe7d75a),
-	(troop_set_slot, "trp_banner_background_color_array", 113, 0xFFf1f1ec),
+	(troop_set_slot, "trp_banner_background_color_array", 110, 0xFF193D5A),
+	(troop_set_slot, "trp_banner_background_color_array", 111, 0xFF9C413A),
+	(troop_set_slot, "trp_banner_background_color_array", 112, 0xFF9C413A),
+	(troop_set_slot, "trp_banner_background_color_array", 113, 0xFFE6E7DE),
 
       #Default banners
 	(troop_set_slot, "trp_banner_background_color_array", 114, 0xFF212221),

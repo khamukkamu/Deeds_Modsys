@@ -392,7 +392,7 @@ meshes = [
   ("banner_f11", 0, "banner_f11", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("banner_f12", 0, "banner_f12", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("banner_f13", 0, "banner_f13", 0, 0, 0, -90, 0, 0, 1, 1, 1),
-  # ("banner_f14", 0, "banner_f14", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("banner_f14", 0, "banner_f14", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   # ("banner_f15", 0, "banner_f15", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   # ("banner_f16", 0, "banner_f16", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   # ("banner_f17", 0, "banner_f17", 0, 0, 0, -90, 0, 0, 1, 1, 1),
@@ -417,7 +417,7 @@ meshes = [
   ("banner_kingdom_d", 0, "banner_kingdom_d", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   # ("banner_kingdom_e", 0, "banner_kingdom_e", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   # ("banner_kingdom_f", 0, "banner_kingdom_f", 0, 0, 0, -90, 0, 0, 1, 1, 1),
-  ("banner_f14", 0, "banner_f14", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("banner_end", 0, "banner_f14", 0, 0, 0, -90, 0, 0, 1, 1, 1),
 
 
   ("arms_a01", 0, "arms_a01", 0, 0, 0, -90, 0, 0, 1, 1, 1),
@@ -543,7 +543,7 @@ meshes = [
   ("arms_f11", 0, "arms_f11", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("arms_f12", 0, "arms_f12", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("arms_f13", 0, "arms_f13", 0, 0, 0, -90, 0, 0, 1, 1, 1),
-  # ("arms_f14", 0, "arms_f14", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("arms_f14", 0, "arms_f14", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   # ("arms_f15", 0, "arms_f15", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   # ("arms_f16", 0, "arms_f16", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   # ("arms_f17", 0, "arms_f17", 0, 0, 0, -90, 0, 0, 1, 1, 1),
@@ -558,7 +558,7 @@ meshes = [
   ("arms_kingdom_d", 0, "arms_kingdom_d", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   # ("arms_kingdom_e", 0, "banner_kingdom_e", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   # ("arms_kingdom_f", 0, "banner_kingdom_f", 0, 0, 0, -90, 0, 0, 1, 1, 1),
-  ("arms_f14", 0, "banner_f14", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("arms_end", 0, "banner_f14", 0, 0, 0, -90, 0, 0, 1, 1, 1),
 
   ("banners_default_a", 0, "banners_default_a", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("banners_default_b", 0, "banners_default_b", 0, 0, 0, -90, 0, 0, 1, 1, 1),

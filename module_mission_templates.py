@@ -345,6 +345,8 @@ dac_agent_weapons_switching =(
               (gt, ":weapon_item", 0),
               # couchable weapon
               (item_has_property, ":weapon_item", itp_couchable),
+              # DAC Seek: Fix for pikemen weapons switching loop
+              (neg|item_has_property, ":weapon_item", itp_is_pike),
               (try_for_range, ":cur_slot", 0, 4),
                 (agent_get_item_slot, ":cur_weapon", ":agent_no", ":cur_slot"),
                 (gt, ":cur_weapon", 0),
@@ -366,6 +368,8 @@ dac_agent_weapons_switching =(
                 (gt, ":cur_weapon", 0),
                 # couchable weapon
                 (item_has_property, ":cur_weapon", itp_couchable),
+              # DAC Seek: Fix for pikemen weapons switching loop
+                (neg|item_has_property, ":weapon_item", itp_is_pike),
                 (agent_set_wielded_item, ":agent_no", ":cur_weapon"),
               (try_end),
             (try_end),

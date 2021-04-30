@@ -1851,10 +1851,10 @@ coop_drops_descriptions_end = "str_npc1_1"
 # Banner constants
 
 banner_meshes_begin = "mesh_banner_a01"
-banner_meshes_end_minus_one = "mesh_banner_f14"
+banner_meshes_end_minus_one = "mesh_banner_end"
 
 arms_meshes_begin = "mesh_arms_a01"
-arms_meshes_end_minus_one = "mesh_arms_f14"
+arms_meshes_end_minus_one = "mesh_arms_end"
 
 custom_banner_charges_begin = "mesh_custom_banner_charge_01"
 custom_banner_charges_end = "mesh_tableau_mesh_custom_banner"

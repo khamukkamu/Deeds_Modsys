@@ -2067,6 +2067,16 @@ formAI_scripts = [
                   (agent_ai_set_always_attack_in_melee, ":agent", 1),
                 (try_end),
                 (agent_set_slot, ":agent", slot_agent_inside_formation, 1),
+                
+                ### DAC Seek: Let's try to make pikemen brace their weapons in formation
+                # (try_begin),
+                    # (agent_get_wielded_item, ":weapon_item", ":agent", 0),
+                    # (gt, ":weapon_item", 0),
+                    # (item_has_property, ":weapon_item", itp_is_pike),
+                    # (agent_ai_set_can_crouch, ":agent", 1),
+                    # (agent_set_crouch_mode, ":agent", 1),
+                # (try_end),
+                
               (try_end),
             (try_end),
             (try_begin),
