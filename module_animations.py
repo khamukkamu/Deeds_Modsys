@@ -1982,7 +1982,7 @@ animations = [
    
  ["sitting_ground", acf_enforce_all, amf_priority_die|amf_play,
    [2.00, "sitting", 0, 199, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],],
- ["standing_torch", acf_enforce_all, amf_priority_die|amf_play,
+ ["standing_torch", acf_enforce_all, amf_priority_die|amf_play|amf_keep,
    [5.00, "stand_torch_1", 0, 99, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
    [5.00, "stand_torch_2", 0, 99, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],],
 # Commented out for TLD cheer

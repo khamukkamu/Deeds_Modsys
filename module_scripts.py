@@ -27683,7 +27683,7 @@ scripts = [
        (options_get_campaign_ai, ":reduce_campaign_ai"), #SB: also move to top
        (try_for_range, ":village_no", villages_begin, villages_end),
         ##CABA Fix
-        # (try_begin),
+        (try_begin),
           # (this_or_next|is_between, ":village_no", "p_village_16", "p_village_23"), #Shapeshte through Shulus (up to Ilvia)
           # (this_or_next|is_between, ":village_no", "p_village_49", "p_village_51"), #Tismirr and Karindi
           # (this_or_next|eq, ":village_no", "p_village_75"), #Bhulaban
@@ -27692,15 +27692,33 @@ scripts = [
           # (assign, ":burnt_village_icon", "icon_village_snow_burnt_a"),
           # (assign, ":deserted_village_icon", "icon_village_snow_deserted_a"),
         # (else_try),
-          # (is_between, ":village_no", "p_village_91", "p_salt_mine"), #Ayn Assuadi through Rushdigh
-          # (assign, ":normal_village_icon", "icon_village_c"),
-          # (assign, ":burnt_village_icon", "icon_village_burnt_c"),
-          # (assign, ":deserted_village_icon", "icon_village_deserted_c"),
-        # (else_try),
+          (this_or_next|eq, ":village_no", "p_french_village_56"),
+          (this_or_next|eq, ":village_no", "p_french_village_60"),
+          (this_or_next|eq, ":village_no", "p_french_village_62"),
+          (this_or_next|is_between, ":village_no", "p_french_village_72", "p_french_village_75"),
+          (this_or_next|eq, ":village_no", "p_english_village_2"),
+          (this_or_next|eq, ":village_no", "p_english_village_17"),
+          (this_or_next|eq, ":village_no", "p_english_village_18"),
+          (this_or_next|eq, ":village_no", "p_english_village_21"),
+          (this_or_next|eq, ":village_no", "p_english_village_22"),
+          (this_or_next|is_between, ":village_no", "p_english_village_29", "p_english_village_35"),
+          (this_or_next|eq, ":village_no", "p_english_village_39"),
+          (this_or_next|eq, ":village_no", "p_english_village_41"),
+          (this_or_next|eq, ":village_no", "p_english_village_48"),
+          (this_or_next|eq, ":village_no", "p_english_village_51"),
+          (this_or_next|eq, ":village_no", "p_english_village_53"),
+          (this_or_next|eq, ":village_no", "p_english_village_55"),
+          (this_or_next|is_between, ":village_no", "p_english_village_57", "p_english_village_63"),
+          (this_or_next|eq, ":village_no", "p_burgundian_village_8"),
+          (is_between, ":village_no", "p_breton_village_1", "p_salt_mine"), #Breton Villages
+          (assign, ":normal_village_icon", "icon_village_b"),
+          (assign, ":burnt_village_icon", "icon_village_burnt_b"),
+          (assign, ":deserted_village_icon", "icon_village_deserted_b"),
+        (else_try),
           (assign, ":normal_village_icon", "icon_village_a"),
           (assign, ":burnt_village_icon", "icon_village_burnt_a"),
           (assign, ":deserted_village_icon", "icon_village_deserted_a"),
-        # (try_end),
+        (try_end),
         ##CABA Fix
          (party_get_slot, ":village_raid_progress", ":village_no", slot_village_raid_progress),
          (try_begin),

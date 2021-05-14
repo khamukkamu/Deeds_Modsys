@@ -79,8 +79,8 @@ def agent_spawner(troop_id):
             (agent_set_animation, ":agent_no", "anim_sitting_ground"),
         (else_try),
             (eq, ":var_id_2_level", 5),
-            (agent_equip_item, ":agent_no", "itm_torch_hands"),
-            (agent_set_wielded_item, ":agent_no", "itm_torch_hands"),
+            (agent_equip_item, ":agent_no", "itm_torch"),
+            (agent_set_wielded_item, ":agent_no", "itm_torch"),
             
             # (agent_get_bone_position, pos0, reg0, 19, 1),
             # (position_get_x, ":x", pos0),
