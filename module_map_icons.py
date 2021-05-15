@@ -278,7 +278,7 @@ map_icons = [
     ("map_flag_f11",0,"map_flag_f11", banner_scale,0),
     ("map_flag_f12",0,"map_flag_f12", banner_scale,0),
     ("map_flag_f13",0,"map_flag_f13", banner_scale,0),
-    # ("map_flag_f14",0,"map_flag_f14", banner_scale,0),
+    ("map_flag_f14",0,"map_flag_f14", banner_scale,0),
     # ("map_flag_f15",0,"map_flag_f15", banner_scale,0),
     # ("map_flag_f16",0,"map_flag_f16", banner_scale,0),
     # ("map_flag_f17",0,"map_flag_f17", banner_scale,0),
@@ -293,6 +293,6 @@ map_icons = [
     ("map_flag_kingdom_d",0,"map_flag_kingdom_d", banner_scale,0),
     # ("map_flag_kingdom_e",0,"map_flag_kingdom_e", banner_scale,0),
     # ("map_flag_kingdom_f",0,"map_flag_kingdom_f", banner_scale,0),
-    ("map_flag_f14",0,"map_flag_f14", banner_scale,0),
+    # ("map_flag_f14",0,"map_flag_f14", banner_scale,0),
     ("bandit_lair",mcn_no_shadow,"map_bandit_lair", 0.45, 0),
 ]

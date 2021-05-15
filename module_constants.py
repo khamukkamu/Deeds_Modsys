@@ -1875,10 +1875,10 @@ custom_banner_map_icons_begin = "icon_custom_banner_01"
 custom_banner_map_icons_end = "icon_map_flag_a01"
 
 banner_map_icons_begin = "icon_map_flag_a01"
-banner_map_icons_end_minus_one = "icon_map_flag_f14"
+banner_map_icons_end_minus_one = "icon_bandit_lair"
 
 banner_scene_props_begin = "spr_banner_a01"
-banner_scene_props_end_minus_one = "spr_banner_f14"
+banner_scene_props_end_minus_one = "spr_banner_end"
 
 # khergit_banners_begin_offset = 63
 # khergit_banners_end_offset = 84

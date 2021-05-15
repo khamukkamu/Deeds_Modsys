@@ -113,7 +113,7 @@ parties = [
     ("french_town_29","Foix", icon_town_a_southern|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(6.59, -149),[], 280),      ### NEW           
 
  ### DAC English Towns
-    ("english_town_1","Paris", icon_town_paris|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(30.81, 75.01),[], 318),                    
+    ("english_town_1","Paris", icon_town_paris|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(28.72, 74.47),[], 280),                    
     ("english_town_2","Bayonne", icon_town_a_southern|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-73.8, -141.97),[], 232),  
     ("english_town_3","Nemours", icon_town_b_southern_2|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(52.63, 51.8),[], 3),                                                      
     ("english_town_4","Laval", icon_town_b_breton|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-44.39, 44.14),[], 217),                           
