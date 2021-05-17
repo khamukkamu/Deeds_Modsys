@@ -362,6 +362,9 @@ character_creation_scripts = [
         (party_set_slot, ":settlement", slot_town_lord, "trp_player"),
         (party_set_flags, ":settlement", pf_always_visible, 1),
         
+        # DAC Seek: Fix attempt for capital loss bug
+        (party_set_faction, ":settlement", "fac_player_supporters_faction"),
+        
         (try_begin),
             (ge, ":settlement", villages_begin),
             (party_set_note_available, ":settlement", 1),
