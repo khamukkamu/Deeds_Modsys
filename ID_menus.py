@@ -378,3 +378,4 @@ mnu_choose_scenes_1183 = 376
 mnu_choose_scenes_1196 = 377
 mnu_choose_scenes_1209 = 378
 mnu_choose_scenes_1222 = 379
+mnu_choose_scenes_1235 = 380

@@ -626,7 +626,7 @@ scenes = [
     ["exit"],["french_town_27_seneschal"]),
 
 
-#Angers - Rus' Poznan
+#Angers - Rigo
   ("french_town_28_castle", sf_indoors, "interior_castle_m", "bo_interior_castle_m", (-100, -100), (100, 100), -100, "0",
   ["exit"], ["french_town_28_seneschal"]),
 
@@ -887,7 +887,7 @@ scenes = [
   ("french_town_27_tavern",sf_indoors, "interior_tavern_f", "bo_interior_tavern_f", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
 
-#Angers - Rus' Poznan
+#Angers - Rigo
   ("french_town_28_tavern", sf_indoors, "interior_town_house_steppe_g", "bo_interior_town_house_steppe_g", (-100, -100), (100, 100), -100, "0",["exit"], []),
 
   ("french_town_29_tavern",sf_indoors, "interior_town_house_f", "bo_interior_town_house_f", (-100,-100),(100,100),-100,"0",
@@ -1139,7 +1139,7 @@ scenes = [
   ("french_town_27_store",sf_indoors, "interior_tavern_g", "bo_interior_tavern_g", (-100,-100),(100,100),-100,"0",
     ["exit"],[]),
 
-#Angers - Rus' Poznan
+#Angers - Rigo
   ("french_town_28_store", sf_indoors, "interior_house_extension_h", "bo_interior_house_extension_h", (-100, -100), (100, 100), -100, "0",["exit"], []),
 
   ("french_town_29_store",sf_indoors, "interior_house_a", "bo_interior_house_a", (-100,-100),(100,100),-100,"0",
@@ -1389,7 +1389,7 @@ scenes = [
   ("french_town_27_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0xa0001d9300031ccb0000156f000048ba0000361c",
     [],[],"outer_terrain_plain"),
 
-#Angers - Rus' Poznan
+#Angers - Rigo
   ("french_town_28_arena", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x00000002200005000005f57b00005885000046bd00006d9c",[], [], "outer_terrain_steppe"),
 
   ("french_town_29_arena",sf_generate,"none", "none", (0,0),(100,100),-100,"0xa0001d9300031ccb0000156f000048ba0000361c",
@@ -1644,7 +1644,7 @@ scenes = [
   ("french_town_27_prison",sf_indoors,"interior_prison_g", "bo_interior_prison_g", (-100,-100),(100,100),-100,"0",
     [],[]),
   
-#Angers - Rus' Poznan
+#Angers - Rigo
   ("french_town_28_prison", sf_indoors, "interior_prison_n", "bo_interior_prison_n", (-100, -100), (100, 100), -100, "0",["exit"], []),
 
   ("french_town_29_prison",sf_indoors,"interior_prison_i", "bo_interior_prison_i", (-100,-100),(100,100),-100,"0",
@@ -1897,8 +1897,8 @@ scenes = [
   ("french_town_27_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030000500000d2348000030c4000053ae00001d83",
     [],[],"outer_terrain_plain"),
   
-  #Angers - Rus' Poznan
-  ("french_town_28_walls", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x00000003b00787520004dd3d000072a000003c780000409f",[], [], "outer_terrain_steppe"),
+  #Angers - Rigo
+  ("french_town_28_walls", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x0000000330000500000d2348000010610000490600002ff9",[], [], "outer_terrain_steppe"),
 
   ("french_town_29_walls",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000013002491600055157000000d20000152a0000611a",
     [],[],"outer_terrain_plain"),
@@ -2152,7 +2152,7 @@ scenes = [
   ("french_town_27_alley",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030000500000d2348000030c4000053ae00001d83",
     [],[],"outer_terrain_plain"),
   
-#Angers - Rus' Poznan
+#Angers - Rigo
   ("french_town_28_alley", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x0000000420000500000334ce00001d1100003d0600000d27",[], [], "outer_terrain_steppe"),
   
 
@@ -2647,6 +2647,14 @@ scenes = [
     ["exit"],["english_castle_21_seneschal"]),
   ("english_castle_21_prison",sf_indoors,"interior_prison_a", "bo_interior_prison_a", (-100,-100),(100,100),-100,"0",
     [],[]),
+    
+# Château de Vincennes - iJustWant2bPure
+  ("english_castle_22_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001300009838009024000002b0f0000336a00007686",
+    [],[],"outer_terrain_forest"),
+  ("english_castle_22_interior",sf_indoors, "interior_castle_c", "bo_interior_castle_c", (-100,-100),(100,100),-100,"0",
+    ["exit"],["english_castle_22_seneschal"]),
+  ("english_castle_22_prison",sf_indoors,"interior_prison_a", "bo_interior_prison_a", (-100,-100),(100,100),-100,"0",
+    [],[]),
 
 #### Burgundian Castles
   ("burgundian_castle_1_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002300658bc0007bded000025520000093800006114",
@@ -3016,7 +3024,7 @@ scenes = [
   ("french_village_73",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000230079db200050d4500001b4b00007cf400001973",[],[],"outer_terrain_plain"),
   ("french_village_74",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002300794320005f17c00003187000051540000350a",[],[],"outer_terrain_plain"),
   ("french_village_75",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002400798b20005ed7b000019160000650f000072d2",[],[],"outer_terrain_plain"),
-    
+
 ### DAC English Villages
   ("english_village_1",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000022007a7b200045d19000004920000076d00003b0a",[],[],"outer_terrain_steppe"),
   ("english_village_2",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000023009629a0005615800005564000023590000579e",[],[],"outer_terrain_plain"),
@@ -3093,7 +3101,9 @@ scenes = [
   ("english_village_71",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000013003a1560006118d00003ce300004123000043b2",[],[],"outer_terrain_plain"),
   ("english_village_72",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000022004d36300077dd600002e08000036ab00004651",[],[],"outer_terrain_steppe"),
   ("english_village_73",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000013003e21e0005fd7f000028920000650500005c53",[],[],"outer_terrain_plain"),
-    
+# Vincennes - iJustWant2bPure
+  ("english_village_74",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002400798b20005ed7b000019160000650f000072d2",[],[],"outer_terrain_forest"),
+        
 # Burgundian Villages
   ("burgundian_village_1",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000013003e5990005fd78000069670000446c00007476",[],[],"outer_terrain_plain"),
   ("burgundian_village_2",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000220031f6300076dda000056f100004f6d000070b3",[],[],"outer_terrain_steppe"),
@@ -3350,4 +3360,5 @@ scenes = [
 ("camp_test_scene",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000230000500000d22ca000052c1000079e200004298",[],[],"outer_terrain_plain"),
 
 ("mont_st_michel",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000230000000000fffff000041ef00005ae800003c55",[],[],"outer_terrain_beach"),
+("chateau_de_vincennes",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000230000000000fffff000041ef00005ae800003c55",[],[],"outer_terrain_forest"),
 ]

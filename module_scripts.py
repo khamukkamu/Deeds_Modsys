@@ -78726,6 +78726,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (call_script, "script_give_center_to_faction_aux", "p_english_castle_19", "fac_kingdom_2"),
       (call_script, "script_give_center_to_faction_aux", "p_english_castle_20", "fac_kingdom_2"),
       (call_script, "script_give_center_to_faction_aux", "p_english_castle_21", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_english_castle_22", "fac_kingdom_2"),
     
 ### Burgundian Castles      
       (call_script, "script_give_center_to_faction_aux", "p_burgundian_castle_1", "fac_kingdom_3"),
@@ -78932,6 +78933,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (call_script, "script_give_center_to_lord", "p_english_castle_19", "trp_knight_2_6", 0), # Château de Gacé - Thomas Rempston, Baron Rempston and Gacé
       (call_script, "script_give_center_to_lord", "p_english_castle_20", "trp_knight_2_1", 0), # Château de Sainte-Suzanne - John Talbot, Baron Talbot and Furnival
       (call_script, "script_give_center_to_lord", "p_english_castle_21", "trp_knight_2_2", 0), # Château de Durtal - John Fastolf
+      (call_script, "script_give_center_to_lord", "p_english_castle_22", "trp_knight_2_28", 0), # Château de Vincennes - John Holland
   
 ### Burgundian Castles    
       (call_script, "script_give_center_to_lord", "p_burgundian_castle_1", "trp_kingdom_3_lord", 0), # Château_de_Tonerre - Philippe Le Bon
