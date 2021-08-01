@@ -78702,6 +78702,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (call_script, "script_give_center_to_faction_aux", "p_french_castle_23", "fac_kingdom_1"),
       (call_script, "script_give_center_to_faction_aux", "p_french_castle_24", "fac_kingdom_1"),
       (call_script, "script_give_center_to_faction_aux", "p_french_castle_25", "fac_kingdom_1"),
+      (call_script, "script_give_center_to_faction_aux", "p_french_castle_26", "fac_kingdom_1"),
 
 ### English Castles     
       (call_script, "script_give_center_to_faction_aux", "p_english_castle_1", "fac_kingdom_2"),
@@ -78854,7 +78855,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (call_script, "script_give_center_to_lord", "p_burgundian_town_6",  "trp_knight_3_10", 0), # Compiègne - Jean de Villiers de l'Isle-Adam, Seigneur de L'Isle-Adam
       (call_script, "script_give_center_to_lord", "p_burgundian_town_7",  "trp_knight_3_19", 0), # Bruges - Roland d'Uytkerke, Seigneur d'Uytkerke
       (call_script, "script_give_center_to_lord", "p_burgundian_town_8",  "trp_kingdom_3_lord", 0), # Gand - Philippe the Good, Duke of Burgundy
-      (call_script, "script_give_center_to_lord", "p_burgundian_town_9",  "trp_kingdom_3_lord", 0), # Malines - Philippe the Good, Duke of Burgundy
+      (call_script, "script_give_center_to_lord", "p_burgundian_town_9",  "trp_knight_3_6", 0), # Malines - Jean de Luxembourg
 
       (call_script, "script_give_center_to_lord", "p_burgundian_town_10",  "trp_kingdom_3_lord", 0), # Boulogne - Philippe the Good, Duke of Burgundy
       (call_script, "script_give_center_to_lord", "p_burgundian_town_11",  "trp_knight_3_3", 0), # Châlons-en-Champagne - Guy de Bourgogne, Comte de Nevers et de Rethel
@@ -78905,9 +78906,9 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (call_script, "script_give_center_to_lord", "p_french_castle_21", "trp_knight_1_17", 0), # Château_de_Virieu - Louis I de Bourbon
       (call_script, "script_give_center_to_lord", "p_french_castle_22", "trp_knight_1_19", 0), # Château de La Palice - Jacques de Chabannes, Seigneur de La Palice
       (call_script, "script_give_center_to_lord", "p_french_castle_23", "trp_knight_1_29", 0), # Château du Cheylard - Hugues de Cubières du Cheylard
-      (call_script, "script_give_center_to_lord", "p_french_castle_24", "trp_kingdom_1_lord", 0), # Château de Vaucouleurs - Charles VII 
+      (call_script, "script_give_center_to_lord", "p_french_castle_24", "trp_kingdom_1_lord", 0), # Château de Loches - Charles VII 
       (call_script, "script_give_center_to_lord", "p_french_castle_25", "trp_knight_1_10", 0), # La Tour De Marmande - (dans le Poitou) Jean V de Bueil
-
+      (call_script, "script_give_center_to_lord", "p_french_castle_26", "trp_knight_1_7", 0), # Chateau_de_Amboise - Louis d'Amboise
 
 ### English Castles   
       (call_script, "script_give_center_to_lord", "p_english_castle_1", "trp_knight_2_17", 0), # Château_de_Castelnaud [Forteresses de routier] - Sir Thomas Radcliffe
@@ -78920,7 +78921,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (call_script, "script_give_center_to_lord", "p_english_castle_7", "trp_kingdom_2_lord", 0), # Château-Gaillard - John of Lancaster, duc de Bedford
       (call_script, "script_give_center_to_lord", "p_english_castle_8", "trp_knight_2_34", 0), # Château_de_Vendôme - Robert Willoughby, Lord Willoughby of Eresby
       (call_script, "script_give_center_to_lord", "p_english_castle_9", "trp_knight_2_2", 0), # Château_de_Beauvau - John Fastolf, Governor of Anjou
-      (call_script, "script_give_center_to_lord", "p_english_castle_10", "trp_knight_2_34", 0), # Château_Gontier - Robert Willoughby, Lord Willoughby of Eresby
+      (call_script, "script_give_center_to_lord", "p_english_castle_10", "trp_kingdom_2_lord", 0), # Bastille_Saint-Antoine - John of Lancaster, duc de Bedford
       (call_script, "script_give_center_to_lord", "p_english_castle_11", "trp_knight_2_7", 0), # Château_de_Verneuil - Thomas Beaufort, Count of Perche
       (call_script, "script_give_center_to_lord", "p_english_castle_12", "trp_knight_2_8", 0), # Château de Mortain - Edmund Beaufort, Count of Mortain
       (call_script, "script_give_center_to_lord", "p_english_castle_13", "trp_knight_2_44", 0), # Château de Langoiran - Jean de Montferrand, Seigneur de Langoiran
@@ -78952,7 +78953,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (call_script, "script_give_center_to_lord", "p_burgundian_castle_13", "trp_knight_3_19", 0), # Forteresse_d'Uytkerke - Roland d'Uytkerke
       (call_script, "script_give_center_to_lord", "p_burgundian_castle_14", "trp_knight_3_3", 0), # Château_de_La_Charité-sur-Loire - Guy de Bourgogne
 
-      (call_script, "script_give_center_to_lord", "p_burgundian_castle_15", "trp_knight_3_10", 0), # Forteresse_de_L'Isle_Adam - Jean de Villiers de l'Isle-Adam
+      (call_script, "script_give_center_to_lord", "p_burgundian_castle_15", "trp_knight_3_6", 0), # Château_de_Coucy - Jean de Luxembourg
       (call_script, "script_give_center_to_lord", "p_burgundian_castle_16", "trp_kingdom_3_lord", 0), # Château_de_Senlis - Philippe Le Bon
       (call_script, "script_give_center_to_lord", "p_burgundian_castle_17", "trp_knight_3_17", 0), # Château_de_Montcornet - Antoine I de Croÿ
       (call_script, "script_give_center_to_lord", "p_burgundian_castle_18", "trp_knight_3_18", 0), # Château_de_Chimay - Jean II de Croÿ  
@@ -79005,9 +79006,13 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (call_script, "script_give_center_to_lord", "p_french_village_57", "trp_knight_1_12", 0), # Jalognes - Charles de Culant
       (call_script, "script_give_center_to_lord", "p_french_village_59", "trp_knight_1_27", 0), # Pavie - Renaud de Termes d'Armagnac
       (call_script, "script_give_center_to_lord", "p_french_village_64", "trp_knight_1_6", 0), # Xaintrailles - Jean Poton de Xaintrailles
+      (call_script, "script_give_center_to_lord", "p_french_village_65", "trp_knight_1_4", 0), # Orval - Charles II d'Albret
       (call_script, "script_give_center_to_lord", "p_french_village_66", "trp_knight_1_18", 0), # Barbazan - Arnault Guilhem de Barbazan
       (call_script, "script_give_center_to_lord", "p_french_village_74", "trp_knight_1_3", 0), # Brissac - Gilles de Rais
       (call_script, "script_give_center_to_lord", "p_english_village_21", "trp_knight_1_21", 0), # Le Lion-d'Angers - Pierre de Beauvau
+      (call_script, "script_give_center_to_lord", "p_french_village_52", "trp_knight_1_7", 0), # Pontelevoy - Louis d'Amboise
+      (call_script, "script_give_center_to_lord", "p_french_village_76", "trp_knight_1_7", 0), # Amboise - Louis d'Amboise
+
 
 ### English Villages  
       (call_script, "script_give_center_to_lord", "p_english_village_23", "trp_knight_2_48", 0), # Chailly - Sir John de la Pole
@@ -79027,6 +79032,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 
 ### Burgundian Villages 
       (call_script, "script_give_center_to_lord", "p_burgundian_village_39", "trp_knight_3_11", 0), # Arras - David de Brimeu
+      (call_script, "script_give_center_to_lord", "p_burgundian_village_42", "trp_knight_3_6", 0), # Coucy - Jean de Luxembourg
 
 ##################################################################################################################################################################################################################################################################################################################
 ###################################################################################################### DAC Fief DISTRIBUTION END ###################################################################################################################################################################################
