@@ -1205,6 +1205,8 @@ items = [
  147 , weight(2)|abundance(100)|head_armor(0)|body_armor(14)|leg_armor(6)|difficulty(7) ,imodbits_cloth,
  [(ti_on_init_item, [(store_trigger_param_1, ":agent_no"),(store_trigger_param_2, ":troop_no"),(call_script, "script_shield_item_set_banner", "tableau_heraldic_tabard", ":agent_no", ":troop_no")])]],
 
+["a_plate_covered_asher_heraldic", "Heraldic Covered Plate", [("a_plate_covered_asher_heraldic",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0,
+ 5550, weight(29)|abundance(100)|head_armor(0)|body_armor(60)|leg_armor(24)|difficulty(9), imodbits_armor,[(ti_on_init_item, [(store_trigger_param_1, ":agent_no"),(store_trigger_param_2, ":troop_no"),(call_script, "script_shield_item_set_banner", "tableau_a_plate_covered_asher_heraldic", ":agent_no", ":troop_no")])]],
 
 ##################################################################################################################################################################################################################################################################################################################
 ###################################################################################################### HYW BOOTS | SHOES | LEG ARMOR #############################################################################################################################################################################

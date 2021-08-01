@@ -2530,7 +2530,7 @@ TOTAL:  {reg5}"),
             # (assign, "$g_presentation_next_presentation", -1),
         # ]
     # ),
-      ("dplmc_camp_preferences",[],"DaC preferences.",
+      ("dplmc_camp_preferences",[],"DAC Mod Options.",
        [
            # (jump_to_menu, "mnu_dplmc_preferences"),
            (start_presentation, "prsnt_adv_diplomacy_preferences"),
