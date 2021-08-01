@@ -3922,7 +3922,7 @@ TOTAL:  {reg5}"),
         (else_try),
           (party_get_current_terrain, ":terrain", "p_main_party"),
           (eq, ":terrain", rt_snow),
-          (assign, ":duel_scene", "scn_training_ground_ranged_melee_3"),
+          (assign, ":duel_scene", "scn_training_ground_ranged_melee_1"),
         (else_try),
           (this_or_next|eq, ":terrain", rt_desert),
           (eq, ":terrain", rt_steppe), #this is the actual steppe scene
