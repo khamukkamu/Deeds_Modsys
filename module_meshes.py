@@ -266,8 +266,7 @@ meshes = [
   ("tableau_mesh_plate_cuirass_heraldic", 0, "tableau_mesh_plate_cuirass_heraldic",  0, 0, 0, 0, 0, 0, 1, 1, 1),  
   ("tableau_mesh_heraldic_english_plate", 0, "tableau_mesh_heraldic_english_plate",  0, 0, 0, 0, 0, 0, 1, 1, 1),  
   ("tableau_mesh_heraldic_english_plate_mail", 0, "tableau_mesh_heraldic_english_plate_mail",  0, 0, 0, 0, 0, 0, 1, 1, 1),  
-  
-  ("tableau_mesh_a_plate_covered_asher_heraldic", 0, "tableau_mesh_a_plate_covered_asher_heraldic",  0, 0, 0, 0, 0, 0, 1, 1, 1),  
+  ("tableau_mesh_a_plate_covered_asher_heraldic", 0, "tableau_mesh_a_plate_covered_asher_heraldic",  0, 0, 0, 0, 0, 0, 1, 1, 1), 
  ### HYW Heraldic Armors End  
 
   # ("outer_terrain_plain_1", 0, "ter_border_a", -90, 0, 0, 0, 0, 0, 1, 1, 1),
@@ -373,8 +372,8 @@ meshes = [
   ("banner_e12", 0, "banner_e12", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("banner_e13", 0, "banner_e13", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("banner_e14", 0, "banner_e14", 0, 0, 0, -90, 0, 0, 1, 1, 1),
-  # ("banner_e15", 0, "banner_e15", 0, 0, 0, -90, 0, 0, 1, 1, 1),
-  # ("banner_e16", 0, "banner_e16", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("banner_e15", 0, "banner_e15", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("banner_e16", 0, "banner_e16", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   # ("banner_e17", 0, "banner_e17", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   # ("banner_e18", 0, "banner_e18", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   # ("banner_e19", 0, "banner_e19", 0, 0, 0, -90, 0, 0, 1, 1, 1),
@@ -524,8 +523,8 @@ meshes = [
   ("arms_e12", 0, "arms_e12", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("arms_e13", 0, "arms_e13", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   ("arms_e14", 0, "arms_e14", 0, 0, 0, -90, 0, 0, 1, 1, 1),
-  # ("arms_e15", 0, "arms_e15", 0, 0, 0, -90, 0, 0, 1, 1, 1),
-  # ("arms_e16", 0, "arms_e16", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("arms_e15", 0, "arms_e15", 0, 0, 0, -90, 0, 0, 1, 1, 1),
+  ("arms_e16", 0, "arms_e16", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   # ("arms_e17", 0, "arms_e17", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   # ("arms_e18", 0, "arms_e18", 0, 0, 0, -90, 0, 0, 1, 1, 1),
   # ("arms_e19", 0, "arms_e19", 0, 0, 0, -90, 0, 0, 1, 1, 1),

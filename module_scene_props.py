@@ -1371,8 +1371,8 @@ scene_props = [
   ("banner_e12",0,"banner_e12","0", []),
   ("banner_e13",0,"banner_e13","0", []),
   ("banner_e14",0,"banner_e14","0", []),
-  # ("banner_e15",0,"banner_e15","0", []),
-  # ("banner_e16",0,"banner_e16","0", []),
+  ("banner_e15",0,"banner_e15","0", []),
+  ("banner_e16",0,"banner_e16","0", []),
   # ("banner_e17",0,"banner_e17","0", []),
   # ("banner_e18",0,"banner_e18","0", []),
   # ("banner_e19",0,"banner_e19","0", []),
@@ -2401,7 +2401,7 @@ scene_props = [
    ]),
 
   ("hook_a",0,"hook_a","0", []),
-  ("window_night",0,"window_night","0", []),
+  ("window_night",sokf_moveable,"window_night","0", []),
   ("fried_pig",0,"pork","0", []),
   ("village_oven",0,"village_oven","bo_village_oven", []),
   ("dungeon_water_drops",0,"0","0",
@@ -3593,10 +3593,10 @@ scene_props = [
 	( "spire_2_a"                                  ,0,"spire_2_a","bo_spire_2",[]),
 	( "spire_2_b"                                  ,0,"spire_2_b","bo_spire_2",[]),
 	( "spire_2_c"                                  ,0,"spire_2_c","bo_spire_2",[]),
-	( "window_gothic_high"                         ,0,"window_gothic_high","0",[]),
-	( "window_gothic_large"                        ,0,"window_gothic_large","0",[]),
-	( "window_gothic_low"                          ,0,"window_gothic_low","0",[]),
-	( "window_gothic_rose"                         ,0,"window_gothic_rose","0",[]),
+	( "window_gothic_high"                         ,sokf_moveable,"window_gothic_high","0",[]),
+	( "window_gothic_large"                        ,sokf_moveable,"window_gothic_large","0",[]),
+	( "window_gothic_low"                          ,sokf_moveable,"window_gothic_low","0",[]),
+	( "window_gothic_rose"                         ,sokf_moveable,"window_gothic_rose","0",[]),
 # from 'DAC_church.brf': end (OpenBRF)
 
 

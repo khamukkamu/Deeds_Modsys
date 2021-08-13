@@ -1886,7 +1886,7 @@ banner_scene_props_end_minus_one = "spr_banner_end"
 # sarranid_banners_begin_offset = 105
 # sarranid_banners_end_offset = 125
 
-banners_end_offset = 116
+banners_end_offset = 118
 
 # Some constants for merchant invenotries
 merchant_inventory_space = 30

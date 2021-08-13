@@ -85,9 +85,9 @@ map_icons = [
     ("castle_c_breton",mcn_no_shadow,"icon_castle_c_breton", 0.35,0),
     ("castle_c_southern",mcn_no_shadow,"icon_castle_c_southern", 0.35,0),
     ("castle_c_southern_2",mcn_no_shadow,"icon_castle_c_southern_2", 0.35,0),
-    
+        
     ("castle_coucy",mcn_no_shadow,"icon_castle_coucy", 0.35,0),
-    
+        
     ("castle_d",mcn_no_shadow,"icon_castle_d", 0.35,0),
     ("castle_d_breton",mcn_no_shadow,"icon_castle_d_breton", 0.35,0),
     
@@ -259,8 +259,8 @@ map_icons = [
     ("map_flag_e12",0,"map_flag_e12", banner_scale,0),
     ("map_flag_e13",0,"map_flag_e13", banner_scale,0),
     ("map_flag_e14",0,"map_flag_e14", banner_scale,0),
-    # ("map_flag_e15",0,"map_flag_e15", banner_scale,0),
-    # ("map_flag_e16",0,"map_flag_e16", banner_scale,0),
+    ("map_flag_e15",0,"map_flag_e15", banner_scale,0),
+    ("map_flag_e16",0,"map_flag_e16", banner_scale,0),
     # ("map_flag_e17",0,"map_flag_e17", banner_scale,0),
     # ("map_flag_e18",0,"map_flag_e18", banner_scale,0),
     # ("map_flag_e19",0,"map_flag_e19", banner_scale,0),
