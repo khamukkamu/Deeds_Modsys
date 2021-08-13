@@ -84,7 +84,8 @@ character_creation_presentations = [
           (str_store_string, s49, "str_empty_string"),
         (try_end),
 
-        (create_text_overlay, "$g_presentation_obj_6", s49, tf_left_align | tf_scrollable),
+### DAC Seek: attempt to add lord fief list
+        (create_text_overlay, "$g_presentation_obj_6", s0, tf_left_align | tf_scrollable),
         (overlay_set_color, "$g_presentation_obj_6", 0xFFFFFF),
         (position_set_x, pos1, 55), # Higher, means more toward the right
         (position_set_y, pos1, 55), # Higher, means more toward the top
@@ -95,6 +96,19 @@ character_creation_presentations = [
         (position_set_x, pos1, 520 - 55 - 20), # smaller means smaller font
         (position_set_y, pos1, 210 - 55),
         (overlay_set_area_size, "$g_presentation_obj_6", pos1),
+        
+# DAC Seek: Backup:
+        # (create_text_overlay, "$g_presentation_obj_6", s49, tf_left_align | tf_scrollable),
+        # (overlay_set_color, "$g_presentation_obj_6", 0xFFFFFF),
+        # (position_set_x, pos1, 55), # Higher, means more toward the right
+        # (position_set_y, pos1, 55), # Higher, means more toward the top
+        # (overlay_set_position, "$g_presentation_obj_6", pos1),
+        # (position_set_x, pos1, 1000), # smaller means smaller font
+        # (position_set_y, pos1, 1000),
+        # (overlay_set_size, "$g_presentation_obj_6", pos1),
+        # (position_set_x, pos1, 520 - 55 - 20), # smaller means smaller font
+        # (position_set_y, pos1, 210 - 55),
+        # (overlay_set_area_size, "$g_presentation_obj_6", pos1),
 
         (create_combo_label_overlay, "$g_presentation_obj_5", "str_empty_string",0),
         (position_set_x, pos1, 755),
