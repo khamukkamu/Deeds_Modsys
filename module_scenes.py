@@ -300,8 +300,8 @@ scenes = [
     [],[],"outer_terrain_plain"),
 
 
-#Toulouse - Rus' Wroclaw
-  ("french_town_15_center", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x0000000330078adc0005896200003c0800001a3200006859",[], [], "outer_terrain_plain"),
+#Toulouse - Seek
+  ("french_town_15_center", sf_generate, "none", "none", (0, 0), (100, 100), -100, "0x0000000230000000000fffff000041ef00005ae800003c55",[], [], "outer_terrain_plain_2"),
 
 #Carcassonne - BM's Dhirim
   ("french_town_16_center",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030000500000d2348000030c4000053ae00001d83",
