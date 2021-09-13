@@ -241,8 +241,8 @@ merchant_face_2    = man_face_older_2
 woman_face_1    = 0x0000000000000001000000000000000000000000001c00000000000000000000
 woman_face_2    = 0x00000003bf0030067ff7fbffefff6dff00000000001f6dbf0000000000000000
 
-swadian_woman_face_1 = 0x0000000180102006124925124928924900000000001c92890000000000000000
-swadian_woman_face_2 = 0x00000001bf1000061db6d75db6b6dbad00000000001c92890000000000000000
+swadian_woman_face_1 = 0x00000001800c40033ead93d751b63b6c000b893aa5d918ec0000000000000000
+swadian_woman_face_2 = 0x00000001b5086002371c69a6e5aaa76c003a58456a8e274c0000000000000000
 
 khergit_woman_face_1 = 0x0000000180103006124925124928924900000000001c92890000000000000000
 khergit_woman_face_2 = 0x00000001af1030025b6eb6dd6db6dd6d00000000001eedae0000000000000000
@@ -2792,6 +2792,8 @@ troops = [
 ["extra_lord_39", "Jean II d'Alençon, Duc d'Alençon", "Jean d'Alençon", tf_hero, no_scene, reserved, fac_kingdom_1, [itm_w_lance_colored_french_1,itm_s_heraldic_shield_metal,itm_ho_horse_barded_blue_chamfrom,itm_h_zitta_bascinet_novisor,itm_heraldic_brigandine_native,itm_b_splinted_greaves_spurs,itm_g_wisby_gauntlets_black,itm_b_hosen_shoes_custom,itm_a_tabard_heraldic,itm_w_bastard_sword_crecy], lord_attrib, wp(380), knows_lord_1, 0x000000000000800f49255229948d172300000000001d551a0000000000000000, 0x000000000000800f49255229948d172300000000001d551a0000000000000000 ],
 ["extra_lord_40", "Jean II d'Alençon, Duc d'Alençon", "Jean d'Alençon", tf_hero, no_scene, reserved, fac_kingdom_1, [itm_w_lance_colored_french_1,itm_s_heraldic_shield_metal,itm_ho_horse_barded_blue_chamfrom,itm_h_zitta_bascinet_novisor,itm_heraldic_brigandine_native,itm_b_splinted_greaves_spurs,itm_g_wisby_gauntlets_black,itm_b_hosen_shoes_custom,itm_a_tabard_heraldic,itm_w_bastard_sword_crecy], lord_attrib, wp(380), knows_lord_1, 0x000000000000800f49255229948d172300000000001d551a0000000000000000, 0x000000000000800f49255229948d172300000000001d551a0000000000000000 ],
 ["extra_lord_41", "Gui VI de La Trémoille", "Gui VI de La Trémoille", tf_hero, no_scene, reserved, fac_kingdom_3, [itm_w_lance_colored_french_1,itm_s_heraldic_shield_metal,itm_ho_horse_barded_blue_chamfrom,itm_h_zitta_bascinet_novisor,itm_heraldic_brigandine_native,itm_b_splinted_greaves_spurs,itm_g_wisby_gauntlets_black,itm_b_hosen_shoes_custom,itm_a_tabard_heraldic,itm_w_bastard_sword_crecy], lord_attrib, wp(380), knows_lord_1, 0x000000000000800f49255229948d172300000000001d551a0000000000000000, 0x000000000000800f49255229948d172300000000001d551a0000000000000000 ],
+
+["female_face_keys", "{!}", "{!}", tf_female|tf_hero|tf_unmoveable_in_party_window, no_scene, reserved, fac_commoners, [itm_b_hosen_shoes_custom,itm_a_woman_court_dress_1], def_attrib|level(2), wp(50), knows_common|knows_riding_2, 0x000000000e10400336db6db6db6db6db003b6db6db6db6db0000000000000000, 0x000000000e10400336db6db6db6db6db003b6db6db6db6db0000000000000000 ],
 
 ] 
 troops = troops + mercenary_company_troops

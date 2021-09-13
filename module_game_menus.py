@@ -253,8 +253,9 @@ game_menus = [
          # (try_end),
          # (add_xp_to_troop, 5000, "trp_player"),
 
-         (change_screen_return), # DAC - Change to Starting Quest Menu - disabled for now
+         # (change_screen_return), # DAC - Change to Starting Quest Menu - disabled for now
          #(jump_to_menu, "mnu_dac_start_quest"),
+         (jump_to_menu, "mnu_dac_start_game_lord_name_option"), # DAC Seek: Added option
        ]),
 ##diplomacy end+ (replaced "join" with "Join")
 

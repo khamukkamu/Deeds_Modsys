@@ -462,6 +462,7 @@ itc_dagger  = itc_cleaver | itcf_thrust_onehanded
 itc_parry_onehanded = itcf_force_64_bits | itcf_parry_forward_onehanded| itcf_parry_up_onehanded | itcf_parry_right_onehanded |itcf_parry_left_onehanded
 itc_longsword = itc_dagger | itc_parry_onehanded
 itc_scimitar  = itc_cleaver | itc_parry_onehanded
+itc_dagger_new =  itcf_force_64_bits | (itcf_overswing_musket|itcf_slashright_onehanded|itcf_slashleft_onehanded| itcf_thrust_onehanded | itcf_horseback_slashright_onehanded|itcf_horseback_slashleft_onehanded) | itc_parry_onehanded
 
 itc_parry_two_handed = itcf_force_64_bits | itcf_parry_forward_twohanded | itcf_parry_up_twohanded | itcf_parry_right_twohanded | itcf_parry_left_twohanded
 itc_cut_two_handed = itcf_force_64_bits | (itcf_slashright_twohanded | itcf_slashleft_twohanded | itcf_overswing_twohanded | 

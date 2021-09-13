@@ -144,8 +144,13 @@ character_creation_menus = [
        ),
       ("start_female",[],"Female",
        [
-         (troop_set_type, "trp_player", 1),
-         (assign, "$character_gender", tf_female),
+        (troop_set_type, "trp_player", 1),
+        (assign, "$character_gender", tf_female),
+         
+        (str_store_troop_face_keys, s57, "trp_female_face_keys", 0),
+        (str_store_troop_face_keys, s58, "trp_female_face_keys", 1),
+        (troop_set_face_keys, "trp_player", s57, 0),
+        (troop_set_face_keys, "trp_player", s58, 1),
 ##diplomacy start+
 #Jump to the prejudice-level menu instead
 #         (jump_to_menu, "mnu_start_character_1"),
@@ -292,7 +297,8 @@ character_creation_menus = [
     [
 ##      
       ("begin_adventuring",[(eq, "$background_answer_2", 0)],"Become an adventurer and ride to your destiny.",[
-          #(set_show_messages, 0),
+      
+          (set_show_messages, 0),
            
           (try_begin),
             (eq, "$character_gender", tf_male),
@@ -366,7 +372,8 @@ character_creation_menus = [
       (else_try),
         (change_screen_return, 0),
       (try_end),
-      #(set_show_messages, 1),
+      
+      (set_show_messages, 1),
         ]),
 
   #DAC Kham: KAOS Start as Ruler / Lord / Vassal BEGIN      
@@ -404,5 +411,38 @@ character_creation_menus = [
     ]
   ),
 
+# DAC Seek: Added option to shorten lord titles
+  ("dac_start_game_lord_name_option", mnf_disable_all_keys,
+    "Mod Option^^ In Deeds of Arms and Chivalry the lords and regents carry the titles they would have held in 1429 in their names. If the long titles are inconvenient for you, you have the option to shorten the names of lords and regents or only the lords, otherwise you can keep it as it is, long and uncut. This is a one time irreversible change. For example, John Fastolf Lieutenant-general of Normandy will simply be refered as John Fastolf if you select to shorten the titles.",
+    "none",
+    [],
+    [
+      ("yes",[],"Shorten all the titles.", [
+      
+        (try_for_range, ":troop_no", kings_begin, lords_end),
+            (str_store_troop_name_plural, s7, ":troop_no"),
+            (troop_set_name, ":troop_no", s7),
+        (try_end),
+        
+        (change_screen_return),
+      ]),
+      
+      ("also_yes_kinda",[],"Shorten only the lord titles. (Keep the regent titles)", [
+      
+        (try_for_range, ":troop_no", lords_begin, lords_end),
+            (str_store_troop_name_plural, s7, ":troop_no"),
+            (troop_set_name, ":troop_no", s7),
+        (try_end),
+        
+        (change_screen_return),
+      ]),
+      
+      ("no",[],"Keep it as it is.", [
+        (change_screen_return),
+      ]),
+
+
+    ]
+  ),
 
 ]
