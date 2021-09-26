@@ -168,7 +168,7 @@ mercenary_company_menus = [
         (str_store_string, s11, "@Manor"),
         (set_background_mesh, "mesh_pic_village_p"),
     (else_try),
-        (str_store_string, s11, "@Stronghold"),
+        (str_store_string, s11, "@Fort"),
         (set_background_mesh, "mesh_pic_castle1"),
     (try_end),
         
@@ -277,7 +277,7 @@ mercenary_company_menus = [
         (eq, ":player_camp_level", 3),
         (str_store_string, s11, "@Manor"),
     (else_try),
-        (str_store_string, s11, "@Stronghold"),
+        (str_store_string, s11, "@Fort"),
     (try_end),
     
     (assign, ":num_improvements", 0),
@@ -617,7 +617,7 @@ mercenary_company_menus = [
         (eq, ":player_camp_level", 3),
         (str_store_string, s11, "@Manor"),
     (else_try),
-        (str_store_string, s11, "@Stronghold"),
+        (str_store_string, s11, "@Fort"),
     (try_end),
     
     (assign, "$g_improvement_type", slot_player_camp_relocation_project),

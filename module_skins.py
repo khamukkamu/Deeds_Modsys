@@ -225,13 +225,13 @@ skins = [
     ["hair_blonde", "hair_red", "hair_brunette", "hair_black", "hair_white"], #hair textures
     [],
     [
-     ("womanface_1",0xffe3e8ef,["hair_blonde"],[0xffffffff, 0xffb04717, 0xff502a19, 0xff19100c]),
-     ("womanface_2",0xffdfdfdf,["hair_blonde"],[0xffa5481f, 0xff502a19, 0xff19100c, 0xff0c0d19]),
-     ("womanface_3",0xffe3e8ef,["hair_blonde"],[0xffffffff, 0xffb04717, 0xff502a19, 0xff19100c]),
-     ("womanface_4",0xffdfdfdf,["hair_blonde"],[0xffa5481f, 0xff502a19, 0xff19100c, 0xff0c0d19]),
-     ("womanface_5",0xffe3e8ef,["hair_blonde"],[0xffffffff, 0xffb04717, 0xff502a19, 0xff19100c]),
-     ("womanface_6",0xffdfdfdf,["hair_blonde"],[0xffa5481f, 0xff502a19, 0xff19100c, 0xff0c0d19]),
-     ("womanface_7",0xffdfdfdf,["hair_blonde"],[0xffa5481f, 0xff502a19, 0xff19100c, 0xff0c0d19]),
+     ("womanface_1",0xffe3e8ef,["hair_blonde"],[0xffffffff, 0xffb04717, 0xff502a19, 0xff0c0d19]),
+     ("womanface_2",0xffdfdfdf,["hair_blonde"],[0xffffffff, 0xffb04717, 0xff502a19, 0xff0c0d19]),
+     ("womanface_3",0xffe3e8ef,["hair_blonde"],[0xffffffff, 0xffb04717, 0xff502a19, 0xff0c0d19]),
+     ("womanface_4",0xffdfdfdf,["hair_blonde"],[0xffffffff, 0xffb04717, 0xff502a19, 0xff0c0d19]),
+     ("womanface_5",0xffe3e8ef,["hair_blonde"],[0xffffffff, 0xffb04717, 0xff502a19, 0xff0c0d19]),
+     ("womanface_6",0xffdfdfdf,["hair_blonde"],[0xffffffff, 0xffb04717, 0xff502a19, 0xff0c0d19]),
+     ("womanface_7",0xffdfdfdf,["hair_blonde"],[0xffffffff, 0xffb04717, 0xff502a19, 0xff0c0d19]),
 
      ],#woman_face_textures
     [(voice_die,"snd_woman_die"),(voice_hit,"snd_woman_hit"),(voice_yell,"snd_woman_yell")], #voice sounds

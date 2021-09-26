@@ -33009,7 +33009,7 @@ scripts = [
         # (eq, "$cant_leave_encounter", 1),
         # (val_sub, ":scene_to_use", 1), # can leave, must be small battlefield
       (else_try), # forests
-        (is_between, ":terrain_type", rt_mountain_forest, rt_desert_forest+1),
+        (is_between, ":terrain_type", rt_mountain_forest, rt_forest+1),
         (val_add, ":scene_to_use", "$g_random_scene_size_forests"),
         (val_sub, ":scene_to_use", 1),
       (else_try),
@@ -79370,7 +79370,22 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 # Brittany    
       (item_set_slot, "itm_a_padded_over_mail_custom", slot_item_breton_materials_begin, "str_a_padded_over_mail_brown"),
       (item_set_slot, "itm_a_padded_over_mail_custom", slot_item_breton_materials_end, "str_a_padded_over_mail_end"),     
-      (item_set_slot, "itm_a_padded_over_mail_custom", slot_item_num_components, 1),        
+      (item_set_slot, "itm_a_padded_over_mail_custom", slot_item_num_components, 1),    
+
+## Padded Jack
+      (item_set_slot, "itm_a_padded_jack_custom", slot_item_materials_begin, "str_a_padded_jack_beige"),
+      (item_set_slot, "itm_a_padded_jack_custom", slot_item_materials_end, "str_a_padded_jack_end"),   
+      (item_set_slot, "itm_a_padded_jack_custom", slot_item_num_components, 1),          
+      
+## Padded Jack Cross
+      (item_set_slot, "itm_a_padded_jack_cross_custom", slot_item_materials_begin, "str_a_padded_jack_cross_beige"),
+      (item_set_slot, "itm_a_padded_jack_cross_custom", slot_item_materials_end, "str_a_padded_jack_cross_end"),   
+      (item_set_slot, "itm_a_padded_jack_cross_custom", slot_item_num_components, 1),  
+      
+## Padded Jack Surcoat
+      (item_set_slot, "itm_a_padded_jack_surcoat_custom", slot_item_materials_begin, "str_a_padded_jack_surcoat_beige"),
+      (item_set_slot, "itm_a_padded_jack_surcoat_custom", slot_item_materials_end, "str_a_padded_jack_surcoat_end"),   
+      (item_set_slot, "itm_a_padded_jack_surcoat_custom", slot_item_num_components, 1), 
     
 ## Churburg
       (item_set_slot, "itm_a_churburg_narf_custom", slot_item_materials_begin, "str_a_churburg_blue"),
@@ -79407,8 +79422,16 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 # Brittany    
       (item_set_slot, "itm_a_churburg_brass_narf_custom", slot_item_breton_materials_begin, "str_a_churburg_brass_black"),
       (item_set_slot, "itm_a_churburg_brass_narf_custom", slot_item_breton_materials_end, "str_a_churburg_brass_end"),      
-      (item_set_slot, "itm_a_churburg_brass_narf_custom", slot_item_num_components, 1),       
-        
+      (item_set_slot, "itm_a_churburg_brass_narf_custom", slot_item_num_components, 1),      
+
+## Churburg 13
+      (item_set_slot, "itm_a_churburg_13_asher_plain_custom", slot_item_materials_begin, "str_a_churburg_13_asher_plain_beige"),
+      (item_set_slot, "itm_a_churburg_13_asher_plain_custom", slot_item_materials_end, "str_a_churburg_13_asher_plain_end"),
+
+## Churburg 13 Brass
+      (item_set_slot, "itm_a_churburg_13_asher_brass_custom", slot_item_materials_begin, "str_a_churburg_13_asher_guilded_black"),
+      (item_set_slot, "itm_a_churburg_13_asher_brass_custom", slot_item_materials_end, "str_a_churburg_13_asher_guilded_end"),
+
 ## Churburg Jupon
       (item_set_slot, "itm_a_churburg_jupon_custom", slot_item_materials_begin, "str_a_churburg_jupon_blue"),
       (item_set_slot, "itm_a_churburg_jupon_custom", slot_item_materials_end, "str_a_churburg_jupon_end"),
@@ -79461,7 +79484,34 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 # Brittany    
       (item_set_slot, "itm_a_corrazina_leather_custom", slot_item_breton_materials_begin, "str_a_corrazina_leather_brown"),
       (item_set_slot, "itm_a_corrazina_leather_custom", slot_item_breton_materials_end, "str_a_corrazina_leather_end"),   
-      (item_set_slot, "itm_a_corrazina_leather_custom", slot_item_num_components, 1),   	  	  
+      (item_set_slot, "itm_a_corrazina_leather_custom", slot_item_num_components, 1),   
+
+## Hohenaschau Corrazina
+      (item_set_slot, "itm_a_corrazina_hohenaschau_custom", slot_item_materials_begin, "str_a_corrazina_hohenaschau_beige"),
+      (item_set_slot, "itm_a_corrazina_hohenaschau_custom", slot_item_materials_end, "str_a_corrazina_hohenaschau_end"), 
+      (item_set_slot, "itm_a_corrazina_hohenaschau_custom", slot_item_num_components, 1),         
+        
+## Asher Brigandine 
+      (try_for_range, ":item_no", "itm_a_brigandine_asher_custom", "itm_a_brigandine_narf_padded_custom"), # Seek: All the Brigandines share the same base
+      (item_set_slot, ":item_no", slot_item_materials_begin, "str_a_brigandine_asher_blue"),
+      (item_set_slot, ":item_no", slot_item_materials_end, "str_a_brigandine_asher_end"),
+  # France
+      (item_set_slot, ":item_no", slot_item_france_materials_begin, "str_a_brigandine_asher_blue"),
+      (item_set_slot, ":item_no", slot_item_france_materials_end, "str_a_brigandine_asher_red"),
+  # England
+      (item_set_slot, ":item_no", slot_item_english_materials_begin, "str_a_brigandine_narf_white"),
+      (item_set_slot, ":item_no", slot_item_english_materials_end, "str_a_brigandine_asher_brown"),
+  # Burgundy
+      (item_set_slot, ":item_no", slot_item_burgundy_materials_begin, "str_a_brigandine_asher_red_2"),
+      (item_set_slot, ":item_no", slot_item_burgundy_materials_end, "str_a_brigandine_asher_black"),
+  # Brittany    
+      (item_set_slot, ":item_no", slot_item_breton_materials_begin, "str_a_brigandine_asher_brown_2"),
+      (item_set_slot, ":item_no", slot_item_breton_materials_end, "str_a_brigandine_asher_end"),  
+  # Flemish Mercenaries   
+      (item_set_slot, ":item_no", slot_item_flemish_materials_begin, "str_a_brigandine_asher_yellow"),
+      (item_set_slot, ":item_no", slot_item_flemish_materials_end, "str_a_brigandine_asher_end"),        
+      (item_set_slot, ":item_no", slot_item_num_components, 1),     
+      (try_end),
         
 ## Narf Brigandine 
       (try_for_range, ":item_no", "itm_a_brigandine_narf_padded_custom", "itm_a_churburg_narf_custom"), # Seek: All the Brigandines share the same base

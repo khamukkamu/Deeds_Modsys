@@ -5372,6 +5372,26 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("a_brigandine_white_2", "a_brigandine_white"), 
 ("a_brigandine_end", "a_brigandine_end"),
 
+## Asher Brigandine
+# French 
+("a_brigandine_asher_blue", "a_brigandine_asher_blue"),   
+("a_brigandine_asher_green", "a_brigandine_asher_green"),   
+("a_brigandine_asher_green_2", "a_brigandine_asher_green_2"),   
+("a_brigandine_asher_green_3", "a_brigandine_asher_green_3"),   
+("a_brigandine_asher_brown", "a_brigandine_asher_brown"),  
+# English
+("a_brigandine_asher_red", "a_brigandine_asher_red"),  
+("a_brigandine_asher_red_2", "a_brigandine_asher_red_2"),  
+("a_brigandine_asher_red_3", "a_brigandine_asher_red_3"),  
+("a_brigandine_asher_red_4", "a_brigandine_asher_red_4"),  
+# Burgundian
+("a_brigandine_asher_yellow", "a_brigandine_asher_yellow"),  
+# Breton
+("a_brigandine_asher_brown_2", "a_brigandine_asher_brown"),  
+("a_brigandine_asher_black", "a_brigandine_asher_black"),   
+("a_brigandine_asher_end", "a_brigandine_asher_end"),   
+
+
 ## Narf Brigandine
 # French 
 ("a_brigandine_narf_blue", "a_brigandine_narf_blue"),   
@@ -5429,6 +5449,24 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("a_padded_over_mail_black", "a_padded_over_mail_black"),  
 ("a_padded_over_mail_end", "a_padded_over_mail_end"),
 
+# Padded Jack
+("a_padded_jack_beige", "a_padded_jack_beige"),  
+("a_padded_jack_brown", "a_padded_jack_brown"),  
+("a_padded_jack_white", "a_padded_jack_white"),  
+("a_padded_jack_end", "a_padded_jack_end"),  
+
+# Padded Jack Cross
+("a_padded_jack_cross_beige", "a_padded_jack_cross_beige"),  
+("a_padded_jack_cross_brown", "a_padded_jack_cross_brown"),  
+("a_padded_jack_cross_white", "a_padded_jack_cross_white"),  
+("a_padded_jack_cross_end", "a_padded_jack_cross_end"),  
+
+# Padded Jack Surcoat
+("a_padded_jack_surcoat_beige", "a_padded_jack_surcoat_beige"),  
+("a_padded_jack_surcoat_brown", "a_padded_jack_surcoat_brown"),  
+("a_padded_jack_surcoat_white", "a_padded_jack_surcoat_white"),  
+("a_padded_jack_surcoat_end", "a_padded_jack_surcoat_end"),  
+
 ## Churburg
 # French 
 ("a_churburg_blue", "a_churburg_blue"),  
@@ -5457,6 +5495,26 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("a_churburg_brass_black", "a_churburg_brass_black"),  
 ("a_churburg_brass_white_2", "a_churburg_brass_white"),
 ("a_churburg_brass_end", "a_churburg_brass_end"),
+
+## Churburg 13
+("a_churburg_13_asher_plain_beige", "a_churburg_13_asher_plain_beige"),
+("a_churburg_13_asher_plain_beige_2", "a_churburg_13_asher_plain_beige_2"),
+("a_churburg_13_asher_plain_brown", "a_churburg_13_asher_plain_brown"),
+("a_churburg_13_asher_plain_grey", "a_churburg_13_asher_plain_grey"),
+("a_churburg_13_asher_plain_red", "a_churburg_13_asher_plain_red"),
+("a_churburg_13_asher_plain_red_2", "a_churburg_13_asher_plain_red_2"),
+("a_churburg_13_asher_plain_yellow", "a_churburg_13_asher_plain_yellow"),
+("a_churburg_13_asher_plain_end", "a_churburg_13_asher_plain_end"),
+
+## Churburg 13 Brass
+("a_churburg_13_asher_guilded_black", "a_churburg_13_asher_guilded_black"),
+("a_churburg_13_asher_guilded_blue", "a_churburg_13_asher_guilded_blue"),
+("a_churburg_13_asher_guilded_blue_2", "a_churburg_13_asher_guilded_blue_2"),
+("a_churburg_13_asher_guilded_brown", "a_churburg_13_asher_guilded_brown"),
+("a_churburg_13_asher_guilded_grey", "a_churburg_13_asher_guilded_grey"),
+("a_churburg_13_asher_guilded_red", "a_churburg_13_asher_guilded_red"),
+("a_churburg_13_asher_guilded_red_2", "a_churburg_13_asher_guilded_red_2"),
+("a_churburg_13_asher_guilded_end", "a_churburg_13_asher_guilded_end"),
 
 ## Churburg Jupon
 # French 
@@ -5499,6 +5557,23 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("a_corrazina_leather_white_2", "a_corrazina_leather_white"),
 ("a_corrazina_leather_black", "a_corrazina_leather_black"),
 ("a_corrazina_leather_end", "a_corrazina_leather_end"),
+
+## Hohenaschau Corrazina
+("a_corrazina_hohenaschau_beige", "a_corrazina_hohenaschau_beige"),  
+("a_corrazina_hohenaschau_black", "a_corrazina_hohenaschau_black"),  
+("a_corrazina_hohenaschau_black_brass", "a_corrazina_hohenaschau_black_brass"),  
+("a_corrazina_hohenaschau_black_brass_2", "a_corrazina_hohenaschau_black_brass_2"),  
+("a_corrazina_hohenaschau_blue", "a_corrazina_hohenaschau_blue"),  
+("a_corrazina_hohenaschau_blue_brass", "a_corrazina_hohenaschau_blue_brass"),  
+("a_corrazina_hohenaschau_brown", "a_corrazina_hohenaschau_brown"),  
+("a_corrazina_hohenaschau_brown_brass", "a_corrazina_hohenaschau_brown_brass"),  
+("a_corrazina_hohenaschau_burgundy_brass", "a_corrazina_hohenaschau_burgundy_brass"),  
+("a_corrazina_hohenaschau_green", "a_corrazina_hohenaschau_green"),  
+("a_corrazina_hohenaschau_grey", "a_corrazina_hohenaschau_grey"),  
+("a_corrazina_hohenaschau_kaki", "a_corrazina_hohenaschau_kaki"),  
+("a_corrazina_hohenaschau_red", "a_corrazina_hohenaschau_red"),  
+("a_corrazina_hohenaschau_red_brass", "a_corrazina_hohenaschau_red_brass"),  
+("a_corrazina_hohenaschau_end", "a_corrazina_hohenaschau_end"),  
 
 ## Narf Hoods for the Helmets
 # French 

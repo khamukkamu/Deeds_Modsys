@@ -66,6 +66,9 @@ map_icons = [
 
 
     ("camp",mcn_no_shadow,"camp_tent", 0.13, 0),
+    ("encampment",mcn_no_shadow,"icon_encampment", 0.13, 0),
+    ("outpost",mcn_no_shadow,"icon_outpost", 0.50, 0),
+    
     ("ship",mcn_no_shadow,"boat_sail_on", 0.23, snd_footstep_grass, 0.0, 0.05, 0),
     ("ship_on_land",mcn_no_shadow,"boat_sail_off", 0.23, 0),
 
@@ -91,10 +94,12 @@ map_icons = [
     ("castle_d",mcn_no_shadow,"icon_castle_d", 0.35,0),
     ("castle_d_breton",mcn_no_shadow,"icon_castle_d_breton", 0.35,0),
     
-    ("castle_e",mcn_no_shadow,"icon_castle_e", 0.35,0),
+    ("castle_e",mcn_no_shadow,"icon_castle_e", 0.25,0),
     
     ("castle_snow_a",mcn_no_shadow,"icon_castle_a", 0.35,0),
     ("castle_snow_b",mcn_no_shadow,"icon_castle_b", 0.35,0),
+    
+    ("mont_st_michel",mcn_no_shadow,"icon_mont_st_michel", 0.35,0),
     
 ### Towns
     
