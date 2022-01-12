@@ -632,7 +632,7 @@ game_menus = [
         (troop_raise_proficiency_linear, "$g_player_troop", wpt_throwing, 70),
 
         (troop_clear_inventory, "$g_player_troop"),
-        (troop_add_item, "$g_player_troop","itm_a_leather_jerkin",0),
+        (troop_add_item, "$g_player_troop","itm_a_light_gambeson_long_sleeves_custom",0),
         (troop_add_item, "$g_player_troop","itm_b_leather_boots",0),
         (troop_add_item, "$g_player_troop","itm_practice_sword",0),
         (troop_add_item, "$g_player_troop","itm_practice_staff",0),
@@ -3999,7 +3999,7 @@ TOTAL:  {reg5}"),
           (troop_get_slot, ":renown", ":cur_troop", slot_troop_renown),
           (val_min, ":renown", 1999), #SB : fix for turret hat
           (store_div, ":armor", ":renown", 500),#0 to 3
-          (val_add, ":armor", "itm_a_aketon_narf_custom"),
+          (val_add, ":armor", "itm_a_light_gambeson_long_sleeves_custom"),
           (mission_tpl_entry_add_override_item, "mt_duel_with_lord", ":cur_entry_point", ":armor"),
 
           (set_visitor, ":cur_entry_point", ":cur_troop"),

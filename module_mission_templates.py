@@ -41,7 +41,7 @@ pilgrim_disguise = [itm_pilgrim_hood,itm_pilgrim_disguise,itm_practice_staff, it
 farmer_disguise = [itm_h_felt_hat_b_brown, itm_a_farmer_tunic, itm_b_ankle_boots, itm_w_fork_2, itm_w_onehanded_war_axe_01]
 hunter_disguise = [itm_h_hood_black,itm_g_leather_gauntlet, itm_a_hunter_coat_custom, itm_w_archer_hatchet, itm_w_hunting_bow_elm, itm_w_arrow_broadhead, itm_b_wrapping_boots]
 merchant_disguise = [itm_a_merchant_outfit,itm_b_hosen_shoes_custom,itm_h_highlander_beret_red_2,itm_w_dagger_italian]
-guard_disguise = [itm_h_mail_coif,itm_g_mail_gauntlets,itm_a_mail_shirt_custom,itm_b_mail_chausses,itm_s_heraldic_shield_leather,itm_w_warhammer_1,itm_w_spear_7]
+guard_disguise = [itm_h_mail_coif,itm_g_mail_gauntlets,itm_a_light_gambeson_long_sleeves_custom,itm_b_mail_chausses,itm_s_heraldic_shield_leather,itm_w_warhammer_1,itm_w_spear_7]
 bard_disguise = [itm_h_highlander_beret_green_2,itm_a_noble_shirt_green,itm_b_hosen_shoes_custom,itm_w_mace_winged,itm_lyre]
 #note that these are usually male clothing, especially farmer_disguise, need some female ones as well
 
@@ -6619,11 +6619,11 @@ mission_templates = [
     "duel_with_lord",mtf_arena_fight|mtf_commit_casualties,-1,
     "You enter a melee fight in the arena.",
     [
-      (0, mtef_visitor_source|mtef_team_0,af_override_all,aif_start_alarmed,1,[itm_w_bastard_sword_a,itm_a_aketon_narf_custom]),
-      (16, mtef_visitor_source|mtef_team_1,af_override_all,aif_start_alarmed,1,[itm_w_bastard_sword_a,itm_a_aketon_narf_custom]),
+      (0, mtef_visitor_source|mtef_team_0,af_override_all,aif_start_alarmed,1,[itm_w_bastard_sword_a,itm_a_light_gambeson_long_sleeves_custom]),
+      (16, mtef_visitor_source|mtef_team_1,af_override_all,aif_start_alarmed,1,[itm_w_bastard_sword_a,itm_a_light_gambeson_long_sleeves_custom]),
       #SB : use these for castle courtyard duels
-      (23, mtef_visitor_source|mtef_team_0,af_override_all,aif_start_alarmed,1,[itm_w_bastard_sword_a,itm_a_aketon_narf_custom]),
-      (24, mtef_visitor_source|mtef_team_1,af_override_all,aif_start_alarmed,1,[itm_w_bastard_sword_a,itm_a_aketon_narf_custom]),
+      (23, mtef_visitor_source|mtef_team_0,af_override_all,aif_start_alarmed,1,[itm_w_bastard_sword_a,itm_a_light_gambeson_long_sleeves_custom]),
+      (24, mtef_visitor_source|mtef_team_1,af_override_all,aif_start_alarmed,1,[itm_w_bastard_sword_a,itm_a_light_gambeson_long_sleeves_custom]),
       
     ],
     [
@@ -18915,11 +18915,11 @@ mission_templates = [
     "custom_duel_with_lord",mtf_arena_fight|mtf_commit_casualties,-1,
     "You enter a melee fight in the arena.",
     [
-      (0, mtef_visitor_source|mtef_team_0,af_override_all,aif_start_alarmed,1,[itm_w_bastard_sword_a,itm_a_aketon_narf_custom]),
-      (16, mtef_visitor_source|mtef_team_1,af_override_all,aif_start_alarmed,1,[itm_w_bastard_sword_a,itm_a_aketon_narf_custom]),
+      (0, mtef_visitor_source|mtef_team_0,af_override_all,aif_start_alarmed,1,[itm_w_bastard_sword_a,itm_a_light_gambeson_long_sleeves_custom]),
+      (16, mtef_visitor_source|mtef_team_1,af_override_all,aif_start_alarmed,1,[itm_w_bastard_sword_a,itm_a_light_gambeson_long_sleeves_custom]),
       #SB : use these for castle courtyard duels
-      (23, mtef_visitor_source|mtef_team_0,af_override_all,aif_start_alarmed,1,[itm_w_bastard_sword_a,itm_a_aketon_narf_custom]),
-      (24, mtef_visitor_source|mtef_team_1,af_override_all,aif_start_alarmed,1,[itm_w_bastard_sword_a,itm_a_aketon_narf_custom]),
+      (23, mtef_visitor_source|mtef_team_0,af_override_all,aif_start_alarmed,1,[itm_w_bastard_sword_a,itm_a_light_gambeson_long_sleeves_custom]),
+      (24, mtef_visitor_source|mtef_team_1,af_override_all,aif_start_alarmed,1,[itm_w_bastard_sword_a,itm_a_light_gambeson_long_sleeves_custom]),
       
     ],
     [

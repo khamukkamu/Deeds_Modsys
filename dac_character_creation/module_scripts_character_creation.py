@@ -47,7 +47,7 @@ character_creation_scripts = [
 
         (troop_add_item, "trp_player","itm_heraldic_mail_tabard",0),
         (troop_add_item, "trp_player","itm_b_mail_chausses",0),
-        (troop_add_item, "trp_player","itm_h_bascinet_fi_hood_custom",0),
+        (troop_add_item, "trp_player","itm_h_cervelliere_hood_custom",0),
         (troop_add_item, "trp_player","itm_s_heraldic_shield_leather",0),
         (troop_add_item, "trp_player","itm_w_native_spear_b_custom",0),
         (troop_add_item, "trp_player","itm_w_onehanded_sword_knight",0),
@@ -79,7 +79,7 @@ character_creation_scripts = [
 
         (troop_add_item, "trp_player","itm_heraldic_mail_tabard",0),
         (troop_add_item, "trp_player","itm_b_mail_chausses",0),
-        (troop_add_item, "trp_player","itm_h_bascinet_fi_hood_custom",0),
+        (troop_add_item, "trp_player","itm_h_cervelliere_hood_custom",0),
         (troop_add_item, "trp_player","itm_s_heraldic_shield_leather",0),
         (troop_add_item, "trp_player","itm_w_native_spear_b_custom",0),
         (troop_add_item, "trp_player","itm_w_onehanded_sword_knight",0),
@@ -153,8 +153,8 @@ character_creation_scripts = [
     (troop_add_item, "trp_player",":food_item"),
     (troop_add_item, "trp_player","itm_w_mace_winged"),
     (troop_add_item, "trp_player","itm_s_heater_shield_french_3"),
-    (troop_add_item, "trp_player","itm_h_cerveliere_hood_custom"),
-    (troop_add_item, "trp_player","itm_a_aketon_narf_custom"),
+    (troop_add_item, "trp_player","itm_h_cervelliere_hood_custom"),
+    (troop_add_item, "trp_player","itm_a_light_gambeson_long_sleeves_custom"),
     (troop_add_item, "trp_player","itm_b_leather_boots"),
 
     # (display_message, "@Start as Warrior"),
@@ -222,8 +222,8 @@ character_creation_scripts = [
     (troop_add_item, "trp_player",":food_item"),
     (troop_add_item, "trp_player","itm_w_dagger_pikeman"),
     (troop_add_item, "trp_player","itm_w_awlpike_1"),
-    (troop_add_item, "trp_player","itm_h_cerveliere_hood_custom"),
-    (troop_add_item, "trp_player","itm_a_padded_armor_custom"),
+    (troop_add_item, "trp_player","itm_h_cervelliere_hood_custom"),
+    (troop_add_item, "trp_player","itm_a_light_gambeson_long_sleeves_custom"),
     (troop_add_item, "trp_player","itm_b_leather_boots"),
     (troop_add_item, "trp_player","itm_s_steel_buckler"),		
     

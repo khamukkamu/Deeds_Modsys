@@ -417,13 +417,7 @@ character_creation_menus = [
     "none",
     [],
     [
-      ("yes",[],"Shorten all the titles.", [
-      
-        (try_for_range, ":troop_no", kings_begin, lords_end),
-            (str_store_troop_name_plural, s7, ":troop_no"),
-            (troop_set_name, ":troop_no", s7),
-        (try_end),
-        
+      ("no",[],"Keep it as it is.", [
         (change_screen_return),
       ]),
       
@@ -437,7 +431,13 @@ character_creation_menus = [
         (change_screen_return),
       ]),
       
-      ("no",[],"Keep it as it is.", [
+      ("yes",[],"Shorten all the titles.", [
+      
+        (try_for_range, ":troop_no", kings_begin, lords_end),
+            (str_store_troop_name_plural, s7, ":troop_no"),
+            (troop_set_name, ":troop_no", s7),
+        (try_end),
+        
         (change_screen_return),
       ]),
 

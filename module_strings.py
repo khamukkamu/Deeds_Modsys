@@ -5216,29 +5216,6 @@ Even in the last case, the player can make formations up to four lines by orderi
 # Burgundian colors: Red | Dark Blue | White
 # Breton colors: Black | White 
 
-## Padded Cloth 
-# French 
-("a_padded_cloth_blue", "a_padded_cloth_blue"),
-("a_padded_cloth_half_blue", "a_padded_cloth_half_blue"),
-("a_padded_cloth_white", "a_padded_cloth_white"),
-# English
-("a_padded_cloth_english", "a_padded_cloth_english"),
-("a_padded_cloth_half_red", "a_padded_cloth_half_red"),
-("a_padded_cloth_red", "a_padded_cloth_red"),
-# Burgundian
-("a_padded_cloth_brown", "a_padded_cloth_brown"),
-("a_padded_cloth_half_brown", "a_padded_cloth_half_brown"),
-# Breton
-("a_padded_cloth_half_black", "a_padded_cloth_half_black"),
-("a_padded_cloth_black", "a_padded_cloth_black"),
-# Flemish
-("a_padded_cloth_yellow", "a_padded_cloth_yellow"),
-("a_padded_cloth_yellow_black", "a_padded_cloth_yellow_black"),
-# Rebels
-("a_padded_cloth_green", "a_padded_cloth_green"),
-("a_padded_cloth_half_green", "a_padded_cloth_half_green"),
-("a_padded_cloth_end", "a_padded_cloth_end"),
-
 ## Peasant Clothes
 # French 
 ("a_peasant_man_blue", "a_peasant_man_blue"),  
@@ -5301,77 +5278,6 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("a_nobleman_outfit_breton", "a_nobleman_outfit_breton"),  
 ("a_nobleman_outfit_end", "a_nobleman_outfit_end"),
 
-## Native Gambeson
-# French 
-("a_gambeson_blue", "a_gambeson_blue"),  
-("a_gambeson_white", "a_gambeson_white"),  
-# English
-("a_gambeson_red", "a_gambeson_red"),  
-# Burgundian
-("a_gambeson_brown", "a_gambeson_brown"),  
-# Breton
-("a_gambeson_white_2", "a_gambeson_white"),  
-("a_gambeson_black", "a_gambeson_black"),  
-# Rebel
-("a_gambeson_green", "a_gambeson_green"),  
-("a_gambeson_end", "a_gambeson_end"),
-
-## Padded Armor
-# French 
-("a_padded_armor_blue", "a_padded_armor_blue"),  
-("a_padded_armor_white", "a_padded_armor_white"),  
-# English
-("a_padded_armor_red", "a_padded_armor_red"),  
-# Burgundian
-("a_padded_armor_brown", "a_padded_armor_brown"),  
-# Breton
-("a_padded_armor_white_2", "a_padded_armor_white"),  
-("a_padded_armor_black", "a_padded_armor_black"),  
-# Rebel
-("a_padded_armor_green", "a_padded_armor_green"),  
-("a_padded_armor_end", "a_padded_armor_end"),
-
-## Narf Gambeson
-# French 
-("a_gambeson_narf_blue", "a_gambeson_narf_blue"),  
-("a_gambeson_narf_half_blue", "a_gambeson_narf_half_blue"),  
-("a_gambeson_narf", "a_gambeson_narf"),  
-# English
-("a_gambeson_narf_english", "a_gambeson_narf_english"),  
-("a_gambeson_narf_red", "a_gambeson_narf_red"),  
-# Burgundian
-("a_gambeson_narf_brown", "a_gambeson_narf_brown"),  
-("a_gambeson_narf_half_yellow", "a_gambeson_narf_half_yellow"),  
-# Breton
-("a_gambeson_narf_half_black", "a_gambeson_narf_half_black"),  
-("a_gambeson_narf_black", "a_gambeson_narf_black"),  
-# Flemish
-("a_gambeson_narf_yellow_black", "a_gambeson_narf_yellow_black"),  
-("a_gambeson_narf_yellow", "a_gambeson_narf_yellow"),  
-# Rebel
-("a_gambeson_narf_green", "a_gambeson_narf_green"),  
-("a_gambeson_narf_half_green", "a_gambeson_narf_half_green"),  
-("a_gambeson_narf_end", "a_gambeson_narf_end"),
-
-## Bogmir Brigandine
-# French 
-("a_brigandine_french", "a_brigandine_french"),  
-("a_brigandine_french_2", "a_brigandine_french_2"),  
-("a_brigandine_french_3", "a_brigandine_french_3"),  
-("a_brigandine_blue", "a_brigandine_blue"),  
-("a_brigandine_white", "a_brigandine_white"), 
-# English
-("a_brigandine_english", "a_brigandine_english"),  
-("a_brigandine_english_2", "a_brigandine_english_2"),  
-("a_brigandine_english_3", "a_brigandine_english_3"),  
-("a_brigandine_red", "a_brigandine_red"),  
-# Burgundian
- ("a_brigandine_brown", "a_brigandine_brown"), 
-# Breton
-("a_brigandine_black", "a_brigandine_black"), 
-("a_brigandine_white_2", "a_brigandine_white"), 
-("a_brigandine_end", "a_brigandine_end"),
-
 ## Asher Brigandine
 # French 
 ("a_brigandine_asher_blue", "a_brigandine_asher_blue"),   
@@ -5391,63 +5297,38 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("a_brigandine_asher_black", "a_brigandine_asher_black"),   
 ("a_brigandine_asher_end", "a_brigandine_asher_end"),   
 
+# Short Sleeved Light Gambeson
+("a_light_gambeson_blue", "a_light_gambeson_blue"),  
+("a_light_gambeson_green", "a_light_gambeson_green"),  
+("a_light_gambeson_red", "a_light_gambeson_red"),  
+("a_light_gambeson_white", "a_light_gambeson_white"),  
+("a_light_gambeson_end", "a_light_gambeson_end"),  
 
-## Narf Brigandine
-# French 
-("a_brigandine_narf_blue", "a_brigandine_narf_blue"),   
-("a_brigandine_narf_blue_white", "a_brigandine_narf_blue_white"),   
-("a_brigandine_narf_blue_yellow", "a_brigandine_narf_blue_yellow"),   
-("a_brigandine_narf_french", "a_brigandine_narf_french"),   
-("a_brigandine_narf_white", "a_brigandine_narf_white"),  
-# English
-("a_brigandine_narf_english", "a_brigandine_narf_english"),  
-("a_brigandine_narf_yellow_red", "a_brigandine_narf_yellow_red"),  
-("a_brigandine_narf_red", "a_brigandine_narf_red"),  
-("a_brigandine_narf_white_red", "a_brigandine_narf_white_red"),  
-# Burgundian
-("a_brigandine_narf_brown", "a_brigandine_narf_brown"),  
-# Breton
-("a_brigandine_narf_black_white", "a_brigandine_narf_black_white"),  
-("a_brigandine_narf_white_2", "a_brigandine_narf_white"),  
-("a_brigandine_narf_black", "a_brigandine_narf_black"),  
-# Flemish
-("a_brigandine_narf_yellow_black", "a_brigandine_narf_yellow_black"),  
-("a_brigandine_narf_yellow", "a_brigandine_narf_yellow"),  
-("a_brigandine_narf_end", "a_brigandine_narf_end"),
+# Short Sleeved Light Gambeson Diamond
+("a_light_gambeson_diamond_beige", "a_light_gambeson_diamond_beige"),  
+("a_light_gambeson_diamond_blue", "a_light_gambeson_diamond_blue"),  
+("a_light_gambeson_diamond_green", "a_light_gambeson_diamond_green"),  
+("a_light_gambeson_diamond_red", "a_light_gambeson_diamond_red"),  
+("a_light_gambeson_diamond_white", "a_light_gambeson_diamond_white"),  
+("a_light_gambeson_diamond_end", "a_light_gambeson_diamond_end"), 
 
-## Narf Aketon
-# French 
-("a_aketon_narf_blue", "a_aketon_narf_blue"),  
-("a_aketon_narf_half_blue", "a_aketon_narf_half_blue"),  
-("a_aketon_narf", "a_aketon_narf"),  
-# English
-("a_aketon_narf_english", "a_aketon_narf_english"),  
-("a_aketon_narf_english_2", "a_aketon_narf_english_2"),  
-("a_aketon_narf_red", "a_aketon_narf_red"),  
-# Burgundian
-("a_aketon_narf_brown", "a_aketon_narf_brown"),  
-("a_aketon_narf_half_brown", "a_aketon_narf_half_brown"),  
-("a_aketon_narf_2", "a_aketon_narf"),  
-# Breton
-("a_aketon_narf_half_black", "a_aketon_narf_half_black"),  
-("a_aketon_narf_black", "a_aketon_narf_black"),  
-# Flemish
-("a_aketon_narf_yellow_black", "a_aketon_narf_yellow_black"),  
-("a_aketon_narf_yellow", "a_aketon_narf_yellow"),  
-("a_aketon_narf_end", "a_aketon_narf_end"),
+# Long Sleeved Gambeson alt
+("a_light_gambeson_long_sleeves_alt_beige", "a_light_gambeson_long_sleeves_alt_beige"),  
+("a_light_gambeson_long_sleeves_alt_blue", "a_light_gambeson_long_sleeves_alt_blue"),  
+("a_light_gambeson_long_sleeves_alt_brown", "a_light_gambeson_long_sleeves_alt_brown"),  
+("a_light_gambeson_long_sleeves_alt_green", "a_light_gambeson_long_sleeves_alt_green"),  
+("a_light_gambeson_long_sleeves_alt_white", "a_light_gambeson_long_sleeves_alt_white"),  
+("a_light_gambeson_long_sleeves_alt_end", "a_light_gambeson_long_sleeves_alt_end"),
 
-## Padded Over Mail
-# French 
-("a_padded_over_mail_blue", "a_padded_over_mail_blue"),  
-("a_padded_over_mail", "a_padded_over_mail"),  
-# English
-("a_padded_over_mail_red", "a_padded_over_mail_red"),  
-# Burgundian
-("a_padded_over_mail_brown", "a_padded_over_mail_brown"),  
-("a_padded_over_mail_2", "a_padded_over_mail"),  
-# Breton
-("a_padded_over_mail_black", "a_padded_over_mail_black"),  
-("a_padded_over_mail_end", "a_padded_over_mail_end"),
+# Crossbowman Gambeson
+("a_gambeson_crossbowman_beige", "a_gambeson_crossbowman_beige"),  
+("a_gambeson_crossbowman_blue", "a_gambeson_crossbowman_blue"),  
+("a_gambeson_crossbowman_blue_yellow", "a_gambeson_crossbowman_blue_yellow"),  
+("a_gambeson_crossbowman_brown", "a_gambeson_crossbowman_brown"),  
+("a_gambeson_crossbowman_orange", "a_gambeson_crossbowman_orange"),  
+("a_gambeson_crossbowman_white", "a_gambeson_crossbowman_white"),  
+("a_gambeson_crossbowman_yellow", "a_gambeson_crossbowman_yellow"),  
+("a_gambeson_crossbowman_end", "a_gambeson_crossbowman_end"),  
 
 # Padded Jack
 ("a_padded_jack_beige", "a_padded_jack_beige"),  
@@ -5466,35 +5347,6 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("a_padded_jack_surcoat_brown", "a_padded_jack_surcoat_brown"),  
 ("a_padded_jack_surcoat_white", "a_padded_jack_surcoat_white"),  
 ("a_padded_jack_surcoat_end", "a_padded_jack_surcoat_end"),  
-
-## Churburg
-# French 
-("a_churburg_blue", "a_churburg_blue"),  
-("a_churburg_white", "a_churburg_white"),  
-# English
-("a_churburg_red", "a_churburg_red"),  
-# Burgundian
-("a_churburg_brown", "a_churburg_brown"),  
-# Breton  
-("a_churburg_white_2", "a_churburg_white"),
-("a_churburg_black", "a_churburg_black"),  
-# Flemish  
-("a_churburg_yellow_black", "a_churburg_yellow_black"),  
-("a_churburg_yellow", "a_churburg_yellow"),
-("a_churburg_end", "a_churburg_end"),
-
-## Churburg Brass
-# French 
-("a_churburg_brass_blue", "a_churburg_brass_blue"),  
-("a_churburg_brass_white", "a_churburg_brass_white"),  
-# English
-("a_churburg_brass_red", "a_churburg_brass_red"),  
-# Burgundian
-("a_churburg_brass_brown", "a_churburg_brass_brown"),  
-# Breton  
-("a_churburg_brass_black", "a_churburg_brass_black"),  
-("a_churburg_brass_white_2", "a_churburg_brass_white"),
-("a_churburg_brass_end", "a_churburg_brass_end"),
 
 ## Churburg 13
 ("a_churburg_13_asher_plain_beige", "a_churburg_13_asher_plain_beige"),
@@ -5516,47 +5368,11 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("a_churburg_13_asher_guilded_red_2", "a_churburg_13_asher_guilded_red_2"),
 ("a_churburg_13_asher_guilded_end", "a_churburg_13_asher_guilded_end"),
 
-## Churburg Jupon
-# French 
-("a_churburg_jupon_blue", "a_churburg_jupon_blue"),  
-("a_churburg_jupon_white", "a_churburg_jupon_white"),  
-# English
-("a_churburg_jupon_red", "a_churburg_jupon_red"),  
-# Burgundian
-("a_churburg_jupon_brown", "a_churburg_jupon_brown"),  
-# Breton  
-("a_churburg_jupon_black", "a_churburg_jupon_black"),  
-("a_churburg_jupon_white_2", "a_churburg_jupon_white"),
-("a_churburg_jupon_end", "a_churburg_jupon_end"),
-
-## Corrazina
-# French 
-("a_corrazina_blue", "a_corrazina_blue"),  
-("a_corrazina_white", "a_corrazina_white"),  
-# English
-("a_corrazina_red", "a_corrazina_red"),  
-# Burgundian
-("a_corrazina_brown", "a_corrazina_brown"),  
-# Breton    
-("a_corrazina_white_2", "a_corrazina_white"),
-("a_corrazina_black", "a_corrazina_black"),
-# Flemish  
-("a_corrazina_yellow_black", "a_corrazina_yellow_black"),  
-("a_corrazina_yellow", "a_corrazina_yellow"),
-("a_corrazina_end", "a_corrazina_end"),
-
-## Corrazina Leather
-# French 
-("a_corrazina_leather_blue", "a_corrazina_leather_blue"),  
-("a_corrazina_leather_white", "a_corrazina_leather_white"),  
-# English
-("a_corrazina_leather_red", "a_corrazina_leather_red"),  
-# Burgundian
-("a_corrazina_leather_brown", "a_corrazina_leather_brown"),  
-# Breton    
-("a_corrazina_leather_white_2", "a_corrazina_leather_white"),
-("a_corrazina_leather_black", "a_corrazina_leather_black"),
-("a_corrazina_leather_end", "a_corrazina_leather_end"),
+## German Plate with Covered Fauld
+("a_plate_german_covered_fauld_black", "a_plate_german_covered_fauld_black"),
+("a_plate_german_covered_fauld_brown", "a_plate_german_covered_fauld_brown"),
+("a_plate_german_covered_fauld_red", "a_plate_german_covered_fauld_red"),
+("a_plate_german_covered_fauld_end", "a_plate_german_covered_fauld_end"),
 
 ## Hohenaschau Corrazina
 ("a_corrazina_hohenaschau_beige", "a_corrazina_hohenaschau_beige"),  
@@ -5574,6 +5390,34 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("a_corrazina_hohenaschau_red", "a_corrazina_hohenaschau_red"),  
 ("a_corrazina_hohenaschau_red_brass", "a_corrazina_hohenaschau_red_brass"),  
 ("a_corrazina_hohenaschau_end", "a_corrazina_hohenaschau_end"),  
+
+## Corrazina Spina
+# French 
+("a_corrazina_spina_blue", "a_corrazina_spina_blue"),  
+("a_corrazina_spina_french", "a_corrazina_spina_french"),  
+("a_corrazina_spina_green", "a_corrazina_spina_green"),  
+# English
+("a_corrazina_spina_english", "a_corrazina_spina_english"),  
+# Burgundian
+("a_corrazina_spina_burgundian", "a_corrazina_spina_burgundian"),  
+# Breton    
+("a_corrazina_spina_breton", "a_corrazina_spina_breton"),
+("a_corrazina_spina_end", "a_corrazina_spina_end"),
+
+## Corrazina Capwell
+# French 
+("a_corrazina_capwell_french", "a_corrazina_capwell_french"),  
+("a_corrazina_capwell_alt_green", "a_corrazina_capwell_alt_green"),  
+("a_corrazina_capwell_alt_beige", "a_corrazina_capwell_alt_beige"),  
+# English
+("a_corrazina_capwell_english", "a_corrazina_capwell_english"),  
+("a_corrazina_capwell_alt_red", "a_corrazina_capwell_alt_red"),  
+# Burgundian
+("a_corrazina_capwell_burgundian", "a_corrazina_capwell_burgundian"),  
+# Breton    
+("a_corrazina_capwell_alt_beige_2", "a_corrazina_capwell_alt_beige"),
+("a_corrazina_capwell_breton", "a_corrazina_capwell_breton"),
+("a_corrazina_capwell_end", "a_corrazina_capwell_end"),
 
 ## Narf Hoods for the Helmets
 # French 
@@ -5599,62 +5443,7 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("h_hood_narf_green_white", "h_hood_narf_green_white"),  
 ("h_hood_narf_end", "h_hood_narf_end"),
 
-## Vertex Cloth Vest
-# French 
-("a_cloth_vest_blue", "a_cloth_vest_blue"),
-("a_cloth_vest_white", "a_cloth_vest_white"),
-# English
-("a_cloth_vest_red", "a_cloth_vest_red"),
-# Burgundian
-("a_cloth_vest_brown", "a_cloth_vest_brown"),
-# Breton
-("a_cloth_vest_white_2", "a_cloth_vest_white"),
-("a_cloth_vest_black", "a_cloth_vest_black"),  
-("a_cloth_vest_end", "a_cloth_vest_end"),
-
 ###################################################################################################### HYW CUSTOM ARMORS VERTEX COLORED
-
-## Vertex Coloured Leather Vest
-# French 
-("a_leather_vest_arms_blue", "a_leather_vest_arms_blue"),
-("a_leather_vest_arms_white", "a_leather_vest_arms_white"),
-# English
-("a_leather_vest_arms_red", "a_leather_vest_arms_red"),
-# Burgundian
-("a_leather_vest_arms_brown", "a_leather_vest_arms_brown"),
-# Breton
-("a_leather_vest_arms_black", "a_leather_vest_arms_black"),  
-# Rebel
-("a_leather_vest_arms_green", "a_leather_vest_arms_green"),  
-("a_leather_vest_arms_end", "a_leather_vest_arms_end"),
-
-## Vertex Coloured Leather Armor
-# French 
-("a_leather_armor_arms_blue", "a_leather_armor_arms_blue"),
-("a_leather_armor_arms_white", "a_leather_armor_arms_white"),
-# English
-("a_leather_armor_arms_red", "a_leather_armor_arms_red"),
-# Burgundian
-("a_leather_armor_arms_brown", "a_leather_armor_arms_brown"),
-# Breton
-("a_leather_armor_arms_black", "a_leather_armor_arms_black"),  
-# Rebel
-("a_leather_armor_arms_green", "a_leather_armor_arms_green"), 
-("a_leather_armor_arms_end", "a_leather_armor_arms_end"),
-
-## Vertex Coloured Mail Shirt
-# French 
-("a_mail_shirt_arms_blue", "a_mail_shirt_arms_blue"),
-("a_mail_shirt_arms_white", "a_mail_shirt_arms_white"),
-# English
-("a_mail_shirt_arms_red", "a_mail_shirt_arms_red"),
-# Burgundian
-("a_mail_shirt_arms_brown", "a_mail_shirt_arms_brown"),
-# Breton
-("a_mail_shirt_arms_black", "a_mail_shirt_arms_black"),  
-# Rebel
-("a_mail_shirt_arms_green", "a_mail_shirt_arms_green"),  
-("a_mail_shirt_arms_end", "a_mail_shirt_arms_end"),
 
 ## Vertex Coloured Hood
 # French 

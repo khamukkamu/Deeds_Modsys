@@ -1826,8 +1826,8 @@ books_end = reference_books_end
 
 # Ranges used for Refresh Center Inventories Script 
 horses_begin = "itm_ho_sumpter_1"
-horses_end = "itm_h_english_great_bascinet_houndskull_closed"
-armors_begin = "itm_h_english_great_bascinet_houndskull_closed" #Includes helms, armours, gauntlets, and boots
+horses_end = "itm_h_great_bascinet_1"
+armors_begin = "itm_h_great_bascinet_1" #Includes helms, armours, gauntlets, and boots
 armors_end = "itm_w_dagger_baselard"
 weapons_begin = "itm_w_dagger_baselard"
 weapons_end = "itm_w_arrow_triangular"
@@ -2897,6 +2897,7 @@ center_list = [
 (p_burgundian_town_12, [0]),
 (p_burgundian_town_13, [0]),
 (p_burgundian_town_14, [0]),
+(p_burgundian_town_15, [0]),
 (p_breton_town_1, [0]),
 (p_breton_town_2, [0]),
 (p_breton_town_3, [0]),

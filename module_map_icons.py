@@ -99,7 +99,7 @@ map_icons = [
     ("castle_snow_a",mcn_no_shadow,"icon_castle_a", 0.35,0),
     ("castle_snow_b",mcn_no_shadow,"icon_castle_b", 0.35,0),
     
-    ("mont_st_michel",mcn_no_shadow,"icon_mont_st_michel", 0.35,0),
+    ("mont_st_michel",mcn_no_shadow,"icon_mont_st_michel", 0.30,0),
     
 ### Towns
     
