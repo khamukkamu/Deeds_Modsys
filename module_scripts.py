@@ -78988,7 +78988,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (call_script, "script_give_center_to_lord", "p_english_castle_22", "trp_knight_2_28", 0), # Château de Vincennes - John Holland
       (call_script, "script_give_center_to_lord", "p_english_castle_23", "trp_knight_2_7", 0), # Château de Harcourt - Thomas Beaufort, Count of Perche
       (call_script, "script_give_center_to_lord", "p_english_castle_24", "trp_knight_2_39", 0), # Château de Arques-la-Bataille - Henry Bourchier, Count of Eu
-      # (call_script, "script_give_center_to_lord", "p_english_castle_25", "trp_knight_2_", 0), # Château_de_Saint_Jean - ???
+      (call_script, "script_give_center_to_lord", "p_english_castle_25", "trp_knight_2_7", 0), # Château_de_Saint_Jean - Thomas Beaufort, Count of Perche
   
 ### Burgundian Castles    
       (call_script, "script_give_center_to_lord", "p_burgundian_castle_1", "trp_kingdom_3_lord", 0), # Château_d'Étaples - Philippe Le Bon
