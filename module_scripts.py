@@ -1549,16 +1549,16 @@ scripts = [
       # (item_set_slot, "itm_h_round_kettlehat_painted_hood_custom", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
       # (item_set_slot, "itm_h_pot_helmet_hood_custom", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
 
-      # (item_set_slot, "itm_h_bascinet_great", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
-      # (item_set_slot, "itm_h_bascinet_great_fi", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+      # (item_set_slot, "itm_h_great_bascinet_houndskull", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+      # (item_set_slot, "itm_h_great_bascinet_houndskull_fi", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
       # (item_set_slot, "itm_h_zitta_bascinet", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
-      # (item_set_slot, "itm_h_hounskull_narf", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+      # (item_set_slot, "itm_h_great_bascinet_houndskull", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
       # (item_set_slot, "itm_h_klappvisier_pigface", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
       # (item_set_slot, "itm_h_klappvisier_pigface_open", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
-      # (item_set_slot, "itm_h_houndskull_thick", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+      # (item_set_slot, "itm_h_great_bascinet_houndskull", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
       # (item_set_slot, "itm_h_houndskull_fi", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
       # (item_set_slot, "itm_h_bascinet_fi_noseguard", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
-      # (item_set_slot, "itm_h_zitta_bascinet_novisor", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
+      # (item_set_slot, "itm_h_great_bascinet_houndskull", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
       # (item_set_slot, "itm_h_bascinet_oniontop", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
 	  
       # (item_set_slot, "itm_h_bascinet_fi_padded", slot_item_multiplayer_item_class, multi_item_class_type_light_helm),
@@ -1880,10 +1880,10 @@ scripts = [
       ###1d-French Chevalier
 	  
       # Headgear	  
-      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_h_bascinet_great", "trp_french_chevalier_multiplayer"),
-      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_h_bascinet_great_fi", "trp_french_chevalier_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_h_great_bascinet_houndskull", "trp_french_chevalier_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_h_great_bascinet_houndskull_fi", "trp_french_chevalier_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_h_zitta_bascinet", "trp_french_chevalier_multiplayer"),
-      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_h_hounskull_narf", "trp_french_chevalier_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_h_great_bascinet_houndskull", "trp_french_chevalier_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_h_klappvisier_pigface", "trp_french_chevalier_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_h_klappvisier_pigface_open", "trp_french_chevalier_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_h_houndskull_fi", "trp_french_chevalier_multiplayer"),
@@ -2157,10 +2157,10 @@ scripts = [
       ###2d- English Knight
 	  
       # Headgear	  
-      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_h_bascinet_great", "trp_english_knight_multiplayer"),
-      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_h_bascinet_great_fi", "trp_english_knight_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_h_great_bascinet_houndskull", "trp_english_knight_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_h_great_bascinet_houndskull_fi", "trp_english_knight_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_h_zitta_bascinet", "trp_english_knight_multiplayer"),
-      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_h_hounskull_narf", "trp_english_knight_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_h_great_bascinet_houndskull", "trp_english_knight_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_h_klappvisier_pigface", "trp_english_knight_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_h_klappvisier_pigface_open", "trp_english_knight_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_h_houndskull_fi", "trp_english_knight_multiplayer"),
@@ -2439,10 +2439,10 @@ scripts = [
       ###3d- Burgundian Knight
 	  
       # Headgear	  
-      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_h_bascinet_great", "trp_burgundian_knight_multiplayer"),
-      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_h_bascinet_great_fi", "trp_burgundian_knight_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_h_great_bascinet_houndskull", "trp_burgundian_knight_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_h_great_bascinet_houndskull_fi", "trp_burgundian_knight_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_h_zitta_bascinet", "trp_burgundian_knight_multiplayer"),
-      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_h_hounskull_narf", "trp_burgundian_knight_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_h_great_bascinet_houndskull", "trp_burgundian_knight_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_h_klappvisier_pigface", "trp_burgundian_knight_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_h_klappvisier_pigface_open", "trp_burgundian_knight_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_h_houndskull_fi", "trp_burgundian_knight_multiplayer"),
@@ -2715,10 +2715,10 @@ scripts = [
       ###4d- Breton Knight
 	  
       # Headgear	  
-      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_h_bascinet_great", "trp_breton_knight_multiplayer"),
-      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_h_bascinet_great_fi", "trp_breton_knight_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_h_great_bascinet_houndskull", "trp_breton_knight_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_h_great_bascinet_houndskull_fi", "trp_breton_knight_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_h_zitta_bascinet", "trp_breton_knight_multiplayer"),
-      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_h_hounskull_narf", "trp_breton_knight_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_h_great_bascinet_houndskull", "trp_breton_knight_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_h_klappvisier_pigface", "trp_breton_knight_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_h_klappvisier_pigface_open", "trp_breton_knight_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_h_houndskull_fi", "trp_breton_knight_multiplayer"),
@@ -42166,35 +42166,35 @@ scripts = [
            (eq, "$sneaked_into_town", disguise_pilgrim),
            (cur_tableau_add_override_item, "itm_pilgrim_hood"),
            (cur_tableau_add_override_item, "itm_pilgrim_disguise"),
-           (cur_tableau_add_override_item, "itm_b_wrapping_boots"),
+           (cur_tableau_add_override_item, "itm_b_turnshoes_1"),
          (else_try),
            (eq, "$sneaked_into_town", disguise_farmer),
            (cur_tableau_add_override_item, "itm_h_felt_hat_b_brown"),
            (cur_tableau_add_override_item, "itm_a_farmer_tunic"),
-           (cur_tableau_add_override_item, "itm_b_ankle_boots"),
+           (cur_tableau_add_override_item, "itm_b_turnshoes_1"),
          (else_try),
            (eq, "$sneaked_into_town", disguise_hunter),
            (cur_tableau_add_override_item, "itm_h_hood_black"),
            (cur_tableau_add_override_item, "itm_g_leather_gauntlet"),
            (cur_tableau_add_override_item, "itm_a_hunter_coat_custom"),
-           (cur_tableau_add_override_item, "itm_b_wrapping_boots"),
+           (cur_tableau_add_override_item, "itm_b_turnshoes_1"),
          (else_try),
            (eq, "$sneaked_into_town", disguise_merchant),
            (cur_tableau_add_override_item, "itm_a_merchant_outfit"),
-           (cur_tableau_add_override_item, "itm_b_hosen_shoes_custom"),
+           (cur_tableau_add_override_item, "itm_b_turnshoes_1"),
            (cur_tableau_add_override_item, "itm_h_highlander_beret_red_2"),
          (else_try),
            (eq, "$sneaked_into_town", disguise_guard),
-           (cur_tableau_add_override_item, "itm_h_mail_coif"),
+           (cur_tableau_add_override_item, "itm_h_cervelliere_mail_aventail"),
            (cur_tableau_add_override_item, "itm_g_mail_gauntlets"),
            (cur_tableau_add_override_item, "itm_a_light_gambeson_long_sleeves_alt_custom"),
            # (cur_tableau_add_override_item, "itm_leather_jerkin"), #dckplmc civilian armor
-           (cur_tableau_add_override_item, "itm_b_mail_chausses"),
+           (cur_tableau_add_override_item, "itm_b_high_boots_3"),
          (else_try),
            (eq, "$sneaked_into_town", disguise_bard),
            (cur_tableau_add_override_item, "itm_h_highlander_beret_green_2"),		   
            (cur_tableau_add_override_item, "itm_a_noble_shirt_green"),
-           (cur_tableau_add_override_item, "itm_b_hosen_shoes_custom"),
+           (cur_tableau_add_override_item, "itm_b_turnshoes_1"),
          (try_end),
        (try_end),
        (init_position, pos2),
@@ -42396,51 +42396,51 @@ scripts = [
         (eq, ":type", 0),
         (cur_tableau_add_override_item, "itm_h_hood_black"),
         (cur_tableau_add_override_item, "itm_a_peasant_man_custom"),
-        (cur_tableau_add_override_item, "itm_b_hosen_poulaines_custom"),
+        (cur_tableau_add_override_item, "itm_b_turnshoes_1"),
         (assign, ":animation", "anim_pose_1"),
       (else_try),
         (eq, ":type", 1),
         (cur_tableau_add_override_item, "itm_a_noble_shirt_black"),
-        (cur_tableau_add_override_item, "itm_b_hosen_poulaines_custom"),
+        (cur_tableau_add_override_item, "itm_b_turnshoes_1"),
         (assign, ":animation", "anim_pose_1"),
       (else_try),
         (eq, ":type", 2),
         (cur_tableau_add_override_item, "itm_a_noble_shirt_brown"),
-        (cur_tableau_add_override_item, "itm_b_hosen_shoes_custom"),
+        (cur_tableau_add_override_item, "itm_b_turnshoes_1"),
         (assign, ":animation", "anim_pose_2"),
       (else_try),
         (eq, ":type", 3),
         (cur_tableau_add_override_item, "itm_a_noble_shirt_red"),
-        (cur_tableau_add_override_item, "itm_b_hosen_shoes_custom"),
+        (cur_tableau_add_override_item, "itm_b_turnshoes_1"),
         (assign, ":animation", "anim_pose_2"),
       (else_try),
         (eq, ":type", 4),
         (cur_tableau_add_override_item, "itm_a_noble_shirt_white"),
-        (cur_tableau_add_override_item, "itm_b_leather_boots"),
+        (cur_tableau_add_override_item, "itm_b_high_boots_2"),
         (assign, ":animation", "anim_pose_3"),
       (else_try),
         (eq, ":type", 5),
         (cur_tableau_add_override_item, "itm_a_noble_shirt_green"),
-        (cur_tableau_add_override_item, "itm_b_hosen_shoes_custom"),
+        (cur_tableau_add_override_item, "itm_b_turnshoes_1"),
         (assign, ":animation", "anim_pose_3"),
       (else_try),
         (eq, ":type", 6),
         (cur_tableau_add_override_item, "itm_a_gambeson_white"),
-        (cur_tableau_add_override_item, "itm_b_leather_boots"),
+        (cur_tableau_add_override_item, "itm_b_high_boots_2"),
         (assign, ":animation", "anim_pose_4"),
       (else_try),
         (eq, ":type", 7),
         (cur_tableau_add_override_item, "itm_a_tabard"),
-        (cur_tableau_add_override_item, "itm_b_hosen_poulaines_custom"),
+        (cur_tableau_add_override_item, "itm_b_turnshoes_1"),
         (assign, ":animation", "anim_pose_4"),
       (else_try),
         (eq, ":type", 8),
         (cur_tableau_add_override_item, "itm_a_leather_jerkin"),
-        (cur_tableau_add_override_item, "itm_b_hosen_poulaines_custom"),
+        (cur_tableau_add_override_item, "itm_b_turnshoes_1"),
         (assign, ":animation", "anim_pose_4"),
       (else_try),
         (cur_tableau_add_override_item, "itm_heraldic_brigandine_native"),
-        (cur_tableau_add_override_item, "itm_b_steel_greaves"),
+        (cur_tableau_add_override_item, "itm_b_leg_harness_10"),
         # (cur_tableau_add_override_item, "itm_sword_medieval_c"),
         (assign, ":animation", "anim_pose_5"),
       (try_end),
@@ -63960,7 +63960,7 @@ scripts = [
   [
     (troop_set_auto_equip, "trp_dplmc_chamberlain", 0),
     (troop_set_inventory_slot, "trp_dplmc_chamberlain", ek_body, "itm_a_tabard"),
-    (troop_set_inventory_slot, "trp_dplmc_chamberlain", ek_foot, "itm_b_leather_boots"),
+    (troop_set_inventory_slot, "trp_dplmc_chamberlain", ek_foot, "itm_b_high_boots_2"),
     (assign, "$g_player_chamberlain", "trp_dplmc_chamberlain"),
     #SB : grab all gold from chest troops (seneschals)
     (try_for_range, ":center_no", walled_centers_begin, walled_centers_end),
@@ -63977,7 +63977,7 @@ scripts = [
   [
     (troop_set_auto_equip, "trp_dplmc_chancellor", 0),
     (troop_set_inventory_slot, "trp_dplmc_chancellor", ek_body, "itm_a_noble_shirt_black"),
-    (troop_set_inventory_slot, "trp_dplmc_chancellor", ek_foot, "itm_b_leather_boots"),
+    (troop_set_inventory_slot, "trp_dplmc_chancellor", ek_foot, "itm_b_high_boots_1"),
     (assign, "$g_player_chancellor", "trp_dplmc_chancellor"),
   ]),
 
@@ -63985,7 +63985,7 @@ scripts = [
   [
     (troop_set_auto_equip, "trp_dplmc_constable", 0),
     (troop_set_inventory_slot, "trp_dplmc_constable", ek_body, "itm_dplmc_coat_of_plates_red_constable"),
-    (troop_set_inventory_slot, "trp_dplmc_constable", ek_foot, "itm_b_leather_boots"),
+    (troop_set_inventory_slot, "trp_dplmc_constable", ek_foot, "itm_b_high_boots_3"),
     (assign, "$g_player_constable", "trp_dplmc_constable"),
   ]),
 
@@ -72643,7 +72643,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
         (eq, "$sneaked_into_town", disguise_pilgrim),
         (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_pilgrim_disguise"),
         (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_pilgrim_hood"),
-        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_b_wrapping_boots"),
+        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_b_turnshoes_1"),
         (try_begin),
           (eq, ":with_weapon", 1),
           (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_practice_staff"),
@@ -72653,7 +72653,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
         (eq, "$sneaked_into_town", disguise_farmer),	
         (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_h_felt_hat_b_brown"),
         (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_a_farmer_tunic"),
-        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_b_ankle_boots"),
+        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_b_turnshoes_1"),
         (try_begin),
           (eq, ":with_weapon", 1),
           (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_w_fork_2"),
@@ -72665,7 +72665,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
         (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_h_hood_black"),
         (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_g_leather_gauntlet"),
         (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_a_hunter_coat_custom"),
-        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_b_wrapping_boots"),
+        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_b_turnshoes_1"),
         (try_begin),
           (eq, ":with_weapon", 1),
           (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_w_archer_hatchet"),
@@ -72675,7 +72675,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (else_try),
         (eq, "$sneaked_into_town", disguise_merchant),
         (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_a_merchant_outfit"),
-        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_b_hosen_shoes_custom"),
+        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_b_turnshoes_1"),
         (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_h_highlander_beret_red_2"),
         (try_begin),
           (eq, ":with_weapon", 1),
@@ -72683,11 +72683,11 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
         (try_end),
       (else_try),
         (eq, "$sneaked_into_town", disguise_guard),
-        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_h_mail_coif"),
+        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_h_cervelliere_mail_aventail"),
         (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_g_mail_gauntlets"),
         (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_a_light_gambeson_long_sleeves_alt_custom"),
         # (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_leather_jerkin"), #dckplmc
-        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_b_mail_chausses"),
+        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_b_high_boots_3"),
         (try_begin),
           (eq, ":with_weapon", 1),
           (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_w_warhammer_1"),
@@ -72698,7 +72698,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
         (eq, "$sneaked_into_town", disguise_bard),
         (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_h_highlander_beret_green_2"),
         (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_a_noble_shirt_green"),
-        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_b_hosen_shoes_custom"),
+        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_b_turnshoes_1"),
         (try_begin),
           (eq, ":with_weapon", 1),
           (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_w_mace_winged"),
@@ -76399,11 +76399,11 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (troop_add_item, "trp_bonus_chest_2","itm_bride_shoes", imod_smelling),
       (troop_add_item, "trp_bonus_chest_2","itm_torch", imod_old),
 
-      (troop_add_item, "trp_bonus_chest_3","itm_b_steel_greaves_full", imod_lordly),
+      (troop_add_item, "trp_bonus_chest_3","itm_b_leg_harness_10", imod_lordly),
       (troop_add_item, "trp_bonus_chest_3","itm_a_kastenbrust_mail", imod_lordly),
-      (troop_add_item, "trp_bonus_chest_3","itm_h_bascinet_great", imod_lordly),
+      (troop_add_item, "trp_bonus_chest_3","itm_h_great_bascinet_houndskull", imod_lordly),
       # (troop_add_item, "trp_bonus_chest_3","itm_steel_shield", imod_lordly),
-      (troop_add_item, "trp_bonus_chest_3","itm_h_bascinet_great", imod_lordly), #charger_plate_1
+      (troop_add_item, "trp_bonus_chest_3","itm_h_great_bascinet_houndskull", imod_lordly), #charger_plate_1
 
       #training ground variables based on global
       (try_for_range, ":npc", training_ground_trainers_begin, training_ground_trainers_end),
@@ -79353,7 +79353,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (try_end),
 
 ## Custom Hoods for the helmets
-      (try_for_range, ":item_no", "itm_h_sallet_hood_custom", "itm_a_peasant_man_custom"), # Seek: All the Helmets share the same base
+      (try_for_range, ":item_no", "itm_h_sallet_hood_custom", "itm_h_eyeslot_kettlehat_1_liripipe_hood_custom"), # Seek: All the Helmets share the same base
       (item_set_slot, ":item_no", slot_item_materials_begin, "str_h_hood_narf_blue"),
       (item_set_slot, ":item_no", slot_item_materials_end, "str_h_hood_narf_end"),
   # France
@@ -79375,10 +79375,29 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (item_set_slot, ":item_no", slot_item_rebel_materials_begin, "str_h_hood_narf_green"),
       (item_set_slot, ":item_no", slot_item_rebel_materials_end, "str_h_hood_narf_end"),        
       (item_set_slot, ":item_no", slot_item_num_components, 1),     
-      (try_end),          	  
+      (try_end),  
+
+## Custom Hoods for the helmets
+      (try_for_range, ":item_no", "itm_h_eyeslot_kettlehat_1_liripipe_hood_custom", "itm_h_hood_big_liripipe_fancy_full_custom"), # Seek: All the Helmets share the same base
+          (item_set_slot, ":item_no", slot_item_materials_begin, "str_h_hood_asher_simple_1"),
+          (item_set_slot, ":item_no", slot_item_materials_end, "str_h_hood_asher_end"),   
+          (item_set_slot, ":item_no", slot_item_num_components, 1),     
+      (try_end),         
     
+## Custom Fancy Hoods for the helmets
+      (try_for_range, ":item_no", "itm_h_hood_big_liripipe_fancy_full_custom", "itm_a_peasant_man_custom"),
+          (item_set_slot, ":item_no", slot_item_materials_begin, "str_h_hood_asher_fancy_a1"),
+          (item_set_slot, ":item_no", slot_item_materials_end, "str_h_hood_asher_fancy_end"),   
+          (item_set_slot, ":item_no", slot_item_num_components, 1),     
+      (try_end), 
 ###################################################################################################### HYW CUSTOM ARMORS VERTEX COLORED   
-	  
+
+
+## Vertex Coloured Simple Gambeson
+      (item_set_slot, "itm_a_simple_gambeson_custom", slot_item_materials_begin, "str_a_simple_gambeson_white_1"),
+      (item_set_slot, "itm_a_simple_gambeson_custom", slot_item_materials_end, "str_a_simple_gambeson_end"),  
+      (item_set_slot, "itm_a_simple_gambeson_custom", slot_item_num_components, 1),    
+      
 ## Vertex Coloured Hoods
       (item_set_slot, "itm_h_hood_custom", slot_item_materials_begin, "str_h_hood_blue"),
       (item_set_slot, "itm_h_hood_custom", slot_item_materials_end, "str_h_hood_end"),
@@ -82693,7 +82712,6 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 
 #Fynette Radcliffe 
 (troop_set_slot,"trp_kingdom_2_lady_18",slot_troop_father,"trp_knight_2_16"),
-(troop_set_slot,"trp_kingdom_2_lady_18",slot_troop_spouse,"trp_kingdom_2_lady_16"),
 (call_script, "script_init_troop_age","trp_kingdom_2_lady_18",20),
 (troop_set_slot,"trp_kingdom_2_lady_18",slot_troop_guardian,"trp_knight_2_17"),
 (troop_set_slot,"trp_kingdom_2_lady_18",slot_lord_reputation_type,lrep_conventional),

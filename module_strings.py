@@ -5443,7 +5443,59 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("h_hood_narf_green_white", "h_hood_narf_green_white"),  
 ("h_hood_narf_end", "h_hood_narf_end"),
 
+## Liripipe Hoods for the Helmets
+("h_hood_asher_simple_1", "h_hood_asher_simple_1"),  
+("h_hood_asher_simple_2", "h_hood_asher_simple_2"),  
+("h_hood_asher_simple_3", "h_hood_asher_simple_3"),  
+("h_hood_asher_simple_4", "h_hood_asher_simple_4"),  
+("h_hood_asher_simple_5", "h_hood_asher_simple_5"),  
+("h_hood_asher_stitched_a1", "h_hood_asher_stitched_a1"),  
+("h_hood_asher_stitched_a2", "h_hood_asher_stitched_a2"),  
+("h_hood_asher_stitched_a3", "h_hood_asher_stitched_a3"),  
+("h_hood_asher_stitched_a4", "h_hood_asher_stitched_a4"),  
+("h_hood_asher_stitched_b1", "h_hood_asher_stitched_b1"),  
+("h_hood_asher_stitched_b2", "h_hood_asher_stitched_b2"),  
+("h_hood_asher_stitched_b3", "h_hood_asher_stitched_b3"),  
+("h_hood_asher_stitched_b4", "h_hood_asher_stitched_b4"),  
+("h_hood_asher_end", "h_hood_asher_end"),  
+
+
+## Fancy Hoods
+("h_hood_asher_fancy_a1", "h_hood_asher_fancy_a1"),  
+("h_hood_asher_fancy_a2", "h_hood_asher_fancy_a2"),  
+("h_hood_asher_fancy_b1", "h_hood_asher_fancy_b1"),  
+("h_hood_asher_fancy_b2", "h_hood_asher_fancy_b2"),  
+("h_hood_asher_fancy_b3", "h_hood_asher_fancy_b3"),  
+("h_hood_asher_fancy_end", "h_hood_asher_fancy_end"), 
 ###################################################################################################### HYW CUSTOM ARMORS VERTEX COLORED
+
+## Vertex Coloured Gambeson
+("a_simple_gambeson_white_1", "a_simple_gambeson_white_1"),
+("a_simple_gambeson_white_2", "a_simple_gambeson_white_2"),
+("a_simple_gambeson_white_3", "a_simple_gambeson_white_3"),
+("a_simple_gambeson_white_4", "a_simple_gambeson_white_4"),
+("a_simple_gambeson_white_5", "a_simple_gambeson_white_5"),
+("a_simple_gambeson_white_6", "a_simple_gambeson_white_6"),
+("a_simple_gambeson_red_1", "a_simple_gambeson_red_1"),
+("a_simple_gambeson_red_2", "a_simple_gambeson_red_2"),
+("a_simple_gambeson_red_3", "a_simple_gambeson_red_3"),
+("a_simple_gambeson_red_4", "a_simple_gambeson_red_4"),
+("a_simple_gambeson_red_5", "a_simple_gambeson_red_5"),
+("a_simple_gambeson_red_6", "a_simple_gambeson_red_6"),
+("a_simple_gambeson_blue_1", "a_simple_gambeson_blue_1"),
+("a_simple_gambeson_blue_2", "a_simple_gambeson_blue_2"),
+("a_simple_gambeson_blue_3", "a_simple_gambeson_blue_3"),
+("a_simple_gambeson_blue_4", "a_simple_gambeson_blue_4"),
+("a_simple_gambeson_blue_5", "a_simple_gambeson_blue_5"),
+("a_simple_gambeson_blue_6", "a_simple_gambeson_blue_6"),
+("a_simple_gambeson_green_1", "a_simple_gambeson_green_1"),
+("a_simple_gambeson_green_2", "a_simple_gambeson_green_2"),
+("a_simple_gambeson_green_3", "a_simple_gambeson_green_3"),
+("a_simple_gambeson_green_4", "a_simple_gambeson_green_4"),
+("a_simple_gambeson_green_5", "a_simple_gambeson_green_5"),
+("a_simple_gambeson_green_6", "a_simple_gambeson_green_6"),
+("a_simple_gambeson_end", "a_simple_gambeson_end"),
+
 
 ## Vertex Coloured Hood
 # French 

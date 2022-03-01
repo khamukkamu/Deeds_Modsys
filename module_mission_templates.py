@@ -37,12 +37,12 @@ from compiler import *
 
 #SB : add new disguise sets, make sure none of them have high difficulty
 # the new flags now also have af_override_everything, so include footwear
-pilgrim_disguise = [itm_pilgrim_hood,itm_pilgrim_disguise,itm_practice_staff, itm_throwing_daggers, itm_b_wrapping_boots]
-farmer_disguise = [itm_h_felt_hat_b_brown, itm_a_farmer_tunic, itm_b_ankle_boots, itm_w_fork_2, itm_w_onehanded_war_axe_01]
-hunter_disguise = [itm_h_hood_black,itm_g_leather_gauntlet, itm_a_hunter_coat_custom, itm_w_archer_hatchet, itm_w_hunting_bow_elm, itm_w_arrow_broadhead, itm_b_wrapping_boots]
-merchant_disguise = [itm_a_merchant_outfit,itm_b_hosen_shoes_custom,itm_h_highlander_beret_red_2,itm_w_dagger_italian]
-guard_disguise = [itm_h_mail_coif,itm_g_mail_gauntlets,itm_a_light_gambeson_long_sleeves_custom,itm_b_mail_chausses,itm_s_heraldic_shield_leather,itm_w_warhammer_1,itm_w_spear_7]
-bard_disguise = [itm_h_highlander_beret_green_2,itm_a_noble_shirt_green,itm_b_hosen_shoes_custom,itm_w_mace_winged,itm_lyre]
+pilgrim_disguise = [itm_pilgrim_hood,itm_pilgrim_disguise,itm_practice_staff, itm_throwing_daggers, itm_b_turnshoes_1]
+farmer_disguise = [itm_h_felt_hat_b_brown, itm_a_farmer_tunic, itm_b_turnshoes_1, itm_w_fork_2, itm_w_onehanded_war_axe_01]
+hunter_disguise = [itm_h_hood_black,itm_g_leather_gauntlet, itm_a_hunter_coat_custom, itm_w_archer_hatchet, itm_w_hunting_bow_elm, itm_w_arrow_broadhead, itm_b_turnshoes_1]
+merchant_disguise = [itm_a_merchant_outfit,itm_b_turnshoes_1,itm_h_highlander_beret_red_2,itm_w_dagger_italian]
+guard_disguise = [itm_h_cervelliere_mail_aventail,itm_g_mail_gauntlets,itm_a_light_gambeson_long_sleeves_custom,itm_b_high_boots_3,itm_s_heraldic_shield_leather,itm_w_warhammer_1,itm_w_spear_7]
+bard_disguise = [itm_h_highlander_beret_green_2,itm_a_noble_shirt_green,itm_b_turnshoes_1,itm_w_mace_winged,itm_lyre]
 #note that these are usually male clothing, especially farmer_disguise, need some female ones as well
 
 af_castle_lord = af_override_horse | af_override_weapons| af_require_civilian
@@ -6941,10 +6941,10 @@ mission_templates = [
     "wedding",0,-1,
     "Wedding",
     [
-        (0,mtef_visitor_source,af_override_everything,0,1,[itm_a_tabard, itm_b_ankle_boots]),
+        (0,mtef_visitor_source,af_override_everything,0,1,[itm_a_tabard, itm_b_turnshoes_1]),
         (1,mtef_visitor_source,af_override_everything,0,1,[itm_bride_dress, itm_bride_crown, itm_bride_shoes]),
         (2,mtef_visitor_source,af_castle_lord,0,1,[]),
-        (3,mtef_visitor_source,af_override_everything,0,1,[itm_a_noble_shirt_white, itm_b_leather_boots]),
+        (3,mtef_visitor_source,af_override_everything,0,1,[itm_a_noble_shirt_white, itm_b_turnshoes_6]),
         (4,mtef_visitor_source,af_castle_lord,0,1,[]),
         (5,mtef_visitor_source,af_castle_lord,0,1,[]),
         (6,mtef_visitor_source,af_castle_lord,0,1,[]),
@@ -8853,7 +8853,7 @@ mission_templates = [
     "tutorial_1",0,-1,
     "You enter the training ground.",
     [
-        (0,mtef_leader_only,af_override_everything,0,1,[itm_tutorial_shield,itm_tutorial_sword,itm_tutorial_short_bow,itm_tutorial_arrows,itm_a_leather_jerkin,itm_b_leather_boots]), #af_override_weapons
+        (0,mtef_leader_only,af_override_everything,0,1,[itm_tutorial_shield,itm_tutorial_sword,itm_tutorial_short_bow,itm_tutorial_arrows,itm_a_leather_jerkin,itm_b_turnshoes_6]), #af_override_weapons
      ],
     [
       (ti_tab_pressed, 0, 0, [],
@@ -9061,7 +9061,7 @@ mission_templates = [
     "tutorial_2",mtf_arena_fight,-1,
     "You enter the training ground.",
     [
-        (0,mtef_leader_only|mtef_team_0,af_override_everything,0,1,[itm_tutorial_shield,itm_a_leather_jerkin,itm_b_leather_boots]),
+        (0,mtef_leader_only|mtef_team_0,af_override_everything,0,1,[itm_tutorial_shield,itm_a_leather_jerkin,itm_b_turnshoes_6]),
         (2,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),
         (4,mtef_visitor_source|mtef_team_1,0,0,1,[]),
      ],
@@ -9346,7 +9346,7 @@ mission_templates = [
     "tutorial_3",mtf_arena_fight,-1,
     "You enter the training ground.",
     [
-        (0,mtef_leader_only|mtef_team_0,af_override_everything,0,1,[itm_a_leather_jerkin,itm_b_leather_boots]),
+        (0,mtef_leader_only|mtef_team_0,af_override_everything,0,1,[itm_a_leather_jerkin,itm_b_turnshoes_6]),
         (3,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),
         (5,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),
      ],
@@ -9603,7 +9603,7 @@ mission_templates = [
     "tutorial_3_2",mtf_arena_fight,-1,
     "You enter the training ground.",
     [
-        (0,mtef_leader_only|mtef_team_0,af_override_everything,0,1,[itm_tutorial_staff,itm_a_leather_jerkin,itm_b_leather_boots]),
+        (0,mtef_leader_only|mtef_team_0,af_override_everything,0,1,[itm_tutorial_staff,itm_a_leather_jerkin,itm_b_turnshoes_6]),
         (4,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),
         (6,mtef_visitor_source|mtef_team_1,0,aif_start_alarmed,1,[]),
      ],
@@ -9757,7 +9757,7 @@ mission_templates = [
     "tutorial_4",mtf_arena_fight,-1,
     "You enter the training ground.",
     [
-        (0,mtef_leader_only|mtef_team_0,af_override_everything,0,1,[itm_tutorial_sword,itm_tutorial_short_bow,itm_tutorial_arrows,itm_a_leather_jerkin,itm_b_leather_boots]), #af_override_weapons
+        (0,mtef_leader_only|mtef_team_0,af_override_everything,0,1,[itm_tutorial_sword,itm_tutorial_short_bow,itm_tutorial_arrows,itm_a_leather_jerkin,itm_b_turnshoes_6]), #af_override_weapons
      ],
     [
       (ti_tab_pressed, 0, 0, [],
@@ -9972,7 +9972,7 @@ mission_templates = [
     "tutorial_5",mtf_arena_fight,-1,
     "You enter the training ground.",
     [
-        (0,mtef_visitor_source|mtef_team_0,af_override_everything,0,1,[itm_tutorial_sword,itm_tutorial_shield,itm_tutorial_short_bow,itm_tutorial_arrows,itm_tutorial_saddle_horse,itm_a_leather_jerkin,itm_b_leather_boots]),
+        (0,mtef_visitor_source|mtef_team_0,af_override_everything,0,1,[itm_tutorial_sword,itm_tutorial_shield,itm_tutorial_short_bow,itm_tutorial_arrows,itm_tutorial_saddle_horse,itm_a_leather_jerkin,itm_b_turnshoes_6]),
         (1,mtef_visitor_source|mtef_team_0,0,aif_start_alarmed,1,[]),
         (2,mtef_visitor_source|mtef_team_0,0,aif_start_alarmed,1,[]),
         (3,mtef_visitor_source|mtef_team_0,0,aif_start_alarmed,1,[]),

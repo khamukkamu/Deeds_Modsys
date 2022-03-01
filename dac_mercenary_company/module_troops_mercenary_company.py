@@ -1140,7 +1140,7 @@ mercenary_company_troops = [
     # itm_h_kettlehat_mail,
     # itm_h_kettlehat_painted_mail,
     # itm_h_bascinet_oniontop,
-    # itm_h_zitta_bascinet_novisor,
+    # itm_h_great_bascinet_houndskull,
     
     # itm_a_churburg_narf_custom,
     # itm_a_churburg_brass_narf_custom,
@@ -1193,7 +1193,7 @@ mercenary_company_troops = [
   ["custom_merc_footman_at_arms_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
    # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
    [ 
-    # itm_h_zitta_bascinet_novisor,
+    # itm_h_great_bascinet_houndskull,
     # itm_h_bascinet_oniontop,
     # itm_h_klappvisier_pigface_open,
     # itm_h_klappvisier_pigface,
@@ -1225,7 +1225,7 @@ mercenary_company_troops = [
   
   ["custom_merc_footman_at_arms_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
     [ #Inventory Matters here. This is what they CAN BE ASKED to equip. Our system gives this troop weapons through dialogues.
-    # itm_h_zitta_bascinet_novisor,
+    # itm_h_great_bascinet_houndskull,
     # itm_h_bascinet_oniontop,
     # itm_h_klappvisier_pigface_open,
     # itm_h_klappvisier_pigface,
@@ -1282,11 +1282,11 @@ mercenary_company_troops = [
   ["custom_merc_dismounted_knight_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
    # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
    [ 
-    # itm_h_bascinet_great,
+    # itm_h_great_bascinet_houndskull,
     # itm_h_zitta_bascinet,
-    # itm_h_hounskull_narf,
+    # itm_h_great_bascinet_houndskull,
     # itm_h_klappvisier_pigface,
-    # itm_h_bascinet_great_fi,
+    # itm_h_great_bascinet_houndskull_fi,
     
     # itm_a_plate_harness_1,
     # itm_a_plate_harness_2,
@@ -1317,11 +1317,11 @@ mercenary_company_troops = [
   
   ["custom_merc_dismounted_knight_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
     [ #Inventory Matters here. This is what they CAN BE ASKED to equip. Our system gives this troop weapons through dialogues.
-    # itm_h_bascinet_great,
+    # itm_h_great_bascinet_houndskull,
     # itm_h_zitta_bascinet,
-    # itm_h_hounskull_narf,
+    # itm_h_great_bascinet_houndskull,
     # itm_h_klappvisier_pigface,
-    # itm_h_bascinet_great_fi,
+    # itm_h_great_bascinet_houndskull_fi,
     
     # itm_a_plate_harness_1,
     # itm_a_plate_harness_2,
@@ -1482,7 +1482,7 @@ mercenary_company_troops = [
    # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
    [ 
     # itm_h_bascinet_fi_noseguard,
-    # itm_h_zitta_bascinet_novisor,
+    # itm_h_great_bascinet_houndskull,
     # itm_h_bascinet_oniontop,
     # itm_h_bascinet_fi_mail,
     # itm_h_houndskull_fi,
@@ -1520,13 +1520,13 @@ mercenary_company_troops = [
   ["custom_merc_man_at_arms_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
     [ #Inventory Matters here. This is what they CAN BE ASKED to equip. Our system gives this troop weapons through dialogues.
     # itm_h_bascinet_fi_noseguard,
-    # itm_h_zitta_bascinet_novisor,
+    # itm_h_great_bascinet_houndskull,
     # itm_h_bascinet_oniontop,
     # itm_h_bascinet_fi_mail,
     # itm_h_houndskull_fi,
     # itm_h_klappvisier_pigface_open,
     # itm_h_klappvisier_pigface,
-    # itm_h_hounskull_narf,
+    # itm_h_great_bascinet_houndskull,
     
     # itm_a_brigandine_narf_padded_plate_disc_plate_hose_custom,
     # itm_a_brigandine_narf_mail_plate_hose_custom,
@@ -1590,9 +1590,9 @@ mercenary_company_troops = [
   ["custom_merc_knight_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
    # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
    [ 
-    # itm_h_bascinet_great,
-    # itm_h_bascinet_great_fi,
-    # itm_h_hounskull_narf,
+    # itm_h_great_bascinet_houndskull,
+    # itm_h_great_bascinet_houndskull_fi,
+    # itm_h_great_bascinet_houndskull,
     # itm_h_klappvisier_pigface,
     # itm_h_houndskull_fi,
     
@@ -1629,9 +1629,9 @@ mercenary_company_troops = [
   
   ["custom_merc_knight_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
     [ #Inventory Matters here. This is what they CAN BE ASKED to equip. Our system gives this troop weapons through dialogues.
-    # itm_h_bascinet_great,
-    # itm_h_bascinet_great_fi,
-    # itm_h_hounskull_narf,
+    # itm_h_great_bascinet_houndskull,
+    # itm_h_great_bascinet_houndskull_fi,
+    # itm_h_great_bascinet_houndskull,
     # itm_h_klappvisier_pigface,
     # itm_h_houndskull_fi,
     

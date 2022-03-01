@@ -963,11 +963,11 @@ itemsfile version 3
  0
 0
 
- itm_h_bascinet_great Great_Bascinet Great_Bascinet 1  h_bascinet_great 0  2147553036 0 1350 704643238 3.000000 100 54 0 0 8 0 0 0 0 0 0 0
+ itm_h_great_bascinet_houndskull Great_Bascinet Great_Bascinet 1  h_great_bascinet_houndskull 0  2147553036 0 1350 704643238 3.000000 100 54 0 0 8 0 0 0 0 0 0 0
  0
 0
 
- itm_h_bascinet_great_fi Great_Bascinet Great_Bascinet 1  h_bascinet_great_fi 0  2147553036 0 1350 704643238 3.000000 100 54 0 0 8 0 0 0 0 0 0 0
+ itm_h_great_bascinet_houndskull_fi Great_Bascinet Great_Bascinet 1  h_great_bascinet_houndskull_fi 0  2147553036 0 1350 704643238 3.000000 100 54 0 0 8 0 0 0 0 0 0 0
  0
 0
 
@@ -975,7 +975,7 @@ itemsfile version 3
  0
 0
 
- itm_h_hounskull_narf Houndskull_Bascinet Houndskull_Bascinet 1  h_houndskull_narf 0  2147553036 0 1100 704643238 3.000000 100 50 0 0 8 0 0 0 0 0 0 0
+ itm_h_great_bascinet_houndskull Houndskull_Bascinet Houndskull_Bascinet 1  h_houndskull_narf 0  2147553036 0 1100 704643238 3.000000 100 50 0 0 8 0 0 0 0 0 0 0
  0
 0
 
@@ -987,7 +987,7 @@ itemsfile version 3
  0
 0
 
- itm_h_houndskull_thick Houndskull_Bascinet Houndskull_Bascinet 1  h_houndskull_thick 0  2147553036 0 1056 704643238 3.000000 100 48 0 0 8 0 0 0 0 0 0 0
+ itm_h_great_bascinet_houndskull Houndskull_Bascinet Houndskull_Bascinet 1  h_great_bascinet_houndskull 0  2147553036 0 1056 704643238 3.000000 100 48 0 0 8 0 0 0 0 0 0 0
  0
 0
 
@@ -999,7 +999,7 @@ itemsfile version 3
  0
 0
 
- itm_h_zitta_bascinet_novisor Bascinet_with_Aventail Bascinet_with_Aventail 1  h_zitta_bascinet_novisor 0  69388 0 990 704643238 2.250000 100 45 0 0 8 0 0 0 0 0 0 0
+ itm_h_great_bascinet_houndskull Bascinet_with_Aventail Bascinet_with_Aventail 1  h_great_bascinet_houndskull 0  69388 0 990 704643238 2.250000 100 45 0 0 8 0 0 0 0 0 0 0
  0
 0
 

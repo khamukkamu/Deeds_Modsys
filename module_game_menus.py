@@ -633,7 +633,7 @@ game_menus = [
 
         (troop_clear_inventory, "$g_player_troop"),
         (troop_add_item, "$g_player_troop","itm_a_light_gambeson_long_sleeves_custom",0),
-        (troop_add_item, "$g_player_troop","itm_b_leather_boots",0),
+        (troop_add_item, "$g_player_troop","itm_b_turnshoes_6",0),
         (troop_add_item, "$g_player_troop","itm_practice_sword",0),
         (troop_add_item, "$g_player_troop","itm_practice_staff",0),
         (troop_equip_items, "$g_player_troop"),
