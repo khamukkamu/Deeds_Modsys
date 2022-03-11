@@ -4698,6 +4698,10 @@ TOTAL:  {reg5}"),
     "{s11}^^Your Casualties:{s8}{s10}^^Enemy Casualties:{s9}",
     "none",
     [
+    
+		# TLD:
+		(call_script, "script_maybe_relocate_player_from_z0"),	
+        
 		## WINDYPLAINS+ ## - BODY-SLIDING - Credit: Initial code from 1257
 		# copy backup to main party
 		(try_begin),

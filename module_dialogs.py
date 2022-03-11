@@ -4315,7 +4315,7 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
     (call_script, "script_dplmc_get_item_score_with_imod", ":cur_armor", ":imod"),
   (try_end),
   (lt, reg0, 66 + 6 + 6), #base heraldic armor + lordly*2
-  (store_random_in_range, ":item_no","itm_heraldic_brigandine_native", "itm_b_turnshoes_1"),
+  (store_random_in_range, ":item_no","itm_a_pistoia_mail_a_mail_sleeves_short", "itm_b_turnshoes_1"),
   # (troop_add_item, "$g_talk_troop", ":armor", imod_lordly),
   # (store_item_value, ":item_cost", ":item_no"),
   # (ge, ":initial_gold", ":item_cost"),

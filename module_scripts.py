@@ -18302,11 +18302,11 @@ scripts = [
         ###
         (party_get_current_terrain, ":terrain_type", ":party"),
         (try_begin),
-          (eq, ":terrain_type", rt_snow),
-          (neg|troop_is_guarantee_horse, ":stack_troop"),#horses problem in snow
+          # (eq, ":terrain_type", rt_snow),
+          # (neg|troop_is_guarantee_horse, ":stack_troop"),#horses problem in snow
           #      (troop_is_guarantee_horse, ":stack_troop"),
-          (val_add, ":stack_strength", 2),
-        (else_try),
+          # (val_add, ":stack_strength", 2),
+        # (else_try),
           (this_or_next|eq, ":terrain_type", rt_steppe_forest),
           (this_or_next|eq, ":terrain_type", rt_forest),
           (eq, ":terrain_type", rt_snow_forest),
@@ -33020,8 +33020,32 @@ scripts = [
       (try_end),
       ## CC
       (assign, reg0, ":scene_to_use"),
+      
+        (try_begin),
+            (neq,"$relocated",1),
+            (assign,"$relocated",1),						# don't store current location if already relocated
+            (party_relocate_near_party,"p_pointer_player","p_main_party",0), #remember original player location 
+        (try_end),	  
+	
+		(store_random_in_range, ":radius", 1, 5), # radius around base terrain Z=0 position for seed generation
+		# (store_add, reg10, "p_pointer_z_0_begin", ":terrain_type"),
+		(party_relocate_near_party,"p_main_party","p_pointer_z_0_begin",":radius"), # teleport to requested region	
+		
+      
+      
+      
       (jump_to_scene,":scene_to_use"),
   ]),
+  
+# script_maybe_relocate_player_from_z0 (GA and mtarini)
+("maybe_relocate_player_from_z0",[
+	 (try_begin), #if "walk around place" used
+	    (eq, "$relocated", 1),
+	    (assign, "$relocated", 0),
+        (party_relocate_near_party, "p_main_party", "p_pointer_player", 0),
+	(try_end),
+]),  
+
 
   # script_enter_dungeon
   # Input: arg1 = center_no, arg2 = mission_template_no
@@ -42425,7 +42449,7 @@ scripts = [
         (assign, ":animation", "anim_pose_3"),
       (else_try),
         (eq, ":type", 6),
-        (cur_tableau_add_override_item, "itm_a_gambeson_white"),
+        (cur_tableau_add_override_item, "itm_a_simple_gambeson_custom"),
         (cur_tableau_add_override_item, "itm_b_high_boots_2"),
         (assign, ":animation", "anim_pose_4"),
       (else_try),
@@ -42439,7 +42463,7 @@ scripts = [
         (cur_tableau_add_override_item, "itm_b_turnshoes_1"),
         (assign, ":animation", "anim_pose_4"),
       (else_try),
-        (cur_tableau_add_override_item, "itm_heraldic_brigandine_native"),
+        (cur_tableau_add_override_item, "itm_a_english_plate_1415_heraldic"),
         (cur_tableau_add_override_item, "itm_b_leg_harness_10"),
         # (cur_tableau_add_override_item, "itm_sword_medieval_c"),
         (assign, ":animation", "anim_pose_5"),
@@ -76400,7 +76424,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (troop_add_item, "trp_bonus_chest_2","itm_torch", imod_old),
 
       (troop_add_item, "trp_bonus_chest_3","itm_b_leg_harness_10", imod_lordly),
-      (troop_add_item, "trp_bonus_chest_3","itm_a_kastenbrust_mail", imod_lordly),
+      # (troop_add_item, "trp_bonus_chest_3","itm_a_kastenbrust_mail", imod_lordly),
       (troop_add_item, "trp_bonus_chest_3","itm_h_great_bascinet_houndskull", imod_lordly),
       # (troop_add_item, "trp_bonus_chest_3","itm_steel_shield", imod_lordly),
       (troop_add_item, "trp_bonus_chest_3","itm_h_great_bascinet_houndskull", imod_lordly), #charger_plate_1
@@ -79291,6 +79315,11 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (item_set_slot, "itm_a_plate_german_covered_fauld_custom", slot_item_materials_end, "str_a_plate_german_covered_fauld_end"),
       (item_set_slot, "itm_a_plate_german_covered_fauld_custom", slot_item_num_components, 1), 
       
+## Hohenaschau Corrazina over Mail
+      (item_set_slot, "itm_a_corrazina_hohenaschau_mail_custom", slot_item_materials_begin, "str_a_corrazina_hohenaschau_beige"),
+      (item_set_slot, "itm_a_corrazina_hohenaschau_mail_custom", slot_item_materials_end, "str_a_corrazina_hohenaschau_end"), 
+      (item_set_slot, "itm_a_corrazina_hohenaschau_mail_custom", slot_item_num_components, 1),     
+
 ## Hohenaschau Corrazina
       (item_set_slot, "itm_a_corrazina_hohenaschau_custom", slot_item_materials_begin, "str_a_corrazina_hohenaschau_beige"),
       (item_set_slot, "itm_a_corrazina_hohenaschau_custom", slot_item_materials_end, "str_a_corrazina_hohenaschau_end"), 
@@ -79354,26 +79383,8 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 
 ## Custom Hoods for the helmets
       (try_for_range, ":item_no", "itm_h_sallet_hood_custom", "itm_h_eyeslot_kettlehat_1_liripipe_hood_custom"), # Seek: All the Helmets share the same base
-      (item_set_slot, ":item_no", slot_item_materials_begin, "str_h_hood_narf_blue"),
-      (item_set_slot, ":item_no", slot_item_materials_end, "str_h_hood_narf_end"),
-  # France
-      (item_set_slot, ":item_no", slot_item_france_materials_begin, "str_h_hood_narf_blue"),
-      (item_set_slot, ":item_no", slot_item_france_materials_end, "str_h_hood_narf_red"),
-  # England
-      (item_set_slot, ":item_no", slot_item_english_materials_begin, "str_h_hood_narf_white"),
-      (item_set_slot, ":item_no", slot_item_english_materials_end, "str_h_hood_narf_yellow_blue"),
-  # Burgundy
-      (item_set_slot, ":item_no", slot_item_burgundy_materials_begin, "str_h_hood_narf_white"),
-      (item_set_slot, ":item_no", slot_item_burgundy_materials_end, "str_h_hood_narf_white_2"),
-  # Brittany    
-      (item_set_slot, ":item_no", slot_item_breton_materials_begin, "str_h_hood_narf_white_2"),
-      (item_set_slot, ":item_no", slot_item_breton_materials_end, "str_h_hood_narf_yellow_black"),    
-  # Flemish Mercenaries 
-      (item_set_slot, ":item_no", slot_item_flemish_materials_begin, "str_h_hood_narf_black"),
-      (item_set_slot, ":item_no", slot_item_flemish_materials_end, "str_h_hood_narf_green"),
-  # Rebels  
-      (item_set_slot, ":item_no", slot_item_rebel_materials_begin, "str_h_hood_narf_green"),
-      (item_set_slot, ":item_no", slot_item_rebel_materials_end, "str_h_hood_narf_end"),        
+          (item_set_slot, ":item_no", slot_item_materials_begin, "str_h_hood_asher_simple_1"),
+          (item_set_slot, ":item_no", slot_item_materials_end, "str_h_hood_asher_end"),       
       (item_set_slot, ":item_no", slot_item_num_components, 1),     
       (try_end),  
 
