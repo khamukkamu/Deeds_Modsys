@@ -2536,9 +2536,6 @@ We apologize sincerely if you contributed your suggestions and feedback but were
   ("multi_scene_22", "Forest Hideout"),
   ("multi_scene_23", "Canyon"),
   ("multi_scene_24", "Desert Town"),
-  #INVASION MODE START
-  # ("multi_scene_25", "Cold Coast"),  
-  #INVASION MODE END
   ("multi_scene_12", "Random Plains (Medium)"),
   ("multi_scene_13", "Random Plains (Large)"),
   ("multi_scene_14", "Random Steppe (Medium)"),
@@ -5002,66 +4999,6 @@ Only you know exactly what caused you to give up your old life and become an adv
   
   #Frank new coop strings
   ("default", "Default"),
-  ("coop_open_chest", "Open Chest"),
-  ("coop_already_opened", "Already Opened!"),
-  ("ccoop_difficulty", "Difficulty:"),
-  ("ccoop_easy", "Easy"),
-  ("ccoop_normal", "Normal"),
-  ("ccoop_endless", "Endless"),
-  ("ccoop_difficulty_s0", "Difficulty: {s0}"),
-  ("ccoop_victory", "Victory!"),
-  ("ccoop_s0_enemy_defeated_s1", "The {s0} {reg1?has:have} been defeated ({s1})"),
-  ("ccoop_s0_enemy_defeated_endless_reg0", "The {s0} {reg1?has:have} been repelled for now...^Prepare for Elite Tier {reg0}"),
-  ("ccoop_lord_s0_wave_hint", "The host of {s0} approaches!"),
-  ("ccoop_king_s0_wave_hint", "The guard of {s0} approaches! (Final Wave)"),
-  ("ccoop_assign_drop", "Assign the dropped item:"),
-  ("ccoop_select_companion", "Choose and equip your companions:"),
-  ("ccoop_select_companion_class", "Equip your companions:"),
-  # ("ccoop_choose_an_item_to_replace", "Replace which item?:"),
-  # ("ccoop_cancel", "Cancel"),
-  ("ccoop_lvl_reg0", "Lv. {reg0}"),
-  ("ccoop_dropping_item_on_ground", "You didn't have enough free weapon slots, so it fell to the ground."),
-  #("ccoop_all_stars", "All Stars"),
-  
-  ("ccoop_king_name", "King {s0}"),
-  ("ccoop_queen_name", "Queen {s0}"),
-  
-  #Coop Special Item Descriptions
-  ("javelin_bow", "A bow that fires javelins"),
-  ("knockdown_mace", "Knocks down everyone it hits"),
-  ("blood_drain_throwing_knives", "Restore health to the thrower, with successful hits"),
-  ("doom_javelins", "Gradually deplete the health of those they impale"),
-  ("disarming_throwing_axe", "Disarms on impact"),
-  ("instakill_knife", "Kills with even the slightest touch"),
-  ("backstabber", "Kills any foe with a stab from behind"),
-  ("weak_beserker_dart", "Depletes health but provokes a dangerous frenzy"),
-  ("team_change_dart", "Causes the person it strikes to change their allegiance"),
-  ("awesome_spear", "Awesome"),
-  ("running_boots", "Make you run faster"),
-  ("power_gloves", "Make you hit harder"),
-  #("wielding_gloves", "Default"),
-  ("invulnerable_helmet", "Keeps your head safer"),
-  ("kicking_boots", "Deliver a nasty kick"),
-  ("restore_health_armour", "Restores health gradually"),
-  
-  #Coop Companion Descriptions
-  ("npc1_1","-Good with throwing and 1h^-Poor with 2h and crossbows"),
-  ("npc2_1","-Good with 1h^-Poor with throwing"),
-  ("npc3_1","-Good with polearms^-Poor with 2h"),
-  ("npc4_1","-Good with melee weapons^-Poor with ranged weapons"),
-  ("npc5_1","-Good with bows and throwing^-Poor with 2h and crossbows"),
-  ("npc6_1","-Good with 1h and 2h^-Poor with bows and crossbows"),
-  ("npc7_1","-Good with bows and polearms^-Poor with 1h and 2h"),
-  ("npc8_1","-Good with throwing and 2h^-Poor with polearms and crossbows"),
-  ("npc9_1","-Good with 2h and bows^-Poor with 1h and crossbows"),
-  ("npc10_1","-Good with crossbows^-Poor with 2h and polearms"),
-  ("npc11_1","-Good with 2h and crossbows^-Poor with bows"),
-  ("npc12_1","-Good with polearms^-Poor with bows"),
-  ("npc13_1","-Good with 1h and bows^-Poor with 2h"),
-  ("npc14_1","-Good with 1h^-Good all-rounder"),
-  ("npc15_1","-Good with 2h and bows^-Poor with crossbows and throwing"),
-  ("npc16_1","-Good with throwing and 1h^-Poor with 2h and crossbows"),
-  #INVASION MODE END
 
   #dckplmc 
 
@@ -5319,6 +5256,21 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("a_light_gambeson_long_sleeves_alt_green", "a_light_gambeson_long_sleeves_alt_green"),  
 ("a_light_gambeson_long_sleeves_alt_white", "a_light_gambeson_long_sleeves_alt_white"),  
 ("a_light_gambeson_long_sleeves_alt_end", "a_light_gambeson_long_sleeves_alt_end"),
+
+# Long Sleeved Gambeson 3
+("a_light_gambeson_long_sleeves_3_beige", "a_light_gambeson_long_sleeves_3_beige"),  
+("a_light_gambeson_long_sleeves_3_brown", "a_light_gambeson_long_sleeves_3_brown"),  
+("a_light_gambeson_long_sleeves_3_green", "a_light_gambeson_long_sleeves_3_green"),  
+("a_light_gambeson_long_sleeves_3_white", "a_light_gambeson_long_sleeves_3_white"),  
+("a_light_gambeson_long_sleeves_3_end",   "a_light_gambeson_long_sleeves_3_end"),
+
+# Long Sleeved Gambeson 6
+("a_light_gambeson_long_sleeves_6_beige", "a_light_gambeson_long_sleeves_6_beige"),  
+("a_light_gambeson_long_sleeves_6_blue",  "a_light_gambeson_long_sleeves_6_blue"),  
+("a_light_gambeson_long_sleeves_6_brown", "a_light_gambeson_long_sleeves_6_brown"),  
+("a_light_gambeson_long_sleeves_6_green", "a_light_gambeson_long_sleeves_6_green"),  
+("a_light_gambeson_long_sleeves_6_red", "a_light_gambeson_long_sleeves_6_red"),  
+("a_light_gambeson_long_sleeves_6_end",   "a_light_gambeson_long_sleeves_6_end"),
 
 # Crossbowman Gambeson
 ("a_gambeson_crossbowman_beige", "a_gambeson_crossbowman_beige"),  

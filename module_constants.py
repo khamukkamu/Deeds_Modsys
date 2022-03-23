@@ -49,9 +49,6 @@ slot_item_output_per_run                = 55 #number of items produced per run
 slot_item_overhead_per_run              = 56 #labor and overhead per run
 slot_item_secondary_raw_material        = 57 #in this case, the amount used is only one
 slot_item_enterprise_building_cost      = 58 #enterprise building cost
-#INVASION MODE START
-slot_item_ccoop_has_ammo                = 59 #should be set to 1 for Invasion item drops that have an additional item for ammunition (e.g. Javelin Bow)
-#INVASION MODE END
 
 
 slot_item_multiplayer_item_class   = 60 #temporary, can be moved to higher values
@@ -88,10 +85,6 @@ slot_agent_duel_start_time        = 22
 
 slot_agent_walker_occupation      = 25
 slot_agent_bought_horse           = 26
-#INVASION MODE START
-slot_agent_doom_javelin_count     = 27
-# slot_agent_doom_javelin_attacker  = 28 #not used
-#INVASION MODE END
 
 ########################################################
 ##  FACTION SLOTS          #############################
@@ -703,9 +696,6 @@ pis_ship                        = 2
 ##  SCENE SLOTS            #############################
 ########################################################
 slot_scene_visited              = 0
-#INVASION MODE START
-slot_scene_ccoop_disallow_horses = 1 #should be set to 1 for scenes that should be played dismounted in Invasion mode (e.g. Forest Hideout)
-#INVASION MODE END
 slot_scene_belfry_props_begin   = 10
 
 
@@ -1026,10 +1016,6 @@ slot_troop_recent_offense_type             = 151 #failure to join army, failure 
 slot_troop_recent_offense_object           = 152 #to whom it happened
 slot_troop_recent_offense_time             = 153
 slot_troop_stance_on_faction_issue         = 154 #when it happened
-#INVASION MODE START #SB : this can just reuse SP slots
-slot_troop_coop_lord_spawned               = 155 #used to keep track of lords spawning in Invasion mode
-slot_troop_mp_squad_type                   = 156 #used while generating waves for Invasion mode
-#INVASION MODE END
 
 tro_failed_to_join_army                    = 1
 tro_failed_to_support_colleague            = 2
@@ -1080,21 +1066,6 @@ slot_player_bot_type_2_wanted                  = 36
 slot_player_bot_type_3_wanted                  = 37
 slot_player_bot_type_4_wanted                  = 38
 slot_player_spawn_count                        = 39
-
-#INVASION MODE START
-slot_player_ccoop_drop_item_1                  = 40
-slot_player_ccoop_drop_item_2                  = 41
-slot_player_companion_ids_locked               = 42
-slot_player_companion_ids_begin                = 43
-slot_player_companion_ids_end                  = slot_player_companion_ids_begin + 2 # there are 2 companions for each player
-slot_player_companion_classes_begin            = slot_player_companion_ids_end
-slot_player_companion_classes_end              = slot_player_companion_classes_begin + 2
-slot_player_companion_levels_begin             = slot_player_companion_classes_end
-slot_player_companion_levels_end               = slot_player_companion_levels_begin + 2
-slot_player_coop_dropped_item                  = slot_player_companion_levels_end
-slot_player_coop_opened_chests_begin           = slot_player_coop_dropped_item + 1
-slot_player_coop_opened_chests_end             = slot_player_coop_opened_chests_begin + 10
-#INVASION MODE END
 
 ########################################################
 ##  TEAM SLOTS             #############################
@@ -1230,10 +1201,6 @@ scene_prop_number_of_agents_pushing = 3 #for belfries only
 scene_prop_next_entry_point_id      = 4 #for belfries only
 scene_prop_belfry_platform_moved    = 5 #for belfries only
 scene_prop_slots_end                = 6
-#INVASION MODE START
-scene_prop_ccoop_item_drop_start    = 7 #For keeping track of who has opened drop chests in Invasion mode
-scene_prop_ccoop_item_drop_end      = scene_prop_ccoop_item_drop_start + 10
-#INVASION MODE END
 ########################################################
 rel_enemy   = 0
 rel_neutral = 1
@@ -1579,44 +1546,9 @@ mercenary_troops_end = "trp_mercenaries_end"
 multiplayer_troops_begin = "trp_french_crossbowman_multiplayer"
 multiplayer_troops_end = "trp_multiplayer_end"
 
-#INVASION MODE start
-ccoop_companion_sounds_start = "snd_ccoop_spawn_companion_0"
-ccoop_companion_sounds_end = "snd_ccoop_nobleman_taunt"
-
-ccoop_noble_sounds_start = "snd_ccoop_nobleman_taunt"
-ccoop_noble_sounds_end = "snd_ccoop_looter_taunt_0"
-
-ccoop_looter_sounds_start = "snd_ccoop_looter_taunt_0"
-ccoop_looter_sounds_end = "snd_ccoop_bandit_taunt_0"
-
-ccoop_bandit_sounds_start = "snd_ccoop_bandit_taunt_0"
-ccoop_bandit_sounds_end = "snd_ccoop_sea_raider_taunt_0"
-
-ccoop_sea_raider_sounds_start = "snd_ccoop_sea_raider_taunt_0"
-ccoop_sea_raider_sounds_end = "snd_sounds_end"
-
-multiplayer_coop_class_templates_begin = "trp_swadian_crossbowman_multiplayer_coop_tier_1"
-multiplayer_coop_class_templates_end = "trp_coop_faction_troop_templates_end"
-
-multiplayer_coop_companion_equipment_sets_begin = "trp_npc1_1"
-multiplayer_coop_companion_first_equipment_sets_end = "trp_npc1_2"
-multiplayer_coop_companion_equipment_sets_end = "trp_coop_companion_equipment_sets_end"
-
-multiplayer_coop_companion_description_strings_begin = "str_npc1_1"
-#INVASION MODE end
 multiplayer_ai_troops_begin = "trp_french_crossbowman_ai"
 multiplayer_ai_troops_end = multiplayer_troops_begin
 
-#INVASION MODE START
-captain_multiplayer_troops_begin = "trp_farmer"
-captain_multiplayer_troops_end = "trp_mercenaries_end"
-
-captain_multiplayer_new_troops_begin = "trp_mercenaries_end"
-captain_multiplayer_new_troops_end = "trp_routier_knight"
-
-captain_multiplayer_coop_new_troops_begin = "trp_routier_knight"
-captain_multiplayer_coop_new_troops_end = "trp_manhunter"
-#INVASION MODE END
 multiplayer_scenes_begin = "scn_multi_scene_1"
 multiplayer_scenes_end = "scn_multiplayer_maps_end"
 
@@ -1691,7 +1623,7 @@ player_realm_quests_begin_2 = "qst_blank_quest_26"
 player_realm_quests_end_2 = "qst_blank_quest_26"
 
 all_items_begin = 0
-all_items_end = "itm_ccoop_new_items_end" #SB : new ccoop stuff
+all_items_end = "itm_a_plate_joan"
 normal_items_end = "itm_items_end"
 
 all_quests_begin = 0
@@ -1785,7 +1717,7 @@ merchants_end = village_elders_end
 dplmc_employees_begin = "trp_dplmc_chamberlain" #Individual employees (chancellor, constable, chamberlain)
 dplmc_employees_end   = "trp_dplmc_messenger"   #The messenger is not included, since it's a generic figure rather than a specific person.
 
-dplmc_prev_employee = multiplayer_coop_class_templates_begin #SB : trp_dplmc_chamberlain = 930 now some invasion template, we need this id for old savegames
+dplmc_prev_employee = "trp_dplmc_chamberlain"  #SB : trp_dplmc_chamberlain = 930 now some invasion template, we need this id for old savegames
 
 #SB : salaries
 dplmc_spouse_salary = 10
@@ -1838,16 +1770,6 @@ ranged_weapons_end = "itm_w_arrow_triangular"
 shields_begin = "itm_s_pavise_native_french_1"
 shields_end = "itm_items_end"
 
-#INVASION MODE START
-coop_drops_begin = "itm_javelin_bow"
-coop_drops_end = "itm_javelin_bow_ammo"
-coop_new_items_end = all_items_end
-
-ccoop_max_num_players = 12
-
-coop_drops_descriptions_begin = "str_javelin_bow"
-coop_drops_descriptions_end = "str_npc1_1"
-#INVASION MODE END
 # Banner constants
 
 banner_meshes_begin = "mesh_banner_a01"
@@ -2374,20 +2296,6 @@ DPLMC_FACTION_STANDING_DEPENDENT = 20
 DPLMC_FACTION_STANDING_MEMBER = 10#includes mercenaries
 DPLMC_FACTION_STANDING_PETITIONER = 5
 DPLMC_FACTION_STANDING_UNAFFILIATED = 0
-
-##INVASION/CAPTAIN COOP
-
-captain_multiplayer_troops_begin = "trp_farmer"
-captain_multiplayer_troops_end = "trp_manhunter"
-
-captain_multiplayer_new_troops_begin = "trp_farmer"
-captain_multiplayer_new_troops_end = "trp_manhunter"
-
-captain_multiplayer_coop_new_troops_begin = "trp_farmer"
-captain_multiplayer_coop_new_troops_end = "trp_manhunter"
-
-
-
 #SB : bunch of constants
 
 #ranges

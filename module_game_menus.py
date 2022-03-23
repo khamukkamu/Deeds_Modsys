@@ -2915,7 +2915,7 @@ TOTAL:  {reg5}"),
         (val_sub, "$cheat_find_item_range_begin", max_inventory_items),
         (try_begin),
           (lt, "$cheat_find_item_range_begin", 0),
-          (store_sub, "$cheat_find_item_range_begin", coop_new_items_end, max_inventory_items),
+          (store_sub, "$cheat_find_item_range_begin", normal_items_end, max_inventory_items),
         (try_end),
         (jump_to_menu, "mnu_cheat_find_item"),
        ]
@@ -3095,6 +3095,10 @@ TOTAL:  {reg5}"),
      (try_end),
      (display_message, "@You have been given a Horde!"),
 
+     ]),
+     
+    ("test_give_troops",[],"Give yourself mercenaries", [
+    (party_add_members,"p_main_party","trp_genoese_crossbowman", 20),
      ]),
 
     ("dac_test_back",[],"Back",[(jump_to_menu, "mnu_camp")]),

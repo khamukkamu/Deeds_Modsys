@@ -210,31 +210,6 @@ sounds = [
  ("dedal_tavern_lute",	sf_priority_6|sf_vol_5|sf_looping, ["dedal_tavern_lute_1.ogg","dedal_tavern_lute_2.ogg","dedal_tavern_lute_3.ogg"]),
  ("dedal_tavern_lyre",	sf_priority_6|sf_vol_6|sf_looping, ["dedal_tavern_lyre_1.ogg","dedal_tavern_lyre_2.ogg","dedal_tavern_lyre_3.ogg"]),
 
- #INVASION MODE START
- ("ccoop_spawn_companion_0",sf_vol_8, ["encounter_farmer_2.ogg"]),
- ("ccoop_spawn_companion_1",sf_vol_8, ["encounter_farmer_5.ogg"]),
- ("ccoop_spawn_companion_2",sf_vol_8, ["encounter_farmer_7.ogg"]),
- ("ccoop_spawn_companion_3",sf_vol_8, ["encounter_farmer_9.ogg"]),
- ("ccoop_nobleman_taunt",sf_vol_8, ["encounter_nobleman_1.ogg"]),
- ("ccoop_looter_taunt_0",sf_vol_8, ["encounter_river_pirates_5.ogg"]),
- ("ccoop_looter_taunt_1",sf_vol_8, ["encounter_river_pirates_6.ogg"]),
- ("ccoop_looter_taunt_2",sf_vol_8, ["encounter_river_pirates_9.ogg"]),
- ("ccoop_looter_taunt_3",sf_vol_8, ["encounter_river_pirates_10.ogg"]),
- ("ccoop_looter_taunt_4",sf_vol_8, ["encounter_river_pirates_4.ogg"]),
- ("ccoop_bandit_taunt_0",sf_vol_8, ["encounter_bandit_2.ogg"]),
- ("ccoop_bandit_taunt_1",sf_vol_8, ["encounter_bandit_9.ogg"]),
- ("ccoop_bandit_taunt_2",sf_vol_8, ["encounter_bandit_12.ogg"]),
- ("ccoop_bandit_taunt_3",sf_vol_8, ["encounter_bandit_13.ogg"]),
- ("ccoop_bandit_taunt_4",sf_vol_8, ["encounter_bandit_15.ogg"]),
- ("ccoop_bandit_taunt_5",sf_vol_8, ["encounter_bandit_16.ogg"]),
- ("ccoop_bandit_taunt_6",sf_vol_8, ["encounter_bandit_10.ogg"]),
- ("ccoop_sea_raider_taunt_0",sf_vol_8, ["encounter_sea_raider_5.ogg"]),
- ("ccoop_sea_raider_taunt_1",sf_vol_8, ["encounter_sea_raider_9.ogg"]),
- ("ccoop_sea_raider_taunt_2",sf_vol_8, ["encounter_sea_raider_9b.ogg"]),
- ("ccoop_sea_raider_taunt_3",sf_vol_8, ["encounter_sea_raider_10.ogg"]),
- ("sounds_end", sf_priority_10|sf_vol_10, ["enemy_scored_a_point.ogg"]),
- #INVASION MODE END
-
 ("dac_lightstep_mail", sf_vol_8|sf_priority_2,["lightstep_01.mp3","lightstep_02.mp3","lightstep_03.mp3","lightstep_04.mp3","lightstep_05.mp3","lightstep_06.mp3","lightstep_07.mp3","lightstep_08.mp3","lightstep_09.mp3",
 	"lightstep_10.mp3","lightstep_11.mp3","lightstep_12.mp3","lightstep_13.mp3","lightstep_14.mp3","lightstep_15.mp3","lightstep_16.mp3","lightstep_17.mp3","lightstep_18.mp3","lightstep_19.mp3"]),
 
