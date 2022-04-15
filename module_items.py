@@ -81,8 +81,8 @@ def custom_reskin(item):
     (item_get_slot, ":flemish_start", item, slot_item_flemish_materials_begin),
     (item_get_slot, ":flemish_end", item, slot_item_flemish_materials_end),	 
 
-    (item_get_slot, ":rebel_start", item, slot_item_rebel_materials_begin),
-    (item_get_slot, ":rebel_end", item, slot_item_rebel_materials_end),	 	  
+    (item_get_slot, ":mercenary_start", item, slot_item_mercenary_materials_begin),
+    (item_get_slot, ":mercenary_end", item, slot_item_mercenary_materials_end),	 	  
 	 
     (store_troop_faction, ":faction", ":troop_no"),
 	 
@@ -112,8 +112,8 @@ def custom_reskin(item):
     	(eq, ":faction", "fac_flemish_mercenaries"),
     	(store_random_in_range, ":value", ":flemish_start", ":flemish_end"),	
     (else_try),
-    	(eq, ":faction", "fac_rebels"),
-    	(store_random_in_range, ":value", ":rebel_start", ":rebel_end"),	
+    	(eq, ":faction", "fac_neutral"),
+    	(store_random_in_range, ":value", ":mercenary_start", ":mercenary_end"),	
     (else_try),
     	(eq, ":faction", "fac_player_faction"),
         (eq, "$player_camp_troop_color_scheme", 1),
@@ -137,7 +137,7 @@ def custom_reskin(item):
     (else_try),
     	(eq, ":faction", "fac_player_faction"),
         (eq, "$player_camp_troop_color_scheme", 6),
-        (store_random_in_range, ":value", ":rebel_start", ":rebel_end"), 
+        (store_random_in_range, ":value", ":mercenary_start", ":mercenary_end"), 
     (else_try),
       (store_random_in_range, ":value", ":start", ":end"), #Anyone else gets a random mix of everything
     (try_end),
@@ -174,8 +174,8 @@ def custom_remodel(item):
     (item_get_slot, ":flemish_start", item, slot_item_flemish_materials_begin),
     (item_get_slot, ":flemish_end", item, slot_item_flemish_materials_end),		 
 	 
-    (item_get_slot, ":rebel_start", item, slot_item_rebel_materials_begin),
-    (item_get_slot, ":rebel_end", item, slot_item_rebel_materials_end),	 	 
+    (item_get_slot, ":mercenary_start", item, slot_item_mercenary_materials_begin),
+    (item_get_slot, ":mercenary_end", item, slot_item_mercenary_materials_end),	 	 
 
     (store_troop_faction, ":faction", ":troop_no"),
 	 
@@ -205,8 +205,8 @@ def custom_remodel(item):
     	(eq, ":faction", "fac_flemish_mercenaries"),
     	(store_random_in_range, ":value", ":flemish_start", ":flemish_end"),	
     (else_try),
-    	(eq, ":faction", "fac_rebels"),
-    	(store_random_in_range, ":value", ":rebel_start", ":rebel_end"),	
+    	(eq, ":faction", "fac_neutral"),
+    	(store_random_in_range, ":value", ":mercenary_start", ":mercenary_end"),	
     (else_try),
     	(eq, ":faction", "fac_player_faction"),
         (eq, "$player_camp_troop_color_scheme", 1),
@@ -230,7 +230,7 @@ def custom_remodel(item):
     (else_try),
     	(eq, ":faction", "fac_player_faction"),
         (eq, "$player_camp_troop_color_scheme", 6),
-        (store_random_in_range, ":value", ":rebel_start", ":rebel_end"), 
+        (store_random_in_range, ":value", ":mercenary_start", ":mercenary_end"), 
     (else_try),
       (store_random_in_range, ":value", ":start", ":end"), #Anyone else gets a random mix of everything
     (try_end),
@@ -1572,6 +1572,12 @@ items = [
 ["a_pistoia_kastenbrust_b_mail_sleeves_plate_spaulders_2", "Kastenbrust with Plate Arm Harness", [("a_pistoia_kastenbrust_b",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(8)|difficulty(7) ,imodbits_armor ,[add_mesh("@a_pistoia_mail_arms_light"),add_mesh("@a_pistoia_spaulders"),add_mesh("@a_pistoia_couters_2"),]],
 ["a_pistoia_kastenbrust_b_mail_sleeves_plate_spaulders_3", "Kastenbrust with Plate Arm Harness", [("a_pistoia_kastenbrust_b",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(8)|difficulty(7) ,imodbits_armor ,[add_mesh("@a_pistoia_mail_arms_light"),add_mesh("@a_pistoia_spaulders"),add_mesh("@a_pistoia_couters_3"),]],
 
+### Padded over Plate
+["a_padded_over_plate_sleeved_deco_1", "Decorated Longsleeved Padded over Plate", [("a_padded_over_plate_sleeved_1",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 2140 , weight(23)|abundance(100)|head_armor(0)|body_armor(54)|leg_armor(14)|difficulty(8) ,imodbits_armor , [reskin("@a_padded_over_plate_deco_1",0),],],
+["a_padded_over_plate_sleeveless_deco_1", "Decorated Sleeveless Padded over Plate", [("a_padded_over_plate_sleeveless_1",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 2140 , weight(23)|abundance(100)|head_armor(0)|body_armor(54)|leg_armor(14)|difficulty(8) ,imodbits_armor , [reskin("@a_padded_over_plate_deco_1",0),add_mesh("@a_pistoia_mail_arms_light"),add_mesh("@a_pistoia_couters_1"),add_mesh("@a_pistoia_spaulders"),],],
+["a_padded_over_plate_sleeved_deco_2", "Decorated Longsleeved Padded over Plate", [("a_padded_over_plate_sleeved_1",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 2140 , weight(23)|abundance(100)|head_armor(0)|body_armor(54)|leg_armor(14)|difficulty(8) ,imodbits_armor , [reskin("@a_padded_over_plate_deco_2",0),],],
+["a_padded_over_plate_sleeveless_deco_2", "Decorated Sleeveless Padded over Plate", [("a_padded_over_plate_sleeveless_1",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 2140 , weight(23)|abundance(100)|head_armor(0)|body_armor(54)|leg_armor(14)|difficulty(8) ,imodbits_armor , [reskin("@a_padded_over_plate_deco_2",0),add_mesh("@a_pistoia_mail_arms_light"),add_mesh("@a_pistoia_couters_1"),add_mesh("@a_pistoia_spaulders"),],],
+
 ### English Plate Armour
 # 1415 Version
 ["a_english_plate_1415_a", "English Plate Armour (1415)", [("a_english_plate_1415",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(8)|difficulty(7) ,imodbits_armor ,[add_mesh("@a_arm_harness_english_1415_a"),]],
@@ -1592,6 +1598,15 @@ items = [
 ["a_english_plate_1415_a_gilded_besagews_square", "Gilded English Plate Armour with Besagews (1415)", [("a_english_plate_1415",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(8)|difficulty(7) ,imodbits_armor ,[add_mesh("@a_arm_harness_english_1415_a"),add_mesh("@a_arm_harness_english_1415_besagews_square"),reskin("@a_english_plate_1415_gilded", 0),reskin("@a_arm_harness_english_1415_gilded", 1),reskin("@a_arm_harness_english_1415_gilded", 2),]],
 ["a_english_plate_1415_b_gilded_besagews_square", "Gilded English Plate Armour with Besagews (1415)", [("a_english_plate_1415",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(8)|difficulty(7) ,imodbits_armor ,[add_mesh("@a_arm_harness_english_1415_b"),add_mesh("@a_arm_harness_english_1415_besagews_square"),reskin("@a_english_plate_1415_gilded", 0),reskin("@a_arm_harness_english_1415_gilded", 1),reskin("@a_arm_harness_english_1415_gilded", 2),]],
 
+["a_english_plate_1415_a_blued", "Blued English Plate Armour (1415)", [("a_english_plate_1415",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(8)|difficulty(7) ,imodbits_armor ,[add_mesh("@a_arm_harness_english_1415_a"),reskin("@a_english_plate_1415_blued", 0),reskin("@a_arm_harness_english_1415_blued", 1),]],
+["a_english_plate_1415_b_blued", "Blued English Plate Armour (1415)", [("a_english_plate_1415",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(8)|difficulty(7) ,imodbits_armor ,[add_mesh("@a_arm_harness_english_1415_b"),reskin("@a_english_plate_1415_blued", 0),reskin("@a_arm_harness_english_1415_blued", 1),]],
+
+["a_english_plate_1415_a_blued_besagews_round", "Blued English Plate Armour with Besagews (1415)", [("a_english_plate_1415",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(8)|difficulty(7) ,imodbits_armor ,[add_mesh("@a_arm_harness_english_1415_a"),add_mesh("@a_arm_harness_english_1415_besagews_round"),reskin("@a_english_plate_1415_blued", 0),reskin("@a_arm_harness_english_1415_blued", 1),reskin("@a_arm_harness_english_1415_blued", 2),]],
+["a_english_plate_1415_b_blued_besagews_round", "Blued English Plate Armour with Besagews (1415)", [("a_english_plate_1415",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(8)|difficulty(7) ,imodbits_armor ,[add_mesh("@a_arm_harness_english_1415_b"),add_mesh("@a_arm_harness_english_1415_besagews_round"),reskin("@a_english_plate_1415_blued", 0),reskin("@a_arm_harness_english_1415_blued", 1),reskin("@a_arm_harness_english_1415_blued", 2),]],
+
+["a_english_plate_1415_a_blued_besagews_square", "Blued English Plate Armour with Besagews (1415)", [("a_english_plate_1415",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(8)|difficulty(7) ,imodbits_armor ,[add_mesh("@a_arm_harness_english_1415_a"),add_mesh("@a_arm_harness_english_1415_besagews_square"),reskin("@a_english_plate_1415_blued", 0),reskin("@a_arm_harness_english_1415_blued", 1),reskin("@a_arm_harness_english_1415_blued", 2),]],
+["a_english_plate_1415_b_blued_besagews_square", "Blued English Plate Armour with Besagews (1415)", [("a_english_plate_1415",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(8)|difficulty(7) ,imodbits_armor ,[add_mesh("@a_arm_harness_english_1415_b"),add_mesh("@a_arm_harness_english_1415_besagews_square"),reskin("@a_english_plate_1415_blued", 0),reskin("@a_arm_harness_english_1415_blued", 1),reskin("@a_arm_harness_english_1415_blued", 2),]],
+
 # 1415 Continental Version
 ["a_english_plate_1415_continental_a", "Continental English Plate Armour (1415)", [("a_english_plate_1415_continental",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(8)|difficulty(7) ,imodbits_armor ,[add_mesh("@a_arm_harness_english_1415_a"),]],
 ["a_english_plate_1415_continental_b", "Continental English Plate Armour (1415)", [("a_english_plate_1415_continental",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(8)|difficulty(7) ,imodbits_armor ,[add_mesh("@a_arm_harness_english_1415_b"),]],
@@ -1610,6 +1625,18 @@ items = [
 
 ["a_english_plate_1415_continental_a_gilded_besagews_square", "Gilded Continental English Plate Armour with Besagews (1415)", [("a_english_plate_1415_continental",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(8)|difficulty(7) ,imodbits_armor ,[add_mesh("@a_arm_harness_english_1415_a"),add_mesh("@a_arm_harness_english_1415_besagews_square"),reskin("@a_english_plate_1415_gilded", 0),reskin("@a_arm_harness_english_1415_gilded", 1),reskin("@a_arm_harness_english_1415_gilded", 2),]],
 ["a_english_plate_1415_continental_b_gilded_besagews_square", "Gilded Continental English Plate Armour with Besagews (1415)", [("a_english_plate_1415_continental",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(8)|difficulty(7) ,imodbits_armor ,[add_mesh("@a_arm_harness_english_1415_b"),add_mesh("@a_arm_harness_english_1415_besagews_square"),reskin("@a_english_plate_1415_gilded", 0),reskin("@a_arm_harness_english_1415_gilded", 1),reskin("@a_arm_harness_english_1415_gilded", 2),]],
+
+# 1430 - 1445 Version
+["a_english_plate_1430_1445", "English Plate Armour (1430)", [("a_english_plate_1430_1445",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(8)|difficulty(7) ,imodbits_armor ,[add_mesh("@a_arm_harness_english_1430_1445"),]],
+["a_english_plate_1430_1445_gilded", "Gilded English Plate Armour (1430)", [("a_english_plate_1430_1445",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(8)|difficulty(7) ,imodbits_armor ,[add_mesh("@a_arm_harness_english_1430_1445"),reskin("@a_english_plate_1430_1445_gilded", 0),reskin("@a_arm_harness_english_1430_1450_gilded", 1),]],
+
+# 1435 - 1450 Version
+["a_english_plate_1435_1450", "English Plate Armour (1435)", [("a_english_plate_1435_1450",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(8)|difficulty(7) ,imodbits_armor ,[add_mesh("@a_arm_harness_english_1430_1450"),]],
+["a_english_plate_1435_1450_gilded", "Gilded English Plate Armour (1435)", [("a_english_plate_1435_1450",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(8)|difficulty(7) ,imodbits_armor ,[add_mesh("@a_arm_harness_english_1430_1450"),reskin("@a_english_plate_1435_1450_gilded", 0),reskin("@a_arm_harness_english_1430_1450_gilded", 1),]],
+
+# 1440 - 1450 Version
+["a_english_plate_1445_1450", "English Plate Armour (1440)", [("a_english_plate_1445_1450",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(8)|difficulty(7) ,imodbits_armor ,[add_mesh("@a_arm_harness_english_1440"),]],
+["a_english_plate_1445_1450_gilded", "Gilded English Plate Armour (1440)", [("a_english_plate_1445_1450",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(8)|difficulty(7) ,imodbits_armor ,[add_mesh("@a_arm_harness_english_1440"),reskin("@a_english_plate_1445_1450_gilded", 0),reskin("@a_arm_harness_english_1440_gilded", 1),]],
 
 ##################################################################################################################################################################################################################################################################################################################
 ###################################################################################################### DAC HERALDIC ITEMS ########################################################################################################################################################################################
@@ -1767,8 +1794,6 @@ items = [
 ["g_mail_gauntlets","Mail Mittens", [("g_mail_gauntlets_L",0)], itp_merchandise|itp_type_hand_armor,0, 350, weight(0.5)|abundance(100)|body_armor(4)|difficulty(0),imodbits_armor],
 ["g_demi_gauntlets","Demi Gauntlets", [("g_demi_gauntlets_L",0)], itp_merchandise|itp_type_hand_armor,0, 710, weight(0.75)|abundance(100)|body_armor(5)|difficulty(0),imodbits_armor],
 ["g_finger_gauntlets","Finger Gauntlets", [("g_finger_gauntlets_L",0)], itp_merchandise|itp_type_hand_armor,0, 1040, weight(1.0)|abundance(100)|body_armor(6)|difficulty(0),imodbits_armor],
-# ["g_wisby_gauntlets_black","Splinted Leather Gauntlets", [("g_wisby_gauntlets_black_L",0)], itp_merchandise|itp_type_hand_armor,0, 1040, weight(0.75)|abundance(100)|body_armor(6)|difficulty(0),imodbits_armor],
-# ["g_wisby_gauntlets_red","Splinted Leather Gauntlets", [("g_wisby_gauntlets_red_L",0)], itp_merchandise|itp_type_hand_armor,0, 1040, weight(0.75)|abundance(100)|body_armor(6)|difficulty(0),imodbits_armor],
 ["g_hourglass_gauntlets","Hourglass Gauntlets", [("g_hourglass_gauntlets_L",0)], itp_merchandise|itp_type_hand_armor,0, 1240, weight(1.0)|abundance(100)|body_armor(7)|difficulty(0),imodbits_armor],
 ["g_hourglass_gauntlets_ornate","Ornate Hourglass Gauntlets", [("g_hourglass_gauntlets_ornate_L",0)], itp_merchandise|itp_type_hand_armor,0, 1390, weight(1.0)|abundance(100)|body_armor(7)|difficulty(0),imodbits_armor],
 ["g_plate_mittens","Plate Mittens", [("g_plate_mittens_L",imodbit_reinforced)], itp_merchandise|itp_type_hand_armor,0, 1640, weight(1.5)|abundance(100)|body_armor(8)|difficulty(0),imodbits_armor],
@@ -1965,9 +1990,31 @@ items = [
 ["a_light_gambeson_long_sleeves_3_custom", "Light Gambeson", [("a_light_gambeson_long_sleeves_alt",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(21)|leg_armor(5)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_light_gambeson_long_sleeves_3_custom")]],
 ["a_light_gambeson_long_sleeves_6_custom", "Light Gambeson", [("a_light_gambeson_long_sleeves_alt",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(21)|leg_armor(5)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_light_gambeson_long_sleeves_6_custom")]],
 
+["a_light_gambeson_long_sleeves_8_custom", "Light Gambeson", [("a_light_gambeson_long_sleeves_8",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(21)|leg_armor(5)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_light_gambeson_long_sleeves_8_custom")]],
+["a_light_gambeson_long_sleeves_8_alt_custom", "Light Gambeson", [("a_light_gambeson_long_sleeves_8",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(21)|leg_armor(5)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_light_gambeson_long_sleeves_8_alt_custom")]],
+
 ["a_simple_gambeson_custom", "Gambeson", [("mesh_none",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(21)|leg_armor(5)|difficulty(0) ,imodbits_cloth , [custom_remodel("itm_a_simple_gambeson_custom")]],
 
+### Seek: Beware of the code loops!
+["a_padded_over_mail_1_custom", "Padded Armour", [("a_padded_over_mail_1",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(12)|difficulty(7) ,imodbits_armor , [custom_reskin("itm_a_padded_over_mail_1_custom"),add_mesh("@a_pistoia_arming_cote_arms"),]], 
+["a_padded_over_mail_2_custom", "Padded Armour", [("a_padded_over_mail_2",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(12)|difficulty(7) ,imodbits_armor , [custom_reskin("itm_a_padded_over_mail_2_custom"),add_mesh("@a_pistoia_arming_cote_arms_short"),]], 
+["a_padded_over_mail_3_custom", "Padded Over Mail", [("a_padded_over_mail_3",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(12)|difficulty(7) ,imodbits_armor , [custom_reskin("itm_a_padded_over_mail_3_custom"),add_mesh("@a_pistoia_mail_arms"),]], 
+["a_padded_over_mail_4_custom", "Padded Over Mail with Plate Arm Harness", [("a_padded_over_mail_4",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(12)|difficulty(7) ,imodbits_armor , [custom_reskin("itm_a_padded_over_mail_4_custom"),add_mesh("@a_pistoia_arming_cote_arms_plate_short"),add_mesh("@a_pistoia_couters_2"),]], 
+["a_padded_over_mail_5_custom", "Padded Over Mail with Plate Arm Harness", [("a_padded_over_mail_5",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(12)|difficulty(7) ,imodbits_armor , [custom_reskin("itm_a_padded_over_mail_5_custom"),add_mesh("@a_pistoia_arming_cote_arms_plate_short"),add_mesh("@a_pistoia_couters_2"),]], 
+
+["a_padded_over_mail_alt_1_custom", "Padded Armour", [("a_padded_over_mail_alt_1",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(12)|difficulty(7) ,imodbits_armor , [custom_reskin("itm_a_padded_over_mail_alt_1_custom"),add_mesh("@a_pistoia_arming_cote_arms"),]], 
+["a_padded_over_mail_alt_2_custom", "Padded Armour", [("a_padded_over_mail_alt_2",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(12)|difficulty(7) ,imodbits_armor , [custom_reskin("itm_a_padded_over_mail_alt_2_custom"),add_mesh("@a_pistoia_arming_cote_arms_short"),]], 
+["a_padded_over_mail_alt_3_custom", "Padded Over Mail", [("a_padded_over_mail_alt_3",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(12)|difficulty(7) ,imodbits_armor , [custom_reskin("itm_a_padded_over_mail_alt_3_custom"),add_mesh("@a_pistoia_mail_arms"),]], 
+["a_padded_over_mail_alt_4_custom", "Padded Over Mail with Plate Arm Harness", [("a_padded_over_mail_alt_4",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(12)|difficulty(7) ,imodbits_armor , [custom_reskin("itm_a_padded_over_mail_alt_4_custom"),add_mesh("@a_pistoia_arming_cote_arms_plate_short"),add_mesh("@a_pistoia_couters_2"),]], 
+["a_padded_over_mail_alt_5_custom", "Padded Over Mail with Plate Arm Harness", [("a_padded_over_mail_alt_5",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(12)|difficulty(7) ,imodbits_armor , [custom_reskin("itm_a_padded_over_mail_alt_5_custom"),add_mesh("@a_pistoia_arming_cote_arms_plate_short"),add_mesh("@a_pistoia_couters_2"),]], 
+
+["a_padded_over_mail_heavy_1_custom", "Heavy Gambeson", [("a_padded_over_mail_heavy_1",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(12)|difficulty(7) ,imodbits_armor , [custom_reskin("itm_a_padded_over_mail_heavy_1_custom"),],], 
+["a_padded_over_mail_heavy_2_custom", "Heavy Gambeson", [("a_padded_over_mail_heavy_2",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(12)|difficulty(7) ,imodbits_armor , [custom_reskin("itm_a_padded_over_mail_heavy_2_custom"),],], 
+["a_padded_over_mail_heavy_3_custom", "Heavy Gambeson", [("a_padded_over_mail_heavy_3",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(12)|difficulty(7) ,imodbits_armor , [custom_reskin("itm_a_padded_over_mail_heavy_3_custom"),],], 
+["a_padded_over_mail_heavy_4_custom", "Heavy Gambeson", [("a_padded_over_mail_heavy_4",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(12)|difficulty(7) ,imodbits_armor , [custom_reskin("itm_a_padded_over_mail_heavy_4_custom"),],], 
+
 ["a_gambeson_crossbowman_custom", "Heavy Gambeson", [("a_gambeson_crossbowman",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(12)|difficulty(7) ,imodbits_armor , [custom_reskin("itm_a_gambeson_crossbowman_custom"),],], 
+## Code Loop End
 ["a_gambeson_crossbowman_heavy_custom", "Crossbowman's Gambeson over Mail", [("a_gambeson_crossbowman_heavy",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(12)|difficulty(7) ,imodbits_armor , [custom_reskin("itm_a_gambeson_crossbowman_heavy_custom"),],], 
 
 ["a_padded_jack_custom", "Padded Jack Over Mail", [("a_padded_jack",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(12)|difficulty(7) ,imodbits_armor , [custom_reskin("itm_a_padded_jack_custom"),]], 
@@ -1985,18 +2032,32 @@ items = [
 ["a_brigandine_asher_plate_3_custom", "Brigandine with Plate Arm Harness", [("a_brigandine_asher_base",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 2080 , weight(23)|abundance(100)|head_armor(0)|body_armor(54)|leg_armor(8)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_brigandine_asher_plate_3_custom"),add_mesh("@a_pistoia_mail_arms_light"),add_mesh("@a_pistoia_couters_3"),add_mesh("@a_pistoia_spaulders"),add_mesh("@a_mail_skirt_narf"),],],
 
 ["a_churburg_13_asher_plain_custom", "Churburg Plate", [("a_churburg_13_asher_base",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0, 1460, weight(20)|abundance(100)|head_armor(0)|body_armor(44)|leg_armor(18)|difficulty(8), imodbits_armor , [custom_reskin("itm_a_churburg_13_asher_plain_custom"),],],
+# End of loop
 ["a_churburg_13_asher_brass_custom", "Churburg Brass Plate", [("a_churburg_13_asher_base",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0, 1680, weight(27)|abundance(100)|head_armor(0)|body_armor(44)|leg_armor(18)|difficulty(8), imodbits_armor , [custom_reskin("itm_a_churburg_13_asher_brass_custom"),],],
 
 ["a_corrazina_hohenaschau_mail_custom", "Hohenaschau Corrazina over Mail", [("a_corrazina_hohenaschau_mail",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 2140 , weight(23)|abundance(100)|head_armor(0)|body_armor(54)|leg_armor(14)|difficulty(8) ,imodbits_armor , [custom_reskin("itm_a_corrazina_hohenaschau_mail_custom"),add_mesh("@a_pistoia_arming_cote_arms_short"),],],
 
-["a_corrazina_hohenaschau_custom", "Hohenaschau Corrazina", [("a_corrazina_hohenaschau_base",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 2140 , weight(23)|abundance(100)|head_armor(0)|body_armor(54)|leg_armor(14)|difficulty(8) ,imodbits_armor , [custom_reskin("itm_a_corrazina_hohenaschau_custom"),(ti_on_init_item,[(cur_item_add_mesh, "@a_arm_harness_english_1415_b", 0, 0),])],],
+["a_corrazina_hohenaschau_custom", "Hohenaschau Corrazina", [("a_corrazina_hohenaschau_base",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 2140 , weight(23)|abundance(100)|head_armor(0)|body_armor(54)|leg_armor(14)|difficulty(8) ,imodbits_armor , [custom_reskin("itm_a_corrazina_hohenaschau_custom"),add_mesh("@a_arm_harness_english_1415_b"),],],
 
-["a_corrazina_spina_custom", "Corrazina", [("a_corrazina_spina_base",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 2140 , weight(23)|abundance(100)|head_armor(0)|body_armor(54)|leg_armor(14)|difficulty(8) ,imodbits_armor , [custom_reskin("itm_a_corrazina_spina_custom"),(ti_on_init_item,[(cur_item_add_mesh, "@a_arm_harness_english_1415_b", 0, 0),])],],
+["a_corrazina_spina_custom", "Corrazina", [("a_corrazina_spina_base",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 2140 , weight(23)|abundance(100)|head_armor(0)|body_armor(54)|leg_armor(14)|difficulty(8) ,imodbits_armor , [custom_reskin("itm_a_corrazina_spina_custom"),add_mesh("@a_arm_harness_english_1415_b"),],],
 
-["a_corrazina_capwell_custom", "Corrazina", [("a_corrazina_capwell_base",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 2140 , weight(23)|abundance(100)|head_armor(0)|body_armor(54)|leg_armor(14)|difficulty(8) ,imodbits_armor , [custom_reskin("itm_a_corrazina_capwell_custom"),(ti_on_init_item,[(cur_item_add_mesh, "@a_arm_harness_english_1415_b", 0, 0),])],],
+["a_corrazina_capwell_custom", "Corrazina", [("a_corrazina_capwell_base",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 2140 , weight(23)|abundance(100)|head_armor(0)|body_armor(54)|leg_armor(14)|difficulty(8) ,imodbits_armor , [custom_reskin("itm_a_corrazina_capwell_custom"),add_mesh("@a_arm_harness_english_1415_b"),],],
+
+# Start of loop
+["a_padded_over_plate_sleeved_1_custom", "Longsleeved Padded over Plate", [("a_padded_over_plate_sleeved_1",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 2140 , weight(23)|abundance(100)|head_armor(0)|body_armor(54)|leg_armor(14)|difficulty(8) ,imodbits_armor , [custom_reskin("itm_a_padded_over_plate_sleeved_1_custom"),],],
+["a_padded_over_plate_sleeved_2_custom", "Longsleeved Padded over Plate", [("a_padded_over_plate_sleeved_2",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 2140 , weight(23)|abundance(100)|head_armor(0)|body_armor(54)|leg_armor(14)|difficulty(8) ,imodbits_armor , [custom_reskin("itm_a_padded_over_plate_sleeved_2_custom"),],],
+
+["a_padded_over_plate_shortsleeved_1_custom", "Shortsleeved Padded over Plate", [("a_padded_over_plate_shortsleeved_1",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 2140 , weight(23)|abundance(100)|head_armor(0)|body_armor(54)|leg_armor(14)|difficulty(8) ,imodbits_armor , [custom_reskin("itm_a_padded_over_plate_shortsleeved_1_custom"),add_mesh("@a_pistoia_arming_cote_arms_plate_short"),add_mesh("@a_pistoia_couters_1"),],],
+["a_padded_over_plate_shortsleeved_2_custom", "Shortsleeved Padded over Plate", [("a_padded_over_plate_shortsleeved_2",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 2140 , weight(23)|abundance(100)|head_armor(0)|body_armor(54)|leg_armor(14)|difficulty(8) ,imodbits_armor , [custom_reskin("itm_a_padded_over_plate_shortsleeved_2_custom"),add_mesh("@a_pistoia_arming_cote_arms_plate_short"),add_mesh("@a_pistoia_couters_1"),],],
+["a_padded_over_plate_shortsleeved_3_custom", "Shortsleeved Padded over Plate", [("a_padded_over_plate_shortsleeved_3",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 2140 , weight(23)|abundance(100)|head_armor(0)|body_armor(54)|leg_armor(14)|difficulty(8) ,imodbits_armor , [custom_reskin("itm_a_padded_over_plate_shortsleeved_3_custom"),add_mesh("@a_pistoia_arming_cote_arms_plate_short"),add_mesh("@a_pistoia_couters_1"),],],
+
+["a_padded_over_plate_sleeveless_1_custom", "Sleeveless Padded over Plate", [("a_padded_over_plate_sleeveless_1",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 2140 , weight(23)|abundance(100)|head_armor(0)|body_armor(54)|leg_armor(14)|difficulty(8) ,imodbits_armor , [custom_reskin("itm_a_padded_over_plate_sleeveless_1_custom"),add_mesh("@a_pistoia_mail_arms_light"),add_mesh("@a_pistoia_couters_1"),add_mesh("@a_pistoia_spaulders"),],],
+["a_padded_over_plate_sleeveless_2_custom", "Sleeveless Padded over Plate", [("a_padded_over_plate_sleeveless_2",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 2140 , weight(23)|abundance(100)|head_armor(0)|body_armor(54)|leg_armor(14)|difficulty(8) ,imodbits_armor , [custom_reskin("itm_a_padded_over_plate_sleeveless_2_custom"),add_mesh("@a_pistoia_mail_arms_light"),add_mesh("@a_pistoia_couters_1"),add_mesh("@a_pistoia_spaulders"),],],
+["a_padded_over_plate_sleeveless_3_custom", "Sleeveless Padded over Plate", [("a_padded_over_plate_sleeveless_3",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 2140 , weight(23)|abundance(100)|head_armor(0)|body_armor(54)|leg_armor(14)|difficulty(8) ,imodbits_armor , [custom_reskin("itm_a_padded_over_plate_sleeveless_3_custom"),add_mesh("@a_pistoia_mail_arms_light"),add_mesh("@a_pistoia_couters_1"),add_mesh("@a_pistoia_spaulders"),],],
+["a_padded_over_plate_sleeveless_4_custom", "Sleeveless Padded over Plate", [("a_padded_over_plate_sleeveless_4",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 2140 , weight(23)|abundance(100)|head_armor(0)|body_armor(54)|leg_armor(14)|difficulty(8) ,imodbits_armor , [custom_reskin("itm_a_padded_over_plate_sleeveless_4_custom"),add_mesh("@a_pistoia_mail_arms_light"),add_mesh("@a_pistoia_couters_1"),add_mesh("@a_pistoia_spaulders"),],],
 
 ["a_plate_german_covered_fauld_custom", "German Plate with Covered Fauld", [("a_plate_german_covered_fauld",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0, 5400, weight(28)|abundance(100)|head_armor(0)|body_armor(60)|leg_armor(24)|difficulty(9), imodbits_plate  ,[custom_reskin("itm_a_plate_german_covered_fauld_custom"),add_mesh("@a_arm_harness_english_1415_b"),],], 
-
+# End of loop
 ["h_hood_custom", "Hood", [("mesh_none",0)],itp_merchandise|itp_type_head_armor|itp_civilian,0,9, weight(1)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0),imodbits_cloth,[custom_remodel("itm_h_hood_custom")]], 
 ["h_hood_fi_custom", "Hood", [("mesh_none",0)],itp_merchandise|itp_type_head_armor|itp_civilian,0,9, weight(1)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0),imodbits_cloth,[custom_remodel("itm_h_hood_fi_custom")]], 
 

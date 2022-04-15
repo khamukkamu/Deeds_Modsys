@@ -2681,8 +2681,8 @@ slot_item_breton_materials_begin	=	99
 slot_item_breton_materials_end		=	100
 slot_item_flemish_materials_begin	=	101
 slot_item_flemish_materials_end		=	102
-slot_item_rebel_materials_begin	=	103
-slot_item_rebel_materials_end		=	104
+slot_item_mercenary_materials_begin	=	103
+slot_item_mercenary_materials_end		=	104
 # slot_item_ironskulls_materials_begin	=	105
 # slot_item_ironskulls_materials_end		=	106
 # HYW Seek end

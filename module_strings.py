@@ -5272,6 +5272,40 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("a_light_gambeson_long_sleeves_6_red", "a_light_gambeson_long_sleeves_6_red"),  
 ("a_light_gambeson_long_sleeves_6_end",   "a_light_gambeson_long_sleeves_6_end"),
 
+# Long Sleeved Gambeson 8
+("a_light_gambeson_long_sleeves_8_blue",  "a_light_gambeson_long_sleeves_8_blue"),  
+("a_light_gambeson_long_sleeves_8_brown", "a_light_gambeson_long_sleeves_8_brown"),  
+("a_light_gambeson_long_sleeves_8_red", "a_light_gambeson_long_sleeves_8_red"),  
+("a_light_gambeson_long_sleeves_8_white", "a_light_gambeson_long_sleeves_8_white"),  
+("a_light_gambeson_long_sleeves_8_end",   "a_light_gambeson_long_sleeves_6_end"),
+
+# Long Sleeved Gambeson 8 alt
+("a_light_gambeson_long_sleeves_8_alt_blue",  "a_light_gambeson_long_sleeves_8_alt_blue"),  
+("a_light_gambeson_long_sleeves_8_alt_brown", "a_light_gambeson_long_sleeves_8_alt_brown"),  
+("a_light_gambeson_long_sleeves_8_alt_green", "a_light_gambeson_long_sleeves_8_alt_green"),  
+("a_light_gambeson_long_sleeves_8_alt_white", "a_light_gambeson_long_sleeves_8_alt_white"),  
+("a_light_gambeson_long_sleeves_8_alt_end",   "a_light_gambeson_long_sleeves_8_alt_end"),
+
+# Padded over Mail
+("a_padded_over_mail_a",    "a_padded_over_mail_a"),  
+("a_padded_over_mail_b",    "a_padded_over_mail_b"),  
+("a_padded_over_mail_c",    "a_padded_over_mail_c"),  
+("a_padded_over_mail_end", "a_padded_over_mail_end"),  
+
+# Padded over Mail Alt
+("a_padded_over_mail_alt_a",    "a_padded_over_mail_alt_a"),  
+("a_padded_over_mail_alt_b",    "a_padded_over_mail_alt_b"),  
+("a_padded_over_mail_alt_c",    "a_padded_over_mail_alt_c"),  
+("a_padded_over_mail_alt_end", "a_padded_over_mail_alt_end"),  
+
+# Padded over Mail Heavy
+("a_padded_over_mail_heavy_a",    "a_padded_over_mail_heavy_a"),  
+("a_padded_over_mail_heavy_b",    "a_padded_over_mail_heavy_b"),  
+("a_padded_over_mail_heavy_c",    "a_padded_over_mail_heavy_c"),  
+("a_padded_over_mail_heavy_d",    "a_padded_over_mail_heavy_d"),  
+("a_padded_over_mail_heavy_e",    "a_padded_over_mail_heavy_e"),  
+("a_padded_over_mail_heavy_end", "a_padded_over_mail_heavy_end"),  
+
 # Crossbowman Gambeson
 ("a_gambeson_crossbowman_beige", "a_gambeson_crossbowman_beige"),  
 ("a_gambeson_crossbowman_blue", "a_gambeson_crossbowman_blue"),  
@@ -5369,7 +5403,22 @@ Even in the last case, the player can make formations up to four lines by orderi
 # Breton    
 ("a_corrazina_capwell_alt_beige_2", "a_corrazina_capwell_alt_beige"),
 ("a_corrazina_capwell_breton", "a_corrazina_capwell_breton"),
+# Mercenary
+("a_corrazina_capwell_alt_green_m", "a_corrazina_capwell_alt_green"),  
+("a_corrazina_capwell_alt_beige_m", "a_corrazina_capwell_alt_beige"),  
+("a_corrazina_capwell_alt_red_m", "a_corrazina_capwell_alt_red"), 
 ("a_corrazina_capwell_end", "a_corrazina_capwell_end"),
+
+## Padded over Plate
+("a_padded_over_plate_1", "a_padded_over_plate_1"), 
+("a_padded_over_plate_2", "a_padded_over_plate_2"), 
+("a_padded_over_plate_3", "a_padded_over_plate_3"), 
+("a_padded_over_plate_4", "a_padded_over_plate_4"), 
+("a_padded_over_plate_5", "a_padded_over_plate_5"), 
+("a_padded_over_plate_6", "a_padded_over_plate_6"), 
+("a_padded_over_plate_7", "a_padded_over_plate_7"), 
+("a_padded_over_plate_end", "a_padded_over_plate_end"), 
+
 
 ## Narf Hoods for the Helmets
 # French 

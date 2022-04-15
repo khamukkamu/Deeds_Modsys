@@ -75837,7 +75837,38 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (item_set_slot, "itm_a_light_gambeson_long_sleeves_6_custom", slot_item_materials_begin, "str_a_light_gambeson_long_sleeves_6_beige"),
       (item_set_slot, "itm_a_light_gambeson_long_sleeves_6_custom", slot_item_materials_end, "str_a_light_gambeson_long_sleeves_6_end"),   
       (item_set_slot, "itm_a_light_gambeson_long_sleeves_6_custom", slot_item_num_components, 1), 
-            
+       
+## Long Sleeved Light Gambeson 8
+      (item_set_slot, "itm_a_light_gambeson_long_sleeves_8_custom", slot_item_materials_begin, "str_a_light_gambeson_long_sleeves_8_blue"),
+      (item_set_slot, "itm_a_light_gambeson_long_sleeves_8_custom", slot_item_materials_end, "str_a_light_gambeson_long_sleeves_8_end"),   
+      (item_set_slot, "itm_a_light_gambeson_long_sleeves_8_custom", slot_item_num_components, 1), 
+        
+## Long Sleeved Light Gambeson 8 alt
+      (item_set_slot, "itm_a_light_gambeson_long_sleeves_8_alt_custom", slot_item_materials_begin, "str_a_light_gambeson_long_sleeves_8_alt_blue"),
+      (item_set_slot, "itm_a_light_gambeson_long_sleeves_8_alt_custom", slot_item_materials_end, "str_a_light_gambeson_long_sleeves_8_alt_end"),   
+      (item_set_slot, "itm_a_light_gambeson_long_sleeves_8_alt_custom", slot_item_num_components, 1), 
+                
+## Padded over Mail
+      (try_for_range, ":item_no", "itm_a_padded_over_mail_1_custom", "itm_a_padded_over_mail_alt_1_custom"), # Seek: All the armours share the same base
+          (item_set_slot, ":item_no", slot_item_materials_begin, "str_a_padded_over_mail_a"),
+          (item_set_slot, ":item_no", slot_item_materials_end, "str_a_padded_over_mail_end"),      
+          (item_set_slot, ":item_no", slot_item_num_components, 1),     
+      (try_end),
+      
+## Padded over Mail Alt
+      (try_for_range, ":item_no", "itm_a_padded_over_mail_alt_1_custom", "itm_a_padded_over_mail_heavy_1_custom"), # Seek: All the armours share the same base
+          (item_set_slot, ":item_no", slot_item_materials_begin, "str_a_padded_over_mail_alt_a"),
+          (item_set_slot, ":item_no", slot_item_materials_end, "str_a_padded_over_mail_alt_end"),      
+          (item_set_slot, ":item_no", slot_item_num_components, 1),     
+      (try_end),
+      
+## Padded over Mail Heavy
+      (try_for_range, ":item_no", "itm_a_padded_over_mail_heavy_1_custom", "itm_a_gambeson_crossbowman_custom"), # Seek: All the armours share the same base
+          (item_set_slot, ":item_no", slot_item_materials_begin, "str_a_padded_over_mail_heavy_a"),
+          (item_set_slot, ":item_no", slot_item_materials_end, "str_a_padded_over_mail_heavy_end"),      
+          (item_set_slot, ":item_no", slot_item_num_components, 1),     
+      (try_end),
+                
 ## Crossbowman Gambeson
       (item_set_slot, "itm_a_gambeson_crossbowman_custom", slot_item_materials_begin, "str_a_gambeson_crossbowman_beige"),
       (item_set_slot, "itm_a_gambeson_crossbowman_custom", slot_item_materials_end, "str_a_gambeson_crossbowman_end"),   
@@ -75919,29 +75950,39 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (item_set_slot, "itm_a_corrazina_capwell_custom", slot_item_burgundy_materials_end, "str_a_corrazina_capwell_breton"),    
 # Brittany    
       (item_set_slot, "itm_a_corrazina_capwell_custom", slot_item_breton_materials_begin, "str_a_corrazina_capwell_alt_beige_2"),
-      (item_set_slot, "itm_a_corrazina_capwell_custom", slot_item_breton_materials_end, "str_a_corrazina_capwell_end"),   
+      (item_set_slot, "itm_a_corrazina_capwell_custom", slot_item_breton_materials_end, "str_a_corrazina_capwell_alt_green_m"),   
+# Mercenaries    
+      (item_set_slot, "itm_a_corrazina_capwell_custom", slot_item_mercenary_materials_begin, "str_a_corrazina_capwell_alt_green_m"),
+      (item_set_slot, "itm_a_corrazina_capwell_custom", slot_item_mercenary_materials_end, "str_a_corrazina_capwell_end"),   
       (item_set_slot, "itm_a_corrazina_capwell_custom", slot_item_num_components, 1),       
         
 ## Asher Brigandine 
       (try_for_range, ":item_no", "itm_a_brigandine_asher_custom", "itm_a_churburg_13_asher_plain_custom"), # Seek: All the Brigandines share the same base
-      (item_set_slot, ":item_no", slot_item_materials_begin, "str_a_brigandine_asher_blue"),
-      (item_set_slot, ":item_no", slot_item_materials_end, "str_a_brigandine_asher_end"),
-  # France
-      (item_set_slot, ":item_no", slot_item_france_materials_begin, "str_a_brigandine_asher_blue"),
-      (item_set_slot, ":item_no", slot_item_france_materials_end, "str_a_brigandine_asher_red"),
-  # England
-      (item_set_slot, ":item_no", slot_item_english_materials_begin, "str_a_brigandine_asher_brown"),
-      (item_set_slot, ":item_no", slot_item_english_materials_end, "str_a_brigandine_asher_yellow"),
-  # Burgundy
-      (item_set_slot, ":item_no", slot_item_burgundy_materials_begin, "str_a_brigandine_asher_red_2"),
-      (item_set_slot, ":item_no", slot_item_burgundy_materials_end, "str_a_brigandine_asher_black"),
-  # Brittany    
-      (item_set_slot, ":item_no", slot_item_breton_materials_begin, "str_a_brigandine_asher_brown_2"),
-      (item_set_slot, ":item_no", slot_item_breton_materials_end, "str_a_brigandine_asher_end"),  
-  # Flemish Mercenaries   
-      (item_set_slot, ":item_no", slot_item_flemish_materials_begin, "str_a_brigandine_asher_yellow"),
-      (item_set_slot, ":item_no", slot_item_flemish_materials_end, "str_a_brigandine_asher_end"),        
-      (item_set_slot, ":item_no", slot_item_num_components, 1),     
+          (item_set_slot, ":item_no", slot_item_materials_begin, "str_a_brigandine_asher_blue"),
+          (item_set_slot, ":item_no", slot_item_materials_end, "str_a_brigandine_asher_end"),
+      # France
+          (item_set_slot, ":item_no", slot_item_france_materials_begin, "str_a_brigandine_asher_blue"),
+          (item_set_slot, ":item_no", slot_item_france_materials_end, "str_a_brigandine_asher_red"),
+      # England
+          (item_set_slot, ":item_no", slot_item_english_materials_begin, "str_a_brigandine_asher_brown"),
+          (item_set_slot, ":item_no", slot_item_english_materials_end, "str_a_brigandine_asher_yellow"),
+      # Burgundy
+          (item_set_slot, ":item_no", slot_item_burgundy_materials_begin, "str_a_brigandine_asher_red_2"),
+          (item_set_slot, ":item_no", slot_item_burgundy_materials_end, "str_a_brigandine_asher_black"),
+      # Brittany    
+          (item_set_slot, ":item_no", slot_item_breton_materials_begin, "str_a_brigandine_asher_brown_2"),
+          (item_set_slot, ":item_no", slot_item_breton_materials_end, "str_a_brigandine_asher_end"),  
+      # Flemish Mercenaries   
+          (item_set_slot, ":item_no", slot_item_flemish_materials_begin, "str_a_brigandine_asher_yellow"),
+          (item_set_slot, ":item_no", slot_item_flemish_materials_end, "str_a_brigandine_asher_end"),        
+          (item_set_slot, ":item_no", slot_item_num_components, 1),     
+      (try_end),
+      
+## Padded over Plate
+      (try_for_range, ":item_no", "itm_a_padded_over_plate_sleeved_1_custom", "itm_a_plate_german_covered_fauld_custom"), # Seek: All the armours share the same base
+          (item_set_slot, ":item_no", slot_item_materials_begin, "str_a_padded_over_plate_1"),
+          (item_set_slot, ":item_no", slot_item_materials_end, "str_a_padded_over_plate_end"),      
+          (item_set_slot, ":item_no", slot_item_num_components, 1),     
       (try_end),
 
 ## Custom Hoods for the helmets

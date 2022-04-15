@@ -3099,6 +3099,7 @@ TOTAL:  {reg5}"),
      
     ("test_give_troops",[],"Give yourself mercenaries", [
     (party_add_members,"p_main_party","trp_genoese_crossbowman", 20),
+    (party_add_members,"p_main_party","trp_mercenary_german_dismounted_knight", 20),
      ]),
 
     ("dac_test_back",[],"Back",[(jump_to_menu, "mnu_camp")]),

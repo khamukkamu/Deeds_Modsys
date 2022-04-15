@@ -371,27 +371,24 @@ troops = [
 ############################################################################################################## DAC New mercenaries
 ### Generic Mercenaries
 ["watchman", "Watchman", "Watchmen", tf_guarantee_boots|tf_guarantee_armor, no_scene, reserved, fac_commoners, 
-[], 
+[itm_h_arming_cap,itm_h_simple_coif,itm_h_simple_coif_black,itm_h_simple_coif_brown,itm_h_skullcap_hood_liripipe_custom,itm_h_hood_big_liripipe_full_custom,itm_h_hood_square_liripipe_full_custom,itm_h_skullcap_hood_custom,itm_h_cervelliere_hood_custom,itm_a_light_gambeson_short_sleeves_custom,itm_a_light_gambeson_short_sleeves_diamond_custom,itm_b_turnshoes_1,itm_b_turnshoes_2,itm_b_turnshoes_3,itm_b_turnshoes_4,itm_b_turnshoes_11,itm_w_dagger_quillon,itm_w_dagger_pikeman,itm_w_archer_hatchet,itm_w_archer_hatchet_brown,itm_w_archer_hatchet_red,itm_w_archers_maul,itm_w_archers_maul_brown,itm_w_archers_maul_red,itm_w_spiked_club,itm_w_spiked_club_brown,itm_w_spiked_club_dark], 
 level(10)|str_12|agi_12, wpex(120,80,80,80,80,80), knows_ironflesh_2|knows_power_strike_2|knows_shield_1|knows_athletics_3|knows_weapon_master_1, swadian_face_young_1, swadian_face_old_2 ],
 ["caravan_guard", "Caravan_Guard", "Caravan_Guards", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_horse|tf_guarantee_shield, no_scene, reserved, fac_commoners, 
-[], 
+[itm_h_skullcap_hood_liripipe_custom,itm_h_german_kettlehat_1_liripipe_hood_custom,itm_h_german_kettlehat_3_liripipe_hood_custom,itm_h_chapel_de_fer_liripipe_hood_custom,itm_h_skullcap_hood_custom,itm_h_cervelliere_hood_custom,itm_h_german_kettlehat_1_hood_custom,itm_h_german_kettlehat_3_hood_custom,itm_h_chapel_de_fer_hood_custom,itm_a_light_gambeson_long_sleeves_custom,itm_a_light_gambeson_long_sleeves_diamond_custom,itm_a_light_gambeson_long_sleeves_alt_custom,itm_h_sallet_hood_custom,itm_h_sallet_hood_curved_custom,itm_g_leather_gauntlet,itm_b_turnshoes_1,itm_b_turnshoes_2,itm_b_turnshoes_3,itm_b_turnshoes_4,itm_b_turnshoes_11,itm_w_onehanded_falchion_peasant,itm_w_onehanded_sword_poitiers,itm_w_onehanded_sword_squire,itm_w_onehanded_sword_c_small,itm_w_onehanded_sword_c,itm_w_onehanded_sword_d,itm_w_onehanded_war_axe_02,itm_w_onehanded_war_axe_02_brown,itm_w_onehanded_war_axe_02_red,itm_w_onehanded_war_axe_03,itm_w_onehanded_war_axe_03_brown,itm_w_onehanded_war_axe_03_red,itm_w_mace_knobbed,itm_w_mace_knobbed_brown,itm_w_mace_knobbed_red,itm_w_mace_spiked,itm_w_mace_spiked_brown,itm_w_mace_spiked_red,itm_w_spear_8,itm_w_spear_9,itm_w_spear_3,itm_w_spear_4,itm_s_heater_shield_breton_2,itm_s_heater_shield_breton_4,itm_s_heater_shield_burgundian_1,itm_s_heater_shield_burgundian_2,itm_s_heater_shield_english_1,itm_s_heater_shield_english_2,itm_s_heater_shield_english_6,itm_s_heater_shield_french_1,itm_s_heater_shield_french_2,itm_s_heater_shield_french_3], 
 level(15)|str_14|agi_14, wpex(140,80,80,80,80,80), knows_ironflesh_3|knows_power_strike_3|knows_shield_2|knows_athletics_3|knows_weapon_master_1, swadian_face_young_1, swadian_face_old_2 ],
 ["mercenary_swordsman", "Mercenary Swordsman", "Mercenary Swordsmen", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield, no_scene, reserved, fac_commoners, 
-[], 
-level(20)|str_16|agi_16, wpex(160,100,100,100,100,100), knows_ironflesh_4|knows_power_strike_4|knows_shield_3|knows_athletics_3|knows_weapon_master_2, 0x000000000710701036d26cbb59a5e6db00000000001db6db0000000000000000, 0x000000000710801236d26cbb59a5e6db00000000001db6db0000000000000000 ],
-["mercenary_maceman", "Mercenary Maceman", "Mercenary Macemen", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield, no_scene, reserved, fac_commoners, 
-[],
+[itm_h_skullcap_mail_aventail,itm_h_skullcap_padded,itm_h_cervelliere_mail_aventail,itm_h_cervelliere_padded,itm_h_german_kettlehat_1_padded,itm_h_german_kettlehat_1_mail_aventail,itm_h_german_kettlehat_3_padded,itm_h_german_kettlehat_3_mail_aventail,itm_h_chapel_de_fer_padded,itm_h_chapel_de_fer_mail_aventail,itm_h_martinus_kettlehat_1_padded,itm_h_martinus_kettlehat_1_mail_aventail,itm_h_martinus_kettlehat_2_padded,itm_h_martinus_kettlehat_2_mail_aventail,itm_h_oliphant_kettlehat_padded,itm_h_oliphant_kettlehat_mail_aventail,itm_a_pistoia_mail_a_mail_sleeves_short,itm_a_pistoia_mail_b_mail_sleeves_short,itm_a_pistoia_mail_a_mail_sleeves,itm_a_pistoia_mail_b_mail_sleeves,itm_a_pistoia_mail_a_mail_sleeves_jackchains,itm_a_pistoia_mail_b_mail_sleeves_jackchains,itm_b_low_boots_1,itm_b_low_boots_2,itm_b_low_boots_3,itm_b_low_boots_4,itm_b_low_boots_11,itm_g_leather_gauntlet,itm_g_mail_gauntlets,itm_w_onehanded_falchion_peasant,itm_w_onehanded_sword_a,itm_w_onehanded_sword_c,itm_w_onehanded_sword_c_small,itm_w_onehanded_sword_d,itm_w_onehanded_sword_poitiers,itm_w_onehanded_sword_squire,itm_s_heater_shield_breton_2,itm_s_heater_shield_breton_4,itm_s_heater_shield_burgundian_1,itm_s_heater_shield_burgundian_2,itm_s_heater_shield_english_1,itm_s_heater_shield_english_2,itm_s_heater_shield_english_6,itm_s_heater_shield_french_1,itm_s_heater_shield_french_2,itm_s_heater_shield_french_3], 
 level(20)|str_16|agi_16, wpex(160,100,100,100,100,100), knows_ironflesh_4|knows_power_strike_4|knows_shield_3|knows_athletics_3|knows_weapon_master_2, 0x000000000710701036d26cbb59a5e6db00000000001db6db0000000000000000, 0x000000000710801236d26cbb59a5e6db00000000001db6db0000000000000000 ],
 ["hired_blade", "Hired Blade", "Hired Blades", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield, no_scene, reserved, fac_commoners, 
-[], 
+[itm_h_bascinet_1_mail_aventail,itm_h_bascinet_2_mail_aventail,itm_h_sallet_mail_collar,itm_h_sallet_mail_aventail,itm_h_sallet_mail_collar_bevor,itm_h_sallet_curved_mail_collar,itm_h_sallet_curved_mail_aventail,itm_h_sallet_curved_mail_collar_bevor,itm_h_eyeslot_kettlehat_1_mail_aventail,itm_h_eyeslot_kettlehat_2_mail_aventail,itm_h_eyeslot_kettlehat_2_raised_mail_aventail,itm_h_eyeslot_kettlehat_3_mail_aventail,itm_h_oliphant_eyeslot_kettlehat_mail_aventail,itm_h_oliphant_eyeslot_kettlehat_raised_mail_aventail,itm_h_martinus_kettlehat_3_raised_mail_aventail,itm_h_oliphant_kettlehat_mail_aventail,itm_h_martinus_kettlehat_1_mail_aventail,itm_h_martinus_kettlehat_2_mail_aventail,itm_b_high_boots_1,itm_b_high_boots_2,itm_b_high_boots_3,itm_b_high_boots_4,itm_b_high_boots_11,itm_g_demi_gauntlets,itm_g_finger_gauntlets,itm_a_corrazina_hohenaschau_custom,itm_a_churburg_13_asher_plain_custom,itm_w_onehanded_falchion_a,itm_w_onehanded_falchion_b,itm_w_onehanded_sword_a_long,itm_w_onehanded_sword_c_long,itm_w_onehanded_sword_d_long,itm_w_onehanded_sword_defiant,itm_w_onehanded_sword_forsaken,itm_w_onehanded_sword_martyr,itm_s_heraldic_shield_french_1,itm_s_heraldic_shield_french_2,itm_s_heraldic_shield_french_3,itm_s_heraldic_shield_french_4,itm_s_heraldic_shield_english_1,itm_s_heraldic_shield_english_2,itm_s_heraldic_shield_english_3,itm_s_heraldic_shield_english_4,itm_s_heraldic_shield_english_7,itm_s_heraldic_shield_burgundian_1,itm_s_heraldic_shield_burgundian_2,itm_s_heraldic_shield_burgundian_3,itm_s_heraldic_shield_burgundian_4,itm_s_heraldic_shield_breton_1,itm_s_heraldic_shield_breton_2,itm_s_heraldic_shield_breton_3,itm_s_heraldic_shield_breton_5], 
 level(25)|str_20|agi_20, wpex(200,100,100,100,100,100), knows_ironflesh_5|knows_power_strike_5|knows_athletics_4|knows_weapon_master_4, mercenary_face_1, mercenary_face_2 ],
 
 ["mercenary_spearman", "Mercenary Spearman", "Mercenary Spearmen", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield, no_scene, reserved, fac_commoners, 
 [], 
-level(15)|str_14|agi_14, wpex(140,80,80,80,80,80), knows_ironflesh_3|knows_power_strike_3|knows_shield_2|knows_athletics_3|knows_weapon_master_1, swadian_face_young_1, swadian_face_old_2 ],
+level(20)|str_16|str_16, wpex(80,80,160,80,80,80), knows_ironflesh_4|knows_power_strike_4|knows_shield_2|knows_athletics_3|knows_weapon_master_1, swadian_face_young_1, swadian_face_old_2 ],
 ["mercenary_pavise_spearman", "Mercenary Pavise Spearman", "Mercenary Pavise Spearmen", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield, no_scene, reserved, fac_commoners, 
 [], 
-level(20)|str_16|agi_16, wpex(160,100,100,100,100,100), knows_ironflesh_4|knows_power_strike_4|knows_shield_3|knows_athletics_3|knows_weapon_master_2, 0x000000000710701036d26cbb59a5e6db00000000001db6db0000000000000000, 0x000000000710801236d26cbb59a5e6db00000000001db6db0000000000000000 ],
+level(25)|str_20|str_20, wpex(100,100,200,100,100,100), knows_ironflesh_5|knows_power_strike_5|knows_shield_3|knows_athletics_3|knows_weapon_master_2, 0x000000000710701036d26cbb59a5e6db00000000001db6db0000000000000000, 0x000000000710801236d26cbb59a5e6db00000000001db6db0000000000000000 ],
 
 ["mercenary_bowman", "Mercenary Bowman", "Mercenary Bowmen", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_ranged, no_scene, reserved, fac_commoners, 
 [], 
@@ -445,7 +442,7 @@ level(20)|str_17|agi_16, wpex(100,100,190,100,100,100), knows_ironflesh_4|knows_
 [], level(30)|str_24|agi_24, 
 wp_melee(220), knows_ironflesh_8|knows_power_strike_6|knows_shield_4|knows_athletics_4|knows_weapon_master_6|knows_riding_6, swadian_face_middle_1, swadian_face_older_2 ],
 ["mercenary_german_dismounted_knight", "German Dismounted Knight", "German Dismounted Knights", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm, no_scene, reserved, fac_flemish_mercenaries, 
-[], level(30)|str_24|agi_24, 
+[itm_h_pigface_klappvisor,itm_h_pigface_klappvisor_open,itm_h_zitta_bascinet,itm_h_zitta_bascinet_open,itm_h_wespe_bascinet_a,itm_h_wespe_bascinet_b,itm_h_wespe_bascinet_c,itm_h_wespe_bascinet_a_open,itm_h_wespe_bascinet_b_open,itm_h_wespe_bascinet_c_open,itm_h_eyeslot_kettlehat_1_mail_aventail,itm_h_eyeslot_kettlehat_1_raised_mail_aventail,itm_h_eyeslot_kettlehat_2_mail_aventail,itm_h_eyeslot_kettlehat_2_raised_mail_aventail,itm_h_eyeslot_kettlehat_3_mail_aventail,itm_h_oliphant_eyeslot_kettlehat_mail_aventail,itm_h_bascinet_1_hundsgugel_mail_aventail,itm_h_bascinet_1_hundsgugel_open_mail_aventail,itm_h_bascinet_2_hundsgugel_mail_aventail,itm_h_bascinet_2_hundsgugel_open_mail_aventail,itm_g_hourglass_gauntlets,itm_a_plate_german_covered_fauld_custom,itm_a_corrazina_hohenaschau_custom,itm_b_leg_harness_8,itm_b_leg_harness_9,itm_b_leg_harness_1,itm_b_leg_harness_2,itm_w_bastard_sword_german,itm_w_kriegshammer_ebony,itm_w_kriegshammer_alt_ebony,itm_w_pollaxe_blunt_08_brown,itm_w_pollaxe_blunt_12_brown,itm_w_pollaxe_cut_03_brown], level(30)|str_24|agi_24, 
 wp_melee(220), knows_ironflesh_7|knows_power_strike_7|knows_shield_4|knows_athletics_4|knows_weapon_master_6, swadian_face_middle_1, swadian_face_older_2 ],
 
 ############################################################################################################### DAC New Mercenaries End
@@ -2936,118 +2933,118 @@ troops = troops + mercenary_company_troops
 
 ###################################################### FRENCH TROOPS
 ### Archer Line
-upgrade2(troops,"french_peasant_archer","french_archer","french_peasant_crossbowman")
-upgrade(troops,"french_peasant_crossbowman","french_crossbowman")
-upgrade(troops,"french_crossbowman","french_pavisier")
-### Infantry Line
-upgrade2(troops,"french_peasant","french_militia","french_militia_voulgier")
-upgrade(troops,"french_militia","french_infantry")
-upgrade(troops,"french_infantry","french_heavy_infantry")
+# upgrade2(troops,"french_peasant_archer","french_archer","french_peasant_crossbowman")
+# upgrade(troops,"french_peasant_crossbowman","french_crossbowman")
+# upgrade(troops,"french_crossbowman","french_pavisier")
+## Infantry Line
+# upgrade2(troops,"french_peasant","french_militia","french_militia_voulgier")
+# upgrade(troops,"french_militia","french_infantry")
+# upgrade(troops,"french_infantry","french_heavy_infantry")
 
-upgrade2(troops,"french_militia_voulgier","french_voulgier","french_man_at_arms")
-upgrade(troops,"french_man_at_arms","french_heavy_man_at_arms")
+# upgrade2(troops,"french_militia_voulgier","french_voulgier","french_man_at_arms")
+# upgrade(troops,"french_man_at_arms","french_heavy_man_at_arms")
 
-upgrade(troops,"french_voulgier","french_heavy_voulgier")
-upgrade(troops,"french_heavy_voulgier","french_sergeant")
-### Noble Line
-upgrade(troops,"french_captain","french_chevalier_bachelier_a_pied")
-upgrade(troops,"french_chevalier_bachelier_a_pied","french_chevalier_banneret_a_pied")
-upgrade(troops,"french_chevalier_banneret_a_pied","french_chevalier_lancier_a_pied")
+# upgrade(troops,"french_voulgier","french_heavy_voulgier")
+# upgrade(troops,"french_heavy_voulgier","french_sergeant")
+## Noble Line
+# upgrade(troops,"french_captain","french_chevalier_bachelier_a_pied")
+# upgrade(troops,"french_chevalier_bachelier_a_pied","french_chevalier_banneret_a_pied")
+# upgrade(troops,"french_chevalier_banneret_a_pied","french_chevalier_lancier_a_pied")
 
-upgrade(troops,"french_squire","french_knight_bachelier")
-upgrade(troops,"french_knight_bachelier","french_chevalier_banneret")
-upgrade(troops,"french_chevalier_banneret","french_chevalier_lancier")
+# upgrade(troops,"french_squire","french_knight_bachelier")
+# upgrade(troops,"french_knight_bachelier","french_chevalier_banneret")
+# upgrade(troops,"french_chevalier_banneret","french_chevalier_lancier")
 
-###################################################### ENGLISH TROOPS
-### Archer Line
-upgrade2(troops,"english_peasant_archer","english_yeoman_archer","english_garrison_crossbowman")
-upgrade(troops,"english_yeoman_archer","english_longbowman")
-upgrade(troops,"english_longbowman","english_retinue_longbowman")
+##################################################### ENGLISH TROOPS
+## Archer Line
+# upgrade2(troops,"english_peasant_archer","english_yeoman_archer","english_garrison_crossbowman")
+# upgrade(troops,"english_yeoman_archer","english_longbowman")
+# upgrade(troops,"english_longbowman","english_retinue_longbowman")
 
-### Infantry Line
-upgrade2(troops,"english_peasant","english_yeoman","english_levy_spearman")
-upgrade(troops,"english_yeoman","english_infantry")
-upgrade(troops,"english_infantry","english_heavy_infantry")
-
-
-upgrade2(troops,"english_levy_spearman","english_spearman","english_militia_billman")
-upgrade(troops,"english_spearman","english_heavy_spearman")
-
-upgrade(troops,"english_militia_billman","english_billman")
-upgrade(troops,"english_billman","english_sergeant")
-
-### Noble Line
-#English Noble Line
-upgrade2(troops,"english_captain","english_dismounted_knight","english_longbowman_captain")
-upgrade(troops,"english_dismounted_knight","three_lions_guard")
-
-upgrade(troops,"english_squire","english_knight")
-upgrade(troops,"english_knight","english_heavy_knight")
-upgrade(troops,"english_heavy_knight","saint_georges_knight")
+## Infantry Line
+# upgrade2(troops,"english_peasant","english_yeoman","english_levy_spearman")
+# upgrade(troops,"english_yeoman","english_infantry")
+# upgrade(troops,"english_infantry","english_heavy_infantry")
 
 
-###################################################### BURGUNDIAN TROOPS
-### Archer Line
-upgrade2(troops,"burgundian_militia_archer","burgundian_archer","burgundian_militia_crossbowman")
-upgrade(troops,"burgundian_archer","burgundian_longbowman")
-upgrade(troops,"burgundian_militia_crossbowman","burgundian_crossbowman")
+# upgrade2(troops,"english_levy_spearman","english_spearman","english_militia_billman")
+# upgrade(troops,"english_spearman","english_heavy_spearman")
 
-### Infantry Line
-upgrade2(troops,"burgundian_peasant","burgundian_militia","burgundian_militia_pikeman")
-upgrade(troops,"burgundian_militia","burgundian_infantry")
-upgrade(troops,"burgundian_infantry","burgundian_heavy_infantry")
+# upgrade(troops,"english_militia_billman","english_billman")
+# upgrade(troops,"english_billman","english_sergeant")
 
-upgrade2(troops,"burgundian_militia_pikeman","burgundian_pikeman","burgundian_halberdier")
-upgrade(troops,"burgundian_pikeman","burgundian_heavy_pikeman")
-upgrade(troops,"burgundian_halberdier","burgundian_heavy_halberdier")
-upgrade(troops,"burgundian_heavy_halberdier","burgundian_sergeant")
+## Noble Line
+##English Noble Line
+# upgrade2(troops,"english_captain","english_dismounted_knight","english_longbowman_captain")
+# upgrade(troops,"english_dismounted_knight","three_lions_guard")
 
-### Noble Line
-upgrade(troops,"burgundian_captain","burgundian_guard")
-upgrade(troops,"burgundian_guard","burgundian_elite_guard")
-
-upgrade2(troops,"burgundian_squire","burgundian_knight","burgundian_mounted_crossbowman_captain")
-upgrade(troops,"burgundian_knight","burgundian_heavy_knight")
-upgrade(troops,"burgundian_heavy_knight","burgundian_iron_knight")
+# upgrade(troops,"english_squire","english_knight")
+# upgrade(troops,"english_knight","english_heavy_knight")
+# upgrade(troops,"english_heavy_knight","saint_georges_knight")
 
 
-###################################################### BRETON TROOPS
-### Archer Line
-upgrade2(troops,"breton_peasant_archer","breton_militia_archer","breton_militia_crossbowman")
-upgrade(troops,"breton_militia_archer","breton_archer")
-upgrade(troops,"breton_militia_crossbowman","breton_crossbowman")
+##################################################### BURGUNDIAN TROOPS
+## Archer Line
+# upgrade2(troops,"burgundian_militia_archer","burgundian_archer","burgundian_militia_crossbowman")
+# upgrade(troops,"burgundian_archer","burgundian_longbowman")
+# upgrade(troops,"burgundian_militia_crossbowman","burgundian_crossbowman")
 
-### Infantry Line
-upgrade2(troops,"breton_peasant","breton_militia","breton_fauchard")
-upgrade(troops,"breton_militia","breton_infantry")
-upgrade(troops,"breton_infantry","breton_heavy_infantry")
-upgrade(troops,"breton_heavy_infantry","breton_sergeant")
+## Infantry Line
+# upgrade2(troops,"burgundian_peasant","burgundian_militia","burgundian_militia_pikeman")
+# upgrade(troops,"burgundian_militia","burgundian_infantry")
+# upgrade(troops,"burgundian_infantry","burgundian_heavy_infantry")
 
-upgrade2(troops,"breton_fauchard","breton_man_at_arms","breton_poleaxeman")
-upgrade(troops,"breton_man_at_arms","breton_heavy_man_at_arms")
-upgrade(troops,"breton_poleaxeman","breton_heavy_poleaxeman")
-### Noble Line
-upgrade(troops,"breton_captain","breton_dismounted_noble")
-upgrade2(troops,"breton_dismounted_noble","breton_noble_swordsman","breton_honour_guard")
+# upgrade2(troops,"burgundian_militia_pikeman","burgundian_pikeman","burgundian_halberdier")
+# upgrade(troops,"burgundian_pikeman","burgundian_heavy_pikeman")
+# upgrade(troops,"burgundian_halberdier","burgundian_heavy_halberdier")
+# upgrade(troops,"burgundian_heavy_halberdier","burgundian_sergeant")
 
-upgrade(troops,"breton_squire","breton_knight")
-upgrade(troops,"breton_knight","breton_heavy_knight")
-upgrade(troops,"breton_heavy_knight","breton_hermine_knight")
+## Noble Line
+# upgrade(troops,"burgundian_captain","burgundian_guard")
+# upgrade(troops,"burgundian_guard","burgundian_elite_guard")
+
+# upgrade2(troops,"burgundian_squire","burgundian_knight","burgundian_mounted_crossbowman_captain")
+# upgrade(troops,"burgundian_knight","burgundian_heavy_knight")
+# upgrade(troops,"burgundian_heavy_knight","burgundian_iron_knight")
 
 
-###################################################### FLEMISH MERCENARIES
-upgrade(troops,"flemish_peasant_crossbowman","flemish_militia_crossbowman")
-upgrade(troops,"flemish_militia_crossbowman","flemish_crossbowman")
-upgrade(troops,"flemish_crossbowman","flemish_heavy_crossbowman")
+##################################################### BRETON TROOPS
+## Archer Line
+# upgrade2(troops,"breton_peasant_archer","breton_militia_archer","breton_militia_crossbowman")
+# upgrade(troops,"breton_militia_archer","breton_archer")
+# upgrade(troops,"breton_militia_crossbowman","breton_crossbowman")
 
-upgrade2(troops,"flemish_militia_pikeman","flemish_pikeman","flemish_halberdier")
-upgrade(troops,"flemish_pikeman","flemish_heavy_pikeman")
-upgrade(troops,"flemish_halberdier","flemish_heavy_halberdier")
+## Infantry Line
+# upgrade2(troops,"breton_peasant","breton_militia","breton_fauchard")
+# upgrade(troops,"breton_militia","breton_infantry")
+# upgrade(troops,"breton_infantry","breton_heavy_infantry")
+# upgrade(troops,"breton_heavy_infantry","breton_sergeant")
 
-###################################################### GENERIC MERCENARIES
+# upgrade2(troops,"breton_fauchard","breton_man_at_arms","breton_poleaxeman")
+# upgrade(troops,"breton_man_at_arms","breton_heavy_man_at_arms")
+# upgrade(troops,"breton_poleaxeman","breton_heavy_poleaxeman")
+## Noble Line
+# upgrade(troops,"breton_captain","breton_dismounted_noble")
+# upgrade2(troops,"breton_dismounted_noble","breton_noble_swordsman","breton_honour_guard")
+
+# upgrade(troops,"breton_squire","breton_knight")
+# upgrade(troops,"breton_knight","breton_heavy_knight")
+# upgrade(troops,"breton_heavy_knight","breton_hermine_knight")
+
+
+##################################################### FLEMISH MERCENARIES
+# upgrade(troops,"flemish_peasant_crossbowman","flemish_militia_crossbowman")
+# upgrade(troops,"flemish_militia_crossbowman","flemish_crossbowman")
+# upgrade(troops,"flemish_crossbowman","flemish_heavy_crossbowman")
+
+# upgrade2(troops,"flemish_militia_pikeman","flemish_pikeman","flemish_halberdier")
+# upgrade(troops,"flemish_pikeman","flemish_heavy_pikeman")
+# upgrade(troops,"flemish_halberdier","flemish_heavy_halberdier")
+
+##################################################### GENERIC MERCENARIES
 upgrade2(troops,"watchman","caravan_guard","mercenary_spearman")
 upgrade(troops,"mercenary_spearman","mercenary_pavise_spearman")
-upgrade2(troops,"caravan_guard","mercenary_swordsman","mercenary_maceman")
+upgrade(troops,"caravan_guard","mercenary_swordsman")
 upgrade(troops,"mercenary_swordsman","hired_blade")
 
 upgrade(troops,"mercenary_bowman","mercenary_archer")
@@ -3058,11 +3055,11 @@ upgrade(troops,"mercenary_light_cavalry","mercenary_cavalry")
 
 ###################################################### CUSTOM TROOPS
 
-upgrade(troops,"custom_merc_recruit","custom_merc_footman")
-upgrade(troops,"custom_merc_footman","custom_merc_veteran")
-upgrade(troops,"custom_merc_veteran","custom_merc_sergeant")
+# upgrade(troops,"custom_merc_recruit","custom_merc_footman")
+# upgrade(troops,"custom_merc_footman","custom_merc_veteran")
+# upgrade(troops,"custom_merc_veteran","custom_merc_sergeant")
 
-upgrade(troops,"custom_merc_skirmisher","custom_merc_ranger")
-upgrade(troops,"custom_merc_ranger","custom_merc_marksman")
+# upgrade(troops,"custom_merc_skirmisher","custom_merc_ranger")
+# upgrade(troops,"custom_merc_ranger","custom_merc_marksman")
 
-upgrade(troops,"custom_merc_scout","custom_merc_mounted_sergeant")
+# upgrade(troops,"custom_merc_scout","custom_merc_mounted_sergeant")

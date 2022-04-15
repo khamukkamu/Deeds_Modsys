@@ -2160,6 +2160,7 @@ VS_OUTPUT_ENVMAP_SPECULAR vs_envmap_specular_Instanced(uniform const int PcfMode
 
 	float3 relative_cam_pos = normalize(vCameraPos - vWorldPos);
 	float2 envpos;
+	
 	float3 tempvec = relative_cam_pos - vWorldN;
 	float3 vHalf = normalize(relative_cam_pos - vSunDir);
 	float3 fSpecular = spec_coef * vSunColor * vSpecularColor * pow( saturate( dot( vHalf, vWorldN) ), fMaterialPower);
@@ -2607,6 +2608,7 @@ struct VS_OUTPUT_STANDART
 	float4 ShadowTexCoord		: TEXCOORD4;
 	float2 ShadowTexelPos		: TEXCOORD5;
 	float3 ViewDir				: TEXCOORD6;
+	float3 ReflectionUV			: TEXCOORD7;
 };
 
 VS_OUTPUT_STANDART vs_main_standart (uniform const int PcfMode, uniform const bool use_bumpmap, uniform const bool use_skinning, 
@@ -2698,6 +2700,8 @@ VS_OUTPUT_STANDART vs_main_standart (uniform const int PcfMode, uniform const bo
 	}
 
 	Out.Tex0 = tc;
+	
+	Out.ReflectionUV = reflect(normalize(vCameraPos.xyz - vWorldPos.xyz), vWorldN) * 0.5 + 0.5;
 	
 	
 	if(use_bumpmap)
@@ -3078,7 +3082,8 @@ PS_OUTPUT ps_main_standart ( VS_OUTPUT_STANDART In, uniform const int PcfMode,
 PS_OUTPUT ps_main_standart_fresnel ( VS_OUTPUT_STANDART In, uniform const int PcfMode, 
 									uniform const bool use_bumpmap, uniform const bool use_specularfactor, 
 									uniform const bool use_specularmap, uniform const bool ps2x, 
-									uniform const bool use_aniso, uniform const bool terrain_color_ambient = true )
+									uniform const bool use_aniso, uniform const bool terrain_color_ambient = true, 
+									uniform const bool use_envmap = true)
 { 
 	PS_OUTPUT Output;
 
@@ -3099,12 +3104,27 @@ PS_OUTPUT ps_main_standart_fresnel ( VS_OUTPUT_STANDART In, uniform const int Pc
 		else
 			sun_amount = GetSunAmount(PcfMode, In.ShadowTexCoord, In.ShadowTexelPos);
 	}
-		
+	
 	//define ambient term:
 	const int ambientTermType = ( terrain_color_ambient && (ps2x || !use_specularfactor) ) ? 1 : 0;
 	const float3 DirToSky = use_bumpmap ? In.SkyLightDir : float3(0.0f, 0.0f, 1.0f);
 	float4 total_light = get_ambientTerm(ambientTermType, normal, DirToSky, sun_amount);
 	
+	float4 tint, envmap;
+	float3 reflectionUV;
+	tint = total_light;
+	envmap = total_light;
+	if (use_envmap){
+		// reflectionUV	= reflect(In.ViewDir, normal);
+		// reflectionUV.x = (1 + reflectionUV.x) * 0.5;
+		// reflectionUV.y = (1 + reflectionUV.y) * -0.5;
+		// envmap = tex2D(EnvTextureSampler, reflectionUV.xy);
+		
+		reflectionUV	= In.ReflectionUV;
+		// reflectionUV.x = (1 + reflectionUV.x) * 0.5;
+		// reflectionUV.z = (1 + reflectionUV.z) * -0.5;
+		envmap = tex2D(EnvTextureSampler, reflectionUV.xz);
+	}
 	
 	float3 aniso_specular = 0;
 	if(use_aniso) {
@@ -3146,18 +3166,27 @@ PS_OUTPUT ps_main_standart_fresnel ( VS_OUTPUT_STANDART In, uniform const int Pc
 		#endif
 	}
 	
-	
+	if(use_envmap != true)
+	{	
 		
 	//FRESNEL (Orig VC fresnel *=4.0)
 	float3 vView = normalize(In.ViewDir);
-	float3 fresnel = 1-(saturate(dot(vView, normal)));
-	fresnel = 0.0204f + 0.9796 * (fresnel* fresnel * fresnel * fresnel);
-	fresnel *= 2.5;
-	total_light.rgb += total_light*fresnel; 
-	fresnel = pow(fresnel,2);
-	total_light.rgb += 0.020*(total_light*fresnel); 
+	float3 fresnel = 1 - (saturate(dot(vView, normal)));
+	
+	// Previous Fresnel
+	// fresnel = (pow(fresnel, 4) + 0.1) / 20;
+	// fresnel = 0.0204f + 0.9796 * (fresnel* fresnel * fresnel * fresnel);
+	// fresnel *= 2.5;	// was 2.5, DSTN
+	// total_light.rgb += total_light * fresnel; 
+	// fresnel = pow(fresnel,2);
+	// total_light.rgb += (0.020*(total_light*fresnel));
+	
+	fresnel = (0.02 + pow(saturate(fresnel), 7));
+	total_light.rgb += total_light * fresnel; 
+	
 //	total_light = saturate(total_light);
 ///////////	
+	}
 
 	
 	
@@ -3224,8 +3253,38 @@ PS_OUTPUT ps_main_standart_fresnel ( VS_OUTPUT_STANDART In, uniform const int Pc
 		{
 			fSpecular.rgb += specColor * In.SkyLightDir * 0.1;	//SkyLightDir-> holds lights specular color (calculate_point_lights_specular)
 		}
-			
-		Output.RGBColor += fSpecular;
+		
+		if(use_envmap) {
+		
+		
+		float3 vView = normalize(In.ViewDir);
+		float3 fresnel = 1 - (saturate(dot(vView, normal)));
+		fresnel = (0.02 + pow(saturate(fresnel), 7)) * specColor * tint;
+		
+		Output.RGBColor.rgb += (fresnel + fSpecular) * envmap * specColor; // Actual Output
+		
+		
+		// Hey Justin! This is just a ~lot~ of experiments to show various effects as the direct output
+		//Output.RGBColor.rgb = lerp(Output.RGBColor.rgb, envmap, saturate(fresnel + fSpecular));	// This would make it where envmap is totally unaffected by anything else. Lighting, etc, etc. It's weird.
+		//Output.RGBColor.rgb = (fresnel + fSpecular + (1 - fresnel - fSpecular) / 2) ; // You might recognize this
+		//Output.RGBColor.rgb = tint;	// I wanted to see if the tint worked. It does.
+		// Output.RGBColor.rgb = envmap;	// Show just the envmap texture applied to all surfaces
+		
+		// float3 red = float3(1,0,0);
+		// float3 blue = float3(0,0,1);
+		
+		// These next two were to test mapping without showing the envmap, they're gradients from black to white
+		//Output.RGBColor.rgb = lerp(red, blue, reflectionUV.x);	// Black is left UV boundry, white is right UV Boundry
+		//Output.RGBColor.rgb = lerp(red, blue, reflectionUV.y);	// Black is left UV boundry, white is right UV Boundry
+		//Output.RGBColor.rgb = reflectionUV.x;	// Black is left UV boundry, white is right UV Boundry
+		//Output.RGBColor.rgb = reflectionUV.y;	// Black is Bottom, White is Top
+		}
+		else {
+			Output.RGBColor += fSpecular;
+		} 
+		//Output.RGBColor = float4(fresnel, 1);
+		//Output.RGBColor += fSpecular;
+		
 	}
 	else if(use_specularmap) {
 		GIVE_ERROR_HERE; 
@@ -3358,16 +3417,16 @@ VertexShader standart_vs_nvidia[] = { 	compile vs_2_0 vs_main_standart(PCF_NVIDI
 				DEFINE_LIGHTING_TECHNIQUE(tech_name, 0, use_bumpmap, use_skinning, use_specularfactor, use_specularmap)
 
 ////FRESNEL				
-#define DEFINE_STANDART_TECHNIQUE_HIGH_FRESNEL(tech_name, use_bumpmap, use_skinning, use_specularfactor, use_specularmap, use_aniso, terraincolor)	\
+#define DEFINE_STANDART_TECHNIQUE_HIGH_FRESNEL(tech_name, use_bumpmap, use_skinning, use_specularfactor, use_specularmap, use_aniso, terraincolor, use_envmap)	\
 				technique tech_name	\
 				{ pass P0 { VertexShader = compile vs_2_0 vs_main_standart(PCF_NONE, use_bumpmap, use_skinning); \
-							PixelShader = compile PS_2_X ps_main_standart_fresnel(PCF_NONE, use_bumpmap, use_specularfactor, use_specularmap, true, use_aniso, terraincolor);} } \
+							PixelShader = compile PS_2_X ps_main_standart_fresnel(PCF_NONE, use_bumpmap, use_specularfactor, use_specularmap, true, use_aniso, terraincolor, use_envmap);} } \
 				technique tech_name##_SHDW	\
 				{ pass P0 { VertexShader = compile vs_2_0 vs_main_standart(PCF_DEFAULT, use_bumpmap, use_skinning); \
-							PixelShader = compile PS_2_X ps_main_standart_fresnel(PCF_DEFAULT, use_bumpmap, use_specularfactor, use_specularmap, true, use_aniso, terraincolor);} } \
+							PixelShader = compile PS_2_X ps_main_standart_fresnel(PCF_DEFAULT, use_bumpmap, use_specularfactor, use_specularmap, true, use_aniso, terraincolor, use_envmap);} } \
 				technique tech_name##_SHDWNVIDIA	\
 				{ pass P0 { VertexShader = compile vs_2_0 vs_main_standart(PCF_NVIDIA, use_bumpmap, use_skinning); \
-							PixelShader = compile PS_2_X ps_main_standart_fresnel(PCF_NVIDIA, use_bumpmap, use_specularfactor, use_specularmap, true, use_aniso, terraincolor);} } \
+							PixelShader = compile PS_2_X ps_main_standart_fresnel(PCF_NVIDIA, use_bumpmap, use_specularfactor, use_specularmap, true, use_aniso, terraincolor, use_envmap);} } \
 				DEFINE_LIGHTING_TECHNIQUE(tech_name, 0, use_bumpmap, use_skinning, use_specularfactor, use_specularmap)
 //////
 
@@ -3423,16 +3482,16 @@ VertexShader standart_vs_nvidia[] = { 	compile vs_2_0 vs_main_standart(PCF_NVIDI
 				DEFINE_LIGHTING_TECHNIQUE(tech_name, 0, use_bumpmap, use_skinning, use_specularfactor, use_specularmap)
 
 ///FRESNEL				
-#define DEFINE_STANDART_TECHNIQUE_HIGH_FRESNEL(tech_name, use_bumpmap, use_skinning, use_specularfactor, use_specularmap, use_aniso)	\
+#define DEFINE_STANDART_TECHNIQUE_HIGH_FRESNEL(tech_name, use_bumpmap, use_skinning, use_specularfactor, use_specularmap, use_aniso, terraincolor, use_envmap)	\
 				technique tech_name	\
 				{ pass P0 { VertexShader = compile vs_2_0 vs_main_standart(PCF_NONE, use_bumpmap, use_skinning); \
-							PixelShader = compile PS_2_X ps_main_standart_fresnel(PCF_NONE, use_bumpmap, use_specularfactor, use_specularmap, true, use_aniso);} } \
+							PixelShader = compile PS_2_X ps_main_standart_fresnel(PCF_NONE, use_bumpmap, use_specularfactor, use_specularmap, true, use_aniso, terraincolor, use_envmap);} } \
 				technique tech_name##_SHDW	\
 				{ pass P0 { VertexShader = compile vs_2_0 vs_main_standart(PCF_DEFAULT, use_bumpmap, use_skinning); \
-							PixelShader = compile PS_2_X ps_main_standart_fresnel(PCF_DEFAULT, use_bumpmap, use_specularfactor, use_specularmap, true, use_aniso);} } \
+							PixelShader = compile PS_2_X ps_main_standart_fresnel(PCF_DEFAULT, use_bumpmap, use_specularfactor, use_specularmap, true, use_aniso, terraincolor, use_envmap);} } \
 				technique tech_name##_SHDWNVIDIA	\
 				{ pass P0 { VertexShader = compile vs_2_0 vs_main_standart(PCF_NVIDIA, use_bumpmap, use_skinning); \
-							PixelShader = compile PS_2_X ps_main_standart_fresnel(PCF_NVIDIA, use_bumpmap, use_specularfactor, use_specularmap, true, use_aniso);} } \
+							PixelShader = compile PS_2_X ps_main_standart_fresnel(PCF_NVIDIA, use_bumpmap, use_specularfactor, use_specularmap, true, use_aniso, terraincolor, use_envmap);} } \
 				DEFINE_LIGHTING_TECHNIQUE(tech_name, 0, use_bumpmap, use_skinning, use_specularfactor, use_specularmap)
 /////////////////	
 
@@ -3472,7 +3531,8 @@ DEFINE_STANDART_TECHNIQUE_HIGH( standart_skin_bump_nospecmap_high, 		true, true,
 DEFINE_STANDART_TECHNIQUE_HIGH( standart_skin_bump_specmap_high, 		true, true,  true, true , false, true)
 
 //fresnel
-DEFINE_STANDART_TECHNIQUE_HIGH_FRESNEL(standart_skin_bump_specmap_high_fresnel, 		true, true,  true, true , false, true)
+DEFINE_STANDART_TECHNIQUE_HIGH_FRESNEL(standart_skin_bump_specmap_high_fresnel, 		true, true,  true, true , false, true, false)
+DEFINE_STANDART_TECHNIQUE_HIGH_FRESNEL(standart_skin_bump_specmap_high_fresnel_envmap, 	true, true,  true, true , false, true, true)
 ///
 
 DEFINE_STANDART_TECHNIQUE_HIGH( standart_noskin_bump_nospecmap_high, 	true, false,  true, false, false, true)
@@ -5605,58 +5665,54 @@ DEFINE_TECHNIQUES(tree_billboards_dot3_alpha, vs_main_bump_billboards, ps_main_b
 // WAVING STANDARD
 /////////////////////
 
-
-
 VS_OUTPUT vs_mtarini_standart(uniform const int PcfMode, uniform const bool UseSecondLight, float4 vPosition : POSITION, float3 vNormal : NORMAL, float2 tc : TEXCOORD0, float4 vColor : COLOR0, float4 vLightColor : COLOR1)
 {
    VS_OUTPUT Out = (VS_OUTPUT)0;
    
-   // WAWING...
+   // WAVING...
    float4 vPositionNew = vPosition;
    float3 vNormalNew;
 
-   float time = 5.0*(
-        // 1.3*(matWorld._m00+matWorld._m11+matWorld._m22) +
-        0.45*(matWorld._m03+matWorld._m13+matWorld._m23) +
-		time_var
-   );
+   float time = -2.5 * time_var;
    //time = sin(time*5.0);
 
-   float atten=1.0, wavel=1.0+tc.y*0.8, angle;
+	float atten = 1.0, wavel = 1.0 + tc.y * 0.8, angle;
+	
+	float fluidity = max(abs(vPosition.z * 1.5) - 0.05f, 0); // Essentially, the further from z = 0, the more the banner can move. Maybe subtract tc.y from vPos.z?
 
-   atten = min(tc.y*tc.x*2.0f,1.0f);
-   angle = time+tc.x*9.0*wavel;
+	atten = min( tc.y * fluidity * 2.0f, 1.0f);
+	angle = time + fluidity * 4.0 * wavel;
   
-   vPositionNew.x += sin(angle)*(atten*0.065);
+	vPositionNew.x += (sin(angle) * (atten * 0.065));
+   
+	vPositionNew.y += (cos(angle) * (atten * 0.05)) /* max(fluidity - 0.25, 0)*/;
+	
+	vPositionNew.z += (sin(angle) * (atten * 0.025)) * fluidity;
+   
 
-   vNormalNew.z = cos(angle)*atten*1.0;
-   vNormalNew.y = 0; //vNormalNew.z * tc.y*0.1;
-   vNormalNew.x = -sqrt(1.0-vNormalNew.z*vNormalNew.z);
-//   vNormalNew=normalize(vNormalNew); 
-
+	vNormalNew.z = cos(angle)* atten * fluidity;
+	vNormalNew.y = vNormalNew.z * tc.y * 0.1;
+	vNormalNew.x = -sqrt(1.0 - vNormalNew.z * vNormalNew.z);
 
    // revert all in not waving parts
-   vPositionNew = (tc.x>0.75)?vPosition:vPositionNew;
-   vPositionNew = (tc.x==0)?vPosition:vPositionNew;
-   vPosition = (matWorldView._m00>0.99)?vPosition:vPositionNew;// to prevent inventory disasters
-   vNormal = (tc.x>0.75)?vNormal:vNormalNew;
+	vPositionNew = (tc.x > 0.751) ? vPosition : vPositionNew;
+	vPosition = (vAmbientColor > 0.85) ? vPosition : vPositionNew;
+	vNormal = (tc.x > 0.75) ? vNormal : vNormalNew;
  
- 
+	Out.Pos = mul(matWorldViewProj, vPosition);
+   
+	float4 vWorldPos = (float4)mul(matWorld,vPosition);
+	float3 vWorldN = normalize(mul((float3x3)matWorld, vNormal)); //normal in world space
+   
+	float3 P = mul(matWorldView, vPosition); //position in view space
+   
+	Out.Tex0 = tc;
 
-   Out.Pos = mul(matWorldViewProj, vPosition);
-   
-   float4 vWorldPos = (float4)mul(matWorld,vPosition);
-   float3 vWorldN = normalize(mul((float3x3)matWorld, vNormal)); //normal in world space
-   
-   float3 P = mul(matWorldView, vPosition); //position in view space
-   
-   Out.Tex0 = tc;
-
-   float4 diffuse_light = vAmbientColor;
+	float4 diffuse_light = vAmbientColor;
 //   diffuse_light.rgb *= gradient_factor * (gradient_offset + vWorldN.z);
    
-   if (UseSecondLight)
-   {
+	if (UseSecondLight)
+	{
 		diffuse_light += vLightColor;
 	}
    
