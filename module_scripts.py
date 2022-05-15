@@ -9386,7 +9386,7 @@ scripts = [
             (party_get_current_terrain, ":village_is_at_desert", ":village_no"),#Will be changed to either 0 or 1
 	    (this_or_next|eq, ":village_is_at_desert", rt_desert),
 	    (eq, ":village_is_at_desert", rt_desert_forest),#If false, will fall through and be assigned to 0 below
-	    (assign, ":village_is_at_desert", 1),
+	    # (assign, ":village_is_at_desert", 1),
       # (else_try),
 	    # (lt, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_LOW), #Fall back to old behavior
       ##diplomacy end+
@@ -72979,9 +72979,9 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 
       (troop_add_item, "trp_bonus_chest_3","itm_b_leg_harness_10", imod_lordly),
       # (troop_add_item, "trp_bonus_chest_3","itm_a_kastenbrust_mail", imod_lordly),
-      (troop_add_item, "trp_bonus_chest_3","itm_h_great_bascinet_houndskull", imod_lordly),
+      # (troop_add_item, "trp_bonus_chest_3","itm_h_great_bascinet_houndskull", imod_lordly),
       # (troop_add_item, "trp_bonus_chest_3","itm_steel_shield", imod_lordly),
-      (troop_add_item, "trp_bonus_chest_3","itm_h_great_bascinet_houndskull", imod_lordly), #charger_plate_1
+      # (troop_add_item, "trp_bonus_chest_3","itm_h_great_bascinet_houndskull", imod_lordly), #charger_plate_1
 
       #training ground variables based on global
       (try_for_range, ":npc", training_ground_trainers_begin, training_ground_trainers_end),

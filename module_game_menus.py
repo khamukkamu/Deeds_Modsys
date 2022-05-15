@@ -2426,7 +2426,7 @@ TOTAL:  {reg5}"),
         #In cheat mode, print the diplomacy+ version
         (ge, "$cheat_mode", 1),
         (val_div, reg0, 128),
-        (display_message, "@{!}DEBUG: Internal update code for current saved game is {reg0}. Update code for the current release is "+str(DPLMC_CURRENT_VERSION_CODE)+"."),
+        # (display_message, "@{!}DEBUG: Internal update code for current saved game is {reg0}. Update code for the current release is "+str(DPLMC_CURRENT_VERSION_CODE)+"."),
     (try_end),
     ##diplomacy end+
     
@@ -3098,8 +3098,10 @@ TOTAL:  {reg5}"),
      ]),
      
     ("test_give_troops",[],"Give yourself mercenaries", [
-    (party_add_members,"p_main_party","trp_genoese_crossbowman", 20),
-    (party_add_members,"p_main_party","trp_mercenary_german_dismounted_knight", 20),
+    # (party_add_members,"p_main_party","trp_genoese_crossbowman", 20),
+    (party_add_members,"p_main_party","trp_mercenary_bowman", 20),
+    # (party_add_members,"p_main_party","trp_mercenary_german_dismounted_knight", 20),
+    (party_add_members,"p_main_party","trp_watchman", 20),
      ]),
 
     ("dac_test_back",[],"Back",[(jump_to_menu, "mnu_camp")]),
@@ -12672,14 +12674,14 @@ TOTAL:  {reg5}"),
           (eq, reg7, 0),
           (eq, reg5, 0),
         ],
-        "Continuer...",
+        "Continue.",
         [
           (party_set_slot, "$current_town", slot_center_volunteer_troop_amount, -1),
           (jump_to_menu,"mnu_town"),
       ]),
       
       ("recruit_them",
-        [#ajouter condition renom?et envoyer en bas vers "vous n'avez pas assez de renom?
+        [
           (eq, reg7, 0),
           (gt, reg5, 0),
         ],
@@ -19706,7 +19708,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 		#In cheat mode, print the diplomacy+ version
 		(ge, "$cheat_mode", 1),
 		(val_div, reg0, 128),
-		(str_store_string, s0, "@{!}{s0}^^ DEBUG: Internal update code for current saved game is {reg0}.^Update code for the current release is "+str(DPLMC_CURRENT_VERSION_CODE)+"."),
+		# (str_store_string, s0, "@{!}{s0}^^ DEBUG: Internal update code for current saved game is {reg0}.^Update code for the current release is "+str(DPLMC_CURRENT_VERSION_CODE)+"."),
 	(try_end),
 	##diplomacy end+
     

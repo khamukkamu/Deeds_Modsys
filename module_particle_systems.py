@@ -469,7 +469,7 @@ particle_systems = [
     ),
     
     ("pistol_smoke", psf_billboard_3d, "prtcl_dust_a",
-     90, 2.5, 0.6, -0.2, 60.0, 1.5,     #num_particles, life, damping, gravity_strength, turbulance_size, turbulance_strength
+     120, 5.0, 0.6, -0.1, 60.0, 1.5,     #num_particles, life, damping, gravity_strength, turbulance_size, turbulance_strength
      (0.0, 0.75), (1, 0),       #alpha keys
      (0.0, 0.7), (1, 0.4),      #red keys
      (0.0, 0.7),(1, 0.4),       #green keys
@@ -479,6 +479,40 @@ particle_systems = [
      (2, 2, 0),                 #emit velocity
      0.1                        #emit dir randomness
     ),
+    
+    ("pistol_fire", psf_billboard_3d, "prt_mesh_fire_3",
+     45, 0.5, 0.0, -0.3, 1.0, 0.5,     #num_particles, life, damping, gravity_strength, turbulance_size, turbulance_strength
+     (0.5, 0.4), (1.0, 0),        #alpha keys
+     (0.5, 1.0), (1.0, 0.9),      #red keys
+     (0.5, 0.7), (1.0, 0.3),       #green keys
+     (0.5, 0.2), (1, 0.0),      #blue keys
+     (0.0, 0.5),   (0.5, 1.0),   #scale keys
+     (0.1, 1.0, 0.1),           #emit box size
+     (1, 1, 1),                 #emit velocity
+     0.1                        #emit dir randomness
+    ),
+    
+#  4) Num particles per second:    Number of particles emitted per second.
+#  5) Particle Life:    Each particle lives this long (in seconds).
+#  6) Damping:          How much particle's speed is lost due to friction.
+#  7) Gravity strength: Effect of gravity. (Negative values make the particles float upwards.)
+#  8) Turbulance size:  Size of random turbulance (in meters)
+#  9) Turbulance strength: How much a particle is affected by turbulance.
+####
+# 10,11) Alpha keys :    Each attribute is controlled by two keys and 
+# 12,13) Red keys   :    each key has two fields: (time, magnitude)
+# 14,15) Green keys :    For example scale key (0.3,0.6) means 
+# 16,17) Blue keys  :    scale of each particle will be 0.6 at the
+# 18,19) Scale keys :    time 0.3 (where time=0 means creation and time=1 means end of the particle)
+#
+# The magnitudes are interpolated in between the two keys and remain constant beyond the keys.
+# Except the alpha always starts from 0 at time 0.
+####
+# 20) Emit Box Size :   The dimension of the box particles are emitted from.
+# 21) Emit velocity :   Particles are initially shot with this velocity.
+# 22) Emit dir randomness
+# 23) Particle rotation speed: Particles start to rotate with this (angular) speed (degrees per second).
+# 24) Particle rotation damping: How quickly particles stop their rotation
     
 #    ("cooking_fire", psf_billboard_3d|psf_global_emit_dir|psf_always_emit, "prtcl_fire",
 #    50, 0.5, 0.2, -0.05, 30.0, 0.3,     #num_particles, life, damping, gravity_strength, turbulance_size, turbulance_strength

@@ -1758,8 +1758,8 @@ books_end = reference_books_end
 
 # Ranges used for Refresh Center Inventories Script 
 horses_begin = "itm_ho_sumpter_1"
-horses_end = "itm_h_great_bascinet_1"
-armors_begin = "itm_h_great_bascinet_1" #Includes helms, armours, gauntlets, and boots
+horses_end = "itm_h_great_bascinet_english_1410"
+armors_begin = "itm_h_great_bascinet_english_1410" #Includes helms, armours, gauntlets, and boots
 armors_end = "itm_w_dagger_baselard"
 weapons_begin = "itm_w_dagger_baselard"
 weapons_end = "itm_w_arrow_triangular"
