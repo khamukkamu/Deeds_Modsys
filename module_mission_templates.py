@@ -2702,6 +2702,91 @@ tournament_triggers_diplo = [
                        (assign, "$g_arena_training_won", 0),
                        (call_script, "script_music_set_situation_with_culture", mtf_sit_arena),
                        ]),
+                       
+### Mark7 Arena
+# Assign animations to agents
+###############################	
+
+    (ti_on_agent_spawn,1,0,[
+
+	(store_trigger_param_1,":spec"),
+	(agent_get_troop_id,":specSit",":spec"),
+    (agent_get_troop_id,":specStand",":spec"),
+    # (agent_get_troop_id,":master",":spec"),
+    (agent_get_troop_id,":noble",":spec"),
+    (agent_get_troop_id,":nobleStand",":spec"),
+
+    (agent_ai_set_interact_with_player, ":spec", 0),
+
+	(try_for_range,":entry",60,80),
+			(is_between,":specSit","trp_arena_sit_man_1","trp_arena_sit_end"),
+      # (display_message, "@{!}DEBUG : COMMON SIT"),
+      (try_for_agents, ":specSit"),
+        (entry_point_is_auto_generated, ":entry"),
+    #  (display_message, "@{!}STAND OFF"),
+      (agent_set_visibility, ":spec", 0),
+      (remove_agent, ":spec"),
+      (stop_all_sounds, 1), 
+      (else_try),
+				(agent_set_stand_animation, ":spec", "anim_arena_sit_idle"),
+				(agent_set_animation, ":spec", "anim_arena_sit_idle"),
+				(store_random_in_range,":r",0,300),
+			(agent_set_animation_progress,":spec",":r"),
+    (try_end),
+     (try_end),
+
+      (try_for_range,":entryStand",80,101),
+      	(is_between,":specStand","trp_arena_stand_man_1","trp_town_arena_stand_end"),
+      # (display_message, "@{!}DEBUG : COMMON STAND"),
+      (try_for_agents, ":specStand"),
+      (entry_point_is_auto_generated, ":entryStand"),
+    #  (display_message, "@{!}STAND OFF"),
+      (agent_set_visibility, ":spec", 0),
+      (remove_agent, ":spec"),
+      (stop_all_sounds, 1), 
+      (else_try),
+			(agent_set_stand_animation, ":spec", "anim_arena_stand_idle"),
+			(agent_set_animation, ":spec", "anim_arena_stand_idle"),
+			(store_random_in_range,":r",0,300),
+			(agent_set_animation_progress,":spec",":r"),
+      (try_end),
+    (try_end),
+
+ 	 (try_for_range,":entryNoble",60,80),
+    	(is_between,":noble","trp_arena_1_noble","trp_arena_noble_end"),
+    # (display_message, "@{!}DEBUG : NOBLE SIT"),
+      (try_for_agents, ":noble"),
+      (entry_point_is_auto_generated, ":entryNoble"),
+     # (display_message, "@{!}STAND OFF"),
+      (agent_set_visibility, ":spec", 0),
+      (remove_agent, ":spec"),
+      (stop_all_sounds, 1), 
+      (else_try),
+			(agent_set_stand_animation, ":spec", "anim_arena_sit_idle"),
+			(agent_set_animation, ":spec", "anim_arena_sit_idle"),
+			(store_random_in_range,":r",0,300),
+			(agent_set_animation_progress,":spec",":r"),
+		(try_end),
+       (try_end),
+
+        (try_for_range,":entryNobleStand",80,101),
+    	(is_between,":nobleStand","trp_arena_stand_1_noble","trp_arena_noble_stand_end"),
+    # (display_message, "@{!}DEBUG : NOBLE STAND"),
+      (try_for_agents, ":nobleStand"),
+      (entry_point_is_auto_generated, ":entryNobleStand"),
+    #  (display_message, "@{!}STAND OFF"),
+      (agent_set_visibility, ":spec", 0),
+      (remove_agent, ":spec"),
+      (stop_all_sounds, 1), 
+      (else_try),
+			(agent_set_stand_animation, ":spec", "anim_arena_stand_idle"),
+			(agent_set_animation, ":spec", "anim_arena_stand_idle"),
+			(store_random_in_range,":r",0,300),
+			(agent_set_animation_progress,":spec",":r"),
+       (try_end),
+       (try_end),
+    
+	],[]),
 
   (1, 4, ti_once, [(eq, "$g_mt_mode", abm_training),
                    (store_mission_timer_a, ":cur_time"),
@@ -2846,7 +2931,38 @@ tournament_triggers_diplo = [
 # Autolykos Version
 tournament_triggers = [
   (ti_before_mission_start, 0, 0, [], [(call_script, "script_change_banners_and_chest"),
-                                       (assign, "$g_arena_training_num_agents_spawned", 0)]),
+                                       (assign, "$g_arena_training_num_agents_spawned", 0),
+                                       
+# DAC Seek: Spec Life
+### Mark7 Arena
+### Spawn agents at entry points ARENA SIMPLE ENTER
+#####################################################
+    (eq,"$arena_entry",0),
+    (try_begin),
+        (try_for_range,":entry",60,80),
+      # (store_random_in_range,":r",0,100),
+      # (gt,":r",50),#random chance of spawning 
+        (store_random_in_range,":town_walker","trp_arena_sit_man_1","trp_arena_sit_end"),
+        (mission_tpl_entry_clear_override_items,"mt_arena_melee_fight",":entry"),
+        (set_visitor,":entry",":town_walker"),
+    (try_end),
+
+        (try_for_range,":entrystand",80,101),
+    # (store_random_in_range,":r",0,100),
+    #  (gt,":r",50),#random chance of spawning 
+        (store_random_in_range,":town_stand","trp_arena_stand_man_1","trp_town_arena_stand_end"),
+        (mission_tpl_entry_clear_override_items,"mt_arena_melee_fight",":entrystand"),
+        (set_visitor,":entrystand",":town_stand"),
+        (try_end),
+    (try_end),
+
+       #(display_message, "@{!}DEBUG : VISIT"),
+    (play_sound, "snd_arena_ambiance", sf_looping), # arena sound play
+  
+ 
+#### Mark7 Arena END
+]),
+
   (ti_inventory_key_pressed, 0, 0, [(display_message,"str_cant_use_inventory_arena")], []),
   (ti_tab_pressed, 0, 0, [],
    [(try_begin),
@@ -2893,6 +3009,19 @@ tournament_triggers = [
      (eq, "$g_mt_mode", abm_tournament),
      (play_sound, "snd_arena_ambiance", sf_looping),
      (call_script, "script_music_set_situation_with_culture", mtf_sit_arena),
+# DAC Seek: Spec Life
+  #(display_message, "@{!}DEBUG : TOURNAMENT"),
+      (try_for_range,":entry",60,80),
+			(store_random_in_range,":town_walker","trp_arena_1_noble","trp_arena_noble_end"),
+			(mission_tpl_entry_clear_override_items,"mt_arena_melee_fight",":entry"),
+			(set_visitor,":entry",":town_walker"),
+      	(try_end),
+
+      (try_for_range,":entrystand",80,101),
+			(store_random_in_range,":town_stand","trp_arena_stand_1_noble","trp_arena_noble_stand_end"),
+			(mission_tpl_entry_clear_override_items,"mt_arena_melee_fight",":entrystand"),
+			(set_visitor,":entrystand",":town_stand"),
+      	(try_end),
      ]),
 
   (1, 4, ti_once, [(eq, "$g_mt_mode", abm_tournament),
@@ -2919,6 +3048,91 @@ tournament_triggers = [
                        (assign, "$g_arena_training_won", 0),
                        (call_script, "script_music_set_situation_with_culture", mtf_sit_arena),
                        ]),
+                       
+### Mark7 Arena
+# Assign animations to agents
+###############################	
+
+    (ti_on_agent_spawn,1,0,[
+
+	(store_trigger_param_1,":spec"),
+	(agent_get_troop_id,":specSit",":spec"),
+    (agent_get_troop_id,":specStand",":spec"),
+    # (agent_get_troop_id,":master",":spec"),
+    (agent_get_troop_id,":noble",":spec"),
+    (agent_get_troop_id,":nobleStand",":spec"),
+
+    (agent_ai_set_interact_with_player, ":spec", 0),
+
+	(try_for_range,":entry",60,80),
+			(is_between,":specSit","trp_arena_sit_man_1","trp_arena_sit_end"),
+      # (display_message, "@{!}DEBUG : COMMON SIT"),
+      (try_for_agents, ":specSit"),
+        (entry_point_is_auto_generated, ":entry"),
+    #  (display_message, "@{!}STAND OFF"),
+      (agent_set_visibility, ":spec", 0),
+      (remove_agent, ":spec"),
+      (stop_all_sounds, 1), 
+      (else_try),
+				(agent_set_stand_animation, ":spec", "anim_arena_sit_idle"),
+				(agent_set_animation, ":spec", "anim_arena_sit_idle"),
+				(store_random_in_range,":r",0,300),
+			(agent_set_animation_progress,":spec",":r"),
+    (try_end),
+     (try_end),
+
+      (try_for_range,":entryStand",80,101),
+      	(is_between,":specStand","trp_arena_stand_man_1","trp_town_arena_stand_end"),
+      # (display_message, "@{!}DEBUG : COMMON STAND"),
+      (try_for_agents, ":specStand"),
+      (entry_point_is_auto_generated, ":entryStand"),
+    #  (display_message, "@{!}STAND OFF"),
+      (agent_set_visibility, ":spec", 0),
+      (remove_agent, ":spec"),
+      (stop_all_sounds, 1), 
+      (else_try),
+			(agent_set_stand_animation, ":spec", "anim_arena_stand_idle"),
+			(agent_set_animation, ":spec", "anim_arena_stand_idle"),
+			(store_random_in_range,":r",0,300),
+			(agent_set_animation_progress,":spec",":r"),
+      (try_end),
+    (try_end),
+
+ 	 (try_for_range,":entryNoble",60,80),
+    	(is_between,":noble","trp_arena_1_noble","trp_arena_noble_end"),
+    # (display_message, "@{!}DEBUG : NOBLE SIT"),
+      (try_for_agents, ":noble"),
+      (entry_point_is_auto_generated, ":entryNoble"),
+     # (display_message, "@{!}STAND OFF"),
+      (agent_set_visibility, ":spec", 0),
+      (remove_agent, ":spec"),
+      (stop_all_sounds, 1), 
+      (else_try),
+			(agent_set_stand_animation, ":spec", "anim_arena_sit_idle"),
+			(agent_set_animation, ":spec", "anim_arena_sit_idle"),
+			(store_random_in_range,":r",0,300),
+			(agent_set_animation_progress,":spec",":r"),
+		(try_end),
+       (try_end),
+
+        (try_for_range,":entryNobleStand",80,101),
+    	(is_between,":nobleStand","trp_arena_stand_1_noble","trp_arena_noble_stand_end"),
+    # (display_message, "@{!}DEBUG : NOBLE STAND"),
+      (try_for_agents, ":nobleStand"),
+      (entry_point_is_auto_generated, ":entryNobleStand"),
+    #  (display_message, "@{!}STAND OFF"),
+      (agent_set_visibility, ":spec", 0),
+      (remove_agent, ":spec"),
+      (stop_all_sounds, 1), 
+      (else_try),
+			(agent_set_stand_animation, ":spec", "anim_arena_stand_idle"),
+			(agent_set_animation, ":spec", "anim_arena_stand_idle"),
+			(store_random_in_range,":r",0,300),
+			(agent_set_animation_progress,":spec",":r"),
+       (try_end),
+       (try_end),
+    
+	],[]),
 
   (1, 4, ti_once, [(eq, "$g_mt_mode", abm_training),
                    (store_mission_timer_a, ":cur_time"),
@@ -6535,6 +6749,60 @@ mission_templates = [
 
       (56, mtef_visitor_source|mtef_team_0, af_override_all, aif_start_alarmed, 1, [itm_practice_sword, itm_practice_shield]),
       (57, mtef_visitor_source|mtef_team_0, af_override_all, aif_start_alarmed, 1, [itm_practice_sword, itm_practice_shield]),
+      
+    # DAC Seek: Spec Life (Mark7)
+    (58,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#58 #not used yet
+		(59,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#59 #not used yet
+
+		(60,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#60
+		(61,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#61
+		(62,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#62
+		(63,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#63
+		(64,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#64
+		(65,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#65
+
+    (66,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#66
+		(67,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#67
+		(68,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#68
+		(69,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#69
+		(70,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#70
+		(71,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#71
+
+    (72,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#72
+		(73,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#73
+		(74,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#74
+		(75,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#75
+		(76,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#76
+		(77,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#77
+    (78,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#78
+		(79,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#79
+    (80,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#80
+		
+    (81,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#81
+		(82,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#82
+    (83,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#83
+		(84,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#84
+    (85,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#85
+
+    (86,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#86
+		(87,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#87
+    (88,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#88
+		(89,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#89
+    (90,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#90
+
+    (91,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#91
+		(92,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#92
+    (93,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#93
+		(94,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#94
+    (95,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#95
+		
+    (96,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#96
+		(97,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#97
+    (98,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#98
+		(99,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#99
+    (100,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#100
+
+    (101,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#101
     ],
     tournament_triggers
   ),

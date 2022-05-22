@@ -11854,6 +11854,9 @@ TOTAL:  {reg5}"),
              (set_jump_entry, 50),
              (jump_to_scene, ":arena_scene"),
              (scene_set_slot, ":arena_scene", slot_scene_visited, 1),
+             # DAC Seek: Spec Life (Mark7)
+             (assign,"$arena_entry",0),
+             #
              (change_screen_mission),
            (try_end),
         ],"Door to the arena."),
@@ -14138,7 +14141,8 @@ goods, and books will never be sold. ^^You can change some settings here freely.
          (set_visitor, ":entry", ":participant", reg0),
        (try_end),
            (try_end),
-       
+           # DAC Seek: Spec Life (Mark7)
+           (assign,"$arena_entry",1),
            (jump_to_scene, ":arena_scene"),
            (change_screen_mission),
         ]),

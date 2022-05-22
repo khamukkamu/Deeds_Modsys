@@ -45415,7 +45415,19 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   
   
   
-  
+# Arena Dialogs
+##Arena commoner's sit
+  [anyone|plyr,"start",[(store_conversation_troop,reg(1)),(is_between,reg(1),"trp_arena_sit_man_1","trp_arena_sit_end")],
+   "This person is too passionate, I will not distract him ...","close_window",[]],
+##Arena commoner's stand
+  [anyone|plyr,"start",[(store_conversation_troop,reg(1)),(is_between,reg(1),"trp_arena_stand_man_1","trp_town_arena_stand_end")],
+   "This person is too passionate, I will not distract him ...","close_window",[]],
+   ##Arena Noble's sit
+  [anyone|plyr,"start",[(store_conversation_troop,reg(1)),(is_between,reg(1),"trp_arena_1_noble","trp_arena_12_noble")],
+   "This person is too passionate, I will not distract him ...","close_window",[]],
+##Arena Noble's stand
+  [anyone|plyr,"start",[(store_conversation_troop,reg(1)),(is_between,reg(1),"trp_arena_stand_1_noble","trp_arena_stand_12_noble")],
+   "This person is too passionate, I will not distract him ...","close_window",[]],  
   
 ######################################
 # GENERIC PARTY ENCOUNTER

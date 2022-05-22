@@ -1986,6 +1986,74 @@ animations = [
    [5.00, "stand_torch_1", 0, 99, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
    [5.00, "stand_torch_2", 0, 99, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],],
 # Commented out for TLD cheer
+
+# Arena Anims
+
+["arena_sit_idle", 0, amf_client_prediction,
+   [5.0, "arena_idle", 0, 153, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+   [3.0, "arena_sit_yell", 0, 57, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+   [4.0, "arena_sit_victory", 0, 135, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+   [3.0, "arena_sit_angry", 0, 80, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+   [3.0, "arena_sit_clap_a", 0, 80, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+   [5.0, "arena_sit_clap_b", 0, 182, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+   [4.0, "arena_sit_disblief_a", 0, 113, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+   [4.0, "arena_sit_disblief_b", 0, 100, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+   [5.0, "arena_sit_idle_b", 0, 168, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+   [3.0, "arena_sit_yell_b", 0, 91, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+
+   [4.0, "arena_sit_cheer_a", 0, 104, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+   [5.0, "arena_sit_yell_b", 0, 182, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+
+   [12.0, "arena_sit_shake_legs_x4", 0, 200, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+   
+   [3.0, "arena_sit_stand_cheer_a", 0, 82, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+   [3.0, "arena_sit_stand_cheer_b", 0, 82, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+   [4.0, "arena_sit_stand_clap_a", 0, 120, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+   [4.0, "arena_sit_stand_clap_b", 0, 118, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+   [3.0, "arena_sit_stand_clap_c", 0, 82, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+   [3.0, "arena_sit_stand_pump_a", 0, 90, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+   [3.0, "arena_sit_stand_pump_b", 0, 84, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+
+ ],
+
+ 
+["arena_stand_idle", 0, amf_client_prediction,
+   [5.0, "stand_yelling", 0, 187, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+   [2.0, "stand_weight_shift_gesture", 0, 46, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+   [6.0, "stand_victory_idle_c", 0, 204, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+   [2.0, "stand_victory_idle_b", 0, 39, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+   [2.0, "stand_victory_idle_a", 0, 44, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+   [3.0, "stand_throw_a", 0, 52, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+   [15.0, "stand_standing_fury_talk", 0, 499, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+   [3.0, "stand_shurging_a", 0, 47, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+  
+   [2.0, "stand_shake_gesture_no", 0, 42, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+   [2.0, "stand_shake_gesture", 0, 41, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+   [3.0, "stand_shake_a", 0, 69, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+   
+   [4.0, "stand_search_pockets", 0, 119, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+
+   [3.0, "stand_pump_b", 0, 73, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+   [4.0, "stand_pump_a", 0, 90, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+   [5.0, "stand_look_forward_b", 0, 191, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+   [4.0, "stand_look_forward_a", 0, 116, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+   [3.0, "stand_look_bottom_a", 0, 65, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+   [6.0, "stand_laughting_a", 0, 233, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+   [3.0, "stand_happy_idle", 0, 69, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+
+   [5.0, "stand_defeat_idle_c", 0, 161, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+   [2.0, "stand_defeat_idle_b", 0, 41, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+   [2.0, "stand_defeat_idle_a", 0, 36, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+   [4.0, "stand_crazy_gesture_a", 0, 119, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+   [2.0, "stand_clapping_idle_a", 0, 27, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+   [3.0, "stand_cheering_a", 0, 69, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+
+   [3.0, "stand_angry_pointing_a", 0, 57, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+   [3.0, "stand_angry_gesture_c", 0, 61, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+   [14.0, "stand_angry_gesture_b", 0, 459, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+   [3.0, "stand_angry_gesture_a", 0, 77, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],
+
+ ],
 # ["unused_human_anim_44", 0, 0, [1.0, "anim_human", 0, 1, 0]],
 # ["unused_human_anim_45", 0, 0, [1.0, "anim_human", 0, 1, 0]],
 # ["unused_human_anim_46", 0, 0, [1.0, "anim_human", 0, 1, 0]],
@@ -2008,8 +2076,8 @@ animations = [
  
  # ["unused_human_anim_59", 0, 0, [1.0, "anim_human", 0, 1, 0]],
  # ["unused_human_anim_60", 0, 0, [1.0, "anim_human", 0, 1, 0]],
- ["unused_human_anim_61", 0, 0, [1.0, "anim_human", 0, 1, 0]],
- ["unused_human_anim_62", 0, 0, [1.0, "anim_human", 0, 1, 0]],
+ # ["unused_human_anim_61", 0, 0, [1.0, "anim_human", 0, 1, 0]],
+ # ["unused_human_anim_62", 0, 0, [1.0, "anim_human", 0, 1, 0]],
  ["unused_human_anim_63", 0, 0, [1.0, "anim_human", 0, 1, 0]],
  ["unused_human_anim_64", 0, 0, [1.0, "anim_human", 0, 1, 0]],
  ["unused_human_anim_65", 0, 0, [1.0, "anim_human", 0, 1, 0]],
