@@ -1166,7 +1166,7 @@ store_random_equipment              = 2258  # (store_random_equipment, <destinat
 store_random_armor                  = 2259  # (store_random_armor, <destination>),
                                             # Deprecated since early M&B days.
 
-cur_item_add_mesh                   = 1964  # (cur_item_add_mesh, <mesh_name_string>, [<lod_begin>], [<lod_end>]),
+cur_item_add_mesh                   = 1964  # (cur_item_add_mesh, <mesh_name_string>, [<lod_begin>], [<lod_end>], [<vertex-color>]),
                                             # Version 1.161+. Only call inside ti_on_init_item trigger. Adds another mesh to item, allowing the creation of combined items. Parameter <mesh_name_string> should contain mesh name itself, NOT a mesh reference. LOD values are optional. If <lod_end> is used, it will not be loaded.
 cur_item_set_material               = 1978  # (cur_item_set_material, <string_no>, <sub_mesh_no>, [<lod_begin>], [<lod_end>]),
                                             # Version 1.161+. Only call inside ti_on_init_item trigger. Replaces material that will be used to render the item mesh. Use 0 for <sub_mesh_no> to replace material for base mesh. LOD values are optional. If <lod_end> is used, it will not be loaded.

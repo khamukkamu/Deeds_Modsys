@@ -883,12 +883,12 @@ scripts = [
       (faction_set_slot, "fac_outlaws", slot_faction_quick_battle_tier_1_cavalry, "trp_routier_mounted_sergeant"),
       (faction_set_slot, "fac_outlaws", slot_faction_quick_battle_tier_2_cavalry, "trp_retondeur_horseman"),
 	  
-      (faction_set_slot, "fac_kingdom_1", slot_faction_quick_battle_tier_1_infantry, "trp_french_infantry"),
-      (faction_set_slot, "fac_kingdom_1", slot_faction_quick_battle_tier_2_infantry, "trp_french_voulgier"),
-      (faction_set_slot, "fac_kingdom_1", slot_faction_quick_battle_tier_1_archer, "trp_french_archer"),
+      (faction_set_slot, "fac_kingdom_1", slot_faction_quick_battle_tier_1_infantry, "trp_french_pavoisier"),
+      (faction_set_slot, "fac_kingdom_1", slot_faction_quick_battle_tier_2_infantry, "trp_french_guisarmier"),
+      (faction_set_slot, "fac_kingdom_1", slot_faction_quick_battle_tier_1_archer, "trp_french_veteran_archer"),
       (faction_set_slot, "fac_kingdom_1", slot_faction_quick_battle_tier_2_archer, "trp_french_crossbowman"),
-      (faction_set_slot, "fac_kingdom_1", slot_faction_quick_battle_tier_1_cavalry, "trp_french_knight_bachelier"),
-      (faction_set_slot, "fac_kingdom_1", slot_faction_quick_battle_tier_2_cavalry, "trp_french_chevalier_banneret"),
+      (faction_set_slot, "fac_kingdom_1", slot_faction_quick_battle_tier_1_cavalry, "trp_french_man_at_arms"),
+      (faction_set_slot, "fac_kingdom_1", slot_faction_quick_battle_tier_2_cavalry, "trp_french_knight_bachelier"),
 		
       (faction_set_slot, "fac_kingdom_2", slot_faction_quick_battle_tier_1_infantry, "trp_english_spearman"),
       (faction_set_slot, "fac_kingdom_2", slot_faction_quick_battle_tier_2_infantry, "trp_english_billman"),
@@ -7893,11 +7893,11 @@ scripts = [
     [
 
 # Cultures:
-      (faction_set_slot, "fac_culture_1",  slot_faction_tier_1_troop, "trp_french_peasant"),
+      (faction_set_slot, "fac_culture_1",  slot_faction_tier_1_troop, "trp_french_peasant_levy"),
       (faction_set_slot, "fac_culture_1",  slot_faction_tier_2_troop, "trp_french_militia"),
-      (faction_set_slot, "fac_culture_1",  slot_faction_tier_3_troop, "trp_french_voulgier"),
-      (faction_set_slot, "fac_culture_1",  slot_faction_tier_4_troop, "trp_french_man_at_arms"),
-      (faction_set_slot, "fac_culture_1",  slot_faction_tier_5_troop, "trp_french_captain"),
+      (faction_set_slot, "fac_culture_1",  slot_faction_tier_3_troop, "trp_french_pavoisier"),
+      (faction_set_slot, "fac_culture_1",  slot_faction_tier_4_troop, "trp_french_dismounted_squire"),
+      (faction_set_slot, "fac_culture_1",  slot_faction_tier_5_troop, "trp_french_chevalier_banneret_a_pied"),
       (faction_set_slot, "fac_culture_1",  slot_faction_tier_6_troop, "trp_french_squire"),
       (faction_set_slot, "fac_culture_1",  slot_faction_tier_1_archer, "trp_french_peasant_archer"),
       
@@ -8035,7 +8035,7 @@ scripts = [
           (faction_slot_eq, ":faction_no", slot_faction_culture, "fac_culture_1"),
           
           (faction_set_slot, ":faction_no",  slot_faction_deserter_troop, "trp_french_deserter"),
-          (faction_set_slot, ":faction_no",  slot_faction_guard_troop, "trp_french_infantry"),
+          (faction_set_slot, ":faction_no",  slot_faction_guard_troop, "trp_french_pavoisier"),
           (faction_set_slot, ":faction_no",  slot_faction_messenger_troop, "trp_french_messenger"),
           (faction_set_slot, ":faction_no",  slot_faction_prison_guard_troop, "trp_french_prison_guard"),
           (faction_set_slot, ":faction_no",  slot_faction_castle_guard_troop, "trp_french_castle_guard"),
@@ -75776,10 +75776,20 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (item_set_slot, "itm_a_woman_common_dress_2_custom", slot_item_materials_end, "str_a_woman_common_dress_2_end"),  
       (item_set_slot, "itm_a_woman_common_dress_2_custom", slot_item_num_components, 1),    
 
-## Native shirt
-      (item_set_slot, "itm_a_peasant_shirt_custom", slot_item_materials_begin, "str_a_shirt_black"),
-      (item_set_slot, "itm_a_peasant_shirt_custom", slot_item_materials_end, "str_a_shirt_end"),  
-      (item_set_slot, "itm_a_peasant_shirt_custom", slot_item_num_components, 1),       
+## Peasant Cote
+      (item_set_slot, "itm_a_peasant_cote_custom", slot_item_materials_begin, "str_a_peasant_cote_1"),
+      (item_set_slot, "itm_a_peasant_cote_custom", slot_item_materials_end, "str_a_peasant_cote_end"),  
+      (item_set_slot, "itm_a_peasant_cote_custom", slot_item_num_components, 1),       
+
+## Peasant Cotehardie
+      (item_set_slot, "itm_a_peasant_cotehardie_custom", slot_item_materials_begin, "str_a_cotehardie_1"),
+      (item_set_slot, "itm_a_peasant_cotehardie_custom", slot_item_materials_end, "str_a_cotehardie_end"),  
+      (item_set_slot, "itm_a_peasant_cotehardie_custom", slot_item_num_components, 1),       
+      
+## Tailored Cotehardie
+      (item_set_slot, "itm_a_tailored_cotehardie_custom", slot_item_materials_begin, "str_a_cotehardie_tailored_1"),
+      (item_set_slot, "itm_a_tailored_cotehardie_custom", slot_item_materials_end, "str_a_cotehardie_tailored_end"),  
+      (item_set_slot, "itm_a_tailored_cotehardie_custom", slot_item_num_components, 1),       
 	  
 ## Native thick coat
       (item_set_slot, "itm_a_hunter_coat_custom", slot_item_materials_begin, "str_a_thick_coat_black"),
@@ -76005,6 +76015,27 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
           (item_set_slot, ":item_no", slot_item_materials_end, "str_h_hood_asher_fancy_end"),   
           (item_set_slot, ":item_no", slot_item_num_components, 1),     
       (try_end), 
+      
+## Peasant Bycocket 1
+      (item_set_slot, "itm_h_peasant_bycocket_1_custom", slot_item_materials_begin, "str_a_cotehardie_1"),
+      (item_set_slot, "itm_h_peasant_bycocket_1_custom", slot_item_materials_end, "str_a_cotehardie_end"),   
+      (item_set_slot, "itm_h_peasant_bycocket_1_custom", slot_item_num_components, 1),  
+
+## Peasant Bycocket 2
+      (item_set_slot, "itm_h_peasant_bycocket_2_custom", slot_item_materials_begin, "str_a_cotehardie_1"),
+      (item_set_slot, "itm_h_peasant_bycocket_2_custom", slot_item_materials_end, "str_a_cotehardie_end"),   
+      (item_set_slot, "itm_h_peasant_bycocket_2_custom", slot_item_num_components, 1),  
+
+## Bycocket 1
+      (item_set_slot, "itm_h_bycocket_1_custom", slot_item_materials_begin, "str_a_cotehardie_tailored_1"),
+      (item_set_slot, "itm_h_bycocket_1_custom", slot_item_materials_end, "str_a_cotehardie_tailored_end"),   
+      (item_set_slot, "itm_h_bycocket_1_custom", slot_item_num_components, 1),  
+
+## Bycocket 2
+      (item_set_slot, "itm_h_bycocket_2_custom", slot_item_materials_begin, "str_a_cotehardie_tailored_1"),
+      (item_set_slot, "itm_h_bycocket_2_custom", slot_item_materials_end, "str_a_cotehardie_tailored_end"),   
+      (item_set_slot, "itm_h_bycocket_2_custom", slot_item_num_components, 1),  
+
 ###################################################################################################### HYW CUSTOM ARMORS VERTEX COLORED   
 
 

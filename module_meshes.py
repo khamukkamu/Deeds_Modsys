@@ -659,19 +659,6 @@ meshes = [
   ("icon_spear", 0, "ico_spear", 0, 0, 0, 0, 0, 0, 0.3, 0.3, 0.3),
   ("icon_bardiche", 0, "ico_axetwo", 0, 0, 0, 0, 0, 0, 0.3, 0.3, 0.3),
 
-#INVASION MODE START  
-  ("incoming_enemy", 0, "cb_ui_icon_infantry", 0, 0, 0, 0, 0, 0, 2, 2, 2),
-  ("prison_cart_pos", 0, "ccoop_prison_cart", 0, 0, 0, 0, 0, 0, 2, 2, 2),
-
-  ("ccoop_drop_chest_top", 0, "ccoop_drop_chest_top", 0, 0, 0, 0, 0, 0, 1, 1, 1),
-  ("ccoop_drop_chest_bottom", 0, "ccoop_drop_chest_bottom", 0, 0, 200, 0, 0, 0, 1, 1, 1),
-  ("ccoop_random_class", 0, "ccoop_random_class", 0, 0, 0, 0, 0, 0, 1, 1, 1),
-  ("ccoop_default_class", 0, "ccoop_default_class", 0, 0, 0, 0, 0, 0, 1, 1, 1),
-  ("ccoop_melee_class", 0, "ccoop_melee_class", 0, 0, 0, 0, 0, 0, 1, 1, 1),
-  ("ccoop_ranged_class", 0, "ccoop_ranged_class", 0, 0, 0, 0, 0, 0, 1, 1, 1),
-  ("ccoop_mounted_class", 0, "ccoop_mounted_class", 0, 0, 0, 0, 0, 0, 1, 1, 1),
-#INVASION MODE END
-
   ("order_frame", 0, "mp_ui_order_button", 0, 0, 0, 0, 0, 0, 1, 1, 1),
   ("flag_spears", 0, "flag_infantry", 0, 0, 0, 0, 0, 0, 1, 1, 1),
   ("flag_skirmishers", 0, "flag_archers", 0, 0, 0, 0, 0, 0, 1, 1, 1),

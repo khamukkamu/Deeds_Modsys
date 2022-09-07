@@ -5189,14 +5189,31 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("a_woman_common_dress_2_white", "a_woman_common_dress_2_white"),  
 ("a_woman_common_dress_2_end", "a_woman_common_dress_2_end"),
 
-## Native Shirt
-("a_shirt_black", "a_shirt_black"),  
-("a_shirt_blue", "a_shirt_blue"),  
-("a_shirt_brown", "a_shirt_brown"),
-("a_shirt_green", "a_shirt_green"),  
-("a_shirt_red", "a_shirt_red"),  
-("a_shirt_white", "a_shirt_white"),
-("a_shirt_end", "a_shirt_end"),
+## Peasant Cote
+("a_peasant_cote_1", "a_peasant_cote_1"),  
+("a_peasant_cote_2", "a_peasant_cote_2"),  
+("a_peasant_cote_3", "a_peasant_cote_3"),  
+("a_peasant_cote_4", "a_peasant_cote_4"),  
+("a_peasant_cote_5", "a_peasant_cote_5"),  
+("a_peasant_cote_6", "a_peasant_cote_6"),  
+("a_peasant_cote_7", "a_peasant_cote_7"),  
+("a_peasant_cote_end", "a_peasant_cote_end"),
+
+## Peasant Cotehardie
+("a_cotehardie_1", "a_cotehardie_1"),  
+("a_cotehardie_2", "a_cotehardie_2"),  
+("a_cotehardie_3", "a_cotehardie_3"),  
+("a_cotehardie_end", "a_cotehardie_end"),  
+
+## Tailored Cotehardie
+("a_cotehardie_tailored_1", "a_cotehardie_tailored_1"),  
+("a_cotehardie_tailored_2", "a_cotehardie_tailored_2"),  
+("a_cotehardie_tailored_3", "a_cotehardie_tailored_3"),  
+("a_cotehardie_tailored_4", "a_cotehardie_tailored_4"),  
+("a_cotehardie_tailored_5", "a_cotehardie_tailored_5"),  
+("a_cotehardie_tailored_6", "a_cotehardie_tailored_6"),  
+("a_cotehardie_tailored_end", "a_cotehardie_tailored_end"),  
+
 
 ## Native Thick Coat
 ("a_thick_coat_black", "a_thick_coat_black"),  

@@ -128,10 +128,10 @@ party_templates = [
   # med-modernised templates are generally includes 5-10 troops in total, 
   # high-modernised templates are generally includes 3-5 troops in total
 
-("kingdom_1_reinforcements_a", "kingdom_1_reinforcements_a", 0, 0, fac_commoners, 0, [(trp_french_peasant,1,5),(trp_french_militia,1,5),(trp_french_militia_voulgier,1,4),(trp_french_peasant_archer,1,3),(trp_french_peasant_crossbowman,1,3)]),
-("kingdom_1_reinforcements_b", "kingdom_1_reinforcements_b", 0, 0, fac_commoners, 0, [(trp_french_crossbowman,1,3),(trp_french_infantry,2,7),(trp_french_voulgier,1,4),(trp_french_militia,1,3),(trp_french_militia_voulgier,1,3),(trp_french_man_at_arms,1,2)] ),
-("kingdom_1_reinforcements_c", "kingdom_1_reinforcements_c", 0, 0, fac_commoners, 0, [(trp_genoese_crossbowman,1,2),(trp_french_pavisier,1,3),(trp_french_heavy_infantry,2,5),(trp_french_heavy_voulgier,1,3),(trp_french_heavy_man_at_arms,1,2),(trp_french_sergeant,1,1)] ),
-("kingdom_1_reinforcements_d", "kingdom_1_reinforcements_d", 0, 0, fac_commoners, 0, [(trp_french_captain,1,4),(trp_french_squire,2,6),(trp_french_chevalier_bachelier_a_pied,1,3),(trp_french_knight_bachelier,1,3),(trp_french_chevalier_banneret_a_pied,1,3),(trp_french_chevalier_banneret,1,3)] ),
+("kingdom_1_reinforcements_a", "kingdom_1_reinforcements_a", 0, 0, fac_commoners, 0, [(trp_french_peasant_levy,1,5),(trp_french_levy_footman,1,3),(trp_french_footman,1,3),(trp_french_vougier,1,4),(trp_french_archer,1,6)]),
+("kingdom_1_reinforcements_b", "kingdom_1_reinforcements_b", 0, 0, fac_commoners, 0, [(trp_french_crossbowman,1,3),(trp_french_pavoisier,2,7),(trp_french_guisarmier,1,4),(trp_french_militia,1,3),(trp_french_vougier,1,3),(trp_french_footman,1,2)] ),
+("kingdom_1_reinforcements_c", "kingdom_1_reinforcements_c", 0, 0, fac_commoners, 0, [(trp_genoese_crossbowman,1,2),(trp_french_pavisier,1,3),(trp_french_pavoisier,2,5),(trp_french_heavy_guisarmier,1,3),(trp_french_heavy_pavoisier,1,2),(trp_french_sergeant,1,1)] ),
+("kingdom_1_reinforcements_d", "kingdom_1_reinforcements_d", 0, 0, fac_commoners, 0, [(trp_french_dismounted_squire,1,4),(trp_french_squire,2,6),(trp_french_chevalier_banneret_a_pied,1,3),(trp_french_chevalier_banneret,1,3),(trp_french_chevalier_bachelier_a_pied,1,3),(trp_french_knight_bachelier,1,3)] ),
 ("kingdom_1_reinforcements_e", "kingdom_1_reinforcements_e", 0, 0, fac_commoners, 0, [(trp_french_bannerman,1,1),(trp_french_bannerman_mounted,1,1),] ),
 
 ("kingdom_2_reinforcements_a", "kingdom_2_reinforcements_a", 0, 0, fac_commoners, 0, [(trp_english_peasant,1,5),(trp_english_levy_spearman,1,5),(trp_english_yeoman,1,4),(trp_english_peasant_archer,1,4),(trp_english_yeoman_archer,1,2)]),

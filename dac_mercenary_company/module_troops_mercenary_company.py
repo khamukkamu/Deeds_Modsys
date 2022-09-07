@@ -319,7 +319,7 @@ mercenary_company_troops = [
     # itm_h_leather_hat_b,
     
     # itm_a_peasant_man_custom,
-    # itm_a_peasant_shirt_custom,
+    # itm_a_peasant_cote_custom,
     
     # itm_b_hosen_shoes_custom,
     # itm_b_hosen_poulaines_custom,
@@ -346,7 +346,7 @@ mercenary_company_troops = [
     # itm_h_leather_hat_b,
     
     # itm_a_peasant_man_custom,
-    # itm_a_peasant_shirt_custom,
+    # itm_a_peasant_cote_custom,
     
     # itm_b_hosen_shoes_custom,
     # itm_b_hosen_poulaines_custom,
@@ -674,7 +674,7 @@ mercenary_company_troops = [
     # itm_h_leather_hat_b,
     
     # itm_a_peasant_man_custom,
-    # itm_a_peasant_shirt_custom,
+    # itm_a_peasant_cote_custom,
     
     # itm_b_hosen_shoes_custom,
     # itm_b_hosen_poulaines_custom,
@@ -706,7 +706,7 @@ mercenary_company_troops = [
     # itm_h_leather_hat_b,
     
     # itm_a_peasant_man_custom,
-    # itm_a_peasant_shirt_custom,
+    # itm_a_peasant_cote_custom,
     
     # itm_b_hosen_shoes_custom,
     # itm_b_hosen_poulaines_custom,
