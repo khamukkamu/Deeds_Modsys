@@ -7895,7 +7895,7 @@ scripts = [
 # Cultures:
       (faction_set_slot, "fac_culture_1",  slot_faction_tier_1_troop, "trp_french_peasant_levy"),
       (faction_set_slot, "fac_culture_1",  slot_faction_tier_2_troop, "trp_french_militia"),
-      (faction_set_slot, "fac_culture_1",  slot_faction_tier_3_troop, "trp_french_pavoisier"),
+      (faction_set_slot, "fac_culture_1",  slot_faction_tier_3_troop, "trp_french_militia_crossbowman"),
       (faction_set_slot, "fac_culture_1",  slot_faction_tier_4_troop, "trp_french_dismounted_squire"),
       (faction_set_slot, "fac_culture_1",  slot_faction_tier_5_troop, "trp_french_chevalier_banneret_a_pied"),
       (faction_set_slot, "fac_culture_1",  slot_faction_tier_6_troop, "trp_french_squire"),
@@ -42516,21 +42516,39 @@ scripts = [
       (troop_remove_gold, "trp_player", ":cost"),
   ]), 	 
 
-#script_town_castle_recruit_nobles_recruit
+#script_town_castle_recruit_infantry
   # INPUT: none
   # OUTPUT: none
-  ("town_castle_recruit_nobles_recruit",
+  ("town_castle_recruit_infantry",
     [(store_faction_of_party, ":cur_faction", "$current_town"),
       (faction_get_slot, ":volunteer_troop", ":cur_faction", slot_faction_tier_2_troop),
       (party_get_slot, ":volunteer_amount", "$current_town", slot_center_volunteer_troop_amount),
       (party_get_free_companions_capacity, ":free_capacity", "p_main_party"),
       (val_min, ":volunteer_amount", ":free_capacity"),
       (store_troop_gold, ":gold", "trp_player"),
-      (store_div, ":gold_capacity", ":gold", 30),#200 crowns per man
+      (store_div, ":gold_capacity", ":gold", 30),
       (val_min, ":volunteer_amount", ":gold_capacity"),
       (party_add_members, "p_main_party", ":volunteer_troop", ":volunteer_amount"),
       (party_set_slot, "$current_town", slot_center_volunteer_troop_amount, -1),
-      (store_mul, ":cost", ":volunteer_amount", 30),#200 crowns per man
+      (store_mul, ":cost", ":volunteer_amount", 30),
+      (troop_remove_gold, "trp_player", ":cost"),
+  ]),
+  
+#script_town_castle_recruit_ranged
+  # INPUT: none
+  # OUTPUT: none
+  ("town_castle_recruit_ranged",
+    [(store_faction_of_party, ":cur_faction", "$current_town"),
+      (faction_get_slot, ":volunteer_troop", ":cur_faction", slot_faction_tier_3_troop),
+      (party_get_slot, ":volunteer_amount", "$current_town", slot_center_volunteer_troop_amount),
+      (party_get_free_companions_capacity, ":free_capacity", "p_main_party"),
+      (val_min, ":volunteer_amount", ":free_capacity"),
+      (store_troop_gold, ":gold", "trp_player"),
+      (store_div, ":gold_capacity", ":gold", 50),
+      (val_min, ":volunteer_amount", ":gold_capacity"),
+      (party_add_members, "p_main_party", ":volunteer_troop", ":volunteer_amount"),
+      (party_set_slot, "$current_town", slot_center_volunteer_troop_amount, -1),
+      (store_mul, ":cost", ":volunteer_amount", 50),
       (troop_remove_gold, "trp_player", ":cost"),
   ]),
 
@@ -76042,7 +76060,14 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 ## Vertex Coloured Simple Gambeson
       (item_set_slot, "itm_a_simple_gambeson_custom", slot_item_materials_begin, "str_a_simple_gambeson_white_1"),
       (item_set_slot, "itm_a_simple_gambeson_custom", slot_item_materials_end, "str_a_simple_gambeson_end"),  
-      (item_set_slot, "itm_a_simple_gambeson_custom", slot_item_num_components, 1),    
+      (item_set_slot, "itm_a_simple_gambeson_custom", slot_item_num_components, 1),   
+
+## Vertex Coloured Giornea
+      (try_for_range, ":item_no", "itm_a_giornea_over_plate_a_custom", "itm_dplmc_coat_of_plates_red_constable"), # Seek: All the Armour share the same base
+          (item_set_slot, ":item_no", slot_item_materials_begin, "str_a_giornea_over_plate_blue"),
+          (item_set_slot, ":item_no", slot_item_materials_end, "str_a_giornea_over_plate_end"),   
+          (item_set_slot, ":item_no", slot_item_num_components, 1),     
+      (try_end),        
       
 ## Vertex Coloured Hoods
       (item_set_slot, "itm_h_hood_custom", slot_item_materials_begin, "str_h_hood_blue"),

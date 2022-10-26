@@ -1304,4 +1304,5 @@ scn_player_camp_forest = 1301
 scn_camp_test_scene = 1302
 scn_mont_st_michel = 1303
 scn_chateau_de_vincennes = 1304
+scn_chateau_de_derval = 1305
 scn_exit = 100000

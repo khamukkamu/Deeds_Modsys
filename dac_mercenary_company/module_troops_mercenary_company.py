@@ -1693,7 +1693,7 @@ mercenary_company_troops = [
    [
    # itm_w_lance_colored_french_2_heraldic,itm_ho_horse_barded_blue_chamfrom,itm_h_klappvisier_pigface_open,itm_heraldic_churburg_13_tabard,itm_b_shynbaulds,itm_g_plate_mittens,itm_b_hosen_shoes_custom,itm_a_tabard_heraldic,itm_w_bastard_sword_count
    ],
-   def_attrib|level(20),wp(120),knows_common|knows_inventory_management_10, 0x000000063f0011425723719b326ec55c00000000001cb72a0000000000000000],
+   def_attrib|level(20),wp(120),knows_common|knows_inventory_management_10, 0x0000000dff1090114f2c9edb182865fc00000000001e44110000000000000000],
    
   ["merc_company_smith","Henri the Smith","Henri the Smith",tf_hero|tf_unmoveable_in_party_window,scn_player_camp|entry(3),0,fac_commoners,
    [

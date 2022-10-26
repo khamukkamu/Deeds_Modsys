@@ -160,9 +160,9 @@
 	float fShadowMapNextPixel = 1.0f / 4096;
 	float fShadowMapSize = 4096;
 
-	static const float input_gamma = 2.2f;
-	float4 output_gamma = float4(2.2f, 2.2f, 2.2f, 2.2f);			//STR: float4 yapyldy
-	float4 output_gamma_inv = float4(1.0f / 2.2f, 1.0f / 2.2f, 1.0f / 2.2f, 1.0f / 2.2f);
+	static const float input_gamma = 2.62f;
+	float4 output_gamma = float4(2.62f, 2.62f, 2.62f, 2.62f);			//STR: float4 yapyldy
+	float4 output_gamma_inv = float4(1.0f / 2.62f, 1.0f / 2.62f, 1.0f / 2.62f, 1.0f / 2.62f);
 
 	float4 debug_vector = {0,0,0,1};
 	
@@ -171,7 +171,8 @@
 	
 	static const float map_normal_detail_factor = 1.4f;
 	static const float uv_2_scale = 1.237;
-	static const float fShadowBias = 0.00002f;//-0.000002f;
+//	static const float fShadowBias = 0.00002f;//-0.000002f;
+	static const float fShadowBias = 0.00000f;//-0.000002f;
 	
 	#ifdef USE_NEW_TREE_SYSTEM
 		float flora_detail = 40.0f;
@@ -284,11 +285,33 @@ struct PS_OUTPUT
 #ifdef FUNCTIONS
 float GetSunAmount(uniform const int PcfMode, float4 ShadowTexCoord, float2 ShadowTexelPos)
 {
-	float sun_amount;
+float sun_amount;
 	if (PcfMode == PCF_NVIDIA)
 	{
-		//sun_amount = tex2D(ShadowmapTextureSampler, ShadowTexCoord).r;
-		sun_amount = tex2Dproj(ShadowmapTextureSampler, ShadowTexCoord).r;
+		sun_amount = 0.16 * tex2Dproj(ShadowmapTextureSampler, ShadowTexCoord).r + 0.14 * tex2Dproj(ShadowmapTextureSampler, ShadowTexCoord + fShadowMapNextPixel).r + 0.14 * tex2Dproj(ShadowmapTextureSampler, ShadowTexCoord - fShadowMapNextPixel).r + 0.14 * tex2Dproj(ShadowmapTextureSampler, ShadowTexCoord + fShadowMapNextPixel + fShadowMapNextPixel).r + 0.14 * tex2Dproj(ShadowmapTextureSampler, ShadowTexCoord - fShadowMapNextPixel - fShadowMapNextPixel).r + 0.14 * tex2Dproj(ShadowmapTextureSampler, ShadowTexCoord + fShadowMapNextPixel + fShadowMapNextPixel + fShadowMapNextPixel).r + 0.14 * tex2Dproj(ShadowmapTextureSampler, ShadowTexCoord - fShadowMapNextPixel - fShadowMapNextPixel - fShadowMapNextPixel).r;
+	// 	sun_amount = tex2Dproj(ShadowmapTextureSampler, ShadowTexCoord).r; // used one
+	// 	sun_amount = tex2Dproj(ShadowmapTextureSampler, lerp(lerp(ShadowTexCoord + fShadowMapNextPixel, ShadowTexCoord - fShadowMapNextPixel, 1) ,ShadowTexCoord,1) ).r; // used one
+//justin begin
+
+		//read in bilerp stamp, doing the shadow checks
+
+	//	float2 sourceCoord[4];
+	//	sourceCoord[0] = ShadowTexCoord;
+	//	sourceCoord[1] = ShadowTexCoord + float2(fShadowMapNextPixel, 0);
+	//	sourceCoord[2] = ShadowTexCoord + float2(0, fShadowMapNextPixel);
+	//	sourceCoord[3] = ShadowTexCoord + float2(fShadowMapNextPixel, fShadowMapNextPixel);
+
+		//float2 lerps = frac(ShadowTexelPos);
+		//read in bilerp stamp, doing the shadow checks
+	//	float sourcevals[4];
+	//	sourcevals[0] = tex2Dproj(ShadowmapTextureSampler, sourceCoord[0]);
+	//	sourcevals[1] = tex2Dproj(ShadowmapTextureSampler, sourceCoord[1]);
+	//	sourcevals[2] = tex2Dproj(ShadowmapTextureSampler, sourceCoord[2]);
+	//	sourcevals[3] = tex2Dproj(ShadowmapTextureSampler, sourceCoord[3]);
+
+	//	sun_amount = lerp(lerp(sourcevals[0], sourcevals[1], lerps.x), lerp(sourcevals[2], sourcevals[3], lerps.x), lerps.y);
+	//	sun_amount = tex2Dproj(ShadowmapTextureSampler, sourceCoord[0]).r;
+//justin end
 	}
 	else
 	{
@@ -300,8 +323,9 @@ float GetSunAmount(uniform const int PcfMode, float4 ShadowTexCoord, float2 Shad
 		sourcevals[2] = (tex2D(ShadowmapTextureSampler, ShadowTexCoord + float2(0, fShadowMapNextPixel)).r < ShadowTexCoord.z)? 0.0f: 1.0f;
 		sourcevals[3] = (tex2D(ShadowmapTextureSampler, ShadowTexCoord + float2(fShadowMapNextPixel, fShadowMapNextPixel)).r < ShadowTexCoord.z)? 0.0f: 1.0f;
 
-		// lerp between the shadow values to calculate our light amount
 		sun_amount = lerp(lerp(sourcevals[0], sourcevals[1], lerps.x), lerp(sourcevals[2], sourcevals[3], lerps.x), lerps.y);
+		// lerp between the shadow values to calculate our light amount
+
 	}
 	return sun_amount;
 }
@@ -2703,6 +2727,8 @@ VS_OUTPUT_STANDART vs_main_standart (uniform const int PcfMode, uniform const bo
 	
 	Out.ReflectionUV = reflect(normalize(vCameraPos.xyz - vWorldPos.xyz), vWorldN) * 0.5 + 0.5;
 	
+	Out.ReflectionUV.x = vSunColor.r > 0.1 ? Out.ReflectionUV.x * 0.5 : Out.ReflectionUV.x * 0.5 + 0.5;
+	
 	
 	if(use_bumpmap)
 	{
@@ -3261,15 +3287,17 @@ PS_OUTPUT ps_main_standart_fresnel ( VS_OUTPUT_STANDART In, uniform const int Pc
 		float3 fresnel = 1 - (saturate(dot(vView, normal)));
 		fresnel = (0.02 + pow(saturate(fresnel), 7)) * specColor * tint;
 		
-		Output.RGBColor.rgb += (fresnel + fSpecular) * envmap * specColor; // Actual Output
+		//Output.RGBColor.rgb += (fresnel + fSpecular) * envmap * specColor; // Actual Output
 		
 		
 		// Hey Justin! This is just a ~lot~ of experiments to show various effects as the direct output
 		//Output.RGBColor.rgb = lerp(Output.RGBColor.rgb, envmap, saturate(fresnel + fSpecular));	// This would make it where envmap is totally unaffected by anything else. Lighting, etc, etc. It's weird.
-		//Output.RGBColor.rgb = (fresnel + fSpecular + (1 - fresnel - fSpecular) / 2) ; // You might recognize this
+		//Output.RGBColor.rgb += (fresnel + fSpecular) * (1.37 * envmap * envmap) * (log (specColor + 0.22) + 0.66); // You might recognize this
+		Output.RGBColor.rgb += (fresnel + fSpecular) * envmap * envmap * 1.3 * specColor + (1 - fSpecular) * 0.012 * vGroundAmbientColor; // You might recognize this
+		//Output.RGBColor.rgb += 0.01 < vSunColor.r > 0.1 ? (fresnel + fSpecular) * envmap * envmap * 1.3 * specColor + 0.08 * vAmbientColor : (fresnel + fSpecular) * envmap * envmap * 1.3 * specColor; // You might recognize this
 		//Output.RGBColor.rgb = tint;	// I wanted to see if the tint worked. It does.
 		// Output.RGBColor.rgb = envmap;	// Show just the envmap texture applied to all surfaces
-		
+
 		// float3 red = float3(1,0,0);
 		// float3 blue = float3(0,0,1);
 		
@@ -4927,7 +4955,7 @@ VS_OUTPUT_MAP_MOUNTAIN vs_map_mountain(uniform const int PcfMode, float4 vPositi
 	float3 P = mul(matWorldView, vPosition); //position in view space
 
 	Out.Tex0.xy = tc;
-	Out.Tex0.z = /*saturate*/(0.7f * (vWorldPos.z - 1.5f));
+	Out.Tex0.z = /*saturate*/(0.7f * (vWorldPos.z - 3.2f));
 
 	float4 diffuse_light = vAmbientColor;
 	if (true /*_UseSecondLight*/)
@@ -4974,7 +5002,7 @@ PS_OUTPUT ps_map_mountain(VS_OUTPUT_MAP_MOUNTAIN In, uniform const int PcfMode)
 	float4 tex_col = tex2D(MeshTextureSampler, In.Tex0.xy);
 	INPUT_TEX_GAMMA(tex_col.rgb);
 	
-	tex_col.rgb += saturate(In.Tex0.z * (tex_col.a) - 1.5f);
+	tex_col.rgb += saturate(In.Tex0.z * (tex_col.a) - 3.2f);
 	tex_col.a = 1.0f;
 	
 	if ((PcfMode != PCF_NONE))
@@ -5039,7 +5067,7 @@ VS_OUTPUT_MAP_MOUNTAIN_BUMP vs_map_mountain_bump(uniform const int PcfMode, floa
 	float3 P = mul(matWorldView, vPosition); //position in view space
 
 	Out.Tex0.xy = tc;
-	Out.Tex0.z = /*saturate*/(0.7f * (vWorldPos.z - 1.5f));
+	Out.Tex0.z = /*saturate*/(0.7f * (vWorldPos.z - 3.2f));
 
 	float4 diffuse_light = vAmbientColor;
 	if (true /*_UseSecondLight*/)
@@ -5089,10 +5117,10 @@ PS_OUTPUT ps_map_mountain_bump(VS_OUTPUT_MAP_MOUNTAIN_BUMP In, uniform const int
 	INPUT_TEX_GAMMA(sample_col.rgb);
 	float4 tex_col = sample_col;
 	
-	tex_col.rgb += saturate(In.Tex0.z * (sample_col.a) - 1.5f);
+	tex_col.rgb += saturate(In.Tex0.z * (sample_col.a) - 3.2f);
 	tex_col.a = 1.0f;
 	/*    
-	float snow = In.Tex0.z * (0.1f + sample_col.a) - 1.5f;
+	float snow = In.Tex0.z * (0.1f + sample_col.a) - 3.2f;
 	if (snow > 0.5f)
 	{
 		tex_col = float4(1.0f,1.0f,1.0f,1.0f);

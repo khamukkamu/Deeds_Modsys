@@ -3507,4 +3507,5 @@ scenes = [
 
 ("mont_st_michel",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000230000000000fffff000041ef00005ae800003c55",[],[],"outer_terrain_beach"),
 ("chateau_de_vincennes",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000230000000000fffff000041ef00005ae800003c55",[],[],"outer_terrain_forest"),
+("chateau_de_derval",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002300005000008a6240000592800003ccf000012f4",[],[],"outer_terrain_forest"),
 ]

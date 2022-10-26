@@ -3045,6 +3045,7 @@ TOTAL:  {reg5}"),
 
       ("camp_troops_cheat",[],"Give Troops", [
           (jump_to_menu, "mnu_camp_give_troops")]),	 
+          
       ("camp_test_sieges",[],"Test Sieges", [
           (jump_to_menu, "mnu_dac_camp_test_sieges")]),  
           
@@ -3098,14 +3099,22 @@ TOTAL:  {reg5}"),
      ]),
      
     ("test_give_troops",[],"Give yourself mercenaries", [
-    # (party_add_members,"p_main_party","trp_genoese_crossbowman", 20),
-    (party_add_members,"p_main_party","trp_mercenary_bowman", 20),
-    # (party_add_members,"p_main_party","trp_mercenary_german_dismounted_knight", 20),
-    (party_add_members,"p_main_party","trp_watchman", 20),
+    (jump_to_menu, "mnu_receive_mercs"),
      ]),
 
     ("dac_test_back",[],"Back",[(jump_to_menu, "mnu_camp")]),
 
+ ]),
+ 
+( "receive_mercs",0,
+    "Select Troops",
+    "none",
+    [],
+    [
+    ("genoese",[],"Genoese Crossbowmen", [(party_add_members,"p_main_party","trp_genoese_crossbowman", 20),(display_message,"@Received Genoese Mercs"),]),
+    ("germans",[],"German Knights", [(party_add_members,"p_main_party","trp_mercenary_german_dismounted_knight", 20),(display_message,"@Received German Knights"),]),
+    ("mercs",[],"Watchmen", [(party_add_members,"p_main_party","trp_watchman", 20),(display_message,"@Received German Knights"),]),
+    ("return",[],"Go back.",[(jump_to_menu, "mnu_dac_test_menu")]), 
  ]),
 
 ( "camp_test_scene",0,
@@ -7218,6 +7227,10 @@ TOTAL:  {reg5}"),
                 (eq, "$g_encountered_party", "p_english_castle_22"),
                 (assign, ":battle_scene", "scn_chateau_de_vincennes"),
                 (set_jump_mission,"mt_castle_attack_walls_ladder_staged_two"),
+            (else_try),
+                (eq, "$g_encountered_party", "p_breton_castle_19"),
+                (assign, ":battle_scene", "scn_chateau_de_derval"),
+                (set_jump_mission,"mt_castle_attack_walls_ladder_staged_two"),
             (try_end),
            
            (jump_to_scene,":battle_scene"),
@@ -8728,6 +8741,10 @@ TOTAL:  {reg5}"),
         (else_try),
             (eq, "$g_encountered_party", "p_english_castle_22"),
             (assign, ":battle_scene", "scn_chateau_de_vincennes"),
+            (set_jump_mission,"mt_castle_attack_walls_ladder_staged_two"),
+        (else_try),
+            (eq, "$g_encountered_party", "p_breton_castle_19"),
+            (assign, ":battle_scene", "scn_chateau_de_derval"),
             (set_jump_mission,"mt_castle_attack_walls_ladder_staged_two"),
         (try_end),
         
@@ -12552,6 +12569,7 @@ TOTAL:  {reg5}"),
       (store_div, ":gold_capacity", ":gold", 30),
       (assign, ":party_capacity", ":free_capacity"),
       (val_min, ":party_capacity", ":gold_capacity"),
+      (assign, reg9, ":gold"),
       (try_begin),
         (gt, ":party_capacity", 0),
         (val_min, ":volunteer_amount", ":party_capacity"),
@@ -12567,6 +12585,7 @@ TOTAL:  {reg5}"),
         (str_store_string, s18, "@No one here seems to be willing to join your party."),
       (else_try),
         (store_mul, reg6, ":volunteer_amount", 30),
+        (store_mul, reg8, ":volunteer_amount", 50),
         (str_store_troop_name_by_count, s3, ":volunteer_troop", ":volunteer_amount"),
         (try_begin),
           (eq, reg5, 1),
@@ -12603,12 +12622,26 @@ TOTAL:  {reg5}"),
           (eq, reg7, 0),
           (gt, reg5, 0),
         ],
-        "Recruit them ({reg6} crowns).",
+        "Enlist as Infantry Troops ({reg6} crowns).",
         [
-          (call_script, "script_town_castle_recruit_nobles_recruit"),
+          (call_script, "script_town_castle_recruit_infantry"),
           
           (jump_to_menu,"mnu_town"),
       ]),
+		
+      ("recruit_them_archer",
+        [
+          (eq, reg7, 0),
+          (gt, reg5, 0),
+          (gt, reg9, reg8),			 
+        ],
+        "Enlist as Ranged Troops ({reg8} crowns).",
+        [
+          (call_script, "script_town_castle_recruit_ranged"),
+          
+          (jump_to_menu,"mnu_town"),
+      ]),
+      
       
       ("forget_it",
         [

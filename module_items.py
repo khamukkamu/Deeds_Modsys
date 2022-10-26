@@ -257,6 +257,8 @@ def aketon_patch():
     # (store_trigger_param_1, ":agent_no"), #disabled to suppress compiler warnings
     (store_trigger_param_2, ":troop_no"),
     (str_clear, s1),
+    
+    (assign, ":value", "str_a_patch_invisible"),
 
     (try_begin),
         (gt, ":troop_no", -1),
@@ -274,9 +276,9 @@ def aketon_patch():
             (else_try),
                 (eq, ":faction", "fac_kingdom_4"),
                 (store_random_in_range, ":value", "str_a_patch_brittany_1", "str_a_patch_invisible"),
+            (else_try),
+                (assign, ":value", "str_a_patch_invisible"), #invisible string
             (try_end),
-    (else_try),
-        (assign, ":value", "str_a_patch_invisible"), #invisible string
     (try_end),
 
     (try_begin),
@@ -846,6 +848,13 @@ items = [
 ["h_great_bascinet_continental_1430_visor_open_gilded", "Gilded Great Bascinet (1430)", [("h_great_bascinet_continental_1430",0)], itp_merchandise|itp_type_head_armor| itp_attach_armature   ,0, 
 1800 , weight(2.8)|abundance(100)|head_armor(58)|body_armor(6)|leg_armor(0)|difficulty(10) ,imodbits_plate,[add_mesh("@h_great_bascinet_continental_1430_visor_open"),reskin("@h_great_bascinet_continental_1430_gilded", 2),],],
 
+["h_armet_savoy", "Savoyard Armet", [("h_armet_savoy_base",0)], itp_merchandise|itp_type_head_armor| itp_attach_armature   ,0, 
+1800 , weight(2.8)|abundance(100)|head_armor(58)|body_armor(6)|leg_armor(0)|difficulty(10) ,imodbits_plate],
+["h_armet_savoy_visor_a", "Savoyard Armet with Visor", [("h_armet_savoy_base",0)], itp_merchandise|itp_type_head_armor| itp_attach_armature|itp_covers_head   ,0, 
+1800 , weight(2.8)|abundance(100)|head_armor(58)|body_armor(6)|leg_armor(0)|difficulty(10) ,imodbits_plate,[add_mesh("@h_armet_savoy_visor_a"),],],
+["h_armet_savoy_visor_b", "Savoyard Armet with Visor", [("h_armet_savoy_base",0)], itp_merchandise|itp_type_head_armor| itp_attach_armature|itp_covers_head   ,0, 
+1800 , weight(2.8)|abundance(100)|head_armor(58)|body_armor(6)|leg_armor(0)|difficulty(10) ,imodbits_plate,[add_mesh("@h_armet_savoy_visor_b"),],],
+
 # ["h_great_bascinet_continental_1430_plume_visor_gilded", "Gilded Great Bascinet with Plume (1430)", [("h_great_bascinet_continental_1430",0)], itp_merchandise|itp_type_head_armor| itp_attach_armature|itp_covers_head   ,0, 
 # 1800 , weight(2.8)|abundance(100)|head_armor(58)|body_armor(6)|leg_armor(0)|difficulty(10) ,imodbits_plate,[add_mesh("@h_great_bascinet_continental_1430_visor"),add_mesh("@h_great_bascinet_continental_1430_plume"),reskin("@h_great_bascinet_continental_1430_gilded", 2),],],
 # ["h_great_bascinet_continental_1430_plume_visor_open_gilded", "Gilded Great Bascinet with Plume (1430)", [("h_great_bascinet_continental_1430",0)], itp_merchandise|itp_type_head_armor| itp_attach_armature   ,0, 
@@ -954,6 +963,13 @@ items = [
 478 , weight(2.5)|abundance(100)|head_armor(50)|body_armor(10)|leg_armor(0)|difficulty(9) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_mail_collar_bevor", 0, 0),])]],
 ["h_barbuta_2_nasal_mail_collar_bevor", "Barbuta with Mail Collar and Bevor", [("h_barbuta_2_nasal",0)],  itp_type_head_armor| itp_attach_armature   ,0, 
 478 , weight(2.5)|abundance(100)|head_armor(52)|body_armor(10)|leg_armor(0)|difficulty(9) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_mail_collar_bevor", 0, 0),])]],
+
+["h_barbuta_nooxy_1_mail_collar", "Barbuta with Mail Collar", [("h_barbuta_nooxy_1",0)],  itp_type_head_armor| itp_attach_armature   ,0, 
+478 , weight(2.5)|abundance(100)|head_armor(44)|body_armor(6)|leg_armor(0)|difficulty(9) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_mail_collar", 0, 0),])]],
+["h_barbuta_nooxy_2_mail_collar", "Barbuta with Mail Collar", [("h_barbuta_nooxy_2",0)],  itp_type_head_armor| itp_attach_armature   ,0, 
+478 , weight(2.5)|abundance(100)|head_armor(44)|body_armor(6)|leg_armor(0)|difficulty(9) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_mail_collar", 0, 0),])]],
+["h_barbuta_nooxy_3", "Barbuta", [("h_barbuta_nooxy_3",0)],  itp_type_head_armor| itp_attach_armature   ,0, 
+478 , weight(2.5)|abundance(100)|head_armor(44)|body_armor(6)|leg_armor(0)|difficulty(9) ,imodbits_plate ],
 
 # Bascinet Base: 34; Hood: 4,2; Padding: 6,4; mail collar: 8,6; mail aventail: 10,8; scale aventail: 12,10; mail collar with bevor: 14,12;
 ["h_bascinet_1_mail_aventail", "Bascinet with Aventail", [("h_bascinet_1",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
@@ -1603,8 +1619,8 @@ items = [
  [add_mesh("@a_aketon_asher_dagged"),add_mesh("@a_aketon_asher_arms_b"),add_mesh("@a_aketon_asher_sleeve_1"),reskin("@a_aketon_asher_dagged_thick_black",1),reskin("@a_aketon_asher_arms_black",2),aketon_patch(),],],
 
 # Asher's Gambeson
-["a_gambeson_asher_blue", "Gambeson", [("a_aketon_asher_patch",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 344 , weight(8)|abundance(100)|head_armor(0)|body_armor(26)|leg_armor(8)|difficulty(0) ,imodbits_cloth,
- [add_mesh("@a_gambeson_asher_torso"),add_mesh("@a_aketon_narf_arms"),aketon_patch(),],],
+# ["a_gambeson_asher_blue", "Gambeson", [("a_aketon_asher_patch",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 344 , weight(8)|abundance(100)|head_armor(0)|body_armor(26)|leg_armor(8)|difficulty(0) ,imodbits_cloth,
+ # [add_mesh("@a_gambeson_asher_torso"),add_mesh("@a_aketon_narf_arms"),aketon_patch(),],],
 
 ### Pistoia Line
 ["a_pistoia_mail_a_mail_sleeves_short", "Short-sleeved Mail Hauberk", [("a_pistoia_mail_a",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(8)|difficulty(7) ,imodbits_armor ,[add_mesh("@a_pistoia_mail_arms_short"),add_mesh("@a_pistoia_arming_cote_arms_short"),]],
@@ -1685,6 +1701,16 @@ items = [
 ["a_padded_over_plate_sleeveless_deco_1", "Decorated Sleeveless Padded over Plate", [("a_padded_over_plate_sleeveless_1",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 2140 , weight(23)|abundance(100)|head_armor(0)|body_armor(54)|leg_armor(14)|difficulty(8) ,imodbits_armor , [reskin("@a_padded_over_plate_deco_1",0),add_mesh("@a_pistoia_mail_arms_light"),add_mesh("@a_pistoia_couters_1"),add_mesh("@a_pistoia_spaulders"),],],
 ["a_padded_over_plate_sleeved_deco_2", "Decorated Longsleeved Padded over Plate", [("a_padded_over_plate_sleeved_1",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 2140 , weight(23)|abundance(100)|head_armor(0)|body_armor(54)|leg_armor(14)|difficulty(8) ,imodbits_armor , [reskin("@a_padded_over_plate_deco_2",0),],],
 ["a_padded_over_plate_sleeveless_deco_2", "Decorated Sleeveless Padded over Plate", [("a_padded_over_plate_sleeveless_1",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 2140 , weight(23)|abundance(100)|head_armor(0)|body_armor(54)|leg_armor(14)|difficulty(8) ,imodbits_armor , [reskin("@a_padded_over_plate_deco_2",0),add_mesh("@a_pistoia_mail_arms_light"),add_mesh("@a_pistoia_couters_1"),add_mesh("@a_pistoia_spaulders"),],],
+
+### Continental Plate
+["a_continental_plate_a", "Plate Armour", [("a_english_plate_1415",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(8)|difficulty(7) ,imodbits_armor ,[add_mesh("@a_pistoia_mail_arms_light"),add_mesh("@a_pistoia_spaulders"),add_mesh("@a_pistoia_couters_1"),]],
+["a_continental_plate_b", "Plate Armour", [("a_english_plate_1415",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(8)|difficulty(7) ,imodbits_armor ,[add_mesh("@a_pistoia_mail_arms_light"),add_mesh("@a_pistoia_spaulders"),add_mesh("@a_pistoia_couters_2"),]],
+["a_continental_plate_c", "Plate Armour", [("a_english_plate_1415",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(8)|difficulty(7) ,imodbits_armor ,[add_mesh("@a_pistoia_mail_arms_light"),add_mesh("@a_pistoia_spaulders"),add_mesh("@a_pistoia_couters_3"),]],
+
+### Kastenbrust Plate
+["a_plate_kastenbrust_a", "Kastenbrust Plate Armour", [("a_plate_kastenbrust",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(8)|difficulty(7) ,imodbits_armor ,[add_mesh("@a_pistoia_mail_arms_light"),add_mesh("@a_pistoia_spaulders"),add_mesh("@a_pistoia_couters_1"),]],
+["a_plate_kastenbrust_b", "Kastenbrust Plate Armour", [("a_plate_kastenbrust",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(8)|difficulty(7) ,imodbits_armor ,[add_mesh("@a_pistoia_mail_arms_light"),add_mesh("@a_pistoia_spaulders"),add_mesh("@a_pistoia_couters_2"),]],
+["a_plate_kastenbrust_c", "Kastenbrust Plate Armour", [("a_plate_kastenbrust",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(8)|difficulty(7) ,imodbits_armor ,[add_mesh("@a_pistoia_mail_arms_light"),add_mesh("@a_pistoia_spaulders"),add_mesh("@a_pistoia_couters_3"),]],
 
 ### English Plate Armour
 # 1415 Version
@@ -1777,6 +1803,18 @@ items = [
 
 ["a_english_plate_1415_heraldic", "Heraldic Covered Plate", [("a_english_plate_1415_heraldic",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0,
  5550, weight(29)|abundance(100)|head_armor(0)|body_armor(60)|leg_armor(24)|difficulty(9), imodbits_armor,[heraldic("tableau_a_english_plate_1415_heraldic"),add_mesh("@a_arm_harness_english_1415_b"),reskin("@a_arm_harness_english_1415_gilded", 1),]],
+
+["a_jupon_heraldic", "Heraldic Jupon", [("a_jupon_heraldic",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0,
+ 5550, weight(29)|abundance(100)|head_armor(0)|body_armor(60)|leg_armor(24)|difficulty(9), imodbits_armor,[heraldic("tableau_a_jupon_heraldic"),add_mesh("@a_pistoia_arming_cote_arms_plate_short"),add_mesh("@a_pistoia_couters_1"),]],
+
+["a_jupon_heraldic_belt_1", "Heraldic Jupon", [("a_jupon_heraldic_belt_1",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0,
+ 5550, weight(29)|abundance(100)|head_armor(0)|body_armor(60)|leg_armor(24)|difficulty(9), imodbits_armor,[heraldic("tableau_a_jupon_heraldic"),add_mesh("@a_pistoia_arming_cote_arms_plate_short"),add_mesh("@a_pistoia_couters_1"),]],
+["a_jupon_heraldic_belt_2", "Heraldic Jupon", [("a_jupon_heraldic_belt_1",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0,
+ 5550, weight(29)|abundance(100)|head_armor(0)|body_armor(60)|leg_armor(24)|difficulty(9), imodbits_armor,[heraldic("tableau_a_jupon_heraldic"),add_mesh("@a_pistoia_arming_cote_arms_plate_short"),add_mesh("@a_pistoia_couters_1"),]],
+["a_jupon_heraldic_belt_3", "Heraldic Jupon", [("a_jupon_heraldic_belt_1",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0,
+ 5550, weight(29)|abundance(100)|head_armor(0)|body_armor(60)|leg_armor(24)|difficulty(9), imodbits_armor,[heraldic("tableau_a_jupon_heraldic"),add_mesh("@a_pistoia_arming_cote_arms_plate_short"),add_mesh("@a_pistoia_couters_1"),]],
+["a_jupon_heraldic_belt_4", "Heraldic Jupon", [("a_jupon_heraldic_belt_1",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0,
+ 5550, weight(29)|abundance(100)|head_armor(0)|body_armor(60)|leg_armor(24)|difficulty(9), imodbits_armor,[heraldic("tableau_a_jupon_heraldic"),add_mesh("@a_pistoia_arming_cote_arms_plate_short"),add_mesh("@a_pistoia_couters_1"),]],
 
 ##################################################################################################################################################################################################################################################################################################################
 ###################################################################################################### HYW BOOTS | SHOES | LEG ARMOR #############################################################################################################################################################################
@@ -1901,10 +1939,10 @@ items = [
 ###################################################################################################### HYW GLOVES | GAUNTLETS | POWER GAUNTLETS ##################################################################################################################################################################
 ##################################################################################################################################################################################################################################################################################################################
 
-["g_leather_gauntlet","Leather Gloves", [("g_leather_gauntlet_L",0)], itp_merchandise|itp_type_hand_armor,0, 90, weight(0.25)|abundance(120)|body_armor(2)|difficulty(0),imodbits_cloth],
+["g_leather_gauntlet","Leather Gloves", [("g_leather_gloves_L",0)], itp_merchandise|itp_type_hand_armor,0, 90, weight(0.25)|abundance(120)|body_armor(2)|difficulty(0),imodbits_cloth],
 ["g_mail_gauntlets","Mail Mittens", [("g_mail_gauntlets_L",0)], itp_merchandise|itp_type_hand_armor,0, 350, weight(0.5)|abundance(100)|body_armor(4)|difficulty(0),imodbits_armor],
-["g_demi_gauntlets","Demi Gauntlets", [("g_demi_gauntlets_L",0)], itp_merchandise|itp_type_hand_armor,0, 710, weight(0.75)|abundance(100)|body_armor(5)|difficulty(0),imodbits_armor],
-["g_finger_gauntlets","Finger Gauntlets", [("g_finger_gauntlets_L",0)], itp_merchandise|itp_type_hand_armor,0, 1040, weight(1.0)|abundance(100)|body_armor(6)|difficulty(0),imodbits_armor],
+["g_demi_gauntlets","Demi Gauntlets", [("g_gauntlets_mailed_L",0)], itp_merchandise|itp_type_hand_armor,0, 710, weight(0.75)|abundance(100)|body_armor(5)|difficulty(0),imodbits_armor],
+["g_finger_gauntlets","Finger Gauntlets", [("g_gauntlets_segmented_a_L",0)], itp_merchandise|itp_type_hand_armor,0, 1040, weight(1.0)|abundance(100)|body_armor(6)|difficulty(0),imodbits_armor],
 ["g_hourglass_gauntlets","Hourglass Gauntlets", [("g_hourglass_gauntlets_L",0)], itp_merchandise|itp_type_hand_armor,0, 1240, weight(1.0)|abundance(100)|body_armor(7)|difficulty(0),imodbits_armor],
 ["g_hourglass_gauntlets_ornate","Ornate Hourglass Gauntlets", [("g_hourglass_gauntlets_ornate_L",0)], itp_merchandise|itp_type_hand_armor,0, 1390, weight(1.0)|abundance(100)|body_armor(7)|difficulty(0),imodbits_armor],
 ["g_plate_mittens","Plate Mittens", [("g_plate_mittens_L",imodbit_reinforced)], itp_merchandise|itp_type_hand_armor,0, 1640, weight(1.5)|abundance(100)|body_armor(8)|difficulty(0),imodbits_armor],
@@ -2180,9 +2218,17 @@ items = [
 # End of loop
 ["h_hood_custom", "Hood", [("mesh_none",0)],itp_merchandise|itp_type_head_armor|itp_civilian,0,9, weight(1)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0),imodbits_cloth,[custom_remodel("itm_h_hood_custom")]], 
 ["h_hood_fi_custom", "Hood", [("mesh_none",0)],itp_merchandise|itp_type_head_armor|itp_civilian,0,9, weight(1)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0),imodbits_cloth,[custom_remodel("itm_h_hood_fi_custom")]], 
+
+### Giornea over Plate
+# Start of loop
+["a_giornea_over_plate_a_custom", "Giornea over Plate Armour", [("mesh_none",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(8)|difficulty(7) ,imodbits_armor ,[custom_remodel("itm_a_giornea_over_plate_a_custom"),add_mesh("@a_pistoia_mail_arms_light"),add_mesh("@a_pistoia_spaulders"),add_mesh("@a_pistoia_couters_1"),]],
+["a_giornea_over_plate_b_custom", "Giornea over Plate Armour", [("mesh_none",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(8)|difficulty(7) ,imodbits_armor ,[custom_remodel("itm_a_giornea_over_plate_a_custom"),add_mesh("@a_pistoia_mail_arms_light"),add_mesh("@a_pistoia_spaulders"),add_mesh("@a_pistoia_couters_2"),]],
+["a_giornea_over_plate_c_custom", "Giornea over Plate Armour", [("mesh_none",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(8)|difficulty(7) ,imodbits_armor ,[custom_remodel("itm_a_giornea_over_plate_a_custom"),add_mesh("@a_pistoia_mail_arms_light"),add_mesh("@a_pistoia_spaulders"),add_mesh("@a_pistoia_couters_3"),]],
+
 ##diplomacy begin
 ["dplmc_coat_of_plates_red_constable", "Constable Coat of Plates", [("a_churburg_13_asher_base",0)], itp_unique|itp_type_body_armor|itp_covers_legs|itp_civilian,0,
  3828 , weight(25)|abundance(100)|head_armor(0)|body_armor(52)|leg_armor(16)|difficulty(0) ,imodbits_armor, [], []],
+# End of Loop
 ##diplomacy end
 
  
@@ -2430,11 +2476,13 @@ itp_type_two_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_bastardswor
 ("w_regular_bastard_sword_english_scabbard", ixmesh_carry),("w_rusty_bastard_sword_english_scabbard", ixmesh_carry|imodbit_rusty),("w_masterwork_bastard_sword_english_scabbard", ixmesh_carry|imodbit_masterwork),], 
 itp_type_two_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_bastardsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
 676, weight(2)|difficulty(9)|spd_rtng(99)|weapon_length(101)|swing_damage(37,cut)|thrust_damage(33,pierce), imodbits_sword_alt ],
+
 ["w_bastard_sword_german", "German Bastard Sword", 
 [("w_regular_bastard_sword_german",0),("w_rusty_bastard_sword_german",imodbit_rusty),("w_masterwork_bastard_sword_german",imodbit_masterwork),
 ("w_regular_bastard_sword_german_scabbard", ixmesh_carry),("w_rusty_bastard_sword_german_scabbard", ixmesh_carry|imodbit_rusty),("w_masterwork_bastard_sword_german_scabbard", ixmesh_carry|imodbit_masterwork),], 
 itp_type_two_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_bastardsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
 724, weight(2.25)|difficulty(9)|spd_rtng(97)|weapon_length(106)|swing_damage(38,cut)|thrust_damage(33,pierce), imodbits_sword_alt ],
+
 ["w_bastard_sword_italian", "Italian Bastard Sword", 
 [("w_regular_bastard_sword_italian",0),("w_rusty_bastard_sword_italian",imodbit_rusty),("w_masterwork_bastard_sword_italian",imodbit_masterwork),
 ("w_regular_bastard_sword_italian_scabbard", ixmesh_carry),("w_rusty_bastard_sword_italian_scabbard", ixmesh_carry|imodbit_rusty),("w_masterwork_bastard_sword_italian_scabbard", ixmesh_carry|imodbit_masterwork),], 
@@ -3741,6 +3789,48 @@ itp_type_polearm|itp_merchandise| itp_two_handed|itp_primary|itp_no_blur|itp_off
 ##################################################################################################################################################################################################################################################################################################################
 
 ### Regular shields
+### Tall Pavises
+["s_tall_pavise_french_1", "Pavise Shield",   [("s_tall_pavise_french_1" ,0)], itp_merchandise|itp_type_shield|itp_cant_use_on_horseback|itp_wooden_parry, itcf_carry_board_shield,
+550 , weight(4.5)|hit_points(660)|body_armor(32)|spd_rtng(82)|shield_width(55)|shield_height(120),imodbits_shield],
+["s_tall_pavise_french_2", "Pavise Shield",   [("s_tall_pavise_french_2" ,0)], itp_merchandise|itp_type_shield|itp_cant_use_on_horseback|itp_wooden_parry, itcf_carry_board_shield,
+550 , weight(4.5)|hit_points(660)|body_armor(32)|spd_rtng(82)|shield_width(55)|shield_height(120),imodbits_shield],
+["s_tall_pavise_french_3", "Pavise Shield",   [("s_tall_pavise_french_3" ,0)], itp_merchandise|itp_type_shield|itp_cant_use_on_horseback|itp_wooden_parry, itcf_carry_board_shield,
+550 , weight(4.5)|hit_points(660)|body_armor(32)|spd_rtng(82)|shield_width(55)|shield_height(120),imodbits_shield],
+["s_tall_pavise_french_4", "Pavise Shield",   [("s_tall_pavise_french_4" ,0)], itp_merchandise|itp_type_shield|itp_cant_use_on_horseback|itp_wooden_parry, itcf_carry_board_shield,
+550 , weight(4.5)|hit_points(660)|body_armor(32)|spd_rtng(82)|shield_width(55)|shield_height(120),imodbits_shield],
+["s_tall_pavise_french_5", "Pavise Shield",   [("s_tall_pavise_french_5" ,0)], itp_merchandise|itp_type_shield|itp_cant_use_on_horseback|itp_wooden_parry, itcf_carry_board_shield,
+550 , weight(4.5)|hit_points(660)|body_armor(32)|spd_rtng(82)|shield_width(55)|shield_height(120),imodbits_shield],
+
+["s_tall_pavise_genoese_1", "Pavise Shield",   [("s_tall_pavise_genoese_1" ,0)], itp_merchandise|itp_type_shield|itp_cant_use_on_horseback|itp_wooden_parry, itcf_carry_board_shield,
+550 , weight(4.5)|hit_points(660)|body_armor(32)|spd_rtng(82)|shield_width(55)|shield_height(120),imodbits_shield],
+["s_tall_pavise_genoese_2", "Pavise Shield",   [("s_tall_pavise_genoese_2" ,0)], itp_merchandise|itp_type_shield|itp_cant_use_on_horseback|itp_wooden_parry, itcf_carry_board_shield,
+550 , weight(4.5)|hit_points(660)|body_armor(32)|spd_rtng(82)|shield_width(55)|shield_height(120),imodbits_shield],
+
+["s_tall_pavise_breton_1", "Pavise Shield",   [("s_tall_pavise_breton_1" ,0)], itp_merchandise|itp_type_shield|itp_cant_use_on_horseback|itp_wooden_parry, itcf_carry_board_shield,
+550 , weight(4.5)|hit_points(660)|body_armor(32)|spd_rtng(82)|shield_width(55)|shield_height(120),imodbits_shield],
+["s_tall_pavise_breton_2", "Pavise Shield",   [("s_tall_pavise_breton_2" ,0)], itp_merchandise|itp_type_shield|itp_cant_use_on_horseback|itp_wooden_parry, itcf_carry_board_shield,
+550 , weight(4.5)|hit_points(660)|body_armor(32)|spd_rtng(82)|shield_width(55)|shield_height(120),imodbits_shield],
+["s_tall_pavise_breton_3", "Pavise Shield",   [("s_tall_pavise_breton_3" ,0)], itp_merchandise|itp_type_shield|itp_cant_use_on_horseback|itp_wooden_parry, itcf_carry_board_shield,
+550 , weight(4.5)|hit_points(660)|body_armor(32)|spd_rtng(82)|shield_width(55)|shield_height(120),imodbits_shield],
+
+["s_tall_pavise_burgundian_1", "Pavise Shield",   [("s_tall_pavise_burgundian_1" ,0)], itp_merchandise|itp_type_shield|itp_cant_use_on_horseback|itp_wooden_parry, itcf_carry_board_shield,
+550 , weight(4.5)|hit_points(660)|body_armor(32)|spd_rtng(82)|shield_width(55)|shield_height(120),imodbits_shield],
+["s_tall_pavise_burgundian_2", "Pavise Shield",   [("s_tall_pavise_burgundian_2" ,0)], itp_merchandise|itp_type_shield|itp_cant_use_on_horseback|itp_wooden_parry, itcf_carry_board_shield,
+550 , weight(4.5)|hit_points(660)|body_armor(32)|spd_rtng(82)|shield_width(55)|shield_height(120),imodbits_shield],
+["s_tall_pavise_burgundian_3", "Pavise Shield",   [("s_tall_pavise_burgundian_3" ,0)], itp_merchandise|itp_type_shield|itp_cant_use_on_horseback|itp_wooden_parry, itcf_carry_board_shield,
+550 , weight(4.5)|hit_points(660)|body_armor(32)|spd_rtng(82)|shield_width(55)|shield_height(120),imodbits_shield],
+["s_tall_pavise_burgundian_4", "Pavise Shield",   [("s_tall_pavise_burgundian_4" ,0)], itp_merchandise|itp_type_shield|itp_cant_use_on_horseback|itp_wooden_parry, itcf_carry_board_shield,
+550 , weight(4.5)|hit_points(660)|body_armor(32)|spd_rtng(82)|shield_width(55)|shield_height(120),imodbits_shield],
+["s_tall_pavise_burgundian_5", "Pavise Shield",   [("s_tall_pavise_burgundian_5" ,0)], itp_merchandise|itp_type_shield|itp_cant_use_on_horseback|itp_wooden_parry, itcf_carry_board_shield,
+550 , weight(4.5)|hit_points(660)|body_armor(32)|spd_rtng(82)|shield_width(55)|shield_height(120),imodbits_shield],
+
+["s_tall_pavise_german_1", "Pavise Shield",   [("s_tall_pavise_german_1" ,0)], itp_merchandise|itp_type_shield|itp_cant_use_on_horseback|itp_wooden_parry, itcf_carry_board_shield,
+550 , weight(4.5)|hit_points(660)|body_armor(32)|spd_rtng(82)|shield_width(55)|shield_height(120),imodbits_shield],
+["s_tall_pavise_german_2", "Pavise Shield",   [("s_tall_pavise_german_2" ,0)], itp_merchandise|itp_type_shield|itp_cant_use_on_horseback|itp_wooden_parry, itcf_carry_board_shield,
+550 , weight(4.5)|hit_points(660)|body_armor(32)|spd_rtng(82)|shield_width(55)|shield_height(120),imodbits_shield],
+["s_tall_pavise_german_3", "Pavise Shield",   [("s_tall_pavise_german_3" ,0)], itp_merchandise|itp_type_shield|itp_cant_use_on_horseback|itp_wooden_parry, itcf_carry_board_shield,
+550 , weight(4.5)|hit_points(660)|body_armor(32)|spd_rtng(82)|shield_width(55)|shield_height(120),imodbits_shield],
+
 # Pavises
 ["s_pavise_native_french_1", "Pavise Shield",   [("s_pavise_native_french_1" ,0)], itp_merchandise|itp_type_shield|itp_cant_use_on_horseback|itp_wooden_parry, itcf_carry_board_shield,
 550 , weight(4.5)|hit_points(660)|body_armor(32)|spd_rtng(82)|shield_width(55)|shield_height(120),imodbits_shield],
@@ -3806,6 +3896,34 @@ itp_type_polearm|itp_merchandise| itp_two_handed|itp_primary|itp_no_blur|itp_off
 420 , weight(3.5)|hit_points(380)|body_armor(30)|spd_rtng(86)|shield_width(45)|shield_height(85),imodbits_shield],
 
 
+["s_hand_pavise_french_1", "Hand-Pavise Shield",   [("s_hand_pavise_a_04" ,0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_board_shield,
+420 , weight(3.5)|hit_points(380)|body_armor(30)|spd_rtng(86)|shield_width(45)|shield_height(85),imodbits_shield],
+["s_hand_pavise_french_2", "Hand-Pavise Shield",   [("s_hand_pavise_a_05" ,0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_board_shield,
+420 , weight(3.5)|hit_points(380)|body_armor(30)|spd_rtng(86)|shield_width(45)|shield_height(85),imodbits_shield],
+["s_hand_pavise_french_3", "Hand-Pavise Shield",   [("s_hand_pavise_a_06" ,0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_board_shield,
+420 , weight(3.5)|hit_points(380)|body_armor(30)|spd_rtng(86)|shield_width(45)|shield_height(85),imodbits_shield],
+
+["s_hand_pavise_burgundian_1", "Hand-Pavise Shield",   [("s_hand_pavise_a_01" ,0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_board_shield,
+420 , weight(3.5)|hit_points(380)|body_armor(30)|spd_rtng(86)|shield_width(45)|shield_height(85),imodbits_shield],
+["s_hand_pavise_burgundian_2", "Hand-Pavise Shield",   [("s_hand_pavise_a_02" ,0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_board_shield,
+420 , weight(3.5)|hit_points(380)|body_armor(30)|spd_rtng(86)|shield_width(45)|shield_height(85),imodbits_shield],
+["s_hand_pavise_burgundian_3", "Hand-Pavise Shield",   [("s_hand_pavise_a_03" ,0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_board_shield,
+420 , weight(3.5)|hit_points(380)|body_armor(30)|spd_rtng(86)|shield_width(45)|shield_height(85),imodbits_shield],
+
+["s_hand_pavise_breton_1", "Hand-Pavise Shield",   [("s_hand_pavise_a_07" ,0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_board_shield,
+420 , weight(3.5)|hit_points(380)|body_armor(30)|spd_rtng(86)|shield_width(45)|shield_height(85),imodbits_shield],
+["s_hand_pavise_breton_2", "Hand-Pavise Shield",   [("s_hand_pavise_a_08" ,0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_board_shield,
+420 , weight(3.5)|hit_points(380)|body_armor(30)|spd_rtng(86)|shield_width(45)|shield_height(85),imodbits_shield],
+["s_hand_pavise_breton_3", "Hand-Pavise Shield",   [("s_hand_pavise_a_09" ,0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_board_shield,
+420 , weight(3.5)|hit_points(380)|body_armor(30)|spd_rtng(86)|shield_width(45)|shield_height(85),imodbits_shield],
+
+["s_hand_pavise_german_1", "Hand-Pavise Shield",   [("s_hand_pavise_a_10" ,0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_board_shield,
+420 , weight(3.5)|hit_points(380)|body_armor(30)|spd_rtng(86)|shield_width(45)|shield_height(85),imodbits_shield],
+["s_hand_pavise_german_2", "Hand-Pavise Shield",   [("s_hand_pavise_a_11" ,0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_board_shield,
+420 , weight(3.5)|hit_points(380)|body_armor(30)|spd_rtng(86)|shield_width(45)|shield_height(85),imodbits_shield],
+
+
+#################################### Heater Shields
 ["s_heraldic_shield_french_1", "Heraldic Shield",   [("s_heraldic_shield_french_1" ,0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_kite_shield,
 340 , weight(2.2)|hit_points(350)|body_armor(25)|spd_rtng(92)|shield_width(50)|shield_height(70),imodbits_shield],
 ["s_heraldic_shield_french_2", "Heraldic Shield",   [("s_heraldic_shield_french_2" ,0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_kite_shield,

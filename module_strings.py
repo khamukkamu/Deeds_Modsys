@@ -5514,6 +5514,13 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("a_simple_gambeson_green_6", "a_simple_gambeson_green_6"),
 ("a_simple_gambeson_end", "a_simple_gambeson_end"),
 
+## Vertex Coloured Giornea
+("a_giornea_over_plate_blue", "a_giornea_over_plate_blue"),
+("a_giornea_over_plate_green", "a_giornea_over_plate_green"),
+("a_giornea_over_plate_orange", "a_giornea_over_plate_orange"),
+("a_giornea_over_plate_red", "a_giornea_over_plate_red"),
+("a_giornea_over_plate_white", "a_giornea_over_plate_white"),
+("a_giornea_over_plate_end", "a_giornea_over_plate_end"),
 
 ## Vertex Coloured Hood
 # French 
