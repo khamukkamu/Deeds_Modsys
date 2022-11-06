@@ -446,6 +446,37 @@ wp_melee(220), knows_ironflesh_8|knows_power_strike_6|knows_shield_4|knows_athle
 wp_melee(220), knows_ironflesh_7|knows_power_strike_7|knows_shield_4|knows_athletics_4|knows_weapon_master_6, swadian_face_middle_1, swadian_face_older_2 ],
 
 ############################################################################################################### DAC New Mercenaries End
+
+["italian_light_infantry", "Italian Light Infantry", "Italian Light Infantries", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield, no_scene, reserved, fac_neutral, 
+[
+ itm_h_peasant_bycocket_1_custom,itm_h_peasant_bycocket_2_custom,itm_h_hood_big_liripipe_full_custom,itm_h_chapel_de_fer_hood_custom,itm_h_simple_coif,itm_h_simple_coif_black,itm_h_simple_coif_brown,itm_h_arming_cap,itm_h_skullcap_mail_aventail,itm_h_cervelliere_mail_aventail,itm_h_chapel_de_fer_mail_aventail,itm_h_sallet_mail_collar,itm_h_sallet_curved_mail_collar,itm_h_transitional_sallet_1_mail_collar,itm_h_transitional_sallet_2_mail_collar,itm_h_transitional_sallet_3_mail_collar,itm_h_barbuta_nooxy_1_mail_collar,itm_h_barbuta_nooxy_2_mail_collar,
+ itm_a_peasant_cotehardie_custom,itm_a_tailored_cotehardie_custom,itm_a_simple_gambeson_custom,itm_a_light_gambeson_long_sleeves_8_custom,itm_a_light_gambeson_long_sleeves_8_alt_custom,
+ itm_b_turnshoes_1,itm_b_turnshoes_2,itm_b_turnshoes_4,itm_b_turnshoes_5,itm_b_turnshoes_9,
+ itm_w_dagger_italian,itm_w_onehanded_falchion_italian,itm_w_onehanded_sword_italian,itm_w_onehanded_sword_milanese,itm_w_onehanded_falchion_peasant,itm_w_onehanded_war_axe_01,itm_w_onehanded_war_axe_01_brown,itm_w_onehanded_war_axe_01_red,itm_w_spear_3,itm_w_spear_4,itm_w_spear_5,
+ itm_s_tall_pavise_genoese_1,itm_s_tall_pavise_genoese_2,
+], 
+level(10)|str_14|agi_10, wpex(100,100,120,100,100,100), knows_ironflesh_3|knows_power_strike_2|knows_athletics_3|knows_weapon_master_1, french_face_young_1, french_face_middle_2 ],
+["italian_infantry", "Italian Infantry", "Italian Infantries", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield, no_scene, reserved, fac_neutral, 
+[
+ itm_h_skullcap_mail_aventail,itm_h_cervelliere_mail_aventail,itm_h_chapel_de_fer_mail_aventail,itm_h_sallet_plum_curved_mail_aventail,itm_h_sallet_plum_mail_aventail,itm_h_sallet_red_curved_mail_aventail,itm_h_sallet_red_mail_aventail,itm_h_sallet_blue_curved_mail_aventail,itm_h_sallet_blue_mail_aventail,itm_h_sallet_curved_mail_aventail,itm_h_sallet_mail_aventail,itm_h_transitional_sallet_1_mail_aventail,itm_h_transitional_sallet_2_mail_aventail,itm_h_transitional_sallet_3_mail_aventail,itm_h_bascinet_1_mail_aventail,itm_h_bascinet_2_mail_aventail,itm_h_barbuta_1_mail_collar,itm_h_barbuta_1_nasal_mail_collar,itm_h_barbuta_2_mail_collar,itm_h_barbuta_2_nasal_mail_collar,itm_h_wespe_bascinet_c,itm_h_wespe_bascinet_c_open,itm_h_barbuta_nooxy_1_mail_collar,itm_h_barbuta_nooxy_2_mail_collar,itm_h_barbuta_nooxy_3,
+ itm_a_brigandine_asher_custom,itm_a_brigandine_asher_custom,itm_a_pistoia_breastplate_half_mail_sleeves,itm_a_pistoia_breastplate_half_mail_sleeves_jackchain,itm_a_pistoia_mail_a_mail_sleeves_jackchains,itm_a_pistoia_mail_b_mail_sleeves_jackchains,itm_a_pistoia_mail_a_mail_sleeves,itm_a_pistoia_mail_b_mail_sleeves,itm_a_pistoia_mail_a_mail_sleeves_short,itm_a_pistoia_mail_b_mail_sleeves_short,
+ itm_b_high_boots_1,itm_b_high_boots_2,itm_b_high_boots_4,itm_b_high_boots_5,itm_b_high_boots_9,
+ itm_w_onehanded_falchion_italian,itm_w_onehanded_sword_italian,itm_w_onehanded_sword_milanese,itm_w_onehanded_falchion_peasant,itm_w_onehanded_war_axe_01,itm_w_onehanded_war_axe_01_brown,itm_w_onehanded_war_axe_01_red,itm_w_spear_3,itm_w_spear_4,itm_w_spear_5,
+ itm_s_tall_pavise_genoese_1,itm_s_tall_pavise_genoese_2,
+], 
+level(15)|str_16|agi_12, wpex(100,100,150,100,100,100), knows_ironflesh_4|knows_power_strike_3|knows_athletics_3|knows_weapon_master_2, french_face_young_1, french_face_mature_2 ],
+["italian_heavy_infantry", "Italian Heavy Infantry", "Italian Heavy Infantries", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield, no_scene, reserved, fac_neutral, 
+[
+ itm_h_chapel_de_fer_mail_aventail,itm_h_sallet_plum_curved_mail_aventail,itm_h_sallet_plum_mail_aventail,itm_h_sallet_red_curved_mail_aventail,itm_h_sallet_red_mail_aventail,itm_h_sallet_blue_curved_mail_aventail,itm_h_sallet_blue_mail_aventail,itm_h_sallet_curved_mail_aventail,itm_h_sallet_mail_aventail,itm_h_transitional_sallet_1_mail_aventail,itm_h_transitional_sallet_2_mail_aventail,itm_h_transitional_sallet_3_mail_aventail,itm_h_bascinet_1_mail_aventail,itm_h_bascinet_2_mail_aventail,itm_h_barbuta_1_mail_collar,itm_h_barbuta_1_nasal_mail_collar,itm_h_barbuta_2_mail_collar,itm_h_barbuta_2_nasal_mail_collar,itm_h_wespe_bascinet_c,itm_h_wespe_bascinet_c_open,itm_h_barbuta_nooxy_1_mail_collar,itm_h_barbuta_nooxy_2_mail_collar,itm_h_barbuta_nooxy_3,
+ itm_a_pistoia_breastplate_2_mail_sleeves_plate_spaulders_1,itm_a_pistoia_breastplate_mail_sleeves_plate_spaulders_1,itm_a_pistoia_kastenbrust_a_mail_sleeves_plate_spaulders_1,itm_a_pistoia_kastenbrust_b_mail_sleeves_plate_spaulders_1,itm_a_brigandine_asher_mail_custom,itm_a_brigandine_asher_plate_1_custom,itm_a_corrazina_spina_custom,
+ itm_g_demi_gauntlets,
+ itm_b_leg_harness_1,itm_b_leg_harness_2,itm_b_leg_harness_3,
+ itm_w_onehanded_falchion_italian,itm_w_onehanded_sword_italian,itm_w_onehanded_sword_milanese,itm_w_onehanded_falchion_peasant,itm_w_onehanded_war_axe_01,itm_w_onehanded_war_axe_01_brown,itm_w_onehanded_war_axe_01_red,itm_w_spear_3,itm_w_spear_4,itm_w_spear_5,
+ itm_s_tall_pavise_genoese_1,itm_s_tall_pavise_genoese_2, 
+], 
+level(20)|str_16|agi_16, wpex(160,100,100,100,100,100), knows_ironflesh_4|knows_power_strike_4|knows_shield_3|knows_athletics_3|knows_weapon_master_2, french_face_middle_1, french_face_mature_2 ],
+
+
 ["genoese_crossbowman", "Genoese Crossbowman", "Genoese Crossbowmen", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield|tf_guarantee_ranged, no_scene, reserved, fac_neutral, 
 [
  itm_h_barbuta_nooxy_1_mail_collar,itm_h_barbuta_nooxy_2_mail_collar,itm_h_cervelliere_mail_aventail,itm_h_skullcap_mail_aventail,itm_h_arming_cap,itm_h_simple_coif,itm_h_simple_coif_black,itm_h_simple_coif_brown,
@@ -580,7 +611,6 @@ level(22)|str_17|agi_15, wpex(140,80,80,80,150,80), knows_ironflesh_4|knows_powe
  itm_b_turnshoes_1,itm_b_turnshoes_2,itm_b_turnshoes_3,itm_b_turnshoes_6,itm_b_turnshoes_7,
  itm_w_onehanded_falchion_peasant,itm_w_onehanded_sword_a,itm_w_onehanded_sword_c,itm_w_onehanded_sword_c_small,itm_w_onehanded_sword_d,itm_w_onehanded_war_axe_01,itm_w_onehanded_war_axe_01_brown,itm_w_onehanded_war_axe_01_red,
  itm_s_heraldic_shield_french_1,itm_s_heraldic_shield_french_2,itm_s_heraldic_shield_french_3,itm_s_heraldic_shield_french_4,itm_s_heraldic_shield_french_5,itm_s_heraldic_shield_french_6,itm_s_heraldic_shield_french_7,
-
 ], 
 level(10)|str_14|agi_10, wpex(100,100,120,100,100,100), knows_ironflesh_3|knows_power_strike_2|knows_athletics_3|knows_weapon_master_1, french_face_young_1, french_face_middle_2 ],
 ["french_pavoisier", "French Pavoisier", "French Pavoisiers", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield, no_scene, reserved, fac_kingdom_1, 
@@ -771,92 +801,147 @@ level(30)|str_24|agi_24, wp_melee(220), knows_ironflesh_8|knows_power_strike_6|k
 ##### Village Troops
 
 ### Ranged Line
-["english_peasant_archer", "English Peasant Archer", "English Peasant Archers", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_ranged, no_scene, reserved, fac_kingdom_2, 
-[], 
+["english_communal_bowman", "English Communal Bowman", "English Communal Bowmen", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_ranged, no_scene, reserved, fac_kingdom_2, 
+[
+
+], 
 level(8)|str_10|agi_12, wpex(90,80,80,110,80,80), knows_ironflesh_1|knows_power_strike_1|knows_power_draw_2|knows_athletics_4|knows_weapon_master_1, english_face_young_1, english_face_middle_2 ],
-["english_yeoman_archer", "English Yeoman Archer", "English Yeoman Archers", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_ranged, no_scene, reserved, fac_kingdom_2, 
-[], 
+["english_communal_archer", "English Communal Archer", "English Communal Archers", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_ranged, no_scene, reserved, fac_kingdom_2, 
+[
+
+], 
 level(12)|str_12|agi_14, wpex(100,80,80,130,80,80), knows_ironflesh_2|knows_power_draw_3|knows_power_strike_2|knows_athletics_4|knows_weapon_master_2, english_face_young_1, english_face_middle_2 ],
-["english_longbowman", "English Longbowman", "English Longbowmen", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_ranged, no_scene, reserved, fac_kingdom_2, 
-[], 
+["english_communal_veteran_archer", "English Communal Veteran Archer", "English Communal Veteran Archers", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_ranged, no_scene, reserved, fac_kingdom_2, 
+[
+
+], 
 level(18)|str_14|agi_16, wpex(120,80,80,150,80,80), knows_ironflesh_3|knows_power_draw_4|knows_power_strike_2|knows_athletics_4|knows_weapon_master_2, english_face_middle_1, english_face_mature_2 ],
-["english_retinue_longbowman", "English Retinue Longbowman", "English Retinue Longbowmen", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield|tf_guarantee_ranged, no_scene, reserved, fac_kingdom_2, 
-[], 
-level(24)|str_16|agi_18, wpex(150,80,80,180,80,80), knows_ironflesh_4|knows_power_draw_5|knows_power_strike_3|knows_athletics_4|knows_weapon_master_3, english_face_middle_1, english_face_old_2 ],
 
 ["english_garrison_crossbowman", "English Garrison Crossbowman", "English Garrison Crossbowmen", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_ranged, no_scene, reserved, fac_kingdom_2, 
-[], 
+[
+
+], 
 level(12)|str_13|agi_12, wpex(100,80,80,80,130,80), knows_ironflesh_2|knows_power_strike_1|knows_shield_1|knows_athletics_3|knows_weapon_master_1, english_face_young_1, english_face_middle_2 ],
 
 ### Infantry Line
-["english_peasant", "English Peasant", "English Peasants", tf_guarantee_boots|tf_guarantee_armor, no_scene, reserved, fac_kingdom_2, 
-[], 
+["english_communal_levy", "English Communal Levy", "English Communal Levies", tf_guarantee_boots|tf_guarantee_armor, no_scene, reserved, fac_kingdom_2, 
+[
+
+], 
 level(6)|str_10|agi_10, wpex(80,80,80,80,80,80), knows_ironflesh_1|knows_power_strike_1|knows_power_throw_1|knows_athletics_2, english_face_young_1, english_face_middle_2 ],
-["english_levy_spearman", "English Levy Spearman", "English Levy Spearmen", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield, no_scene, reserved, fac_kingdom_2, 
-[], 
+["english_communal_levy_footman", "English Communal Levy Footman", "English Communal Levy Footmen", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield, no_scene, reserved, fac_kingdom_2, 
+[
+
+], 
 level(10)|str_12|agi_12, wpex(100,80,120,80,80,80), knows_ironflesh_2|knows_power_strike_2|knows_shield_1|knows_athletics_3|knows_weapon_master_1, english_face_young_1, english_face_middle_2 ],
-["english_spearman", "English Spearman", "English Spearmen", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield, no_scene, reserved, fac_kingdom_2, 
-[], 
+["english_communal_footman", "English Communal Footman", "English Communal Footmen", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield, no_scene, reserved, fac_kingdom_2, 
+[
+
+], 
 level(15)|str_14|agi_14, wpex(120,80,140,80,80,80), knows_ironflesh_3|knows_power_strike_3|knows_shield_2|knows_athletics_3|knows_weapon_master_1, english_face_middle_1, english_face_mature_2 ],
-["english_heavy_spearman", "English Heavy Spearman", "English Heavy Spearmen", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield, no_scene, reserved, fac_kingdom_2, 
-[], 
+["english_communal_vougier", "English Communal Vougier", "English Communal Vougiers", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield, no_scene, reserved, fac_kingdom_2, 
+[
+
+], 
 level(20)|str_16|agi_16, wpex(140,100,160,100,100,100), knows_ironflesh_4|knows_power_strike_4|knows_shield_3|knows_athletics_3|knows_weapon_master_2, english_face_middle_1, english_face_mature_2 ],
 
 ##### Town Troops
 
 ### Infantry Line
-["english_militia_billman", "English Militia Billman", "English Militia Billmen", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_polearm, no_scene, reserved, fac_kingdom_2, 
-[], 
+["english_militia", "English Militia", "English Militia", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_polearm, no_scene, reserved, fac_kingdom_2, 
+[
+
+], 
 level(15)|str_16|agi_12, wpex(100,100,150,100,100,100), knows_ironflesh_4|knows_power_strike_3|knows_athletics_3|knows_weapon_master_2, english_face_young_1, english_face_middle_2 ],
-["english_billman", "English Billman", "English Billmen", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_polearm, no_scene, reserved, fac_kingdom_2, 
-[], 
+["english_footman", "English Footman", "English Footmen", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_polearm, no_scene, reserved, fac_kingdom_2, 
+[
+
+], 
 level(20)|str_18|agi_15, wpex(100,100,180,100,100,100), knows_warrior_basic2|knows_ironflesh_5|knows_power_strike_4|knows_athletics_3|knows_weapon_master_3, english_face_middle_1, english_face_mature_2 ],
+["english_heavy_footman", "English Heavy Footman", "English Heavy Footmen", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield, no_scene, reserved, fac_kingdom_2, 
+[
+
+], 
+level(20)|str_16|agi_16, wpex(160,100,100,100,100,100), knows_ironflesh_4|knows_power_strike_4|knows_shield_3|knows_athletics_3|knows_weapon_master_2, english_face_middle_1, english_face_mature_2 ],
 ["english_sergeant", "English Sergeant", "English Sergeants", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_polearm, no_scene, reserved, fac_kingdom_2, 
-[], 
+[
+
+], 
 level(25)|str_20|agi_20, wpex(100,100,200,100,100,100), knows_ironflesh_5|knows_power_strike_5|knows_athletics_4|knows_weapon_master_4, english_face_mature_1, english_face_old_2 ],
 
-["english_yeoman", "English Yeoman", "English Yeomen", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield, no_scene, reserved, fac_kingdom_2, 
-[], 
-level(10)|str_12|agi_12, wpex(120,80,80,80,80,80), knows_ironflesh_2|knows_power_strike_2|knows_shield_1|knows_athletics_3|knows_weapon_master_1, english_face_young_1, english_face_middle_2 ],
-["english_infantry", "English Infantry", "English Infantries", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield, no_scene, reserved, fac_kingdom_2, 
-[], level(15)|str_14|agi_14, wpex(140,80,80,80,80,80), knows_ironflesh_3|knows_power_strike_3|knows_shield_2|knows_athletics_3|knows_weapon_master_1, english_face_middle_1, english_face_mature_2 ],
-["english_heavy_infantry", "English Heavy Infantry", "English Heavy Infantries", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield, no_scene, reserved, fac_kingdom_2, 
-[], 
-level(20)|str_16|agi_16, wpex(160,100,100,100,100,100), knows_ironflesh_4|knows_power_strike_4|knows_shield_3|knows_athletics_3|knows_weapon_master_2, english_face_middle_1, english_face_mature_2 ],
+### Ranged Line
+["english_yeoman_archer", "English Yeoman Archer", "English Yeomen Archers", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_ranged, no_scene, reserved, fac_kingdom_2, 
+[
+
+], 
+level(8)|str_10|agi_12, wpex(90,80,80,110,80,80), knows_ironflesh_1|knows_power_strike_1|knows_power_draw_2|knows_athletics_4|knows_weapon_master_1, english_face_young_1, english_face_middle_2 ],
+["english_archer", "English Archer", "English Archers", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_ranged, no_scene, reserved, fac_kingdom_2, 
+[
+
+], 
+level(12)|str_12|agi_14, wpex(100,80,80,130,80,80), knows_ironflesh_2|knows_power_draw_3|knows_power_strike_2|knows_athletics_4|knows_weapon_master_2, english_face_young_1, english_face_middle_2 ],
+["english_retinue_archer", "English Retinue Archer", "English Retinue Archers", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_ranged, no_scene, reserved, fac_kingdom_2, 
+[
+
+], 
+level(18)|str_14|agi_16, wpex(120,80,80,150,80,80), knows_ironflesh_3|knows_power_draw_4|knows_power_strike_2|knows_athletics_4|knows_weapon_master_2, english_face_middle_1, english_face_mature_2 ],
+
 
 ##### Castle Troops
 
-["english_captain", "English Captain", "English Captains", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves, no_scene, reserved, fac_kingdom_2, 
-[], 
+### Dismounted
+["english_dismounted_squire", "English Dismounted Squire", "English Dismounted Squires", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves, no_scene, reserved, fac_kingdom_2, 
+[
+
+], 
 level(25)|str_20|agi_20, wp_melee(180), knows_ironflesh_5|knows_power_strike_5|knows_shield_3|knows_athletics_4|knows_weapon_master_5, english_face_young_1, english_face_mature_2 ],
-["english_dismounted_knight", "English Dismounted Knight", "English Dismounted Knights", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm, no_scene, reserved, fac_kingdom_2, 
-[], 
+["english_footman_at_arms", "English Footman-at-Arms", "English Footmen-at-Arms", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm, no_scene, reserved, fac_kingdom_2, 
+[
+
+], 
 level(30)|str_24|agi_24, wp_melee(220), knows_ironflesh_7|knows_power_strike_7|knows_athletics_4|knows_shield_4|knows_weapon_master_6, english_face_middle_1, english_face_mature_2 ],
-["three_lions_guard", "Three Lions Guard", "Three Lions Guards", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield, no_scene, reserved, fac_kingdom_2, 
-[], 
+["english_dismounted_knight_banneret", "English Dismounted Knight Banneret", "English Dismounted Knights Banneret", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield, no_scene, reserved, fac_kingdom_2, 
+[
+
+], 
 level(35)|str_28|agi_28, wp_melee(260), knows_ironflesh_8|knows_power_strike_8|knows_shield_5|knows_athletics_4|knows_weapon_master_8, english_face_mature_1, english_face_old_2 ],
-["english_longbowman_captain", "English Longbowman Captain", "English Longbowman Captains", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield|tf_guarantee_ranged, no_scene, reserved, fac_kingdom_2, 
-[], 
+["english_dismounted_knight_bachelier", "English Dismounted Knight Bachelier", "English Dismounted Knights Bachelier", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield|tf_guarantee_ranged, no_scene, reserved, fac_kingdom_2, 
+[
+
+], 
 level(28)|str_20|agi_20, wpex(180,180,100,200,100,100), knows_weapon_master_5|knows_ironflesh_5|knows_athletics_4|knows_power_strike_5|knows_shield_2|knows_power_draw_6, english_face_middle_1, english_face_mature_2 ],
 
+### Mounted
 ["english_squire", "English Squire", "English Squires", tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_horse|tf_guarantee_shield|tf_guarantee_polearm, no_scene, reserved, fac_kingdom_2, 
-[], 
+[
+
+], 
 level(25)|str_20|agi_20, wp_melee(150), knows_ironflesh_5|knows_power_strike_5|knows_shield_3|knows_athletics_4|knows_weapon_master_5|knows_riding_3, english_face_young_1, english_face_middle_2 ],
-["english_knight", "English Knight", "English Knights", tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_horse|tf_guarantee_shield|tf_guarantee_polearm, no_scene, reserved, fac_kingdom_2, 
-[], 
+["english_man_at_arms", "English Man-at-Arms", "English Men-at-Arms", tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_horse|tf_guarantee_shield|tf_guarantee_polearm, no_scene, reserved, fac_kingdom_2, 
+[
+
+], 
 level(28)|str_22|agi_22, wp_melee(180), knows_ironflesh_6|knows_power_strike_5|knows_shield_3|knows_athletics_4|knows_weapon_master_5|knows_riding_4, english_face_middle_1, english_face_mature_2 ],
-["english_heavy_knight", "English Heavy Knight", "English Heavy Knights", tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_horse|tf_guarantee_shield|tf_guarantee_polearm, no_scene, reserved, fac_kingdom_2, 
-[], 
+["english_knight_banneret", "English Knight Banneret", "English Knights Banneret", tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_horse|tf_guarantee_shield|tf_guarantee_polearm, no_scene, reserved, fac_kingdom_2, 
+[
+
+], 
 level(30)|str_24|agi_24, wp_melee(200), knows_ironflesh_7|knows_power_strike_6|knows_shield_4|knows_athletics_4|knows_weapon_master_6|knows_riding_5, english_face_middle_1, english_face_mature_2 ],
-["saint_georges_knight", "Order Of Saint Georges Knight", "Order Of Saint Georges Knights", tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_horse|tf_guarantee_shield|tf_guarantee_polearm, no_scene, reserved, fac_kingdom_2, 
-[], 
+["english_knight_bachelier", "English Knight Bachelier", "English Knights Bachelier", tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_horse|tf_guarantee_shield|tf_guarantee_polearm, no_scene, reserved, fac_kingdom_2, 
+[
+
+], 
 level(35)|str_28|agi_28, wp_melee(250), knows_ironflesh_8|knows_power_strike_8|knows_shield_4|knows_athletics_4|knows_weapon_master_8|knows_riding_5, english_face_mature_1, english_face_old_2 ],
 
 # Special Troops
 ["english_bannerman", "English Bannerman", "English Bannermen", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm, no_scene, reserved, fac_kingdom_2, 
-[], level(30)|str_24|agi_24, wp_melee(220), knows_ironflesh_7|knows_power_strike_7|knows_athletics_4|knows_shield_4|knows_weapon_master_6, english_face_middle_1, english_face_mature_2 ],
+[
+
+], level(30)|str_24|agi_24, wp_melee(220), knows_ironflesh_7|knows_power_strike_7|knows_athletics_4|knows_shield_4|knows_weapon_master_6, english_face_middle_1, english_face_mature_2 ],
 ["english_bannerman_mounted", "English Mounted Bannerman", "English Mounted Bannermen", tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_horse|tf_guarantee_shield|tf_guarantee_polearm, no_scene, reserved, fac_kingdom_2, 
-[], level(30)|str_24|agi_24, wp_melee(200), knows_ironflesh_7|knows_power_strike_6|knows_shield_4|knows_athletics_4|knows_weapon_master_6|knows_riding_5, english_face_middle_1, english_face_mature_2 ],
+[
+
+], level(30)|str_24|agi_24, wp_melee(200), knows_ironflesh_7|knows_power_strike_6|knows_shield_4|knows_athletics_4|knows_weapon_master_6|knows_riding_5, english_face_middle_1, english_face_mature_2 ],
 
 ## END English Main Troops
 ["english_messenger", "English_Messenger", "Vaegir Messengers", tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_gloves|tf_guarantee_horse|tf_guarantee_ranged, no_scene, reserved, fac_kingdom_2, 
@@ -3309,30 +3394,29 @@ upgrade(troops,"french_chevalier_banneret","french_knight_bachelier")
 
 ##################################################### ENGLISH TROOPS
 ## Archer Line
-# upgrade2(troops,"english_peasant_archer","english_yeoman_archer","english_garrison_crossbowman")
-# upgrade(troops,"english_yeoman_archer","english_longbowman")
-# upgrade(troops,"english_longbowman","english_retinue_longbowman")
+upgrade(troops,"english_communal_bowman","english_communal_archer")
+upgrade2(troops,"english_communal_archer","english_communal_veteran_archer","english_garrison_crossbowman")
 
 ## Infantry Line
-# upgrade2(troops,"english_peasant","english_yeoman","english_levy_spearman")
-# upgrade(troops,"english_yeoman","english_infantry")
-# upgrade(troops,"english_infantry","english_heavy_infantry")
+upgrade(troops,"english_communal_levy","english_communal_levy_footman")
+upgrade2(troops,"english_communal_levy_footman","english_communal_footman","english_communal_vougier")
 
+upgrade(troops,"english_militia","english_footman")
+upgrade(troops,"english_footman","english_heavy_footman")
+upgrade(troops,"english_heavy_footman","english_sergeant")
 
-# upgrade2(troops,"english_levy_spearman","english_spearman","english_militia_billman")
-# upgrade(troops,"english_spearman","english_heavy_spearman")
-
-# upgrade(troops,"english_militia_billman","english_billman")
-# upgrade(troops,"english_billman","english_sergeant")
+upgrade(troops,"english_yeoman_archer","english_archer")
+upgrade(troops,"english_archer","english_retinue_archer")
 
 ## Noble Line
 ##English Noble Line
-# upgrade2(troops,"english_captain","english_dismounted_knight","english_longbowman_captain")
-# upgrade(troops,"english_dismounted_knight","three_lions_guard")
+upgrade(troops,"english_dismounted_squire","english_footman_at_arms")
+upgrade(troops,"english_footman_at_arms","english_dismounted_knight_banneret")
+upgrade(troops,"english_dismounted_knight_banneret","english_dismounted_knight_bachelier")
 
-# upgrade(troops,"english_squire","english_knight")
-# upgrade(troops,"english_knight","english_heavy_knight")
-# upgrade(troops,"english_heavy_knight","saint_georges_knight")
+upgrade(troops,"english_squire","english_man_at_arms")
+upgrade(troops,"english_man_at_arms","english_knight_banneret")
+upgrade(troops,"english_knight_banneret","english_knight_bachelier")
 
 
 ##################################################### BURGUNDIAN TROOPS
@@ -3406,6 +3490,9 @@ upgrade(troops,"mercenary_scout","mercenary_light_cavalry")
 upgrade(troops,"mercenary_light_cavalry","mercenary_cavalry")
 
 upgrade(troops,"genoese_crossbowman","genoese_heavy_crossbowman")
+
+upgrade(troops,"italian_light_infantry","italian_infantry")
+upgrade(troops,"italian_infantry","italian_heavy_infantry")
 
 ###################################################### CUSTOM TROOPS
 
