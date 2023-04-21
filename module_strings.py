@@ -5232,6 +5232,12 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("a_nobleman_outfit_breton", "a_nobleman_outfit_breton"),  
 ("a_nobleman_outfit_end", "a_nobleman_outfit_end"),
 
+## Asher Brigandine New
+("a_brigandine_1", "a_brigandine_1"),   
+("a_brigandine_2", "a_brigandine_2"),   
+("a_brigandine_3", "a_brigandine_3"),   
+("a_brigandine_end", "a_brigandine_end"),   
+
 ## Asher Brigandine
 # French 
 ("a_brigandine_asher_blue", "a_brigandine_asher_blue"),   
@@ -5513,6 +5519,28 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("a_simple_gambeson_green_5", "a_simple_gambeson_green_5"),
 ("a_simple_gambeson_green_6", "a_simple_gambeson_green_6"),
 ("a_simple_gambeson_end", "a_simple_gambeson_end"),
+
+## Vertex Coloured Asher Regular Gambeson
+("a_gambeson_asher_regular_white",      "a_gambeson_asher_regular_white"),
+("a_gambeson_asher_regular_red",        "a_gambeson_asher_regular_red"),
+("a_gambeson_asher_regular_purple",     "a_gambeson_asher_regular_purple"),
+("a_gambeson_asher_regular_orange",     "a_gambeson_asher_regular_orange"),
+("a_gambeson_asher_regular_brown",      "a_gambeson_asher_regular_brown"),
+("a_gambeson_asher_regular_yellow",     "a_gambeson_asher_regular_yellow"),
+("a_gambeson_asher_regular_light_brown","a_gambeson_asher_regular_light_brown"),
+("a_gambeson_asher_regular_blue",       "a_gambeson_asher_regular_blue"),
+("a_gambeson_asher_regular_end",        "a_gambeson_asher_regular_end"),
+
+## Vertex Coloured Asher Belt Gambeson
+("a_gambeson_asher_belt_white",      "a_gambeson_asher_belt_white"),
+("a_gambeson_asher_belt_red",        "a_gambeson_asher_belt_red"),
+("a_gambeson_asher_belt_purple",     "a_gambeson_asher_belt_purple"),
+("a_gambeson_asher_belt_orange",     "a_gambeson_asher_belt_orange"),
+("a_gambeson_asher_belt_brown",      "a_gambeson_asher_belt_brown"),
+("a_gambeson_asher_belt_yellow",     "a_gambeson_asher_belt_yellow"),
+("a_gambeson_asher_belt_light_brown","a_gambeson_asher_belt_light_brown"),
+("a_gambeson_asher_belt_blue",       "a_gambeson_asher_belt_blue"),
+("a_gambeson_asher_belt_end",        "a_gambeson_asher_belt_end"),
 
 ## Vertex Coloured Giornea
 ("a_giornea_over_plate_blue", "a_giornea_over_plate_blue"),

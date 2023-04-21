@@ -4717,7 +4717,7 @@ TOTAL:  {reg5}"),
     [
     
 		# TLD:
-		(call_script, "script_maybe_relocate_player_from_z0"),	
+		(call_script, "script_relocate_player_party"),	
         
 		## WINDYPLAINS+ ## - BODY-SLIDING - Credit: Initial code from 1257
 		# copy backup to main party

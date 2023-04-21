@@ -756,7 +756,7 @@ parties = [
 
 ## DAC Seek: Player relocation
   ("pointer_player"           ,"_",pf_disabled|pf_no_label|pf_hide_defenders, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(25,-5),[]),
-  ("pointer_z_0_begin"        ,"_",pf_disabled|pf_no_label|pf_is_static, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(25,-5),[]), # rt_water = 0
+  ("pointer"        ,"_",pf_disabled|pf_no_label|pf_is_static, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(25,-5),[]), # rt_water = 0
 ## DAC Seek: Player relocation End
 
   ("reserved_1"                  ,"{!}last_spawn_point",    pf_disabled|pf_is_static, no_menu, pt_none, fac_commoners,0,ai_bhvr_hold,0,(0., 0),[(trp_looter,15,0)]),

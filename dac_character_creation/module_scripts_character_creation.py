@@ -51,7 +51,7 @@ character_creation_scripts = [
         (troop_add_item, "trp_player","itm_s_heraldic_shield_leather",0),
         (troop_add_item, "trp_player","itm_w_native_spear_b_custom",0),
         (troop_add_item, "trp_player","itm_w_onehanded_sword_knight",0),
-        (troop_add_item, "trp_player","itm_g_mail_gauntlets",0),
+        (troop_add_item, "trp_player","itm_g_gauntlets_mailed",0),
         (troop_add_item, "trp_player","itm_ho_rouncey_1",0),
         (troop_add_item, "trp_player","itm_smoked_fish",0),
 
@@ -83,7 +83,7 @@ character_creation_scripts = [
         (troop_add_item, "trp_player","itm_s_heraldic_shield_leather",0),
         (troop_add_item, "trp_player","itm_w_native_spear_b_custom",0),
         (troop_add_item, "trp_player","itm_w_onehanded_sword_knight",0),
-        (troop_add_item, "trp_player","itm_g_mail_gauntlets",0),
+        (troop_add_item, "trp_player","itm_g_gauntlets_mailed",0),
         (troop_add_item, "trp_player","itm_ho_rouncey_1",0),
         (troop_add_item, "trp_player","itm_smoked_fish",0),
         
@@ -652,7 +652,7 @@ character_creation_scripts = [
         (troop_add_item, "trp_player", "itm_h_great_bascinet_english_1410_visor"),
         (troop_add_item, "trp_player", "itm_a_brigandine_asher_custom"),
         (troop_add_item, "trp_player", "itm_b_leg_harness_3"),
-        (troop_add_item, "trp_player", "itm_g_hourglass_gauntlets"),
+        (troop_add_item, "trp_player", "itm_g_gauntlets_segmented_a"),
         (troop_add_item, "trp_player", "itm_b_turnshoes_1"),
     (else_try),
         (eq, ":faction_no", "fac_kingdom_2"), #DAC Kham: Copied from knight_2_51
@@ -663,7 +663,7 @@ character_creation_scripts = [
         (troop_add_item, "trp_player", "itm_h_great_bascinet_english_1410_visor"),
         (troop_add_item, "trp_player", "itm_a_brigandine_asher_custom"),
         (troop_add_item, "trp_player", "itm_b_leg_harness_2"),
-        (troop_add_item, "trp_player", "itm_g_hourglass_gauntlets"),
+        (troop_add_item, "trp_player", "itm_g_gauntlets_segmented_a"),
         (troop_add_item, "trp_player", "itm_b_turnshoes_1"),
     (else_try),
         (eq, ":faction_no", "fac_kingdom_3"), #DAC Kham: Copied from knight_3_20
@@ -674,7 +674,7 @@ character_creation_scripts = [
         (troop_add_item, "trp_player", "itm_h_great_bascinet_english_1410_visor"),
         (troop_add_item, "trp_player", "itm_a_brigandine_asher_custom"),
         (troop_add_item, "trp_player", "itm_b_leg_harness_2"),
-        (troop_add_item, "trp_player", "itm_g_hourglass_gauntlets"),
+        (troop_add_item, "trp_player", "itm_g_gauntlets_segmented_a"),
         (troop_add_item, "trp_player", "itm_b_turnshoes_1"),
     (else_try),
         #(eq, ":faction_no", "fac_kingdom_4"),  #DAC Kham: Copied from knight_4_18

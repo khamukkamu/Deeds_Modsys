@@ -2345,7 +2345,7 @@ itemsfile version 3
  0
 0
 
- itm_g_mail_gauntlets Mail_Mittens Mail_Mittens 1  g_mail_gauntlets_L 0  65551 0 350 704643236 0.500000 100 0 4 0 0 0 0 0 0 0 0 0
+ itm_g_gauntlets_mailed Mail_Mittens Mail_Mittens 1  g_gauntlets_mailed_L 0  65551 0 350 704643236 0.500000 100 0 4 0 0 0 0 0 0 0 0 0
  0
 0
 
@@ -2365,15 +2365,15 @@ itemsfile version 3
  0
 0
 
- itm_g_hourglass_gauntlets Hourglass_Gauntlets Hourglass_Gauntlets 1  g_hourglass_gauntlets_L 0  65551 0 1240 704643236 1.000000 100 0 7 0 0 0 0 0 0 0 0 0
+ itm_g_gauntlets_segmented_a Hourglass_Gauntlets Hourglass_Gauntlets 1  g_gauntlets_segmented_a_L 0  65551 0 1240 704643236 1.000000 100 0 7 0 0 0 0 0 0 0 0 0
  0
 0
 
- itm_g_hourglass_gauntlets_ornate Ornate_Hourglass_Gauntlets Ornate_Hourglass_Gauntlets 1  g_hourglass_gauntlets_ornate_L 0  65551 0 1390 704643236 1.000000 100 0 7 0 0 0 0 0 0 0 0 0
+ itm_g_gauntlets_segmented_a_ornate Ornate_Hourglass_Gauntlets Ornate_Hourglass_Gauntlets 1  g_gauntlets_segmented_a_ornate_L 0  65551 0 1390 704643236 1.000000 100 0 7 0 0 0 0 0 0 0 0 0
  0
 0
 
- itm_g_plate_mittens Plate_Mittens Plate_Mittens 1  g_plate_mittens_L 134217728  65551 0 1640 704643236 1.500000 100 0 8 0 0 0 0 0 0 0 0 0
+ itm_g_gauntlets_segmented_b Plate_Mittens Plate_Mittens 1  g_plate_mittens_L 134217728  65551 0 1640 704643236 1.500000 100 0 8 0 0 0 0 0 0 0 0 0
  0
 0
 

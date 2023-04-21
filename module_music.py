@@ -20,12 +20,34 @@ tracks = [
 # DAC Changes Begin
 # Ambush = Epic (num combatants >= 150)
 
-  ("DAC-Battle-Epic-1", "Battle/DAC-Battle-Epic-1.ogg", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
-  ("DAC-Battle-Epic-2", "Battle/DAC-Battle-Epic-2.ogg", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
-  ("DAC-Battle-Epic-3", "Battle/DAC-Battle-Epic-3.ogg", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
-  ("DAC-Battle-Epic-4", "Battle/DAC-Battle-Epic-4.mp3", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
-  ("DAC-Battle-Epic-5", "Battle/DAC-Battle-Epic-5.mp3", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
-  ("DAC-Battle-Epic-6", "Battle/DAC-Battle-Epic-6.ogg", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
+  ("DAC-Battle-Epic-1",  "Battle/DAC-Battle-Epic-1.ogg",  mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
+  ("DAC-Battle-Epic-2",  "Battle/DAC-Battle-Epic-2.ogg",  mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
+  ("DAC-Battle-Epic-3",  "Battle/DAC-Battle-Epic-3.ogg",  mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
+  ("DAC-Battle-Epic-4",  "Battle/DAC-Battle-Epic-4.ogg",  mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
+  ("DAC-Battle-Epic-5",  "Battle/DAC-Battle-Epic-5.ogg",  mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
+  ("DAC-Battle-Epic-6",  "Battle/DAC-Battle-Epic-6.ogg",  mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
+  ("DAC-Battle-Epic-7",  "Battle/DAC-Battle-Epic-7.ogg",  mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
+  ("DAC-Battle-Epic-8",  "Battle/DAC-Battle-Epic-8.ogg",  mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
+  ("DAC-Battle-Epic-9",  "Battle/DAC-Battle-Epic-9.ogg",  mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
+  ("DAC-Battle-Epic-10", "Battle/DAC-Battle-Epic-10.ogg", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
+  ("DAC-Battle-Epic-11", "Battle/DAC-Battle-Epic-11.ogg", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
+  ("DAC-Battle-Epic-12", "Battle/DAC-Battle-Epic-12.ogg", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
+  ("DAC-Battle-Epic-13", "Battle/DAC-Battle-Epic-13.ogg", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
+  ("DAC-Battle-Epic-14", "Battle/DAC-Battle-Epic-14.ogg", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
+  ("DAC-Battle-Epic-15", "Battle/DAC-Battle-Epic-15.ogg", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
+  ("DAC-Battle-Epic-16", "Battle/DAC-Battle-Epic-16.ogg", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
+  ("DAC-Battle-Epic-17", "Battle/DAC-Battle-Epic-17.ogg", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
+  ("DAC-Battle-Epic-18", "Battle/DAC-Battle-Epic-18.ogg", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
+  ("DAC-Battle-Epic-19", "Battle/DAC-Battle-Epic-19.ogg", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
+  ("DAC-Battle-Epic-20", "Battle/DAC-Battle-Epic-20.ogg", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
+  ("DAC-Battle-Epic-21", "Battle/DAC-Battle-Epic-21.ogg", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
+  ("DAC-Battle-Epic-22", "Battle/DAC-Battle-Epic-22.ogg", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
+  ("DAC-Battle-Epic-23", "Battle/DAC-Battle-Epic-23.ogg", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
+  ("DAC-Battle-Epic-24", "Battle/DAC-Battle-Epic-24.ogg", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
+  ("DAC-Battle-Epic-25", "Battle/DAC-Battle-Epic-25.ogg", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
+  ("DAC-Battle-Epic-26", "Battle/DAC-Battle-Epic-26.ogg", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
+  ("DAC-Battle-Epic-27", "Battle/DAC-Battle-Epic-27.ogg", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
+  ("DAC-Battle-Epic-28", "Battle/DAC-Battle-Epic-28.ogg", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
 
 # Bandit Epic (num combatants >= 50),
   ("DAC-Battle-Bandits-1", "Battle/DAC-Battle-Bandits-1.mp3", mtf_module_track|mtf_sit_ambushed|mtf_culture_6, 0),
@@ -46,25 +68,36 @@ tracks = [
 
 # DAC Siege Music
 
-  ("DAC-Battle-Siege-1", "Battle/DAC-Battle-Siege-1.mp3", mtf_module_track|mtf_sit_siege, 0),
-  ("DAC-Battle-Siege-2", "Battle/DAC-Battle-Siege-2.ogg", mtf_module_track|mtf_sit_siege, 0),  
-  ("DAC-Battle-Siege-3", "Battle/DAC-Battle-Siege-3.ogg", mtf_module_track|mtf_sit_siege, 0),  
-  ("DAC-Battle-Siege-4", "Battle/DAC-Battle-Siege-4.ogg", mtf_module_track|mtf_sit_siege, 0),  #BenjaminR Hundred Years War (Jan 13, 2020)
-  ("DAC-Battle-Siege-5", "Battle/DAC-Battle-Siege-5.ogg", mtf_module_track|mtf_sit_siege, 0),  #BenjaminR Death Legion (Jan 21, 2020)
-  ("DAC-Battle-Siege-6", "Battle/DAC-Battle-Siege-6.ogg", mtf_module_track|mtf_sit_siege, 0),  #BenjaminR Siege of Chateau Gallard (Jan 21, 2020)
+  ("DAC-Battle-Siege-1",  "Battle/Siege/DAC-Battle-Siege-1.ogg",  mtf_module_track|mtf_sit_siege, 0),
+  ("DAC-Battle-Siege-2",  "Battle/Siege/DAC-Battle-Siege-2.ogg",  mtf_module_track|mtf_sit_siege, 0),  
+  ("DAC-Battle-Siege-3",  "Battle/Siege/DAC-Battle-Siege-3.ogg",  mtf_module_track|mtf_sit_siege, 0),  
+  ("DAC-Battle-Siege-4",  "Battle/Siege/DAC-Battle-Siege-4.ogg",  mtf_module_track|mtf_sit_siege, 0),  
+  ("DAC-Battle-Siege-5",  "Battle/Siege/DAC-Battle-Siege-5.ogg",  mtf_module_track|mtf_sit_siege, 0),  
+  ("DAC-Battle-Siege-6",  "Battle/Siege/DAC-Battle-Siege-6.ogg",  mtf_module_track|mtf_sit_siege, 0),  
+  ("DAC-Battle-Siege-7",  "Battle/Siege/DAC-Battle-Siege-7.ogg",  mtf_module_track|mtf_sit_siege, 0),  
+  ("DAC-Battle-Siege-8",  "Battle/Siege/DAC-Battle-Siege-8.ogg",  mtf_module_track|mtf_sit_siege, 0),  
+  ("DAC-Battle-Siege-9",  "Battle/Siege/DAC-Battle-Siege-9.ogg",  mtf_module_track|mtf_sit_siege, 0),  
+  ("DAC-Battle-Siege-10", "Battle/Siege/DAC-Battle-Siege-10.ogg", mtf_module_track|mtf_sit_siege, 0),  
+  ("DAC-Battle-Siege-11", "Battle/Siege/DAC-Battle-Siege-11.ogg", mtf_module_track|mtf_sit_siege, 0),  
+  ("DAC-Battle-Siege-12", "Battle/Siege/DAC-Battle-Siege-12.ogg", mtf_module_track|mtf_sit_siege, 0),  
+  ("DAC-Battle-Siege-13", "Battle/Siege/DAC-Battle-Siege-13.ogg", mtf_module_track|mtf_sit_siege, 0),  
+  ("DAC-Battle-Siege-14", "Battle/Siege/DAC-Battle-Siege-14.ogg", mtf_module_track|mtf_sit_siege, 0),  
+  ("DAC-Battle-Siege-15", "Battle/Siege/DAC-Battle-Siege-15.ogg", mtf_module_track|mtf_sit_siege, 0),  
+  ("DAC-Battle-Siege-16", "Battle/Siege/DAC-Battle-Siege-16.ogg", mtf_module_track|mtf_sit_siege, 0),  
+  ("DAC-Battle-Siege-17", "Battle/Siege/DAC-Battle-Siege-17.ogg", mtf_module_track|mtf_sit_siege, 0),  
 
 # DAC Travel Music
 # Breton
 
-  ("DAC-Travel-Breton-1", "Travel/Breton/DAC-Travel-Breton-1.mp3", mtf_module_track|mtf_culture_4|mtf_sit_travel, mtf_sit_travel),
-  ("DAC-Travel-Breton-2", "Travel/Breton/DAC-Travel-Breton-2.mp3", mtf_module_track|mtf_culture_4|mtf_sit_travel, mtf_sit_travel),
-  ("DAC-Travel-Breton-3", "Travel/Breton/DAC-Travel-Breton-3.mp3", mtf_module_track|mtf_culture_4|mtf_sit_travel, mtf_sit_travel),
-  ("DAC-Travel-Breton-4", "Travel/Breton/DAC-Travel-Breton-4.mp3", mtf_module_track|mtf_culture_4|mtf_sit_travel, mtf_sit_travel),
-  ("DAC-Travel-Breton-5", "Travel/Breton/DAC-Travel-Breton-5.mp3", mtf_module_track|mtf_culture_4|mtf_sit_travel, mtf_sit_travel),
-  ("DAC-Travel-Breton-6", "Travel/Breton/DAC-Travel-Breton-6.mp3", mtf_module_track|mtf_culture_4|mtf_sit_travel, mtf_sit_travel),
-  ("DAC-Travel-Breton-7", "Travel/Breton/DAC-Travel-Breton-7.mp3", mtf_module_track|mtf_culture_4|mtf_sit_travel, mtf_sit_travel),
-  ("DAC-Travel-Breton-8", "Travel/Breton/DAC-Travel-Breton-8.mp3", mtf_module_track|mtf_culture_4|mtf_sit_travel, mtf_sit_travel),
-  ("DAC-Travel-Breton-9", "Travel/Breton/DAC-Travel-Breton-9.mp3", mtf_module_track|mtf_culture_4|mtf_sit_travel, mtf_sit_travel),
+  ("DAC-Travel-Breton-1",  "Travel/Breton/DAC-Travel-Breton-1.mp3",  mtf_module_track|mtf_culture_4|mtf_sit_travel, mtf_sit_travel),
+  ("DAC-Travel-Breton-2",  "Travel/Breton/DAC-Travel-Breton-2.mp3",  mtf_module_track|mtf_culture_4|mtf_sit_travel, mtf_sit_travel),
+  ("DAC-Travel-Breton-3",  "Travel/Breton/DAC-Travel-Breton-3.mp3",  mtf_module_track|mtf_culture_4|mtf_sit_travel, mtf_sit_travel),
+  ("DAC-Travel-Breton-4",  "Travel/Breton/DAC-Travel-Breton-4.mp3",  mtf_module_track|mtf_culture_4|mtf_sit_travel, mtf_sit_travel),
+  ("DAC-Travel-Breton-5",  "Travel/Breton/DAC-Travel-Breton-5.mp3",  mtf_module_track|mtf_culture_4|mtf_sit_travel, mtf_sit_travel),
+  ("DAC-Travel-Breton-6",  "Travel/Breton/DAC-Travel-Breton-6.mp3",  mtf_module_track|mtf_culture_4|mtf_sit_travel, mtf_sit_travel),
+  ("DAC-Travel-Breton-7",  "Travel/Breton/DAC-Travel-Breton-7.mp3",  mtf_module_track|mtf_culture_4|mtf_sit_travel, mtf_sit_travel),
+  ("DAC-Travel-Breton-8",  "Travel/Breton/DAC-Travel-Breton-8.mp3",  mtf_module_track|mtf_culture_4|mtf_sit_travel, mtf_sit_travel),
+  ("DAC-Travel-Breton-9",  "Travel/Breton/DAC-Travel-Breton-9.mp3",  mtf_module_track|mtf_culture_4|mtf_sit_travel, mtf_sit_travel),
   ("DAC-Travel-Breton-10", "Travel/Breton/DAC-Travel-Breton-10.mp3", mtf_module_track|mtf_culture_4|mtf_sit_travel, mtf_sit_travel),
   ("DAC-Travel-Breton-11", "Travel/Breton/DAC-Travel-Breton-11.mp3", mtf_module_track|mtf_culture_4|mtf_sit_travel, mtf_sit_travel),
   ("DAC-Travel-Breton-12", "Travel/Breton/DAC-Travel-Breton-12.mp3", mtf_module_track|mtf_culture_4|mtf_sit_travel, mtf_sit_travel),
@@ -87,15 +120,15 @@ tracks = [
 
 # French
 
-  ("DAC-Travel-France-1", "Travel/French/DAC-Travel-France-1.mp3", mtf_module_track|mtf_culture_1|mtf_sit_travel, mtf_sit_travel),
-  ("DAC-Travel-France-2", "Travel/French/DAC-Travel-France-2.mp3", mtf_module_track|mtf_culture_1|mtf_sit_travel, mtf_sit_travel),
-  ("DAC-Travel-France-3", "Travel/French/DAC-Travel-France-3.mp3", mtf_module_track|mtf_culture_1|mtf_sit_travel, mtf_sit_travel),
-  ("DAC-Travel-France-4", "Travel/French/DAC-Travel-France-4.mp3", mtf_module_track|mtf_culture_1|mtf_sit_travel, mtf_sit_travel),
-  ("DAC-Travel-France-5", "Travel/French/DAC-Travel-France-5.mp3", mtf_module_track|mtf_culture_1|mtf_sit_travel, mtf_sit_travel),
-  ("DAC-Travel-France-6", "Travel/French/DAC-Travel-France-6.mp3", mtf_module_track|mtf_culture_1|mtf_sit_travel, mtf_sit_travel),
-  ("DAC-Travel-France-7", "Travel/French/DAC-Travel-France-7.mp3", mtf_module_track|mtf_culture_1|mtf_sit_travel, mtf_sit_travel),
-  ("DAC-Travel-France-8", "Travel/French/DAC-Travel-France-8.mp3", mtf_module_track|mtf_culture_1|mtf_sit_travel, mtf_sit_travel),
-  ("DAC-Travel-France-9", "Travel/French/DAC-Travel-France-9.mp3", mtf_module_track|mtf_culture_1|mtf_sit_travel, mtf_sit_travel),
+  ("DAC-Travel-France-1",  "Travel/French/DAC-Travel-France-1.mp3",  mtf_module_track|mtf_culture_1|mtf_sit_travel, mtf_sit_travel),
+  ("DAC-Travel-France-2",  "Travel/French/DAC-Travel-France-2.mp3",  mtf_module_track|mtf_culture_1|mtf_sit_travel, mtf_sit_travel),
+  ("DAC-Travel-France-3",  "Travel/French/DAC-Travel-France-3.mp3",  mtf_module_track|mtf_culture_1|mtf_sit_travel, mtf_sit_travel),
+  ("DAC-Travel-France-4",  "Travel/French/DAC-Travel-France-4.mp3",  mtf_module_track|mtf_culture_1|mtf_sit_travel, mtf_sit_travel),
+  ("DAC-Travel-France-5",  "Travel/French/DAC-Travel-France-5.mp3",  mtf_module_track|mtf_culture_1|mtf_sit_travel, mtf_sit_travel),
+  ("DAC-Travel-France-6",  "Travel/French/DAC-Travel-France-6.mp3",  mtf_module_track|mtf_culture_1|mtf_sit_travel, mtf_sit_travel),
+  ("DAC-Travel-France-7",  "Travel/French/DAC-Travel-France-7.mp3",  mtf_module_track|mtf_culture_1|mtf_sit_travel, mtf_sit_travel),
+  ("DAC-Travel-France-8",  "Travel/French/DAC-Travel-France-8.mp3",  mtf_module_track|mtf_culture_1|mtf_sit_travel, mtf_sit_travel),
+  ("DAC-Travel-France-9",  "Travel/French/DAC-Travel-France-9.mp3",  mtf_module_track|mtf_culture_1|mtf_sit_travel, mtf_sit_travel),
   ("DAC-Travel-France-10", "Travel/French/DAC-Travel-France-10.mp3", mtf_module_track|mtf_culture_1|mtf_sit_travel, mtf_sit_travel),
   ("DAC-Travel-France-11", "Travel/French/DAC-Travel-France-11.mp3", mtf_module_track|mtf_culture_1|mtf_sit_travel, mtf_sit_travel),
   ("DAC-Travel-France-12", "Travel/French/DAC-Travel-France-12.mp3", mtf_module_track|mtf_culture_1|mtf_sit_travel, mtf_sit_travel),
@@ -105,15 +138,15 @@ tracks = [
 
 # Burgandy
 
-  ("DAC-Travel-Burgandy-1", "Travel/Burgandy/DAC-Travel-Burgandy-1.mp3", mtf_module_track|mtf_culture_3|mtf_sit_travel, mtf_sit_travel),
-  ("DAC-Travel-Burgandy-2", "Travel/Burgandy/DAC-Travel-Burgandy-2.mp3", mtf_module_track|mtf_culture_3|mtf_sit_travel, mtf_sit_travel),
-  ("DAC-Travel-Burgandy-3", "Travel/Burgandy/DAC-Travel-Burgandy-3.mp3", mtf_module_track|mtf_culture_3|mtf_sit_travel, mtf_sit_travel),
-  ("DAC-Travel-Burgandy-4", "Travel/Burgandy/DAC-Travel-Burgandy-4.mp3", mtf_module_track|mtf_culture_3|mtf_sit_travel, mtf_sit_travel),
-  ("DAC-Travel-Burgandy-5", "Travel/Burgandy/DAC-Travel-Burgandy-5.mp3", mtf_module_track|mtf_culture_3|mtf_sit_travel, mtf_sit_travel),
-  ("DAC-Travel-Burgandy-6", "Travel/Burgandy/DAC-Travel-Burgandy-6.mp3", mtf_module_track|mtf_culture_3|mtf_sit_travel, mtf_sit_travel),
-  ("DAC-Travel-Burgandy-7", "Travel/Burgandy/DAC-Travel-Burgandy-7.mp3", mtf_module_track|mtf_culture_3|mtf_sit_travel, mtf_sit_travel),
-  ("DAC-Travel-Burgandy-8", "Travel/Burgandy/DAC-Travel-Burgandy-8.mp3", mtf_module_track|mtf_culture_3|mtf_sit_travel, mtf_sit_travel),
-  ("DAC-Travel-Burgandy-9", "Travel/Burgandy/DAC-Travel-Burgandy-9.mp3", mtf_module_track|mtf_culture_3|mtf_sit_travel, mtf_sit_travel),
+  ("DAC-Travel-Burgandy-1",  "Travel/Burgandy/DAC-Travel-Burgandy-1.mp3",  mtf_module_track|mtf_culture_3|mtf_sit_travel, mtf_sit_travel),
+  ("DAC-Travel-Burgandy-2",  "Travel/Burgandy/DAC-Travel-Burgandy-2.mp3",  mtf_module_track|mtf_culture_3|mtf_sit_travel, mtf_sit_travel),
+  ("DAC-Travel-Burgandy-3",  "Travel/Burgandy/DAC-Travel-Burgandy-3.mp3",  mtf_module_track|mtf_culture_3|mtf_sit_travel, mtf_sit_travel),
+  ("DAC-Travel-Burgandy-4",  "Travel/Burgandy/DAC-Travel-Burgandy-4.mp3",  mtf_module_track|mtf_culture_3|mtf_sit_travel, mtf_sit_travel),
+  ("DAC-Travel-Burgandy-5",  "Travel/Burgandy/DAC-Travel-Burgandy-5.mp3",  mtf_module_track|mtf_culture_3|mtf_sit_travel, mtf_sit_travel),
+  ("DAC-Travel-Burgandy-6",  "Travel/Burgandy/DAC-Travel-Burgandy-6.mp3",  mtf_module_track|mtf_culture_3|mtf_sit_travel, mtf_sit_travel),
+  ("DAC-Travel-Burgandy-7",  "Travel/Burgandy/DAC-Travel-Burgandy-7.mp3",  mtf_module_track|mtf_culture_3|mtf_sit_travel, mtf_sit_travel),
+  ("DAC-Travel-Burgandy-8",  "Travel/Burgandy/DAC-Travel-Burgandy-8.mp3",  mtf_module_track|mtf_culture_3|mtf_sit_travel, mtf_sit_travel),
+  ("DAC-Travel-Burgandy-9",  "Travel/Burgandy/DAC-Travel-Burgandy-9.mp3",  mtf_module_track|mtf_culture_3|mtf_sit_travel, mtf_sit_travel),
   ("DAC-Travel-Burgandy-10", "Travel/Burgandy/DAC-Travel-Burgandy-10.mp3", mtf_module_track|mtf_culture_3|mtf_sit_travel, mtf_sit_travel),
   ("DAC-Travel-Burgandy-11", "Travel/Burgandy/DAC-Travel-Burgandy-11.mp3", mtf_module_track|mtf_culture_3|mtf_sit_travel, mtf_sit_travel),
   ("DAC-Travel-Burgandy-12", "Travel/Burgandy/DAC-Travel-Burgandy-12.mp3", mtf_module_track|mtf_culture_3|mtf_sit_travel, mtf_sit_travel),
@@ -136,36 +169,38 @@ tracks = [
 
 # Court
   ("DAC-Court-Generic-1", "DAC-Court-Generic-1.mp3", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_night|mtf_sit_tavern|mtf_culture_all),
-  ("DAC-Court-Generic-2", "DAC-Court-Generic-2.ogg", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_night|mtf_sit_tavern|mtf_culture_all), #BenjaminR Lulle Me Beyond Thee Edit (Jan 21, 2020)
+  ("DAC-Court-Generic-2", "DAC-Court-Generic-2.ogg", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_night|mtf_sit_tavern|mtf_culture_all), 
 
 # Town
-  ("DAC-Town-Generic-1", "DAC-Town-Generic-1.mp3", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),
-  ("DAC-Town-Generic-2", "DAC-Town-Generic-2.mp3", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),
-  ("DAC-Town-Generic-3", "DAC-Town-Generic-3.mp3", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),
-  ("DAC-Town-Generic-4", "DAC-Town-Generic-4.mp3", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),
-  ("DAC-Town-Generic-5", "DAC-Town-Generic-5.mp3", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),
-  ("DAC-Town-Generic-6", "DAC-Town-Generic-6.mp3", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),
-  ("DAC-Town-Generic-7", "DAC-Town-Generic-7.mp3", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),
-  ("DAC-Town-Generic-8", "DAC-Town-Generic-8.mp3", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),
-  ("DAC-Town-Generic-9", "DAC-Town-Generic-9.ogg", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),   #BenjaminR O Rosa Bella Edit (Jan 13, 2020)
-  ("DAC-Town-Generic-10", "DAC-Town-Generic-10.ogg", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night), #BenjaminR All in a Garden Green Edit (Jan 17, 2020)
-  ("DAC-Town-Generic-11", "DAC-Town-Generic-11.ogg", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night), #BenjaminR Lauro (Jan 17, 2020)
-  ("DAC-Town-Generic-12", "DAC-Town-Generic-12.ogg", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night), #BenjaminR Charlotte Bransle Edit (Jan 17, 2020)
-  ("DAC-Town-Generic-13", "DAC-Town-Generic-13.ogg", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night), #BenjaminR Viv El Gran Re Don Fernando Edit (Feb 4, 2020)
-  ("DAC-Town-Generic-14", "DAC-Town-Generic-14.ogg", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night), #BenjaminR The Bonny Bonny Broome Edit (Feb 4, 2020)
-  ("DAC-Town-Generic-15", "DAC-Town-Generic-15.ogg", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night), #BenjaminR Bizzariad Amore Edit (Feb 4, 2020)
+  ("DAC-Town-Generic-1",  "Town/DAC-Town-Generic-1.ogg",  mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),
+  ("DAC-Town-Generic-2",  "Town/DAC-Town-Generic-2.ogg",  mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),
+  ("DAC-Town-Generic-3",  "Town/DAC-Town-Generic-3.ogg",  mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),
+  ("DAC-Town-Generic-4",  "Town/DAC-Town-Generic-4.ogg",  mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),
+  ("DAC-Town-Generic-5",  "Town/DAC-Town-Generic-5.ogg",  mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),
+  ("DAC-Town-Generic-6",  "Town/DAC-Town-Generic-6.ogg",  mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),
+  ("DAC-Town-Generic-7",  "Town/DAC-Town-Generic-7.ogg",  mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),
+  ("DAC-Town-Generic-8",  "Town/DAC-Town-Generic-8.ogg",  mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night),
+  ("DAC-Town-Generic-9",  "Town/DAC-Town-Generic-9.ogg",  mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night), 
+  ("DAC-Town-Generic-10", "Town/DAC-Town-Generic-10.ogg", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night), 
+  ("DAC-Town-Generic-11", "Town/DAC-Town-Generic-11.ogg", mtf_module_track|mtf_sit_town, mtf_sit_town|mtf_sit_tavern|mtf_sit_night), 
 
 # Tavern
-  ("DAC-Tavern-Generic-1", "DAC-Tavern-Generic-1.mp3", mtf_module_track|mtf_sit_tavern|mtf_sit_feast, 0),
-  ("DAC-Tavern-Generic-2", "DAC-Tavern-Generic-2.mp3", mtf_module_track|mtf_sit_tavern|mtf_sit_feast, 0),
-  ("DAC-Tavern-Generic-3", "DAC-Tavern-Generic-3.ogg", mtf_module_track|mtf_sit_tavern|mtf_sit_feast, 0), #BenjaminR The Three Ravens (Feb 4, 2020)
+  ("DAC-Tavern-Generic-1", "Tavern/DAC-Tavern-Generic-1.ogg", mtf_module_track|mtf_sit_tavern|mtf_sit_feast, 0),
+  ("DAC-Tavern-Generic-2", "Tavern/DAC-Tavern-Generic-2.ogg", mtf_module_track|mtf_sit_tavern|mtf_sit_feast, 0),
+  ("DAC-Tavern-Generic-3", "Tavern/DAC-Tavern-Generic-3.ogg", mtf_module_track|mtf_sit_tavern|mtf_sit_feast, 0), 
+  ("DAC-Tavern-Generic-4", "Tavern/DAC-Tavern-Generic-4.ogg", mtf_module_track|mtf_sit_tavern|mtf_sit_feast, 0), 
+  ("DAC-Tavern-Generic-5", "Tavern/DAC-Tavern-Generic-5.ogg", mtf_module_track|mtf_sit_tavern|mtf_sit_feast, 0), 
 
 # Feast
-  ("DAC-Feast-Generic-1", "DAC-Feast-Generic-1.ogg", mtf_module_track|mtf_sit_feast, 0), #BenjaminR Medieval Party (Feb 4, 2020)
+  ("DAC-Feast-Generic-1", "DAC-Feast-Generic-1.ogg", mtf_module_track|mtf_sit_feast, 0), 
 
 # Defeat
-  ("DAC-Defeat-1", "DAC-Defeat-1.ogg", mtf_module_track|mtf_persist_until_finished|mtf_sit_killed, 0),
-  ("DAC-Defeat-2", "DAC-Defeat-2.mp3", mtf_module_track|mtf_persist_until_finished|mtf_sit_killed, 0),
+  ("DAC-Defeat-1", "Defeat/DAC-Defeat-1.ogg", mtf_module_track|mtf_sit_killed, mtf_sit_travel),
+  ("DAC-Defeat-2", "Defeat/DAC-Defeat-2.ogg", mtf_module_track|mtf_sit_killed, mtf_sit_travel),
+  ("DAC-Defeat-3", "Defeat/DAC-Defeat-3.ogg", mtf_module_track|mtf_sit_killed, mtf_sit_travel),
+  ("DAC-Defeat-4", "Defeat/DAC-Defeat-4.ogg", mtf_module_track|mtf_sit_killed, mtf_sit_travel),
+  ("DAC-Defeat-5", "Defeat/DAC-Defeat-5.ogg", mtf_module_track|mtf_sit_killed, mtf_sit_travel),
+
   ("empty_village", "empty_village.ogg", mtf_persist_until_finished|mtf_sit_killed, 0), # Native
 
 # Infiltration
@@ -173,10 +208,14 @@ tracks = [
   ("calm_night_2", "calm_night_2.ogg", mtf_sit_town_infiltrate, 0), #Native
 
 # Victory
-  ("victorious_evil", "victorious_evil.ogg", mtf_persist_until_finished|mtf_sit_victorious, 0), # Native
-  ("escape", "escape.ogg", mtf_persist_until_finished|mtf_sit_victorious, 0), #Native
+  ("victorious_evil",  "victorious_evil.ogg",          mtf_sit_victorious, 0),
+  ("escape",           "escape.ogg",                   mtf_sit_victorious, 0),
   
-  ("DAC-Victorious-1", "DAC-Victorious-1.ogg", mtf_module_track|mtf_persist_until_finished|mtf_sit_victorious, 0), # BenjaminR Victory 2 (Feb 19, 2020)
+  ("DAC-Victorious-1", "Victory/DAC-Victorious-1.ogg", mtf_module_track|mtf_sit_victorious, mtf_sit_travel),
+  ("DAC-Victorious-2", "Victory/DAC-Victorious-2.ogg", mtf_module_track|mtf_sit_victorious, mtf_sit_travel),
+  ("DAC-Victorious-3", "Victory/DAC-Victorious-3.ogg", mtf_module_track|mtf_sit_victorious, mtf_sit_travel),
+  ("DAC-Victorious-4", "Victory/DAC-Victorious-4.ogg", mtf_module_track|mtf_sit_victorious, mtf_sit_travel),
+  ("DAC-Victorious-5", "Victory/DAC-Victorious-5.ogg", mtf_module_track|mtf_sit_victorious, mtf_sit_travel),
 
 # DAC Changes END
 
@@ -222,6 +261,6 @@ tracks = [
 # Paramount (Jul 4, 2020) - Kham - Not for us
 # 4.7 test (Jul 4, 2020) - Kham - too vocal
 # test 10 (Jul 10, 2020) - Kham - Epic battle? Siege?
-
+# Revised music (except travel), added tracks from BenjaminR (Jan 6, 2023) - Seek
 
 ]

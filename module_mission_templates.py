@@ -41,7 +41,7 @@ pilgrim_disguise = [itm_pilgrim_hood,itm_pilgrim_disguise,itm_practice_staff, it
 farmer_disguise = [itm_h_felt_hat_b_brown, itm_a_farmer_tunic, itm_b_turnshoes_1, itm_w_fork_2, itm_w_onehanded_war_axe_01]
 hunter_disguise = [itm_h_hood_black,itm_g_leather_gauntlet, itm_a_hunter_coat_custom, itm_w_archer_hatchet, itm_w_hunting_bow_elm, itm_w_arrow_broadhead, itm_b_turnshoes_1]
 merchant_disguise = [itm_a_merchant_outfit,itm_b_turnshoes_1,itm_h_highlander_beret_red_2,itm_w_dagger_italian]
-guard_disguise = [itm_h_cervelliere_mail_aventail,itm_g_mail_gauntlets,itm_a_light_gambeson_long_sleeves_custom,itm_b_high_boots_3,itm_s_heraldic_shield_leather,itm_w_warhammer_1,itm_w_spear_7]
+guard_disguise = [itm_h_cervelliere_mail_aventail,itm_g_gauntlets_mailed,itm_a_light_gambeson_long_sleeves_custom,itm_b_high_boots_3,itm_s_heraldic_shield_leather,itm_w_warhammer_1,itm_w_spear_7]
 bard_disguise = [itm_h_highlander_beret_green_2,itm_a_noble_shirt_green,itm_b_turnshoes_1,itm_w_mace_winged,itm_lyre]
 #note that these are usually male clothing, especially farmer_disguise, need some female ones as well
 

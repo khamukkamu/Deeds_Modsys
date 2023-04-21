@@ -588,6 +588,15 @@ scripts = [
         (call_script, "script_update_volunteer_troops_in_village", ":village_no"),
       (try_end),
 
+      (try_for_range, ":castle_no", castles_begin, castles_end),
+        (call_script, "script_update_volunteer_troops_in_castle", ":castle_no"),
+      (try_end),
+      
+      (try_for_range, ":town_no", towns_begin, towns_end),
+        (call_script, "script_update_volunteer_troops_in_town", ":town_no"),
+      (try_end),
+
+
       (try_for_range, ":cur_kingdom", kingdoms_begin, kingdoms_end),
         (call_script, "script_update_faction_notes", ":cur_kingdom"),
         (store_random_in_range, ":random_no", -60, 0),
@@ -885,17 +894,17 @@ scripts = [
 	  
       (faction_set_slot, "fac_kingdom_1", slot_faction_quick_battle_tier_1_infantry, "trp_french_pavoisier"),
       (faction_set_slot, "fac_kingdom_1", slot_faction_quick_battle_tier_2_infantry, "trp_french_guisarmier"),
-      (faction_set_slot, "fac_kingdom_1", slot_faction_quick_battle_tier_1_archer, "trp_french_veteran_archer"),
+      (faction_set_slot, "fac_kingdom_1", slot_faction_quick_battle_tier_1_archer, "trp_french_archer"),
       (faction_set_slot, "fac_kingdom_1", slot_faction_quick_battle_tier_2_archer, "trp_french_crossbowman"),
       (faction_set_slot, "fac_kingdom_1", slot_faction_quick_battle_tier_1_cavalry, "trp_french_man_at_arms"),
-      (faction_set_slot, "fac_kingdom_1", slot_faction_quick_battle_tier_2_cavalry, "trp_french_knight_bachelier"),
+      (faction_set_slot, "fac_kingdom_1", slot_faction_quick_battle_tier_2_cavalry, "trp_french_chevalier"),
 		
       (faction_set_slot, "fac_kingdom_2", slot_faction_quick_battle_tier_1_infantry, "trp_english_communal_footman"),
       (faction_set_slot, "fac_kingdom_2", slot_faction_quick_battle_tier_2_infantry, "trp_english_footman"),
       (faction_set_slot, "fac_kingdom_2", slot_faction_quick_battle_tier_1_archer, "trp_english_communal_veteran_archer"),
       (faction_set_slot, "fac_kingdom_2", slot_faction_quick_battle_tier_2_archer, "trp_english_archer"),
       (faction_set_slot, "fac_kingdom_2", slot_faction_quick_battle_tier_1_cavalry, "trp_english_man_at_arms"),
-      (faction_set_slot, "fac_kingdom_2", slot_faction_quick_battle_tier_2_cavalry, "trp_english_knight_banneret"),
+      (faction_set_slot, "fac_kingdom_2", slot_faction_quick_battle_tier_2_cavalry, "trp_english_knight"),
       
       (faction_set_slot, "fac_kingdom_3", slot_faction_quick_battle_tier_1_infantry, "trp_burgundian_pikeman"),
       (faction_set_slot, "fac_kingdom_3", slot_faction_quick_battle_tier_2_infantry, "trp_burgundian_halberdier"),
@@ -1470,14 +1479,14 @@ scripts = [
 
       #gloves
       # (item_set_slot, "itm_g_leather_gauntlet", slot_item_multiplayer_item_class, multi_item_class_type_glove),
-      # (item_set_slot, "itm_g_mail_gauntlets", slot_item_multiplayer_item_class, multi_item_class_type_glove),
+      # (item_set_slot, "itm_g_gauntlets_mailed", slot_item_multiplayer_item_class, multi_item_class_type_glove),
       # (item_set_slot, "itm_g_demi_gauntlets", slot_item_multiplayer_item_class, multi_item_class_type_glove),
       # (item_set_slot, "itm_g_finger_gauntlets", slot_item_multiplayer_item_class, multi_item_class_type_glove),
       # (item_set_slot, "itm_g_wisby_gauntlets_black", slot_item_multiplayer_item_class, multi_item_class_type_glove),
       # (item_set_slot, "itm_g_wisby_gauntlets_red", slot_item_multiplayer_item_class, multi_item_class_type_glove),
-      # (item_set_slot, "itm_g_hourglass_gauntlets", slot_item_multiplayer_item_class, multi_item_class_type_glove),
-      # (item_set_slot, "itm_g_hourglass_gauntlets_ornate", slot_item_multiplayer_item_class, multi_item_class_type_glove),
-      # (item_set_slot, "itm_g_plate_mittens", slot_item_multiplayer_item_class, multi_item_class_type_glove),
+      # (item_set_slot, "itm_g_gauntlets_segmented_a", slot_item_multiplayer_item_class, multi_item_class_type_glove),
+      # (item_set_slot, "itm_g_gauntlets_segmented_a_ornate", slot_item_multiplayer_item_class, multi_item_class_type_glove),
+      # (item_set_slot, "itm_g_gauntlets_segmented_b", slot_item_multiplayer_item_class, multi_item_class_type_glove),
 
 
 
@@ -1649,7 +1658,7 @@ scripts = [
 	  
       # Gloves	  
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_leather_gauntlet", "trp_french_crossbowman_multiplayer"),
-      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_mail_gauntlets", "trp_french_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_gauntlets_mailed", "trp_french_crossbowman_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_demi_gauntlets", "trp_french_crossbowman_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_finger_gauntlets", "trp_french_crossbowman_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_wisby_gauntlets_black", "trp_french_crossbowman_multiplayer"),
@@ -1731,7 +1740,7 @@ scripts = [
 	  
       # Gloves	  
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_leather_gauntlet", "trp_french_infantry_multiplayer"),
-      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_mail_gauntlets", "trp_french_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_gauntlets_mailed", "trp_french_infantry_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_demi_gauntlets", "trp_french_infantry_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_finger_gauntlets", "trp_french_infantry_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_wisby_gauntlets_black", "trp_french_infantry_multiplayer"),
@@ -1805,7 +1814,7 @@ scripts = [
 	  
       # Gloves	  
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_leather_gauntlet", "trp_french_man_at_arms_multiplayer"),
-      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_mail_gauntlets", "trp_french_man_at_arms_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_gauntlets_mailed", "trp_french_man_at_arms_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_demi_gauntlets", "trp_french_man_at_arms_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_finger_gauntlets", "trp_french_man_at_arms_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_wisby_gauntlets_black", "trp_french_man_at_arms_multiplayer"),
@@ -1863,13 +1872,13 @@ scripts = [
 	  
       # Gloves	  
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_leather_gauntlet", "trp_french_chevalier_multiplayer"),
-      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_mail_gauntlets", "trp_french_chevalier_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_gauntlets_mailed", "trp_french_chevalier_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_demi_gauntlets", "trp_french_chevalier_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_finger_gauntlets", "trp_french_chevalier_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_wisby_gauntlets_red", "trp_french_chevalier_multiplayer"),  
-      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_hourglass_gauntlets", "trp_french_chevalier_multiplayer"),  
-      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_hourglass_gauntlets_ornate", "trp_french_chevalier_multiplayer"),  
-      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_plate_mittens", "trp_french_chevalier_multiplayer"),  
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_gauntlets_segmented_a", "trp_french_chevalier_multiplayer"),  
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_gauntlets_segmented_a_ornate", "trp_french_chevalier_multiplayer"),  
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_gauntlets_segmented_b", "trp_french_chevalier_multiplayer"),  
 	  
       # Footwear	  
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_b_leather_boots", "trp_french_chevalier_multiplayer"),
@@ -1939,7 +1948,7 @@ scripts = [
 	  
       # Gloves	  
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_leather_gauntlet", "trp_english_longbowman_multiplayer"),
-      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_mail_gauntlets", "trp_english_longbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_gauntlets_mailed", "trp_english_longbowman_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_demi_gauntlets", "trp_english_longbowman_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_finger_gauntlets", "trp_english_longbowman_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_wisby_gauntlets_black", "trp_english_longbowman_multiplayer"),
@@ -2016,7 +2025,7 @@ scripts = [
 	  
       # Gloves	  
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_leather_gauntlet", "trp_english_infantry_multiplayer"),
-      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_mail_gauntlets", "trp_english_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_gauntlets_mailed", "trp_english_infantry_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_demi_gauntlets", "trp_english_infantry_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_finger_gauntlets", "trp_english_infantry_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_wisby_gauntlets_black", "trp_english_infantry_multiplayer"),
@@ -2090,7 +2099,7 @@ scripts = [
 	  
       # Gloves	  
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_leather_gauntlet", "trp_english_man_at_arms_multiplayer"),
-      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_mail_gauntlets", "trp_english_man_at_arms_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_gauntlets_mailed", "trp_english_man_at_arms_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_demi_gauntlets", "trp_english_man_at_arms_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_finger_gauntlets", "trp_english_man_at_arms_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_wisby_gauntlets_black", "trp_english_man_at_arms_multiplayer"),
@@ -2140,13 +2149,13 @@ scripts = [
 	  
       # Gloves	  
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_leather_gauntlet", "trp_english_knight_multiplayer"),
-      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_mail_gauntlets", "trp_english_knight_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_gauntlets_mailed", "trp_english_knight_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_demi_gauntlets", "trp_english_knight_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_finger_gauntlets", "trp_english_knight_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_wisby_gauntlets_red", "trp_english_knight_multiplayer"),  
-      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_hourglass_gauntlets", "trp_english_knight_multiplayer"),  
-      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_hourglass_gauntlets_ornate", "trp_english_knight_multiplayer"),  
-      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_plate_mittens", "trp_english_knight_multiplayer"),  
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_gauntlets_segmented_a", "trp_english_knight_multiplayer"),  
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_gauntlets_segmented_a_ornate", "trp_english_knight_multiplayer"),  
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_gauntlets_segmented_b", "trp_english_knight_multiplayer"),  
 	  
       # Footwear	  
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_b_leather_boots", "trp_english_knight_multiplayer"),
@@ -2290,7 +2299,7 @@ scripts = [
 	  
       # Gloves	  
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_leather_gauntlet", "trp_burgundian_infantry_multiplayer"),
-      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_mail_gauntlets", "trp_burgundian_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_gauntlets_mailed", "trp_burgundian_infantry_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_demi_gauntlets", "trp_burgundian_infantry_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_finger_gauntlets", "trp_burgundian_infantry_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_wisby_gauntlets_black", "trp_burgundian_infantry_multiplayer"),
@@ -2364,7 +2373,7 @@ scripts = [
 	  
       # Gloves	  
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_leather_gauntlet", "trp_burgundian_man_at_arms_multiplayer"),
-      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_mail_gauntlets", "trp_burgundian_man_at_arms_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_gauntlets_mailed", "trp_burgundian_man_at_arms_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_demi_gauntlets", "trp_burgundian_man_at_arms_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_finger_gauntlets", "trp_burgundian_man_at_arms_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_wisby_gauntlets_black", "trp_burgundian_man_at_arms_multiplayer"),
@@ -2422,13 +2431,13 @@ scripts = [
 	  
       # Gloves	  
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_leather_gauntlet", "trp_burgundian_knight_multiplayer"),
-      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_mail_gauntlets", "trp_burgundian_knight_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_gauntlets_mailed", "trp_burgundian_knight_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_demi_gauntlets", "trp_burgundian_knight_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_finger_gauntlets", "trp_burgundian_knight_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_wisby_gauntlets_red", "trp_burgundian_knight_multiplayer"),  
-      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_hourglass_gauntlets", "trp_burgundian_knight_multiplayer"),  
-      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_hourglass_gauntlets_ornate", "trp_burgundian_knight_multiplayer"),  
-      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_plate_mittens", "trp_burgundian_knight_multiplayer"),  
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_gauntlets_segmented_a", "trp_burgundian_knight_multiplayer"),  
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_gauntlets_segmented_a_ornate", "trp_burgundian_knight_multiplayer"),  
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_gauntlets_segmented_b", "trp_burgundian_knight_multiplayer"),  
 	  
       # Footwear	  
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_b_leather_boots", "trp_burgundian_knight_multiplayer"),
@@ -2498,7 +2507,7 @@ scripts = [
 	  
       # Gloves	  
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_leather_gauntlet", "trp_breton_crossbowman_multiplayer"),
-      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_mail_gauntlets", "trp_breton_crossbowman_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_gauntlets_mailed", "trp_breton_crossbowman_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_demi_gauntlets", "trp_breton_crossbowman_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_finger_gauntlets", "trp_breton_crossbowman_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_wisby_gauntlets_black", "trp_breton_crossbowman_multiplayer"),
@@ -2577,7 +2586,7 @@ scripts = [
 	  
       # Gloves	  
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_leather_gauntlet", "trp_breton_infantry_multiplayer"),
-      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_mail_gauntlets", "trp_breton_infantry_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_gauntlets_mailed", "trp_breton_infantry_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_demi_gauntlets", "trp_breton_infantry_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_finger_gauntlets", "trp_breton_infantry_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_wisby_gauntlets_black", "trp_breton_infantry_multiplayer"),
@@ -2649,7 +2658,7 @@ scripts = [
 	  
       # Gloves	  
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_leather_gauntlet", "trp_breton_man_at_arms_multiplayer"),
-      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_mail_gauntlets", "trp_breton_man_at_arms_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_gauntlets_mailed", "trp_breton_man_at_arms_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_demi_gauntlets", "trp_breton_man_at_arms_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_finger_gauntlets", "trp_breton_man_at_arms_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_wisby_gauntlets_black", "trp_breton_man_at_arms_multiplayer"),
@@ -2698,13 +2707,13 @@ scripts = [
 	  
       # Gloves	  
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_leather_gauntlet", "trp_breton_knight_multiplayer"),
-      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_mail_gauntlets", "trp_breton_knight_multiplayer"),
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_gauntlets_mailed", "trp_breton_knight_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_demi_gauntlets", "trp_breton_knight_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_finger_gauntlets", "trp_breton_knight_multiplayer"),
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_wisby_gauntlets_red", "trp_breton_knight_multiplayer"),  
-      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_hourglass_gauntlets", "trp_breton_knight_multiplayer"),  
-      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_hourglass_gauntlets_ornate", "trp_breton_knight_multiplayer"),  
-      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_plate_mittens", "trp_breton_knight_multiplayer"),  
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_gauntlets_segmented_a", "trp_breton_knight_multiplayer"),  
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_gauntlets_segmented_a_ornate", "trp_breton_knight_multiplayer"),  
+      # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_g_gauntlets_segmented_b", "trp_breton_knight_multiplayer"),  
 	  
       # Footwear	  
       # (call_script, "script_multiplayer_set_item_available_for_troop", "itm_b_leather_boots", "trp_breton_knight_multiplayer"),
@@ -7896,17 +7905,17 @@ scripts = [
       (faction_set_slot, "fac_culture_1",  slot_faction_tier_1_troop, "trp_french_peasant_levy"),
       (faction_set_slot, "fac_culture_1",  slot_faction_tier_2_troop, "trp_french_militia"),
       (faction_set_slot, "fac_culture_1",  slot_faction_tier_3_troop, "trp_french_militia_crossbowman"),
-      (faction_set_slot, "fac_culture_1",  slot_faction_tier_4_troop, "trp_french_dismounted_squire"),
-      (faction_set_slot, "fac_culture_1",  slot_faction_tier_5_troop, "trp_french_chevalier_banneret_a_pied"),
-      (faction_set_slot, "fac_culture_1",  slot_faction_tier_6_troop, "trp_french_squire"),
+      (faction_set_slot, "fac_culture_1",  slot_faction_tier_4_troop, "trp_french_spearman_at_atms"),
+      (faction_set_slot, "fac_culture_1",  slot_faction_tier_5_troop, "trp_french_spearman_at_atms"),
+      (faction_set_slot, "fac_culture_1",  slot_faction_tier_6_troop, "trp_french_man_at_arms"),
       (faction_set_slot, "fac_culture_1",  slot_faction_tier_1_archer, "trp_french_peasant_archer"),
       
       (faction_set_slot, "fac_culture_2", slot_faction_tier_1_troop, "trp_english_communal_levy"),
       (faction_set_slot, "fac_culture_2", slot_faction_tier_2_troop, "trp_english_militia"),
       (faction_set_slot, "fac_culture_2", slot_faction_tier_3_troop, "trp_english_yeoman_archer"),
-      (faction_set_slot, "fac_culture_2", slot_faction_tier_4_troop, "trp_english_dismounted_squire"),
+      (faction_set_slot, "fac_culture_2", slot_faction_tier_4_troop, "trp_english_footman_at_arms"),
       (faction_set_slot, "fac_culture_2", slot_faction_tier_5_troop, "trp_english_footman_at_arms"),
-      (faction_set_slot, "fac_culture_2", slot_faction_tier_6_troop, "trp_english_squire"),
+      (faction_set_slot, "fac_culture_2", slot_faction_tier_6_troop, "trp_english_man_at_arms"),
       (faction_set_slot, "fac_culture_2",  slot_faction_tier_1_archer, "trp_english_communal_bowman"),
       
       (faction_set_slot, "fac_culture_3", slot_faction_tier_1_troop, "trp_burgundian_peasant"),
@@ -32419,13 +32428,12 @@ scripts = [
       
         (try_begin),
             (neq,"$relocated",1),
-            (assign,"$relocated",1),						# don't store current location if already relocated
-            (party_relocate_near_party,"p_pointer_player","p_main_party",0), #remember original player location 
+            (assign,"$relocated",1),						
+            (party_relocate_near_party,"p_pointer_player","p_main_party",0), 
         (try_end),	  
 	
-		(store_random_in_range, ":radius", 1, 5), # radius around base terrain Z=0 position for seed generation
-		# (store_add, reg10, "p_pointer_z_0_begin", ":terrain_type"),
-		(party_relocate_near_party,"p_main_party","p_pointer_z_0_begin",":radius"), # teleport to requested region	
+		(store_random_in_range, ":radius", 1, 5), 
+		(party_relocate_near_party,"p_main_party","p_pointer",":radius"), 	
 		
       
       
@@ -32434,12 +32442,12 @@ scripts = [
   ]),
   
 # script_maybe_relocate_player_from_z0 (GA and mtarini)
-("maybe_relocate_player_from_z0",[
-	 (try_begin), #if "walk around place" used
-	    (eq, "$relocated", 1),
-	    (assign, "$relocated", 0),
+("relocate_player_party",[
+    (try_begin),
+        (eq, "$relocated", 1),
+        (assign, "$relocated", 0),
         (party_relocate_near_party, "p_main_party", "p_pointer_player", 0),
-	(try_end),
+    (try_end),
 ]),  
 
 
@@ -41606,7 +41614,7 @@ scripts = [
          (else_try),
            (eq, "$sneaked_into_town", disguise_guard),
            (cur_tableau_add_override_item, "itm_h_cervelliere_mail_aventail"),
-           (cur_tableau_add_override_item, "itm_g_mail_gauntlets"),
+           (cur_tableau_add_override_item, "itm_g_gauntlets_mailed"),
            (cur_tableau_add_override_item, "itm_a_light_gambeson_long_sleeves_alt_custom"),
            # (cur_tableau_add_override_item, "itm_leather_jerkin"), #dckplmc civilian armor
            (cur_tableau_add_override_item, "itm_b_high_boots_3"),
@@ -48283,9 +48291,9 @@ scripts = [
       
       (store_add, ":num_combatants", ":num_enemies", ":num_allies"),
       (try_begin),
-        (ge, ":num_combatants", 150),
-        (this_or_next|ge, ":num_allies", 50),
-        (ge, ":num_enemies", 50),
+        (ge, ":num_combatants", 100),
+        (this_or_next|ge, ":num_allies", 40),
+        (ge, ":num_enemies", 40),
         #(lt, ":num_allies", ":num_enemies"),
         (assign, ":situation", mtf_sit_ambushed),
       (try_end),
@@ -58369,6 +58377,13 @@ scripts = [
 		(store_script_param, ":troop_no", 1),
 
 		(store_faction_of_troop, ":faction_no", ":troop_no"),
+        
+        #BUGFIX BEGIN - bugfix of store faction for when decider is player https://forums.taleworlds.com/index.php?threads/bugfix-for-endless-feasts-that-never-end.458191/#post-9866607
+        (try_begin),
+            (eq,":troop_no","trp_player"),
+            (assign,":faction_no","$players_kingdom"),
+        (try_end),
+        #BUGFIX END - bugfix of store faction for when decider is player
 
 		(str_store_troop_name, s4, ":troop_no"),
 		(str_store_faction_name, s33, ":faction_no"),
@@ -72122,7 +72137,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (else_try),
         (eq, "$sneaked_into_town", disguise_guard),
         (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_h_cervelliere_mail_aventail"),
-        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_g_mail_gauntlets"),
+        (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_g_gauntlets_mailed"),
         (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_a_light_gambeson_long_sleeves_alt_custom"),
         # (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_leather_jerkin"), #dckplmc
         (mission_tpl_entry_add_override_item, ":mission_template", ":entry_no", "itm_b_high_boots_3"),
@@ -75983,6 +75998,15 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (item_set_slot, "itm_a_corrazina_capwell_custom", slot_item_mercenary_materials_begin, "str_a_corrazina_capwell_alt_green_m"),
       (item_set_slot, "itm_a_corrazina_capwell_custom", slot_item_mercenary_materials_end, "str_a_corrazina_capwell_end"),   
       (item_set_slot, "itm_a_corrazina_capwell_custom", slot_item_num_components, 1),       
+      
+## Asher Brigandine NEW
+      (try_for_range, ":item_no", "itm_a_brigandine_asher_a_custom", "itm_a_brigandine_asher_custom"), # Seek: All the Brigandines share the same base
+          (item_set_slot, ":item_no", slot_item_materials_begin, "str_a_brigandine_1"),
+          (item_set_slot, ":item_no", slot_item_materials_end, "str_a_brigandine_end"),      
+          (item_set_slot, ":item_no", slot_item_num_components, 1),     
+      (try_end),
+      
+
         
 ## Asher Brigandine 
       (try_for_range, ":item_no", "itm_a_brigandine_asher_custom", "itm_a_churburg_13_asher_plain_custom"), # Seek: All the Brigandines share the same base
@@ -76060,7 +76084,17 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 ## Vertex Coloured Simple Gambeson
       (item_set_slot, "itm_a_simple_gambeson_custom", slot_item_materials_begin, "str_a_simple_gambeson_white_1"),
       (item_set_slot, "itm_a_simple_gambeson_custom", slot_item_materials_end, "str_a_simple_gambeson_end"),  
-      (item_set_slot, "itm_a_simple_gambeson_custom", slot_item_num_components, 1),   
+      (item_set_slot, "itm_a_simple_gambeson_custom", slot_item_num_components, 1), 
+
+## Vertex Coloured Asher Regular Gambeson
+      (item_set_slot, "itm_a_gambeson_asher_regular_custom", slot_item_materials_begin, "str_a_gambeson_asher_regular_white"),
+      (item_set_slot, "itm_a_gambeson_asher_regular_custom", slot_item_materials_end, "str_a_gambeson_asher_regular_end"),  
+      (item_set_slot, "itm_a_gambeson_asher_regular_custom", slot_item_num_components, 1),         
+
+## Vertex Coloured Asher Belt Gambeson
+      (item_set_slot, "itm_a_gambeson_asher_belt_custom", slot_item_materials_begin, "str_a_gambeson_asher_belt_white"),
+      (item_set_slot, "itm_a_gambeson_asher_belt_custom", slot_item_materials_end, "str_a_gambeson_asher_belt_end"),  
+      (item_set_slot, "itm_a_gambeson_asher_belt_custom", slot_item_num_components, 1),         
 
 ## Vertex Coloured Giornea
       (try_for_range, ":item_no", "itm_a_giornea_over_plate_a_custom", "itm_dplmc_coat_of_plates_red_constable"), # Seek: All the Armour share the same base
@@ -77868,31 +77902,31 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 # DAC - Autolykos Upgrade Units with Items
 ####################################################################################################################
 
-
-    ("initialize_troop_elite_upgrades",
-    [	(assign,"$upgrade_troops_with_items",1),
+("initialize_troop_elite_upgrades",
+    [	
+    (assign,"$upgrade_troops_with_items",1),
 	
-		# Heraldic Banner
-		# French Bannermen
-		(troop_set_slot, "trp_french_chevalier_banneret_a_pied",	slot_soldier_elite_upgrade_to,	"trp_french_bannerman"),
-		(troop_set_slot, "trp_french_chevalier_banneret_a_pied",	slot_soldier_elite_upgrade_with,"itm_heraldic_banner"),
-		(troop_set_slot, "trp_french_chevalier_banneret",		slot_soldier_elite_upgrade_to,	"trp_french_bannerman_mounted"),
-		(troop_set_slot, "trp_french_chevalier_banneret",		slot_soldier_elite_upgrade_with,"itm_heraldic_banner"),
-		# English Bannermen
-		(troop_set_slot, "trp_english_dismounted_knight_banneret",		slot_soldier_elite_upgrade_to,	"trp_english_bannerman"),
-		(troop_set_slot, "trp_english_dismounted_knight_banneret",		slot_soldier_elite_upgrade_with,"itm_heraldic_banner"),
-		(troop_set_slot, "trp_english_knight_banneret",		slot_soldier_elite_upgrade_to,	"trp_english_bannerman_mounted"),
-		(troop_set_slot, "trp_english_knight_banneret",		slot_soldier_elite_upgrade_with,"itm_heraldic_banner"),
-		# Burgundian Bannermen
-		(troop_set_slot, "trp_burgundian_elite_guard",			slot_soldier_elite_upgrade_to, "trp_burgundian_bannerman"),
-		(troop_set_slot, "trp_burgundian_elite_guard",			slot_soldier_elite_upgrade_with, "itm_heraldic_banner"),
-		(troop_set_slot, "trp_burgundian_heavy_knight",			slot_soldier_elite_upgrade_to, "trp_burgundian_bannerman_mounted"),
-		(troop_set_slot, "trp_burgundian_heavy_knight",			slot_soldier_elite_upgrade_with, "itm_heraldic_banner"),
-		# Breton Bannermen
-		(troop_set_slot, "trp_breton_dismounted_noble",		slot_soldier_elite_upgrade_to,	"trp_breton_bannerman"),
-		(troop_set_slot, "trp_breton_dismounted_noble",		slot_soldier_elite_upgrade_with,"itm_heraldic_banner"),
-		(troop_set_slot, "trp_breton_heavy_knight",         slot_soldier_elite_upgrade_to,"trp_breton_bannerman_mounted"),
-		(troop_set_slot, "trp_breton_heavy_knight",         slot_soldier_elite_upgrade_with,"itm_heraldic_banner"),
+# Heraldic Banner
+# French Bannermen
+    (troop_set_slot, "trp_french_dismounted_squire",	slot_soldier_elite_upgrade_to,	    "trp_french_bannerman"),
+    (troop_set_slot, "trp_french_dismounted_squire",	slot_soldier_elite_upgrade_with,    "itm_heraldic_banner"),
+    (troop_set_slot, "trp_french_squire",		        slot_soldier_elite_upgrade_to,	    "trp_french_bannerman_mounted"),
+    (troop_set_slot, "trp_french_squire",		        slot_soldier_elite_upgrade_with,    "itm_heraldic_banner"),
+# English Bannermen
+    (troop_set_slot, "trp_english_dismounted_squire",	slot_soldier_elite_upgrade_to,	    "trp_english_bannerman"),
+    (troop_set_slot, "trp_english_dismounted_squire",   slot_soldier_elite_upgrade_with,    "itm_heraldic_banner"),
+    (troop_set_slot, "trp_english_squire",		        slot_soldier_elite_upgrade_to,	    "trp_english_bannerman_mounted"),
+    (troop_set_slot, "trp_english_squire",		        slot_soldier_elite_upgrade_with,    "itm_heraldic_banner"),
+# Burgundian Bannermen
+    (troop_set_slot, "trp_burgundian_elite_guard",		slot_soldier_elite_upgrade_to,      "trp_burgundian_bannerman"),
+    (troop_set_slot, "trp_burgundian_elite_guard",		slot_soldier_elite_upgrade_with,    "itm_heraldic_banner"),
+    (troop_set_slot, "trp_burgundian_heavy_knight",		slot_soldier_elite_upgrade_to,      "trp_burgundian_bannerman_mounted"),
+    (troop_set_slot, "trp_burgundian_heavy_knight",		slot_soldier_elite_upgrade_with,    "itm_heraldic_banner"),
+# Breton Bannermen
+    (troop_set_slot, "trp_breton_dismounted_noble",		slot_soldier_elite_upgrade_to,	    "trp_breton_bannerman"),
+    (troop_set_slot, "trp_breton_dismounted_noble",		slot_soldier_elite_upgrade_with,    "itm_heraldic_banner"),
+    (troop_set_slot, "trp_breton_heavy_knight",         slot_soldier_elite_upgrade_to,      "trp_breton_bannerman_mounted"),
+    (troop_set_slot, "trp_breton_heavy_knight",         slot_soldier_elite_upgrade_with,    "itm_heraldic_banner"),
 
     # Piggyback on script for Banner Men
     (troop_set_slot, "trp_french_bannerman", slot_troop_bannerman, 1),
@@ -77904,7 +77938,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
     (troop_set_slot, "trp_breton_bannerman", slot_troop_bannerman, 1),
     (troop_set_slot, "trp_breton_bannerman_mounted", slot_troop_bannerman, 1),
 
-	]),
+]),
 
 ####################################################################################################################
 # DAC - Autolykos alternate weapon modes

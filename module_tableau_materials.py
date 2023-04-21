@@ -921,7 +921,7 @@ tableaus = [
        (init_position, pos1),
 
        (position_set_x, pos1, -75),
-       (position_set_y, pos1, 125),
+       (position_set_y, pos1, 130),
        (cur_tableau_add_mesh, ":banner_mesh", pos1, 100, 0), # was 98
 
        (init_position, pos1),

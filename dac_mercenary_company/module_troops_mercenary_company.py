@@ -467,7 +467,7 @@ mercenary_company_troops = [
     # itm_b_leather_boots,
     
     # itm_g_leather_gauntlet,
-    # itm_g_mail_gauntlets,
+    # itm_g_gauntlets_mailed,
     # itm_g_demi_gauntlets,
     
     # itm_w_onehanded_war_axe_01,
@@ -509,7 +509,7 @@ mercenary_company_troops = [
     # itm_b_mail_boots,
     
     # itm_g_leather_gauntlet,
-    # itm_g_mail_gauntlets,
+    # itm_g_gauntlets_mailed,
     # itm_g_demi_gauntlets,
     
     # itm_w_onehanded_war_axe_01,
@@ -899,7 +899,7 @@ mercenary_company_troops = [
     # itm_b_mail_chausses,
     
     # itm_g_leather_gauntlet,
-    # itm_g_mail_gauntlets,
+    # itm_g_gauntlets_mailed,
     # itm_g_demi_gauntlets,
     
     # itm_w_mace_winged,
@@ -944,7 +944,7 @@ mercenary_company_troops = [
     # itm_b_mail_boots,
     
     # itm_g_leather_gauntlet,
-    # itm_g_mail_gauntlets,
+    # itm_g_gauntlets_mailed,
     # itm_g_demi_gauntlets,
     
     # itm_w_mace_winged,
@@ -1113,7 +1113,7 @@ mercenary_company_troops = [
     
     # itm_b_steel_greaves,
     
-    # itm_g_mail_gauntlets,
+    # itm_g_gauntlets_mailed,
     # itm_g_demi_gauntlets,
     
     # itm_w_bastard_sword_a,
@@ -1147,7 +1147,7 @@ mercenary_company_troops = [
     
     # itm_b_steel_greaves,
     
-    # itm_g_mail_gauntlets,
+    # itm_g_gauntlets_mailed,
     # itm_g_demi_gauntlets,
     
     # itm_w_bastard_sword_a,
@@ -1293,8 +1293,8 @@ mercenary_company_troops = [
     
     # itm_b_shynbaulds,
     
-    # itm_g_hourglass_gauntlets,
-    # itm_g_hourglass_gauntlets_ornate,
+    # itm_g_gauntlets_segmented_a,
+    # itm_g_gauntlets_segmented_a_ornate,
     
     # itm_s_heraldic_shield_metal,
     
@@ -1328,8 +1328,8 @@ mercenary_company_troops = [
     
     # itm_b_shynbaulds,
     
-    # itm_g_hourglass_gauntlets,
-    # itm_g_hourglass_gauntlets_ornate,
+    # itm_g_gauntlets_segmented_a,
+    # itm_g_gauntlets_segmented_a_ornate,
     
     # itm_s_heraldic_shield_metal,
     # itm_s_heraldic_shield_french_1,
@@ -1389,7 +1389,7 @@ mercenary_company_troops = [
     
     # itm_b_mail_chausses,
     
-    # itm_g_mail_gauntlets,
+    # itm_g_gauntlets_mailed,
     
     # itm_w_onehanded_sword_d_long,
     # itm_w_onehanded_sword_c_long,
@@ -1429,7 +1429,7 @@ mercenary_company_troops = [
     # itm_b_mail_boots,
     # itm_b_mail_chausses,
     
-    # itm_g_mail_gauntlets,
+    # itm_g_gauntlets_mailed,
     
     # itm_w_onehanded_sword_squire,
     # itm_w_onehanded_sword_martyr,
@@ -1493,7 +1493,7 @@ mercenary_company_troops = [
     # itm_b_mail_boots,
     # itm_b_mail_chausses,
     
-    # itm_g_mail_gauntlets,
+    # itm_g_gauntlets_mailed,
     
     # itm_w_onehanded_sword_knight,
     # itm_w_onehanded_sword_squire,
@@ -1534,7 +1534,7 @@ mercenary_company_troops = [
     # itm_b_mail_boots,
     # itm_b_mail_chausses,
     
-    # itm_g_mail_gauntlets,
+    # itm_g_gauntlets_mailed,
     
     # itm_w_onehanded_sword_knight,
     # itm_w_onehanded_sword_squire,
@@ -1599,7 +1599,7 @@ mercenary_company_troops = [
     # itm_heraldic_plate,
     # itm_heraldic_jupon,
     
-    # itm_g_plate_mittens,
+    # itm_g_gauntlets_segmented_b,
     
     # itm_b_steel_greaves_full,
     # itm_b_shynbaulds,
@@ -1638,7 +1638,7 @@ mercenary_company_troops = [
     # itm_heraldic_plate,
     # itm_heraldic_jupon,
     
-    # itm_g_plate_mittens,
+    # itm_g_gauntlets_segmented_b,
     
     # itm_b_steel_greaves_full,
     # itm_b_shynbaulds,
@@ -1691,7 +1691,7 @@ mercenary_company_troops = [
 
   ["merc_company_quartermaster","Quartermaster Godefroy de Papincourt","Quartermaster Godefroy de Papincourt",tf_hero|tf_unmoveable_in_party_window,scn_player_camp|entry(2),0,fac_commoners,
    [
-   # itm_w_lance_colored_french_2_heraldic,itm_ho_horse_barded_blue_chamfrom,itm_h_klappvisier_pigface_open,itm_heraldic_churburg_13_tabard,itm_b_shynbaulds,itm_g_plate_mittens,itm_b_hosen_shoes_custom,itm_a_tabard_heraldic,itm_w_bastard_sword_count
+   # itm_w_lance_colored_french_2_heraldic,itm_ho_horse_barded_blue_chamfrom,itm_h_klappvisier_pigface_open,itm_heraldic_churburg_13_tabard,itm_b_shynbaulds,itm_g_gauntlets_segmented_b,itm_b_hosen_shoes_custom,itm_a_tabard_heraldic,itm_w_bastard_sword_count
    ],
    def_attrib|level(20),wp(120),knows_common|knows_inventory_management_10, 0x0000000dff1090114f2c9edb182865fc00000000001e44110000000000000000],
    

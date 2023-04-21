@@ -831,10 +831,35 @@ items = [
 
 ["h_great_bascinet_continental_1430", "Great Bascinet (1430)", [("h_great_bascinet_continental_1430",0)], itp_merchandise|itp_type_head_armor| itp_attach_armature   ,0, 
 1800 , weight(2.8)|abundance(100)|head_armor(58)|body_armor(6)|leg_armor(0)|difficulty(10) ,imodbits_plate],
-["h_great_bascinet_continental_1430_visor", "Great Bascinet (1430)", [("h_great_bascinet_continental_1430",0)], itp_merchandise|itp_type_head_armor| itp_attach_armature|itp_covers_head   ,0, 
+["h_great_bascinet_continental_1430_visor", "Great Bascinet with Visor (1430)", [("h_great_bascinet_continental_1430",0)], itp_merchandise|itp_type_head_armor| itp_attach_armature|itp_covers_head   ,0, 
 1800 , weight(2.8)|abundance(100)|head_armor(58)|body_armor(6)|leg_armor(0)|difficulty(10) ,imodbits_plate,[add_mesh("@h_great_bascinet_continental_1430_visor"),],],
-["h_great_bascinet_continental_1430_visor_open", "Great Bascinet (1430)", [("h_great_bascinet_continental_1430",0)], itp_merchandise|itp_type_head_armor| itp_attach_armature   ,0, 
+["h_great_bascinet_continental_1430_visor_open", "Great Bascinet with Visor (1430)", [("h_great_bascinet_continental_1430",0)], itp_merchandise|itp_type_head_armor| itp_attach_armature   ,0, 
 1800 , weight(2.8)|abundance(100)|head_armor(58)|body_armor(6)|leg_armor(0)|difficulty(10) ,imodbits_plate,[add_mesh("@h_great_bascinet_continental_1430_visor_open"),],],
+
+["h_great_bascinet_continental", "Great Bascinet", [("h_great_bascinet_continental",0)], itp_merchandise|itp_type_head_armor| itp_attach_armature   ,0, 
+1800 , weight(2.8)|abundance(100)|head_armor(58)|body_armor(6)|leg_armor(0)|difficulty(10) ,imodbits_plate],
+["h_great_bascinet_continental_roundels", "Great Bascinet with Roundels", [("h_great_bascinet_continental_roundels",0)], itp_merchandise|itp_type_head_armor| itp_attach_armature   ,0, 
+1800 , weight(2.8)|abundance(100)|head_armor(58)|body_armor(6)|leg_armor(0)|difficulty(10) ,imodbits_plate],
+["h_great_bascinet_continental_visor_a", "Great Bascinet with Visor", [("h_great_bascinet_continental",0)], itp_merchandise|itp_type_head_armor| itp_attach_armature|itp_covers_head   ,0, 
+1800 , weight(2.8)|abundance(100)|head_armor(58)|body_armor(6)|leg_armor(0)|difficulty(10) ,imodbits_plate,[add_mesh("@h_great_bascinet_continental_visor_a"),],],
+["h_great_bascinet_continental_visor_a_open", "Great Bascinet with Visor", [("h_great_bascinet_continental",0)], itp_merchandise|itp_type_head_armor| itp_attach_armature   ,0, 
+1800 , weight(2.8)|abundance(100)|head_armor(58)|body_armor(6)|leg_armor(0)|difficulty(10) ,imodbits_plate,[add_mesh("@h_great_bascinet_continental_visor_a_open"),],],
+["h_great_bascinet_continental_visor_b", "Great Bascinet with Visor", [("h_great_bascinet_continental",0)], itp_merchandise|itp_type_head_armor| itp_attach_armature|itp_covers_head   ,0, 
+1800 , weight(2.8)|abundance(100)|head_armor(58)|body_armor(6)|leg_armor(0)|difficulty(10) ,imodbits_plate,[add_mesh("@h_great_bascinet_continental_visor_b"),],],
+["h_great_bascinet_continental_visor_b_open", "Great Bascinet with Visor", [("h_great_bascinet_continental",0)], itp_merchandise|itp_type_head_armor| itp_attach_armature   ,0, 
+1800 , weight(2.8)|abundance(100)|head_armor(58)|body_armor(6)|leg_armor(0)|difficulty(10) ,imodbits_plate,[add_mesh("@h_great_bascinet_continental_visor_b_open"),],],
+["h_great_bascinet_continental_visor_c", "Great Bascinet with Visor", [("h_great_bascinet_continental",0)], itp_merchandise|itp_type_head_armor| itp_attach_armature|itp_covers_head   ,0, 
+1800 , weight(2.8)|abundance(100)|head_armor(58)|body_armor(6)|leg_armor(0)|difficulty(10) ,imodbits_plate,[add_mesh("@h_great_bascinet_continental_visor_c"),],],
+["h_great_bascinet_continental_visor_c_open", "Great Bascinet with Visor", [("h_great_bascinet_continental",0)], itp_merchandise|itp_type_head_armor| itp_attach_armature   ,0, 
+1800 , weight(2.8)|abundance(100)|head_armor(58)|body_armor(6)|leg_armor(0)|difficulty(10) ,imodbits_plate,[add_mesh("@h_great_bascinet_continental_visor_c_open"),],],
+["h_great_bascinet_continental_visor_c_gilded", "Great Bascinet with Visor", [("h_great_bascinet_continental",0)], itp_merchandise|itp_type_head_armor| itp_attach_armature|itp_covers_head   ,0, 
+1800 , weight(2.8)|abundance(100)|head_armor(58)|body_armor(6)|leg_armor(0)|difficulty(10) ,imodbits_plate,[add_mesh("@h_great_bascinet_continental_visor_c_gilded"),],],
+["h_great_bascinet_continental_visor_c_gilded_open", "Great Bascinet with Visor", [("h_great_bascinet_continental",0)], itp_merchandise|itp_type_head_armor| itp_attach_armature   ,0, 
+1800 , weight(2.8)|abundance(100)|head_armor(58)|body_armor(6)|leg_armor(0)|difficulty(10) ,imodbits_plate,[add_mesh("@h_great_bascinet_continental_visor_c_gilded_open"),],],
+["h_great_bascinet_continental_visor_c_strip", "Great Bascinet with Visor", [("h_great_bascinet_continental",0)], itp_merchandise|itp_type_head_armor| itp_attach_armature|itp_covers_head   ,0, 
+1800 , weight(2.8)|abundance(100)|head_armor(58)|body_armor(6)|leg_armor(0)|difficulty(10) ,imodbits_plate,[add_mesh("@h_great_bascinet_continental_visor_c_strip"),],],
+["h_great_bascinet_continental_visor_c_strip_open", "Great Bascinet with Visor", [("h_great_bascinet_continental",0)], itp_merchandise|itp_type_head_armor| itp_attach_armature   ,0, 
+1800 , weight(2.8)|abundance(100)|head_armor(58)|body_armor(6)|leg_armor(0)|difficulty(10) ,imodbits_plate,[add_mesh("@h_great_bascinet_continental_visor_c_strip_open"),],],
 
 # ["h_great_bascinet_continental_1430_plume", "Great Bascinet with Plume (1430)", [("h_great_bascinet_continental_1430",0)], itp_merchandise|itp_type_head_armor| itp_attach_armature   ,0, 
 # 1800 , weight(2.8)|abundance(100)|head_armor(58)|body_armor(6)|leg_armor(0)|difficulty(10) ,imodbits_plate,[add_mesh("@h_great_bascinet_continental_1430_plume"),],],
@@ -1331,14 +1356,16 @@ items = [
 # Cerveliere Base: 20; Hood: 4,2; Padding: 6,4; mail collar: 8,6; mail aventail: 10,8; mail collar with bevor: 14,12;
 # ["h_cervelliere_padded", "Cerveliere with Padded Cloth", [("h_cervelliere",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
 # 614 , weight(1.5)|abundance(100)|head_armor(26)|body_armor(4)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@o_padded_coif_narf", 0, 0),])]],
-["h_cervelliere_mail_aventail", "Cerveliere with Mail Coif", [("h_cervelliere",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
+["h_cervelliere_mail_aventail", "Cervelliere with Mail Coif", [("h_cervelliere",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
 816 , weight(1.5)|abundance(100)|head_armor(30)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_mail_aventail_chinstrap_asher", 0, 0),])]],
 
 # Skullcap Base: 18; Hood: 4,2; Padding: 6,4; mail collar: 8,6; mail aventail: 10,8; mail collar with bevor: 14,12;
-# ["h_skullcap_padded", "Skullcap with Padded Cloth", [("h_skullcap",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-# 432 , weight(1.75)|abundance(100)|head_armor(24)|body_armor(4)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@o_padded_coif_narf", 0, 0),])]],
+["h_simple_cervelliere_mail_aventail", "Cervelliere with Mail Aventail", [("h_simple_cervelliere",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
+518 , weight(1.75)|abundance(100)|head_armor(28)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_mail_aventail_chinstrap_asher", 0, 0),])]],
+
 ["h_skullcap_mail_aventail", "Skullcap with Mail Aventail", [("h_skullcap",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
 518 , weight(1.75)|abundance(100)|head_armor(28)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_mail_aventail_chinstrap_asher", 0, 0),])]],
+
 
 # ["h_mail_coif_full", "Mail Coif", [("h_mail_coif_full",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature|itp_covers_beard   ,0, 
 # 320 , weight(1.25)|abundance(100)|head_armor(24)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_armor ],
@@ -1617,10 +1644,6 @@ items = [
  [add_mesh("@a_aketon_asher_dagged"),add_mesh("@a_aketon_asher_arms_a"),add_mesh("@a_aketon_asher_sleeve_2"),reskin("@a_aketon_asher_dagged_thick_black",1),reskin("@a_aketon_asher_arms_black",2),aketon_patch(),],],
 ["a_aketon_asher_dagged_thick_black_2", "Aketon", [("a_aketon_asher_patch",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(21)|leg_armor(5)|difficulty(0) ,imodbits_cloth,
  [add_mesh("@a_aketon_asher_dagged"),add_mesh("@a_aketon_asher_arms_b"),add_mesh("@a_aketon_asher_sleeve_1"),reskin("@a_aketon_asher_dagged_thick_black",1),reskin("@a_aketon_asher_arms_black",2),aketon_patch(),],],
-
-# Asher's Gambeson
-# ["a_gambeson_asher_blue", "Gambeson", [("a_aketon_asher_patch",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 344 , weight(8)|abundance(100)|head_armor(0)|body_armor(26)|leg_armor(8)|difficulty(0) ,imodbits_cloth,
- # [add_mesh("@a_gambeson_asher_torso"),add_mesh("@a_aketon_narf_arms"),aketon_patch(),],],
 
 ### Pistoia Line
 ["a_pistoia_mail_a_mail_sleeves_short", "Short-sleeved Mail Hauberk", [("a_pistoia_mail_a",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(8)|difficulty(7) ,imodbits_armor ,[add_mesh("@a_pistoia_mail_arms_short"),add_mesh("@a_pistoia_arming_cote_arms_short"),]],
@@ -1939,13 +1962,17 @@ items = [
 ###################################################################################################### HYW GLOVES | GAUNTLETS | POWER GAUNTLETS ##################################################################################################################################################################
 ##################################################################################################################################################################################################################################################################################################################
 
-["g_leather_gauntlet","Leather Gloves", [("g_leather_gloves_L",0)], itp_merchandise|itp_type_hand_armor,0, 90, weight(0.25)|abundance(120)|body_armor(2)|difficulty(0),imodbits_cloth],
-["g_mail_gauntlets","Mail Mittens", [("g_mail_gauntlets_L",0)], itp_merchandise|itp_type_hand_armor,0, 350, weight(0.5)|abundance(100)|body_armor(4)|difficulty(0),imodbits_armor],
-["g_demi_gauntlets","Demi Gauntlets", [("g_gauntlets_mailed_L",0)], itp_merchandise|itp_type_hand_armor,0, 710, weight(0.75)|abundance(100)|body_armor(5)|difficulty(0),imodbits_armor],
-["g_finger_gauntlets","Finger Gauntlets", [("g_gauntlets_segmented_a_L",0)], itp_merchandise|itp_type_hand_armor,0, 1040, weight(1.0)|abundance(100)|body_armor(6)|difficulty(0),imodbits_armor],
-["g_hourglass_gauntlets","Hourglass Gauntlets", [("g_hourglass_gauntlets_L",0)], itp_merchandise|itp_type_hand_armor,0, 1240, weight(1.0)|abundance(100)|body_armor(7)|difficulty(0),imodbits_armor],
-["g_hourglass_gauntlets_ornate","Ornate Hourglass Gauntlets", [("g_hourglass_gauntlets_ornate_L",0)], itp_merchandise|itp_type_hand_armor,0, 1390, weight(1.0)|abundance(100)|body_armor(7)|difficulty(0),imodbits_armor],
-["g_plate_mittens","Plate Mittens", [("g_plate_mittens_L",imodbit_reinforced)], itp_merchandise|itp_type_hand_armor,0, 1640, weight(1.5)|abundance(100)|body_armor(8)|difficulty(0),imodbits_armor],
+["g_leather_gauntlet","Leather Gloves", [("g_leather_gauntlet_L",0)], itp_merchandise|itp_type_hand_armor,0, 90, weight(0.25)|abundance(120)|body_armor(2)|difficulty(0),imodbits_cloth],
+["g_demi_gauntlets","Demi Gauntlets", [("g_demi_gauntlets_L",0)], itp_merchandise|itp_type_hand_armor,0, 710, weight(0.75)|abundance(100)|body_armor(4)|difficulty(0),imodbits_armor],
+["g_finger_gauntlets","Finger Gauntlets", [("g_finger_gauntlets_L",0)], itp_merchandise|itp_type_hand_armor,0, 1040, weight(1.0)|abundance(100)|body_armor(5)|difficulty(0),imodbits_armor],
+
+["g_gauntlets_mailed","Mailed Gauntlets", [("g_gauntlets_mailed_L",0)], itp_merchandise|itp_type_hand_armor,0, 1100, weight(1.0)|abundance(100)|body_armor(6)|difficulty(0),imodbits_armor],
+["g_gauntlets_segmented_a","Segmented Gauntlets", [("g_gauntlets_segmented_a_L",0)], itp_merchandise|itp_type_hand_armor,0, 1240, weight(1.0)|abundance(100)|body_armor(8)|difficulty(0),imodbits_armor],
+["g_gauntlets_segmented_b","Segmented Gauntlets", [("g_gauntlets_segmented_b_L",0)], itp_merchandise|itp_type_hand_armor,0, 1240, weight(1.0)|abundance(100)|body_armor(8)|difficulty(0),imodbits_armor],
+
+["g_gauntlets_gilded_mailed","Gilded Mailed Gauntlets", [("g_gauntlets_gilded_mailed_L",0)], itp_merchandise|itp_type_hand_armor,0, 1100, weight(1.0)|abundance(100)|body_armor(6)|difficulty(0),imodbits_armor],
+["g_gauntlets_gilded_segmented_a","Gilded Segmented Gauntlets", [("g_gauntlets_gilded_segmented_a_L",0)], itp_merchandise|itp_type_hand_armor,0, 1240, weight(1.0)|abundance(100)|body_armor(8)|difficulty(0),imodbits_armor],
+["g_gauntlets_gilded_segmented_b","Gilded Segmented Gauntlets", [("g_gauntlets_gilded_segmented_b_L",0)], itp_merchandise|itp_type_hand_armor,0, 1240, weight(1.0)|abundance(100)|body_armor(8)|difficulty(0),imodbits_armor],
  
 
 ##################################################################################################################################################################################################################################################################################################################
@@ -2037,8 +2064,12 @@ items = [
 438 , weight(1.5)|abundance(100)|head_armor(24)|body_armor(2)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[custom_reskin("itm_h_cervelliere_hood_custom"),add_mesh("@h_cervelliere"),]],
 
 # Skullcap Base: 18; Hood: 4,2; Padding: 6,4; mail collar: 8,6; mail aventail: 10,8; mail collar with bevor: 14,12;
+["h_simple_cervelliere_hood_custom", "Cervelliere with Hood", [("h_hood_square_half",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
+292 , weight(1.75)|abundance(100)|head_armor(22)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[custom_reskin("itm_h_skullcap_hood_custom"),add_mesh("@h_simple_cervelliere"),]],
+
 ["h_skullcap_hood_custom", "Skullcap with Hood", [("h_hood_square_half",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
 292 , weight(1.75)|abundance(100)|head_armor(22)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[custom_reskin("itm_h_skullcap_hood_custom"),add_mesh("@h_skullcap"),]],
+
 ### Seek: Don't put items between h_sallet_hood_custom and a_peasant_man_custom without editing the script
 
 
@@ -2099,6 +2130,9 @@ items = [
 ["h_german_kettlehat_7_liripipe_hood_custom", "German Kettle Hat with Liripipe Hood", [("h_hood_big_liripipe_half",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
 400 , weight(1.75)|abundance(100)|head_armor(28)|body_armor(2)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[custom_reskin("itm_h_german_kettlehat_7_liripipe_hood_custom"),add_mesh("@h_german_kettlehat_7"),]],
 
+["h_simple_cervelliere_hood_liripipe_custom", "Cervelliere with Liripipe Hood", [("h_hood_big_liripipe_half",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
+292 , weight(1.75)|abundance(100)|head_armor(22)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[custom_reskin("itm_h_skullcap_hood_liripipe_custom"),add_mesh("@h_simple_cervelliere"),]],
+
 ["h_skullcap_hood_liripipe_custom", "Skullcap with Liripipe Hood", [("h_hood_big_liripipe_half",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
 292 , weight(1.75)|abundance(100)|head_armor(22)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[custom_reskin("itm_h_skullcap_hood_liripipe_custom"),add_mesh("@h_skullcap"),]],
 
@@ -2153,6 +2187,9 @@ items = [
 
 ["a_simple_gambeson_custom", "Gambeson", [("mesh_none",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(21)|leg_armor(5)|difficulty(0) ,imodbits_cloth , [custom_remodel("itm_a_simple_gambeson_custom")]],
 
+["a_gambeson_asher_regular_custom", "Gambeson", [("mesh_none",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(21)|leg_armor(5)|difficulty(0) ,imodbits_cloth , [custom_remodel("itm_a_gambeson_asher_regular_custom")]],
+["a_gambeson_asher_belt_custom", "Gambeson", [("mesh_none",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(21)|leg_armor(5)|difficulty(0) ,imodbits_cloth , [custom_remodel("itm_a_gambeson_asher_belt_custom")]],
+
 ### Seek: Beware of the code loops!
 ["a_padded_over_mail_1_custom", "Padded Armour", [("a_padded_over_mail_1",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(12)|difficulty(7) ,imodbits_armor , [custom_reskin("itm_a_padded_over_mail_1_custom"),add_mesh("@a_pistoia_arming_cote_arms"),]], 
 ["a_padded_over_mail_2_custom", "Padded Armour", [("a_padded_over_mail_2",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(12)|difficulty(7) ,imodbits_armor , [custom_reskin("itm_a_padded_over_mail_2_custom"),add_mesh("@a_pistoia_arming_cote_arms_short"),]], 
@@ -2179,6 +2216,34 @@ items = [
 ["a_padded_jack_cross_custom", "Padded Jack Over Mail", [("a_padded_jack",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(12)|difficulty(7) ,imodbits_armor , [custom_reskin("itm_a_padded_jack_cross_custom"),]], 
 ["a_padded_jack_surcoat_custom", "Padded Jack Over Mail", [("a_padded_jack_surcoat",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(12)|difficulty(7) ,imodbits_armor , [custom_reskin("itm_a_padded_jack_surcoat_custom")]], 
 
+
+### Seek: Beware of the code loops!
+["a_brigandine_asher_a_custom", "Brigandine Over Mail", [("a_brigandine_a",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 1780 , weight(20)|abundance(100)|head_armor(0)|body_armor(46)|leg_armor(8)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_brigandine_asher_a_custom"),add_mesh("@a_pistoia_arming_cote_arms_short"),add_mesh("@a_pistoia_mail_arms_short"),],], 
+
+["a_brigandine_asher_a_mail_custom", "Brigandine Over Mail", [("a_brigandine_a",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 1980 , weight(22)|abundance(100)|head_armor(0)|body_armor(52)|leg_armor(8)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_brigandine_asher_a_mail_custom"),add_mesh("@a_pistoia_mail_arms"),],],
+["a_brigandine_asher_a_mail_jackchain_custom", "Brigandine Over Mail with Jack Chains", [("a_brigandine_a",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 1980 , weight(22)|abundance(100)|head_armor(0)|body_armor(52)|leg_armor(8)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_brigandine_asher_a_mail_custom"),add_mesh("@a_pistoia_mail_arms"),add_mesh("@a_pistoia_jack_chains"),],],
+
+["a_brigandine_asher_a_plate_1_custom", "Brigandine with Plate Arm Harness", [("a_brigandine_a",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 2080 , weight(23)|abundance(100)|head_armor(0)|body_armor(54)|leg_armor(8)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_brigandine_asher_a_plate_1_custom"),add_mesh("@a_pistoia_mail_arms_light"),add_mesh("@a_pistoia_couters_1"),add_mesh("@a_pistoia_spaulders"),],],
+["a_brigandine_asher_a_plate_2_custom", "Brigandine with Plate Arm Harness", [("a_brigandine_a",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 2080 , weight(23)|abundance(100)|head_armor(0)|body_armor(54)|leg_armor(8)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_brigandine_asher_a_plate_2_custom"),add_mesh("@a_pistoia_mail_arms_light"),add_mesh("@a_pistoia_couters_2"),add_mesh("@a_pistoia_spaulders"),],],
+["a_brigandine_asher_a_plate_3_custom", "Brigandine with Plate Arm Harness", [("a_brigandine_a",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 2080 , weight(23)|abundance(100)|head_armor(0)|body_armor(54)|leg_armor(8)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_brigandine_asher_a_plate_3_custom"),add_mesh("@a_pistoia_mail_arms_light"),add_mesh("@a_pistoia_couters_3"),add_mesh("@a_pistoia_spaulders"),],],
+
+["a_brigandine_asher_b_custom", "Brigandine Over Mail", [("a_brigandine_b",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 1780 , weight(20)|abundance(100)|head_armor(0)|body_armor(46)|leg_armor(8)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_brigandine_asher_b_custom"),add_mesh("@a_pistoia_arming_cote_arms_short"),add_mesh("@a_pistoia_mail_arms_short"),],], 
+                     
+["a_brigandine_asher_b_mail_custom", "Brigandine Over Mail", [("a_brigandine_b",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 1980 , weight(22)|abundance(100)|head_armor(0)|body_armor(52)|leg_armor(8)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_brigandine_asher_b_mail_custom"),add_mesh("@a_pistoia_mail_arms"),],],
+["a_brigandine_asher_b_mail_jackchain_custom", "Brigandine Over Mail with Jack Chains", [("a_brigandine_b",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 1980 , weight(22)|abundance(100)|head_armor(0)|body_armor(52)|leg_armor(8)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_brigandine_asher_b_mail_custom"),add_mesh("@a_pistoia_mail_arms"),add_mesh("@a_pistoia_jack_chains"),],],
+                     
+["a_brigandine_asher_b_plate_1_custom", "Brigandine with Plate Arm Harness", [("a_brigandine_b",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 2080 , weight(23)|abundance(100)|head_armor(0)|body_armor(54)|leg_armor(8)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_brigandine_asher_b_plate_1_custom"),add_mesh("@a_pistoia_mail_arms_light"),add_mesh("@a_pistoia_couters_1"),add_mesh("@a_pistoia_spaulders"),],],
+["a_brigandine_asher_b_plate_2_custom", "Brigandine with Plate Arm Harness", [("a_brigandine_b",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 2080 , weight(23)|abundance(100)|head_armor(0)|body_armor(54)|leg_armor(8)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_brigandine_asher_b_plate_2_custom"),add_mesh("@a_pistoia_mail_arms_light"),add_mesh("@a_pistoia_couters_2"),add_mesh("@a_pistoia_spaulders"),],],
+["a_brigandine_asher_b_plate_3_custom", "Brigandine with Plate Arm Harness", [("a_brigandine_b",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 2080 , weight(23)|abundance(100)|head_armor(0)|body_armor(54)|leg_armor(8)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_brigandine_asher_b_plate_3_custom"),add_mesh("@a_pistoia_mail_arms_light"),add_mesh("@a_pistoia_couters_3"),add_mesh("@a_pistoia_spaulders"),],],
+
+["a_brigandine_asher_parti_custom", "Brigandine Over Mail", [("a_brigandine_parti",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 1780 , weight(20)|abundance(100)|head_armor(0)|body_armor(46)|leg_armor(8)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_brigandine_asher_parti_custom"),add_mesh("@a_pistoia_arming_cote_arms_short"),add_mesh("@a_pistoia_mail_arms_short"),],], 
+                     
+["a_brigandine_asher_parti_mail_custom", "Brigandine Over Mail", [("a_brigandine_parti",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 1980 , weight(22)|abundance(100)|head_armor(0)|body_armor(52)|leg_armor(8)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_brigandine_asher_parti_mail_custom"),add_mesh("@a_pistoia_mail_arms"),],],
+["a_brigandine_asher_parti_mail_jackchain_custom", "Brigandine Over Mail with Jack Chains", [("a_brigandine_parti",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 1980 , weight(22)|abundance(100)|head_armor(0)|body_armor(52)|leg_armor(8)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_brigandine_asher_parti_mail_custom"),add_mesh("@a_pistoia_mail_arms"),add_mesh("@a_pistoia_jack_chains"),],],
+                     
+["a_brigandine_asher_parti_plate_1_custom", "Brigandine with Plate Arm Harness", [("a_brigandine_parti",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 2080 , weight(23)|abundance(100)|head_armor(0)|body_armor(54)|leg_armor(8)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_brigandine_asher_parti_plate_1_custom"),add_mesh("@a_pistoia_mail_arms_light"),add_mesh("@a_pistoia_couters_1"),add_mesh("@a_pistoia_spaulders"),],],
+["a_brigandine_asher_parti_plate_2_custom", "Brigandine with Plate Arm Harness", [("a_brigandine_parti",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 2080 , weight(23)|abundance(100)|head_armor(0)|body_armor(54)|leg_armor(8)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_brigandine_asher_parti_plate_2_custom"),add_mesh("@a_pistoia_mail_arms_light"),add_mesh("@a_pistoia_couters_2"),add_mesh("@a_pistoia_spaulders"),],],
+["a_brigandine_asher_parti_plate_3_custom", "Brigandine with Plate Arm Harness", [("a_brigandine_parti",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 2080 , weight(23)|abundance(100)|head_armor(0)|body_armor(54)|leg_armor(8)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_brigandine_asher_parti_plate_3_custom"),add_mesh("@a_pistoia_mail_arms_light"),add_mesh("@a_pistoia_couters_3"),add_mesh("@a_pistoia_spaulders"),],],
 
 ### Seek: Beware of the code loops!
 ["a_brigandine_asher_custom", "Brigandine", [("a_brigandine_asher_base",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 1780 , weight(20)|abundance(100)|head_armor(0)|body_armor(46)|leg_armor(8)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_brigandine_asher_custom"),add_mesh("@a_pistoia_arming_cote_arms"),],], 
@@ -2321,7 +2386,12 @@ itp_type_one_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_longsword|i
 [("w_regular_onehanded_falchion_peasant",0),("w_rusty_onehanded_falchion_peasant",imodbit_rusty),("w_masterwork_onehanded_falchion_peasant",imodbit_masterwork),
 ("w_regular_onehanded_falchion_peasant_scabbard", ixmesh_carry),("w_rusty_onehanded_falchion_peasant_scabbard", ixmesh_carry|imodbit_rusty),("w_masterwork_onehanded_falchion_peasant_scabbard", ixmesh_carry|imodbit_masterwork),], 
 itp_type_one_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_scimitar|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
-252 , weight(1.4)|difficulty(0)|spd_rtng(97) | weapon_length(81)|swing_damage(32 , cut),imodbits_sword_alt ],
+252 , weight(1.5)|difficulty(0)|spd_rtng(96) | weapon_length(76)|swing_damage(31 , cut),imodbits_sword_alt ],
+
+["w_onehanded_falchion_peasant_b", "Peasant Falchion", 
+[("w_regular_onehanded_falchion_peasant_b",0),("w_rusty_onehanded_falchion_peasant_b",imodbit_rusty),("w_masterwork_onehanded_falchion_peasant_b",imodbit_masterwork),], 
+itp_type_one_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_scimitar|itcf_carry_sword_left_hip, 
+234 , weight(1.3)|difficulty(0)|spd_rtng(98) | weapon_length(61)|swing_damage(33 , cut),imodbits_sword_alt ],
 
 ["w_onehanded_falchion_a", "Falchion", 
 [("w_regular_onehanded_falchion_a",0),("w_rusty_onehanded_falchion_a",imodbit_rusty),("w_masterwork_onehanded_falchion_a",imodbit_masterwork),
