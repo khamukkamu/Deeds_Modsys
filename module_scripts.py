@@ -782,6 +782,7 @@ scripts = [
     (assign, "$g_random_scene_size", 1), # CC's Random Scene Size Selection
     (assign, "$g_random_scene_size_forests", 1), # CC's Random Scene Size Selection
     (assign, "$DAC_MORALE_SYSTEM", HYBRID_MORALE_SYSTEM), #DAC Kham: Hybrid Default
+    (assign, "$armour_progression", 0), #DAC Seek: Used to trigger event for armour progression
     
     (call_script, "script_initialize_custom_armor_data"), 
     (call_script, "script_init_weapon_switching"),	
@@ -81015,6 +81016,86 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
         (try_end),
         (assign, reg0, ":num_enemies"),
       (try_end),
+  ]),
+  
+# DAC Seek: script_dac_check_troop_has_item
+("dac_check_troop_has_item",
+	[
+    
+	(store_script_param, ":troop_no", 1),
+	(store_script_param, ":item_check", 2),
+    
+    (troop_get_inventory_capacity, ":capacity", ":troop_no"),
+    
+    (assign, reg12, -1),
+ 
+    # (try_for_range, ":inventory_slot", 0, ":capacity"),
+    (try_for_range_backwards, ":inventory_slot", 0, ":capacity"),
+        (troop_get_inventory_slot, ":item_no", ":troop_no", ":inventory_slot"),
+        (try_begin),
+            (eq, ":item_no", ":item_check"),
+            
+            (assign, reg1, ":item_no"),
+            (assign, reg2, ":item_check"),
+            # (display_message, "@Current Item ID: {reg1}", color_good_news),
+            # (display_message, "@Checker Item ID: {reg2}", color_good_news),
+            
+            (assign, reg12, 1),
+            # (display_message, "@Item Found", color_good_news),
+        # (else_try),
+            # (assign, reg12, -1),
+            # (display_message, "@Item Not Found", color_bad_news),
+        (try_end),
+    (try_end),
+ 
+  ]),
+  
+# DAC Seek: script_dac_trigger_armour_progression
+("dac_trigger_armour_progression",
+	[
+
+# English Retinue Archer
+    (troop_add_item, "trp_english_retinue_archer", "itm_h_sallet_mail_aventail",),
+    (troop_add_item, "trp_english_retinue_archer", "itm_h_sallet_curved_mail_aventail",),
+    (troop_add_item, "trp_english_retinue_archer", "itm_a_padded_jack_cross_custom",),
+    (troop_add_item, "trp_english_retinue_archer", "itm_a_padded_jack_surcoat_custom",),
+
+    (try_begin),
+        (call_script, "script_dac_check_troop_has_item", "trp_english_retinue_archer", "itm_h_cervelliere_mail_aventail"),
+        (assign, ":check_result", reg12),
+        (eq, ":check_result", 1),
+        (troop_remove_item, "trp_english_retinue_archer", "itm_h_cervelliere_mail_aventail",),
+    (try_end),
+    
+    (try_begin),
+        (call_script, "script_dac_check_troop_has_item", "trp_english_retinue_archer", "itm_h_skullcap_mail_aventail"),
+        (assign, ":check_result", reg12),
+        (eq, ":check_result", 1),
+        (troop_remove_item, "trp_english_retinue_archer", "itm_h_skullcap_mail_aventail",),
+    (try_end),
+ 
+    (try_begin),
+        (call_script, "script_dac_check_troop_has_item", "trp_english_retinue_archer", "itm_h_simple_cervelliere_mail_aventail"),
+        (assign, ":check_result", reg12),
+        (eq, ":check_result", 1),
+        (troop_remove_item, "trp_english_retinue_archer", "itm_h_simple_cervelliere_mail_aventail",),
+    (try_end),
+    
+    (try_begin),
+        (call_script, "script_dac_check_troop_has_item", "trp_english_retinue_archer", "itm_a_padded_jack_custom"),
+        (assign, ":check_result", reg12),
+        (eq, ":check_result", 1),
+        (troop_remove_item, "trp_english_retinue_archer", "itm_a_padded_jack_custom",),
+    (try_end),
+    
+    (troop_equip_items, "trp_english_retinue_archer"),    
+    # (troop_remove_item, "trp_english_retinue_archer", "itm_h_cervelliere_mail_aventail",),
+    # (troop_remove_item, "trp_english_retinue_archer", "itm_h_skullcap_mail_aventail",),
+    # (troop_remove_item, "trp_english_retinue_archer", "itm_h_simple_cervelliere_mail_aventail",),
+    # (troop_remove_item, "trp_english_retinue_archer", "itm_a_padded_jack_custom",),
+    
+
+    
   ]),
 
 ]

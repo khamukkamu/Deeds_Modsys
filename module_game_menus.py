@@ -21721,6 +21721,46 @@ goods, and books will never be sold. ^^You can change some settings here freely.
   # ]),
   
   
+## DAC Seek: Armour Progression Notification
+  (
+    "armour_progression_notification",0,
+    "War rages on... ^With the ever increasing demand of armour and armaments it is only natural for technological improments to appear and for nations to adapt. ^(The equipment of several troops will be modified, new armour and weapons introduced in their kits.)",
+    "none",
+    [
+    # (set_background_mesh, "mesh_pic_castle1"),
+    ],
+    [ 
+    ("embrace_modernity",
+       [],
+    "Embrace Progress.",[
+        (change_screen_return),
+        (assign, "$armour_progression", 1),
+        (call_script, "script_dac_trigger_armour_progression"),
+    ]),  
+    ("reject_modernity",
+       [],
+    "Reject Progress.",[
+        (assign, "$armour_progression", 2),
+        (jump_to_menu, "mnu_armour_progression_notification_declined"),
+
+    ]),  
+  ]),
+  
+  (
+    "armour_progression_notification_declined",0,
+    "You can still change your mind by accessing the 'Take an Action' menu in the camp and triggering the event at any moment.",
+    "none",
+    [
+    # (set_background_mesh, "mesh_pic_castle1"),
+    ],
+    [ 
+    ("confirm",
+       [],
+    "Carry on your journey.",[
+        (change_screen_return),
+    ]),  
+  ]),
+  
  ]
 
 import header_scenes

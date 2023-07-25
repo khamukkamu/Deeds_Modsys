@@ -1676,26 +1676,20 @@ triggers = [
     (try_end),
     ]),
 
-  #initialize autoloot feature if you have a chamberlain
-  ##diplomacy start+
-  #Disable this: autoloot gets initialized elsewhere.
-  (24, 0, ti_once,
+  # DAC Seek: Call back the script to update troop inventories
+  (1, 0, 1,
   [
-	  ##NEW:
-	  (eq, 0, 1),
-	  ##OLD:
-      #(store_skill_level, ":inv_skill", "skl_inventory_management", "trp_player"),
-      #(gt, "$g_player_chamberlain", 0),
-      #(ge, ":inv_skill", 3),
+    (eq, "$armour_progression", 1),
+    (call_script, "script_dac_check_troop_has_item", "trp_english_retinue_archer", "itm_a_padded_jack_surcoat_custom"),
+    (assign, ":check_result", reg12),
+    (eq, ":check_result", -1),
+    
+    # We're making sure the event has been triggered and accepted by the player, then we check if the inventory changes have been made
+    # using the English retinue archer as a guide, we want to call the script again after a save is loaded since non-hero troop inventories are not stored in saves
   ],
   [
-	##NEW:
-	#This doesn't ever get called, but if it did here's what should happen"
-	(call_script, "script_dplmc_initialize_autoloot", 1),#argument "1" forces this to make changes
-	##OLD:
-    #(call_script, "script_dplmc_init_item_difficulties"),
-    #(call_script, "script_dplmc_init_item_base_score"),
-    #(assign, "$g_autoloot", 1),
+    (call_script, "script_dac_trigger_armour_progression"),
+    # (display_message, "@Armour Progression Trigger", color_bad_news),
   ]),
 
   (0.1, 0.5, 0, [(map_free,0),(eq,"$g_move_fast", 1)], [(assign,"$g_move_fast", 0)]),

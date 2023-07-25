@@ -6880,6 +6880,16 @@ simple_triggers = [
   ),
 #Custom Troops End
 
+# DAC Seek: Armour progression trigger
+  (24,
+   [
+    
+    (eq, "$armour_progression", 0),
+    (assign, "$armour_progression", 1),
+    (jump_to_menu, "mnu_armour_progression_notification"),
+    
+    ]),
+
    # (1,
    # [
         # (store_distance_to_party_from_party, ":distance", "p_main_party", "p_english_castle_2"),
