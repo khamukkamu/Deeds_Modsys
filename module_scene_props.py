@@ -4908,5 +4908,8 @@ scene_props = [
   ("spawn_camp_knight",sokf_invisible,"entry_arrow",0,    [
     agent_spawner("trp_custom_merc_knight")
    ]),
+   
+  ( "limestone_white_fm_late_curtain_wall_2"     ,0,"limestone_white_fm_late_curtain_wall_2","bo_limestone_white_fm_late_curtain_wall_2",[]),
+
 
 ]

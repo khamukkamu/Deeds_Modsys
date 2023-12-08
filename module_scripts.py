@@ -907,12 +907,12 @@ scripts = [
       (faction_set_slot, "fac_kingdom_2", slot_faction_quick_battle_tier_1_cavalry, "trp_english_man_at_arms"),
       (faction_set_slot, "fac_kingdom_2", slot_faction_quick_battle_tier_2_cavalry, "trp_english_knight"),
       
-      (faction_set_slot, "fac_kingdom_3", slot_faction_quick_battle_tier_1_infantry, "trp_burgundian_pikeman"),
-      (faction_set_slot, "fac_kingdom_3", slot_faction_quick_battle_tier_2_infantry, "trp_burgundian_halberdier"),
-      (faction_set_slot, "fac_kingdom_3", slot_faction_quick_battle_tier_1_archer, "trp_burgundian_militia_crossbowman"),
-      (faction_set_slot, "fac_kingdom_3", slot_faction_quick_battle_tier_2_archer, "trp_burgundian_longbowman"),
-      (faction_set_slot, "fac_kingdom_3", slot_faction_quick_battle_tier_1_cavalry, "trp_burgundian_heavy_knight"),
-      (faction_set_slot, "fac_kingdom_3", slot_faction_quick_battle_tier_2_cavalry, "trp_burgundian_knight"),
+      (faction_set_slot, "fac_kingdom_3", slot_faction_quick_battle_tier_1_infantry, "trp_burgundian_guisarmier"),
+      (faction_set_slot, "fac_kingdom_3", slot_faction_quick_battle_tier_2_infantry, "trp_burgundian_rich_pavoisier"),
+      (faction_set_slot, "fac_kingdom_3", slot_faction_quick_battle_tier_1_archer, "trp_burgundian_crossbowman"),
+      (faction_set_slot, "fac_kingdom_3", slot_faction_quick_battle_tier_2_archer, "trp_burgundian_archer"),
+      (faction_set_slot, "fac_kingdom_3", slot_faction_quick_battle_tier_1_cavalry, "trp_burgundian_knight"),
+      (faction_set_slot, "fac_kingdom_3", slot_faction_quick_battle_tier_2_cavalry, "trp_burgundian_squire"),
       
       (faction_set_slot, "fac_kingdom_4", slot_faction_quick_battle_tier_1_infantry, "trp_breton_infantry"),
       (faction_set_slot, "fac_kingdom_4", slot_faction_quick_battle_tier_2_infantry, "trp_breton_man_at_arms"),
@@ -7921,11 +7921,11 @@ scripts = [
       
       (faction_set_slot, "fac_culture_3", slot_faction_tier_1_troop, "trp_burgundian_peasant"),
       (faction_set_slot, "fac_culture_3", slot_faction_tier_2_troop, "trp_burgundian_militia"),
-      (faction_set_slot, "fac_culture_3", slot_faction_tier_3_troop, "trp_burgundian_pikeman"),
-      (faction_set_slot, "fac_culture_3", slot_faction_tier_4_troop, "trp_burgundian_halberdier"),
-      (faction_set_slot, "fac_culture_3", slot_faction_tier_5_troop, "trp_burgundian_captain"),
-      (faction_set_slot, "fac_culture_3", slot_faction_tier_6_troop, "trp_burgundian_squire"),
-      (faction_set_slot, "fac_culture_3",  slot_faction_tier_1_archer, "trp_burgundian_militia_archer"),
+      (faction_set_slot, "fac_culture_3", slot_faction_tier_3_troop, "trp_burgundian_militia_archer"),
+      (faction_set_slot, "fac_culture_3", slot_faction_tier_4_troop, "trp_burgundian_footman_at_arms"),
+      (faction_set_slot, "fac_culture_3", slot_faction_tier_5_troop, "trp_burgundian_footman_at_arms"),
+      (faction_set_slot, "fac_culture_3", slot_faction_tier_6_troop, "trp_burgundian_man_at_arms"),
+      (faction_set_slot, "fac_culture_3",  slot_faction_tier_1_archer, "trp_burgundian_peasant_bowman"),
       
       (faction_set_slot, "fac_culture_4", slot_faction_tier_1_troop, "trp_breton_peasant"),
       (faction_set_slot, "fac_culture_4", slot_faction_tier_2_troop, "trp_breton_militia"),
@@ -8072,7 +8072,7 @@ scripts = [
           (faction_slot_eq, ":faction_no", slot_faction_culture, "fac_culture_3"),
           
           (faction_set_slot, ":faction_no", slot_faction_deserter_troop, "trp_burgundian_deserter"),
-          (faction_set_slot, ":faction_no", slot_faction_guard_troop, "trp_burgundian_guard"),
+          (faction_set_slot, ":faction_no", slot_faction_guard_troop, "trp_burgundian_dismounted_squire"),
           (faction_set_slot, ":faction_no", slot_faction_messenger_troop, "trp_burgundian_messenger"),
           (faction_set_slot, ":faction_no", slot_faction_prison_guard_troop, "trp_burgundian_prison_guard"),
           (faction_set_slot, ":faction_no", slot_faction_castle_guard_troop, "trp_burgundian_castle_guard"),
@@ -16004,7 +16004,7 @@ scripts = [
         (neg|is_presentation_active, "prsnt_dac_ct_view_armoury"),
         (neg|is_presentation_active, "prsnt_dac_ct_buy_items_for_armoury"),
         (neg|is_presentation_active, "prsnt_name_troop"),
-        (is_between, ":item_no", "itm_h_sallet_hood_custom", "itm_dplmc_coat_of_plates_red_constable"),
+        (is_between, ":item_no", "itm_h_eyeslot_kettlehat_1_hood_custom", "itm_dplmc_coat_of_plates_red_constable"),
         (try_begin),
           (eq, ":extra_text_id", 0),
           (str_store_string, s1, "@Customizable"),
@@ -76039,7 +76039,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (try_end),
 
 ## Custom Hoods for the helmets
-      (try_for_range, ":item_no", "itm_h_sallet_hood_custom", "itm_h_eyeslot_kettlehat_1_liripipe_hood_custom"), # Seek: All the Helmets share the same base
+      (try_for_range, ":item_no", "itm_h_eyeslot_kettlehat_1_hood_custom", "itm_h_eyeslot_kettlehat_1_liripipe_hood_custom"), # Seek: All the Helmets share the same base
           (item_set_slot, ":item_no", slot_item_materials_begin, "str_h_hood_asher_simple_1"),
           (item_set_slot, ":item_no", slot_item_materials_end, "str_h_hood_asher_end"),       
       (item_set_slot, ":item_no", slot_item_num_components, 1),     
@@ -76209,7 +76209,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (try_end),       
 
       #Init Custom Armors
-      (try_for_range, ":item_no", "itm_h_sallet_hood_custom", "itm_dplmc_coat_of_plates_red_constable"), # Seek: Changed the range
+      (try_for_range, ":item_no", "itm_h_eyeslot_kettlehat_1_hood_custom", "itm_dplmc_coat_of_plates_red_constable"), # Seek: Changed the range
           (item_get_slot, ":materials_begin", ":item_no", slot_item_materials_begin),
           (item_get_slot, ":materials_end", ":item_no", slot_item_materials_end),
           (store_random_in_range, ":random_material", ":materials_begin", ":materials_end"),
@@ -77899,6 +77899,93 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
   (assign, reg0, ":removed"),
 ]),
 
+
+     # Arris
+     # Used in world map presentation.
+     # Searches trp_temp_array_a, returns indexes of fiefs that match search criteria in trp_temp_array_c, number of indexes in reg0.
+  
+     ("search_fiefs_tmp",
+        [
+      
+          (store_script_param, ":search_field", 1),
+          (store_script_param, ":search_value", 2),
+        
+          (try_for_range, ":i", 0, 1000),
+            (troop_set_slot, "trp_temp_array_c", ":i", -1),
+          (try_end),
+        
+          (assign, reg0, 0),
+          (assign, ":indx_c", 0),
+        
+          (try_for_range, ":i", 0, "$N_Centers"),
+                (store_mul, ":indx", ":i", 6),
+                (store_add, ":indx1", ":indx", ":search_field"),
+                (troop_slot_eq, "trp_temp_array_a", ":indx1", ":search_value"),
+                (troop_set_slot, "trp_temp_array_c", ":indx_c", ":indx"),
+                (val_add, ":indx_c", 1),
+          (try_end),
+        
+          (assign, reg0, ":indx_c"),
+      
+        ]
+    ),
+  
+     #Arris
+     # Used in world map presentation.
+     # Searches trp_temp_array_b, returns indexes of lords that match search criteria in trp_temp_array_c, number of indexes in reg0.
+  
+     ("search_lords_tmp",
+        [
+      
+          (store_script_param, ":search_field", 1),
+          (store_script_param, ":search_value", 2),
+        
+          (try_for_range, ":i", 0, 1000),
+            (troop_set_slot, "trp_temp_array_c", ":i", -1),
+          (try_end),
+        
+          (assign, reg0, 0),
+          (assign, ":indx_c", 0),
+        
+          (try_for_range, ":i", 0, "$N_Lords"),
+                (store_mul, ":indx", ":i", 4),
+                (store_add, ":indx1", ":indx", ":search_field"),
+                (troop_slot_eq, "trp_temp_array_b", ":indx1", ":search_value"),
+                (troop_set_slot, "trp_temp_array_c", ":indx_c", ":indx"),
+                (val_add, ":indx_c", 1),
+          (try_end),
+        
+          (assign, reg0, ":indx_c"),
+      
+        ]
+    ), 
+  
+    # Arris
+    # Auxilliary script for world map presentation. Sets visibility of some controls
+  
+    ("toggle_controls_worldmap",
+        [
+            (store_script_param, ":toggle", 1),
+
+            (try_begin),
+                (eq, ":toggle", 0),
+                (position_set_x, pos1, 1000), (position_set_y, pos1, 260),
+                (overlay_set_position, "$list_lords", pos1),
+            (else_try),
+                (position_set_x, pos1, 750), (position_set_y, pos1, 260),
+                (overlay_set_position, "$list_lords", pos1),
+            (try_end),
+          
+            (overlay_set_display, "$chk_unassigned", ":toggle"),
+            (overlay_set_display, "$chk_unassigned_lbl", ":toggle"),
+            (overlay_set_display, "$g_btn_show_toggle", ":toggle"),
+            (overlay_set_display, "$show_faction_lbl", ":toggle"),
+            (overlay_set_display, "$factions", ":toggle"),
+          
+        ]
+  
+    ),
+
 ####################################################################################################################
 # DAC - Autolykos Upgrade Units with Items
 ####################################################################################################################
@@ -77919,10 +78006,10 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
     (troop_set_slot, "trp_english_squire",		        slot_soldier_elite_upgrade_to,	    "trp_english_bannerman_mounted"),
     (troop_set_slot, "trp_english_squire",		        slot_soldier_elite_upgrade_with,    "itm_heraldic_banner"),
 # Burgundian Bannermen
-    (troop_set_slot, "trp_burgundian_elite_guard",		slot_soldier_elite_upgrade_to,      "trp_burgundian_bannerman"),
-    (troop_set_slot, "trp_burgundian_elite_guard",		slot_soldier_elite_upgrade_with,    "itm_heraldic_banner"),
-    (troop_set_slot, "trp_burgundian_heavy_knight",		slot_soldier_elite_upgrade_to,      "trp_burgundian_bannerman_mounted"),
-    (troop_set_slot, "trp_burgundian_heavy_knight",		slot_soldier_elite_upgrade_with,    "itm_heraldic_banner"),
+    (troop_set_slot, "trp_burgundian_dismounted_squire",slot_soldier_elite_upgrade_to,      "trp_burgundian_bannerman"),
+    (troop_set_slot, "trp_burgundian_dismounted_squire",slot_soldier_elite_upgrade_with,    "itm_heraldic_banner"),
+    (troop_set_slot, "trp_burgundian_squire",		    slot_soldier_elite_upgrade_to,      "trp_burgundian_bannerman_mounted"),
+    (troop_set_slot, "trp_burgundian_squire",		    slot_soldier_elite_upgrade_with,    "itm_heraldic_banner"),
 # Breton Bannermen
     (troop_set_slot, "trp_breton_dismounted_noble",		slot_soldier_elite_upgrade_to,	    "trp_breton_bannerman"),
     (troop_set_slot, "trp_breton_dismounted_noble",		slot_soldier_elite_upgrade_with,    "itm_heraldic_banner"),
@@ -81054,32 +81141,52 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 ("dac_trigger_armour_progression",
 	[
 
+# English Yeoman Archer
+    (try_begin),
+        (call_script, "script_dac_check_troop_has_item", "trp_english_yeoman_archer", "itm_h_rope_helmet_strap"),
+        (assign, ":check_result", reg12),
+        (eq, ":check_result", 1),
+        (troop_remove_item, "trp_english_yeoman_archer", "itm_h_rope_helmet_strap",),
+    (try_end),
+    
+    (try_begin),
+        (call_script, "script_dac_check_troop_has_item", "trp_english_yeoman_archer", "itm_h_wicker_helmet_strap"),
+        (assign, ":check_result", reg12),
+        (eq, ":check_result", 1),
+        (troop_remove_item, "trp_english_yeoman_archer", "itm_h_wicker_helmet_strap",),
+    (try_end),
+# English Archer
+    (troop_add_item, "trp_english_archer", "itm_h_sallet_strap",),
+    (troop_add_item, "trp_english_archer", "itm_h_sallet_curved_strap",),
+
 # English Retinue Archer
+    (troop_add_item, "trp_english_retinue_archer", "itm_h_sallet_strap",),
+    (troop_add_item, "trp_english_retinue_archer", "itm_h_sallet_curved_strap",),
     (troop_add_item, "trp_english_retinue_archer", "itm_h_sallet_mail_aventail",),
     (troop_add_item, "trp_english_retinue_archer", "itm_h_sallet_curved_mail_aventail",),
     (troop_add_item, "trp_english_retinue_archer", "itm_a_padded_jack_cross_custom",),
     (troop_add_item, "trp_english_retinue_archer", "itm_a_padded_jack_surcoat_custom",),
 
-    (try_begin),
-        (call_script, "script_dac_check_troop_has_item", "trp_english_retinue_archer", "itm_h_cervelliere_mail_aventail"),
-        (assign, ":check_result", reg12),
-        (eq, ":check_result", 1),
-        (troop_remove_item, "trp_english_retinue_archer", "itm_h_cervelliere_mail_aventail",),
-    (try_end),
+    # (try_begin),
+        # (call_script, "script_dac_check_troop_has_item", "trp_english_retinue_archer", "itm_h_cervelliere_mail_aventail"),
+        # (assign, ":check_result", reg12),
+        # (eq, ":check_result", 1),
+        # (troop_remove_item, "trp_english_retinue_archer", "itm_h_cervelliere_mail_aventail",),
+    # (try_end),
     
-    (try_begin),
-        (call_script, "script_dac_check_troop_has_item", "trp_english_retinue_archer", "itm_h_skullcap_mail_aventail"),
-        (assign, ":check_result", reg12),
-        (eq, ":check_result", 1),
-        (troop_remove_item, "trp_english_retinue_archer", "itm_h_skullcap_mail_aventail",),
-    (try_end),
+    # (try_begin),
+        # (call_script, "script_dac_check_troop_has_item", "trp_english_retinue_archer", "itm_h_skullcap_mail_aventail"),
+        # (assign, ":check_result", reg12),
+        # (eq, ":check_result", 1),
+        # (troop_remove_item, "trp_english_retinue_archer", "itm_h_skullcap_mail_aventail",),
+    # (try_end),
  
-    (try_begin),
-        (call_script, "script_dac_check_troop_has_item", "trp_english_retinue_archer", "itm_h_simple_cervelliere_mail_aventail"),
-        (assign, ":check_result", reg12),
-        (eq, ":check_result", 1),
-        (troop_remove_item, "trp_english_retinue_archer", "itm_h_simple_cervelliere_mail_aventail",),
-    (try_end),
+    # (try_begin),
+        # (call_script, "script_dac_check_troop_has_item", "trp_english_retinue_archer", "itm_h_simple_cervelliere_mail_aventail"),
+        # (assign, ":check_result", reg12),
+        # (eq, ":check_result", 1),
+        # (troop_remove_item, "trp_english_retinue_archer", "itm_h_simple_cervelliere_mail_aventail",),
+    # (try_end),
     
     (try_begin),
         (call_script, "script_dac_check_troop_has_item", "trp_english_retinue_archer", "itm_a_padded_jack_custom"),

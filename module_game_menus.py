@@ -10863,6 +10863,23 @@ TOTAL:  {reg5}"),
     "{s10} {s14}^{s11}{s12}{s13}",
     "none",
     [
+    
+       (try_begin), #Arris
+            (eq, "$gShowFeudalMap", 1),
+            (change_screen_map),
+            (start_presentation, "prsnt_world_map"),
+        (try_end),
+        
+        (try_begin), #Arris
+            (eq, "$gShowFeudalMap", 2),
+            (assign, "$gShowFeudalMap", 0),
+            
+            (assign, "$town_entered", 1),
+            (call_script, "script_enter_court", "$current_town"),
+            (change_screen_map_conversation, "$g_player_minister"),
+        (try_end),
+
+        
         (try_begin),
           (gt, "$sneaked_into_town", disguise_none),
           (call_script, "script_music_set_situation_with_culture", mtf_sit_town_infiltrate),

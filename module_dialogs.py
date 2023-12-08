@@ -5030,6 +5030,27 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 "I wish you to rejoin my party.", "minister_replace",
 []],
 
+
+
+#Arris
+   [anyone|plyr, "minister_talk",
+   [
+   (is_between, "$g_player_minister", active_npcs_begin, kingdom_ladies_end),
+   ],
+   "I wish you to grant one of my vassals a fief using the map of the lands.", "minister_map",
+   [
+   ]],
+ 
+    #Arris
+   [anyone, "minister_map",
+   [ ],
+   "Certainly, my lord. Let me get the map from the library...", "close_window",
+   [
+        (assign, "$gShowFeudalMap", 1),
+        (change_screen_map),
+   ]],
+
+
 [anyone|plyr, "minister_talk",
 [
 (is_between, "$g_player_minister", active_npcs_begin, kingdom_ladies_end),
