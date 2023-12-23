@@ -146,10 +146,10 @@ party_templates = [
 ("kingdom_3_reinforcements_d", "kingdom_3_reinforcements_d", 0, 0, fac_commoners, 0, [(trp_burgundian_footman_at_arms,1,4),(trp_burgundian_man_at_arms,2,6),(trp_burgundian_dismounted_squire,1,3),(trp_burgundian_squire,1,3),(trp_burgundian_knight,1,3)] ),
 ("kingdom_3_reinforcements_e", "kingdom_3_reinforcements_e", 0, 0, fac_commoners, 0, [(trp_burgundian_bannerman,1,1),(trp_burgundian_bannerman_mounted,1,1),] ),
 
-("kingdom_4_reinforcements_a", "kingdom_4_reinforcements_a", 0, 0, fac_commoners, 0, [(trp_breton_peasant,1,5),(trp_breton_militia,1,5),(trp_breton_fauchard,1,4),(trp_breton_peasant_archer,1,6)]),
-("kingdom_4_reinforcements_b", "kingdom_4_reinforcements_b", 0, 0, fac_commoners, 0, [(trp_breton_militia_archer,1,3),(trp_breton_infantry,2,7),(trp_breton_poleaxeman,1,4),(trp_breton_man_at_arms,1,3),(trp_breton_militia,1,3),(trp_breton_militia_crossbowman,1,2)] ),
-("kingdom_4_reinforcements_c", "kingdom_4_reinforcements_c", 0, 0, fac_commoners, 0, [(trp_breton_archer,1,3),(trp_breton_crossbowman,1,2),(trp_breton_heavy_infantry,2,6),(trp_breton_heavy_poleaxeman,1,4),(trp_breton_heavy_man_at_arms,1,4),(trp_breton_sergeant,1,1)] ),
-("kingdom_4_reinforcements_d", "kingdom_4_reinforcements_d", 0, 0, fac_commoners, 0, [(trp_breton_captain,1,4),(trp_breton_squire,2,6),(trp_breton_knight,1,3),(trp_breton_dismounted_noble,1,3),(trp_breton_noble_swordsman,1,3),(trp_breton_heavy_knight,1,3)] ),
+("kingdom_4_reinforcements_a", "kingdom_4_reinforcements_a", 0, 0, fac_commoners, 0, [(trp_breton_peasant_levy,1,5),(trp_breton_spearman,1,5),(trp_breton_vougier,1,4),(trp_breton_peasant_archer,1,6)]),
+("kingdom_4_reinforcements_b", "kingdom_4_reinforcements_b", 0, 0, fac_commoners, 0, [(trp_breton_militia_crossbowman,1,3),(trp_breton_pavoisier,2,7),(trp_breton_guisarmier,1,4),(trp_breton_rich_pavoisier,1,3),(trp_breton_militia,1,3),(trp_breton_militia_crossbowman,1,2)] ),
+("kingdom_4_reinforcements_c", "kingdom_4_reinforcements_c", 0, 0, fac_commoners, 0, [(trp_breton_archer,1,3),(trp_breton_crossbowman,1,2),(trp_breton_guisarmier,2,6),(trp_breton_rich_guisarmier,1,4),(trp_breton_rich_pavoisier,1,4),(trp_breton_sergeant,1,1)] ),
+("kingdom_4_reinforcements_d", "kingdom_4_reinforcements_d", 0, 0, fac_commoners, 0, [(trp_breton_footman_at_arms,1,4),(trp_breton_squire,2,6),(trp_breton_chevalier,1,3),(trp_breton_dismounted_squire,1,3),(trp_breton_chevalier_a_pied,1,3),] ),
 ("kingdom_4_reinforcements_e", "kingdom_4_reinforcements_e", 0, 0, fac_commoners, 0, [(trp_breton_bannerman,1,1),(trp_breton_bannerman_mounted,1,1),] ),
 
 
