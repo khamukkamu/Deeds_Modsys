@@ -422,6 +422,7 @@ dac_lancer_fix_siege = (3, 0, 0, [(lt,"$dac_counter",3)],[ # need to repeat orde
 
 dac_footstep_sounds = (0,0.3,0, #0.3 timed with footfall
   [
+    (eq, "$DAC_ARMOUR_SOUNDS", 1),
     #(set_fixed_point_multiplier, 1), #This damned thing broke AI pathfinding.
     (troop_get_inventory_slot, ":body_armour", "trp_player", ek_body), # For player only for now
     (ge, ":body_armour", 0), #Should have something

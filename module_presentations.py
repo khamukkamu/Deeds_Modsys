@@ -16314,7 +16314,7 @@ presentations = [
 					## VARIABLE VERTICAL POSITIONS AND INCREMENTS
 					# (assign, ":num_options", 15),
 					(assign, ":y_increment", 40),
-					(store_mul, ":texts_y", ":y_increment", DPLMC_NUM_PREFERENCE_OPTIONS),
+					(store_mul, ":texts_y", ":y_increment", DPLMC_NUM_PREFERENCE_OPTIONS + 1),
 					(store_sub, ":inputs_y", ":texts_y", 15),
 
                     (try_for_range, ":slot_no", 0, DPLMC_NUM_PREFERENCE_OPTIONS),
@@ -17007,6 +17007,27 @@ presentations = [
                     (troop_set_slot, "trp_temp_array_c", ":num_options", reg0),
                     (val_add, ":num_options", 1),
                     
+                    ## Walking Sounds
+					(create_text_overlay, reg0, "@Mail and Metal soundsteps:", tf_vertical_align_center),
+					(position_set_y, pos1, ":texts_y"),
+					(overlay_set_position, reg0, pos1),
+                    (troop_set_slot, "trp_temp_array_a", ":num_options", reg0),
+					(val_sub, ":texts_y", ":y_increment"),
+
+					(create_check_box_overlay, reg0, "mesh_checkbox_off", "mesh_checkbox_on"),
+					(position_set_y, pos2, ":inputs_y"),
+					(overlay_set_position, reg0, pos2),
+					(val_sub, ":inputs_y", ":y_increment"),
+                    (troop_set_slot, "trp_temp_array_b", ":num_options", reg0),
+					(overlay_set_val, reg0, "$DAC_ARMOUR_SOUNDS"),
+                    (set_container_overlay, -1),
+                    (create_mesh_overlay, reg0, "mesh_pic_sally_out"),
+                    (set_container_overlay, ":container"),
+                    (overlay_set_position, reg0, pos3),
+                    (overlay_set_size, reg0, pos4),
+                    (troop_set_slot, "trp_temp_array_c", ":num_options", reg0),
+                    (val_add, ":num_options", 1),
+                    
 						## CHEAT MENU
 					(create_text_overlay, reg0, "@Cheat Mode:", tf_vertical_align_center),
                     (troop_set_slot, "trp_temp_array_a", ":num_options", reg0),
@@ -17057,7 +17078,7 @@ presentations = [
 					(set_container_overlay, -1),
 
 					## MOUSE-OVER TIPS
-					(create_text_overlay, reg0, "@Deeds of Arms & Chivlary^ with DIPLOMACY " + DPLMC_DIPLOMACY_VERSION_STRING+ "^Preferences", tf_center_justify|tf_with_outline),
+					(create_text_overlay, reg0, "@Deeds of Arms & Chivalry^ with DIPLOMACY " + DPLMC_DIPLOMACY_VERSION_STRING+ "^Preferences", tf_center_justify|tf_with_outline),
 					(overlay_set_color, reg0, 0xFFFFFFFF),
 					(position_set_x, pos1, 800),
 					(position_set_y, pos1, 600),
@@ -17160,6 +17181,7 @@ presentations = [
                         (assign, "$g_disable_condescending_comments", 0),
                         (assign, "$enable_bodysliding", 2),                        
                         (assign, "$disable_npc_complaints", 0),
+                        (assign, "$DAC_ARMOUR_SOUNDS", 1),
                         # (call_script, "script_dplmc_update_info_settings"),
                         (start_presentation, "prsnt_adv_diplomacy_preferences"),
 					(else_try),
@@ -17288,8 +17310,11 @@ presentations = [
                         # (eq, ":object", "$g_presentation_obj_admin_panel_5"),
                         (assign, "$g_dplmc_player_disguise", ":value"),
                         (assign, "$sneaked_into_town", disguise_none), #so as to not proc trigger
-                    (else_try), ## CHEATS MENU
+                    (else_try), ## Soundsteps
                         (troop_slot_eq, "trp_temp_array_b", 20, ":object"),
+                        (assign, "$DAC_ARMOUR_SOUNDS", ":value"),
+                    (else_try), ## CHEATS MENU
+                        (troop_slot_eq, "trp_temp_array_b", 21, ":object"),
                         (assign, "$cheat_mode", ":value"),
                     (try_end),
                 ]
@@ -18349,7 +18374,7 @@ presentations = [
         (presentation_set_duration, 999999),
         (set_fixed_point_multiplier, 1000),
         
-        (create_text_overlay, reg1, "@DaC Mod Options", tf_center_justify),
+        (create_text_overlay, reg1, "@DAC Mod Options", tf_center_justify),
         (position_set_x, pos0, Screen_Width/2),
           (position_set_y, pos0, Screen_Title_Height),
        # (position_set_y, pos0, 600),
@@ -18510,6 +18535,21 @@ presentations = [
         (overlay_set_val,  "$g_presentation_obj_admin_panel_6", "$g_random_scene_size"),
         
         (val_sub, ":y_pos", Screen_Text_Height),
+        
+        #DAC Seek: Play armoured footstep sounds
+        (create_text_overlay, reg1, "@Mail and Metal soundsteps when wearing heavy armour: ", tf_right_align),
+        (position_set_y, pos0, ":y_pos"),
+        (overlay_set_position, reg1, pos0),
+        
+        (create_check_box_overlay, "$form_options_overlay_8", "mesh_checkbox_off", "mesh_checkbox_on"),
+        (copy_position, pos1, pos0),
+        (store_add, reg2, ":y_pos", Screen_Checkbox_Height_Adj),
+        (position_set_y, pos1, reg2),
+        (overlay_set_position, "$form_options_overlay_8", pos1),
+        
+        (overlay_set_val, "$form_options_overlay_8", "$DAC_ARMOUR_SOUNDS"),
+        
+        (val_sub, ":y_pos", Screen_Text_Height),
 
         # This is for Done button
         (assign, "$form_options_overlay_exit", 0), # forced initialization
@@ -18571,6 +18611,9 @@ presentations = [
           (eq, ":object", "$g_presentation_obj_admin_panel_7"),
           (assign, "$DAC_MORALE_SYSTEM", ":value"),
         (else_try),
+          (eq, ":object", "$g_presentation_obj_admin_panel_8"),
+          (assign, "$DAC_ARMOUR_SOUNDS", ":value"),
+        (else_try), 
           (eq, ":object", "$form_options_overlay_exit"),
           (presentation_set_duration, 0),
         (try_end),

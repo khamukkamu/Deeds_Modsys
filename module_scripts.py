@@ -782,6 +782,7 @@ scripts = [
     (assign, "$g_random_scene_size", 1), # CC's Random Scene Size Selection
     (assign, "$g_random_scene_size_forests", 1), # CC's Random Scene Size Selection
     (assign, "$DAC_MORALE_SYSTEM", HYBRID_MORALE_SYSTEM), #DAC Kham: Hybrid Default
+    (assign, "$DAC_ARMOUR_SOUNDS", 1), #DAC Seek: On by default, play armoured footstep sounds for the player
     (assign, "$armour_progression", 0), #DAC Seek: Used to trigger event for armour progression
     
     (call_script, "script_initialize_custom_armor_data"), 
@@ -81141,68 +81142,27 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 ("dac_trigger_armour_progression",
 	[
 
-# English Yeoman Archer
-    (try_begin),
-        (call_script, "script_dac_check_troop_has_item", "trp_english_yeoman_archer", "itm_h_rope_helmet_strap"),
-        (assign, ":check_result", reg12),
-        (eq, ":check_result", 1),
-        (troop_remove_item, "trp_english_yeoman_archer", "itm_h_rope_helmet_strap",),
-    (try_end),
-    
-    (try_begin),
-        (call_script, "script_dac_check_troop_has_item", "trp_english_yeoman_archer", "itm_h_wicker_helmet_strap"),
-        (assign, ":check_result", reg12),
-        (eq, ":check_result", 1),
-        (troop_remove_item, "trp_english_yeoman_archer", "itm_h_wicker_helmet_strap",),
-    (try_end),
-# English Archer
-    (troop_add_item, "trp_english_archer", "itm_h_sallet_strap",),
-    (troop_add_item, "trp_english_archer", "itm_h_sallet_curved_strap",),
+   
+# English Troops
 
-# English Retinue Archer
-    (troop_add_item, "trp_english_retinue_archer", "itm_h_sallet_strap",),
-    (troop_add_item, "trp_english_retinue_archer", "itm_h_sallet_curved_strap",),
-    (troop_add_item, "trp_english_retinue_archer", "itm_h_sallet_mail_aventail",),
-    (troop_add_item, "trp_english_retinue_archer", "itm_h_sallet_curved_mail_aventail",),
-    (troop_add_item, "trp_english_retinue_archer", "itm_a_padded_jack_cross_custom",),
-    (troop_add_item, "trp_english_retinue_archer", "itm_a_padded_jack_surcoat_custom",),
+    (call_script, "script_dplmc_copy_inventory", "trp_english_yeoman_archer_late", "trp_english_yeoman_archer"),
+    (call_script, "script_dplmc_copy_inventory", "trp_english_archer_late", "trp_english_archer"),
+    (call_script, "script_dplmc_copy_inventory", "trp_english_retinue_archer_late", "trp_english_retinue_archer"),
 
-    # (try_begin),
-        # (call_script, "script_dac_check_troop_has_item", "trp_english_retinue_archer", "itm_h_cervelliere_mail_aventail"),
-        # (assign, ":check_result", reg12),
-        # (eq, ":check_result", 1),
-        # (troop_remove_item, "trp_english_retinue_archer", "itm_h_cervelliere_mail_aventail",),
-    # (try_end),
-    
-    # (try_begin),
-        # (call_script, "script_dac_check_troop_has_item", "trp_english_retinue_archer", "itm_h_skullcap_mail_aventail"),
-        # (assign, ":check_result", reg12),
-        # (eq, ":check_result", 1),
-        # (troop_remove_item, "trp_english_retinue_archer", "itm_h_skullcap_mail_aventail",),
-    # (try_end),
- 
-    # (try_begin),
-        # (call_script, "script_dac_check_troop_has_item", "trp_english_retinue_archer", "itm_h_simple_cervelliere_mail_aventail"),
-        # (assign, ":check_result", reg12),
-        # (eq, ":check_result", 1),
-        # (troop_remove_item, "trp_english_retinue_archer", "itm_h_simple_cervelliere_mail_aventail",),
-    # (try_end),
-    
-    (try_begin),
-        (call_script, "script_dac_check_troop_has_item", "trp_english_retinue_archer", "itm_a_padded_jack_custom"),
-        (assign, ":check_result", reg12),
-        (eq, ":check_result", 1),
-        (troop_remove_item, "trp_english_retinue_archer", "itm_a_padded_jack_custom",),
-    (try_end),
-    
-    (troop_equip_items, "trp_english_retinue_archer"),    
-    # (troop_remove_item, "trp_english_retinue_archer", "itm_h_cervelliere_mail_aventail",),
-    # (troop_remove_item, "trp_english_retinue_archer", "itm_h_skullcap_mail_aventail",),
-    # (troop_remove_item, "trp_english_retinue_archer", "itm_h_simple_cervelliere_mail_aventail",),
-    # (troop_remove_item, "trp_english_retinue_archer", "itm_a_padded_jack_custom",),
-    
+    (call_script, "script_dplmc_copy_inventory", "trp_english_militia_late", "trp_english_militia"),
+    (call_script, "script_dplmc_copy_inventory", "trp_english_footman_late", "trp_english_footman"),
+    (call_script, "script_dplmc_copy_inventory", "trp_english_heavy_footman_late", "trp_english_heavy_footman"),
+    (call_script, "script_dplmc_copy_inventory", "trp_english_sergeant_late", "trp_english_sergeant"),
 
-    
+
+    (call_script, "script_dplmc_copy_inventory", "trp_english_man_at_arms_late", "trp_english_man_at_arms"),
+    (call_script, "script_dplmc_copy_inventory", "trp_english_squire_late", "trp_english_squire"),
+    (call_script, "script_dplmc_copy_inventory", "trp_english_knight_late", "trp_english_knight"),
+    (call_script, "script_dplmc_copy_inventory", "trp_english_footman_at_arms_late", "trp_english_footman_at_arms"),
+    (call_script, "script_dplmc_copy_inventory", "trp_english_dismounted_squire_late", "trp_english_dismounted_squire"),
+    (call_script, "script_dplmc_copy_inventory", "trp_english_dismounted_knight_late", "trp_english_dismounted_knight"),
+
+
   ]),
 
 ]
