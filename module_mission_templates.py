@@ -1391,12 +1391,34 @@ common_ai_weapon_toggle_check = (
   (agent_force_rethink, ":agent_no"),
   ])	 
   
+### DAC Seek: Modified from previous trigger  
+common_player_helmet_toggle = (
+  0,0,1, [
+    (neg|main_hero_fallen),
+    (key_clicked, key_h),
+    (get_player_agent_no, ":player_agent"),
+    (agent_get_item_slot, ":helmet", ":player_agent", 4), # Get helmet
+    (gt, ":helmet", 0),
+    (item_slot_ge, ":helmet", slot_item_weapon_switch_to, 1),
+  ],[
+    (get_player_agent_no, ":player_agent"),
+    (agent_get_item_slot, ":helmet", ":player_agent", 4), # Get helmet
+    (item_get_slot, ":alternate", ":helmet", slot_item_weapon_switch_to),
+    (gt, ":alternate", 1), 
+# DAC Seek: Made changes to take into account item modifiers
+    (troop_get_inventory_slot_modifier, ":imod", "trp_player", 4),     
+    (agent_unequip_item, ":player_agent", ":helmet", 4),
+    (agent_equip_item, ":player_agent", ":alternate", 4,":imod"),
+    (agent_set_animation, ":player_agent", "anim_unequip_shield"),
+  ])
+  
 
 deeds_common_battle_scripts = [
   tld_cheer_on_space_when_battle_over_press,
   tld_cheer_on_space_when_battle_over_release,
   mission_fade_in,
   common_player_weapon_toggle,
+  common_player_helmet_toggle,
   common_ai_weapon_toggle,
   common_ai_weapon_toggle_check,
   dac_lancer_fix,
@@ -1418,6 +1440,7 @@ deeds_common_siege_scripts = [
     custom_commander_camera, deathcam_cycle_forwards, deathcam_cycle_backwards,
     dplmc_death_camera,  
     common_player_weapon_toggle,
+    common_player_helmet_toggle,
     common_ai_weapon_toggle,
     common_ai_weapon_toggle_check,	
     dac_lancer_fix_siege,
