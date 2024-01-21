@@ -45,11 +45,11 @@ character_creation_scripts = [
         (call_script, "script_change_player_honor", 3),
         (troop_add_gold, "trp_player", 300),
 
-        (troop_add_item, "trp_player","itm_a_brigandine_asher_custom",0),
+        (troop_add_item, "trp_player","itm_a_pistoia_mail_a_mail_sleeves_over_plate",0),
         (troop_add_item, "trp_player","itm_b_high_boots_3",0),
-        (troop_add_item, "trp_player","itm_h_cervelliere_hood_custom",0),
+        (troop_add_item, "trp_player","itm_h_simple_cervelliere_mail_aventail",0),
         (troop_add_item, "trp_player","itm_s_heraldic_shield_leather",0),
-        (troop_add_item, "trp_player","itm_w_native_spear_b_custom",0),
+        (troop_add_item, "trp_player","itm_w_native_spear_b",0),
         (troop_add_item, "trp_player","itm_w_onehanded_sword_knight",0),
         (troop_add_item, "trp_player","itm_g_gauntlets_mailed",0),
         (troop_add_item, "trp_player","itm_ho_rouncey_1",0),
@@ -77,9 +77,9 @@ character_creation_scripts = [
         (troop_set_slot, "trp_player", slot_troop_renown, 50),
         (troop_add_gold, "trp_player", 300),		  
 
-        (troop_add_item, "trp_player","itm_a_brigandine_asher_custom",0),
+        (troop_add_item, "trp_player","itm_a_pistoia_mail_b_mail_sleeves_over_plate",0),
         (troop_add_item, "trp_player","itm_b_high_boots_3",0),
-        (troop_add_item, "trp_player","itm_h_cervelliere_hood_custom",0),
+        (troop_add_item, "trp_player","itm_h_simple_cervelliere_mail_aventail",0),
         (troop_add_item, "trp_player","itm_s_heraldic_shield_leather",0),
         (troop_add_item, "trp_player","itm_w_native_spear_b_custom",0),
         (troop_add_item, "trp_player","itm_w_onehanded_sword_knight",0),
@@ -127,8 +127,9 @@ character_creation_scripts = [
 ("start_as_warrior", [
         
     (troop_raise_attribute, "trp_player",ca_strength,3),
-    (troop_raise_attribute, "trp_player",ca_agility,1),
-    (troop_raise_attribute, "trp_player",ca_charisma,2),
+    (troop_raise_attribute, "trp_player",ca_agility,2),
+    (troop_raise_attribute, "trp_player",ca_intelligence,2),
+    (troop_raise_attribute, "trp_player",ca_charisma,3),
     
     (troop_raise_skill, "trp_player","skl_ironflesh",1),
     (troop_raise_skill, "trp_player","skl_power_strike",1),
@@ -151,10 +152,10 @@ character_creation_scripts = [
 
     (store_random_in_range, ":food_item", "itm_dried_meat", "itm_grain"),
     (troop_add_item, "trp_player",":food_item"),
-    (troop_add_item, "trp_player","itm_w_mace_winged"),
+    (troop_add_item, "trp_player","itm_w_onehanded_sword_a"),
     (troop_add_item, "trp_player","itm_s_heater_shield_french_3"),
-    (troop_add_item, "trp_player","itm_h_cervelliere_hood_custom"),
-    (troop_add_item, "trp_player","itm_a_light_gambeson_long_sleeves_custom"),
+    (troop_add_item, "trp_player","itm_h_chapel_de_fer_strap"),
+    (troop_add_item, "trp_player","itm_a_gambeson_asher_belt_custom"),
     (troop_add_item, "trp_player","itm_b_turnshoes_2"),
 
     # (display_message, "@Start as Warrior"),
@@ -164,6 +165,8 @@ character_creation_scripts = [
 		
     (troop_raise_attribute, "trp_player",ca_strength,3),
     (troop_raise_attribute, "trp_player",ca_agility,4),		
+    (troop_raise_attribute, "trp_player",ca_intelligence,2),		
+    (troop_raise_attribute, "trp_player",ca_charisma,2),		
     
     (troop_raise_skill, "trp_player",skl_power_draw,2),
     (troop_raise_skill, "trp_player",skl_tracking,2),
@@ -185,7 +188,7 @@ character_creation_scripts = [
     (troop_add_item, "trp_player","itm_w_archers_maul"),
     (troop_add_item, "trp_player","itm_w_arrow_broadhead"),
     (troop_add_item, "trp_player","itm_w_hunting_bow_yew"),
-    (troop_add_item, "trp_player","itm_h_hood_black"),
+    (troop_add_item, "trp_player","itm_h_hood_big_liripipe_full_custom"),
     (troop_add_item, "trp_player","itm_a_hunter_coat_custom"),
     (troop_add_item, "trp_player","itm_b_turnshoes_4"),		
     
@@ -195,9 +198,10 @@ character_creation_scripts = [
 
 ("start_as_merc", [
         
-    (troop_raise_attribute, "trp_player",ca_strength,1),
-    (troop_raise_attribute, "trp_player",ca_agility,4),
-    (troop_raise_attribute, "trp_player",ca_charisma,3),	
+    (troop_raise_attribute, "trp_player",ca_strength,4),
+    (troop_raise_attribute, "trp_player",ca_agility,3),
+    (troop_raise_attribute, "trp_player",ca_intelligence,2),	
+    (troop_raise_attribute, "trp_player",ca_charisma,2),	
     
     (troop_raise_skill, "trp_player",skl_weapon_master,3),
     (troop_raise_skill, "trp_player",skl_shield,2),
@@ -205,6 +209,7 @@ character_creation_scripts = [
     (troop_raise_skill, "trp_player",skl_power_strike,1),
     (troop_raise_skill, "trp_player",skl_leadership,1),
     (troop_raise_skill, "trp_player",skl_trainer,1),
+    (troop_raise_skill, "trp_player",skl_tactics,1),
     (troop_raise_skill, "trp_player",skl_persuasion,1),		
     
     (troop_raise_proficiency, "trp_player",wpt_one_handed_weapon,35),
@@ -222,9 +227,8 @@ character_creation_scripts = [
     (troop_add_item, "trp_player",":food_item"),
     (troop_add_item, "trp_player","itm_w_dagger_pikeman"),
     (troop_add_item, "trp_player","itm_w_awlpike_1"),
-    (troop_add_item, "trp_player","itm_h_cervelliere_hood_custom"),
+    (troop_add_item, "trp_player","itm_h_simple_cervelliere_2_strap"),
     (troop_add_item, "trp_player","itm_a_light_gambeson_long_sleeves_custom"),
-    # (troop_add_item, "trp_player","itm_a_gambeson_asher_blue"),
     (troop_add_item, "trp_player","itm_b_turnshoes_1"),
     (troop_add_item, "trp_player","itm_s_steel_buckler"),	
     
@@ -239,6 +243,8 @@ character_creation_scripts = [
 
 ("start_as_healer", [
         
+    (troop_raise_attribute, "trp_player",ca_strength,1),
+    (troop_raise_attribute, "trp_player",ca_agility,2),
     (troop_raise_attribute, "trp_player",ca_intelligence,5),
     (troop_raise_attribute, "trp_player",ca_charisma,2), 
 
