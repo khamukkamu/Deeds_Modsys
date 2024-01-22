@@ -18,34 +18,37 @@ tracks = [
   ("mount_and_blade_title_screen", "DAC-Title.ogg", mtf_module_track|mtf_sit_main_title|mtf_start_immediately, 0), #BenjaminR Deeds of Arms & Chivalry (Feb 3, 2020)
 
 # DAC Changes Begin
+
+# Arena (initiation of arena, tourney, and duel)
+  ("DAC-Battle-Epic-26", "Battle/DAC-Battle-Epic-26.ogg", mtf_module_track|mtf_sit_arena|mtf_start_immediately, mtf_culture_all),
+
 # Ambush = Epic (num combatants >= 150)
 
-  ("DAC-Battle-Epic-1",  "Battle/DAC-Battle-Epic-1.ogg",  mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
-  ("DAC-Battle-Epic-2",  "Battle/DAC-Battle-Epic-2.ogg",  mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
-  ("DAC-Battle-Epic-3",  "Battle/DAC-Battle-Epic-3.ogg",  mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
+  ("DAC-Battle-Epic-1",  "Battle/DAC-Battle-Epic-1.ogg",  mtf_module_track|mtf_sit_ambushed|mtf_looping, mtf_sit_fight),
+  ("DAC-Battle-Epic-2",  "Battle/DAC-Battle-Epic-2.ogg",  mtf_module_track|mtf_sit_ambushed|mtf_looping, mtf_sit_fight),
+  ("DAC-Battle-Epic-3",  "Battle/DAC-Battle-Epic-3.ogg",  mtf_module_track|mtf_sit_ambushed|mtf_looping, mtf_sit_fight),
   ("DAC-Battle-Epic-4",  "Battle/DAC-Battle-Epic-4.ogg",  mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
-  ("DAC-Battle-Epic-5",  "Battle/DAC-Battle-Epic-5.ogg",  mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
+#  ("DAC-Battle-Epic-5",  "Battle/DAC-Battle-Epic-5.ogg",  mtf_module_track|mtf_sit_ambushed, mtf_culture_all), #ijustwant2bpure i suggest dropping this one, something weird happened to the audio quality and it is kind of short but also not very loopable.
   ("DAC-Battle-Epic-6",  "Battle/DAC-Battle-Epic-6.ogg",  mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
-  ("DAC-Battle-Epic-7",  "Battle/DAC-Battle-Epic-7.ogg",  mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
+  ("DAC-Battle-Epic-7",  "Battle/DAC-Battle-Epic-7.ogg",  mtf_module_track|mtf_sit_ambushed|mtf_looping, mtf_sit_fight),
   ("DAC-Battle-Epic-8",  "Battle/DAC-Battle-Epic-8.ogg",  mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
-  ("DAC-Battle-Epic-9",  "Battle/DAC-Battle-Epic-9.ogg",  mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
-  ("DAC-Battle-Epic-10", "Battle/DAC-Battle-Epic-10.ogg", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
-  ("DAC-Battle-Epic-11", "Battle/DAC-Battle-Epic-11.ogg", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
-  ("DAC-Battle-Epic-12", "Battle/DAC-Battle-Epic-12.ogg", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
+  ("DAC-Battle-Epic-9",  "Battle/DAC-Battle-Epic-9.ogg",  mtf_module_track|mtf_sit_ambushed|mtf_looping, mtf_sit_fight),
+  ("DAC-Battle-Epic-10", "Battle/DAC-Battle-Epic-10.ogg", mtf_module_track|mtf_sit_ambushed|mtf_looping, mtf_sit_fight),
+  ("DAC-Battle-Epic-11", "Battle/DAC-Battle-Epic-11.ogg", mtf_module_track|mtf_sit_ambushed|mtf_looping, mtf_sit_fight),
+  ("DAC-Battle-Epic-12", "Battle/DAC-Battle-Epic-12.ogg", mtf_module_track|mtf_sit_ambushed|mtf_looping, mtf_sit_fight),
   ("DAC-Battle-Epic-13", "Battle/DAC-Battle-Epic-13.ogg", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
   ("DAC-Battle-Epic-14", "Battle/DAC-Battle-Epic-14.ogg", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
   ("DAC-Battle-Epic-15", "Battle/DAC-Battle-Epic-15.ogg", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
   ("DAC-Battle-Epic-16", "Battle/DAC-Battle-Epic-16.ogg", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
-  ("DAC-Battle-Epic-17", "Battle/DAC-Battle-Epic-17.ogg", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
-  ("DAC-Battle-Epic-18", "Battle/DAC-Battle-Epic-18.ogg", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
-  ("DAC-Battle-Epic-19", "Battle/DAC-Battle-Epic-19.ogg", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
+#  ("DAC-Battle-Epic-17", "Battle/DAC-Battle-Epic-17.ogg", mtf_module_track|mtf_sit_ambushed, mtf_culture_all), #ijustwant2bpure - i think this one is too short and not very loopable
+  ("DAC-Battle-Epic-18", "Battle/DAC-Battle-Epic-18.ogg", mtf_module_track|mtf_sit_ambushed|mtf_looping, mtf_sit_fight),
+  ("DAC-Battle-Epic-19", "Battle/DAC-Battle-Epic-19.ogg", mtf_module_track|mtf_sit_ambushed|mtf_looping, mtf_sit_fight),
   ("DAC-Battle-Epic-20", "Battle/DAC-Battle-Epic-20.ogg", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
   ("DAC-Battle-Epic-21", "Battle/DAC-Battle-Epic-21.ogg", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
   ("DAC-Battle-Epic-22", "Battle/DAC-Battle-Epic-22.ogg", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
   ("DAC-Battle-Epic-23", "Battle/DAC-Battle-Epic-23.ogg", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
-  ("DAC-Battle-Epic-24", "Battle/DAC-Battle-Epic-24.ogg", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
-  ("DAC-Battle-Epic-25", "Battle/DAC-Battle-Epic-25.ogg", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
-  ("DAC-Battle-Epic-26", "Battle/DAC-Battle-Epic-26.ogg", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
+  ("DAC-Battle-Epic-24", "Battle/DAC-Battle-Epic-24.ogg", mtf_module_track|mtf_sit_ambushed|mtf_looping, mtf_sit_fight),
+  ("DAC-Battle-Epic-25", "Battle/DAC-Battle-Epic-25.ogg", mtf_module_track|mtf_sit_ambushed|mtf_looping, mtf_sit_fight),
   ("DAC-Battle-Epic-27", "Battle/DAC-Battle-Epic-27.ogg", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
   ("DAC-Battle-Epic-28", "Battle/DAC-Battle-Epic-28.ogg", mtf_module_track|mtf_sit_ambushed, mtf_culture_all),
 
@@ -133,7 +136,7 @@ tracks = [
   ("DAC-Travel-France-11", "Travel/French/DAC-Travel-France-11.mp3", mtf_module_track|mtf_culture_1|mtf_sit_travel, mtf_sit_travel),
   ("DAC-Travel-France-12", "Travel/French/DAC-Travel-France-12.mp3", mtf_module_track|mtf_culture_1|mtf_sit_travel, mtf_sit_travel),
   ("DAC-Travel-France-13", "Travel/French/DAC-Travel-France-13.mp3", mtf_module_track|mtf_culture_1|mtf_sit_travel, mtf_sit_travel),
-  ("DAC-Travel-France-14", "Travel/French/DAC-Travel-France-14.mp3", mtf_module_track|mtf_culture_1|mtf_sit_travel|mtf_sit_travel, mtf_sit_travel),
+  ("DAC-Travel-France-14", "Travel/French/DAC-Travel-France-14.mp3", mtf_module_track|mtf_culture_1|mtf_sit_travel, mtf_sit_travel),
   ("DAC-Travel-France-15", "Travel/French/DAC-Travel-France-15.mp3", mtf_module_track|mtf_culture_1|mtf_sit_travel, mtf_sit_travel),
 
 # Burgandy

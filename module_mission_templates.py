@@ -3356,7 +3356,7 @@ mission_templates = [
       (10,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#40
      ],
      [
-     dedal_tavern_animations,
+     dedal_tavern_animations, common_player_helmet_toggle,
       (1, 0, ti_once, [],
       [
         (store_current_scene, ":cur_scene"),
@@ -3972,7 +3972,7 @@ mission_templates = [
        (troop_slot_ge, ":dead_agent_troop_no", slot_troop_mission_participation, mp_prison_break_fight),
        (troop_set_slot, ":dead_agent_troop_no", slot_troop_mission_participation, mp_prison_break_caught),
      (try_end),
-   ]), dac_footstep_sounds,
+   ]), dac_footstep_sounds, common_player_helmet_toggle,
   ]),
 
   (
@@ -4103,7 +4103,7 @@ mission_templates = [
     (else_try), #villagers?
       (call_script, "script_change_player_relation_with_center", "$current_town", -1),
     (try_end),
-   ]), dac_footstep_sounds,
+   ]), dac_footstep_sounds, common_player_helmet_toggle,
     ]
   ), 
 
@@ -4176,6 +4176,7 @@ mission_templates = [
          (try_end),
          (finish_mission),
          ]),
+         dac_footstep_sounds, common_player_helmet_toggle, common_player_weapon_toggle,
       ],
     ),
 
@@ -5989,6 +5990,8 @@ mission_templates = [
         (mission_enable_talk),
         (finish_mission, 0),
       ]),
+    dac_footstep_sounds, common_player_helmet_toggle, common_player_weapon_toggle,  
+      
     ],
   ),
 
