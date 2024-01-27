@@ -78270,10 +78270,10 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 	(call_script, "script_item_weapon_switch_with_next", "itm_h_oliphant_eyeslot_kettlehat_mail_aventail"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_h_martinus_kettlehat_3_mail_aventail"),
 
-	(call_script, "script_item_weapon_switch_with_next", "itm_h_eyeslot_kettlehat_1_hood_custom"),
-	(call_script, "script_item_weapon_switch_with_next", "itm_h_eyeslot_kettlehat_2_hood_custom"),
-	(call_script, "script_item_weapon_switch_with_next", "itm_h_oliphant_eyeslot_hood_custom"),
-	(call_script, "script_item_weapon_switch_with_next", "itm_h_martinus_kettlehat_3_hood_custom"),    
+	# (call_script, "script_item_weapon_switch_with_next", "itm_h_eyeslot_kettlehat_1_hood_custom"),
+	# (call_script, "script_item_weapon_switch_with_next", "itm_h_eyeslot_kettlehat_2_hood_custom"),
+	# (call_script, "script_item_weapon_switch_with_next", "itm_h_oliphant_eyeslot_hood_custom"),
+	# (call_script, "script_item_weapon_switch_with_next", "itm_h_martinus_kettlehat_3_hood_custom"),    
  ]),
 	 
 ("item_weapon_switch_with_next", [

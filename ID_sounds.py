@@ -189,3 +189,4 @@ snd_dac_town_horse_merchant = 187
 snd_dac_town_merchant = 188
 snd_dac_town_close_church = 189
 snd_dac_town_blacksmith = 190
+snd_helmet_open_close = 191

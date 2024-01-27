@@ -1409,7 +1409,8 @@ common_player_helmet_toggle = (
     (troop_get_inventory_slot_modifier, ":imod", "trp_player", 4),     
     (agent_unequip_item, ":player_agent", ":helmet", 4),
     (agent_equip_item, ":player_agent", ":alternate", 4,":imod"),
-    (agent_set_animation, ":player_agent", "anim_unequip_shield"),
+    (agent_set_animation, ":player_agent", "anim_unequip_shield", 1),
+    (play_sound, "snd_helmet_open_close"),
   ])
   
 

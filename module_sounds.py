@@ -233,6 +233,7 @@ sounds = [
 
 ("dac_town_blacksmith", sf_priority_3|sf_vol_8, ["dac_blacksmith_hammers1.wav","dac_blacksmith_hammers2.wav", "dac_blacksmith_hammers3.wav", "dac_blacksmith_tinkering1.wav", "dac_blacksmith_tinkering2.wav"]),
 
+("helmet_open_close",sf_priority_10|sf_vol_8, ["helmet.mp3"]),
 ]
 
 
