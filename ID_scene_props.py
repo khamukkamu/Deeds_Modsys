@@ -2490,3 +2490,5 @@ spr_spawn_camp_squire = 2488
 spr_spawn_camp_man_at_arms = 2489
 spr_spawn_camp_knight = 2490
 spr_limestone_white_fm_late_curtain_wall_2 = 2491
+spr_spawn_townsman = 2492
+spr_spawn_townswoman = 2493

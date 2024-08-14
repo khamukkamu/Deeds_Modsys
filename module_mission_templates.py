@@ -2561,13 +2561,19 @@ tournament_triggers_diplo = [
       (mission_enable_talk),
       (get_player_agent_no, ":player_agent"),
       (assign, ":team_set", 0),
+      
       (try_for_agents, ":agent_no"),
         (neq, ":agent_no", ":player_agent"),
         (agent_get_troop_id, ":troop_id", ":agent_no"),
-        (is_between, ":troop_id", regular_troops_begin, regular_troops_end),
-        (eq, ":team_set", 0),
-        (agent_set_team, ":agent_no", 1),
+        
+        (try_begin),
+            (is_between, ":troop_id", regular_troops_begin, regular_troops_end),
+            (eq, ":team_set", 0),
+            (agent_set_team, ":agent_no", 1),
+        (try_end),
+        
         (assign, ":team_set", 1),
+        
       (try_end),
     ]),
 ##
@@ -3019,13 +3025,19 @@ tournament_triggers = [
       (mission_enable_talk),
       (get_player_agent_no, ":player_agent"),
       (assign, ":team_set", 0),
+      
       (try_for_agents, ":agent_no"),
         (neq, ":agent_no", ":player_agent"),
         (agent_get_troop_id, ":troop_id", ":agent_no"),
-        (is_between, ":troop_id", regular_troops_begin, regular_troops_end),
-        (eq, ":team_set", 0),
-        (agent_set_team, ":agent_no", 1),
+        
+        (try_begin),
+            (is_between, ":troop_id", regular_troops_begin, regular_troops_end),
+            (eq, ":team_set", 0),
+            (agent_set_team, ":agent_no", 1),
+        (try_end),
+        
         (assign, ":team_set", 1),
+        
       (try_end),
     ]),
   

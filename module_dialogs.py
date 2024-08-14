@@ -37132,6 +37132,26 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 ##   [(assign, reg(2), 28),(val_sub,reg(2),reg(1)),(assign, "$g_town_visit_after_rest", 1),(rest_for_hours, reg(2)),(troop_remove_gold, "trp_player","$tavern_rest_cost"),(call_script, "script_change_player_party_morale", 2)]],
 ##  [anyone|plyr,"tavernkeeper_rest_2", [], "Forget it.", "close_window",[]],
 
+
+  [anyone|plyr,"tavernkeeper_talk",
+   [(store_num_regular_prisoners,reg0),(ge,reg0,1),(eq, "$sneaked_into_town",0),(store_skill_level, reg56, "skl_persuasion", "trp_player"),(gt, reg56, 0),],
+   "[Persuasion {reg56}] Say, I may have some two-legged cattle I want to be relieved of.", "tavernkeeper_sell_prisoners_all",[]],
+  [anyone,"tavernkeeper_sell_prisoners_all", [
+  (call_script, "script_dplmc_sell_all_prisoners", 0, 0),#do not actually sell
+  (store_num_regular_prisoners, reg2),
+  (val_sub, reg2, 1),
+  ],
+  "I may know some farmers...  I'll give you {reg0} crowns for your {reg1} {reg2?heads:head} of 'cattle'. I do keep a cut for facilitating the sale. Deal?", "ransom_broker_sell_prisoners_all_2", []],
+  [anyone|plyr,"tavernkeeper_sell_prisoners_all_2", [],
+   "We have a deal.", "tavernkeeper_sell_prisoners_all_2", [(call_script, "script_dplmc_sell_all_prisoners", 1, 0),
+   # #SB : objection
+   # (call_script, "script_objectionable_action", tmt_egalitarian, "str_sell_slavery"),
+   ]
+  ],
+  [anyone|plyr,"tavernkeeper_sell_prisoners_all_2", [],
+   "Let me think about it again.", "tavernkeeper_pretalk",[]],
+
+
   [anyone|plyr,"tavernkeeper_talk", [
       (store_current_hours,":cur_hours"),
       (val_sub, ":cur_hours", 24),
@@ -37465,42 +37485,42 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 #Tavern Talk (with ransom brokers)
 
 
-  [anyone,"start", [(is_between, "$g_talk_troop", ransom_brokers_begin, ransom_brokers_end),
-                    (eq, "$g_talk_troop_met", 0),
-					##diplomacy start+
-					#Use proper style of address in lieu of sir/madam if necessary (althoguh since these first-time
-					#meetings are likely to occur near the game's start, this will usually not make a difference).
-					(call_script, "script_dplmc_print_subordinate_says_sir_madame_to_s0"),#Write {sir/madame} or replacement to {s0}
-					],
-   "Greetings to you, {s0}. You look like someone who should get to know me.", "ransom_broker_intro",[]],#changed {sir/madam} to {s0}
-   ##diplomacy end+
+  # [anyone,"start", [(is_between, "$g_talk_troop", ransom_brokers_begin, ransom_brokers_end),
+                    # (eq, "$g_talk_troop_met", 0),
+					#diplomacy start+
+					# Use proper style of address in lieu of sir/madam if necessary (althoguh since these first-time
+					# meetings are likely to occur near the game's start, this will usually not make a difference).
+					# (call_script, "script_dplmc_print_subordinate_says_sir_madame_to_s0"),#Write {sir/madame} or replacement to {s0}
+					# ],
+   # "Greetings to you, {s0}. You look like someone who should get to know me.", "ransom_broker_intro",[]],#changed {sir/madam} to {s0}
+   #diplomacy end+
 
-  [anyone|plyr,"ransom_broker_intro",[], "Why is that?", "ransom_broker_intro_2",[]],
-  [anyone, "ransom_broker_intro_2", [], "I broker ransoms for the poor wretches who are captured in these endless wars.\
- Normally I travel between the salt mines and the slave markets on the coast, on commission from those whose relatives have gone missing.\
- But if I'm out on my errands of mercy, and I come across a fellow dragging around a captive or two,\
- well, there's no harm in a little speculative investment, is there?\
- And you look like the type who might have a prisoner to sell.", "ransom_broker_info_talk",[(assign, "$ransom_broker_families_told",0),
-                                                                                            (assign, "$ransom_broker_prices_told",0),
-                                                                                            (assign, "$ransom_broker_ransom_me_told",0),
-                                                                                            ]],
+  # [anyone|plyr,"ransom_broker_intro",[], "Why is that?", "ransom_broker_intro_2",[]],
+  # [anyone, "ransom_broker_intro_2", [], "I broker ransoms for the poor wretches who are captured in these endless wars.\
+ # Normally I travel between the salt mines and the slave markets on the coast, on commission from those whose relatives have gone missing.\
+ # But if I'm out on my errands of mercy, and I come across a fellow dragging around a captive or two,\
+ # well, there's no harm in a little speculative investment, is there?\
+ # And you look like the type who might have a prisoner to sell.", "ransom_broker_info_talk",[(assign, "$ransom_broker_families_told",0),
+                                                                                            # (assign, "$ransom_broker_prices_told",0),
+                                                                                            # (assign, "$ransom_broker_ransom_me_told",0),
+                                                                                            # ]],
 
-  [anyone|plyr,"ransom_broker_info_talk",[(eq, "$ransom_broker_families_told",0)], "What if their families can't pay?", "ransom_broker_families",[]],
-  [anyone, "ransom_broker_families", [], "Oh, then I spin them a few heartwarming tales of life on the galleys.\
- You'd be surprised what sorts of treasures a peasant can dig out of his cowshed or wheedle out of his cousins,\
- assuming he's got the proper motivation!\
- And if in the end they cannot come up with the silver, then there are always slave merchants who are looking for galley slaves.\
- One cannot do Heaven's work with an empty purse, you see.", "ransom_broker_info_talk",[(assign, "$ransom_broker_families_told",1)]],
-  [anyone|plyr,"ransom_broker_info_talk",[(eq, "$ransom_broker_prices_told",0)], "What can I get for a prisoner?", "ransom_broker_prices",[]],
-  [anyone, "ransom_broker_prices", [], "It varies. I fancy that I have a fine eye for assessing a ransom.\
- There are a dozen little things about a man that will tell you whether he goes to bed hungry, or dines each night on soft dumplings and goose.\
- The real money of course is in the gentry, and if you ever want to do my job you'll want to learn about every landowning family in France,\
- their estates, their heraldry, their offspring both lawful and bastard, and, of course, their credit with the merchants.", "ransom_broker_info_talk",[(assign, "$ransom_broker_prices_told",1)]],
-  [anyone|plyr,"ransom_broker_info_talk",[(eq, "$ransom_broker_ransom_me_told",0)], "Would you be able to ransom me if I were taken?", "ransom_broker_ransom_me",[]],
-  [anyone, "ransom_broker_ransom_me", [], "Of course. I'm welcome in every court in France.\
- There's not many who can say that! So always be sure to keep a pot of crowns buried somewhere,\
- and a loyal servant who can find it in a hurry.", "ransom_broker_info_talk",[(assign, "$ransom_broker_ransom_me_told",1)]],
-  [anyone|plyr,"ransom_broker_info_talk",[], "That's all I need to know. Thank you.", "ransom_broker_pretalk",[]],
+  # [anyone|plyr,"ransom_broker_info_talk",[(eq, "$ransom_broker_families_told",0)], "What if their families can't pay?", "ransom_broker_families",[]],
+  # [anyone, "ransom_broker_families", [], "Oh, then I spin them a few heartwarming tales of life on the galleys.\
+ # You'd be surprised what sorts of treasures a peasant can dig out of his cowshed or wheedle out of his cousins,\
+ # assuming he's got the proper motivation!\
+ # And if in the end they cannot come up with the silver, then there are always slave merchants who are looking for galley slaves.\
+ # One cannot do Heaven's work with an empty purse, you see.", "ransom_broker_info_talk",[(assign, "$ransom_broker_families_told",1)]],
+  # [anyone|plyr,"ransom_broker_info_talk",[(eq, "$ransom_broker_prices_told",0)], "What can I get for a prisoner?", "ransom_broker_prices",[]],
+  # [anyone, "ransom_broker_prices", [], "It varies. I fancy that I have a fine eye for assessing a ransom.\
+ # There are a dozen little things about a man that will tell you whether he goes to bed hungry, or dines each night on soft dumplings and goose.\
+ # The real money of course is in the gentry, and if you ever want to do my job you'll want to learn about every landowning family in France,\
+ # their estates, their heraldry, their offspring both lawful and bastard, and, of course, their credit with the merchants.", "ransom_broker_info_talk",[(assign, "$ransom_broker_prices_told",1)]],
+  # [anyone|plyr,"ransom_broker_info_talk",[(eq, "$ransom_broker_ransom_me_told",0)], "Would you be able to ransom me if I were taken?", "ransom_broker_ransom_me",[]],
+  # [anyone, "ransom_broker_ransom_me", [], "Of course. I'm welcome in every court in France.\
+ # There's not many who can say that! So always be sure to keep a pot of crowns buried somewhere,\
+ # and a loyal servant who can find it in a hurry.", "ransom_broker_info_talk",[(assign, "$ransom_broker_ransom_me_told",1)]],
+  # [anyone|plyr,"ransom_broker_info_talk",[], "That's all I need to know. Thank you.", "ransom_broker_pretalk",[]],
 
   [anyone,"start", [(is_between, "$g_talk_troop", ransom_brokers_begin, ransom_brokers_end),
   ],
@@ -44515,7 +44535,9 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
       (str_store_item_name, s1, ":slot_item"),],
     "{s1}.", "item_improve_1",
     [  (assign, "$repair_wielded_item_slot", ek_foot),]],
-  
+    
+  [anyone|plyr,"armorer_requested_repair_2", [],
+    "Never mind.", "merchant_trade",[]],  
   #armor fix end
   
 

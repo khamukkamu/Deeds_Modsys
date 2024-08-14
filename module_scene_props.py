@@ -43,6 +43,8 @@ def agent_spawner(troop_id):
         (eq, ":continue", 1),
         (spawn_agent, troop_id),
         (assign, ":agent_no", reg0),
+        (agent_set_is_alarmed, ":agent_no", 0),
+        (agent_set_team, ":agent_no", 7),
         
         # (agent_get_horse, ":horse", ":agent_no"),
         # (try_begin),
@@ -729,9 +731,9 @@ scene_props = [
   ("awning_a",0,"awning_a","bo_awning", []),
   ("awning_b",0,"awning_b","bo_awning", []),
   ("awning_c",0,"awning_c","bo_awning", []),
-  ("awning_long",0,"awning_long","bo_awning_long", []),
-  ("awning_long_b",0,"awning_long_b","bo_awning_long", []),
-  ("awning_d",0,"awning_d","bo_awning_d", []),
+  ("awning_long",0,"awning_long","0", []),
+  ("awning_long_b",0,"awning_long_b","0", []),
+  ("awning_d",0,"awning_d","0", []),
 
 
   ("ship",0,"ship","bo_ship", []),
@@ -4911,5 +4913,10 @@ scene_props = [
    
   ( "limestone_white_fm_late_curtain_wall_2"     ,0,"limestone_white_fm_late_curtain_wall_2","bo_limestone_white_fm_late_curtain_wall_2",[]),
 
-
+  ("spawn_townsman",sokf_invisible,"entry_arrow",0,    [
+    agent_spawner("trp_town_walker_1")
+   ]),
+  ("spawn_townswoman",sokf_invisible,"entry_arrow",0,    [
+    agent_spawner("trp_town_walker_2")
+   ]),
 ]
