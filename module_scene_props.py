@@ -4427,7 +4427,7 @@ scene_props = [
 # from 'DAC_props_town_houses_paris.brf': end (OpenBRF)
 
 # from 'DAC_props_town_houses_slate.brf': begin (OpenBRF)
-	( "slate_small_timber_frame_house_a"           ,0,"slate_small_timber_frame_house_a","0",[]),
+	( "slate_small_timber_frame_house_a"           ,0,"slate_small_timber_frame_house_a","bo_small_timber_frame_house_a",[]),
 	( "slate_tf_house_b"                           ,0,"slate_tf_house_b","bo_slate_tf_house_b",[]),
 	( "slate_tf_house_c"                           ,0,"slate_tf_house_c","bo_slate_tf_house_c",[]),
 	( "slate_town_house_a"                         ,0,"slate_town_house_a","bo_slate_town_house_a",[]),

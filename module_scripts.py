@@ -42134,7 +42134,7 @@ scripts = [
     
     (party_set_slot, ":new_camp", slot_party_type, spt_bandit_lair),
       
-    (party_set_flags, ":new_camp", pf_always_visible, 1),      
+    (party_set_flags, ":new_camp", pf_always_visible, 1),      ### DAC SEEK: DISABLE LATER!
     
     (str_store_party_name, s4, ":new_camp"),
     
@@ -81362,13 +81362,21 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
     (call_script, "script_dplmc_copy_inventory", "trp_english_heavy_footman_late", "trp_english_heavy_footman"),
     (call_script, "script_dplmc_copy_inventory", "trp_english_sergeant_late", "trp_english_sergeant"),
 
-
     (call_script, "script_dplmc_copy_inventory", "trp_english_man_at_arms_late", "trp_english_man_at_arms"),
     (call_script, "script_dplmc_copy_inventory", "trp_english_squire_late", "trp_english_squire"),
     (call_script, "script_dplmc_copy_inventory", "trp_english_knight_late", "trp_english_knight"),
     (call_script, "script_dplmc_copy_inventory", "trp_english_footman_at_arms_late", "trp_english_footman_at_arms"),
     (call_script, "script_dplmc_copy_inventory", "trp_english_dismounted_squire_late", "trp_english_dismounted_squire"),
     (call_script, "script_dplmc_copy_inventory", "trp_english_dismounted_knight_late", "trp_english_dismounted_knight"),
+
+    (call_script, "script_dplmc_copy_inventory", "trp_french_poor_pavoisier_late", "trp_french_poor_pavoisier"),
+    (call_script, "script_dplmc_copy_inventory", "trp_french_pavoisier_late", "trp_french_pavoisier"),
+    (call_script, "script_dplmc_copy_inventory", "trp_french_rich_pavoisier_late", "trp_french_rich_pavoisier"),
+    (call_script, "script_dplmc_copy_inventory", "trp_french_poor_guisarmier_late", "trp_french_poor_guisarmier"),
+    (call_script, "script_dplmc_copy_inventory", "trp_french_guisarmier_late", "trp_french_guisarmier"),
+    (call_script, "script_dplmc_copy_inventory", "trp_french_rich_guisarmier_late", "trp_french_rich_guisarmier"),
+    (call_script, "script_dplmc_copy_inventory", "trp_french_sergeant_late", "trp_french_sergeant"),
+
 
 
   ]),
