@@ -1666,7 +1666,15 @@ items = [
 ["a_padded_over_plate_sleeved_deco_2", "Decorated Longsleeved Padded over Plate", [("a_padded_over_plate_sleeved_1",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 2140 , weight(23)|abundance(100)|head_armor(0)|body_armor(54)|leg_armor(14)|difficulty(8) ,imodbits_armor , [reskin("@a_padded_over_plate_deco_2",0),],],
 ["a_padded_over_plate_sleeveless_deco_2", "Decorated Sleeveless Padded over Plate", [("a_padded_over_plate_sleeveless_1",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 2140 , weight(23)|abundance(100)|head_armor(0)|body_armor(54)|leg_armor(14)|difficulty(8) ,imodbits_armor , [reskin("@a_padded_over_plate_deco_2",0),add_mesh("@a_pistoia_mail_arms_light"),add_mesh("@a_pistoia_couters_1"),add_mesh("@a_pistoia_spaulders"),],],
 
-### Continental Plate
+### Continental Plate with Short mail sleeves
+["a_continental_plate_mail_short_a", "Plate Armour", [("a_english_plate_1415",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(8)|difficulty(7) ,imodbits_armor ,[add_mesh("@a_pistoia_mail_arms_light_nostrap"),add_mesh("@a_pistoia_couters_1"),]],
+["a_continental_plate_mail_short_b", "Plate Armour", [("a_english_plate_1415",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(8)|difficulty(7) ,imodbits_armor ,[add_mesh("@a_pistoia_mail_arms_light_nostrap"),add_mesh("@a_pistoia_couters_2"),]],
+["a_continental_plate_mail_short_c", "Plate Armour", [("a_english_plate_1415",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(8)|difficulty(7) ,imodbits_armor ,[add_mesh("@a_pistoia_mail_arms_light_nostrap"),add_mesh("@a_pistoia_couters_3"),]],
+
+### Continental Plate with Long mail sleeves
+["a_continental_plate_mail_a", "Plate Armour", [("a_english_plate_1415",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(8)|difficulty(7) ,imodbits_armor ,[add_mesh("@a_pistoia_mail_arms_light_nostrap"),add_mesh("@a_pistoia_mail_arms_plate"),]],
+
+### Continental Plate with Spaulders
 ["a_continental_plate_a", "Plate Armour", [("a_english_plate_1415",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(8)|difficulty(7) ,imodbits_armor ,[add_mesh("@a_pistoia_mail_arms_light"),add_mesh("@a_pistoia_spaulders"),add_mesh("@a_pistoia_couters_1"),]],
 ["a_continental_plate_b", "Plate Armour", [("a_english_plate_1415",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(8)|difficulty(7) ,imodbits_armor ,[add_mesh("@a_pistoia_mail_arms_light"),add_mesh("@a_pistoia_spaulders"),add_mesh("@a_pistoia_couters_2"),]],
 ["a_continental_plate_c", "Plate Armour", [("a_english_plate_1415",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 1320 , weight(19)|abundance(100)|head_armor(0)|body_armor(40)|leg_armor(8)|difficulty(7) ,imodbits_armor ,[add_mesh("@a_pistoia_mail_arms_light"),add_mesh("@a_pistoia_spaulders"),add_mesh("@a_pistoia_couters_3"),]],
