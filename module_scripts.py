@@ -42099,15 +42099,42 @@ scripts = [
          (spawn_around_party, ":party_no", "pt_deserters"),
          (assign, ":new_party", reg0),
          (store_troop_faction, ":faction_no", ":troop_no"),
-         (faction_get_slot, ":tier_1_troop", ":faction_no", slot_faction_tier_1_troop),
-         (store_character_level, ":level", "trp_player"),
-         (store_mul, ":max_number_to_add", ":level", 2),
-         (val_add, ":max_number_to_add", 11),
-         (store_random_in_range, ":number_to_add", 10, ":max_number_to_add"),
-         (party_add_members, ":new_party", ":tier_1_troop", ":number_to_add"),
+    ### DAC SEEK: Changes to deserter parties
+        (store_random_in_range, ":random_no", 0, 4),
+        (store_character_level, ":level", "trp_player"),
+        (try_begin), 
+            (lt, ":random_no", 2),
+            (faction_get_slot, ":tier_1_troop", ":faction_no", slot_faction_tier_1_troop),
+            (store_mul, ":max_number_to_add", ":level", 2),
+            (val_add, ":max_number_to_add", 11),
+            (store_random_in_range, ":number_to_add", 10, ":max_number_to_add"),
+            (party_add_members, ":new_party", ":tier_1_troop", ":number_to_add"),
+        (else_try),
+            (faction_get_slot, ":party_template_a", ":faction_no", slot_faction_reinforcements_a),
+            (faction_get_slot, ":party_template_b", ":faction_no", slot_faction_reinforcements_b),
+            (faction_get_slot, ":party_template_c", ":faction_no", slot_faction_reinforcements_c),
+            (assign, ":size", 1),
+            (val_div, ":level", 7),
+            (val_add, ":size", ":level"),
+            
+            (try_for_range, ":cur_i", 0, ":size"),
+                (store_random_in_range, ":random_no", 0, 10),
+                (try_begin),
+                    (lt, ":random_no", 5),
+                    (assign, ":template_no", ":party_template_a"),
+                (else_try),
+                    (gt, ":random_no", 6),
+                    (assign, ":template_no", ":party_template_b"),
+                (else_try),
+                    (assign, ":template_no", ":party_template_c"),
+                (try_end),
+                (party_add_template, ":new_party", ":template_no"),
+            (try_end),
+        (try_end), 
+    ### DAC SEEK END
          (store_random_in_range, ":random_no", 1, 4),
          (try_for_range, ":unused", 0, ":random_no"),
-           (party_upgrade_with_xp, ":new_party", 1000000, 0),
+           (party_upgrade_with_xp, ":new_party", 500000, 0), # DAC Seek: Halved
          (try_end),
        (try_end),
      (try_end), #deserters ends
@@ -75867,6 +75894,16 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (item_set_slot, "itm_a_light_gambeson_short_sleeves_diamond_custom", slot_item_materials_end, "str_a_light_gambeson_diamond_end"),   
       (item_set_slot, "itm_a_light_gambeson_short_sleeves_diamond_custom", slot_item_num_components, 1), 
       
+## Short Sleeved Light Gambeson Altichiero
+      (item_set_slot, "itm_a_light_gambeson_altichiero_nooxy_custom", slot_item_materials_begin, "str_a_light_gambeson_altichiero_nooxy_blue"),
+      (item_set_slot, "itm_a_light_gambeson_altichiero_nooxy_custom", slot_item_materials_end, "str_a_light_gambeson_altichiero_nooxy_end"),   
+      (item_set_slot, "itm_a_light_gambeson_altichiero_nooxy_custom", slot_item_num_components, 1), 
+ 
+## Short Sleeved Light Gambeson Altichiero Alternative
+      (item_set_slot, "itm_a_light_gambeson_altichiero_nooxy_alt_custom", slot_item_materials_begin, "str_a_light_gambeson_altichiero_nooxy_alt_beige"),
+      (item_set_slot, "itm_a_light_gambeson_altichiero_nooxy_alt_custom", slot_item_materials_end, "str_a_light_gambeson_altichiero_nooxy_alt_end"),   
+      (item_set_slot, "itm_a_light_gambeson_altichiero_nooxy_alt_custom", slot_item_num_components, 1), 
+ 
 ## Long Sleeved Light Gambeson
       (item_set_slot, "itm_a_light_gambeson_long_sleeves_custom", slot_item_materials_begin, "str_a_light_gambeson_blue"),
       (item_set_slot, "itm_a_light_gambeson_long_sleeves_custom", slot_item_materials_end, "str_a_light_gambeson_end"),   
@@ -78376,23 +78413,23 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 	(call_script, "script_item_weapon_switch_with_next", "itm_h_bascinet_4_gilded_visor_8_mail_aventail"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_h_bascinet_4_gilded_visor_9_mail_aventail"),
 
-	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_1_bascinet_visor_1_mail_collar"),
+	# (call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_1_bascinet_visor_1_mail_collar"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_1_bascinet_visor_1_mail_aventail"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_1_bascinet_visor_1_mail_collar_bevor"),
-	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_2_bascinet_visor_1_mail_collar"),
+	# (call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_2_bascinet_visor_1_mail_collar"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_2_bascinet_visor_1_mail_aventail"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_2_bascinet_visor_1_mail_collar_bevor"),
-	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_3_bascinet_visor_1_mail_collar"),
+	# (call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_3_bascinet_visor_1_mail_collar"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_3_bascinet_visor_1_mail_aventail"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_3_bascinet_visor_1_mail_collar_bevor"),
     
-	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_1_bascinet_visor_5_mail_collar"),
+	# (call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_1_bascinet_visor_5_mail_collar"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_1_bascinet_visor_5_mail_aventail"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_1_bascinet_visor_5_mail_collar_bevor"),
-	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_2_bascinet_visor_5_mail_collar"),
+	# (call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_2_bascinet_visor_5_mail_collar"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_2_bascinet_visor_5_mail_aventail"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_2_bascinet_visor_5_mail_collar_bevor"),
-	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_3_bascinet_visor_5_mail_collar"),
+	# (call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_3_bascinet_visor_5_mail_collar"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_3_bascinet_visor_5_mail_aventail"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_3_bascinet_visor_5_mail_collar_bevor"),
 
@@ -81376,6 +81413,10 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
     (call_script, "script_dplmc_copy_inventory", "trp_french_guisarmier_late", "trp_french_guisarmier"),
     (call_script, "script_dplmc_copy_inventory", "trp_french_rich_guisarmier_late", "trp_french_rich_guisarmier"),
     (call_script, "script_dplmc_copy_inventory", "trp_french_sergeant_late", "trp_french_sergeant"),
+
+    (call_script, "script_dplmc_copy_inventory", "trp_italian_light_infantry_late", "trp_italian_light_infantry"),
+    (call_script, "script_dplmc_copy_inventory", "trp_italian_infantry_late", "trp_italian_infantry"),
+    (call_script, "script_dplmc_copy_inventory", "trp_italian_heavy_infantry_late", "trp_italian_heavy_infantry"),
 
 
 

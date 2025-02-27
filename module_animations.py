@@ -124,7 +124,7 @@ animations = [
  ],
  ["stand_greatsword", 0, amf_client_prediction,
    # [6.0, "greatsword_cstance", 0, 91, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],  
-   [6.0, "twohanded_01", 0, 100, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],  
+   [8.0, "twohanded_01", 0, 100, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.25],  
  ],
  ["stand_staff", 0, amf_client_prediction,
    # [2.0, "staff_cstance", 0, 60, arf_use_stand_progress|arf_cyclic, 0, (0, 0, 0), 0.0],  

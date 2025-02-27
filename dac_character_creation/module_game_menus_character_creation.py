@@ -238,7 +238,7 @@ character_creation_menus = [
     ]),
 
     #DAC-Kham: Quick Scene Chooser for Dev
-    ("choose_scene",[],"Scene Chooser",
+    ("choose_scene",[(is_edit_mode_enabled),],"Scene Chooser",
       [(jump_to_menu, "mnu_choose_scenes_0"),]
     ),
 

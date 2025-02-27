@@ -17642,7 +17642,7 @@ presentations = [
     (str_store_troop_name, s1, "trp_disgruntled_farmer"),
     (overlay_add_item, "$g_presentation_obj_sliders_2", s1),   
 
-    (str_store_troop_name, s1, "trp_routier_knight"),
+    (str_store_string, s1, "@Italian Mercenaries"),
     (overlay_add_item, "$g_presentation_obj_sliders_2", s1),     
   (try_end),
 
@@ -17847,7 +17847,7 @@ presentations = [
       (store_div, "$troop_tree_pic_height", Troop_Tree_Area_Height, reg1),    
     (else_try),
       (eq, "$g_presentation_obj_sliders_2_val", 6),
-      (assign, ":troop", "trp_routier_knight"),
+      (assign, ":troop", "trp_italian_light_infantry"),
       (call_script, "script_troop_tree_precurse", ":troop", 1, 1),
       (store_div, "$troop_tree_pic_width", Troop_Tree_Area_Width, reg0),
       (store_div, "$troop_tree_pic_height", Troop_Tree_Area_Height, reg1),        

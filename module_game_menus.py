@@ -4083,9 +4083,37 @@ TOTAL:  {reg5}"),
 
   (
     "simple_encounter",mnf_enable_hot_keys|mnf_scale_picture,
-    "{s2} You have {reg10} troops fit for battle against their {reg11}.",
+    "{s2} ^You have {reg10} troops fit for battle against their {reg11}. ^^The battle will take place on a {s3}{s4}.",
     "none",
     [
+    ### DAC SEEK: Check Terrain Type
+        (try_begin),
+            (party_get_current_terrain, ":terrain_type", "p_main_party"),
+            (is_between, ":terrain_type", rt_mountain_forest, rt_forest+1),
+            (assign, ":scene_size", "$g_random_scene_size_forests"),
+            (str_store_string, s4, "@Forest"),
+        (else_try),
+            (assign, ":scene_size", "$g_random_scene_size"),        
+            (str_store_string, s4, "@Plain"),
+        (try_end),
+        
+        (try_begin),
+            (eq, ":scene_size", 0),
+            (str_store_string, s3, "@Small "),
+        (else_try),
+            (eq, ":scene_size", 1),
+            (str_store_string, s3, "@Medium "),
+        (else_try),
+            (eq, ":scene_size", 2),
+            (str_store_string, s3, "@Large "),
+        (else_try),
+            (eq, ":scene_size", 3),
+            (str_store_string, s3, "@Huge "),
+        (else_try),
+            (str_store_string, s3, "@Custom "),
+        (try_end),
+### DAC SEEK END
+        
         (assign, "$g_enemy_party", "$g_encountered_party"),
         (assign, "$g_ally_party", -1),
         (call_script, "script_encounter_calculate_fit"),
@@ -4294,6 +4322,7 @@ TOTAL:  {reg5}"),
         (try_end),
     ],
     [
+    
       ("encounter_attack",
       [
         (eq, "$encountered_party_friendly", 0),
@@ -4392,6 +4421,15 @@ TOTAL:  {reg5}"),
         (jump_to_menu, "mnu_order_attack_begin"),
         #(simulate_battle,3),
       ]),
+
+### DAC SEEK: Let the player pick the battlefield
+      ("encounter_select_options",[],
+      "Change your options or field of battle.",
+      [
+      (start_presentation, "prsnt_adv_diplomacy_preferences"),
+      
+      ]
+      ),
 
       ("encounter_leave",[
           (eq,"$cant_leave_encounter", 0),
@@ -5634,9 +5672,38 @@ TOTAL:  {reg5}"),
 
   (#SB : pic hotkeys
     "join_battle",mnf_enable_hot_keys,
-    "You are helping the {s2} against the {s1}. You have {reg10} troops fit for battle against the enemy's {reg11}.",
+    "You are helping the {s2} against the {s1}. You have {reg10} troops fit for battle against the enemy's {reg11}. ^^The battle will take place on a {s3}{s4}.",
     "none",
     [
+    
+    ### DAC SEEK: Check Terrain Type
+        (try_begin),
+            (party_get_current_terrain, ":terrain_type", "p_main_party"),
+            (is_between, ":terrain_type", rt_mountain_forest, rt_forest+1),
+            (assign, ":scene_size", "$g_random_scene_size_forests"),
+            (str_store_string, s4, "@Forest"),
+        (else_try),
+            (assign, ":scene_size", "$g_random_scene_size"),        
+            (str_store_string, s4, "@Plain"),
+        (try_end),
+        
+        (try_begin),
+            (eq, ":scene_size", 0),
+            (str_store_string, s3, "@Small "),
+        (else_try),
+            (eq, ":scene_size", 1),
+            (str_store_string, s3, "@Medium "),
+        (else_try),
+            (eq, ":scene_size", 2),
+            (str_store_string, s3, "@Large "),
+        (else_try),
+            (eq, ":scene_size", 3),
+            (str_store_string, s3, "@Huge "),
+        (else_try),
+            (str_store_string, s3, "@Custom "),
+        (try_end),
+### DAC SEEK END
+
         #SB : this needs to be called again at bottom
         (str_store_party_name, s1, "$g_enemy_party"),
         (str_store_party_name, s2, "$g_ally_party"),
@@ -5740,6 +5807,15 @@ TOTAL:  {reg5}"),
         (jump_to_menu,"mnu_join_order_attack"),
       ]),
 
+### DAC SEEK: Let the player pick the battlefield
+      ("encounter_select_options",[],
+      "Change your options or field of battle.",
+      [
+      (start_presentation, "prsnt_adv_diplomacy_preferences"),
+      
+      ]
+      ),
+      
       ("join_leave",[],"Leave.",
       [
         (try_begin),

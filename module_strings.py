@@ -5273,6 +5273,20 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("a_light_gambeson_diamond_white", "a_light_gambeson_diamond_white"),  
 ("a_light_gambeson_diamond_end", "a_light_gambeson_diamond_end"), 
 
+# Short Sleeved Light Gambeson Altichiero
+("a_light_gambeson_altichiero_nooxy_blue", "a_light_gambeson_altichiero_nooxy_blue"),  
+("a_light_gambeson_altichiero_nooxy_green", "a_light_gambeson_altichiero_nooxy_green"),  
+("a_light_gambeson_altichiero_nooxy_red", "a_light_gambeson_altichiero_nooxy_red"),  
+("a_light_gambeson_altichiero_nooxy_white", "a_light_gambeson_altichiero_nooxy_white"),  
+("a_light_gambeson_altichiero_nooxy_end", "a_light_gambeson_altichiero_nooxy_end"),  
+
+# Short Sleeved Light Gambeson Altichiero Alt
+("a_light_gambeson_altichiero_nooxy_alt_beige", "a_light_gambeson_altichiero_nooxy_alt_beige"),  
+("a_light_gambeson_altichiero_nooxy_alt_blue", "a_light_gambeson_altichiero_nooxy_alt_blue"),  
+("a_light_gambeson_altichiero_nooxy_alt_green", "a_light_gambeson_altichiero_nooxy_alt_green"),  
+("a_light_gambeson_altichiero_nooxy_alt_white", "a_light_gambeson_altichiero_nooxy_alt_white"),  
+("a_light_gambeson_altichiero_nooxy_alt_end", "a_light_gambeson_altichiero_nooxy_alt_end"),  
+
 # Long Sleeved Gambeson alt
 ("a_light_gambeson_long_sleeves_alt_beige", "a_light_gambeson_long_sleeves_alt_beige"),  
 ("a_light_gambeson_long_sleeves_alt_blue", "a_light_gambeson_long_sleeves_alt_blue"),  
@@ -5307,6 +5321,7 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("a_light_gambeson_long_sleeves_8_alt_blue",  "a_light_gambeson_long_sleeves_8_alt_blue"),  
 ("a_light_gambeson_long_sleeves_8_alt_brown", "a_light_gambeson_long_sleeves_8_alt_brown"),  
 ("a_light_gambeson_long_sleeves_8_alt_green", "a_light_gambeson_long_sleeves_8_alt_green"),  
+("a_light_gambeson_long_sleeves_8_alt_red", "a_light_gambeson_long_sleeves_8_alt_red"),  
 ("a_light_gambeson_long_sleeves_8_alt_white", "a_light_gambeson_long_sleeves_8_alt_white"),  
 ("a_light_gambeson_long_sleeves_8_alt_end",   "a_light_gambeson_long_sleeves_8_alt_end"),
 

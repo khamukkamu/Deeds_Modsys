@@ -216,6 +216,7 @@ dac_lancer_fix = (
   ti_on_agent_dismount, 0, 0, [
 	(store_trigger_param_1, ":agent"), 
 	# (store_trigger_param_2, ":horse"), 
+    (gt, ":agent", -1),
 	(agent_is_alive, ":agent"),
 	# (neg|agent_is_alive, ":horse"),	
 	(agent_is_non_player, ":agent"),
