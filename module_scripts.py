@@ -75214,8 +75214,8 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 	(troop_set_slot, "trp_knight_3_19", slot_troop_banner_scene_prop, "spr_banner_e08"), # Roland d'Uytkerke
 	(troop_set_slot, "trp_knight_3_20", slot_troop_banner_scene_prop, "spr_banner_e09"), # Thibaud VI de Rougemont
 
-	(troop_set_slot, "trp_knight_3_21", slot_troop_banner_scene_prop, "spr_banner_e15"), # Claude de Beauvoir	
-	(troop_set_slot, "trp_knight_3_22", slot_troop_banner_scene_prop, "spr_banner_e16"), # Jean des Mazis 
+	(troop_set_slot, "trp_knight_3_21", slot_troop_banner_scene_prop, "spr_banner_e16"), # Claude de Beauvoir	
+	(troop_set_slot, "trp_knight_3_22", slot_troop_banner_scene_prop, "spr_banner_e15"), # Jean des Mazis 
 
 # Breton Lords	
 	(troop_set_slot, "trp_knight_4_1", slot_troop_banner_scene_prop, "spr_banner_f11"), # Arthur de Richemont
@@ -76698,6 +76698,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
   (call_script, "script_cf_item_can_be_sold", ":item"), 
     (item_get_type, ":type", ":item"),
   (eq, ":type", itp_type_horse),
+  (neq, ":type", itp_type_animal),
   ]),
   ("cf_item_sold_by_temp_faction",
   [ (store_script_param, ":item", 1),

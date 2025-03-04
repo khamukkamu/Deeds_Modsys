@@ -2385,7 +2385,7 @@ DPLMC_CURRENT_VERSION_CODE = 190101
 DPLMC_VERSION_LOW_7_BITS = 68 #Number that comes after the rest of the version code
 
 DPLMC_DIPLOMACY_VERSION_STRING = "4.3+"
-DPLMC_NUM_PREFERENCE_OPTIONS = 22 #for prsnt_adv_diplomacy_preferences +1 for spacer
+DPLMC_NUM_PREFERENCE_OPTIONS = 23 #for prsnt_adv_diplomacy_preferences +1 for spacer
 
 # #Perform a check to make sure constants are defined in a reasonable way.
 # def _validate_constants(verbose=False):

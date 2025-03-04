@@ -1679,7 +1679,7 @@ triggers = [
   # DAC Seek: Call back the script to update troop inventories
   (1, 0, 1,
   [
-    (eq, "$armour_progression", 1),
+    (eq, "$armour_progression", 2),
     (call_script, "script_dac_check_troop_has_item", "trp_english_retinue_archer", "itm_a_padded_jack_surcoat_custom"),
     (assign, ":check_result", reg12),
     (eq, ":check_result", -1),

@@ -3483,6 +3483,8 @@ TOTAL:  {reg5}"),
         (try_end),
         ]
        ),
+       
+      ("trigger_armour_progression",[(eq, "$armour_progression", 3),],"Trigger Armour Progression.", [(jump_to_menu, "mnu_armour_progression_notification"),]),
 
       ("action_retire",[],"Retire from adventuring.", [(jump_to_menu, "mnu_retirement_verify"),]),
       ("camp_action_4",[],"Back to camp menu.", [(jump_to_menu, "mnu_camp"),]),
@@ -21827,13 +21829,13 @@ goods, and books will never be sold. ^^You can change some settings here freely.
        [],
     "Embrace Progress.",[
         (change_screen_return),
-        (assign, "$armour_progression", 1),
+        (assign, "$armour_progression", 2),
         (call_script, "script_dac_trigger_armour_progression"),
     ]),  
     ("reject_modernity",
        [],
     "Reject Progress.",[
-        (assign, "$armour_progression", 2),
+        (assign, "$armour_progression", 3),
         (jump_to_menu, "mnu_armour_progression_notification_declined"),
 
     ]),  
