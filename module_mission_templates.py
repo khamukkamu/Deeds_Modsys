@@ -16667,6 +16667,186 @@ mission_templates = [
          (finish_mission),
          ]),
       ]),
+      
+### DAC SEEK: Turning the mission into a mini-siege
+  (
+    "dac_bandit_lair",mtf_battle_mode|mtf_synch_inventory,charge,
+    "Ambushing a bandit lair",
+    [
+     (0,mtef_attackers|mtef_team_1,af_override_horse,aif_start_alarmed,12,[]),
+     (0,mtef_attackers|mtef_team_1,af_override_horse,aif_start_alarmed,0,[]),
+     (10,mtef_defenders|mtef_team_0,af_override_horse,aif_start_alarmed,0,[]),
+     (11,mtef_defenders|mtef_team_0,af_override_horse,aif_start_alarmed,7,[]),
+     (15,mtef_defenders|mtef_team_0,af_override_horse,aif_start_alarmed,0,[]),
+
+     (40,mtef_defenders|mtef_team_0|mtef_archers_first,af_override_horse,aif_start_alarmed,1,[]),
+     (41,mtef_defenders|mtef_team_0|mtef_archers_first,af_override_horse,aif_start_alarmed,1,[]),
+     (42,mtef_defenders|mtef_team_0|mtef_archers_first,af_override_horse,aif_start_alarmed,1,[]),
+     (43,mtef_defenders|mtef_team_0|mtef_archers_first,af_override_horse,aif_start_alarmed,1,[]),
+     (44,mtef_defenders|mtef_team_0|mtef_archers_first,af_override_horse,aif_start_alarmed,1,[]),
+     (45,mtef_defenders|mtef_team_0|mtef_archers_first,af_override_horse,aif_start_alarmed,1,[]),
+     (46,mtef_defenders|mtef_team_0|mtef_archers_first,af_override_horse,aif_start_alarmed,1,[]),   
+    ],
+    [
+        common_battle_init_banner,
+        common_inventory_not_available,
+        common_siege_init,
+        common_siege_ai_trigger_init,
+        common_siege_ai_trigger_init_2,
+        common_siege_ai_trigger_init_after_2_secs,
+        common_siege_defender_reinforcement_check,
+        common_siege_defender_reinforcement_archer_reposition,
+        common_siege_attacker_reinforcement_check,
+        # common_battle_order_panel,
+        common_battle_order_panel_tick,
+        # common_battle_tab_press,
+
+
+(
+  ti_tab_pressed, 0, 0, [],
+  [
+    (try_begin),
+      (eq, "$g_battle_won", 1),
+      # (call_script, "script_count_mission_casualties_from_agents"),
+      (party_set_slot, "$g_encountered_party", slot_party_ai_substate, 2),
+      (finish_mission,0),
+    ##diplomacy begin
+   (else_try),
+      (eq, "$g_dplmc_battle_continuation", 0),
+      ##diplomacy start+ Import Caba`drin's battle continuation fix
+      (this_or_next|main_hero_fallen),   #CABA EDIT/FIX FOR DEATH CAM
+      ##diplomacy end+
+      (eq, "$pin_player_fallen", 1),
+      (question_box,"str_do_you_want_to_retreat"),
+     (call_script, "script_simulate_retreat", 5, 20),
+     (str_store_string, s5, "str_retreat"),
+     # (call_script, "script_count_mission_casualties_from_agents"),
+     (set_mission_result, -1),
+     (finish_mission,0),
+    ##diplomacy end
+    (else_try),
+      (call_script, "script_cf_check_enemies_nearby"),
+      (question_box,"str_do_you_want_to_retreat"),
+    (else_try),
+      (display_message,"str_can_not_retreat"),
+    (try_end),
+    ]),
+
+      (ti_on_agent_killed_or_wounded, 0, 0, [],
+       [
+        (store_trigger_param_1, ":dead_agent_no"),
+        # (store_trigger_param_2, ":killer_agent_no"),
+        (store_trigger_param_3, ":is_wounded"),
+
+        (try_begin),
+          (ge, ":dead_agent_no", 0),
+          (neg|agent_is_ally, ":dead_agent_no"),
+          (agent_is_human, ":dead_agent_no"),
+          (agent_get_troop_id, ":dead_agent_troop_id", ":dead_agent_no"),
+          (str_store_troop_name, s6, ":dead_agent_troop_id"),
+          (try_begin),
+            (neg|agent_is_ally, ":dead_agent_no"),
+            (party_add_members, "p_total_enemy_casualties", ":dead_agent_troop_id", 1), #addition_to_p_total_enemy_casualties
+            (try_begin),
+              (eq, ":is_wounded", 1),
+              (party_wound_members, "p_total_enemy_casualties", ":dead_agent_troop_id", 1),
+            (try_end),
+          (try_end),
+
+          (party_add_members, "p_temp_casualties", ":dead_agent_troop_id", 1), #addition_to_p_total_enemy_casualties
+
+          (eq, ":is_wounded", 1),
+          (party_wound_members, "p_temp_casualties", ":dead_agent_troop_id", 1),
+        (try_end),
+       ]),
+
+
+      (0, 0, ti_once, [],
+       [
+         (call_script, "script_music_set_situation_with_culture", mtf_sit_ambushed),
+         (set_party_battle_mode),
+        ]),
+
+       (1, 4, ti_once,
+       [
+         (assign, ":continue", 0),
+         
+         (try_begin),
+           (store_mission_timer_a,":cur_time"),
+           (ge, ":cur_time", 5),
+           (this_or_next|main_hero_fallen),
+           (num_active_teams_le, 1),
+           (assign, ":continue", 1),
+         (try_end),
+
+         (eq, ":continue", 1),
+       ],
+       [
+         (try_begin),
+           (main_hero_fallen),
+         (else_try),
+           (party_set_slot, "$g_encountered_party", slot_party_ai_substate, 2),
+         (try_end),
+
+         (finish_mission),
+         ]),
+         
+        # ( 1, 60, ti_once,
+        # [
+        # (store_mission_timer_a,reg(1)),
+        # (ge,reg(1),10),
+        # (all_enemies_defeated, 5),
+        # diplomacy begin
+        # (this_or_next|eq, "$g_dplmc_battle_continuation", 0),
+        # (neg|main_hero_fallen),
+        # diplomacy end
+        # (set_mission_result,1),
+        # (display_message,"str_msg_battle_won"),
+        # (assign,"$g_battle_won",1),
+        # (assign, "$g_battle_result", 1),
+        # (call_script, "script_play_victorious_sound"),
+        # ],
+      # [
+        # (call_script, "script_count_mission_casualties_from_agents"),
+        # (finish_mission, 1),
+        # (party_set_slot, "$g_encountered_party", slot_party_ai_substate, 2),
+        # ]),
+         
+(
+  1, 4, 0,
+  [
+    (main_hero_fallen)
+    ],
+  [
+    ##diplomacy begin
+      (try_begin),
+        (call_script, "script_cf_dplmc_battle_continuation"),
+      (else_try),
+        ##diplomacy end
+        (assign, "$pin_player_fallen", 1),
+        (get_player_agent_no, ":player_agent"),
+        (agent_get_team, ":agent_team", ":player_agent"),
+        (try_begin),
+          (neq, "$attacker_team", ":agent_team"),
+          (neq, "$attacker_team_2", ":agent_team"),
+          (str_store_string, s5, "str_siege_continues"),
+          (call_script, "script_simulate_retreat", 8, 15, 0),
+        (else_try),
+          (str_store_string, s5, "str_retreat"),
+          (call_script, "script_simulate_retreat", 5, 20, 0),
+        (try_end),
+        (assign, "$g_battle_result", -1),
+        (set_mission_result,-1),
+        (call_script, "script_count_mission_casualties_from_agents"),
+        (finish_mission,0),
+        ##diplomacy begin
+      (try_end),
+    ##diplomacy end
+    ]),
+         
+      ]
+      + deeds_common_siege_scripts,
+      ),
 
   (
     "alley_fight", mtf_battle_mode,charge,

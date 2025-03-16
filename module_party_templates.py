@@ -83,11 +83,11 @@ party_templates = [
   # ("sea_raider_lair","Sea Raider Landing",icon_bandit_lair|carries_goods(2)|pf_is_static|pf_hide_defenders,0,fac_neutral,bandit_personality,[(trp_sea_raider,15,50)]),
   ("looter_lair","Kidnappers' Hideout",icon_bandit_lair|carries_goods(2)|pf_always_visible|pf_is_static|pf_hide_defenders,0,fac_neutral,bandit_personality,[(trp_looter,15,25)]),
  ### New Lairs
-  ("routier_lair","Routier Stronghold",icon_castle_e|carries_goods(2)|pf_always_visible|pf_is_static|pf_hide_defenders,0,fac_neutral,bandit_personality,[(trp_routier_knight,1,1),(trp_routier_crossbowman,4,12),(trp_routier_mounted_sergeant,2,12),(trp_routier_sergeant,1,4),(trp_routier_voulgier,2,6),(trp_routier_footman,4,12)]),
-  ("flayer_lair","Flayer Camp",icon_camp|carries_goods(2)|pf_always_visible|pf_is_static|pf_hide_defenders,0,fac_neutral,bandit_personality,[(trp_flayer_captain,1,1),(trp_flayer_infantry,4,12),(trp_flayer_fauchard,2,8),(trp_flayer_archer,2,8)]),
-  ("retondeur_lair","Retondeur Camp",icon_camp|carries_goods(2)|pf_always_visible|pf_is_static|pf_hide_defenders,0,fac_neutral,bandit_personality,[(trp_retondeur_horseman,2,8),(trp_retondeur_maceman,4,12),(trp_retondeur_crossbowman,2,8)]),
-  ("tard_venu_lair","Tard-Venu Occupied Village",icon_village_a|carries_goods(2)|pf_always_visible|pf_is_static|pf_hide_defenders,0,fac_neutral,bandit_personality,[(trp_tard_venu_militia,4,20),(trp_tard_venu_pikeman,4,12),(trp_tard_venu_archer,2,8)]),
-  ("angry_pleb_lair","Rebellious Village",icon_village_a|carries_goods(2)|pf_always_visible|pf_is_static|pf_hide_defenders,0,fac_neutral,bandit_personality,[(trp_disgruntled_farmer,4,20),(trp_irrate_hunter,4,12),(trp_furious_lumberjack,4,12)]),
+  ("routier_lair","Routier Stronghold",icon_castle_e|carries_goods(2)|pf_always_visible|pf_is_static,0,fac_neutral,bandit_personality,[(trp_routier_knight,1,1),(trp_routier_crossbowman,4,12),(trp_routier_mounted_sergeant,2,12),(trp_routier_sergeant,1,4),(trp_routier_voulgier,2,6),(trp_routier_footman,4,12)]),
+  ("flayer_lair","Flayer Camp",icon_camp|carries_goods(2)|pf_always_visible|pf_is_static,0,fac_neutral,bandit_personality,[(trp_flayer_captain,1,1),(trp_flayer_infantry,4,12),(trp_flayer_fauchard,2,8),(trp_flayer_archer,2,8)]),
+  ("retondeur_lair","Retondeur Camp",icon_camp|carries_goods(2)|pf_always_visible|pf_is_static,0,fac_neutral,bandit_personality,[(trp_retondeur_horseman,2,8),(trp_retondeur_maceman,4,12),(trp_retondeur_crossbowman,2,8)]),
+  ("tard_venu_lair","Tard-Venu Occupied Village",icon_village_a|carries_goods(2)|pf_always_visible|pf_is_static,0,fac_neutral,bandit_personality,[(trp_tard_venu_militia,4,20),(trp_tard_venu_pikeman,4,12),(trp_tard_venu_archer,2,8)]),
+  ("angry_pleb_lair","Rebellious Village",icon_village_a|carries_goods(2)|pf_always_visible|pf_is_static,0,fac_neutral,bandit_personality,[(trp_disgruntled_farmer,4,20),(trp_irrate_hunter,4,12),(trp_furious_lumberjack,4,12)]),
 
  
   ("bandit_lair_templates_end","{!}bandit_lair_templates_end",icon_axeman|carries_goods(2)|pf_is_static,0,fac_outlaws,bandit_personality,[(trp_looter,15,50)]),

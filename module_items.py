@@ -885,50 +885,50 @@ items = [
 
 
 ["h_pigface_klappvisor", "Pigface Klappvisor Bascinet", [("h_pigface_klappvisor",0)], itp_merchandise| itp_type_head_armor|itp_covers_head| itp_attach_armature,0, 
-3180 , weight(9)|abundance(100)|head_armor(60)|body_armor(12)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_scale_aventail_ogival", 0, 0),])]],
+3180 , weight(9)|abundance(100)|head_armor(60)|body_armor(12)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[add_mesh("@h_scale_aventail_ogival"),],],
 ["h_pigface_klappvisor_open", "Open Pigface Klappvisor Bascinet", [("h_pigface_klappvisor_open",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-3180 , weight(9)|abundance(100)|head_armor(60)|body_armor(12)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_scale_aventail_ogival", 0, 0),])]],
+3180 , weight(9)|abundance(100)|head_armor(60)|body_armor(12)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[add_mesh("@h_scale_aventail_ogival"),],],
 
 ["h_zitta_bascinet", "Zitta Bascinet", [("h_zitta_bascinet",0)], itp_merchandise| itp_type_head_armor|itp_covers_head| itp_attach_armature,0, 
-3180 , weight(9)|abundance(100)|head_armor(60)|body_armor(12)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_scale_aventail_zitta", 0, 0),])]],
+3180 , weight(9)|abundance(100)|head_armor(60)|body_armor(12)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[add_mesh("@h_scale_aventail_zitta"),],],
 ["h_zitta_bascinet_open", "Open Zitta Bascinet", [("h_zitta_bascinet_open",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-3180 , weight(9)|abundance(100)|head_armor(60)|body_armor(12)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_scale_aventail_zitta", 0, 0),])]],
+3180 , weight(9)|abundance(100)|head_armor(60)|body_armor(12)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[add_mesh("@h_scale_aventail_zitta"),],],
 
 ["h_wespe_bascinet_a", "German Bascinet", [("h_wespe_bascinet_a",0)], itp_merchandise| itp_type_head_armor|itp_covers_head| itp_attach_armature,0, 
-3180 , weight(9)|abundance(100)|head_armor(60)|body_armor(12)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_scale_aventail_wespe", 0, 0),])]],
+3180 , weight(9)|abundance(100)|head_armor(60)|body_armor(12)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[add_mesh("@h_scale_aventail_wespe"),],],
 ["h_wespe_bascinet_a_open", "Open German Bascinet", [("h_wespe_bascinet_a_open",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-3180 , weight(9)|abundance(100)|head_armor(60)|body_armor(12)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_scale_aventail_wespe", 0, 0),])]],
+3180 , weight(9)|abundance(100)|head_armor(60)|body_armor(12)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[add_mesh("@h_scale_aventail_wespe"),],],
 ["h_wespe_bascinet_b", "German Bascinet", [("h_wespe_bascinet_b",0)], itp_merchandise| itp_type_head_armor|itp_covers_head| itp_attach_armature,0, 
-3180 , weight(9)|abundance(100)|head_armor(60)|body_armor(12)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_scale_aventail_wespe", 0, 0),])]],
+3180 , weight(9)|abundance(100)|head_armor(60)|body_armor(12)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[add_mesh("@h_scale_aventail_wespe"),],],
 ["h_wespe_bascinet_b_open", "Open German Bascinet", [("h_wespe_bascinet_b_open",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-3180 , weight(9)|abundance(100)|head_armor(60)|body_armor(12)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_scale_aventail_wespe", 0, 0),])]],
+3180 , weight(9)|abundance(100)|head_armor(60)|body_armor(12)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[add_mesh("@h_scale_aventail_wespe"),],],
 ["h_wespe_bascinet_c", "German Bascinet", [("h_wespe_bascinet_c",0)], itp_merchandise| itp_type_head_armor|itp_covers_head| itp_attach_armature,0, 
-3180 , weight(9)|abundance(100)|head_armor(60)|body_armor(12)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_scale_aventail_wespe", 0, 0),])]],
+3180 , weight(9)|abundance(100)|head_armor(60)|body_armor(12)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[add_mesh("@h_scale_aventail_wespe"),],],
 ["h_wespe_bascinet_c_open", "Open German Bascinet", [("h_wespe_bascinet_c_open",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-3180 , weight(9)|abundance(100)|head_armor(60)|body_armor(12)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_scale_aventail_wespe", 0, 0),])]],
+3180 , weight(9)|abundance(100)|head_armor(60)|body_armor(12)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[add_mesh("@h_scale_aventail_wespe"),],],
 
 # Barbuta Base: 46;
 ["h_barbuta_1_mail_collar", "Barbuta with Mail Collar", [("h_barbuta_1",0)],  itp_type_head_armor| itp_attach_armature   ,0, 
-2070 , weight(6.5)|abundance(100)|head_armor(54)|body_armor(6)|leg_armor(0)|difficulty(9) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_mail_collar", 0, 0),])]],
+2070 , weight(6.5)|abundance(100)|head_armor(54)|body_armor(6)|leg_armor(0)|difficulty(9) ,imodbits_plate ,[add_mesh("@h_mail_collar"),],],
 ["h_barbuta_1_nasal_mail_collar", "Barbuta with Mail Collar", [("h_barbuta_1_nasal",0)],  itp_type_head_armor| itp_attach_armature   ,0, 
-2270 , weight(6.7)|abundance(100)|head_armor(56)|body_armor(6)|leg_armor(0)|difficulty(9) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_mail_collar", 0, 0),])]],
+2270 , weight(6.7)|abundance(100)|head_armor(56)|body_armor(6)|leg_armor(0)|difficulty(9) ,imodbits_plate ,[add_mesh("@h_mail_collar"),],],
 ["h_barbuta_1_mail_collar_bevor", "Barbuta with Mail Collar and Bevor", [("h_barbuta_1",0)],  itp_type_head_armor| itp_attach_armature   ,0, 
-2760 , weight(7.5)|abundance(100)|head_armor(58)|body_armor(10)|leg_armor(0)|difficulty(9) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_mail_collar_bevor", 0, 0),])]],
+2760 , weight(7.5)|abundance(100)|head_armor(58)|body_armor(10)|leg_armor(0)|difficulty(9) ,imodbits_plate ,[add_mesh("@h_mail_collar_bevor"),],],
 ["h_barbuta_1_nasal_mail_collar_bevor", "Barbuta with Mail Collar and Bevor", [("h_barbuta_1_nasal",0)],  itp_type_head_armor| itp_attach_armature   ,0, 
-2960 , weight(7.7)|abundance(100)|head_armor(60)|body_armor(10)|leg_armor(0)|difficulty(9) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_mail_collar_bevor", 0, 0),])]],
+2960 , weight(7.7)|abundance(100)|head_armor(60)|body_armor(10)|leg_armor(0)|difficulty(9) ,imodbits_plate ,[add_mesh("@h_mail_collar_bevor"),],],
 ["h_barbuta_2_mail_collar", "Barbuta with Mail Collar", [("h_barbuta_2",0)],  itp_type_head_armor| itp_attach_armature   ,0, 
-2070 , weight(6.5)|abundance(100)|head_armor(54)|body_armor(6)|leg_armor(0)|difficulty(9) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_mail_collar", 0, 0),])]],
+2070 , weight(6.5)|abundance(100)|head_armor(54)|body_armor(6)|leg_armor(0)|difficulty(9) ,imodbits_plate ,[add_mesh("@h_mail_collar"),],],
 ["h_barbuta_2_nasal_mail_collar", "Barbuta with Mail Collar", [("h_barbuta_2_nasal",0)],  itp_type_head_armor| itp_attach_armature   ,0, 
-2270 , weight(6.7)|abundance(100)|head_armor(56)|body_armor(6)|leg_armor(0)|difficulty(9) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_mail_collar", 0, 0),])]],
+2270 , weight(6.7)|abundance(100)|head_armor(56)|body_armor(6)|leg_armor(0)|difficulty(9) ,imodbits_plate ,[add_mesh("@h_mail_collar"),],],
 ["h_barbuta_2_mail_collar_bevor", "Barbuta with Mail Collar and Bevor", [("h_barbuta_2",0)],  itp_type_head_armor| itp_attach_armature   ,0, 
-2760 , weight(7.5)|abundance(100)|head_armor(58)|body_armor(10)|leg_armor(0)|difficulty(9) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_mail_collar_bevor", 0, 0),])]],
+2760 , weight(7.5)|abundance(100)|head_armor(58)|body_armor(10)|leg_armor(0)|difficulty(9) ,imodbits_plate ,[add_mesh("@h_mail_collar_bevor"),],],
 ["h_barbuta_2_nasal_mail_collar_bevor", "Barbuta with Mail Collar and Bevor", [("h_barbuta_2_nasal",0)],  itp_type_head_armor| itp_attach_armature   ,0, 
-2960 , weight(7.7)|abundance(100)|head_armor(60)|body_armor(10)|leg_armor(0)|difficulty(9) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_mail_collar_bevor", 0, 0),])]],
+2960 , weight(7.7)|abundance(100)|head_armor(60)|body_armor(10)|leg_armor(0)|difficulty(9) ,imodbits_plate ,[add_mesh("@h_mail_collar_bevor"),],],
 
 ["h_barbuta_nooxy_1_mail_collar", "Barbuta with Mail Collar", [("h_barbuta_nooxy_1",0)],  itp_type_head_armor| itp_attach_armature   ,0, 
-2070 , weight(6.5)|abundance(100)|head_armor(54)|body_armor(6)|leg_armor(0)|difficulty(9) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_mail_collar", 0, 0),])]],
+2070 , weight(6.5)|abundance(100)|head_armor(54)|body_armor(6)|leg_armor(0)|difficulty(9) ,imodbits_plate ,[add_mesh("@h_mail_collar"),],],
 ["h_barbuta_nooxy_2_mail_collar", "Barbuta with Mail Collar", [("h_barbuta_nooxy_2",0)],  itp_type_head_armor| itp_attach_armature   ,0, 
-2070 , weight(6.5)|abundance(100)|head_armor(54)|body_armor(6)|leg_armor(0)|difficulty(9) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_mail_collar", 0, 0),])]],
+2070 , weight(6.5)|abundance(100)|head_armor(54)|body_armor(6)|leg_armor(0)|difficulty(9) ,imodbits_plate ,[add_mesh("@h_mail_collar"),],],
 ["h_barbuta_nooxy_3", "Barbuta", [("h_barbuta_nooxy_3",0)],  itp_type_head_armor| itp_attach_armature   ,0, 
 2350 , weight(5)|abundance(100)|head_armor(58)|body_armor(2)|leg_armor(0)|difficulty(9) ,imodbits_plate ],
 
@@ -1178,82 +1178,82 @@ items = [
 1380 , weight(7)|abundance(100)|head_armor(46)|body_armor(10)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[add_mesh("@h_mail_collar_bevor"),],],
 
 # ["h_sallet_curved_mail_collar", "Sallet Helmet with Mail Collar", [("h_sallet_curved",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-# 1035 , weight(6)|abundance(100)|head_armor(42)|body_armor(6)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_mail_collar", 0, 0),])]],
+# 1035 , weight(6)|abundance(100)|head_armor(42)|body_armor(6)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_mail_collar", 0, 0),])]], 
 ["h_sallet_curved_mail_aventail", "Sallet Helmet with Mail Aventail", [("h_sallet_curved",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-1240 , weight(6.5)|abundance(100)|head_armor(44)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_mail_aventail_chinstrap_asher", 0, 0),])]],
+1240 , weight(6.5)|abundance(100)|head_armor(44)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[add_mesh("@h_mail_aventail_chinstrap_asher"),],],
 ["h_sallet_curved_mail_collar_bevor", "Sallet Helmet with Bevor", [("h_sallet_curved",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-1380 , weight(7)|abundance(100)|head_armor(46)|body_armor(10)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_mail_collar_bevor", 0, 0)])]],
+1380 , weight(7)|abundance(100)|head_armor(46)|body_armor(10)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[add_mesh("@h_mail_collar_bevor"),],],
 
 # Eyeslot Kettlehat Base: 30; Hood: 4,2; Padding: 6,4; mail collar: 8,6; mail aventail: 10,8; mail collar with bevor: 14,12;
 ["h_eyeslot_kettlehat_1_mail_aventail", "Eyeslot Kettle Helmet with Mail Aventail", [("h_eyeslot_kettlehat_1",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-932 , weight(6.3)|abundance(100)|head_armor(40)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_mail_aventail_chinstrap_asher", 0, 0),])]],
+932 , weight(6.3)|abundance(100)|head_armor(40)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[add_mesh("@h_mail_aventail_chinstrap_asher"),],],
 ["h_eyeslot_kettlehat_1_raised_mail_aventail", "Eyeslot Kettle Helmet with Mail Aventail", [("h_eyeslot_kettlehat_1_raised",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-932 , weight(6.3)|abundance(100)|head_armor(40)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_mail_aventail_chinstrap_asher", 0, 0),])]],
+932 , weight(6.3)|abundance(100)|head_armor(40)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[add_mesh("@h_mail_aventail_chinstrap_asher"),],],
 ["h_eyeslot_kettlehat_2_mail_aventail", "Eyeslot Kettle Helmet with Mail Aventail", [("h_eyeslot_kettlehat_2",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-932 , weight(6.3)|abundance(100)|head_armor(40)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_mail_aventail_chinstrap_asher", 0, 0),])]],
+932 , weight(6.3)|abundance(100)|head_armor(40)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[add_mesh("@h_mail_aventail_chinstrap_asher"),],],
 ["h_eyeslot_kettlehat_2_raised_mail_aventail", "Eyeslot Kettle Helmet with Mail Aventail", [("h_eyeslot_kettlehat_2_raised",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-932 , weight(6.3)|abundance(100)|head_armor(40)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_mail_aventail_chinstrap_asher", 0, 0),])]],
+932 , weight(6.3)|abundance(100)|head_armor(40)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[add_mesh("@h_mail_aventail_chinstrap_asher"),],],
 ["h_eyeslot_kettlehat_3_mail_aventail", "Eyeslot Kettle Helmet with Mail Aventail", [("h_eyeslot_kettlehat_3",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-932 , weight(6.3)|abundance(100)|head_armor(40)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_mail_aventail_chinstrap_asher", 0, 0),])]],
+932 , weight(6.3)|abundance(100)|head_armor(40)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[add_mesh("@h_mail_aventail_chinstrap_asher"),],],
 ["h_oliphant_eyeslot_kettlehat_mail_aventail", "Eyeslot Kettle Helmet with Mail Aventail", [("h_oliphant_eyeslot_kettlehat",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-932 , weight(6.3)|abundance(100)|head_armor(40)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_mail_aventail_chinstrap_asher", 0, 0),])]],
+932 , weight(6.3)|abundance(100)|head_armor(40)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[add_mesh("@h_mail_aventail_chinstrap_asher"),],],
 ["h_oliphant_eyeslot_kettlehat_raised_mail_aventail", "Eyeslot Kettle Helmet with Mail Aventail", [("h_oliphant_eyeslot_kettlehat_raised",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-932 , weight(6.3)|abundance(100)|head_armor(40)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_mail_aventail_chinstrap_asher", 0, 0),])]],
+932 , weight(6.3)|abundance(100)|head_armor(40)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[add_mesh("@h_mail_aventail_chinstrap_asher"),],],
 ["h_martinus_kettlehat_3_mail_aventail", "Eyeslot Kettle Helmet with Mail Aventail", [("h_martinus_kettlehat_3",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-932 , weight(6.3)|abundance(100)|head_armor(40)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_mail_aventail_chinstrap_asher", 0, 0),])]],
+932 , weight(6.3)|abundance(100)|head_armor(40)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[add_mesh("@h_mail_aventail_chinstrap_asher"),],],
 ["h_martinus_kettlehat_3_raised_mail_aventail", "Eyeslot Kettle Helmet with Mail Aventail", [("h_martinus_kettlehat_3_raised",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-932 , weight(6.3)|abundance(100)|head_armor(40)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_mail_aventail_chinstrap_asher", 0, 0),])]],
+932 , weight(6.3)|abundance(100)|head_armor(40)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[add_mesh("@h_mail_aventail_chinstrap_asher"),],],
 
 
 # Oliphant Kettlehat Base: 28; Hood: 4,2; Padding: 6,4; mail collar: 8,6; mail aventail: 10,8; mail collar with bevor: 14,12;
 ["h_oliphant_kettlehat_mail_aventail", "Oliphant Kettle Helmet with Mail Aventail", [("h_oliphant_kettlehat",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-880 , weight(6.1)|abundance(100)|head_armor(38)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_mail_aventail_chinstrap_asher", 0, 0),])]],
+880 , weight(6.1)|abundance(100)|head_armor(38)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[add_mesh("@h_mail_aventail_chinstrap_asher"),],],
 
 # Martinus Kettlehat Base: 26; Hood: 4,2; Padding: 6,4; mail collar: 8,6; mail aventail: 10,8; mail collar with bevor: 14,12;
 ["h_martinus_kettlehat_1_mail_aventail", "Kettle Helmet with Mail Aventail", [("h_martinus_kettlehat_1",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-770 , weight(5.9)|abundance(100)|head_armor(36)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_mail_aventail_chinstrap_asher", 0, 0),])]],
+770 , weight(5.9)|abundance(100)|head_armor(36)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[add_mesh("@h_mail_aventail_chinstrap_asher"),],],
 
 ["h_martinus_kettlehat_2_mail_aventail", "Kettle Helmet with Mail Aventail", [("h_martinus_kettlehat_2",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-770 , weight(5.9)|abundance(100)|head_armor(36)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_mail_aventail_chinstrap_asher", 0, 0),])]],
+770 , weight(5.9)|abundance(100)|head_armor(36)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[add_mesh("@h_mail_aventail_chinstrap_asher"),],],
 
 # Chapel de Fer Base: 24; Hood: 4,2; Padding: 6,4; mail collar: 8,6; mail aventail: 10,8; mail collar with bevor: 14,12;
 ["h_chapel_de_fer_mail_aventail", "Chapel de Fer with Mail Aventail", [("h_chapel_de_fer",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-770 , weight(5.9)|abundance(100)|head_armor(36)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_mail_aventail_chinstrap_asher", 0, 0),])]],
+770 , weight(5.9)|abundance(100)|head_armor(36)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[add_mesh("@h_mail_aventail_chinstrap_asher"),],],
 
 # German Kettlehat Base: 24; Hood: 4,2; Padding: 6,4; mail collar: 8,6; mail aventail: 10,8; mail collar with bevor: 14,12;
 ["h_german_kettlehat_1_mail_aventail", "German Kettle Hat with Mail Aventail", [("h_german_kettlehat_1",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-770 , weight(5.9)|abundance(100)|head_armor(36)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_mail_aventail_chinstrap_asher", 0, 0),])]],
+770 , weight(5.9)|abundance(100)|head_armor(36)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[add_mesh("@h_mail_aventail_chinstrap_asher"),],],
 ["h_german_kettlehat_2_mail_aventail", "German Kettle Hat with Mail Aventail", [("h_german_kettlehat_2",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-770 , weight(5.9)|abundance(100)|head_armor(36)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_mail_aventail_chinstrap_asher", 0, 0),])]],
+770 , weight(5.9)|abundance(100)|head_armor(36)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[add_mesh("@h_mail_aventail_chinstrap_asher"),],],
 ["h_german_kettlehat_3_mail_aventail", "German Kettle Hat with Mail Aventail", [("h_german_kettlehat_3",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-770 , weight(5.9)|abundance(100)|head_armor(36)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_mail_aventail_chinstrap_asher", 0, 0),])]],
+770 , weight(5.9)|abundance(100)|head_armor(36)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[add_mesh("@h_mail_aventail_chinstrap_asher"),],],
 ["h_german_kettlehat_4_mail_aventail", "German Kettle Hat with Mail Aventail", [("h_german_kettlehat_4",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-770 , weight(5.9)|abundance(100)|head_armor(36)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_mail_aventail_chinstrap_asher", 0, 0),])]],
+770 , weight(5.9)|abundance(100)|head_armor(36)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[add_mesh("@h_mail_aventail_chinstrap_asher"),],],
 ["h_german_kettlehat_5_mail_aventail", "German Kettle Hat with Mail Aventail", [("h_german_kettlehat_5",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-770 , weight(5.9)|abundance(100)|head_armor(36)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_mail_aventail_chinstrap_asher", 0, 0),])]],
+770 , weight(5.9)|abundance(100)|head_armor(36)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[add_mesh("@h_mail_aventail_chinstrap_asher"),],],
 ["h_german_kettlehat_6_mail_aventail", "German Kettle Hat with Mail Aventail", [("h_german_kettlehat_6",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-770 , weight(5.9)|abundance(100)|head_armor(36)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_mail_aventail_chinstrap_asher", 0, 0),])]],
+770 , weight(5.9)|abundance(100)|head_armor(36)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[add_mesh("@h_mail_aventail_chinstrap_asher"),],],
 ["h_german_kettlehat_7_mail_aventail", "German Kettle Hat with Mail Aventail", [("h_german_kettlehat_7",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-700 , weight(5.9)|abundance(100)|head_armor(36)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_mail_aventail_chinstrap_asher", 0, 0),])]],
+700 , weight(5.9)|abundance(100)|head_armor(36)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[add_mesh("@h_mail_aventail_chinstrap_asher"),],],
 
 # Makeshift Kettle Base: 22; Hood: 4,2; Padding: 6,4; mail collar: 8,6; mail aventail: 10,8; mail collar with bevor: 14,12;
 ["h_makeshift_kettle_mail_aventail", "Makeshift Kettlehat with Mail Coif", [("h_makeshift_kettle",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-690 , weight(5.7)|abundance(100)|head_armor(34)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_mail_aventail_chinstrap_asher", 0, 0),])]],
+690 , weight(5.7)|abundance(100)|head_armor(34)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[add_mesh("@h_mail_aventail_chinstrap_asher"),],],
 
 # Cerveliere Base: 20; Hood: 4,2; Padding: 6,4; mail collar: 8,6; mail aventail: 10,8; mail collar with bevor: 14,12;
 ["h_cervelliere_mail_aventail", "Cervelliere with Mail Coif", [("h_cervelliere",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-576 , weight(5.1)|abundance(100)|head_armor(30)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_mail_aventail_chinstrap_asher", 0, 0),])]],
+576 , weight(5.1)|abundance(100)|head_armor(30)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[add_mesh("@h_mail_aventail_chinstrap_asher"),],],
 ["h_cervelliere_roundels_mail_aventail", "Cervelliere with Roundels and Mail Coif", [("h_cervelliere_roundel",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-604 , weight(5.3)|abundance(100)|head_armor(32)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_mail_aventail_chinstrap_asher", 0, 0),])]],
+604 , weight(5.3)|abundance(100)|head_armor(32)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[add_mesh("@h_mail_aventail_chinstrap_asher"),],],
 
 # Skullcap Base: 18; Hood: 4,2; Padding: 6,4; mail collar: 8,6; mail aventail: 10,8; mail collar with bevor: 14,12;
 ["h_simple_cervelliere_mail_aventail", "Cervelliere with Mail Aventail", [("h_simple_cervelliere",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-576 , weight(5.1)|abundance(100)|head_armor(30)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_mail_aventail_chinstrap_asher", 0, 0),])]],
+576 , weight(5.1)|abundance(100)|head_armor(30)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[add_mesh("@h_mail_aventail_chinstrap_asher"),],],
 ["h_simple_cervelliere_2_mail_aventail", "Cervelliere with Mail Aventail", [("h_simple_cervelliere_2",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-576 , weight(5.1)|abundance(100)|head_armor(30)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_mail_aventail_chinstrap_asher", 0, 0),])]],
+576 , weight(5.1)|abundance(100)|head_armor(30)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[add_mesh("@h_mail_aventail_chinstrap_asher"),],],
 
 ["h_skullcap_mail_aventail", "Skullcap with Mail Aventail", [("h_skullcap",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-504 , weight(5)|abundance(100)|head_armor(28)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_mail_aventail_chinstrap_asher", 0, 0),])]],
+504 , weight(5)|abundance(100)|head_armor(28)|body_armor(8)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[add_mesh("@h_mail_aventail_chinstrap_asher"),],],
 
 # Sallet Base: 34; Hood: 4,2; Padding: 6,4; mail collar: 8,6; mail aventail: 10,8; scale aventail: 12,10; mail collar with bevor: 14,12;
 ["h_sallet_strap", "Sallet Helmet", [("h_sallet",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
@@ -1270,51 +1270,51 @@ items = [
 
 # Chapel de Fer Base: 24; Hood: 4,2; Padding: 6,4; mail collar: 8,6; mail aventail: 10,8; mail collar with bevor: 14,12;
 ["h_chapel_de_fer_strap", "Chapel de Fer", [("h_chapel_de_fer",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-432 , weight(2.4)|abundance(100)|head_armor(26)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_chinstrap_tight", 0, 0),])]],
+432 , weight(2.4)|abundance(100)|head_armor(26)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[add_mesh("@h_chinstrap_tight"),],],
 
 # German Kettlehat Base: 24; Hood: 4,2; Padding: 6,4; mail collar: 8,6; mail aventail: 10,8; mail collar with bevor: 14,12;
 ["h_german_kettlehat_1_strap", "German Kettle Hat", [("h_german_kettlehat_1",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-432 , weight(2.4)|abundance(100)|head_armor(26)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_chinstrap_tight", 0, 0),])]],
+432 , weight(2.4)|abundance(100)|head_armor(26)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[add_mesh("@h_chinstrap_tight"),],],
 ["h_german_kettlehat_2_strap", "German Kettle Hat", [("h_german_kettlehat_2",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-432 , weight(2.4)|abundance(100)|head_armor(26)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_chinstrap_tight", 0, 0),])]],
+432 , weight(2.4)|abundance(100)|head_armor(26)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[add_mesh("@h_chinstrap_tight"),],],
 ["h_german_kettlehat_3_strap", "German Kettle Hat", [("h_german_kettlehat_3",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-432 , weight(2.4)|abundance(100)|head_armor(26)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_chinstrap_tight", 0, 0),])]],
+432 , weight(2.4)|abundance(100)|head_armor(26)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[add_mesh("@h_chinstrap_tight"),],],
 ["h_german_kettlehat_4_strap", "German Kettle Hat", [("h_german_kettlehat_4",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-432 , weight(2.4)|abundance(100)|head_armor(26)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_chinstrap_tight", 0, 0),])]],
+432 , weight(2.4)|abundance(100)|head_armor(26)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[add_mesh("@h_chinstrap_tight"),],],
 ["h_german_kettlehat_5_strap", "German Kettle Hat", [("h_german_kettlehat_5",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-432 , weight(2.4)|abundance(100)|head_armor(26)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_chinstrap_tight", 0, 0),])]],
+432 , weight(2.4)|abundance(100)|head_armor(26)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[add_mesh("@h_chinstrap_tight"),],],
 ["h_german_kettlehat_6_strap", "German Kettle Hat", [("h_german_kettlehat_6",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-432 , weight(2.4)|abundance(100)|head_armor(26)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_chinstrap_tight", 0, 0),])]],
+432 , weight(2.4)|abundance(100)|head_armor(26)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[add_mesh("@h_chinstrap_tight"),],],
 ["h_german_kettlehat_7_strap", "German Kettle Hat", [("h_german_kettlehat_7",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-432 , weight(2.4)|abundance(100)|head_armor(26)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_chinstrap_tight", 0, 0),])]],
+432 , weight(2.4)|abundance(100)|head_armor(26)|body_armor(0)|leg_armor(0)|difficulty(7) ,imodbits_plate ,[add_mesh("@h_chinstrap_tight"),],],
 
 # Makeshift Kettle Base: 22; Hood: 4,2; Padding: 6,4; mail collar: 8,6; mail aventail: 10,8; mail collar with bevor: 14,12;
 ["h_makeshift_kettle_strap", "Makeshift Kettlehat", [("h_makeshift_kettle",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-384 , weight(2.2)|abundance(100)|head_armor(24)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_chinstrap_tight", 0, 0),])]],
+384 , weight(2.2)|abundance(100)|head_armor(24)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_plate ,[add_mesh("@h_chinstrap_tight"),],],
 
 # Cerveliere Base: 20; Hood: 4,2; Padding: 6,4; mail collar: 8,6; mail aventail: 10,8; mail collar with bevor: 14,12;
 ["h_cervelliere_strap", "Cervelliere", [("h_cervelliere",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-320 , weight(1.6)|abundance(100)|head_armor(20)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_chinstrap_tight", 0, 0),])]],
+320 , weight(1.6)|abundance(100)|head_armor(20)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_plate ,[add_mesh("@h_chinstrap_tight"),],],
 ["h_cervelliere_roundel_strap", "Cervelliere with Roundels", [("h_cervelliere_roundel",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-336 , weight(1.8)|abundance(100)|head_armor(22)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_chinstrap_tight", 0, 0),])]],
+336 , weight(1.8)|abundance(100)|head_armor(22)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_plate ,[add_mesh("@h_chinstrap_tight"),],],
 
 # Skullcap Base: 18; Hood: 4,2; Padding: 6,4; mail collar: 8,6; mail aventail: 10,8; mail collar with bevor: 14,12;
 ["h_simple_cervelliere_strap", "Cervelliere", [("h_simple_cervelliere",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-320 , weight(1.6)|abundance(100)|head_armor(20)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_chinstrap_tight", 0, 0),])]],
+320 , weight(1.6)|abundance(100)|head_armor(20)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_plate ,[add_mesh("@h_chinstrap_tight"),],],
 ["h_simple_cervelliere_2_strap", "Cervelliere", [("h_simple_cervelliere_2",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-320 , weight(1.6)|abundance(100)|head_armor(20)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_chinstrap_tight", 0, 0),])]],
+320 , weight(1.6)|abundance(100)|head_armor(20)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_plate ,[add_mesh("@h_chinstrap_tight"),],],
 
 ["h_skullcap_strap", "Skullcap", [("h_skullcap",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-280 , weight(1.5)|abundance(100)|head_armor(18)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_chinstrap_tight", 0, 0),])]],
+280 , weight(1.5)|abundance(100)|head_armor(18)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_plate ,[add_mesh("@h_chinstrap_tight"),],],
 
 ["h_shingle_helmet_strap", "Shingle Helmet", [("h_shingle_helmet",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-320 , weight(2.2)|abundance(100)|head_armor(20)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_chinstrap_tight", 0, 0),])]],
+320 , weight(2.2)|abundance(100)|head_armor(20)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_plate ,[add_mesh("@h_chinstrap_tight"),],],
 
 ["h_rope_helmet_strap", "Rope Helmet", [("h_rope_helmet",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-216 , weight(1.2)|abundance(100)|head_armor(14)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_chinstrap_tight", 0, 0),])]],
+216 , weight(1.2)|abundance(100)|head_armor(14)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_plate ,[add_mesh("@h_chinstrap_tight"),],],
 
 ["h_wicker_helmet_strap", "Wicker Helmet", [("h_wicker_helmet",0)], itp_merchandise| itp_type_head_armor| itp_attach_armature,0, 
-132 , weight(1.0)|abundance(100)|head_armor(12)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_plate ,[(ti_on_init_item,[(cur_item_add_mesh, "@h_chinstrap_tight", 0, 0),])]],
+132 , weight(1.0)|abundance(100)|head_armor(12)|body_armor(0)|leg_armor(0)|difficulty(0) ,imodbits_plate ,[add_mesh("@h_chinstrap_tight"),],],
 
 ##################################################################################################################################################################################################################################################################################################################
 ###################################################################################################### HYW HOODS | HATS ##########################################################################################################################################################################################
@@ -1424,12 +1424,12 @@ items = [
 ["a_surgeon_dress", "Surgeon Robe", [("a_surgeon_dress",0)],  itp_type_body_armor  |itp_covers_legs ,0, 69 , weight(1.5)|abundance(100)|head_armor(0)|body_armor(14)|leg_armor(10)|difficulty(0) ,imodbits_cloth ],
 
 # Nobles
-["a_noble_shirt_black", "Shirt", [("a_noble_shirt_black",0)], itp_merchandise| itp_type_body_armor |itp_civilian |itp_covers_legs ,0, 10 , weight(1)|abundance(100)|head_armor(0)|body_armor(7)|leg_armor(1)|difficulty(0) ,imodbits_cloth ],
-["a_noble_shirt_blue", "Shirt", [("a_noble_shirt_blue",0)], itp_merchandise| itp_type_body_armor |itp_civilian |itp_covers_legs ,0, 10 , weight(1)|abundance(100)|head_armor(0)|body_armor(7)|leg_armor(1)|difficulty(0) ,imodbits_cloth ],
-["a_noble_shirt_brown", "Shirt", [("a_noble_shirt_brown",0)], itp_merchandise| itp_type_body_armor |itp_civilian |itp_covers_legs ,0, 10 , weight(1)|abundance(100)|head_armor(0)|body_armor(7)|leg_armor(1)|difficulty(0) ,imodbits_cloth ],
-["a_noble_shirt_green", "Shirt", [("a_noble_shirt_green",0)], itp_merchandise| itp_type_body_armor |itp_civilian |itp_covers_legs ,0, 10 , weight(1)|abundance(100)|head_armor(0)|body_armor(7)|leg_armor(1)|difficulty(0) ,imodbits_cloth ],
-["a_noble_shirt_red", "Shirt", [("a_noble_shirt_red",0)], itp_merchandise| itp_type_body_armor |itp_civilian |itp_covers_legs ,0, 10 , weight(1)|abundance(100)|head_armor(0)|body_armor(7)|leg_armor(1)|difficulty(0) ,imodbits_cloth ],
-["a_noble_shirt_white", "Shirt", [("a_noble_shirt_white",0)], itp_merchandise| itp_type_body_armor |itp_civilian |itp_covers_legs ,0, 10 , weight(1)|abundance(100)|head_armor(0)|body_armor(7)|leg_armor(1)|difficulty(0) ,imodbits_cloth ],
+["a_noble_shirt_black", "Shirt", [("a_noble_shirt",0)], itp_merchandise| itp_type_body_armor |itp_civilian |itp_covers_legs ,0, 10 , weight(1)|abundance(100)|head_armor(0)|body_armor(7)|leg_armor(1)|difficulty(0) ,imodbits_cloth, [reskin("@a_noble_robe_black", 0),]],
+["a_noble_shirt_blue", "Shirt", [("a_noble_shirt",0)], itp_merchandise| itp_type_body_armor |itp_civilian |itp_covers_legs ,0, 10 , weight(1)|abundance(100)|head_armor(0)|body_armor(7)|leg_armor(1)|difficulty(0) ,imodbits_cloth, [reskin("@a_noble_robe_blue", 0),]],
+["a_noble_shirt_brown", "Shirt", [("a_noble_shirt",0)], itp_merchandise| itp_type_body_armor |itp_civilian |itp_covers_legs ,0, 10 , weight(1)|abundance(100)|head_armor(0)|body_armor(7)|leg_armor(1)|difficulty(0) ,imodbits_cloth, [reskin("@a_noble_robe_brown", 0),]],
+["a_noble_shirt_green", "Shirt", [("a_noble_shirt",0)], itp_merchandise| itp_type_body_armor |itp_civilian |itp_covers_legs ,0, 10 , weight(1)|abundance(100)|head_armor(0)|body_armor(7)|leg_armor(1)|difficulty(0) ,imodbits_cloth, [reskin("@a_noble_robe_green", 0),]],
+["a_noble_shirt_red", "Shirt", [("a_noble_shirt",0)], itp_merchandise| itp_type_body_armor |itp_civilian |itp_covers_legs ,0, 10 , weight(1)|abundance(100)|head_armor(0)|body_armor(7)|leg_armor(1)|difficulty(0) ,imodbits_cloth, [reskin("@a_noble_robe_red", 0),]],
+["a_noble_shirt_white", "Shirt", [("a_noble_shirt",0)], itp_merchandise| itp_type_body_armor |itp_civilian |itp_covers_legs ,0, 10 , weight(1)|abundance(100)|head_armor(0)|body_armor(7)|leg_armor(1)|difficulty(0) ,imodbits_cloth, [reskin("@a_noble_robe_white", 0),]],
 
 ["a_tabard", "Tabard", [("a_tabard",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs |itp_civilian,0, 107 , weight(3)|abundance(100)|head_armor(0)|body_armor(14)|leg_armor(6)|difficulty(0) ,imodbits_cloth ],
 ["a_leather_jerkin", "Leather Jerkin", [("a_leather_jerkin",0)], itp_merchandise| itp_type_body_armor |itp_civilian |itp_covers_legs ,0, 321 , weight(6)|abundance(100)|head_armor(0)|body_armor(23)|leg_armor(6)|difficulty(0) ,imodbits_cloth ],
@@ -2181,6 +2181,10 @@ items = [
 14, weight(2)|abundance(100)|head_armor(0)|body_armor(10)|leg_armor(5)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_hunter_coat_custom")]], 
 ["a_nobleman_court_outfit_custom", "Noble Outfit", [("a_nobleman_court_outfit_base",0)],  itp_merchandise|itp_type_body_armor|itp_covers_legs|itp_civilian   ,0, 
 348 , weight(4)|abundance(100)|head_armor(0)|body_armor(7)|leg_armor(4)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_nobleman_court_outfit_custom")]], 
+["a_noble_shirt_custom", "Shirt", [("a_noble_shirt",0)], itp_merchandise| itp_type_body_armor |itp_civilian |itp_covers_legs ,0, 
+79 , weight(1)|abundance(100)|head_armor(0)|body_armor(7)|leg_armor(1)|difficulty(0) ,imodbits_cloth, [custom_reskin("itm_a_noble_shirt_custom")]], 
+["a_noble_tunic_custom", "Tunic", [("a_noble_tunic",0)], itp_merchandise| itp_type_body_armor |itp_civilian |itp_covers_legs ,0, 
+107 , weight(1)|abundance(100)|head_armor(0)|body_armor(8)|leg_armor(2)|difficulty(0) ,imodbits_cloth, [custom_reskin("itm_a_noble_tunic_custom")]], 
 
 ["h_peasant_bycocket_1_custom", "Peasant Bycocket", [("h_bycocket_1",0)],itp_merchandise|itp_type_head_armor|itp_attach_armature|itp_civilian,0,
 9, weight(1)|abundance(100)|head_armor(6)|body_armor(0)|leg_armor(0)|difficulty(0),imodbits_cloth,[custom_reskin("itm_h_peasant_bycocket_1_custom")]], 
@@ -2194,9 +2198,9 @@ items = [
 
 
 ["a_light_gambeson_short_sleeves_custom", "Light Gambeson", [("a_light_gambeson_short_sleeves",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 
-275 , weight(5)|abundance(100)|head_armor(0)|body_armor(12)|leg_armor(8)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_light_gambeson_short_sleeves_custom"),add_mesh("@a_aketon_asher_sleeve_2"),]], 
-["a_light_gambeson_short_sleeves_diamond_custom", "Light Gambeson", [("a_light_gambeson_short_sleeves",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 
-275 , weight(5)|abundance(100)|head_armor(0)|body_armor(12)|leg_armor(8)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_light_gambeson_short_sleeves_diamond_custom"),add_mesh("@a_aketon_asher_sleeve_2"),]], 
+275 , weight(5)|abundance(100)|head_armor(0)|body_armor(12)|leg_armor(8)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_light_gambeson_short_sleeves_custom"),]], 
+["a_light_gambeson_short_sleeves_diamond_custom", "Light Gambeson", [("a_light_gambeson_diamond_short_sleeves",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 
+275 , weight(5)|abundance(100)|head_armor(0)|body_armor(12)|leg_armor(8)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_light_gambeson_short_sleeves_diamond_custom"),]], 
 
 ["a_light_gambeson_altichiero_nooxy_custom", "Light Italian Gambeson", [("a_light_gambeson_altichiero_nooxy",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 
 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(12)|leg_armor(8)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_light_gambeson_altichiero_nooxy_custom"),]], 
@@ -2205,21 +2209,19 @@ items = [
 
 ["a_light_gambeson_long_sleeves_custom", "Light Gambeson", [("a_light_gambeson_long_sleeves",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 
 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(15)|leg_armor(8)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_light_gambeson_long_sleeves_custom")]], 
-["a_light_gambeson_long_sleeves_diamond_custom", "Light Gambeson", [("a_light_gambeson_long_sleeves",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 
+["a_light_gambeson_long_sleeves_diamond_custom", "Light Gambeson", [("a_light_gambeson_diamond_long_sleeves",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 
 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(15)|leg_armor(8)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_light_gambeson_long_sleeves_diamond_custom")]],
 
-["a_light_gambeson_long_sleeves_alt_custom", "Light Gambeson", [("a_light_gambeson_long_sleeves_alt",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 
-275 , weight(5)|abundance(100)|head_armor(0)|body_armor(15)|leg_armor(8)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_light_gambeson_long_sleeves_alt_custom")]],
-
-["a_light_gambeson_long_sleeves_3_custom", "Light Gambeson", [("a_light_gambeson_long_sleeves_alt",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 
-275 , weight(5)|abundance(100)|head_armor(0)|body_armor(15)|leg_armor(8)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_light_gambeson_long_sleeves_3_custom")]],
-["a_light_gambeson_long_sleeves_6_custom", "Light Gambeson", [("a_light_gambeson_long_sleeves_alt",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 
-275 , weight(5)|abundance(100)|head_armor(0)|body_armor(15)|leg_armor(8)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_light_gambeson_long_sleeves_6_custom")]],
+["a_gambeson_grande_assiette_custom", "Gambeson", [("a_gambeson_grande_assiette",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 
+275 , weight(5)|abundance(100)|head_armor(0)|body_armor(15)|leg_armor(8)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_gambeson_grande_assiette_custom")]],
 
 ["a_light_gambeson_long_sleeves_8_custom", "Light Gambeson", [("a_light_gambeson_long_sleeves_8",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 
 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(16)|leg_armor(6)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_light_gambeson_long_sleeves_8_custom")]],
 ["a_light_gambeson_long_sleeves_8_alt_custom", "Light Gambeson", [("a_light_gambeson_long_sleeves_8",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 
 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(16)|leg_armor(6)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_light_gambeson_long_sleeves_8_alt_custom")]],
+
+["a_tunic_over_gambeson_custom", "Tunic over Gambeson", [("a_tunic_over_gambeson",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 
+275 , weight(5)|abundance(100)|head_armor(0)|body_armor(20)|leg_armor(8)|difficulty(0) ,imodbits_cloth , [custom_remodel("itm_a_tunic_over_gambeson_custom")]],
 
 ["a_simple_gambeson_custom", "Gambeson", [("mesh_none",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 
 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(17)|leg_armor(6)|difficulty(0) ,imodbits_cloth , [custom_remodel("itm_a_simple_gambeson_custom")]],
@@ -2228,6 +2230,7 @@ items = [
 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(20)|leg_armor(8)|difficulty(0) ,imodbits_cloth , [custom_remodel("itm_a_gambeson_asher_regular_custom")]],
 ["a_gambeson_asher_belt_custom", "Gambeson", [("mesh_none",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 
 275 , weight(5)|abundance(100)|head_armor(0)|body_armor(20)|leg_armor(8)|difficulty(0) ,imodbits_cloth , [custom_remodel("itm_a_gambeson_asher_belt_custom")]],
+
 
 ### Seek: Beware of the code loops!
 ["a_padded_over_mail_1_custom", "Padded Armour", [("a_padded_over_mail_1",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 

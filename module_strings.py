@@ -5233,6 +5233,23 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("a_nobleman_outfit_breton", "a_nobleman_outfit_breton"),  
 ("a_nobleman_outfit_end", "a_nobleman_outfit_end"),
 
+## Noble Shirt
+("a_noble_robe_black", "a_noble_robe_black"),  
+("a_noble_robe_blue", "a_noble_robe_blue"),  
+("a_noble_robe_brown", "a_noble_robe_brown"),
+("a_noble_robe_green", "a_noble_robe_green"),
+("a_noble_robe_red", "a_noble_robe_red"),
+("a_noble_robe_white", "a_noble_robe_white"),
+("a_noble_robe_end", "a_noble_robe_end"),
+
+## Noble Tunic
+("a_noble_tunic_black", "a_noble_tunic_black"),  
+("a_noble_tunic_blue",  "a_noble_tunic_blue"),  
+("a_noble_tunic_brown", "a_noble_tunic_brown"),
+("a_noble_tunic_green", "a_noble_tunic_green"),
+("a_noble_tunic_red",   "a_noble_tunic_red"),
+("a_noble_tunic_end",   "a_noble_tunic_end"),
+
 ## Asher Brigandine New
 ("a_brigandine_1", "a_brigandine_1"),   
 ("a_brigandine_2", "a_brigandine_2"),   
@@ -5288,12 +5305,12 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("a_light_gambeson_altichiero_nooxy_alt_end", "a_light_gambeson_altichiero_nooxy_alt_end"),  
 
 # Long Sleeved Gambeson alt
-("a_light_gambeson_long_sleeves_alt_beige", "a_light_gambeson_long_sleeves_alt_beige"),  
-("a_light_gambeson_long_sleeves_alt_blue", "a_light_gambeson_long_sleeves_alt_blue"),  
-("a_light_gambeson_long_sleeves_alt_brown", "a_light_gambeson_long_sleeves_alt_brown"),  
-("a_light_gambeson_long_sleeves_alt_green", "a_light_gambeson_long_sleeves_alt_green"),  
-("a_light_gambeson_long_sleeves_alt_white", "a_light_gambeson_long_sleeves_alt_white"),  
-("a_light_gambeson_long_sleeves_alt_end", "a_light_gambeson_long_sleeves_alt_end"),
+("a_gambeson_grande_assiette_blue", "a_gambeson_grande_assiette_blue"),  
+("a_gambeson_grande_assiette_brown", "a_gambeson_grande_assiette_brown"),  
+("a_gambeson_grande_assiette_green", "a_gambeson_grande_assiette_green"),  
+("a_gambeson_grande_assiette_red", "a_gambeson_grande_assiette_red"),  
+("a_gambeson_grande_assiette_white", "a_gambeson_grande_assiette_white"),  
+("a_gambeson_grande_assiette_end", "a_gambeson_grande_assiette_end"),
 
 # Long Sleeved Gambeson 3
 ("a_light_gambeson_long_sleeves_3_beige", "a_light_gambeson_long_sleeves_3_beige"),  
@@ -5324,6 +5341,13 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("a_light_gambeson_long_sleeves_8_alt_red", "a_light_gambeson_long_sleeves_8_alt_red"),  
 ("a_light_gambeson_long_sleeves_8_alt_white", "a_light_gambeson_long_sleeves_8_alt_white"),  
 ("a_light_gambeson_long_sleeves_8_alt_end",   "a_light_gambeson_long_sleeves_8_alt_end"),
+
+# Tunic over Gambeson
+("a_tunic_over_gambeson_black",  "a_tunic_over_gambeson_black"),  
+("a_tunic_over_gambeson_blue", "a_tunic_over_gambeson_blue"),  
+("a_tunic_over_gambeson_green", "a_tunic_over_gambeson_green"),  
+("a_tunic_over_gambeson_red", "a_tunic_over_gambeson_red"),  
+("a_tunic_over_gambeson_end", "a_tunic_over_gambeson_end"),  
 
 # Padded over Mail
 ("a_padded_over_mail_a",    "a_padded_over_mail_a"),  
