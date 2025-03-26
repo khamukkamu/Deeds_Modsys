@@ -2962,8 +2962,10 @@ tournament_triggers_diplo = [
 
 # Autolykos Version
 tournament_triggers = [
-  (ti_before_mission_start, 0, 0, [], [(call_script, "script_change_banners_and_chest"),
-                                       (assign, "$g_arena_training_num_agents_spawned", 0),
+  (ti_before_mission_start, 0, 0, [], [
+  
+    (call_script, "script_change_banners_and_chest_tournament"), ### DAC SEEK: modified
+    (assign, "$g_arena_training_num_agents_spawned", 0),
                                        
 # DAC Seek: Spec Life
 ### Mark7 Arena

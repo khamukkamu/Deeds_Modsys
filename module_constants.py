@@ -2733,6 +2733,15 @@ BODYSLIDING_HEROES_ONLY            = 1
 BODYSLIDING_ALL_TROOPS             = 2
 ## BODYSLIDING- ##
 
+### DAC SEEK: Background colors for banners_end_offset
+color_banner_white      = 0xFFC5C2C5
+color_banner_blue       = 0xFF314D6B
+color_banner_red        = 0xFF9C413A
+color_banner_green      = 0xFF4A694A
+color_banner_black      = 0xFF292829
+color_banner_yellow     = 0xFFC59A52
+color_banner_purple     = 0xFF63496B
+
 def concatenate_scripts(block_list):
     result = []
     for block in block_list:
