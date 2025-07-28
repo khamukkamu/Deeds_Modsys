@@ -60,7 +60,7 @@ def save_c_header():
   file.close()
   
 def save_python_header():
-  file = open("../header_ground_types.py","w")
+  file = open("./header_ground_types.py","w")
   for ig in xrange(len(ground_specs)):
     ground_spec = ground_specs[ig]
     file.write("ground_%s = %d\n"%(ground_spec[0], ig))
