@@ -631,7 +631,7 @@ mercenary_company_troops = [
     itm_h_transitional_sallet_3_mail_aventail,
     
     itm_a_pistoia_breastplate_half_mail_sleeves,
-    itn_a_pistoia_breastplate_half_mail_sleeves_jackchain,
+    itm_a_pistoia_breastplate_half_mail_sleeves_jackchain,
     
     itm_b_leg_harness_1,
     itm_b_leg_harness_2,
@@ -679,7 +679,7 @@ mercenary_company_troops = [
     itm_a_pistoia_mail_a_mail_sleeves_plate_spaulders_3,
     itm_a_pistoia_mail_b_mail_sleeves_plate_spaulders_3,
     itm_a_pistoia_breastplate_half_mail_sleeves,
-    itn_a_pistoia_breastplate_half_mail_sleeves_jackchain,
+    itm_a_pistoia_breastplate_half_mail_sleeves_jackchain,
     
     itm_b_leg_harness_1,
     itm_b_leg_harness_2,
