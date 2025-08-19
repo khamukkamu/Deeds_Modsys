@@ -1090,6 +1090,31 @@ cb_mercenary = 5
 cb_peasant = 6
 cb_healer = 7 
 
+# DAC SEEK: character classes
+cc_noble_governor                 = 1
+cc_noble_tactician                = 2
+cc_noble_jouster                  = 3
+cc_merchant_goods                 = 4
+cc_merchant_slave                 = 5
+cc_merchant_investor              = 6     
+cc_soldier_pavoisier              = 7
+cc_soldier_vougier                = 8
+cc_soldier_crossbow               = 9
+cc_soldier_archer                 = 10
+cc_hunter_poacher                 = 11
+cc_hunter_manhunter               = 12
+cc_hunter_marksman                = 13
+cc_mercenary_condottiero          = 14
+cc_mercenary_sellsword            = 15
+cc_mercenary_pikeman              = 16
+cc_mercenary_crossbowman          = 17
+cc_peasant_farmer                 = 18
+cc_peasant_revolutionary          = 19
+cc_peasant_smith                  = 20
+cb_healer_surgeon                 = 21
+cb_healer_priest                  = 22
+cb_healer_alchemist               = 23   
+
 #NPC system changes end
 #Encounter types
 enctype_fighting_against_village_raid = 1

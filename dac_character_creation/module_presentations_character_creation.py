@@ -17,6 +17,45 @@ from module_factions import *
 
 from compiler import *
 
+load = ti_on_presentation_load
+run = ti_on_presentation_run
+event = ti_on_presentation_event_state_change
+hover = ti_on_presentation_mouse_enter_leave
+click = ti_on_presentation_mouse_press
+
+# Shows coordinates on a presentation for easy development
+# Set debug_show_presentation_coordinates on module_constants.py
+coord_helper = [
+  (load, [
+      #(eq, debug_show_presentation_coordinates, 1),
+      (create_text_overlay, "$mouse_coordinates", "str_empty_string"),
+      (overlay_set_color, "$mouse_coordinates", 0xFF0000),
+      (position_set_x, pos1, 10),
+      (position_set_y, pos1, 700),
+      (overlay_set_position, "$mouse_coordinates", pos1),
+  ]),
+  (run, [
+      #(eq, debug_show_presentation_coordinates, 1),
+      (set_fixed_point_multiplier, 1000),
+      
+      (mouse_get_position, pos1),
+      (position_get_x, reg1, pos1),
+      (position_get_y, reg2, pos1),
+      (overlay_set_text, "$mouse_coordinates", "@{reg1}, {reg2}"),
+  ])
+]
+prsnt_escape_close = [
+  (run,
+    [
+      (try_begin),
+        (this_or_next|key_clicked, key_escape),
+        (key_clicked, key_xbox_start),
+        (presentation_set_duration, 0),
+        (change_screen_return,0),
+      (try_end),
+  ]),
+]
+
 character_creation_presentations = [
  ("dac_select_lord_or_king", 0, mesh_message_window,
    [
@@ -610,5 +649,268 @@ character_creation_presentations = [
 
   ]
 ),
+
+### DAC Seek: Start as custom character
+  ("dac_select_background", prsntf_manual_end_only, mesh_cb_ui_main, [
+    (ti_on_presentation_load,
+      [
+        (presentation_set_duration, 999999),
+        (set_fixed_point_multiplier, 1000),
+        
+
+        # (assign, "$g_presentation_obj_1", 0),
+        # (assign, "$g_presentation_obj_2", 0),
+        # (assign, "$temp", 0),
+
+### Text        
+        (create_text_overlay, reg1, "@Select Your Background", tf_center_justify),
+        (position_set_x, pos1, 250),
+        (position_set_y, pos1, 700),
+        (overlay_set_position, reg1, pos1),
+        (position_set_x, pos1, 1500),
+        (position_set_y, pos1, 1500),
+        (overlay_set_size, reg1, pos1),
+        
+### Background Options
+        (create_combo_label_overlay, "$g_presentation_obj_1"),
+        (position_set_x, pos1, 250),
+        (position_set_y, pos1, 650),
+        (overlay_set_position, "$g_presentation_obj_1", pos1),
+
+        (overlay_add_item, "$g_presentation_obj_1", "@Noble"),
+        (overlay_add_item, "$g_presentation_obj_1", "@Merchant"),
+        (overlay_add_item, "$g_presentation_obj_1", "@Soldier"),
+        (overlay_add_item, "$g_presentation_obj_1", "@Hunter"),
+        (overlay_add_item, "$g_presentation_obj_1", "@Mercenary"),
+        (overlay_add_item, "$g_presentation_obj_1", "@Peasant"),
+        (overlay_add_item, "$g_presentation_obj_1", "@Healer"),
+        
+### Text        
+        (create_text_overlay, reg1, "@Select Your Class", tf_center_justify),
+        (position_set_x, pos1, 750),
+        (position_set_y, pos1, 700),
+        (overlay_set_position, reg1, pos1),
+        (position_set_x, pos1, 1500),
+        (position_set_y, pos1, 1500),
+        (overlay_set_size, reg1, pos1),
+        
+### Class Options
+        (create_combo_label_overlay, "$g_presentation_obj_2"),
+        (position_set_x, pos1, 750),
+        (position_set_y, pos1, 650),
+        (overlay_set_position, "$g_presentation_obj_2", pos1),
+        
+        (try_begin),
+            (eq, "$g_presentation_obj_1_val", 0),
+            (overlay_add_item, "$g_presentation_obj_2", "@Governor"),
+            (overlay_add_item, "$g_presentation_obj_2", "@Strategist"),
+            (overlay_add_item, "$g_presentation_obj_2", "@Jouster"),
+        (else_try),
+            (eq, "$g_presentation_obj_1_val", 1),
+            (overlay_add_item, "$g_presentation_obj_2", "@Goods Merchant"),
+            (overlay_add_item, "$g_presentation_obj_2", "@Slave Trader"),
+            (overlay_add_item, "$g_presentation_obj_2", "@Investor"),
+        (else_try),
+            (eq, "$g_presentation_obj_1_val", 2),
+            (overlay_add_item, "$g_presentation_obj_2", "@Pavoisier"),
+            (overlay_add_item, "$g_presentation_obj_2", "@Vougier"),
+            (overlay_add_item, "$g_presentation_obj_2", "@Crossbowman"),
+            (overlay_add_item, "$g_presentation_obj_2", "@Archer"),
+        (else_try),
+            (eq, "$g_presentation_obj_1_val", 3),
+            (overlay_add_item, "$g_presentation_obj_2", "@Poacher"),
+            (overlay_add_item, "$g_presentation_obj_2", "@Manhunter"),
+            (overlay_add_item, "$g_presentation_obj_2", "@Marksman"),
+        (else_try),
+            (eq, "$g_presentation_obj_1_val", 4),
+            (overlay_add_item, "$g_presentation_obj_2", "@Condottiero"),
+            (overlay_add_item, "$g_presentation_obj_2", "@Sellsword"),
+            (overlay_add_item, "$g_presentation_obj_2", "@Pikeman"),
+            (overlay_add_item, "$g_presentation_obj_2", "@Crossbowman"),
+        (else_try),
+            (eq, "$g_presentation_obj_1_val", 5),
+            (overlay_add_item, "$g_presentation_obj_2", "@Farmer"),
+            (overlay_add_item, "$g_presentation_obj_2", "@Rebel"),
+            (overlay_add_item, "$g_presentation_obj_2", "@Smith"),
+        (else_try),
+            (eq, "$g_presentation_obj_1_val", 6),
+            (overlay_add_item, "$g_presentation_obj_2", "@Surgeon"),
+            (overlay_add_item, "$g_presentation_obj_2", "@Priest"),
+            (overlay_add_item, "$g_presentation_obj_2", "@Alchemist"),
+        (try_end),
+        
+        
+        (overlay_set_val, "$g_presentation_obj_2", "$g_presentation_obj_2_val"),
+        (overlay_set_val, "$g_presentation_obj_1", "$g_presentation_obj_1_val"),
+ 
+### Noble Background 
+        (try_begin),
+            (eq, "$g_presentation_obj_1_val", 0),
+            (store_add, "$class_type", "$g_presentation_obj_2_val", cc_noble_governor),
+            # (try_begin),
+                # (eq, "$g_presentation_obj_2_val", 0),
+                # (assign, "$class_type", cc_noble_governor),
+            # (else_try),
+                # (eq, "$g_presentation_obj_2_val", 1),
+                # (assign, "$class_type", cc_noble_tactician),
+            # (else_try),
+                # (eq, "$g_presentation_obj_2_val", 2),
+                # (assign, "$class_type", cc_noble_jouster),
+            # (try_end),
+### Merchant Background 
+        (else_try),
+            (eq, "$g_presentation_obj_1_val", 1),
+            (store_add, "$class_type", "$g_presentation_obj_2_val", cc_merchant_goods),
+### Soldier Background 
+        (else_try),
+            (eq, "$g_presentation_obj_1_val", 2),
+            (store_add, "$class_type", "$g_presentation_obj_2_val", cc_soldier_pavoisier),
+### Hunter Background 
+        (else_try),
+            (eq, "$g_presentation_obj_1_val", 3),
+            (store_add, "$class_type", "$g_presentation_obj_2_val", cc_hunter_poacher),
+### Mercenary Background 
+        (else_try),
+            (eq, "$g_presentation_obj_1_val", 4),
+            (store_add, "$class_type", "$g_presentation_obj_2_val", cc_mercenary_condottiero),
+### Peasant Background 
+        (else_try),
+            (eq, "$g_presentation_obj_1_val", 5),
+            (store_add, "$class_type", "$g_presentation_obj_2_val", cc_peasant_farmer),
+### Healer Background 
+        (else_try),
+            (eq, "$g_presentation_obj_1_val", 6),
+            (store_add, "$class_type", "$g_presentation_obj_2_val", cb_healer_surgeon),
+        (try_end),
+
+### First background option is noble, add value of the selection to go to the next background, values start at 0        
+        (store_add, "$background_type", "$g_presentation_obj_1_val", cb_noble),
+        
+### Text Background
+        (create_text_overlay, reg0, "str_biography", tf_center_justify),
+        (position_set_x, pos1, 250),
+        (position_set_y, pos1, 600),
+        (overlay_set_position, reg0, pos1),
+        (position_set_x, pos1, 1250),
+        (position_set_y, pos1, 1250),
+        (overlay_set_size, reg1, pos1),
+
+### Background Text
+      # (store_sub, ":cur_troop_text", "$g_quick_battle_troop", quick_battle_troops_begin),
+      # (val_add, ":cur_troop_text", quick_battle_troop_texts_begin),
+        (create_text_overlay, reg0, "str_lorem_ipsum", tf_scrollable),
+        (position_set_x, pos1, 850),
+        (position_set_y, pos1, 850),
+        (overlay_set_size, reg0, pos1),
+        (position_set_x, pos1, 50),
+        (position_set_y, pos1, 350),
+        (overlay_set_position, reg0, pos1),
+        (position_set_x, pos1, 400),
+        (position_set_y, pos1, 220),
+        (overlay_set_area_size, reg0, pos1),
+      
+### Text Class
+        (create_text_overlay, reg0, "@Class", tf_center_justify),
+        (position_set_x, pos1, 750),
+        (position_set_y, pos1, 370),
+        (overlay_set_position, reg0, pos1),
+        (position_set_x, pos1, 1250),
+        (position_set_y, pos1, 1250),
+        (overlay_set_size, reg1, pos1),
+      
+### Class text
+        (create_text_overlay, reg0, "str_lorem_ipsum", tf_scrollable),
+        (position_set_x, pos1, 850),
+        (position_set_y, pos1, 850),
+        (overlay_set_size, reg0, pos1),
+        (position_set_x, pos1, 550),
+        (position_set_y, pos1, 150),
+        (overlay_set_position, reg0, pos1),
+        (position_set_x, pos1, 400),
+        (position_set_y, pos1, 200),
+        (overlay_set_area_size, reg0, pos1),
+
+### Return
+        (create_game_button_overlay, "$g_presentation_obj_4", "str_back"),
+        (position_set_x, pos1, 150),
+        (position_set_y, pos1, 50),
+        (overlay_set_position, "$g_presentation_obj_4", pos1),   
+
+### Finish
+        (create_game_button_overlay, "$g_presentation_obj_5", "str_done"),
+        (position_set_x, pos1, 850),
+        (position_set_y, pos1, 50),
+        (overlay_set_position, "$g_presentation_obj_5", pos1),        
+        
+      ]),
+      
+    (ti_on_presentation_event_state_change,
+      [
+        (store_trigger_param_1, ":object"),
+        (store_trigger_param_2, ":value"),
+    
+### Background Options    
+        (try_begin),
+            (eq, ":object", "$g_presentation_obj_1"),
+            (assign, "$g_presentation_obj_1_val", ":value"),
+            (assign, reg11, ":value"),
+            (display_message, "@Value Obj 1 is: {reg11}"),
+            (start_presentation, "prsnt_dac_select_background"),
+
+### Class Options
+        (else_try),
+            (eq, ":object", "$g_presentation_obj_2"),
+            (assign, "$g_presentation_obj_2_val", ":value"),
+            (assign, reg11, ":value"),
+            (display_message, "@Value Obj 2 is: {reg11}"),
+            (start_presentation, "prsnt_dac_select_background"),
+        
+### Background Options
+        # (try_begin),
+            # (eq, ":object", "$g_presentation_obj_1"),
+
+
+            # (store_add, "$background_type", ":value", cb_noble),
+            # (start_presentation, "prsnt_dac_select_background"),
+
+### Class Options
+        # (else_try),
+            # (eq, ":object", "$g_presentation_obj_2"),    
+            # (store_add, "$background_class", ":value", cc_noble_governor),
+            # (assign, reg11, ":value"),
+            # (display_message, "@Value Obj 2 is: {reg11}"),
+### Return
+        (else_try),
+            (eq, ":object", "$g_presentation_obj_4"),
+            (jump_to_menu,"mnu_start_game_0"),  
+### Finish          
+        (else_try),
+            (eq, ":object", "$g_presentation_obj_5"),
+            (set_show_messages, 1),
+            (presentation_set_duration, 0),
+            (jump_to_menu, "mnu_dac_choose_skill",),
+        (try_end),
+    ]),
+  ] + coord_helper
+  ),
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ]

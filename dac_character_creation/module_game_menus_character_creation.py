@@ -134,7 +134,10 @@ character_creation_menus = [
          (assign,"$character_gender", tf_male),
          (try_begin),
             (eq, "$background_answer_2", 0), # DAC Kham: As Adventurer
-            (jump_to_menu,"mnu_dac_start_character_background"),
+            # (jump_to_menu,"mnu_dac_start_character_background"),
+            (assign, "$background_type", 1),
+            (assign, "$background_class", 1),
+            (start_presentation, "prsnt_dac_select_background"), 
          (else_try),
             (eq, "$background_answer_2", 1), #DAC Kham: As Vassal
             #(jump_to_menu,"mnu_start_as_vassal_choose_faction"),
@@ -393,20 +396,21 @@ character_creation_menus = [
         ],
       ),
 
-      ("go_back_dot",[],"Go back.",[
-        
-        (try_begin),
-          (eq, "$background_answer_2", 1),
-          #(jump_to_menu,"mnu_dac_start_character_background"),
-          (start_presentation, "prsnt_faction_selection"),
-        (else_try),
-          (eq, "$background_answer_2", 2),
-          (assign, "$character_info_id", -1),
-          (assign, "$background_answer_2", 2), 
-          (start_presentation, "prsnt_dac_select_lord_or_king"), 
-        (else_try),
-          (jump_to_menu, "mnu_dac_start_character_background"),
-        (try_end),
+("go_back_dot",[],"Go back.",[        
+    (try_begin),
+        (eq, "$background_answer_2", 1),
+        #(jump_to_menu,"mnu_dac_start_character_background"),
+        (start_presentation, "prsnt_faction_selection"),
+    (else_try),
+        (eq, "$background_answer_2", 2),
+        (assign, "$character_info_id", -1),
+        (assign, "$background_answer_2", 2), 
+        (start_presentation, "prsnt_dac_select_lord_or_king"), 
+    (else_try),
+        (assign, "$background_type", 1),
+        (assign, "$background_class", 1),
+        (start_presentation, "prsnt_dac_select_background"), 
+    (try_end),
         ]),
     ]
   ),

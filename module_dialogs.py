@@ -37552,7 +37552,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    "Let me think about it again.", "ransom_broker_pretalk",[]],
   ##diplomacy end+
 
-  [anyone|plyr,"ransom_broker_talk", [], "Tell me about what you do again.", "ransom_broker_intro_2",[]],
+  # [anyone|plyr,"ransom_broker_talk", [], "Tell me about what you do again.", "ransom_broker_intro_2",[]],
 
   #SB : exchange prisoner
   [anyone|plyr,"ransom_broker_talk",[
