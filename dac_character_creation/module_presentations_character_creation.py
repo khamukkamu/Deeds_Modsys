@@ -747,40 +747,79 @@ character_creation_presentations = [
         (try_begin),
             (eq, "$g_presentation_obj_1_val", 0),
             (store_add, "$class_type", "$g_presentation_obj_2_val", cc_noble_governor),
-            # (try_begin),
-                # (eq, "$g_presentation_obj_2_val", 0),
-                # (assign, "$class_type", cc_noble_governor),
-            # (else_try),
-                # (eq, "$g_presentation_obj_2_val", 1),
-                # (assign, "$class_type", cc_noble_tactician),
-            # (else_try),
-                # (eq, "$g_presentation_obj_2_val", 2),
-                # (assign, "$class_type", cc_noble_jouster),
-            # (try_end),
+            (assign, ":mesh", "mesh_pic_castle1"),
+            # Size
+            (position_set_x, pos2, 600),
+            (position_set_y, pos2, 600),
+            # Position
+            (position_set_x, pos3, 300),
+            (position_set_y, pos3, 200),
 ### Merchant Background 
         (else_try),
             (eq, "$g_presentation_obj_1_val", 1),
             (store_add, "$class_type", "$g_presentation_obj_2_val", cc_merchant_goods),
+            (assign, ":mesh", "mesh_pic_payment"),
+            # Size
+            (position_set_x, pos2, 550),
+            (position_set_y, pos2, 550),
+            # Position
+            (position_set_x, pos3, 350),
+            (position_set_y, pos3, 370),
 ### Soldier Background 
         (else_try),
             (eq, "$g_presentation_obj_1_val", 2),
             (store_add, "$class_type", "$g_presentation_obj_2_val", cc_soldier_pavoisier),
+            (assign, ":mesh", "mesh_pic_siege_attack"),
+            # Size
+            (position_set_x, pos2, 400),
+            (position_set_y, pos2, 400),
+            # Position
+            (position_set_x, pos3, 450),
+            (position_set_y, pos3, 400),
 ### Hunter Background 
         (else_try),
             (eq, "$g_presentation_obj_1_val", 3),
             (store_add, "$class_type", "$g_presentation_obj_2_val", cc_hunter_poacher),
+            (assign, ":mesh", "mesh_pic_forest_bandits"),
+            # Size
+            (position_set_x, pos2, 400),
+            (position_set_y, pos2, 400),
+            # Position
+            (position_set_x, pos3, 450),
+            (position_set_y, pos3, 360),
 ### Mercenary Background 
         (else_try),
             (eq, "$g_presentation_obj_1_val", 4),
             (store_add, "$class_type", "$g_presentation_obj_2_val", cc_mercenary_condottiero),
+            (assign, ":mesh", "mesh_pic_camp"),
+            # Size
+            (position_set_x, pos2, 600),
+            (position_set_y, pos2, 600),
+            # Position
+            (position_set_x, pos3, 350),
+            (position_set_y, pos3, 280),
 ### Peasant Background 
         (else_try),
             (eq, "$g_presentation_obj_1_val", 5),
             (store_add, "$class_type", "$g_presentation_obj_2_val", cc_peasant_farmer),
+            (assign, ":mesh", "mesh_pic_recruits"),
+            # Size
+            (position_set_x, pos2, 400),
+            (position_set_y, pos2, 400),
+            # Position
+            (position_set_x, pos3, 450),
+            (position_set_y, pos3, 370),
 ### Healer Background 
         (else_try),
             (eq, "$g_presentation_obj_1_val", 6),
             (store_add, "$class_type", "$g_presentation_obj_2_val", cb_healer_surgeon),
+            (assign, ":mesh", "mesh_pic_town1"),
+            # Size
+            (position_set_x, pos2, 600),
+            (position_set_y, pos2, 600),
+            # Position
+            (position_set_x, pos3, 400),
+            (position_set_y, pos3, 250),
         (try_end),
 
 ### First background option is noble, add value of the selection to go to the next background, values start at 0        
@@ -808,6 +847,19 @@ character_creation_presentations = [
         (position_set_x, pos1, 400),
         (position_set_y, pos1, 220),
         (overlay_set_area_size, reg0, pos1),
+        
+### Picture on the right
+        # (create_mesh_overlay, reg0, "mesh_cb_ui_maps_scene_01"),
+        # (position_set_x, pos1, 700),
+        # (position_set_y, pos1, 700),
+        # (overlay_set_size, reg0, pos1),
+        # (position_set_x, pos1, 380),
+        # (position_set_y, pos1, 220),
+        # (overlay_set_position, reg0, pos1),
+        
+        (create_mesh_overlay, reg3, ":mesh"),
+        (overlay_set_size, reg3, pos2),
+        (overlay_set_position, reg3, pos3),
       
 ### Text Class
         (create_text_overlay, reg0, "@Class", tf_center_justify),
