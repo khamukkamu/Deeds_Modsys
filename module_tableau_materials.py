@@ -1532,5 +1532,42 @@ tableaus = [
        (call_script, "script_add_troop_to_custom_armor_tableau", ":troop_no"),
        ]),	
 	
-	
+  ("dac_troop_alpha_mask_animation", 0, "mat_troop_portrait_mask", 2048, 2048, 0, 0, 600, 600,
+   [
+       (store_script_param, ":animation", 1),
+       (cur_tableau_set_background_color, 0x00888888),
+       (cur_tableau_set_ambient_light, 10,11,15),
+       (cur_tableau_render_as_alpha_mask),
+       (call_script, "script_dac_add_troop_to_cur_tableau_with_animation", ":animation"),
+       ]),
+
+  ("dac_troop_color_animation", 0, "mat_troop_portrait_color", 2048, 2048, 0, 0, 600, 600,
+   [
+       (store_script_param, ":animation", 1),
+       (cur_tableau_set_background_color, 0xFFe7d399),
+       (cur_tableau_set_ambient_light, 10,11,15),
+       (call_script, "script_dac_add_troop_to_cur_tableau_with_animation", ":animation"),
+       ]),
+
+  ("dac_troop_animation", 0, "tableau_with_transparency", 2048, 2048, 0, 0, 600, 600,
+   [
+     (store_script_param, ":animation", 1),
+     (cur_tableau_set_background_color, 0xFF888888),
+     (cur_tableau_set_ambient_light, 10,11,15),
+     (set_fixed_point_multiplier, 100),
+     (cur_tableau_set_camera_parameters, 0, 40, 40, 0, 100000),
+
+     (init_position, pos1),
+     (position_set_z, pos1, 100),
+     (position_set_x, pos1, -20),
+     (position_set_y, pos1, -20),
+     (cur_tableau_add_tableau_mesh, "tableau_dac_troop_color_animation", ":animation", pos1, 0, 0),
+     (position_set_z, pos1, 200),
+     (cur_tableau_add_tableau_mesh, "tableau_dac_troop_alpha_mask_animation", ":animation", pos1, 0, 0),
+     ]),
+
 ]
+
+
+
+

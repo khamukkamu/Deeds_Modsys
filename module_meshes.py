@@ -639,6 +639,7 @@ meshes = [
 ##Additional meshes, used by components ported from rubik's Custom Commander
   ("options_window", 0, "options_window", 0, 0, 0, 0, 0, 0, 1, 1, 1),
   ("note_window", 0, "note_window", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("game_log_window", 0, "game_log_window", 0, 0, 0, 0, 0, 0, 1, 1, 1),
 
   ("drop_button", 0, "button_drop", 0, 0, 0, 0, 0, 0, 1, 0.5, 0.5),
   ("drop_button_down", 0, "button_drop_clicked", 0, 0, 0, 0, 0, 0, 1, 0.5, 0.5),

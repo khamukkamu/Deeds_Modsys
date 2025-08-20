@@ -46,3 +46,6 @@ tableau_troop_detail_dummy_pic = 44
 tableau_custom_armor_window = 45
 tableau_custom_armor_alpha_mask = 46
 tableau_custom_armor_color = 47
+tableau_dac_troop_alpha_mask_animation = 48
+tableau_dac_troop_color_animation = 49
+tableau_dac_troop_animation = 50
