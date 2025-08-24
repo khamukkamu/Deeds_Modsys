@@ -34,12 +34,23 @@ character_creation_strings = [
 ("dac_background_peasant",                        "Peasant"),
 ("dac_background_healer",                         "Healer"),
         
-("dac_background_desc_noble",                     "As a noble you start your early life relatively wealthy in comparison to most, whilst not one from an influential family you nevertheless were afforded a decent education at court which included reading, martial skills and matters of faith. ^^Pros: ^*One of Us: 20% Reduction on upkeep and recruitment costs for Knights ^*Combat Training: Start with decent combat stats ^^Cons: ^*One of them: 20% upkeep penalty for regular troops, does not apply to mercenaries ^*Valuable target: Your ransom value is much higher should you be captured"),
-("dac_background_desc_merchant",                  "As a merchant you make a living from trade, what exactly that trade entails is up to you but you are good at seizing opportunities as they arise and getting the most out of it."),
+("dac_background_desc_noble",                     "As a noble you start your early life relatively wealthy in comparison to most, whilst not one from an influential family you nevertheless were afforded a decent education at court which included reading, martial skills and matters of faith ^^\
+Pros: ^\
+* One of Us: 20% Reduction on upkeep and recruitment costs for Knights ^\
+* Tutors: Start with a decent mix of skills ^^\
+Cons: ^\
+* One of them: 20% upkeep penalty for regular troops, does not apply to mercenaries ^\
+* Valuable target: Your ransom value is much higher should you be captured"),
+("dac_background_desc_merchant",                  "As a merchant you make a living from trade, what exactly that trade entails is up to you but you are good at seizing opportunities as they arise and getting the most out of it. ^^\
+Pros: ^\
+* Business Minded: Start with higher trade, persuasion and inventory management skills. ^\
+* Negotiator: Can use trade or persuasion skills to get out of disadvantageous situations such as getting caught by enemies or just doing business ^^\
+Cons: ^\
+* Not a Fighter: Start with low combat related skills and proficiencies."),
 ("dac_background_desc_soldier",                   "As a soldier you know well enough about combat and your fellow soldiers, their needs and wants, how logistics work and how battles are fought and won."),
 ("dac_background_desc_hunter",                    "As a hunter you know how to move around, how to track and stalk your prey. Those skills are vital in an unforgiving world."),
-("dac_background_desc_mercenary",                 "As a mercenary your services are in high demand in these tumultuous times."),
-("dac_background_desc_peasant",                   "As a peasant your life is one of toil and survival"),
+("dac_background_desc_mercenary",                 "As a mercenary your services are in high demand in these tumultuous times yet trust is hard to gain when your only alliegeance is to gold."),
+("dac_background_desc_peasant",                   "As a peasant your life is one of toil and survival. While there are opportunities to achieve greater deeds, it will feel like the odds are stacked against you."),
 ("dac_background_desc_healer",                    "As a healer you keep death at bay"),
         
 ("dac_background_class_governor",                 "Governor"),
@@ -66,21 +77,63 @@ character_creation_strings = [
 ("dac_background_class_priest",                   "Priest"),
 ("dac_background_class_alchemist",                "Alchemist"),
 
-("dac_background_class_desc_governor",            "Governors specialize in politics and administration ^^Pros: ^*Tax Master: Reduced tax inefficiency from having multiple fiefs ^*Courtly: Faster relationship gains ^*Builder: Cheaper building costs, also applies to workshops ^^Cons: ^*Mostly talk: Significantly lower combat stats from lack of experience"),
-("dac_background_class_desc_strategist",          "Strategists specialize in leadership roles and logistics ^^Pros: ^*Tactics and leadership: Start with higher tactics and leadership skills ^*Logistician: Troops consume less food and you don't have an upkeep penalty for regular troops ^^Cons: ^*Leading from Behind: You let your men do most of the fighting, as a consequence your personal combat skills have been neglected"),
-("dac_background_class_desc_jouster",             "Jousters specialize in single combat and tournaments ^^Pros: ^*Regular Contestant: You receive notifications when tournaments are being held ^*Renowned Fighter: Increased rewards from tournaments, can place higher bets ^*Single Combat: Increased combat stats from frequently fighting ^^Cons: ^*Lone Wolf: Not used to leading men to combat, your leadership stats and starting party size is reduced"),         
+("dac_background_class_desc_governor",            "Governors specialize in politics and administration ^^\
+Pros: ^\
+* Tax Master: Reduced tax inefficiency from having multiple fiefs ^\
+* Courtly Manners: Faster relationship gains with lords and ladies ^\
+* Builder: Cheaper building costs, also applies to workshops ^^\
+Cons: ^\
+* Mostly talk: Significantly lower combat stats from lack of experience"),
+("dac_background_class_desc_strategist",          "Strategists specialize in leadership roles and logistics ^^\
+Pros: ^\
+* Tactics and leadership: Start with higher tactics and leadership skills ^\
+* Logistician: Troops consume less food and you don't have an upkeep penalty for regular troops ^^\
+Cons: ^\
+* Leading from Behind: You let your men do most of the fighting, as a consequence your personal combat skills have been somewhat neglected"),
+("dac_background_class_desc_jouster",             "Jousters specialize in single combat and tournaments ^^\
+Pros: ^\
+* Regular Contestant: You receive notifications when tournaments are being held ^\
+* Renowned Fighter: Increased rewards from tournaments, can place higher bets ^\
+* Single Combat: Increased combat stats from frequently fighting ^^\
+Cons: ^\
+* Lone Wolf: Not used to leading men to combat, your leadership stats and starting party size is reduced"),         
  
-("dac_background_class_desc_goods_merchant",      "Goods Merchants specialize in everything related to trading from one location to another, buy low, sell high. ^^Pros: ^*Trader by Nature: Start with high trade and persuasion skills ^*Caravan Master: Start with a higher inventory capacity and access to a secure secret stash ^^Cons: ^*"),
-("dac_background_class_desc_slaver",              "Ransom Broker"),
-("dac_background_class_desc_investor",            "Investor"),         
+("dac_background_class_desc_goods_merchant",      "Goods Merchants specialize in everything related to trading from one location to another, buy low, sell high. ^^\
+Pros: ^\
+* Trader by Nature: Start with high trade and persuasion skills ^\
+* Caravan Master: Start with a higher inventory capacity and access to a secure secret stash ^^\
+Cons: ^\
+* Prime Target: Bandit aggressiveness towards your party is increased"),
+("dac_background_class_desc_slaver",              "Ransom Brokers specialize in reuniting families for a fee, if the men you just captured happen to have one that can afford it, otherwise there's other ways to buy back your freedom. ^^\
+Pros: ^\
+* Efficient Management: The number of prisoners you can capture is based on your party size, Prisoner Management skill now acts as a 5% multiplier and also affects the sale value of prisoners. ^\
+* Expanded Network: You can dispose of your prisoners at taverns by speaking to Tavern Keepers, they will demand a fee in exchange. ^^\
+Cons: ^\
+* Noble Disdain: When done outside the rules of Chivalry, you practice is frowned upon even though many benefit from it by virtue of keeping their lives. Nobles captured by you will decrease relations further."),
+("dac_background_class_desc_investor",            "Investors specialize in buying and running bussinesses, creating an ever increasing network of merchandise. ^^\
+Pros: ^\
+* Diverse Assets: Can have more than one workshop in a town, cannot be of the same type as the first one ^\
+* Creative Accounting: Slight improvement to the profit made by workshops ^^\
+Cons: ^\
+* Guild Rivalry: When a town gets captured, there's a high probability that your workshop(s) get demolished, it becomes a guarantee should it be captured by a faction hostile to you."),         
       
 ("dac_background_class_desc_pavoisier",           "Pavoisier"),
 ("dac_background_class_desc_vougier",             "Vougier"),
 ("dac_background_class_desc_crossbow",            "Crossbowman"),
 ("dac_background_class_desc_archer",              "Archer"),        
       
-("dac_background_class_desc_poacher",             "Poacher"),
-("dac_background_class_desc_manhunter",           "Manhunter"),
+("dac_background_class_desc_poacher",             "Poachers are huntsmen that specialize in hunting game and foraging ^^\
+Pros: ^^\
+* Hunting Grounds: While traveling through forests on the world map there's a chance to forage meat or fruits. ^\
+* Honed Skills: You are proficient in spotting, pathfinding and tracking as well as in the use of a bow. ^^\
+Cons: ^^\
+* Lone Wolf: Not used to leading men to combat, your leadership stats and starting party size is reduced"),
+("dac_background_class_desc_manhunter",           "Manhunters or Retondeurs specialize in hunting down the bandits that ravage France, unfortunately many turned to banditry themselves as it was more rewarding than risking your life taking them down. ^^\
+Pros: ^^\
+* A Plague on the Land: Increased rewards from taking down bandit strongholds and from capturing bandits or deserters ^\
+* Less Lethal: You and your troops know how to avoid lethal strikes, making it more likely to capture prisoners even when not using blunt weapons ^\
+Cons: ^^\
+* Reputational Damage: Increased penalties from all hostile actions that can be considered banditry, such as attacking peasants, caravans or raiding villages"),
 ("dac_background_class_desc_marksman",            "Marksman"),      
          
 ("dac_background_class_desc_condottiero",         "Condottiero"),

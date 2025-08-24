@@ -744,6 +744,7 @@ character_creation_presentations = [
             (store_add, "$class_type", "$g_presentation_obj_2_val", cc_noble_governor),
             (assign, ":mesh", "mesh_pic_castle1"),
             (assign, ":string_background", "str_dac_background_desc_noble"),
+            (assign, ":animation", "anim_pose_5"),
             (store_add, ":string_class", "$g_presentation_obj_2_val", "str_dac_background_class_desc_governor"),
             # Size
             (position_set_x, pos2, 600),
@@ -757,6 +758,7 @@ character_creation_presentations = [
             (store_add, "$class_type", "$g_presentation_obj_2_val", cc_merchant_goods),
             (assign, ":mesh", "mesh_pic_payment"),
             (assign, ":string_background", "str_dac_background_desc_merchant"),
+            (assign, ":animation", "anim_pose_1"),
             (store_add, ":string_class", "$g_presentation_obj_2_val", "str_dac_background_class_desc_goods_merchant"),
             # Size
             (position_set_x, pos2, 550),
@@ -770,6 +772,7 @@ character_creation_presentations = [
             (store_add, "$class_type", "$g_presentation_obj_2_val", cc_soldier_pavoisier),
             (assign, ":mesh", "mesh_pic_siege_attack"),
             (assign, ":string_background", "str_dac_background_desc_soldier"),
+            (assign, ":animation", "anim_pose_2"),
             (store_add, ":string_class", "$g_presentation_obj_2_val", "str_dac_background_class_desc_pavoisier"),
             # Size
             (position_set_x, pos2, 400),
@@ -783,6 +786,7 @@ character_creation_presentations = [
             (store_add, "$class_type", "$g_presentation_obj_2_val", cc_hunter_poacher),
             (assign, ":mesh", "mesh_pic_forest_bandits"),
             (assign, ":string_background", "str_dac_background_desc_hunter"),
+            (assign, ":animation", "anim_pose_3"),
             (store_add, ":string_class", "$g_presentation_obj_2_val", "str_dac_background_class_desc_poacher"),
             # Size
             (position_set_x, pos2, 400),
@@ -796,6 +800,7 @@ character_creation_presentations = [
             (store_add, "$class_type", "$g_presentation_obj_2_val", cc_mercenary_condottiero),
             (assign, ":mesh", "mesh_pic_camp"),
             (assign, ":string_background", "str_dac_background_desc_mercenary"),
+            (assign, ":animation", "anim_pose_4"),
             (store_add, ":string_class", "$g_presentation_obj_2_val", "str_dac_background_class_desc_condottiero"),
             # Size
             (position_set_x, pos2, 600),
@@ -809,6 +814,7 @@ character_creation_presentations = [
             (store_add, "$class_type", "$g_presentation_obj_2_val", cc_peasant_farmer),
             (assign, ":mesh", "mesh_pic_recruits"),
             (assign, ":string_background", "str_dac_background_desc_peasant"),
+            (assign, ":animation", "anim_pose_2"),
             (store_add, ":string_class", "$g_presentation_obj_2_val", "str_dac_background_class_desc_farmer"),
             # Size
             (position_set_x, pos2, 400),
@@ -822,6 +828,7 @@ character_creation_presentations = [
             (store_add, "$class_type", "$g_presentation_obj_2_val", cb_healer_surgeon),
             (assign, ":mesh", "mesh_pic_town1"),
             (assign, ":string_background", "str_dac_background_desc_healer"),
+            (assign, ":animation", "anim_pose_3"),
             (store_add, ":string_class", "$g_presentation_obj_2_val", "str_dac_background_class_desc_surgeon"),
             # Size
             (position_set_x, pos2, 600),
@@ -883,13 +890,30 @@ character_creation_presentations = [
         (position_set_y, pos1, 200),
         (overlay_set_area_size, reg0, pos1),
         
+### Player Attributes Display
+        # (create_text_overlay, reg0, "@Attributes", tf_scrollable|tf_left_align),
+        # (position_set_x, pos1, 850),
+        # (position_set_y, pos1, 850),
+        # (overlay_set_size, reg0, pos1),
+        # (position_set_x, pos1, 50),
+        # (position_set_y, pos1, 150),
+        # (overlay_set_position, reg0, pos1),
+        # (position_set_x, pos1, 400),
+        # (position_set_y, pos1, 200),
+        # (overlay_set_area_size, reg0, pos1),
+        # (overlay_add_item, reg0, "@Strenght:"),
+        # (overlay_add_item, reg0, "@Agility:"),
+        # (overlay_add_item, reg0, "@Intelligence:"),
+        # (overlay_add_item, reg0, "@Charisma:"),
+        
 ### Player Figure
-        (create_mesh_overlay_with_tableau_material, reg0, -1, "tableau_dac_troop_animation", "anim_pose_1"),
+        (call_script, "script_dac_commoner_start_equipment", "$class_type"),
+        (create_mesh_overlay_with_tableau_material, reg0, -1, "tableau_dac_troop_animation", ":animation"),
         (position_set_x, pos1, 500),
         (position_set_y, pos1, 500),
         (overlay_set_size, reg0, pos1),
-        (position_set_x, pos1, 150),
-        (position_set_y, pos1, 100),
+        (position_set_x, pos1, 360),
+        (position_set_y, pos1, 350),
         (overlay_set_position, reg0, pos1),
 
 ### Return
@@ -918,6 +942,7 @@ character_creation_presentations = [
             (assign, "$g_presentation_obj_2_val", 0), # Reset
             (assign, reg11, ":value"),
             (display_message, "@Value Obj 1 is: {reg11}"),
+            (call_script, "script_dac_clear_player_equipment"),
             (start_presentation, "prsnt_dac_select_background"),
 
 ### Class Options
@@ -926,6 +951,7 @@ character_creation_presentations = [
             (assign, "$g_presentation_obj_2_val", ":value"),
             (assign, reg11, ":value"),
             (display_message, "@Value Obj 2 is: {reg11}"),
+            (call_script, "script_dac_clear_player_equipment"),
             (start_presentation, "prsnt_dac_select_background"),
         
 ### Return
