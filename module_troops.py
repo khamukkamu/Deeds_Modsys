@@ -50,7 +50,7 @@ from compiler import *
 ####################################################################################################################
 
 # Some constant and function declarations to be used below...
-# wp_one_handed () | wp_two_handed () | wp_polearm () | wp_archery () | wp_crossbow () | wp_throwing ()
+# wp_one_handed () | wp_two_handed () | wp_polearm () | wp_archery () | wp_crossbow () | wp_throwing () | wp_firearm () # DAC Seek: Added Firearms
 def wp(x):
   n = 0
   r = 10 + int(x / 10)
@@ -66,6 +66,7 @@ def wp(x):
   n |= wp_archery(x)
   n |= wp_crossbow(x)
   n |= wp_throwing(x)
+  n |= wp_firearm(x)
   return n
 
 def wpe(m,a,c,t):

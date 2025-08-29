@@ -1115,6 +1115,19 @@ cb_healer_surgeon                 = 21
 cb_healer_priest                  = 22
 cb_healer_alchemist               = 23   
 
+### DAC Seek: Default values for player character attributes
+pc_strenght = 4
+pc_agility = 4
+pc_intelligence = 4
+pc_charisma = 4
+pc_wp_one_handed = 15
+pc_wp_two_handed = 15
+pc_wp_polearm = 15
+pc_wp_archery = 15
+pc_wp_crossbow = 15
+pc_wp_throwing = 15
+pc_wp_firearms = 15
+
 #NPC system changes end
 #Encounter types
 enctype_fighting_against_village_raid = 1

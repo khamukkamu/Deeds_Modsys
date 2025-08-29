@@ -409,6 +409,8 @@ character_creation_menus = [
     (else_try),
         (assign, "$background_type", 1),
         (assign, "$background_class", 1),
+        (call_script, "script_dac_clear_player_equipment"),
+        (call_script, "script_dac_clear_player_attributes"),
         (start_presentation, "prsnt_dac_select_background"), 
     (try_end),
         ]),

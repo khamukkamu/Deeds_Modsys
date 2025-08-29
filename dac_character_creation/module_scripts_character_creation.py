@@ -1076,8 +1076,39 @@ character_creation_scripts = [
     (cur_tableau_add_sun_light, pos8, 175,150,125),
     ]),
     
+("dac_clear_player_attributes", [
+    (set_show_messages, 0),
+    
+    # ca_strength     = 0
+    # ca_agility      = 1
+    # ca_intelligence = 2
+    # ca_charisma     = 3
+    (store_attribute_level, ":strenght", "trp_player", ca_strength),
+    (store_attribute_level, ":agility", "trp_player", ca_agility),
+    (store_attribute_level, ":intelligence", "trp_player", ca_intelligence),
+    (store_attribute_level, ":charisma", "trp_player", ca_charisma),
+    
+    # pc_strenght = 4
+    # pc_agility = 4
+    # pc_intelligence = 4
+    # pc_charisma = 4
+    
+    (store_sub, ":strenght", pc_strenght, ":strenght"),
+    (store_sub, ":agility", pc_agility, ":agility"),
+    (store_sub, ":intelligence", pc_intelligence, ":intelligence"),
+    (store_sub, ":charisma", pc_charisma, ":charisma"),
+    
+    (troop_raise_attribute, "trp_player", ca_strength, ":strenght"),
+    (troop_raise_attribute, "trp_player", ca_agility, ":agility"),
+    (troop_raise_attribute, "trp_player", ca_intelligence, ":intelligence"),
+    (troop_raise_attribute, "trp_player", ca_charisma, ":charisma"),
+    
+    (set_show_messages, 1),
+  ]),
+    
 ("dac_clear_player_equipment", [
     (set_show_messages, 0),
+    
     (troop_clear_inventory, "trp_player"),
     
     (try_for_range, ":i_slot", ek_item_0, ek_horse + 1),
@@ -1105,6 +1136,11 @@ character_creation_scripts = [
         (troop_add_item, "trp_player","itm_g_gauntlets_mailed",0),
         (troop_add_item, "trp_player","itm_ho_rouncey_1",0),
         
+        (troop_raise_attribute, "trp_player", ca_strength, 4),
+        (troop_raise_attribute, "trp_player", ca_agility, 4),
+        (troop_raise_attribute, "trp_player", ca_intelligence, 4),
+        (troop_raise_attribute, "trp_player", ca_charisma, 4),
+        
     (else_try),
         (eq, ":background", cc_noble_tactician),   
         (troop_add_item, "trp_player","itm_a_pistoia_mail_b_mail_sleeves_over_plate",0),
@@ -1116,6 +1152,12 @@ character_creation_scripts = [
         (troop_add_item, "trp_player","itm_g_gauntlets_mailed",0),
         (troop_add_item, "trp_player","itm_ho_rouncey_1",0),
         
+        (troop_raise_attribute, "trp_player", ca_strength, 10),
+        (troop_raise_attribute, "trp_player", ca_agility, 10),
+        (troop_raise_attribute, "trp_player", ca_intelligence, 10),
+        (troop_raise_attribute, "trp_player", ca_charisma, 10),
+
+        
     (else_try),
         (eq, ":background", cc_noble_jouster),   
         (troop_add_item, "trp_player","itm_a_pistoia_mail_b_mail_sleeves_over_plate",0),
@@ -1126,6 +1168,11 @@ character_creation_scripts = [
         (troop_add_item, "trp_player","itm_w_onehanded_sword_knight",0),
         (troop_add_item, "trp_player","itm_g_gauntlets_mailed",0),
         (troop_add_item, "trp_player","itm_ho_rouncey_1",0),
+        
+        (troop_raise_attribute, "trp_player", ca_strength, 20),
+        (troop_raise_attribute, "trp_player", ca_agility, 20),
+        (troop_raise_attribute, "trp_player", ca_intelligence, 20),
+        (troop_raise_attribute, "trp_player", ca_charisma, 20),
         
     (else_try),
         (eq, ":background", cc_merchant_goods),   

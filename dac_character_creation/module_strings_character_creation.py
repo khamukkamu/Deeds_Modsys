@@ -25,6 +25,7 @@ character_creation_strings = [
 ("dac_select_background",                         "Select Your Background"),
 ("dac_select_class",                              "Select Your Class"),
 ("dac_class",                                     "Class"),
+("dac_attributes",                                "Attributes"),
                 
 ("dac_background_noble",                          "Noble"),
 ("dac_background_merchant",                       "Merchant"),
@@ -41,17 +42,49 @@ Pros: ^\
 Cons: ^\
 * One of them: 20% upkeep penalty for regular troops, does not apply to mercenaries ^\
 * Valuable target: Your ransom value is much higher should you be captured"),
+
 ("dac_background_desc_merchant",                  "As a merchant you make a living from trade, what exactly that trade entails is up to you but you are good at seizing opportunities as they arise and getting the most out of it. ^^\
 Pros: ^\
 * Business Minded: Start with higher trade, persuasion and inventory management skills. ^\
 * Negotiator: Can use trade or persuasion skills to get out of disadvantageous situations such as getting caught by enemies or just doing business ^^\
 Cons: ^\
 * Not a Fighter: Start with low combat related skills and proficiencies."),
-("dac_background_desc_soldier",                   "As a soldier you know well enough about combat and your fellow soldiers, their needs and wants, how logistics work and how battles are fought and won."),
-("dac_background_desc_hunter",                    "As a hunter you know how to move around, how to track and stalk your prey. Those skills are vital in an unforgiving world."),
-("dac_background_desc_mercenary",                 "As a mercenary your services are in high demand in these tumultuous times yet trust is hard to gain when your only alliegeance is to gold."),
-("dac_background_desc_peasant",                   "As a peasant your life is one of toil and survival. While there are opportunities to achieve greater deeds, it will feel like the odds are stacked against you."),
-("dac_background_desc_healer",                    "As a healer you keep death at bay"),
+
+("dac_background_desc_soldier",                   "As a soldier you know well enough about combat and your fellow soldiers, their needs and wants, how logistics work and how battles are fought and won. ^^\
+Pros: ^\
+* Logistics: You have spent quite some time on the road, foraging, scouting and setting up camps ^\
+* One of us: Commoners recognize you as one of their own, pay 20% less upkeep for regular troops ^^\
+Cons: ^\
+* Low Born: Nobles are reluctant to serve under your freshly earned banner, pay 20% more upkeep for noble troops"),
+
+("dac_background_desc_hunter",                    "As a hunter you know how to move around, how to track and stalk your prey. Those skills are vital in an unforgiving world. ^^\
+Pros: ^\
+* Foraging: Your supplies of food last longer as your party will consume 33% less food ^\
+* Scouting: Receive a notification when spotting a hostile party stronger than yours on the world map ^^\
+Cons: ^\
+* Keep Your Distance: You are used to eliminating threats before they can close the distance and thus are ill prepared for close combat"),
+
+("dac_background_desc_mercenary",                 "As a mercenary your services are in high demand in these tumultuous times yet trust is hard to gain when your only alliegeance is to gold. ^^\
+Pros: ^\
+* Contracts and Contacts: Mercenary recruitment and upkeep is significantly reduced ^\
+* Grand Company: Factions are more likely to provide you with mercenary contracts, rewards are increased ^\
+Cons: ^\
+* Villainous Lot: Mercenaries are often compromising of veterans, deserters, bandits and naïve recruits who don't always go along. Base morale is lower and suffer higher morale penalties from events, such as lack of food, retreat or defeat.^\
+* Lofty Ambitions: Nobles are very suspicious towards your true loyalties, requirements to join a faction are higher and should you try to form a kingdom of your own, neutral factions are likely to declare war on you."),
+
+("dac_background_desc_peasant",                   "As a peasant your life is one of toil and survival. While there are opportunities to achieve greater deeds, it will feel like the odds are stacked against you. ^^\
+Pros: ^\
+* Solidarity: Can ask villages for donations, the higher the relations with the village, the better the donation ^\
+* Hospitality: Can sleep for free in villages, don't overstay your welcome otherwise relations decline ^^\
+Cons: ^\
+* Low Born: Nobles will take some convincing before fighting for you, suffer a 20% penalty to upkeep and higher recruitment fees for nobles"),
+
+("dac_background_desc_healer",                    "As a healer your purpose is to treat wounds of physical or spiritual nature, there is no shortage of work for your particular skills. ^^\
+Pros: ^\
+* Healing Hand: Start with some skills in surgery, wound treatment and first aid ^\
+* Comforting Presence: It is comforting to know that someone capable of soothing pain is in your presence, start with a higher base party morale ^^\
+Cons: ^\
+* Pacifist: While you have knowledge of many of man's weaknesses, you have never intentionally tried to cause harm. Start with very low combat skills"),
         
 ("dac_background_class_governor",                 "Governor"),
 ("dac_background_class_strategist",               "Strategist"),
@@ -145,7 +178,12 @@ Cons: ^^\
 ("dac_background_class_desc_rebel",               "Rebel"),
 ("dac_background_class_desc_smith",               "Smith"),        
 
-("dac_background_class_desc_surgeon",             "Surgeon"),
+("dac_background_class_desc_surgeon",             "Surgeons specialize in handling grave injuries that require immediate attention, few things qualify as urgent as battlefield injuries. ^^\
+Pros: ^\
+* Battlefield Surgery: Your forces are more likely to suffer non-fatal injuries on the field, you also able to save some of your foes which results in more potential prisoners ^\
+* Intervention: Once a day, can perform an intervention on one of the party's heroes that is too wounded to fight, bringing the hero back into fighting condition ^^\
+Cons: ^\
+* Save Yourselves: Suffer a greater morale penalty in battle should you be knocked out"),
 ("dac_background_class_desc_priest",              "Priest"),
 ("dac_background_class_desc_alchemist",           "Alchemist"),
 

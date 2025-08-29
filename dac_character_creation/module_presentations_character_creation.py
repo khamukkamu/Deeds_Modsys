@@ -840,6 +840,8 @@ character_creation_presentations = [
 
 ### First background option is noble, add value of the selection to go to the next background, values start at 0        
         (store_add, "$background_type", "$g_presentation_obj_1_val", cb_noble),
+### Call script to set attributes, equipment, skills, etc... for the player
+        (call_script, "script_dac_commoner_start_equipment", "$class_type"),
         
 ### Text Background
         # (create_text_overlay, reg0, "str_biography", tf_center_justify),
@@ -890,24 +892,7 @@ character_creation_presentations = [
         (position_set_y, pos1, 200),
         (overlay_set_area_size, reg0, pos1),
         
-### Player Attributes Display
-        # (create_text_overlay, reg0, "@Attributes", tf_scrollable|tf_left_align),
-        # (position_set_x, pos1, 850),
-        # (position_set_y, pos1, 850),
-        # (overlay_set_size, reg0, pos1),
-        # (position_set_x, pos1, 50),
-        # (position_set_y, pos1, 150),
-        # (overlay_set_position, reg0, pos1),
-        # (position_set_x, pos1, 400),
-        # (position_set_y, pos1, 200),
-        # (overlay_set_area_size, reg0, pos1),
-        # (overlay_add_item, reg0, "@Strenght:"),
-        # (overlay_add_item, reg0, "@Agility:"),
-        # (overlay_add_item, reg0, "@Intelligence:"),
-        # (overlay_add_item, reg0, "@Charisma:"),
-        
 ### Player Figure
-        (call_script, "script_dac_commoner_start_equipment", "$class_type"),
         (create_mesh_overlay_with_tableau_material, reg0, -1, "tableau_dac_troop_animation", ":animation"),
         (position_set_x, pos1, 500),
         (position_set_y, pos1, 500),
@@ -915,6 +900,36 @@ character_creation_presentations = [
         (position_set_x, pos1, 360),
         (position_set_y, pos1, 350),
         (overlay_set_position, reg0, pos1),
+        
+### Attributes Title
+        (create_text_overlay, reg0, "str_dac_attributes", tf_left_align),
+        (position_set_x, pos1, 50),
+        (position_set_y, pos1, 300),
+        (overlay_set_position, reg0, pos1),
+        (position_set_x, pos1, 1250),
+        (position_set_y, pos1, 1250),
+        (overlay_set_size, reg1, pos1),
+        
+### Player Attributes Display
+        (store_attribute_level, reg10, "trp_player", ca_strength),
+        (store_attribute_level, reg11, "trp_player", ca_agility),
+        (store_attribute_level, reg12, "trp_player", ca_intelligence),
+        (store_attribute_level, reg13, "trp_player", ca_charisma),
+    
+        (create_text_overlay, reg0, "@* Strenght: {reg10} ^* Agility: {reg11} ^* Intelligence: {reg12} ^* Charisma: {reg13}", tf_scrollable|tf_left_align),
+        (position_set_x, pos1, 1000),
+        (position_set_y, pos1, 1000),
+        (overlay_set_size, reg0, pos1),
+        (position_set_x, pos1, 50),
+        (position_set_y, pos1, 150),
+        (overlay_set_position, reg0, pos1),
+        (position_set_x, pos1, 200),
+        (position_set_y, pos1, 150),
+        (overlay_set_area_size, reg0, pos1),
+        # (overlay_add_item, reg0, "@Strenght:"),
+        # (overlay_add_item, reg0, "@Agility:"),
+        # (overlay_add_item, reg0, "@Intelligence:"),
+        # (overlay_add_item, reg0, "@Charisma:"),
 
 ### Return
         (create_game_button_overlay, "$g_presentation_obj_4", "str_back"),
@@ -943,6 +958,7 @@ character_creation_presentations = [
             (assign, reg11, ":value"),
             (display_message, "@Value Obj 1 is: {reg11}"),
             (call_script, "script_dac_clear_player_equipment"),
+            (call_script, "script_dac_clear_player_attributes"),
             (start_presentation, "prsnt_dac_select_background"),
 
 ### Class Options
@@ -952,6 +968,7 @@ character_creation_presentations = [
             (assign, reg11, ":value"),
             (display_message, "@Value Obj 2 is: {reg11}"),
             (call_script, "script_dac_clear_player_equipment"),
+            (call_script, "script_dac_clear_player_attributes"),
             (start_presentation, "prsnt_dac_select_background"),
         
 ### Return
