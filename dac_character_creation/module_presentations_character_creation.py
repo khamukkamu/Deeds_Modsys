@@ -930,6 +930,56 @@ character_creation_presentations = [
         # (overlay_add_item, reg0, "@Agility:"),
         # (overlay_add_item, reg0, "@Intelligence:"),
         # (overlay_add_item, reg0, "@Charisma:"),
+        
+### Skills Title
+        (create_text_overlay, reg0, "str_dac_skills", tf_left_align),
+        (position_set_x, pos1, 220),
+        (position_set_y, pos1, 300),
+        (overlay_set_position, reg0, pos1),
+        (position_set_x, pos1, 1250),
+        (position_set_y, pos1, 1250),
+        (overlay_set_size, reg1, pos1),
+        
+### Skills Display
+        # (create_listbox_overlay, reg0, "$g_presentation_obj_3", tf_scrollable|tf_left_align),
+        # (position_set_x, pos1, 1000),
+        # (position_set_y, pos1, 1000),
+        # (overlay_set_size, reg0, pos1),
+        # (position_set_x, pos1, 220),
+        # (position_set_y, pos1, 200),
+        # (overlay_set_position, reg0, pos1),
+        # (position_set_x, pos1, 200),
+        # (position_set_y, pos1, 150),
+        # (overlay_set_area_size, reg0, pos1),
+        
+        # (try_for_range, ":skill", skl_trade, skl_reserved_18 + 1),
+            # (store_skill_level, ":skill_level", ":skill", "trp_player"),
+            # (gt, ":skill_level", 0),
+            # (assign, reg14, ":skill_level"),
+            # (store_add, ":string_skill", ":skill", "str_dac_skill_trade"),
+            # (overlay_add_item, reg0, ":string_skill"),
+        # (try_end),
+        
+        (str_clear, s4),
+        (try_for_range_backwards, ":skill", skl_trade, skl_reserved_18 + 1),
+            (store_skill_level, reg1, ":skill", "trp_player"),
+            (gt, reg1, 0),
+            (store_add, ":string", "str_skl_trade", ":skill"),
+            (str_store_string, s1, ":string"),
+            (str_store_string, s4, "@{s4}^{s1}: {reg1}"),
+        (try_end),
+
+        (create_text_overlay, reg0, s4, tf_scrollable|tf_left_align),
+        (position_set_x, pos1, 1000),
+        (position_set_y, pos1, 1000),
+        (overlay_set_size, reg0, pos1),
+        (position_set_x, pos1, 220),
+        (position_set_y, pos1, 170),
+        (overlay_set_position, reg0, pos1),
+        (position_set_x, pos1, 200),
+        (position_set_y, pos1, 150),
+        (overlay_set_area_size, reg0, pos1),
+        ################
 
 ### Return
         (create_game_button_overlay, "$g_presentation_obj_4", "str_back"),

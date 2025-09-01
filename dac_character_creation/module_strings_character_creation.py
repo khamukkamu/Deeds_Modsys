@@ -26,6 +26,50 @@ character_creation_strings = [
 ("dac_select_class",                              "Select Your Class"),
 ("dac_class",                                     "Class"),
 ("dac_attributes",                                "Attributes"),
+("dac_skills",                                    "Skills"),
+
+("dac_skill_trade",                               "Trade: {reg14}"),
+("dac_skill_leadership",                          "Leadership: {reg14}"),
+("dac_skill_prisoner_management",                 "Prisoner Management: {reg14}"), 
+("dac_skill_reserved_1",                          "Reserved Skill 1"), 
+("dac_skill_reserved_2",                          "Reserved Skill 2"), 
+("dac_skill_reserved_3",                          "Reserved Skill 3"), 
+("dac_skill_reserved_4",                          "Reserved Skill 4"), 
+("dac_skill_persuasion",                          "Persuasion: {reg14}"),
+("dac_skill_engineer",                            "Engineer: {reg14}"),
+("dac_skill_first_aid",                           "First Aid: {reg14}"),
+("dac_skill_surgery",                             "Surgery: {reg14}"),
+("dac_skill_wound_treatment",                     "Wound Treatment: {reg14}"),
+("dac_skill_inventory_management",                "Inventory Management: {reg14}"),
+("dac_skill_spotting",                            "Spotting: {reg14}"),
+("dac_skill_pathfinding",                         "Path-finding: {reg14}"),
+("dac_skill_tactics",                             "Tactics: {reg14}"),
+("dac_skill_tracking",                            "Tracking: {reg14}"),
+("dac_skill_trainer",                             "Trainer: {reg14}"),
+("dac_skill_reserved_5",                          "Reserved Skill 5"),
+("dac_skill_reserved_6",                          "Reserved Skill 6"),
+("dac_skill_reserved_7",                          "Reserved Skill 7"),
+("dac_skill_reserved_8",                          "Reserved Skill 8"),
+("dac_skill_looting",                             "Looting: {reg14}"),
+("dac_skill_horse_archery",                       "Horse Archery: {reg14}"),
+("dac_skill_riding",                              "Riding: {reg14}"),
+("dac_skill_athletics",                           "Athletics: {reg14}"),
+("dac_skill_shield",                              "Shield: {reg14}"),
+("dac_skill_weapon_master",                       "Weapon Master: {reg14}"),
+("dac_skill_reserved_9",                          "Reserved Skill 9"),
+("dac_skill_reserved_10",                         "Reserved Skill 10"),
+("dac_skill_reserved_11",                         "Reserved Skill 11"),
+("dac_skill_reserved_12",                         "Reserved Skill 12"),
+("dac_skill_reserved_13",                         "Reserved Skill 13"),
+("dac_skill_power_draw",                          "Power Draw: {reg14}"),
+("dac_skill_power_throw",                         "Power Throw: {reg14}"),
+("dac_skill_power_strike",                        "Power Strike: {reg14}"),
+("dac_skill_ironflesh",                           "Ironflesh: {reg14}"),
+("dac_skill_reserved_14",                         "Reserved Skill 14"),
+("dac_skill_reserved_15",                         "Reserved Skill 15"),
+("dac_skill_reserved_16",                         "Reserved Skill 16"),
+("dac_skill_reserved_17",                         "Reserved Skill 17"),
+("dac_skill_reserved_18",                         "Reserved Skill 18"),
                 
 ("dac_background_noble",                          "Noble"),
 ("dac_background_merchant",                       "Merchant"),
@@ -67,7 +111,7 @@ Cons: ^\
 ("dac_background_desc_mercenary",                 "As a mercenary your services are in high demand in these tumultuous times yet trust is hard to gain when your only alliegeance is to gold. ^^\
 Pros: ^\
 * Contracts and Contacts: Mercenary recruitment and upkeep is significantly reduced ^\
-* Grand Company: Factions are more likely to provide you with mercenary contracts, rewards are increased ^\
+* Grand Company: Factions are more likely to provide you with mercenary contracts, rewards are increased ^^\
 Cons: ^\
 * Villainous Lot: Mercenaries are often compromising of veterans, deserters, bandits and naïve recruits who don't always go along. Base morale is lower and suffer higher morale penalties from events, such as lack of food, retreat or defeat.^\
 * Lofty Ambitions: Nobles are very suspicious towards your true loyalties, requirements to join a faction are higher and should you try to form a kingdom of your own, neutral factions are likely to declare war on you."),
@@ -156,16 +200,16 @@ Cons: ^\
 ("dac_background_class_desc_archer",              "Archer"),        
       
 ("dac_background_class_desc_poacher",             "Poachers are huntsmen that specialize in hunting game and foraging ^^\
-Pros: ^^\
+Pros: ^\
 * Hunting Grounds: While traveling through forests on the world map there's a chance to forage meat or fruits. ^\
 * Honed Skills: You are proficient in spotting, pathfinding and tracking as well as in the use of a bow. ^^\
-Cons: ^^\
+Cons: ^\
 * Lone Wolf: Not used to leading men to combat, your leadership stats and starting party size is reduced"),
 ("dac_background_class_desc_manhunter",           "Manhunters or Retondeurs specialize in hunting down the bandits that ravage France, unfortunately many turned to banditry themselves as it was more rewarding than risking your life taking them down. ^^\
-Pros: ^^\
+Pros: ^\
 * A Plague on the Land: Increased rewards from taking down bandit strongholds and from capturing bandits or deserters ^\
-* Less Lethal: You and your troops know how to avoid lethal strikes, making it more likely to capture prisoners even when not using blunt weapons ^\
-Cons: ^^\
+* Less Lethal: You and your troops know how to avoid lethal strikes, making it more likely to capture prisoners even when not using blunt weapons ^^\
+Cons: ^\
 * Reputational Damage: Increased penalties from all hostile actions that can be considered banditry, such as attacking peasants, caravans or raiding villages"),
 ("dac_background_class_desc_marksman",            "Marksman"),      
          

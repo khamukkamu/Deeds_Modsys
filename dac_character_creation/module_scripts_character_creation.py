@@ -1083,25 +1083,37 @@ character_creation_scripts = [
     # ca_agility      = 1
     # ca_intelligence = 2
     # ca_charisma     = 3
-    (store_attribute_level, ":strenght", "trp_player", ca_strength),
-    (store_attribute_level, ":agility", "trp_player", ca_agility),
-    (store_attribute_level, ":intelligence", "trp_player", ca_intelligence),
-    (store_attribute_level, ":charisma", "trp_player", ca_charisma),
+    # (store_attribute_level, ":strenght", "trp_player", ca_strength),
+    # (store_attribute_level, ":agility", "trp_player", ca_agility),
+    # (store_attribute_level, ":intelligence", "trp_player", ca_intelligence),
+    # (store_attribute_level, ":charisma", "trp_player", ca_charisma),
     
     # pc_strenght = 4
     # pc_agility = 4
     # pc_intelligence = 4
     # pc_charisma = 4
     
-    (store_sub, ":strenght", pc_strenght, ":strenght"),
-    (store_sub, ":agility", pc_agility, ":agility"),
-    (store_sub, ":intelligence", pc_intelligence, ":intelligence"),
-    (store_sub, ":charisma", pc_charisma, ":charisma"),
+    # (store_sub, ":strenght", pc_strenght, ":strenght"),
+    # (store_sub, ":agility", pc_agility, ":agility"),
+    # (store_sub, ":intelligence", pc_intelligence, ":intelligence"),
+    # (store_sub, ":charisma", pc_charisma, ":charisma"),
     
-    (troop_raise_attribute, "trp_player", ca_strength, ":strenght"),
-    (troop_raise_attribute, "trp_player", ca_agility, ":agility"),
-    (troop_raise_attribute, "trp_player", ca_intelligence, ":intelligence"),
-    (troop_raise_attribute, "trp_player", ca_charisma, ":charisma"),
+    # (troop_raise_attribute, "trp_player", ca_strength, ":strenght"),
+    # (troop_raise_attribute, "trp_player", ca_agility, ":agility"),
+    # (troop_raise_attribute, "trp_player", ca_intelligence, ":intelligence"),
+    # (troop_raise_attribute, "trp_player", ca_charisma, ":charisma"),
+    
+    (try_for_range, ":attribute", ca_strength, ca_charisma + 1),
+        (store_attribute_level, ":attribute_level", "trp_player", ":attribute"),
+        (store_sub, ":attribute_level", pc_attribute, ":attribute_level"),
+        (troop_raise_attribute, "trp_player", ":attribute", ":attribute_level"),
+    (try_end),
+        
+    (try_for_range, ":skill", "skl_trade", "skl_reserved_18"),
+        (store_skill_level, ":skill_level", ":skill", "trp_player"),
+        (store_sub, ":skill_level", 0, ":skill_level"),
+        (troop_raise_skill, "trp_player", ":skill", ":skill_level"),
+    (try_end),
     
     (set_show_messages, 1),
   ]),
@@ -1141,6 +1153,12 @@ character_creation_scripts = [
         (troop_raise_attribute, "trp_player", ca_intelligence, 4),
         (troop_raise_attribute, "trp_player", ca_charisma, 4),
         
+        (troop_raise_skill, "trp_player",skl_weapon_master,1),
+        (troop_raise_skill, "trp_player",skl_power_strike,1),
+        (troop_raise_skill, "trp_player",skl_riding,1),
+        (troop_raise_skill, "trp_player",skl_tactics,1),
+        (troop_raise_skill, "trp_player",skl_leadership,1),	 
+        
     (else_try),
         (eq, ":background", cc_noble_tactician),   
         (troop_add_item, "trp_player","itm_a_pistoia_mail_b_mail_sleeves_over_plate",0),
@@ -1156,6 +1174,12 @@ character_creation_scripts = [
         (troop_raise_attribute, "trp_player", ca_agility, 10),
         (troop_raise_attribute, "trp_player", ca_intelligence, 10),
         (troop_raise_attribute, "trp_player", ca_charisma, 10),
+        
+        (troop_raise_skill, "trp_player",skl_weapon_master,2),
+        (troop_raise_skill, "trp_player",skl_power_strike,2),
+        (troop_raise_skill, "trp_player",skl_riding,2),
+        (troop_raise_skill, "trp_player",skl_tactics,2),
+        (troop_raise_skill, "trp_player",skl_leadership,2),	 
 
         
     (else_try),
@@ -1173,6 +1197,12 @@ character_creation_scripts = [
         (troop_raise_attribute, "trp_player", ca_agility, 20),
         (troop_raise_attribute, "trp_player", ca_intelligence, 20),
         (troop_raise_attribute, "trp_player", ca_charisma, 20),
+        
+        (troop_raise_skill, "trp_player",skl_weapon_master,3),
+        (troop_raise_skill, "trp_player",skl_power_strike,3),
+        (troop_raise_skill, "trp_player",skl_riding,3),
+        (troop_raise_skill, "trp_player",skl_tactics,3),
+        (troop_raise_skill, "trp_player",skl_leadership,3),	
         
     (else_try),
         (eq, ":background", cc_merchant_goods),   

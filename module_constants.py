@@ -1116,6 +1116,7 @@ cb_healer_priest                  = 22
 cb_healer_alchemist               = 23   
 
 ### DAC Seek: Default values for player character attributes
+pc_attribute = 4
 pc_strenght = 4
 pc_agility = 4
 pc_intelligence = 4
