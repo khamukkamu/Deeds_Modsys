@@ -1105,7 +1105,7 @@ cc_hunter_poacher                 = 11
 cc_hunter_manhunter               = 12
 cc_hunter_marksman                = 13
 cc_mercenary_condottiero          = 14
-cc_mercenary_sellsword            = 15
+cc_mercenary_flemish              = 15
 cc_mercenary_pikeman              = 16
 cc_mercenary_crossbowman          = 17
 cc_peasant_farmer                 = 18
@@ -1117,17 +1117,18 @@ cb_healer_alchemist               = 23
 
 ### DAC Seek: Default values for player character attributes
 pc_attribute = 4
-pc_strenght = 4
-pc_agility = 4
-pc_intelligence = 4
-pc_charisma = 4
-pc_wp_one_handed = 15
-pc_wp_two_handed = 15
-pc_wp_polearm = 15
-pc_wp_archery = 15
-pc_wp_crossbow = 15
-pc_wp_throwing = 15
-pc_wp_firearms = 15
+# pc_strenght = 4
+# pc_agility = 4
+# pc_intelligence = 4
+# pc_charisma = 4
+pc_wp_all = 15
+# pc_wp_one_handed = 15
+# pc_wp_two_handed = 15
+# pc_wp_polearm = 15
+# pc_wp_archery = 15
+# pc_wp_crossbow = 15
+# pc_wp_throwing = 15
+# pc_wp_firearms = 15
 
 #NPC system changes end
 #Encounter types

@@ -658,13 +658,13 @@ character_creation_presentations = [
         (set_fixed_point_multiplier, 1000),
 
 ### Text        
-        (create_text_overlay, reg1, "str_dac_select_background", tf_center_justify),
+        (create_text_overlay, reg0, "str_dac_select_background", tf_center_justify),
         (position_set_x, pos1, 250),
         (position_set_y, pos1, 685),
-        (overlay_set_position, reg1, pos1),
+        (overlay_set_position, reg0, pos1),
         (position_set_x, pos1, 1500),
         (position_set_y, pos1, 1500),
-        (overlay_set_size, reg1, pos1),
+        (overlay_set_size, reg0, pos1),
         
 ### Background Options
         (create_combo_label_overlay, "$g_presentation_obj_1"),
@@ -719,7 +719,7 @@ character_creation_presentations = [
         (else_try),
             (eq, "$g_presentation_obj_1_val", 4),
             (overlay_add_item, "$g_presentation_obj_2", "str_dac_background_class_condottiero"),
-            (overlay_add_item, "$g_presentation_obj_2", "str_dac_background_class_sellsword"),
+            (overlay_add_item, "$g_presentation_obj_2", "str_dac_background_class_flemish"),
             (overlay_add_item, "$g_presentation_obj_2", "str_dac_background_class_pikeman"),
             (overlay_add_item, "$g_presentation_obj_2", "str_dac_background_class_crossbowman"),
         (else_try),
@@ -906,26 +906,35 @@ character_creation_presentations = [
         (position_set_x, pos1, 50),
         (position_set_y, pos1, 300),
         (overlay_set_position, reg0, pos1),
-        (position_set_x, pos1, 1250),
-        (position_set_y, pos1, 1250),
-        (overlay_set_size, reg1, pos1),
+        (position_set_x, pos1, 1000),
+        (position_set_y, pos1, 1000),
+        (overlay_set_size, reg0, pos1),
         
 ### Player Attributes Display
         (store_attribute_level, reg10, "trp_player", ca_strength),
         (store_attribute_level, reg11, "trp_player", ca_agility),
         (store_attribute_level, reg12, "trp_player", ca_intelligence),
         (store_attribute_level, reg13, "trp_player", ca_charisma),
-    
-        (create_text_overlay, reg0, "@* Strenght: {reg10} ^* Agility: {reg11} ^* Intelligence: {reg12} ^* Charisma: {reg13}", tf_scrollable|tf_left_align),
-        (position_set_x, pos1, 1000),
-        (position_set_y, pos1, 1000),
-        (overlay_set_size, reg0, pos1),
+        
+        (call_script, "script_game_get_party_companion_limit"),
+        (assign, ":party_size_limit", reg0),
+        (troop_get_slot, ":renown", "trp_player", slot_troop_renown),       
+
+        (assign, reg14, ":renown"),
+        (assign, reg15, "$player_honor"),
+        (assign, reg16, ":party_size_limit"),
+        (assign, reg17, "$player_gold"), # Using global to avoid the money_received sound
+
+        (create_text_overlay, reg1, "@Strenght: {reg10} ^Agility: {reg11} ^Intelligence: {reg12} ^Charisma: {reg13} ^^Renown: {reg14} ^Honor: {reg15} ^Party Size: {reg16} ^Gold: {reg17}", tf_scrollable|tf_left_align),
+        (position_set_x, pos1, 850),
+        (position_set_y, pos1, 850),
+        (overlay_set_size, reg1, pos1),
         (position_set_x, pos1, 50),
-        (position_set_y, pos1, 150),
-        (overlay_set_position, reg0, pos1),
-        (position_set_x, pos1, 200),
-        (position_set_y, pos1, 150),
-        (overlay_set_area_size, reg0, pos1),
+        (position_set_y, pos1, 115),
+        (overlay_set_position, reg1, pos1),
+        (position_set_x, pos1, 160),
+        (position_set_y, pos1, 180),
+        (overlay_set_area_size, reg1, pos1),
         # (overlay_add_item, reg0, "@Strenght:"),
         # (overlay_add_item, reg0, "@Agility:"),
         # (overlay_add_item, reg0, "@Intelligence:"),
@@ -933,12 +942,12 @@ character_creation_presentations = [
         
 ### Skills Title
         (create_text_overlay, reg0, "str_dac_skills", tf_left_align),
-        (position_set_x, pos1, 220),
+        (position_set_x, pos1, 180),
         (position_set_y, pos1, 300),
         (overlay_set_position, reg0, pos1),
-        (position_set_x, pos1, 1250),
-        (position_set_y, pos1, 1250),
-        (overlay_set_size, reg1, pos1),
+        (position_set_x, pos1, 1000),
+        (position_set_y, pos1, 1000),
+        (overlay_set_size, reg0, pos1),
         
 ### Skills Display
         # (create_listbox_overlay, reg0, "$g_presentation_obj_3", tf_scrollable|tf_left_align),
@@ -962,25 +971,55 @@ character_creation_presentations = [
         
         (str_clear, s4),
         (try_for_range_backwards, ":skill", skl_trade, skl_reserved_18 + 1),
-            (store_skill_level, reg1, ":skill", "trp_player"),
-            (gt, reg1, 0),
+            (store_skill_level, reg20, ":skill", "trp_player"),
+            (gt, reg20, 0),
             (store_add, ":string", "str_skl_trade", ":skill"),
+            (str_store_string, s1, ":string"),
+            (str_store_string, s4, "@{s4}^{s1}: {reg20}"),
+        (try_end),
+
+        (create_text_overlay, reg0, s4, tf_scrollable|tf_left_align),
+        (position_set_x, pos1, 850),
+        (position_set_y, pos1, 850),
+        (overlay_set_size, reg0, pos1),
+        (position_set_x, pos1, 180),
+        (position_set_y, pos1, 160),
+        (overlay_set_position, reg0, pos1),
+        (position_set_x, pos1, 200),
+        (position_set_y, pos1, 150),
+        (overlay_set_area_size, reg0, pos1),
+
+### Weapon Proficiencies Title
+        (create_text_overlay, reg0, "str_dac_weapon_proficiencies", tf_left_align),
+        (position_set_x, pos1, 340),
+        (position_set_y, pos1, 300),
+        (overlay_set_position, reg0, pos1),
+        (position_set_x, pos1, 850),
+        (position_set_y, pos1, 1000),
+        (overlay_set_size, reg0, pos1),
+
+### Weapon Proficiencies Display
+        (str_clear, s4),
+        (try_for_range, ":proficiency", wpt_one_handed_weapon, wpt_firearm + 1),
+            (store_proficiency_level, reg1, "trp_player", ":proficiency"),
+            (gt, reg1, 0),
+            (store_add, ":string", "str_dac_wpt_onehanded", ":proficiency"),
             (str_store_string, s1, ":string"),
             (str_store_string, s4, "@{s4}^{s1}: {reg1}"),
         (try_end),
 
         (create_text_overlay, reg0, s4, tf_scrollable|tf_left_align),
-        (position_set_x, pos1, 1000),
-        (position_set_y, pos1, 1000),
+        (position_set_x, pos1, 850),
+        (position_set_y, pos1, 850),
         (overlay_set_size, reg0, pos1),
-        (position_set_x, pos1, 220),
-        (position_set_y, pos1, 170),
+        (position_set_x, pos1, 340),
+        (position_set_y, pos1, 160),
         (overlay_set_position, reg0, pos1),
         (position_set_x, pos1, 200),
         (position_set_y, pos1, 150),
         (overlay_set_area_size, reg0, pos1),
-        ################
-
+        
+        
 ### Return
         (create_game_button_overlay, "$g_presentation_obj_4", "str_back"),
         (position_set_x, pos1, 150),
@@ -1005,8 +1044,8 @@ character_creation_presentations = [
             (eq, ":object", "$g_presentation_obj_1"),
             (assign, "$g_presentation_obj_1_val", ":value"),
             (assign, "$g_presentation_obj_2_val", 0), # Reset
-            (assign, reg11, ":value"),
-            (display_message, "@Value Obj 1 is: {reg11}"),
+            # (assign, reg11, ":value"),
+            # (display_message, "@Value Obj 1 is: {reg11}"),
             (call_script, "script_dac_clear_player_equipment"),
             (call_script, "script_dac_clear_player_attributes"),
             (start_presentation, "prsnt_dac_select_background"),
@@ -1015,8 +1054,8 @@ character_creation_presentations = [
         (else_try),
             (eq, ":object", "$g_presentation_obj_2"),
             (assign, "$g_presentation_obj_2_val", ":value"),
-            (assign, reg11, ":value"),
-            (display_message, "@Value Obj 2 is: {reg11}"),
+            # (assign, reg11, ":value"),
+            # (display_message, "@Value Obj 2 is: {reg11}"),
             (call_script, "script_dac_clear_player_equipment"),
             (call_script, "script_dac_clear_player_attributes"),
             (start_presentation, "prsnt_dac_select_background"),
@@ -1029,6 +1068,7 @@ character_creation_presentations = [
 ### Finish          
         (else_try),
             (eq, ":object", "$g_presentation_obj_5"),
+            (troop_add_gold, "trp_player", "$player_gold"),
             (set_show_messages, 1),
             (presentation_set_duration, 0),
             (jump_to_menu, "mnu_dac_choose_skill",),

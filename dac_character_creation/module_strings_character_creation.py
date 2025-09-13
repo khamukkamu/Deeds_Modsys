@@ -27,6 +27,14 @@ character_creation_strings = [
 ("dac_class",                                     "Class"),
 ("dac_attributes",                                "Attributes"),
 ("dac_skills",                                    "Skills"),
+("dac_weapon_proficiencies",                      "Weapon Proficiencies"),
+("dac_wpt_onehanded",                             "Onehanded"),
+("dac_wpt_twohanded",                             "Twohanded"),
+("dac_wpt_polearms",                              "Polearms"),
+("dac_wpt_archery",                               "Bows"),
+("dac_wpt_crossbow",                              "Crossbows"),
+("dac_wpt_throwing",                              "Throwing"),
+("dac_wpt_firearm",                               "Firearm"),
 
 ("dac_skill_trade",                               "Trade: {reg14}"),
 ("dac_skill_leadership",                          "Leadership: {reg14}"),
@@ -144,7 +152,7 @@ Cons: ^\
 ("dac_background_class_manhunter",                "Manhunter"),
 ("dac_background_class_marksman",                 "Marksman"),               
 ("dac_background_class_condottiero",              "Condottiero"),
-("dac_background_class_sellsword",                "Sellsword"),
+("dac_background_class_flemish",                  "Flemish Mercenary"),
 ("dac_background_class_pikeman",                  "Pikeman"),
 ("dac_background_class_crossbowman",              "Crossbowman"),           
 ("dac_background_class_farmer",                   "Farmer"),
@@ -211,16 +219,46 @@ Pros: ^\
 * Less Lethal: You and your troops know how to avoid lethal strikes, making it more likely to capture prisoners even when not using blunt weapons ^^\
 Cons: ^\
 * Reputational Damage: Increased penalties from all hostile actions that can be considered banditry, such as attacking peasants, caravans or raiding villages"),
-("dac_background_class_desc_marksman",            "Marksman"),      
+("dac_background_class_desc_marksman",            "Marksmen are professionals that earn a living showing off their skills in ranged weaponry ^^\
+Pros: ^\
+* Showoff: Gain renown when landing difficult shots in battle ^\
+* Skilled: Start with good stats on everything related to ranged weapons ^^\
+Cons : ^\
+* Not a Warrior: Start with bad stats on everything related to close combat"),      
          
-("dac_background_class_desc_condottiero",         "Condottiero"),
-("dac_background_class_desc_sellsword",           "Sellsword"),
+("dac_background_class_desc_condottiero",         "Condottieri are prized mercenary leaders who earned their fame from selling their services in Italy ^^\
+Pros: ^\
+* Established Company: Start with an already built tier 2 mercenary camp ^\
+* Italian Ties: Can recruit Italian mercenaries in your camp ^^\
+Cons: ^\
+* Expensive Tastes: Your troops have acquired some expensive tastes while campaigning in Italy and demand to have wine and a diverse food regiment or suffer morale penalties"),
+("dac_background_class_desc_flemish",             "Flemish mercenaries start venturing into France as the French lead some reprisal campaigns and as the Duchy of Burgundy expands ^^\
+Pros: ^\
+* Close Knit: Flemish mercenaries have increased combat stats ^\
+* Flemish Ties: Can recruit Flemish mercenaries in your camp ^^\
+Cons: ^\
+* Panick: Seeing troops routing in battle can trigger a full route"),
 ("dac_background_class_desc_pikeman",             "Pikeman"),
 ("dac_background_class_desc_crossbowman",         "Crossbowman"),     
       
-("dac_background_class_desc_farmer",              "Farmer"),
-("dac_background_class_desc_rebel",               "Rebel"),
-("dac_background_class_desc_smith",               "Smith"),        
+("dac_background_class_desc_farmer",              "Farmers are simple folk that live off the land, toiling away to feed themselves, their family and the real. War comes even to those that bother none, turmoil has reached and razed your village. Bandits, nobles, doesn't matter, you have nothing left here and must start life anew. ^^\
+Pros: ^\
+* Life of Toil: Can work in villages in exchange for a wage and produce ^\
+* Happy Camper: Morale bonus from food diversity is increased ^^\
+Cons: ^\
+* Starting Over: You own very little other than the clothes on your back"),
+("dac_background_class_desc_rebel",               "Rebels are those that have lost everything and lash out against the world enacting mob justice on those they consider to have wronged them ^^\
+Pros: ^\
+* We Are Legion: Party size increased, can recruit rebellious peasant parties to your cause ^\
+* Takeover: Instead of destroying bandit camps, you can chose to take over them ^^\
+Cons: ^\
+* Bellum Omnium Contra Omnes: All factions start hostile towards you."),
+("dac_background_class_desc_smith",               "Smiths are one of the cornerstones of society, crafting and mending tools necessary for the other professions to perform well ^^\
+Pros: ^\
+* Repairs: Can repair and mend weapons and armour back to regular condition ^\
+* Crafty: Research and costs are reduced when producing items for your personal troops at your camp ^^\
+Cons: ^\
+Noxious Fumes: Years of working the forge has had a toll on your health, you can suffer decreased stats after being knocked down"),        
 
 ("dac_background_class_desc_surgeon",             "Surgeons specialize in handling grave injuries that require immediate attention, few things qualify as urgent as battlefield injuries. ^^\
 Pros: ^\
@@ -228,8 +266,18 @@ Pros: ^\
 * Intervention: Once a day, can perform an intervention on one of the party's heroes that is too wounded to fight, bringing the hero back into fighting condition ^^\
 Cons: ^\
 * Save Yourselves: Suffer a greater morale penalty in battle should you be knocked out"),
-("dac_background_class_desc_priest",              "Priest"),
-("dac_background_class_desc_alchemist",           "Alchemist"),
+("dac_background_class_desc_priest",              "Priests specialize in the salvation of the eternal soul. You have your own interpretation on how this is to be achieved, going on a personal crusade but beware not to lose yours on the way. ^^\
+Pros: ^\
+* Zealots: Troops under your command fight to the bitter end ^\
+* Man of the Cloth: Your foes are more likely to release you unnarmed ^^\
+Cons: ^\
+* Heresy: You are sworn not to kill by your own hand and to protect the innocent, breaking those vows will have you branded as a heretic and will have dire consequences"),
+("dac_background_class_desc_alchemist",           "Alchemists specialize in the arcane and esoteric studies, whilst many are consumed by the search for the elusive philosopher's stone you personally focus on experiments that provide more immediate results and can be repeated. ^^\
+Pros: ^\
+* Potions And Draughts: Can craft a few potions and draughts that can heal you or provide bonuses during battles ^\
+* Artefact Of Antioch: Look for the fabled Holy Hand Grenade of Antioch ^^\
+Cons: ^\
+* Dangerous Experiments: There is always a chance for your experiments to backfire, causing you harm"),
 
 ### DAC Seek: The legendary Lorem Ipsum
 ("lorem_ipsum", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"),

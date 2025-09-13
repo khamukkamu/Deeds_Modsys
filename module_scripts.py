@@ -5787,7 +5787,15 @@ scripts = [
     [
       (assign, ":troop_no", "trp_player"),
 
-      (assign, ":limit", 30),
+### DAC Seek: Change base limits from character creation
+    (try_begin),
+        (this_or_next|eq, "$class_type", cc_noble_jouster),
+        (eq, "$class_type", cc_hunter_poacher),
+        (assign, ":limit", 15),    
+    (else_try),
+        (assign, ":limit", 30),
+    (try_end),
+      
       (store_skill_level, ":skill", "skl_leadership", ":troop_no"),
       (store_attribute_level, ":charisma", ":troop_no", ca_charisma),
       (val_mul, ":skill", 5),
