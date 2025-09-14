@@ -89,54 +89,77 @@ character_creation_strings = [
         
 ("dac_background_desc_noble",                     "As a noble you start your early life relatively wealthy in comparison to most, whilst not one from an influential family you nevertheless were afforded a decent education at court which included reading, martial skills and matters of faith ^^\
 Pros: ^\
-* One of Us: 20% Reduction on upkeep and recruitment costs for Knights ^\
-* Tutors: Start with a decent mix of skills ^^\
+» One of Us: ^\
+20% Reduction on upkeep and recruitment costs for Knights ^\
+» Tutors: ^\
+Start with a decent mix of skills ^^\
 Cons: ^\
-* One of them: 20% upkeep penalty for regular troops, does not apply to mercenaries ^\
-* Valuable target: Your ransom value is much higher should you be captured"),
+» One of them: ^\
+20% upkeep penalty for regular troops, does not apply to mercenaries ^\
+» Valuable target: ^\
+Your ransom value is much higher should you be captured"),
 
 ("dac_background_desc_merchant",                  "As a merchant you make a living from trade, what exactly that trade entails is up to you but you are good at seizing opportunities as they arise and getting the most out of it. ^^\
 Pros: ^\
-* Business Minded: Start with higher trade, persuasion and inventory management skills. ^\
-* Negotiator: Can use trade or persuasion skills to get out of disadvantageous situations such as getting caught by enemies or just doing business ^^\
+» Business Minded: ^\
+Start with higher trade, persuasion and inventory management skills. ^\
+» Negotiator: ^\
+Can use trade or persuasion skills to get out of disadvantageous situations such as getting caught by enemies or just doing business ^^\
 Cons: ^\
-* Not a Fighter: Start with low combat related skills and proficiencies."),
+» Not a Fighter: ^\
+Start with low combat related skills and proficiencies."),
 
 ("dac_background_desc_soldier",                   "As a soldier you know well enough about combat and your fellow soldiers, their needs and wants, how logistics work and how battles are fought and won. ^^\
 Pros: ^\
-* Logistics: You have spent quite some time on the road, foraging, scouting and setting up camps ^\
-* One of us: Commoners recognize you as one of their own, pay 20% less upkeep for regular troops ^^\
+» Logistics: ^\
+You have spent quite some time on the road, foraging, scouting and setting up camps ^\
+» One of us: ^\
+Commoners recognize you as one of their own, pay 20% less upkeep for regular troops ^^\
 Cons: ^\
-* Low Born: Nobles are reluctant to serve under your freshly earned banner, pay 20% more upkeep for noble troops"),
+» Low Born: ^\
+Nobles are reluctant to serve under your freshly earned banner, pay 20% more upkeep for noble troops"),
 
 ("dac_background_desc_hunter",                    "As a hunter you know how to move around, how to track and stalk your prey. Those skills are vital in an unforgiving world. ^^\
 Pros: ^\
-* Foraging: Your supplies of food last longer as your party will consume 33% less food ^\
-* Scouting: Receive a notification when spotting a hostile party stronger than yours on the world map ^^\
+» Foraging: ^\
+Your supplies of food last longer as your party will consume 33% less food ^\
+» Scouting: ^\
+Receive a notification when spotting a hostile party stronger than yours on the world map ^^\
 Cons: ^\
-* Keep Your Distance: You are used to eliminating threats before they can close the distance and thus are ill prepared for close combat"),
+» Keep Your Distance: ^\
+You are used to eliminating threats before they can close the distance and thus are ill prepared for close combat"),
 
 ("dac_background_desc_mercenary",                 "As a mercenary your services are in high demand in these tumultuous times yet trust is hard to gain when your only alliegeance is to gold. ^^\
 Pros: ^\
-* Contracts and Contacts: Mercenary recruitment and upkeep is significantly reduced ^\
-* Grand Company: Factions are more likely to provide you with mercenary contracts, rewards are increased ^^\
+» Contracts and Contacts: ^\
+Mercenary recruitment and upkeep is significantly reduced ^\
+» Grand Company: ^\
+Factions are more likely to provide you with mercenary contracts, rewards are increased ^^\
 Cons: ^\
-* Villainous Lot: Mercenaries are often compromising of veterans, deserters, bandits and naïve recruits who don't always go along. Base morale is lower and suffer higher morale penalties from events, such as lack of food, retreat or defeat.^\
-* Lofty Ambitions: Nobles are very suspicious towards your true loyalties, requirements to join a faction are higher and should you try to form a kingdom of your own, neutral factions are likely to declare war on you."),
+» Villainous Lot: ^\
+Mercenaries are often compromising of veterans, deserters, bandits and naïve recruits who don't always go along. Base morale is lower and suffer higher morale penalties from events, such as lack of food, retreat or defeat.^\
+» Lofty Ambitions: ^\
+Nobles are very suspicious towards your true loyalties, requirements to join a faction are higher and should you try to form a kingdom of your own, neutral factions are likely to declare war on you."),
 
 ("dac_background_desc_peasant",                   "As a peasant your life is one of toil and survival. While there are opportunities to achieve greater deeds, it will feel like the odds are stacked against you. ^^\
 Pros: ^\
-* Solidarity: Can ask villages for donations, the higher the relations with the village, the better the donation ^\
-* Hospitality: Can sleep for free in villages, don't overstay your welcome otherwise relations decline ^^\
+» Solidarity: ^\
+Can ask villages for donations, the higher the relations with the village, the better the donation ^\
+» Hospitality: ^\
+Can sleep for free in villages, don't overstay your welcome otherwise relations decline ^^\
 Cons: ^\
-* Low Born: Nobles will take some convincing before fighting for you, suffer a 20% penalty to upkeep and higher recruitment fees for nobles"),
+» Low Born: ^\
+Nobles will take some convincing before fighting for you, suffer a 20% penalty to upkeep and higher recruitment fees for nobles"),
 
 ("dac_background_desc_healer",                    "As a healer your purpose is to treat wounds of physical or spiritual nature, there is no shortage of work for your particular skills. ^^\
 Pros: ^\
-* Healing Hand: Start with some skills in surgery, wound treatment and first aid ^\
-* Comforting Presence: It is comforting to know that someone capable of soothing pain is in your presence, start with a higher base party morale ^^\
+» Healing Hand: ^\
+Start with some skills in surgery, wound treatment and first aid ^\
+» Comforting Presence: ^\
+It is comforting to know that someone capable of soothing pain is in your presence, start with a higher base party morale ^^\
 Cons: ^\
-* Pacifist: While you have knowledge of many of man's weaknesses, you have never intentionally tried to cause harm. Start with very low combat skills"),
+» Pacifist: ^\
+While you have knowledge of many of man's weaknesses, you have never intentionally tried to cause harm. Start with very low combat skills"),
         
 ("dac_background_class_governor",                 "Governor"),
 ("dac_background_class_strategist",               "Strategist"),
@@ -144,17 +167,16 @@ Cons: ^\
 ("dac_background_class_goods_merchant",           "Goods Merchant"),
 ("dac_background_class_slaver",                   "Ransom Broker"),
 ("dac_background_class_investor",                 "Investor"),               
-("dac_background_class_pavoisier",                "Pavoisier"),
-("dac_background_class_vougier",                  "Vougier"),
-("dac_background_class_crossbow",                 "Crossbowman"),
-("dac_background_class_archer",                   "Archer"),              
+("dac_background_class_scout",                    "Scout"),
+("dac_background_class_quartermaster",            "Quartermaster"),
+("dac_background_class_cook",                     "Cook"),
+("dac_background_class_sergeant",                 "Sergeant"),              
 ("dac_background_class_poacher",                  "Poacher"),
 ("dac_background_class_manhunter",                "Manhunter"),
 ("dac_background_class_marksman",                 "Marksman"),               
 ("dac_background_class_condottiero",              "Condottiero"),
 ("dac_background_class_flemish",                  "Flemish Mercenary"),
-("dac_background_class_pikeman",                  "Pikeman"),
-("dac_background_class_crossbowman",              "Crossbowman"),           
+("dac_background_class_scottish",                 "Scottish Noble"),        
 ("dac_background_class_farmer",                   "Farmer"),
 ("dac_background_class_rebel",                    "Rebel"),
 ("dac_background_class_smith",                    "Smith"),        
@@ -164,120 +186,212 @@ Cons: ^\
 
 ("dac_background_class_desc_governor",            "Governors specialize in politics and administration ^^\
 Pros: ^\
-* Tax Master: Reduced tax inefficiency from having multiple fiefs ^\
-* Courtly Manners: Faster relationship gains with lords and ladies ^\
-* Builder: Cheaper building costs, also applies to workshops ^^\
+» Tax Master: ^\
+Reduced tax inefficiency from having multiple fiefs ^\
+» Courtly Manners: ^\
+Faster relationship gains with lords and ladies ^\
+» Builder: ^\
+Cheaper building costs, also applies to workshops ^^\
 Cons: ^\
-* Mostly talk: Significantly lower combat stats from lack of experience"),
+» Mostly talk: ^\
+Significantly lower combat stats from lack of experience"),
 ("dac_background_class_desc_strategist",          "Strategists specialize in leadership roles and logistics ^^\
 Pros: ^\
-* Tactics and leadership: Start with higher tactics and leadership skills ^\
-* Logistician: Troops consume less food and you don't have an upkeep penalty for regular troops ^^\
+» Tactics and leadership: ^\
+Start with higher tactics and leadership skills ^\
+» Logistician: ^\
+Troops consume less food and you don't have an upkeep penalty for regular troops ^^\
 Cons: ^\
-* Leading from Behind: You let your men do most of the fighting, as a consequence your personal combat skills have been somewhat neglected"),
+» Leading from Behind: ^\
+You let your men do most of the fighting, as a consequence your personal combat skills have been somewhat neglected"),
 ("dac_background_class_desc_jouster",             "Jousters specialize in single combat and tournaments ^^\
 Pros: ^\
-* Regular Contestant: You receive notifications when tournaments are being held ^\
-* Renowned Fighter: Increased rewards from tournaments, can place higher bets ^\
-* Single Combat: Increased combat stats from frequently fighting ^^\
+» Regular Contestant: ^\
+You receive notifications when tournaments are being held ^\
+» Renowned Fighter: ^\
+Increased rewards from tournaments, can place higher bets ^\
+» Single Combat: ^\
+Increased combat stats from frequently fighting ^^\
 Cons: ^\
-* Lone Wolf: Not used to leading men to combat, your leadership stats and starting party size is reduced"),         
+» Lone Wolf: ^\
+Not used to leading men to combat, your leadership stats and starting party size is reduced"),         
  
 ("dac_background_class_desc_goods_merchant",      "Goods Merchants specialize in everything related to trading from one location to another, buy low, sell high. ^^\
 Pros: ^\
-* Trader by Nature: Start with high trade and persuasion skills ^\
-* Caravan Master: Start with a higher inventory capacity and access to a secure secret stash ^^\
+» Trader by Nature: ^\
+Start with high trade and persuasion skills ^\
+» Caravan Master: ^\
+Start with a higher inventory capacity and access to a secure secret stash ^^\
 Cons: ^\
-* Prime Target: Bandit aggressiveness towards your party is increased"),
+» Prime Target: ^\
+Bandit aggressiveness towards your party is increased"),
 ("dac_background_class_desc_slaver",              "Ransom Brokers specialize in reuniting families for a fee, if the men you just captured happen to have one that can afford it, otherwise there's other ways to buy back your freedom. ^^\
 Pros: ^\
-* Efficient Management: The number of prisoners you can capture is based on your party size, Prisoner Management skill now acts as a 5% multiplier and also affects the sale value of prisoners. ^\
-* Expanded Network: You can dispose of your prisoners at taverns by speaking to Tavern Keepers, they will demand a fee in exchange. ^^\
+» Efficient Management: ^\
+The number of prisoners you can capture is based on your party size, Prisoner Management skill now acts as a 5% multiplier and also affects the sale value of prisoners. ^\
+» Expanded Network: ^\
+You can dispose of your prisoners at taverns by speaking to Tavern Keepers, they will demand a fee in exchange. ^^\
 Cons: ^\
-* Noble Disdain: When done outside the rules of Chivalry, you practice is frowned upon even though many benefit from it by virtue of keeping their lives. Nobles captured by you will decrease relations further."),
+» Noble Disdain: ^\
+When done outside the rules of Chivalry, you practice is frowned upon even though many benefit from it by virtue of keeping their lives. Nobles captured by you will decrease relations further."),
 ("dac_background_class_desc_investor",            "Investors specialize in buying and running bussinesses, creating an ever increasing network of merchandise. ^^\
 Pros: ^\
-* Diverse Assets: Can have more than one workshop in a town, cannot be of the same type as the first one ^\
-* Creative Accounting: Slight improvement to the profit made by workshops ^^\
+» Diverse Assets: ^\
+Can have more than one workshop in a town, cannot be of the same type as the first one ^\
+» Creative Accounting: ^\
+Slight improvement to the profit made by workshops ^^\
 Cons: ^\
-* Guild Rivalry: When a town gets captured, there's a high probability that your workshop(s) get demolished, it becomes a guarantee should it be captured by a faction hostile to you."),         
+» Guild Rivalry: ^\
+When a town gets captured, there's a high probability that your workshop(s) get demolished, it becomes a guarantee should it be captured by a faction hostile to you."),         
       
-("dac_background_class_desc_pavoisier",           "Pavoisier"),
-("dac_background_class_desc_vougier",             "Vougier"),
-("dac_background_class_desc_crossbow",            "Crossbowman"),
-("dac_background_class_desc_archer",              "Archer"),        
+("dac_background_class_desc_scout",                 "Scouts specialize in traversing terrain and quickly identifying threats at a distance ^^\
+Pros: ^\
+» Scouting: ^\
+Receive a notification when spotting a hostile party stronger than yours on the world map ^\
+» Wayfarer: ^\
+You don't suffer travel speed penalties from terrain or from having infantry in your party ^^\
+Cons: ^\
+» Travel Light: ^\
+Suffer double the speed penalties from inventory encumbrance"),
+("dac_background_class_desc_quartermaster",         "Quartermasters specialize in keeping the army well supplied ^^\
+Pros: ^\
+» Ammo Reserves: ^\
+Can resupply ranged troops ammo during battles ^\
+» Supply Master: ^\
+Start with a higher inventory capacity and access to a secure secret stash ^^\
+Cons: ^\
+» Hoarder: You tend to collect useless junk, just in case, slowing your movement on the campaign map"),
+("dac_background_class_desc_cook",                  "Cooks specialize in keeping the troops happy and well-fed ^^\
+Pros: ^\
+» Master Chef: ^\
+Get a variety of new bonuses from food ^\
+» Enticing Odour: ^\
+Higher probability of success when attempting to recruit prisoners, captured enemy lords are less likely to escape ^^\
+Cons: ^\
+» Glutons: ^\
+Negates the food consumption reduction from the soldier class, the party instead consumes more food"),
+("dac_background_class_desc_sergeant",              "Sergeants specialize in keeping the troops drilled and motivated ^^\
+Pros: ^\
+» Forced Marches: ^\
+Used to frequent marches, the troop moves faster on the world map ^\
+» Motivational Speeches: ^\
+Troops are emboldened by your speeches, and curses, you start with higher base morale for your party and in battles ^^\
+Cons: ^\
+» Save Yourselves: ^\
+Suffer a greater morale penalty in battle should you be knocked out"),        
       
 ("dac_background_class_desc_poacher",             "Poachers are huntsmen that specialize in hunting game and foraging ^^\
 Pros: ^\
-* Hunting Grounds: While traveling through forests on the world map there's a chance to forage meat or fruits. ^\
-* Honed Skills: You are proficient in spotting, pathfinding and tracking as well as in the use of a bow. ^^\
+» Hunting Grounds: ^\
+While traveling through forests on the world map there's a chance to forage meat or fruits. ^\
+» Honed Skills: ^\
+You are proficient in spotting, pathfinding and tracking as well as in the use of a bow. ^^\
 Cons: ^\
-* Lone Wolf: Not used to leading men to combat, your leadership stats and starting party size is reduced"),
+» Lone Wolf: ^\
+Not used to leading men to combat, your leadership stats and starting party size is reduced"),
 ("dac_background_class_desc_manhunter",           "Manhunters or Retondeurs specialize in hunting down the bandits that ravage France, unfortunately many turned to banditry themselves as it was more rewarding than risking your life taking them down. ^^\
 Pros: ^\
-* A Plague on the Land: Increased rewards from taking down bandit strongholds and from capturing bandits or deserters ^\
-* Less Lethal: You and your troops know how to avoid lethal strikes, making it more likely to capture prisoners even when not using blunt weapons ^^\
+» A Plague on the Land: ^\
+Increased rewards from taking down bandit strongholds and from capturing bandits or deserters ^\
+» Less Lethal: ^\
+You and your troops know how to avoid lethal strikes, making it more likely to capture prisoners even when not using blunt weapons ^^\
 Cons: ^\
-* Reputational Damage: Increased penalties from all hostile actions that can be considered banditry, such as attacking peasants, caravans or raiding villages"),
+» Reputational Damage: ^\
+Increased penalties from all hostile actions that can be considered banditry, such as attacking peasants, caravans or raiding villages"),
 ("dac_background_class_desc_marksman",            "Marksmen are professionals that earn a living showing off their skills in ranged weaponry ^^\
 Pros: ^\
-* Showoff: Gain renown when landing difficult shots in battle ^\
-* Skilled: Start with good stats on everything related to ranged weapons ^^\
+» Showoff: ^\
+Gain renown when landing difficult shots in battle ^\
+» Skilled: ^\
+Start with good stats on everything related to ranged weapons ^^\
 Cons : ^\
-* Not a Warrior: Start with bad stats on everything related to close combat"),      
+» Not a Warrior: ^\
+Start with bad stats on everything related to close combat"),      
          
 ("dac_background_class_desc_condottiero",         "Condottieri are prized mercenary leaders who earned their fame from selling their services in Italy ^^\
 Pros: ^\
-* Established Company: Start with an already built tier 2 mercenary camp ^\
-* Italian Ties: Can recruit Italian mercenaries in your camp ^^\
+» Established Company: ^\
+Start with an already built tier 2 mercenary camp ^\
+» Italian Ties: ^\
+Can recruit Italian mercenaries in your camp ^^\
 Cons: ^\
-* Expensive Tastes: Your troops have acquired some expensive tastes while campaigning in Italy and demand to have wine and a diverse food regiment or suffer morale penalties"),
+» Expensive Tastes: ^\
+Your troops have acquired some expensive tastes while campaigning in Italy and demand to have wine and a diverse food regiment or suffer morale penalties"),
 ("dac_background_class_desc_flemish",             "Flemish mercenaries start venturing into France as the French lead some reprisal campaigns and as the Duchy of Burgundy expands ^^\
 Pros: ^\
-* Close Knit: Flemish mercenaries have increased combat stats ^\
-* Flemish Ties: Can recruit Flemish mercenaries in your camp ^^\
+» Close Knit: ^\
+Flemish mercenaries have increased combat stats ^\
+» Flemish Ties: ^\
+Can recruit Flemish mercenaries in your camp ^^\
 Cons: ^\
-* Panick: Seeing troops routing in battle can trigger a full route"),
-("dac_background_class_desc_pikeman",             "Pikeman"),
-("dac_background_class_desc_crossbowman",         "Crossbowman"),     
+» Noble Disdain: ^\
+You didn't offer any quarters in the past and none will be offered to you in the present, impossible to negotiate your way out of a battle"),
+("dac_background_class_desc_scottish",            "[WIP] ^\
+The Scottish were one of the main allies of France during the Hundred Years War, united by common hatred of the English crown, many have fallen fighting to the bitter end in France. ^^\
+Pros: ^\
+» Auld Alliance: ^\
+Start with good relations with the Kingdom of France and bad relations with the Kingdom of England ^\
+[WIP] » Kinsmen: ^\
+Can recruit Scottish troops at a special location, enhanced stats for Scottish troops ^^\
+Cons: ^\
+» Last Stand: ^\
+Scottish troops fight to the bitter end, should you retreat from a battle, they will be wiped out"),   
       
 ("dac_background_class_desc_farmer",              "Farmers are simple folk that live off the land, toiling away to feed themselves, their family and the real. War comes even to those that bother none, turmoil has reached and razed your village. Bandits, nobles, doesn't matter, you have nothing left here and must start life anew. ^^\
 Pros: ^\
-* Life of Toil: Can work in villages in exchange for a wage and produce ^\
-* Happy Camper: Morale bonus from food diversity is increased ^^\
+» Life of Toil: ^\
+Can work in villages in exchange for a wage and produce ^\
+» Happy Camper: ^\
+Morale bonus from food diversity is increased ^^\
 Cons: ^\
-* Starting Over: You own very little other than the clothes on your back"),
+» Starting Over: ^\
+You own very little other than the clothes on your back"),
 ("dac_background_class_desc_rebel",               "Rebels are those that have lost everything and lash out against the world enacting mob justice on those they consider to have wronged them ^^\
 Pros: ^\
-* We Are Legion: Party size increased, can recruit rebellious peasant parties to your cause ^\
-* Takeover: Instead of destroying bandit camps, you can chose to take over them ^^\
+» We Are Legion: ^\
+Party size increased, can recruit rebellious peasant parties to your cause ^\
+» Takeover: ^\
+Instead of destroying bandit camps, you can chose to take over them ^^\
 Cons: ^\
-* Bellum Omnium Contra Omnes: All factions start hostile towards you."),
+» Bellum Omnium Contra Omnes: ^\
+All factions start hostile towards you."),
 ("dac_background_class_desc_smith",               "Smiths are one of the cornerstones of society, crafting and mending tools necessary for the other professions to perform well ^^\
 Pros: ^\
-* Repairs: Can repair and mend weapons and armour back to regular condition ^\
-* Crafty: Research and costs are reduced when producing items for your personal troops at your camp ^^\
+» Repairs: ^\
+Can repair and mend weapons and armour back to regular condition ^\
+» Crafty: ^\
+Research and costs are reduced when producing items for your personal troops at your camp ^^\
 Cons: ^\
-Noxious Fumes: Years of working the forge has had a toll on your health, you can suffer decreased stats after being knocked down"),        
+Noxious Fumes: ^\
+Years of working the forge has had a toll on your health, you can suffer decreased stats after being knocked down"),        
 
 ("dac_background_class_desc_surgeon",             "Surgeons specialize in handling grave injuries that require immediate attention, few things qualify as urgent as battlefield injuries. ^^\
 Pros: ^\
-* Battlefield Surgery: Your forces are more likely to suffer non-fatal injuries on the field, you also able to save some of your foes which results in more potential prisoners ^\
-* Intervention: Once a day, can perform an intervention on one of the party's heroes that is too wounded to fight, bringing the hero back into fighting condition ^^\
+» Battlefield Surgery: ^\
+Your forces are more likely to suffer non-fatal injuries on the field, you also able to save some of your foes which results in more potential prisoners ^\
+» Intervention: ^\
+Once a day, can perform an intervention on one of the party's heroes that is too wounded to fight, bringing the hero back into fighting condition ^^\
 Cons: ^\
-* Save Yourselves: Suffer a greater morale penalty in battle should you be knocked out"),
+» Save Yourselves: ^\
+Suffer a greater morale penalty in battle should you be knocked out"),
 ("dac_background_class_desc_priest",              "Priests specialize in the salvation of the eternal soul. You have your own interpretation on how this is to be achieved, going on a personal crusade but beware not to lose yours on the way. ^^\
 Pros: ^\
-* Zealots: Troops under your command fight to the bitter end ^\
-* Man of the Cloth: Your foes are more likely to release you unnarmed ^^\
+» Zealots: ^\
+Troops under your command fight to the bitter end ^\
+» Man of the Cloth: ^\
+Your foes are more likely to release you unnarmed ^^\
 Cons: ^\
-* Heresy: You are sworn not to kill by your own hand and to protect the innocent, breaking those vows will have you branded as a heretic and will have dire consequences"),
+» Heresy: ^\
+You are sworn not to kill by your own hand and to protect the innocent, breaking those vows will have you branded as a heretic and will have dire consequences"),
 ("dac_background_class_desc_alchemist",           "Alchemists specialize in the arcane and esoteric studies, whilst many are consumed by the search for the elusive philosopher's stone you personally focus on experiments that provide more immediate results and can be repeated. ^^\
 Pros: ^\
-* Potions And Draughts: Can craft a few potions and draughts that can heal you or provide bonuses during battles ^\
-* Artefact Of Antioch: Look for the fabled Holy Hand Grenade of Antioch ^^\
+» Potions And Draughts: ^\
+Can craft a few potions and draughts that can heal you or provide bonuses during battles ^\
+» Artefact Of Antioch: ^\
+Look for the fabled Holy Hand Grenade of Antioch ^^\
 Cons: ^\
-* Dangerous Experiments: There is always a chance for your experiments to backfire, causing you harm"),
+» Dangerous Experiments: ^\
+There is always a chance for your experiments to backfire, causing you harm"),
 
 ### DAC Seek: The legendary Lorem Ipsum
 ("lorem_ipsum", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"),

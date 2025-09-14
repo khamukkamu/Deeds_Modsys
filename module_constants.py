@@ -1081,7 +1081,8 @@ slot_team_routing_strength				= 2
 slot_team_defeated_strength				= 3
 
 #Rebellion changes end
-# character backgrounds
+
+# DAC SEEK: character backgrounds
 cb_noble = 1
 cb_merchant = 2
 cb_soldier = 3
@@ -1096,24 +1097,23 @@ cc_noble_tactician                = 2
 cc_noble_jouster                  = 3
 cc_merchant_goods                 = 4
 cc_merchant_slave                 = 5
-cc_merchant_investor              = 6     
-cc_soldier_pavoisier              = 7
-cc_soldier_vougier                = 8
-cc_soldier_crossbow               = 9
-cc_soldier_archer                 = 10
+cc_merchant_investor              = 6
+cc_soldier_scout                  = 7
+cc_soldier_quartermaster          = 8
+cc_soldier_cook                   = 9
+cc_soldier_sergeant               = 10
 cc_hunter_poacher                 = 11
 cc_hunter_manhunter               = 12
 cc_hunter_marksman                = 13
 cc_mercenary_condottiero          = 14
 cc_mercenary_flemish              = 15
-cc_mercenary_pikeman              = 16
-cc_mercenary_crossbowman          = 17
-cc_peasant_farmer                 = 18
-cc_peasant_revolutionary          = 19
-cc_peasant_smith                  = 20
-cb_healer_surgeon                 = 21
-cb_healer_priest                  = 22
-cb_healer_alchemist               = 23   
+cc_mercenary_scottish             = 16
+cc_peasant_farmer                 = 17
+cc_peasant_revolutionary          = 18
+cc_peasant_smith                  = 19
+cb_healer_surgeon                 = 20
+cb_healer_priest                  = 21
+cb_healer_alchemist               = 22   
 
 ### DAC Seek: Default values for player character attributes
 pc_attribute = 4
