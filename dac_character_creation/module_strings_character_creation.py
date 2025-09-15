@@ -330,12 +330,14 @@ You didn't offer any quarters in the past and none will be offered to you in the
 The Scottish were one of the main allies of France during the Hundred Years War, united by common hatred of the English crown, many have fallen fighting to the bitter end in France. ^^\
 Pros: ^\
 » Auld Alliance: ^\
-Start with good relations with the Kingdom of France and bad relations with the Kingdom of England ^\
+Start with good relations with the Kingdom of France and negates the effects of Villainous Lot ^\
 [WIP] » Kinsmen: ^\
 Can recruit Scottish troops at a special location, enhanced stats for Scottish troops ^^\
 Cons: ^\
 » Last Stand: ^\
-Scottish troops fight to the bitter end, should you retreat from a battle, they will be wiped out"),   
+Scottish troops fight to the bitter end, should you retreat from a battle, they will be wiped out ^\
+» Bitter Enemies: ^\
+Start with bad relations with the Kingdom of England"),   
       
 ("dac_background_class_desc_farmer",              "Farmers are simple folk that live off the land, toiling away to feed themselves, their family and the real. War comes even to those that bother none, turmoil has reached and razed your village. Bandits, nobles, doesn't matter, you have nothing left here and must start life anew. ^^\
 Pros: ^\
