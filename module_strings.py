@@ -5708,6 +5708,13 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("camp_soldier_line_5", "Greetings m'{lord/lady}"),
 ("camp_soldier_line_end", "none"),
 
+### DAC Seek: Tournament Plays Quest Strings
+("qp1_quest_desc_tournament_invited_by_s9_to_s13", "You have been invited by {s9} to attend the tournament being held in {s13}.  Turning down this invitation would be frowned upon."),
+("qp1_quest_desc_tournament_held_by_s9_to_s13", "You heard of a tournament being hosted by {s9} in the town of {s13}.  This would prove an excellent opportunity to prove your worth in these lands."),
+("qp1_tournaments_invited_by_s8_to_s12", "A messenger is allowed to pass into your camp by your men.  He leaves you with a sealed letter.  Within you find a formal invitation by {s8} to a tournament to be held in {s12}."),
+("qp1_tournaments_held_by_s8_in_s12", "During your day's travel, you come across a lone warrior traveling towards {s12}.  From him you learn that there will be a tournament held in the town by {s8}."),
+
+
 #utility for skill names
 ]+[
 ("skl_"+skills[x][0], skills[x][1]) for x in range(0, len(skills))]

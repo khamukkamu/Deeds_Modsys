@@ -10156,7 +10156,7 @@ TOTAL:  {reg5}"),
   (
     "center_improve",0,
     "{s19} As the party member with the highest engineer skill ({reg2}), {reg3?you reckon:{s3} reckons} that building the {s4} will cost you\
- {reg5} crowns and will take {reg6} days.",
+ {reg5} crowns and will take {reg6} days. {reg4?As a governor you managed to reduce construction cost and time by 20%:}",
     "none",
     [#SB : town pictures
      (call_script, "script_set_town_picture"),
@@ -10175,6 +10175,19 @@ TOTAL:  {reg5}"),
 
      (store_div, ":improvement_time", ":improvement_cost", 100),
      (val_add, ":improvement_time", 3),
+
+### DAC Seek: Governors get a bonus
+    (try_begin),
+        (eq, "$class_type", cc_noble_governor),
+        (assign, reg4, 1),
+        (val_mul, ":improvement_cost", 80),
+        (val_mul, ":improvement_time", 80),
+        (val_div, ":improvement_cost", 100),
+        (val_div, ":improvement_time", 100),
+    (else_try),
+       (assign, reg4, 0),
+    (try_end),
+###
 
      (assign, reg5, ":improvement_cost"),
      (assign, reg6, ":improvement_time"),
@@ -14011,12 +14024,21 @@ goods, and books will never be sold. ^^You can change some settings here freely.
           # (store_faction_of_party, ":center_faction", "$current_town"),
           (call_script, "script_dplmc_get_troop_standing_in_faction", "trp_player", "$g_encountered_party_faction"),
           (store_mul, ":reward", reg0, 20), #1200 for leader, 600 for lord etc
-          (val_add, ":reward", 150),
+          (try_begin),
+            (eq, "$class_type", cc_noble_jouster),
+            (val_add, ":reward", 300),
+          (else_try),
+            (val_add, ":reward", 150),
+          (try_end),
           (try_begin), #this is halved if it's the player's own center to prevent quest abuse?
             (party_slot_eq, "$current_town", slot_town_lord, "trp_player"),
             (val_mul, ":reward", 2),
             (val_div, ":reward", 3),
           (try_end),
+### DAC Seek: Higher base reward for the Jouster
+        (else_try),
+            (eq, "$class_type", cc_noble_jouster),
+            (assign, ":reward", 500),
         (else_try),
           (assign, ":reward", 200),
         (try_end),
@@ -14122,6 +14144,11 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (call_script, "script_count_active_tournament_participants"),
         (assign, ":num_participants", reg0),
         (assign, ":player_active", reg1),
+### DAC Seek: TPE hook
+        (try_begin),
+            (eq, "$class_type", cc_noble_jouster),
+            (call_script, "script_quest_floris_active_tournament_hook_1"),
+        (try_end),
         (try_begin),
           (eq, ":player_active", 0),#Player is defeated
           (jump_to_menu, "mnu_town_tournament_lost"),
@@ -14312,6 +14339,17 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       (call_script, "script_get_tournament_bets"),
       ],
     [
+### DAC Seek: Jouster can bet more
+      ("bet_200_denars", [(eq, "$class_type", cc_noble_jouster),
+                          (store_troop_gold, ":gold", "trp_player"),
+                          (ge, ":gold", 200)
+                          ],
+       "[Noble Jouster] 200 crowns.",
+       [
+         (assign, "$temp", 200),
+         (jump_to_menu, "mnu_tournament_bet_confirm"),
+        ]),    
+    
       ("bet_100_denars", [(store_troop_gold, ":gold", "trp_player"),
                           (ge, ":gold", 100)
                           ],
@@ -15675,7 +15713,16 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "none",
     [
         (store_character_level, ":player_level", "trp_player"),
-        (store_mul, "$player_ransom_amount", ":player_level", 50),
+        
+### DAC Seek: Nobles pay a higher ransom
+        (try_begin),
+            (eq, "$background_type", cb_noble),
+            (assign, ":multiplier", 100),
+        (else_try),
+            (assign, ":multiplier", 50),
+        (try_end),
+        
+        (store_mul, "$player_ransom_amount", ":player_level", ":multiplier"),
         (val_add, "$player_ransom_amount", 100),
         #TODO scale with standing (marshal, liege etc)
         

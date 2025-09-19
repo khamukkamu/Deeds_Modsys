@@ -1215,6 +1215,12 @@ slot_quest_failure_consequence      = 26
 slot_quest_temp_slot      			= 27
 slot_quest_delegate_level      		= 28 #SB : threshold for delegating quests, -1 for disable
 
+### DAC Seek: TPE Quest
+# Floris Active Tournament States 
+qp1_tournament_message_received                 = 1
+qp1_tournament_participated_in_tournament       = 2
+qp1_tournament_refused_invitation               = 3
+
 ########################################################
 ##  PARTY TEMPLATE SLOTS   #############################
 ########################################################
@@ -1517,6 +1523,9 @@ npc_kingdoms_end = kingdoms_end
 
 bandits_begin = "trp_bandit"
 bandits_end = "trp_manhunter"
+
+faction_troops_begin = "trp_french_peasant_archer"
+faction_troops_end = "trp_routier_knight"
 
 kingdom_ladies_begin = "trp_knight_1_1_wife"
 kingdom_ladies_end = "trp_heroes_end"

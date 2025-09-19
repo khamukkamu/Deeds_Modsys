@@ -10849,7 +10849,14 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
 [
 ], "Your words have convinced me. I will send out the heralds - we will no longer fight against the {s11}.", "close_window",
 [
-  (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 1),
+    ### DAC Seek: Governor Bonus relationship
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 2),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 1),
+    (try_end),
   (call_script, "script_change_player_honor", 1),
   # (call_script, "script_diplomacy_start_peace_between_kingdoms", "$players_kingdom", "$g_faction_selected", 1),
   (assign, "$g_force_peace_faction_1", "$players_kingdom"),
@@ -11232,7 +11239,15 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
 ], "Gird your {s0} we are going to war against {s11}.", "close_window",
 ##nested diplomacy end+
 [
-(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 1),
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 2),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 1),
+    (try_end),
+    
 (call_script, "script_diplomacy_start_war_between_kingdoms", "$players_kingdom", "$g_faction_selected", 1),
 (try_begin),
   (eq,"$talk_context",tc_party_encounter), #Added line by zerilius
@@ -14932,7 +14947,14 @@ What kind of recruits do you want?", "dplmc_constable_recruit_select",
 	#are:
 	# (1) I like it when companions react to circumstances differently.
 	# (2) I find this possible scenario funny.
-	(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 1),
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 2),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 1),
+    (try_end),
 (else_try),
 	#This is the default case.  A larger relation drop might be more
 	#appropriate.  I started off with -5.
@@ -16807,7 +16829,15 @@ Here, take this purse of {reg3} crowns, as I promised. I hope we can travel toge
 [anyone|plyr,"freed_lord_answer", [
 ],
 "You are free to go wherever you want, sir.", "freed_lord_answer_2",
-[(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 7),
+[
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 8),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 7),
+    (try_end),
 (call_script, "script_change_player_honor", 2),
 #    (troop_get_slot, ":cur_rank", "$g_talk_troop", slot_troop_kingdom_rank),
 #    (val_mul, ":cur_rank", 1),
@@ -16933,7 +16963,15 @@ Here, take this purse of {reg3} crowns, as I promised. I hope we can travel toge
 
 [anyone|plyr,"defeat_lord_answer", [],
 "You have fought well. You are free to go.", "defeat_lord_answer_2",
-[(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 5),
+[
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 6),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 5),
+    (try_end),
 (call_script, "script_change_player_honor", 3),
 (call_script, "script_add_log_entry", logent_lord_defeated_but_let_go_by_player, "trp_player",  -1, "$g_talk_troop", "$g_talk_troop_faction")]],
 
@@ -17566,7 +17604,14 @@ Such oaths to a usurper are of course invalid, and we can expect some of the {s0
 ]],
 
 [anyone|plyr ,"lord_event_choose_friend", [],  "I assure you, {s65}, I am no friend of {s6}.", "lord_event_choose_friend_renounce", [
-(call_script, "script_change_player_relation_with_troop","$g_talk_troop",5),
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 6),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 5),
+    (try_end),
 (call_script, "script_change_player_relation_with_troop","$temp",-10),
 ]],
 
@@ -17579,7 +17624,14 @@ If you do encounter {s6}, be on your guard and don't believe a word.", "lord_pre
 ],  "{s6} is an honourable {reg4?woman:man}, you've no right to speak of {reg4?her:him} thus.", "lord_event_choose_friend_defend", [
 ##diplomacy end+
 (call_script, "script_change_player_relation_with_troop","$g_talk_troop",-10),
-(call_script, "script_change_player_relation_with_troop","$temp",5),
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$temp", 6),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$temp", 5),
+    (try_end),
 ]],
 [anyone ,"lord_event_choose_friend_defend", [],  "As you like, {playername}.\
 A fool you might be, but a loyal fool at the least. {s6}'s loyalty may not be so steadfast, however...", "lord_pretalk", []],
@@ -18146,7 +18198,14 @@ Here, this purse contains {reg5} crowns, and I wish you to have it. You deserve 
 And, need I remind you, there could be much more to come if you've a mind to earn it...", "lord_generic_mission_completed",[
 ##diplomacy end+
 (call_script, "script_end_quest", "qst_incriminate_loyal_commander"),
-(call_script, "script_change_player_relation_with_troop","$g_talk_troop",5),
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 6),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 5),
+    (try_end),
 (call_script, "script_change_player_honor", -10),
 ]],
 
@@ -18176,7 +18235,14 @@ But no, you were too damned honorable, weren't you?", "close_window",[
 [anyone, "quest_meet_spy_in_enemy_town_completed_2", [],
 "Ahh, well done. It's good to have competent {men/people} on my side. Here is the payment I promised you.", "lord_pretalk",
 [
-(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 3),
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 4),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 3),
+    (try_end),
 (add_xp_as_reward, 500),
 (quest_get_slot, ":gold", "qst_meet_spy_in_enemy_town", slot_quest_gold_reward),
 (call_script, "script_troop_add_gold", "trp_player", ":gold"),
@@ -18193,7 +18259,14 @@ But no, you were too damned honorable, weren't you?", "close_window",[
 Soon, the time will come for us to reap the benefits of our hard work, from fields ripe for plunder.\
 This war is going to make us rich, mark my words!", "lord_pretalk",
 [
-(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 10),
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 11),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 10),
+    (try_end),
 (try_for_range, ":vassal", active_npcs_begin, active_npcs_end),
 (troop_slot_eq, ":vassal", slot_troop_occupation, slto_kingdom_hero),
 (store_troop_faction, ":vassal_fac", ":vassal"),
@@ -18246,7 +18319,14 @@ Please accept my sincere thanks.", "lord_pretalk",[
 ##diplomacy start+ actually give gold to lord
 (call_script, "script_dplmc_distribute_gold_to_lord_and_holdings", reg4, "$g_talk_troop"),
 ##diplomacy end+
-(call_script, "script_change_player_relation_with_troop","$g_talk_troop", 2),
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 3),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 2),
+    (try_end),
 (add_xp_as_reward, 100),
 (call_script, "script_end_quest", "qst_collect_debt")
 ]],
@@ -18269,7 +18349,14 @@ Please accept my sincere thanks.", "lord_pretalk",[
  I can see you're not afraid to get your hands dirty, eh? I like that in a {man/woman}.\
  Here's your reward. Remember, {playername}, stick with me and we'll go a long, long way together.", "close_window",
 [ (call_script, "script_troop_add_gold", "trp_player", 600),
-(call_script, "script_change_player_relation_with_troop","$g_talk_troop",4),
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 5),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 4),
+    (try_end),
 (add_xp_as_reward, 300),
 (call_script, "script_end_quest", "qst_kill_local_merchant"),
 
@@ -18306,7 +18393,14 @@ Here, this is half the money I promised you. Don't say a word, {playername}, you
 I have little use for {men/women} who cannot follow orders.", "lord_pretalk",
 ##diplomacy end+
 [(call_script, "script_troop_add_gold", "trp_player", 300),
-(call_script, "script_change_player_relation_with_troop","$g_talk_troop",2),
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 3),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 2),
+    (try_end),
 (add_xp_as_reward, 500),
 (call_script, "script_end_quest", "qst_kill_local_merchant"),
 (assign, "$g_leave_encounter", 1)
@@ -18454,7 +18548,14 @@ this purse as a token of my appreciation.", "lord_follow_spy_completed",
 ##diplomacy end+
 [(party_remove_prisoners, "p_main_party", "trp_spy", 1),
 (party_remove_prisoners, "p_main_party", "trp_spy_partner", 1),
-(call_script, "script_change_player_relation_with_troop","$g_talk_troop",4),
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 5),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 4),
+    (try_end),
 (call_script, "script_troop_add_gold", "trp_player", 2000),
 (add_xp_as_reward, 4000),
 (call_script, "script_end_quest", "qst_follow_spy")]],
@@ -18496,7 +18597,14 @@ whatever master {reg0?she:he} served. 'Tis better than nothing.\
 However, you'll understand if I pay you half the promised reward for what is but half a success.", "lord_follow_spy_half_completed",
 ##diplomacy end+
 [(party_remove_prisoners, "p_main_party", "trp_spy_partner", 1),
-(call_script, "script_change_player_relation_with_troop","$g_talk_troop",1),
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 2),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 1),
+    (try_end),
 (call_script, "script_troop_add_gold", "trp_player", 1000),
 (add_xp_as_reward, 400),
 (call_script, "script_end_quest", "qst_follow_spy")]],
@@ -18536,7 +18644,15 @@ Forget any reward I offered you. You've done nothing to earn it.", "lord_follow_
                    (check_quest_succeeded, "qst_bring_back_runaway_serfs")],
 "Splendid work, {playername}. All the serfs are back, properly cowed, and they're busy preparing for the harvest.\
 You certainly earned your reward. Here, take it, with my compliments.", "lord_generic_mission_completed",
-[(call_script, "script_change_player_relation_with_troop","$g_talk_troop", 2),
+[
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 3),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 2),
+    (try_end),
 (call_script, "script_troop_add_gold", "trp_player", 300),
 (add_xp_as_reward, 300),
 (call_script, "script_end_quest", "qst_bring_back_runaway_serfs"),
@@ -18598,7 +18714,14 @@ You certainly earned your reward. Here, take it, with my compliments.", "lord_ge
 "{playername}, I was told that you have crushed the bandits at my village of {s5}. Please know that I am most grateful to you for that.\
  Please, let me pay the expenses of your campaign. Here, I hope these {reg14} crowns will be adequate.", "lord_deal_with_bandits_completed",
 [
- (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 3),
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 4),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 3),
+    (try_end),
  #SB : finish_quest instead
  # (store_character_level, ":level", "trp_player"),
  # (store_mul, ":reward", ":level", 20),
@@ -18640,7 +18763,14 @@ Everyone said that you were a capable warrior, but appearently, they were wrong.
                    ],
 "Ah, {playername}. My quartermaster has informed me of your delivery, {reg13} heads of cattle, as I requested. I'm impressed.", "lord_deliver_cattle_to_army_thank",
 [
-(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 2),
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 3),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 2),
+    (try_end),
 (quest_get_slot, ":quest_target_amount", "qst_deliver_cattle_to_army", slot_quest_target_amount),
 #TODO: Change reward
 (store_mul, ":reward", ":quest_target_amount", 100),
@@ -18673,7 +18803,14 @@ Everyone said that you were a capable warrior, but appearently, they were wrong.
 "You make a good scout, {playername}. My runner just brought me your reports of the mission to {s13}, {s14} and {s15}. Well done.", "lord_scout_waypoints_thank",
 [
 #TODO: Change reward
-(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 1),
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 2),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 1),
+    (try_end),
 #     (call_script, "script_troop_add_gold", "trp_player", 100),
 (add_xp_as_reward, 100),
 (call_script, "script_end_quest", "qst_scout_waypoints"),
@@ -18721,7 +18858,14 @@ Everyone said that you were a capable warrior, but appearently, they were wrong.
 (str_store_string, s2, "@{s13} asked you to gather {reg3} heads of cattle and deliver them back to {reg65?her:him}."),
 (call_script, "script_start_quest", "$g_random_army_quest", "$g_talk_troop"),
 #TODO: Change this value
-(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 1),
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 2),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 1),
+    (try_end),
 (assign, "$g_leave_encounter",1),
 ]],
 
@@ -18745,7 +18889,14 @@ Everyone said that you were a capable warrior, but appearently, they were wrong.
 (call_script, "script_end_quest", "qst_report_to_army"),
 (quest_set_slot, "qst_report_to_army", slot_quest_giver_troop, "$g_talk_troop"),
 #TODO: Change this value
-(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 1),
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 2),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 1),
+    (try_end),
 ]],
 
 [anyone,"lord_start",[
@@ -18770,7 +18921,14 @@ Everyone said that you were a capable warrior, but appearently, they were wrong.
 (call_script, "script_end_quest", "qst_report_to_army"),
 (quest_set_slot, "qst_report_to_army", slot_quest_giver_troop, "$g_talk_troop"),
 #TODO: Change this value
-(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 1),
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 2),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 1),
+    (try_end),
 #Activating follow army quest
 (str_store_troop_name_link, s9, "$g_talk_troop"),
 (setup_quest_text, "qst_follow_army"),
@@ -18815,7 +18973,14 @@ I want you to go to {s13}, {s14} and {s15} and report back whatever you find.", 
 (str_store_string, s2, "@{s9} asked you to scout {s13}, {s14} and {s15}, then report back."),
 (call_script, "script_start_quest", "$g_random_army_quest", "$g_talk_troop"),
 #TODO: Change this value
-(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 1),
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 2),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 1),
+    (try_end),
 (assign, "$g_leave_encounter",1),
 ]],
 
@@ -23272,7 +23437,14 @@ I'll send some men to take him to our prison with due haste.", "lord_pretalk", [
 "Certainly, {playername}. {reg3?She:He} is a bright {reg3?girl:fellow}, you're a lucky {man/woman} to have such worthy companions.", "lord_pretalk",
 [(quest_get_slot, ":quest_target_troop", "qst_lend_companion", slot_quest_target_troop),
 (party_add_members, "p_main_party", ":quest_target_troop", 1),
-(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 3),
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 4),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 3),
+    (try_end),
 (add_xp_as_reward, 100),
 (call_script, "script_end_quest", "qst_lend_companion"),
 (str_store_troop_name,s14,":quest_target_troop"),
@@ -23523,7 +23695,14 @@ Well, well, well! It was good of you to bring me this, {playername}. Take my sea
 (quest_get_slot, ":quest_giver", "qst_deliver_message", slot_quest_giver_troop),
 (str_store_troop_name,s9,":quest_giver"),
 (call_script, "script_change_player_relation_with_troop", ":quest_giver", 1),
-(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 1),
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 2),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 1),
+    (try_end),
 ]],
 
 [anyone|plyr,"lord_talk",[(check_quest_active,"qst_deliver_message_to_enemy_lord"),
@@ -23541,7 +23720,14 @@ with my thanks.", "close_window",[
 (call_script, "script_end_quest", "qst_deliver_message_to_enemy_lord"),
 (quest_get_slot, ":quest_giver", "qst_deliver_message_to_enemy_lord", slot_quest_giver_troop),
 (call_script, "script_change_player_relation_with_troop", ":quest_giver", 1),
-(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 1),
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 2),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 1),
+    (try_end),
 (assign, "$g_leave_encounter", 1),
 ]],
 
@@ -23805,7 +23991,14 @@ and perhaps I shall be able to repay the debt I owe you.", "lord_rescue_by_repla
 
 (call_script, "script_player_join_faction", "$g_talk_troop_faction"),
 (assign, "$player_has_homage", 1),
-(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 3),
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 4),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 3),
+    (try_end),
 ]],
 
 
@@ -28697,7 +28890,14 @@ You are free, {playername}.", "lord_ask_leave_service_end",
   (assign, reg5, ":reward"),
   (call_script, "script_troop_add_gold", "trp_player", ":reward"),
   (add_xp_as_reward, 2500),
-  (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 4),
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 5),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 4),
+    (try_end),
   (call_script, "script_end_quest", "qst_capture_enemy_hero"),
 ]],
 
@@ -28737,7 +28937,14 @@ You are free, {playername}.", "lord_ask_leave_service_end",
                                          (str_store_troop_name_plural, s13, ":quest_target_troop")],
    "Indeed. I have raised {reg1} {s13}. You can take them.", "lord_raise_troops_thank",[(quest_get_slot, ":quest_target_troop", "qst_raise_troops", slot_quest_target_troop),
                                                                                          (quest_get_slot, ":quest_target_amount", "qst_raise_troops", slot_quest_target_amount),
-                                                                                         (call_script,"script_change_player_relation_with_troop","$g_talk_troop", 3),
+                                                                                         ### DAC Seek: Governor Relation bonus
+                                                                                        (try_begin), 
+                                                                                            (eq, "$class_type", cc_noble_governor),
+                                                                                            (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 4),
+                                                                                            (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+                                                                                        (else_try),
+                                                                                            (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 3),
+                                                                                        (try_end),
                                                                                          (party_remove_members, "p_main_party", ":quest_target_troop", ":quest_target_amount"),
                                                                                          (call_script, "script_end_quest", "qst_raise_troops"),
                                                                                          (troop_get_slot, ":cur_lords_party", "$g_talk_troop", slot_troop_leaded_party),
@@ -28837,7 +29044,14 @@ You are free, {playername}.", "lord_ask_leave_service_end",
     (call_script, "script_dplmc_distribute_gold_to_lord_and_holdings", reg20, "$g_talk_troop"),
     ##diplomacy end+
     (quest_set_slot, "qst_collect_taxes", slot_quest_gold_reward, 0),
-    (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 2),
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 3),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 2),
+    (try_end),
     (call_script, "script_end_quest", "qst_collect_taxes"),
     ]],
 
@@ -29076,7 +29290,14 @@ Hand over my {reg19} crowns, if you please, and end our business together.", "lo
 		# (call_script, "script_lord_comment_to_s43", "$g_talk_troop", "str_lord_insult_default"),
 
 		(call_script, "script_troop_add_gold", "trp_player", 300),
-		(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 1),
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 2),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 1),
+    (try_end),
 		(call_script, "script_end_quest", "qst_hunt_down_fugitive"),
 		]],
 
@@ -29088,7 +29309,14 @@ Hand over my {reg19} crowns, if you please, and end our business together.", "lo
 
 
        (call_script, "script_change_player_honor", 3),
-       (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 1),
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 2),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 1),
+    (try_end),
        (call_script, "script_end_quest", "qst_hunt_down_fugitive"),
        ]],
 
@@ -29946,7 +30174,14 @@ Hand over my {reg19} crowns, if you please, and end our business together.", "lo
    [
     (quest_set_slot, "$random_quest_no", slot_quest_dont_give_again_period, 7), #SB : 1 week before another planned rescue
     (call_script, "script_start_quest", "$random_quest_no", "$g_talk_troop"),
-    (call_script, "script_change_player_relation_with_troop","$g_talk_troop",1),
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 2),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 1),
+    (try_end),
    ]],
 
   [anyone,"lord_mission_rescue_other_ideas", [], "Did you have any other ideas which you wished to discuss?", "lord_mission_rescue_prisoner_method",
@@ -30304,7 +30539,14 @@ Hand over my {reg19} crowns, if you please, and end our business together.", "lo
 
     (call_script, "script_start_quest", "$random_quest_no", "$g_talk_troop"),
     (call_script, "script_troop_add_gold", "trp_player", 200),
-    (call_script, "script_change_player_relation_with_troop","$g_talk_troop",1),
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 2),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 1),
+    (try_end),
     (assign, "$g_leave_encounter",1),
    ]],
 
@@ -30362,7 +30604,14 @@ Hand over my {reg19} crowns, if you please, and end our business together.", "lo
     (store_mul, ":amount", reg0, ":num_recruits"),
     (call_script, "script_troop_add_gold", "trp_player", ":amount"),
     (party_add_members, "p_main_party", ":recruit_troop", ":num_recruits"),
-    (call_script, "script_change_player_relation_with_troop","$g_talk_troop",1),
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 2),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 1),
+    (try_end),
     (assign, "$g_leave_encounter",1),
    ]],
 
@@ -30403,7 +30652,14 @@ Hand over my {reg19} crowns, if you please, and end our business together.", "lo
  Remember, those {reg9?townsmen:peasants} are foxy beasts, they will make every excuse not to pay me my rightful incomes.\
  Do not let them fool you.", "close_window",
    [(call_script, "script_start_quest", "$random_quest_no", "$g_talk_troop"),
-    (call_script, "script_change_player_relation_with_troop","$g_talk_troop",1),
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 2),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 1),
+    (try_end),
     (assign, "$g_leave_encounter",1),
     (assign, reg9, 0),
     (quest_get_slot, ":quest_target_center", "$random_quest_no", slot_quest_target_center),
@@ -30443,7 +30699,14 @@ Hand over my {reg19} crowns, if you please, and end our business together.", "lo
  And of course the bounty on his head will be yours if you can get him.\
  Well, good hunting to you.", "close_window",
    [(call_script, "script_start_quest", "$random_quest_no", "$g_talk_troop"),
-    (call_script, "script_change_player_relation_with_troop","$g_talk_troop",1),
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 2),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 1),
+    (try_end),
     
     # #SB : add the troop to the village itself
     # (quest_get_slot, ":quest_target_center", "$random_quest_no", slot_quest_target_center),
@@ -30532,7 +30795,14 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
      (call_script, "script_center_set_walker_to_type", ":quest_target_center", reg0, walkert_spy),
      # (str_store_item_name,s14,"$spy_item_worn"), #SB : useless code
      #TODO: Change this value
-     (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 1),
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 2),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 1),
+    (try_end),
      (assign, "$g_leave_encounter",1),
     ]],
   [anyone|plyr,"quest_meet_spy_in_enemy_town_accepted_response", [(quest_get_slot, ":quest_target_center", "$random_quest_no", slot_quest_target_center),
@@ -30699,7 +30969,14 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
      (str_store_string, s2, "@{s11} asked you to follow the spy that will leave {s12}. Be careful not to let the spy see you on the way, or {reg3?she:he} may get suspicious and turn back. Once the spy meets with {reg3?her:his} accomplice, you are to capture them and bring them back to {s11}."),
      (call_script, "script_start_quest", "$random_quest_no", "$g_talk_troop"),
      #TODO: Change this value
-     (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 1),
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 2),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 1),
+    (try_end),
 
      (set_spawn_radius, 3),
      (spawn_around_party, "p_main_party", "pt_spy_partners"),
@@ -30752,7 +31029,14 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
      (str_store_string, s2, "@{s11} asked you to capture a lord from {s13}, any lord, and then drag your victim back to {s11} for safekeeping."),
      (call_script, "script_start_quest", "$random_quest_no", "$g_talk_troop"),
      #TODO: Change this value
-     (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 1),
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 2),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 1),
+    (try_end),
      (assign, "$g_leave_encounter",1),
    ]],
 
@@ -30796,7 +31080,14 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [anyone,"lord_tell_mission_lend_companion_accepted", [],
    "I cannot thank you enough, {playername}. Worry not, your companion shall be returned to you with due haste.", "close_window",
    [(call_script, "script_start_quest", "$random_quest_no", "$g_talk_troop"),
-    (call_script, "script_change_player_relation_with_troop","$g_talk_troop",1),
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 2),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 1),
+    (try_end),
     (quest_get_slot, ":quest_target_troop", "$random_quest_no", slot_quest_target_troop),
     (call_script, "script_troop_change_relation_with_troop", ":quest_target_troop", "$g_talk_troop", 3),
     (party_remove_members, "p_main_party", ":quest_target_troop", 1),
@@ -30854,7 +31145,14 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   ], "You made me very happy by accepting this {playername}. Please, talk to {s3} and don't leave {reg0?her:him} without my money.", "close_window",
 ##diplomacy end+
    [(call_script, "script_start_quest", "$random_quest_no", "$g_talk_troop"),
-    (call_script, "script_change_player_relation_with_troop","$g_talk_troop", 1),
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 2),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 1),
+    (try_end),
     (assign, "$g_leave_encounter",1),
    ]],
 
@@ -30987,7 +31285,14 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
        (quest_get_slot, ":quest_object_troop", "qst_incriminate_loyal_commander", slot_quest_object_troop),
        (quest_get_slot, ":quest_target_center", "qst_incriminate_loyal_commander", slot_quest_target_center),
        (call_script, "script_troop_add_gold", "trp_player", 300),
-       (call_script, "script_change_player_relation_with_troop","$g_talk_troop",2),
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 3),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 2),
+    (try_end),
        (str_store_troop_name_link, s11,"$g_talk_troop"),
        (str_store_troop_name_link, s13,":quest_target_troop"),
        (str_store_party_name_link, s14,":quest_target_center"),
@@ -31107,7 +31412,14 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
      [
        (call_script, "script_remove_troop_from_prison", "$g_talk_troop"),
        (troop_set_slot, "$g_talk_troop", slot_troop_leaded_party, -1),
-       (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 3),
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 4),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 3),
+    (try_end),
        (call_script, "script_change_player_honor", 2),
        (call_script, "script_add_log_entry", logent_lord_defeated_but_let_go_by_player, "trp_player",  -1, "$g_talk_troop", "$g_talk_troop_faction"),
      ]],
@@ -32119,7 +32431,14 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
      (add_xp_as_reward, 300),
      (call_script, "script_troop_add_gold", "trp_player", 250),
      (call_script, "script_end_quest", "qst_escort_lady"),
-     (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 2),
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 3),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 2),
+    (try_end),
      (troop_set_slot, "$g_talk_troop", slot_troop_cur_center, ":cur_center"),
      (remove_member_from_party,"$g_talk_troop"),
      ]],
@@ -32529,7 +32848,15 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
     (call_script, "script_change_player_honor", 2),
   ]],
   [anyone,"lady_qst_duel_for_lady_succeeded_2", [], "{s10}", "lady_pretalk",
-   [(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 10),
+   [
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 11),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 10),
+    (try_end),
     (add_xp_as_reward, 1000),
     (call_script, "script_troop_add_gold", "trp_player", 2000),
     (call_script, "script_end_quest", "qst_duel_for_lady"),
@@ -32551,7 +32878,15 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [anyone,"lady_qst_duel_for_lady_failed_2", [], "It matters not, dear {playername}. You tried.\
  The truth cannot be proven at the point of a sword, but you willingly put your life at stake for my honour.\
  That alone will convince many of my innocence.", "lady_pretalk",
-   [(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 6),
+   [
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 8),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 7),
+    (try_end),
     (add_xp_as_reward, 400),
     (call_script, "script_end_quest", "qst_duel_for_lady"),
     ]],
@@ -32562,7 +32897,14 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
     (check_quest_active, "qst_visit_lady"),
     (quest_slot_eq, "qst_visit_lady", slot_quest_giver_troop, "$g_talk_troop"),
 	], "Ah {playername} -- you must have received my message. How happy I am that you could come!", "lady_start",[
-	(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 1),
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 2),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 1),
+    (try_end),
     (call_script, "script_end_quest", "qst_visit_lady"),
 #	(assign, "$g_time_to_spare", 1),
 	]],
@@ -32608,7 +32950,14 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
  Please, take this as some small repayment for your noble deed.", "lady_generic_mission_succeeded",
     ##diplomacy end+
    [
-     (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 8),
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 9),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 8),
+    (try_end),
      (add_xp_as_reward, 2000),
      (call_script, "script_troop_add_gold", "trp_player", 1500),
      (call_script, "script_end_quest", "qst_rescue_lord_by_replace"),
@@ -34264,7 +34613,14 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
      (quest_get_slot, ":quest_target_troop", "$random_quest_no", slot_quest_target_troop),
      (call_script, "script_start_quest", "$random_quest_no", "$g_talk_troop"),
      (call_script, "script_report_quest_troop_positions", "$random_quest_no", ":quest_target_troop", 3),
-     (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 3),
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 4),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 3),
+    (try_end),
      ]],
 
   [anyone|plyr,"lady_quest_duel_for_lady_3", [##diplomacy start+ Use proper pronoun

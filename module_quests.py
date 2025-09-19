@@ -414,6 +414,9 @@ quests = [
   "{!}placeholder."
   ),   
 
+  ("floris_active_tournament", "Attend Tournament in {s13}", 0,
+  "{!}You have been invited to attend a tournament in the town of {s13}."
+  ),
 
  ("quests_end", "Quests End", 0, "{!}."),
 ]

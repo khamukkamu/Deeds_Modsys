@@ -187,9 +187,9 @@ While you have knowledge of many of man's weaknesses, you have never intentional
 ("dac_background_class_desc_governor",            "Governors specialize in politics and administration ^^\
 Pros: ^\
 » Tax Master: ^\
-Reduced tax inefficiency from having multiple fiefs ^\
+Reduced tax inefficiency from having multiple fiefs, +2 to the number of fiefs required until tax inefficiency takes effect, 20% penalty reduction on tax loss and tax loss capped at 50% instead of 65% of tax income ^\
 » Courtly Manners: ^\
-Faster relationship gains with lords and ladies ^\
+Faster relationship gains with lords and ladies, extra points awarded whenever relationship is earned ^\
 » Builder: ^\
 Cheaper building costs, also applies to workshops ^^\
 Cons: ^\

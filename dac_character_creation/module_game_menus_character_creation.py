@@ -136,7 +136,7 @@ character_creation_menus = [
             (eq, "$background_answer_2", 0), # DAC Kham: As Adventurer
             # (jump_to_menu,"mnu_dac_start_character_background"),
             (assign, "$background_type", 1),
-            (assign, "$background_class", 1),
+            (assign, "$class_type", 1),
             (start_presentation, "prsnt_dac_select_background"), 
          (else_try),
             (eq, "$background_answer_2", 1), #DAC Kham: As Vassal

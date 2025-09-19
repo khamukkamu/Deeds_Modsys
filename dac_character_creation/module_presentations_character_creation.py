@@ -827,7 +827,7 @@ character_creation_presentations = [
             (store_add, "$class_type", "$g_presentation_obj_2_val", cb_healer_surgeon),
             (assign, ":mesh", "mesh_pic_town1"),
             (assign, ":string_background", "str_dac_background_desc_healer"),
-            (assign, ":animation", "anim_pose_3"),
+            (assign, ":animation", "anim_pose_5"),
             (store_add, ":string_class", "$g_presentation_obj_2_val", "str_dac_background_class_desc_surgeon"),
             # Size
             (position_set_x, pos2, 600),
@@ -896,7 +896,7 @@ character_creation_presentations = [
         (position_set_x, pos1, 520),
         (position_set_y, pos1, 500),
         (overlay_set_size, reg0, pos1),
-        (position_set_x, pos1, 360),
+        (position_set_x, pos1, 380),
         (position_set_y, pos1, 350),
         (overlay_set_position, reg0, pos1),
         

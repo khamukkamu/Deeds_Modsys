@@ -1175,19 +1175,29 @@ character_creation_scripts = [
         (troop_raise_skill, "trp_player",skl_prisoner_management,1),
         (troop_raise_skill, "trp_player",skl_leadership,1),	 
         (troop_raise_skill, "trp_player",skl_trade,1),	 
-        
-        (troop_raise_proficiency_linear, "trp_player", wpt_one_handed_weapon, 45),
-        (troop_raise_proficiency_linear, "trp_player", wpt_two_handed_weapon, 45),
-        (troop_raise_proficiency_linear, "trp_player", wpt_polearm, 45),
-        (troop_raise_proficiency_linear, "trp_player", wpt_archery, 25),
-        (troop_raise_proficiency_linear, "trp_player", wpt_crossbow, 25),
-        (troop_raise_proficiency_linear, "trp_player", wpt_throwing, 25),
-        (troop_raise_proficiency_linear, "trp_player", wpt_firearm, 25),
+       
+        (troop_raise_proficiency_linear, "trp_player", wpt_one_handed_weapon, 40 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_two_handed_weapon, 40 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_polearm,           40 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_archery,           20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_crossbow,          20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_throwing,          20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_firearm,           20 - pc_wp_all),
         
         (troop_set_slot, "trp_player", slot_troop_renown, 100),
-        (assign, "$player_honor", 10),
+        (assign, "$player_honor", 5),
         (assign, "$player_gold", 5000),
         
+        (item_set_slot, "itm_bread", slot_item_enterprise_building_cost, 1200),
+        (item_set_slot, "itm_ale", slot_item_enterprise_building_cost, 2000),
+        (item_set_slot, "itm_wine", slot_item_enterprise_building_cost, 4000),
+        (item_set_slot, "itm_leatherwork", slot_item_enterprise_building_cost, 6400),
+        (item_set_slot, "itm_wool_cloth", slot_item_enterprise_building_cost, 4800),
+        (item_set_slot, "itm_linen", slot_item_enterprise_building_cost, 4800),
+        (item_set_slot, "itm_tools", slot_item_enterprise_building_cost, 2800),
+        (item_set_slot, "itm_oil", slot_item_enterprise_building_cost, 3600),
+        (item_set_slot, "itm_velvet", slot_item_enterprise_building_cost, 8000),
+
     (else_try),
         (eq, ":background", cc_noble_tactician),   
         (troop_add_item, "trp_player","itm_h_highlander_beret_red_2",0),
@@ -1210,18 +1220,17 @@ character_creation_scripts = [
         (troop_raise_skill, "trp_player",skl_prisoner_management,1),	 
         (troop_raise_skill, "trp_player",skl_leadership,4),	 
         
-        (troop_raise_proficiency_linear, "trp_player", wpt_one_handed_weapon, 35),
-        (troop_raise_proficiency_linear, "trp_player", wpt_two_handed_weapon, 35),
-        (troop_raise_proficiency_linear, "trp_player", wpt_polearm, 35),
-        (troop_raise_proficiency_linear, "trp_player", wpt_archery, 25),
-        (troop_raise_proficiency_linear, "trp_player", wpt_crossbow, 25),
-        (troop_raise_proficiency_linear, "trp_player", wpt_throwing, 25),
-        (troop_raise_proficiency_linear, "trp_player", wpt_firearm, 25),
-        
+        (troop_raise_proficiency_linear, "trp_player", wpt_one_handed_weapon, 60 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_two_handed_weapon, 60 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_polearm,           60 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_archery,           20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_crossbow,          20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_throwing,          20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_firearm,           20 - pc_wp_all),
+         
         (troop_set_slot, "trp_player", slot_troop_renown, 125),
-        (assign, "$player_honor", 10),
-        (assign, "$player_gold", 3500),
-
+        (assign, "$player_honor", 5),
+        (assign, "$player_gold", 2500),
         
     (else_try),
         (eq, ":background", cc_noble_jouster),   
@@ -1248,16 +1257,16 @@ character_creation_scripts = [
         (troop_raise_skill, "trp_player",skl_athletics,1),
         (troop_raise_skill, "trp_player",skl_riding,3),
         
-        (troop_raise_proficiency_linear, "trp_player", wpt_one_handed_weapon, 65),
-        (troop_raise_proficiency_linear, "trp_player", wpt_two_handed_weapon, 65),
-        (troop_raise_proficiency_linear, "trp_player", wpt_polearm, 65),
-        (troop_raise_proficiency_linear, "trp_player", wpt_archery, 25),
-        (troop_raise_proficiency_linear, "trp_player", wpt_crossbow, 25),
-        (troop_raise_proficiency_linear, "trp_player", wpt_throwing, 25),
-        (troop_raise_proficiency_linear, "trp_player", wpt_firearm, 25),
-        
+        (troop_raise_proficiency_linear, "trp_player", wpt_one_handed_weapon, 80 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_two_handed_weapon, 80 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_polearm,           80 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_archery,           20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_crossbow,          20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_throwing,          20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_firearm,           20 - pc_wp_all),
+         
         (troop_set_slot, "trp_player", slot_troop_renown, 150),
-        (assign, "$player_honor", 15),
+        (assign, "$player_honor", 10),
         (assign, "$player_gold", 2000),
         
     (else_try),
@@ -1279,6 +1288,20 @@ character_creation_scripts = [
         (troop_raise_skill, "trp_player",skl_persuasion,4),
         (troop_raise_skill, "trp_player",skl_trade,4),
 
+        (troop_raise_proficiency_linear, "trp_player", wpt_one_handed_weapon, 30 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_two_handed_weapon, 30 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_polearm,           30 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_archery,           30 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_crossbow,          30 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_throwing,          30 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_firearm,           30 - pc_wp_all),
+                 
+        (troop_set_slot, "trp_player", slot_troop_renown, 40),
+        (assign, "$player_honor", 1),
+        (assign, "$player_gold", 2500),
+        
+    (store_random_in_range, ":trade_item", trade_goods_begin, trade_goods_end),
+    (troop_add_item, "trp_player",":trade_item",0),
         
     (else_try),
         (eq, ":background", cc_merchant_slave),   
@@ -1302,6 +1325,17 @@ character_creation_scripts = [
         (troop_raise_skill, "trp_player",skl_leadership,1),
         (troop_raise_skill, "trp_player",skl_trade,2),
 
+        (troop_raise_proficiency_linear, "trp_player", wpt_one_handed_weapon, 50 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_two_handed_weapon, 30 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_polearm,           30 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_archery,           30 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_crossbow,          30 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_throwing,          30 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_firearm,           30 - pc_wp_all),
+         
+        (troop_set_slot, "trp_player", slot_troop_renown, 20),
+        (assign, "$player_honor", -5),
+        (assign, "$player_gold", 1850),
         
     (else_try),
         (eq, ":background", cc_merchant_investor),   
@@ -1322,13 +1356,27 @@ character_creation_scripts = [
         (troop_raise_skill, "trp_player",skl_prisoner_management,1),
         (troop_raise_skill, "trp_player",skl_trade,4),
 
+        (troop_raise_proficiency_linear, "trp_player", wpt_one_handed_weapon, 40 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_two_handed_weapon, 30 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_polearm,           30 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_archery,           30 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_crossbow,          30 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_throwing,          30 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_firearm,           30 - pc_wp_all),
+         
+        (troop_set_slot, "trp_player", slot_troop_renown, 50),
+        (assign, "$player_honor", -1),
+        (assign, "$player_gold", 6000),
+        
     (else_try),
         (eq, ":background", cc_soldier_scout),   
-        (troop_add_item, "trp_player","itm_w_onehanded_sword_a"),
-        (troop_add_item, "trp_player","itm_s_heater_shield_french_3"),
-        (troop_add_item, "trp_player","itm_h_chapel_de_fer_strap"),
-        (troop_add_item, "trp_player","itm_a_gambeson_asher_belt_custom"),
+        (troop_add_item, "trp_player","itm_w_onehanded_sword_a_long"),
+        (troop_add_item, "trp_player","itm_w_lance_2"),
+        (troop_add_item, "trp_player","itm_s_heater_shield_burgundian_1"),
+        (troop_add_item, "trp_player","itm_h_makeshift_kettle_strap"),
+        (troop_add_item, "trp_player","itm_a_light_gambeson_long_sleeves_custom"),
         (troop_add_item, "trp_player","itm_b_turnshoes_2"),
+        (troop_add_item, "trp_player","itm_ho_courser_3"),
         
         (troop_raise_attribute, "trp_player", ca_strength, 4),
         (troop_raise_attribute, "trp_player", ca_agility, 6),
@@ -1345,13 +1393,26 @@ character_creation_scripts = [
         (troop_raise_skill, "trp_player",skl_spotting,3),
         (troop_raise_skill, "trp_player",skl_prisoner_management,1),
         
+        (troop_raise_proficiency_linear, "trp_player", wpt_one_handed_weapon, 60 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_two_handed_weapon, 20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_polearm,           60 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_archery,           20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_crossbow,          20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_throwing,          50 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_firearm,           20 - pc_wp_all),
+         
+        (troop_set_slot, "trp_player", slot_troop_renown, 25),
+        (assign, "$player_honor", 2),
+        (assign, "$player_gold", 750),
+        
     (else_try),
         (eq, ":background", cc_soldier_quartermaster),  
-        (troop_add_item, "trp_player","itm_w_onehanded_sword_a"),
-        (troop_add_item, "trp_player","itm_s_heater_shield_french_3"),
-        (troop_add_item, "trp_player","itm_h_chapel_de_fer_strap"),
-        (troop_add_item, "trp_player","itm_a_gambeson_asher_belt_custom"),
-        (troop_add_item, "trp_player","itm_b_turnshoes_2"),
+        (troop_add_item, "trp_player","itm_w_archer_hatchet_red"),
+        (troop_add_item, "trp_player","itm_w_crossbow_light"),
+        (troop_add_item, "trp_player","itm_w_bolt_triangular"),
+        (troop_add_item, "trp_player","itm_h_arming_cap"),
+        (troop_add_item, "trp_player","itm_a_peasant_cotehardie_custom"),
+        (troop_add_item, "trp_player","itm_b_poulaines_1"),
         
         (troop_raise_attribute, "trp_player", ca_strength, 3),
         (troop_raise_attribute, "trp_player", ca_agility, 2),
@@ -1367,12 +1428,28 @@ character_creation_scripts = [
         (troop_raise_skill, "trp_player",skl_leadership,1),
         (troop_raise_skill, "trp_player",skl_trade,3),
         
+        (troop_raise_proficiency_linear, "trp_player", wpt_one_handed_weapon, 30 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_two_handed_weapon, 30 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_polearm,           30 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_archery,           20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_crossbow,          60 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_throwing,          20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_firearm,           60 - pc_wp_all),
+         
+        (troop_set_slot, "trp_player", slot_troop_renown, 30),
+        (assign, "$player_honor", 2),
+        (assign, "$player_gold", 1250),
+        
+    (store_random_in_range, ":food_item", food_begin, food_end),
+    (troop_add_item, "trp_player",":food_item",0),
+    (store_random_in_range, ":trade_item", trade_goods_begin, trade_goods_end),
+    (troop_add_item, "trp_player",":trade_item",0),
+        
     (else_try),
         (eq, ":background", cc_soldier_cook),   
-        (troop_add_item, "trp_player","itm_w_onehanded_sword_a"),
-        (troop_add_item, "trp_player","itm_s_heater_shield_french_3"),
-        (troop_add_item, "trp_player","itm_h_chapel_de_fer_strap"),
-        (troop_add_item, "trp_player","itm_a_gambeson_asher_belt_custom"),
+        (troop_add_item, "trp_player","itm_w_dagger_quillon"),
+        (troop_add_item, "trp_player","itm_h_peasant_bycocket_1_custom"),
+        (troop_add_item, "trp_player","itm_a_peasant_man_custom"),
         (troop_add_item, "trp_player","itm_b_turnshoes_2"),
         
         (troop_raise_attribute, "trp_player", ca_strength, 4),
@@ -1390,11 +1467,26 @@ character_creation_scripts = [
         (troop_raise_skill, "trp_player",skl_leadership,1),
         (troop_raise_skill, "trp_player",skl_trade,2),
 
+        (troop_raise_proficiency_linear, "trp_player", wpt_one_handed_weapon, 60 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_two_handed_weapon, 60 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_polearm,           30 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_archery,           20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_crossbow,          20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_throwing,          40 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_firearm,           20 - pc_wp_all),
+         
+        (troop_set_slot, "trp_player", slot_troop_renown, 35),
+        (assign, "$player_honor", 2),
+        (assign, "$player_gold", 850),
+        
+        (store_random_in_range, ":food_item", food_begin, food_end),
+        (troop_add_item, "trp_player",":food_item",0),
+        
     (else_try),
         (eq, ":background", cc_soldier_sergeant),   
-        (troop_add_item, "trp_player","itm_w_onehanded_sword_a"),
-        (troop_add_item, "trp_player","itm_s_heater_shield_french_3"),
-        (troop_add_item, "trp_player","itm_h_chapel_de_fer_strap"),
+        (troop_add_item, "trp_player","itm_w_bastard_sword_c"),
+        (troop_add_item, "trp_player","itm_heraldic_banner"),
+        (troop_add_item, "trp_player","itm_h_sallet_strap"),
         (troop_add_item, "trp_player","itm_a_gambeson_asher_belt_custom"),
         (troop_add_item, "trp_player","itm_b_turnshoes_2"),
         
@@ -1414,6 +1506,18 @@ character_creation_scripts = [
         (troop_raise_skill, "trp_player",skl_prisoner_management,1),
         (troop_raise_skill, "trp_player",skl_leadership,3),
 
+        (troop_raise_proficiency_linear, "trp_player", wpt_one_handed_weapon, 50 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_two_handed_weapon, 60 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_polearm,           60 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_archery,           20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_crossbow,          20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_throwing,          20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_firearm,           20 - pc_wp_all),
+         
+        (troop_set_slot, "trp_player", slot_troop_renown, 50),
+        (assign, "$player_honor", 2),
+        (assign, "$player_gold", 900),
+        
     (else_try),
         (eq, ":background", cc_hunter_poacher),   
         (troop_add_item, "trp_player","itm_w_archers_maul"),
@@ -1434,6 +1538,18 @@ character_creation_scripts = [
         (troop_raise_skill, "trp_player",skl_pathfinding,4),
         (troop_raise_skill, "trp_player",skl_spotting,3),
     
+        (troop_raise_proficiency_linear, "trp_player", wpt_one_handed_weapon, 20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_two_handed_weapon, 20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_polearm,           30 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_archery,           80 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_crossbow,          40 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_throwing,          40 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_firearm,           20 - pc_wp_all),
+         
+        (troop_set_slot, "trp_player", slot_troop_renown, 10),
+        (assign, "$player_honor", 3),
+        (assign, "$player_gold", 250),
+        
     (else_try),
         (eq, ":background", cc_hunter_manhunter),   
         (troop_add_item, "trp_player","itm_w_mace_winged"),
@@ -1456,6 +1572,18 @@ character_creation_scripts = [
         (troop_raise_skill, "trp_player",skl_prisoner_management,4),
         (troop_raise_skill, "trp_player",skl_leadership,1),
     
+        (troop_raise_proficiency_linear, "trp_player", wpt_one_handed_weapon, 70 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_two_handed_weapon, 60 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_polearm,           40 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_archery,           20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_crossbow,          20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_throwing,          20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_firearm,           20 - pc_wp_all),
+         
+        (troop_set_slot, "trp_player", slot_troop_renown, 20),
+        (assign, "$player_honor", -5),
+        (assign, "$player_gold", 650),
+        
     (else_try),
         (eq, ":background", cc_hunter_marksman),   
         (troop_add_item, "trp_player","itm_w_dagger_quillon"),
@@ -1478,6 +1606,18 @@ character_creation_scripts = [
         (troop_raise_skill, "trp_player",skl_spotting,2),
         (troop_raise_skill, "trp_player",skl_persuasion,1),
     
+        (troop_raise_proficiency_linear, "trp_player", wpt_one_handed_weapon, 20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_two_handed_weapon, 20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_polearm,           20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_archery,           60 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_crossbow,          60 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_throwing,          40 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_firearm,           60 - pc_wp_all),
+         
+        (troop_set_slot, "trp_player", slot_troop_renown, 60),
+        (assign, "$player_honor", 3),
+        (assign, "$player_gold", 775),
+        
     (else_try),
         (eq, ":background", cc_mercenary_condottiero),   
         (troop_add_item, "trp_player","itm_w_light_lance"),
@@ -1502,6 +1642,18 @@ character_creation_scripts = [
         (troop_raise_skill, "trp_player",skl_prisoner_management,1),
         (troop_raise_skill, "trp_player",skl_leadership,4),
         (troop_raise_skill, "trp_player",skl_trade,1),
+        
+        (troop_raise_proficiency_linear, "trp_player", wpt_one_handed_weapon, 60 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_two_handed_weapon, 60 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_polearm,           60 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_archery,           20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_crossbow,          40 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_throwing,          20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_firearm,           20 - pc_wp_all),
+         
+        (troop_set_slot, "trp_player", slot_troop_renown, 120),
+        (assign, "$player_honor", 2),
+        (assign, "$player_gold", 6000),
         
     (else_try),
         (eq, ":background", cc_mercenary_flemish),   
@@ -1528,6 +1680,18 @@ character_creation_scripts = [
         (troop_raise_skill, "trp_player",skl_prisoner_management,1),
         (troop_raise_skill, "trp_player",skl_leadership,3),
         
+        (troop_raise_proficiency_linear, "trp_player", wpt_one_handed_weapon, 60 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_two_handed_weapon, 40 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_polearm,           80 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_archery,           20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_crossbow,          20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_throwing,          20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_firearm,           40 - pc_wp_all),
+         
+        (troop_set_slot, "trp_player", slot_troop_renown, 60),
+        (assign, "$player_honor", 0),
+        (assign, "$player_gold", 4500),
+        
     (else_try),
         (eq, ":background", cc_mercenary_scottish),   
         (troop_add_item, "trp_player","itm_w_onehanded_sword_scottish"),
@@ -1552,6 +1716,18 @@ character_creation_scripts = [
         (troop_raise_skill, "trp_player",skl_prisoner_management,1),
         (troop_raise_skill, "trp_player",skl_leadership,2),
         
+        (troop_raise_proficiency_linear, "trp_player", wpt_one_handed_weapon, 60 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_two_handed_weapon, 80 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_polearm,           40 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_archery,           40 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_crossbow,          20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_throwing,          20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_firearm,           20 - pc_wp_all),
+         
+        (troop_set_slot, "trp_player", slot_troop_renown, 100),
+        (assign, "$player_honor", 5),
+        (assign, "$player_gold", 3750),
+        
     (else_try),
         (eq, ":background", cc_peasant_farmer),   
         (troop_add_item, "trp_player","itm_h_straw_hat",0),
@@ -1573,6 +1749,18 @@ character_creation_scripts = [
         (troop_raise_skill, "trp_player",skl_leadership,1),
         (troop_raise_skill, "trp_player",skl_trade,1),
     
+        (troop_raise_proficiency_linear, "trp_player", wpt_one_handed_weapon, 40 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_two_handed_weapon, 30 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_polearm,           60 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_archery,           20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_crossbow,          20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_throwing,          30 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_firearm,           20 - pc_wp_all),
+         
+        (troop_set_slot, "trp_player", slot_troop_renown, 10),
+        (assign, "$player_honor", 1),
+        (assign, "$player_gold", 50),
+        
     (else_try),
         (eq, ":background", cc_peasant_revolutionary),   
         (troop_add_item, "trp_player","itm_h_wicker_helmet_strap",0),
@@ -1594,6 +1782,18 @@ character_creation_scripts = [
         (troop_raise_skill, "trp_player",skl_persuasion,2),
         (troop_raise_skill, "trp_player",skl_leadership,3),
 
+        (troop_raise_proficiency_linear, "trp_player", wpt_one_handed_weapon, 30 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_two_handed_weapon, 50 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_polearm,           40 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_archery,           20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_crossbow,          40 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_throwing,          20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_firearm,           20 - pc_wp_all),
+         
+        (troop_set_slot, "trp_player", slot_troop_renown, 25),
+        (assign, "$player_honor", -3),
+        (assign, "$player_gold", 725),
+        
     (else_try),
         (eq, ":background", cc_peasant_smith),   
         (troop_add_item, "trp_player","itm_h_leather_cap",0),
@@ -1615,6 +1815,18 @@ character_creation_scripts = [
         (troop_raise_skill, "trp_player",skl_prisoner_management,2),
         (troop_raise_skill, "trp_player",skl_trade,2),
         
+        (troop_raise_proficiency_linear, "trp_player", wpt_one_handed_weapon, 60 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_two_handed_weapon, 60 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_polearm,           20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_archery,           20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_crossbow,          20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_throwing,          20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_firearm,           20 - pc_wp_all),
+  
+        (troop_set_slot, "trp_player", slot_troop_renown, 15),
+        (assign, "$player_honor", 1),
+        (assign, "$player_gold", 300),
+        
     (else_try),
         (eq, ":background", cb_healer_surgeon),   
         (troop_add_item, "trp_player","itm_h_simple_coif",0),
@@ -1635,6 +1847,18 @@ character_creation_scripts = [
         (troop_raise_skill, "trp_player",skl_surgery,5),
         (troop_raise_skill, "trp_player",skl_first_aid,3),
         
+        (troop_raise_proficiency_linear, "trp_player", wpt_one_handed_weapon, 40 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_two_handed_weapon, 20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_polearm,           40 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_archery,           20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_crossbow,          20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_throwing,          20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_firearm,           20 - pc_wp_all),
+         
+        (troop_set_slot, "trp_player", slot_troop_renown, 20),
+        (assign, "$player_honor", 5),
+        (assign, "$player_gold", 350),
+        
     (else_try),
         (eq, ":background", cb_healer_priest),   
         (troop_add_item, "trp_player","itm_h_straw_hat_3",0),
@@ -1653,6 +1877,18 @@ character_creation_scripts = [
         (troop_raise_skill, "trp_player",skl_leadership,2),
         (troop_raise_skill, "trp_player",skl_trade,2),
         
+        (troop_raise_proficiency_linear, "trp_player", wpt_one_handed_weapon, 20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_two_handed_weapon, 20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_polearm,           20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_archery,           20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_crossbow,          20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_throwing,          20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_firearm,           20 - pc_wp_all),
+         
+        (troop_set_slot, "trp_player", slot_troop_renown, 50),
+        (assign, "$player_honor", 10),
+        (assign, "$player_gold", 500),         
+         
     (else_try),
         (eq, ":background", cb_healer_alchemist),  
         (troop_add_item, "trp_player","itm_h_hood_black",0),
@@ -1675,9 +1911,24 @@ character_creation_scripts = [
         (troop_raise_skill, "trp_player",skl_persuasion,1),
         (troop_raise_skill, "trp_player",skl_trade,1),
         
+        (troop_raise_proficiency_linear, "trp_player", wpt_one_handed_weapon, 40 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_two_handed_weapon, 20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_polearm,           20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_archery,           20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_crossbow,          20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_throwing,          20 - pc_wp_all),
+        (troop_raise_proficiency_linear, "trp_player", wpt_firearm,           40 - pc_wp_all),
+         
+        (troop_set_slot, "trp_player", slot_troop_renown, 10),
+        (assign, "$player_honor", 1),
+        (assign, "$player_gold", 800),         
+         
     (try_end),
     
     (troop_equip_items, "trp_player"),
+    
+    (store_random_in_range, ":food_item", food_begin, food_end),
+    (troop_add_item, "trp_player",":food_item",0),
     
     (set_show_messages, 1),
   ]),

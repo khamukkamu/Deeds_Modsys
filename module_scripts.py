@@ -5245,6 +5245,25 @@ scripts = [
         (val_mul, ":wage", 95),
         (val_div, ":wage", 100),
     (try_end),
+    
+### DAC Seek: Higher Wages for Regular Troops for the noble background
+    (try_begin),
+        (eq, "$background_type", cb_noble),
+        (neq, "$class_type", cc_noble_tactician),
+        (is_between, ":troop_id", faction_troops_begin, faction_troops_end),
+        (lt, ":troop_level", 30),
+        (val_mul, ":wage", 10),
+        (val_div, ":wage", 8),
+    (try_end),
+    
+### DAC Seek: Lower Wages for Noble Troops for the noble background
+    (try_begin),
+        (eq, "$background_type", cb_noble),
+        (is_between, ":troop_id", faction_troops_begin, faction_troops_end),
+        (ge, ":troop_level", 30),
+        (val_mul, ":wage", 8),
+        (val_div, ":wage", 10),
+    (try_end),
 
       (try_begin),
         (is_between, ":troop_id", companions_begin, companions_end),
@@ -73704,13 +73723,30 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
           (val_add, ":needed", 1),
         (try_end),
       (try_end),
+      
+    ### DAC Seek: Governor tax bonus
+    (try_begin),
+        (eq, "$class_type", cc_noble_governor),
+        (val_add, ":needed", 2),
+    (try_end),
+      
       #original condition here
       (gt, ":num_owned", ":needed"),
       (gt, ":tax_total", 0),
       
       (store_sub, ":ratio_lost", ":num_owned", ":needed"),
       (val_mul, ":ratio_lost", ":ratio"),
-      (val_min, ":ratio_lost", 65),
+    ### DAC Seek: Governor tax bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (val_mul, ":ratio_lost", 80),
+        (val_div, ":ratio_lost", 100),
+        (assign, ":ratio_cap", 50),
+    (else_try), 
+        (assign, ":ratio_cap", 65),
+    (try_end),
+    
+      (val_min, ":ratio_lost", ":ratio_cap"),
       (try_begin),
         (gt, "$g_player_chamberlain", 0),
         (assign, ":percent", 10),
@@ -73774,6 +73810,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
         (assign, ":tax_lost", 0),
         (assign, ":percent", 0),
       (try_end),
+      
       (assign, reg0, ":tax_lost"),
       (assign, reg1, ":percent"),
     ]),
@@ -81472,6 +81509,91 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 
 
   ]),
+  
+# script_cf_quest_floris_active_tournament_hook_1
+# Causes the quest to register as being completed successfully if you enter the town the tournament is being held in while having the quest active and join the tournament.
+# Input: none
+# Output: none
+("quest_floris_active_tournament_hook_1",
+    [
+	    (try_begin),
+			(check_quest_active, "qst_floris_active_tournament"),
+			(neg|quest_slot_eq, "qst_floris_active_tournament", slot_quest_current_state, qp1_tournament_participated_in_tournament), # Prevents repeated reputation gains in the TPE menu.
+			(quest_slot_eq, "qst_floris_active_tournament", slot_quest_target_center, "$current_town"),
+			(try_begin),
+				(quest_slot_eq, "qst_floris_active_tournament", slot_quest_current_state, qp1_tournament_message_received), # You were invited to attend.  Still need to meet with host.
+				(call_script, "script_succeed_quest", "qst_floris_active_tournament"),
+				(quest_set_slot, "qst_floris_active_tournament", slot_quest_current_state, qp1_tournament_participated_in_tournament),
+			(else_try),
+				(quest_slot_eq, "qst_floris_active_tournament", slot_quest_current_state, 0), # You were not invited to attend.  Quest is automatically completed.
+				(call_script, "script_succeed_quest", "qst_floris_active_tournament"),
+				(complete_quest, "qst_floris_active_tournament"),
+			(try_end),
+			# (ge, "$tpe_quest_reactions", TPE_QUEST_REACTIONS_HIGH),
+            (display_message, "@The town cheers at your arrival to the tournament, +2 relations with the town", color_good_news),
+			(troop_slot_ge, "trp_player", slot_troop_renown, 200),
+			(call_script, "script_change_player_relation_with_center", "$current_town", 2),
+		(try_end),
+    ]),
+# END - TOURNAMENT QUEST SCRIPTS
+
+# script_tpe_store_town_faction_to_reg0
+# Returns the faction number of a center under a number of different circumstances.
+# Input: none
+# Output: none
+("tpe_store_town_faction_to_reg0",
+    [
+		(store_script_param, ":center_no", 1),
+		
+		(assign, ":faction_picked", 0),
+		(try_begin),
+			# Figure out faction based on center.
+			(store_faction_of_party, ":faction_no", ":center_no"),
+			(is_between, ":faction_no", kingdoms_begin, kingdoms_end),
+			(assign, ":faction_picked", ":faction_no"),
+			# (ge, DEBUG_TPE_general, 1),
+			# (str_store_faction_name, s21, ":faction_no"),
+			# (str_store_party_name, s22, ":center_no"),
+			# (display_message, "@DEBUG (TPE): Faction '{s21}' determined by '{s22}'."),
+		(else_try),
+			# Use the lord of the town if possible.
+			(eq, ":faction_picked", 0),
+			(party_get_slot, ":troop_lord", ":center_no", slot_town_lord),
+			(ge, ":troop_lord", 0),
+			(store_troop_faction, ":faction_no", ":troop_lord"),
+			(is_between, ":faction_no", kingdoms_begin, kingdoms_end),
+			(assign, ":faction_picked", ":faction_no"),
+			# (ge, DEBUG_TPE_general, 1),
+			# (str_store_faction_name, s21, ":faction_no"),
+			# (str_store_troop_name, s22, ":troop_lord"),
+			# (display_message, "@DEBUG (TPE): Faction '{s21}' determined by '{s22}'."),
+		# (else_try),
+			# # No valid town lord found.  Let's switch to using the culture.
+			# (eq, ":faction_picked", 0),
+			# (party_get_slot, ":culture_town", ":center_no", slot_center_culture),
+			# (store_sub, ":faction_offset", ":culture_town", "fac_culture_1"),
+			# (try_begin),
+				# # Check to make sure we're dealing with a culture other than the player's.
+				# (neq, ":culture_town", "fac_culture_7"),
+				# (store_add, ":faction_no", ":faction_offset", kingdoms_begin),
+				# (val_add, ":faction_no", 1), # Push the faction past the player's supporters.
+			# (else_try),
+				# # The culture is the player's so it needs to be handled differently.
+				# (assign, ":faction_no", "fac_player_supporters_faction"),
+			# (try_end),
+			# (is_between, ":faction_no", kingdoms_begin, kingdoms_end),
+			# (assign, ":faction_picked", ":faction_no"),
+			# (ge, DEBUG_TPE_general, 1),
+			# (str_store_faction_name, s21, ":faction_no"),
+			# (str_store_faction_name, s22, ":culture_town"),
+			# (display_message, "@DEBUG (TPE): Faction '{s21}' determined by culture '{s22}'."),
+		(else_try),
+			# No valid faction could be determined.
+			(eq, ":faction_picked", 0),
+			(display_message, "@TPE ERROR!  No valid faction could be determined for this town.", color_bad_news),
+		(try_end),
+		(assign, reg0, ":faction_picked"),
+	]),
 
 ]
 
