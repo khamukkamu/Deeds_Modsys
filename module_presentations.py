@@ -17028,6 +17028,27 @@ presentations = [
                     (troop_set_slot, "trp_temp_array_c", ":num_options", reg0),
                     (val_add, ":num_options", 1),
                     
+                    ## Tournament
+					(create_text_overlay, reg0, "@Lock tournaments:", tf_vertical_align_center),
+					(position_set_y, pos1, ":texts_y"),
+					(overlay_set_position, reg0, pos1),
+                    (troop_set_slot, "trp_temp_array_a", ":num_options", reg0),
+					(val_sub, ":texts_y", ":y_increment"),
+
+					(create_check_box_overlay, reg0, "mesh_checkbox_off", "mesh_checkbox_on"),
+					(position_set_y, pos2, ":inputs_y"),
+					(overlay_set_position, reg0, pos2),
+					(val_sub, ":inputs_y", ":y_increment"),
+                    (troop_set_slot, "trp_temp_array_b", ":num_options", reg0),
+					(overlay_set_val, reg0, "$DAC_TOURNAMENT_LOCK"),
+                    (set_container_overlay, -1),
+                    (create_mesh_overlay, reg0, "mesh_pic_townriot"),
+                    (set_container_overlay, ":container"),
+                    (overlay_set_position, reg0, pos3),
+                    (overlay_set_size, reg0, pos4),
+                    (troop_set_slot, "trp_temp_array_c", ":num_options", reg0),
+                    (val_add, ":num_options", 1),
+                    
 						## CHEAT MENU
 					(create_text_overlay, reg0, "@Cheat Mode:", tf_vertical_align_center),
                     (troop_set_slot, "trp_temp_array_a", ":num_options", reg0),
@@ -17182,6 +17203,7 @@ presentations = [
                         (assign, "$enable_bodysliding", 2),                        
                         (assign, "$disable_npc_complaints", 0),
                         (assign, "$DAC_ARMOUR_SOUNDS", 1),
+                        (assign, "$DAC_TOURNAMENT_LOCK", 1),
                         # (call_script, "script_dplmc_update_info_settings"),
                         (start_presentation, "prsnt_adv_diplomacy_preferences"),
 					(else_try),
@@ -17313,8 +17335,11 @@ presentations = [
                     (else_try), ## Soundsteps
                         (troop_slot_eq, "trp_temp_array_b", 20, ":object"),
                         (assign, "$DAC_ARMOUR_SOUNDS", ":value"),
-                    (else_try), ## CHEATS MENU
+                    (else_try), ## Tournament lock
                         (troop_slot_eq, "trp_temp_array_b", 21, ":object"),
+                        (assign, "$DAC_TOURNAMENT_LOCK", ":value"),
+                    (else_try), ## CHEATS MENU
+                        (troop_slot_eq, "trp_temp_array_b", 22, ":object"),
                         (assign, "$cheat_mode", ":value"),
                     (try_end),
                 ]

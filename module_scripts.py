@@ -783,6 +783,7 @@ scripts = [
     (assign, "$g_random_scene_size_forests", 1), # CC's Random Scene Size Selection
     (assign, "$DAC_MORALE_SYSTEM", HYBRID_MORALE_SYSTEM), #DAC Kham: Hybrid Default
     (assign, "$DAC_ARMOUR_SOUNDS", 1), #DAC Seek: On by default, play armoured footstep sounds for the player
+    (assign, "$DAC_TOURNAMENT_LOCK", 1), #DAC Seek: On by default, lock player from tournament if renown is too low
     (assign, "$armour_progression", 0), #DAC Seek: Used to trigger event for armour progression
     
     (call_script, "script_initialize_custom_armor_data"), 

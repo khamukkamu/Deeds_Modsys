@@ -1284,7 +1284,7 @@ character_creation_scripts = [
         
         (troop_raise_skill, "trp_player",skl_pathfinding,2),
         (troop_raise_skill, "trp_player",skl_spotting,1),
-        (troop_raise_skill, "trp_player",skl_inventory_management,1),
+        (troop_raise_skill, "trp_player",skl_inventory_management,3),
         (troop_raise_skill, "trp_player",skl_persuasion,4),
         (troop_raise_skill, "trp_player",skl_trade,4),
 

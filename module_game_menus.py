@@ -3348,6 +3348,21 @@ TOTAL:  {reg5}"),
         ]
        ),       
 ## DAC Seek: Player Camp End
+### DAC Seek: Toggle Some class options on/off		
+# Nobles
+      ("jouster_disable_messages",[(eq, "$class_type_feature_active", 1),(eq, "$class_type", cc_noble_jouster),],"[Jouster] Disable invitations to tournaments.",
+       [(assign, "$class_type_feature_active", 0),
+        ]
+       ),
+      ("jouster_enable_messages",[(eq, "$class_type_feature_active", 0),(eq, "$class_type", cc_noble_jouster),],"[Jouster] Enable invitations to tournaments.",
+       [(assign, "$class_type_feature_active", 1),
+        ]
+       ),       
+# Merchants
+      ("access_hidden_chest",[(eq, "$class_type", cc_merchant_goods),],"[Goods Merchant] Access your hidden stash...",
+       [(jump_to_menu, "mnu_manage_hidden_chest"),
+        ]
+       ),   
 
       ("camp_recruit_prisoners",
        [(troops_can_join, 1),
@@ -11377,8 +11392,30 @@ TOTAL:  {reg5}"),
         ]
        ,"Join the tournament.",
        [
-           (call_script, "script_setup_town_tournament", "$current_town"),
-           (jump_to_menu, "mnu_town_tournament"),
+        ### DAC Seek: Limit tournament participation
+        (options_get_campaign_ai, ":campaign_difficulty"),
+        
+        (try_begin),
+            (eq, ":campaign_difficulty", 0), # hard
+            (assign, ":renown_requirement", 160),
+        (else_try),
+            (eq, ":campaign_difficulty", 1), # medium
+            (assign, ":renown_requirement", 120),
+        (else_try),
+            (assign, ":renown_requirement", 80), # easy
+        (try_end),
+        
+        (try_begin),
+            (this_or_next|eq, "$class_type", cc_noble_jouster),
+            (this_or_next|eq, "$DAC_TOURNAMENT_LOCK", 0),
+            (troop_slot_ge, "trp_player", slot_troop_renown, ":renown_requirement"),
+            (call_script, "script_setup_town_tournament", "$current_town"),
+            (jump_to_menu, "mnu_town_tournament"),
+        (else_try),
+            # (change_screen_return),
+            # (dialog_box, "@str_dac_tournament", "@Entry Denied"),
+            (display_message, "str_dac_tournament", color_bad_news),
+        (try_end),
         ]),
 
       ("town_castle",[
@@ -20417,15 +20454,9 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       [(party_slot_eq, "$current_town", slot_party_type, spt_town),],
       "Host a tournament",
       [
-           (call_script, "script_fill_tournament_participants_troop", "$current_town", 1),
-           (assign, "$g_tournament_cur_tier", 0),
-           (assign, "$g_tournament_player_team_won", -1),
-           (assign, "$g_tournament_bet_placed", 0),
-           (assign, "$g_tournament_bet_win_amount", 0),
-           (assign, "$g_tournament_last_bet_tier", -1),
-           (assign, "$g_tournament_next_num_teams", 0),
-           (assign, "$g_tournament_next_team_size", 0),
-           (jump_to_menu, "mnu_town_tournament"),
+           (party_set_slot, "$current_town", slot_town_has_tournament, 1),
+           (call_script, "script_setup_town_tournament", "$current_town"),
+           (jump_to_menu, "mnu_town"),
       ]),
 
       ("camp_cheat_gather",[(party_slot_eq, "$current_town", slot_party_type, spt_town),],"Gather all inactive NPCs.",

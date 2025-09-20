@@ -198,7 +198,7 @@ Significantly lower combat stats from lack of experience"),
 ("dac_background_class_desc_strategist",          "Strategists specialize in leadership roles and logistics ^^\
 Pros: ^\
 » Tactics and leadership: ^\
-Start with higher tactics and leadership skills ^\
+Start with higher tactics, leadership skills and base party size^\
 » Logistician: ^\
 Troops consume less food and you don't have an upkeep penalty for regular troops ^^\
 Cons: ^\
@@ -209,7 +209,7 @@ Pros: ^\
 » Regular Contestant: ^\
 You receive notifications when tournaments are being held ^\
 » Renowned Fighter: ^\
-Increased rewards from tournaments, can place higher bets ^\
+You can participate in tournaments from the start, increased rewards from tournaments and can place higher bets ^\
 » Single Combat: ^\
 Increased combat stats from frequently fighting ^^\
 Cons: ^\
@@ -398,4 +398,11 @@ There is always a chance for your experiments to backfire, causing you harm"),
 ### DAC Seek: The legendary Lorem Ipsum
 ("lorem_ipsum", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"),
 
+### DAC Seek: Hidden Player Chest
+("dac_chest_no_item", "There are currently zero items"),
+("dac_chest_one_item", "There is one item"),
+("dac_chest_many_items", "There are {reg3} items"),
+
+### DAC Lock Tournaments
+("dac_tournament", "You are not renowned enough to participate in a tournament yet, 160 renown required"),
 ]

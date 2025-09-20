@@ -5050,7 +5050,8 @@ Only you know exactly what caused you to give up your old life and become an adv
   ("dplmc_setting_tt9", "This option toggles whether companions suffer from incompatible moralities and grievance penalties."),
   ("dplmc_setting_tt10", "This option enables a more complex disguise system while entering hostile centers."),
   ("dplmc_setting_tt11", "This option enables plate and/or mail footstep sounds when wearing heavy armour."),
-  ("dplmc_setting_tt12", "This option enables various cheat menus and debug features."),
+  ("dplmc_setting_tt12", "This option blocks you from attending tournaments until you reach a renown threshold."),
+  ("dplmc_setting_tt13", "This option enables various cheat menus and debug features."),
   # ("dplmc_setting_tt10", "This option toggles the camera modes."),
 
   #yet to be determined <-known to be {s4} -> here

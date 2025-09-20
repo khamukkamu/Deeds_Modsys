@@ -301,7 +301,9 @@ character_creation_menus = [
 ##      
       ("begin_adventuring",[(eq, "$background_answer_2", 0)],"Become an adventurer and ride to your destiny.",[
       
-          (set_show_messages, 0),
+        (set_show_messages, 0),
+
+        (assign, "$class_type_feature_active", 1),
            
           # (try_begin),
             # (eq, "$character_gender", tf_male),
@@ -448,6 +450,125 @@ character_creation_menus = [
       ]),
 
 
+    ]
+  ),
+  
+### DAC Seek: Hidden Stash Management:
+  ("manage_hidden_chest", mnf_disable_all_keys,
+    "You discreetely make your way to your hidden stash... ^\
+    {s10} out of a maximum of {reg4} items ^\
+    You stored {reg5} crowns out of a maximum of {reg6} ^\
+    Current Stash Level: {reg7}/10",
+    "none",
+    [
+    (assign, reg3,0),
+    (troop_get_inventory_capacity, ":inv_cap", "trp_hidden_chest"),
+    (assign, reg4, ":inv_cap"),
+    (try_for_range, ":i_slot", 0, ":inv_cap"),
+        (troop_get_inventory_slot, ":item_id", "trp_hidden_chest", ":i_slot"),
+        (ge, ":item_id", 0),
+        (neg|troop_has_item_equipped, "trp_hidden_chest", ":item_id"),
+        (val_add, reg3, 1),
+    (try_end),
+    # reg3 now contains number of items in loot pool
+    (try_begin),
+        (eq, reg3, 0),
+        (str_store_string, s10, "str_dac_chest_no_item"),
+    (else_try),
+        (eq, reg3, 1),
+        (str_store_string, s10, "str_dac_chest_one_item"),
+    (else_try),
+        (str_store_string, s10, "str_dac_chest_many_items"),
+    (try_end),
+    
+    (store_troop_gold, ":current_gold", "trp_hidden_chest"),
+    (assign, reg5, ":current_gold"),
+    
+    (store_skill_level, ":inventory_management_skill", skl_inventory_management, "trp_hidden_chest"),
+    (try_begin),
+        (lt, skl_inventory_management, 5),
+        (store_mul, ":gold_limit", ":inventory_management_skill", 500),
+    (else_try),
+        (store_mul, ":gold_limit", ":inventory_management_skill", 1000),
+    (try_end),
+    (assign, reg6, ":gold_limit"),
+    (assign, reg7, ":inventory_management_skill"),
+    ],
+    [
+      ("access_stash_items",[],"Open the Stash", [
+        (change_screen_loot, "trp_hidden_chest"),
+      ]),
+      ("upgrade_stash",[(lt, reg7, 10),
+      (store_troop_gold, ":current_gold", "trp_player"),
+      (ge, ":current_gold", reg6),      
+      ],"Upgrade the Stash: {reg6} Crowns", [
+        (troop_remove_gold, "trp_player", reg6),
+        (troop_raise_skill, "trp_hidden_chest", skl_inventory_management, 1),
+      ]),
+      ("deposit_500_crowns",[
+        (store_troop_gold, ":current_gold", "trp_hidden_chest"),
+        (le, ":current_gold", reg6 - 500),
+        (store_troop_gold, ":player_gold", "trp_player"),      
+        (ge, ":player_gold", 500),  
+      ],
+      "Deposit 500 Crowns", [
+        (troop_remove_gold, "trp_player", 500),
+        (troop_add_gold, "trp_hidden_chest", 500),
+      ]),
+      ("deposit_200_crowns",[
+        (store_troop_gold, ":current_gold", "trp_hidden_chest"),
+        (le, ":current_gold", reg6 - 200),
+        (store_troop_gold, ":player_gold", "trp_player"),      
+        (ge, ":player_gold", 200),  
+      ],
+      "Deposit 200 Crowns", [
+        (troop_remove_gold, "trp_player", 200),
+        (troop_add_gold, "trp_hidden_chest", 200),
+      ]),
+      ("deposit_100_crowns",[
+        (store_troop_gold, ":current_gold", "trp_hidden_chest"),
+        (le, ":current_gold", reg6 - 100),
+        (store_troop_gold, ":player_gold", "trp_player"),      
+        (ge, ":player_gold", 100),  
+      ],
+      "Deposit 100 Crowns", [
+        (troop_remove_gold, "trp_player", 100),
+        (troop_add_gold, "trp_hidden_chest", 100),
+      ]),
+      ("withdraw_all_crowns",[
+        (store_troop_gold, ":current_gold", "trp_hidden_chest"),
+        (gt, ":current_gold", 0),
+      ],
+      "Withdraw All Crowns", [
+        (troop_remove_gold, "trp_hidden_chest", reg5),
+        (troop_add_gold, "trp_player", reg5),
+      ]),
+     ("withdraw_500_crowns",[
+        (store_troop_gold, ":current_gold", "trp_hidden_chest"),
+        (ge, ":current_gold", 500),
+      ],
+      "Withdraw 500 Crowns", [
+        (troop_remove_gold, "trp_hidden_chest", 500),
+        (troop_add_gold, "trp_player", 500),
+      ]),
+      ("withdraw_200_crowns",[
+        (store_troop_gold, ":current_gold", "trp_hidden_chest"),
+        (ge, ":current_gold", 200),
+      ],
+      "Withdraw 200 Crowns", [
+        (troop_remove_gold, "trp_hidden_chest", 200),
+        (troop_add_gold, "trp_player", 200),
+      ]),
+      ("withdraw_100_crowns",[
+        (store_troop_gold, ":current_gold", "trp_hidden_chest"),
+        (ge, ":current_gold", 100),
+      ],
+      "Withdraw 100 Crowns", [
+        (troop_remove_gold, "trp_hidden_chest", 100),
+        (troop_add_gold, "trp_player", 100),
+      ]),
+      ("go_back",[],"Go back", [(jump_to_menu, "mnu_camp_action"),
+      ]),
     ]
   ),
 

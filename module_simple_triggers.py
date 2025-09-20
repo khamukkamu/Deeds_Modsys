@@ -6903,7 +6903,7 @@ simple_triggers = [
 (12,
 	[
 		(map_free),
-		# (eq, "$tpe_quests_active", 1),
+		(eq, "$class_type_feature_active", 1),
 		(assign, ":closest_town_no", -1),
 		(assign, ":closest_town_dist", -1),
         (eq, "$class_type", cc_noble_jouster),

@@ -3887,6 +3887,9 @@ def_attrib, wp(50), knows_warrior_basic, bandit_face1, bandit_face2 ],
 
 ["household_possessions","{!}household_possessions","{!}household_possessions",tf_hero|tf_inactive|tf_is_merchant, 0,reserved,  fac_neutral,[],def_attrib|level(18),wp(60),knows_inventory_management_10, 0],
 
+### DAC Seek: Hidden Chest for Merchant
+["hidden_chest","{!}hidden_chest","{!}hidden_chest",tf_hero|tf_inactive|tf_is_merchant, 0,reserved,  fac_neutral,[],level(18),wp(60), knows_inventory_management_1, 0],
+
 # These are used as arrays in the scripts. #SB : give full inventory
 ["temp_array_a","{!}temp_array_a","{!}temp_array_a",tf_hero|tf_inactive, 0,reserved,  fac_neutral,[],def_attrib|level(18),wp(60),knows_inventory_management_10, 0],
 ["temp_array_b","{!}temp_array_b","{!}temp_array_b",tf_hero|tf_inactive, 0,reserved,  fac_neutral,[],def_attrib|level(18),wp(60),knows_inventory_management_10, 0],
