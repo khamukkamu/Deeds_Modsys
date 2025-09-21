@@ -5257,6 +5257,15 @@ scripts = [
         (val_div, ":wage", 8),
     (try_end),
     
+### DAC Seek: Lower Wages for Regular Troops for the soldier background
+    (try_begin),
+        (eq, "$background_type", cb_soldier),
+        (is_between, ":troop_id", faction_troops_begin, faction_troops_end),
+        (lt, ":troop_level", 30),
+        (val_mul, ":wage", 8),
+        (val_div, ":wage", 10),
+    (try_end),
+    
 ### DAC Seek: Lower Wages for Noble Troops for the noble background
     (try_begin),
         (eq, "$background_type", cb_noble),
@@ -5264,6 +5273,15 @@ scripts = [
         (ge, ":troop_level", 30),
         (val_mul, ":wage", 8),
         (val_div, ":wage", 10),
+    (try_end),
+    
+### DAC Seek: Higher Wages for Noble Troops for the soldier background
+    (try_begin),
+        (eq, "$background_type", cb_noble),
+        (is_between, ":troop_id", faction_troops_begin, faction_troops_end),
+        (ge, ":troop_level", 30),
+        (val_mul, ":wage", 10),
+        (val_div, ":wage", 8),
     (try_end),
 
       (try_begin),
@@ -5608,6 +5626,7 @@ scripts = [
       (set_trigger_result, reg0),
   ]),
 
+### DAC SEEK: Caba'drin and Windyplains script, adapted for DAC
   #script_game_event_detect_party:
   # This script is called from the game engine when player party inspects another party.
   # INPUT:
@@ -5615,13 +5634,33 @@ scripts = [
   ("game_event_detect_party",
     [
         (store_script_param_1, ":party_id"),
+
         (try_begin),
           (party_slot_eq, ":party_id", slot_party_type, spt_kingdom_hero_party),
+		  ## WINDYPLAINS+ ## - Fast travel pause.  Initial code by Caba'drin with (level 2) revision by Windyplains.
+		  (try_begin),
+		    (eq, "$class_type_feature_active", 1),
+            (eq, "$class_type", cc_soldier_scout),
+			(key_is_down, key_space),
+			(this_or_next|key_is_down, key_left_control),
+			(key_is_down, key_right_control),
+			(store_faction_of_party, ":faction_no", ":party_id"),
+			(store_relation, reg0, "fac_player_supporters_faction", ":faction_no"),
+			(lt, reg0, 0),
+			## WINDYPLAINS+ ## - Revision to make this less sensitive towards enemies who pose no threat.
+			(party_stack_get_troop_id, ":troop_no", ":party_id", 0),
+			(str_store_troop_name, s22, ":troop_no"),
+			(str_store_faction_name, s23, ":faction_no"),
+			(str_store_string, s21, "@An force under the banner of {s22} from the {s23} has been spotted."),
+			(dialog_box, "@{s21}", "@Scout Report!"),
+			## WINDYPLAINS- ##
+		  (try_end),
+		  ## WINDYPLAINS- ##
           (party_stack_get_troop_id, ":leader", ":party_id", 0),
           ##diplomacy start+ support for promoted kingdom ladies
-          (is_between, ":leader", heroes_begin, heroes_end),
-          (this_or_next|troop_slot_eq, ":leader", slot_troop_occupation, slto_kingdom_hero),
-          ##diplomacy end+
+		  (is_between, ":leader", heroes_begin, heroes_end),
+		  (this_or_next|troop_slot_eq, ":leader", slot_troop_occupation, slto_kingdom_hero),
+		  ##diplomacy end+
           (is_between, ":leader", active_npcs_begin, active_npcs_end),
           (call_script, "script_update_troop_location_notes", ":leader", 0),
         (else_try),
@@ -5637,8 +5676,95 @@ scripts = [
             (is_between, ":leader", active_npcs_begin, active_npcs_end),
             (call_script, "script_update_troop_location_notes", ":leader", 0),
           (try_end),
-        (try_end),
+		## WINDYPLAINS+ ## - Fast travel pause.  Stop the player party if a quest party is nearby.
+        (else_try),
+			(eq, "$class_type_feature_active", 1),
+            (eq, "$class_type", cc_soldier_scout),
+			(key_is_down, key_space),
+			(this_or_next|key_is_down, key_left_control),
+			(key_is_down, key_right_control),
+			(gt, ":party_id", "p_spawn_points_end"), #other spawned party (merchant, bandit, etc)
+			(party_is_active, ":party_id"),
+			(this_or_next|neg|party_slot_eq, ":party_id", slot_party_type, spt_kingdom_caravan), # These are never hostile so ignore them.
+			(check_quest_active, "qst_cause_provocation"),
+			(assign, ":block", 1),
+			(try_begin),
+				### QUEST - TROUBLESOME BANDITS ###
+				(check_quest_active, "qst_troublesome_bandits"),
+				(quest_slot_eq, "qst_troublesome_bandits", slot_quest_target_party, ":party_id"),
+				(quest_get_slot, ":center_no", "qst_troublesome_bandits", slot_quest_giver_center),
+				(str_store_party_name, s22, ":center_no"),
+				(str_store_string, s21, "@A warband matching the description the guildmaster back in {s22} gave us was spotted nearby."),
+				(assign, ":block", 0),
+			(else_try),
+				### QUEST - DESTROY THE LAIR ###
+				(check_quest_active, "qst_destroy_bandit_lair"),
+				(quest_slot_eq, "qst_destroy_bandit_lair", slot_quest_target_party, ":party_id"),
+				(quest_get_slot, ":troop_no", "qst_destroy_bandit_lair", slot_quest_giver_troop),
+				(str_store_troop_name, s22, ":troop_no"),
+				(str_store_string, s21, "@There are signs that the bandit lair {s22} asked us to hunt down is nearby."),
+				(assign, ":block", 0),
+			(else_try),
+				### QUEST - CAUSE PROVOCATION ###
+				(check_quest_active, "qst_cause_provocation"),
+				(store_faction_of_party, ":faction_no", ":party_id"),
+				(quest_slot_eq, "qst_cause_provocation", slot_quest_target_faction, ":faction_no"),
+				(party_slot_eq, ":party_id", slot_party_type, spt_kingdom_caravan),
+				(quest_get_slot, ":troop_no", "qst_cause_provocation", slot_quest_giver_troop),
+				(str_store_troop_name, s22, ":troop_no"),
+				(str_store_faction_name, s23, ":faction_no"),
+				(str_store_string, s21, "@Scouts report that a caravan from the {s23} is nearby and would make just the kind of target {s22} wanted us to find."),
+				(assign, ":block", 0),
+			(try_end),
+			(eq, ":block", 0),
+			(dialog_box, "@{s21}", "@Scout Report!"),
+		## WINDYPLAINS- ##
+		## WINDYPLAINS+ ## - Fast travel pause.  Initial code by Caba'drin with (level 2) revision by Windyplains.
+        (else_try),
+			(eq, "$class_type_feature_active", 1),
+            (eq, "$class_type", cc_soldier_scout),
+			(key_is_down, key_space),
+			(this_or_next|key_is_down, key_left_control),
+			(key_is_down, key_right_control),
+			(gt, ":party_id", "p_spawn_points_end"), #other spawned party (merchant, bandit, etc)
+			(party_is_active, ":party_id"),
+			(neg|party_slot_eq, ":party_id", slot_party_type, spt_kingdom_caravan), # These are never hostile so ignore them.
+			(store_faction_of_party, ":faction_no", ":party_id"),
+			(store_relation, reg0, "fac_player_supporters_faction", ":faction_no"),
+			(lt, reg0, 0),
+			(try_begin),
+				(assign, ":block", 0),
+				(try_begin),
+					# They're hostile AND are larger than we are. (to catch serious bandit threats)
+					(party_get_num_companions, ":enemy_size", ":party_id"),
+					(party_get_num_companions, ":player_size", "p_main_party"),
+					# Toss a buffer in by removing 20% of the player party size as a bandit group with 1 less person will definitely attack.
+					(store_mul, ":buffer", ":player_size", 20),
+					(val_div, ":buffer", 100),
+					(val_sub, ":player_size", ":buffer"),
+					(lt, ":player_size", ":enemy_size"),
+					(str_store_string, s21, "@A potentially hostile force comparable to our own has been spotted in the distance."),
+				(else_try),
+					# They're hostile AND mean us harm.
+					(get_party_ai_behavior, ":behavior", ":party_id"),
+					(get_party_ai_object, ":focus", ":party_id"),
+					(eq, ":behavior", ai_bhvr_attack_party),
+					(eq, ":focus", "p_main_party"),
+					(str_store_string, s21, "@An enemy party has been spotted by your scouts moving to intercept you."),
+				(else_try),
+					(assign, ":block", 1),
+				(try_end),
+				(eq, ":block", 0),
+				(dialog_box, "@{s21}", "@Scout Report!"),
+			(else_try),
+				(eq, "$class_type_feature_active", 1),
+                (eq, "$class_type", cc_soldier_scout),
+				(dialog_box, "@Enemies on the horizon!", "@Warning!"),
+			(try_end),
+		## WINDYPLAINS- ##
+		(try_end),
   ]),
+  ## WINDYPLAINS- ##
 
   #script_game_event_undetect_party:
   # This script is called from the game engine when player party inspects another party.
@@ -16499,17 +16625,29 @@ scripts = [
     (assign,":speed_multiplier",100),
 
     (try_begin),
-      (this_or_next|eq,":party_no","p_main_party"),
-      (party_slot_eq, ":party_no", slot_party_type, spt_kingdom_hero_party),
-      (party_get_skill_level, ":pathfinding_skill", ":party_no", skl_pathfinding),
-      (val_mul,":pathfinding_skill",3),
-      (val_add,":speed_multiplier",":pathfinding_skill"),
+        (this_or_next|eq,":party_no","p_main_party"),
+        (party_slot_eq, ":party_no", slot_party_type, spt_kingdom_hero_party),
+        (party_get_skill_level, ":pathfinding_skill", ":party_no", skl_pathfinding),
+        (val_mul,":pathfinding_skill",3),
+        (val_add,":speed_multiplier",":pathfinding_skill"),
     (try_end),
 
     (try_begin),
-      (eq,":party_no","p_main_party"),
-      (eq,"$g_move_fast", 1),
-      (val_mul,":speed_multiplier",2),
+        (eq,":party_no","p_main_party"),
+        (eq,"$g_move_fast", 1),
+        (val_mul,":speed_multiplier",2),
+    (try_end),
+    
+### DAC Seek: Scouts don't suffer forest terrain penalty
+    (try_begin),
+        (eq,":party_no","p_main_party"),
+        (eq,"$class_type", cc_soldier_scout),
+        (party_get_current_terrain, ":terrain_type", "p_main_party"),
+        (this_or_next|eq, ":terrain_type", rt_steppe_forest),
+        (this_or_next|eq, ":terrain_type", rt_forest),
+        (eq, ":terrain_type", rt_snow_forest),
+        (val_mul,":speed_multiplier",130),
+        (val_div,":speed_multiplier",100),
     (try_end),
 
     (val_max, ":speed_multiplier", 0),

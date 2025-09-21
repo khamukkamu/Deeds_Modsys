@@ -3349,17 +3349,55 @@ TOTAL:  {reg5}"),
        ),       
 ## DAC Seek: Player Camp End
 ### DAC Seek: Toggle Some class options on/off		
-# Nobles
-      ("jouster_disable_messages",[(eq, "$class_type_feature_active", 1),(eq, "$class_type", cc_noble_jouster),],"[Jouster] Disable invitations to tournaments.",
+# Toggle
+      ("class_disable_feature",[
+      (eq, "$class_type_feature_active", 1),
+      (this_or_next|eq, "$class_type", cc_noble_jouster),
+      (eq, "$class_type", cc_soldier_scout),
+      
+        (try_begin),
+            (eq, "$class_type", cc_noble_jouster),
+            (str_store_string, s3, "str_dac_noble_jouster_toggle_off"),
+        (else_try),
+            (eq, "$class_type", cc_soldier_scout),
+            (str_store_string, s3, "str_dac_soldier_scout_toggle_off"),
+        (try_end),
+        
+      ],"{s4}",
        [(assign, "$class_type_feature_active", 0),
         ]
        ),
-      ("jouster_enable_messages",[(eq, "$class_type_feature_active", 0),(eq, "$class_type", cc_noble_jouster),],"[Jouster] Enable invitations to tournaments.",
+       
+      ("class_enable_feature",[
+      (eq, "$class_type_feature_active", 0),
+      (this_or_next|eq, "$class_type", cc_noble_jouster),
+      (eq, "$class_type", cc_soldier_scout),
+      
+        (try_begin),
+            (eq, "$class_type", cc_noble_jouster),
+            (str_store_string, s3, "str_dac_noble_jouster_toggle_on"),
+        (else_try),
+            (eq, "$class_type", cc_soldier_scout),
+            (str_store_string, s3, "str_dac_soldier_scout_toggle_on"),
+        (try_end),
+        
+      ],"{s3}",
        [(assign, "$class_type_feature_active", 1),
         ]
-       ),       
+       ),      
 # Merchants
-      ("access_hidden_chest",[(eq, "$class_type", cc_merchant_goods),],"[Goods Merchant] Access your hidden stash...",
+      ("access_hidden_chest",[
+        (this_or_next|eq, "$class_type", cc_merchant_goods),
+        (eq, "$class_type", cc_soldier_quartermaster),
+
+        (try_begin),
+            (eq, "$class_type", cc_soldier_quartermaster),
+            (str_store_string, s3, "str_dac_background_class_quartermaster"),
+        (else_try),
+            (str_store_string, s3, "str_dac_background_class_goods_merchant"),
+        (try_end),
+      
+      ],"[{s3}] Access your hidden stash...",
        [(jump_to_menu, "mnu_manage_hidden_chest"),
         ]
        ),   
