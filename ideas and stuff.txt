@@ -1,0 +1,21 @@
+$background_type				# For Backgrounds
+$class_type 					# For Classes
+$class_type_feature_active		# Toggle features on/off or to work on some scripts
+
+
+
+Character Class Cook:
+
+Important scripts:
+game_get_skill_modifier_for_troop
+game_get_item_extra_text
+
+Master Chef: Gain Extra relationship with nobles when hosting a feast
+
+Collect books to unlock recipes, books can be found in major cities by asking tavernkeepers, other tavernkeepers might point you in the right direction.
+
+Food preservation (book?): Learn how to best preserve food (extra days until food spoils), use the 
+# Setting item modifiers for food # trigger, $class_type_feature_active to delay spoilage
+
+Candied Fruit -> Honey + Fruits
+Honeyed Dates -> Dates + Honey

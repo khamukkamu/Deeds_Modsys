@@ -1444,6 +1444,7 @@ character_creation_scripts = [
     (troop_add_item, "trp_player",":food_item",0),
     (store_random_in_range, ":trade_item", trade_goods_begin, trade_goods_end),
     (troop_add_item, "trp_player",":trade_item",0),
+    (assign, "$class_type_feature_active", 0),
         
     (else_try),
         (eq, ":background", cc_soldier_cook),   

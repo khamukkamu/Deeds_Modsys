@@ -1202,7 +1202,13 @@ game_menus = [
        (str_store_string, s7, "str_space"),
      (try_end),
 
-     (assign, reg6, 50),
+### DAC Seek: Sergeants maintain a higher base morale
+    (try_begin),
+        (eq, "$class_type", cc_soldier_sergeant),
+        (assign, reg6, 70),
+    (else_try),
+        (assign, reg6, 50),    
+    (try_end),
 
      (str_store_string, s1, "str_current_party_morale_is_reg5_current_party_morale_modifiers_are__base_morale__50_party_size_s2reg1_leadership_s3reg2_food_variety_s4reg3s5s6_recent_events_s7reg4_total__reg5___"),
 
@@ -3569,10 +3575,19 @@ TOTAL:  {reg5}"),
     (else_try),
       (eq, "$g_prisoner_recruit_troop_id", 0),
       (store_current_hours, "$g_prisoner_recruit_last_time"),
-      (store_random_in_range, ":rand", 0, 100),
+      # (store_random_in_range, ":rand", 0, 100),
+      (call_script, "script_rand", 0, 100),
+      (assign, ":rand", reg0),
       (store_skill_level, ":persuasion_level", "skl_persuasion", "trp_player"),
       (store_sub, ":reject_chance", 15, ":persuasion_level"),
-      (val_mul, ":reject_chance", 4),
+      ### DAC Seek: Lower rejection for cook
+      (try_begin),
+            (eq, "$class_type", cc_soldier_cook),
+            (val_mul, ":reject_chance", 2),
+      (else_try),
+            (val_mul, ":reject_chance", 4),
+      (try_end),
+      ### DAC Seek End
       (try_begin),
         (lt, ":rand", ":reject_chance"),
         (assign, "$g_prisoner_recruit_troop_id", -7),

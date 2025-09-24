@@ -16949,13 +16949,22 @@ Here, take this purse of {reg3} crowns, as I promised. I hope we can travel toge
 [anyone|plyr,"defeat_lord_answer", [],
 "You are my prisoner now.", "defeat_lord_answer_1",
 [
-#(troop_set_slot, "$g_talk_troop", slot_troop_is_prisoner, 1),
-(troop_set_slot, "$g_talk_troop", slot_troop_prisoner_of_party, "p_main_party"),
-(party_force_add_prisoners, "p_main_party", "$g_talk_troop", 1),#take prisoner
-(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", -3),
-(call_script, "script_change_player_relation_with_faction_ex", "$g_talk_troop_faction", -3),
-(call_script, "script_event_hero_taken_prisoner_by_player", "$g_talk_troop"),
-(call_script, "script_add_log_entry", logent_lord_captured_by_player, "trp_player",  -1, "$g_talk_troop", "$g_talk_troop_faction"),
+    #(troop_set_slot, "$g_talk_troop", slot_troop_is_prisoner, 1),
+    (troop_set_slot, "$g_talk_troop", slot_troop_prisoner_of_party, "p_main_party"),
+    (party_force_add_prisoners, "p_main_party", "$g_talk_troop", 1),#take prisoner
+    
+    ### DAC Seek, penalty for the slave merchant
+    (try_begin),
+        (eq, "$class_type", cc_merchant_slave),
+        (assign, ":relation_penalty", -5),
+    (else_try), 
+        (assign, ":relation_penalty", -3),
+    (try_end),
+
+    (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", ":relation_penalty"),
+    (call_script, "script_change_player_relation_with_faction_ex", "$g_talk_troop_faction", ":relation_penalty"),
+    (call_script, "script_event_hero_taken_prisoner_by_player", "$g_talk_troop"),
+    (call_script, "script_add_log_entry", logent_lord_captured_by_player, "trp_player",  -1, "$g_talk_troop", "$g_talk_troop_faction"),
 ]],
 
 [anyone,"defeat_lord_answer_1", [],
@@ -37490,16 +37499,16 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 
 
   [anyone|plyr,"tavernkeeper_talk",
-   [(store_num_regular_prisoners,reg0),(ge,reg0,1),(eq, "$sneaked_into_town",0),(store_skill_level, reg56, "skl_persuasion", "trp_player"),(gt, reg56, 0),],
-   "[Persuasion {reg56}] Say, I may have some two-legged cattle I want to be relieved of.", "tavernkeeper_sell_prisoners_all",[]],
+   [(store_num_regular_prisoners,reg0),(ge,reg0,1),(eq, "$sneaked_into_town",0),(eq, "$class_type", cc_merchant_slave),],
+   "[Ransom Broker] Say, I may have some two-legged cattle I want to be relieved of.", "tavernkeeper_sell_prisoners_all",[]],
   [anyone,"tavernkeeper_sell_prisoners_all", [
   (call_script, "script_dplmc_sell_all_prisoners", 0, 0),#do not actually sell
   (store_num_regular_prisoners, reg2),
   (val_sub, reg2, 1),
   ],
-  "I may know some farmers...  I'll give you {reg0} crowns for your {reg1} {reg2?heads:head} of 'cattle'. I do keep a cut for facilitating the sale. Deal?", "ransom_broker_sell_prisoners_all_2", []],
+  "I may know some farmers...  I'll give you {reg0} crowns for your {reg1} {reg2?heads:head} of 'cattle'. I do keep a cut for facilitating the sale. Deal?", "tavernkeeper_sell_prisoners_all_2", []],
   [anyone|plyr,"tavernkeeper_sell_prisoners_all_2", [],
-   "We have a deal.", "tavernkeeper_sell_prisoners_all_2", [(call_script, "script_dplmc_sell_all_prisoners", 1, 0),
+   "We have a deal.", "tavernkeeper_pretalk", [(call_script, "script_dplmc_sell_all_prisoners", 1, 0),
    # #SB : objection
    # (call_script, "script_objectionable_action", tmt_egalitarian, "str_sell_slavery"),
    ]

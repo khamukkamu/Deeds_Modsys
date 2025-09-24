@@ -1693,6 +1693,36 @@ triggers = [
   ]),
 
   (0.1, 0.5, 0, [(map_free,0),(eq,"$g_move_fast", 1)], [(assign,"$g_move_fast", 0)]),
+  
+### DAC Seek: Forced March
+  (0, 0.1, 0, 
+  [
+        (map_free,0),
+        (eq, "$class_type", cc_soldier_sergeant),
+        (key_clicked, key_left_shift),
+        # (display_message, "@Key Pressed", color_neutral_news),
+  ], 
+  [
+        (try_begin),
+            (eq, "$class_type_feature_active", 0),
+            (assign, "$class_type_feature_active", 1),
+            (display_message, "@Forced March Enabled", color_good_news),
+        (else_try),
+            (assign, "$class_type_feature_active", 0),   
+            (display_message, "@Forced March Disabled", color_bad_news),            
+        (try_end),
+  ]),
+  
+  (1, 0, 0, 
+  [
+        (map_free,0),
+        (eq, "$class_type", cc_soldier_sergeant),
+        (eq, "$class_type_feature_active", 1),
+  ], 
+  [
+        (call_script, "script_change_player_party_morale", -5),
+        (display_message, "@Your party tires from the forced march", color_bad_news),   
+  ]),
 
 ##diplomacy end
 ]

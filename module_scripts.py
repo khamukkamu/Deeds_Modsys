@@ -15977,17 +15977,24 @@ scripts = [
   ("game_get_party_prisoner_limit",
     [
 #      (store_script_param_1, ":party_no"),
-      (assign, ":troop_no", "trp_player"),
+        (assign, ":troop_no", "trp_player"),
+        (assign, ":limit", 0),
+        (store_skill_level, ":skill", "skl_prisoner_management", ":troop_no"),
+        
+### DAC Seek: Slavers use party size as a base for keeping prisoners       
+        (try_begin),
+            (eq, "$class_type", cc_merchant_slave),
+            (store_party_size_wo_prisoners, ":party_size", "p_main_party"),
+            (store_mul, ":limit", ":skill", 5),
+            (val_add, ":limit", 100),
+            (val_mul, ":limit", ":party_size"),
+            (val_div, ":limit", 100),
+        (else_try),
+            (store_mul, ":limit", ":skill", 5),
+        (try_end),
 
-      (assign, ":limit", 0),
-      (store_skill_level, ":skill", "skl_prisoner_management", ":troop_no"),
-      (store_mul, ":limit", ":skill", 5),
-      (try_begin), #SB : override with diplomacy_var2
-        (eq, "$diplomacy_var", DPLMC_CURRENT_VERSION_CODE),
-        (assign, ":limit", "$diplomacy_var2"),
-      (try_end),
-      (assign, reg0, ":limit"),
-      (set_trigger_result, reg0),
+        (assign, reg0, ":limit"),
+        (set_trigger_result, reg0),
   ]),
 
   #script_game_get_item_extra_text:
@@ -16613,6 +16620,8 @@ scripts = [
 ##     (store_script_param, ":party_no_seen", 2),
 ##     (set_trigger_result, 1),
 ##    ]),
+
+
 ##diplomacy begin
   #script_game_get_party_speed_multiplier
   # This script is called from the game engine when a skill's modifiers are needed
@@ -16624,6 +16633,7 @@ scripts = [
 
     (assign,":speed_multiplier",100),
 
+### Pathfinding skill speed bonus, 3% per level
     (try_begin),
         (this_or_next|eq,":party_no","p_main_party"),
         (party_slot_eq, ":party_no", slot_party_type, spt_kingdom_hero_party),
@@ -16632,13 +16642,23 @@ scripts = [
         (val_add,":speed_multiplier",":pathfinding_skill"),
     (try_end),
 
+### Move Fast: When escaping hostile party
     (try_begin),
         (eq,":party_no","p_main_party"),
         (eq,"$g_move_fast", 1),
         (val_mul,":speed_multiplier",2),
     (try_end),
     
-### DAC Seek: Scouts don't suffer forest terrain penalty
+### DAC Seek: Sergeant Forced March
+    (try_begin),
+        (eq,":party_no","p_main_party"),
+        (eq,"$class_type", cc_soldier_sergeant),
+        (eq,"$class_type_feature_active", 1),
+        (val_mul,":speed_multiplier",3),
+        (val_div,":speed_multiplier",2),
+    (try_end),
+    
+### DAC Seek: Scouts don't suffer as much from forest terrain speed penalty
     (try_begin),
         (eq,":party_no","p_main_party"),
         (eq,"$class_type", cc_soldier_scout),
@@ -16649,7 +16669,45 @@ scripts = [
         (val_mul,":speed_multiplier",130),
         (val_div,":speed_multiplier",100),
     (try_end),
+    
+### DAC Seek: Scouts suffer increased penalties from carrying goods
+    (try_begin),
+        (eq,":party_no","p_main_party"),
+        (eq,"$class_type", cc_soldier_scout),
+        
+        (troop_get_inventory_capacity, ":inv_cap", "trp_temp_troop"),
+        (assign, ":total_weight", 0),
+        (assign, ":num_horses", 0),
+        
+        (try_for_range, ":i_slot", 0, ":inv_cap"),
+            (troop_get_inventory_slot, ":item_id", "trp_player", ":i_slot"),
+            (try_begin),
+                (is_between, ":item_id", trade_goods_begin, trade_goods_end),
+                (item_get_weight, ":weight", ":item_id"),
+                (val_add, ":total_weight", ":weight"),
+            (else_try),
+                (is_between, ":item_id", horses_begin, horses_end),
+                (val_add, ":num_horses", 1),
+            (try_end),
+        (try_end),
+        
+        (val_div, ":total_weight", 2000), # Test value
+        (val_mul, ":num_horses", 3), # Assuming one horse carries ~3 items
+        (val_sub,":total_weight",":num_horses"),        
+        (val_clamp, ":total_weight", 0, 20), # 20% Penalty max
+        (val_sub,":speed_multiplier",":total_weight"),
+        # (assign, reg3, ":total_weight"),
+        # (display_message, "@Total Weight is: {reg3}"),
+    (try_end),
+### DAC Seek End        
 
+### DAC Seek: Quartermasters collect junk, reducing their speed
+    (try_begin),
+        (eq,":party_no","p_main_party"),
+        (eq,"$class_type", cc_soldier_quartermaster),
+        (val_sub,":speed_multiplier", 6), # Equals 2 levels of pathfinding_skill
+    (try_end),
+        
     (val_max, ":speed_multiplier", 0),
     (set_trigger_result, ":speed_multiplier"),
    ]),
@@ -30934,7 +30992,13 @@ scripts = [
     (assign, ":new_morale", "$g_player_party_morale_modifier_leadership"),
     (val_sub, ":new_morale", "$g_player_party_morale_modifier_party_size"),
 
-    (val_add, ":new_morale", 50),
+### DAC Seek: Sergeants start with higher base morale
+    (try_begin),
+        (eq, "$class_type", cc_soldier_sergeant),
+        (val_add, ":new_morale", 70),
+    (else_try),
+        (val_add, ":new_morale", 50),
+    (try_end),
 
     (assign, "$g_player_party_morale_modifier_food", 0),
     (try_for_range, ":cur_edible", food_begin, food_end),
@@ -33552,6 +33616,15 @@ scripts = [
           (try_begin), # each agent is effected by a killed agent positively if he is rival or negatively if he is ally.
             (neq, ":is_dead_agent_ally", ":is_agent_ally"),
             (assign, ":agent_delta_courage_score", 10),  # if killed agent is agent of rival side, add points to fear score
+        ### DAC Seek Lower courage when player is downed
+            (else_try),
+                (eq, "$class_type", cc_soldier_sergeant),
+                (get_player_agent_no, ":player_agent"),
+                (eq, ":dead_agent_no", ":player_agent"),
+                (eq, ":is_dead_agent_ally", ":is_agent_ally"),
+                (assign, ":agent_delta_courage_score", -50), # if killed agent is the player agent, lower courage significantly
+                (display_message, "@Leader is down, save yourselves!", color_bad_news),
+        ### DAC Seek End
           (else_try),
             (assign, ":agent_delta_courage_score", -15), # if killed agent is agent of our side, decrease points from fear score
             (val_add, ":agent_delta_courage_score", ":number_of_near_allies_to_dead_agent"), # ":number_of_near_allies_to_dead_agent" is added because if there are many

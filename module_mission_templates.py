@@ -211,6 +211,29 @@ bodysliding_2 = (
 		#(call_script, "script_cf_dplmc_battle_continuation"),
 	])
 # DAC Begin
+
+quartermaster_refill_ammo_info = (30, 0, ti_once, [(eq, "$class_type", cc_soldier_quartermaster),], 
+        [
+        (display_message, "@Ammo refill available soon, press 'K' to activate", color_good_news),
+        (display_message, "@Ammo refill available soon, press 'K' to activate", color_good_news),
+        (assign, "$class_type_feature_active", 1),
+        ])	
+        
+quartermaster_refill_ammo = (0.5, 0, ti_once, [(eq, "$class_type", cc_soldier_quartermaster),(eq, "$class_type_feature_active", 1),(key_clicked, key_k)], 
+        [
+        (get_player_agent_no, ":player_agent"),
+        (agent_get_team, ":player_team", ":player_agent"),
+        (try_for_agents,":cur_agent"),
+            # (neq, ":cur_agent", ":player_agent"),
+            (agent_is_alive, ":cur_agent"),
+            (agent_is_human, ":cur_agent"),
+            (agent_get_team, ":agent_team", ":cur_agent"),
+            (eq, ":agent_team", ":player_team"),
+            (agent_refill_ammo, ":cur_agent"),
+        (try_end),		
+        (display_message, "@Ammo refilled!", color_good_news),
+        (assign, "$class_type_feature_active", 0),
+        ])	
 	
 dac_lancer_fix = (
   ti_on_agent_dismount, 0, 0, [
@@ -1430,6 +1453,8 @@ deeds_common_battle_scripts = [
   #customize_armor,
   #bright_nights
   dac_footstep_sounds,
+  quartermaster_refill_ammo_info,
+  quartermaster_refill_ammo,
   ] + battle_panel_triggers + utility_triggers + extended_battle_menu + common_division_data + division_order_processing + real_deployment + formations_triggers + AI_triggers
 
 deeds_common_siege_scripts = [

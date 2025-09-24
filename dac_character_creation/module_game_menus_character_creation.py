@@ -302,8 +302,13 @@ character_creation_menus = [
       ("begin_adventuring",[(eq, "$background_answer_2", 0)],"Become an adventurer and ride to your destiny.",[
       
         (set_show_messages, 0),
-
-        (assign, "$class_type_feature_active", 1),
+        
+        (try_begin),
+            (eq, "$class_type", cc_soldier_sergeant),
+            (assign, "$class_type_feature_active", 0),
+        (else_try),
+            (assign, "$class_type_feature_active", 1),
+        (try_end),
            
           # (try_begin),
             # (eq, "$character_gender", tf_male),

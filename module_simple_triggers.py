@@ -2565,6 +2565,12 @@ simple_triggers = [
          (store_skill_level, ":skill", "skl_prisoner_management", "trp_player"),
          (val_sub, ":chance", ":skill"), #50 to 35
        (try_end), #also chance is /1000 not /100
+       ### DAC Seek: Cooks keep their noble prisoners happy so they are less likely to escape
+       (try_begin),
+            (eq, "$class_type", cc_soldier_cook),
+            (val_div, ":chance", 2),
+       (try_end),
+       ### DAC Seek End
        (call_script, "script_randomly_make_prisoner_heroes_escape_from_party", "p_main_party", hero_escape_from_player_chance),
        (try_for_range, ":center_no", walled_centers_begin, walled_centers_end),
 ##         (party_slot_eq, ":center_no", slot_town_lord, "trp_player"),
@@ -3183,11 +3189,16 @@ simple_triggers = [
     (try_end),
 ### DAC Seek: Character classes consumption bonuses/maluses
     (try_begin),
+        (eq, "$class_type", cc_soldier_cook),
+        (val_div, ":num_men", 2), ### Consume more food than average
+    (else_try),
+        (this_or_next|eq, "$background_type", cb_soldier),
         (eq, "$class_type", cc_noble_tactician),
         (val_div, ":num_men", 5),
     (else_try),
         (val_div, ":num_men", 3),
     (try_end),
+    
     (val_max, ":num_men", 1),
     # (try_begin), #SB : val_max
       # (eq, ":num_men", 0),
@@ -3340,6 +3351,12 @@ simple_triggers = [
            (val_add, ":total_value", ":item_value"),
          (try_end),
        (try_end),
+### DAC Seek: Double bandit attraction for goods merchant background
+       (try_begin),
+            (eq, "$class_type", cc_merchant_goods),
+            (val_mul, ":bandit_attraction", 2),
+       (try_end),
+       
        (val_clamp, ":bandit_attraction", 0, 100),
        #SB : disallow bandit attraction while raiding villages so they don't join on the "side" of villagers
        (try_begin),

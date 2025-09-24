@@ -221,10 +221,10 @@ Pros: ^\
 » Trader by Nature: ^\
 Start with high trade and persuasion skills ^\
 » Caravan Master: ^\
-Start with a higher inventory capacity and access to a secure secret stash ^^\
+Start with a higher inventory capacity and access to a secure upgradeable secret stash accessible from the camp menu under 'Take an Action' ^^\
 Cons: ^\
 » Prime Target: ^\
-Bandit aggressiveness towards your party is increased"),
+Bandit aggressiveness towards your party is doubled, aggressiveness is based on your wealth and quantity of goods carried"),
 ("dac_background_class_desc_slaver",              "Ransom Brokers specialize in reuniting families for a fee, if the men you just captured happen to have one that can afford it, otherwise there's other ways to buy back your freedom. ^^\
 Pros: ^\
 » Efficient Management: ^\
@@ -233,7 +233,7 @@ The number of prisoners you can capture is based on your party size, Prisoner Ma
 You can dispose of your prisoners at taverns by speaking to Tavern Keepers, they will demand a fee in exchange. ^^\
 Cons: ^\
 » Noble Disdain: ^\
-When done outside the rules of Chivalry, you practice is frowned upon even though many benefit from it by virtue of keeping their lives. Nobles captured by you will decrease relations further."),
+Increased relation penalties from capturing nobles."),
 ("dac_background_class_desc_investor",            "Investors specialize in buying and running bussinesses, creating an ever increasing network of merchandise. ^^\
 Pros: ^\
 » Diverse Assets: ^\
@@ -247,20 +247,20 @@ When a town gets captured, there's a high probability that your workshop(s) get 
 ("dac_background_class_desc_scout",                 "Scouts specialize in traversing terrain and quickly identifying threats at a distance ^^\
 Pros: ^\
 » Scouting: ^\
-Receive a notification when spotting a hostile party stronger than yours on the world map ^\
+Receive a notification when spotting a hostile party stronger than yours on the world map while quick-traveling (Ctrl + Space)^\
 » Wayfarer: ^\
-You don't suffer travel speed penalties from terrain or from having infantry in your party ^^\
+Traversing forests on the world map doesn't slow you down as much ^^\
 Cons: ^\
 » Travel Light: ^\
-Suffer double the speed penalties from inventory encumbrance"),
+Suffer increased penalties from inventory encumbrance which is capped at 20% of your party speed, can be offset by having horses in your inventory"),
 ("dac_background_class_desc_quartermaster",         "Quartermasters specialize in keeping the army well supplied ^^\
 Pros: ^\
 » Ammo Reserves: ^\
 Can resupply ranged troops ammo during battles ^\
 » Supply Master: ^\
-Start with a higher inventory capacity and access to a secure secret stash ^^\
+Start with a higher inventory capacity and access to a secure upgradeable secret stash accessible from the camp menu under 'Take an Action' ^^\
 Cons: ^\
-» Hoarder: You tend to collect useless junk, just in case, slowing your movement on the campaign map"),
+» Hoarder: You tend to collect useless junk, just in case, slowing your movement on the campaign map by 6% (equal to 2 levels of pathfinding skill)"),
 ("dac_background_class_desc_cook",                  "Cooks specialize in keeping the troops happy and well-fed ^^\
 Pros: ^\
 » Master Chef: ^\
@@ -273,9 +273,9 @@ Negates the food consumption reduction from the soldier class, the party instead
 ("dac_background_class_desc_sergeant",              "Sergeants specialize in keeping the troops drilled and motivated ^^\
 Pros: ^\
 » Forced Marches: ^\
-Used to frequent marches, the troop moves faster on the world map ^\
+Can force your party to move faster on the world map at the cost of party morale, press 'Left Shift' on the world map to force march, press again to cancel ^\
 » Motivational Speeches: ^\
-Troops are emboldened by your speeches, and curses, you start with higher base morale for your party and in battles ^^\
+Troops are emboldened by your speeches, and curses, you start with higher base morale for your party ^^\
 Cons: ^\
 » Save Yourselves: ^\
 Suffer a greater morale penalty in battle should you be knocked out"),        
