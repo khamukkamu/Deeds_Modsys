@@ -589,6 +589,15 @@ items = [
 ["book_weapon_mastery", "On the Art of Fighting with Swords", [("book_d",0)], itp_type_book, 0, 4200,weight(2)|abundance(100),imodbits_none],
 ["book_engineering","Method of Mechanical Theorems", [("book_open",0)], itp_type_book, 0, 4000,weight(2)|abundance(100),imodbits_none],
 
+### DAC Seek: Cookbooks
+["book_recipe_candied_fruit","Candied Fruit Recipe", [("book_open",0)], itp_type_book, 0, 4000,weight(2)|abundance(100),imodbits_none],
+["book_recipe_honeyed_dates","Honeyed Dates Recipe", [("book_open",0)], itp_type_book, 0, 4000,weight(2)|abundance(100),imodbits_none],
+["book_recipe_fish_verjus","Fish with Verjus Recipe", [("book_open",0)], itp_type_book, 0, 4000,weight(2)|abundance(100),imodbits_none],
+["book_recipe_chicken_stew","Chicken Stew Recipe", [("book_open",0)], itp_type_book, 0, 4000,weight(2)|abundance(100),imodbits_none],
+["book_recipe_cormarye","Cormarye Recipe", [("book_open",0)], itp_type_book, 0, 4000,weight(2)|abundance(100),imodbits_none],
+["book_recipe_brodettum","Brodettum Recipe", [("book_open",0)], itp_type_book, 0, 4000,weight(2)|abundance(100),imodbits_none],
+["book_recipe_beef_stywyd","Beef Y-Stywyd Recipe", [("book_open",0)], itp_type_book, 0, 4000,weight(2)|abundance(100),imodbits_none],
+
 #Reference books
 #This book must be at the beginning of reference books
 ["book_wound_treatment_reference","The Book of Healing", [("book_c",0)], itp_type_book, 0, 3500,weight(2)|abundance(100),imodbits_none],

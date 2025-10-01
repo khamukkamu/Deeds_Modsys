@@ -250,6 +250,8 @@ Pros: ^\
 Receive a notification when spotting a hostile party stronger than yours on the world map while quick-traveling (Ctrl + Space)^\
 » Wayfarer: ^\
 Traversing forests on the world map doesn't slow you down as much ^^\
+» On the Double: ^\
+Increased speed bonus from forced march, press 'Left Shift' on the world map to force march, press again to cancel ^\
 Cons: ^\
 » Travel Light: ^\
 Suffer increased penalties from inventory encumbrance which is capped at 20% of your party speed, can be offset by having horses in your inventory"),
@@ -272,8 +274,8 @@ Cons: ^\
 Negates the food consumption reduction from the soldier class, the party instead consumes more food"),
 ("dac_background_class_desc_sergeant",              "Sergeants specialize in keeping the troops drilled and motivated ^^\
 Pros: ^\
-» Forced Marches: ^\
-Can force your party to move faster on the world map at the cost of party morale, press 'Left Shift' on the world map to force march, press again to cancel ^\
+» Marching Songs: ^\
+Reduced morale penalty from forced march, press 'Left Shift' on the world map to force march, press again to cancel ^\
 » Motivational Speeches: ^\
 Troops are emboldened by your speeches, and curses, you start with higher base morale for your party ^^\
 Cons: ^\
@@ -403,7 +405,8 @@ There is always a chance for your experiments to backfire, causing you harm"),
 ("dac_noble_jouster_toggle_off", "[Jouster] Disable invitations to tournaments"),
 ("dac_soldier_scout_toggle_on", "[Scout] Enable party scouting"),
 ("dac_soldier_scout_toggle_off", "[Scout] Disable party scouting"),
-
+("dac_hunter_toggle_on", "[Hunter] Enable party scouting"),
+("dac_hunter_toggle_off", "[Hunter] Disable party scouting"),
 
 ### DAC Seek: Hidden Player Chest
 ("dac_chest_no_item", "There are currently zero items"),
@@ -412,4 +415,7 @@ There is always a chance for your experiments to backfire, causing you harm"),
 
 ### DAC Lock Tournaments
 ("dac_tournament", "You are not renowned enough to participate in a tournament yet, 160 renown required"),
+
+### DAC Forage
+("dac_successfully_foraged_s1", "You successfully foraged some {s1}"),
 ]

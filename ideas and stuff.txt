@@ -19,3 +19,8 @@ Food preservation (book?): Learn how to best preserve food (extra days until foo
 
 Candied Fruit -> Honey + Fruits
 Honeyed Dates -> Dates + Honey
+Fish with Verjus -> Fish + Grapes (Health-related bonus)
+Chicken Stew -> Chicken + Cabbage
+Cormarye -> Pork + Spices + Wine
+Brodettum -> Pork + Cheese
+Beef Y-Stywyd -> Beef + Spices

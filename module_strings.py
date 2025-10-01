@@ -26,6 +26,10 @@ strings = [
   ("given_by_s1_at_s2", "Given by {s1} at {s2}"),
   ("given_by_s1_in_wilderness", "Given by {s1} whilst in the field"),
   ("s7_raiders", "{s7} Raiders"),
+  ("s7_foragers", "{s7} Foragers"),
+  ("s7_scouts", "{s7} Scouts"),
+  ("s7_patrol", "{s7} Patrol"),
+  ("s7_prisoner_train", "{s7} Prisoner Train"),
 
   ("bandits_eliminated_by_another", "The troublesome bandits have been eliminated by another party."),
   ("msg_battle_won","Battle won! Press tab key to leave..."),

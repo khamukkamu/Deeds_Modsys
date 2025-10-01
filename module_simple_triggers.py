@@ -3192,6 +3192,7 @@ simple_triggers = [
         (eq, "$class_type", cc_soldier_cook),
         (val_div, ":num_men", 2), ### Consume more food than average
     (else_try),
+        (this_or_next|eq, "$background_type", cb_hunter),
         (this_or_next|eq, "$background_type", cb_soldier),
         (eq, "$class_type", cc_noble_tactician),
         (val_div, ":num_men", 5),
@@ -4163,7 +4164,10 @@ simple_triggers = [
        (item_get_slot, ":book_reading_progress", "$g_player_reading_book", slot_item_book_reading_progress),
        (item_get_slot, ":book_read", "$g_player_reading_book", slot_item_book_read),
        (eq, ":book_read", 0),
-       (val_add, ":book_reading_progress", 7),
+### DAC Seek: them smart players read more gooder so dey read fasta
+       # (val_add, ":book_reading_progress", 7),
+       (val_add, ":book_reading_progress", ":int"),
+### DAC Seek end
        (item_set_slot, "$g_player_reading_book", slot_item_book_reading_progress, ":book_reading_progress"),
        (ge, ":book_reading_progress", 1000),
        (item_set_slot, "$g_player_reading_book", slot_item_book_read, 1),
@@ -7036,6 +7040,48 @@ simple_triggers = [
 		(setup_quest_text, "qst_floris_active_tournament"),
 		(call_script, "script_start_quest", "qst_floris_active_tournament", ":town_lord"),
 	]),
+    
+### DAC Seek: Scout Foraging
+(3,
+   [
+        (eq, "$class_type", cc_hunter_poacher),
+		(map_free),
+        
+        (party_get_current_terrain, ":terrain_type", "p_main_party"),
+        (this_or_next|eq, ":terrain_type", rt_steppe_forest),
+        (this_or_next|eq, ":terrain_type", rt_forest),
+        (eq, ":terrain_type", rt_snow_forest),
+        
+        (store_free_inventory_capacity, ":inv_cap", "trp_player"),
+        (gt, ":inv_cap", 0),
+        (call_script, "script_rand", 0, 100),
+        (assign, ":rand_no", reg0),
+        (str_clear, s1),
+   
+        (try_begin),
+            (is_between, ":rand_no", 0, 5),
+            (assign, ":foraged_food", "itm_honey"),
+        (else_try),
+            (is_between, ":rand_no", 5, 10),
+            (assign, ":foraged_food", "itm_dried_meat"),
+        (else_try),
+            (is_between, ":rand_no", 10, 15),
+            (assign, ":foraged_food", "itm_apples"),
+        (else_try),
+            (is_between, ":rand_no", 15, 20),
+            (assign, ":foraged_food", "itm_chicken"),
+        (else_try),
+            (is_between, ":rand_no", 20, 25),
+            (assign, ":foraged_food", "itm_pork"),
+        (else_try),
+            (assign, ":foraged_food", -1),     
+        (try_end),
+        
+        (gt, ":foraged_food", -1),
+        (troop_add_item, "trp_player", ":foraged_food", 0),
+        (str_store_item_name, s1, ":foraged_food"),
+        (display_message, "str_dac_successfully_foraged_s1", color_good_news),
+     ]),
 
 # QUEST: floris_active_tournament
 # Determine if tournaments are active in a town.

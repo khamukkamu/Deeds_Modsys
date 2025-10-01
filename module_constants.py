@@ -613,20 +613,20 @@ slot_center_last_reconnoitered_by_faction_time 				= 350
 
 
 #slot_party_type values
-##spt_caravan            = 1
+spt_caravan            = 1
 spt_castle             = 2
 spt_town               = 3
 spt_village            = 4
-##spt_forager            = 5
-##spt_war_party          = 6
-##spt_patrol             = 7
+spt_forager            = 5
+# spt_war_party          = 6
+# spt_patrol             = 7
 ##spt_messenger          = 8
-##spt_raider             = 9
-##spt_scout              = 10
-spt_reinforcement      = 6
+spt_raider             = 9
+# spt_scout              = 10
+spt_reinforcement      = 20
 #SB : add reinforcements as part of kingdom party range
 spt_kingdom_caravan    = 11
-##spt_prisoner_train     = 12
+spt_prisoner_train     = 12
 spt_kingdom_hero_party = 13
 ##spt_merchant_caravan   = 14
 spt_village_farmer     = 15
@@ -635,7 +635,7 @@ spt_cattle_herd        = 17
 spt_bandit_lair       = 18
 #spt_deserter           = 20
 
-kingdom_party_types_begin = spt_kingdom_caravan
+kingdom_party_types_begin = spt_forager
 kingdom_party_types_end = spt_kingdom_hero_party + 1
 
 #slot_faction_state values
@@ -1802,6 +1802,10 @@ reference_books_begin = "itm_book_wound_treatment_reference"
 reference_books_end   = trade_goods_begin
 readable_books_begin = "itm_book_tactics"
 readable_books_end   = reference_books_begin
+### DAC Seek: Cook Books
+cookbooks_begin = "itm_book_recipe_candied_fruit"
+cookbooks_end = reference_books_begin
+### DAC Seek End
 books_begin = readable_books_begin
 books_end = reference_books_end
 
@@ -2058,7 +2062,7 @@ dplmc_slot_party_recruiter_needed_recruits = 233           # Amount of recruits 
 dplmc_slot_party_recruiter_origin = 234                    # Walled center from where the recruiter was hired.
 dplmc_slot_village_reserved_by_recruiter = 235             # This prevents recruiters from going to villages targeted by other recruiters.
 dplmc_slot_party_recruiter_needed_recruits_faction = 236   # Alkhadias Master, you forgot this one from the PM you sent me :D
-dplmc_spt_recruiter     = 12
+dplmc_spt_recruiter     = 22
 # recruiter kit end
 ##diplomacy start+ Re-use those slots for other party types
 dplmc_slot_party_origin = dplmc_slot_party_recruiter_origin
