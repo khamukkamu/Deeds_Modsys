@@ -83,6 +83,10 @@ mercenary_company_scripts = [
       (store_add, ":bak_troop", 1, ":troop"),
       (call_script, "script_copy_inventory", ":bak_troop", ":troop"),    
       (troop_equip_items, ":troop"),
+      (str_store_troop_name, s7, ":bak_troop"),
+      (str_store_troop_name_plural, s8, ":bak_troop"),
+      (troop_set_name, ":troop", s7),
+      (troop_set_plural_name, ":troop", s8),
     (try_end),
   ]),
 
@@ -1255,20 +1259,8 @@ mercenary_company_scripts = [
   # Output: none
   ("refresh_mercenary_camp_troops",
     [
-    (party_get_slot, ":player_camp_level", "p_player_camp", slot_player_camp_level),
-    
-    (try_begin),
-        (eq, ":player_camp_level", 1),
-        (assign, ":ideal_size", 10),
-    (else_try),
-        (eq, ":player_camp_level", 2),
-        (assign, ":ideal_size", 20),
-    (else_try),
-        (eq, ":player_camp_level", 3),
-        (assign, ":ideal_size", 30),
-    (else_try),
-        (assign, ":ideal_size", 40),        
-    (try_end),
+    (party_get_slot, ":player_camp_level", "p_player_camp", slot_player_camp_level),    
+    (store_mul, ":ideal_size", ":player_camp_level", 10),
     
     (try_begin),
         (party_slot_eq, "p_player_camp", slot_player_camp_archery_range, 1),
@@ -1285,6 +1277,10 @@ mercenary_company_scripts = [
         (val_add, ":ideal_size", 10),
     (try_end),
     
+    (try_begin),
+        (eq, "$background_type", cb_mercenary),
+        (val_add, ":ideal_size", 15),
+    (try_end),
     # Debug
     (assign, reg30, ":ideal_size"),
     # (display_message, "@Player camp max size set to {reg30}"),
@@ -1305,6 +1301,10 @@ mercenary_company_scripts = [
         (party_slot_eq, "p_player_camp", slot_player_camp_archery_range, 1),
         (party_add_template, "p_player_camp", "pt_mercenary_company_ranged"),	  
         # (display_message, "@Ranged template added to camp"),
+        (try_begin),
+            (eq, "$class_type", cc_mercenary_condottiero),
+            (party_add_template, "p_player_camp", "pt_mercenary_company_italian_ranged"),	 
+        (try_end),
     (try_end),
     
     (try_begin),
@@ -1323,6 +1323,10 @@ mercenary_company_scripts = [
     (try_begin),
         (party_add_template, "p_player_camp", "pt_mercenary_company_infantry"),		
         # (display_message, "@Melee template added to camp"),
+        (try_begin),
+            (eq, "$class_type", cc_mercenary_condottiero),
+            (party_add_template, "p_player_camp", "pt_mercenary_company_italian_infantry"),	 
+        (try_end),
     (try_end),
   ]),
   

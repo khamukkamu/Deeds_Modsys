@@ -571,6 +571,104 @@ common_battle_morale_check = (
   (try_end),    
     ], [])
     
+
+
+#Code by RedMythos, modified by DAC Seek
+dac_agent_lives_or_dies = (ti_on_agent_killed_or_wounded, 0, 0, [],
+       [
+        (store_trigger_param_1, ":dead_agent_no"),
+        (store_trigger_param_2, ":killer_agent_no"),
+        (store_trigger_param_3, ":is_wounded"),
+
+        #Note: setting the trigger_result as 0 will follow the default game logic and not alter the result. Setting it to 1 will force kill, and to 2 will force wound.
+        (ge, ":dead_agent_no", 0),
+        (agent_is_human, ":dead_agent_no"),
+        (agent_get_troop_id, ":dead_agent_troop_id", ":dead_agent_no"),
+        (neg|troop_is_hero, ":dead_agent_troop_id"),
+        
+        (try_begin),
+            (neg|agent_is_ally, ":dead_agent_no"),
+            (party_add_members, "p_total_enemy_casualties", ":dead_agent_troop_id", 1), #addition_to_p_total_enemy_casualties.
+        (try_end),
+
+        (try_begin), #The code below is credited to Erundil, and guarantees the enemies on the Spy quests to NOT die.
+            (this_or_next|eq,":dead_agent_troop_id","trp_spy"), #the spy that we were following.
+            (eq,":dead_agent_troop_id","trp_spy_partner"), #his boss that was waiting for him, usually accompanied by a few mercenaries.
+            (assign, ":is_wounded", 1),
+        (else_try),
+            (gt, ":killer_agent_no", -1), # Check if there's a killer
+            (agent_get_wielded_item, ":weapon", ":killer_agent_no", 0), #Checks for blunt weapons.
+            
+            (try_begin),
+                (lt, ":weapon", 0),
+                (assign, ":weapon", 0), #Prevents error "Item ID: -1" when hitting with your fists.
+            (try_end),
+          
+            (try_begin),
+                (agent_get_team, ":dead_agent_team", ":dead_agent_no"),
+                (team_get_leader, ":dead_agent_leader", ":dead_agent_team"),
+                (agent_get_troop_id, ":leader_troop", ":dead_agent_leader"), 
+                
+                (try_begin),
+                    (neg|agent_is_non_player, ":dead_agent_leader"), ### Player
+                    (party_get_skill_level, ":surgery_skill", "p_main_party", "skl_surgery"), #Gets skill level from your party.
+                    (val_mul, ":surgery_skill", 3), #+3% survival rate from each point in Surgery.
+                    (val_add, ":surgery_skill", 25), #default base chance, but can be altered here!                 
+                (else_try),
+                    (troop_is_hero, ":leader_troop"), ### Lord
+                    (store_skill_level, ":surgery_skill", "skl_surgery", ":leader_troop"), #Gets skill level directly from enemy party's leader, as lords dont have NPCs in party.
+                    (val_mul, ":surgery_skill", 3), #+3% survival rate from each point in Surgery.
+                    (val_add, ":surgery_skill", 25), #default base chance, but can be altered here!
+                (else_try),
+                    (assign, ":surgery_skill", 20),
+                    (try_begin), # Makes it more likely to capture bandits and other kinds of non-hero led armies
+                        (eq, "$class_type", cc_hunter_manhunter),
+                        (val_add, ":surgery_skill", 10),
+                    (try_end),
+                (try_end),
+                  
+            (try_end),
+            
+            (item_get_swing_damage_type, ":damage_type", ":weapon"),
+            (call_script, "script_rand", 0, 101),
+            (assign, ":rand", reg0),    
+            
+            (try_begin),
+                (eq, ":damage_type", 2), ### Blunt
+                (store_sub, ":surgery_skill", 100, ":surgery_skill"), # (100 - (20 to 55)) / 8 = 10 to ~6 % fatality rate
+                (val_div, ":surgery_skill", 8),
+                (gt, ":rand", ":surgery_skill"),
+                (assign, ":is_wounded", 1),
+            (else_try), ### Other damage types
+                (le, ":rand", ":surgery_skill"),
+                (assign, ":is_wounded", 1),
+            (else_try),
+                (assign, ":is_wounded", 0),
+            (try_end),
+        
+        (try_end),
+            
+            
+        
+        (try_begin), #Assigns wounded troops as prisoners in post-battle screen
+            (eq, ":is_wounded", 1),
+            (set_trigger_result, 2), # Force Wound
+            (try_begin),
+                (neg|agent_is_ally, ":dead_agent_no"),
+                (party_wound_members, "p_total_enemy_casualties", ":dead_agent_troop_id", 1),
+            (try_end),
+        (else_try),
+            (eq, ":is_wounded", 0),
+            (set_trigger_result, 1), # Force Kill
+        (else_try), # If for some reason it fails, resume behaviour
+            (set_trigger_result, 0),
+        (try_end),
+        
+        (call_script, "script_apply_death_effect_on_courage_scores", ":dead_agent_no", ":killer_agent_no"),
+       ])
+
+
+    
 # Autolykos end
 
 ##diplomacy begin
@@ -1455,6 +1553,7 @@ deeds_common_battle_scripts = [
   dac_footstep_sounds,
   quartermaster_refill_ammo_info,
   quartermaster_refill_ammo,
+  dac_agent_lives_or_dies,
   ] + battle_panel_triggers + utility_triggers + extended_battle_menu + common_division_data + division_order_processing + real_deployment + formations_triggers + AI_triggers
 
 deeds_common_siege_scripts = [
@@ -1476,6 +1575,7 @@ deeds_common_siege_scripts = [
   #customize_armor,
   #bright_nights
   dac_footstep_sounds,
+  dac_agent_lives_or_dies,
   ] + battle_panel_triggers + utility_triggers
 
 ##SB : new camera triggers
@@ -4637,30 +4737,31 @@ mission_templates = [
 
       common_battle_init_banner,
 
-      (ti_on_agent_killed_or_wounded, 0, 0, [],
-       [
-        (store_trigger_param_1, ":dead_agent_no"),
-        (store_trigger_param_2, ":killer_agent_no"),
-        (store_trigger_param_3, ":is_wounded"),
+### DAC Seek: Replaced by new trigger, dac_agent_lives_or_dies
+      # (ti_on_agent_killed_or_wounded, 0, 0, [],
+       # [
+        # (store_trigger_param_1, ":dead_agent_no"),
+        # (store_trigger_param_2, ":killer_agent_no"),
+        # (store_trigger_param_3, ":is_wounded"),
 
-        (try_begin),
-          (ge, ":dead_agent_no", 0),
-          (neg|agent_is_ally, ":dead_agent_no"),
-          (agent_is_human, ":dead_agent_no"),
-          (agent_get_troop_id, ":dead_agent_troop_id", ":dead_agent_no"),
+        # (try_begin),
+          # (ge, ":dead_agent_no", 0),
+          # (neg|agent_is_ally, ":dead_agent_no"),
+          # (agent_is_human, ":dead_agent_no"),
+          # (agent_get_troop_id, ":dead_agent_troop_id", ":dead_agent_no"),
 ##          (str_store_troop_name, s6, ":dead_agent_troop_id"),
 ##          (assign, reg0, ":dead_agent_no"),
 ##          (assign, reg1, ":killer_agent_no"),
 ##          (assign, reg2, ":is_wounded"),
 ##          (agent_get_team, reg3, ":dead_agent_no"),
           #(display_message, "@{!}dead agent no : {reg0} ; killer agent no : {reg1} ; is_wounded : {reg2} ; dead agent team : {reg3} ; {s6} is added"),
-          (party_add_members, "p_total_enemy_casualties", ":dead_agent_troop_id", 1), #addition_to_p_total_enemy_casualties
-          (eq, ":is_wounded", 1),
-          (party_wound_members, "p_total_enemy_casualties", ":dead_agent_troop_id", 1),
-        (try_end),
+          # (party_add_members, "p_total_enemy_casualties", ":dead_agent_troop_id", 1), #addition_to_p_total_enemy_casualties
+          # (eq, ":is_wounded", 1),
+          # (party_wound_members, "p_total_enemy_casualties", ":dead_agent_troop_id", 1),
+        # (try_end),
 
-        (call_script, "script_apply_death_effect_on_courage_scores", ":dead_agent_no", ":killer_agent_no"),
-       ]),
+        # (call_script, "script_apply_death_effect_on_courage_scores", ":dead_agent_no", ":killer_agent_no"),
+       # ]),
 
       common_battle_tab_press,
 
@@ -5412,28 +5513,29 @@ mission_templates = [
       common_battle_tab_press,
       common_battle_init_banner,
 
-      (ti_on_agent_killed_or_wounded, 0, 0, [], #new
-       [
-        (store_trigger_param_1, ":dead_agent_no"),
-        (store_trigger_param_2, ":killer_agent_no"),
-        (store_trigger_param_3, ":is_wounded"),
+### DAC Seek, handled by trigger: dac_agent_lives_or_dies
+      # (ti_on_agent_killed_or_wounded, 0, 0, [], #new
+       # [
+        # (store_trigger_param_1, ":dead_agent_no"),
+        # (store_trigger_param_2, ":killer_agent_no"),
+        # (store_trigger_param_3, ":is_wounded"),
 
-        (try_begin),
-          (ge, ":dead_agent_no", 0),
-          (neg|agent_is_ally, ":dead_agent_no"),
-          (agent_is_human, ":dead_agent_no"),
-          (agent_get_troop_id, ":dead_agent_troop_id", ":dead_agent_no"),
-          (str_store_troop_name, s6, ":dead_agent_troop_id"),
-          (assign, reg0, ":dead_agent_no"),
-          (assign, reg1, ":killer_agent_no"),
-          (assign, reg2, ":is_wounded"),
-          (agent_get_team, reg3, ":dead_agent_no"),
+        # (try_begin),
+          # (ge, ":dead_agent_no", 0),
+          # (neg|agent_is_ally, ":dead_agent_no"),
+          # (agent_is_human, ":dead_agent_no"),
+          # (agent_get_troop_id, ":dead_agent_troop_id", ":dead_agent_no"),
+          # (str_store_troop_name, s6, ":dead_agent_troop_id"),
+          # (assign, reg0, ":dead_agent_no"),
+          # (assign, reg1, ":killer_agent_no"),
+          # (assign, reg2, ":is_wounded"),
+          # (agent_get_team, reg3, ":dead_agent_no"),
           #(display_message, "@{!}dead agent no : {reg0} ; killer agent no : {reg1} ; is_wounded : {reg2} ; dead agent team : {reg3} ; {s6} is added"),
-          (party_add_members, "p_total_enemy_casualties", ":dead_agent_troop_id", 1), #addition_to_p_total_enemy_casualties
-          (eq, ":is_wounded", 1),
-          (party_wound_members, "p_total_enemy_casualties", ":dead_agent_troop_id", 1),
-        (try_end),
-       ]),
+          # (party_add_members, "p_total_enemy_casualties", ":dead_agent_troop_id", 1), #addition_to_p_total_enemy_casualties
+          # (eq, ":is_wounded", 1),
+          # (party_wound_members, "p_total_enemy_casualties", ":dead_agent_troop_id", 1),
+        # (try_end),
+       # ]),
 
       (ti_question_answered, 0, 0, [],
        [(store_trigger_param_1,":answer"),
@@ -5543,28 +5645,29 @@ mission_templates = [
          (set_show_messages, 1),
          ], []),
 
-      (ti_on_agent_killed_or_wounded, 0, 0, [],
-       [
-        (store_trigger_param_1, ":dead_agent_no"),
-        (store_trigger_param_2, ":killer_agent_no"),
-        (store_trigger_param_3, ":is_wounded"),
+### DAC Seek: Handled by trigger: dac_agent_lives_or_dies
+      # (ti_on_agent_killed_or_wounded, 0, 0, [],
+       # [
+        # (store_trigger_param_1, ":dead_agent_no"),
+        # (store_trigger_param_2, ":killer_agent_no"),
+        # (store_trigger_param_3, ":is_wounded"),
 
-        (try_begin),
-          (ge, ":dead_agent_no", 0),
-          (neg|agent_is_ally, ":dead_agent_no"),
-          (agent_is_human, ":dead_agent_no"),
-          (agent_get_troop_id, ":dead_agent_troop_id", ":dead_agent_no"),
-          (str_store_troop_name, s6, ":dead_agent_troop_id"),
-          (assign, reg0, ":dead_agent_no"),
-          (assign, reg1, ":killer_agent_no"),
-          (assign, reg2, ":is_wounded"),
-          (agent_get_team, reg3, ":dead_agent_no"),
+        # (try_begin),
+          # (ge, ":dead_agent_no", 0),
+          # (neg|agent_is_ally, ":dead_agent_no"),
+          # (agent_is_human, ":dead_agent_no"),
+          # (agent_get_troop_id, ":dead_agent_troop_id", ":dead_agent_no"),
+          # (str_store_troop_name, s6, ":dead_agent_troop_id"),
+          # (assign, reg0, ":dead_agent_no"),
+          # (assign, reg1, ":killer_agent_no"),
+          # (assign, reg2, ":is_wounded"),
+          # (agent_get_team, reg3, ":dead_agent_no"),
           #(display_message, "@{!}dead agent no : {reg0} ; killer agent no : {reg1} ; is_wounded : {reg2} ; dead agent team : {reg3} ; {s6} is added"),
-          (party_add_members, "p_total_enemy_casualties", ":dead_agent_troop_id", 1), #addition_to_p_total_enemy_casualties
-          (eq, ":is_wounded", 1),
-          (party_wound_members, "p_total_enemy_casualties", ":dead_agent_troop_id", 1),
-        (try_end),
-       ]),
+          # (party_add_members, "p_total_enemy_casualties", ":dead_agent_troop_id", 1), #addition_to_p_total_enemy_casualties
+          # (eq, ":is_wounded", 1),
+          # (party_wound_members, "p_total_enemy_casualties", ":dead_agent_troop_id", 1),
+        # (try_end),
+       # ]),
 
       common_siege_ai_trigger_init_after_2_secs,
       common_siege_defender_reinforcement_check,
@@ -5631,28 +5734,29 @@ mission_templates = [
       common_battle_order_panel_tick,
       common_inventory_not_available,
 
-      (ti_on_agent_killed_or_wounded, 0, 0, [],
-       [
-        (store_trigger_param_1, ":dead_agent_no"),
-        (store_trigger_param_2, ":killer_agent_no"),
-        (store_trigger_param_3, ":is_wounded"),
+### DAC Seek: Handled by trigger: dac_agent_lives_or_dies
+      # (ti_on_agent_killed_or_wounded, 0, 0, [],
+       # [
+        # (store_trigger_param_1, ":dead_agent_no"),
+        # (store_trigger_param_2, ":killer_agent_no"),
+        # (store_trigger_param_3, ":is_wounded"),
 
-        (try_begin),
-          (ge, ":dead_agent_no", 0),
-          (neg|agent_is_ally, ":dead_agent_no"),
-          (agent_is_human, ":dead_agent_no"),
-          (agent_get_troop_id, ":dead_agent_troop_id", ":dead_agent_no"),
-          (str_store_troop_name, s6, ":dead_agent_troop_id"),
-          (assign, reg0, ":dead_agent_no"),
-          (assign, reg1, ":killer_agent_no"),
-          (assign, reg2, ":is_wounded"),
-          (agent_get_team, reg3, ":dead_agent_no"),
+        # (try_begin),
+          # (ge, ":dead_agent_no", 0),
+          # (neg|agent_is_ally, ":dead_agent_no"),
+          # (agent_is_human, ":dead_agent_no"),
+          # (agent_get_troop_id, ":dead_agent_troop_id", ":dead_agent_no"),
+          # (str_store_troop_name, s6, ":dead_agent_troop_id"),
+          # (assign, reg0, ":dead_agent_no"),
+          # (assign, reg1, ":killer_agent_no"),
+          # (assign, reg2, ":is_wounded"),
+          # (agent_get_team, reg3, ":dead_agent_no"),
           #(display_message, "@{!}dead agent no : {reg0} ; killer agent no : {reg1} ; is_wounded : {reg2} ; dead agent team : {reg3} ; {s6} is added"),
-          (party_add_members, "p_total_enemy_casualties", ":dead_agent_troop_id", 1), #addition_to_p_total_enemy_casualties
-          (eq, ":is_wounded", 1),
-          (party_wound_members, "p_total_enemy_casualties", ":dead_agent_troop_id", 1),
-        (try_end),
-       ]),
+          # (party_add_members, "p_total_enemy_casualties", ":dead_agent_troop_id", 1), #addition_to_p_total_enemy_casualties
+          # (eq, ":is_wounded", 1),
+          # (party_wound_members, "p_total_enemy_casualties", ":dead_agent_troop_id", 1),
+        # (try_end),
+       # ]),
 
 ##      (15, 0, 0,
 ##       [
@@ -5750,28 +5854,29 @@ mission_templates = [
       common_battle_order_panel_tick,
       common_inventory_not_available,
 
-      (ti_on_agent_killed_or_wounded, 0, 0, [],
-       [
-        (store_trigger_param_1, ":dead_agent_no"),
-        (store_trigger_param_2, ":killer_agent_no"),
-        (store_trigger_param_3, ":is_wounded"),
+### DAC Seek: Handled by trigger: dac_agent_lives_or_dies
+      # (ti_on_agent_killed_or_wounded, 0, 0, [],
+       # [
+        # (store_trigger_param_1, ":dead_agent_no"),
+        # (store_trigger_param_2, ":killer_agent_no"),
+        # (store_trigger_param_3, ":is_wounded"),
 
-        (try_begin),
-          (ge, ":dead_agent_no", 0),
-          (neg|agent_is_ally, ":dead_agent_no"),
-          (agent_is_human, ":dead_agent_no"),
-          (agent_get_troop_id, ":dead_agent_troop_id", ":dead_agent_no"),
-          (str_store_troop_name, s6, ":dead_agent_troop_id"),
-          (assign, reg0, ":dead_agent_no"),
-          (assign, reg1, ":killer_agent_no"),
-          (assign, reg2, ":is_wounded"),
-          (agent_get_team, reg3, ":dead_agent_no"),
+        # (try_begin),
+          # (ge, ":dead_agent_no", 0),
+          # (neg|agent_is_ally, ":dead_agent_no"),
+          # (agent_is_human, ":dead_agent_no"),
+          # (agent_get_troop_id, ":dead_agent_troop_id", ":dead_agent_no"),
+          # (str_store_troop_name, s6, ":dead_agent_troop_id"),
+          # (assign, reg0, ":dead_agent_no"),
+          # (assign, reg1, ":killer_agent_no"),
+          # (assign, reg2, ":is_wounded"),
+          # (agent_get_team, reg3, ":dead_agent_no"),
           #(display_message, "@{!}dead agent no : {reg0} ; killer agent no : {reg1} ; is_wounded : {reg2} ; dead agent team : {reg3} ; {s6} is added"),
-          (party_add_members, "p_total_enemy_casualties", ":dead_agent_troop_id", 1), #addition_to_p_total_enemy_casualties
-          (eq, ":is_wounded", 1),
-          (party_wound_members, "p_total_enemy_casualties", ":dead_agent_troop_id", 1),
-        (try_end),
-       ]),
+          # (party_add_members, "p_total_enemy_casualties", ":dead_agent_troop_id", 1), #addition_to_p_total_enemy_casualties
+          # (eq, ":is_wounded", 1),
+          # (party_wound_members, "p_total_enemy_casualties", ":dead_agent_troop_id", 1),
+        # (try_end),
+       # ]),
 
 ##      (15, 0, 0,
 ##       [

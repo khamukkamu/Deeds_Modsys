@@ -1151,12 +1151,12 @@ character_creation_scripts = [
 ### DAC Seek: Equipment for custom character start and presentation
 ("dac_commoner_start_equipment", [
     (set_show_messages, 0),
-    (store_script_param, ":background", 1),
+    (store_script_param, ":class", 1),
     
     
     
     (try_begin),
-        (eq, ":background", cc_noble_governor),        
+        (eq, ":class", cc_noble_governor),        
         (troop_add_item, "trp_player","itm_h_highlander_beret_black",0),
         (troop_add_item, "trp_player","itm_a_houpelande_decorated_b_1",0),
         (troop_add_item, "trp_player","itm_b_poulaines_lined_2",0),
@@ -1199,7 +1199,7 @@ character_creation_scripts = [
         (item_set_slot, "itm_velvet", slot_item_enterprise_building_cost, 8000),
 
     (else_try),
-        (eq, ":background", cc_noble_tactician),   
+        (eq, ":class", cc_noble_tactician),   
         (troop_add_item, "trp_player","itm_h_highlander_beret_red_2",0),
         (troop_add_item, "trp_player","itm_a_noble_shirt_red",0),
         (troop_add_item, "trp_player","itm_b_high_boots_9",0),
@@ -1233,7 +1233,7 @@ character_creation_scripts = [
         (assign, "$player_gold", 2500),
         
     (else_try),
-        (eq, ":background", cc_noble_jouster),   
+        (eq, ":class", cc_noble_jouster),   
         (troop_add_item, "trp_player","itm_a_pistoia_mail_b_mail_sleeves_over_plate",0),
         (troop_add_item, "trp_player","itm_b_high_boots_3",0),
         (troop_add_item, "trp_player","itm_h_simple_cervelliere_mail_aventail",0),
@@ -1270,7 +1270,7 @@ character_creation_scripts = [
         (assign, "$player_gold", 2000),
         
     (else_try),
-        (eq, ":background", cc_merchant_goods),   
+        (eq, ":class", cc_merchant_goods),   
         (troop_add_item, "trp_player","itm_h_highlander_beret_red_2",0),
         (troop_add_item, "trp_player","itm_a_merchant_outfit",0),
         (troop_add_item, "trp_player","itm_b_low_boots_4",0),
@@ -1304,7 +1304,7 @@ character_creation_scripts = [
     (troop_add_item, "trp_player",":trade_item",0),
         
     (else_try),
-        (eq, ":background", cc_merchant_slave),   
+        (eq, ":class", cc_merchant_slave),   
         (troop_add_item, "trp_player","itm_h_simple_coif_black",0),
         (troop_add_item, "trp_player","itm_a_aketon_asher_dagged_thick_black_1",0),
         (troop_add_item, "trp_player","itm_b_turnshoes_2",0),
@@ -1338,7 +1338,7 @@ character_creation_scripts = [
         (assign, "$player_gold", 1850),
         
     (else_try),
-        (eq, ":background", cc_merchant_investor),   
+        (eq, ":class", cc_merchant_investor),   
         (troop_add_item, "trp_player","itm_h_bycocket_1_custom",0),
         (troop_add_item, "trp_player","itm_a_houpelande_a_1",0),
         (troop_add_item, "trp_player","itm_b_poulaines_lined_1",0),
@@ -1369,7 +1369,7 @@ character_creation_scripts = [
         (assign, "$player_gold", 6000),
         
     (else_try),
-        (eq, ":background", cc_soldier_scout),   
+        (eq, ":class", cc_soldier_scout),   
         (troop_add_item, "trp_player","itm_w_onehanded_sword_a_long"),
         (troop_add_item, "trp_player","itm_w_lance_2"),
         (troop_add_item, "trp_player","itm_s_heater_shield_burgundian_1"),
@@ -1406,7 +1406,7 @@ character_creation_scripts = [
         (assign, "$player_gold", 750),
         
     (else_try),
-        (eq, ":background", cc_soldier_quartermaster),  
+        (eq, ":class", cc_soldier_quartermaster),  
         (troop_add_item, "trp_player","itm_w_archer_hatchet_red"),
         (troop_add_item, "trp_player","itm_w_crossbow_light"),
         (troop_add_item, "trp_player","itm_w_bolt_triangular"),
@@ -1447,7 +1447,7 @@ character_creation_scripts = [
     (assign, "$class_type_feature_active", 0),
         
     (else_try),
-        (eq, ":background", cc_soldier_cook),   
+        (eq, ":class", cc_soldier_cook),   
         (troop_add_item, "trp_player","itm_w_dagger_quillon"),
         (troop_add_item, "trp_player","itm_h_peasant_bycocket_1_custom"),
         (troop_add_item, "trp_player","itm_a_peasant_man_custom"),
@@ -1484,7 +1484,7 @@ character_creation_scripts = [
         (troop_add_item, "trp_player",":food_item",0),
         
     (else_try),
-        (eq, ":background", cc_soldier_sergeant),   
+        (eq, ":class", cc_soldier_sergeant),   
         (troop_add_item, "trp_player","itm_w_bastard_sword_c"),
         (troop_add_item, "trp_player","itm_heraldic_banner"),
         (troop_add_item, "trp_player","itm_h_sallet_strap"),
@@ -1520,7 +1520,7 @@ character_creation_scripts = [
         (assign, "$player_gold", 900),
         
     (else_try),
-        (eq, ":background", cc_hunter_poacher),   
+        (eq, ":class", cc_hunter_poacher),   
         (troop_add_item, "trp_player","itm_w_archers_maul"),
         (troop_add_item, "trp_player","itm_w_arrow_broadhead"),
         (troop_add_item, "trp_player","itm_w_hunting_bow_yew"),
@@ -1552,7 +1552,7 @@ character_creation_scripts = [
         (assign, "$player_gold", 250),
         
     (else_try),
-        (eq, ":background", cc_hunter_manhunter),   
+        (eq, ":class", cc_hunter_manhunter),   
         (troop_add_item, "trp_player","itm_w_mace_winged"),
         (troop_add_item, "trp_player","itm_h_shingle_helmet_strap"),
         (troop_add_item, "trp_player","itm_a_tunic_over_gambeson_custom"),
@@ -1586,7 +1586,7 @@ character_creation_scripts = [
         (assign, "$player_gold", 650),
         
     (else_try),
-        (eq, ":background", cc_hunter_marksman),   
+        (eq, ":class", cc_hunter_marksman),   
         (troop_add_item, "trp_player","itm_w_dagger_quillon"),
         (troop_add_item, "trp_player","itm_w_bolt_triangular"),
         (troop_add_item, "trp_player","itm_w_crossbow_light"),
@@ -1620,7 +1620,7 @@ character_creation_scripts = [
         (assign, "$player_gold", 775),
         
     (else_try),
-        (eq, ":background", cc_mercenary_condottiero),   
+        (eq, ":class", cc_mercenary_condottiero),   
         (troop_add_item, "trp_player","itm_w_light_lance"),
         (troop_add_item, "trp_player","itm_w_onehanded_sword_italian"),
         (troop_add_item, "trp_player","itm_h_barbuta_nooxy_1_mail_collar"),
@@ -1657,7 +1657,7 @@ character_creation_scripts = [
         (assign, "$player_gold", 6000),
         
     (else_try),
-        (eq, ":background", cc_mercenary_flemish),   
+        (eq, ":class", cc_mercenary_flemish),   
         (troop_add_item, "trp_player","itm_w_dagger_pikeman"),
         (troop_add_item, "trp_player","itm_w_awlpike_1"),
         (troop_add_item, "trp_player","itm_h_german_kettlehat_4_liripipe_hood_custom"),
@@ -1694,7 +1694,7 @@ character_creation_scripts = [
         (assign, "$player_gold", 4500),
         
     (else_try),
-        (eq, ":background", cc_mercenary_scottish),   
+        (eq, ":class", cc_mercenary_scottish),   
         (troop_add_item, "trp_player","itm_w_onehanded_sword_scottish"),
         (troop_add_item, "trp_player","itm_s_heraldic_shield_heater"),
         (troop_add_item, "trp_player","itm_h_bascinet_1_mail_aventail"),
@@ -1730,7 +1730,7 @@ character_creation_scripts = [
         (assign, "$player_gold", 3750),
         
     (else_try),
-        (eq, ":background", cc_peasant_farmer),   
+        (eq, ":class", cc_peasant_farmer),   
         (troop_add_item, "trp_player","itm_h_straw_hat",0),
         (troop_add_item, "trp_player","itm_a_farmer_tunic",0),
         (troop_add_item, "trp_player","itm_b_turnshoes_1",0),
@@ -1763,7 +1763,7 @@ character_creation_scripts = [
         (assign, "$player_gold", 50),
         
     (else_try),
-        (eq, ":background", cc_peasant_revolutionary),   
+        (eq, ":class", cc_peasant_revolutionary),   
         (troop_add_item, "trp_player","itm_h_wicker_helmet_strap",0),
         (troop_add_item, "trp_player","itm_a_peasant_cote_custom",0),
         (troop_add_item, "trp_player","itm_b_turnshoes_2",0),
@@ -1796,7 +1796,7 @@ character_creation_scripts = [
         (assign, "$player_gold", 725),
         
     (else_try),
-        (eq, ":background", cc_peasant_smith),   
+        (eq, ":class", cc_peasant_smith),   
         (troop_add_item, "trp_player","itm_h_leather_cap",0),
         (troop_add_item, "trp_player","itm_a_commoner_apron",0),
         (troop_add_item, "trp_player","itm_b_turnshoes_6",0),
@@ -1829,7 +1829,7 @@ character_creation_scripts = [
         (assign, "$player_gold", 300),
         
     (else_try),
-        (eq, ":background", cb_healer_surgeon),   
+        (eq, ":class", cc_healer_surgeon),   
         (troop_add_item, "trp_player","itm_h_simple_coif",0),
         (troop_add_item, "trp_player","itm_a_surgeon_dress",0),
         (troop_add_item, "trp_player","itm_b_turnshoes_6",0),
@@ -1861,7 +1861,7 @@ character_creation_scripts = [
         (assign, "$player_gold", 350),
         
     (else_try),
-        (eq, ":background", cb_healer_priest),   
+        (eq, ":class", cc_healer_priest),   
         (troop_add_item, "trp_player","itm_h_straw_hat_3",0),
         (troop_add_item, "trp_player","itm_a_priest_robe",0),
         (troop_add_item, "trp_player","itm_b_turnshoes_2",0),
@@ -1891,7 +1891,7 @@ character_creation_scripts = [
         (assign, "$player_gold", 500),         
          
     (else_try),
-        (eq, ":background", cb_healer_alchemist),  
+        (eq, ":class", cc_healer_alchemist),  
         (troop_add_item, "trp_player","itm_h_hood_black",0),
         (troop_add_item, "trp_player","itm_a_noble_shirt_black",0),
         (troop_add_item, "trp_player","itm_b_high_boots_2",0),

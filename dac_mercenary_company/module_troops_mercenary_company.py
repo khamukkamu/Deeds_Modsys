@@ -307,7 +307,7 @@ mercenary_company_troops = [
     knows_ironflesh_2|knows_power_strike_2|knows_shield_1|knows_athletics_3|knows_weapon_master_1,
     vaegir_face_young_1, vaegir_face_young_2],
   
-  ["custom_merc_recruit_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
+  ["custom_merc_recruit_equip","Company Recruit","Company Recruits",tf_hero|tf_inactive,0,0,fac_player_faction,
    # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
    [ 
     itm_h_arming_cap,
@@ -382,7 +382,7 @@ mercenary_company_troops = [
     knows_ironflesh_3|knows_power_strike_3|knows_shield_2|knows_athletics_3|knows_weapon_master_1,
     vaegir_face_old_1, vaegir_face_old_2],
   
-  ["custom_merc_footman_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
+  ["custom_merc_footman_equip","Company Footman","Company Footmen",tf_hero|tf_inactive,0,0,fac_player_faction,
    # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
    [ 
     itm_h_simple_cervelliere_hood_liripipe_custom,
@@ -504,7 +504,7 @@ mercenary_company_troops = [
     knows_ironflesh_4|knows_power_strike_4|knows_shield_3|knows_athletics_3|knows_weapon_master_2,
     mercenary_face_1, mercenary_face_2],
   
-  ["custom_merc_veteran_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
+  ["custom_merc_veteran_equip","Company Veteran","Company Veterans",tf_hero|tf_inactive,0,0,fac_player_faction,
    # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
    [ 
     itm_h_transitional_sallet_1_strap,
@@ -623,7 +623,7 @@ mercenary_company_troops = [
     knows_ironflesh_5|knows_power_strike_5|knows_shield_3|knows_athletics_4|knows_weapon_master_5,
     mercenary_face_1, mercenary_face_2],
   
-  ["custom_merc_sergeant_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
+  ["custom_merc_sergeant_equip","Company Sergeant","Company Sergeants",tf_hero|tf_inactive,0,0,fac_player_faction,
    # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
    [ 
     itm_h_transitional_sallet_1_mail_aventail,
@@ -730,7 +730,7 @@ mercenary_company_troops = [
     knows_ironflesh_1|knows_power_strike_1|knows_power_draw_2|knows_athletics_4|knows_weapon_master_1,
     mercenary_face_1, mercenary_face_2],
     
-  ["custom_merc_skirmisher_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
+  ["custom_merc_skirmisher_equip","Company Skirmisher","Company Skirmishers",tf_hero|tf_inactive,0,0,fac_player_faction,
    # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
    [ 
     # itm_h_hood_custom,
@@ -800,7 +800,7 @@ mercenary_company_troops = [
     knows_ironflesh_2|knows_power_draw_3|knows_power_strike_2|knows_athletics_4|knows_weapon_master_2,
     mercenary_face_1, mercenary_face_2],
  
-  ["custom_merc_ranger_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
+  ["custom_merc_ranger_equip","Company Ranger","Company Rangers",tf_hero|tf_inactive,0,0,fac_player_faction,
    # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
    [ 
     # itm_h_pot_helmet_hood_custom,
@@ -877,7 +877,7 @@ mercenary_company_troops = [
     knows_ironflesh_3|knows_power_draw_3|knows_power_strike_2|knows_athletics_4|knows_weapon_master_3,
     mercenary_face_1, mercenary_face_2],
    
-  ["custom_merc_marksman_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
+  ["custom_merc_marksman_equip","Company Marksman","Company Marksmen",tf_hero|tf_inactive,0,0,fac_player_faction,
    # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
    [ 
     # itm_h_round_kettlehat_padded,
@@ -954,7 +954,7 @@ mercenary_company_troops = [
     knows_ironflesh_3|knows_power_strike_3|knows_shield_1|knows_athletics_3|knows_weapon_master_3|knows_riding_2,
     mercenary_face_1, mercenary_face_2],
     
-  ["custom_merc_scout_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
+  ["custom_merc_scout_equip","Company Scout","Company Scouts",tf_hero|tf_inactive,0,0,fac_player_faction,
    # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
    [ 
     # itm_h_pot_helmet_mail,
@@ -1062,7 +1062,7 @@ mercenary_company_troops = [
     knows_ironflesh_5|knows_power_strike_5|knows_shield_3|knows_athletics_4|knows_weapon_master_5|knows_riding_4,
     mercenary_face_1, mercenary_face_2],
     
-  ["custom_merc_mounted_sergeant_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
+  ["custom_merc_mounted_sergeant_equip","Company Mounted Sergeant","Company Mounted Sergeants",tf_hero|tf_inactive,0,0,fac_player_faction,
    # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
    [ 
     # itm_h_bascinet_fi_padded,
@@ -1166,7 +1166,7 @@ mercenary_company_troops = [
     knows_ironflesh_5|knows_power_strike_5|knows_shield_3|knows_athletics_4|knows_weapon_master_5,
     mercenary_face_1, mercenary_face_2],
     
-  ["custom_merc_foot_squire_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
+  ["custom_merc_foot_squire_equip","Company Foot Squire","Company Foot Squires",tf_hero|tf_inactive,0,0,fac_player_faction,
    # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
    [ 
     # itm_h_sallet_mail,
@@ -1258,7 +1258,7 @@ mercenary_company_troops = [
     knows_ironflesh_6|knows_power_strike_5|knows_shield_3|knows_athletics_4|knows_weapon_master_5,
     mercenary_face_1, mercenary_face_2],
     
-  ["custom_merc_footman_at_arms_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
+  ["custom_merc_footman_at_arms_equip","Company Footman-At-Arms","Company Footmen-At-Arms",tf_hero|tf_inactive,0,0,fac_player_faction,
    # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
    [ 
     # itm_h_great_bascinet_houndskull,
@@ -1347,7 +1347,7 @@ mercenary_company_troops = [
     knows_ironflesh_7|knows_power_strike_6|knows_shield_4|knows_athletics_4|knows_weapon_master_6,
     mercenary_face_1, mercenary_face_2],
     
-  ["custom_merc_dismounted_knight_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
+  ["custom_merc_dismounted_knight_equip","Company Dismounted Knight","Company Dismounted Knights",tf_hero|tf_inactive,0,0,fac_player_faction,
    # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
    [ 
     # itm_h_great_bascinet_houndskull,
@@ -1443,7 +1443,7 @@ mercenary_company_troops = [
     knows_ironflesh_5|knows_power_strike_5|knows_shield_3|knows_athletics_4|knows_weapon_master_5|knows_riding_4,
     mercenary_face_1, mercenary_face_2],
     
-  ["custom_merc_squire_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
+  ["custom_merc_squire_equip","Company Squire","Company Squires",tf_hero|tf_inactive,0,0,fac_player_faction,
    # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
    [ 
     # itm_h_mail_coif,
@@ -1546,7 +1546,7 @@ mercenary_company_troops = [
     knows_ironflesh_7|knows_power_strike_6|knows_shield_4|knows_athletics_4|knows_weapon_master_6|knows_riding_5,
     mercenary_face_1, mercenary_face_2],
     
-  ["custom_merc_man_at_arms_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
+  ["custom_merc_man_at_arms_equip","Company Man-At-Arms","Company Men-At-Arms",tf_hero|tf_inactive,0,0,fac_player_faction,
    # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
    [ 
     # itm_h_bascinet_fi_noseguard,
@@ -1655,7 +1655,7 @@ mercenary_company_troops = [
     knows_ironflesh_8|knows_power_strike_8|knows_shield_4|knows_athletics_4|knows_weapon_master_8|knows_riding_5,
     mercenary_face_1, mercenary_face_2],
     
-  ["custom_merc_knight_equip","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
+  ["custom_merc_knight_equip","Company Knight","Company Knights",tf_hero|tf_inactive,0,0,fac_player_faction,
    # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
    [ 
     # itm_h_great_bascinet_houndskull,

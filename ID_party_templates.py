@@ -69,3 +69,5 @@ pt_mercenary_company_ranged = 67
 pt_mercenary_company_cavalry = 68
 pt_mercenary_company_noble_infantry = 69
 pt_mercenary_company_noble_cavalry = 70
+pt_mercenary_company_italian_infantry = 71
+pt_mercenary_company_italian_ranged = 72

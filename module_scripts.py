@@ -90,8 +90,8 @@ scripts = [
       (assign,"$rand_seed",0), # To get rid of the warnings...
       (store_random_in_range,"$rand_seed",0,1024*1024*1024),
       (troop_set_slot, "trp_player", slot_troop_occupation, slto_kingdom_hero),
-      (store_random_in_range, ":starting_training_ground", training_grounds_begin, training_grounds_end),
-      (party_relocate_near_party, "p_main_party", ":starting_training_ground", 3),
+      # (store_random_in_range, ":starting_training_ground", training_grounds_begin, training_grounds_end),
+      
       (str_store_troop_name, s5, "trp_player"),
       (party_set_name, "p_main_party", s5),
       (call_script, "script_update_party_creation_random_limits"),
@@ -786,6 +786,7 @@ scripts = [
     (assign, "$DAC_TOURNAMENT_LOCK", 1), #DAC Seek: On by default, lock player from tournament if renown is too low
     (assign, "$armour_progression", 0), #DAC Seek: Used to trigger event for armour progression
     (assign, "$forced_march", 0), #DAC Seek: Speed the party on the world map
+    (assign, "$dac_bandit_bounty", 0), #DAC Seek: Manhunter counter for slain bandits
     
     (call_script, "script_initialize_custom_armor_data"), 
     (call_script, "script_init_weapon_switching"),	
@@ -2956,13 +2957,25 @@ scripts = [
       #(party_relocate_near_party, "p_main_party", "$g_starting_town", 2),
       #(party_get_slot, ":player_faction_culture", "$g_starting_town", slot_center_culture),
       
-      (store_random_in_range, ":player_faction_culture", npc_kingdoms_begin, npc_kingdoms_end), #Just make it random
-      (faction_set_slot, "fac_player_supporters_faction",  slot_faction_culture, ":player_faction_culture"),
-      (faction_set_slot, "fac_player_faction",  slot_faction_culture, ":player_faction_culture"),
-    
-      (store_random_in_range, ":destination", training_grounds_begin, training_grounds_end),
-      (party_set_flags, ":destination", pf_always_visible, 1),
-      (party_relocate_near_party, "p_main_party", ":destination", 3),
+        (store_random_in_range, ":player_faction_culture", npc_kingdoms_begin, npc_kingdoms_end), #Just make it random
+        (faction_set_slot, "fac_player_supporters_faction",  slot_faction_culture, ":player_faction_culture"),
+        (faction_set_slot, "fac_player_faction",  slot_faction_culture, ":player_faction_culture"),
+
+        (store_random_in_range, ":destination", training_grounds_begin, training_grounds_end),
+        (party_set_flags, ":destination", pf_always_visible, 1),
+
+        (party_relocate_near_party, "p_main_party", ":destination", 5),
+
+        (try_begin),
+            (eq, "$class_type", cc_mercenary_condottiero),
+            (party_relocate_near_party, "p_player_camp", "p_main_party"),
+            (enable_party, "p_player_camp"),
+            (party_set_slot, "p_player_camp", slot_player_camp_level, 2),
+            (assign, "$player_camp_built", 1),
+            (call_script, "script_refresh_mercenary_camp_troops"),
+            (call_script, "script_dac_upgrade_player_camp"),
+        (try_end),    
+      
       (party_set_morale, "p_main_party", 100),
 
     ]),
@@ -33660,6 +33673,8 @@ scripts = [
     [
       (store_script_param, ":dead_agent_no", 1),
       (store_script_param, ":killer_agent_no", 2),
+      
+        (assign, ":player_fallen", 0),
 
       (try_begin),
         (agent_is_human, ":dead_agent_no"),
@@ -33722,6 +33737,7 @@ scripts = [
                 (eq, ":dead_agent_no", ":player_agent"),
                 (eq, ":is_dead_agent_ally", ":is_agent_ally"),
                 (assign, ":agent_delta_courage_score", -50), # if killed agent is the player agent, lower courage significantly
+                (assign, ":player_fallen", 1),
                 (display_message, "@Leader is down, save yourselves!", color_bad_news),
         ### DAC Seek End
           (else_try),
@@ -33822,7 +33838,11 @@ scripts = [
             (val_add, ":agent_courage_score", ":agent_delta_courage_score"),
             (agent_set_slot, ":agent_no", slot_agent_courage_score, ":agent_courage_score"),
           (try_end),
-        (try_end),
+        (try_end),      
+### DAC Seek: Message for fallen player character
+    (eq, ":player_fallen", 1),
+    (display_message, "@Leader is down, save yourselves!", color_bad_news),
+### DAC Seek End        
       (try_end),
       ]), #ozan
 
@@ -76523,7 +76543,16 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 
 ###################################################################################################### HYW CUSTOM ARMORS VERTEX COLORED   
 
-
+## Vertex Coloured Simple Kirtle
+      (item_set_slot, "itm_a_kirtle_simple_custom", slot_item_materials_begin, "str_a_kirtle_simple_1"),
+      (item_set_slot, "itm_a_kirtle_simple_custom", slot_item_materials_end, "str_a_kirtle_simple_end"),  
+      (item_set_slot, "itm_a_kirtle_simple_custom", slot_item_num_components, 1), 
+      
+## Vertex Coloured Kirtle + Gown
+      (item_set_slot, "itm_a_kirtle_gown_custom", slot_item_materials_begin, "str_a_kirtle_gown_1"),
+      (item_set_slot, "itm_a_kirtle_gown_custom", slot_item_materials_end, "str_a_kirtle_gown_end"),  
+      (item_set_slot, "itm_a_kirtle_gown_custom", slot_item_num_components, 1), 
+      
 ## Vertex Coloured Simple Gambeson
       (item_set_slot, "itm_a_simple_gambeson_custom", slot_item_materials_begin, "str_a_simple_gambeson_white_1"),
       (item_set_slot, "itm_a_simple_gambeson_custom", slot_item_materials_end, "str_a_simple_gambeson_end"),  

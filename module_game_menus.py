@@ -4832,9 +4832,9 @@ TOTAL:  {reg5}"),
           (gt, ":stack_wounded_size", 0),
           (party_wound_members, "p_total_enemy_casualties", ":stack_troop", ":stack_wounded_size"),
         (try_end),
-      (try_end),
       #ozan end
-
+     (try_end),
+     
       (call_script, "script_print_casualties_to_s0", "p_temp_casualties", 0),
       (str_store_string_reg, s9, s0),
 
@@ -5087,6 +5087,16 @@ TOTAL:  {reg5}"),
         (call_script, "script_objectionable_action", tmt_egalitarian, "str_excessive_casualties"),
      (try_end),
 #NPC companion changes end
+
+### DAC Seek: Manhunter bounty on bandits
+    (try_begin),
+        (eq, "$class_type", cc_hunter_manhunter),
+        (party_get_template_id, ":template", "$g_encountered_party"),
+        (is_between, ":template", "pt_looters", "pt_troublesome_bandits"), 
+        (party_get_num_companions, ":num_troops", "p_enemy_casualties"),
+        (val_add, "$dac_bandit_bounty", ":num_troops"),
+    (try_end),
+### DAC Seek
 
      (call_script, "script_print_casualties_to_s0", "p_player_casualties", 0),
      (str_store_string_reg, s8, s0),
@@ -5622,7 +5632,7 @@ TOTAL:  {reg5}"),
     "{!}You shouldn't be reading this...",
     "none",
     [
-        (play_track, "track_DAC-Defeat-2", 1),
+        (play_track, "track_DAC-Defeat-2", 1), ### DAC Seek: Change that to multiple tracks or culture/situational track
            # Free prisoners
           (party_get_num_prisoner_stacks, ":num_prisoner_stacks","p_main_party"),
           (try_for_range, ":stack_no", 0, ":num_prisoner_stacks"),
@@ -18397,7 +18407,18 @@ goods, and books will never be sold. ^^You can change some settings here freely.
             (try_end),
         ##diplomacy end+
         (try_end),
-
+        
+        ### DAC Seek: Manhunter class gets extra rewards for taking down bandit strongholds
+        (try_begin),
+            (eq, "$class_type", cc_hunter_manhunter),
+            (val_add, "$dac_bandit_bounty", ":stack_size"), ### Manhunter Bounty
+            (val_div, ":stack_size", 2),
+            (call_script, "script_change_troop_renown", "trp_player", ":stack_size"), # 1 renown for each 2 bandits taken down
+            (assign, reg13, ":stack_size"),
+            (display_message, "@[Manhunter] Gained extra {reg13} renown from taking down bandits", color_good_news),
+        (try_end),
+        ### End
+        
         (try_begin),
           (ge, "$g_encountered_party", 0),
           (party_is_active, "$g_encountered_party"),
@@ -20337,10 +20358,14 @@ goods, and books will never be sold. ^^You can change some settings here freely.
          (assign, "$g_disable_condescending_comments", 0),#Default value
          (try_begin),
             (eq, "$background_answer_2", 0), #DAC Kham: As Adventurer
-            (jump_to_menu,"mnu_dac_start_character_background"),
+            # (jump_to_menu,"mnu_dac_start_character_background"),
+            (assign, "$background_type", 1),
+            (assign, "$class_type", 1),
+            (start_presentation, "prsnt_dac_select_background"), 
          (else_try),
             (eq, "$background_answer_2", 1), #DAC Kham: As Vassal
-            (jump_to_menu,"mnu_start_as_vassal_choose_faction"),
+            # (jump_to_menu,"mnu_start_as_vassal_choose_faction"),
+            (start_presentation, "prsnt_faction_selection"),
          (try_end),
         ]
        ),
@@ -20349,10 +20374,14 @@ goods, and books will never be sold. ^^You can change some settings here freely.
          (assign, "$g_disable_condescending_comments", 2),#Any value 2 or higher shuts off sexist setting elements
          (try_begin),
             (eq, "$background_answer_2", 0),#DAC Kham: As Adventurer
-            (jump_to_menu,"mnu_dac_start_character_background"),
+            # (jump_to_menu,"mnu_dac_start_character_background"),
+            (assign, "$background_type", 1),
+            (assign, "$class_type", 1),
+            (start_presentation, "prsnt_dac_select_background"), 
          (else_try),
             (eq, "$background_answer_2", 1),#DAC Kham: As Vassal
-            (jump_to_menu,"mnu_start_as_vassal_choose_faction"),
+            # (jump_to_menu,"mnu_start_as_vassal_choose_faction"), 
+            (start_presentation, "prsnt_faction_selection"),
          (try_end),
        ]
        ),

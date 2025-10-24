@@ -293,9 +293,9 @@ Cons: ^\
 Not used to leading men to combat, your leadership stats and starting party size is reduced"),
 ("dac_background_class_desc_manhunter",           "Manhunters or Retondeurs specialize in hunting down the bandits that ravage France, unfortunately many turned to banditry themselves as it was more rewarding than risking your life taking them down. ^^\
 Pros: ^\
-» A Plague on the Land: ^\
-Increased rewards from taking down bandit strongholds and from capturing bandits or deserters ^\
-» Less Lethal: ^\
+» Bounty Hunters: ^\
+Kill bandits and collect bounties with Guildmasters, increased rewards from destroying bandit strongholds ^\
+» Restraint: ^\
 You and your troops know how to avoid lethal strikes, making it more likely to capture prisoners even when not using blunt weapons ^^\
 Cons: ^\
 » Reputational Damage: ^\

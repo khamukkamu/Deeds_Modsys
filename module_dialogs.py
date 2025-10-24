@@ -37892,7 +37892,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    "Greetings. If you have any prisoners, I will be happy to buy them from you.", "ransom_broker_talk",[]],
   [anyone,"ransom_broker_pretalk", [],
    "Anyway, if you have any prisoners, I will be happy to buy them from you.", "ransom_broker_talk",[]],
-
+  
    #SB : disable while disguised, you sneaked in not your prisoners
   [anyone|plyr,"ransom_broker_talk",
    [(store_num_regular_prisoners,reg0),(ge,reg0,1),(eq, "$sneaked_into_town",0)],
@@ -38199,7 +38199,6 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    [[change_screen_trade_prisoners]]],
 #  [anyone, "ransom_broker_sell_prisoners_2", [], "You take more prisoners, bring them to me. I will pay well.", "close_window",[]],
   [anyone, "ransom_broker_sell_prisoners_2", [], "I will be staying here for a few days. Let me know if you need my services.", "close_window",[]],
-
 
 #Tavern Talk (with travelers)
   [anyone, "start", [(is_between, "$g_talk_troop", tavern_travelers_begin, tavern_travelers_end),
@@ -40665,8 +40664,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
        (assign, "$merchant_offered_quest", -1),
      (try_end),
      ]],
-
-
+     
   [anyone,"mayor_begin", [(check_quest_active, "qst_persuade_lords_to_make_peace"),
                           (quest_slot_eq, "qst_persuade_lords_to_make_peace", slot_quest_giver_troop, "$g_talk_troop"),
                           (check_quest_succeeded, "qst_persuade_lords_to_make_peace"),
@@ -40993,6 +40991,60 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   #SB : store town name
   (str_store_party_name, s9, "$current_town"),
   ]],
+  
+### DAC Seek: Manhunter bounty collection
+  [anyone|plyr,"mayor_talk",
+   [(eq, "$class_type", cc_hunter_manhunter),(gt, "$dac_bandit_bounty", 0),(eq, "$sneaked_into_town",0)],
+   "[Manhunter] I am here to collect the bounty on the bandits I have slain.", "mayor_collect_bounty",[]],
+
+### DAC Seek Manhunter cont.
+  [anyone,"mayor_collect_bounty",
+  [
+  (assign, reg1, "$dac_bandit_bounty"),
+  (store_mul, ":bounty_value", "$dac_bandit_bounty", 10),
+  (assign, reg2, ":bounty_value"),  
+  ], 
+  "I see you collected {reg1} trophies, I believe the standard fare for the bounty to be 10 crowns per trophy which amounts to {reg2} crowns, deal?", "mayor_collect_bounty_negotiate",[
+  ]],
+
+  [anyone|plyr,"mayor_collect_bounty_negotiate",[
+  (store_skill_level, ":trade", skl_trade, "trp_player"),
+  (gt, ":trade", 0),
+  (assign, reg3, ":trade"),
+  (store_add, ":price_per_head", ":trade", 10),
+  (assign, reg4, ":price_per_head"),
+  (store_mul, ":bounty_value", ":price_per_head", "$dac_bandit_bounty"),
+  (assign, reg5, ":bounty_value"),
+  ], 
+  "[Trade: {reg3}] Those bandits were wrecking havoc on local trade, I believe {reg4} per head is more adequate.", "mayor_collect_bounty_settle",[
+    (assign, reg2, reg5),
+    ]],
+
+  [anyone|plyr,"mayor_collect_bounty_negotiate",[
+  (store_skill_level, ":persuasion", skl_persuasion, "trp_player"),
+  (gt, ":persuasion", 0),
+  (assign, reg3, ":persuasion"),
+  (store_add, ":price_per_head", ":persuasion", 10),
+  (assign, reg4, ":price_per_head"),
+  (store_mul, ":bounty_value", ":price_per_head", "$dac_bandit_bounty"),
+  (assign, reg5, ":bounty_value"),
+  ], 
+  "[Persuasion: {reg3}] Maybe you'd like to keep us around, I believe {reg4} per head is a better incentive.", "mayor_collect_bounty_settle",[
+    (assign, reg2, reg5), 
+    ]],
+
+  [anyone|plyr,"mayor_collect_bounty_negotiate",[
+  ], 
+  "That's a fair deal, I accept.", "mayor_collect_bounty_settle",[]],
+  [anyone|plyr,"mayor_collect_bounty_negotiate",[], "Maybe I'll collect the bounty later.", "close_window",[]],
+  
+  [anyone,"mayor_collect_bounty_settle",[
+  ], 
+  "Very well then, the {reg2} crowns are all yours.", "mayor_begin",[
+  (call_script, "script_troop_add_gold", "trp_player", reg2),
+  (assign, "$dac_bandit_bounty", 0),
+  ]],
+### DAC Seek End
 
   [anyone|plyr,"mayor_talk", [(store_partner_quest, ":partner_quest"),
                               (lt, ":partner_quest", 0),

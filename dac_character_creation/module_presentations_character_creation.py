@@ -824,7 +824,7 @@ character_creation_presentations = [
 ### Healer Background 
         (else_try),
             (eq, "$g_presentation_obj_1_val", 6),
-            (store_add, "$class_type", "$g_presentation_obj_2_val", cb_healer_surgeon),
+            (store_add, "$class_type", "$g_presentation_obj_2_val", cc_healer_surgeon),
             (assign, ":mesh", "mesh_pic_town1"),
             (assign, ":string_background", "str_dac_background_desc_healer"),
             (assign, ":animation", "anim_pose_5"),

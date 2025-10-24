@@ -5539,6 +5539,24 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("h_hood_asher_fancy_end", "h_hood_asher_fancy_end"), 
 ###################################################################################################### HYW CUSTOM ARMORS VERTEX COLORED
 
+## Vertex Coloured Kirtle
+("a_kirtle_simple_1", "a_kirtle_simple_1"),
+("a_kirtle_simple_2", "a_kirtle_simple_2"),
+("a_kirtle_simple_3", "a_kirtle_simple_3"),
+("a_kirtle_simple_4", "a_kirtle_simple_4"),
+("a_kirtle_simple_5", "a_kirtle_simple_5"),
+("a_kirtle_simple_6", "a_kirtle_simple_6"),
+("a_kirtle_simple_end", "a_kirtle_simple_end"),
+
+## Vertex Coloured Kirtle + Gown
+("a_kirtle_gown_1", "a_kirtle_gown_1"),
+("a_kirtle_gown_2", "a_kirtle_gown_2"),
+("a_kirtle_gown_3", "a_kirtle_gown_3"),
+("a_kirtle_gown_4", "a_kirtle_gown_4"),
+("a_kirtle_gown_5", "a_kirtle_gown_5"),
+("a_kirtle_gown_6", "a_kirtle_gown_6"),
+("a_kirtle_gown_end", "a_kirtle_gown_end"),
+
 ## Vertex Coloured Gambeson
 ("a_simple_gambeson_white_1", "a_simple_gambeson_white_1"),
 ("a_simple_gambeson_white_2", "a_simple_gambeson_white_2"),

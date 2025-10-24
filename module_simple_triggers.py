@@ -6898,11 +6898,13 @@ simple_triggers = [
   #Custom Troops Begin
   (0,
     [
-      (map_free),
-      (troop_get_inventory_slot, ":item", customizable_troops_end, 10),
-      (eq,":item","itm_velvet"),
-      (call_script, "script_reload_custom_troops"),
-      (troop_clear_inventory, customizable_troops_end),
+    (map_free),
+    (call_script, "script_dac_check_troop_has_item", "trp_custom_mercs_end", "itm_velvet"),
+    (assign, ":check_result", reg12),
+    (eq, ":check_result", 1),
+    (call_script, "script_reload_custom_troops"),
+    (display_message, "@Mercenary Troops Inventory Reloaded", color_good_news),
+    (troop_clear_inventory, "trp_custom_mercs_end"),
     ]
   ),
 #Custom Troops End

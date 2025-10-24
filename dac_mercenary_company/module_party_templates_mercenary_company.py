@@ -23,4 +23,9 @@ mercenary_company_party_templates = [
 ("mercenary_company_noble_cavalry", "Mercenary Company Noble Cavalry", 0, 0, fac_commoners, 0, 
 [(trp_custom_merc_squire,2,4),(trp_custom_merc_man_at_arms,1,3),(trp_custom_merc_knight,1,1)]),
 
+("mercenary_company_italian_infantry", "Mercenary Company Italian Infantry", 0, 0, fac_commoners, 0, 
+[(trp_italian_light_infantry,2,6),(trp_italian_infantry,2,4),(trp_italian_heavy_infantry,1,2)]),
+
+("mercenary_company_italian_ranged", "Mercenary Company Italian Ranged", 0, 0, fac_commoners, 0, 
+[(trp_genoese_light_crossbowman,2,6),(trp_genoese_crossbowman,2,4),(trp_genoese_heavy_crossbowman,1,3)]),
 ]

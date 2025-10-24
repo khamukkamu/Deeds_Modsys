@@ -132,6 +132,12 @@ character_creation_menus = [
        [
          (troop_set_type,"trp_player", 0),
          (assign,"$character_gender", tf_male),
+         
+        (str_store_troop_face_keys, s57, "trp_male_face_keys", 0),
+        (str_store_troop_face_keys, s58, "trp_male_face_keys", 1),
+        (troop_set_face_keys, "trp_player", s57, 0),
+        (troop_set_face_keys, "trp_player", s58, 1),
+        
          (try_begin),
             (eq, "$background_answer_2", 0), # DAC Kham: As Adventurer
             # (jump_to_menu,"mnu_dac_start_character_background"),
@@ -308,7 +314,12 @@ character_creation_menus = [
             (assign, "$class_type_feature_active", 0),
         (else_try),
             (assign, "$class_type_feature_active", 1),
-        (try_end),
+        (try_end),       
+        
+        # (try_begin),
+            # (eq, "$class_type", cc_mercenary_condottiero),
+            # (party_add_members, "p_main_party", "trp_custom_merc_recruit_equip", 1),
+        # (try_end),
            
           # (try_begin),
             # (eq, "$character_gender", tf_male),
@@ -426,7 +437,7 @@ character_creation_menus = [
 
 # DAC Seek: Added option to shorten lord titles
   ("dac_start_game_lord_name_option", mnf_disable_all_keys,
-    "Mod Option^^ In Deeds of Arms and Chivalry the lords and regents carry the titles they would have held in 1429 in their names. If the long titles are inconvenient for you, you have the option to shorten the names of lords and regents or only the lords, otherwise you can keep it as it is, long and uncut. This is a one time irreversible change. For example, John Fastolf Lieutenant-general of Normandy will simply be refered as John Fastolf if you select to shorten the titles.",
+    "Mod Option^^ In Deeds of Arms and Chivalry the lords and regents carry the titles they would have held in 1429 in their names. If the long titles are inconvenient for you, you have the option to shorten the names of lords and regents or only the lords, otherwise you can keep it as it is, long and uncut. This is a one time irreversible change. For example, John Fastolf Lieutenant-general of Normandy will simply be refered as John Fastolf if you select to remove the titles.",
     "none",
     [],
     [
@@ -434,7 +445,7 @@ character_creation_menus = [
         (change_screen_return),
       ]),
       
-      ("also_yes_kinda",[],"Shorten only the lord titles. (Keep the regent titles)", [
+      ("also_yes_kinda",[],"Remove only the lord titles. (Keep the regent titles)", [
       
         (try_for_range, ":troop_no", lords_begin, lords_end),
             (str_store_troop_name_plural, s7, ":troop_no"),
@@ -444,7 +455,7 @@ character_creation_menus = [
         (change_screen_return),
       ]),
       
-      ("yes",[],"Shorten all the titles.", [
+      ("yes",[],"Remove all the titles.", [
       
         (try_for_range, ":troop_no", kings_begin, lords_end),
             (str_store_troop_name_plural, s7, ":troop_no"),

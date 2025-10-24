@@ -170,10 +170,19 @@ mercenary_company_presentations = [
           (troop_set_plural_name, "$g_target_name_change", s8),
         (else_try),
           (eq, ":object_id", "$g_presentation_obj_name_kingdom_2"), # Continue
+### DAC Seek: Store the name as well
+          (store_add, ":bak_troop", 1, "$g_target_name_change"),
+          (troop_set_name, ":bak_troop", s7),
+          (troop_set_plural_name, ":bak_troop", s8),
+### DAC Seek End
           (troop_set_name, "$g_target_name_change", s7),
           (troop_set_plural_name, "$g_target_name_change", s8),
           # (display_message, "@Break 3 - {s8}", color_bad_news),
           # (display_message, "@Break 3 s0 - {s0}", color_bad_news),
+### DAC Seek, this was forgotten
+          (call_script, "script_copy_inventory", "$g_target_name_change", ":bak_troop"),
+          (troop_equip_items, "$g_target_name_change"),
+### DAC Seek End
           (presentation_set_duration, 0),
           (jump_to_menu, "mnu_dac_name_troops_2"),
           #(change_screen_map),

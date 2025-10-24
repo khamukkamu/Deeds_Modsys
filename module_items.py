@@ -2269,6 +2269,10 @@ items = [
 ["a_gambeson_asher_belt_custom", "Gambeson", [("mesh_none",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 
 512 , weight(5)|abundance(100)|head_armor(0)|body_armor(22)|leg_armor(10)|difficulty(0) ,imodbits_cloth , [custom_remodel("itm_a_gambeson_asher_belt_custom")]],
 
+["a_kirtle_simple_custom", "Kirtle", [("mesh_none",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs|itp_civilian ,0, 
+8 , weight(1)|abundance(100)|head_armor(0)|body_armor(6)|leg_armor(4)|difficulty(0) ,imodbits_cloth , [custom_remodel("itm_a_kirtle_simple_custom")]], 
+["a_kirtle_gown_custom", "Kirtle with Gown", [("mesh_none",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs|itp_civilian ,0, 
+14 , weight(1.5)|abundance(100)|head_armor(0)|body_armor(8)|leg_armor(4)|difficulty(0) ,imodbits_cloth , [custom_remodel("itm_a_kirtle_gown_custom")]], 
 
 ### Seek: Beware of the code loops!
 ["a_padded_over_mail_1_custom", "Padded Armour", [("a_padded_over_mail_1",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 
@@ -2418,6 +2422,7 @@ items = [
 
 ["a_plate_german_covered_fauld_custom", "German Plate with Covered Fauld", [("a_plate_german_covered_fauld",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0, 
 6724, weight(28)|abundance(100)|head_armor(0)|body_armor(58)|leg_armor(24)|difficulty(9), imodbits_plate  ,[custom_reskin("itm_a_plate_german_covered_fauld_custom"),add_mesh("@a_arm_harness_english_1415_b"),],], 
+
 # End of loop
 ["h_hood_custom", "Hood", [("mesh_none",0)],itp_merchandise|itp_type_head_armor|itp_civilian,0,9, weight(1)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0),imodbits_cloth,[custom_remodel("itm_h_hood_custom")]], 
 ["h_hood_fi_custom", "Hood", [("mesh_none",0)],itp_merchandise|itp_type_head_armor|itp_civilian,0,9, weight(1)|abundance(100)|head_armor(10)|body_armor(0)|leg_armor(0)|difficulty(0),imodbits_cloth,[custom_remodel("itm_h_hood_fi_custom")]], 

@@ -1111,9 +1111,9 @@ cc_mercenary_scottish             = 16
 cc_peasant_farmer                 = 17
 cc_peasant_revolutionary          = 18
 cc_peasant_smith                  = 19
-cb_healer_surgeon                 = 20
-cb_healer_priest                  = 21
-cb_healer_alchemist               = 22   
+cc_healer_surgeon                 = 20
+cc_healer_priest                  = 21
+cc_healer_alchemist               = 22   
 
 ### DAC Seek: Default values for player character attributes
 pc_attribute = 4
