@@ -44,6 +44,7 @@ mercenary_company_menus = [
     "none",
     [
     # (set_background_mesh, "mesh_pic_castle1"),
+    (eq, "$player_camp_built", 0), # Condottiero Starts with the camp already built
     ],
     [ 
     ("player_camp_start_quest",
@@ -591,6 +592,12 @@ mercenary_company_menus = [
     "Dismantle the Chapterhouse.",[
         (party_set_slot, "p_player_camp", slot_player_camp_chapterhouse, -1),
         (display_message, "@Chapterhouse Dismantled!", color_bad_news),
+    ]), 
+    ("player_camp_refresh_recruits",
+       [],
+    "Refresh the available recruits.",[
+    (call_script, "script_refresh_mercenary_camp_troops"),
+    (display_message, "@New Troops Available to Recruit!", color_good_news),
     ]), 
       ("return",[], "Return.", [(jump_to_menu,"mnu_player_camp_management")]),
 

@@ -29713,9 +29713,21 @@ Hand over my {reg19} crowns, if you please, and end our business together.", "lo
     (store_add,  ":week_past_last_offer_time", ":last_offer_time", 7 * 24),
     (val_add,  ":last_offer_time", 24),
     (ge, ":cur_hours", ":last_offer_time"),
-    (store_random_in_range, ":rand", 0, 100),
-    (this_or_next|lt, ":rand", 20),
-		(ge, ":cur_hours", ":week_past_last_offer_time"),
+    
+    # (store_random_in_range, ":rand", 0, 100),
+    # (this_or_next|lt, ":rand", 20),
+### DAC Seek, modified last two lines
+    (call_script, "script_rand", 0, 100),
+    (assign, ":rand", reg0),
+    
+    (try_begin),
+        (eq, "$background_type", cb_mercenary), ### DAC Seek, Mercenaries more likely to renew
+        (this_or_next|lt, ":rand", 50),
+        (ge, ":cur_hours", ":week_past_last_offer_time"),
+    (else_try),
+        (this_or_next|lt, ":rand", 20),
+        (ge, ":cur_hours", ":week_past_last_offer_time"),
+    (try_end),
 
 
 	##diplomacy start+
@@ -29744,7 +29756,14 @@ Hand over my {reg19} crowns, if you please, and end our business together.", "lo
 
   [anyone,"lord_propose_mercenary", [(call_script, "script_party_calculate_strength", "p_main_party", 0),
                                      (assign, ":offer_value", reg0),
-                                     (val_add, ":offer_value", 100),
+                                     ### DAC Seek, modified for mercenaries to earn more
+                                     (try_begin),
+                                        (eq, "$background_type", cb_mercenary),
+                                        (val_add, ":offer_value", 200),
+                                     (else_try),
+                                        (val_add, ":offer_value", 100),
+                                     (try_end),
+                                     ### DAC Seek End
                                      (call_script, "script_round_value", ":offer_value"),
                                      (assign, ":offer_value", reg0),
                                      (assign, "$temp", ":offer_value"),

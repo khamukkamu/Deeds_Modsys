@@ -3216,6 +3216,19 @@ simple_triggers = [
         (ge, ":number_of_foods_player_has", 6),
         (unlock_achievement, ACHIEVEMENT_ABUNDANT_FEAST),
       (try_end),
+### DAC Seek
+        (try_begin),
+            (eq, "$class_type", cc_mercenary_condottiero),
+            (try_begin),
+                (call_script, "script_cf_player_has_item_without_modifier", "itm_wine", imod_rotten),
+                (ge, ":number_of_foods_player_has", 4),
+                (display_message, "str_dac_mercs_happy", color_good_news),
+            (else_try),
+                (display_message, "str_dac_mercs_sad", color_bad_news),
+                (call_script, "script_change_player_party_morale", -3),
+            (try_end),
+        (try_end),
+### DAC Seek End
     (try_end),
 
     # #SB : pre-calculate consumption amount for qst_deliver_wine items, although as with deliver_grain we might not care
@@ -3248,7 +3261,7 @@ simple_triggers = [
       (else_try),
         (eq, ":no_food_displayed", 0),
         (display_message, "@Party has nothing to eat!", message_defeated), #SB : same colour const
-        (call_script, "script_change_player_party_morale", -3),
+        (call_script, "script_change_player_party_morale", -5), ### DAC Seek: Was 3
         (assign, ":no_food_displayed", 1),
 #NPC companion changes begin
         (try_begin),

@@ -316,10 +316,12 @@ character_creation_menus = [
             (assign, "$class_type_feature_active", 1),
         (try_end),       
         
-        # (try_begin),
-            # (eq, "$class_type", cc_mercenary_condottiero),
-            # (party_add_members, "p_main_party", "trp_custom_merc_recruit_equip", 1),
-        # (try_end),
+        (try_begin),
+            (eq, "$background_type", cb_mercenary),
+            (try_for_range, ":faction_no", kingdoms_begin, kingdoms_end),
+                (faction_set_slot, ":faction_no", slot_faction_last_mercenary_offer_time, 0),
+            (try_end),
+        (try_end),
            
           # (try_begin),
             # (eq, "$character_gender", tf_male),

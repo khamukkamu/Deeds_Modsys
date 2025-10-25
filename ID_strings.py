@@ -4328,3 +4328,5 @@ str_dac_chest_one_item = 4326
 str_dac_chest_many_items = 4327
 str_dac_tournament = 4328
 str_dac_successfully_foraged_s1 = 4329
+str_dac_mercs_happy = 4330
+str_dac_mercs_sad = 4331
