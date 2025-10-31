@@ -43,7 +43,6 @@ mercenary_company_simple_triggers = [
     (ge, ":cur_hours", ":cur_improvement_end_time"),
     
     (try_begin),  
-        (this_or_next|neq, ":cur_improvement", slot_player_camp_level),
         (neq, ":cur_improvement", slot_player_camp_level),
         (party_set_slot, "p_player_camp", ":cur_improvement", 1),
     (try_end),    
@@ -94,7 +93,8 @@ mercenary_company_simple_triggers = [
    [
     (troop_slot_ge, "trp_player", slot_troop_renown, 50),
     (quest_slot_eq, "qst_merc_company_tutorial", slot_quest_current_state, 0),
-    
+    (lt, "$player_camp_built", 1), # Condottiero Starts with the camp already built
+
     (assign, "$player_camp_available", 1),
     (jump_to_menu, "mnu_player_camp_notification"),
     

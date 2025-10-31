@@ -1207,6 +1207,10 @@ game_menus = [
         (eq, "$class_type", cc_soldier_sergeant),
         (assign, reg6, 70),
     (else_try),
+        (this_or_next|eq, "$class_type", cc_mercenary_condottiero),
+        (eq, "$class_type", cc_mercenary_flemish),
+        (assign, reg6, 35),
+    (else_try),
         (assign, reg6, 50),    
     (try_end),
 
@@ -4666,8 +4670,16 @@ TOTAL:  {reg5}"),
             (ge, ":random_no", 30),
             (party_add_prisoners, "$g_encountered_party", ":lost_troop", 1),
            (try_end),
-           (call_script, "script_change_player_party_morale", -20),
-           (call_script, "script_change_troop_renown", "trp_player", -7), #SB : renown change
+           ### DAC Seek
+           (try_begin),
+                (this_or_next|eq, "$class_type", cc_mercenary_condottiero),
+                (eq, "$class_type", cc_mercenary_flemish),
+                (call_script, "script_change_player_party_morale", -50),
+                (call_script, "script_change_troop_renown", "trp_player", -10),
+           (else_try),
+               (call_script, "script_change_player_party_morale", -20),
+               (call_script, "script_change_troop_renown", "trp_player", -7), #SB : renown change
+           (try_end),
            (try_begin), #SB: max skill owner uses tactics
              # (eq, reg3, 0),
              (call_script, "script_get_max_skill_of_player_party", "skl_tactics"),

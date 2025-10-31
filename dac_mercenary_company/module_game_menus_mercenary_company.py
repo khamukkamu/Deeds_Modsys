@@ -44,7 +44,6 @@ mercenary_company_menus = [
     "none",
     [
     # (set_background_mesh, "mesh_pic_castle1"),
-    (eq, "$player_camp_built", 0), # Condottiero Starts with the camp already built
     ],
     [ 
     ("player_camp_start_quest",
@@ -567,6 +566,7 @@ mercenary_company_menus = [
     "Build the Market.",[
         (party_set_slot, "p_player_camp", slot_player_camp_market, 1),
         (display_message, "@Market Built!", color_good_news),
+        (call_script, "script_refresh_mercenary_camp_merchant_inventory"),
     ]),  
     ("player_camp_dismantle_market",
        [

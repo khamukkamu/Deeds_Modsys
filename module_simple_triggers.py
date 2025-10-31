@@ -2393,10 +2393,21 @@ simple_triggers = [
 	     (try_begin),
 	       (eq, ":num_centers_owned", 0),
 	       (troop_get_slot, ":player_renown", "trp_player", slot_troop_renown),
-	       (ge, ":player_renown", 160),
-	       (ge, ":kingdom_relation", 0),
-	       (ge, ":lord_relation", 0),
-	       (ge, ":player_party_size", 45),
+           ### DAC Seek: Higher Requirements for mercenaries
+           (try_begin),
+               (this_or_next|eq, "$class_type", cc_mercenary_condottiero),
+               (eq, "$class_type", cc_mercenary_flemish),
+               (ge, ":player_renown", 220),
+               (ge, ":kingdom_relation", 5),
+               (ge, ":lord_relation", 5),
+               (ge, ":player_party_size", 50),
+           (else_try),
+               (ge, ":player_renown", 160),
+               (ge, ":kingdom_relation", 0),
+               (ge, ":lord_relation", 0),
+               (ge, ":player_party_size", 45),
+           (try_end),
+           ### DAC Seek End
 	       #(store_random_in_range, ":rand", 0, 100),
          (call_script, "script_rand", 0, 100), #DAC Kham: Replaced with Autolykos' Script
          (assign, ":rand", reg0),
@@ -3261,7 +3272,15 @@ simple_triggers = [
       (else_try),
         (eq, ":no_food_displayed", 0),
         (display_message, "@Party has nothing to eat!", message_defeated), #SB : same colour const
-        (call_script, "script_change_player_party_morale", -5), ### DAC Seek: Was 3
+        ### DAC Seek
+        (try_begin),
+            (this_or_next|eq, "$class_type", cc_mercenary_condottiero),
+            (eq, "$class_type", cc_mercenary_flemish),
+            (call_script, "script_change_player_party_morale", -10),
+        (else_try),
+            (call_script, "script_change_player_party_morale", -5), ### DAC Seek: Was 3
+        (try_end),
+        ### DAC Seek End
         (assign, ":no_food_displayed", 1),
 #NPC companion changes begin
         (try_begin),

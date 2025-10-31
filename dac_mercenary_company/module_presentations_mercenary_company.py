@@ -121,9 +121,9 @@ mercenary_company_presentations = [
 
         (troop_get_slot, reg22, "$g_target_name_change", slot_troop_tier_custom_troop),
         (str_store_string, s60, "@Troop Tier: {reg22}"),
-        (create_text_overlay, "$g_presentation_obj_1", s60, tf_center_justify), #SB : continue str
-        (position_set_x, pos1, 470),
-        (position_set_y, pos1, 105),
+        (create_text_overlay, "$g_presentation_obj_1", s60, tf_left_align), #SB : continue str
+        (position_set_x, pos1, 450),
+        (position_set_y, pos1, 500),
         (overlay_set_position, "$g_presentation_obj_1", pos1),
 
         (presentation_set_duration, 999999),
@@ -184,7 +184,7 @@ mercenary_company_presentations = [
           (troop_equip_items, "$g_target_name_change"),
 ### DAC Seek End
           (presentation_set_duration, 0),
-          (jump_to_menu, "mnu_dac_name_troops_2"),
+          # (jump_to_menu, "mnu_dac_name_troops_2"),
           #(change_screen_map),
         #(else_try),
         #  (eq, ":object_id", "$g_presentation_obj_1"),

@@ -24,3 +24,8 @@ Chicken Stew -> Chicken + Cabbage
 Cormarye -> Pork + Spices + Wine
 Brodettum -> Pork + Cheese
 Beef Y-Stywyd -> Beef + Spices
+
+
+
+Lords and Ladies in the Hall:
+https://forums.taleworlds.com/index.php?threads/python-script-scheme-exchange.8652/page-37#post-9119621
