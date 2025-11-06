@@ -24,8 +24,9 @@ mercenary_company_menus = [
 ( "dac_name_troops_2",0,
     "This menu automatically returns to caller.",
     "none",
-    [#(call_script, "script_setup_troop_meeting", "trp_merc_company_quartermaster", -1)
-      # (change_screen_return),
+    [
+        # (call_script, "script_setup_troop_meeting", "trp_merc_company_quartermaster", -1)
+        # (change_screen_return),
       (jump_to_menu, "mnu_player_camp_encounter"),
     ],[]
  ),
@@ -664,16 +665,18 @@ mercenary_company_menus = [
     
     ],
     [ 
-    ("Relocate",[
+    ("relocate_cheat",[
+        (ge, "$cheat_mode"),],
+    "[Cheat] Relocate the {s11} instantly.", [
+        (party_relocate_near_party, "p_player_camp", "p_main_party"),
+        (enable_party, "p_player_camp"),
+        (change_screen_return),
+    ]),
+    ("relocate",[
         (store_troop_gold, ":cur_gold", "trp_player"),
         (ge, ":cur_gold", "$diplomacy_var")],
     "Relocate the {s11}.", [
-        (try_begin), #fast build
-            (ge, "$cheat_mode", 1),
-            (assign, "$diplomacy_var2", 0),
-        (else_try),
-            (troop_remove_gold, "trp_player", "$diplomacy_var"),
-        (try_end),
+        (troop_remove_gold, "trp_player", "$diplomacy_var"),
         (call_script, "script_improve_player_camp", "p_player_camp", "$diplomacy_var2"),
     
         (party_relocate_near_party, "p_player_camp", "p_main_party"),

@@ -184,8 +184,17 @@ mercenary_company_presentations = [
           (troop_equip_items, "$g_target_name_change"),
 ### DAC Seek End
           (presentation_set_duration, 0),
-          # (jump_to_menu, "mnu_dac_name_troops_2"),
-          #(change_screen_map),
+### DAC Seek
+          # (modify_visitors_at_site,"scn_meeting_scene_plain"),
+          # (reset_visitors),    
+          # (assign, "$g_mt_mode", tcm_default),   		
+          # (set_jump_entry, 0),
+          # (set_visitor, 17, "trp_merc_company_quartermaster"),
+          # (jump_to_scene,"scn_meeting_scene_plain"),
+          # (change_screen_map_conversation, "trp_merc_company_quartermaster"),
+### DAC Seek End
+          (jump_to_menu, "mnu_dac_name_troops_2"),
+          # (change_screen_map),
         #(else_try),
         #  (eq, ":object_id", "$g_presentation_obj_1"),
         #  (start_presentation, "prsnt_dac_ct_buy_weapons_for_armoury"),

@@ -4781,3 +4781,9 @@ upgrade(troops,"custom_merc_skirmisher","custom_merc_ranger")
 upgrade(troops,"custom_merc_ranger","custom_merc_marksman")
 
 upgrade(troops,"custom_merc_scout","custom_merc_mounted_sergeant")
+
+upgrade(troops,"custom_merc_foot_squire","custom_merc_footman_at_arms")
+upgrade(troops,"custom_merc_footman_at_arms","custom_merc_dismounted_knight")
+
+upgrade(troops,"custom_merc_squire","custom_merc_man_at_arms")
+upgrade(troops,"custom_merc_man_at_arms","custom_merc_knight")
