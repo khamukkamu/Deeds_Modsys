@@ -25,9 +25,9 @@ mercenary_company_menus = [
     "This menu automatically returns to caller.",
     "none",
     [
-        # (call_script, "script_setup_troop_meeting", "trp_merc_company_quartermaster", -1)
+        (call_script, "script_setup_troop_meeting", "trp_merc_company_quartermaster", -1)
         # (change_screen_return),
-      (jump_to_menu, "mnu_player_camp_encounter"),
+      # (jump_to_menu, "mnu_player_camp_encounter"),
     ],[]
  ),
 

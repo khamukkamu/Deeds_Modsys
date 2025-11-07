@@ -45807,7 +45807,11 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 
 # DAC Seek: End Dialog
   [anyone|plyr,"camp_quartermaster_start", [], "Nothing today. Carry on.", "camp_quartermaster_back",[]],
-  [anyone,"camp_quartermaster_back", [], "Very well.", "close_window",[(change_screen_map)]],
+  [anyone,"camp_quartermaster_back", [], "Very well.", "close_window",
+  [
+  # (change_screen_map),
+  (jump_to_menu, "mnu_player_camp_encounter"),
+  ]],
 
 # DAC Kham: Custom Troops - Merc Camp Quartermaster END
 
