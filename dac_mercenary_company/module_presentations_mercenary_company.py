@@ -121,7 +121,7 @@ mercenary_company_presentations = [
 
         (troop_get_slot, reg22, "$g_target_name_change", slot_troop_tier_custom_troop),
         (str_store_string, s60, "@Troop Tier: {reg22}"),
-        (create_text_overlay, "$g_presentation_obj_1", s60, tf_left_align), #SB : continue str
+        (create_text_overlay, "$g_presentation_obj_1", s60, tf_left_align),
         (position_set_x, pos1, 450),
         (position_set_y, pos1, 500),
         (overlay_set_position, "$g_presentation_obj_1", pos1),
@@ -184,15 +184,6 @@ mercenary_company_presentations = [
           (troop_equip_items, "$g_target_name_change"),
 ### DAC Seek End
           (presentation_set_duration, 0),
-### DAC Seek
-          # (modify_visitors_at_site,"scn_meeting_scene_plain"),
-          # (reset_visitors),    
-          # (assign, "$g_mt_mode", tcm_default),   		
-          # (set_jump_entry, 0),
-          # (set_visitor, 17, "trp_merc_company_quartermaster"),
-          # (jump_to_scene,"scn_meeting_scene_plain"),
-          # (change_screen_map_conversation, "trp_merc_company_quartermaster"),
-### DAC Seek End
           (jump_to_menu, "mnu_dac_name_troops_2"),
           # (change_screen_map),
         #(else_try),
@@ -342,8 +333,20 @@ mercenary_company_presentations = [
         (str_store_string, s1, "@Armoury"),
         (create_text_overlay, "$g_presentation_obj_name_kingdom_1", s1, tf_center_justify),
         (position_set_x, pos1, 450),
-        (position_set_y, pos1, 620),
+        (position_set_y, pos1, 650),
         (overlay_set_position, "$g_presentation_obj_name_kingdom_1", pos1),
+        (position_set_x, pos1, 1250),
+        (position_set_y, pos1, 1250),
+        (overlay_set_size, "$g_presentation_obj_name_kingdom_1", pos1),
+        
+        (str_store_troop_name, s8, "$g_target_name_change"),
+        (troop_get_slot, reg4, "$g_target_name_change", slot_troop_tier_custom_troop),
+        (str_store_string, s9, "@Troop Name: {s8}^Troop Tier: {reg4}"),        
+        (create_text_overlay, reg5, s9, tf_left_align),
+        (position_set_x, pos1, 85),
+        (position_set_y, pos1, 600),
+        (overlay_set_position, reg5, pos1),
+        
       
         #DAC Kham: Set up Inventories.
         (store_add, "$g_target_armoury", "$g_target_name_change", 2),
@@ -353,7 +356,8 @@ mercenary_company_presentations = [
         (try_begin),
           (eq, "$g_presentation_state", 1),
           (is_between, "$g_item_to_scrap", "itm_heraldic_mail_with_surcoat_for_tableau", "itm_items_end"), 
-          (str_store_string, s2, "@Selling this item for scrap^will cost {reg75} crowns"),
+          (str_store_item_name, s7, "$g_item_to_scrap"),
+          (str_store_string, s2, "@Selected: {s7}^Selling this item for scrap^will recoup {reg75} crowns"),
           (create_text_overlay, "$g_multiplayer_poll_to_show", s2, tf_center_justify),
           (position_set_x, pos1, 770),
           (position_set_y, pos1, 500),
@@ -403,23 +407,24 @@ mercenary_company_presentations = [
           (eq, ":object_id", "$g_presentation_obj_name_kingdom_2"), # Continue
           (assign, "$g_presentation_state", 0),
           (presentation_set_duration, 0),
-          (jump_to_menu, "mnu_dac_name_troops_2"),
+          (jump_to_menu, "mnu_dac_name_troops_3"),
         (else_try),
           (eq, ":object_id", "$g_presentation_obj_name_kingdom_1"), # Quartermaster
           (assign, "$g_presentation_state", 0),
           (start_presentation, "prsnt_dac_ct_buy_items_for_armoury"),
         (else_try),
-          (call_script, "script_custom_troop_detail_select_item_for_scrap",":object_id"),
-        (else_try),
           (eq, "$g_presentation_state", 1),
           (eq, ":object_id", "$g_presentation_obj_1"),
+          (troop_remove_item,"$g_target_name_change", "$g_item_to_scrap"),
           (troop_remove_item,"$g_target_armoury", "$g_item_to_scrap"),
+          (set_show_messages, 0),
           (troop_add_gold, "trp_player", reg75),
-          (str_store_item_name, s7, "$g_item_to_scrap"),
-          (display_message, "@{s7} scrapped for {reg75} crowns", color_good_news),
+          (set_show_messages, 1),
+          (display_message, "@Scrapped {s7} from {s8}^{reg75} crowns recouped", color_good_news),
           (assign, "$g_presentation_state", 0),
           (start_presentation, "prsnt_dac_ct_view_armoury"),
-
+        (else_try),
+          (call_script, "script_custom_troop_detail_select_item_for_scrap",":object_id"),
         (try_end),
     ]),
 
@@ -431,30 +436,46 @@ mercenary_company_presentations = [
       (ti_on_presentation_load,
        [(set_fixed_point_multiplier, 1000),
         (assign, "$g_target_armoury", 0),
+        (assign, reg85, 0),
 
         (str_store_string, s1, "@Smith"),
         (create_text_overlay, "$g_presentation_obj_name_kingdom_1", s1, tf_center_justify),
         (position_set_x, pos1, 450),
-        (position_set_y, pos1, 620),
+        (position_set_y, pos1, 650),
         (overlay_set_position, "$g_presentation_obj_name_kingdom_1", pos1),
-      
+        (position_set_x, pos1, 1250),
+        (position_set_y, pos1, 1250),
+        (overlay_set_size, "$g_presentation_obj_name_kingdom_1", pos1),
+        
         #DAC Kham: Set up Inventories.
         (store_add, "$g_target_armoury", "$g_target_name_change", 2),
         (call_script, "script_custom_troop_detail_inventory_armoury", "trp_player"),
+        
+### DAC Seek:
+        (str_store_troop_name, s8, "$g_target_name_change"),
+        (troop_get_slot, reg4, "$g_target_name_change", slot_troop_tier_custom_troop),
+        (str_store_string, s9, "@Troop Name: {s8}^Troop Tier: {reg4}"),        
+        (create_text_overlay, reg5, s9, tf_left_align),
+        (position_set_x, pos1, 85),
+        (position_set_y, pos1, 600),
+        (overlay_set_position, reg5, pos1),
         
 
         (try_begin),
           (eq, "$g_presentation_state", 1),
           (is_between, "$g_item_to_scrap", "itm_heraldic_mail_with_surcoat_for_tableau", "itm_items_end"), 
-          (store_mul, ":base_price", reg75, 20), 
+          (call_script, "script_cf_custom_troop_has_access_to_item","$g_target_name_change", "$g_item_to_scrap"), ### DAC Seek
+          (store_mul, ":base_price", reg75, 5), 
           (assign, reg80, ":base_price"),
           (store_skill_level, ":trade_skill", skl_trade, "trp_player"),
           (try_begin),
             (ge, ":trade_skill", 1),
-            (store_sub, ":multiplier", 20, ":trade_skill"),
-            (store_mul, ":discounted_price", reg75, ":multiplier"),
+            (store_mul, ":trade_bonus", 5, ":trade_skill"),
+            (store_sub, ":trade_factor", 100, ":trade_bonus"),
+            (store_mul, ":discounted_price", ":base_price", ":trade_factor"),
+            (val_div, ":discounted_price", 100),
             (assign, reg81, ":discounted_price"),
-            (str_store_string, s3, "@,^however made good contacts^with some tradesmen^and will actually cost you {reg81} crowns"),
+            (str_store_string, s3, "@,^however we made good deals^with some tradesmen^and it will actually cost you {reg81} crowns"),
           (else_try),
             (str_store_string,s3, "@."),
           (try_end),
@@ -498,7 +519,7 @@ mercenary_company_presentations = [
           (create_button_overlay, "$g_presentation_obj_2", s5, tf_center_justify), #SB : continue str
           (position_set_x, pos1, 770),
           (position_set_y, pos1, 330),
-          (overlay_set_position, "$g_presentation_obj_2", pos1),
+          (overlay_set_position, "$g_presentation_obj_2", pos1), 
         (try_end),
 
         (create_button_overlay, "$g_presentation_obj_name_kingdom_2", "str_continue_dot", tf_center_justify), #SB : continue str
@@ -526,7 +547,7 @@ mercenary_company_presentations = [
         (eq, ":object_id", "$g_presentation_obj_name_kingdom_2"), # Continue
         (assign, "$g_presentation_state", 0),
         (presentation_set_duration, 0),
-        (jump_to_menu, "mnu_dac_name_troops_2"),
+        (jump_to_menu, "mnu_dac_name_troops_3"),
 
       ]),
 
@@ -538,7 +559,7 @@ mercenary_company_presentations = [
           (eq, ":object_id", "$g_presentation_obj_name_kingdom_2"), # Continue
           (assign, "$g_presentation_state", 0),
           (presentation_set_duration, 0),
-          (jump_to_menu, "mnu_dac_name_troops_2"),
+          (jump_to_menu, "mnu_dac_name_troops_3"),
         (else_try),
           (eq, ":object_id", "$g_presentation_obj_name_kingdom_1"), # Quartermaster
           (assign, "$g_presentation_state", 0),
@@ -561,6 +582,10 @@ mercenary_company_presentations = [
             (store_add, ":days_til_completed", ":cur_day", reg85),
             (troop_set_slot, "trp_merc_company_smith", slot_camp_smith_days_til_finished, ":days_til_completed"),
             (troop_set_slot, "trp_merc_company_smith", slot_camp_smith_creating_item, "$g_item_to_scrap"),
+            (assign, "$g_target_new_item", "$g_target_armoury"),
+            (assign, "$g_presentation_state", 0),
+            (presentation_set_duration, 0),
+            (jump_to_menu, "mnu_dac_name_troops_3"),
           (else_try),
             (ge, ":gold", reg80),
             (troop_remove_gold, "trp_player", reg80),
@@ -569,9 +594,10 @@ mercenary_company_presentations = [
             (store_add, ":days_til_completed", ":cur_day", reg85),
             (troop_set_slot, "trp_merc_company_smith", slot_camp_smith_days_til_finished, ":days_til_completed"),
             (troop_set_slot, "trp_merc_company_smith", slot_camp_smith_creating_item, "$g_item_to_scrap"),
+            (assign, "$g_target_new_item", "$g_target_armoury"),
             (assign, "$g_presentation_state", 0),
             (presentation_set_duration, 0),
-            (jump_to_menu, "mnu_dac_name_troops_2"),
+            (jump_to_menu, "mnu_dac_name_troops_3"),
           (else_try),
             (display_message, "@Not Enough Crowns", color_bad_news),
           (try_end),

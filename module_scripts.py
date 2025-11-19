@@ -16104,6 +16104,21 @@ scripts = [
           (set_result_string, "@Deliver {reg5} units to {s5}"),
           (set_trigger_result, message_alert),
         (try_end),
+### DAC Seek: Display item tiers
+      (else_try),
+        (try_begin),
+            (this_or_next|is_presentation_active, "prsnt_dac_ct_view_armoury"),
+            (this_or_next|is_presentation_active, "prsnt_name_troop"),
+            (is_presentation_active, "prsnt_dac_ct_buy_items_for_armoury"),
+            (try_for_range, ":slot", slot_item_tiers_begin, slot_item_tiers_end),
+                (item_get_slot, ":item_tier", ":item_no", ":slot"),
+                (neq, ":item_tier", -1), #If -1, that means this is not the item we are looking for.
+                (assign, reg3, ":item_tier"),
+                (str_store_string, s1, "@Item tier: {reg3}"),
+                (eq, ":extra_text_id", 4),
+                (set_result_string, "@{s1}"),
+                (set_trigger_result, color_good_news),
+            (try_end),        
 ### DaC Autolykos Alternate Weapon Modes
 	(else_try),
 		(item_get_slot, ":alt_item", ":item_no", slot_item_weapon_switch_to),
@@ -16287,21 +16302,6 @@ scripts = [
           (set_trigger_result, color_good_news),
         (try_end),
         
-### DAC Seek: Display item tiers
-      (else_try),
-        (try_begin),
-            (this_or_next|is_presentation_active, "prsnt_dac_ct_view_armoury"),
-            (this_or_next|is_presentation_active, "prsnt_name_troop"),
-            (is_presentation_active, "prsnt_dac_ct_buy_items_for_armoury"),
-            (try_for_range, ":slot", slot_item_tiers_begin, slot_item_tiers_end),
-                (item_get_slot, ":item_tier", ":item_no", ":slot"),
-                (neq, ":item_tier", -1), #If -1, that means this is not the item we are looking for.
-                (assign, reg3, ":item_tier"),
-                (str_store_string, s1, "@Item tier: {reg3}"),
-                (eq, ":extra_text_id", 4),
-                (set_result_string, "@{s1}"),
-                (set_trigger_result, color_good_news),
-            (try_end),
             # (try_begin),
                 # (item_slot_ge, ":item_no", slot_item_helmet_tier, 1),
                 # (item_get_slot, ":helmet_tier", ":item_no", slot_item_helmet_tier),

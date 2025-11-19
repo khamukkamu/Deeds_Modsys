@@ -13,6 +13,7 @@ from module_constants import *
 from compiler import *
 
 mercenary_company_menus = [
+ 
 # DAC Custom Troops - Renaming Automenu
 
 ( "dac_name_troops",0,
@@ -26,6 +27,16 @@ mercenary_company_menus = [
     "none",
     [
         (call_script, "script_setup_troop_meeting", "trp_merc_company_quartermaster", -1)
+        # (change_screen_return),
+      # (jump_to_menu, "mnu_player_camp_encounter"),
+    ],[]
+ ),
+ 
+( "dac_name_troops_3",0,
+    "This menu automatically returns to caller.",
+    "none",
+    [
+        (call_script, "script_setup_troop_meeting", "trp_merc_company_smith", -1)
         # (change_screen_return),
       # (jump_to_menu, "mnu_player_camp_encounter"),
     ],[]
@@ -262,7 +273,7 @@ mercenary_company_menus = [
 ## DAC Seek: Player Camp Management
   (
     "player_camp_management",0,
-    "Management Options ^{s19}^{reg6?^^You are currently building {s7}. The building will be completed after {reg8} day{reg9?s:}.:}",
+    "Management Options ^^{s19}^{reg6?^^You are currently building {s7}. The building will be completed after {reg8} day{reg9?s:}.:}",
     "none",
     [
     (str_clear, s11),
@@ -322,6 +333,10 @@ mercenary_company_menus = [
     (assign, reg10, ":player_camp_level"),    
     ],
     [    
+    ("camp_build_cheats",[(ge, "$cheat_mode", 1),],
+      "CHEAT MENU",[
+        (jump_to_menu, "mnu_player_camp_cheats"),
+        ]),
     ("player_camp_change_name",[],"Change the name of your company.",
        [
        # (assign, "$g_presentation_state", rename_companion),
@@ -392,10 +407,6 @@ mercenary_company_menus = [
       "Cancel building the {s7}.",[
         (party_set_slot, "p_player_camp", slot_center_current_improvement, 0),
         (jump_to_menu, "mnu_player_camp_management"),
-        ]),
-    ("camp_build_cheats",[(ge, "$cheat_mode", 1),],
-      "Cheat Menu.",[
-        (jump_to_menu, "mnu_player_camp_cheats"),
         ]),
       ("return",[],"Return.",[(jump_to_menu, "mnu_player_camp_encounter"),]),
     ]

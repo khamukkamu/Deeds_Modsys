@@ -23,7 +23,7 @@ from compiler import *
 #  9) [Optional] Triggers: List of simple triggers to be associated with the item.
 #  10) [Optional] Factions: List of factions that item can be found as merchandise.
 ####################################################################################################################
-
+  
 def heraldic(item_tableau):
   return (ti_on_init_item, [
   (store_trigger_param_1, ":agent_no"),

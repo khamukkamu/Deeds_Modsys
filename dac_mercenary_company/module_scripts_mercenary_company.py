@@ -525,6 +525,8 @@ mercenary_company_scripts = [
         (try_end),
       (try_end),
       
+      # (display_message, "@Script remove item called!", color_good_news),
+      
       (try_begin),
         (is_presentation_active, "prsnt_name_troop"),
         (start_presentation, "prsnt_name_troop"),
@@ -619,10 +621,10 @@ mercenary_company_scripts = [
       (store_sub, ":num_items", ":num_slots", ":num_free_slots"),
       #(val_sub, ":num_items", 10),
       
-      (store_div, ":y_max", ":num_items", 3),
+      (store_div, ":y_max", ":num_items", 4),
       
       (assign, ":box_incr", 115),
-      (val_max, ":y_max", 3),
+      (val_max, ":y_max", 1),
       (val_mul, ":y_max", ":box_incr"),
       
       (assign, ":x_item", 60),
@@ -729,16 +731,16 @@ mercenary_company_scripts = [
       
       (try_begin),
         (is_presentation_active, "prsnt_dac_ct_view_armoury"),
-        (str_store_string, s57, "@This is your Company's Armoury. All your Company Troops have access^however, some may not have the stats to use them^Left+Click to sell item for scrap."),
+        (str_store_string, s57, "@The Armoury contains all the items the current troop has access to^Left Click to select and view details"),
       (else_try),
-        (str_store_string, s57, "@You can only reproduce what you present to your Quartermaster.^Left+Click to buy an item for the armoury."),
+        (str_store_string, s57, "@This is your personal inventory^You can only reproduce items that are the same tier or lower than the troop.^Left Click to select an item for the armoury."),
       (try_end),
       # Text about troop inventory
       (try_begin),
         (create_text_overlay, reg1,
           s57,
         tf_left_align),
-        (position_set_x, pos1, 85),(position_set_y, pos1, 145),
+        (position_set_x, pos1, 85),(position_set_y, pos1, 140),
         (overlay_set_position, reg1, pos1),
         (position_set_x, pos1, font_small),(position_set_y, pos1, font_small),
         (overlay_set_size, reg1, pos1),

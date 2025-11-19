@@ -45826,7 +45826,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 
 
 # DAC Seek: Custom Troops - Merc Camp Smith
-  [anyone,"start", [(eq,"$g_talk_troop","trp_merc_company_smith"), (str_store_string, s33, "@Good day, Commander. What would you like to do today?^ (This is a test for Custom Troops, for the planned 'Mercenary Company' feature).")], "{s33}", "camp_smith_start",[(assign, "$g_presentation_state", -1)]],
+  [anyone,"start", [(eq,"$g_talk_troop","trp_merc_company_smith"), (str_store_string, s33, "@Good day, Commander. What would you like to do today?")], "{s33}", "camp_smith_start",[(assign, "$g_presentation_state", -1)]],
 
   [anyone|plyr,"camp_smith_start", 
     [
@@ -45840,16 +45840,36 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
       (try_end),
       (eq, ":continue", 1),
     ], 
-      "I'd like to see what is in our armoury.", "camp_smith_armoury",
+      "I'd like to have a look at the armoury.", "camp_smith_equip_ask",
+    [(assign, "$g_target_custom_troop", -1)]],
+
+  [anyone,"camp_smith_equip_ask", 
+    [], 
+      "Which rank of troop do you want to look at?", "camp_smith_armoury_troop",
+    []],
+    
+  [anyone|plyr|repeat_for_troops,"camp_smith_armoury_troop", 
+    [
+      (store_repeat_object, ":troop_no"),
+      (is_between, ":troop_no", customizable_troops_begin, customizable_troops_end),
+      (neg|troop_is_hero, ":troop_no"),
+      (main_party_has_troop, ":troop_no"),
+      (str_store_troop_name, s66, ":troop_no"),
+    ], 
+      "{s66}", "camp_smith_armoury",
+    [(store_repeat_object, "$g_target_name_change")]],
+    
+  [anyone|plyr,"camp_smith_armoury_troop", 
+    [], 
+      "Nevermind", "camp_smith_start",
     []],
 
   [anyone,"camp_smith_armoury", 
     [
     (troop_slot_eq, "trp_merc_company_smith", slot_camp_smith_creating_item, -1),
     ], 
-      "Go on, take a look. We can also reproduce any item you give us. Remember, we have to make as much as we can to equip all current and future company troops.", "close_window",
+      "This is all this unit has available in the armoury, you can commission new equipment for it but don't forget to talk with the quartermaster to outfit them.", "close_window",
     [
-        (assign, "$g_target_name_change", "trp_custom_merc_recruit"),
          (assign, "$g_presentation_state", 0),
          (assign, "$g_item_to_scrap", 0),
          (jump_to_menu, "mnu_dac_view_armoury"),
@@ -45874,7 +45894,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
     []],
     
   [anyone|plyr,"camp_smith_start", [], "Nothing today. Carry on.", "camp_smith_back",[]],
-  [anyone,"camp_smith_back", [], "Very well.", "close_window",[(change_screen_map)]],    
+  [anyone,"camp_smith_back", [], "Very well.", "close_window",[(jump_to_menu, "mnu_player_camp_encounter"),]],    
   
 # DAC Seek: Camp Merchant Dialog
   [anyone, "start", [(eq, "$g_talk_troop", "trp_merc_company_merchant"),
