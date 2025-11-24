@@ -310,6 +310,8 @@ character_creation_menus = [
         (set_show_messages, 0),
         
         (try_begin),
+            (this_or_next|eq, "$class_type", cc_peasant_farmer),
+            (this_or_next|eq, "$class_type", cc_peasant_smith),
             (eq, "$class_type", cc_soldier_sergeant),
             (assign, "$class_type_feature_active", 0),
         (else_try),
@@ -317,10 +319,25 @@ character_creation_menus = [
         (try_end),       
         
         (try_begin),
+            (this_or_next|eq, "$class_type", cc_peasant_farmer),
+            (eq, "$class_type", cc_peasant_smith),
+            (troop_set_slot, "trp_player", slot_troop_player_workday_rest, -1),
+            (troop_set_slot, "trp_player", slot_troop_player_workday_hours, -1),
+            (troop_set_slot, "trp_player", slot_troop_player_workday_payment, -1),
+            (troop_set_slot, "trp_player", slot_troop_player_workday_total, -1),
+        (try_end),
+        
+        (try_begin),
             (eq, "$background_type", cb_mercenary),
             (try_for_range, ":faction_no", kingdoms_begin, kingdoms_end),
                 (faction_set_slot, ":faction_no", slot_faction_last_mercenary_offer_time, 0),
             (try_end),
+        (try_end),
+        
+        (try_begin),
+            (eq, "$class_type", cc_mercenary_scottish),
+            (call_script, "script_change_player_relation_with_faction", "fac_kingdom_1", 40),
+            (call_script, "script_change_player_relation_with_faction", "fac_kingdom_2", -40),
         (try_end),
            
           # (try_begin),
@@ -590,4 +607,120 @@ character_creation_menus = [
     ]
   ),
 
+### DAC Seek: Work in towns or villages
+  (
+    "dac_work_town_village",mnf_disable_all_keys,
+    "As a {s1} you can expect to find work {s2}.^With your current attributes required by the job [{s3}: {reg1}] you would earn {reg3} per hour. ^\
+    {s4}",
+    "none",
+    [
+    (try_begin),
+        (eq, "$class_type", cc_peasant_farmer),
+        (str_store_string, s1, "str_dac_background_class_farmer"),
+        (str_store_string, s2, "@in the fields"),
+        (str_store_string, s3, "@STRENGHT"),
+        (store_attribute_level, ":attribute", "trp_player", ca_strength),
+    (else_try),
+        (eq, "$class_type", cc_peasant_smith),
+        (str_store_string, s1, "str_dac_background_class_smith"),
+        (str_store_string, s2, "@at the smithy"),
+        (str_store_string, s3, "@AGILITY"),
+        (store_attribute_level, ":attribute", "trp_player", ca_agility),
+    (else_try),
+        (str_store_string, s1, "@work hand"),
+        (str_store_string, s2, "@performing various tasks"),    
+        (str_store_string, s3, "@STRENGHT"),
+        (store_attribute_level, ":attribute", "trp_player", ca_strength),
+    (try_end),
+    
+    (assign, reg1, ":attribute"),
+    (store_attribute_level, ":charisma", "trp_player", ca_charisma),
+    (assign, reg2, ":charisma"),
+    
+    (store_mul, ":payment", ":attribute", 3),
+    (val_div, ":payment", 4),
+    (assign, reg3, ":payment"),
+    (troop_set_slot, "trp_player", slot_troop_player_workday_payment, ":payment"),
+    
+    (store_skill_level, ":persuasion", skl_persuasion, "trp_player"),
+    (store_skill_level, ":trade", skl_trade, "trp_player"),
+    
+    (try_begin),
+        (this_or_next|gt, ":persuasion", 0),
+        (gt, ":trade", 0),
+        
+        (try_begin),
+            (ge, ":persuasion", ":trade"),
+            (str_store_string, s5, "@PERSUASION"),
+            (assign, reg4, ":persuasion"),
+            (store_add, ":skill", ":persuasion", 1),
+        (else_try),
+            (str_store_string, s5, "@TRADE"), 
+            (assign, reg4, ":trade"),
+            (store_add, ":skill", ":trade", 1),
+        (try_end),
+        
+        (store_mul, ":new_payment", ":skill", 3),
+        (val_div, ":new_payment", 2),
+        (store_add, ":new_payment", ":payment", ":new_payment"),
+        (assign, reg5, ":new_payment"),
+        (str_store_string, s4, "@which you negotiate to {reg5} crowns thanks to your [CHARISMA: {reg2}] and [{s5}: {reg4}] skills."),
+        (troop_set_slot, "trp_player", slot_troop_player_workday_payment, ":new_payment"),
+    (try_end),
+    
+    
+     ],
+    [
+      ("start_working_full", [], "Start a full day of work (10 Hours).",
+       [
+        (assign, "$class_type_feature_active", 1),
+        (troop_set_slot, "trp_player", slot_troop_player_workday_hours, 10),
+        (troop_set_slot, "trp_player", slot_troop_player_workday_total, 10),
+        (rest_for_hours, 1000, 5, 0), #rest while not attackable
+        (assign,"$auto_enter_town","$current_town"),
+        (assign, "$g_town_visit_after_rest", 1),
+        (change_screen_return),
+        ]),
+      ("start_working_half", [], "Start a half day of work (5 Hours).",
+       [
+        (assign, "$class_type_feature_active", 1),
+        (troop_set_slot, "trp_player", slot_troop_player_workday_hours, 5),
+        (troop_set_slot, "trp_player", slot_troop_player_workday_total, 5),
+        (rest_for_hours, 1000, 5, 0), #rest while not attackable
+        (assign,"$auto_enter_town","$current_town"),
+        (assign, "$g_town_visit_after_rest", 1),
+        (change_screen_return),
+        ]),
+      ("work_later", [], "Put it off until later.",
+       [(try_begin),
+          (party_slot_eq, "$current_town", slot_party_type, spt_town),
+          (jump_to_menu, "mnu_town"),
+        (else_try),
+          (jump_to_menu, "mnu_village"),
+        (try_end),
+        ]),
+    ]
+  ),
+  
+  
+  (
+    "dac_work_town_village_complete",mnf_disable_all_keys,
+    "You've made {reg3} crowns from you work day. ^You will need proper rest for a few hours before you can work again, either at your camp, or somewhere indoors.",
+    ##diplomacy end+
+    "none",
+    [
+        (troop_get_slot, ":payment", "trp_player", slot_troop_player_workday_payment),
+        (troop_get_slot, ":work_hours", "trp_player", slot_troop_player_workday_total),
+        (store_mul, reg3, ":work_hours", ":payment"),
+        
+        (store_div, ":rest", ":work_hours", 2),
+        (troop_set_slot, "trp_player", slot_troop_player_workday_rest, ":rest"),
+        
+     ],
+    [
+      ("continue", [], "Continue...",
+       [(change_screen_return),
+        ]),
+    ]
+  ),
 ]

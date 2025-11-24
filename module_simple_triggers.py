@@ -2392,23 +2392,27 @@ simple_triggers = [
 
 	     (try_begin),
 	       (eq, ":num_centers_owned", 0),
+           (assign, ":continue", 0),
 	       (troop_get_slot, ":player_renown", "trp_player", slot_troop_renown),
            ### DAC Seek: Higher Requirements for mercenaries
            (try_begin),
                (this_or_next|eq, "$class_type", cc_mercenary_condottiero),
                (eq, "$class_type", cc_mercenary_flemish),
                (ge, ":player_renown", 220),
-               (ge, ":kingdom_relation", 5),
+               (ge, ":kingdom_relation", 0),
                (ge, ":lord_relation", 5),
                (ge, ":player_party_size", 50),
+               (assign, ":continue", 1),
            (else_try),
                (ge, ":player_renown", 160),
                (ge, ":kingdom_relation", 0),
                (ge, ":lord_relation", 0),
                (ge, ":player_party_size", 45),
+               (assign, ":continue", 1),
            (try_end),
            ### DAC Seek End
 	       #(store_random_in_range, ":rand", 0, 100),
+           (eq, ":continue", 1),
          (call_script, "script_rand", 0, 100), #DAC Kham: Replaced with Autolykos' Script
          (assign, ":rand", reg0),
 	       (lt, ":rand", 50),
@@ -2426,7 +2430,7 @@ simple_triggers = [
 	       #(store_random_in_range, ":rand", 0, 100),
          (call_script, "script_rand", 0, 100), #DAC Kham: Replaced with Autolykos' Script
          (assign, ":rand", reg0),
-	       (lt, ":rand", 20),
+	       (lt, ":rand", 10), ### DAC Seek: Halved
 	       (assign, "$g_invite_faction", ":kingdom_no"),
 	       (assign, "$g_invite_offered_center", -1),
 	       (jump_to_menu, "mnu_invite_player_to_faction_without_center"),
@@ -7164,6 +7168,51 @@ simple_triggers = [
 
 
     # ]),
+
+### DAC Seek: Work in villages as a farmer
+  (1, [
+        (this_or_next|ge, "$g_camp_mode", 1), ### Rest in camp or location
+        (neg|map_free),
+        
+        (this_or_next|eq, "$class_type", cc_peasant_farmer),
+        (eq, "$class_type", cc_peasant_smith),
+       
+        (try_begin),
+            (troop_get_slot, ":rest_hours", "trp_player", slot_troop_player_workday_rest),
+            (ge, ":rest_hours", 1),
+            (val_sub, ":rest_hours", 1),
+            (troop_set_slot, "trp_player", slot_troop_player_workday_rest, ":rest_hours"),
+        (try_end),
+
+        (try_begin),
+            (eq, "$class_type_feature_active", 1),
+            (troop_get_slot, ":work_hours", "trp_player", slot_troop_player_workday_hours),
+            (val_sub, ":work_hours", 1),
+            (troop_set_slot, "trp_player", slot_troop_player_workday_hours, ":work_hours"),
+            
+            (try_begin),
+                (lt, ":work_hours", 0),
+                (assign, "$class_type_feature_active", 0),
+                (rest_for_hours, 0, 0, 0),
+                (jump_to_menu, "mnu_dac_work_town_village_complete"),
+            (else_try),
+                (troop_get_slot, ":payment", "trp_player", slot_troop_player_workday_payment),
+                (call_script, "script_troop_add_gold", "trp_player", ":payment"),
+                
+                (call_script, "script_rand", 0, 100), #DAC Kham: Replaced with Autolykos' Script
+                (assign, ":random", reg0),
+                (try_begin),
+                    (lt, ":random", 5),
+                    (store_random_in_range, ":food_item", food_begin, food_end),
+                    (troop_add_item, "trp_player", ":food_item", 0),
+                    (str_store_item_name, s1, ":food_item"),
+                    (display_message, "str_dac_successfully_earned_s1", color_good_news),
+                (try_end),
+                
+           (try_end),
+           
+        (try_end),
+       ]),
 
 ]
 simple_triggers += mercenary_company_simple_triggers

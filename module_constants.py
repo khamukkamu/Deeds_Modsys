@@ -1035,6 +1035,11 @@ troop_slots_reserved_for_relations_start        = 165 #this is based on id_troop
 slot_troop_relations_begin				= 0 #this creates an array for relations between troops
 											#Right now, lords start at 165 and run to around 290, including pretenders
 
+### DAC Seek: constant to store working hours and payment for the player
+slot_troop_player_workday_hours            = 166
+slot_troop_player_workday_payment          = 167
+slot_troop_player_workday_rest             = 168
+slot_troop_player_workday_total            = 169
 
 
 ########################################################

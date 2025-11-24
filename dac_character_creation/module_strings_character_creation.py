@@ -321,8 +321,8 @@ Cons: ^\
 Your troops have acquired some expensive tastes while campaigning in Italy and demand to have wine and a diverse food regiment or suffer morale penalties"),
 ("dac_background_class_desc_flemish",             "Flemish mercenaries start venturing into France as the French lead some reprisal campaigns and as the Duchy of Burgundy expands ^^\
 Pros: ^\
-» Close Knit: ^\
-Flemish mercenaries have increased combat stats ^\
+» Flemish Smiths: ^\
+Commissioning items for your retinue will take 1 day less^\
 » Flemish Ties: ^\
 Can recruit Flemish mercenaries in your camp ^^\
 Cons: ^\
@@ -337,7 +337,7 @@ Start with good relations with the Kingdom of France and negates the effects of 
 Can recruit Scottish troops at a special location, enhanced stats for Scottish troops ^^\
 Cons: ^\
 » Last Stand: ^\
-Scottish troops fight to the bitter end, should you retreat from a battle, they will be wiped out ^\
+[WIP] Scottish troops fight to the bitter end, should you retreat from a battle, they will be wiped out ^\
 » Bitter Enemies: ^\
 Start with bad relations with the Kingdom of England"),   
       
@@ -418,6 +418,7 @@ There is always a chance for your experiments to backfire, causing you harm"),
 
 ### DAC Forage
 ("dac_successfully_foraged_s1", "You successfully foraged some {s1}"),
+("dac_successfully_earned_s1", "The local farmers gift you some {s1} for your hard labour"),
 ### DAC Mercenaries Happiness
 ("dac_mercs_happy", "Your party is content with the wine and food content"),
 ("dac_mercs_sad", "Your party is discontent with the lack of wine and/or food variety"),

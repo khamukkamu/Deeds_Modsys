@@ -1067,9 +1067,37 @@ mercenary_company_scripts = [
     (store_script_param_2, ":item_no"),
     
     (assign, ":pass", 0),
-    # (item_get_type, ":item_type", ":item_no"), 
+    (item_get_type, ":item_type", ":item_no"), 
     (troop_get_slot, ":troop_tier", ":troop_no", slot_troop_tier_custom_troop),
 
+    (try_for_range, ":slot", slot_item_tiers_begin, slot_item_tiers_end),
+      (eq, ":pass", 0),
+      (item_get_slot, ":item_tier", ":item_no", ":slot"),
+      (neq, ":item_tier", -1), #If -1, that means this is not the item we are looking for.
+      (ge, ":troop_tier",":item_tier"),
+      (assign, ":pass", 1),
+    (try_end),
+
+    (try_begin),
+       (eq, ":pass", 1),
+       (eq, ":item_type", itp_type_horse),
+       (neg|troop_is_mounted, ":troop_no"),
+       (assign, ":pass", 0),
+    (try_end),
+    
+    (try_begin),
+       (eq, ":pass", 1),
+       (this_or_next|eq, ":item_type", itp_type_arrows),
+       (this_or_next|eq, ":item_type", itp_type_bolts),
+       (this_or_next|eq, ":item_type", itp_type_bow),
+       (this_or_next|eq, ":item_type", itp_type_crossbow),
+       (this_or_next|eq, ":item_type", itp_type_musket),
+       (eq, ":item_type", itp_type_bullets),
+       (neg|troop_is_guarantee_ranged, ":troop_no"),
+       (assign, ":pass", 0),
+    (try_end),
+
+    #Debug
     #(item_get_slot, ":helmet_tier", ":item_no", slot_item_helmet_tier),
     #(item_get_slot, ":armor_tier", ":item_no", slot_item_armor_tier),
     #(item_get_slot, ":foot_tier", ":item_no", slot_item_footwear_tier),
@@ -1085,38 +1113,7 @@ mercenary_company_scripts = [
     # (item_get_slot, ":arrow_tier", ":item_no", slot_item_arrow_tier),
     # (item_get_slot, ":bolt_tier", ":item_no", slot_item_bolt_tier),
     # (item_get_slot, ":shield_tier", ":item_no", slot_item_shield_tier),
-
-    (try_for_range, ":slot", slot_item_tiers_begin, slot_item_tiers_end),
-      (eq, ":pass", 0),
-      (item_get_slot, ":item_tier", ":item_no", ":slot"),
-      (neq, ":item_tier", -1), #If -1, that means this is not the item we are looking for.
-      (ge, ":troop_tier",":item_tier"),
-      (assign, ":pass", 1),
-    (try_end),
-
-    #(try_begin),
-    #    (eq, ":item_type", itp_type_head_armor),
-    #    (ge, ":troop_tier", ":helmet_tier"),
-    #    (assign, ":pass", 1),
-    #(else_try),
-    #    (eq, ":item_type", itp_type_body_armor),
-    #    (ge, ":troop_tier", ":armor_tier"),
-    #    (assign, ":pass", 1),
-    #(else_try),
-    #    (eq, ":item_type", itp_type_foot_armor),
-    #    (ge, ":troop_tier", ":foot_tier"),
-    #    (assign, ":pass", 1),
-    #(else_try),
-    #    (eq, ":item_type", itp_type_hand_armor),
-    #    (ge, ":troop_tier", ":glove_tier"),
-    #    (assign, ":pass", 1),
-    #(else_try),
-    #    (this_or_next|is_between, ":item_type", itp_type_one_handed_wpn, itp_type_goods),
-    #    (is_between, ":item_type", itp_type_pistol, itp_type_animal),
-    #    (assign, ":pass", 1),
-    #(try_end),
-
-    #Debug
+    
     # (assign, reg80, ":troop_tier"),
     # (assign, reg81, ":helmet_tier"),
     # (assign, reg82, ":armor_tier"),

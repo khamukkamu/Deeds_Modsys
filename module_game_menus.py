@@ -9682,10 +9682,17 @@ TOTAL:  {reg5}"),
         ]),
 
       ("village_wait",
-       [(party_slot_eq, "$current_town", slot_center_has_manor, 1),
-        (party_slot_eq, "$current_town", slot_town_lord, "trp_player"),
+       [
+        (try_begin),
+            (eq, "$background_type", cb_peasant),
+            (str_store_string, s1, "@[Peasant] Find a place to sleep"),
+        (else_try),
+            (party_slot_eq, "$current_town", slot_center_has_manor, 1),
+            (party_slot_eq, "$current_town", slot_town_lord, "trp_player"),
+            (str_store_string, s1, "@Rest in your Manor"),
+        (try_end),
         ],
-         "Wait here for some time.",
+         "{s1}.",
          [
            (assign,"$auto_enter_town","$current_town"),
            (assign, "$g_last_rest_center", "$current_town"),
@@ -12697,7 +12704,31 @@ TOTAL:  {reg5}"),
         # (jump_to_scene, reg11),
         # (change_screen_mission),
       # ]),
-
+### DAC Seek: Work in town
+      ("dac_work_town_tired",
+      [
+        (this_or_next|eq, "$class_type", cc_peasant_farmer),
+        (eq, "$class_type", cc_peasant_smith),
+        (troop_get_slot, ":rest_hours", "trp_player", slot_troop_player_workday_rest),
+        (gt, ":rest_hours", 0),
+        (disable_menu_option),
+        # (str_store_string, s11, "@You require proper rest, at your camp or indoors (wait here for some time)"),
+        # (set_tooltip_text, s11),
+      ],
+      "[Peasant] Too tired to work, need some more rest...",
+      []),
+      ("dac_work_town",
+      [
+        (this_or_next|eq, "$class_type", cc_peasant_farmer),
+        (eq, "$class_type", cc_peasant_smith),
+        (troop_get_slot, ":rest_hours", "trp_player", slot_troop_player_workday_rest),
+        (le, ":rest_hours", 0),
+      ],
+      "[Peasant] Look for work.",
+      [
+        (jump_to_menu, "mnu_dac_work_town_village"),
+      ]),
+### DAC Seek End
       ("collect_taxes_qst",
       [
         (check_quest_active, "qst_collect_taxes"),
