@@ -44397,7 +44397,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 
   #SB : add all the other bandit templates
   [anyone,"start", [
-    (eq, "$g_talk_troop_faction", "fac_outlaws"), #first stack should always be a bandit
+    # (eq, "$g_talk_troop_faction", "fac_outlaws"), #first stack should always be a bandit
     #sea raiders have their own skull-drinking dialogue
     (is_between, "$g_encountered_party_template", bandit_party_templates_begin, bandit_party_templates_end),],
    "Eh? What is it?", "bandit_meet",[]],
@@ -45817,14 +45817,6 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 
 
 
-
-
-
-
-
-
-
-
 # DAC Seek: Custom Troops - Merc Camp Smith
   [anyone,"start", [(eq,"$g_talk_troop","trp_merc_company_smith"), (str_store_string, s33, "@Good day, Commander. What would you like to do today?")], "{s33}", "camp_smith_start",[(assign, "$g_presentation_state", -1)]],
 
@@ -45915,6 +45907,77 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
     (str_store_string, s20, ":string"),
     ],
    "{s20}", "close_window", []],
+   
+   
+### DAC Seek: Hideout Dialog
+# DAC Seek: Hideout Recruiter
+  [anyone,"start", [(eq,"$g_talk_troop","trp_hideout_recruiter"),], 
+  "Hello boss. What do you need?", "hideout_recruiter_start",[
+]],
+
+  [anyone|plyr,"hideout_recruiter_start", [], "I wish to recruit some lads.", "hideout_recruiter_recruit",[]],
+  
+  [anyone,"hideout_recruiter_recruit", [], "Certainly, let's see if there's some available.", "hideout_recruiter_back",
+  [
+  (set_mercenary_source_party,"$g_talk_troop_party"),
+  (change_screen_buy_mercenaries)  
+  ]],
+
+# DAC Seek: Questions
+  
+  [anyone|plyr,"hideout_recruiter_start", [], "I have some questions for you.", "hideout_recruiter_question_start",[]],
+  [anyone,"hideout_recruiter_question_start", [], "Mhm.", "hideout_recruiter_questions",[]],
+  
+  [anyone|plyr,"hideout_recruiter_questions", [], "How did you get your name?", "hideout_recruiter_question_name",[]],
+  [anyone,"hideout_recruiter_question_name", [], "I help poor souls find their way, for a fee. Seemed fitting to me.", "hideout_recruiter_questions",[]],
+
+  [anyone|plyr,"hideout_recruiter_questions", [], "How do I get access to more troops?", "hideout_recruiter_question_troops",[]],
+  [anyone,"hideout_recruiter_question_troops", [], "Same way you took over this spot 'boss', find the other bandit leaders hideout and wipe them out, the rest will fall in line and find their way to me.", "hideout_recruiter_questions",[]],
+  
+  [anyone|plyr,"hideout_recruiter_questions", [], "How can I get new equipment for my troops?", "hideout_recruiter_question_equipment",[]],
+  [anyone,"hideout_recruiter_question_equipment", [], "They're huh, bandits. They'll manage just fine by themselves, why would you even bother?", "hideout_recruiter_questions",[]],
+  
+  [anyone|plyr,"hideout_recruiter_questions", [], "That's all I have to ask.", "hideout_recruiter_back",[]],
+
+# DAC Seek: End Dialog
+  [anyone|plyr,"hideout_recruiter_start", [], "Nothing today. Carry on.", "hideout_recruiter_back",[]],
+  [anyone,"hideout_recruiter_back", [], "Very well.", "close_window",
+  [
+  # (change_screen_map),
+  (jump_to_menu, "mnu_player_hideout_encounter"),
+  ]],
+  
+# DAC Seek: Hideout Merchant Dialog
+  [anyone, "start", [(eq, "$g_talk_troop", "trp_hideout_merchant"),],
+   "Need something?", "hideout_merchant_start", []],
+  [anyone|plyr, "hideout_merchant_start", [], "Show me your wares.", "hideout_merchant_trade", []],
+  [anyone,"hideout_merchant_trade", [], "Certainly, have a look.", "hideout_merchant_trade_completed",[[change_screen_trade]]],
+
+  [anyone|plyr,"hideout_merchant_start",
+   [(store_num_regular_prisoners,reg0),(ge,reg0,1),],
+   "I have some prisoners I want to get rid of.", "hideout_merchant_sell_prisoners",[]],
+  [anyone,"hideout_merchant_sell_prisoners", [],
+  "Let me see what you have...", "hideout_merchant_trade_completed",
+   [[change_screen_trade_prisoners]]],
+   
+  [anyone|plyr,"hideout_merchant_start",
+   [(store_num_regular_prisoners,reg0),(ge,reg0,1),],
+   "I want to sell all the prisoners I have with me.", "hideout_merchant_sell_prisoners_all",[]],
+  [anyone,"hideout_merchant_sell_prisoners_all", [
+  (call_script, "script_dplmc_sell_all_prisoners", 0, 0),#do not actually sell
+  (store_num_regular_prisoners, reg2),
+  (val_sub, reg2, 1),
+  ],
+  "Let's see...  I'll give you {reg0} crowns for your {reg1} {reg2?prisoners:prisoner}.  Do we have a deal?", "hideout_merchant_sell_prisoners_all_cont", []],
+  [anyone|plyr,"hideout_merchant_sell_prisoners_all_cont", [],
+   "We have a deal.", "hideout_merchant_trade_completed", [(call_script, "script_dplmc_sell_all_prisoners", 1, 0),]
+  ],
+  [anyone|plyr,"hideout_merchant_sell_prisoners_all_cont", [],
+   "Let me think about it again.", "hideout_merchant_trade_completed",[]],
+
+  [anyone,"hideout_merchant_trade_completed", [], "Anything else?", "hideout_merchant_start",[]],
+
+  [anyone|plyr,"hideout_merchant_start", [], "I have what I need, thanks.", "close_window",[]],
   
   
   

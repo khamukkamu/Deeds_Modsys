@@ -143,8 +143,6 @@ Nobles are very suspicious towards your true loyalties, requirements to join a f
 
 ("dac_background_desc_peasant",                   "As a peasant your life is one of toil and survival. While there are opportunities to achieve greater deeds, it will feel like the odds are stacked against you. ^^\
 Pros: ^\
-» Solidarity: ^\
-Can ask villages for donations, the higher the relations with the village, the better the donation ^\
 » Hospitality: ^\
 Can sleep for free in villages, don't overstay your welcome otherwise relations decline ^^\
 Cons: ^\
@@ -419,7 +417,12 @@ There is always a chance for your experiments to backfire, causing you harm"),
 ### DAC Forage
 ("dac_successfully_foraged_s1", "You successfully foraged some {s1}"),
 ("dac_successfully_earned_s1", "The local farmers gift you some {s1} for your hard labour"),
+("dac_peasant_feast", "Your party rejoices at the abundance of food provided"),
 ### DAC Mercenaries Happiness
 ("dac_mercs_happy", "Your party is content with the wine and food content"),
 ("dac_mercs_sad", "Your party is discontent with the lack of wine and/or food variety"),
+
+### DAC Hideout
+("dac_bandit_hideout_takeover", "With their retreat cut off, the {s4} fall one by one to your determined attack. You loot the place, take over and set up a new base of operations nearby. ^With their leadership gone, the {s4} are now under your control, howhever, new bases hostile to you might still appear."),
+("dac_bandit_faction_takeover", "With their retreat cut off, the {s4} fall one by one to your determined attack. ^With their leadership gone, the {s4} are now under your control, howhever, new bases hostile to you might still appear."),
 ]

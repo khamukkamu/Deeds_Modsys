@@ -3626,9 +3626,12 @@ scripts = [
            (eq, "$g_encountered_party", "p_camp_bandits"),
            (jump_to_menu, "mnu_camp"),
          (else_try),
-## DAC Seek: Player Camp         
+## DAC Seek: Player Camp and hideout        
            (eq, "$g_encountered_party", "p_player_camp"),
            (jump_to_menu, "mnu_player_camp_encounter"),
+         (else_try),
+           (eq, "$g_encountered_party", "p_player_bandit_hideout"),
+           (jump_to_menu, "mnu_player_hideout_encounter"),
 ## DAC Seek: Player Camp End
          (else_try),
            (jump_to_menu, "mnu_simple_encounter"),
@@ -5415,11 +5418,13 @@ scripts = [
             (val_sub, ":join_cost", ":player_renown"),
         (try_end),
     #JuJu70 end
-    # DAC Seek: Reduce cost of player company mercs
-        (try_begin), #mounted troops cost %50 more than the normal cost
-            (is_between, ":troop_id", "trp_custom_merc_recruit", "trp_custom_mercs_end"),
+    # DAC Seek: Reduce cost of player company mercs and bandits
+        (try_begin),
+            (this_or_next|is_between, ":troop_id", customizable_troops_begin, customizable_troops_end),
+            (is_between, ":troop_id", bandits_begin, bandits_end),
             (val_div, ":join_cost", 4),            
         (try_end),
+
     # DAC Seek END
         (try_begin), #mounted troops cost %50 more than the normal cost
             (troop_is_mounted, ":troop_id"),
@@ -5956,6 +5961,9 @@ scripts = [
         (this_or_next|eq, "$class_type", cc_noble_jouster),
         (eq, "$class_type", cc_hunter_poacher),
         (assign, ":limit", 15),    
+    (else_try),
+        (eq, "$class_type", cc_peasant_revolutionary),
+        (assign, ":limit", 50),   
     (else_try),
         (assign, ":limit", 30),
     (try_end),
@@ -48596,6 +48604,11 @@ scripts = [
         (this_or_next|eq, ":faction_no", "fac_peasant_rebels"),
         (this_or_next|eq, ":faction_no", "fac_deserters"),
         (this_or_next|eq, ":faction_no", "fac_mountain_bandits"),
+        (this_or_next|eq, ":faction_no", "fac_bandit_routiers"),
+        (this_or_next|eq, ":faction_no", "fac_bandit_flayers"),
+        (this_or_next|eq, ":faction_no", "fac_bandit_retondeurs"),
+        (this_or_next|eq, ":faction_no", "fac_bandit_tard_venus"),
+        (this_or_next|eq, ":faction_no", "fac_bandit_peasant_rebels"),
         (eq, ":faction_no", "fac_forest_bandits"),
         (assign, ":result", mtf_culture_6),
       (else_try),
@@ -56749,6 +56762,11 @@ scripts = [
 		(this_or_next|eq, ":faction_no", "fac_outlaws"),
 		(this_or_next|eq, ":faction_no", "fac_mountain_bandits"),
 		(this_or_next|eq, ":faction_no", "fac_forest_bandits"),
+		(this_or_next|eq, ":faction_no", "fac_bandit_routiers"),
+		(this_or_next|eq, ":faction_no", "fac_bandit_flayers"),
+		(this_or_next|eq, ":faction_no", "fac_bandit_retondeurs"),
+		(this_or_next|eq, ":faction_no", "fac_bandit_tard_venus"),
+		(this_or_next|eq, ":faction_no", "fac_bandit_peasant_rebels"),
 			(eq, ":faction_no", "fac_deserters"),
 		(str_store_string, s10, "str_bandit"),
 	(else_try),

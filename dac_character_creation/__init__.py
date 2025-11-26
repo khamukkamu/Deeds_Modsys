@@ -3,6 +3,7 @@
 from module_game_menus_character_creation import *
 from module_presentations_character_creation import *
 from module_scripts_character_creation import *
+from module_simple_triggers_character_creation import *
 from module_strings_character_creation import *
 
 

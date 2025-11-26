@@ -1907,21 +1907,21 @@ mercenary_company_troops = [
 
   ["merc_company_quartermaster","Quartermaster Godefroy de Papincourt","Quartermaster Godefroy de Papincourt",tf_hero|tf_unmoveable_in_party_window,scn_player_camp|entry(2),0,fac_commoners,
    [
-   # itm_w_lance_colored_french_2_heraldic,itm_ho_horse_barded_blue_chamfrom,itm_h_klappvisier_pigface_open,itm_heraldic_churburg_13_tabard,itm_b_shynbaulds,itm_g_gauntlets_segmented_b,itm_b_hosen_shoes_custom,itm_a_tabard_heraldic,itm_w_bastard_sword_count
+   itm_a_pistoia_kastenbrust_b_mail_sleeves_plate_spaulders_3,itm_b_leg_harness_8,
    ],
-   def_attrib|level(20),wp(120),knows_common|knows_inventory_management_10, 0x0000000dff1090114f2c9edb182865fc00000000001e44110000000000000000],
+   def_attrib|level(20),wp(120),knows_common|knows_inventory_management_10, 0x00000008ff10c002586deeb88a61c50800000000001c56150000000000000000],
    
   ["merc_company_smith","Henri the Smith","Henri the Smith",tf_hero|tf_unmoveable_in_party_window,scn_player_camp|entry(3),0,fac_commoners,
    [
-   # itm_h_arming_cap,itm_a_commoner_apron,itm_b_ankle_boots
+   itm_a_commoner_apron,itm_b_turnshoes_1,
    ],
-   def_attrib|level(20),wp(120),knows_common|knows_inventory_management_10, 0x00000003bf100144266b7339a169555100000000001db7090000000000000000],
+   def_attrib|level(20),wp(120),knows_common|knows_inventory_management_10, 0x00000004bf10b14d5d11ee17d88cc19800000000001cd6820000000000000000],
 
-  ["merc_company_merchant","Guy the Merchant","Guy the Merchant",tf_hero|tf_is_merchant|tf_unmoveable_in_party_window,scn_player_camp|entry(4),0,fac_commoners,
+  ["merc_company_merchant","Harry Ricksson the Merchant","Harry Ricksson the Merchant",tf_hero|tf_is_merchant|tf_unmoveable_in_party_window,scn_player_camp|entry(4),0,fac_commoners,
    [
-   # itm_h_highlander_beret_red_2,itm_a_merchant_outfit,itm_b_leather_boots
+   itm_h_highlander_beret_red_2,itm_a_huque_2,itm_b_high_boots_1,
    ],
-   def_attrib|level(20),wp(120),knows_common|knows_inventory_management_10, 0x00000001840834485914d426156ab55400000000000d35240000000000000000],
+   def_attrib|level(20),wp(120),knows_common|knows_inventory_management_10, 0x0000000e3610a4c03f48800102611a8000000000001d40090000000000000000],
 
   ["inventory_backup","{!}Inventory","{!}Inventory",tf_hero|tf_inactive,0,reserved,fac_player_faction,[],def_attrib|level(18),wp(60),knows_inventory_management_10,0],
   

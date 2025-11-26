@@ -1887,7 +1887,7 @@ level(30)|str_24|agi_24, wp_melee(220), knows_ironflesh_8|knows_power_strike_6|k
 ##################################################################################################################################################################################################################################################################################################################
 
 ### Routiers
-["routier_knight", "Routier Knight", "Routier Knights", tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_horse|tf_guarantee_shield|tf_guarantee_polearm, no_scene, reserved, fac_outlaws, 
+["routier_knight", "Routier Knight", "Routier Knights", tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_horse|tf_guarantee_shield|tf_guarantee_polearm, no_scene, reserved, fac_bandit_routiers, 
 [
  itm_h_great_bascinet_english_1430_visor,itm_h_great_bascinet_english_1430_visor_open,itm_h_great_bascinet_continental_visor_a,itm_h_great_bascinet_continental_visor_a_open,itm_h_great_bascinet_continental_visor_b,itm_h_great_bascinet_continental_visor_b_open,itm_h_great_bascinet_continental_visor_c,itm_h_great_bascinet_continental_visor_c_open,itm_h_great_bascinet_continental_visor_c_strip,itm_h_great_bascinet_continental_visor_c_strip_open,itm_h_great_bascinet_continental_1430,itm_h_great_bascinet_continental_1430_visor,itm_h_great_bascinet_continental_1430_visor_open,
  itm_a_continental_plate_a,itm_a_continental_plate_b,itm_a_continental_plate_c,itm_a_padded_over_mail_4_custom,itm_a_padded_over_mail_5_custom,itm_a_corrazina_hohenaschau_custom,itm_a_churburg_13_asher_plain_custom,itm_a_brigandine_asher_plate_1_custom,itm_a_english_plate_1415_b,itm_a_pistoia_kastenbrust_a_mail_sleeves_plate_spaulders_1,itm_a_pistoia_breastplate_mail_sleeves_plate_spaulders_3,
@@ -1899,7 +1899,7 @@ level(30)|str_24|agi_24, wp_melee(220), knows_ironflesh_8|knows_power_strike_6|k
  itm_ho_horse_barded_blue,itm_ho_horse_barded_brown,itm_ho_horse_barded_green,itm_ho_horse_barded_white,
 ], 
 level(28)|str_22|agi_22, wp_melee(180), knows_ironflesh_6|knows_power_strike_5|knows_shield_3|knows_athletics_4|knows_weapon_master_5|knows_riding_4, french_face_mature_1, french_face_old_2 ],
-["routier_mounted_sergeant", "Routier Mounted Sergeant", "Routier Mounted Sergeants", tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_horse|tf_guarantee_shield, no_scene, reserved, fac_outlaws, 
+["routier_mounted_sergeant", "Routier Mounted Sergeant", "Routier Mounted Sergeants", tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_horse|tf_guarantee_shield, no_scene, reserved, fac_bandit_routiers, 
 [
  itm_h_bascinet_1_mail_aventail,itm_h_bascinet_2_mail_aventail,itm_h_bascinet_1_visor_1_mail_aventail,itm_h_bascinet_1_visor_1_open_mail_aventail,itm_h_bascinet_1_visor_2_mail_aventail,itm_h_bascinet_1_visor_2_open_mail_aventail,itm_h_bascinet_2_visor_6_mail_aventail,itm_h_bascinet_2_visor_6_open_mail_aventail,itm_h_bascinet_2_visor_5_mail_aventail,itm_h_bascinet_2_visor_5_open_mail_aventail,
  itm_a_pistoia_breastplate_half_mail_sleeves_plate_spaulders_1,itm_a_pistoia_breastplate_half_mail_sleeves_plate_spaulders_2,itm_a_pistoia_breastplate_half_mail_sleeves_plate_spaulders_3,itm_a_pistoia_breastplate_half_mail_sleeves_jackchain,itm_a_churburg_13_asher_plain_custom,itm_a_pistoia_kastenbrust_a_mail_sleeves_jackchain,itm_a_brigandine_asher_custom,itm_a_brigandine_asher_mail_custom,itm_a_padded_over_mail_heavy_1_custom,itm_a_padded_over_mail_heavy_2_custom,itm_a_padded_over_mail_heavy_3_custom,itm_a_padded_over_mail_heavy_4_custom, 
@@ -1910,7 +1910,7 @@ level(28)|str_22|agi_22, wp_melee(180), knows_ironflesh_6|knows_power_strike_5|k
  itm_ho_rouncey_1,itm_ho_rouncey_2,itm_ho_rouncey_3,itm_ho_rouncey_4,itm_ho_rouncey_5,itm_ho_rouncey_6,
 ], 
 level(20)|str_18|agi_18, wp_melee(150), knows_ironflesh_4|knows_power_strike_4|knows_shield_2|knows_athletics_4|knows_weapon_master_4|knows_riding_3, french_face_middle_1, french_face_mature_2 ],
-["routier_sergeant", "Routier Sergeant", "Routier Sergeants", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield, no_scene, reserved, fac_outlaws, 
+["routier_sergeant", "Routier Sergeant", "Routier Sergeants", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield, no_scene, reserved, fac_bandit_routiers, 
 [
  itm_h_bascinet_1_mail_aventail,itm_h_bascinet_2_mail_aventail,itm_h_bascinet_1_visor_1_mail_aventail,itm_h_bascinet_1_visor_1_open_mail_aventail,itm_h_bascinet_1_visor_2_mail_aventail,itm_h_bascinet_1_visor_2_open_mail_aventail,itm_h_bascinet_2_visor_6_mail_aventail,itm_h_bascinet_2_visor_6_open_mail_aventail,itm_h_bascinet_2_visor_5_mail_aventail,itm_h_bascinet_2_visor_5_open_mail_aventail,
  itm_a_pistoia_breastplate_half_mail_sleeves_plate_spaulders_1,itm_a_pistoia_breastplate_half_mail_sleeves_plate_spaulders_2,itm_a_pistoia_breastplate_half_mail_sleeves_plate_spaulders_3,itm_a_pistoia_breastplate_half_mail_sleeves_jackchain,itm_a_churburg_13_asher_plain_custom,itm_a_pistoia_kastenbrust_a_mail_sleeves_jackchain,itm_a_brigandine_asher_custom,itm_a_brigandine_asher_mail_custom,itm_a_padded_over_mail_heavy_1_custom,itm_a_padded_over_mail_heavy_2_custom,itm_a_padded_over_mail_heavy_3_custom,itm_a_padded_over_mail_heavy_4_custom, 
@@ -1920,7 +1920,7 @@ level(20)|str_18|agi_18, wp_melee(150), knows_ironflesh_4|knows_power_strike_4|k
  itm_w_onehanded_sword_a_long,itm_w_onehanded_sword_c_long,itm_w_onehanded_sword_d_long,itm_w_onehanded_sword_poitiers,itm_w_onehanded_sword_squire,itm_w_onehanded_war_axe_01,itm_w_onehanded_war_axe_01_brown,itm_w_onehanded_war_axe_01_red,itm_w_mace_winged,itm_w_mace_winged_brown,itm_w_mace_winged_red,
 ], 
 level(18)|str_15|agi_15, wpex(140,80,160,80,80,80), knows_ironflesh_3|knows_power_strike_3|knows_shield_2|knows_athletics_3|knows_weapon_master_1, french_face_middle_1, french_face_mature_2 ],
-["routier_voulgier", "Routier Voulgier", "Routier Voulgiers", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield, no_scene, reserved, fac_outlaws, 
+["routier_voulgier", "Routier Voulgier", "Routier Voulgiers", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield, no_scene, reserved, fac_bandit_routiers, 
 [
  itm_h_sallet_strap,itm_h_sallet_curved_strap,itm_h_chapel_de_fer_strap,itm_h_german_kettlehat_1_strap,itm_h_german_kettlehat_3_strap,
  itm_a_brigandine_asher_custom,
@@ -1929,7 +1929,7 @@ level(18)|str_15|agi_15, wpex(140,80,160,80,80,80), knows_ironflesh_3|knows_powe
  itm_w_glaive_3,itm_w_glaive_3_brown,itm_w_glaive_3_red,itm_w_glaive_5,itm_w_glaive_5_brown,itm_w_glaive_5_red,
 ], 
 level(15)|str_16|agi_12, wpex(100,100,150,100,100,100), knows_ironflesh_4|knows_power_strike_3|knows_athletics_3|knows_weapon_master_2, french_face_middle_1, french_face_mature_2 ],
-["routier_footman", "Routier Footman", "Routier Footmen", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield, no_scene, reserved, fac_outlaws, 
+["routier_footman", "Routier Footman", "Routier Footmen", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield, no_scene, reserved, fac_bandit_routiers, 
 [
  itm_h_sallet_strap,itm_h_sallet_curved_strap,itm_h_chapel_de_fer_strap,itm_h_german_kettlehat_1_strap,itm_h_german_kettlehat_3_strap,
  itm_a_pistoia_mail_a_mail_sleeves_short,itm_a_pistoia_mail_b_mail_sleeves_short,itm_a_pistoia_mail_a_mail_sleeves,itm_a_pistoia_mail_b_mail_sleeves,itm_a_pistoia_mail_a_mail_sleeves_jackchains,itm_a_pistoia_mail_b_mail_sleeves_jackchains,
@@ -1939,7 +1939,7 @@ level(15)|str_16|agi_12, wpex(100,100,150,100,100,100), knows_ironflesh_4|knows_
  itm_s_heater_shield_breton_4,itm_s_heater_shield_burgundian_4,itm_s_heater_shield_english_6,itm_s_heater_shield_french_1,itm_s_heraldic_shield_breton_2,itm_s_heraldic_shield_burgundian_1,itm_s_heraldic_shield_burgundian_2,itm_s_heraldic_shield_german_3,
 ], 
 level(20)|str_16|agi_16, wpex(160,100,100,100,100,100), knows_ironflesh_4|knows_power_strike_4|knows_shield_3|knows_athletics_3|knows_weapon_master_2, french_face_middle_1, french_face_mature_2 ],
-["routier_crossbowman", "Routier Crossbowman", "Routier Crossbowmen", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_ranged, no_scene, reserved, fac_outlaws, 
+["routier_crossbowman", "Routier Crossbowman", "Routier Crossbowmen", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_ranged, no_scene, reserved, fac_bandit_routiers, 
 [
  itm_h_skullcap_hood_custom,itm_h_cervelliere_hood_custom,itm_h_german_kettlehat_1_hood_custom,itm_h_german_kettlehat_3_hood_custom,itm_h_martinus_kettlehat_1_hood_custom,itm_h_martinus_kettlehat_2_hood_custom,itm_h_oliphant_kettlehat_hood_custom,itm_h_chapel_de_fer_hood_custom,itm_h_german_kettlehat_1_strap,itm_h_german_kettlehat_3_strap,itm_h_chapel_de_fer_strap,itm_h_simple_cervelliere_strap,itm_h_cervelliere_strap,itm_h_skullcap_strap,itm_h_shingle_helmet_strap,
  itm_a_gambeson_crossbowman_custom,
@@ -1950,7 +1950,7 @@ level(20)|str_16|agi_16, wpex(160,100,100,100,100,100), knows_ironflesh_4|knows_
 level(12)|str_13|agi_12, wpex(100,80,80,80,120,80), knows_ironflesh_2|knows_power_strike_1|knows_shield_1|knows_athletics_3|knows_weapon_master_1, french_face_young_1, french_face_middle_2 ],
 
 ### Flayers
-["flayer_captain", "Flayer Captain", "Flayer Captains", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm, no_scene, reserved, fac_outlaws, 
+["flayer_captain", "Flayer Captain", "Flayer Captains", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm, no_scene, reserved, fac_bandit_flayers, 
 [
  itm_h_bascinet_1_mail_aventail,itm_h_bascinet_1_visor_1_mail_aventail,itm_h_bascinet_1_visor_1_open_mail_aventail,itm_h_bascinet_1_visor_2_mail_aventail,itm_h_bascinet_1_visor_2_open_mail_aventail,itm_h_bascinet_2_mail_aventail,itm_h_bascinet_2_visor_5_mail_aventail,itm_h_bascinet_2_visor_5_open_mail_aventail,itm_h_bascinet_2_visor_6_mail_aventail,itm_h_bascinet_2_visor_6_open_mail_aventail,
  itm_a_brigandine_asher_a_plate_1_custom,itm_a_brigandine_asher_a_plate_2_custom,itm_a_brigandine_asher_a_plate_3_custom,itm_a_brigandine_asher_b_plate_1_custom,itm_a_brigandine_asher_b_plate_2_custom,itm_a_brigandine_asher_b_plate_3_custom,
@@ -1960,7 +1960,7 @@ level(12)|str_13|agi_12, wpex(100,80,80,80,120,80), knows_ironflesh_2|knows_powe
  itm_s_heraldic_shield_breton_1,itm_s_heraldic_shield_breton_2,itm_s_heraldic_shield_breton_3,itm_s_heraldic_shield_burgundian_1,itm_s_heraldic_shield_burgundian_2,itm_s_heraldic_shield_burgundian_3, 
 ], 
 level(25)|str_20|agi_20, wp_melee(160), knows_ironflesh_5|knows_power_strike_5|knows_shield_3|knows_athletics_4|knows_weapon_master_5, french_face_mature_1, french_face_old_2 ],
-["flayer_infantry", "Flayer Infantry", "Flayer Infantries", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield, no_scene, reserved, fac_outlaws, 
+["flayer_infantry", "Flayer Infantry", "Flayer Infantries", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield, no_scene, reserved, fac_bandit_flayers, 
 [
  itm_h_sallet_mail_aventail,itm_h_sallet_curved_mail_aventail,itm_h_eyeslot_kettlehat_1_mail_aventail,itm_h_eyeslot_kettlehat_2_mail_aventail,itm_h_eyeslot_kettlehat_3_mail_aventail,itm_h_oliphant_kettlehat_mail_aventail,
  itm_a_pistoia_mail_a_mail_sleeves_short,itm_a_pistoia_mail_b_mail_sleeves_short,itm_a_pistoia_mail_a_mail_sleeves,itm_a_pistoia_mail_b_mail_sleeves,itm_a_pistoia_mail_a_mail_sleeves_jackchains,itm_a_pistoia_mail_b_mail_sleeves_jackchains,
@@ -1969,7 +1969,7 @@ level(25)|str_20|agi_20, wp_melee(160), knows_ironflesh_5|knows_power_strike_5|k
  itm_s_heraldic_shield_breton_1,itm_s_heraldic_shield_breton_2,itm_s_heraldic_shield_breton_3,itm_s_heraldic_shield_burgundian_1,itm_s_heraldic_shield_burgundian_2,itm_s_heraldic_shield_burgundian_3, 
 ], 
 level(15)|str_14|agi_14, wpex(140,80,80,80,80,80), knows_ironflesh_3|knows_power_strike_3|knows_shield_2|knows_athletics_3|knows_weapon_master_1, french_face_middle_1, french_face_mature_2 ],
-["flayer_fauchard", "Flayer Fauchard", "Flayer Fauchards", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_polearm, no_scene, reserved, fac_outlaws, 
+["flayer_fauchard", "Flayer Fauchard", "Flayer Fauchards", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_polearm, no_scene, reserved, fac_bandit_flayers, 
 [
  itm_h_eyeslot_kettlehat_1_mail_aventail,itm_h_eyeslot_kettlehat_2_mail_aventail,itm_h_eyeslot_kettlehat_3_mail_aventail,itm_h_oliphant_eyeslot_kettlehat_mail_aventail,itm_h_martinus_kettlehat_3_mail_aventail,itm_h_oliphant_kettlehat_mail_aventail,itm_h_martinus_kettlehat_1_mail_aventail,itm_h_martinus_kettlehat_2_mail_aventail,itm_h_chapel_de_fer_mail_aventail,
  itm_a_brigandine_asher_custom,itm_a_corrazina_hohenaschau_mail_custom,
@@ -1977,7 +1977,7 @@ level(15)|str_14|agi_14, wpex(140,80,80,80,80,80), knows_ironflesh_3|knows_power
  itm_w_bardiche_1,itm_w_bardiche_1_brown,itm_w_bardiche_2,itm_w_bardiche_2_brown,itm_w_bardiche_4,itm_w_bardiche_4_brown,itm_w_twohanded_war_axe_01,itm_w_twohanded_war_axe_01_brown,itm_w_great_hammer,itm_w_great_hammer_brown,itm_w_awlpike_1,itm_w_awlpike_2,itm_w_awlpike_3,itm_w_fauchard_1,itm_w_fauchard_2,itm_w_fauchard_3,
 ], 
 level(15)|str_16|agi_12, wpex(100,100,150,100,100,100), knows_ironflesh_4|knows_power_strike_3|knows_athletics_3|knows_weapon_master_2, french_face_middle_1, french_face_mature_2 ],
-["flayer_archer", "Flayer Archer", "Flayer Archers", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_ranged, no_scene, reserved, fac_outlaws, 
+["flayer_archer", "Flayer Archer", "Flayer Archers", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_ranged, no_scene, reserved, fac_bandit_flayers, 
 [
  itm_h_skullcap_mail_aventail,itm_h_cervelliere_mail_aventail,itm_h_sallet_mail_aventail,itm_h_sallet_curved_mail_aventail,itm_h_bascinet_1_mail_aventail,itm_h_bascinet_2_mail_aventail,itm_h_sallet_strap,itm_h_sallet_curved_strap,
  itm_a_light_gambeson_long_sleeves_8_custom,itm_a_light_gambeson_long_sleeves_8_alt_custom,
@@ -1988,7 +1988,7 @@ level(15)|str_16|agi_12, wpex(100,100,150,100,100,100), knows_ironflesh_4|knows_
 level(12)|str_12|agi_14, wpex(100,80,80,120,80,80), knows_ironflesh_2|knows_power_draw_3|knows_power_strike_2|knows_athletics_4|knows_weapon_master_2, french_face_middle_1, french_face_mature_2 ],
 
 ### Retondeurs
-["retondeur_horseman", "Retondeur Horseman", "Retondeur Horsemen", tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_horse|tf_guarantee_shield, no_scene, reserved, fac_outlaws, 
+["retondeur_horseman", "Retondeur Horseman", "Retondeur Horsemen", tf_mounted|tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_horse|tf_guarantee_shield, no_scene, reserved, fac_bandit_retondeurs, 
 [
  itm_h_martinus_kettlehat_1_mail_aventail,itm_h_martinus_kettlehat_2_mail_aventail,itm_h_chapel_de_fer_mail_aventail,itm_h_german_kettlehat_1_mail_aventail,itm_h_german_kettlehat_3_mail_aventail,itm_h_makeshift_kettle_mail_aventail,itm_h_cervelliere_mail_aventail,itm_h_cervelliere_roundels_mail_aventail,itm_h_simple_cervelliere_mail_aventail,itm_h_simple_cervelliere_2_mail_aventail, 
  itm_a_padded_over_mail_heavy_1_custom,itm_a_padded_over_mail_heavy_2_custom,itm_a_padded_over_mail_heavy_3_custom,itm_a_padded_over_mail_heavy_4_custom,
@@ -1998,7 +1998,7 @@ level(12)|str_12|agi_14, wpex(100,80,80,120,80,80), knows_ironflesh_2|knows_powe
  itm_ho_sumpter_1,itm_ho_sumpter_2,itm_ho_rouncey_1,itm_ho_rouncey_2,itm_ho_rouncey_3,
 ], 
 level(15)|str_16|agi_16, wp_melee(120), knows_ironflesh_3|knows_power_strike_3|knows_shield_1|knows_athletics_3|knows_weapon_master_3|knows_riding_2, mercenary_face_1, mercenary_face_2 ],
-["retondeur_maceman", "Retondeur Maceman", "Retondeur Macemen", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield, no_scene, reserved, fac_outlaws, 
+["retondeur_maceman", "Retondeur Maceman", "Retondeur Macemen", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_shield, no_scene, reserved, fac_bandit_retondeurs, 
 [
  itm_h_martinus_kettlehat_1_mail_aventail,itm_h_martinus_kettlehat_2_mail_aventail,itm_h_chapel_de_fer_mail_aventail,itm_h_german_kettlehat_1_mail_aventail,itm_h_german_kettlehat_3_mail_aventail,itm_h_makeshift_kettle_mail_aventail,itm_h_cervelliere_mail_aventail,itm_h_cervelliere_roundels_mail_aventail,itm_h_simple_cervelliere_mail_aventail,itm_h_simple_cervelliere_2_mail_aventail,
  itm_a_padded_over_mail_1_custom,itm_a_padded_over_mail_2_custom,itm_a_padded_over_mail_alt_1_custom,itm_a_padded_over_mail_alt_2_custom,
@@ -2007,7 +2007,7 @@ level(15)|str_16|agi_16, wp_melee(120), knows_ironflesh_3|knows_power_strike_3|k
  itm_s_heraldic_shield_breton_1,itm_s_heraldic_shield_breton_2,itm_s_heraldic_shield_breton_3,itm_s_heraldic_shield_burgundian_1,itm_s_heraldic_shield_burgundian_2,itm_s_heraldic_shield_burgundian_3,
 ], 
 level(20)|str_16|agi_16, wpex(160,100,100,100,100,100), knows_ironflesh_4|knows_power_strike_4|knows_shield_3|knows_athletics_3|knows_weapon_master_2, mercenary_face_1, mercenary_face_2 ],
-["retondeur_crossbowman", "Retondeur Crossbowman", "Retondeur Crossbowmen", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_ranged, no_scene, reserved, fac_outlaws, 
+["retondeur_crossbowman", "Retondeur Crossbowman", "Retondeur Crossbowmen", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_ranged, no_scene, reserved, fac_bandit_retondeurs, 
 [
  itm_h_german_kettlehat_1_strap,itm_h_german_kettlehat_3_strap,itm_h_chapel_de_fer_strap,itm_h_makeshift_kettle_strap,itm_h_simple_cervelliere_strap,itm_h_simple_cervelliere_2_strap,
  itm_a_padded_over_mail_3_custom,itm_a_padded_over_mail_alt_3_custom,
@@ -2018,7 +2018,7 @@ level(20)|str_16|agi_16, wpex(160,100,100,100,100,100), knows_ironflesh_4|knows_
 level(12)|str_13|agi_12, wpex(100,80,80,80,100,80), knows_ironflesh_2|knows_power_strike_1|knows_shield_1|knows_athletics_3|knows_weapon_master_1, mercenary_face_1, mercenary_face_2 ],
 
 ### Tard-Venus
-["tard_venu_militia", "Tard-Venu Militia", "Tard-Venu Militias", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield, no_scene, reserved, fac_outlaws, 
+["tard_venu_militia", "Tard-Venu Militia", "Tard-Venu Militias", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield, no_scene, reserved, fac_bandit_tard_venus, 
 [
  itm_h_makeshift_kettle_strap,itm_h_simple_cervelliere_strap,itm_h_simple_cervelliere_2_strap,itm_h_shingle_helmet_strap,itm_h_rope_helmet_strap,itm_h_wicker_helmet_strap,
  itm_a_light_gambeson_long_sleeves_custom,
@@ -2027,7 +2027,7 @@ level(12)|str_13|agi_12, wpex(100,80,80,80,100,80), knows_ironflesh_2|knows_powe
  itm_s_heater_shield_breton_1,itm_s_heater_shield_breton_2,itm_s_heater_shield_breton_4,itm_s_heater_shield_burgundian_1,itm_s_heater_shield_burgundian_2,itm_s_heater_shield_burgundian_4,
 ], 
 level(10)|str_12|agi_12, wpex(120,80,80,80,80,80), knows_ironflesh_2|knows_power_strike_2|knows_shield_1|knows_athletics_3|knows_weapon_master_1, swadian_face_young_1, swadian_face_old_2 ],
-["tard_venu_pikeman", "Tard-Venu Pikeman", "Tard-Venu Pikemen", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_polearm, no_scene, reserved, fac_outlaws, 
+["tard_venu_pikeman", "Tard-Venu Pikeman", "Tard-Venu Pikemen", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_polearm, no_scene, reserved, fac_bandit_tard_venus, 
 [
  itm_h_makeshift_kettle_strap,itm_h_simple_cervelliere_strap,itm_h_simple_cervelliere_2_strap,itm_h_shingle_helmet_strap,itm_h_rope_helmet_strap,itm_h_wicker_helmet_strap,
  itm_a_gambeson_grande_assiette_custom,
@@ -2035,7 +2035,7 @@ level(10)|str_12|agi_12, wpex(120,80,80,80,80,80), knows_ironflesh_2|knows_power
  itm_w_awlpike_1,itm_w_awlpike_2,itm_w_awlpike_3,
 ], 
 level(10)|str_14|agi_10, wpex(100,100,120,100,100,100), knows_ironflesh_3|knows_power_strike_2|knows_athletics_3|knows_weapon_master_1, swadian_face_young_1, swadian_face_old_2 ],
-["tard_venu_archer", "Tard-Venu Archer", "Tard-Venu Archers", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_ranged, no_scene, reserved, fac_outlaws, 
+["tard_venu_archer", "Tard-Venu Archer", "Tard-Venu Archers", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_ranged, no_scene, reserved, fac_bandit_tard_venus, 
 [
  itm_h_wicker_helmet_strap,itm_h_rope_helmet_strap,itm_h_simple_cervelliere_strap,itm_h_simple_cervelliere_2_strap,itm_h_arming_cap,itm_h_simple_cervelliere_hood_liripipe_custom,itm_h_skullcap_hood_liripipe_custom,itm_h_hood_big_liripipe_full_custom,itm_h_hood_square_liripipe_full_custom,itm_h_hood_square_full_custom,
  itm_a_peasant_cote_custom,itm_a_peasant_cotehardie_custom,itm_a_light_gambeson_short_sleeves_custom,
@@ -2046,7 +2046,7 @@ level(10)|str_14|agi_10, wpex(100,100,120,100,100,100), knows_ironflesh_3|knows_
 level(8)|str_10|agi_12, wpex(90,80,80,100,80,80), knows_ironflesh_1|knows_power_strike_1|knows_power_draw_2|knows_athletics_4|knows_weapon_master_1, swadian_face_young_1, swadian_face_old_2 ],
 
 ### Angry plebs
-["disgruntled_farmer", "Disgruntled Farmer", "Disgruntled Farmers", tf_guarantee_boots|tf_guarantee_armor, no_scene, reserved, fac_outlaws, 
+["disgruntled_farmer", "Disgruntled Farmer", "Disgruntled Farmers", tf_guarantee_boots|tf_guarantee_armor, no_scene, reserved, fac_bandit_peasant_rebels, 
 [
  itm_h_straw_hat_1,itm_h_peasant_bycocket_1_custom,itm_h_peasant_bycocket_2_custom,itm_h_simple_coif,itm_h_arming_cap,itm_h_felt_hat_b_brown,itm_h_felt_hat_b_green,itm_h_hood_big_liripipe_full_custom,itm_h_hood_square_full_custom,
  itm_a_peasant_cote_custom,itm_a_peasant_cotehardie_custom,
@@ -2054,7 +2054,7 @@ level(8)|str_10|agi_12, wpex(90,80,80,100,80,80), knows_ironflesh_1|knows_power_
  itm_w_dagger_quillon,itm_w_archer_hatchet,itm_w_archer_hatchet_brown,itm_w_archer_hatchet_red,itm_w_wooden_stick,itm_w_fauchard_1,itm_w_fauchard_2,itm_w_fauchard_3,itm_w_fork_1,itm_w_fork_2,
 ], 
 def_attrib, wp(60), knows_common_kham, swadian_face_young_1, swadian_face_old_2 ],
-["furious_lumberjack", "Furious Lumberjack", "Furious Lumberjacks", tf_guarantee_boots|tf_guarantee_armor, no_scene, reserved, fac_outlaws, 
+["furious_lumberjack", "Furious Lumberjack", "Furious Lumberjacks", tf_guarantee_boots|tf_guarantee_armor, no_scene, reserved, fac_bandit_peasant_rebels, 
 [
  itm_h_peasant_bycocket_1_custom,itm_h_peasant_bycocket_2_custom,itm_h_woolen_cap_brown,itm_h_woolen_cap_green,itm_h_simple_coif,itm_h_arming_cap,
  itm_a_peasant_cote_custom,itm_a_peasant_cotehardie_custom,
@@ -2062,7 +2062,7 @@ def_attrib, wp(60), knows_common_kham, swadian_face_young_1, swadian_face_old_2 
  itm_w_twohanded_war_axe_01,itm_w_twohanded_war_axe_01_brown,itm_w_twohanded_war_axe_01_red,
 ], 
 def_attrib, wp(60), knows_common_kham, swadian_face_young_1, swadian_face_old_2 ],
-["irrate_hunter", "Irrate Hunter", "Irrate Hunters", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_ranged, no_scene, reserved, fac_outlaws, 
+["irrate_hunter", "Irrate Hunter", "Irrate Hunters", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_ranged, no_scene, reserved, fac_bandit_peasant_rebels, 
 [
  itm_h_peasant_bycocket_1_custom,itm_h_peasant_bycocket_2_custom,itm_h_hood_square_full_custom,itm_h_hood_square_liripipe_full_custom,itm_h_hood_big_liripipe_full_custom,
  itm_a_hunter_coat_custom,
@@ -3889,6 +3889,20 @@ def_attrib, wp(50), knows_warrior_basic, bandit_face1, bandit_face2 ],
 
 ### DAC Seek: Hidden Chest for Merchant
 ["hidden_chest","{!}hidden_chest","{!}hidden_chest",tf_hero|tf_inactive|tf_is_merchant, 0,reserved,  fac_neutral,[],level(18),wp(60), knows_inventory_management_1, 0],
+
+### DAC Seek: Hideout NPCs
+  ["hideout_recruiter","Charon","Charon",tf_hero|tf_is_merchant|tf_unmoveable_in_party_window, 0,reserved,  fac_commoners,
+   [
+   itm_a_leather_jerkin,itm_b_high_boots_lined_1,
+   ],
+   def_attrib|level(20),wp(120),knows_common|knows_inventory_management_10, 0x0000000bff106010500c21e42214935a00000000001cd9150000000000000000],
+
+  ["hideout_merchant","The Broker","The Broker",tf_hero|tf_is_merchant|tf_unmoveable_in_party_window, 0,reserved,  fac_commoners,
+   [
+   itm_a_houpelande_decorated_a_1,itm_b_high_boots_lined_1,
+   ],
+   def_attrib|level(20),wp(120),knows_common|knows_inventory_management_10, 0x00000008f210b1d154dd8da6f260381c00000000001dd8aa0000000000000000],
+
 
 # These are used as arrays in the scripts. #SB : give full inventory
 ["temp_array_a","{!}temp_array_a","{!}temp_array_a",tf_hero|tf_inactive, 0,reserved,  fac_neutral,[],def_attrib|level(18),wp(60),knows_inventory_management_10, 0],

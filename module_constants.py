@@ -207,6 +207,9 @@ slot_faction_ai_last_decisive_event     = 98 #capture a fortress or declaration 
 
 slot_faction_morale_of_player_troops    = 99
 
+### DAC Seek
+slot_faction_bandit_defeated            = 101
+
 #diplomacy
 slot_faction_truce_days_with_factions_begin 			= 120
 slot_faction_provocation_days_with_factions_begin 		= 130
@@ -1525,6 +1528,9 @@ kingdoms_end = "fac_kingdoms_end"
 
 npc_kingdoms_begin = "fac_kingdom_1"
 npc_kingdoms_end = kingdoms_end
+
+bandit_factions_begin = "fac_bandit_routiers"
+bandit_factions_end = "fac_bandits_end"
 
 bandits_begin = "trp_bandit"
 bandits_end = "trp_manhunter"

@@ -752,6 +752,7 @@ parties = [
 
 ## DAC Seek: Player Camp
   ("player_camp", "Mercenary Company",  icon_camp|pf_disabled|pf_is_static|pf_always_visible|pf_label_medium, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(10, -100),[], 0),
+  ("player_bandit_hideout", "Hideout",  icon_bandit_lair|pf_disabled|pf_is_static|pf_always_visible|pf_label_medium, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(10, -100),[], 0),
 ## DAC Seek: Player Camp End
 
 ## DAC Seek: Player relocation

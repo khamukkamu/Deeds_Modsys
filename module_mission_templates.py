@@ -16864,34 +16864,6 @@ mission_templates = [
     (try_end),
     ]),
 
-      (ti_on_agent_killed_or_wounded, 0, 0, [],
-       [
-        (store_trigger_param_1, ":dead_agent_no"),
-        # (store_trigger_param_2, ":killer_agent_no"),
-        (store_trigger_param_3, ":is_wounded"),
-
-        (try_begin),
-          (ge, ":dead_agent_no", 0),
-          (neg|agent_is_ally, ":dead_agent_no"),
-          (agent_is_human, ":dead_agent_no"),
-          (agent_get_troop_id, ":dead_agent_troop_id", ":dead_agent_no"),
-          (str_store_troop_name, s6, ":dead_agent_troop_id"),
-          (try_begin),
-            (neg|agent_is_ally, ":dead_agent_no"),
-            (party_add_members, "p_total_enemy_casualties", ":dead_agent_troop_id", 1), #addition_to_p_total_enemy_casualties
-            (try_begin),
-              (eq, ":is_wounded", 1),
-              (party_wound_members, "p_total_enemy_casualties", ":dead_agent_troop_id", 1),
-            (try_end),
-          (try_end),
-
-          (party_add_members, "p_temp_casualties", ":dead_agent_troop_id", 1), #addition_to_p_total_enemy_casualties
-
-          (eq, ":is_wounded", 1),
-          (party_wound_members, "p_temp_casualties", ":dead_agent_troop_id", 1),
-        (try_end),
-       ]),
-
 
       (0, 0, ti_once, [],
        [
@@ -16899,50 +16871,50 @@ mission_templates = [
          (set_party_battle_mode),
         ]),
 
-       (1, 4, ti_once,
-       [
-         (assign, ":continue", 0),
+       # (1, 4, ti_once,
+       # [
+         # (assign, ":continue", 0),
          
-         (try_begin),
-           (store_mission_timer_a,":cur_time"),
-           (ge, ":cur_time", 5),
-           (this_or_next|main_hero_fallen),
-           (num_active_teams_le, 1),
-           (assign, ":continue", 1),
-         (try_end),
+         # (try_begin),
+           # (store_mission_timer_a,":cur_time"),
+           # (ge, ":cur_time", 5),
+           # (this_or_next|main_hero_fallen),
+           # (num_active_teams_le, 1),
+           # (assign, ":continue", 1),
+         # (try_end),
 
-         (eq, ":continue", 1),
-       ],
-       [
-         (try_begin),
-           (main_hero_fallen),
-         (else_try),
-           (party_set_slot, "$g_encountered_party", slot_party_ai_substate, 2),
-         (try_end),
+         # (eq, ":continue", 1),
+       # ],
+       # [
+         # (try_begin),
+           # (main_hero_fallen),
+         # (else_try),
+           # (party_set_slot, "$g_encountered_party", slot_party_ai_substate, 2),
+         # (try_end),
 
-         (finish_mission),
-         ]),
+         # (finish_mission),
+         # ]),
          
-        # ( 1, 60, ti_once,
-        # [
-        # (store_mission_timer_a,reg(1)),
-        # (ge,reg(1),10),
-        # (all_enemies_defeated, 5),
+        ( 1, 60, ti_once,
+        [
+        (store_mission_timer_a,reg(1)),
+        (ge,reg(1),10),
+        (all_enemies_defeated, 5),
         # diplomacy begin
-        # (this_or_next|eq, "$g_dplmc_battle_continuation", 0),
-        # (neg|main_hero_fallen),
+        (this_or_next|eq, "$g_dplmc_battle_continuation", 0),
+        (neg|main_hero_fallen),
         # diplomacy end
-        # (set_mission_result,1),
-        # (display_message,"str_msg_battle_won"),
-        # (assign,"$g_battle_won",1),
-        # (assign, "$g_battle_result", 1),
-        # (call_script, "script_play_victorious_sound"),
-        # ],
-      # [
-        # (call_script, "script_count_mission_casualties_from_agents"),
-        # (finish_mission, 1),
-        # (party_set_slot, "$g_encountered_party", slot_party_ai_substate, 2),
-        # ]),
+        (set_mission_result,1),
+        (display_message,"str_msg_battle_won"),
+        (assign,"$g_battle_won",1),
+        (assign, "$g_battle_result", 1),
+        (call_script, "script_play_victorious_sound"),
+        ],
+      [
+        (call_script, "script_count_mission_casualties_from_agents"),
+        (finish_mission, 1),
+        (party_set_slot, "$g_encountered_party", slot_party_ai_substate, 2),
+        ]),
          
 (
   1, 4, 0,

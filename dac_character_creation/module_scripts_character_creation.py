@@ -1933,6 +1933,71 @@ character_creation_scripts = [
     
     (set_show_messages, 1),
   ]),
+  
+  # script_refresh_hideout_troops
+  # Input: none
+  # Output: none
+  ("refresh_hideout_troops",
+    [ 
+    (assign, ":ideal_size", 20),
+    
+    (try_for_range, ":bandit_faction", bandit_factions_begin, bandit_factions_end),
+            (faction_slot_eq, ":bandit_faction", slot_faction_bandit_defeated, 1),    
+            (val_add, ":ideal_size", 10),
+    (try_end),
+
+    # Debug
+    # (assign, reg30, ":ideal_size"),
+    # (display_message, "@Player hideout max size set to {reg30}"),
+
+    (party_get_num_companions, ":party_size", "p_player_bandit_hideout"),	
+    (try_begin),
+        (gt, ":party_size", ":ideal_size"), # We're past the ideal number of troops in the camp
+        (party_clear,"p_player_bandit_hideout"), # Reset the troop pool
+    (try_end), 
+    
+    (try_for_range, ":bandit_faction", bandit_factions_begin, bandit_factions_end),
+            (faction_slot_eq, ":bandit_faction", slot_faction_bandit_defeated, 1),    
+            (faction_get_slot, ":reinforcements", ":bandit_faction", slot_faction_reinforcements_a),
+            (party_add_template, "p_player_bandit_hideout", ":reinforcements"),	
+    (try_end),
+  ]),
+  
+
+  ("refresh_hideout_merchant_inventory",
+    [
+    (reset_item_probabilities,100),
+    (set_merchandise_modifier_quality,150),
+    (troop_clear_inventory, "trp_hideout_merchant"),
+    
+    (troop_add_merchandise, "trp_hideout_merchant", itp_type_goods, 8),
+    (troop_add_merchandise, "trp_hideout_merchant", itp_type_horse, 4),
+    (troop_add_merchandise, "trp_hideout_merchant", itp_type_bow, 4),
+    (troop_add_merchandise, "trp_hideout_merchant", itp_type_crossbow, 4),
+    (troop_add_merchandise, "trp_hideout_merchant", itp_type_arrows, 3),
+    (troop_add_merchandise, "trp_hideout_merchant", itp_type_bolts, 3),
+    (troop_add_merchandise, "trp_hideout_merchant", itp_type_musket, 2),
+    (troop_add_merchandise, "trp_hideout_merchant", itp_type_bullets, 2),
+    (troop_add_merchandise, "trp_hideout_merchant", itp_type_one_handed_wpn, 3),
+    (troop_add_merchandise, "trp_hideout_merchant", itp_type_two_handed_wpn, 1),
+    (troop_add_merchandise, "trp_hideout_merchant", itp_type_polearm, 5),
+    (troop_add_merchandise, "trp_hideout_merchant", itp_type_shield, 5),
+    (troop_add_merchandise, "trp_hideout_merchant", itp_type_head_armor, 5),
+    (troop_add_merchandise, "trp_hideout_merchant", itp_type_body_armor, 5),
+    (troop_add_merchandise, "trp_hideout_merchant", itp_type_foot_armor, 4),
+    (troop_add_merchandise, "trp_hideout_merchant", itp_type_hand_armor, 3),
+    
+    (troop_ensure_inventory_space, "trp_hideout_merchant", 30),
+    (troop_sort_inventory, "trp_hideout_merchant"),
+    
+    (store_troop_gold, reg6, "trp_hideout_merchant"),
+    (try_begin),
+        (lt, reg6, 1600),
+        (store_random_in_range,":new_gold", 800, 1200),
+        (call_script, "script_troop_add_gold", "trp_hideout_merchant", ":new_gold"),
+    (try_end),
+
+  ]),
     
     
 ]

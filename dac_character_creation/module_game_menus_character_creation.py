@@ -339,6 +339,26 @@ character_creation_menus = [
             (call_script, "script_change_player_relation_with_faction", "fac_kingdom_1", 40),
             (call_script, "script_change_player_relation_with_faction", "fac_kingdom_2", -40),
         (try_end),
+        
+        (try_begin),
+            (eq, "$class_type", cc_peasant_revolutionary),
+            (party_add_template, "p_main_party", "pt_peasant_bandits"),
+            
+            (try_for_range, ":bandit_factions", bandit_factions_begin, bandit_factions_end),
+                (faction_set_slot, ":bandit_factions", slot_faction_bandit_defeated, -1),
+            (try_end),
+            
+            (try_for_range, ":faction_no", kingdoms_begin, kingdoms_end),
+                (call_script, "script_change_player_relation_with_faction", ":faction_no", -40),
+            (try_end),
+            
+            (faction_set_slot, "fac_bandit_routiers",  slot_faction_reinforcements_a, "pt_routier_hideout"),
+            (faction_set_slot, "fac_bandit_flayers",  slot_faction_reinforcements_a, "pt_flayer_hideout"),
+            (faction_set_slot, "fac_bandit_retondeurs",  slot_faction_reinforcements_a, "pt_retondeur_hideout"),
+            (faction_set_slot, "fac_bandit_tard_venus",  slot_faction_reinforcements_a, "pt_tard_venu_hideout"),
+            (faction_set_slot, "fac_bandit_peasant_rebels",  slot_faction_reinforcements_a, "pt_angry_pleb_hideout"),
+            
+        (try_end),
            
           # (try_begin),
             # (eq, "$character_gender", tf_male),
@@ -722,5 +742,160 @@ character_creation_menus = [
        [(change_screen_return),
         ]),
     ]
+  ),
+  
+## DAC Seek: Player Camp Encounter
+  (
+    "player_hideout_encounter",0,
+    "You approach your hideout... ^{reg6?^^You are currently upgrading to: {s7}. ^The process will take {reg8} day{reg9?s:} and you won't be able to access the hideout until the work is finished.:}",
+    "none",
+    [
+    (set_background_mesh, "mesh_pic_camp"),
+        
+    (assign, reg6, 0),
+    (try_begin),
+        (party_get_slot, ":cur_improvement", "p_player_bandit_hideout", slot_center_current_improvement),
+        (eq, ":cur_improvement", slot_player_camp_relocation_project),
+        (call_script, "script_player_camp_get_improvement_details", ":cur_improvement"),
+        (str_store_string, s7, s0),
+        (assign, reg6, 1),
+        (store_current_hours, ":cur_hours"),
+        (party_get_slot, ":finish_time", "p_player_camp", slot_center_improvement_end_hour),
+        (val_sub, ":finish_time", ":cur_hours"),
+        (store_div, reg8, ":finish_time", 24),
+        (val_max, reg8, 1),
+        (store_sub, reg9, reg8, 1),
+    (try_end),
+    ],
+    [
+    ("player_hideout_meet_recruiter",
+       [(eq, reg6, 0),],
+    "Speak to the Recruiter.",[
+        (modify_visitors_at_site,"scn_meeting_scene_plain"),
+        (reset_visitors),    
+        (assign, "$g_mt_mode", tcm_default),   		
+        (set_jump_entry, 0),
+        (set_visitor, 17, "trp_hideout_recruiter"),
+        (jump_to_scene,"scn_meeting_scene_plain"),
+        (change_screen_map_conversation, "trp_hideout_recruiter"),
+    ]),      
+    ("player_hideout_meet_merchant",
+       [(eq, reg6, 0),],
+    "Speak to the Broker.",[
+        (modify_visitors_at_site,"scn_meeting_scene_plain"),
+        (reset_visitors),    
+        (assign, "$g_mt_mode", tcm_default),   		
+        (set_jump_entry, 0),
+        (set_visitor, 17, "trp_hideout_merchant"),
+        (jump_to_scene,"scn_meeting_scene_plain"),
+        (change_screen_map_conversation, "trp_hideout_merchant"),
+    ]), 
+    # ("player_camp_enter",
+        # [(eq, reg6, 0),],
+    # "Enter the {s11}.",[
+        # (party_get_current_terrain, ":cur_terrain", "p_player_camp"),
+        # (try_begin),
+            # (this_or_next|eq, ":cur_terrain", rt_forest),
+            # (eq, ":cur_terrain", rt_steppe_forest),
+            # (assign, ":scene_to_use", "scn_player_camp_forest"),
+        # (else_try),
+            # (assign, ":scene_to_use", "scn_player_camp"),
+        # (try_end),
+    
+        # (modify_visitors_at_site,":scene_to_use"),
+        # (reset_visitors),    
+        # (assign, "$g_mt_mode", tcm_default),   		
+        # (set_jump_entry, 1),
+        # (set_visitor, 2, "trp_merc_company_quartermaster"),
+        # (try_begin),
+            # (party_slot_eq, "p_player_camp", slot_player_camp_smithy, 1),
+            # (set_visitor, 3, "trp_merc_company_smith"),
+        # (try_end),
+        # (try_begin),
+            # (party_slot_eq, "p_player_camp", slot_player_camp_market, 1),
+            # (set_visitor, 4, "trp_merc_company_merchant"),
+        # (try_end),
+        # (set_jump_mission, "mt_player_camp"),
+        # (jump_to_scene, ":scene_to_use"),
+        # (change_screen_mission),		
+	# ]),	
+      # ("player_camp_manage",[(eq, reg6, 0),],"Manage the {s11}.",[(jump_to_menu, "mnu_player_camp_management"),]),
+      ("player_hideout_wait",[],"Wait here for some time.",[(rest_for_hours_interactive, 24 * 7, 5, 0),(change_screen_return)]),
+      ("leave",[],"Leave.",[(leave_encounter),(change_screen_return)]),
+    ]
+  ),  
+  
+  (
+    "player_hideout_relocate",0,
+    "Do you wish to relocate the hideout to your current position? ^As the party member with the highest engineer skill ({reg2}), {reg3?you reckon:{s3} reckons} that relocating will cost you {reg5} crowns and will take {reg6} days. ^Until the relocation you won't be able to access the hideout functionalities, do you wish to proceed anyway?",
+    "none",
+    [
+    (store_distance_to_party_from_party, "$relocation_distance", "p_main_party", "p_player_bandit_hideout"),
+    
+    (assign, "$g_improvement_type", slot_player_camp_relocation_project),
+    (call_script, "script_player_camp_get_improvement_details", "$g_improvement_type"),
+    (assign, ":improvement_cost", reg0),
+    (call_script, "script_get_max_skill_of_player_party", "skl_engineer"),
+    (assign, ":max_skill", reg0),
+    (assign, ":max_skill_owner", reg1),
+    (assign, reg2, ":max_skill"),
+
+    (store_sub, ":multiplier", 20, ":max_skill"),
+    (val_mul, ":improvement_cost", ":multiplier"),
+    (val_div, ":improvement_cost", 20),
+
+    (store_div, ":improvement_time", ":improvement_cost", 250),
+
+    (assign, reg5, ":improvement_cost"),
+    (assign, reg6, ":improvement_time"),
+
+    #SB : tableau at bottom
+    (try_begin),
+        (eq, ":max_skill_owner", "trp_player"),
+        (assign, reg3, 1),
+    (else_try),
+        (assign, reg3, 0),
+        (str_store_troop_name, s3, ":max_skill_owner"),
+    (try_end),
+
+    #SB : assign globals to be safe
+    (assign, "$diplomacy_var", ":improvement_cost"),
+    (assign, "$diplomacy_var2", ":improvement_time"),
+    (set_fixed_point_multiplier, 100),
+    (position_set_x, pos0, 70),
+    (position_set_y, pos0, 5),
+    (position_set_z, pos0, 75),
+    (set_game_menu_tableau_mesh, "tableau_troop_note_mesh", ":max_skill_owner", pos0),
+    
+    ],
+    [ 
+    ("relocate_cheat",[
+        (ge, "$cheat_mode"),],
+    "[Cheat] Relocate the hideout instantly.", [
+        (party_relocate_near_party, "p_player_bandit_hideout", "p_main_party"),
+        (enable_party, "p_player_bandit_hideout"),
+        (change_screen_return),
+    ]),
+    ("relocate",[
+        (store_troop_gold, ":cur_gold", "trp_player"),
+        (ge, ":cur_gold", "$diplomacy_var")],
+    "Relocate the hideout.", [
+        (troop_remove_gold, "trp_player", "$diplomacy_var"),
+        (call_script, "script_improve_player_camp", "p_player_bandit_hideout", "$diplomacy_var2"),
+    
+        (party_relocate_near_party, "p_player_bandit_hideout", "p_main_party"),
+        (enable_party, "p_player_bandit_hideout"),
+        (change_screen_return),
+    ]),
+    ("relocation_condition_not_met",[
+        (store_troop_gold, ":cur_gold", "trp_player"),
+        (lt, ":cur_gold", "$diplomacy_var"),
+        #SB : disable_menu_option
+        (disable_menu_option),
+    ],
+    "I don't have enough money for that.", []),
+      ("return",[], "Return.", [(change_screen_return),]),
+
+    ],
   ),
 ]

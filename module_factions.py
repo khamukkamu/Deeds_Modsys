@@ -41,11 +41,11 @@ factions = [
 #  ("vaegir_caravans","Vaegir Caravans", 0, 0.5,[("outlaws",-0.8), ("dark_knights",-0.2)], []),
 
   ("player_faction","Player Faction",0, 0.9, [], []),
-  ("player_supporters_faction","Player's Supporters",0, 0.9, [("player_faction",1.00),("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05)], [], 0xFF4433), #changed name so that can tell difference if shows up on map
-  ("kingdom_1",  "Kingdom of France", 0, 0.9, [("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("kingdom_2",-1),("kingdom_3",-0.2),("kingdom_4",0.4)], [], 0x4980d8),
-  ("kingdom_2",  "Kingdom of England",    0, 0.9, [("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("kingdom_1",-1),("kingdom_4",-0.2),("kingdom_3",0.2)], [], 0xb21010),
-  ("kingdom_3",  "Duchy of Burgundy", 0, 0.9, [("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("kingdom_1",-0.2),("kingdom_4",0),("kingdom_2",0.2)], [], 0xddb544),
-  ("kingdom_4",  "Duchy of Brittany",    0, 0.9, [("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05),("kingdom_2",-0.2),("kingdom_3",0),("kingdom_1",0.4)], [], 0x9495a5),
+  ("player_supporters_faction","Player's Supporters",0, 0.9, [("player_faction",1.00),("outlaws",-0.05),("bandit_routiers",-0.05),("bandit_flayers",-0.05),("bandit_retondeurs",-0.05),("bandit_tard_venus",-0.05),("bandit_peasant_rebels",-0.05),("deserters", -0.02),], [], 0xFF4433), #changed name so that can tell difference if shows up on map
+  ("kingdom_1",  "Kingdom of France", 0, 0.9, [("outlaws",-0.05),("bandit_routiers",-0.05),("bandit_flayers",-0.05),("bandit_retondeurs",-0.05),("bandit_tard_venus",-0.05),("bandit_peasant_rebels",-0.05),("deserters", -0.02),("kingdom_2",-1),("kingdom_3",-0.2),("kingdom_4",0.4)], [], 0x4980d8),
+  ("kingdom_2",  "Kingdom of England",    0, 0.9, [("outlaws",-0.05),("bandit_routiers",-0.05),("bandit_flayers",-0.05),("bandit_retondeurs",-0.05),("bandit_tard_venus",-0.05),("bandit_peasant_rebels",-0.05),("deserters", -0.02),("kingdom_1",-1),("kingdom_4",-0.2),("kingdom_3",0.2)], [], 0xb21010),
+  ("kingdom_3",  "Duchy of Burgundy", 0, 0.9, [("outlaws",-0.05),("bandit_routiers",-0.05),("bandit_flayers",-0.05),("bandit_retondeurs",-0.05),("bandit_tard_venus",-0.05),("bandit_peasant_rebels",-0.05),("deserters", -0.02),("kingdom_1",-0.2),("kingdom_4",0),("kingdom_2",0.2)], [], 0xddb544),
+  ("kingdom_4",  "Duchy of Brittany",    0, 0.9, [("outlaws",-0.05),("bandit_routiers",-0.05),("bandit_flayers",-0.05),("bandit_retondeurs",-0.05),("bandit_tard_venus",-0.05),("bandit_peasant_rebels",-0.05),("deserters", -0.02),("kingdom_2",-0.2),("kingdom_3",0),("kingdom_1",0.4)], [], 0x9495a5),
   # ("kingdom_5",  "Kingdom of Rhodoks",  0, 0.9, [("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05)], [], 0x33DD33),
   # ("kingdom_6",  "Sarranid Sultanate",  0, 0.9, [("outlaws",-0.05),("peasant_rebels", -0.1),("deserters", -0.02),("mountain_bandits", -0.05),("forest_bandits", -0.05)], [], 0xDDDD33),
 
@@ -77,6 +77,12 @@ factions = [
   ("rebels","Manhunters", 0, 0.5,[("outlaws",-0.6),("player_faction",0.1)], []),
   ("flemish_mercenaries","Manhunters", 0, 0.5,[("outlaws",-0.6),("player_faction",0.1)], []),
   
+  ("bandit_routiers","Routiers", 0, 0.5,[("commoners",-0.2),("merchants",-0.5),("manhunters",-0.6),("player_faction",-0.15)], [], 0xff8a3d),
+  ("bandit_flayers","Flayers", 0, 0.5,[("commoners",-0.2),("merchants",-0.5),("manhunters",-0.6),("player_faction",-0.15)], [], 0xff8a3d),
+  ("bandit_retondeurs","Retondeurs", 0, 0.5,[("commoners",-0.2),("merchants",-0.5),("manhunters",-0.6),("player_faction",-0.15)], [], 0xff8a3d),
+  ("bandit_tard_venus","Tard-Venus", 0, 0.5,[("commoners",-0.2),("merchants",-0.5),("manhunters",-0.6),("player_faction",-0.15)], [], 0xff8a3d),
+  ("bandit_peasant_rebels","Peasant Rebels", 0, 0.5,[("commoners",-0.2),("merchants",-0.5),("manhunters",-0.6),("player_faction",-0.15)], [], 0xff8a3d),
+  ("bandits_end","{!}bandits_end", 0, 0,[], []),
 ]
 
 ##diplomacy start+ Define these for convenience

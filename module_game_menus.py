@@ -3358,6 +3358,38 @@ TOTAL:  {reg5}"),
         ]
        ),       
 ## DAC Seek: Player Camp End
+
+### DAC Seek: Move the hideout
+      ("action_relocate_hideout",[
+        (eq, "$dac_hideout_built", 1),
+      
+        (assign, reg6, 0),
+        (try_begin),
+            (party_get_slot, ":cur_improvement", "p_player_bandit_hideout", slot_center_current_improvement),
+            (gt, ":cur_improvement", 0),
+            (call_script, "script_player_camp_get_improvement_details", ":cur_improvement"),
+            (str_store_string, s7, s0),
+            (assign, reg6, 1),
+            (store_current_hours, ":cur_hours"),
+            (party_get_slot, ":finish_time", "p_player_bandit_hideout", slot_center_improvement_end_hour),
+            (val_sub, ":finish_time", ":cur_hours"),
+            (store_div, reg8, ":finish_time", 24),
+            (val_max, reg8, 1),
+            (store_sub, reg9, reg8, 1),
+        (try_end),    
+      
+      ],"Relocate the hideout here.",
+       [
+        (try_begin),
+            (eq, reg6, 0),
+            (jump_to_menu, "mnu_player_hideout_relocate"),
+        (else_try),
+            (display_message, "@You are currently building {s7}. The building will be completed after {reg8} day{reg9?s:}.", color_bad_news),
+            (display_message, "@You cannot relocate the camp until the building project is completed.", color_bad_news),
+        (try_end),
+        ]
+       ),       
+
 ### DAC Seek: Toggle Some class options on/off		
 # Toggle
       ("class_disable_feature",[
@@ -9244,12 +9276,12 @@ TOTAL:  {reg5}"),
 
           (store_div, ":str_id", ":prosperity", 20),
 		  (val_min, ":str_id", 4),
-		  (try_begin),
-			(is_between, "$current_town", "p_english_village_16", villages_end),
-			(val_add, ":str_id", "str_oasis_village_alt_prosperity_0"),
-		  (else_try),
+		  # (try_begin),
+			# (is_between, "$current_town", "p_english_village_16", villages_end),
+			# (val_add, ":str_id", "str_oasis_village_alt_prosperity_0"),
+		  # (else_try),
 			(val_add, ":str_id", "str_village_alt_prosperity_0"),
-		  (try_end),
+		  # (try_end),
 
           (str_store_string, s12, ":str_id"),
         (try_end),
@@ -9683,7 +9715,7 @@ TOTAL:  {reg5}"),
 
       ("village_wait",
        [
-        (try_begin),
+        (try_begin), ### DAC Seek
             (eq, "$background_type", cb_peasant),
             (str_store_string, s1, "@[Peasant] Find a place to sleep"),
         (else_try),
@@ -9710,6 +9742,36 @@ TOTAL:  {reg5}"),
 
            (change_screen_return),
           ]),
+          
+### DAC Seek: Work in village
+      ("dac_work_village_tired",
+      [
+        (party_slot_eq, "$current_town", slot_village_state, svs_normal),
+        (neg|party_slot_ge, "$current_town", slot_village_infested_by_bandits, 1),
+        (this_or_next|eq, "$class_type", cc_peasant_farmer),
+        (eq, "$class_type", cc_peasant_smith),
+        (troop_get_slot, ":rest_hours", "trp_player", slot_troop_player_workday_rest),
+        (gt, ":rest_hours", 0),
+        (disable_menu_option),
+        # (str_store_string, s11, "@You require proper rest, at your camp or indoors (wait here for some time)"),
+        # (set_tooltip_text, s11),
+      ],
+      "[Peasant] Too tired to work, need some more rest...",
+      []),
+      ("dac_work_village",
+      [
+        (party_slot_eq, "$current_town", slot_village_state, svs_normal),
+        (neg|party_slot_ge, "$current_town", slot_village_infested_by_bandits, 1),
+        (this_or_next|eq, "$class_type", cc_peasant_farmer),
+        (eq, "$class_type", cc_peasant_smith),
+        (troop_get_slot, ":rest_hours", "trp_player", slot_troop_player_workday_rest),
+        (le, ":rest_hours", 0),
+      ],
+      "[Peasant] Look for work.",
+      [
+        (jump_to_menu, "mnu_dac_work_town_village"),
+      ]),
+### DAC Seek End
 
        ##diplomacy begin
       ("dplmc_village_counter_insurgency",[
@@ -18282,7 +18344,20 @@ goods, and books will never be sold. ^^You can change some settings here freely.
           (try_end),
         (else_try),
           (party_slot_eq, "$g_encountered_party", slot_party_ai_substate, 2), #used in place of global variable
-          (str_store_string, s3, "str_bandit_hideout_success"),
+          
+          ### DAC Seek: Change win message when playing as a rebel
+            (try_begin),
+                (eq, "$class_type", cc_peasant_revolutionary),
+                (try_begin),
+                    (le, "$dac_hideout_built", 0),
+                    (str_store_string, s3, "str_dac_bandit_hideout_takeover"),
+                (else_try),
+                    (str_store_string, s3, "str_dac_bandit_faction_takeover"),
+                (try_end),
+            (else_try),
+                (str_store_string, s3, "str_bandit_hideout_success"),
+            (try_end),
+          ### DAC Seek End
           (set_background_mesh, "mesh_pic_victory"),
         (try_end),
       (try_end),
@@ -18359,6 +18434,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         # (try_end),
 
         (party_clear, "p_temp_casualties"),
+        (party_clear, "p_total_enemy_casualties"),
 
         (set_party_battle_mode),
         (set_battle_advantage, 0),
@@ -18462,11 +18538,32 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (try_end),
         ### End
         
+        ### DAC Seek: Rebel class can take over a bandit lair
+        (try_begin),
+            (eq, "$class_type", cc_peasant_revolutionary),
+            (le, "$dac_hideout_built", 0),
+            (party_relocate_near_party, "p_player_bandit_hideout", "p_main_party", 5),
+            (enable_party, "p_player_bandit_hideout"),
+            (assign, "$dac_hideout_built", 1),
+            (call_script, "script_refresh_hideout_merchant_inventory"),
+        (try_end),
+        
+        (try_begin),
+            (eq, "$class_type", cc_peasant_revolutionary),
+            (party_get_template_id, ":template", "$g_encountered_party"),
+            (party_stack_get_troop_id, ":stack_troop", "p_temp_casualties", 0),
+            (store_troop_faction, ":bandit_faction", ":stack_troop"),
+            (faction_slot_eq, ":bandit_faction", slot_faction_bandit_defeated, -1),
+            (faction_set_slot, ":bandit_faction", slot_faction_bandit_defeated, 1),
+            (call_script, "script_refresh_hideout_troops"),
+        (try_end),
+        ### DAC Seek: Rebel can take over bandit
+        
         (try_begin),
           (ge, "$g_encountered_party", 0),
           (party_is_active, "$g_encountered_party"),
           (party_get_template_id, ":template", "$g_encountered_party"),
-          (eq, ":template", "pt_looter_lair"),
+          (neq, ":template", "pt_looter_lair"),
           (remove_party, "$g_encountered_party"),
         (try_end),
       ]),

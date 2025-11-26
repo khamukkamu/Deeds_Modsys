@@ -50,15 +50,15 @@ party_templates = [
   # ("plains_bandits","Bandits",icon_khergit|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_bandit,4,58)]),
   # ("steppe_bandits","Steppe Bandits",icon_khergit_horseman_b|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_steppe_bandit,4,58)]),
 ### Routiers  
-  ("routier_bandits","Routiers",icon_dac_routier|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_routier_knight,1,1),(trp_routier_crossbowman,4,12),(trp_routier_mounted_sergeant,4,12),(trp_routier_sergeant,2,10),(trp_routier_voulgier,4,12),(trp_routier_footman,8,24)]),
+  ("routier_bandits","Routiers",icon_dac_routier|carries_goods(2)|pf_show_faction,0,fac_bandit_routiers,bandit_personality,[(trp_routier_knight,1,1),(trp_routier_crossbowman,4,12),(trp_routier_mounted_sergeant,4,12),(trp_routier_sergeant,2,10),(trp_routier_voulgier,4,12),(trp_routier_footman,8,24)]),
 ### Flayers
-  ("flayer_bandits","Flayers",icon_dac_flayer|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_flayer_captain,1,1),(trp_flayer_infantry,6,18),(trp_flayer_fauchard,4,12),(trp_flayer_archer,2,8)]),
+  ("flayer_bandits","Flayers",icon_dac_flayer|carries_goods(2)|pf_show_faction,0,fac_bandit_flayers,bandit_personality,[(trp_flayer_captain,1,1),(trp_flayer_infantry,6,18),(trp_flayer_fauchard,4,12),(trp_flayer_archer,2,8)]),
 ### Retondeurs
-  ("retondeur_bandits","Retondeurs",icon_dac_retondeur|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_retondeur_horseman,2,12),(trp_retondeur_maceman,6,18),(trp_retondeur_crossbowman,2,8)]),
+  ("retondeur_bandits","Retondeurs",icon_dac_retondeur|carries_goods(2)|pf_show_faction,0,fac_bandit_retondeurs,bandit_personality,[(trp_retondeur_horseman,2,12),(trp_retondeur_maceman,6,18),(trp_retondeur_crossbowman,2,8)]),
 ### Tard-Venus
-  ("tard_venu_bandits","Tard-Venus",icon_dac_tard_venu|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_tard_venu_militia,8,24),(trp_tard_venu_pikeman,6,18),(trp_tard_venu_archer,4,12)]),
+  ("tard_venu_bandits","Tard-Venus",icon_dac_tard_venu|carries_goods(2)|pf_show_faction,0,fac_bandit_tard_venus,bandit_personality,[(trp_tard_venu_militia,8,24),(trp_tard_venu_pikeman,6,18),(trp_tard_venu_archer,4,12)]),
 ### Angry Plebs 
-  ("peasant_bandits","Rebellious Peasants",icon_dac_rebel_peasants|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_disgruntled_farmer,8,24),(trp_irrate_hunter,4,12),(trp_furious_lumberjack,1,6)]),
+  ("peasant_bandits","Rebellious Peasants",icon_dac_rebel_peasants|carries_goods(2)|pf_show_faction,0,fac_bandit_peasant_rebels,bandit_personality,[(trp_disgruntled_farmer,8,24),(trp_irrate_hunter,4,12),(trp_furious_lumberjack,1,6)]),
 
 ### Native
   # ("taiga_bandits","Tundra Bandits",icon_axeman|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_taiga_bandit,4,58)]),
@@ -66,7 +66,7 @@ party_templates = [
   # ("forest_bandits","Forest Bandits",icon_axeman|carries_goods(2),0,fac_forest_bandits,bandit_personality,[(trp_forest_bandit,4,52)]),
   # ("mountain_bandits","Mountain Bandits",icon_axeman|carries_goods(2),0,fac_mountain_bandits,bandit_personality,[(trp_mountain_bandit,4,60)]),
   # ("sea_raiders","Sea Raiders",icon_axeman|carries_goods(2),0,fac_outlaws,bandit_personality,[(trp_sea_raider,5,50)]),
-  ("deserters","Deserters",icon_dac_deserter|carries_goods(3),0,fac_deserters,bandit_personality,[]),
+  ("deserters","Deserters",icon_dac_deserter|carries_goods(3)|pf_show_faction,0,fac_deserters,bandit_personality,[]),
     
 ### Quest Related	
   ("troublesome_bandits","Troublesome Bandits",icon_axeman|carries_goods(9)|pf_quest_party,0,fac_outlaws,bandit_personality,[(trp_bandit,14,55)]),
@@ -162,5 +162,14 @@ party_templates = [
    ("dplmc_recruiter","Recruiter",icon_flagbearer_b|pf_show_faction,0,fac_neutral,merchant_personality,[(trp_dplmc_recruiter,1,1)]),
 #recruiter kit end
    ##diplomacy end
+   
+### DAC Seek: Hideout Reinforcements
+ ### New Lairs
+  ("routier_hideout","Routier Reinforcements", 0, 0, fac_commoners, 0,                   [(trp_routier_knight,1,1),(trp_routier_crossbowman,1,6),(trp_routier_mounted_sergeant,1,4),(trp_routier_sergeant,1,4),(trp_routier_voulgier,1,4),(trp_routier_footman,1,4)]),
+  ("flayer_hideout","Flayer Reinforcements", 0, 0, fac_commoners, 0,                     [(trp_flayer_captain,1,1),(trp_flayer_infantry,1,4),(trp_flayer_fauchard,1,4),(trp_flayer_archer,1,6)]),
+  ("retondeur_hideout","Retondeur Reinforcements", 0, 0, fac_commoners, 0,               [(trp_retondeur_horseman,1,4),(trp_retondeur_maceman,1,4),(trp_retondeur_crossbowman,1,6)]),
+  ("tard_venu_hideout","Tard-Venu Reinforcements", 0, 0, fac_commoners, 0,               [(trp_tard_venu_militia,1,4),(trp_tard_venu_pikeman,1,4),(trp_tard_venu_archer,1,6)]),
+  ("angry_pleb_hideout","Rebel Reinforcements", 0, 0, fac_commoners, 0,                  [(trp_disgruntled_farmer,1,6),(trp_irrate_hunter,1,6),(trp_furious_lumberjack,1,6)]),
+
 ]
 party_templates = party_templates + mercenary_company_party_templates
