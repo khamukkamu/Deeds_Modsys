@@ -1938,7 +1938,7 @@ level(15)|str_16|agi_12, wpex(100,100,150,100,100,100), knows_ironflesh_4|knows_
  itm_w_spear_3,itm_w_spear_4,itm_w_spear_5,itm_w_onehanded_falchion_peasant,itm_w_onehanded_falchion_peasant_b,itm_w_onehanded_sword_c_small,itm_w_onehanded_sword_a,
  itm_s_heater_shield_breton_4,itm_s_heater_shield_burgundian_4,itm_s_heater_shield_english_6,itm_s_heater_shield_french_1,itm_s_heraldic_shield_breton_2,itm_s_heraldic_shield_burgundian_1,itm_s_heraldic_shield_burgundian_2,itm_s_heraldic_shield_german_3,
 ], 
-level(20)|str_16|agi_16, wpex(160,100,100,100,100,100), knows_ironflesh_4|knows_power_strike_4|knows_shield_3|knows_athletics_3|knows_weapon_master_2, french_face_middle_1, french_face_mature_2 ],
+level(15)|str_16|agi_16, wpex(160,100,100,100,100,100), knows_ironflesh_4|knows_power_strike_4|knows_shield_3|knows_athletics_3|knows_weapon_master_2, french_face_middle_1, french_face_mature_2 ],
 ["routier_crossbowman", "Routier Crossbowman", "Routier Crossbowmen", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_ranged, no_scene, reserved, fac_bandit_routiers, 
 [
  itm_h_skullcap_hood_custom,itm_h_cervelliere_hood_custom,itm_h_german_kettlehat_1_hood_custom,itm_h_german_kettlehat_3_hood_custom,itm_h_martinus_kettlehat_1_hood_custom,itm_h_martinus_kettlehat_2_hood_custom,itm_h_oliphant_kettlehat_hood_custom,itm_h_chapel_de_fer_hood_custom,itm_h_german_kettlehat_1_strap,itm_h_german_kettlehat_3_strap,itm_h_chapel_de_fer_strap,itm_h_simple_cervelliere_strap,itm_h_cervelliere_strap,itm_h_skullcap_strap,itm_h_shingle_helmet_strap,
@@ -2006,7 +2006,7 @@ level(15)|str_16|agi_16, wp_melee(120), knows_ironflesh_3|knows_power_strike_3|k
  itm_w_mace_winged,itm_w_mace_winged_brown,itm_w_mace_winged_red,itm_w_mace_knobbed,itm_w_mace_knobbed_brown,itm_w_mace_knobbed_red,
  itm_s_heraldic_shield_breton_1,itm_s_heraldic_shield_breton_2,itm_s_heraldic_shield_breton_3,itm_s_heraldic_shield_burgundian_1,itm_s_heraldic_shield_burgundian_2,itm_s_heraldic_shield_burgundian_3,
 ], 
-level(20)|str_16|agi_16, wpex(160,100,100,100,100,100), knows_ironflesh_4|knows_power_strike_4|knows_shield_3|knows_athletics_3|knows_weapon_master_2, mercenary_face_1, mercenary_face_2 ],
+level(12)|str_16|agi_16, wpex(160,100,100,100,100,100), knows_ironflesh_4|knows_power_strike_4|knows_shield_3|knows_athletics_3|knows_weapon_master_2, mercenary_face_1, mercenary_face_2 ],
 ["retondeur_crossbowman", "Retondeur Crossbowman", "Retondeur Crossbowmen", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_ranged, no_scene, reserved, fac_bandit_retondeurs, 
 [
  itm_h_german_kettlehat_1_strap,itm_h_german_kettlehat_3_strap,itm_h_chapel_de_fer_strap,itm_h_makeshift_kettle_strap,itm_h_simple_cervelliere_strap,itm_h_simple_cervelliere_2_strap,
@@ -2015,7 +2015,7 @@ level(20)|str_16|agi_16, wpex(160,100,100,100,100,100), knows_ironflesh_4|knows_
  itm_w_goedendag,itm_w_onehanded_falchion_peasant,itm_w_onehanded_falchion_peasant_b,itm_w_spiked_club,itm_w_spiked_club_brown,itm_w_spiked_club_dark,
  itm_w_crossbow_light,itm_w_bolt_triangular,
 ], 
-level(12)|str_13|agi_12, wpex(100,80,80,80,100,80), knows_ironflesh_2|knows_power_strike_1|knows_shield_1|knows_athletics_3|knows_weapon_master_1, mercenary_face_1, mercenary_face_2 ],
+level(10)|str_13|agi_12, wpex(100,80,80,80,100,80), knows_ironflesh_2|knows_power_strike_1|knows_shield_1|knows_athletics_3|knows_weapon_master_1, mercenary_face_1, mercenary_face_2 ],
 
 ### Tard-Venus
 ["tard_venu_militia", "Tard-Venu Militia", "Tard-Venu Militias", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_shield, no_scene, reserved, fac_bandit_tard_venus, 
@@ -2053,7 +2053,7 @@ level(8)|str_10|agi_12, wpex(90,80,80,100,80,80), knows_ironflesh_1|knows_power_
  itm_b_turnshoes_1,itm_b_turnshoes_2,itm_b_turnshoes_3,
  itm_w_dagger_quillon,itm_w_archer_hatchet,itm_w_archer_hatchet_brown,itm_w_archer_hatchet_red,itm_w_wooden_stick,itm_w_fauchard_1,itm_w_fauchard_2,itm_w_fauchard_3,itm_w_fork_1,itm_w_fork_2,
 ], 
-def_attrib, wp(60), knows_common_kham, swadian_face_young_1, swadian_face_old_2 ],
+level(6)|str_10|agi_12, wp(60), knows_common_kham, swadian_face_young_1, swadian_face_old_2 ],
 ["furious_lumberjack", "Furious Lumberjack", "Furious Lumberjacks", tf_guarantee_boots|tf_guarantee_armor, no_scene, reserved, fac_bandit_peasant_rebels, 
 [
  itm_h_peasant_bycocket_1_custom,itm_h_peasant_bycocket_2_custom,itm_h_woolen_cap_brown,itm_h_woolen_cap_green,itm_h_simple_coif,itm_h_arming_cap,
@@ -2061,7 +2061,7 @@ def_attrib, wp(60), knows_common_kham, swadian_face_young_1, swadian_face_old_2 
  itm_b_turnshoes_1,itm_b_turnshoes_2,itm_b_turnshoes_3,
  itm_w_twohanded_war_axe_01,itm_w_twohanded_war_axe_01_brown,itm_w_twohanded_war_axe_01_red,
 ], 
-def_attrib, wp(60), knows_common_kham, swadian_face_young_1, swadian_face_old_2 ],
+level(6)|str_10|agi_12, wp(60), knows_common_kham, swadian_face_young_1, swadian_face_old_2 ],
 ["irrate_hunter", "Irrate Hunter", "Irrate Hunters", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_ranged, no_scene, reserved, fac_bandit_peasant_rebels, 
 [
  itm_h_peasant_bycocket_1_custom,itm_h_peasant_bycocket_2_custom,itm_h_hood_square_full_custom,itm_h_hood_square_liripipe_full_custom,itm_h_hood_big_liripipe_full_custom,
@@ -2071,7 +2071,7 @@ def_attrib, wp(60), knows_common_kham, swadian_face_young_1, swadian_face_old_2 
  itm_w_hunting_bow_ash,itm_w_hunting_bow_elm,
  itm_w_arrow_triangular,
 ], 
-level(8)|str_10|agi_12, wpex(90,80,80,100,80,80), knows_ironflesh_1|knows_power_strike_1|knows_power_draw_2|knows_athletics_4|knows_weapon_master_1, swadian_face_young_1, swadian_face_old_2 ],
+level(4)|str_10|agi_12, wpex(90,80,80,100,80,80), knows_ironflesh_1|knows_power_strike_1|knows_power_draw_2|knows_athletics_4|knows_weapon_master_1, swadian_face_young_1, swadian_face_old_2 ],
 
 
 ### Assorted Bandits
@@ -3902,6 +3902,12 @@ def_attrib, wp(50), knows_warrior_basic, bandit_face1, bandit_face2 ],
    itm_a_houpelande_decorated_a_1,itm_b_high_boots_lined_1,
    ],
    def_attrib|level(20),wp(120),knows_common|knows_inventory_management_10, 0x00000008f210b1d154dd8da6f260381c00000000001dd8aa0000000000000000],
+
+  ["church_inquisitor","Inquisitor Helsing","Inquisitor Helsing",tf_hero|tf_is_merchant|tf_unmoveable_in_party_window, 0,reserved,  fac_commoners,
+   [
+   itm_a_leather_jerkin,itm_b_high_boots_lined_1,itm_w_crossbow_heavy,itm_w_bolt_bodkin,itm_w_onehanded_sword_italian,
+   ],
+   def_attrib|level(20),wp(120),knows_common|knows_inventory_management_10, 0x0000000bff106010500c21e42214935a00000000001cd9150000000000000000],
 
 
 # These are used as arrays in the scripts. #SB : give full inventory

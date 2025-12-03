@@ -2076,6 +2076,12 @@ or you won't be able to hang on to a single man you catch.", "ramun_ask_about_ca
 (val_sub, ":rel", 3),
 (call_script, "script_set_player_relation_with_faction", "$g_encountered_party_faction", ":rel"),
 
+### DAC Seek: Heretical points for Priest
+(try_begin),
+        (eq, "$class_type", cc_healer_priest), ### DAC Seek, priest heresy counter
+        (call_script, "script_dac_priest_heresy_counter", 3), # Theft
+(try_end),
+
 (assign,"$encountered_party_hostile",1),
 (assign,"$encountered_party_friendly",0),
 ]],
@@ -2470,8 +2476,23 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 ], "As marshal, I wish you to send a message to the vassals of the realm", "member_direct_campaign",[]],
 
 
-[anyone|plyr,"member_talk", [],
+### DAC Seek: Surgical intervention
+[anyone|plyr,"member_talk", [
+(eq, "$class_type", cc_healer_surgeon),
+(eq, "$class_type_feature_active", 1),
+(is_between, "$g_talk_troop", companions_begin, companions_end),
+(store_troop_health, ":health", "$g_talk_troop", 0),
+(lt, ":health", 90), # Not worth healing above 90%
+],
+"[Surgeon] Lay down, I shall treat your wounds.", "member_heal",[
+(troop_set_health, "$g_talk_troop", 90),
+(assign, "$class_type_feature_active", 0),
+]],
 
+[anyone,"member_heal", [], "Thank you, I feel much better already.", "member_talk",[]],
+
+### DAC Seek End
+[anyone|plyr,"member_talk", [],
 "Let me see your equipment.", "member_trade",[]],
 [anyone,"member_trade", [], "Very well, it's all here...", "do_member_equip_trade",[
 #      (change_screen_trade)
@@ -16946,6 +16967,28 @@ Here, take this purse of {reg3} crowns, as I promised. I hope we can travel toge
 (call_script, "script_lord_comment_to_s43", "$g_talk_troop", "str_surrender_offer_default"),
 ]],
 
+[anyone|plyr,"defeat_lord_answer", [(eq, "$g_talk_troop", "trp_knight_1_5"),], ### DAC Seek Jeanne meets her end, I blame Charles de Tonkin
+"[Execute] Prepare to burn witch.", "defeat_jeanne",
+[
+    (troop_set_slot, "$g_talk_troop", slot_troop_occupation, dplmc_slto_dead),
+    
+    (try_for_range, ":settlement", towns_begin, villages_end),
+        (party_slot_eq, ":settlement", slot_town_lord, "$g_talk_troop"),
+        (call_script, "script_give_center_to_faction", ":settlement", "$g_talk_troop_faction"),
+    (try_end),
+    
+
+    (call_script, "script_change_player_relation_with_faction_ex", "$g_talk_troop_faction", -100),
+    (troop_set_slot, "$g_talk_troop", slot_troop_leaded_party, -1),
+    (troop_set_slot, "$g_talk_troop", slot_troop_cur_center, -1),
+    (troop_set_slot, "$g_talk_troop", slot_troop_home, -1),
+    (call_script, "script_change_troop_faction", "$g_talk_troop", "fac_outlaws"), ### So the notes show up correctly
+    # (call_script, "script_add_log_entry", logent_lord_captured_by_player, "trp_player",  -1, "$g_talk_troop", "$g_talk_troop_faction"),
+]],
+
+[anyone,"defeat_jeanne", [],
+"May God have mercy on your soul.", "close_window", []],
+
 [anyone|plyr,"defeat_lord_answer", [],
 "You are my prisoner now.", "defeat_lord_answer_1",
 [
@@ -27327,6 +27370,14 @@ I will use this to make amends to those you have wronged, and I will let it be k
 ##diplomacy start+
 #Form a familial alliance with a faction leader!
 
+### DAC Seek: Block Marrying Jeanne
+[anyone,"lord_talk_ask_marriage_1", [
+(eq, "$g_talk_troop", "trp_knight_1_5"), 
+],
+"I am flattered {playername}, but I am God's servant and not interested in marriage.",
+"lord_pretalk",[
+]],
+
 [anyone, "lord_talk_ask_marriage_1", [
 	(faction_slot_eq, "$g_talk_troop_faction", slot_faction_leader, "$g_talk_troop"),
 	(is_between, "$g_talk_troop", pretenders_begin, pretenders_end),
@@ -27476,6 +27527,7 @@ I will use this to make amends to those you have wronged, and I will let it be k
 
 
 [anyone,"lord_talk_ask_marriage_1", [
+(neg, "$g_talk_troop", "trp_knight_1_5"), ### DAC Seek: Block player from marrying Jeanne
  (assign, "$marriage_candidate", -1),
 (try_begin),
    ##diplomacy start+
@@ -27818,7 +27870,7 @@ I will use this to make amends to those you have wronged, and I will let it be k
 
    ]],
 
-[anyone|plyr,"lord_attack_verify", [], "Forgive me sir. I don't know what I was thinking.", "lord_attack_verify_cancel",[]],
+[anyone|plyr,"lord_attack_verify", [], "Forgive me {sir/madam}. I don't know what I was thinking.", "lord_attack_verify_cancel",[]],
 [anyone,"lord_attack_verify_cancel", [], "Be gone, then.", "close_window",[(call_script, "script_change_player_relation_with_troop", "$g_talk_troop", -1),(assign, "$g_leave_encounter",1)]],
 [anyone|plyr,"lord_attack_verify", [], "That is none of your business. Prepare to fight!", "lord_attack_verify_commit",[
 ]],
@@ -27834,7 +27886,7 @@ I will use this to make amends to those you have wronged, and I will let it be k
  (assign,"$encountered_party_friendly",0),
  ]],
 
-[anyone|plyr,"lord_attack_verify_b", [], "Forgive me sir. I don't know what I was thinking.", "lord_attack_verify_cancel",[]],
+[anyone|plyr,"lord_attack_verify_b", [], "Forgive me {sir/madam}. I don't know what I was thinking.", "lord_attack_verify_cancel",[]],
 [anyone|plyr,"lord_attack_verify_b", [], "I stand my ground. Prepare to fight!", "lord_attack_verify_commit",[]],
 
 [anyone,"lord_attack_verify_commit", [], "{s43}", "close_window",
@@ -35489,6 +35541,13 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
     (call_script, "script_add_log_entry", logent_caravan_accosted, "trp_player",  -1, -1, "$g_encountered_party_faction"),
 ### Troop commentaries changes end
     (assign, reg6, "$temp"),
+
+        ### DAC Seek: Heretical points for Priest
+        (try_begin),
+                (eq, "$class_type", cc_healer_priest), ### DAC Seek, priest heresy counter
+                (call_script, "script_dac_priest_heresy_counter", 3), # Theft
+        (try_end),
+    
     ]],
 
   [anyone|plyr,"merchant_demand_toll_2", [], "I changed my mind, I can't take your money.", "merchant_pretalk",[]],
@@ -35523,6 +35582,11 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 ### Troop commentaries changes begin
 	(call_script, "script_diplomacy_party_attacks_neutral", "p_main_party", "$g_encountered_party"),
 ### Troop commentaries changes end
+        ### DAC Seek: Heretical points for Priest
+        (try_begin),
+                (eq, "$class_type", cc_healer_priest), ### DAC Seek, priest heresy counter
+                (call_script, "script_dac_priest_heresy_counter", 3), # Theft
+        (try_end),
     ]],
 
     #SB : change to pre-calculate distance
@@ -44309,15 +44373,15 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 ##    ]],
 
 # Ryan BEGIN
-  [party_tpl|pt_routier_bandits|auto_proceed,"start", [(eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)],
+  [party_tpl|pt_routier_bandits|auto_proceed,"start", [(eq,"$talk_context",tc_party_encounter),],
    "{!}Warning: This line should never display.", "bandit_introduce",[]],
-  [party_tpl|pt_flayer_bandits|auto_proceed,"start", [(eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)],
+  [party_tpl|pt_flayer_bandits|auto_proceed,"start", [(eq,"$talk_context",tc_party_encounter),],
    "{!}Warning: This line should never display.", "bandit_introduce",[]],
-  [party_tpl|pt_retondeur_bandits|auto_proceed,"start", [(eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)],
+  [party_tpl|pt_retondeur_bandits|auto_proceed,"start", [(eq,"$talk_context",tc_party_encounter),],
    "{!}Warning: This line should never display.", "bandit_introduce",[]],
-  [party_tpl|pt_tard_venu_bandits|auto_proceed,"start", [(eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)],
+  [party_tpl|pt_tard_venu_bandits|auto_proceed,"start", [(eq,"$talk_context",tc_party_encounter),],
    "{!}Warning: This line should never display.", "bandit_introduce",[]],
-  [party_tpl|pt_peasant_bandits|auto_proceed,"start", [(eq,"$talk_context",tc_party_encounter),(encountered_party_is_attacker)],
+  [party_tpl|pt_peasant_bandits|auto_proceed,"start", [(eq,"$talk_context",tc_party_encounter),],
    "{!}Warning: This line should never display.", "bandit_introduce",[]],
 
   # [party_tpl|pt_sea_raiders,"start", [
@@ -44328,14 +44392,18 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
    # ]],
     
   [anyone,"bandit_introduce", [
-      # (store_random_in_range, ":rand", 11, 15),
-        # (str_store_string, s11, "@I can smell a fat purse a mile away. Methinks yours could do with some lightening, eh?"),
-        # (str_store_string, s12, "@Why, it be another traveller, chance met upon the road! I should warn you, country here's a mite dangerous for a good {fellow/woman} like you. But for a small donation my boys and I'll make sure you get rightways to your destination, eh?"),
-        # (str_store_string, s13, "@Well well, look at this! You'd best start coughing up some silver, friend, or me and my boys'll have to break you."),
-        # (str_store_string, s14, "@There's a toll for passin' through this land, payable to us, so if you don't mind we'll just be collectin' our due from your purse..."),
-        # (str_store_string_reg, s5, ":rand"),
+
+    ### DAC Seek: Positive relations with bandits
+    (try_begin),
+        (store_relation, ":bandit_relation", "fac_player_faction", "$g_encountered_party_faction"),
+        (this_or_next|ge, ":bandit_relation", 0),
+        (faction_slot_eq, "$g_encountered_party_faction", slot_faction_bandit_defeated, 1),
+        # (ge, "$g_talk_troop_faction_relation", 0),
+        (store_random_in_range, ":intro", "str_bandit_intro_friendly_1", "str_bandit_intro_friendly_end"),
+    (else_try),
       #SB : store strings better
       (store_random_in_range, ":intro", "str_bandit_intro_1", "str_bandit_outro_1"),
+    (try_end),
       (str_store_string, s5, ":intro"),
     ], "{s5}", "bandit_talk",[
     #SB : reintroduce steppe bandit sounds
@@ -44347,8 +44415,27 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
      # (try_end),
     ]],
 
-  [anyone|plyr,"bandit_talk", [], "I'll give you nothing but cold steel, you scum!", "close_window",[(encounter_attack)]],
-  [anyone|plyr,"bandit_talk", [], "There's no need to fight. I can pay for free passage.", "bandit_barter",[]],
+  [anyone|plyr,"bandit_talk", [], "[Attack] I'll give you nothing but cold steel, you scum!", "close_window",[(encounter_attack)]],
+  
+  [anyone|plyr,"bandit_talk", [
+        (faction_slot_eq, "$g_encountered_party_faction", slot_faction_bandit_defeated, 1),
+        (store_relation, ":bandit_relation", "fac_player_faction", "$g_encountered_party_faction"),
+        (ge, ":bandit_relation", 0),
+        # (ge, "$g_talk_troop_faction_relation", 0),
+  ], "[Recruit] Join my band, get a wage, food and plunder.", "bandit_recruit",[]],
+  [anyone,"bandit_recruit", [], "Very well, we do require an upfront fee for the lads you'll be taking.", "bandit_quit",[
+  (set_mercenary_source_party,"$g_talk_troop_party"),
+  (change_screen_buy_mercenaries), 
+  ]],
+  [anyone,"bandit_quit", 
+  [], 
+    "Our business is concluded.", "close_window",[(assign, "$g_leave_encounter", 1)]],
+  
+  
+  [anyone|plyr,"bandit_talk", [
+        (store_relation, ":bandit_relation", "fac_player_faction", "$g_encountered_party_faction"),
+        (lt, ":bandit_relation", 0),
+  ], "[Barter] There's no need to fight. I can pay for free passage.", "bandit_barter",[]],
   [anyone,"bandit_barter",
    [(store_relation, ":bandit_relation", "fac_player_faction", "$g_encountered_party_faction"),
     (ge, ":bandit_relation", -50),
@@ -44383,6 +44470,10 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   (encounter_attack),
  ]],
 
+  [anyone|plyr,"bandit_talk", [
+        (store_relation, ":bandit_relation", "fac_player_faction", "$g_encountered_party_faction"),
+        (ge, ":bandit_relation", 0),
+  ], "Never mind, I have no business with you.", "close_window",[(assign, "$g_leave_encounter", 1)]],
 
 
   [anyone,"bandit_barter_3a", [], "Heh, that wasn't so hard, was it? All right, we'll let you go now. Be off.", "close_window",[
@@ -44436,7 +44527,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
       
       ]],
 
-  [anyone|plyr,"bandit_meet", [], "Never mind, I have no business with you.", "close_window",[(assign, "$g_leave_encounter", 1)]],
+  [anyone|plyr,"bandit_meet", [(ge, "$g_talk_troop_faction_relation", 0),], "Never mind, I have no business with you.", "close_window",[(assign, "$g_leave_encounter", 1)]],
 # Ryan END
 
 
@@ -45978,6 +46069,72 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [anyone,"hideout_merchant_trade_completed", [], "Anything else?", "hideout_merchant_start",[]],
 
   [anyone|plyr,"hideout_merchant_start", [], "I have what I need, thanks.", "close_window",[]],
+  
+### DAC Seek Inquisitor Dialog
+  [party_tpl|pt_inquisition_army|auto_proceed,"start", [(eq,"$talk_context",tc_party_encounter),],
+   "{!}Warning: This line should never display.", "inquisitor_introduce",[]],
+   
+  [anyone,"inquisitor_introduce", [
+  (eq,"$g_talk_troop","trp_church_inquisitor"),
+  (troop_get_slot, ":heresy_level", "trp_player", dac_priest_heresy_level),
+  (eq, ":heresy_level", 2),
+  ], 
+  "Hearken {playername}, afore thou standeth Inquisitor Helsing, envoy of the Papacy. I henceforth announce that thou art under investigation succeeding rumours of thine misdeeds.", 
+  "inquisition_warning",[]],
+
+  [anyone,"inquisitor_introduce", [
+  (eq,"$g_talk_troop","trp_church_inquisitor"),
+  (troop_get_slot, ":heresy_level", "trp_player", dac_priest_heresy_level),
+  (eq, ":heresy_level", 3),
+  ], 
+  "I knew this day would come {playername}, that you would stain the reputation of the church with your deeds for you could not stay your hand from death and destruction.", 
+  "inquisition_warning_final",[
+
+]],
+
+  [anyone|plyr,"inquisition_warning", [], "Is the Inquisition acting merely on hearsay now?", "inquisition_warning_reply",[]],
+  [anyone|plyr,"inquisition_warning", [], "I repent for my shortcomings but I swear the accusations are greatly exagerated.", "inquisition_warning_reply",[]],
+  
+  [anyone,"inquisition_warning_reply", [], "Let's drop the pleasantries and don't waste your breath. I know your devious kind and it won't take long before you slip again and I will be there for it.", "inquisition_warning_reply_cont",
+  []],
+  [anyone,"inquisition_warning_reply_cont", [], "Remember, all it takes is a witness and a confession. The first is easy to find, the other I'm very good at getting. Thread lightly {playername} and pray we don't meet again.", "close_window",
+  []],
+  
+  [anyone,"inquisition_warning_final", [], "There is clemency for you yet, renounce your priesthood and be declared Excommunicado. You will be barred from church services and sacraments, your name will live in infamy and disdain.", "inquisition_warning_final_cont",
+  []],
+  [anyone,"inquisition_warning_final_cont", [], "The Church likes to believe that you may yet repent in years to come and be welcome back but we both know this isn't going to happen. ^(By accepting your background will change to a peasant revolutionary with its benefits and pitfalls, factions will be hostile to you)", "inquisition_warning_final_reply",
+  []],
+  [anyone|plyr,"inquisition_warning_final_reply", [], "[Repent] I hereby submit to my punishment.", "close_window",[]],
+  [anyone|plyr,"inquisition_warning_final_reply", [], "[Fight] You won't catch me alive you bastard!", "inquisition_fight",[]],
+
+  [anyone,"inquisition_fight", [], "(A devious grin forms on his face)^I like the heretics that fight back, they make the best confessions under torture.", "close_window",
+  []],
+
+# DAC Seek: Questions
+  
+  [anyone|plyr,"hideout_recruiter_start", [], "I have some questions for you.", "hideout_recruiter_question_start",[]],
+  [anyone,"hideout_recruiter_question_start", [], "Mhm.", "hideout_recruiter_questions",[]],
+  
+  [anyone|plyr,"hideout_recruiter_questions", [], "How did you get your name?", "hideout_recruiter_question_name",[]],
+  [anyone,"hideout_recruiter_question_name", [], "I help poor souls find their way, for a fee. Seemed fitting to me.", "hideout_recruiter_questions",[]],
+
+  [anyone|plyr,"hideout_recruiter_questions", [], "How do I get access to more troops?", "hideout_recruiter_question_troops",[]],
+  [anyone,"hideout_recruiter_question_troops", [], "Same way you took over this spot 'boss', find the other bandit leaders hideout and wipe them out, the rest will fall in line and find their way to me.", "hideout_recruiter_questions",[]],
+  
+  [anyone|plyr,"hideout_recruiter_questions", [], "How can I get new equipment for my troops?", "hideout_recruiter_question_equipment",[]],
+  [anyone,"hideout_recruiter_question_equipment", [], "They're huh, bandits. They'll manage just fine by themselves, why would you even bother?", "hideout_recruiter_questions",[]],
+  
+  [anyone|plyr,"hideout_recruiter_questions", [], "That's all I have to ask.", "hideout_recruiter_back",[]],
+
+# DAC Seek: End Dialog
+  [anyone|plyr,"hideout_recruiter_start", [], "Nothing today. Carry on.", "hideout_recruiter_back",[]],
+  [anyone,"hideout_recruiter_back", [], "Very well.", "close_window",
+  [
+  # (change_screen_map),
+  (jump_to_menu, "mnu_player_hideout_encounter"),
+  ]],
+  
+  
   
   
   

@@ -312,6 +312,7 @@ character_creation_menus = [
         (try_begin),
             (this_or_next|eq, "$class_type", cc_peasant_farmer),
             (this_or_next|eq, "$class_type", cc_peasant_smith),
+            (this_or_next|eq, "$class_type", cc_soldier_quartermaster),
             (eq, "$class_type", cc_soldier_sergeant),
             (assign, "$class_type_feature_active", 0),
         (else_try),
@@ -319,6 +320,7 @@ character_creation_menus = [
         (try_end),       
         
         (try_begin),
+            (this_or_next|eq, "$class_type", cc_healer_priest),
             (this_or_next|eq, "$class_type", cc_peasant_farmer),
             (eq, "$class_type", cc_peasant_smith),
             (troop_set_slot, "trp_player", slot_troop_player_workday_rest, -1),
@@ -339,6 +341,13 @@ character_creation_menus = [
             (call_script, "script_change_player_relation_with_faction", "fac_kingdom_1", 40),
             (call_script, "script_change_player_relation_with_faction", "fac_kingdom_2", -40),
         (try_end),
+        
+        (try_begin),
+            (eq, "$class_type", cc_healer_priest),
+            (assign, "$dac_priest_heresy_counter", 0),
+            (troop_set_slot, "trp_player", dac_priest_heresy_level, -1),
+        (try_end),
+        
         
         (try_begin),
             (eq, "$class_type", cc_peasant_revolutionary),
@@ -898,4 +907,151 @@ character_creation_menus = [
 
     ],
   ),
+  
+  (
+    "dac_preach_town_village",mnf_disable_all_keys,
+    "You make your way to the {reg1?town:village} square, here you can:^ Preach to the masses and earn donations^Engage in public theological debate with the local priest and increase your renown",
+    "none",
+    [
+    
+    (try_begin),
+        (party_slot_eq, "$current_town", slot_party_type, spt_town),
+        (assign, reg1, 0),
+    (else_try),
+        (assign, reg1, 1),    
+    (try_end),
+    
+     ],
+    [
+      ("start_preaching", [], "[CHARISMA + PERSUASION] Preach to the masses (6 Hours).",
+       [
+        (assign, "$class_type_feature_active", 1),
+        (troop_set_slot, "trp_player", slot_troop_player_workday_hours, 6),
+        (troop_set_slot, "trp_player", slot_troop_player_workday_total, 6),
+        (store_attribute_level, ":charisma", "trp_player", ca_charisma),
+        (store_skill_level, ":persuasion", skl_persuasion, "trp_player"),
+        
+        (try_begin),
+            (gt, ":persuasion", 0),
+            (val_add, ":persuasion", 1),
+            (val_mul, ":persuasion", 3),
+            (val_div, ":persuasion", 2),
+        (try_end),
+        
+        (store_add, ":payment", ":charisma", ":persuasion"),
+        (troop_set_slot, "trp_player", slot_troop_player_workday_payment, ":payment"),
+        (rest_for_hours, 1000, 2, 0), #rest while not attackable
+        (assign,"$auto_enter_town","$current_town"),
+        (assign, "$g_town_visit_after_rest", 1),
+        (change_screen_return),
+        ]),
+      ("start_debating", [], "[INTELLIGENCE + PERSUASION] Engage in Theological debate (4 Hours).",
+       [
+        (assign, "$class_type_feature_active", 2),
+        (troop_set_slot, "trp_player", slot_troop_player_workday_hours, 4),
+        (troop_set_slot, "trp_player", slot_troop_player_workday_total, 4),
+        (store_attribute_level, ":intelligence", "trp_player", ca_intelligence),
+        (val_div, ":intelligence", 2),
+        (store_skill_level, ":persuasion", skl_persuasion, "trp_player"),
+        
+        (try_begin),
+            (gt, ":persuasion", 0),
+            (val_add, ":persuasion", 1),
+            (val_mul, ":persuasion", 3),
+            (val_div, ":persuasion", 2),
+        (try_end),
+        
+        (store_add, ":renown", ":intelligence", ":persuasion"),
+        (troop_set_slot, "trp_player", slot_troop_player_workday_payment, ":renown"),
+        (rest_for_hours, 1000, 2, 0), #rest while not attackable
+        (assign,"$auto_enter_town","$current_town"),
+        (assign, "$g_town_visit_after_rest", 1),
+        (change_screen_return),
+        ]),
+      ("work_later", [], "Put it off until later.",
+       [(try_begin),
+          (party_slot_eq, "$current_town", slot_party_type, spt_town),
+          (jump_to_menu, "mnu_town"),
+        (else_try),
+          (jump_to_menu, "mnu_village"),
+        (try_end),
+        ]),
+    ]
+  ),
+  
+  
+  (
+    "dac_preach_town_village_complete",mnf_disable_all_keys,
+    "{s1}",
+    ##diplomacy end+
+    "none",
+    [
+        (str_clear, s1),
+        (troop_get_slot, ":value", "trp_player", slot_troop_player_workday_payment),
+        (troop_get_slot, ":work_hours", "trp_player", slot_troop_player_workday_total),
+        
+        (try_begin), 
+            (eq, ":value", 1),
+            (str_store_string, s1, "str_dac_debate_finish_win"),
+        (else_try),
+            (eq, ":value", 0),
+            (str_store_string, s1, "str_dac_debate_finish_defeat"),
+        (else_try),
+            (eq, ":value", 2),
+            (str_store_string, s1, "str_dac_debate_finish_balanced"),   
+        (else_try),
+            (str_store_string, s1, "str_dac_preaching_finish"), 
+        (try_end),
+            
+        (store_div, ":rest", ":work_hours", 2),
+        (troop_set_slot, "trp_player", slot_troop_player_workday_rest, ":rest"),
+        
+     ],
+    [
+      ("continue", [], "Continue...",
+       [(change_screen_return),
+        ]),
+    ]
+  ),
+  
+  (
+    "dac_heresy_notification",mnf_disable_all_keys,
+    "You have betrayed your vows by committing a despicable act, was this a simple misstep or the first step in a long march towards the bowels of Hell? Remember your vows, don't commit murder, don't steal, don't attack the innocent or you may face dire consequences.",
+    ##diplomacy end+
+    "none",
+    [],
+    [
+      ("continue", [], "Carry on your journey...",
+       [
+       (troop_set_slot, "trp_player", dac_priest_heresy_level, 1),
+       (change_screen_return),
+        ]),
+    ]
+  ),
+  
+  (
+    "dac_heresy_inquisitor_meeting",mnf_disable_all_keys,
+    "{s1}",
+    ##diplomacy end+
+    "none",
+    [
+    (str_clear, s1),
+    
+    (try_begin),
+        (troop_get_slot, ":heresy_level", "trp_player", dac_priest_heresy_level),
+        (eq, ":heresy_level", 1),
+        (str_store_string, s1, "@A party bearing the banner of the Papacy approaches you, a lone rider comes your way..."),
+    (else_try),
+        (str_store_string, s1, "@You recognize the banner of the Papacy on the horizon, they have come to meet you again it would seem, this time they are much more numerous. You estimate about a hundred troops."),
+    (try_end),
+    ],
+    [
+      ("continue", [], "Meet with the strange figure...",
+       [
+        (change_screen_return),
+        ]),
+    ]
+  ),
+  
+  
 ]

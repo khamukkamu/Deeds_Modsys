@@ -1202,10 +1202,13 @@ game_menus = [
        (str_store_string, s7, "str_space"),
      (try_end),
 
-### DAC Seek: Sergeants maintain a higher base morale
+### DAC Seek: Sergeants and healers maintain a higher base morale
     (try_begin),
         (eq, "$class_type", cc_soldier_sergeant),
         (assign, reg6, 70),
+    (else_try),
+        (eq, "$background_type", cb_healer),
+        (assign, reg6, 60),
     (else_try),
         (this_or_next|eq, "$class_type", cc_mercenary_condottiero),
         (eq, "$class_type", cc_mercenary_flemish),
@@ -5692,7 +5695,10 @@ TOTAL:  {reg5}"),
 			(call_script, "script_battle_political_consequences", "p_main_party", "$g_enemy_party"),
 		  (try_end),
 
-          (call_script, "script_loot_player_items", "$g_enemy_party"),
+          (try_begin), ### DAC Seek: Enemies will leave the priest alone
+            (neq, "$class_type", cc_healer_priest),
+            (call_script, "script_loot_player_items", "$g_enemy_party"),
+          (try_end),
 
           (assign, "$g_move_heroes", 0),
           (party_clear, "p_temp_party"),
@@ -9715,14 +9721,21 @@ TOTAL:  {reg5}"),
 
       ("village_wait",
        [
+        (str_clear, s1),
+        (assign, ":continue", 0),
+
         (try_begin), ### DAC Seek
             (eq, "$background_type", cb_peasant),
             (str_store_string, s1, "@[Peasant] Find a place to sleep"),
+            (assign, ":continue", 1),
         (else_try),
             (party_slot_eq, "$current_town", slot_center_has_manor, 1),
             (party_slot_eq, "$current_town", slot_town_lord, "trp_player"),
             (str_store_string, s1, "@Rest in your Manor"),
+            (assign, ":continue", 1),
         (try_end),
+        
+        (eq, ":continue", 1),
         ],
          "{s1}.",
          [
@@ -9771,6 +9784,32 @@ TOTAL:  {reg5}"),
       [
         (jump_to_menu, "mnu_dac_work_town_village"),
       ]),
+### Preaching
+      ("dac_preach_village_tired",
+      [
+        (party_slot_eq, "$current_town", slot_village_state, svs_normal),
+        (neg|party_slot_ge, "$current_town", slot_village_infested_by_bandits, 1),
+        (eq, "$class_type", cc_healer_priest),
+        (troop_get_slot, ":rest_hours", "trp_player", slot_troop_player_workday_rest),
+        (gt, ":rest_hours", 0),
+        (disable_menu_option),
+        # (str_store_string, s11, "@You require proper rest, at your camp or indoors (wait here for some time)"),
+        # (set_tooltip_text, s11),
+      ],
+      "[Priest] Too tired to preach, need some more rest...",
+      []),
+      ("dac_preach_village",
+      [
+        (party_slot_eq, "$current_town", slot_village_state, svs_normal),
+        (neg|party_slot_ge, "$current_town", slot_village_infested_by_bandits, 1),
+        (eq, "$class_type", cc_healer_priest),
+        (troop_get_slot, ":rest_hours", "trp_player", slot_troop_player_workday_rest),
+        (le, ":rest_hours", 0),
+      ],
+      "[Priest] Preach to the masses.",
+      [
+        (jump_to_menu, "mnu_dac_preach_town_village"),
+      ]),
 ### DAC Seek End
 
        ##diplomacy begin
@@ -9794,6 +9833,7 @@ TOTAL:  {reg5}"),
           # (call_script, "script_objectionable_action", tmt_humanitarian, "str_loot_village"),
           #SB : more appropriate message for tax rebels
           (call_script, "script_objectionable_action", tmt_humanitarian, "str_repress_farmers"),
+          
           (jump_to_menu, "mnu_battle_debrief"),
           (change_screen_mission),
         ]),
@@ -10715,6 +10755,12 @@ TOTAL:  {reg5}"),
           (try_end),
 #Troop commentary changes end
 
+        ### DAC Seek: Heretical points for Priest
+        (try_begin),
+                (eq, "$class_type", cc_healer_priest), ### DAC Seek, priest heresy counter
+                (call_script, "script_dac_priest_heresy_counter", 3), # Theft
+        (try_end),
+
          #SB : sometimes this will actually be empty
          (jump_to_menu, "mnu_village"),
          (troop_sort_inventory, ":merchant_troop"),
@@ -10968,6 +11014,13 @@ TOTAL:  {reg5}"),
 #NPC companion changes begin
         (call_script, "script_objectionable_action", tmt_humanitarian, "str_loot_village"),
 #NPC companion changes end
+
+        ### DAC Seek: Heretical points for Priest
+        (try_begin),
+                (eq, "$class_type", cc_healer_priest), ### DAC Seek, priest heresy counter
+                (call_script, "script_dac_priest_heresy_counter", 2), # Arson
+        (try_end),
+        
         (assign, reg1, ":money_gained"),
       ],
     [
@@ -18378,22 +18431,27 @@ goods, and books will never be sold. ^^You can change some settings here freely.
           (eq, ":template", "pt_routier_lair"),
           # (assign, ":bandit_troop", "trp_routier_footman"),
           (assign, ":scene_to_use", "scn_bandit_camp_routier"),
+          (assign, "$g_encountered_party_faction", "fac_bandit_routiers"),
         (else_try),
           (eq, ":template", "pt_flayer_lair"),
           # (assign, ":bandit_troop", "trp_flayer_infantry"),
           (assign, ":scene_to_use", "scn_bandit_camp_flayer"),
+          (assign, "$g_encountered_party_faction", "fac_bandit_flayers"),
         (else_try),
           (eq, ":template", "pt_retondeur_lair"),
           # (assign, ":bandit_troop", "trp_retondeur_maceman"),
           (assign, ":scene_to_use", "scn_bandit_camp_retondeur"),
+          (assign, "$g_encountered_party_faction", "fac_bandit_retondeurs"),
         (else_try),
           (eq, ":template", "pt_tard_venu_lair"),
           # (assign, ":bandit_troop", "trp_tard_venu_militia"),
           (assign, ":scene_to_use", "scn_bandit_camp_tard_venu"),
+          (assign, "$g_encountered_party_faction", "fac_bandit_tard_venus"),
         (else_try),
           (eq, ":template", "pt_angry_pleb_lair"),
           # (assign, ":bandit_troop", "trp_disgruntled_farmer"),
           (assign, ":scene_to_use", "scn_bandit_camp_peasant_bandit"),
+          (assign, "$g_encountered_party_faction", "fac_bandit_peasant_rebels"),
         (else_try),
           (eq, ":template", "pt_looter_lair"),
           # (assign, ":bandit_troop", "trp_looter"),
@@ -18542,7 +18600,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         (try_begin),
             (eq, "$class_type", cc_peasant_revolutionary),
             (le, "$dac_hideout_built", 0),
-            (party_relocate_near_party, "p_player_bandit_hideout", "p_main_party", 5),
+            (party_relocate_near_party, "p_player_bandit_hideout", "p_main_party", 3),
             (enable_party, "p_player_bandit_hideout"),
             (assign, "$dac_hideout_built", 1),
             (call_script, "script_refresh_hideout_merchant_inventory"),
@@ -18550,11 +18608,14 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         
         (try_begin),
             (eq, "$class_type", cc_peasant_revolutionary),
-            (party_get_template_id, ":template", "$g_encountered_party"),
-            (party_stack_get_troop_id, ":stack_troop", "p_temp_casualties", 0),
-            (store_troop_faction, ":bandit_faction", ":stack_troop"),
-            (faction_slot_eq, ":bandit_faction", slot_faction_bandit_defeated, -1),
-            (faction_set_slot, ":bandit_faction", slot_faction_bandit_defeated, 1),
+            # (party_get_template_id, ":template", "$g_encountered_party"),
+            # (party_stack_get_troop_id, ":stack_troop", "p_temp_casualties", 0),
+            # (store_troop_faction, ":bandit_faction", ":stack_troop"),
+            (faction_slot_eq, "$g_encountered_party_faction", slot_faction_bandit_defeated, -1),
+            (faction_set_slot, "$g_encountered_party_faction", slot_faction_bandit_defeated, 1),
+            # (call_script, "script_set_player_relation_with_faction", ":bandit_faction", 20),
+            (set_relation, "$g_encountered_party_faction", "fac_player_faction", 20),
+            (set_relation, "$g_encountered_party_faction", "fac_player_supporters_faction", 20),
             (call_script, "script_refresh_hideout_troops"),
         (try_end),
         ### DAC Seek: Rebel can take over bandit

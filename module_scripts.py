@@ -5424,7 +5424,12 @@ scripts = [
             (is_between, ":troop_id", bandits_begin, bandits_end),
             (val_div, ":join_cost", 4),            
         (try_end),
-
+        
+        ### DAC Seek: Further discount from recruiting bandits from the hideout
+        (try_begin),
+            (eq, "$g_encountered_party", "p_player_bandit_hideout"),
+            (val_div, ":join_cost", 2),                
+        (try_end),
     # DAC Seek END
         (try_begin), #mounted troops cost %50 more than the normal cost
             (troop_is_mounted, ":troop_id"),
@@ -6220,7 +6225,12 @@ scripts = [
           #Check for "deceased" instead
           (try_begin),
              (troop_slot_eq, ":troop_no", slot_troop_occupation, dplmc_slto_dead),
-             (str_store_string, s0, "str_s54_is_deceased"),
+             (try_begin),
+                (eq, ":troop_no", "trp_knight_1_5"), ### DAC Seek: Jeanne
+                (str_store_string, s0, "str_s54_is_deceased_killed_by_player"),
+             (else_try),
+                (str_store_string, s0, "str_s54_is_deceased"),
+             (try_end),
           (try_end),
           ##diplomacy end+
           (set_trigger_result, 1),
@@ -24848,6 +24858,7 @@ scripts = [
       (try_begin),
         (party_slot_eq, ":center_no", slot_party_type, spt_village),
         (try_begin),
+          (party_set_banner_icon, ":center_no", 0),# DAC Seek Removing banner
           (party_get_slot, ":farmer_party", ":center_no", slot_village_farmer_party),
           (gt, ":farmer_party", 0),
           (party_is_active, ":farmer_party"),
@@ -31112,10 +31123,13 @@ scripts = [
     (assign, ":new_morale", "$g_player_party_morale_modifier_leadership"),
     (val_sub, ":new_morale", "$g_player_party_morale_modifier_party_size"),
 
-### DAC Seek: Sergeants start with higher base morale
+### DAC Seek: Sergeants and healers start with higher base morale
     (try_begin),
         (eq, "$class_type", cc_soldier_sergeant),
         (val_add, ":new_morale", 70),
+    (else_try),
+        (eq, "$background_type", cb_healer),
+        (val_add, ":new_morale", 60),
     (else_try),
         (this_or_next|eq, "$class_type", cc_mercenary_condottiero),
         (eq, "$class_type", cc_mercenary_flemish),
@@ -33744,13 +33758,13 @@ scripts = [
             (assign, ":agent_delta_courage_score", 10),  # if killed agent is agent of rival side, add points to fear score
         ### DAC Seek Lower courage when player is downed
             (else_try),
-                (eq, "$class_type", cc_soldier_sergeant),
+                (this_or_next|eq, "$class_type", cc_soldier_sergeant),
+                (eq, "$class_type", cc_healer_surgeon),
                 (get_player_agent_no, ":player_agent"),
                 (eq, ":dead_agent_no", ":player_agent"),
                 (eq, ":is_dead_agent_ally", ":is_agent_ally"),
                 (assign, ":agent_delta_courage_score", -50), # if killed agent is the player agent, lower courage significantly
                 (assign, ":player_fallen", 1),
-                (display_message, "@Leader is down, save yourselves!", color_bad_news),
         ### DAC Seek End
           (else_try),
             (assign, ":agent_delta_courage_score", -15), # if killed agent is agent of our side, decrease points from fear score
@@ -33853,7 +33867,8 @@ scripts = [
         (try_end),      
 ### DAC Seek: Message for fallen player character
     (eq, ":player_fallen", 1),
-    (display_message, "@Leader is down, save yourselves!", color_bad_news),
+    (display_message, "@»»» The leader is down, save yourselves!", color_bad_news),
+    (display_message, "@»   Morale Decreased    «", color_bad_news),
 ### DAC Seek End        
       (try_end),
       ]), #ozan
@@ -33899,8 +33914,16 @@ scripts = [
           (agent_get_troop_id, ":troop_id", ":cur_agent"), #for now do not let heroes to run away from battle
           (neg|troop_is_hero, ":troop_id"),
 
-          (agent_start_running_away, ":cur_agent"),
-          (agent_set_slot, ":cur_agent",  slot_agent_is_running_away, 1),
+        ### DAC Seek: Priest's allies never retreat
+            (try_begin),
+                (eq, "$class_type", cc_healer_priest),
+                (agent_is_ally, ":cur_agent"),
+                (agent_stop_running_away, ":cur_agent"),
+                (agent_set_slot, ":cur_agent",  slot_agent_is_running_away, 0),
+            (else_try), # Normal behaviour
+              (agent_start_running_away, ":cur_agent"),
+              (agent_set_slot, ":cur_agent",  slot_agent_is_running_away, 1),
+            (try_end),
         (try_end),
       (else_try),
         (neq, ":force_retreat", 1),

@@ -92,7 +92,15 @@ mercenary_company_simple_triggers = [
     # Merc Company Quest / Tutorial Start
   (24,
    [
-    (troop_slot_ge, "trp_player", slot_troop_renown, 50),
+   
+    (try_begin),
+        (eq, "$class_type", cc_peasant_revolutionary),
+        (assign, ":renown_requirement", 200),
+    (else_try),
+        (assign, ":renown_requirement", 120),
+    (try_end),
+
+    (troop_slot_ge, "trp_player", slot_troop_renown, ":renown_requirement"),
     (quest_slot_eq, "qst_merc_company_tutorial", slot_quest_current_state, 0),
     (lt, "$player_camp_built", 1), # Condottiero Starts with the camp already built
 

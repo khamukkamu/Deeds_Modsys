@@ -436,7 +436,7 @@ mercenary_company_presentations = [
       (ti_on_presentation_load,
        [(set_fixed_point_multiplier, 1000),
         (assign, "$g_target_armoury", 0),
-        (assign, reg85, 0),
+        (assign, reg85, 0), ### Stores how long it will take to finish the commission
 
         (str_store_string, s1, "@Smith"),
         (create_text_overlay, "$g_presentation_obj_name_kingdom_1", s1, tf_center_justify),
@@ -465,7 +465,12 @@ mercenary_company_presentations = [
           (eq, "$g_presentation_state", 1),
           (is_between, "$g_item_to_scrap", "itm_heraldic_mail_with_surcoat_for_tableau", "itm_items_end"), 
           (call_script, "script_cf_custom_troop_has_access_to_item","$g_target_name_change", "$g_item_to_scrap"), ### DAC Seek
-          (store_mul, ":base_price", reg75, 5), 
+          (try_begin),
+            (eq, "$class_type", cc_peasant_smith),
+            (store_mul, ":base_price", reg75, 4), 
+          (else_try),
+            (store_mul, ":base_price", reg75, 5), 
+          (try_end),
           (assign, reg80, ":base_price"),
           (store_skill_level, ":trade_skill", skl_trade, "trp_player"),
           (try_begin),
@@ -487,7 +492,7 @@ mercenary_company_presentations = [
           
           (item_get_type, ":type", "$g_item_to_scrap"),
           
-          (try_begin),
+          (try_begin), ### Setting the commission values based on item type
             (this_or_next|eq, ":type", itp_type_hand_armor),
             (this_or_next|eq, ":type", itp_type_one_handed_wpn),
             (this_or_next|eq, ":type", itp_type_arrows),
@@ -513,6 +518,16 @@ mercenary_company_presentations = [
             (val_add, reg85, 7),
           (else_try),
             (val_add, reg85, 2),
+          (try_end),
+          
+          (try_begin),
+            (eq, "$class_type", cc_peasant_smith),
+            (try_begin),
+                (gt, reg85, 2), # more than 2 days 
+                (val_sub, reg85, 2),
+            (else_try),
+                (val_sub, reg85, 1),
+            (try_end),
           (try_end),
 
           (str_store_string, s4, "@These will also take {reg85} days to make."),

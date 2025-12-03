@@ -1043,6 +1043,7 @@ slot_troop_player_workday_hours            = 166
 slot_troop_player_workday_payment          = 167
 slot_troop_player_workday_rest             = 168
 slot_troop_player_workday_total            = 169
+dac_priest_heresy_level           = 170
 
 
 ########################################################

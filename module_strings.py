@@ -4536,6 +4536,7 @@ We apologize sincerely if you contributed your suggestions and feedback but were
   ("dplmc_ally", "ally"),
   #status notifier
   ("s54_is_deceased", "{s54} is deceased."),
+  ("s54_is_deceased_killed_by_player", "{s54} is deceased, slain by {playername}."),
   ("dplmc_political_explanation_original_lord", "In this case, the fortress should go its original owner."),
   ##Utility: use these to avoid use of high-numbered string registers
  ("dplmc_s0_comma_s1",   "{!}{s0}, {s1}"),
@@ -5737,6 +5738,12 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("qp1_tournaments_invited_by_s8_to_s12", "A messenger is allowed to pass into your camp by your men.  He leaves you with a sealed letter.  Within you find a formal invitation by {s8} to a tournament to be held in {s12}."),
 ("qp1_tournaments_held_by_s8_in_s12", "During your day's travel, you come across a lone warrior traveling towards {s12}.  From him you learn that there will be a tournament held in the town by {s8}."),
 
+### DAC Seek: Friendly bandits
+  ("bandit_intro_friendly_1", "Greetings {sirrah/ma'am}, we have no quarrel with thee."),
+  ("bandit_intro_friendly_2", "We have heard of you, word is to leave you be so that is what we will be doing unless you draw steel first."),
+  ("bandit_intro_friendly_3", "Make way lads, this fine {gentleman/lady} is said to be off limits to our generous unburdening of wares."),
+  ("bandit_intro_friendly_4", "Your money or your... Stay your hands men, 'tis not someone to mess with. A shame really but we may work something out."),
+  ("bandit_intro_friendly_end", "none"),
 
 #utility for skill names
 ]+[

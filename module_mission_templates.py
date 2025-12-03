@@ -626,6 +626,11 @@ dac_agent_lives_or_dies = (ti_on_agent_killed_or_wounded, 0, 0, [],
                         (val_add, ":surgery_skill", 10),
                     (try_end),
                 (try_end),
+                
+                (try_begin),
+                    (eq, "$class_type", cc_healer_surgeon), ### Higher base for all
+                    (val_add, ":surgery_skill", 10),
+                (try_end),
                   
             (try_end),
             
@@ -660,6 +665,14 @@ dac_agent_lives_or_dies = (ti_on_agent_killed_or_wounded, 0, 0, [],
         (else_try),
             (eq, ":is_wounded", 0),
             (set_trigger_result, 1), # Force Kill
+            
+            (try_begin),
+                (eq, "$class_type", cc_healer_priest), ### DAC Seek, priest heresy counter
+                (agent_get_troop_id, ":killer_agent_troop_id", ":killer_agent_no"),
+                (eq, ":killer_agent_troop_id", "trp_player"),
+                (call_script, "script_dac_priest_heresy_counter", 1), # Murder
+            (try_end),
+            
         (else_try), # If for some reason it fails, resume behaviour
             (set_trigger_result, 0),
         (try_end),

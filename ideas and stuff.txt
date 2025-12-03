@@ -1,6 +1,6 @@
 $background_type				# For Backgrounds
 $class_type 					# For Classes
-$class_type_feature_active		# Toggle features on/off or to work on some scripts
+$class_type_feature_active			# Toggle features on/off or to work on some scripts
 
 
 
@@ -29,3 +29,7 @@ Beef Y-Stywyd -> Beef + Spices
 
 Lords and Ladies in the Hall:
 https://forums.taleworlds.com/index.php?threads/python-script-scheme-exchange.8652/page-37#post-9119621
+
+Change formula for game_get_join_cost
+
+Use game_get_join_cost for recruiting in centers, rework the scripts (Make one universal script to handle all?).

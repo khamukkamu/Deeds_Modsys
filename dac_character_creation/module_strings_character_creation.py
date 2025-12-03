@@ -351,18 +351,21 @@ You own very little other than the clothes on your back"),
 ("dac_background_class_desc_rebel",               "Rebels are those that have lost everything and lash out against the world enacting mob justice on those they consider to have wronged them ^^\
 Pros: ^\
 » We Are Legion: ^\
-Party size increased, can recruit rebellious peasant parties to your cause ^\
-» Takeover: ^\
-Instead of destroying bandit camps, you can chose to take over them ^^\
+Base party size increased ^\
+» Rebel Leader: ^\
+Destroying you first bandit camp spawns a hideout for you to trade and recruit from the defeated bandit faction. Destroy other camps to gain new units and make the bandit factions friendly to you. ^^\
 Cons: ^\
 » Bellum Omnium Contra Omnes: ^\
-All factions start hostile towards you."),
+All factions start hostile towards you. ^\
+» Delayed Opportunities ^\
+Higher renown requirement before you are able to create your private company ^\
+"),
 ("dac_background_class_desc_smith",               "Smiths are one of the cornerstones of society, crafting and mending tools necessary for the other professions to perform well ^^\
 Pros: ^\
-» Repairs: ^\
-Can repair and mend weapons and armour back to regular condition ^\
+» Essential Worker: ^\
+Can work in villages earning a wage and sometimes materials ^\
 » Crafty: ^\
-Research and costs are reduced when producing items for your personal troops at your camp ^^\
+The cost and production times are reduced when commissioning items for your personal troops at your camp ^^\
 Cons: ^\
 Noxious Fumes: ^\
 Years of working the forge has had a toll on your health, you can suffer decreased stats after being knocked down"),        
@@ -372,19 +375,19 @@ Pros: ^\
 » Battlefield Surgery: ^\
 Your forces are more likely to suffer non-fatal injuries on the field, you also able to save some of your foes which results in more potential prisoners ^\
 » Intervention: ^\
-Once a day, can perform an intervention on one of the party's heroes that is too wounded to fight, bringing the hero back into fighting condition ^^\
+Every 3 days, can perform an intervention on one of the party's wounded heroes, bringing the hero back into fighting condition. Talk to the hero from the party screen to do so ^^\
 Cons: ^\
 » Save Yourselves: ^\
 Suffer a greater morale penalty in battle should you be knocked out"),
 ("dac_background_class_desc_priest",              "Priests specialize in the salvation of the eternal soul. You have your own interpretation on how this is to be achieved, going on a personal crusade but beware not to lose yours on the way. ^^\
 Pros: ^\
 » Zealots: ^\
-Troops under your command fight to the bitter end ^\
+Troops under your command fight to the bitter end, they won't flee during a battle ^\
 » Man of the Cloth: ^\
-Your foes are more likely to release you unnarmed ^^\
+Can preach or debate in towns or villages. Your foes won't dare steal from you when captured ^^\
 Cons: ^\
 » Heresy: ^\
-You are sworn not to kill by your own hand and to protect the innocent, breaking those vows will have you branded as a heretic and will have dire consequences"),
+You are sworn not to kill by your own hand and to protect the innocent, breaking those vows will have you branded as a heretic and will have dire consequences. Keeping those vows might bring you boons."),
 ("dac_background_class_desc_alchemist",           "Alchemists specialize in the arcane and esoteric studies, whilst many are consumed by the search for the elusive philosopher's stone you personally focus on experiments that provide more immediate results and can be repeated. ^^\
 Pros: ^\
 » Potions And Draughts: ^\
@@ -425,4 +428,23 @@ There is always a chance for your experiments to backfire, causing you harm"),
 ### DAC Hideout
 ("dac_bandit_hideout_takeover", "With their retreat cut off, the {s4} fall one by one to your determined attack. You loot the place, take over and set up a new base of operations nearby. ^With their leadership gone, the {s4} are now under your control, howhever, new bases hostile to you might still appear."),
 ("dac_bandit_faction_takeover", "With their retreat cut off, the {s4} fall one by one to your determined attack. ^With their leadership gone, the {s4} are now under your control, howhever, new bases hostile to you might still appear."),
+
+### DAC Priest Heresy
+("dac_debate_critical_loss", "Your opponent strikes down all your arguments and mocks your poor performance^You completely lost the audience, the debate ends"),
+("dac_debate_major_loss", "You reached a contradiction in your argument which your opponent quickly exposed^The audience cheers him"),
+("dac_debate_moderate_loss", "You start mounting an argument but it starts falling apart^You feel a slight embarassment but still remain focused"),
+("dac_debate_light_loss", "You had to concede a few points in your opponent's argument^The debate continues"),
+("dac_debate_light_win", "You made a few decent points which catches the audience's attention^The debate continues"),
+("dac_debate_moderate_win", "You rebute your opponent's argument but he manages to recover^The audience took notice"),
+("dac_debate_major_win", "You win a major argument in this debate and your opponent loses some composure^The audience applauds you but this is not yet over"),
+("dac_debate_critical_win", "You catch a fatal flaw in your opponents argument and like a ball of yarn you unravel it completely^You win the debate and the adulation of your audience, the debate is over"),
+
+("dac_debate_finish_win", "The debate went even better than anticipated, you have made a lasting impression as a great rethoritician. ^You are done for the day and should rest in a proper setting"),
+("dac_debate_finish_balanced", "The debate was a well balanced and amicable back-and-forth, you managed to get your name out there but neither impressing nor dissappointing.^You are done for the day and should rest in a proper setting"),
+("dac_debate_finish_defeat", "The debate was an embarassment to you, word will certainly go out about your poor performance^You are done for the day and should rest in a proper setting"),
+("dac_preaching_finish", "You have finished your preaching for the day, you collect your donations and get on your way^You are done for the day and should rest in a proper setting"),
+
+("dac_heresy_murder", "Thou Hast Committed Murder"),
+("dac_heresy_arson", "Thou Hast Committed Arson"),
+("dac_heresy_theft", "Thou Hast Committed Theft"),
 ]

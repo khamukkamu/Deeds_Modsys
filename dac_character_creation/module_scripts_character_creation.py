@@ -1444,7 +1444,6 @@ character_creation_scripts = [
     (troop_add_item, "trp_player",":food_item",0),
     (store_random_in_range, ":trade_item", trade_goods_begin, trade_goods_end),
     (troop_add_item, "trp_player",":trade_item",0),
-    (assign, "$class_type_feature_active", 0),
         
     (else_try),
         (eq, ":class", cc_soldier_cook),   
@@ -1967,7 +1966,7 @@ character_creation_scripts = [
   ("refresh_hideout_merchant_inventory",
     [
     (reset_item_probabilities,100),
-    (set_merchandise_modifier_quality,150),
+    (set_merchandise_modifier_quality,50),
     (troop_clear_inventory, "trp_hideout_merchant"),
     
     (troop_add_merchandise, "trp_hideout_merchant", itp_type_goods, 8),
@@ -1999,5 +1998,37 @@ character_creation_scripts = [
 
   ]),
     
+  ("dac_priest_heresy_counter",
+    [
+    (store_script_param_1, ":heresy_type"),
+    
+    (le, "$dac_priest_heresy_counter", 10), # Max counter
+    (troop_get_slot, ":heresy_level", "trp_player", dac_priest_heresy_level),
+    (lt, ":heresy_level", 4), # Max level
+    
+    (try_begin),
+        (eq, ":heresy_type", 1),
+        (display_message, "str_dac_heresy_murder", color_bad_news),
+    (else_try),
+        (eq, ":heresy_type", 2),
+        (display_message, "str_dac_heresy_arson", color_bad_news),
+    (else_try),
+        (display_message, "str_dac_heresy_theft", color_bad_news),
+    (try_end),
+    
+    (try_begin),
+        (le, ":heresy_level", 0),
+        (assign, "$dac_priest_heresy_counter", 1),
+    (else_try),
+        (eq, ":heresy_level", 1),
+        (le, "$dac_priest_heresy_counter", 5),
+        (val_add, "$dac_priest_heresy_counter", 1),
+    (else_try), 
+        (eq, ":heresy_level", 2),
+        (le, "$dac_priest_heresy_counter", 10),
+        (val_add, "$dac_priest_heresy_counter", 1),
+    (try_end),
+
+  ]),
     
 ]
