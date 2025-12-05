@@ -1557,3 +1557,5 @@ itm_heraldic_banner = 1555
 itm_items_end = 1556
 itm_feet_chains = 1557
 itm_a_plate_joan = 1558
+itm_w_crossbow_inquisitor = 1559
+itm_w_bishop_mace = 1560

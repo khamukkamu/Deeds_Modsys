@@ -656,6 +656,9 @@ dac_agent_lives_or_dies = (ti_on_agent_killed_or_wounded, 0, 0, [],
             
         
         (try_begin), #Assigns wounded troops as prisoners in post-battle screen
+                (eq, ":weapon", "itm_w_bishop_mace"), ### Always wounds
+                (set_trigger_result, 2), # Force Wound
+        (else_try),
             (eq, ":is_wounded", 1),
             (set_trigger_result, 2), # Force Wound
             (try_begin),

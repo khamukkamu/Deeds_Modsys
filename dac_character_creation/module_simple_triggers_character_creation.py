@@ -347,7 +347,8 @@ character_creation_simple_triggers = [
   # Heresy Check for Priest
   (3,
    [
-   
+    (eq, "$class_type", cc_healer_priest),
+    (eq, "$dac_priest_is_bishop", 0),
     (troop_get_slot, ":heresy_level", "trp_player", dac_priest_heresy_level),
     
     (try_begin),
@@ -358,10 +359,10 @@ character_creation_simple_triggers = [
         (eq, ":heresy_level", 1),
         (gt, "$dac_priest_heresy_counter", 5),
         (neg|troop_slot_ge, "trp_player", slot_troop_prisoner_of_party, 0),
-        (set_spawn_radius, 2),
+        (set_spawn_radius, 5),
         (spawn_around_party, "p_main_party", "pt_inquisition_army"),
         (assign, ":inquisition_party", reg0),
-        (party_set_ai_behavior,":inquisition_party", ai_bhvr_travel_to_party),
+        (party_set_ai_behavior,":inquisition_party", ai_bhvr_attack_party),
         (party_set_ai_object,":inquisition_party", "p_main_party"),
         (party_set_flags, ":inquisition_party", pf_default_behavior, 1),
         (troop_set_slot, "trp_player", dac_priest_heresy_level, 2),
@@ -370,12 +371,13 @@ character_creation_simple_triggers = [
         (eq, ":heresy_level", 2),
         (ge, "$dac_priest_heresy_counter", 10),
         (neg|troop_slot_ge, "trp_player", slot_troop_prisoner_of_party, 0),
-        (set_spawn_radius, 2),
+        (set_spawn_radius, 5),
         (spawn_around_party, "p_main_party", "pt_inquisition_army"),
         (assign, ":inquisition_party", reg0),
-        (party_set_ai_behavior,":inquisition_party", ai_bhvr_travel_to_party),
+        (party_set_ai_behavior,":inquisition_party", ai_bhvr_attack_party),
         (party_set_ai_object,":inquisition_party", "p_main_party"),
         (party_set_flags, ":inquisition_party", pf_default_behavior, 1),
+        (troop_set_slot, "trp_player", dac_priest_heresy_level, 3),
         # (jump_to_menu, "mnu_dac_heresy_inquisitor_meeting"), 
     (try_end),
 

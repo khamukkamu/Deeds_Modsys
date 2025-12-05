@@ -379,7 +379,7 @@ Every 3 days, can perform an intervention on one of the party's wounded heroes, 
 Cons: ^\
 » Save Yourselves: ^\
 Suffer a greater morale penalty in battle should you be knocked out"),
-("dac_background_class_desc_priest",              "Priests specialize in the salvation of the eternal soul. You have your own interpretation on how this is to be achieved, going on a personal crusade but beware not to lose yours on the way. ^^\
+("dac_background_class_desc_priest",              "Priests specialize in the salvation of the eternal soul. You have your own interpretation on how this is to be achieved, going on a personal crusade but beware not to lose yours on the way. You come from a noble background but feel more at home amongst the masses, should the need arise such connections could benefit you in your attempts to reach higher status. Who knows, you might even become a Bishop one day.^^\
 Pros: ^\
 » Zealots: ^\
 Troops under your command fight to the bitter end, they won't flee during a battle ^\
@@ -447,4 +447,15 @@ There is always a chance for your experiments to backfire, causing you harm"),
 ("dac_heresy_murder", "Thou Hast Committed Murder"),
 ("dac_heresy_arson", "Thou Hast Committed Arson"),
 ("dac_heresy_theft", "Thou Hast Committed Theft"),
+
+("dac_heresy_torture_strenght",     "repeatedly beat you and broke a couple of fingers, diminishing your strenght [Strenght -1]"),
+("dac_heresy_torture_agility",      "stretched you on the torture wheel until you felt your tendons nearly snapping, diminishing your agility [Agility -1]"),
+("dac_heresy_torture_intelligence", "kept you awake days on end and playing psychological games on you, diminishing your intelligence [Intelligence -1]"),
+("dac_heresy_torture_charisma",     "made you participate in public humiliation rituals, diminishing your charisma [Charisma -1]"),
+
+("dac_heresy_latin_alea", "The die is cast"),
+("dac_heresy_latin_sic", "So it is"),
+("dac_heresy_latin_deorum", "Injuries to the gods are the concern of the gods"),
+("dac_heresy_latin_inter", "Between hope and fear"),
+("dac_heresy_latin_consummatum", "It is done"),
 ]

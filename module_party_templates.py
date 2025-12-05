@@ -171,7 +171,7 @@ party_templates = [
   ("tard_venu_hideout","Tard-Venu Reinforcements", 0, 0, fac_commoners, 0,               [(trp_tard_venu_militia,1,4),(trp_tard_venu_pikeman,1,4),(trp_tard_venu_archer,1,6)]),
   ("angry_pleb_hideout","Rebel Reinforcements", 0, 0, fac_commoners, 0,                  [(trp_disgruntled_farmer,1,6),(trp_irrate_hunter,1,6),(trp_furious_lumberjack,1,6)]),
 
-  ("inquisition_army","Inquisition Army",icon_dac_routier|carries_goods(2),0,fac_commoners,bandit_personality,[(trp_church_inquisitor,1,1),(trp_routier_knight,1,12),(trp_italian_light_infantry,10,15),(trp_italian_infantry,10,20),(trp_genoese_light_crossbowman,10,20),(trp_genoese_crossbowman,5,10),]),
+  ("inquisition_army","Inquisition Army",icon_dac_routier|carries_goods(2),0,fac_commoners,bandit_personality,[(trp_church_inquisitor,1,1),(trp_routier_knight,10,15),(trp_italian_light_infantry,20,25),(trp_italian_infantry,15,20),(trp_genoese_light_crossbowman,15,20),(trp_genoese_crossbowman,10,15),]),
 
 ]
 party_templates = party_templates + mercenary_company_party_templates

@@ -16969,7 +16969,23 @@ Here, take this purse of {reg3} crowns, as I promised. I hope we can travel toge
 
 [anyone|plyr,"defeat_lord_answer", [(eq, "$g_talk_troop", "trp_knight_1_5"),], ### DAC Seek Jeanne meets her end, I blame Charles de Tonkin
 "[Execute] Prepare to burn witch.", "defeat_jeanne",
-[
+[]],
+
+[anyone,"defeat_jeanne", [],
+"May God have mercy on your soul.", "close_window", [
+    (try_begin),
+        (eq, "$cheat_mode", 1),
+        (store_random_in_range, ":rand", 0, 100),
+        (try_begin),
+            (lt, ":rand", 20),
+            (jump_to_menu, "mnu_dac_jeanne_execution_easter_egg"),
+        (else_try),
+            (jump_to_menu, "mnu_dac_jeanne_execution"),
+        (try_end),
+    (else_try),
+            (jump_to_menu, "mnu_dac_jeanne_execution"),
+    (try_end),
+    
     (troop_set_slot, "$g_talk_troop", slot_troop_occupation, dplmc_slto_dead),
     
     (try_for_range, ":settlement", towns_begin, villages_end),
@@ -16984,10 +17000,12 @@ Here, take this purse of {reg3} crowns, as I promised. I hope we can travel toge
     (troop_set_slot, "$g_talk_troop", slot_troop_home, -1),
     (call_script, "script_change_troop_faction", "$g_talk_troop", "fac_outlaws"), ### So the notes show up correctly
     # (call_script, "script_add_log_entry", logent_lord_captured_by_player, "trp_player",  -1, "$g_talk_troop", "$g_talk_troop_faction"),
+    
+        (try_begin),
+            (party_is_active, "$g_encountered_party"),
+            (remove_party, "$g_encountered_party"),
+        (try_end),
 ]],
-
-[anyone,"defeat_jeanne", [],
-"May God have mercy on your soul.", "close_window", []],
 
 [anyone|plyr,"defeat_lord_answer", [],
 "You are my prisoner now.", "defeat_lord_answer_1",
@@ -28546,6 +28564,7 @@ And to think I would offer you a place among my nobles. Begone, beggar, before I
 #SB : change relation for offending potential liege
 (call_script, "script_troop_change_relation_with_troop", "trp_player", "$g_talk_troop", -1),
 (assign, "$g_leave_encounter",1)]],
+
 [anyone,"lord_give_oath_2", [],  "Good. Then repeat the words of the oath with me: I swear homage to you as lawful ruler of the {s41}.", "lord_give_oath_3", [
         (str_store_faction_name, 41, "$g_talk_troop_faction"),
         (try_begin),
@@ -28556,7 +28575,6 @@ And to think I would offer you a place among my nobles. Begone, beggar, before I
             (str_store_faction_name, 41, ":rebel_faction"),
         (try_end),
    ]],
-
 [anyone|plyr,"lord_give_oath_3", [],  "I pledge homage to you as lawful ruler of the {s41}.", "lord_give_oath_4", []],
 [anyone|plyr,"lord_give_oath_3", [],  "Excuse me, {reg65?my lady:sir}. But I feel I need to think about this.", "lord_give_oath_give_up", []],
 
@@ -28575,6 +28593,15 @@ And to think I would offer you a place among my nobles. Begone, beggar, before I
 [anyone|plyr,"lord_give_oath_9", [],  "Finally, I will uphold your lawful claims and those of your legitimate heirs.", "lord_give_oath_10", []],
 [anyone|plyr,"lord_give_oath_9", [],  "{reg65?My lady:Sir}, I must have more time to consider this.", "lord_give_oath_give_up", []],
 
+### DAC Seek: Changes when swearing oath as a priest
+[anyone,"lord_give_oath_10", [(eq, "$class_type", cc_healer_priest),(troop_slot_eq, "trp_player", dac_priest_heresy_level, -1),],
+"Very well. You have given me your solemn oath, {playername}. Furthermore, as a priest of spotless reputation and noble background, I will arrange for you to become a Bishop. Consider this oath your new vows.", "lord_give_oath_go_on_2", []],
+[anyone,"lord_give_oath_10", [(eq, "$class_type", cc_healer_priest),(troop_slot_eq, "trp_player", dac_priest_heresy_level, 1),],  
+"Very well. You have given me your solemn oath, {playername}. May you uphold it always, with proper courage and devotion. From your confession you mentioned breaking your vows once before, I hope you will take better care this time around. Nevertheless I will arrange for you to become a Bishop. Consider this oath your new vows.", "lord_give_oath_go_on_2", []],
+[anyone,"lord_give_oath_10", [(eq, "$class_type", cc_healer_priest),(troop_slot_eq, "trp_player", dac_priest_heresy_level, 2),],
+"Very well. You have given me your solemn oath, {playername}. I have read a missive that you were under investigation by the Inquisition but I believe nothing came of it right? Nevertheless I will arrange for you to become a Bishop. Consider this oath your new vows.", "lord_give_oath_go_on_2", []],
+[anyone,"lord_give_oath_10", [(eq, "$class_type", cc_healer_priest),(this_or_next|troop_slot_eq, "trp_player", dac_priest_heresy_level, 3),(troop_slot_eq, "trp_player", dac_priest_heresy_level, 4),],
+"Very well. You have given me your solemn oath, {playername}. There is something we must address, recently an Inquisitor from the Papacy went missing after rumours that he was investigating you. You wouldn't happen to know anything about it would you? Nevertheless I will arrange for you to become a Bishop. Consider this oath your new vows and don't make yourself an enemy of the Church, my protection has limits.", "lord_give_oath_go_on_2", []],
 [anyone,"lord_give_oath_10", [],  "Very well. You have given me your solemn oath, {playername}. May you uphold it always, with proper courage and devotion.", "lord_give_oath_go_on_2", []],
 
 [anyone,"lord_give_oath_go_on_2",
@@ -28597,11 +28624,11 @@ And to think I would offer you a place among my nobles. Begone, beggar, before I
   (else_try),
     (str_store_party_name, s1, "$g_invite_offered_center"),
 ### DAC
-        (troop_get_slot, ":cur_banner", "trp_player", slot_troop_banner_scene_prop),
-        (gt, ":cur_banner", 0),
-        (val_sub, ":cur_banner", banner_scene_props_begin),
-        (val_add, ":cur_banner", banner_map_icons_begin),
-        (party_set_banner_icon, "$g_invite_offered_center", ":cur_banner"),
+    (troop_get_slot, ":cur_banner", "trp_player", slot_troop_banner_scene_prop),
+    (gt, ":cur_banner", 0),
+    (val_sub, ":cur_banner", banner_scene_props_begin),
+    (val_add, ":cur_banner", banner_map_icons_begin),
+    (party_set_banner_icon, "$g_invite_offered_center", ":cur_banner"),
 ### DAC End	
   (try_end),
   ],
@@ -28610,8 +28637,15 @@ And to think I would offer you a place among my nobles. Begone, beggar, before I
 
 [anyone,"lord_give_oath_go_on_3",
 [
+(eq, "$class_type", cc_healer_priest),
   ],
+"You have done a wise thing, {playername}. As promised you shall be considered a Bishop from now on, it's just a matter of officializing it. In the meantime, please accept this gift.", "lord_give_conclude", [
+(troop_add_item, "trp_player", "itm_w_bishop_mace",),
+(assign, "$dac_priest_is_bishop", 1),
+]],
 
+[anyone,"lord_give_oath_go_on_3",
+[],
 "You have done a wise thing, {playername}. Serve me well and I promise, you will rise high.", "lord_give_conclude", []],
 
 
@@ -46097,18 +46131,32 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   
   [anyone,"inquisition_warning_reply", [], "Let's drop the pleasantries and don't waste your breath. I know your devious kind and it won't take long before you slip again and I will be there for it.", "inquisition_warning_reply_cont",
   []],
-  [anyone,"inquisition_warning_reply_cont", [], "Remember, all it takes is a witness and a confession. The first is easy to find, the other I'm very good at getting. Thread lightly {playername} and pray we don't meet again.", "close_window",
-  []],
+  [anyone,"inquisition_warning_reply_cont", [], "Remember, all it takes is a witness and a confession. The first is easy to find, the other I'm very good at getting. Tread lightly {playername} and pray we don't meet again.", "close_window",
+  [
+  (change_screen_map),
+  (remove_party, "$g_encountered_party"),
+  (jump_to_menu, "mnu_dac_heresy_inquisitor_meeting"),
+  ]],
   
   [anyone,"inquisition_warning_final", [], "There is clemency for you yet, renounce your priesthood and be declared Excommunicado. You will be barred from church services and sacraments, your name will live in infamy and disdain.", "inquisition_warning_final_cont",
   []],
-  [anyone,"inquisition_warning_final_cont", [], "The Church likes to believe that you may yet repent in years to come and be welcome back but we both know this isn't going to happen. ^(By accepting your background will change to a peasant revolutionary with its benefits and pitfalls, factions will be hostile to you)", "inquisition_warning_final_reply",
+  [anyone,"inquisition_warning_final_cont", [], "The Church likes to believe that you may undergo Poenitentia in years to come and be welcomed back but we both know this isn't going to happen. ^^[By accepting your background will change to a peasant revolutionary with its benefits and pitfalls, factions will be hostile to you]", "inquisition_warning_final_reply",
   []],
-  [anyone|plyr,"inquisition_warning_final_reply", [], "[Repent] I hereby submit to my punishment.", "close_window",[]],
+  
+  [anyone|plyr,"inquisition_warning_final_reply", [], "[Repent] I hereby submit to my punishment.", "close_window",[
+  (change_screen_map),
+  (remove_party, "$g_encountered_party"),
+  (jump_to_menu, "mnu_dac_heresy_inquisitor_repent"),
+  ]],
   [anyone|plyr,"inquisition_warning_final_reply", [], "[Fight] You won't catch me alive you bastard!", "inquisition_fight",[]],
 
-  [anyone,"inquisition_fight", [], "(A devious grin forms on his face)^I like the heretics that fight back, they make the best confessions under torture.", "close_window",
-  []],
+  [anyone,"inquisition_fight", [], "[A devious grin forms on his face]^I like the heretics that fight back, they make the best confessions under torture.", "close_window",
+  [
+    (party_set_faction, "$g_encountered_party", "fac_outlaws"),
+    (assign,"$encountered_party_hostile",1),
+    (assign,"$encountered_party_friendly",0),  
+    (assign,"$cant_leave_encounter", 1),
+  ]],
 
 # DAC Seek: Questions
   

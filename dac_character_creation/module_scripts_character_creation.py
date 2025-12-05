@@ -2002,6 +2002,7 @@ character_creation_scripts = [
     [
     (store_script_param_1, ":heresy_type"),
     
+    (eq, "$dac_priest_is_bishop", 0),
     (le, "$dac_priest_heresy_counter", 10), # Max counter
     (troop_get_slot, ":heresy_level", "trp_player", dac_priest_heresy_level),
     (lt, ":heresy_level", 4), # Max level

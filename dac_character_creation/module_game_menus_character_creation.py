@@ -345,6 +345,7 @@ character_creation_menus = [
         (try_begin),
             (eq, "$class_type", cc_healer_priest),
             (assign, "$dac_priest_heresy_counter", 0),
+            (assign, "$dac_priest_is_bishop", 0),
             (troop_set_slot, "trp_player", dac_priest_heresy_level, -1),
         (try_end),
         
@@ -358,6 +359,7 @@ character_creation_menus = [
             (try_end),
             
             (try_for_range, ":faction_no", kingdoms_begin, kingdoms_end),
+                (neg, ":faction_no", "fac_player_supporters_faction"),
                 (call_script, "script_change_player_relation_with_faction", ":faction_no", -40),
             (try_end),
             
@@ -908,6 +910,39 @@ character_creation_menus = [
     ],
   ),
   
+### DAC Jeanne
+  (
+    "dac_jeanne_execution",mnf_disable_all_keys,
+    "You appointed yourself as judge, jury and executioner as she stands atop a pyre. Mouth gagged, unable to respond to the lithany of accusations you hurl at her, her head bowed in a silent prayer.\
+    Your zealous performance goes on for a while until you run out of condemnations and your coarse voice becomes nearly inaudible.^\
+    You finally light the fire that will bring the maiden's demise and can't help but feel a bit underwhelmed at the lack of spectacle. Even though the fires start to embrace her, there are no cries to be heard\
+    and from the small crowd gathered a few cheer loudly while the rest remain silent, not quite sure what to make of it.^\
+    Thus ends the life of Joan of Arc, the Maiden of Orléans, who claimed to be ordained by God to return France to its rightful ruler. A flower nipped in the bud before it could bloom.",
+    "none",
+    [],
+    [
+      ("continue", [], "The witch is dead...",
+       [
+       (change_screen_return),
+        ]),
+    ]
+  ),
+  
+  (
+    "dac_jeanne_execution_easter_egg",mnf_disable_all_keys,
+    "In your overzealous lighting of the pyre you accidentally set fire to your garment and become a living human torch, your cries of pain slowly smothered by the smoke entering your lungs.\
+    Onlookers stand in shock, not even your own men dare move a muscle. Was this a cruel twist of fate or an act of God? Your demise becomes a testimony for the sanctity of the one you sought to destroy and your name merely a footnote in the annals of history.",
+    "none",
+    [],
+    [
+      ("continue", [], "Your journey is cut short...",
+       [
+       (change_screen_quit),
+        ]),
+    ]
+  ),
+  
+### DAC Priest
   (
     "dac_preach_town_village",mnf_disable_all_keys,
     "You make your way to the {reg1?town:village} square, here you can:^ Preach to the masses and earn donations^Engage in public theological debate with the local priest and increase your renown",
@@ -983,7 +1018,6 @@ character_creation_menus = [
   (
     "dac_preach_town_village_complete",mnf_disable_all_keys,
     "{s1}",
-    ##diplomacy end+
     "none",
     [
         (str_clear, s1),
@@ -1017,7 +1051,6 @@ character_creation_menus = [
   (
     "dac_heresy_notification",mnf_disable_all_keys,
     "You have betrayed your vows by committing a despicable act, was this a simple misstep or the first step in a long march towards the bowels of Hell? Remember your vows, don't commit murder, don't steal, don't attack the innocent or you may face dire consequences.",
-    ##diplomacy end+
     "none",
     [],
     [
@@ -1031,27 +1064,196 @@ character_creation_menus = [
   
   (
     "dac_heresy_inquisitor_meeting",mnf_disable_all_keys,
-    "{s1}",
-    ##diplomacy end+
+    "The inquisition army dissipates almost as quickly as it materialized. During you short encounter with the Inquisitor you attempted a quick head count of the army ^\
+    and you estimate them to number around a hundred men strong. Now you ponder, is that a fight worth pursuing? Should you seek repentance or the protection of a strong liege?",
     "none",
     [
-    (str_clear, s1),
-    
-    (try_begin),
-        (troop_get_slot, ":heresy_level", "trp_player", dac_priest_heresy_level),
-        (eq, ":heresy_level", 1),
-        (str_store_string, s1, "@A party bearing the banner of the Papacy approaches you, a lone rider comes your way..."),
-    (else_try),
-        (str_store_string, s1, "@You recognize the banner of the Papacy on the horizon, they have come to meet you again it would seem, this time they are much more numerous. You estimate about a hundred troops."),
-    (try_end),
     ],
     [
-      ("continue", [], "Meet with the strange figure...",
+      ("continue", [(set_tooltip_text, "str_dac_heresy_latin_alea"),], "Alea Iacta Est...",
        [
+        (try_begin),
+            (party_is_active, "$g_encountered_party"),
+            (remove_party, "$g_encountered_party"),
+        (try_end),
         (change_screen_return),
         ]),
     ]
   ),
   
+  (
+    "dac_heresy_inquisitor_repent",mnf_disable_all_keys,
+    "You go through a lenghty trial in which the goal is not the truth but your humiliation and abasement. A procession of witnesses, most of which you have never met before, hurl accusations at you. ^^«\
+    Those range from petty theft or foul language to outright devil worship and consorting with demons. Normally such accusations if proven true would lead to your demise but the inquisitor seems more satisfied with the process itself. ^\
+    ^The trial comes to an end, you are declared an apostate and branded as a heretic. You are now Persona Non Grata in churches and places of worship, which given the power of the Church is \
+    essentially everywhere. You are sent away on your path of repentance... ^^[You resume your game with a new background [Peasant] and class [Revolutionary], you lose the perks of the previous background and class minus the attributes\
+    and stats and gain the perks from the new one. Namely taking over bandit hideouts and eventually taking over the various bandit factions]",
+    "none",
+    [
+    ],
+    [
+      ("continue", [(set_tooltip_text, "str_dac_heresy_latin_sic"),], "Sic Est...",
+       [
+        (assign, "$background_type", cb_peasant),
+        (assign, "$class_type", cc_peasant_revolutionary),
+        
+        (try_for_range, ":bandit_factions", bandit_factions_begin, bandit_factions_end),
+            (faction_set_slot, ":bandit_factions", slot_faction_bandit_defeated, -1),
+        (try_end),
+        
+        (try_for_range, ":faction_no", kingdoms_begin, kingdoms_end),
+            (neg, ":faction_no", "fac_player_supporters_faction"),
+            (call_script, "script_change_player_relation_with_faction", ":faction_no", -40),
+        (try_end),
+        
+        (faction_set_slot, "fac_bandit_routiers",  slot_faction_reinforcements_a, "pt_routier_hideout"),
+        (faction_set_slot, "fac_bandit_flayers",  slot_faction_reinforcements_a, "pt_flayer_hideout"),
+        (faction_set_slot, "fac_bandit_retondeurs",  slot_faction_reinforcements_a, "pt_retondeur_hideout"),
+        (faction_set_slot, "fac_bandit_tard_venus",  slot_faction_reinforcements_a, "pt_tard_venu_hideout"),
+        (faction_set_slot, "fac_bandit_peasant_rebels",  slot_faction_reinforcements_a, "pt_angry_pleb_hideout"),
+        
+        (try_begin),
+            (party_is_active, "$g_encountered_party"),
+            (remove_party, "$g_encountered_party"),
+        (try_end),
+    
+        (change_screen_return),
+        ]),
+    ]
+  ),
+  
+  (
+    "dac_heresy_inquisitor_victory",mnf_disable_all_keys,
+    "The inquisition's army lays defeated at your feet, you make quick work of executing the prisoners and throwing all the corpses into a mass grave, taking care of looting the bodies beforehand. ^\
+    After all, it is better if this looks like the work of mere bandits. Amongst the Inquisitor's possessions you notice a unique crossbow that you decide to keep as a trophy.\
+    ^^With the work done you wonder if it is the last you will see of the inquisition... \
+    Will they send another Inquisitor to France? Or perhaps the events taking place in Bohemia will have the full attention of the Inquisition for the time being...",
+    "none",
+    [
+    ],
+    [
+      ("continue", [(set_tooltip_text, "str_dac_heresy_latin_deorum"),], "Deorum Injuriae Diis Curae...",
+       [
+        (troop_add_item, "trp_player", "itm_w_crossbow_inquisitor",),
+
+        (call_script, "script_rand", 5000, 7000),
+        (assign, ":random", reg0),
+        (call_script, "script_troop_add_gold", "trp_player", ":random"),
+                
+        (troop_set_slot, "trp_player", dac_priest_heresy_level, 4),
+        
+        (try_begin),
+            (eq, "$loot_screen_shown", 0),
+            (assign, "$loot_screen_shown", 1),
+            (troop_clear_inventory, "trp_temp_troop"),
+            (call_script, "script_party_calculate_loot", "p_total_enemy_casualties"), #p_encountered_party_backup changed to total_enemy_casualties
+            (gt, reg0, 0),
+            (troop_sort_inventory, "trp_temp_troop"),
+
+            (try_begin),
+                (call_script, "script_cf_dplmc_player_party_meets_autoloot_conditions"),
+                (assign, "$dplmc_return_menu", "mnu_total_victory"),
+                (assign, "$lord_selected", "trp_player"),
+                (jump_to_menu, "mnu_dplmc_manage_loot_pool"),
+            (else_try),
+                #Old behavior:
+                (change_screen_loot, "trp_temp_troop"),
+            (try_end),
+        (try_end),
+        
+        (try_begin),
+            (party_is_active, "$g_encountered_party"),
+            (remove_party, "$g_encountered_party"),
+        (try_end),
+        
+        (leave_encounter),
+        (change_screen_return),
+        ]),
+    ]
+  ),
+  
+  (
+    "dac_heresy_inquisitor_defeat",mnf_disable_all_keys,
+    "Your army is cut down by the inquisition forces and your unconscious body is dragged to a damp dungeon where you are left to starve whilst awaiting your trial. ^\
+    Your only company, if you can call it that, is the Inquisitor himself. Hell-bent on extracting a confession to use against you in the trial, your days alternate between torture and ^\
+    hearings...",
+    "none",
+    [
+    ],
+    [
+      ("continue", [(set_tooltip_text, "str_dac_heresy_latin_inter"),], "Inter Spem et Metum...",
+       [
+
+        (try_begin),
+            (party_is_active, "$g_encountered_party"),
+            (remove_party, "$g_encountered_party"),
+        (try_end),
+        (jump_to_menu, "mnu_dac_heresy_inquisitor_torture"),
+        ]),
+    ]
+  ),
+  
+  (
+    "dac_heresy_inquisitor_torture",mnf_disable_all_keys,
+    "You go through a lenghty trial in which the goal is not the truth but your humiliation and abasement. ^\
+    The inquisitor {s1} until he could extract a confession from you which you very much obliged. ^\
+    The court, in its magnanimous mercy, or the inquisition's desire to cross paths with you again, decided to merely excommunicate you.^\
+    You are now Persona Non Grata in churches and places of worship, which given the power of the Church is ^\
+    essentially everywhere. You are sent away on your path of repentance...^^[You resume your game with a new background [Peasant] and class [Revolutionary], you lose the perks of the previous background and class minus the attributes\
+    and stats and gain the perks from the new one. Namely taking over bandit hideouts and eventually taking over the various bandit factions]",
+    "none",
+    [
+    (str_clear, s1),
+
+    (store_random_in_range, ":random_attribute", ca_strength, ca_charisma + 1),
+    
+    (try_begin),
+        (eq, ":random_attribute", ca_strength),
+        (str_store_string, s1, "str_dac_heresy_torture_strenght"),
+    (else_try),
+        (eq, ":random_attribute", ca_agility),
+        (str_store_string, s1, "str_dac_heresy_torture_agility"),
+    (else_try),
+        (eq, ":random_attribute", ca_intelligence),
+        (str_store_string, s1, "str_dac_heresy_torture_intelligence"),
+    (else_try),
+        (eq, ":random_attribute", ca_charisma),
+        (str_store_string, s1, "str_dac_heresy_torture_charisma"),
+    (try_end),
+    
+    (troop_raise_attribute, "trp_player", ":random_attribute", -1),
+    
+    ],
+    [
+      ("continue", [(set_tooltip_text, "str_dac_heresy_latin_consummatum"),], "Consummatum Est...",
+       [
+        (assign, "$background_type", cb_peasant),
+        (assign, "$class_type", cc_peasant_revolutionary),
+        
+        (try_for_range, ":bandit_factions", bandit_factions_begin, bandit_factions_end),
+            (faction_set_slot, ":bandit_factions", slot_faction_bandit_defeated, -1),
+        (try_end),
+        
+        (try_for_range, ":faction_no", kingdoms_begin, kingdoms_end),
+            (call_script, "script_change_player_relation_with_faction", ":faction_no", -40),
+            (call_script, "script_change_player_relation_with_faction", ":faction_no", -40),
+        (try_end),
+        
+        (faction_set_slot, "fac_bandit_routiers",  slot_faction_reinforcements_a, "pt_routier_hideout"),
+        (faction_set_slot, "fac_bandit_flayers",  slot_faction_reinforcements_a, "pt_flayer_hideout"),
+        (faction_set_slot, "fac_bandit_retondeurs",  slot_faction_reinforcements_a, "pt_retondeur_hideout"),
+        (faction_set_slot, "fac_bandit_tard_venus",  slot_faction_reinforcements_a, "pt_tard_venu_hideout"),
+        (faction_set_slot, "fac_bandit_peasant_rebels",  slot_faction_reinforcements_a, "pt_angry_pleb_hideout"),
+    
+        (try_begin),
+            (party_is_active, "$g_encountered_party"),
+            (remove_party, "$g_encountered_party"),
+        (try_end),
+        
+        (change_screen_return),
+        ]),
+    ]
+  ),
+
   
 ]

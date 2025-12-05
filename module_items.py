@@ -4301,5 +4301,10 @@ itp_type_polearm| itp_two_handed|itp_primary|itp_no_blur|itp_offset_musket, itc_
 
 ["a_plate_joan", "Jeanne's Plate Armour", [("a_kastenbrust_mail",0)], itp_type_body_armor|itp_covers_legs, 0, 9000, weight(29)|abundance(100)|head_armor(0)|body_armor(70)|leg_armor(28)|difficulty(12), imodbits_armor ],
 
+["w_crossbow_inquisitor", "Inquisitor's Crossbow", [("w_crossbow_siege",0)], itp_type_crossbow|itp_merchandise|itp_cant_reload_on_horseback|itp_two_handed|itp_primary|itp_no_blur, itcf_shoot_crossbow|itcf_carry_crossbow_back, 
+2400, weight(4.0)|difficulty(12)|spd_rtng(50)|shoot_speed(110)|accuracy(98)|thrust_damage(75,pierce)|max_ammo(1), imodbits_crossbow ],
+["w_bishop_mace", "Bishop's Mace", [("w_ball_mace",0)], itp_type_one_handed_wpn|itp_merchandise|itp_wooden_parry|itp_primary|itp_no_blur|itp_can_knock_down, itc_scimitar|itcf_carry_mace_left_hip, 
+3000, weight(4.2)|difficulty(0)|spd_rtng(93)|weapon_length(72)|swing_damage(31,blunt), imodbits_mace ],
+
 
 ]

@@ -4658,7 +4658,16 @@ TOTAL:  {reg5}"),
 
       ("encounter_surrender",[
          (eq,"$cant_leave_encounter", 1),
-          ],"Surrender.",[(assign,"$g_player_surrenders",1)]),
+          ],"Surrender.",[
+          ### DAC Seek: Surrendering to the inquisition
+          (try_begin),
+            (party_get_template_id, ":encountered_party_template", "$g_encountered_party"),
+            (eq, ":encountered_party_template", "pt_inquisition_army"),
+            (jump_to_menu, "mnu_dac_heresy_inquisitor_defeat"),
+          (else_try),
+            (assign,"$g_player_surrenders",1),
+          (try_end),
+          ]),
     ]
   ),
   (
@@ -5087,6 +5096,15 @@ TOTAL:  {reg5}"),
        (eq, "$g_battle_result", 1),
        (eq, "$g_enemy_fit_for_battle", 0),
        (str_store_string, s11, "@You were victorious!"),
+       
+    ### DAC Seek: Defeated the inquisition army as a heretical priest
+        (try_begin),
+            (party_get_template_id, ":encountered_party_template", "$g_encountered_party"),
+            (eq, ":encountered_party_template", "pt_inquisition_army"),
+            (assign, "$g_next_menu", "mnu_dac_heresy_inquisitor_victory"),
+        (try_end),
+    ### DAC Seek End
+    
 #       (play_track, "track_bogus"), #clear current track.
 #       (call_script, "script_music_set_situation_with_culture", mtf_sit_victorious),
        (try_begin),
@@ -5100,6 +5118,15 @@ TOTAL:  {reg5}"),
        (le, "$playerparty_postbattle_regulars", 0),
        (str_store_string, s11, "@The battle was lost. Your forces were utterly crushed."), #SB : "The battle"
        (set_background_mesh, "mesh_pic_defeat"),
+       
+    ### DAC Seek: Defeated by the inquisition army as a heretical priest
+        (try_begin),
+            (party_get_template_id, ":encountered_party_template", "$g_encountered_party"),
+            (eq, ":encountered_party_template", "pt_inquisition_army"),
+            (assign, "$g_next_menu", "mnu_dac_heresy_inquisitor_defeat"),
+        (try_end),
+    ### DAC Seek End
+       
      (else_try),
        (eq, "$g_battle_result", -1),
        (str_store_string, s11, "@Your companions carry you away from the fighting."),
@@ -5120,6 +5147,15 @@ TOTAL:  {reg5}"),
          (gt, "$g_friend_fit_for_battle", 1),
          (set_background_mesh, "mesh_pic_victory"),
        (try_end),
+       
+    ### DAC Seek: Defeated the inquisition army as a heretical priest
+        (try_begin),
+            (party_get_template_id, ":encountered_party_template", "$g_encountered_party"),
+            (eq, ":encountered_party_template", "pt_inquisition_army"),
+            (assign, "$g_next_menu", "mnu_dac_heresy_inquisitor_victory"),
+        (try_end),
+    ### DAC Seek End
+       
      (else_try),
        (eq, "$g_battle_result", 0),
        (str_store_string, s11, "@You have retreated from the fight."),
@@ -5168,6 +5204,7 @@ TOTAL:  {reg5}"),
     "You shouldn't be reading this... {s9}",
     "none",
     [
+
         # We exploit the menu condition system below.
         # The conditions should make sure that always another screen or menu is called.
         (assign, ":break", 0),
@@ -5660,7 +5697,7 @@ TOTAL:  {reg5}"),
         (try_end),
       ],
     [
-      ("continue",[],"Continue...",[]),
+      ("continue",[],"Victory!",[]),
         ]
   ),
 
@@ -5679,6 +5716,7 @@ TOTAL:  {reg5}"),
     "{!}You shouldn't be reading this...",
     "none",
     [
+    
         (play_track, "track_DAC-Defeat-2", 1), ### DAC Seek: Change that to multiple tracks or culture/situational track
            # Free prisoners
           (party_get_num_prisoner_stacks, ":num_prisoner_stacks","p_main_party"),
