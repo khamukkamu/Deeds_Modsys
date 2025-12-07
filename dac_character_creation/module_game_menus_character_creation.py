@@ -349,6 +349,12 @@ character_creation_menus = [
             (troop_set_slot, "trp_player", dac_priest_heresy_level, -1),
         (try_end),
         
+        (try_begin),
+            (troop_add_item, "trp_custom_merc_ranger_selection", "itm_w_handgonne_1"),
+            (troop_add_item, "trp_custom_merc_ranger_selection", "itm_cartridges"),
+            (troop_add_item, "trp_custom_merc_marksman_selection", "itm_w_handgonne_2"),
+            (troop_add_item, "trp_custom_merc_marksman_selection", "itm_cartridges"),
+        (try_end),
         
         (try_begin),
             (eq, "$class_type", cc_peasant_revolutionary),

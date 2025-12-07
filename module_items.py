@@ -2269,10 +2269,10 @@ items = [
 ["a_gambeson_asher_belt_custom", "Gambeson", [("mesh_none",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 
 512 , weight(5)|abundance(100)|head_armor(0)|body_armor(22)|leg_armor(10)|difficulty(0) ,imodbits_cloth , [custom_remodel("itm_a_gambeson_asher_belt_custom")]],
 
-["a_kirtle_simple_custom", "Kirtle", [("mesh_none",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs|itp_civilian ,0, 
-8 , weight(1)|abundance(100)|head_armor(0)|body_armor(6)|leg_armor(4)|difficulty(0) ,imodbits_cloth , [custom_remodel("itm_a_kirtle_simple_custom")]], 
-["a_kirtle_gown_custom", "Kirtle with Gown", [("mesh_none",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs|itp_civilian ,0, 
-14 , weight(1.5)|abundance(100)|head_armor(0)|body_armor(8)|leg_armor(4)|difficulty(0) ,imodbits_cloth , [custom_remodel("itm_a_kirtle_gown_custom")]], 
+# ["a_kirtle_simple_custom", "Kirtle", [("mesh_none",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs|itp_civilian ,0, 
+# 8 , weight(1)|abundance(100)|head_armor(0)|body_armor(6)|leg_armor(4)|difficulty(0) ,imodbits_cloth , [custom_remodel("itm_a_kirtle_simple_custom")]], 
+# ["a_kirtle_gown_custom", "Kirtle with Gown", [("mesh_none",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs|itp_civilian ,0, 
+# 14 , weight(1.5)|abundance(100)|head_armor(0)|body_armor(8)|leg_armor(4)|difficulty(0) ,imodbits_cloth , [custom_remodel("itm_a_kirtle_gown_custom")]], 
 
 ### Seek: Beware of the code loops!
 ["a_padded_over_mail_1_custom", "Padded Armour", [("a_padded_over_mail_1",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 
@@ -2658,6 +2658,12 @@ itp_type_one_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_longsword|i
 ("w_regular_onehanded_sword_martyr_scabbard", ixmesh_carry),("w_rusty_onehanded_sword_martyr_scabbard", ixmesh_carry|imodbit_rusty),("w_masterwork_onehanded_sword_martyr_scabbard", ixmesh_carry|imodbit_masterwork),], 
 itp_type_one_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
 577 , weight(1.4)|difficulty(0)|spd_rtng(100) | weapon_length(97)|swing_damage(30 , cut) | thrust_damage(26 ,  pierce),imodbits_sword_alt ],
+
+["w_onehanded_sword_kingmaker", "Kingmaker Arming Sword", 
+[("w_regular_onehanded_sword_kingmaker",0),("w_rusty_onehanded_sword_kingmaker",imodbit_rusty),("w_masterwork_onehanded_sword_kingmaker",imodbit_masterwork),
+("w_regular_onehanded_sword_kingmaker_scabbard", ixmesh_carry),("w_rusty_onehanded_sword_kingmaker_scabbard", ixmesh_carry|imodbit_rusty),("w_masterwork_onehanded_sword_kingmaker_scabbard", ixmesh_carry|imodbit_masterwork),], 
+itp_type_one_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
+780 , weight(1.4)|difficulty(0)|spd_rtng(100) | weapon_length(98)|swing_damage(31 , cut) | thrust_damage(29 ,  pierce),imodbits_sword_alt ],
 
 # Bastard Swords with Scabbards
 ["w_bastard_sword_a", "Bastard Sword", 
@@ -4305,6 +4311,11 @@ itp_type_polearm| itp_two_handed|itp_primary|itp_no_blur|itp_offset_musket, itc_
 2400, weight(4.0)|difficulty(12)|spd_rtng(50)|shoot_speed(110)|accuracy(98)|thrust_damage(75,pierce)|max_ammo(1), imodbits_crossbow ],
 ["w_bishop_mace", "Bishop's Mace", [("w_ball_mace",0)], itp_type_one_handed_wpn|itp_merchandise|itp_wooden_parry|itp_primary|itp_no_blur|itp_can_knock_down, itc_scimitar|itcf_carry_mace_left_hip, 
 3000, weight(4.2)|difficulty(0)|spd_rtng(93)|weapon_length(72)|swing_damage(31,blunt), imodbits_mace ],
+["w_onehanded_sword_kingmaker_jeanne", "Jeanne's Arming Sword", 
+[("w_masterwork_kingmaker_jeanne",0),
+("w_masterwork_kingmaker_jeanne_scabbard", ixmesh_carry),], 
+itp_type_one_handed_wpn|itp_merchandise|itp_primary|itp_no_blur, itc_longsword|itcf_carry_sword_left_hip|itcf_show_holster_when_drawn, 
+3600 , weight(1.4)|difficulty(0)|spd_rtng(103) | weapon_length(98)|swing_damage(34 , cut) | thrust_damage(34 ,  pierce),imodbits_sword_alt ],
 
 
 ]

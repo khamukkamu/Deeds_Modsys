@@ -104,7 +104,7 @@ Pros: ^\
 » Business Minded: ^\
 Start with higher trade, persuasion and inventory management skills. ^\
 » Negotiator: ^\
-Can use trade or persuasion skills to get out of disadvantageous situations such as getting caught by enemies or just doing business ^^\
+10% Recruiting and Upkeep costs for all troops ^^\
 Cons: ^\
 » Not a Fighter: ^\
 Start with low combat related skills and proficiencies."),
@@ -112,7 +112,7 @@ Start with low combat related skills and proficiencies."),
 ("dac_background_desc_soldier",                   "As a soldier you know well enough about combat and your fellow soldiers, their needs and wants, how logistics work and how battles are fought and won. ^^\
 Pros: ^\
 » Logistics: ^\
-You have spent quite some time on the road, foraging, scouting and setting up camps ^\
+You have acquired some skills on the road pertaining to logistics, food preservation and foraging. Your party consumes less food. ^\
 » One of us: ^\
 Commoners recognize you as one of their own, pay 20% less upkeep for regular troops ^^\
 Cons: ^\
@@ -234,25 +234,25 @@ Cons: ^\
 Increased relation penalties from capturing nobles."),
 ("dac_background_class_desc_investor",            "Investors specialize in buying and running bussinesses, creating an ever increasing network of merchandise. ^^\
 Pros: ^\
-» Diverse Assets: ^\
-Can have more than one workshop in a town, cannot be of the same type as the first one ^\
+» Deep Pockets: ^\
+Merchants have more gold available when trading with you ^\
 » Creative Accounting: ^\
 Slight improvement to the profit made by workshops ^^\
 Cons: ^\
 » Guild Rivalry: ^\
-When a town gets captured, there's a high probability that your workshop(s) get demolished, it becomes a guarantee should it be captured by a faction hostile to you."),         
+When a town gets captured, there's a slight probability that your workshop gets demolished, the probability increases should it be captured by a faction hostile to you."),         
       
 ("dac_background_class_desc_scout",                 "Scouts specialize in traversing terrain and quickly identifying threats at a distance ^^\
 Pros: ^\
 » Scouting: ^\
 Receive a notification when spotting a hostile party stronger than yours on the world map while quick-traveling (Ctrl + Space)^\
 » Wayfarer: ^\
-Traversing forests on the world map doesn't slow you down as much ^^\
+Traversing forests on the world map doesn't slow you down as much ^\
 » On the Double: ^\
 Increased speed bonus from forced march, press 'Left Shift' on the world map to force march, press again to cancel ^\
 Cons: ^\
 » Travel Light: ^\
-Suffer increased penalties from inventory encumbrance which is capped at 20% of your party speed, can be offset by having horses in your inventory"),
+Suffer increased penalties from inventory encumbrance capped at 20% of your party speed, can be offset by having horses in your inventory"),
 ("dac_background_class_desc_quartermaster",         "Quartermasters specialize in keeping the army well supplied ^^\
 Pros: ^\
 » Ammo Reserves: ^\
@@ -300,8 +300,8 @@ Cons: ^\
 Increased penalties from all hostile actions that can be considered banditry, such as attacking peasants, caravans or raiding villages"),
 ("dac_background_class_desc_marksman",            "Marksmen are professionals that earn a living showing off their skills in ranged weaponry ^^\
 Pros: ^\
-» Showoff: ^\
-Gain renown when landing difficult shots in battle ^\
+» Early Adopter: ^\
+You strongly believe that hand-held firearms are the future, your company ranged troops start with firearms unlocked.^\
 » Skilled: ^\
 Start with good stats on everything related to ranged weapons ^^\
 Cons : ^\
@@ -325,7 +325,7 @@ Commissioning items for your retinue will take 1 day less^\
 Can recruit Flemish mercenaries in your camp ^^\
 Cons: ^\
 » Noble Disdain: ^\
-You didn't offer any quarters in the past and none will be offered to you in the present, impossible to negotiate your way out of a battle"),
+You didn't offer any quarters in the past and none will be offered to you in the present, impossible to negotiate your way out of a battle against enemy lords"),
 ("dac_background_class_desc_scottish",            "[WIP] ^\
 The Scottish were one of the main allies of France during the Hundred Years War, united by common hatred of the English crown, many have fallen fighting to the bitter end in France. ^^\
 Pros: ^\

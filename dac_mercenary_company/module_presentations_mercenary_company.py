@@ -529,6 +529,11 @@ mercenary_company_presentations = [
                 (val_sub, reg85, 1),
             (try_end),
           (try_end),
+          
+          (try_begin),
+            (eq, "$class_type", cc_mercenary_flemish),   
+            (val_sub, reg85, 1),
+          (try_end),
 
           (str_store_string, s4, "@These will also take {reg85} days to make."),
           (create_text_overlay, "$g_presentation_obj_1", s4, tf_center_justify), #SB : continue str

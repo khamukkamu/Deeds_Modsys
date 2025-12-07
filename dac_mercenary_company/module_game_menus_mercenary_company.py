@@ -150,6 +150,8 @@ mercenary_company_menus = [
             (quest_set_slot, "qst_merc_company_tutorial", slot_quest_current_state, MERC_CAMP_TUTORIAL_QUARTERMASTER),
           (try_end),
           
+          (assign, "$g_player_banner_granted", 1),
+          
           (change_screen_return),
         ]),
 

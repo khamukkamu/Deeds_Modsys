@@ -2073,7 +2073,13 @@ or you won't be able to hang on to a single man you catch.", "ramun_ask_about_ca
 (val_sub, ":rel", 5),
 (try_end),
 
-(val_sub, ":rel", 3),
+    (try_begin),
+        (eq, "$class_type", cc_hunter_manhunter),
+        (val_sub, ":rel", 5),
+    (else_try),
+        (val_sub, ":rel", 1),
+    (try_end),
+
 (call_script, "script_set_player_relation_with_faction", "$g_encountered_party_faction", ":rel"),
 
 ### DAC Seek: Heretical points for Priest
@@ -16960,8 +16966,19 @@ Here, take this purse of {reg3} crowns, as I promised. I hope we can travel toge
 
 
 #Troop commentary changes begin
-[anyone,"start", [(eq,"$talk_context",tc_hero_defeated),
-              (troop_slot_eq,"$g_talk_troop",slot_troop_occupation, slto_kingdom_hero)],
+[anyone,"start", [
+
+(eq,"$talk_context",tc_hero_defeated),
+(troop_slot_eq,"$g_talk_troop",slot_troop_occupation, slto_kingdom_hero),
+
+(try_begin),
+    (eq, "$g_talk_troop", "trp_knight_1_5"),
+    (troop_slot_eq, "$g_talk_troop", slot_troop_met_previously, 0),
+    (troop_add_item, "trp_player", "itm_w_onehanded_sword_kingmaker_jeanne", imod_masterwork),
+    (troop_set_slot, "$g_talk_troop", slot_troop_met_previously, 1),
+(try_end),
+
+],
 "{s43}", "defeat_lord_answer",
 [(troop_set_slot, "$g_talk_troop", slot_troop_leaded_party, -1),
 (call_script, "script_lord_comment_to_s43", "$g_talk_troop", "str_surrender_offer_default"),
@@ -17096,10 +17113,12 @@ Here, take this purse of {reg3} crowns, as I promised. I hope we can travel toge
 (is_between, "$g_talk_troop", heroes_begin, heroes_end),
 ##diplomacy end+
 (neg|faction_slot_eq, "$g_talk_troop_faction", slot_faction_leader, "$g_talk_troop"),
+(neg, "$class_type", cc_mercenary_flemish), ### DAC Seek: Flemish mercenaries can't negotiate their way out
               ],
 "Stay your hand! There is something I must tell you in private.", "lord_recruit_1_relation", []],
 
 [anyone|plyr,"party_encounter_lord_hostile_attacker_2", [
+(neg, "$class_type", cc_mercenary_flemish), ### DAC Seek: Flemish mercenaries can't negotiate their way out
               ],
 "Is there no way to avoid this battle? I don't want to fight with you.", "party_encounter_offer_dont_fight", []],
 
@@ -17107,7 +17126,7 @@ Here, take this purse of {reg3} crowns, as I promised. I hope we can travel toge
 [anyone|plyr,"party_encounter_lord_hostile_attacker_2", [
               ],
 "Don't attack! We surrender.", "close_window", [(assign,"$g_player_surrenders",1)]],
-
+ 
 [anyone, "party_encounter_offer_dont_fight", [(gt, "$g_talk_troop_effective_relation", 30),
 #TODO: Add adition conditions, lord personalities, battle advantage, etc...
               ],
@@ -35568,7 +35587,13 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
         (gt, ":rel", 0),
         (val_sub, ":rel", 1),
       (try_end),
-      (val_sub, ":rel", 1),
+      ### DAC Seek
+        (try_begin),
+            (eq, "$class_type", cc_hunter_manhunter),
+            (val_sub, ":rel", 3),
+        (else_try),
+            (val_sub, ":rel", 1),
+        (try_end),
       (call_script, "script_set_player_relation_with_faction", "$g_encountered_party_faction", ":rel"),
     (try_end),
 ### Troop commentaries changes begin
@@ -35611,7 +35636,14 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
       (gt, ":rel", 0),
       (val_sub, ":rel", 10),
     (try_end),
-    (val_sub, ":rel", 5),
+    
+    (try_begin),
+        (eq, "$class_type", cc_hunter_manhunter),
+        (val_sub, ":rel", 10),
+    (else_try),
+        (val_sub, ":rel", 5),
+    (try_end),
+        
     (call_script, "script_set_player_relation_with_faction", "$g_encountered_party_faction", ":rel"),
 ### Troop commentaries changes begin
 	(call_script, "script_diplomacy_party_attacks_neutral", "p_main_party", "$g_encountered_party"),

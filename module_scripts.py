@@ -5304,7 +5304,15 @@ scripts = [
         (val_mul, ":wage", 10),
         (val_div, ":wage", 8),
     (try_end),
+    
+### DAC Seek: 10% reduction for merchants
+    (try_begin),
+        (eq, "$background_type", cb_merchant),
+        (val_mul, ":wage", 9),
+        (val_div, ":wage", 10),
+    (try_end),
 
+### DAC Seek End
       (try_begin),
         (is_between, ":troop_id", companions_begin, companions_end),
         (val_mul, ":wage", 2),
@@ -16332,10 +16340,18 @@ scripts = [
           (set_trigger_result, color_good_news),
         (try_end),
       (else_try),
-        (eq, ":item_no", "itm_w_crossbow_inquisitor"),
+        (eq, ":item_no", "itm_w_bishop_mace"),
         (try_begin),
           (eq, ":extra_text_id", 0),
           (str_store_string, s1, "@An elaborate mace with 'Lord's Mercy' inscribed^this weapon will never inflict casualties"),
+          (set_result_string, "@{s1}"),
+          (set_trigger_result, color_good_news),
+        (try_end),
+      (else_try),
+        (eq, ":item_no", "itm_w_onehanded_sword_kingmaker_jeanne"),
+        (try_begin),
+          (eq, ":extra_text_id", 0),
+          (str_store_string, s1, "@An elegant sword with a fleur-de-lys engraved in the pommel^used to belong to Jeanne"),
           (set_result_string, "@{s1}"),
           (set_trigger_result, color_good_news),
         (try_end),
@@ -60406,6 +60422,11 @@ scripts = [
       ##diplomacy start+
       #Option: scaling gold additions by the prosperity of the town.
       (try_begin),
+        (eq, "$class_type", cc_merchant_investor),
+        (lt,":cur_gold",15000),
+        (store_random_in_range,":new_gold",5000,10000),
+        (call_script, "script_troop_add_gold", ":cur_merchant", ":new_gold"),
+      (else_try),
         (ge, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_LOW),#this must be explicitly enabled
           (party_get_slot, ":prosperity_75", ":cur_center", slot_town_prosperity),
         (val_add, ":prosperity_75", 75),
@@ -60465,6 +60486,11 @@ scripts = [
   ##diplomacy start+
   #Option: scaling gold additions by the prosperity of the town.
   (try_begin),
+    (eq, "$class_type", cc_merchant_investor),
+    (lt, reg6, 1600),
+    (store_random_in_range, ":new_gold", 600, 900),
+    (call_script, "script_troop_add_gold", ":merchant", ":new_gold"),
+  (else_try),
     (ge, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_LOW),#this must be explicitly enabled
     (party_get_slot, ":prosperity_75", ":center", slot_town_prosperity),
     (val_add, ":prosperity_75", 75),
@@ -60505,6 +60531,11 @@ scripts = [
   ##diplomacy start+
     #Option: scaling gold additions by the prosperity of the town.
     (try_begin),
+     (eq, "$class_type", cc_merchant_investor),
+     (lt, ":cur_gold", 1600),
+     (store_random_in_range, ":new_gold", 600, 900),
+     (call_script, "script_troop_add_gold", ":merchant", ":new_gold"),
+    (else_try),
       (ge, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_LOW),#this must be explicitly enabled
         (party_get_slot, ":prosperity_75", ":center", slot_town_prosperity),
       (val_add, ":prosperity_75", 75),
@@ -60544,6 +60575,11 @@ scripts = [
 ##diplomacy start+
   #Option: scaling gold additions by the prosperity of the town.
   (try_begin),
+     (eq, "$class_type", cc_merchant_investor),
+     (lt, ":cur_gold", 1600),
+     (store_random_in_range, ":new_gold", 600, 900),
+     (call_script, "script_troop_add_gold", ":merchant", ":new_gold"),
+    (else_try),
     (ge, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_LOW),#this must be explicitly enabled
       (party_get_slot, ":prosperity_75", ":center", slot_town_prosperity),
     (val_add, ":prosperity_75", 75),
@@ -76608,14 +76644,14 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 ###################################################################################################### HYW CUSTOM ARMORS VERTEX COLORED   
 
 ## Vertex Coloured Simple Kirtle
-      (item_set_slot, "itm_a_kirtle_simple_custom", slot_item_materials_begin, "str_a_kirtle_simple_1"),
-      (item_set_slot, "itm_a_kirtle_simple_custom", slot_item_materials_end, "str_a_kirtle_simple_end"),  
-      (item_set_slot, "itm_a_kirtle_simple_custom", slot_item_num_components, 1), 
+      # (item_set_slot, "itm_a_kirtle_simple_custom", slot_item_materials_begin, "str_a_kirtle_simple_1"),
+      # (item_set_slot, "itm_a_kirtle_simple_custom", slot_item_materials_end, "str_a_kirtle_simple_end"),  
+      # (item_set_slot, "itm_a_kirtle_simple_custom", slot_item_num_components, 1), 
       
 ## Vertex Coloured Kirtle + Gown
-      (item_set_slot, "itm_a_kirtle_gown_custom", slot_item_materials_begin, "str_a_kirtle_gown_1"),
-      (item_set_slot, "itm_a_kirtle_gown_custom", slot_item_materials_end, "str_a_kirtle_gown_end"),  
-      (item_set_slot, "itm_a_kirtle_gown_custom", slot_item_num_components, 1), 
+      # (item_set_slot, "itm_a_kirtle_gown_custom", slot_item_materials_begin, "str_a_kirtle_gown_1"),
+      # (item_set_slot, "itm_a_kirtle_gown_custom", slot_item_materials_end, "str_a_kirtle_gown_end"),  
+      # (item_set_slot, "itm_a_kirtle_gown_custom", slot_item_num_components, 1), 
       
 ## Vertex Coloured Simple Gambeson
       (item_set_slot, "itm_a_simple_gambeson_custom", slot_item_materials_begin, "str_a_simple_gambeson_white_1"),
