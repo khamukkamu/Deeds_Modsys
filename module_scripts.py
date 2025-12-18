@@ -749,7 +749,7 @@ scripts = [
     (call_script, "script_setup_camera_keys"),
     (assign, "$g_dplmc_cam_default", camera_mouse),
     (assign, "$g_dplmc_player_disguise", disguise_pilgrim),
-    (assign, "$g_dplmc_charge_when_dead", 1),
+    (assign, "$g_dplmc_charge_when_dead", 0),
 
     #SB : training ground slots
     (try_for_range, ":npc", training_ground_trainers_begin, training_ground_trainers_end),

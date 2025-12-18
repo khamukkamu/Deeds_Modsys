@@ -381,10 +381,10 @@ character_creation_simple_triggers = [
         # (jump_to_menu, "mnu_dac_heresy_inquisitor_meeting"), 
     (try_end),
 
-    (assign, reg3, ":heresy_level"),
-    (assign, reg4, "$dac_priest_heresy_counter"),
+    # (assign, reg3, ":heresy_level"),
+    # (assign, reg4, "$dac_priest_heresy_counter"),
     
-    (display_message, "@Heresy Level: {reg3}^Heresy Counter: {reg4}", color_neutral_news),
+    # (display_message, "@Heresy Level: {reg3}^Heresy Counter: {reg4}", color_neutral_news),
     
 
     ]),

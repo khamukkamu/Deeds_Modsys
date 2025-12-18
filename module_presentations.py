@@ -17194,7 +17194,7 @@ presentations = [
                         (assign, "$g_dplmc_cam_default", camera_mouse),
                         (assign, "$g_dplmc_player_disguise", disguise_pilgrim),
                         (assign, "$sneaked_into_town", disguise_none), #associated with above
-                        (assign, "$g_dplmc_charge_when_dead", 1),
+                        (assign, "$g_dplmc_charge_when_dead", 0),
                         (assign, "$g_dplmc_terrain_advantage", DPLMC_TERRAIN_ADVANTAGE_ENABLE),
                         (assign, "$g_dplmc_lord_recycling", DPLMC_LORD_RECYCLING_ENABLE),
                         (assign, "$g_dplmc_ai_changes", DPLMC_AI_CHANGES_LOW),

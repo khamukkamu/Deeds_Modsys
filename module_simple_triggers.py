@@ -6952,7 +6952,7 @@ simple_triggers = [
 #Custom Troops End
 
 # DAC Seek: Armour progression trigger
-  (24,
+  (24 * 79, ### Roughly after Patay assuming April 1st starting date
    [
     
     (eq, "$armour_progression", 0),

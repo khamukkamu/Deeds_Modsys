@@ -1129,7 +1129,7 @@ character_creation_scripts = [
     
     (troop_set_slot, "trp_player", slot_troop_renown, 0),
     (assign, "$player_honor", 0),
-    (assign, "$player_gold", 0),
+    (assign, "$starting_gold", 0),
     
     (set_show_messages, 1),
   ]),
@@ -1186,7 +1186,7 @@ character_creation_scripts = [
         
         (troop_set_slot, "trp_player", slot_troop_renown, 100),
         (assign, "$player_honor", 5),
-        (assign, "$player_gold", 5000),
+        (assign, "$starting_gold", 5000),
         
         (item_set_slot, "itm_bread", slot_item_enterprise_building_cost, 1200),
         (item_set_slot, "itm_ale", slot_item_enterprise_building_cost, 2000),
@@ -1230,7 +1230,7 @@ character_creation_scripts = [
          
         (troop_set_slot, "trp_player", slot_troop_renown, 125),
         (assign, "$player_honor", 5),
-        (assign, "$player_gold", 2500),
+        (assign, "$starting_gold", 2500),
         
     (else_try),
         (eq, ":class", cc_noble_jouster),   
@@ -1267,7 +1267,7 @@ character_creation_scripts = [
          
         (troop_set_slot, "trp_player", slot_troop_renown, 150),
         (assign, "$player_honor", 10),
-        (assign, "$player_gold", 2000),
+        (assign, "$starting_gold", 2000),
         
     (else_try),
         (eq, ":class", cc_merchant_goods),   
@@ -1298,7 +1298,7 @@ character_creation_scripts = [
                  
         (troop_set_slot, "trp_player", slot_troop_renown, 40),
         (assign, "$player_honor", 1),
-        (assign, "$player_gold", 2500),
+        (assign, "$starting_gold", 2500),
         
     (store_random_in_range, ":trade_item", trade_goods_begin, trade_goods_end),
     (troop_add_item, "trp_player",":trade_item",0),
@@ -1335,7 +1335,7 @@ character_creation_scripts = [
          
         (troop_set_slot, "trp_player", slot_troop_renown, 20),
         (assign, "$player_honor", -5),
-        (assign, "$player_gold", 1850),
+        (assign, "$starting_gold", 1850),
         
     (else_try),
         (eq, ":class", cc_merchant_investor),   
@@ -1366,7 +1366,7 @@ character_creation_scripts = [
          
         (troop_set_slot, "trp_player", slot_troop_renown, 50),
         (assign, "$player_honor", -1),
-        (assign, "$player_gold", 6000),
+        (assign, "$starting_gold", 6000),
         
     (else_try),
         (eq, ":class", cc_soldier_scout),   
@@ -1403,7 +1403,7 @@ character_creation_scripts = [
          
         (troop_set_slot, "trp_player", slot_troop_renown, 25),
         (assign, "$player_honor", 2),
-        (assign, "$player_gold", 750),
+        (assign, "$starting_gold", 750),
         
     (else_try),
         (eq, ":class", cc_soldier_quartermaster),  
@@ -1438,7 +1438,7 @@ character_creation_scripts = [
          
         (troop_set_slot, "trp_player", slot_troop_renown, 30),
         (assign, "$player_honor", 2),
-        (assign, "$player_gold", 1250),
+        (assign, "$starting_gold", 1250),
         
     (store_random_in_range, ":food_item", food_begin, food_end),
     (troop_add_item, "trp_player",":food_item",0),
@@ -1477,7 +1477,7 @@ character_creation_scripts = [
          
         (troop_set_slot, "trp_player", slot_troop_renown, 35),
         (assign, "$player_honor", 2),
-        (assign, "$player_gold", 850),
+        (assign, "$starting_gold", 850),
         
         (store_random_in_range, ":food_item", food_begin, food_end),
         (troop_add_item, "trp_player",":food_item",0),
@@ -1516,7 +1516,7 @@ character_creation_scripts = [
          
         (troop_set_slot, "trp_player", slot_troop_renown, 50),
         (assign, "$player_honor", 2),
-        (assign, "$player_gold", 900),
+        (assign, "$starting_gold", 900),
         
     (else_try),
         (eq, ":class", cc_hunter_poacher),   
@@ -1548,7 +1548,7 @@ character_creation_scripts = [
          
         (troop_set_slot, "trp_player", slot_troop_renown, 10),
         (assign, "$player_honor", 3),
-        (assign, "$player_gold", 250),
+        (assign, "$starting_gold", 250),
         
     (else_try),
         (eq, ":class", cc_hunter_manhunter),   
@@ -1582,7 +1582,7 @@ character_creation_scripts = [
          
         (troop_set_slot, "trp_player", slot_troop_renown, 20),
         (assign, "$player_honor", -5),
-        (assign, "$player_gold", 650),
+        (assign, "$starting_gold", 650),
         
     (else_try),
         (eq, ":class", cc_hunter_marksman),   
@@ -1616,7 +1616,7 @@ character_creation_scripts = [
          
         (troop_set_slot, "trp_player", slot_troop_renown, 60),
         (assign, "$player_honor", 3),
-        (assign, "$player_gold", 775),
+        (assign, "$starting_gold", 775),
         
     (else_try),
         (eq, ":class", cc_mercenary_condottiero),   
@@ -1653,7 +1653,7 @@ character_creation_scripts = [
          
         (troop_set_slot, "trp_player", slot_troop_renown, 120),
         (assign, "$player_honor", 2),
-        (assign, "$player_gold", 6000),
+        (assign, "$starting_gold", 6000),
         
     (else_try),
         (eq, ":class", cc_mercenary_flemish),   
@@ -1690,7 +1690,7 @@ character_creation_scripts = [
          
         (troop_set_slot, "trp_player", slot_troop_renown, 60),
         (assign, "$player_honor", 0),
-        (assign, "$player_gold", 4500),
+        (assign, "$starting_gold", 4500),
         
     (else_try),
         (eq, ":class", cc_mercenary_scottish),   
@@ -1726,7 +1726,7 @@ character_creation_scripts = [
          
         (troop_set_slot, "trp_player", slot_troop_renown, 100),
         (assign, "$player_honor", 5),
-        (assign, "$player_gold", 3750),
+        (assign, "$starting_gold", 3750),
         
     (else_try),
         (eq, ":class", cc_peasant_farmer),   
@@ -1759,7 +1759,7 @@ character_creation_scripts = [
          
         (troop_set_slot, "trp_player", slot_troop_renown, 10),
         (assign, "$player_honor", 1),
-        (assign, "$player_gold", 50),
+        (assign, "$starting_gold", 50),
         
     (else_try),
         (eq, ":class", cc_peasant_revolutionary),   
@@ -1792,7 +1792,7 @@ character_creation_scripts = [
          
         (troop_set_slot, "trp_player", slot_troop_renown, 25),
         (assign, "$player_honor", -3),
-        (assign, "$player_gold", 725),
+        (assign, "$starting_gold", 725),
         
     (else_try),
         (eq, ":class", cc_peasant_smith),   
@@ -1825,7 +1825,7 @@ character_creation_scripts = [
   
         (troop_set_slot, "trp_player", slot_troop_renown, 15),
         (assign, "$player_honor", 1),
-        (assign, "$player_gold", 300),
+        (assign, "$starting_gold", 300),
         
     (else_try),
         (eq, ":class", cc_healer_surgeon),   
@@ -1857,7 +1857,7 @@ character_creation_scripts = [
          
         (troop_set_slot, "trp_player", slot_troop_renown, 20),
         (assign, "$player_honor", 5),
-        (assign, "$player_gold", 350),
+        (assign, "$starting_gold", 350),
         
     (else_try),
         (eq, ":class", cc_healer_priest),   
@@ -1887,7 +1887,7 @@ character_creation_scripts = [
          
         (troop_set_slot, "trp_player", slot_troop_renown, 50),
         (assign, "$player_honor", 10),
-        (assign, "$player_gold", 500),         
+        (assign, "$starting_gold", 500),         
          
     (else_try),
         (eq, ":class", cc_healer_alchemist),  
@@ -1921,7 +1921,7 @@ character_creation_scripts = [
          
         (troop_set_slot, "trp_player", slot_troop_renown, 10),
         (assign, "$player_honor", 1),
-        (assign, "$player_gold", 800),         
+        (assign, "$starting_gold", 800),         
          
     (try_end),
     

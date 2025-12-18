@@ -17613,9 +17613,8 @@ goods, and books will never be sold. ^^You can change some settings here freely.
 			##diplomacy end+
 			(neg|main_party_has_troop,":spouse"), #dckplmc
 			(troop_set_slot, ":spouse", slot_troop_cur_center, "$g_player_court"),
-			(str_store_party_name, s11, "$g_player_court"),
 		(try_end),
-
+        (str_store_party_name, s11, "$g_player_court"), ### DAC Seek: Credits to tos1 for the fix
 		(str_store_string, s14, "str_due_to_the_fall_of_s10_your_court_has_been_relocated_to_s12"), #actually s11
 	(try_end),
 

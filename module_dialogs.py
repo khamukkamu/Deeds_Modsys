@@ -17113,12 +17113,12 @@ Here, take this purse of {reg3} crowns, as I promised. I hope we can travel toge
 (is_between, "$g_talk_troop", heroes_begin, heroes_end),
 ##diplomacy end+
 (neg|faction_slot_eq, "$g_talk_troop_faction", slot_faction_leader, "$g_talk_troop"),
-(neg, "$class_type", cc_mercenary_flemish), ### DAC Seek: Flemish mercenaries can't negotiate their way out
+# (neg, "$class_type", cc_mercenary_flemish), ### DAC Seek: Flemish mercenaries can't negotiate their way out
               ],
 "Stay your hand! There is something I must tell you in private.", "lord_recruit_1_relation", []],
 
 [anyone|plyr,"party_encounter_lord_hostile_attacker_2", [
-(neg, "$class_type", cc_mercenary_flemish), ### DAC Seek: Flemish mercenaries can't negotiate their way out
+(neq, "$class_type", cc_mercenary_flemish), ### DAC Seek: Flemish mercenaries can't negotiate their way out
               ],
 "Is there no way to avoid this battle? I don't want to fight with you.", "party_encounter_offer_dont_fight", []],
 

@@ -922,7 +922,7 @@ character_creation_presentations = [
         (assign, reg14, ":renown"),
         (assign, reg15, "$player_honor"),
         (assign, reg16, ":party_size_limit"),
-        (assign, reg17, "$player_gold"), # Using global to avoid the money_received sound
+        (assign, reg17, "$starting_gold"), # Using global to avoid the money_received sound
 
         (create_text_overlay, reg1, "@Strenght: {reg10} ^Agility: {reg11} ^Intelligence: {reg12} ^Charisma: {reg13} ^^Renown: {reg14} ^Honor: {reg15} ^Party Size: {reg16} ^Gold: {reg17}", tf_scrollable|tf_left_align),
         (position_set_x, pos1, 850),
@@ -1067,7 +1067,7 @@ character_creation_presentations = [
 ### Finish          
         (else_try),
             (eq, ":object", "$g_presentation_obj_5"),
-            (troop_add_gold, "trp_player", "$player_gold"),
+            (troop_add_gold, "trp_player", "$starting_gold"),
             (set_show_messages, 1),
             (presentation_set_duration, 0),
             (jump_to_menu, "mnu_dac_choose_skill",),
