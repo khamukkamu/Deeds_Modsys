@@ -457,16 +457,20 @@ character_creation_menus = [
 
       ("begin_ruling", [(eq, "$background_answer_2", 2),], "Become a ruler during the Hundred Years War",
         [
-          (call_script, "script_kaos_start_as_king_or_lord", "$dac_selected_lord"),        
-          (change_screen_return, 0),
+        (call_script, "script_kaos_start_as_king_or_lord", "$dac_selected_lord"),     
+        (assign, "$background_type", cb_noble),
+        (assign, "$background_class", cc_noble_governor),          
+        (change_screen_return, 0),
         ],
       ),
 
       ("begin_serving", [(eq, "$background_answer_2", 1),], "Become a vassal during the Hundred Years War",
         [
-          (call_script, "script_kaos_start_as_vassal", "$background_answer_3"),
-          (jump_to_menu, "mnu_auto_return"),
-          (start_presentation, "prsnt_banner_selection"),
+        (call_script, "script_kaos_start_as_vassal", "$background_answer_3"),
+        (assign, "$background_type", cb_noble),
+        (assign, "$background_class", cc_noble_tactician),
+        (jump_to_menu, "mnu_auto_return"),
+        (start_presentation, "prsnt_banner_selection"),
         ],
       ),
 

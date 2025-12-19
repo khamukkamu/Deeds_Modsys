@@ -614,7 +614,7 @@ character_creation_scripts = [
         (is_between, ":capital", centers_begin, centers_end),
         (troop_set_slot, "trp_player", slot_troop_cur_center, ":capital"),
         (troop_set_slot, "trp_player", slot_troop_home, ":capital"),
-        (assign, "$g_player_court", ":capital"),
+        # (assign, "$g_player_court", ":capital"),
 
         (troop_add_gold, "trp_player", 15000),
         
