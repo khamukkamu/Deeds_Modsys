@@ -130,12 +130,20 @@ mercenary_company_menus = [
         ],
           "Set up Mercenary Camp.", 
         [
-          (party_relocate_near_party, "p_player_camp", "p_main_party"),
-          (enable_party, "p_player_camp"),
-          (party_set_slot, "p_player_camp", slot_player_camp_level, 1),
-          (assign, "$player_camp_built", 1),
-          (call_script, "script_refresh_mercenary_camp_troops"),
-          (call_script, "script_dac_upgrade_player_camp"),
+            (party_relocate_near_party, "p_player_camp", "p_main_party"),
+            (enable_party, "p_player_camp"),
+            ### Notes
+            (party_set_note_available, "p_player_camp", 1),
+            (str_clear, s1),
+            (str_store_party_name_link, s1, "p_player_camp"),
+            (call_script, "script_dplmc_store_troop_is_female", "trp_player"),
+            (assign, reg1, reg0),
+            (add_troop_note_from_sreg, "trp_player", 2, "str_dac_player_camp_note"),
+            ### Scripts
+            (party_set_slot, "p_player_camp", slot_player_camp_level, 1),
+            (assign, "$player_camp_built", 1),
+            (call_script, "script_refresh_mercenary_camp_troops"),
+            (call_script, "script_dac_upgrade_player_camp"),
 
           # Remove Requirements
           (troop_remove_items, "trp_player", "itm_tools", MERC_CAMP_TOOLS_REQ),
@@ -163,10 +171,11 @@ mercenary_company_menus = [
 ## DAC Seek: Player Camp Encounter
   (
     "player_camp_encounter",0,
-    "You approach your {s11}... ^{reg6?^^You are currently upgrading to: {s7}. ^The process will take {reg8} day{reg9?s:} and you won't be able to access the camp until the work is finished.:}",
+    "You approach your {s11}... ^{reg6?^^You are currently upgrading to: {s7}. ^The process will take {reg8} day{reg9?s:} and you won't be able to access the camp until the work is finished.}:",
     "none",
     [
     (str_clear, s11),
+    (str_clear, s7),
     (party_get_slot, ":player_camp_level", "p_player_camp", slot_player_camp_level),
     
     (try_begin),
@@ -331,7 +340,7 @@ mercenary_company_menus = [
         (store_sub, reg9, reg8, 1),
     (try_end),    
     
-    (party_get_slot, ":player_camp_level", "p_player_camp", slot_player_camp_level),    
+    # (party_get_slot, ":player_camp_level", "p_player_camp", slot_player_camp_level),    
     (assign, reg10, ":player_camp_level"),    
     ],
     [    

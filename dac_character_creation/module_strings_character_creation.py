@@ -422,7 +422,7 @@ There is always a chance for your experiments to backfire, causing you harm"),
 ("dac_successfully_earned_s1", "The local farmers gift you some {s1} for your hard labour"),
 ("dac_peasant_feast", "Your party rejoices at the abundance of food provided"),
 ### DAC Mercenaries Happiness
-("dac_mercs_happy", "Your party is content with the wine and food content"),
+("dac_mercs_happy", "Your party is satisfied with the wine and food variety"),
 ("dac_mercs_sad", "Your party is discontent with the lack of wine and/or food variety"),
 
 ### DAC Hideout

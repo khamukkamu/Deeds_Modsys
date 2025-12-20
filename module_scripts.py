@@ -2970,6 +2970,14 @@ scripts = [
             (eq, "$class_type", cc_mercenary_condottiero),
             (party_relocate_near_party, "p_player_camp", "p_main_party"),
             (enable_party, "p_player_camp"),
+            ### Notes
+            (party_set_note_available, "p_player_camp", 1),
+            (str_clear, s1),
+            (str_store_party_name_link, s1, "p_player_camp"),
+            (call_script, "script_dplmc_store_troop_is_female", "trp_player"),
+            (assign, reg1, reg0),
+            (add_troop_note_from_sreg, "trp_player", 2, "str_dac_player_camp_note"),
+            ### Scripts
             (party_set_slot, "p_player_camp", slot_player_camp_level, 2),
             (assign, "$player_camp_built", 1),
             (call_script, "script_refresh_mercenary_camp_troops"),
@@ -6594,6 +6602,65 @@ scripts = [
         (call_script, "script_get_prosperity_text_to_s50", ":center_no"),
         #(party_get_slot, reg7, ":center_no", slot_town_prosperity),
         (str_store_string, s0, "@{s2}Its prosperity is: {s50}", 0),
+        
+        ### DAC Seek: Notes for the Mercenary Company
+        (try_begin),
+            (eq, ":center_no", "p_player_camp"),
+            (str_clear, s0),
+            (str_clear, s2),
+            
+            (try_begin),
+                (gt, "$players_kingdom", 0),
+                (str_store_faction_name_link, s2, "$players_kingdom"),
+            (else_try),
+                (str_store_faction_name_link, s2, ":lord_faction"),
+            (try_end),
+          
+            (str_store_string, s2, "@{s51} belongs to {s1} of {s2}.^"),
+            
+            ### DAC Seek: Clean this mess, pass it to a script or something you lazy bum
+            (str_clear, s11),
+            (party_get_slot, ":player_camp_level", "p_player_camp", slot_player_camp_level),
+            
+            (try_begin),
+                (eq, ":player_camp_level", 1),
+                (str_store_string, s11, "@Camp"),
+            (else_try),
+                (eq, ":player_camp_level", 2),
+                (str_store_string, s11, "@Outpost"),
+            (else_try),
+                (eq, ":player_camp_level", 3),
+                (str_store_string, s11, "@Manor"),
+            (else_try),
+                (str_store_string, s11, "@Fort"),
+            (try_end),
+            
+            (assign, ":num_improvements", 0),
+            (str_clear, s18),  
+
+            (try_for_range, ":improvement_no", slot_player_camp_smithy, slot_player_camp_level),
+                (party_slot_ge, "p_player_camp", ":improvement_no", 1),
+                (val_add,  ":num_improvements", 1),
+                (call_script, "script_player_camp_get_improvement_details", ":improvement_no"),
+                (try_begin),
+                    (eq,  ":num_improvements", 1),
+                    (str_store_string_reg, s18, s0),
+                (else_try),
+                    (str_store_string, s18, "@{!}{s18}^ {s0}"),
+                (try_end),
+            (try_end),
+
+            (try_begin),
+                (eq,  ":num_improvements", 0),
+                (str_store_string, s19, "@The {s11} has no improvements."),
+            (else_try),
+                (str_store_string, s19, "@The {s11} has the following improvements: ^ {s18}."),
+            (try_end),   
+            
+            (str_store_string, s0, "@{s2}^{s19}"),
+            
+        (try_end),
+        ### DAC Seek End
 
         (set_trigger_result, 1),
       (try_end),

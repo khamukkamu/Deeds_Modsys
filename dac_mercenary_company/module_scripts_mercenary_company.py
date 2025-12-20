@@ -1165,6 +1165,12 @@ mercenary_company_scripts = [
     (str_store_troop_name_plural, s0, "trp_merc_company_name"),
     (str_store_string, s1, "str_s0_s1"),    
     (party_set_name, "p_player_camp", s1),
+### Update Notes:
+    (str_clear, s1),
+    (str_store_party_name_link, s1, "p_player_camp"),
+    (call_script, "script_dplmc_store_troop_is_female", "trp_player"),
+    (assign, reg1, reg0),
+    (add_troop_note_from_sreg, "trp_player", 2, "str_dac_player_camp_note"),   
 ]),
   
 ("improve_player_camp", [

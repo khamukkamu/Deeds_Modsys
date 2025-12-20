@@ -5745,6 +5745,8 @@ Even in the last case, the player can make formations up to four lines by orderi
   ("bandit_intro_friendly_4", "Your money or your... Stay your hands men, 'tis not someone to mess with. A shame really but we may work something out."),
   ("bandit_intro_friendly_end", "none"),
 
+("dac_player_camp_note", "{reg1?She:He} is the leader of {s1}"),  
+
 #utility for skill names
 ]+[
 ("skl_"+skills[x][0], skills[x][1]) for x in range(0, len(skills))]
