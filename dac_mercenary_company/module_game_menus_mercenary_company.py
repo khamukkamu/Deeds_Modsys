@@ -171,7 +171,7 @@ mercenary_company_menus = [
 ## DAC Seek: Player Camp Encounter
   (
     "player_camp_encounter",0,
-    "You approach your {s11}... ^{reg6?^^You are currently upgrading to: {s7}. ^The process will take {reg8} day{reg9?s:} and you won't be able to access the camp until the work is finished.}:",
+    "You approach your {s11}... ^{reg6?^^You are currently upgrading to: {s7}. ^The process will take {reg8} day{reg9?s:} and you won't be able to access the camp until the work is finished.:}",
     "none",
     [
     (str_clear, s11),
@@ -443,7 +443,7 @@ mercenary_company_menus = [
     (val_mul, ":improvement_cost", ":multiplier"),
     (val_div, ":improvement_cost", 20),
 
-    (store_div, ":improvement_time", ":improvement_cost", 250),
+    (store_div, ":improvement_time", ":improvement_cost", 500),
 
     (assign, reg5, ":improvement_cost"),
     (assign, reg6, ":improvement_time"),
@@ -688,7 +688,7 @@ mercenary_company_menus = [
     ],
     [ 
     ("relocate_cheat",[
-        (ge, "$cheat_mode"),],
+        (ge, "$cheat_mode", 1),],
     "[Cheat] Relocate the {s11} instantly.", [
         (party_relocate_near_party, "p_player_camp", "p_main_party"),
         (enable_party, "p_player_camp"),
