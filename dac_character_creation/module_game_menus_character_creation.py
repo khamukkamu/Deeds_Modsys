@@ -169,7 +169,8 @@ character_creation_menus = [
        ),
 	  ("go_back",[],"Go back",
        [
-	     (jump_to_menu,"mnu_start_game_0"),
+	     # (jump_to_menu,"mnu_start_game_0"),
+         (change_screen_quit), ### Need for the game to reload info
        ]),
     ]
   ),
@@ -350,6 +351,7 @@ character_creation_menus = [
         (try_end),
         
         (try_begin),
+            (eq, "$class_type", cc_hunter_marksman),
             (troop_add_item, "trp_custom_merc_ranger_selection", "itm_w_handgonne_1"),
             (troop_add_item, "trp_custom_merc_ranger_selection", "itm_cartridges"),
             (troop_add_item, "trp_custom_merc_marksman_selection", "itm_w_handgonne_2"),

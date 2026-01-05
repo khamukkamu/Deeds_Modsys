@@ -3402,11 +3402,13 @@ TOTAL:  {reg5}"),
 
 ### DAC Seek: Toggle Some class options on/off		
 # Toggle
-      ("class_disable_feature",[
-      (eq, "$class_type_feature_active", 1),
-      (this_or_next|eq, "$background_type", cb_hunter),
-      (this_or_next|eq, "$class_type", cc_noble_jouster),
-      (eq, "$class_type", cc_soldier_scout),
+        ("class_disable_feature",[
+        (eq, "$class_type_feature_active", 1),
+        (this_or_next|eq, "$background_type", cb_hunter),
+        (this_or_next|eq, "$class_type", cc_noble_jouster),
+        (eq, "$class_type", cc_soldier_scout),
+
+        (str_clear, s3),
       
         (try_begin),
             (eq, "$class_type", cc_noble_jouster),
@@ -3419,16 +3421,18 @@ TOTAL:  {reg5}"),
             (str_store_string, s3, "str_dac_hunter_toggle_off"),
         (try_end),
         
-      ],"{s4}",
+      ],"{s3}",
        [(assign, "$class_type_feature_active", 0),
         ]
        ),
        
       ("class_enable_feature",[
-      (eq, "$class_type_feature_active", 0),
-      (this_or_next|eq, "$background_type", cb_hunter),
-      (this_or_next|eq, "$class_type", cc_noble_jouster),
-      (eq, "$class_type", cc_soldier_scout),
+        (eq, "$class_type_feature_active", 0),
+        (this_or_next|eq, "$background_type", cb_hunter),
+        (this_or_next|eq, "$class_type", cc_noble_jouster),
+        (eq, "$class_type", cc_soldier_scout),
+
+        (str_clear, s3),
       
         (try_begin),
             (eq, "$class_type", cc_noble_jouster),
@@ -3449,6 +3453,8 @@ TOTAL:  {reg5}"),
       ("access_hidden_chest",[
         (this_or_next|eq, "$class_type", cc_merchant_goods),
         (eq, "$class_type", cc_soldier_quartermaster),
+        
+        (str_clear, s3),
 
         (try_begin),
             (eq, "$class_type", cc_soldier_quartermaster),

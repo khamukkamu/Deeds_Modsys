@@ -5660,42 +5660,42 @@ Even in the last case, the player can make formations up to four lines by orderi
 
 ## Lance With Pennon
 # French 
-("o_triangular_pennon_small_b_blue", "o_triangular_pennon_small_b_blue"),
-("o_triangular_pennon_small_b_white", "o_triangular_pennon_small_b_white"),
+("w_triangular_pennon_small_b_blue", "w_triangular_pennon_small_b_blue"),
+("w_triangular_pennon_small_b_white", "w_triangular_pennon_small_b_white"),
 # English
-("o_triangular_pennon_small_b_red", "o_triangular_pennon_small_b_red"),
+("w_triangular_pennon_small_b_red", "w_triangular_pennon_small_b_red"),
 # Burgundian
-("o_triangular_pennon_small_b_brown", "o_triangular_pennon_small_b_brown"),
-("o_triangular_pennon_small_b_white_2", "o_triangular_pennon_small_b_white"),
+("w_triangular_pennon_small_b_brown", "w_triangular_pennon_small_b_brown"),
+("w_triangular_pennon_small_b_white_2", "w_triangular_pennon_small_b_white"),
 # Breton
-("o_triangular_pennon_small_b_black", "o_triangular_pennon_small_b_black"),  
-("o_triangular_pennon_small_b_end", "o_triangular_pennon_small_b_end"),
+("w_triangular_pennon_small_b_black", "w_triangular_pennon_small_b_black"),  
+("w_triangular_pennon_small_b_end", "w_triangular_pennon_small_b_end"),
 
 ## Lance With Pennon
 # French 
-("o_triangular_pennon_small_f_blue", "o_triangular_pennon_small_f_blue"),
-("o_triangular_pennon_small_f_white", "o_triangular_pennon_small_f_white"),
+("w_triangular_pennon_small_f_blue", "w_triangular_pennon_small_f_blue"),
+("w_triangular_pennon_small_f_white", "w_triangular_pennon_small_f_white"),
 # English                   
-("o_triangular_pennon_small_f_red", "o_triangular_pennon_small_f_red"),
+("w_triangular_pennon_small_f_red", "w_triangular_pennon_small_f_red"),
 # Burgundian                
-("o_triangular_pennon_small_f_brown", "o_triangular_pennon_small_f_brown"),
-("o_triangular_pennon_small_f_white_2", "o_triangular_pennon_small_f_white"),
+("w_triangular_pennon_small_f_brown", "w_triangular_pennon_small_f_brown"),
+("w_triangular_pennon_small_f_white_2", "w_triangular_pennon_small_f_white"),
 # Breton                    
-("o_triangular_pennon_small_f_black", "o_triangular_pennon_small_f_black"),  
-("o_triangular_pennon_small_f_end", "o_triangular_pennon_small_f_end"),
+("w_triangular_pennon_small_f_black", "w_triangular_pennon_small_f_black"),  
+("w_triangular_pennon_small_f_end", "w_triangular_pennon_small_f_end"),
 
 ## Lance With Pennon
 # French 
-("o_triangular_pennon_small_l_blue", "o_triangular_pennon_small_l_blue"),
-("o_triangular_pennon_small_l_white", "o_triangular_pennon_small_l_white"),
+("w_triangular_pennon_small_l_blue", "w_triangular_pennon_small_l_blue"),
+("w_triangular_pennon_small_l_white", "w_triangular_pennon_small_l_white"),
 # English                   
-("o_triangular_pennon_small_l_red", "o_triangular_pennon_small_l_red"),
+("w_triangular_pennon_small_l_red", "w_triangular_pennon_small_l_red"),
 # Burgundian                
-("o_triangular_pennon_small_l_brown", "o_triangular_pennon_small_l_brown"),
-("o_triangular_pennon_small_l_white_2", "o_triangular_pennon_small_l_white"),
+("w_triangular_pennon_small_l_brown", "w_triangular_pennon_small_l_brown"),
+("w_triangular_pennon_small_l_white_2", "w_triangular_pennon_small_l_white"),
 # Breton                    
-("o_triangular_pennon_small_l_black", "o_triangular_pennon_small_l_black"),  
-("o_triangular_pennon_small_l_end", "o_triangular_pennon_small_l_end"),
+("w_triangular_pennon_small_l_black", "w_triangular_pennon_small_l_black"),  
+("w_triangular_pennon_small_l_end", "w_triangular_pennon_small_l_end"),
 
 ## Armour Patches
 # French 

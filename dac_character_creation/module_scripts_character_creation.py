@@ -1627,6 +1627,11 @@ character_creation_scripts = [
         (troop_add_item, "trp_player","itm_b_high_boots_1"),
         (troop_add_item, "trp_player","itm_g_leather_gauntlet"),	
         
+        (troop_add_item, "trp_player","itm_wine"),	
+        (troop_add_item, "trp_player","itm_sausages"),	
+        (troop_add_item, "trp_player","itm_honey"),	
+        (troop_add_item, "trp_player","itm_bread"),	
+        
         (troop_raise_attribute, "trp_player", ca_strength, 5),
         (troop_raise_attribute, "trp_player", ca_agility, 2),
         (troop_raise_attribute, "trp_player", ca_intelligence, 2),
@@ -1635,12 +1640,13 @@ character_creation_scripts = [
         (troop_raise_skill, "trp_player",skl_ironflesh,1),
         (troop_raise_skill, "trp_player",skl_power_strike,1),
         (troop_raise_skill, "trp_player",skl_weapon_master,1),
+        (troop_raise_skill, "trp_player",skl_riding,1),
         (troop_raise_skill, "trp_player",skl_trainer,1),
         (troop_raise_skill, "trp_player",skl_tactics,2),
         (troop_raise_skill, "trp_player",skl_inventory_management,1),
         (troop_raise_skill, "trp_player",skl_persuasion,1),
         (troop_raise_skill, "trp_player",skl_prisoner_management,1),
-        (troop_raise_skill, "trp_player",skl_leadership,4),
+        (troop_raise_skill, "trp_player",skl_leadership,3),
         (troop_raise_skill, "trp_player",skl_trade,1),
         
         (troop_raise_proficiency_linear, "trp_player", wpt_one_handed_weapon, 60 - pc_wp_all),

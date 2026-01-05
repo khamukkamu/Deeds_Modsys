@@ -2982,6 +2982,7 @@ scripts = [
             (assign, "$player_camp_built", 1),
             (call_script, "script_refresh_mercenary_camp_troops"),
             (call_script, "script_dac_upgrade_player_camp"),
+            (assign, "$g_player_banner_granted", 1),
         (try_end),    
       
       (party_set_morale, "p_main_party", 100),
@@ -76777,72 +76778,72 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (item_set_slot, "itm_h_hood_fi_custom", slot_item_num_components, 1),  
 
 ## Lances With Pennons
-      (item_set_slot, "itm_w_native_spear_b_custom", slot_item_materials_begin, "str_o_triangular_pennon_small_b_blue"),
-      (item_set_slot, "itm_w_native_spear_b_custom", slot_item_materials_end, "str_o_triangular_pennon_small_b_end"),
+      (item_set_slot, "itm_w_native_spear_b_custom", slot_item_materials_begin, "str_w_triangular_pennon_small_b_blue"),
+      (item_set_slot, "itm_w_native_spear_b_custom", slot_item_materials_end, "str_w_triangular_pennon_small_b_end"),
 # France
-      (item_set_slot, "itm_w_native_spear_b_custom", slot_item_france_materials_begin, "str_o_triangular_pennon_small_b_blue"),
-      (item_set_slot, "itm_w_native_spear_b_custom", slot_item_france_materials_end, "str_o_triangular_pennon_small_b_red"),
+      (item_set_slot, "itm_w_native_spear_b_custom", slot_item_france_materials_begin, "str_w_triangular_pennon_small_b_blue"),
+      (item_set_slot, "itm_w_native_spear_b_custom", slot_item_france_materials_end, "str_w_triangular_pennon_small_b_red"),
 # England
-      (item_set_slot, "itm_w_native_spear_b_custom", slot_item_english_materials_begin, "str_o_triangular_pennon_small_b_white"),
-      (item_set_slot, "itm_w_native_spear_b_custom", slot_item_english_materials_end, "str_o_triangular_pennon_small_b_brown"),
+      (item_set_slot, "itm_w_native_spear_b_custom", slot_item_english_materials_begin, "str_w_triangular_pennon_small_b_white"),
+      (item_set_slot, "itm_w_native_spear_b_custom", slot_item_english_materials_end, "str_w_triangular_pennon_small_b_brown"),
 # Burgundy
-      (item_set_slot, "itm_w_native_spear_b_custom", slot_item_burgundy_materials_begin, "str_o_triangular_pennon_small_b_red"),
-      (item_set_slot, "itm_w_native_spear_b_custom", slot_item_burgundy_materials_end, "str_o_triangular_pennon_small_b_black"),
+      (item_set_slot, "itm_w_native_spear_b_custom", slot_item_burgundy_materials_begin, "str_w_triangular_pennon_small_b_red"),
+      (item_set_slot, "itm_w_native_spear_b_custom", slot_item_burgundy_materials_end, "str_w_triangular_pennon_small_b_black"),
 # Brittany    
-      (item_set_slot, "itm_w_native_spear_b_custom", slot_item_breton_materials_begin, "str_o_triangular_pennon_small_b_white_2"),
-      (item_set_slot, "itm_w_native_spear_b_custom", slot_item_breton_materials_end, "str_o_triangular_pennon_small_b_end"),  
+      (item_set_slot, "itm_w_native_spear_b_custom", slot_item_breton_materials_begin, "str_w_triangular_pennon_small_b_white_2"),
+      (item_set_slot, "itm_w_native_spear_b_custom", slot_item_breton_materials_end, "str_w_triangular_pennon_small_b_end"),  
       (item_set_slot, "itm_w_native_spear_b_custom", slot_item_num_components, 1),          
 
 ## Lances With Pennons
-      (item_set_slot, "itm_w_native_spear_f_custom", slot_item_materials_begin, "str_o_triangular_pennon_small_f_blue"),
-      (item_set_slot, "itm_w_native_spear_f_custom", slot_item_materials_end, "str_o_triangular_pennon_small_f_end"),
+      (item_set_slot, "itm_w_native_spear_f_custom", slot_item_materials_begin, "str_w_triangular_pennon_small_f_blue"),
+      (item_set_slot, "itm_w_native_spear_f_custom", slot_item_materials_end, "str_w_triangular_pennon_small_f_end"),
 # France
-      (item_set_slot, "itm_w_native_spear_f_custom", slot_item_france_materials_begin, "str_o_triangular_pennon_small_f_blue"),
-      (item_set_slot, "itm_w_native_spear_f_custom", slot_item_france_materials_end, "str_o_triangular_pennon_small_f_red"),
+      (item_set_slot, "itm_w_native_spear_f_custom", slot_item_france_materials_begin, "str_w_triangular_pennon_small_f_blue"),
+      (item_set_slot, "itm_w_native_spear_f_custom", slot_item_france_materials_end, "str_w_triangular_pennon_small_f_red"),
 # England
-      (item_set_slot, "itm_w_native_spear_f_custom", slot_item_english_materials_begin, "str_o_triangular_pennon_small_f_white"),
-      (item_set_slot, "itm_w_native_spear_f_custom", slot_item_english_materials_end, "str_o_triangular_pennon_small_f_brown"),
+      (item_set_slot, "itm_w_native_spear_f_custom", slot_item_english_materials_begin, "str_w_triangular_pennon_small_f_white"),
+      (item_set_slot, "itm_w_native_spear_f_custom", slot_item_english_materials_end, "str_w_triangular_pennon_small_f_brown"),
 # Burgundy
-      (item_set_slot, "itm_w_native_spear_f_custom", slot_item_burgundy_materials_begin, "str_o_triangular_pennon_small_f_red"),
-      (item_set_slot, "itm_w_native_spear_f_custom", slot_item_burgundy_materials_end, "str_o_triangular_pennon_small_f_black"),
+      (item_set_slot, "itm_w_native_spear_f_custom", slot_item_burgundy_materials_begin, "str_w_triangular_pennon_small_f_red"),
+      (item_set_slot, "itm_w_native_spear_f_custom", slot_item_burgundy_materials_end, "str_w_triangular_pennon_small_f_black"),
 # Brittany    
-      (item_set_slot, "itm_w_native_spear_f_custom", slot_item_breton_materials_begin, "str_o_triangular_pennon_small_f_white_2"),
-      (item_set_slot, "itm_w_native_spear_f_custom", slot_item_breton_materials_end, "str_o_triangular_pennon_small_f_end"),  
+      (item_set_slot, "itm_w_native_spear_f_custom", slot_item_breton_materials_begin, "str_w_triangular_pennon_small_f_white_2"),
+      (item_set_slot, "itm_w_native_spear_f_custom", slot_item_breton_materials_end, "str_w_triangular_pennon_small_f_end"),  
       (item_set_slot, "itm_w_native_spear_f_custom", slot_item_num_components, 1),   
 
 ## Lances With Pennons
-      (item_set_slot, "itm_w_light_lance_custom", slot_item_materials_begin, "str_o_triangular_pennon_small_l_blue"),
-      (item_set_slot, "itm_w_light_lance_custom", slot_item_materials_end, "str_o_triangular_pennon_small_l_end"),
+      (item_set_slot, "itm_w_light_lance_custom", slot_item_materials_begin, "str_w_triangular_pennon_small_l_blue"),
+      (item_set_slot, "itm_w_light_lance_custom", slot_item_materials_end, "str_w_triangular_pennon_small_l_end"),
 # France
-      (item_set_slot, "itm_w_light_lance_custom", slot_item_france_materials_begin, "str_o_triangular_pennon_small_l_blue"),
-      (item_set_slot, "itm_w_light_lance_custom", slot_item_france_materials_end, "str_o_triangular_pennon_small_l_red"),
+      (item_set_slot, "itm_w_light_lance_custom", slot_item_france_materials_begin, "str_w_triangular_pennon_small_l_blue"),
+      (item_set_slot, "itm_w_light_lance_custom", slot_item_france_materials_end, "str_w_triangular_pennon_small_l_red"),
 # England
-      (item_set_slot, "itm_w_light_lance_custom", slot_item_english_materials_begin, "str_o_triangular_pennon_small_l_white"),
-      (item_set_slot, "itm_w_light_lance_custom", slot_item_english_materials_end, "str_o_triangular_pennon_small_l_brown"),
+      (item_set_slot, "itm_w_light_lance_custom", slot_item_english_materials_begin, "str_w_triangular_pennon_small_l_white"),
+      (item_set_slot, "itm_w_light_lance_custom", slot_item_english_materials_end, "str_w_triangular_pennon_small_l_brown"),
 # Burgundy
-      (item_set_slot, "itm_w_light_lance_custom", slot_item_burgundy_materials_begin, "str_o_triangular_pennon_small_l_red"),
-      (item_set_slot, "itm_w_light_lance_custom", slot_item_burgundy_materials_end, "str_o_triangular_pennon_small_l_black"),
+      (item_set_slot, "itm_w_light_lance_custom", slot_item_burgundy_materials_begin, "str_w_triangular_pennon_small_l_red"),
+      (item_set_slot, "itm_w_light_lance_custom", slot_item_burgundy_materials_end, "str_w_triangular_pennon_small_l_black"),
 # Brittany    
-      (item_set_slot, "itm_w_light_lance_custom", slot_item_breton_materials_begin, "str_o_triangular_pennon_small_l_white_2"),
-      (item_set_slot, "itm_w_light_lance_custom", slot_item_breton_materials_end, "str_o_triangular_pennon_small_l_end"),  
+      (item_set_slot, "itm_w_light_lance_custom", slot_item_breton_materials_begin, "str_w_triangular_pennon_small_l_white_2"),
+      (item_set_slot, "itm_w_light_lance_custom", slot_item_breton_materials_end, "str_w_triangular_pennon_small_l_end"),  
       (item_set_slot, "itm_w_light_lance_custom", slot_item_num_components, 1),  
 
 ## Lances With Pennons
       (try_for_range, ":item_no", "itm_w_lance_1_custom", "itm_w_light_lance_heraldic"), # Seek: All the lances share the same base
-      (item_set_slot, ":item_no", slot_item_materials_begin, "str_o_triangular_pennon_small_l_blue"),
-      (item_set_slot, ":item_no", slot_item_materials_end, "str_o_triangular_pennon_small_l_end"),
+      (item_set_slot, ":item_no", slot_item_materials_begin, "str_w_triangular_pennon_small_l_blue"),
+      (item_set_slot, ":item_no", slot_item_materials_end, "str_w_triangular_pennon_small_l_end"),
 # France
-      (item_set_slot, ":item_no", slot_item_france_materials_begin, "str_o_triangular_pennon_small_l_blue"),
-      (item_set_slot, ":item_no", slot_item_france_materials_end, "str_o_triangular_pennon_small_l_red"),
+      (item_set_slot, ":item_no", slot_item_france_materials_begin, "str_w_triangular_pennon_small_l_blue"),
+      (item_set_slot, ":item_no", slot_item_france_materials_end, "str_w_triangular_pennon_small_l_red"),
 # England
-      (item_set_slot, ":item_no", slot_item_english_materials_begin, "str_o_triangular_pennon_small_l_white"),
-      (item_set_slot, ":item_no", slot_item_english_materials_end, "str_o_triangular_pennon_small_l_brown"),
+      (item_set_slot, ":item_no", slot_item_english_materials_begin, "str_w_triangular_pennon_small_l_white"),
+      (item_set_slot, ":item_no", slot_item_english_materials_end, "str_w_triangular_pennon_small_l_brown"),
 # Burgundy
-      (item_set_slot, ":item_no", slot_item_burgundy_materials_begin, "str_o_triangular_pennon_small_l_red"),
-      (item_set_slot, ":item_no", slot_item_burgundy_materials_end, "str_o_triangular_pennon_small_l_black"),
+      (item_set_slot, ":item_no", slot_item_burgundy_materials_begin, "str_w_triangular_pennon_small_l_red"),
+      (item_set_slot, ":item_no", slot_item_burgundy_materials_end, "str_w_triangular_pennon_small_l_black"),
 # Brittany    
-      (item_set_slot, ":item_no", slot_item_breton_materials_begin, "str_o_triangular_pennon_small_l_white_2"),
-      (item_set_slot, ":item_no", slot_item_breton_materials_end, "str_o_triangular_pennon_small_l_end"),  
+      (item_set_slot, ":item_no", slot_item_breton_materials_begin, "str_w_triangular_pennon_small_l_white_2"),
+      (item_set_slot, ":item_no", slot_item_breton_materials_end, "str_w_triangular_pennon_small_l_end"),  
       (item_set_slot, ":item_no", slot_item_num_components, 1),    
       (try_end),       
 

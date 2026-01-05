@@ -18046,7 +18046,53 @@ I knew that I had found someone worthy of becoming my vassal.", "lord_invite_1",
 #  [anyone, "lord_meet_enemy_2", [],  "{playername} eh? Never heard of you. What do want?", "lord_talk", []],
 
 
-
+	##### QUEST : FLORIS_ACTIVE_TOURNAMENT : BEGIN #####
+    [anyone,"lord_start",
+		[
+			(check_quest_active, "qst_floris_active_tournament"),
+			(quest_get_slot, ":troop_no", "qst_floris_active_tournament", slot_quest_giver_troop),
+			(eq, "$g_talk_troop", ":troop_no"),
+			(quest_slot_eq, "qst_floris_active_tournament", slot_quest_current_state, qp1_tournament_message_received),
+			(quest_set_slot, "qst_floris_active_tournament", slot_quest_current_state, 0),
+			(str_store_troop_name, s21, ":troop_no"),
+		], "I see you received my invitation to our games.  It is good to have you among us.", "lord_talk", []],
+		
+    [anyone,"lord_start",
+		[
+			(neg|check_quest_active, "qst_floris_active_tournament"),
+			(quest_get_slot, ":troop_no", "qst_floris_active_tournament", slot_quest_giver_troop),
+			(eq, "$g_talk_troop", ":troop_no"),
+			(quest_slot_eq, "qst_floris_active_tournament", slot_quest_current_state, qp1_tournament_refused_invitation),
+			(quest_set_slot, "qst_floris_active_tournament", slot_quest_current_state, 0),
+			(str_store_troop_name, s21, ":troop_no"),
+		], "So there you are.  It is a shame you couldn't make it out this way for the games.  I would have enjoyed a chance to cross swords with you.", "lord_talk", 
+		[
+			(try_begin),
+				(quest_get_slot, ":town_lord", "qst_floris_active_tournament", slot_quest_giver_troop),
+				(call_script, "script_troop_change_relation_with_troop", "trp_player", ":town_lord", -1),
+			(try_end),
+		]],
+		
+    [anyone,"lord_start",
+		[
+			(check_quest_active, "qst_floris_active_tournament"),
+			(quest_get_slot, ":troop_no", "qst_floris_active_tournament", slot_quest_giver_troop),
+			(eq, "$g_talk_troop", ":troop_no"),
+			(quest_slot_eq, "qst_floris_active_tournament", slot_quest_current_state, qp1_tournament_participated_in_tournament),
+			(quest_set_slot, "qst_floris_active_tournament", slot_quest_current_state, 0),
+			(str_store_troop_name, s21, ":troop_no"),
+		], "It was an honor to have you among the participants for our games.", "lord_talk", 
+		[
+			(assign, ":relation_change", 1),
+			(try_begin),
+				(quest_slot_eq, "qst_floris_active_tournament", slot_quest_current_state, qp1_tournament_message_received), # If you weren't invited then no one should care if you don't attend.
+				(val_add, ":relation_change", 1),
+			(try_end),
+			(quest_get_slot, ":town_lord", "qst_floris_active_tournament", slot_quest_giver_troop),
+			(call_script, "script_troop_change_relation_with_troop", "trp_player", ":town_lord", ":relation_change"),
+			(complete_quest, "qst_floris_active_tournament"),
+		]],
+	##### QUEST : FLORIS_ACTIVE_TOURNAMENT : END #####
 
 
 

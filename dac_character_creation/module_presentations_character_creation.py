@@ -1062,8 +1062,8 @@ character_creation_presentations = [
 ### Return
         (else_try),
             (eq, ":object", "$g_presentation_obj_4"),
-            # (jump_to_menu,"mnu_start_game_0"),  
-            (change_screen_quit), ### DAC Seek: Going back and picking another start option causes crashes so best return straight to menu
+            (jump_to_menu,"mnu_start_game_1"),  
+            # (change_screen_quit), ### DAC Seek: Crashes if called in a presentation afaik
 
 ### Finish          
         (else_try),
