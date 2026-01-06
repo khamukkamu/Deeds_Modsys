@@ -1310,4 +1310,5 @@ scn_bandit_camp_flayer = 1307
 scn_bandit_camp_retondeur = 1308
 scn_bandit_camp_tard_venu = 1309
 scn_bandit_camp_peasant_bandit = 1310
+scn_tourney_1 = 1311
 scn_exit = 100000

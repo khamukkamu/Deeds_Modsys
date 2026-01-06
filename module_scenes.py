@@ -3515,4 +3515,5 @@ scenes = [
 ("bandit_camp_tard_venu",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002300006800006d5b5000067200000653f000023fc",[],[],"outer_terrain_plain_2"),
 ("bandit_camp_peasant_bandit",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002200213e300077ddf000019d3000034520000626e",[],[],"outer_terrain_steppe_3"),
 
+("tourney_1",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002300006800006d5b500001f790000653f000023fc",[],[],"outer_terrain_plain"),
 ]
