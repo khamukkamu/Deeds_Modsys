@@ -297,6 +297,7 @@ slot_town_weaponsmith   = 21
 slot_town_armorer       = 22
 slot_town_merchant      = 23
 slot_town_horse_merchant= 24
+slot_town_arena_master  = 87
 slot_town_elder         = 25
 slot_center_player_relation = 26
 ##diplomacy start+ This range doesn't need to be exhaustive (e.g. the seneschal isn't included), but it should be continuous

@@ -310,10 +310,10 @@ check_ladder_animation_finish_trigger = (ti_on_scene_prop_animation_finished,
 
 scene_props = [
   ("invalid_object",0,"question_mark","0", []),
-  ("inventory",sokf_type_container|sokf_place_at_origin,"package","bobaggage", []),
+  ("inventory",sokf_type_container|sokf_place_at_origin,"package","bo_baggage", []),
   ("empty", 0, "0", "0", []),
-  ("chest_a",sokf_type_container,"chest_gothic","bochest_gothic", []),
-  ("container_small_chest",sokf_type_container,"package","bobaggage", []),
+  ("chest_a",sokf_type_container,"chest_gothic","bo_chest_gothic", []),
+  ("container_small_chest",sokf_type_container,"package","bo_baggage", []),
   ("container_chest_b",sokf_type_container,"chest_b","bo_chest_b", []),
   ("container_chest_c",sokf_type_container,"chest_c","bo_chest_c", []),
   ("player_chest",sokf_type_container,"player_chest","bo_player_chest", []),
@@ -460,8 +460,8 @@ scene_props = [
   ("ai_limiter_8m" ,sokf_invisible|sokf_type_ai_limiter,"barrier_8m" ,"bo_barrier_8m" , []),
   ("ai_limiter_16m",sokf_invisible|sokf_type_ai_limiter,"barrier_16m","bo_barrier_16m", []),
   ("Shield",sokf_dynamic,"0","boshield", []),
-  ("shelves",0,"shelves","boshelves", []),
-  ("table_tavern",0,"table_tavern","botable_tavern", []),
+  ("shelves",0,"shelves","bo_shelves", []),
+  ("table_tavern",0,"table_tavern","bo_table_tavern", []),
   ("table_castle_a",0,"table_castle_a","bo_table_castle_a", []),
   ("chair_castle_a",0,"chair_castle_a","bo_chair_castle_a", []),
 
@@ -1426,26 +1426,26 @@ scene_props = [
   ("tavern_table_a",0,"tavern_table_a","bo_tavern_table_a", []),
   ("tavern_table_b",0,"tavern_table_b","bo_tavern_table_b", []),
   ("fireplace_a",0,"fireplace_a","bo_fireplace_a", []),
-  ("barrel",0,"barrel","bobarrel", []),
-  ("bench_tavern",0,"bench_tavern","bobench_tavern", []),
+  ("barrel",0,"barrel","bo_barrel", []),
+  ("bench_tavern",0,"bench_tavern","bo_bench_tavern", []),
   ("bench_tavern_b",0,"bench_tavern_b","bo_bench_tavern_b", []),
   ("bowl_wood",0,"bowl_wood","0", []),
   ("chandelier_table",0,"chandelier_table","0", []),
   ("chandelier_tavern",0,"chandelier_tavern","0", []),
-  ("chest_gothic",0,"chest_gothic","bochest_gothic", []),
+  ("chest_gothic",0,"chest_gothic","bo_chest_gothic", []),
   ("chest_b",0,"chest_b","bo_chest_b", []),
   ("chest_c",0,"chest_c","bo_chest_c", []),
-  ("counter_tavern",0,"counter_tavern","bocounter_tavern", []),
+  ("counter_tavern",0,"counter_tavern","bo_counter_tavern", []),
   ("cup",0,"cup","0", []),
   ("dish_metal",0,"dish_metal","0", []),
-  ("gothic_chair",0,"gothic_chair","bogothic_chair", []),
-  ("gothic_stool",0,"gothic_stool","bogothic_stool", []),
-  ("grate",0,"grate","bograte", []),
+  ("gothic_chair",0,"gothic_chair","bo_gothic_chair", []),
+  ("gothic_stool",0,"gothic_stool","bo_gothic_stool", []),
+  ("grate",0,"grate","bo_grate", []),
   ("jug",0,"jug","0", []),
   ("potlamp",0,"potlamp","0", []),
-  ("weapon_rack",0,"weapon_rack","boweapon_rack", []),
-  ("weapon_rack_big",0,"weapon_rack_big","boweapon_rack_big", []),
-  ("tavern_barrel",0,"barrel","bobarrel", []),
+  ("weapon_rack",0,"weapon_rack","bo_weapon_rack", []),
+  ("weapon_rack_big",0,"weapon_rack_big","bo_weapon_rack_big", []),
+  ("tavern_barrel",0,"barrel","bo_barrel", []),
   ("tavern_barrel_b",0,"tavern_barrel_b","bo_tavern_barrel_b", []),
   ("merchant_sign",0,"merchant_sign","bo_tavern_sign", []),
   ("tavern_sign",0,"tavern_sign","bo_tavern_sign", []),
@@ -4784,6 +4784,54 @@ scene_props = [
 	( "sv_house_k"                                 ,0,"sv_house_k","bo_sv_house_k",[]),
 # from 'DAC_props_pure.brf': end (OpenBRF)
 
+# from 'DAC_props_city_slate_breton.brf': begin (OpenBRF)
+	( "slate_city_swad_breton_01"                  ,0,"slate_city_swad_breton_01","bo_slate_city_swad_breton_01",[]),
+	( "slate_city_swad_breton_02"                  ,0,"slate_city_swad_breton_02","bo_slate_city_swad_breton_02",[]),
+	( "slate_city_swad_breton_03"                  ,0,"slate_city_swad_breton_03","bo_slate_city_swad_breton_03",[]),
+	( "slate_city_swad_breton_04"                  ,0,"slate_city_swad_breton_04","bo_slate_city_swad_breton_04",[]),
+	( "slate_city_swad_breton_05"                  ,0,"slate_city_swad_breton_05","bo_slate_city_swad_breton_05",[]),
+	( "slate_city_swad_breton_passage_01"          ,0,"slate_city_swad_breton_passage_01","bo_slate_city_swad_breton_passage_01",[]),
+# from 'DAC_props_city_slate_breton.brf': end (OpenBRF)
+
+# from 'DAC_props_city_slate_white.brf': begin (OpenBRF)
+	( "slate_city_swad_white_01"                   ,0,"slate_city_swad_white_01","bo_slate_city_swad_white_01",[]),
+	( "slate_city_swad_white_02"                   ,0,"slate_city_swad_white_02","bo_slate_city_swad_white_02",[]),
+	( "slate_city_swad_white_03"                   ,0,"slate_city_swad_white_03","bo_slate_city_swad_white_03",[]),
+	( "slate_city_swad_white_04"                   ,0,"slate_city_swad_white_04","bo_slate_city_swad_white_04",[]),
+	( "slate_city_swad_white_05"                   ,0,"slate_city_swad_white_05","bo_slate_city_swad_white_05",[]),
+	( "slate_city_swad_white_passage_01"           ,0,"slate_city_swad_white_passage_01","bo_slate_city_swad_white_passage_01",[]),
+# from 'DAC_props_city_slate_white.brf': end (OpenBRF)
+
+# from 'DAC_props_city_southern.brf': begin (OpenBRF)
+	( "city_swad_southern_01"                      ,0,"city_swad_southern_01","bo_city_swad_southern_01",[]),
+	( "city_swad_southern_02"                      ,0,"city_swad_southern_02","bo_city_swad_southern_02",[]),
+	( "city_swad_southern_03"                      ,0,"city_swad_southern_03","bo_city_swad_southern_03",[]),
+	( "city_swad_southern_04"                      ,0,"city_swad_southern_04","bo_city_swad_southern_04",[]),
+	( "city_swad_southern_05"                      ,0,"city_swad_southern_05","bo_city_swad_southern_05",[]),
+	( "city_swad_southern_passage_01"              ,0,"city_swad_southern_passage_01","bo_city_swad_southern_passage_01",[]),
+# from 'DAC_props_city_southern.brf': end (OpenBRF)
+
+# from 'DAC_props_pure_native_replacements.brf': begin (OpenBRF)
+	( "french_military_remix_corner_a_roof"        ,0,"french_military_remix_corner_a_roof","bo_french_military_remix_corner_a_roof",[]),
+	( "french_military_remix_corner_d_roof"        ,0,"french_military_remix_corner_d_roof","bo_french_military_remix_corner_d_roof",[]),
+	( "french_military_remix_gate_house_d_roof"    ,0,"french_military_remix_gate_house_d_roof","0",[]),
+	( "castle_battlement_corner_a_roof"            ,0,"castle_battlement_corner_a_roof","bo_castle_battlement_corner_a_roof",[]),
+	( "nmp_sw2_gatehouse_c_roof"                   ,0,"nmp_sw2_gatehouse_c_roof","bo_nmp_sw2_gatehouse_c_roof",[]),
+	( "nmp_sw2_castle_f_battlement_corner_a_roof"  ,0,"nmp_sw2_castle_f_battlement_corner_a_roof","bo_nmp_sw2_castle_f_battlement_corner_a_roof",[]),
+	( "limestone_white_nr_corner_a_roof"           ,0,"limestone_white_nr_corner_a_roof","bo_limestone_white_nr_corner_a_roof",[]),
+	( "limestone_white_nr_corner_d_roof"           ,0,"limestone_white_nr_corner_d_roof","bo_limestone_white_nr_corner_d_roof",[]),
+	( "limestone_white_nr_gate_house_d_roof"       ,0,"limestone_white_nr_gate_house_d_roof","bo_limestone_white_nr_gate_house_d_roof",[]),
+	( "sandstone_white_nr_corner_a_roof"           ,0,"sandstone_white_nr_corner_a_roof","bo_sandstone_white_nr_corner_a_roof",[]),
+	( "sandstone_white_nr_corner_d_roof"           ,0,"sandstone_white_nr_corner_d_roof","bo_sandstone_white_nr_corner_d_roof",[]),
+	( "sandstone_white_nr_gate_house_d_roof"       ,0,"sandstone_white_nr_gate_house_d_roof","bo_sandstone_white_nr_gate_house_d_roof",[]),
+	( "sandstone_nr_corner_a_roof"                 ,0,"sandstone_nr_corner_a_roof","bo_sandstone_nr_corner_a_roof",[]),
+	( "sandstone_nr_corner_d_roof"                 ,0,"sandstone_nr_corner_d_roof","bo_sandstone_nr_corner_d_roof",[]),
+	( "sandstone_nr_gate_house_d_roof"             ,0,"sandstone_nr_gate_house_d_roof","bo_sandstone_nr_gate_house_d_roof",[]),
+	( "sc_missing_corner_d_roof"                   ,0,"sc_missing_corner_d_roof","bo_sc_missing_corner_d_roof",[]),
+	( "sc_missing_gate_house_d_roof"               ,0,"sc_missing_gate_house_d_roof","bo_sc_missing_gate_house_d_roof",[]),
+	( "sc_missing_tower_a_roof"                    ,0,"sc_missing_tower_a_roof","bo_sc_missing_tower_a_roof",[]),
+	( "snowy_castle_battlement_corner_a_roof"      ,0,"snowy_castle_battlement_corner_a_roof","bo_snowy_castle_battlement_corner_a_roof",[]),
+# from 'DAC_props_pure_native_replacements.brf': end (OpenBRF)
 
 
 
@@ -4919,4 +4967,6 @@ scene_props = [
   ("spawn_townswoman",sokf_invisible,"entry_arrow",0,    [
     agent_spawner("trp_town_walker_2")
    ]),
+   
+
 ]

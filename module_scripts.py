@@ -75542,6 +75542,8 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
         (party_set_slot,":town_no", slot_town_merchant, ":cur_object_no"),
         (store_add, ":cur_object_no", "trp_french_town_1_horse_merchant", ":offset"),
         (party_set_slot,":town_no", slot_town_horse_merchant, ":cur_object_no"),
+        (store_add, ":cur_object_no", "trp_french_town_1_arena_master", ":offset"),
+        (party_set_slot,":town_no", slot_town_arena_master, ":cur_object_no"),
         (store_add, ":cur_object_no", "scn_french_town_1_center", ":offset"),
         (party_set_slot,":town_no", slot_town_center, ":cur_object_no"),
         # (party_set_slot,":town_no", slot_town_reinforcement_party_template, "pt_center_reinforcements"),

@@ -20684,34 +20684,35 @@ presentations = [
         (store_trigger_param_2, ":value"),
         (assign, ":continue", 0),
 
-        (store_faction_of_party, ":tailor_faction", "$g_encountered_party"),
+### DAC Seek: Unlocked, factions no longer colour-coded
+        # (store_faction_of_party, ":tailor_faction", "$g_encountered_party"),
         
-        (try_begin),
-            (is_between, "$g_talk_troop", tavern_tailors_begin, tavern_tailors_end),
-            (assign, ":tailor_faction", "fac_commoners"),
-        (try_end),
+        # (try_begin),
+            # (is_between, "$g_talk_troop", tavern_tailors_begin, tavern_tailors_end),
+            # (assign, ":tailor_faction", "fac_commoners"),
+        # (try_end),
 
-        (try_begin),
-          (eq, ":tailor_faction", "fac_kingdom_1"), #France
-          (item_get_slot, ":colors_begin", "$g_current_opened_item_details", slot_item_france_materials_begin),
-          (item_get_slot, ":colors_end", "$g_current_opened_item_details", slot_item_france_materials_end),
-        (else_try),
-          (eq, ":tailor_faction", "fac_kingdom_2"), #England
-          (item_get_slot, ":colors_begin", "$g_current_opened_item_details", slot_item_english_materials_begin),
-          (item_get_slot, ":colors_end", "$g_current_opened_item_details", slot_item_english_materials_end),
-        (else_try),
-          (eq, ":tailor_faction", "fac_kingdom_3"), #Burgandy
-          (item_get_slot, ":colors_begin", "$g_current_opened_item_details", slot_item_burgundy_materials_begin),
-          (item_get_slot, ":colors_end", "$g_current_opened_item_details", slot_item_burgundy_materials_end),
-        (else_try),
-          (eq, ":tailor_faction", "fac_kingdom_4"), #Brittany
-          (item_get_slot, ":colors_begin", "$g_current_opened_item_details", slot_item_breton_materials_begin),
-          (item_get_slot, ":colors_end", "$g_current_opened_item_details", slot_item_breton_materials_end),
+        # (try_begin),
+          # (eq, ":tailor_faction", "fac_kingdom_1"), #France
+          # (item_get_slot, ":colors_begin", "$g_current_opened_item_details", slot_item_france_materials_begin),
+          # (item_get_slot, ":colors_end", "$g_current_opened_item_details", slot_item_france_materials_end),
+        # (else_try),
+          # (eq, ":tailor_faction", "fac_kingdom_2"), #England
+          # (item_get_slot, ":colors_begin", "$g_current_opened_item_details", slot_item_english_materials_begin),
+          # (item_get_slot, ":colors_end", "$g_current_opened_item_details", slot_item_english_materials_end),
+        # (else_try),
+          # (eq, ":tailor_faction", "fac_kingdom_3"), #Burgandy
+          # (item_get_slot, ":colors_begin", "$g_current_opened_item_details", slot_item_burgundy_materials_begin),
+          # (item_get_slot, ":colors_end", "$g_current_opened_item_details", slot_item_burgundy_materials_end),
+        # (else_try),
+          # (eq, ":tailor_faction", "fac_kingdom_4"), #Brittany
+          # (item_get_slot, ":colors_begin", "$g_current_opened_item_details", slot_item_breton_materials_begin),
+          # (item_get_slot, ":colors_end", "$g_current_opened_item_details", slot_item_breton_materials_end),
 ### HYW Seek: Unlocked for armorers/tailors that don't have a faction			 
-        (else_try),	
+        # (else_try),	
           (item_get_slot, ":colors_begin", "$g_current_opened_item_details", slot_item_materials_begin),
           (item_get_slot, ":colors_end", "$g_current_opened_item_details", slot_item_materials_end),
-        (try_end),
+        # (try_end),
 
         (try_begin), #color toggler
           (gt, "$g_presentation_credits_obj_3", -1),
@@ -20768,7 +20769,8 @@ presentations = [
         (else_try),
           (eq, ":object", "$g_presentation_obj_profile_banner_selection_2"),
           (neg|is_between, "$g_presentation_credits_obj_4", ":colors_begin", ":colors_end"),
-          (display_message, "@Apologies, this is not one of our approved colours, therefore it will be treason to make. Please choose another"),
+          # (display_message, "@Apologies, this is not one of our approved colours, therefore it will be treason to make. Please choose another"),
+          (display_message, "@Invalid selection, pick another"),
         (else_try), #go after presentation object stored in arrays, left side combos
           (gt, "$g_presentation_obj_item_select_1", 0),
           (assign, ":cur_mesh_slot", slot_item_player_slots_begin - 1),
