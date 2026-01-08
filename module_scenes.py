@@ -183,32 +183,32 @@ scenes = [
     [],[], "outer_terrain_plain"),
 
 
-  ("training_ground_horse_track_1",sf_generate,"none", "none", (0,0),(120,120),-100,"0x00000000337553240004d53700000c0500002a0f80006267",
-    [],[], "outer_terrain_plain"),
+  ("training_ground_horse_track_1",sf_generate,"none", "none", (0,0),(120,120),-100,"0x00000000301553240004d53700000c0500002a0f80006267",
+    [],[], "outer_terrain_forest"),
   ("training_ground_horse_track_2",sf_generate,"none", "none", (0,0),(120,120),-100,"0x00000000301553240004d5370000466000002a0f800073f1",
-    [],[], "outer_terrain_plain"),
+    [],[], "outer_terrain_hills_far"),
   #Kar
-  ("training_ground_horse_track_3",sf_generate,"none", "none", (0,0),(120,120),-100,"0x00000000400c12b2000515470000216b0000485e00006928",
-    [],[], "outer_terrain_plain"),
+  ("training_ground_horse_track_3",sf_generate,"none", "none", (0,0),(120,120),-100,"0x00000000300c12b2000515470000216b0000485e00006928",
+    [],[], "outer_terrain_plain_3"),
   #Steppe
   ("training_ground_horse_track_4",sf_generate,"none", "none", (0,0),(120,120),-100,"0x00000000200b60320004a5290000180d0000452f00000e90",
     [],[], "outer_terrain_steppe"),
   #Plain
   ("training_ground_horse_track_5",sf_generate,"none", "none", (0,0),(120,120),-100,"0x000000003008208e0006419000000f730000440f00003c86",
-    [],[], "outer_terrain_plain"),
+    [],[], "outer_terrain_mountain"),
 
-  ("training_ground_ranged_melee_1",sf_generate,"none", "none", (0,0),(120,120),-100,"0x00000001350455c20005194a000041cb00005ae800000ff5",
-    [],[], "outer_terrain_plain"),
+  ("training_ground_ranged_melee_1",sf_generate,"none", "none", (0,0),(120,120),-100,"0x0000000134630a240005194a0000149700005ae800000ff5",
+    [],[], "outer_terrain_plains_mountain_far_2"),
   ("training_ground_ranged_melee_2",sf_generate,"none", "none", (0,0),(120,120),-100,"0x0000000532c8dccb0005194a000041cb00005ae800001bdd",
-    [],[], "outer_terrain_plain"),
+    [],[], "outer_terrain_hills_close"),
   #Kar
-  ("training_ground_ranged_melee_3",sf_generate,"none", "none", (0,0),(120,120),-100,"0x000000054327dcba0005194a00001b1d00005ae800004d63",
-    [],[], "outer_terrain_plain"),
+  ("training_ground_ranged_melee_3",sf_generate,"none", "none", (0,0),(120,120),-100,"0x0000000531c7dcba0005194a000061cf00005ae800004d63",
+    [],[], "outer_terrain_plain_3"),
   #Steppe
   ("training_ground_ranged_melee_4",sf_generate,"none", "none", (0,0),(120,120),-100,"0x000000012247dcba0005194a000041ef00005ae8000050af",
     [],[], "outer_terrain_steppe"),
   #Plain
-  ("training_ground_ranged_melee_5",sf_generate,"none", "none", (0,0),(120,120),-100,"0x00000001324a9cba0005194a000041ef00005ae800003c55",
+  ("training_ground_ranged_melee_5",sf_generate,"none", "none", (0,0),(120,120),-100,"0x00000001b76a9cba0005194a000041ef00005ae800003c55",
     [],[], "outer_terrain_plain"),
 
   ("zendar_center",sf_generate,"none", "none", (0,0),(100,100),-100,"0x300bc5430001e0780000448a0000049f00007932",
@@ -3225,7 +3225,7 @@ scenes = [
   ("english_village_61",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000006300654ac00062d910000635800007c9600005d35",[],[],"outer_terrain_hills_close"),
   ("english_village_62",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000013001b2320004a52900004d390000518c00001ab1",[],[],"outer_terrain_plain"),
 # iJustWant2bPure's Verneuil
-  ("english_village_63",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000230000500000d234800000f570000698500002872", [],[],"outer_terrain_steppe"),
+  ("english_village_63",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000230000500000d234800000f570000698500002872", [],[],"outer_terrain_plain"),
   ("english_village_64",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000023007b2320004f93c000023ed000053e500002949",[],[],"outer_terrain_plain"),
 # iJustWant2bPure's Trémazan
   ("english_village_65",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002300019500006c1b4000065c700002bea0000154e",[],[],"outer_terrain_beach_roto1"),

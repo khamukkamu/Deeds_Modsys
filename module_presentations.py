@@ -10998,6 +10998,8 @@ presentations = [
         (try_for_agents, ":agent_no"),
           (agent_is_human, ":agent_no"),
           (neg|agent_is_alive, ":agent_no"),
+          (agent_get_troop_id, ":troop_id", ":agent_no"), ### DAC Seek: Don't count the spectators
+          (neg|is_between,":troop_id","trp_arena_1_noble","trp_arena_sit_end"),
           (neq, ":agent_no", ":player_agent"),
           (val_sub, ":num_left", 1),
         (try_end),
