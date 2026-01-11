@@ -1689,20 +1689,20 @@ triggers = [
     ]),
 
   # DAC Seek: Call back the script to update troop inventories
-  (1, 0, 1,
-  [
-    (eq, "$armour_progression", 2),
-    (call_script, "script_dac_check_troop_has_item", "trp_english_retinue_archer", "itm_a_padded_jack_surcoat_custom"),
-    (assign, ":check_result", reg12),
-    (eq, ":check_result", -1),
+  # (1, 0, 1,
+  # [
+    # (eq, "$armour_progression", 2),
+    # (call_script, "script_dac_check_troop_has_item", "trp_english_retinue_archer", "itm_a_padded_jack_surcoat_custom"),
+    # (assign, ":check_result", reg12),
+    # (eq, ":check_result", -1),
     
     # We're making sure the event has been triggered and accepted by the player, then we check if the inventory changes have been made
     # using the English retinue archer as a guide, we want to call the script again after a save is loaded since non-hero troop inventories are not stored in saves
-  ],
-  [
-    (call_script, "script_dac_trigger_armour_progression"),
+  # ],
+  # [
+    # (call_script, "script_dac_trigger_armour_progression"),
     # (display_message, "@Armour Progression Trigger", color_bad_news),
-  ]),
+  # ]),
 
   (0.1, 0.5, 0, [(map_free,0),(eq,"$g_move_fast", 1)], [(assign,"$g_move_fast", 0)]),
   

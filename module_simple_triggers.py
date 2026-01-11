@@ -6945,16 +6945,21 @@ simple_triggers = [
     (assign, ":check_result", reg12),
     (eq, ":check_result", 1),
     (call_script, "script_reload_custom_troops"),
-    (display_message, "@Mercenary Troops Inventory Reloaded", color_good_news),
+    # (display_message, "@Mercenary Troops Inventory Reloaded", color_good_news),
     (troop_clear_inventory, "trp_custom_mercs_end"),
+    
+    (eq, "$armour_progression", 2),
+    (call_script, "script_dac_trigger_armour_progression"),
+    # (display_message, "@Armour Progression | Inventories Reloaded", color_good_news),
     ]
   ),
 #Custom Troops End
 
 # DAC Seek: Armour progression trigger
-  (24 * 79, ### Roughly after Patay assuming April 1st starting date
+  (24, ### Roughly after Patay assuming April 1st starting date
    [
-    
+    (store_current_day, ":cur_day"),
+    (gt, ":cur_day", 80),
     (eq, "$armour_progression", 0),
     (assign, "$armour_progression", 1),
     (jump_to_menu, "mnu_armour_progression_notification"),

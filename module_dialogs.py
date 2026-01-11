@@ -46056,7 +46056,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
     
   [anyone|plyr,"camp_smith_armoury_troop", 
     [], 
-      "Nevermind", "camp_smith_start",
+      "Nevermind", "camp_smith_back",
     []],
 
   [anyone,"camp_smith_armoury", 

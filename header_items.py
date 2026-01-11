@@ -490,7 +490,7 @@ itc_musket_melee = itc_parry_polearm|itcf_overswing_musket|itcf_thrust_musket|it
 itc_falchion  = itc_cut_two_handed | itc_parry_two_handed |itc_cleaver
 
 itc_spear_upstab =  itc_pike|itcf_force_64_bits|itcf_overswing_spear|itcf_overswing_musket|itcf_slashleft_polearm|itcf_slashright_polearm
-itc_lance_upstab =  itc_pike|itcf_force_64_bits|itcf_overswing_spear
+itc_lance_upstab =  itc_pike|itcf_force_64_bits|itcf_overswing_spear|itcf_overswing_musket
 itc_great_lance_upstab =  itc_greatlance|itcf_force_64_bits|itcf_overswing_spear
 itc_pike_upstab = itc_parry_polearm|itcf_force_64_bits|itcf_overswing_spear|itcf_thrust_polearm
 itc_halberd_upstab = itc_parry_polearm|itcf_force_64_bits|itcf_overswing_spear|itcf_thrust_polearm|itcf_slashright_polearm|itcf_slashleft_polearm

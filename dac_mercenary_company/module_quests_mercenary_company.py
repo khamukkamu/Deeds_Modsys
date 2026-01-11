@@ -13,7 +13,7 @@ from compiler import *
 
 mercenary_company_quests = [
 
- ("merc_company_tutorial", "Learn about Mercenary Companies", qf_random_quest,
+ ("merc_company_tutorial", "Establish a Mercenary Company", qf_random_quest,
   "{!}Mercenary Company"
   ),
 
