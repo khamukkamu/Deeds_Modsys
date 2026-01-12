@@ -198,7 +198,9 @@ Pros: ^\
 » Tactics and leadership: ^\
 Start with higher tactics, leadership skills and base party size^\
 » Logistician: ^\
-Troops consume less food and you don't have an upkeep penalty for regular troops ^^\
+Troops consume less food and you don't have an upkeep penalty for regular troops ^\
+» Battlefield Awareness: ^\
+Can adopt a bird's eye view of the battlefield, press 'V' to do so^^\
 Cons: ^\
 » Leading from Behind: ^\
 You let your men do most of the fighting, as a consequence your personal combat skills have been somewhat neglected"),

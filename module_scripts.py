@@ -787,6 +787,7 @@ scripts = [
     (assign, "$armour_progression", 0), #DAC Seek: Used to trigger event for armour progression
     (assign, "$forced_march", 0), #DAC Seek: Speed the party on the world map
     (assign, "$dac_bandit_bounty", 0), #DAC Seek: Manhunter counter for slain bandits
+    (assign, "$g_camera_state", 0), #DAC Seek: Tactical camera
     
     (call_script, "script_initialize_custom_armor_data"), 
     (call_script, "script_init_weapon_switching"),	

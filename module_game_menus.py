@@ -22343,6 +22343,15 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     ]),  
   ]),
   
+( "dac_relocate_party",0,
+    "This menu relocates the player party after using script_setup_random_scene.",
+    "none",
+    [
+    (call_script, "script_relocate_player_party"),
+    (change_screen_map),
+    ],[]
+ ),
+  
  ]
 
 import header_scenes

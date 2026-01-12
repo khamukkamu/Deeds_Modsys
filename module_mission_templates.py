@@ -687,6 +687,55 @@ dac_agent_lives_or_dies = (ti_on_agent_killed_or_wounded, 0, 0, [],
     
 # Autolykos end
 
+tactical_camera = (
+  0, 0, 0, [
+    (party_get_skill_level, ":tactics_skill", "p_main_party", "skl_tactics"),
+    (this_or_next|ge, ":tactics_skill", 4),
+    (eq, "$class_type", cc_noble_tactician),
+  ], 
+  [
+    (get_player_agent_no, ":player_agent"),
+    (agent_get_look_position, pos1, ":player_agent"),
+    (try_begin),
+      (agent_is_alive, ":player_agent"),
+      (agent_get_bone_position, pos2, ":player_agent", 9, 1),
+      (position_copy_origin, pos1, pos2),
+    (try_end),
+    (try_begin),
+      (eq, "$g_camera_state", 0),
+      (mission_cam_set_mode, 0),
+    (else_try),
+      (eq, "$g_camera_state", 1),
+      (position_move_z, pos1, 300),
+      (position_move_y, pos1, -600),
+    (else_try),
+      (eq, "$g_camera_state", 2),
+      (position_move_z, pos1, 600),
+      (position_move_y, pos1, -1200),
+    (else_try),
+      (eq, "$g_camera_state", 3),
+      (position_move_z, pos1, 2500),
+      (position_move_y, pos1, -400),
+      (position_rotate_x, pos1, -45),
+    (try_end),
+    (mission_cam_set_position, pos1),
+    (try_begin),
+      (key_clicked, key_v),
+      (val_add, "$g_camera_state", 1),
+      (val_mod, "$g_camera_state", 4),
+      (neq, "$g_camera_state", 0),
+      (mission_cam_set_mode, 1),
+    (try_end),
+    (try_begin),
+      (this_or_next|game_key_clicked, gk_view_char),
+      (this_or_next|game_key_clicked, gk_zoom),
+      (game_key_clicked, gk_cam_toggle),
+      #(neg|agent_is_alive, ":player_agent"),
+      (mission_cam_set_mode, 0),
+      (assign, "$g_camera_state", 0),
+    (try_end),
+  ])
+
 ##diplomacy begin
 
 unarmed_agent_damage = (
@@ -1570,6 +1619,7 @@ deeds_common_battle_scripts = [
   quartermaster_refill_ammo_info,
   quartermaster_refill_ammo,
   dac_agent_lives_or_dies,
+  tactical_camera,
   ] + battle_panel_triggers + utility_triggers + extended_battle_menu + common_division_data + division_order_processing + real_deployment + formations_triggers + AI_triggers
 
 deeds_common_siege_scripts = [
@@ -17987,7 +18037,8 @@ mission_templates = [
     (display_message, "@(cancelled the {reg10} exp pts earned from killing prisoners)"),
   (try_end),
   (reset_visitors),
-  (set_trigger_result,1),
+    (jump_to_menu, "mnu_dac_relocate_party"),
+    (finish_mission),
   ]),
 
   (0,0,0,[(game_key_clicked,gk_attack)], [  (team_set_relation,1,3,-1) ]), # payer pressed attack: he can now hit/kill pris! 

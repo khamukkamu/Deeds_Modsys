@@ -1074,7 +1074,8 @@ character_creation_presentations = [
             (jump_to_menu, "mnu_dac_choose_skill",),
         (try_end),
     ]),
-  ] + coord_helper
+  ] 
+  # + coord_helper
   ),
 
 
