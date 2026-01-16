@@ -82082,6 +82082,32 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
     (call_script, "script_dplmc_copy_inventory", "trp_english_dismounted_squire_late", "trp_english_dismounted_squire"),
     (call_script, "script_dplmc_copy_inventory", "trp_english_dismounted_knight_late", "trp_english_dismounted_knight"),
 
+# Breton Troops
+    (call_script, "script_dplmc_copy_inventory", "trp_breton_poor_archer_ordonnance_late", "trp_breton_poor_archer_ordonnance"),
+    (call_script, "script_dplmc_copy_inventory", "trp_breton_archer_ordonnance_late", "trp_breton_archer_ordonnance"),
+    
+    (call_script, "script_dplmc_copy_inventory", "trp_breton_poor_spearman_late", "trp_breton_poor_spearman"),
+    (call_script, "script_dplmc_copy_inventory", "trp_breton_spearman_late", "trp_breton_spearman"),
+    (call_script, "script_dplmc_copy_inventory", "trp_breton_vougier_late", "trp_breton_vougier"),
+
+    (call_script, "script_dplmc_copy_inventory", "trp_breton_militia_crossbowman_late", "trp_breton_militia_crossbowman"),
+    (call_script, "script_dplmc_copy_inventory", "trp_breton_poor_archer_late", "trp_breton_poor_archer"),
+    (call_script, "script_dplmc_copy_inventory", "trp_breton_archer_late", "trp_breton_archer"),
+    (call_script, "script_dplmc_copy_inventory", "trp_breton_poor_crossbowman_late", "trp_breton_poor_crossbowman"),
+    (call_script, "script_dplmc_copy_inventory", "trp_breton_crossbowman_late", "trp_breton_crossbowman"),
+   
+    (call_script, "script_dplmc_copy_inventory", "trp_breton_militia_late", "trp_breton_militia"),
+    (call_script, "script_dplmc_copy_inventory", "trp_breton_poor_pavoisier_late", "trp_breton_poor_pavoisier"),
+    (call_script, "script_dplmc_copy_inventory", "trp_breton_pavoisier_late", "trp_breton_pavoisier"),
+    (call_script, "script_dplmc_copy_inventory", "trp_breton_rich_pavoisier_late", "trp_breton_rich_pavoisier"),
+    (call_script, "script_dplmc_copy_inventory", "trp_breton_poor_guisarmier_late", "trp_breton_poor_guisarmier"),
+    (call_script, "script_dplmc_copy_inventory", "trp_breton_guisarmier_late", "trp_breton_guisarmier"),
+    (call_script, "script_dplmc_copy_inventory", "trp_breton_rich_guisarmier_late", "trp_breton_rich_guisarmier"),
+    (call_script, "script_dplmc_copy_inventory", "trp_breton_sergeant_late", "trp_breton_sergeant"),
+
+    (call_script, "script_dplmc_copy_inventory", "trp_breton_bannerman_late", "trp_breton_bannerman"),
+    (call_script, "script_dplmc_copy_inventory", "trp_breton_bannerman_mounted_late", "trp_breton_bannerman_mounted"),
+
 # Italian Troops
     (call_script, "script_dplmc_copy_inventory", "trp_italian_light_infantry_late", "trp_italian_light_infantry"),
     (call_script, "script_dplmc_copy_inventory", "trp_italian_infantry_late", "trp_italian_infantry"),

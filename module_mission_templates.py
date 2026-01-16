@@ -1229,7 +1229,10 @@ custom_commander_camera = (
   0, 0, 0, [
     (this_or_next|eq, "$g_dplmc_cam_activated", camera_follow),
     (neg|main_hero_fallen),
-    
+    ## WINDYPLAINS+ ## - Bodysliding block
+    (this_or_next|eq, "$g_cam_free", 1),
+    (eq, "$enable_bodysliding", 0),
+    ## WINDYPLAINS- ##
     # (this_or_next|main_hero_fallen),
     # (neg|is_camera_in_first_person),
   ],
@@ -1628,7 +1631,8 @@ deeds_common_siege_scripts = [
     mission_fade_in,
     dplmc_random_mixed_gender,
     dplmc_horse_speed,
-    common_move_deathcam, common_rotate_deathcam,
+    common_move_deathcam, 
+    common_rotate_deathcam,
     custom_commander_camera, deathcam_cycle_forwards, deathcam_cycle_backwards,
     dplmc_death_camera,  
     common_player_weapon_toggle,
@@ -1648,7 +1652,8 @@ deeds_common_siege_scripts = [
 dplmc_battle_mode_triggers = [
     dplmc_random_mixed_gender,
     dplmc_horse_speed,
-    common_move_deathcam, common_rotate_deathcam,
+    common_move_deathcam, 
+    common_rotate_deathcam,
     custom_commander_camera, deathcam_cycle_forwards, deathcam_cycle_backwards,
     dplmc_death_camera,
     dac_agent_weapons_switching,

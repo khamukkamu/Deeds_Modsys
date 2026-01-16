@@ -171,7 +171,7 @@ mercenary_company_menus = [
 ## DAC Seek: Player Camp Encounter
   (
     "player_camp_encounter",0,
-    "You approach your {s11}... ^{reg6?^^You are currently upgrading to: {s7}. ^The process will take {reg8} day{reg9?s:} and you won't be able to access the camp until the work is finished.:}",
+    "You approach your {s11}... ^{reg6?^^You are currently upgrading to » {s7}. ^The process will take {reg8} day{reg9?s:} and you won't be able to access the camp until the work is finished.:}",
     "none",
     [
     (str_clear, s11),
