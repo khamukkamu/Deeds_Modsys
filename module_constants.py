@@ -2902,10 +2902,11 @@ slot_player_camp_smithy = 350
 slot_player_camp_archery_range = 351
 slot_player_camp_corral = 352
 slot_player_camp_market = 353
-slot_player_camp_chapterhouse = 354
+slot_player_camp_gaol = 354
+slot_player_camp_chapterhouse = 355
 # Camp level 1-4
-slot_player_camp_level = 355
-slot_player_camp_relocation_project = 356
+slot_player_camp_level = 356
+slot_player_camp_relocation_project = 357
 # Item slots
 slot_item_armor_tier = 120
 slot_item_footwear_tier = 121
@@ -2924,9 +2925,10 @@ slot_item_bolt_tier = 133
 slot_item_shield_tier = 134
 slot_item_horse_tier = 135
 slot_item_firearm_tier = 136
+slot_item_bullet_tier = 137
 
 slot_item_tiers_begin = slot_item_armor_tier
-slot_item_tiers_end = 137
+slot_item_tiers_end = 138
 # Troop Slots
 slot_troop_tier_custom_troop = 180
 slot_troop_custom_can_use_item = 181

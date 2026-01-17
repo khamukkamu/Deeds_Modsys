@@ -1923,6 +1923,12 @@ mercenary_company_troops = [
    ],
    def_attrib|level(20),wp(120),knows_common|knows_inventory_management_10, 0x0000000e3610a4c03f48800102611a8000000000001d40090000000000000000],
 
+  ["merc_company_ransom_broker","Numar the Ransom Broker","Numar the Ransom Broker",tf_hero|tf_is_merchant|tf_unmoveable_in_party_window,scn_player_camp|entry(5),0,fac_commoners,
+   [
+   itm_a_noble_tunic_custom,itm_b_poulaines_lined_1,
+   ],
+   def_attrib|level(20),wp(120),knows_common|knows_inventory_management_10, 0x0000000eff00854f57237198fb66c55c00000000001cb52a0000000000000000],
+   
   ["inventory_backup","{!}Inventory","{!}Inventory",tf_hero|tf_inactive,0,reserved,fac_player_faction,[],def_attrib|level(18),wp(60),knows_inventory_management_10,0],
   
   ["merc_company_name","Mercenary Company","Mercenary Company",tf_hero|tf_inactive,0,reserved,fac_player_faction,[],def_attrib|level(18),wp(60),knows_inventory_management_10,0],

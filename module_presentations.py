@@ -20753,8 +20753,8 @@ presentations = [
           (store_sub, ":color", ":value", 1), #actual value, 0 is default
           (try_begin),
             (this_or_next|is_between, "$g_talk_troop", armor_merchants_begin, armor_merchants_end),
-            (is_between, "$g_talk_troop", tavern_tailors_begin, tavern_tailors_end),    ### DAC Seek: Added the tavern tailors to the range
-            # (eq, "$g_talk_troop", "trp_comps_limoge"),
+            (this_or_next|is_between, "$g_talk_troop", tavern_tailors_begin, tavern_tailors_end),    ### DAC Seek: Added the tavern tailors to the range
+            (eq, "$g_talk_troop", "trp_merc_company_smith"),
             (this_or_next|is_between, "$g_presentation_credits_obj_4", ":colors_begin", ":colors_end"),
             (item_slot_eq, "$g_current_opened_item_details", slot_item_player_color, "$custom_armour_current_colour"),
             (assign, ":cont", 1),
@@ -20767,7 +20767,12 @@ presentations = [
             (display_message, "@No changes were made, so I've refunded you the {reg55} you paid."),
            (try_end),
           (presentation_set_duration, 0),
-          (start_mission_conversation, "$g_talk_troop"),
+          (try_begin),
+            (eq, "$g_talk_troop", "trp_merc_company_smith"),
+            (jump_to_menu, "mnu_dac_name_troops_3"),
+           (else_try),
+            (start_mission_conversation, "$g_talk_troop"),
+           (try_end),
         (else_try),
           (eq, ":object", "$g_presentation_obj_profile_banner_selection_2"),
           (neg|is_between, "$g_presentation_credits_obj_4", ":colors_begin", ":colors_end"),

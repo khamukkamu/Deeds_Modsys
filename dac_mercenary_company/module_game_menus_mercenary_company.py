@@ -48,6 +48,12 @@ mercenary_company_menus = [
     "none",
     [(start_presentation, "prsnt_dac_ct_view_armoury")],[]
  ),
+ 
+( "dac_customize_armour",0,
+    "This menu automatically returns to caller.",
+    "none",
+    [(start_presentation, "prsnt_customize_armor")],[]
+ ),
 
 ## DAC Seek: Player Camp Notification
   (
@@ -245,6 +251,17 @@ mercenary_company_menus = [
         (jump_to_scene,"scn_meeting_scene_plain"),
         (change_screen_map_conversation, "trp_merc_company_merchant"),
     ]), 
+    ("player_camp_meet_ransom_broker",
+       [(eq, reg6, 0),(party_slot_eq, "p_player_camp", slot_player_camp_gaol, 1),],
+    "Speak to the Ransom Broker.",[
+        (modify_visitors_at_site,"scn_meeting_scene_plain"),
+        (reset_visitors),    
+        (assign, "$g_mt_mode", tcm_default),   		
+        (set_jump_entry, 0),
+        (set_visitor, 17, "trp_merc_company_ransom_broker"),
+        (jump_to_scene,"scn_meeting_scene_plain"),
+        (change_screen_map_conversation, "trp_merc_company_ransom_broker"),
+    ]), 
     ("player_camp_enter",
         [(eq, reg6, 0),],
     "Enter the {s11}.",[
@@ -269,6 +286,10 @@ mercenary_company_menus = [
         (try_begin),
             (party_slot_eq, "p_player_camp", slot_player_camp_market, 1),
             (set_visitor, 4, "trp_merc_company_merchant"),
+        (try_end),
+        (try_begin),
+            (party_slot_eq, "p_player_camp", slot_player_camp_gaol, 1),
+            (set_visitor, 5, "trp_merc_company_ransom_broker"),
         (try_end),
         (set_jump_mission, "mt_player_camp"),
         (jump_to_scene, ":scene_to_use"),
@@ -404,6 +425,16 @@ mercenary_company_menus = [
         (assign, "$g_improvement_type", slot_player_camp_market),
         (jump_to_menu, "mnu_player_camp_build_improvements"),
     ]),    
+    ("player_camp_build_gaol",
+       [
+        (eq, reg6, 0),
+        (ge, reg10, 2),
+        (party_slot_eq, "p_player_camp", slot_player_camp_gaol, -1),
+       ],
+    "Build a Gaol.",[
+        (assign, "$g_improvement_type", slot_player_camp_gaol),
+        (jump_to_menu, "mnu_player_camp_build_improvements"),
+    ]),
     ("player_camp_build_chapterhouse",
        [
         (eq, reg6, 0),
@@ -598,6 +629,23 @@ mercenary_company_menus = [
     "Dismantle the Market.",[
         (party_set_slot, "p_player_camp", slot_player_camp_market, -1),
         (display_message, "@Market Dismantled!", color_bad_news),
+    ]), 
+    
+    ("player_camp_build_gaol",
+       [
+        (party_slot_eq, "p_player_camp", slot_player_camp_gaol, -1),
+       ],
+    "Build the Gaol.",[
+        (party_set_slot, "p_player_camp", slot_player_camp_gaol, 1),
+        (display_message, "@Gaol Built!", color_good_news),
+    ]),  
+    ("player_camp_dismantle_gaol",
+       [
+        (party_slot_eq, "p_player_camp", slot_player_camp_gaol, 1),
+       ],
+    "Dismantle the Gaol.",[
+        (party_set_slot, "p_player_camp", slot_player_camp_gaol, -1),
+        (display_message, "@Gaol Dismantled!", color_bad_news),
     ]), 
     
     ("player_camp_build_chapterhouse",

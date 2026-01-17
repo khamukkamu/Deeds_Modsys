@@ -45875,42 +45875,42 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 
   [anyone|plyr,"camp_quartermaster_start", [], "I wish to enlist some troops.", "camp_quartermaster_recruit",[]],
   
-  [anyone|plyr,"camp_quartermaster_start", [], "I would like to change the color scheme of our troops.", "camp_quartermaster_color_scheme",[]],
+  # [anyone|plyr,"camp_quartermaster_start", [], "I would like to change the color scheme of our troops.", "camp_quartermaster_color_scheme",[]],
   
-  [anyone,"camp_quartermaster_color_scheme", [
-                                        (try_begin),
-                                            (eq, "$player_camp_troop_color_scheme", 1),
-                                            (str_store_string, s11, "@a French colour scheme"),
-                                        (else_try),
-                                            (eq, "$player_camp_troop_color_scheme", 2),
-                                            (str_store_string, s11, "@an English colour scheme"),
-                                        (else_try),
-                                            (eq, "$player_camp_troop_color_scheme", 3),
-                                            (str_store_string, s11, "@a Burgundian colour scheme"),
-                                        (else_try),
-                                            (eq, "$player_camp_troop_color_scheme", 4),
-                                            (str_store_string, s11, "@a Breton colour scheme"),
-                                        (else_try),
-                                            (eq, "$player_camp_troop_color_scheme", 5),
-                                            (str_store_string, s11, "@a Flemish colour scheme"),
-                                        (else_try),
-                                            (eq, "$player_camp_troop_color_scheme", 6),
-                                            (str_store_string, s11, "@a Mercenary colour scheme"),
-                                        (else_try),
-                                            (str_store_string, s11, "@a mix of everything"),
-                                        (try_end),
-  ], "Certainly, currently we are using {s11}. ^What kind of colours should our troops use?", "camp_quartermaster_color_scheme_pick",[]],
+  # [anyone,"camp_quartermaster_color_scheme", [
+                                        # (try_begin),
+                                            # (eq, "$player_camp_troop_color_scheme", 1),
+                                            # (str_store_string, s11, "@a French colour scheme"),
+                                        # (else_try),
+                                            # (eq, "$player_camp_troop_color_scheme", 2),
+                                            # (str_store_string, s11, "@an English colour scheme"),
+                                        # (else_try),
+                                            # (eq, "$player_camp_troop_color_scheme", 3),
+                                            # (str_store_string, s11, "@a Burgundian colour scheme"),
+                                        # (else_try),
+                                            # (eq, "$player_camp_troop_color_scheme", 4),
+                                            # (str_store_string, s11, "@a Breton colour scheme"),
+                                        # (else_try),
+                                            # (eq, "$player_camp_troop_color_scheme", 5),
+                                            # (str_store_string, s11, "@a Flemish colour scheme"),
+                                        # (else_try),
+                                            # (eq, "$player_camp_troop_color_scheme", 6),
+                                            # (str_store_string, s11, "@a Mercenary colour scheme"),
+                                        # (else_try),
+                                            # (str_store_string, s11, "@a mix of everything"),
+                                        # (try_end),
+  # ], "Certainly, currently we are using {s11}. ^What kind of colours should our troops use?", "camp_quartermaster_color_scheme_pick",[]],
   
-  [anyone|plyr,"camp_quartermaster_color_scheme_pick", [], "We should copy the French.", "camp_quartermaster_color_scheme_end",[(assign, "$player_camp_troop_color_scheme", 1),]],
-  [anyone|plyr,"camp_quartermaster_color_scheme_pick", [], "We should copy the English.", "camp_quartermaster_color_scheme_end",[(assign, "$player_camp_troop_color_scheme", 2),]],
-  [anyone|plyr,"camp_quartermaster_color_scheme_pick", [], "We should copy the Burgundians.", "camp_quartermaster_color_scheme_end",[(assign, "$player_camp_troop_color_scheme", 3),]],
-  [anyone|plyr,"camp_quartermaster_color_scheme_pick", [], "We should copy the Bretons.", "camp_quartermaster_color_scheme_end",[(assign, "$player_camp_troop_color_scheme", 4),]],
-  [anyone|plyr,"camp_quartermaster_color_scheme_pick", [], "We should copy the Flemish.", "camp_quartermaster_color_scheme_end",[(assign, "$player_camp_troop_color_scheme", 5),]],
-  [anyone|plyr,"camp_quartermaster_color_scheme_pick", [], "We should copy the Mercenaries.", "camp_quartermaster_color_scheme_end",[(assign, "$player_camp_troop_color_scheme", 6),]],
-  [anyone|plyr,"camp_quartermaster_color_scheme_pick", [], "We should use everything available.", "camp_quartermaster_color_scheme_end",[(assign, "$player_camp_troop_color_scheme", -1),]],
-  [anyone|plyr,"camp_quartermaster_color_scheme_pick", [], "On second thought, let's keep it how it is.", "camp_quartermaster_color_scheme_end",[]],
+  # [anyone|plyr,"camp_quartermaster_color_scheme_pick", [], "We should copy the French.", "camp_quartermaster_color_scheme_end",[(assign, "$player_camp_troop_color_scheme", 1),]],
+  # [anyone|plyr,"camp_quartermaster_color_scheme_pick", [], "We should copy the English.", "camp_quartermaster_color_scheme_end",[(assign, "$player_camp_troop_color_scheme", 2),]],
+  # [anyone|plyr,"camp_quartermaster_color_scheme_pick", [], "We should copy the Burgundians.", "camp_quartermaster_color_scheme_end",[(assign, "$player_camp_troop_color_scheme", 3),]],
+  # [anyone|plyr,"camp_quartermaster_color_scheme_pick", [], "We should copy the Bretons.", "camp_quartermaster_color_scheme_end",[(assign, "$player_camp_troop_color_scheme", 4),]],
+  # [anyone|plyr,"camp_quartermaster_color_scheme_pick", [], "We should copy the Flemish.", "camp_quartermaster_color_scheme_end",[(assign, "$player_camp_troop_color_scheme", 5),]],
+  # [anyone|plyr,"camp_quartermaster_color_scheme_pick", [], "We should copy the Mercenaries.", "camp_quartermaster_color_scheme_end",[(assign, "$player_camp_troop_color_scheme", 6),]],
+  # [anyone|plyr,"camp_quartermaster_color_scheme_pick", [], "We should use everything available.", "camp_quartermaster_color_scheme_end",[(assign, "$player_camp_troop_color_scheme", -1),]],
+  # [anyone|plyr,"camp_quartermaster_color_scheme_pick", [], "On second thought, let's keep it how it is.", "camp_quartermaster_color_scheme_end",[]],
   
-  [anyone,"camp_quartermaster_color_scheme_end", [], "Very well {Sir/Madam}, it shall be as you desire.", "camp_quartermaster_nevermind",[]],
+  # [anyone,"camp_quartermaster_color_scheme_end", [], "Very well {Sir/Madam}, it shall be as you desire.", "camp_quartermaster_nevermind",[]],
 
   [anyone,"camp_quartermaster_recruit", [], "Certainly, let's see if there's some available.", "camp_quartermaster_nevermind",
   [
@@ -46088,8 +46088,217 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
       "We are still procuring the {s15}, and it will take {s16}", "camp_smith_start",
     []],
     
+### DAC Seek: Customize armour
+  [anyone|plyr,"camp_smith_start",[], "I'd like to customize my equipment.", "camp_smith_custom_armor_start",[]],
+
+  [anyone,"camp_smith_custom_armor_start",[], "Very well, what would you like to customize?", "camp_smith_custom_armor_ask",[]],
+
+  [anyone|plyr|repeat_for_100, "camp_smith_custom_armor_ask",
+    [
+      (store_repeat_object, ":custom_armour"),
+      (troop_get_inventory_slot, ":item_id", "trp_player", ":custom_armour"),
+      (ge, ":item_id", 0),
+      (item_slot_ge, ":item_id", slot_item_num_components, 1),
+      (str_store_item_name, s66, ":item_id"),
+
+   ], "{s66}", "camp_smith_custom_armor_choose", [
+	(store_repeat_object, ":custom_armour"),
+	(troop_get_inventory_slot, "$g_current_opened_item_details", "trp_player", ":custom_armour"),
+   ],
+  ],
+
+  [anyone|plyr,"camp_smith_custom_armor_ask",[], "On second thought, nevermind.", "close_window",[(assign, "$g_current_opened_item_details", -1)]],
+
+# Price Announcement
+  [anyone,"camp_smith_custom_armor_choose",
+  [
+	(item_get_value, ":price",  "$g_current_opened_item_details"),
+	(val_mul, ":price", 15),
+	(val_div, ":price", 100),
+	(assign,reg55, ":price"),
+
+  ], "I'll need {reg55} crowns for the materials.", "camp_smith_custom_armor_confirm",[]],
+
+# Deal or no deal
+  [anyone|plyr,"camp_smith_custom_armor_confirm",
+  [
+	(store_troop_gold, ":gold", "trp_player"),
+	(ge, ":gold", reg55),
+  ],	"[Pay the {reg55} crowns] Here it is.", "camp_smith_finish",[
+	(troop_remove_gold, "trp_player", reg55),
+  ]
+  ],
+
+# Finalize
+  [anyone|plyr,"camp_smith_custom_armor_confirm",
+  [
+	(store_troop_gold, ":gold", "trp_player"),
+	(le, ":gold", reg55),
+  ],	"I'm afraid I can't afford it at the moment.", "close_window",[(assign, "$g_current_opened_item_details", -1)]],
+
+  [anyone|plyr,"camp_smith_custom_armor_confirm",[], "I need to think about this, perhaps later.","close_window",[(assign, "$g_current_opened_item_details", -1)]],
+
+  [anyone,"camp_smith_finish",[], "I will work on it right away.", "close_window",
+    [
+	(item_get_slot, "$custom_armour_current_colour", "$g_current_opened_item_details", slot_item_player_color),
+	(jump_to_menu, "mnu_dac_customize_armour"),
+	# (start_presentation, "prsnt_customize_armor"),
+    ]
+  ],
+###
+    
+### DAC Seek: Improve weapons and armour
+  [anyone|plyr,"camp_smith_start", [],
+    "I want to refine one of my weapons.", "camp_smith_requested_repair_1",[]],
+  
+  [anyone,"camp_smith_requested_repair_1", [],
+    "Which one?", "camp_smith_requested_repair_2",[(assign, "$temp3", "trp_player"),]],
+  
+  [anyone|plyr,"camp_smith_requested_repair_2",
+    [  (troop_get_inventory_slot, ":slot_item", "trp_player", ek_item_0),
+      (gt, ":slot_item", 0),
+      (str_store_item_name, s1, ":slot_item"),],
+    "{s1}.", "camp_smith_item_improve_1",
+    [  (assign, "$repair_wielded_item_slot", ek_item_0),]],
+  [anyone|plyr,"camp_smith_requested_repair_2",
+    [  (troop_get_inventory_slot, ":slot_item", "trp_player", ek_item_1),
+      (gt, ":slot_item", 0),
+      (str_store_item_name, s1, ":slot_item"),],
+    "{s1}.", "camp_smith_item_improve_1",
+    [  (assign, "$repair_wielded_item_slot", ek_item_1),]],
+  [anyone|plyr,"camp_smith_requested_repair_2",
+    [  (troop_get_inventory_slot, ":slot_item", "trp_player", ek_item_2),
+      (gt, ":slot_item", 0),
+      (str_store_item_name, s1, ":slot_item"),],
+    "{s1}.", "camp_smith_item_improve_1",
+    [  (assign, "$repair_wielded_item_slot", ek_item_2),]],
+  [anyone|plyr,"camp_smith_requested_repair_2",
+    [  (troop_get_inventory_slot, ":slot_item", "trp_player", ek_item_3),
+      (gt, ":slot_item", 0),
+      (str_store_item_name, s1, ":slot_item"),],
+    "{s1}.", "camp_smith_item_improve_1",
+    [  (assign, "$repair_wielded_item_slot", ek_item_3),]],
+  
+  [anyone|plyr,"camp_smith_requested_repair_2", [],
+    "Never mind.", "camp_smith_back",[]],
+  
+  [anyone,"camp_smith_item_improve_1",
+    [
+      (assign, ":inventory_slot_no", "$repair_wielded_item_slot"),
+      (troop_get_inventory_slot, ":slot_item", "$temp3", ":inventory_slot_no"),
+      (gt, ":slot_item", 0),
+      (troop_get_inventory_slot_modifier, ":slot_item_imod", "$temp3", ":inventory_slot_no"),
+      (call_script, "script_get_next_higher_imod_for_item", ":slot_item", ":slot_item_imod"),
+      (assign, "$repair_wielded_item_tareget_modifier", reg0),
+      (neq, ":slot_item_imod", "$repair_wielded_item_tareget_modifier"),
+      
+      (str_store_item_name, s7, ":slot_item"),
+      
+      (store_item_value, ":plain_item_value", ":slot_item"),
+      (item_get_type, ":item_type", ":slot_item"),
+      
+      # current value
+      (str_store_string, s0, "@Plain"),
+      (call_script, "script_get_item_modifier_effects", ":item_type", ":slot_item_imod"),
+      (str_store_string, s8, s0),
+      (store_mul, ":curr_item_value", ":plain_item_value", reg5),
+      (val_div, ":curr_item_value", 100),
+      
+      # target value
+      (str_store_string, s0, "@Plain"),
+      (call_script, "script_get_item_modifier_effects", ":item_type", "$repair_wielded_item_tareget_modifier"),
+      (str_store_string, s9, s0),
+      (store_mul, ":target_item_value", ":plain_item_value", reg5),
+      (val_div, ":target_item_value", 100),
+      
+      (store_sub, "$current_dialog_cost", ":target_item_value", ":curr_item_value"),
+      
+      #trade skill influence
+      (call_script, "script_game_get_item_buy_price_factor", ":slot_item"),
+      #(val_add, reg0, 5),    #new: +5% penalty
+      (val_mul, "$current_dialog_cost", reg0),
+      (val_div, "$current_dialog_cost", 100),
+      (gt, "$current_dialog_cost", 0), 
+      (assign, reg1, "$current_dialog_cost"),
+    ],
+    "Hmm, let me take a look... Your {s7} is {s8}. I think I will be able to make it {s9} for {reg1} crowns.", "camp_smith_item_improve_2",[]],
+  
+  [anyone,"camp_smith_item_improve_1",
+    [
+      (str_clear, s1),
+      (try_begin),
+        (assign, ":inventory_slot_no", "$repair_wielded_item_slot"),
+        (troop_get_inventory_slot, ":slot_item", "$temp3", ":inventory_slot_no"),
+        (gt, ":slot_item", 0),
+        (str_store_item_name, s7, ":slot_item"),
+      (end_try),
+    ],
+    "Hmm, let me take a look... There is nothing I can do for your {s7}. I can't refine it.", "camp_smith_back",[]],
+  
+  [anyone|plyr,"camp_smith_item_improve_2",
+    [
+      (store_troop_gold, reg7, "trp_player"),
+      (ge, reg7, "$current_dialog_cost"),
+    ],
+    "Agreed!", "camp_smith_item_improve_3",
+    [
+      (troop_remove_gold, "trp_player", "$current_dialog_cost"),
+      (store_conversation_troop, ":smith_troop"),
+      (troop_add_gold, ":smith_troop", "$current_dialog_cost"),
+      (troop_set_inventory_slot_modifier, "$temp3", "$repair_wielded_item_slot", "$repair_wielded_item_tareget_modifier"),
+  ]],
+  [anyone|plyr,"camp_smith_item_improve_2",
+    [
+      (store_troop_gold, reg7, "trp_player"),
+      (ge, reg7, "$current_dialog_cost"),
+    ],
+    "I changed my mind.", "camp_smith_back", []],
+  [anyone|plyr,"item_improve_2", [], "I don't have enough money.", "camp_smith_back", []],
+  
+  [anyone,"camp_smith_item_improve_3", [],
+    "Here you have your {s7} back. It's refined.", "camp_smith_back",[]],
+  
+  #weapon fix end
+  
+  # armor fix begin
+  [anyone|plyr,"camp_smith_start", [],
+    "I want to refine one of my armor parts.", "camp_armorer_requested_repair_1",[]],
+  
+  [anyone,"camp_armorer_requested_repair_1", [],
+    "Which one?", "camp_armorer_requested_repair_2",[(assign, "$temp3", "trp_player"),]],
+  
+  [anyone|plyr,"camp_armorer_requested_repair_2",
+    [ (troop_get_inventory_slot, ":slot_item", "trp_player", ek_head),
+      (gt, ":slot_item", 0),
+      (str_store_item_name, s1, ":slot_item"),],
+    "{s1}.", "camp_smith_item_improve_1",
+    [  (assign, "$repair_wielded_item_slot", ek_head),]],
+  [anyone|plyr,"camp_armorer_requested_repair_2",
+    [  (troop_get_inventory_slot, ":slot_item", "trp_player", ek_body),
+      (gt, ":slot_item", 0),
+      (str_store_item_name, s1, ":slot_item"),],
+    "{s1}.", "camp_smith_item_improve_1",
+    [  (assign, "$repair_wielded_item_slot", ek_body),]],
+  [anyone|plyr,"camp_armorer_requested_repair_2",
+    [  (troop_get_inventory_slot, ":slot_item", "trp_player", ek_gloves),
+      (gt, ":slot_item", 0),
+      (str_store_item_name, s1, ":slot_item"),],
+    "{s1}.", "camp_smith_item_improve_1",
+    [  (assign, "$repair_wielded_item_slot", ek_gloves),]],
+  [anyone|plyr,"camp_armorer_requested_repair_2",
+    [  (troop_get_inventory_slot, ":slot_item", "trp_player", ek_foot),
+      (gt, ":slot_item", 0),
+      (str_store_item_name, s1, ":slot_item"),],
+    "{s1}.", "camp_smith_item_improve_1",
+    [  (assign, "$repair_wielded_item_slot", ek_foot),]],
+    
+  [anyone|plyr,"camp_armorer_requested_repair_2", [],
+    "Never mind.", "camp_smith_back",[]],  
+
+
+    
   [anyone|plyr,"camp_smith_start", [], "Nothing today. Carry on.", "camp_smith_back",[]],
-  [anyone,"camp_smith_back", [], "Very well.", "close_window",[(jump_to_menu, "mnu_player_camp_encounter"),]],    
+  [anyone,"camp_smith_back", [], "I'll be here if needed.", "close_window",[(jump_to_menu, "mnu_player_camp_encounter"),]],    
   
 # DAC Seek: Camp Merchant Dialog
   [anyone, "start", [(eq, "$g_talk_troop", "trp_merc_company_merchant"),
@@ -46101,6 +46310,37 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   [anyone,"camp_merchant_trade_completed", [], "Anything else?", "camp_merchant_start",[]],
 
   [anyone|plyr,"camp_merchant_start", [], "I have what I need, thanks.", "close_window",[]],
+  
+# DAC Seek: Camp Ransom Broker Dialog
+  [anyone, "start", [(eq, "$g_talk_troop", "trp_merc_company_ransom_broker"),
+                     ],
+   "Salutations noble one, what can I do for you?", "camp_ransom_broker_start", []],
+
+  [anyone|plyr,"camp_ransom_broker_start",
+   [(store_num_regular_prisoners,reg0),(ge,reg0,1),],
+   "I have some prisoners I want to dispose of.", "hideout_merchant_sell_prisoners",[]],
+  [anyone,"hideout_merchant_sell_prisoners", [],
+  "Let me see what you have...", "camp_ransom_broker_trade_completed",
+   [[change_screen_trade_prisoners]]],
+   
+  [anyone|plyr,"camp_ransom_broker_start",
+   [(store_num_regular_prisoners,reg0),(ge,reg0,1),],
+   "I want to sell all the prisoners I have with me.", "camp_ransom_broker_sell_prisoners_all",[]],
+  [anyone,"camp_ransom_broker_sell_prisoners_all", [
+  (call_script, "script_dplmc_sell_all_prisoners", 0, 0),#do not actually sell
+  (store_num_regular_prisoners, reg2),
+  (val_sub, reg2, 1),
+  ],
+  "Let's see...  I'll give you {reg0} crowns for your {reg1} {reg2?prisoners:prisoner}.  Do we have a deal?", "camp_ransom_broker_sell_prisoners_all_cont", []],
+  [anyone|plyr,"camp_ransom_broker_sell_prisoners_all_cont", [],
+   "We have a deal.", "camp_ransom_broker_trade_completed", [(call_script, "script_dplmc_sell_all_prisoners", 1, 0),]
+  ],
+  [anyone|plyr,"camp_ransom_broker_sell_prisoners_all_cont", [],
+   "Let me think about it again.", "camp_ransom_broker_trade_completed",[]],
+
+  [anyone,"camp_ransom_broker_trade_completed", [], "Anything else?", "camp_ransom_broker_start",[]],
+
+  [anyone|plyr,"camp_ransom_broker_start", [], "I have what I need, thanks.", "close_window",[]],
   
   
 ### DAC Seek: Generic troops dialog
