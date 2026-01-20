@@ -730,7 +730,7 @@ character_creation_presentations = [
             (eq, "$g_presentation_obj_1_val", 6),
             (overlay_add_item, "$g_presentation_obj_2", "str_dac_background_class_surgeon"),
             (overlay_add_item, "$g_presentation_obj_2", "str_dac_background_class_priest"),
-            (overlay_add_item, "$g_presentation_obj_2", "str_dac_background_class_alchemist"),
+            # (overlay_add_item, "$g_presentation_obj_2", "str_dac_background_class_alchemist"),
         (try_end),
         
         

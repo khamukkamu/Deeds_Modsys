@@ -3114,7 +3114,13 @@ TOTAL:  {reg5}"),
     ("test_give_troops",[],"Give yourself mercenaries", [
     (jump_to_menu, "mnu_receive_mercs"),
      ]),
-
+     
+    ("enable_armor_progression",[(le, "$armour_progression", 1),],"Enable Armour Progression", [
+        (assign, "$armour_progression", 2),
+     ]),
+    ("disable_armor_progression",[(eq, "$armour_progression", 2),],"Disable Armour Progression", [
+        (assign, "$armour_progression", 1),
+     ]),
     ("dac_test_back",[],"Back",[(jump_to_menu, "mnu_camp")]),
 
  ]),
@@ -18554,7 +18560,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
         # (try_end),
 
         (party_clear, "p_temp_casualties"),
-        (party_clear, "p_total_enemy_casualties"),
+        # (party_clear, "p_total_enemy_casualties"),
 
         (set_party_battle_mode),
         (set_battle_advantage, 0),

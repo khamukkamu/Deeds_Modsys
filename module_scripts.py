@@ -82108,6 +82108,36 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
     (call_script, "script_dplmc_copy_inventory", "trp_breton_bannerman_late", "trp_breton_bannerman"),
     (call_script, "script_dplmc_copy_inventory", "trp_breton_bannerman_mounted_late", "trp_breton_bannerman_mounted"),
 
+# Burgundian
+    (call_script, "script_dplmc_copy_inventory", "trp_burgundian_poor_spearman_late", "trp_burgundian_poor_spearman"),
+    (call_script, "script_dplmc_copy_inventory", "trp_burgundian_spearman_late", "trp_burgundian_spearman"),
+    (call_script, "script_dplmc_copy_inventory", "trp_burgundian_poor_vougier_late", "trp_burgundian_poor_vougier"),
+    (call_script, "script_dplmc_copy_inventory", "trp_burgundian_vougier_late", "trp_burgundian_vougier"),
+    
+    (call_script, "script_dplmc_copy_inventory", "trp_burgundian_militia_archer_late", "trp_burgundian_militia_archer"),
+    (call_script, "script_dplmc_copy_inventory", "trp_burgundian_poor_archer_late", "trp_burgundian_poor_archer"),
+    (call_script, "script_dplmc_copy_inventory", "trp_burgundian_archer_late", "trp_burgundian_archer"),
+    (call_script, "script_dplmc_copy_inventory", "trp_burgundian_poor_crossbowman_late", "trp_burgundian_poor_crossbowman"),
+    (call_script, "script_dplmc_copy_inventory", "trp_burgundian_crossbowman_late", "trp_burgundian_crossbowman"),
+    
+    (call_script, "script_dplmc_copy_inventory", "trp_burgundian_militia_late", "trp_burgundian_militia"),
+    (call_script, "script_dplmc_copy_inventory", "trp_burgundian_poor_pavoisier_late", "trp_burgundian_poor_pavoisier"),
+    (call_script, "script_dplmc_copy_inventory", "trp_burgundian_pavoisier_late", "trp_burgundian_pavoisier"),
+    (call_script, "script_dplmc_copy_inventory", "trp_burgundian_rich_pavoisier_late", "trp_burgundian_rich_pavoisier"),
+    (call_script, "script_dplmc_copy_inventory", "trp_burgundian_sergeant_pavoisier_late", "trp_burgundian_sergeant_pavoisier"),
+    (call_script, "script_dplmc_copy_inventory", "trp_burgundian_poor_guisarmier_late", "trp_burgundian_poor_guisarmier"),
+    (call_script, "script_dplmc_copy_inventory", "trp_burgundian_guisarmier_late", "trp_burgundian_guisarmier"),
+    (call_script, "script_dplmc_copy_inventory", "trp_burgundian_rich_guisarmier_late", "trp_burgundian_rich_guisarmier"),
+    
+    (call_script, "script_dplmc_copy_inventory", "trp_burgundian_footman_at_arms_late", "trp_burgundian_footman_at_arms"),
+    (call_script, "script_dplmc_copy_inventory", "trp_burgundian_dismounted_squire_late", "trp_burgundian_dismounted_squire"),
+    (call_script, "script_dplmc_copy_inventory", "trp_burgundian_dismounted_knight_late", "trp_burgundian_dismounted_knight"),
+    (call_script, "script_dplmc_copy_inventory", "trp_burgundian_man_at_arms_late", "trp_burgundian_man_at_arms"),
+    (call_script, "script_dplmc_copy_inventory", "trp_burgundian_squire_late", "trp_burgundian_squire"),
+    (call_script, "script_dplmc_copy_inventory", "trp_burgundian_knight_late", "trp_burgundian_knight"),
+    (call_script, "script_dplmc_copy_inventory", "trp_burgundian_bannerman_late", "trp_burgundian_bannerman"),
+    (call_script, "script_dplmc_copy_inventory", "trp_burgundian_bannerman_mounted_late", "trp_burgundian_bannerman_mounted"),
+
 # Italian Troops
     (call_script, "script_dplmc_copy_inventory", "trp_italian_light_infantry_late", "trp_italian_light_infantry"),
     (call_script, "script_dplmc_copy_inventory", "trp_italian_infantry_late", "trp_italian_infantry"),

@@ -1905,7 +1905,7 @@ mercenary_company_troops = [
 ###################################################################################################### DAC CUSTOM TROOPS NPCS ##########################################################################################################################################################################################
 ##################################################################################################################################################################################################################################################################################################################
 
-  ["merc_company_quartermaster","Quartermaster Godefroy de Papincourt","Quartermaster Godefroy de Papincourt",tf_hero|tf_unmoveable_in_party_window,scn_player_camp|entry(2),0,fac_commoners,
+  ["merc_company_quartermaster","Quartermaster Godefroy de Papincourt","Quartermaster Godefroy de Papincourt",tf_hero|tf_is_merchant|tf_unmoveable_in_party_window,scn_player_camp|entry(2),0,fac_commoners,
    [
    itm_a_pistoia_kastenbrust_b_mail_sleeves_plate_spaulders_3,itm_b_leg_harness_8,
    ],
