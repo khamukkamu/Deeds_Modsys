@@ -613,7 +613,9 @@ slot_center_last_reconnoitered_by_faction_time 				= 350
 #slot_center_last_reconnoitered_by_faction_cached_strength 	= 360
 #slot_center_last_reconnoitered_by_faction_friend_strength 	= 370
 
-
+slot_village_normal_icon                    = 360
+slot_village_burnt_icon                     = 361
+slot_village_deserted_icon                  = 362
 
 
 #slot_party_type values

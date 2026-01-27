@@ -3302,6 +3302,46 @@ simple_triggers = [
 #NPC companion changes end
       (try_end),
     (try_end),
+    
+### DAC Seek: Players that invest in inventory management can tell how much food they have left. Credits to Custom Commander
+    ## CC days that food can support
+    (try_begin),
+        (party_get_skill_level, ":inventory_management", "p_main_party", skl_inventory_management),
+        (ge, ":inventory_management", 3),
+        
+        (assign, ":consumption_amount_once", ":num_men"),
+        (assign, ":total_food_amount", 0),
+        (troop_get_inventory_capacity, ":capacity", "trp_player"),
+    
+        (try_for_range, ":cur_slot", 0, ":capacity"),
+            (troop_get_inventory_slot, ":cur_item", "trp_player", ":cur_slot"),
+            (is_between, ":cur_item", food_begin, food_end),
+            (troop_get_inventory_slot_modifier, ":item_modifier", "trp_player", ":cur_slot"),
+            (neq, ":item_modifier", imod_rotten),
+            (troop_inventory_slot_get_item_amount, ":cur_food_amount", "trp_player", ":cur_slot"),
+            (val_add, ":total_food_amount", ":cur_food_amount"),
+        (try_end),
+    
+        (store_mul, ":days_food_can_support", ":total_food_amount", 14),
+        (val_div, ":days_food_can_support", ":consumption_amount_once"),
+        (val_div, ":days_food_can_support", 24),
+        (try_begin),
+            (ge, ":days_food_can_support", 1),
+            (assign, reg2, ":days_food_can_support"),
+            (store_sub, reg3, reg2, 1),
+            (try_begin),
+                (gt, ":days_food_can_support", 4),
+                (assign, ":text_color", color_good_news),
+            (else_try),
+                (gt, ":days_food_can_support", 2),
+                (assign, ":text_color", color_neutral_news),
+            (else_try),
+                (assign, ":text_color", color_bad_news),
+            (try_end),
+                (display_message, "@Party has food for about {reg2} {reg3?days:day}.", ":text_color"),
+        (try_end),
+    (try_end),
+    ## CC
     ]),
 
   # Setting item modifiers for food
@@ -3529,6 +3569,8 @@ simple_triggers = [
           (str_store_faction_name, s3, ":troop_faction"),
           #SB : colorize faction, add s2 for imprisoning faction
           (faction_get_color, ":color", ":troop_faction"),
+          (call_script, "script_dplmc_is_affiliated_family_member", ":stack_troop"), ### DAC Seek: added to reduce message spamming
+          (eq, reg0, 1),
           (display_log_message, "@{s1} of {s3} has been released from captivity by {s2}.", ":color"),
         (try_end),
         #SB : moved to bottom
@@ -3551,18 +3593,21 @@ simple_triggers = [
      (call_script, "script_update_tavern_tailors"),
      (call_script, "script_update_villages_infested_by_bandits"),
      (try_for_range, ":village_no", villages_begin, villages_end),
-       (call_script, "script_update_volunteer_troops_in_village", ":village_no"),
+       # (call_script, "script_update_volunteer_troops_in_village", ":village_no"),
        (call_script, "script_update_npc_volunteer_troops_in_village", ":village_no"),
      (try_end),
 
      # DAC - Militia and Noble Recruitment
-     (try_for_range, ":center_no", towns_begin, towns_end),
-        (call_script, "script_update_volunteer_troops_in_town", ":center_no"),
-     (try_end),
+     # (try_for_range, ":center_no", towns_begin, towns_end),
+        # (call_script, "script_update_volunteer_troops_in_town", ":center_no"),
+     # (try_end),
      
-     (try_for_range, ":center_no", castles_begin, castles_end),
-        (call_script, "script_update_volunteer_troops_in_castle", ":center_no"),       
-      (try_end),
+     # (try_for_range, ":center_no", castles_begin, castles_end),
+        # (call_script, "script_update_volunteer_troops_in_castle", ":center_no"),       
+      # (try_end),
+     (try_for_range, ":center_no", centers_begin, centers_end),
+        (call_script, "script_update_volunteer_troops_in_center", ":center_no"),
+     (try_end),
     ]),
 
   (24,

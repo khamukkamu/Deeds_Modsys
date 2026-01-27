@@ -10044,86 +10044,244 @@ TOTAL:  {reg5}"),
   ),
 
   (
-    "recruit_volunteers",0,
-    "{s18}",
+    "recruit_volunteers",mnf_scale_picture,
+    "{s18} ^^You have {reg9} crowns ^Your party is at {reg12}/{reg13} members.",
     "none",
-    [(party_get_slot, ":volunteer_troop", "$current_town", slot_center_volunteer_troop_type),
-     (party_get_slot, ":volunteer_amount", "$current_town", slot_center_volunteer_troop_amount),
-     (party_get_free_companions_capacity, ":free_capacity", "p_main_party"),
-     (store_troop_gold, ":gold", "trp_player"),
-     (store_div, ":gold_capacity", ":gold", 10),#10 crowns per man
-     (assign, ":party_capacity", ":free_capacity"),
-     (val_min, ":party_capacity", ":gold_capacity"),
-      (assign, reg9, ":gold"),		 
-     (try_begin),
-       (gt, ":party_capacity", 0),
-       (val_min, ":volunteer_amount", ":party_capacity"),
-     (try_end),
-     (assign, reg5, ":volunteer_amount"),
-     (assign, reg7, 0),
-     (try_begin),
-       (gt, ":volunteer_amount", ":gold_capacity"),
-       (assign, reg7, 1), #not enough money
-     (try_end),
-     (try_begin),
-       (eq, ":volunteer_amount", 0),
-       (str_store_string, s18, "@No one here seems to be willing to join your party."),
-     (else_try),
-       (store_mul, reg6, ":volunteer_amount", 10),#10 crowns per man
-        (store_mul, reg8, ":volunteer_amount", 25),#25 crowns per man	   
-       (str_store_troop_name_by_count, s3, ":volunteer_troop", ":volunteer_amount"),
-       (try_begin),
-         (eq, reg5, 1),
-         (str_store_string, s18, "@One {s3} volunteers to follow you."),
-       (else_try),
-         (str_store_string, s18, "@{reg5} {s3} volunteer to follow you."),
-       (try_end),
-       (set_background_mesh, "mesh_pic_recruits"),
-     (try_end),
+    [
+    ### Get slots, party type (castle, village, town), base and alt troop tree, amount of volunteers
+        (party_get_slot, ":party_type", "$current_town", slot_party_type),        
+        (party_get_slot, ":volunteer_troop", "$current_town", slot_center_volunteer_troop_type),        
+        (party_get_slot, ":volunteer_troop_ranged", "$current_town", slot_center_volunteer_troop_type_ranged),        
+        (party_get_slot, ":volunteer_amount", "$current_town", slot_center_volunteer_troop_amount),
+        
+        ### Get party size, limit, player gold
+        (party_get_free_companions_capacity, ":free_capacity", "p_main_party"),
+        (store_troop_gold, ":gold", "trp_player"),
+        
+        ### Get joining costs
+        (call_script, "script_game_get_join_cost", ":volunteer_troop"),
+        (assign, ":join_cost", reg0),
+        (call_script, "script_game_get_join_cost", ":volunteer_troop_ranged"),
+        (assign, ":join_cost_ranged", reg0),
+        
+        ### Further lower the cost if player is the town lord
+        (try_begin),
+            (party_slot_eq, "$current_town", slot_town_lord, "trp_player"),
+            (val_mul, ":join_cost", 4),
+            (val_mul, ":join_cost_ranged", 4),
+            (val_div, ":join_cost", 5),
+            (val_div, ":join_cost_ranged", 5),  
+        (try_end),
+        
+        (store_div, ":gold_capacity", ":gold", ":join_cost"),
+        (assign, ":party_capacity", ":free_capacity"),
+        (val_min, ":party_capacity", ":gold_capacity"),
+        
+        (assign, reg9, ":gold"),	
+        (party_get_num_companions, ":num_companions", "p_main_party"),
+        (assign, reg12, ":num_companions"),	
+        (call_script, "script_game_get_party_companion_limit"),
+        (assign, ":party_size_limit", reg0),
+        (assign, reg13, ":party_size_limit"),
+        
+        (try_begin),
+            (gt, ":party_capacity", 0),
+            (val_min, ":volunteer_amount", ":party_capacity"),
+        (try_end),
+        
+        (assign, reg5, ":volunteer_amount"),
+        (assign, reg7, 0),
+        (assign, reg8, ":join_cost_ranged"),
+        (assign, reg11, ":join_cost"),
+        
+        (try_begin),
+            (gt, ":volunteer_amount", ":gold_capacity"),
+            (assign, reg7, 1), #not enough money
+        (try_end),
+        
+        (try_begin),
+            (eq, reg5, 0),
+            (str_store_string, s18, "@No one here seems to be willing to join your party."),
+        (else_try),
+            (store_mul, reg6, ":volunteer_amount", ":join_cost"),
+            (store_mul, reg10, ":volunteer_amount", ":join_cost_ranged"),
+            
+            (try_begin),
+                (eq, reg5, 1),
+                (try_begin),
+                    (eq, ":party_type", spt_castle),
+                    (str_store_string, s18, "@One noble volunteers to follow you."),
+                (else_try),
+                    (eq, ":party_type", spt_town),
+                    (str_store_string, s18, "@One townsman volunteers to follow you."),
+                (else_try),
+                    (eq, ":party_type", spt_village),
+                    (str_store_string, s18, "@One peasant volunteers to follow you."),
+                (try_end),
+            (else_try),
+                (try_begin),
+                    (eq, ":party_type", spt_castle),
+                    (str_store_string, s18, "@{reg5} nobles volunteer to follow you."),
+                (else_try),
+                    (eq, ":party_type", spt_town),
+                    (str_store_string, s18, "@{reg5} townsmen volunteer to follow you."),
+                (else_try),
+                    (eq, ":party_type", spt_village),
+                    (str_store_string, s18, "@{reg5} peasants volunteer to follow you."),
+                (try_end),
+            (try_end),
+            
+            (try_begin),
+                (eq, ":party_type", spt_castle),
+                (set_background_mesh, "mesh_pic_vaegir"),
+            (else_try),
+                (eq, ":party_type", spt_town),
+                (set_background_mesh, "mesh_pic_payment"),
+            (else_try),
+                (set_background_mesh, "mesh_pic_recruits"),
+            (try_end),
+        (try_end),
+        
+        ### reg5 -> volunteer amount
+        ### reg6 -> Total cost Inf
+        ### reg7 -> Has gold
+        ### reg9 -> Player Gold
+        ### reg10 -> Total cost Ranged/Cav   
     ],
     [
 
 
       ("continue",
       [
-        (eq, reg7, 0),
-        (eq, reg5, 0),
+        (eq, reg7, 0), ### Has Money
+        (eq, reg5, 0), ### Volunteer Amount
       ], #noone willing to join
       "Continue...",
       [
         (party_set_slot, "$current_town", slot_center_volunteer_troop_amount, -1),
-        (jump_to_menu,"mnu_village"),
+        (party_get_slot, ":party_type", "$current_town", slot_party_type),
+        
+        (try_begin),
+            (eq, ":party_type", spt_village),
+            (jump_to_menu, "mnu_village"),
+        (else_try),
+            (jump_to_menu,"mnu_town"),
+        (try_end),
+
+      ]),
+      
+      ("recruit_one",
+        [
+        (ge, reg9, reg11), ### Has Money
+        (gt, reg5, 0), ### Volunteer Amount
+          
+        (party_get_slot, ":volunteer_troop", "$current_town", slot_center_volunteer_troop_type),
+        (str_store_troop_name, s4, ":volunteer_troop"),
+        ],
+        "Enlist one {s4} ({reg11} crowns).",
+        [
+        (party_get_slot, ":party_type", "$current_town", slot_party_type),
+        (party_get_slot, ":volunteer_troop", "$current_town", slot_center_volunteer_troop_type),
+        
+        (party_add_members, "p_main_party", ":volunteer_troop", 1),
+        (val_sub, reg5, 1),
+        (troop_remove_gold, "trp_player", reg11),
+        (party_set_slot, "$current_town", slot_center_volunteer_troop_amount, reg5),
+        
+        (try_begin),
+            (eq, reg5, 0),
+            (party_set_slot, "$current_town", slot_center_volunteer_troop_amount, -1),
+            (try_begin),
+                (eq, ":party_type", spt_village),
+                (jump_to_menu, "mnu_village"),
+            (else_try),
+                (jump_to_menu,"mnu_town"),
+            (try_end),
+        (try_end),
       ]),
 
       ("recruit_them",
         [
-          (eq, reg7, 0),
-          (gt, reg5, 0),
-        ],
-        "Enlist as Infantry Troops ({reg6} crowns).",
-        [
-          (call_script, "script_village_recruit_volunteers_recruit"),
+        (eq, reg7, 0), ### Has Money
+        (gt, reg5, 1), ### Volunteer Amount
           
-          (jump_to_menu,"mnu_village"),
+        (party_get_slot, ":volunteer_troop", "$current_town", slot_center_volunteer_troop_type),
+        (str_store_troop_name_plural, s3, ":volunteer_troop"),
+        ],
+        "Enlist all {s3} ({reg6} crowns).",
+        [
+        (party_get_slot, ":party_type", "$current_town", slot_party_type),
+        (party_get_slot, ":volunteer_troop", "$current_town", slot_center_volunteer_troop_type),
+        
+        (party_add_members, "p_main_party", ":volunteer_troop", reg5),
+        (troop_remove_gold, "trp_player", reg6),
+        (party_set_slot, "$current_town", slot_center_volunteer_troop_amount, -1),
+        (try_begin),
+            (eq, ":party_type", spt_village),
+            (jump_to_menu, "mnu_village"),
+        (else_try),
+            (jump_to_menu,"mnu_town"),
+        (try_end),
       ]),
 		
-      ("recruit_them_archer",
+      ("recruit_one_alt",
         [
-          (eq, reg7, 0),
-          (gt, reg5, 0),
-          (gt, reg9, reg8),			 
-        ],
-        "Enlist as Ranged Troops ({reg8} crowns).",
-        [
-          (call_script, "script_village_recruit_volunteers_recruit_ranged"),
+        (ge, reg9, reg8), ### Ranged cost > Gold
+        (gt, reg5, 0), ### Volunteer Amount
           
-          (jump_to_menu,"mnu_village"),
+        (party_get_slot, ":volunteer_troop", "$current_town", slot_center_volunteer_troop_type_ranged),
+        (str_store_troop_name, s6, ":volunteer_troop"),
+        ],
+        "Enlist one {s6} ({reg8} crowns).",
+        [
+        (party_get_slot, ":party_type", "$current_town", slot_party_type),
+        (party_get_slot, ":volunteer_troop", "$current_town", slot_center_volunteer_troop_type_ranged),
+        
+        (party_add_members, "p_main_party", ":volunteer_troop", 1),
+        (val_sub, reg5, 1),
+        (troop_remove_gold, "trp_player", reg8),
+        (party_set_slot, "$current_town", slot_center_volunteer_troop_amount, reg5),
+        
+        (try_begin),
+            (eq, reg5, 0),
+            (party_set_slot, "$current_town", slot_center_volunteer_troop_amount, -1),
+            (try_begin),
+                (eq, ":party_type", spt_village),
+                (jump_to_menu, "mnu_village"),
+            (else_try),
+                (jump_to_menu,"mnu_town"),
+            (try_end),
+        (try_end),
+      ]),
+
+      ("recruit_them_alt",
+        [
+        (ge, reg9, reg10), ### Ranged cost > Gold
+        (gt, reg5, 1), ### Volunteer Amount
+          
+        (party_get_slot, ":volunteer_troop", "$current_town", slot_center_volunteer_troop_type_ranged),
+        (str_store_troop_name_plural, s5, ":volunteer_troop"),
+        ],
+        "Enlist all {s5} ({reg10} crowns).",
+        [
+        (party_get_slot, ":party_type", "$current_town", slot_party_type),
+        (party_get_slot, ":volunteer_troop", "$current_town", slot_center_volunteer_troop_type_ranged),
+        
+        (party_add_members, "p_main_party", ":volunteer_troop", reg5),
+        (troop_remove_gold, "trp_player", reg10),
+        (party_set_slot, "$current_town", slot_center_volunteer_troop_amount, -1),
+        (try_begin),
+            (eq, ":party_type", spt_village),
+            (jump_to_menu, "mnu_village"),
+        (else_try),
+            (jump_to_menu,"mnu_town"),
+        (try_end),
       ]),
       
       #SB : disable_menu_option
       ("continue_not_enough_gold",
       [
-        (eq, reg7, 1),
+        (eq, reg7, 1), ### Has No Money
         (disable_menu_option),
       ],
       "I don't have enough money...",
@@ -10139,7 +10297,13 @@ TOTAL:  {reg5}"),
       ],
       "Forget it.",
       [
-        (jump_to_menu,"mnu_village"),
+        (party_get_slot, ":party_type", "$current_town", slot_party_type),
+        (try_begin),
+            (eq, ":party_type", spt_village),
+            (jump_to_menu, "mnu_village"),
+        (else_try),
+            (jump_to_menu,"mnu_town"),
+        (try_end),
       ]),
     ],
   ),
@@ -13011,9 +13175,8 @@ TOTAL:  {reg5}"),
       ]
       ,"Recruit local militia.",
       [
-        (jump_to_menu, "mnu_town_recruit_volunteers_2"),
-    ]),
-         
+        (jump_to_menu, "mnu_recruit_volunteers"),
+    ]),         
     ("castle_recruit",
       [
         (party_slot_eq,"$current_town",slot_party_type, spt_castle),
@@ -13021,9 +13184,8 @@ TOTAL:  {reg5}"),
       ]
       ,"Recruit local nobles.",
       [
-        (jump_to_menu, "mnu_castle_recruit_volunteers"),
+        (jump_to_menu, "mnu_recruit_volunteers"),
     ]),
-
     # DAC END
 
 
@@ -21059,7 +21221,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
       [(party_slot_eq, "$current_town", slot_party_type, spt_village),],
       "Refresh recruits.",
       [
-        (call_script, "script_update_volunteer_troops_in_village", "$current_town"),
+        (call_script, "script_update_volunteer_troops_in_center", "$current_town"),
       ]),
       ("center_recruits",
       [(party_slot_eq, "$current_town", slot_party_type, spt_town),],

@@ -1718,6 +1718,7 @@ triggers = [
             (eq, "$forced_march", 0),
             (assign, "$forced_march", 1),
             (display_message, "@Forced March Enabled", color_good_news),
+            (display_message, "@Press Shift to disable", color_good_news),
         (else_try),
             (assign, "$forced_march", 0),   
             (display_message, "@Forced March Disabled", color_bad_news),            
@@ -1738,6 +1739,7 @@ triggers = [
         (try_end),
         
         (display_message, "@Your party tires from the forced march", color_bad_news),   
+        (display_message, "@Press Shift to disable", color_good_news),
   ]),
 
 ##diplomacy end

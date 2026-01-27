@@ -585,16 +585,37 @@ scripts = [
       (call_script, "script_refresh_center_inventories"),
 
       (try_for_range, ":village_no", villages_begin, villages_end),
-        (call_script, "script_update_volunteer_troops_in_village", ":village_no"),
-      (try_end),
-
-      (try_for_range, ":castle_no", castles_begin, castles_end),
-        (call_script, "script_update_volunteer_troops_in_castle", ":castle_no"),
+        (call_script, "script_update_volunteer_troops_in_center", ":village_no"),
       (try_end),
       
-      (try_for_range, ":town_no", towns_begin, towns_end),
-        (call_script, "script_update_volunteer_troops_in_town", ":town_no"),
+### DAC Seek: Set village icons for villages
+    (try_for_range, ":village_no", villages_begin, villages_end),
+        (party_get_icon, ":village_icon", ":village_no"),
+        
+        (try_begin),
+            (eq, ":village_icon", "icon_village_a"),
+            (assign, ":normal_village_icon", "icon_village_a"),
+            (assign, ":burnt_village_icon", "icon_village_burnt_a"),
+            (assign, ":deserted_village_icon", "icon_village_deserted_a"),
+        (else_try),
+            (assign, ":normal_village_icon", "icon_village_b"),
+            (assign, ":burnt_village_icon", "icon_village_burnt_b"),
+            (assign, ":deserted_village_icon", "icon_village_deserted_b"),
+        (try_end),
+        
+        (party_set_slot, ":village_no", slot_village_normal_icon, ":normal_village_icon"),
+        (party_set_slot, ":village_no", slot_village_burnt_icon, ":burnt_village_icon"),
+        (party_set_slot, ":village_no", slot_village_deserted_icon, ":deserted_village_icon"),
+    (try_end),
+### DAC Seek End
+
+      (try_for_range, ":center_no", centers_begin, centers_end),
+        (call_script, "script_update_volunteer_troops_in_center", ":center_no"),
       (try_end),
+      
+      # (try_for_range, ":town_no", towns_begin, towns_end),
+        # (call_script, "script_update_volunteer_troops_in_town", ":town_no"),
+      # (try_end),
 
 
       (try_for_range, ":cur_kingdom", kingdoms_begin, kingdoms_end),
@@ -3989,6 +4010,8 @@ scripts = [
                 #(troop_set_slot, ":cur_troop_id", slot_troop_is_prisoner, 1),
                 (troop_set_slot, ":cur_troop_id", slot_troop_prisoner_of_party, ":nonempty_winner_party"),
 
+                (call_script, "script_dplmc_is_affiliated_family_member", ":cur_troop_id"), ### DAC Seek: added to reduce message spamming
+                (eq, reg0, 1),
                 (display_log_message, "str_hero_taken_prisoner", ":color"),
 
                 (try_begin),
@@ -4014,6 +4037,8 @@ scripts = [
                 (store_faction_of_party, ":capturer_faction", ":nonempty_winner_party"),
                 (call_script, "script_update_troop_location_notes_prisoned", ":cur_troop_id", ":capturer_faction"),
               (else_try),
+                (call_script, "script_dplmc_is_affiliated_family_member", ":cur_troop_id"), ### DAC Seek: added to reduce message spamming
+                (eq, reg0, 1),
                 (display_message,"@{s1} of {s3} was defeated in battle but managed to escape.", ":color"),
               (try_end),
 
@@ -5426,10 +5451,15 @@ scripts = [
     (else_try),
         (store_character_level, ":troop_level", ":troop_id"),
         (assign, ":join_cost", ":troop_level"),
-        (val_add, ":join_cost", 20),
+        (try_begin),
+            (ge, ":troop_level", 30),
+            (val_add, ":join_cost", 20),
+        (else_try),
+            (val_add, ":join_cost", 12),
+        (try_end),
         (val_mul, ":join_cost", ":join_cost"),
-        (val_add, ":join_cost", 50), #was 40
-        (val_div, ":join_cost", 10),
+        (val_add, ":join_cost", 40),
+        (val_div, ":join_cost", 20),
     #JuJu70
         (try_begin),
             (troop_get_slot, ":player_renown", "trp_player", slot_troop_renown),
@@ -5440,24 +5470,73 @@ scripts = [
             (val_sub, ":join_cost", ":player_renown"),
         (try_end),
     #JuJu70 end
-    # DAC Seek: Reduce cost of player company mercs and bandits
-        (try_begin),
+        (try_begin), ### Leadership bonus
+            (store_skill_level, ":leadership_level", "skl_leadership", "trp_player"),
+            (store_mul, ":leadership_bonus", 5, ":leadership_level"),
+            (store_sub, ":leadership_factor", 100, ":leadership_bonus"),
+            (val_mul, ":join_cost", ":leadership_factor"),  #join_cost = join_cost * (100 - 5*leadership)/100
+            (val_div, ":join_cost", 100),
+        (try_end),
+    
+        (try_begin),# Reduce cost of player company mercs
             (this_or_next|is_between, ":troop_id", customizable_troops_begin, customizable_troops_end),
-            (is_between, ":troop_id", bandits_begin, bandits_end),
+            (val_mul, ":join_cost", 4),            
+            (val_div, ":join_cost", 5),            
+        (try_end),
+        
+        (try_begin), ### Nobles pay less for knights
+            (eq, "$background_type", cb_noble),
+            (ge, ":troop_level", 30),
+            (val_mul, ":join_cost", 4),            
+            (val_div, ":join_cost", 5),            
+        (try_end),
+        
+        (try_begin), ### Peasants pay more for knights
+            (eq, "$background_type", cb_peasant),
+            (ge, ":troop_level", 30),
+            (val_mul, ":join_cost", 6),            
+            (val_div, ":join_cost", 5),            
+        (try_end),
+        
+        (try_begin), ### Rebels pay less for peasants
+            (eq, "$class_type", cc_peasant_revolutionary),
+            (lt, ":troop_level", 20),
+            (val_mul, ":join_cost", 4),            
+            (val_div, ":join_cost", 5),            
+        (try_end),
+        
+        (try_begin), ### Merchants pay 10% less for all
+            (eq, "$background_type", cb_merchant),
+            (val_mul, ":join_cost", 9),            
+            (val_div, ":join_cost", 10),            
+        (try_end),
+        
+        (try_begin), ### Mercenaries are more expensive except to other mercenaries
+            (neq, "$background_type", cb_mercenary),
+            (is_between, ":troop_id", mercenary_troops_begin, mercenary_troops_end),
+            (val_mul, ":join_cost", 6),            
             (val_div, ":join_cost", 4),            
         (try_end),
         
-        ### DAC Seek: Further discount from recruiting bandits from the hideout
-        (try_begin),
+        (try_begin), ### Discount from recruiting bandits from the hideout
             (eq, "$g_encountered_party", "p_player_bandit_hideout"),
-            (val_div, ":join_cost", 2),                
+            (val_mul, ":join_cost", 4),            
+            (val_div, ":join_cost", 5),                
+        (try_end),
+
+        (try_begin), #mounted troops cost more than the normal cost
+            (troop_is_mounted, ":troop_id"),
+            (val_mul, ":join_cost", 8),
+            (val_div, ":join_cost", 5),            
+        (try_end),
+        
+        (try_begin), #mounted and ranged troops cost more than the infantry
+            (this_or_next|troop_is_mounted, ":troop_id"),
+            (troop_is_guarantee_ranged, ":troop_id"),
+            (val_mul, ":join_cost", 8),
+            (val_div, ":join_cost", 5),            
         (try_end),
     # DAC Seek END
-        (try_begin), #mounted troops cost %50 more than the normal cost
-            (troop_is_mounted, ":troop_id"),
-            (val_mul, ":join_cost", 3),
-            (val_div, ":join_cost", 2),            
-        (try_end),
     (try_end),
     (assign, reg0, ":join_cost"),
     (set_trigger_result, reg0),
@@ -8186,28 +8265,28 @@ scripts = [
       (faction_set_slot, "fac_culture_1",  slot_faction_tier_6_troop, "trp_french_man_at_arms"),
       (faction_set_slot, "fac_culture_1",  slot_faction_tier_1_archer, "trp_french_peasant_archer"),
       
-      (faction_set_slot, "fac_culture_2", slot_faction_tier_1_troop, "trp_english_communal_levy"),
-      (faction_set_slot, "fac_culture_2", slot_faction_tier_2_troop, "trp_english_militia"),
-      (faction_set_slot, "fac_culture_2", slot_faction_tier_3_troop, "trp_english_yeoman_archer"),
-      (faction_set_slot, "fac_culture_2", slot_faction_tier_4_troop, "trp_english_footman_at_arms"),
-      (faction_set_slot, "fac_culture_2", slot_faction_tier_5_troop, "trp_english_footman_at_arms"),
-      (faction_set_slot, "fac_culture_2", slot_faction_tier_6_troop, "trp_english_man_at_arms"),
+      (faction_set_slot, "fac_culture_2",  slot_faction_tier_1_troop, "trp_english_communal_levy"),
+      (faction_set_slot, "fac_culture_2",  slot_faction_tier_2_troop, "trp_english_militia"),
+      (faction_set_slot, "fac_culture_2",  slot_faction_tier_3_troop, "trp_english_yeoman_archer"),
+      (faction_set_slot, "fac_culture_2",  slot_faction_tier_4_troop, "trp_english_footman_at_arms"),
+      (faction_set_slot, "fac_culture_2",  slot_faction_tier_5_troop, "trp_english_footman_at_arms"),
+      (faction_set_slot, "fac_culture_2",  slot_faction_tier_6_troop, "trp_english_man_at_arms"),
       (faction_set_slot, "fac_culture_2",  slot_faction_tier_1_archer, "trp_english_communal_bowman"),
       
-      (faction_set_slot, "fac_culture_3", slot_faction_tier_1_troop, "trp_burgundian_peasant"),
-      (faction_set_slot, "fac_culture_3", slot_faction_tier_2_troop, "trp_burgundian_militia"),
-      (faction_set_slot, "fac_culture_3", slot_faction_tier_3_troop, "trp_burgundian_militia_archer"),
-      (faction_set_slot, "fac_culture_3", slot_faction_tier_4_troop, "trp_burgundian_footman_at_arms"),
-      (faction_set_slot, "fac_culture_3", slot_faction_tier_5_troop, "trp_burgundian_footman_at_arms"),
-      (faction_set_slot, "fac_culture_3", slot_faction_tier_6_troop, "trp_burgundian_man_at_arms"),
+      (faction_set_slot, "fac_culture_3",  slot_faction_tier_1_troop, "trp_burgundian_peasant"),
+      (faction_set_slot, "fac_culture_3",  slot_faction_tier_2_troop, "trp_burgundian_militia"),
+      (faction_set_slot, "fac_culture_3",  slot_faction_tier_3_troop, "trp_burgundian_militia_archer"),
+      (faction_set_slot, "fac_culture_3",  slot_faction_tier_4_troop, "trp_burgundian_footman_at_arms"),
+      (faction_set_slot, "fac_culture_3",  slot_faction_tier_5_troop, "trp_burgundian_footman_at_arms"),
+      (faction_set_slot, "fac_culture_3",  slot_faction_tier_6_troop, "trp_burgundian_man_at_arms"),
       (faction_set_slot, "fac_culture_3",  slot_faction_tier_1_archer, "trp_burgundian_peasant_bowman"),
       
-      (faction_set_slot, "fac_culture_4", slot_faction_tier_1_troop, "trp_breton_peasant_levy"),
-      (faction_set_slot, "fac_culture_4", slot_faction_tier_2_troop, "trp_breton_militia"),
-      (faction_set_slot, "fac_culture_4", slot_faction_tier_3_troop, "trp_breton_militia_crossbowman"),
-      (faction_set_slot, "fac_culture_4", slot_faction_tier_4_troop, "trp_breton_footman_at_arms"),
-      (faction_set_slot, "fac_culture_4", slot_faction_tier_5_troop, "trp_breton_footman_at_arms"),
-      (faction_set_slot, "fac_culture_4", slot_faction_tier_6_troop, "trp_breton_man_at_arms"),
+      (faction_set_slot, "fac_culture_4",  slot_faction_tier_1_troop, "trp_breton_peasant_levy"),
+      (faction_set_slot, "fac_culture_4",  slot_faction_tier_2_troop, "trp_breton_militia"),
+      (faction_set_slot, "fac_culture_4",  slot_faction_tier_3_troop, "trp_breton_militia_crossbowman"),
+      (faction_set_slot, "fac_culture_4",  slot_faction_tier_4_troop, "trp_breton_footman_at_arms"),
+      (faction_set_slot, "fac_culture_4",  slot_faction_tier_5_troop, "trp_breton_footman_at_arms"),
+      (faction_set_slot, "fac_culture_4",  slot_faction_tier_6_troop, "trp_breton_man_at_arms"),
       (faction_set_slot, "fac_culture_4",  slot_faction_tier_1_archer, "trp_breton_peasant_archer"),
 
       # (faction_set_slot, "fac_culture_5", slot_faction_tier_1_troop, "trp_rhodok_tribesman"),
@@ -16525,6 +16604,7 @@ scripts = [
             (set_trigger_result, 0xFFFFFF),
         (else_try),
             (eq, ":extra_text_id", 4),
+            (neg|is_between, ":item_no", food_begin, food_end),
             
             (try_begin),
                 (neq, ":damage", 0),
@@ -18959,6 +19039,49 @@ scripts = [
           (assign, ":price_factor", 150),
           (str_store_string, s0, "@Balanced"),
         (try_end),
+        
+        ### DAC Seek: Price factors for trade goods
+        (try_begin),
+            (eq, ":type", itp_type_goods),
+            (try_begin),
+                (eq, ":imod", imod_cheap),
+                (assign, ":price_factor", 90),
+            (else_try),
+                (eq, ":imod", imod_fine),
+                (assign, ":price_factor", 190),
+            (else_try),
+                (eq, ":imod", imod_well_made),
+                (assign, ":price_factor", 250),
+            (else_try),
+                (eq, ":imod", imod_strong),
+                (assign, ":price_factor", 490),
+            (else_try),
+                (eq, ":imod", imod_lordly),
+                (assign, ":price_factor", 1150),
+            (else_try),
+                (eq, ":imod", imod_exquisite),
+                (assign, ":price_factor", 1450),
+            (else_try),
+                (eq, ":imod", imod_large_bag),
+                (assign, ":price_factor", 190),
+            (else_try),
+                (this_or_next|eq, ":imod", imod_fresh),
+                (eq, ":imod", imod_day_old),
+                (assign, ":price_factor", 100),
+            (else_try),
+                (eq, ":imod", imod_two_day_old),
+                (assign, ":price_factor", 90),
+            (else_try),
+                (eq, ":imod", imod_smelling),
+                (assign, ":price_factor", 40),
+            (else_try),
+                (eq, ":imod", imod_rotten),
+                (assign, ":price_factor", 5),
+            (try_end),
+        (try_end),
+        
+        
+        
       (try_end),
       
       (assign, reg0, ":damage"),
@@ -26040,17 +26163,17 @@ scripts = [
     (try_end),
 
   # DAC Kham: Update Volunteer Troops ASAP
-    (try_begin),
-      (party_slot_eq, ":center_no",slot_party_type, spt_village),
-      (call_script, "script_update_volunteer_troops_in_village", ":center_no"),
-    (else_try),
-      (party_slot_eq, ":center_no",slot_party_type, spt_town),
-      (call_script, "script_update_volunteer_troops_in_town", ":center_no"),
-    (else_try),
-      (party_slot_eq, ":center_no",slot_party_type, spt_castle),
-      (call_script, "script_update_volunteer_troops_in_castle", ":center_no"),
-    (try_end),
-    
+    # (try_begin),
+      # (party_slot_eq, ":center_no",slot_party_type, spt_village),
+      # (call_script, "script_update_volunteer_troops_in_village", ":center_no"),
+    # (else_try),
+      # (party_slot_eq, ":center_no",slot_party_type, spt_town),
+      # (call_script, "script_update_volunteer_troops_in_town", ":center_no"),
+    # (else_try),
+      # (party_slot_eq, ":center_no",slot_party_type, spt_castle),
+      # (call_script, "script_update_volunteer_troops_in_castle", ":center_no"),
+    # (try_end),
+      (call_script, "script_update_volunteer_troops_in_center", ":center_no"),
   ]),
 
 ##  # script_give_town_to_besiegers
@@ -27561,7 +27684,7 @@ scripts = [
         (try_begin),
           (this_or_next|le, ":attacker_party", 0),
           (neg|party_is_active, ":attacker_party"),
-          (call_script, "script_update_volunteer_troops_in_village", ":village_no"),
+          (call_script, "script_update_volunteer_troops_in_center", ":village_no"),
           (call_script, "script_update_npc_volunteer_troops_in_village", ":village_no"),
         (try_end),
         (party_set_slot, ":village_no", slot_village_raided_by, -1),
@@ -27633,42 +27756,10 @@ scripts = [
        (options_get_campaign_ai, ":reduce_campaign_ai"), #SB: also move to top
        (try_for_range, ":village_no", villages_begin, villages_end),
         ##CABA Fix
-        (try_begin),
-          # (this_or_next|is_between, ":village_no", "p_village_16", "p_village_23"), #Shapeshte through Shulus (up to Ilvia)
-          # (this_or_next|is_between, ":village_no", "p_village_49", "p_village_51"), #Tismirr and Karindi
-          # (this_or_next|eq, ":village_no", "p_village_75"), #Bhulaban
-          # (is_between, ":village_no", "p_village_85", "p_village_87"), #Ismirala and Slezkh
-          # (assign, ":normal_village_icon", "icon_village_snow_a"),
-          # (assign, ":burnt_village_icon", "icon_village_snow_burnt_a"),
-          # (assign, ":deserted_village_icon", "icon_village_snow_deserted_a"),
-        # (else_try),
-          (this_or_next|eq, ":village_no", "p_french_village_56"),
-          (this_or_next|eq, ":village_no", "p_french_village_60"),
-          (this_or_next|eq, ":village_no", "p_french_village_62"),
-          (this_or_next|is_between, ":village_no", "p_french_village_72", "p_french_village_75"),
-          (this_or_next|eq, ":village_no", "p_english_village_2"),
-          (this_or_next|eq, ":village_no", "p_english_village_17"),
-          (this_or_next|eq, ":village_no", "p_english_village_18"),
-          (this_or_next|eq, ":village_no", "p_english_village_21"),
-          (this_or_next|eq, ":village_no", "p_english_village_22"),
-          (this_or_next|is_between, ":village_no", "p_english_village_29", "p_english_village_35"),
-          (this_or_next|eq, ":village_no", "p_english_village_39"),
-          (this_or_next|eq, ":village_no", "p_english_village_41"),
-          (this_or_next|eq, ":village_no", "p_english_village_48"),
-          (this_or_next|eq, ":village_no", "p_english_village_51"),
-          (this_or_next|eq, ":village_no", "p_english_village_53"),
-          (this_or_next|eq, ":village_no", "p_english_village_55"),
-          (this_or_next|is_between, ":village_no", "p_english_village_57", "p_english_village_63"),
-          (this_or_next|eq, ":village_no", "p_burgundian_village_8"),
-          (is_between, ":village_no", "p_breton_village_1", "p_salt_mine"), #Breton Villages
-          (assign, ":normal_village_icon", "icon_village_b"),
-          (assign, ":burnt_village_icon", "icon_village_burnt_b"),
-          (assign, ":deserted_village_icon", "icon_village_deserted_b"),
-        (else_try),
-          (assign, ":normal_village_icon", "icon_village_a"),
-          (assign, ":burnt_village_icon", "icon_village_burnt_a"),
-          (assign, ":deserted_village_icon", "icon_village_deserted_a"),
-        (try_end),
+        ### DAC Seek: Using slots to store village icons
+        (party_get_slot, ":normal_village_icon", ":village_no", slot_village_normal_icon),
+        (party_get_slot, ":burnt_village_icon", ":village_no", slot_village_burnt_icon),
+        (party_get_slot, ":deserted_village_icon", ":village_no", slot_village_deserted_icon),
         ##CABA Fix
          (party_get_slot, ":village_raid_progress", ":village_no", slot_village_raid_progress),
          (try_begin),
@@ -27878,7 +27969,11 @@ scripts = [
                (try_end),
                (store_faction_of_party, ":village_faction", ":village_no"),
                (faction_get_color, ":color", ":village_faction"),
-               (display_log_message, "@The village of {s1} has been looted by {s2}.", ":color"),
+               
+                (try_begin), ### DAC Seek: reduce spam
+                    (eq, ":village_faction", "$players_kingdom"),
+                    (display_log_message, "@The village of {s1} has been looted by {s2}.", ":color"),
+                (try_end),
 
                (try_begin),
                  (party_get_slot, ":village_lord", ":village_no", slot_town_lord),
@@ -30948,7 +31043,7 @@ scripts = [
       (try_end),
       (try_begin),
         (party_slot_eq, ":center_no", slot_party_type, spt_village),
-        (call_script, "script_update_volunteer_troops_in_village", ":center_no"),
+        (call_script, "script_update_volunteer_troops_in_center", ":center_no"),
       (try_end),
 
       (try_begin),
@@ -40621,24 +40716,138 @@ scripts = [
   # INPUT: none
   # OUTPUT: none
   ("update_mercenary_units_of_towns",
-    [(try_for_range, ":town_no", towns_begin, towns_end),
-      (store_random_in_range, ":troop_no", mercenary_troops_begin, mercenary_troops_end),
-      (party_set_slot, ":town_no", slot_center_mercenary_troop_type, ":troop_no"),
-      (store_random_in_range, ":amount", 3, 8),
+    [
+    (try_for_range, ":town_no", towns_begin, towns_end),
+        (store_random_in_range, ":troop_no", mercenary_troops_begin, mercenary_troops_end),
+        (party_set_slot, ":town_no", slot_center_mercenary_troop_type, ":troop_no"),
+        (try_begin), ### DAC Backgrounds and classes
+            (eq, "$background_type", cb_mercenary),
+            (store_random_in_range, ":amount", 8, 12),
+        (else_try),
+            (store_random_in_range, ":amount", 3, 8),
+        (try_end),
 	  ##diplomacy start+
 	  #OPTIONAL CHANGE: The same way that lord party sizes increase as the player
 	  #progresses, also increase mercenary party sizes to maintain their relevance.
-	  (try_begin),
-	     (ge, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_HIGH),
-		 (store_character_level, ":level", "trp_player"), #increase limits a little bit as the game progresses.
-		 (store_add, ":level_factor", 80, ":level"),
-         (val_mul, ":amount", ":level_factor"),
-         (val_div, ":amount", 80),
-	  (try_end),
+        (try_begin),
+            (ge, "$g_dplmc_gold_changes", DPLMC_GOLD_CHANGES_LOW), ### DAC Seek: Changed from HIGH
+            (store_character_level, ":level", "trp_player"), #increase limits a little bit as the game progresses.
+            (store_add, ":level_factor", 80, ":level"),
+            (val_mul, ":amount", ":level_factor"),
+            (val_div, ":amount", 80),
+        (try_end),
 	  ##diplomacy end+
-      (party_set_slot, ":town_no", slot_center_mercenary_troop_amount, ":amount"),
+        (party_set_slot, ":town_no", slot_center_mercenary_troop_amount, ":amount"),
     (try_end),
      ]),
+     
+  #script_update_volunteer_troops_in_center
+  # INPUT: arg1 = center_no
+  # OUTPUT: none
+  ("update_volunteer_troops_in_center", ### DAC Seek: Universal script to handle volunteer amount in all centers
+    [
+    (store_script_param, ":center_no", 1),
+    (party_get_slot, ":player_relation", ":center_no", slot_center_player_relation),
+    (store_faction_of_party, ":faction", ":center_no"),
+    (faction_get_slot, ":culture", ":faction", slot_faction_culture),
+    
+    (try_begin),
+        (party_slot_eq, ":center_no", slot_party_type, spt_town),
+        (assign, ":upper_limit", 12),
+        (faction_get_slot, ":volunteer_troop", ":culture", slot_faction_tier_2_troop),
+        (faction_get_slot, ":volunteer_troop_ranged", ":culture", slot_faction_tier_3_troop),
+    (else_try),
+        (party_slot_eq, ":center_no", slot_party_type, spt_village),
+        (assign, ":upper_limit", 8),  
+        (faction_get_slot, ":volunteer_troop", ":culture", slot_faction_tier_1_troop),
+        (faction_get_slot, ":volunteer_troop_ranged", ":culture", slot_faction_tier_1_archer),
+    (else_try),
+        (party_slot_eq, ":center_no", slot_party_type, spt_castle),
+        (assign, ":upper_limit", 4),           
+        (faction_get_slot, ":volunteer_troop", ":culture", slot_faction_tier_5_troop),
+        (faction_get_slot, ":volunteer_troop_ranged", ":culture", slot_faction_tier_6_troop),
+    (try_end),
+    
+    (party_set_slot, ":center_no", slot_center_volunteer_troop_type, ":volunteer_troop"),
+    (party_set_slot, ":center_no", slot_center_volunteer_troop_type_ranged, ":volunteer_troop_ranged"),
+    
+    (try_begin),
+        (ge, ":player_relation", 4),
+        (assign, ":upper_limit", ":player_relation"),
+        (val_div, ":upper_limit", 2),
+        (val_add, ":upper_limit", 6),
+    (else_try),
+        (lt, ":player_relation", 0),
+        (assign, ":upper_limit", 0),
+    (try_end),
+
+##diplomacy begin
+    (assign, ":percent", 100),
+    
+    (try_begin), #-30% if not owner
+        (neg|party_slot_eq, ":center_no", slot_town_lord, "trp_player"),
+        (val_sub, ":percent", 30),
+    (try_end),
+    
+    (try_begin), #1%/4 renown
+        (troop_get_slot, ":player_renown", "trp_player", slot_troop_renown),
+        (val_div, ":player_renown", 4),
+        (val_add, ":percent", ":player_renown"),
+    (try_end),
+    
+    (try_begin), #1%/3 honour
+        (assign, ":player_honour", "$player_honor"),
+        (val_div, ":player_honour", 3),
+        (val_add, ":percent", ":player_honour"),
+    (try_end),
+    
+    (try_begin), #+5% if king
+        (faction_get_slot, ":faction_leader", "fac_player_supporters_faction", slot_faction_leader),
+        (eq, ":faction_leader", "trp_player"),
+        (val_add, ":percent", 5),
+
+        (try_begin), #-5% for each point of serfdom
+            (faction_get_slot, ":serfdom", "fac_player_supporters_faction", dplmc_slot_faction_serfdom),
+            (neq, ":serfdom", 0),
+            (val_mul, ":serfdom", 5),
+            (val_sub, ":percent", ":serfdom"),
+        (try_end),
+
+        (try_begin),  #+5% if king of village
+            (store_faction_of_party, ":faction", ":center_no"),
+            (eq, ":faction", "fac_player_supporters_faction"),
+            (val_add, ":percent", 5),
+        (try_end),
+    (try_end),
+    
+    (try_begin), ### DAC Backgrounds and classes
+        (eq, "$background_type", cb_noble),
+        (party_slot_eq, ":center_no", slot_party_type, spt_castle),
+        (val_add, ":percent", 5),
+    (try_end),
+
+    (try_begin),
+        (eq, "$background_type", cb_peasant),
+        (party_slot_eq, ":center_no", slot_party_type, spt_village),
+        (val_add, ":percent", 5),
+    (try_end),
+    
+    (try_begin),
+        (gt, ":upper_limit", 0),
+        (val_clamp, ":percent", 0, 201),
+        (val_mul, ":upper_limit", ":percent"),
+        (val_div, ":upper_limit", 100),
+    (try_end),
+
+##diplomacy end
+
+       (store_random_in_range, ":amount", 0, ":upper_limit"),
+       (party_set_slot, ":center_no", slot_center_volunteer_troop_amount, ":amount"),
+     ]),
+     
+     
+     
+     
 
   #script_update_volunteer_troops_in_village
   # INPUT: arg1 = center_no
@@ -43130,7 +43339,7 @@ scripts = [
       (this_or_next|ge, ":town_faction_relation", 0),
       (this_or_next|eq, ":town_faction", "$supported_pretender_old_faction"),
       (             eq, "$players_kingdom", 0),
-      (party_slot_ge, "$current_town", slot_center_volunteer_troop_amount, 0),
+      (party_slot_ge, "$current_town", slot_center_volunteer_troop_amount, 1),
       (party_slot_ge, "$current_town", slot_center_volunteer_troop_type, 1),
       (party_get_free_companions_capacity, ":free_capacity", "p_main_party"),
       (ge, ":free_capacity", 1),

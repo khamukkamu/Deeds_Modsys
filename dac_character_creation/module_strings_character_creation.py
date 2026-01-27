@@ -353,9 +353,9 @@ You own very little other than the clothes on your back"),
 ("dac_background_class_desc_rebel",               "Rebels are those that have lost everything and lash out against the world enacting mob justice on those they consider to have wronged them ^^\
 Pros: ^\
 » We Are Legion: ^\
-Base party size increased ^\
+Base party size increased, peasant and bandit recruitment costs reduced by 20%. ^\
 » Rebel Leader: ^\
-Destroying you first bandit camp spawns a hideout for you to trade and recruit from the defeated bandit faction. Destroy other camps to gain new units and make the bandit factions friendly to you. ^^\
+Destroying your first bandit camp spawns a hideout for you to trade and recruit from the defeated bandit faction. Destroy other camps to gain new units and make the bandit factions friendly to you. ^^\
 Cons: ^\
 » Bellum Omnium Contra Omnes: ^\
 All factions start hostile towards you. ^\
