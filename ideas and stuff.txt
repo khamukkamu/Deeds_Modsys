@@ -53,3 +53,5 @@ Update village icon script
 Idea: Ask scouting parties for the location of lords
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+Send Recruiter to towns ; Change recruiter army compositions

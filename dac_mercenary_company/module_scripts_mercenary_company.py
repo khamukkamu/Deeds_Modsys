@@ -1098,7 +1098,8 @@ mercenary_company_scripts = [
     (try_begin),
        (eq, ":pass", 1),
        (eq, ":item_type", itp_type_horse),
-       (neg|troop_is_mounted, ":troop_no"),
+       # (this_or_next|neg|troop_is_mounted, ":troop_no"),
+       (neg|troop_is_guarantee_horse, ":troop_no"),
        (assign, ":pass", 0),
     (try_end),
     

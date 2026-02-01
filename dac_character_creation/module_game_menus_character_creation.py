@@ -344,6 +344,14 @@ character_creation_menus = [
         (try_end),
         
         (try_begin),
+            (eq, "$class_type", cc_soldier_cook),
+            (try_for_range, ":recipe_book", cookbooks_begin, cookbooks_end),
+                (item_set_slot, ":recipe_book", slot_item_book_reading_progress, 1000),
+                (item_set_slot, ":recipe_book", slot_item_book_read, 1),
+            (try_end),
+        (try_end),
+        
+        (try_begin),
             (eq, "$class_type", cc_healer_priest),
             (assign, "$dac_priest_heresy_counter", 0),
             (assign, "$dac_priest_is_bishop", 0),

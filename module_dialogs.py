@@ -37692,7 +37692,81 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 ##   [(assign, reg(2), 28),(val_sub,reg(2),reg(1)),(assign, "$g_town_visit_after_rest", 1),(rest_for_hours, reg(2)),(troop_remove_gold, "trp_player","$tavern_rest_cost"),(call_script, "script_change_player_party_morale", 2)]],
 ##  [anyone|plyr,"tavernkeeper_rest_2", [], "Forget it.", "close_window",[]],
 
-
+### DAC Seek: Purchase recipe from unique tavernkeepers
+  [anyone|plyr,"tavernkeeper_talk",
+   [
+    (this_or_next|eq, "$g_talk_troop", "trp_french_town_2_tavernkeeper"),
+    (this_or_next|eq, "$g_talk_troop", "trp_french_town_15_tavernkeeper"),
+    (this_or_next|eq, "$g_talk_troop", "trp_english_town_1_tavernkeeper"),
+    (this_or_next|eq, "$g_talk_troop", "trp_english_town_2_tavernkeeper"),
+    (this_or_next|eq, "$g_talk_troop", "trp_english_town_9_tavernkeeper"),
+    (this_or_next|eq, "$g_talk_troop", "trp_burgundian_town_15_tavernkeeper"),
+    (eq, "$g_talk_troop", "trp_breton_town_1_tavernkeeper"),
+   ],
+   "[Buy] I really enjoyed the food, any chance I could get a recipe?", "tavernkeeper_recipe",[]],
+  
+  [anyone,"tavernkeeper_recipe",
+   [
+   ],
+   "Glad you enjoyed it but I don't part with my recipes that easily, It'll cost you.", "tavernkeeper_recipe_finish",[(change_screen_trade),]],
+  
+  [anyone,"tavernkeeper_recipe_finish",
+   [
+   ],
+   "Nice doing business with you, do you need anything else?", "tavernkeeper_recipe_clues",[]],
+  
+  [anyone|plyr,"tavernkeeper_recipe_clues",
+   [
+   ],
+   "You wouldn't happen to know where I can find other chefs do you?", "tavernkeeper_recipe_clues_cont",[]],
+  
+  [anyone,"tavernkeeper_recipe_clues_cont",
+   [
+   (eq, "$g_talk_troop", "trp_french_town_2_tavernkeeper"),
+   ],
+   "I come back from a recent trip to Toulouse, the tavernkeeper had the best dish of all the the places I stopped. A personal friend of mine is a Chef in Paris, made quite a good living from it.", "tavernkeeper_pretalk",[]],
+  
+  [anyone,"tavernkeeper_recipe_clues_cont",
+   [
+   (eq, "$g_talk_troop", "trp_french_town_15_tavernkeeper"),
+   ],
+   "Not too long ago I hosted a Chef from Orléans, he said he owns a tavern there. Otherwise I have an acquaintance in Bayonne, he makes good desserts even though he's mainly a baker.", "tavernkeeper_pretalk",[]],
+  
+  [anyone,"tavernkeeper_recipe_clues_cont",
+   [
+   (eq, "$g_talk_troop", "trp_english_town_1_tavernkeeper"),
+   ],
+   "Visit my friend in Orléans, follow the lovely aroma from the town center! I know a man from Provins that was a decent cook, when sober...", "tavernkeeper_pretalk",[]],
+  
+  [anyone,"tavernkeeper_recipe_clues_cont",
+   [
+   (eq, "$g_talk_troop", "trp_english_town_2_tavernkeeper"),
+   ],
+   "To Toulouse straight away! Send my regards to my friend there at the tavern. If you don't mind the distance you can try Rennes, there's a lovely lady there who can cook alright.", "tavernkeeper_pretalk",[]],
+  
+  [anyone,"tavernkeeper_recipe_clues_cont",
+   [
+   (eq, "$g_talk_troop", "trp_english_town_9_tavernkeeper"),
+   ],
+   "Mhm, I haven't been here long. My patrons tell me to try the fish in Rennes and whatever some drunkard in Provins seems to be making but I sincerely question their taste in food.", "tavernkeeper_pretalk",[]],
+  
+  [anyone,"tavernkeeper_recipe_clues_cont",
+   [
+   (eq, "$g_talk_troop", "trp_burgundian_town_15_tavernkeeper"),
+   ],
+   "I huh, don't remember much. Paris is always a safe bet, it's so big it's bound to have someone that knows how to cook. If you're curious it's said that there's quite the oddfellow in Caen, an Englishman that can cook hahaha...", "tavernkeeper_pretalk",[]],
+  
+  [anyone,"tavernkeeper_recipe_clues_cont",
+   [
+   (eq, "$g_talk_troop", "trp_breton_town_1_tavernkeeper"),
+   ],
+   "Oh dear, what a question. If you plan to go to Bayonne there's a former baker that makes some sweets on occasion, do tell him he owes me 5 crowns. I've also heard travellers mentioning a man from the Isles in Caen but little do I know.", "tavernkeeper_pretalk",[]],
+  
+  [anyone,"tavernkeeper_recipe_clues_cont",
+   [
+   ],
+   "Apologies but I seldom travel and do not know whom to recommend.", "tavernkeeper_pretalk",[]],
+### DAC Seek: Sell prisoners as a Ransom Broker
   [anyone|plyr,"tavernkeeper_talk",
    [(store_num_regular_prisoners,reg0),(ge,reg0,1),(eq, "$sneaked_into_town",0),(eq, "$class_type", cc_merchant_slave),],
    "[Ransom Broker] Say, I may have some two-legged cattle I want to be relieved of.", "tavernkeeper_sell_prisoners_all",[]],

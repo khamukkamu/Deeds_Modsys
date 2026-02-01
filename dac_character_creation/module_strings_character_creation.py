@@ -265,8 +265,8 @@ Cons: ^\
 » Hoarder: You tend to collect useless junk, just in case, slowing your movement on the campaign map by 6% (equal to 2 levels of pathfinding skill)"),
 ("dac_background_class_desc_cook",                  "Cooks specialize in keeping the troops happy and well-fed ^^\
 Pros: ^\
-[WIP] » Master Chef: ^\
-Get a variety of new bonuses from food ^\
+» Master Chef: ^\
+Start with all the food recipes unlocked ^\
 » Enticing Odour: ^\
 Higher probability of success when attempting to recruit prisoners, captured enemy lords are less likely to escape ^^\
 Cons: ^\
