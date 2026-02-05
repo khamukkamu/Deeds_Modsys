@@ -10045,7 +10045,7 @@ TOTAL:  {reg5}"),
 
   (
     "recruit_volunteers",mnf_scale_picture,
-    "{s18} ^^You have {reg9} crowns ^Your party is at {reg12}/{reg13} members.",
+    "{s18} ^^You have {reg9} crowns ^^Your party is at {reg12}/{reg13} members. ^^Your party is composed by: ^{reg14} Mounted Troops ^{reg15} Infantry Troops ^{reg16} Ranged Troops",
     "none",
     [
     ### Get slots, party type (castle, village, town), base and alt troop tree, amount of volunteers
@@ -10057,6 +10057,31 @@ TOTAL:  {reg5}"),
         ### Get party size, limit, player gold
         (party_get_free_companions_capacity, ":free_capacity", "p_main_party"),
         (store_troop_gold, ":gold", "trp_player"),
+        
+        ### Get troop types
+        (party_get_num_companion_stacks, ":num_stacks","p_main_party"),
+        
+        (assign, ":mounted_troops", 0),
+        (assign, ":ranged_troops", 0),
+        (assign, ":infantry_troops", 0),
+        
+        (try_for_range, ":i_stack", 0, ":num_stacks"),
+            (party_stack_get_troop_id, ":stack_troop", "p_main_party", ":i_stack"),
+            (party_stack_get_size, ":stack_size","p_main_party",":i_stack"),
+            (try_begin),
+                (troop_is_mounted, ":stack_troop"),
+                (val_add, ":mounted_troops", ":stack_size"),
+            (else_try),
+                (troop_is_guarantee_ranged, ":stack_troop"),                
+                (val_add, ":ranged_troops", ":stack_size"),
+            (else_try),
+                (val_add, ":infantry_troops", ":stack_size"),
+            (try_end),
+        (try_end),
+        
+        (assign, reg14, ":mounted_troops"),
+        (assign, reg15, ":infantry_troops"),        
+        (assign, reg16, ":ranged_troops"),    
         
         ### Get joining costs
         (call_script, "script_game_get_join_cost", ":volunteer_troop"),

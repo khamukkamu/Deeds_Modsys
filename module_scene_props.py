@@ -4814,7 +4814,7 @@ scene_props = [
 # from 'DAC_props_pure_native_replacements.brf': begin (OpenBRF)
 	( "french_military_remix_corner_a_roof"        ,0,"french_military_remix_corner_a_roof","bo_french_military_remix_corner_a_roof",[]),
 	( "french_military_remix_corner_d_roof"        ,0,"french_military_remix_corner_d_roof","bo_french_military_remix_corner_d_roof",[]),
-	( "french_military_remix_gate_house_d_roof"    ,0,"french_military_remix_gate_house_d_roof","0",[]),
+	( "french_military_remix_gate_house_d_roof"    ,0,"french_military_remix_gate_house_d_roof","bo_french_military_remix_gate_house_d_roof",[]),
 	( "castle_battlement_corner_a_roof"            ,0,"castle_battlement_corner_a_roof","bo_castle_battlement_corner_a_roof",[]),
 	( "nmp_sw2_gatehouse_c_roof"                   ,0,"nmp_sw2_gatehouse_c_roof","bo_nmp_sw2_gatehouse_c_roof",[]),
 	( "nmp_sw2_castle_f_battlement_corner_a_roof"  ,0,"nmp_sw2_castle_f_battlement_corner_a_roof","bo_nmp_sw2_castle_f_battlement_corner_a_roof",[]),

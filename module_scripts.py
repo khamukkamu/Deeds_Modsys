@@ -5478,11 +5478,11 @@ scripts = [
             (val_div, ":join_cost", 100),
         (try_end),
     
-        (try_begin),# Reduce cost of player company mercs
-            (this_or_next|is_between, ":troop_id", customizable_troops_begin, customizable_troops_end),
-            (val_mul, ":join_cost", 4),            
-            (val_div, ":join_cost", 5),            
-        (try_end),
+        # (try_begin),# Reduce cost of player company mercs
+            # (this_or_next|is_between, ":troop_id", customizable_troops_begin, customizable_troops_end),
+            # (val_mul, ":join_cost", 4),            
+            # (val_div, ":join_cost", 5),            
+        # (try_end),
         
         (try_begin), ### Nobles pay less for knights
             (eq, "$background_type", cb_noble),
@@ -5524,11 +5524,11 @@ scripts = [
             (val_div, ":join_cost", 5),                
         (try_end),
 
-        (try_begin), #mounted troops cost more than the normal cost
-            (troop_is_mounted, ":troop_id"),
-            (val_mul, ":join_cost", 8),
-            (val_div, ":join_cost", 5),            
-        (try_end),
+        # (try_begin), #mounted troops cost more than the normal cost
+            # (troop_is_mounted, ":troop_id"),
+            # (val_mul, ":join_cost", 8),
+            # (val_div, ":join_cost", 5),            
+        # (try_end),
         
         (try_begin), #mounted and ranged troops cost more than the infantry
             (this_or_next|troop_is_mounted, ":troop_id"),
@@ -79508,6 +79508,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 	(call_script, "script_item_weapon_switch_with_next", "itm_h_great_bascinet_continental_1430_visor_gilded"),
     
 	(call_script, "script_item_weapon_switch_with_next", "itm_h_pigface_klappvisor"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_h_pigface_klappvisor_plated"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_h_zitta_bascinet"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_h_wespe_bascinet_a"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_h_wespe_bascinet_b"),

@@ -1739,7 +1739,7 @@ triggers = [
         (try_end),
         
         (display_message, "@Your party tires from the forced march", color_bad_news),   
-        (display_message, "@Press Shift to disable", color_good_news),
+        (display_message, "@Press Shift to disable", color_bad_news),
   ]),
 
 ##diplomacy end
