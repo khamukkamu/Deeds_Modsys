@@ -160,8 +160,8 @@ parties = [
     ("breton_town_1","Rennes", icon_town_a_breton|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-72.68, 51.24),[], 192),                          
     ("breton_town_2","Nantes", icon_town_a|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-68.05, 12.7),[], 278),                           
     ("breton_town_3","Vannes", icon_town_a_breton|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-103.39, 33.41),[], 13),                          
-    ("breton_town_4","Kemper", icon_town_a_breton|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-145.03, 50.07),[], 211),
-    ("breton_town_5","Saint-Malo", icon_town_b_breton|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-81.93, 73.9),[], 354),          
+    ("breton_town_4","Kemper", icon_town_a_breton|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-142.48, 52.95),[], 211),         #[swycartographr] prev. coords: (-145.03, 50.07)
+    ("breton_town_5","Saint-Malo", icon_town_b_breton|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-78.54, 74.98),[], 354),           #[swycartographr] prev. coords: (-81.93, 73.9) #[swycartographr] prev. coords: (-79.45, 75.04)
     ("breton_town_6","Saint-Brieuc", icon_town_a_breton|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-102.15, 72.52),[], 153),                  
     ("breton_town_7","Saint-Pol-de-Léon", icon_town_a_breton|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-136.96, 77.55),[], 326),            
     ("breton_town_8","Rohan", icon_town_b_breton|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-98.05, 53.68),[], 27),                          
@@ -275,14 +275,14 @@ parties = [
   ("breton_castle_9","Château_de_Tonquédec",icon_castle_c_breton|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-118.96, 78.63),[],233),
   ("breton_castle_10","Château_de_Rosmadec",icon_castle_a_breton|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-147.11, 58.98),[],266),
   
-  ("breton_castle_11","Château_de_Coëtivy",icon_castle_c_breton|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-147.56, 74.62),[],109),
-  ("breton_castle_12","Château_de_Trémazan",icon_castle_a_breton|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-156.61, 72.31),[],203),
+  ("breton_castle_11","Château_de_Brest",icon_castle_c_breton|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-152.51, 68.68),[],109), #[swycartographr] prev. coords: (-147.56, 74.62) #[swycartographr] prev. coords: (-152.27, 68.63)
+  ("breton_castle_12","Château_de_Trémazan",icon_castle_a_breton|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-158.44, 72.88),[],203), #[swycartographr] prev. coords: (-156.61, 72.31)
   ("breton_castle_13","Château_de_Kermoysan",icon_castle_a_breton|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-109.53, 77.43),[],101),
   ("breton_castle_14","Château_de_Montmuran",icon_castle_c_breton|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-80.98, 55.45),[],13), #[swycartographr] prev. coords: (-80.37, 55.55)
   ("breton_castle_15","Château_de_Penhoët",icon_castle_b_breton|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-121.59, 69.39),[],306),
-  ("breton_castle_16","Château_de_Penmarc'h",icon_castle_a_breton|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-137.08, 70.22),[],82),
+  ("breton_castle_16","Château_de_Guildo",icon_castle_a_breton|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-83.96, 73.24),[],82), #[swycartographr] prev. coords: (-137.08, 70.22)
   ("breton_castle_17","Château_de_Tronchâteau",icon_castle_b_breton|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-128.8, 45.99),[],197),
-  ("breton_castle_18","Forteresse de Largoët",icon_castle_c_breton|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-103.44, 38.74),[],115),
+  ("breton_castle_18","Forteresse de Largoët",icon_castle_c_breton|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-102.31, 39.46),[],115), #[swycartographr] prev. coords: (-103.44, 38.74)
   ("breton_castle_19","Château_de_Derval",icon_castle_c_breton|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-73.59, 31.3),[],45),
   ("breton_castle_20","Château_de_Suscinio",icon_castle_a_breton|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-96.75, 26.75),[],334),
   
@@ -347,12 +347,12 @@ parties = [
   ("french_village_45", "Saint-Symphorien",  icon_village_b|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(0.73, 20.34),[], 293),             #[swycartographr] prev. coords: (-12.56, -2.14) #[swycartographr] prev. coords: (5.2, 2.36) #[swycartographr] prev. coords: (-6.67, 10.22)
   ("french_village_46", "Issoudun",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(30.29, -13.28),[], 233),      #[swycartographr] prev. coords: (22.96, -10.82) #[swycartographr] prev. coords: (36.49, -5.43)
   ("french_village_47", "Fontenay",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-44.84, -27.83),[], 200),    #[swycartographr] prev. coords: (-46.86, -30.27)
-  ("french_village_48", "Condom",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-22.89, -140.78),[], 46),      #[swycartographr] prev. coords: (-11.32, -137.89) #[swycartographr] prev. coords: (-22.65, -140.74)
+  ("french_village_48", "Condom",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-21.67, -132.03),[], 46),      #[swycartographr] prev. coords: (-11.32, -137.89) #[swycartographr] prev. coords: (-22.65, -140.74) #[swycartographr] prev. coords: (-22.89, -140.78)
   ("french_village_49", "Blanzac",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(84.57, -74.52),[], 360),      #[swycartographr] prev. coords: (79.36, -78.98)
   ("french_village_50", "Chélieu",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(132.91, -64.24),[], 10),     #[swycartographr] prev. coords: (124.9, -45.6)
     
   ("french_village_51", "La Crête",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(48.74, -26.97),[], 100),
-  ("french_village_52", "Pontlevoy",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(21.18, 11.65),[], 255),       #[swycartographr] prev. coords: (1.07, 10.38) #[swycartographr] prev. coords: (10.13, 16.22) #[swycartographr] prev. coords: (18.66, 12.79) #[swycartographr] prev. coords: (24.65, 12.19) #[swycartographr] prev. coords: (31.28, 11.43)
+  ("french_village_52", "Pontlevoy",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(22.56, 12.16),[], 255),       #[swycartographr] prev. coords: (1.07, 10.38) #[swycartographr] prev. coords: (10.13, 16.22) #[swycartographr] prev. coords: (18.66, 12.79) #[swycartographr] prev. coords: (24.65, 12.19) #[swycartographr] prev. coords: (31.28, 11.43) #[swycartographr] prev. coords: (21.18, 11.65)
   ("french_village_53", "Boussac",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(35.03, -27.42),[], 100),      #[swycartographr] prev. coords: (34.98, -28.63)
   ("french_village_54", "Yèvre",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(41.1, 44.5),[], 10),           #[swycartographr] prev. coords: (32.03, 41.21)
   ("french_village_55", "Aix",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(73.22, -71.3),[], 221),           #[swycartographr] prev. coords: (85.52, -60.5)
@@ -384,7 +384,7 @@ parties = [
   ("french_village_79", "Sully-sur-Loire",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(48.18, 26.38),[], 47),      
   ("french_village_80", "Uzès",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(101.8, -131.1),[], 218),        #[swycartographr] prev. coords: (101.61, -131.8)
   ("french_village_81", "Najac",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(24, -121),[], 218),   
-  ("french_village_82", "La Ferté",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(40.01, 20.73),[], 218),     #[swycartographr] prev. coords: (101.61, -131.8) #[swycartographr] prev. coords: (38.57, 23.26)
+  ("french_village_82", "La Ferté",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(39.68, 18.99),[], 218),     #[swycartographr] prev. coords: (101.61, -131.8) #[swycartographr] prev. coords: (38.57, 23.26) #[swycartographr] prev. coords: (40.01, 20.73)
 
 ### DAC English Villages 
 
@@ -542,7 +542,7 @@ parties = [
   ("breton_village_5", "Auray",  icon_village_b|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-108.15, 33.77),[], 82),         #[swycartographr] prev. coords: (-97.62, 31.33) #[swycartographr] prev. coords: (-113.48, 36.13) #[swycartographr] prev. coords: (-110.13, 35.35) #[swycartographr] prev. coords: (-104.25, 32.17) #[swycartographr] prev. coords: (-95.47, 20.88)
   ("breton_village_6", "Malestroit",  icon_village_b|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-85.58, 39.14),[], 15),     #[swycartographr] prev. coords: (-84.58, 33.59) #[swycartographr] prev. coords: (-97.32, 40.37) #[swycartographr] prev. coords: (-84.12, 44.22)
   ("breton_village_7", "Aleth",  icon_village_b|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-82.36, 65.59),[], 246),         #[swycartographr] prev. coords: (-79.53, 66.04)
-  ("breton_village_8", "Dinard",  icon_village_b|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-85.61, 74.59),[], 100),        #[swycartographr] prev. coords: (-86.39, 68.28)
+  ("breton_village_8", "Dol",  icon_village_b|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-69.03, 69.12),[], 100),        #[swycartographr] prev. coords: (-86.39, 68.28) #[swycartographr] prev. coords: (-69.05, 69.95) #[swycartographr] prev. coords: (-85.61, 74.59) #[swycartographr] prev. coords: (-48.55, 38.59)
   ("breton_village_9", "Roscoff",  icon_village_b|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-137.84, 80.33),[], 167),      #[swycartographr] prev. coords: (-131.68, 77.55) #[swycartographr] prev. coords: (-132.16, 77.46) #[swycartographr] prev. coords: (-135.43, 83.76)
   ("breton_village_10", "Carantec",  icon_village_b|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-131.41, 80.13),[], 147),    #[swycartographr] prev. coords: (-123.66, 74.16) #[swycartographr] prev. coords: (-129.03, 83.87)
   
@@ -552,7 +552,7 @@ parties = [
   ("breton_village_14", "Loudéac",  icon_village_b|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-79.73, 53.35),[], 327),      #[swycartographr] prev. coords: (-98.83, 57.04) #[swycartographr] prev. coords: (-97.03, 61.4) #[swycartographr] prev. coords: (-92.3, 57.77)
   ("breton_village_15", "Trégueux",  icon_village_b|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-101.23, 68.97),[], 200),   #[swycartographr] prev. coords: (-94.91, 64.48)
   ("breton_village_16", "Lamballe",  icon_village_b|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-90.81, 70.57),[], 274),     #[swycartographr] prev. coords: (-90.77, 62.74) #[swycartographr] prev. coords: (-91.03, 65.76)
-  ("breton_village_17", "Trémazan",  icon_village_b|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-158.93, 73.82),[], 232),   #[swycartographr] prev. coords: (-147.53, 71.3) #[swycartographr] prev. coords: (-148.58, 70.04) #[swycartographr] prev. coords: (-156.16, 77.39)
+  ("breton_village_17", "Trémazan",  icon_village_b|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-159.45, 74.49),[], 232),   #[swycartographr] prev. coords: (-147.53, 71.3) #[swycartographr] prev. coords: (-148.58, 70.04) #[swycartographr] prev. coords: (-156.16, 77.39) #[swycartographr] prev. coords: (-158.93, 73.82)
   ("breton_village_18", "Guérande",  icon_village_b|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-92.44, 18.59),[], 359),    #[swycartographr] prev. coords: (-83.91, 14.32) #[swycartographr] prev. coords: (-88.74, 19.88)
   ("breton_village_19", "Beaumanoir",  icon_village_b|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-85.44, 54.27),[], 235),   #[swycartographr] prev. coords: (-81.89, 59.78)
   ("breton_village_20", "Romagné",  icon_village_b|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-61.14, 60.23),[], 89),      #[swycartographr] prev. coords: (-59.16, 55.72)
@@ -560,7 +560,7 @@ parties = [
   ("breton_village_21", "Rouge",  icon_village_b|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-66.25, 37.41),[], 56),         #[swycartographr] prev. coords: (-59.33, 30.98)
   ("breton_village_22", "Vallet",  icon_village_b|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-66.97, 7.26),[], 20),
   ("breton_village_23", "Hélléan",  icon_village_b|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-85.78, 35.22),[], 318),    #[swycartographr] prev. coords: (-83.92, 45.59) #[swycartographr] prev. coords: (-91.68, 46.43) #[swycartographr] prev. coords: (-81.78, 46.09) #[swycartographr] prev. coords: (-91.46, 45.58) #[swycartographr] prev. coords: (-85.06, 43.87)
-  ("breton_village_24", "Landerneau",  icon_village_b|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-146.86, 70.05),[], 196),  #[swycartographr] prev. coords: (-137.28, 62.05) #[swycartographr] prev. coords: (-137.44, 60.95) #[swycartographr] prev. coords: (-143.29, 73.85) #[swycartographr] prev. coords: (-146.96, 69.99)
+  ("breton_village_24", "Landerneau",  icon_village_b|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-147.14, 71.12),[], 196),  #[swycartographr] prev. coords: (-137.28, 62.05) #[swycartographr] prev. coords: (-137.44, 60.95) #[swycartographr] prev. coords: (-143.29, 73.85) #[swycartographr] prev. coords: (-146.96, 69.99) #[swycartographr] prev. coords: (-146.86, 70.05)
   ("breton_village_25", "Lignol",  icon_village_b|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-114.62, 56.06),[], 108),       #[swycartographr] prev. coords: (-116.08, 51.37) #[swycartographr] prev. coords: (-117.33, 53.8)
   ("breton_village_26", "Lannion",  icon_village_b|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-121.79, 82.14),[], 212),       #[swycartographr] prev. coords: (-110.45, 75.94) #[swycartographr] prev. coords: (-113.4, 76.8)
   ("breton_village_27", "Châteaulin",  icon_village_b|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-142.45, 60.61),[], 47),      #[swycartographr] prev. coords: (-140.22, 57.52) #[swycartographr] prev. coords: (-143.26, 64.83) #[swycartographr] prev. coords: (-146.5, 60.68) #[swycartographr] prev. coords: (-145.49, 60.78)
@@ -587,11 +587,11 @@ parties = [
 
   ("training_ground","Training Ground",  pf_disabled|icon_training_ground|pf_hide_defenders|pf_is_static|pf_always_visible, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(65, -105),[]),
 
-  ("training_ground_1", "Training Field",  icon_training_ground|pf_hide_defenders|pf_is_static|pf_always_visible|pf_label_medium, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(17.93, -130.08),[], 207), #[swycartographr] prev. coords: (16.13, -112.41) #[swycartographr] prev. coords: (18.45, -117.04)
-  ("training_ground_2", "Training Field",  icon_training_ground|pf_hide_defenders|pf_is_static|pf_always_visible|pf_label_medium, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-55.42, -52.76),[], 235), #[swycartographr] prev. coords: (-44.64, -67.59) #[swycartographr] prev. coords: (-52.03, -53.43)
-  ("training_ground_3", "Training Field",  icon_training_ground|pf_hide_defenders|pf_is_static|pf_always_visible|pf_label_medium, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(22.9, 114.9),[], 231), #[swycartographr] prev. coords: (15.84, 103.93)
-  ("training_ground_4", "Training Field",  icon_training_ground|pf_hide_defenders|pf_is_static|pf_always_visible|pf_label_medium, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-61.62, -113.66),[], 89), #[swycartographr] prev. coords: (134.97, -100.44) #[swycartographr] prev. coords: (131.2, -105.93) #[swycartographr] prev. coords: (-59.14, -113.94) #[swycartographr] prev. coords: (-58.59, -109.3)
-  ("training_ground_5", "Training Field",  icon_training_ground|pf_hide_defenders|pf_is_static|pf_always_visible|pf_label_medium, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(9.95, 50.33),[], 230), #[swycartographr] prev. coords: (-23.96, 33.1)
+  ("training_ground_1", "Training Field",  icon_training_ground|pf_hide_defenders|pf_is_static|pf_always_visible|pf_label_medium, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(35.42, -40.44),[], 207), #[swycartographr] prev. coords: (16.13, -112.41) #[swycartographr] prev. coords: (18.45, -117.04) #[swycartographr] prev. coords: (17.93, -130.08)
+  ("training_ground_2", "Training Field",  icon_training_ground|pf_hide_defenders|pf_is_static|pf_always_visible|pf_label_medium, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-10.78, 89.2),[], 235), #[swycartographr] prev. coords: (-44.64, -67.59) #[swycartographr] prev. coords: (-52.03, -53.43) #[swycartographr] prev. coords: (-55.42, -52.76)
+  ("training_ground_3", "Training Field",  icon_training_ground|pf_hide_defenders|pf_is_static|pf_always_visible|pf_label_medium, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(95.27, 38.77),[], 231), #[swycartographr] prev. coords: (15.84, 103.93) #[swycartographr] prev. coords: (22.9, 114.9)
+  ("training_ground_4", "Training Field",  icon_training_ground|pf_hide_defenders|pf_is_static|pf_always_visible|pf_label_medium, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(17.5, -130.72),[], 89), #[swycartographr] prev. coords: (134.97, -100.44) #[swycartographr] prev. coords: (131.2, -105.93) #[swycartographr] prev. coords: (-59.14, -113.94) #[swycartographr] prev. coords: (-58.59, -109.3) #[swycartographr] prev. coords: (-61.62, -113.66)
+  ("training_ground_5", "Training Field",  icon_training_ground|pf_hide_defenders|pf_is_static|pf_always_visible|pf_label_medium, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-126.56, 63.24),[], 230), #[swycartographr] prev. coords: (-23.96, 33.1) #[swycartographr] prev. coords: (9.95, 50.33)
 
 
 #  bridge_a
@@ -694,7 +694,7 @@ parties = [
   ("Bridge_97","{!}97",icon_bridge_a|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(80.59, -114.9),[], 257),    #[swycartographr] prev. coords: (-5.66, -20.53) rot: 284
   ("Bridge_98","{!}98",icon_bridge_a|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-14.05, -93.82),[], 352),    #[swycartographr] prev. coords: (-5.66, -20.53) rot: 284 #[swycartographr] prev. coords: (-14.08, -93.73) rot: 351 #[swycartographr] prev. coords: (-14.08, -93.73) rot: 5
   ("Bridge_99","{!}99",icon_bridge_a|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-37.1, -88.94),[], 318),    #[swycartographr] prev. coords: (-5.66, -20.53) rot: 284 #[swycartographr] prev. coords: (-37.06, -88.89) rot: 331 #[swycartographr] prev. coords: (-37.1, -88.94) rot: 317
-  ("Bridge_100","{!}100",icon_bridge_a|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-22.75, -58.37),[], 41),    #[swycartographr] prev. coords: (-5.66, -20.53) rot: 284 #[swycartographr] prev. coords: (-53.42, -149.18) rot: 316 #[swycartographr] prev. coords: (-53.34, -149.28) rot: 311
+  ("Bridge_100","{!}100",icon_bridge_a|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-26.04, -60.03),[], 16),    #[swycartographr] prev. coords: (-5.66, -20.53) rot: 284 #[swycartographr] prev. coords: (-53.42, -149.18) rot: 316 #[swycartographr] prev. coords: (-53.34, -149.28) rot: 311 #[swycartographr] prev. coords: (-22.75, -58.37) rot: 41
   ("Bridge_101","{!}101",icon_bridge_a|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(73.15, -80.16),[], 251),    #[swycartographr] prev. coords: (-5.66, -20.53) #[swycartographr] prev. coords: (72.52, -76.09) rot: 284
   ("Bridge_102","{!}102",icon_bridge_a|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-5.65, -20.54),[], 271),    #[swycartographr] prev. coords: (-5.66, -20.53) rot: 284 #[swycartographr] prev. coords: (-5.66, -20.46)
   ("Bridge_103","{!}103",icon_bridge_a|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(109.11, -114.13),[], 80),   #[swycartographr] prev. coords: (69.76, -59.67) rot: 58
@@ -708,6 +708,7 @@ parties = [
   ("Bridge_111","{!}111",icon_bridge_a|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(71.04, -103.21),[], 116),    #[swycartographr] prev. coords: (-1.29, 16.85) rot: 13 #[swycartographr] prev. coords: (157.42, 23.33) rot: 104
   ("Bridge_112","{!}112",icon_bridge_a|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(7.6, -17.43),[], 327),    #[swycartographr] prev. coords: (-1.29, 16.85) rot: 13 #[swycartographr] prev. coords: (157.42, 23.33) rot: 104 #[swycartographr] prev. coords: (54.38, -111.45) rot: 349 #[swycartographr] prev. coords: (83.3, -98.48) #[swycartographr] prev. coords: (7.08, -17.21)
   ("Bridge_113","{!}113",icon_bridge_a|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(54.38, -111.45),[], 349),    #[swycartographr] prev. coords: (-1.29, 16.85) rot: 13 #[swycartographr] prev. coords: (157.42, 23.33) rot: 104
+  ("Bridge_114","{!}114",icon_bridge_a|pf_is_static|pf_always_visible|pf_no_label, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-17.24, 6.63),[], 155), 
 
 #  Bandit Spawn Points
   # ("plains_bandit_spawn_point_1"  ,"the plains",pf_disabled|pf_is_static, no_menu, pt_none, fac_outlaws,0,ai_bhvr_hold,0,(25.5, -48),[(trp_looter,15,0)]),

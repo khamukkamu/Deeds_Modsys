@@ -607,14 +607,16 @@ dac_agent_lives_or_dies = (ti_on_agent_killed_or_wounded, 0, 0, [],
             (try_begin),
                 (agent_get_team, ":dead_agent_team", ":dead_agent_no"),
                 (team_get_leader, ":dead_agent_leader", ":dead_agent_team"),
-                (agent_get_troop_id, ":leader_troop", ":dead_agent_leader"), 
                 
                 (try_begin),
+                    (gt, ":dead_agent_leader", -1),
                     (neg|agent_is_non_player, ":dead_agent_leader"), ### Player
                     (party_get_skill_level, ":surgery_skill", "p_main_party", "skl_surgery"), #Gets skill level from your party.
                     (val_mul, ":surgery_skill", 3), #+3% survival rate from each point in Surgery.
                     (val_add, ":surgery_skill", 25), #default base chance, but can be altered here!                 
                 (else_try),
+                    (gt, ":dead_agent_leader", -1),
+                    (agent_get_troop_id, ":leader_troop", ":dead_agent_leader"), 
                     (troop_is_hero, ":leader_troop"), ### Lord
                     (store_skill_level, ":surgery_skill", "skl_surgery", ":leader_troop"), #Gets skill level directly from enemy party's leader, as lords dont have NPCs in party.
                     (val_mul, ":surgery_skill", 3), #+3% survival rate from each point in Surgery.

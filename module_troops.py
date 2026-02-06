@@ -3897,6 +3897,9 @@ def_attrib, wp(50), knows_warrior_basic, bandit_face1, bandit_face2 ],
 
 ["household_possessions","{!}household_possessions","{!}household_possessions",tf_hero|tf_inactive|tf_is_merchant, 0,reserved,  fac_neutral,[],def_attrib|level(18),wp(60),knows_inventory_management_10, 0],
 
+### DAC Seek: Second outfit troop
+["second_outfit","Second Outfit","Second Outfit",tf_hero,no_scene,reserved,fac_commoners,[],def_attrib,0,knows_common,0],
+
 ### DAC Seek: Hidden Chest for Merchant
 ["hidden_chest","{!}hidden_chest","{!}hidden_chest",tf_hero|tf_inactive|tf_is_merchant, 0,reserved,  fac_neutral,[],level(18),wp(60), knows_inventory_management_1, 0],
 

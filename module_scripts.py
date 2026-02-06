@@ -33705,6 +33705,13 @@ scripts = [
         (val_add,":cur_pos", 1),
       (try_end),
 
+      #VC-2404
+      (try_begin),
+        (call_script, "script_cf_player_use_second_outfit"),#is using second outfit?
+        (call_script, "script_init_second_outfit", "mt_visit_town_castle", 0),
+        (mission_tpl_entry_set_override_flags, "mt_visit_town_castle", 0, af_override_outfit_1|af_override_horse),
+      (try_end),
+
       (set_jump_entry, 0),
 
       (jump_to_scene,":castle_scene"),
@@ -74431,6 +74438,13 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       #SB : todo place player at "middle" instead of doors if ruler
       (set_jump_entry, 0),
       
+      #VC-2404
+      (try_begin),
+        (call_script, "script_cf_player_use_second_outfit"),#is using second outfit?
+        (call_script, "script_init_second_outfit", "mt_visit_town_castle", 0),
+        (mission_tpl_entry_set_override_flags, "mt_visit_town_castle", 0, af_override_outfit_1|af_override_horse),
+      (try_end),
+      
       (jump_to_scene,":castle_scene"),
       (scene_set_slot, ":castle_scene", slot_scene_visited, 1),
       (change_screen_mission),
@@ -76768,7 +76782,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (call_script, "script_give_center_to_lord", "p_burgundian_castle_10", "trp_knight_3_14", 0), # Château_de_Vergy - Antoine de Vergy
       (call_script, "script_give_center_to_lord", "p_burgundian_castle_11", "trp_knight_3_12", 0), # Château_de_Brimeu - Jacques de Brimeu
       (call_script, "script_give_center_to_lord", "p_burgundian_castle_12", "trp_knight_3_11", 0), # Château_de_Bellemotte - David de Brimeu
-      (call_script, "script_give_center_to_lord", "p_burgundian_castle_13", "trp_knight_3_19", 0), # Forteresse_d'Uytkerke - Roland d'Uytkerke
+      (call_script, "script_give_center_to_lord", "p_burgundian_castle_13", "trp_kingdom_3_lord", 0), # Lille - Philippe Le Bon
       (call_script, "script_give_center_to_lord", "p_burgundian_castle_14", "trp_knight_3_3", 0), # Château_de_La_Charité-sur-Loire - Guy de Bourgogne
 
       (call_script, "script_give_center_to_lord", "p_burgundian_castle_15", "trp_knight_3_6", 0), # Château_de_Coucy - Jean de Luxembourg
@@ -76783,26 +76797,26 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 ### Breton Castles    
       (call_script, "script_give_center_to_lord", "p_breton_castle_1", "trp_knight_4_1", 0), # Château_de_Fougères - Arthur de Richemont
       (call_script, "script_give_center_to_lord", "p_breton_castle_2", "trp_knight_4_15", 0), # Châteaubriant - Bertrand de Dinan
-      (call_script, "script_give_center_to_lord", "p_breton_castle_3", "trp_knight_4_16", 0), # Château_de_Dinan - Jacques de Dinan
+      (call_script, "script_give_center_to_lord", "p_breton_castle_3", "trp_knight_4_17", 0), # Château_de_Dinan - Raoul V de Coëtquen
       (call_script, "script_give_center_to_lord", "p_breton_castle_4", "trp_knight_4_2", 0), # Château_de_Clisson - Richard de Montfort
-      (call_script, "script_give_center_to_lord", "p_breton_castle_5", "trp_knight_4_9", 0), # Château_de_Josselin - Alain IX de Rohan
+      (call_script, "script_give_center_to_lord", "p_breton_castle_5", "trp_knight_4_16", 0), # Château_de_Josselin - Jacques de Dinan
       (call_script, "script_give_center_to_lord", "p_breton_castle_6", "trp_knight_4_9", 0), # Forteresse_de_Roch'Morvan - Alain IX de Rohan
-
       (call_script, "script_give_center_to_lord", "p_breton_castle_7", "trp_knight_4_11", 0), # Château_de_Guéméné - Charles de Rohan-Guéméné
       (call_script, "script_give_center_to_lord", "p_breton_castle_8", "trp_knight_4_14", 0), # Château_de_Rochefort - Pierre de Rochefort, Seigneur de Rieux et de Rochefort   
       (call_script, "script_give_center_to_lord", "p_breton_castle_9", "trp_knight_4_18", 0), # Château_de_Tonquédec - Rolland III de Coëtmen
       (call_script, "script_give_center_to_lord", "p_breton_castle_10", "trp_knight_4_13", 0), # Château_de_Rosmadec - Guillaume de Rosmadec
-      (call_script, "script_give_center_to_lord", "p_breton_castle_11", "trp_knight_4_5", 0), # Château_de_Coëtivy - Prigent VII de Coëtivy
+
+      (call_script, "script_give_center_to_lord", "p_breton_castle_11", "trp_knight_4_5", 0), # Château_de_Brest - Prigent VII de Coëtivy
       (call_script, "script_give_center_to_lord", "p_breton_castle_12", "trp_knight_4_4", 0), # Château_de_Trémazan - Tanneguy III Du Chastel
       (call_script, "script_give_center_to_lord", "p_breton_castle_13", "trp_knight_4_6", 0), # Château_de_Kermoysan - Tugdual de Kermoysan
       (call_script, "script_give_center_to_lord", "p_breton_castle_14", "trp_knight_1_39", 0), # Château_de_Montmuran - Guy de Laval
       (call_script, "script_give_center_to_lord", "p_breton_castle_15", "trp_knight_4_3", 0), # Château_de_Penhoët - Jean de Penhoët
-
-      (call_script, "script_give_center_to_lord", "p_breton_castle_16", "trp_knight_4_7", 0), # Château_de_Penmarc'h - Henri Penmarc'h
-      (call_script, "script_give_center_to_lord", "p_breton_castle_17", "trp_knight_4_1", 0), # Forteresse_de_Kemperlé - Arthur de Richemont
-      (call_script, "script_give_center_to_lord", "p_breton_castle_18", "trp_knight_4_12", 0), # Château_d'Hen_Bont - Louis I de Rohan-Guéméné   
+      (call_script, "script_give_center_to_lord", "p_breton_castle_16", "trp_knight_4_15", 0), # Château_du_Guildo - Bertrand de Dinan
+      (call_script, "script_give_center_to_lord", "p_breton_castle_17", "trp_knight_4_1", 0), # Château_de_Tronchâteau - Arthur de Richemont
+      (call_script, "script_give_center_to_lord", "p_breton_castle_18", "trp_knight_4_3", 0), # Forteresse de Largoët - Jean de Penhoët
       (call_script, "script_give_center_to_lord", "p_breton_castle_19", "trp_knight_4_14", 0), # Château_de_Derval - Pierre de Rochefort
       (call_script, "script_give_center_to_lord", "p_breton_castle_20", "trp_knight_4_1", 0), # Château_de_Suscinio - Arthur de Richemont
+
       (call_script, "script_give_center_to_lord", "p_breton_castle_21", "trp_knight_4_1", 0), # Château de Saint Mesmin - Arthur de Richemont
       (call_script, "script_give_center_to_lord", "p_breton_castle_22", "trp_knight_1_39", 0), # Château_de_Vitré - Guy de Laval            
     
@@ -76872,15 +76886,17 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (call_script, "script_give_center_to_lord", "p_burgundian_village_38", "trp_knight_3_11", 0), # Grigny - David de Brimeu
       (call_script, "script_give_center_to_lord", "p_burgundian_village_39", "trp_knight_3_11", 0), # Arras - David de Brimeu
       (call_script, "script_give_center_to_lord", "p_burgundian_village_42", "trp_knight_3_6", 0), # Coucy - Jean de Luxembourg
+      (call_script, "script_give_center_to_lord", "p_burgundian_village_44", "trp_knight_3_5", 0), # Hirson - Jean II de Luxembourg 
       (call_script, "script_give_center_to_lord", "p_burgundian_village_46", "trp_knight_3_14", 0), # Pontailler-sur-Saône - Antoine de Vergy 
       (call_script, "script_give_center_to_lord", "p_burgundian_village_48", "trp_knight_3_22", 0), # Rambouillet - Jean des Mazis 
       (call_script, "script_give_center_to_lord", "p_burgundian_village_49", "trp_knight_3_22", 0), # Angerville - Jean des Mazis 
       (call_script, "script_give_center_to_lord", "p_burgundian_village_52", "trp_kingdom_3_lord", 0), # Beaune - Phillipe Le Bon
+      (call_script, "script_give_center_to_lord", "p_burgundian_village_52", "trp_knight_3_19", 0), # Uytkerke - Roland d'Uytkerke, Seigneur d'Uytkerke
 
 ### Breton Villages 
-#      (call_script, "script_give_center_to_lord", "p_burgundian_village_39", "trp_knight_3_11", 0), # Arras - David de Brimeu
-#      (call_script, "script_give_center_to_lord", "p_burgundian_village_42", "trp_knight_3_6", 0), # Coucy - Jean de Luxembourg
 
+       (call_script, "script_give_center_to_lord", "p_breton_village_19", "trp_knight_4_15", 0), # beaumanoir - Bertrand de Dinan
+       (call_script, "script_give_center_to_lord", "p_breton_village_24", "trp_knight_4_15", 0), # Landerneau - Bertrand de Dinan
 
 ##################################################################################################################################################################################################################################################################################################################
 ###################################################################################################### DAC Fief DISTRIBUTION END ###################################################################################################################################################################################
@@ -82692,6 +82708,66 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 		(try_end),
 		(assign, reg0, ":faction_picked"),
 	]),
+    
+  # script_cf_player_use_second_outfit
+  # Component: Second outfit VC-2404
+  ("cf_player_use_second_outfit",
+    [
+    (assign, ":continue", 0),
+    
+    (try_for_range, ":slot", ek_item_0, ek_food + 1),
+        (neq, ":slot", ek_horse),
+        (troop_get_inventory_slot, ":cur_item", "trp_second_outfit", ":slot"),
+        (gt, ":cur_item", 0),
+        (assign, ":continue", 1),
+    (end_try),
+      
+    (try_begin),#VC-3338
+        (check_quest_active, "qst_hunt_down_fugitive"),
+        (neg | check_quest_succeeded, "qst_hunt_down_fugitive"),
+        (neg | check_quest_failed, "qst_hunt_down_fugitive"),
+        (quest_slot_eq, "qst_hunt_down_fugitive", slot_quest_target_center, "$current_town"),
+        (assign, ":continue", 0),
+    (try_end),
+      
+    (eq, ":continue", 1),
+    ]),
+  
+  # script_init_second_outfit
+  # Component: Second outfit VC-2404
+  ("init_second_outfit",
+    [
+    (store_script_param, ":mission_template", 1),
+    (store_script_param, ":entry", 2),
+      
+    (try_begin),
+        (mission_tpl_entry_set_override_flags, ":mission_template", ":entry", af_override_all_but_horse | af_override_foot),
+        (mission_tpl_entry_clear_override_items, ":mission_template", ":entry"),
+        
+        (try_for_range, ":slot", ek_item_0, ek_body),
+            (troop_get_inventory_slot, ":cur_item", "trp_second_outfit", ":slot"),
+            (gt, ":cur_item", 0),
+            
+            (try_begin),
+                (neq, ":mission_template", "mt_visit_town_castle"),
+                (mission_tpl_entry_add_override_item, ":mission_template", ":entry", ":cur_item"),
+            (else_try),
+                (is_between, ":cur_item", weapons_begin, weapons_end),
+                (item_has_property, ":cur_item", itp_type_one_handed_wpn),
+                (item_get_weapon_length, ":weap_len", ":cur_item"),
+                (lt, ":weap_len", 50),  # daggers
+                (mission_tpl_entry_add_override_item, ":mission_template", ":entry", ":cur_item"),
+            (try_end),
+        (end_try),
+        
+        (try_for_range, ":slot", ek_body, ek_food + 1),
+            (neq, ":slot", ek_horse),
+            (troop_get_inventory_slot, ":cur_item", "trp_second_outfit", ":slot"),
+            (gt, ":cur_item", 0),
+            (mission_tpl_entry_add_override_item, ":mission_template", ":entry", ":cur_item"),
+        (end_try),
+    (end_try),
+    ]),
 
 ]
 

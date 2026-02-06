@@ -3502,6 +3502,16 @@ TOTAL:  {reg5}"),
        (start_presentation, "prsnt_name_kingdom"),
        ]
        ),
+       
+### DAC Seek: Second outfit
+      # Based on Viking Conquest
+      ("camp_second_outfit",[],"Set up your second outfit.",
+       [
+            (troop_set_type,"trp_second_outfit", "$character_gender"),
+            (str_store_troop_face_keys, s1, "trp_player"),
+            (troop_set_face_keys, "trp_second_outfit", s1),
+            (change_screen_equip_other, "trp_second_outfit"),       
+       ]),
        # #SB : recolor from CC, call this from other presentation
       # ("action_modify_factions_color",[],"Change the color of factions.",
        # [
@@ -9641,6 +9651,13 @@ TOTAL:  {reg5}"),
              (neg|check_quest_failed, "qst_hunt_down_fugitive"),
              (set_visitor, 45, "trp_fugitive"),
            (try_end),
+           
+            #VC-2404
+            (try_begin),
+                (call_script, "script_cf_player_use_second_outfit"),#is using second outfit?
+                (call_script, "script_init_second_outfit", "mt_village_center", 0),
+                (mission_tpl_entry_set_override_flags, "mt_village_center", 0, af_override_outfit_1|af_override_horse),
+            (try_end),
 
            (set_jump_mission,"mt_village_center"),
            (jump_to_scene,":village_scene"),
@@ -9799,16 +9816,7 @@ TOTAL:  {reg5}"),
            (assign,"$auto_enter_town","$current_town"),
            (assign, "$g_last_rest_center", "$current_town"),
 
-           (try_begin),
-             (party_is_active, "p_main_party"),
-             (party_get_current_terrain, ":cur_terrain", "p_main_party"),
-             (try_begin),
-               (eq, ":cur_terrain", rt_desert),
-               (unlock_achievement, ACHIEVEMENT_SARRANIDIAN_NIGHTS),
-             (try_end),
-           (try_end),
-
-           (rest_for_hours_interactive, 24 * 7, 5, 1), #rest while attackable
+           (rest_for_hours_interactive, 24 * 7, 5, 0), #rest
 
            (change_screen_return),
           ]),
@@ -12468,6 +12476,14 @@ TOTAL:  {reg5}"),
                 (try_end),
             (try_end),
             #dedal end
+            
+            #VC-2404
+            (try_begin),
+                (call_script, "script_cf_player_use_second_outfit"),#is using second outfit?
+                (call_script, "script_init_second_outfit", "mt_town_default", 0),
+                (mission_tpl_entry_set_override_flags, "mt_town_default", 0, af_override_outfit_1|af_override_horse),
+            (try_end),
+            
              (change_screen_mission),
            (try_end),
         ],"Door to the tavern."),
@@ -12540,6 +12556,14 @@ TOTAL:  {reg5}"),
              (set_visitor, 43, "trp_hired_blade"),
              (set_visitor, 44, "trp_hired_blade"),
              (set_jump_entry, 50),
+             
+            #VC-2404
+            (try_begin),
+                (call_script, "script_cf_player_use_second_outfit"),#is using second outfit?
+                (call_script, "script_init_second_outfit", "mt_arena_melee_fight", 50),
+                (mission_tpl_entry_set_override_flags, "mt_arena_melee_fight", 50, af_override_outfit_1|af_override_horse),
+            (try_end),
+             
              (jump_to_scene, ":arena_scene"),
              (scene_set_slot, ":arena_scene", slot_scene_visited, 1),
              # DAC Seek: Spec Life (Mark7)

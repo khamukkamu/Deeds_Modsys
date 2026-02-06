@@ -291,6 +291,14 @@ mercenary_company_menus = [
             (party_slot_eq, "p_player_camp", slot_player_camp_gaol, 1),
             (set_visitor, 5, "trp_merc_company_ransom_broker"),
         (try_end),
+        
+        #VC-2404
+        (try_begin),
+            (call_script, "script_cf_player_use_second_outfit"),#is using second outfit?
+            (call_script, "script_init_second_outfit", "mt_player_camp", 0),
+            (mission_tpl_entry_set_override_flags, "mt_player_camp", 0, af_override_outfit_1|af_override_horse),
+        (try_end),
+        
         (set_jump_mission, "mt_player_camp"),
         (jump_to_scene, ":scene_to_use"),
         (change_screen_mission),		
