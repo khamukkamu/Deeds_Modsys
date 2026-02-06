@@ -1379,10 +1379,17 @@ PS_OUTPUT ps_main_water(VS_OUTPUT_WATER In, uniform const bool use_high, uniform
     
          // Foam Edge Calculations
     float depth = tex2Dproj(DepthTextureSampler, In.projCoord).r;
-    float depthDiff = depth - In.Depth;
-    float depthRange = 0.00062; // Depth range for transition
-    float foamEdge = 1.0 - smoothstep(0.0, depthRange, depthDiff);
     float2 uv = In.Tex0; // Base texture coordinates
+
+    float depthDiff = 0;
+float foamEdge = 0;
+if (use_depth_effects)
+{
+    float depth = tex2Dproj(DepthTextureSampler, In.projCoord).r;
+    depthDiff = depth - In.Depth;
+    float depthRange = 0.00062;
+    foamEdge = 1.0 - smoothstep(0.0, depthRange, depthDiff);
+}
 
 // Distortion parameters
     float noiseScale = 20; // Scale of the noise
@@ -1444,7 +1451,7 @@ PS_OUTPUT ps_main_water(VS_OUTPUT_WATER In, uniform const bool use_high, uniform
     // Calculate the Fresnel effect based on the view direction and normal
     float fresnelBias = 0.0462;
     float fresnelScale = 0.34;
-    float fresnelPower = 3.2; // Controls the sharpness of the Fresnel effect
+    float fresnelPower = 3.2; // Controls the sharpness of the Fresnel effect was 3.2
     float viewDotNormal = max(dot(normalize(vView), normalize(normal)), 0.0);
     float fresnel = fresnelBias + fresnelScale * pow(1.0 - viewDotNormal, fresnelPower);
     
@@ -1603,6 +1610,7 @@ PS_OUTPUT ps_main_water(VS_OUTPUT_WATER In, uniform const bool use_high, uniform
                 Output.RGBColor.a *= 1.25f;
             }
             
+            
         }
     }
 
@@ -1613,10 +1621,7 @@ PS_OUTPUT ps_main_water(VS_OUTPUT_WATER In, uniform const bool use_high, uniform
     
 	OUTPUT_GAMMA(Output.RGBColor.rgb);
     Output.RGBColor.a = saturate(Output.RGBColor.a) * edgeALpha;
-    if (!apply_depth)
-    {
-        Output.RGBColor.a = 1.0f;
-    }
+  
     
     float3 cc = Output.RGBColor.rgb * (fresnel * 2) + (Output.RGBColor.rgb);
     Output.RGBColor.rgb = lerp(cc, Output.RGBColor.rgb, 0.75);
@@ -1624,6 +1629,11 @@ PS_OUTPUT ps_main_water(VS_OUTPUT_WATER In, uniform const bool use_high, uniform
     // debug normals
     //Output.RGBColor.rgb = 0.5 * normal + 0.5; // This will visualize the normals
     //Output.RGBColor.a = 1.0f; // Opaque
+
+     if (!use_depth_effects)
+{
+    Output.RGBColor.a = 0.9f;
+}
     return Output;
 }
 technique watermap
@@ -2266,7 +2276,7 @@ PS_OUTPUT ps_main_bump_simple(VS_OUTPUT_BUMP In, uniform const int PcfMode)
         else
             sun_amount = GetSunAmount(PcfMode, In.ShadowTexCoord, In.ShadowTexelPos); //cannot fit 64 instruction
     }
-    total_light += ((saturate(dot(In.SunLightDir.xyz, normal.xyz)) * (sun_amount * sun_amount))) * vSunColor;
+    total_light += ((saturate(dot(In.SunLightDir.xyz, normal.xyz)) * (sun_amount * sun_amount))) * vSunColor; 
 	
     total_light += saturate(dot(In.SkyLightDir.xyz, normal.xyz)) * vSkyLightColor;
 #ifndef USE_LIGHTING_PASS
@@ -2324,7 +2334,7 @@ PS_OUTPUT ps_main_bump_simple_multitex(VS_OUTPUT_BUMP In, uniform const int PcfM
         else
             sun_amount = GetSunAmount(PcfMode, In.ShadowTexCoord, In.ShadowTexelPos); //cannot fit 64 instruction
     }
-    total_light += (saturate(dot(In.SunLightDir.xyz, normal.xyz)) * (sun_amount)) * vSunColor;
+    total_light += (saturate(dot(In.SunLightDir.xyz, normal.xyz)) * (sun_amount)) * vSunColor;  
 	
     total_light += saturate(dot(In.SkyLightDir.xyz, normal.xyz)) * vSkyLightColor;
 #ifndef USE_LIGHTING_PASS
@@ -3468,7 +3478,7 @@ PS_OUTPUT ps_main_standart(VS_OUTPUT_STANDART In, uniform const int PcfMode,
     }
     else
     {
-        total_light.rgb += (saturate(dot(-vSunDir, normal.xyz)) + aniso_specular) * sun_amount * vSunColor;
+        total_light.rgb += (saturate(dot(-vSunDir, normal.xyz)) + aniso_specular) * sun_amount * vSunColor; 
 		
         if (ambientTermType != 1 && !ps2x)
         {
@@ -3577,7 +3587,7 @@ float3 SchlickFresnel(float3 viewDir, float3 normal, float F0, float fresnelExpo
     // The dot product is clamped to avoid negative values, which have no physical meaning
     float viewDotNormal = max(dot(viewDir, normal), 0.0);
 
-    // Calculate Fresnel term using the exponent for more artistic control
+    // Calculate Fresnel term using the exponent for more artistic control //justin
     float3 fresnel = F0 + (1 - F0) * pow(1 - viewDotNormal, fresnelExponent);
 
     return fresnel;
@@ -3720,7 +3730,7 @@ PS_OUTPUT ps_main_standart_fresnel(VS_OUTPUT_STANDART In, uniform const int PcfM
         float3 vView = normalize(In.ViewDir);
         float3 specMap = tex2D(SpecularTextureSampler, In.Tex0);
         
-        total_light.rgb += (0.020 * (total_light.rgb * SchlickFresnel(vView, normal, specMap.g, 5.0)));
+        total_light.rgb += (0.020 * (total_light.rgb * SchlickFresnel(vView, normal, specMap.g, 4.0))); //justin edit from 5.0
         total_light = saturate(total_light);
     }
 
@@ -3801,14 +3811,14 @@ PS_OUTPUT ps_main_standart_fresnel(VS_OUTPUT_STANDART In, uniform const int PcfM
             float3 reflectMap = tex2D(ReflectionTextureSampler, refUV.xz);
             float3 refCol = OverlayBlendColor(envmap, pow(reflectMap, 1));
             float3 finalCol = Output.RGBColor.rgb;
-            float3 col = (finalCol * ((((tex_col.rgb * 1.8) + (tint.rgb * 1.8)) + (specColor * 1.5)) * specColor)) + (finalCol * pow(1 - specColor, 4));
+            float3 col = (finalCol * ((((tex_col.rgb * 1.8) + (tint.rgb * 1.8)) + (specColor * 1.5)) * specColor)) + (finalCol * pow(1 - specColor, 4));  
             
             float sG = OverlayBlend(specColor.g, normal.g);
             float sR = OverlayBlend(specColor.r, normal.r);
             
             float S = lerp(sR, sG, 0.5);
             // Calculate Fresnel term using Schlick's approximation
-            float3 fresnel = SchlickFresnel(vView, normal, lerp(pow(S, 4), fSpecular.g, 1), 5.0) * total_light.rgb;
+            float3 fresnel = 0.33 * SchlickFresnel(vView, normal, 3 * lerp(pow(S, 4), fSpecular.g, 1), 5.0) * total_light.rgb; //edit justin term at end from 5.0
             // Combine Fresnel term with environment map color and specular color
             float3 reflectiveColor = fresnel * specColor.rgb * refCol;
 
@@ -3820,7 +3830,7 @@ PS_OUTPUT ps_main_standart_fresnel(VS_OUTPUT_STANDART In, uniform const int PcfM
             col = ToneMap_Reinhard(col);
             
             //Output.RGBColor.rgb += reflectiveColor;
-            Output.RGBColor.rgb = lerp(col, finalCol, 0.75) + (DesaturateColor(reflectiveColor, 0.5) * specColor + fSpecular * 0.012 * vGroundAmbientColor);
+            Output.RGBColor.rgb = lerp(col, finalCol, 0.75) + (DesaturateColor(reflectiveColor, 0.5) * specColor + fSpecular * 0.1 * vGroundAmbientColor);  //justin edit ground from 0.012
         }
         else
         {

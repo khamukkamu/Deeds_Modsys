@@ -295,8 +295,8 @@ mercenary_company_menus = [
         #VC-2404
         (try_begin),
             (call_script, "script_cf_player_use_second_outfit"),#is using second outfit?
-            (call_script, "script_init_second_outfit", "mt_player_camp", 0),
-            (mission_tpl_entry_set_override_flags, "mt_player_camp", 0, af_override_outfit_1|af_override_horse),
+            (call_script, "script_init_second_outfit", "mt_player_camp", 1),
+            (mission_tpl_entry_set_override_flags, "mt_player_camp", 1, af_override_outfit_1|af_override_horse),
         (try_end),
         
         (set_jump_mission, "mt_player_camp"),
