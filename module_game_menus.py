@@ -3116,7 +3116,7 @@ TOTAL:  {reg5}"),
      ]),
      
     ("enable_armor_progression",[(le, "$armour_progression", 1),],"Enable Armour Progression", [
-        (assign, "$armour_progression", 2),
+        (jump_to_menu, "mnu_armour_progression_notification"),
      ]),
     ("disable_armor_progression",[(eq, "$armour_progression", 2),],"Disable Armour Progression", [
         (assign, "$armour_progression", 1),

@@ -685,7 +685,21 @@ dac_agent_lives_or_dies = (ti_on_agent_killed_or_wounded, 0, 0, [],
         (call_script, "script_apply_death_effect_on_courage_scores", ":dead_agent_no", ":killer_agent_no"),
        ])
 
-
+dac_guarantee_legs = (ti_on_agent_spawn, 0, 0, [],             
+    [
+	(store_trigger_param_1, ":agent_no"),
+	
+	(agent_is_active, ":agent_no"),		  
+	(agent_is_alive, ":agent_no"),		
+	
+	(try_begin),
+		(agent_get_item_slot,":footwear",":agent_no",ek_foot),	
+		(eq, ":footwear", -1), 
+		(agent_get_item_slot,":armor_item",":agent_no",ek_body),	
+		(gt, ":armor_item", 0),     
+        (agent_equip_item, ":agent_no", "itm_man_legs"),     
+	(try_end),   	  
+    ]) 
     
 # Autolykos end
 
@@ -1621,6 +1635,7 @@ deeds_common_battle_scripts = [
   #customize_armor,
   #bright_nights
   dac_footstep_sounds,
+  dac_guarantee_legs,
   quartermaster_refill_ammo_info,
   quartermaster_refill_ammo,
   dac_agent_lives_or_dies,
@@ -1647,6 +1662,7 @@ deeds_common_siege_scripts = [
   #customize_armor,
   #bright_nights
   dac_footstep_sounds,
+  dac_guarantee_legs,
   dac_agent_lives_or_dies,
   ] + battle_panel_triggers + utility_triggers
 
@@ -3568,7 +3584,7 @@ mission_templates = [
       (10,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#40
      ],
      [
-     dedal_tavern_animations, common_player_helmet_toggle,
+     dedal_tavern_animations, common_player_helmet_toggle, dac_footstep_sounds, dac_guarantee_legs,
       (1, 0, ti_once, [],
       [
         (store_current_scene, ":cur_scene"),
@@ -4184,7 +4200,7 @@ mission_templates = [
        (troop_slot_ge, ":dead_agent_troop_no", slot_troop_mission_participation, mp_prison_break_fight),
        (troop_set_slot, ":dead_agent_troop_no", slot_troop_mission_participation, mp_prison_break_caught),
      (try_end),
-   ]), dac_footstep_sounds, common_player_helmet_toggle,
+   ]), dac_footstep_sounds, common_player_helmet_toggle, dac_guarantee_legs,
   ]),
 
   (
@@ -4315,7 +4331,7 @@ mission_templates = [
     (else_try), #villagers?
       (call_script, "script_change_player_relation_with_center", "$current_town", -1),
     (try_end),
-   ]), dac_footstep_sounds, common_player_helmet_toggle,
+   ]), dac_footstep_sounds, common_player_helmet_toggle, dac_guarantee_legs,
     ]
   ), 
 
@@ -4388,7 +4404,7 @@ mission_templates = [
          (try_end),
          (finish_mission),
          ]),
-         dac_footstep_sounds, common_player_helmet_toggle, common_player_weapon_toggle,
+         dac_footstep_sounds, common_player_helmet_toggle, common_player_weapon_toggle, dac_guarantee_legs,
       ],
     ),
 
@@ -4650,6 +4666,8 @@ mission_templates = [
         (clear_omitted_keys),
         # (omit_key_once, key_f), #probably prevents accidental chest opens
       ]),
+      
+      dac_guarantee_legs, dac_footstep_sounds,
     ],
   ),
 
@@ -6207,7 +6225,7 @@ mission_templates = [
         (mission_enable_talk),
         (finish_mission, 0),
       ]),
-    dac_footstep_sounds, common_player_helmet_toggle, common_player_weapon_toggle,  
+    dac_footstep_sounds, common_player_helmet_toggle, common_player_weapon_toggle, dac_guarantee_legs, 
       
     ],
   ),
@@ -18391,7 +18409,6 @@ mission_templates = [
       
     (ti_tab_pressed, 0, 0,
     [
-        # (assign, "$entre_camp", 0),
         ### HYW Seek: Stop looping sounds
         (stop_all_sounds, 1),	
         (set_trigger_result,1)
@@ -18418,8 +18435,8 @@ mission_templates = [
     [	
         (call_script, "script_player_camp_set_props"),
     ]),		  
-      
-    ],
+    dac_footstep_sounds, common_player_helmet_toggle, dac_guarantee_legs,
+    ], 
   ),
   
   (

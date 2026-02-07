@@ -4326,6 +4326,7 @@ itp_type_polearm| itp_two_handed|itp_primary|itp_no_blur|itp_offset_musket, itc_
 # Special Items
 # TLD Chains
 ["feet_chains","Feet Chains",[("chains_full",0)],itp_type_foot_armor|itp_attach_armature,0,200,weight(10)|leg_armor(0)|difficulty(0),imodbits_none],
+["man_legs", "legs", [("man_legs",0)], itp_type_foot_armor|itp_covers_legs|itp_unique, 0, 1, weight(1)|abundance(100)|head_armor(0)|body_armor(0)|leg_armor(1)|difficulty(0), imodbits_none ],
 
 ["a_plate_joan", "Jeanne's Plate Armour", [("a_kastenbrust_mail",0)], itp_type_body_armor|itp_covers_legs, 0, 9000, weight(29)|abundance(100)|head_armor(0)|body_armor(70)|leg_armor(28)|difficulty(12), imodbits_armor ],
 
