@@ -22526,7 +22526,7 @@ goods, and books will never be sold. ^^You can change some settings here freely.
     "War rages on... ^With the ever increasing demand of armour and armaments it is only natural for new fashions and technological improvements to appear and for nations to adapt. ^(The equipment of several troops will be modified, new armour and weapons introduced in their kits.)",
     "none",
     [
-    # (set_background_mesh, "mesh_pic_castle1"),
+    (set_background_mesh, "mesh_pic_mb_warrior_1"),
     ],
     [ 
     ("embrace_modernity",

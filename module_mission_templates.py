@@ -505,6 +505,47 @@ dac_footstep_sounds = (0,0.3,0, #0.3 timed with footfall
    #   (agent_play_sound, ":agent", "snd_dac_heavystep_plate"), #Change sound here
    # (try_end),
   ])
+  
+### DAC Seek: Added an alternative for when the player visits castles, towns, etc...
+dac_footstep_sounds_indoors = (0,0.3,0, #0.3 timed with footfall
+  [
+    (eq, "$DAC_ARMOUR_SOUNDS", 1),
+    (try_begin),
+        (call_script, "script_cf_player_use_second_outfit"),#is using second outfit?
+        (troop_get_inventory_slot, ":body_armour", "trp_second_outfit", ek_body),
+    (else_try),
+        (troop_get_inventory_slot, ":body_armour", "trp_player", ek_body),
+    (try_end),
+    (ge, ":body_armour", 0), #Should have something
+    (item_get_weight, ":weight", ":body_armour"),
+    (ge, ":weight", 800), # At this weight/100, we start the armoured sounds. 
+  ], 
+  
+  [ 
+    (get_player_agent_no, ":player"),
+    (try_begin),
+        (call_script, "script_cf_player_use_second_outfit"),#is using second outfit?
+        (troop_get_inventory_slot, ":body_armour", "trp_second_outfit", ek_body),
+    (else_try),
+        (troop_get_inventory_slot, ":body_armour", "trp_player", ek_body),
+    (try_end),
+    (ge, ":body_armour", 0), #Should have something
+    (item_get_weight, ":weight", ":body_armour"),
+
+    (ge, ":weight", 800), # At this weight/100, we start the armoured sounds. 
+
+    (try_begin),
+      (is_between, ":weight", 800, 2100), #Mail
+      (assign, ":track", "snd_dac_lightstep_mail"),
+    (else_try),
+      (ge, ":weight", 2100),
+      (assign, ":track", "snd_dac_heavystep_plate"),
+    (try_end),
+
+    (agent_get_animation, ":anim", ":player"),
+    (is_between, ":anim", "anim_run_forward", "anim_walk_forward_crouch"),
+    (agent_play_sound, ":player", ":track"), # Change sound here
+  ])
 
   # DAC End
 
@@ -3584,7 +3625,7 @@ mission_templates = [
       (10,mtef_visitor_source,af_override_horse|af_override_gloves,0,1,[]),#40
      ],
      [
-     dedal_tavern_animations, common_player_helmet_toggle, dac_footstep_sounds, dac_guarantee_legs,
+     dedal_tavern_animations, common_player_helmet_toggle, dac_footstep_sounds_indoors, dac_guarantee_legs,
       (1, 0, ti_once, [],
       [
         (store_current_scene, ":cur_scene"),
@@ -4667,7 +4708,7 @@ mission_templates = [
         # (omit_key_once, key_f), #probably prevents accidental chest opens
       ]),
       
-      dac_guarantee_legs, dac_footstep_sounds,
+      dac_guarantee_legs, dac_footstep_sounds_indoors,
     ],
   ),
 
@@ -18435,7 +18476,7 @@ mission_templates = [
     [	
         (call_script, "script_player_camp_set_props"),
     ]),		  
-    dac_footstep_sounds, common_player_helmet_toggle, dac_guarantee_legs,
+    dac_footstep_sounds_indoors, common_player_helmet_toggle, dac_guarantee_legs,
     ], 
   ),
   

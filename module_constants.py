@@ -1687,7 +1687,7 @@ player_realm_quests_begin_2 = "qst_blank_quest_26"
 player_realm_quests_end_2 = "qst_blank_quest_26"
 
 all_items_begin = 0
-all_items_end = "itm_a_plate_joan"
+all_items_end = "itm_items_end"
 normal_items_end = "itm_items_end"
 
 all_quests_begin = 0

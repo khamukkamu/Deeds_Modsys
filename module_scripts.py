@@ -79598,12 +79598,18 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 	# (call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_1_bascinet_visor_5_mail_collar"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_1_bascinet_visor_5_mail_aventail"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_1_bascinet_visor_5_mail_collar_bevor"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_1_transitional_visor_open_mail_aventail"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_1_transitional_visor_open_mail_collar_bevor"),
 	# (call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_2_bascinet_visor_5_mail_collar"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_2_bascinet_visor_5_mail_aventail"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_2_bascinet_visor_5_mail_collar_bevor"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_2_transitional_visor_open_mail_aventail"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_2_transitional_visor_open_mail_collar_bevor"),
 	# (call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_3_bascinet_visor_5_mail_collar"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_3_bascinet_visor_5_mail_aventail"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_3_bascinet_visor_5_mail_collar_bevor"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_3_transitional_visor_open_mail_aventail"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_3_transitional_visor_open_mail_collar_bevor"),
 
 
     

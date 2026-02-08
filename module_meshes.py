@@ -19,7 +19,7 @@ from compiler import *
 
 meshes = [
   ("pic_bandits", 0, "pic_bandits", 0, 0, 0, 0, 0, 0, 1, 1, 1),
-  ("pic_mb_warrior_1", 0, "ini_pic_mb_warrior_1", 0, 0, 0, 0, 0, 0, 0.6, 1, 0.8), #SB : make this suitable for background_mesh
+  ("pic_mb_warrior_1", 0, "pic_mb_warrior_1", 0, 0, 0, 0, 0, 0, 0.6, 1, 0.8), #SB : make this suitable for background_mesh
   ("pic_messenger", 0, "pic_messenger", 0, 0, 0, 0, 0, 0, 1, 1, 1),
   ("pic_prisoner_man", 0, "pic_prisoner_man", 0, 0, 0, 0, 0, 0, 1, 1, 1),
   ("pic_prisoner_fem", 0, "pic_prisoner_fem", 0, 0, 0, 0, 0, 0, 1, 1, 1),
