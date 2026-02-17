@@ -33285,9 +33285,9 @@ scripts = [
       (party_get_current_terrain, ":terrain_type", "p_main_party"),
       (assign, ":scene_to_use", "scn_random_scene"),
       (try_begin),
-        (eq, ":terrain_type", rt_steppe),
-        (assign, ":scene_to_use", "scn_random_scene_steppe"),
-      (else_try),
+        # (eq, ":terrain_type", rt_steppe),
+        # (assign, ":scene_to_use", "scn_random_scene_steppe"),
+      # (else_try),
         (eq, ":terrain_type", rt_plain),
         (assign, ":scene_to_use", "scn_random_scene_plain"),
       (else_try),
@@ -33322,6 +33322,9 @@ scripts = [
       # (else_try),
         # (eq, "$cant_leave_encounter", 1),
         # (val_sub, ":scene_to_use", 1), # can leave, must be small battlefield
+      (else_try),
+        (eq, ":terrain_type", rt_steppe), ### Roads
+        (assign, ":scene_to_use", "scn_battlefield_road_1"),      
       (else_try), # forests
         (is_between, ":terrain_type", rt_mountain_forest, rt_forest+1),
         (val_add, ":scene_to_use", "$g_random_scene_size_forests"),
@@ -82564,7 +82567,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 # DAC Seek: script_dac_trigger_armour_progression
 ("dac_trigger_armour_progression",
 	[
-
+### Copy From -> To
 # French Troops
     (call_script, "script_dplmc_copy_inventory", "trp_french_poor_pavoisier_late", "trp_french_poor_pavoisier"),
     (call_script, "script_dplmc_copy_inventory", "trp_french_pavoisier_late", "trp_french_pavoisier"),
@@ -82574,6 +82577,12 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
     (call_script, "script_dplmc_copy_inventory", "trp_french_rich_guisarmier_late", "trp_french_rich_guisarmier"),
     (call_script, "script_dplmc_copy_inventory", "trp_french_sergeant_late", "trp_french_sergeant"),
 
+    (call_script, "script_dplmc_copy_inventory", "trp_french_spearman_at_atms_late", "trp_french_spearman_at_atms"),
+    (call_script, "script_dplmc_copy_inventory", "trp_french_dismounted_squire_late", "trp_french_dismounted_squire"),
+    (call_script, "script_dplmc_copy_inventory", "trp_french_chevalier_a_pied_late", "trp_french_chevalier_a_pied"),
+    (call_script, "script_dplmc_copy_inventory", "trp_french_man_at_arms_late", "trp_french_man_at_arms"),
+    (call_script, "script_dplmc_copy_inventory", "trp_french_squire_late", "trp_french_squire"),
+    (call_script, "script_dplmc_copy_inventory", "trp_french_chevalier_late", "trp_french_chevalier"),
 # English Troops
     (call_script, "script_dplmc_copy_inventory", "trp_english_yeoman_archer_late", "trp_english_yeoman_archer"),
     (call_script, "script_dplmc_copy_inventory", "trp_english_archer_late", "trp_english_archer"),

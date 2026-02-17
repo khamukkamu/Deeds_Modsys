@@ -894,6 +894,7 @@ dplmc_horse_cull = [
         # (store_trigger_param_2, ":horse_no"),
      
         (agent_get_rider, ":agent_no", ":horse_no"),
+        (gt, ":agent_no", -1), ### Fix for horse prop spawner
         (try_begin),
           (agent_is_non_player, ":agent_no"), #default period for npcs
           (agent_set_slot, ":horse_no", slot_agent_bought_horse, 0), #default duration

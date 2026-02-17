@@ -406,3 +406,4 @@ mnu_choose_scenes_1261 = 404
 mnu_choose_scenes_1274 = 405
 mnu_choose_scenes_1287 = 406
 mnu_choose_scenes_1300 = 407
+mnu_choose_scenes_1313 = 408

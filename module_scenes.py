@@ -3518,4 +3518,6 @@ scenes = [
 ("tourney_1",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000002300006800006d5b500001f790000653f000023fc",[],[],"outer_terrain_plain"),
 
 ("raided_village_1",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000130000703000cdda500007d7300002acf00005f72",[],[],"outer_terrain_plain"),
+
+("battlefield_road_1",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300187060008be3200005ba7000045b200005708",[],[],"outer_terrain_plain"),
 ]

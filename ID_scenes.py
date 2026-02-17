@@ -1312,4 +1312,5 @@ scn_bandit_camp_tard_venu = 1309
 scn_bandit_camp_peasant_bandit = 1310
 scn_tourney_1 = 1311
 scn_raided_village_1 = 1312
+scn_battlefield_road_1 = 1313
 scn_exit = 100000
