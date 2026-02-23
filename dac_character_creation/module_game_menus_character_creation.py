@@ -375,7 +375,7 @@ character_creation_menus = [
             (try_end),
             
             (try_for_range, ":faction_no", kingdoms_begin, kingdoms_end),
-                (neg, ":faction_no", "fac_player_supporters_faction"),
+                (neq, ":faction_no", "fac_player_supporters_faction"),
                 (call_script, "script_change_player_relation_with_faction", ":faction_no", -40),
             (try_end),
             

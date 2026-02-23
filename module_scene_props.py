@@ -39,6 +39,7 @@ def agent_spawner(troop_id):
             (assign, ":continue", 1),
         (try_end),
         
+        (neg|party_slot_ge, "$current_town", slot_center_has_bandits, 1), # Fix for bandit ambushes if spawned in a town
         
         (eq, ":continue", 1),
         (spawn_agent, troop_id),

@@ -522,7 +522,7 @@ items = [
 ["practice_javelin_melee", "practice_javelin_melee", [("javelin",0)], itp_type_polearm|itp_primary|itp_no_blur|itp_penalty_with_shield|itp_wooden_parry , itc_staff, 0, weight(1)|difficulty(0)|spd_rtng(91) |swing_damage(12, blunt)| thrust_damage(14,  blunt)|weapon_length(75),imodbits_polearm ],
 ["practice_throwing_daggers", "Throwing Daggers", [("throwing_dagger",0)], itp_type_thrown |itp_primary|itp_no_blur ,itcf_throw_knife, 0 , weight(3.5)|spd_rtng(102) | shoot_speed(25) | thrust_damage(16, blunt)|max_ammo(10)|weapon_length(0),imodbits_thrown ],
 ["practice_throwing_daggers_100_amount", "Throwing Daggers", [("throwing_dagger",0)], itp_type_thrown |itp_primary|itp_no_blur ,itcf_throw_knife, 0 , weight(3.5)|spd_rtng(102) | shoot_speed(25) | thrust_damage(16, blunt)|max_ammo(100)|weapon_length(0),imodbits_thrown ],
-["practice_spear","Practice Spear",[("w_native_spear_b",0)], itp_type_polearm|itp_primary|itp_no_blur|itp_penalty_with_shield|itp_wooden_parry|itp_no_blur, itc_spear|itcf_carry_spear, 90 , weight(2.5)|spd_rtng(96) | weapon_length(150)|swing_damage(20 , blunt) | thrust_damage(25 ,  blunt),imodbits_polearm ],
+["practice_spear","Practice Halberd",[("w_halberd_1",0)], itp_type_polearm|itp_primary|itp_no_blur|itp_two_handed|itp_wooden_parry|itp_no_blur, itc_halberd_upstab|itcf_carry_spear, 90 , weight(2.5)|spd_rtng(96) | weapon_length(150)|swing_damage(33 , blunt) | thrust_damage(30 ,  blunt),imodbits_polearm ],
 
 ["practice_horse","Practice Horse", [("ho_sumpter_1",0)], itp_type_horse, 0, 37,body_armor(10)|horse_speed(40)|horse_maneuver(37)|horse_charge(14),imodbits_none],
 ["practice_arrows","Practice Arrows", [("w_arrow_blunt",0),("w_arrow_blunt",ixmesh_flying_ammo),("w_arrow_quiver_blunt", ixmesh_carry)], itp_type_arrows, itcf_carry_quiver_back, 0,weight(1.5)|weapon_length(95)|max_ammo(80),imodbits_missile],
@@ -754,8 +754,8 @@ items = [
 ["sumpter_horse", "Sumpter Horse", [("sumpter_horse",0)], itp_type_horse|itp_merchandise, 0, 254, abundance(90)|hit_points(100)|body_armor(10)|difficulty(1)|horse_speed(41)|horse_maneuver(39)|horse_charge(9)|horse_scale(100), imodbits_horse_basic ],
 ["saddle_horse", "Saddle Horse", [("saddle_horse",0),("horse_c",imodbits_horse_good)], itp_type_horse|itp_merchandise, 0, 360, abundance(90)|hit_points(100)|body_armor(8)|difficulty(1)|horse_speed(49)|horse_maneuver(44)|horse_charge(10)|horse_scale(104), imodbits_horse_basic ],
 
-["ho_tournament_horse_barded_white_chamfrom", "Barded Horse with Chamfrom", [("ho_horse_barded_white_chamfrom",0)], itp_type_horse, 0, 983, abundance(40)|hit_points(120)|body_armor(30)|difficulty(0)|horse_speed(46)|horse_maneuver(38)|horse_charge(26)|horse_scale(108), imodbits_horse_basic|imodbit_champion ],
-["ho_tournament_horse_barded_black_chamfrom", "Barded Horse with Chamfrom", [("ho_horse_barded_black_chamfrom",0)], itp_type_horse, 0, 983, abundance(40)|hit_points(120)|body_armor(30)|difficulty(0)|horse_speed(46)|horse_maneuver(38)|horse_charge(26)|horse_scale(108), imodbits_horse_basic|imodbit_champion ],
+["ho_tournament_horse_barded_white_chamfrom", "Barded Horse with Chamfrom", [("ho_horse_barded_white_chamfrom",0)], itp_type_horse, 0, 983, abundance(40)|hit_points(120)|body_armor(30)|difficulty(3)|horse_speed(46)|horse_maneuver(38)|horse_charge(26)|horse_scale(108), imodbits_horse_basic|imodbit_champion ],
+["ho_tournament_horse_barded_black_chamfrom", "Barded Horse with Chamfrom", [("ho_horse_barded_black_chamfrom",0)], itp_type_horse, 0, 983, abundance(40)|hit_points(120)|body_armor(30)|difficulty(3)|horse_speed(46)|horse_maneuver(38)|horse_charge(26)|horse_scale(108), imodbits_horse_basic|imodbit_champion ],
 
 ### Animals
 ["animal_chicken", "Chicken", [("animal_chicken",0)], itp_type_animal|itp_disable_agent_sounds, 0, 
@@ -1932,16 +1932,16 @@ items = [
  7040, weight(26)|abundance(100)|head_armor(0)|body_armor(60)|leg_armor(20)|difficulty(9), imodbits_armor,[heraldic("tableau_a_english_plate_1415_heraldic"),add_mesh("@a_arm_harness_english_1415_b"),reskin("@a_arm_harness_english_1415_gilded", 1),]],
 
 ["a_jupon_heraldic", "Heraldic Jupon", [("a_jupon_heraldic",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0,
- 8520, weight(28)|abundance(100)|head_armor(0)|body_armor(64)|leg_armor(24)|difficulty(9), imodbits_armor,[heraldic("tableau_a_jupon_heraldic"),add_mesh("@a_pistoia_arming_cote_arms_plate_short"),add_mesh("@a_pistoia_couters_1"),]],
+ 8520, weight(28)|abundance(100)|head_armor(0)|body_armor(64)|leg_armor(24)|difficulty(9), imodbits_armor,[heraldic("tableau_a_jupon_heraldic"),add_mesh("@a_pistoia_arming_cote_arms_plate_short"),add_mesh("@a_pistoia_couters_1_gilded"),]],
 
 ["a_jupon_heraldic_belt_1", "Heraldic Jupon", [("a_jupon_heraldic_belt_1",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0,
- 8520, weight(28)|abundance(100)|head_armor(0)|body_armor(64)|leg_armor(24)|difficulty(9), imodbits_armor,[heraldic("tableau_a_jupon_heraldic"),add_mesh("@a_pistoia_arming_cote_arms_plate_short"),add_mesh("@a_pistoia_couters_1"),]],
-["a_jupon_heraldic_belt_2", "Heraldic Jupon", [("a_jupon_heraldic_belt_1",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0,
- 8520, weight(28)|abundance(100)|head_armor(0)|body_armor(64)|leg_armor(24)|difficulty(9), imodbits_armor,[heraldic("tableau_a_jupon_heraldic"),add_mesh("@a_pistoia_arming_cote_arms_plate_short"),add_mesh("@a_pistoia_couters_1"),]],
-["a_jupon_heraldic_belt_3", "Heraldic Jupon", [("a_jupon_heraldic_belt_1",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0,
- 8520, weight(28)|abundance(100)|head_armor(0)|body_armor(64)|leg_armor(24)|difficulty(9), imodbits_armor,[heraldic("tableau_a_jupon_heraldic"),add_mesh("@a_pistoia_arming_cote_arms_plate_short"),add_mesh("@a_pistoia_couters_1"),]],
-["a_jupon_heraldic_belt_4", "Heraldic Jupon", [("a_jupon_heraldic_belt_1",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0,
- 8520, weight(28)|abundance(100)|head_armor(0)|body_armor(64)|leg_armor(24)|difficulty(9), imodbits_armor,[heraldic("tableau_a_jupon_heraldic"),add_mesh("@a_pistoia_arming_cote_arms_plate_short"),add_mesh("@a_pistoia_couters_1"),]],
+ 8520, weight(28)|abundance(100)|head_armor(0)|body_armor(64)|leg_armor(24)|difficulty(9), imodbits_armor,[heraldic("tableau_a_jupon_heraldic"),add_mesh("@a_pistoia_arming_cote_arms_plate_short"),add_mesh("@a_pistoia_couters_1_gilded"),]],
+["a_jupon_heraldic_belt_2", "Heraldic Jupon", [("a_jupon_heraldic_belt_2",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0,
+ 8520, weight(28)|abundance(100)|head_armor(0)|body_armor(64)|leg_armor(24)|difficulty(9), imodbits_armor,[heraldic("tableau_a_jupon_heraldic"),add_mesh("@a_pistoia_arming_cote_arms_plate_short"),add_mesh("@a_pistoia_couters_1_gilded"),]],
+["a_jupon_heraldic_belt_3", "Heraldic Jupon", [("a_jupon_heraldic_belt_3",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0,
+ 8520, weight(28)|abundance(100)|head_armor(0)|body_armor(64)|leg_armor(24)|difficulty(9), imodbits_armor,[heraldic("tableau_a_jupon_heraldic"),add_mesh("@a_pistoia_arming_cote_arms_plate_short"),add_mesh("@a_pistoia_couters_1_gilded"),]],
+["a_jupon_heraldic_belt_4", "Heraldic Jupon", [("a_jupon_heraldic_belt_4",0)], itp_type_body_armor|itp_merchandise|itp_covers_legs, 0,
+ 8520, weight(28)|abundance(100)|head_armor(0)|body_armor(64)|leg_armor(24)|difficulty(9), imodbits_armor,[heraldic("tableau_a_jupon_heraldic"),add_mesh("@a_pistoia_arming_cote_arms_plate_short"),add_mesh("@a_pistoia_couters_1_gilded"),]],
 
 ##################################################################################################################################################################################################################################################################################################################
 ###################################################################################################### HYW BOOTS | SHOES | LEG ARMOR #############################################################################################################################################################################
@@ -2294,7 +2294,7 @@ items = [
 
 
 ["a_tunic_over_gambeson_custom", "Tunic over Gambeson", [("a_tunic_over_gambeson",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 
-648 , weight(5)|abundance(100)|head_armor(0)|body_armor(24)|leg_armor(12)|difficulty(0) ,imodbits_cloth , [custom_remodel("itm_a_tunic_over_gambeson_custom")]],
+648 , weight(5)|abundance(100)|head_armor(0)|body_armor(24)|leg_armor(12)|difficulty(0) ,imodbits_cloth , [custom_reskin("itm_a_tunic_over_gambeson_custom")]],
 
 ["a_simple_gambeson_custom", "Gambeson", [("mesh_none",0)], itp_merchandise| itp_type_body_armor|itp_covers_legs|itp_civilian,0, 
 392 , weight(5)|abundance(100)|head_armor(0)|body_armor(20)|leg_armor(8)|difficulty(0) ,imodbits_cloth , [custom_remodel("itm_a_simple_gambeson_custom")]],

@@ -27610,7 +27610,7 @@ I will use this to make amends to those you have wronged, and I will let it be k
 
 
 [anyone,"lord_talk_ask_marriage_1", [
-(neg, "$g_talk_troop", "trp_knight_1_5"), ### DAC Seek: Block player from marrying Jeanne
+(neq, "$g_talk_troop", "trp_knight_1_5"), ### DAC Seek: Block player from marrying Jeanne
  (assign, "$marriage_candidate", -1),
 (try_begin),
    ##diplomacy start+
@@ -45203,13 +45203,16 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
       (troop_add_gold, ":smith_troop", "$current_dialog_cost"),
       (troop_set_inventory_slot_modifier, "$temp3", "$repair_wielded_item_slot", "$repair_wielded_item_tareget_modifier"),
   ]],
+  [anyone|plyr,"item_improve_2", 
+  [
+      (store_troop_gold, reg7, "trp_player"),
+      (lt, reg7, "$current_dialog_cost"),
+  ], "I don't have enough money.", "merchant_trade", []],
   [anyone|plyr,"item_improve_2",
     [
-      (store_troop_gold, reg7, "trp_player"),
-      (ge, reg7, "$current_dialog_cost"),
     ],
     "I changed my mind.", "merchant_trade", []],
-  [anyone|plyr,"item_improve_2", [], "I don't have enough money.", "merchant_trade", []],
+
   
   [anyone,"item_improve_3", [],
     "Here you have your {s7} back. It's refined.", "merchant_trade",[]],
@@ -46327,7 +46330,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
       (ge, reg7, "$current_dialog_cost"),
     ],
     "I changed my mind.", "camp_smith_back", []],
-  [anyone|plyr,"item_improve_2", [], "I don't have enough money.", "camp_smith_back", []],
+  [anyone|plyr,"camp_smith_item_improve_2", [], "I don't have enough money.", "camp_smith_back", []],
   
   [anyone,"camp_smith_item_improve_3", [],
     "Here you have your {s7} back. It's refined.", "camp_smith_back",[]],

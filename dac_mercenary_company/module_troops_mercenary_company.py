@@ -47,6 +47,17 @@ def wpex(o,w,p,a,c,t):
    n |= wp_crossbow(c)
    n |= wp_throwing(t)
    return n
+   
+def wpexf(o,w,p,a,c,t,f):
+   n = 0
+   n |= wp_one_handed(o)
+   n |= wp_two_handed(w)
+   n |= wp_polearm(p)
+   n |= wp_archery(a)
+   n |= wp_crossbow(c)
+   n |= wp_throwing(t)
+   n |= wp_firearm(f)
+   return n
 
 def wp_melee(x):
   n = 0
@@ -379,8 +390,8 @@ mercenary_company_troops = [
 
   ["custom_merc_footman","Company Footman","Company Footmen",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm,0,0,fac_player_faction,[],
     level(15)|str_14|agi_14, 
-    wp_melee(140), 
-    knows_ironflesh_3|knows_power_strike_3|knows_shield_2|knows_athletics_3|knows_weapon_master_1,
+    wpe(140,100,100,140), 
+    knows_ironflesh_3|knows_power_strike_3|knows_shield_2|knows_power_throw_2|knows_athletics_3|knows_weapon_master_1,
     vaegir_face_old_1, vaegir_face_old_2],
   
   ["custom_merc_footman_equip","Company Footman","Company Footmen",tf_hero|tf_inactive,0,0,fac_player_faction,
@@ -501,8 +512,8 @@ mercenary_company_troops = [
 
   ["custom_merc_veteran","Company Veteran","Company Veterans",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm,0,0,fac_player_faction,[],
     level(20)|str_16|agi_16, 
-    wp_melee(160), 
-    knows_ironflesh_4|knows_power_strike_4|knows_shield_3|knows_athletics_3|knows_weapon_master_2,
+    wpe(160,100,100,160), 
+    knows_ironflesh_4|knows_power_strike_4|knows_shield_3|knows_power_throw_3|knows_athletics_3|knows_weapon_master_2,
     mercenary_face_1, mercenary_face_2],
   
   ["custom_merc_veteran_equip","Company Veteran","Company Veterans",tf_hero|tf_inactive,0,0,fac_player_faction,
@@ -619,8 +630,8 @@ mercenary_company_troops = [
 
   ["custom_merc_sergeant","Company Sergeant","Company Sergeants",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm,0,0,fac_player_faction,[],
     level(25)|str_20|agi_20, 
-    wp_melee(180), 
-    knows_ironflesh_5|knows_power_strike_5|knows_shield_3|knows_athletics_4|knows_weapon_master_5,
+    wpe(180,100,100,180), 
+    knows_ironflesh_5|knows_power_strike_5|knows_power_throw_4|knows_shield_3|knows_athletics_4|knows_weapon_master_5,
     mercenary_face_1, mercenary_face_2],
   
   ["custom_merc_sergeant_equip","Company Sergeant","Company Sergeants",tf_hero|tf_inactive,0,0,fac_player_faction,
@@ -725,9 +736,9 @@ mercenary_company_troops = [
 ##################################################################################################################################################################################################################################################################################################################
 
   ["custom_merc_skirmisher","Company Skirmisher","Company Skirmishers", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm|tf_guarantee_ranged,0,0,fac_player_faction,[],
-    level(8)|str_10|agi_12,  
-    wpex(90,90,90,100,100,100), 
-    knows_ironflesh_1|knows_power_strike_1|knows_power_draw_2|knows_athletics_4|knows_weapon_master_1,
+    level(12)|str_10|agi_14, 
+    wpexf(110,110,110,140,140,140,140),  
+    knows_ironflesh_1|knows_power_strike_1|knows_power_draw_2|knows_power_throw_2|knows_athletics_4|knows_weapon_master_1,
     mercenary_face_1, mercenary_face_2],
     
   ["custom_merc_skirmisher_equip","Company Skirmisher","Company Skirmishers",tf_hero|tf_inactive,0,0,fac_player_faction,
@@ -812,9 +823,9 @@ mercenary_company_troops = [
     ], def_attrib|level(1),wp(60),knows_common|knows_inventory_management_10,0], 
     
   ["custom_merc_ranger","Company Ranger","Company Rangers", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm|tf_guarantee_ranged,0,0,fac_player_faction,[],
-    level(12)|str_12|agi_14,  
-    wpex(100,100,100,120,120,120), 
-    knows_ironflesh_2|knows_power_draw_3|knows_power_strike_2|knows_athletics_4|knows_weapon_master_2,
+    level(16)|str_12|agi_16, 
+    wpexf(130,130,130,160,160,160,160),
+    knows_ironflesh_2|knows_power_draw_3|knows_power_throw_3|knows_power_strike_2|knows_athletics_4|knows_weapon_master_2,
     mercenary_face_1, mercenary_face_2],
  
   ["custom_merc_ranger_equip","Company Ranger","Company Rangers",tf_hero|tf_inactive,0,0,fac_player_faction,
@@ -903,9 +914,9 @@ mercenary_company_troops = [
     ], def_attrib|level(1),wp(60),knows_common|knows_inventory_management_10,0], 
     
   ["custom_merc_marksman","Company Marksman","Company Marksmen", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm|tf_guarantee_ranged,0,0,fac_player_faction,[],
-    level(18)|str_14|agi_16,  
-    wpex(120,120,120,150,150,150), 
-    knows_ironflesh_3|knows_power_draw_3|knows_power_strike_2|knows_athletics_4|knows_weapon_master_3,
+    level(20)|str_14|agi_18, 
+    wpexf(150,150,150,180,180,180,180), 
+    knows_ironflesh_3|knows_power_draw_4|knows_power_throw_4|knows_power_strike_2|knows_athletics_4|knows_weapon_master_3,
     mercenary_face_1, mercenary_face_2],
    
   ["custom_merc_marksman_equip","Company Marksman","Company Marksmen",tf_hero|tf_inactive,0,0,fac_player_faction,

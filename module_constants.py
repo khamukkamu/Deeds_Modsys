@@ -1583,14 +1583,17 @@ pretenders_end = active_npcs_end
 
 # DAC CHANGES
 extra_lords_begin = "trp_extra_lord_1"
-extra_lords_end = "trp_extra_lord_40"
+extra_lords_end = "trp_extra_lord_end"
 
 extra_ladies_begin = "trp_extra_lady_1"
 extra_ladies_end = "trp_extra_lord_1"
 #Rebellion changes
 
+tavern_tailors_begin = "trp_tavern_tailor_1"
+tavern_tailors_end = "trp_tavern_tailor_end"
+
 tavern_minstrels_begin = "trp_tavern_minstrel_1"
-tavern_minstrels_end   = "trp_musican_male"
+tavern_minstrels_end   = tavern_tailors_begin
 
 tavern_booksellers_begin = "trp_tavern_bookseller_1"
 tavern_booksellers_end   = tavern_minstrels_begin
@@ -1600,9 +1603,6 @@ tavern_travelers_end   = tavern_booksellers_begin
 
 ransom_brokers_begin = "trp_ransom_broker_1"
 ransom_brokers_end   = tavern_travelers_begin
-
-tavern_tailors_begin = "trp_tavern_tailor_1"
-tavern_tailors_end = "trp_tavern_tailor_end"
 
 mercenary_troops_begin = "trp_watchman"
 mercenary_troops_end = "trp_mercenaries_end"
@@ -2920,17 +2920,18 @@ slot_item_two_handed_axe_tier = 126
 slot_item_two_handed_sword_tier = 127
 slot_item_polearm_slash_tier = 128
 slot_item_polearm_thrust_tier = 129
-slot_item_bow_tier = 130
-slot_item_crossbow_tier = 131
-slot_item_arrow_tier = 132
-slot_item_bolt_tier = 133
-slot_item_shield_tier = 134
-slot_item_horse_tier = 135
-slot_item_firearm_tier = 136
-slot_item_bullet_tier = 137
+slot_item_thrown_tier = 130
+slot_item_bow_tier = 131
+slot_item_crossbow_tier = 132
+slot_item_arrow_tier = 133
+slot_item_bolt_tier = 134
+slot_item_shield_tier = 135
+slot_item_horse_tier = 136
+slot_item_firearm_tier = 137
+slot_item_bullet_tier = 138
 
 slot_item_tiers_begin = slot_item_armor_tier
-slot_item_tiers_end = 138
+slot_item_tiers_end = 139
 # Troop Slots
 slot_troop_tier_custom_troop = 180
 slot_troop_custom_can_use_item = 181

@@ -1661,6 +1661,14 @@ common_player_helmet_toggle = (
     (play_sound, "snd_helmet_open_close"),
   ])
   
+deeds_custom_battle_scripts = [
+  common_ai_weapon_toggle,
+  common_ai_weapon_toggle_check,
+  dac_lancer_fix,
+  dac_footstep_sounds,
+  dplmc_horse_speed,
+  dac_agent_weapons_switching,
+  ] + battle_panel_triggers + utility_triggers + extended_battle_menu + common_division_data + division_order_processing + real_deployment + formations_triggers + AI_triggers
 
 deeds_common_battle_scripts = [
   tld_cheer_on_space_when_battle_over_press,
@@ -10802,7 +10810,7 @@ mission_templates = [
       common_battle_victory_display,
       custom_battle_check_defeat_condition,
 	##diplomacy begin
-	] + dplmc_battle_mode_triggers,
+	] + deeds_custom_battle_scripts,
 	##diplomacy end
   ),
 
@@ -16994,6 +17002,19 @@ mission_templates = [
       (display_message,"str_can_not_retreat"),
     (try_end),
     ]),
+    
+      (ti_question_answered, 0, 0, [],
+       [(store_trigger_param_1,":answer"),
+        (eq,":answer",0),
+        (assign, "$pin_player_fallen", 0),
+        (try_begin),
+          (store_mission_timer_a, ":elapsed_time"),
+          (gt, ":elapsed_time", 20),
+          (str_store_string, s5, "str_retreat"),
+          (call_script, "script_simulate_retreat", 10, 20, 1),
+        (try_end),
+        (call_script, "script_count_mission_casualties_from_agents"),
+        (finish_mission,0),]),
 
 
       (0, 0, ti_once, [],

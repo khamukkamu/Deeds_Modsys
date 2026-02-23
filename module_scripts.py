@@ -5536,8 +5536,11 @@ scripts = [
             (val_mul, ":join_cost", 8),
             (val_div, ":join_cost", 5),            
         (try_end),
+        
+        (val_max, ":join_cost", ":troop_level"), ### Failsafe, lowest possible value would be troop level
     # DAC Seek END
     (try_end),
+    
     (assign, reg0, ":join_cost"),
     (set_trigger_result, reg0),
   ]),
@@ -8394,7 +8397,8 @@ scripts = [
         (faction_set_slot, ":faction_no",  slot_faction_tier_5_troop, ":troop"),
         (faction_get_slot, ":troop", ":culture",  slot_faction_tier_6_troop),
         (faction_set_slot, ":faction_no",  slot_faction_tier_6_troop, ":troop"),		
-
+        (faction_get_slot, ":troop", ":culture",  slot_faction_tier_1_archer),
+        (faction_set_slot, ":faction_no",  slot_faction_tier_1_archer, ":troop"),
        (try_begin),
           (faction_slot_eq, ":faction_no", slot_faction_culture, "fac_culture_1"),
           
@@ -8825,10 +8829,10 @@ scripts = [
     (try_for_range, ":town", towns_begin, towns_end),
       (party_set_slot, ":town", slot_town_tournament_weapon_maybe_horse, slot_town_tournament_weapon_1),
       (party_set_slot, ":town", slot_town_tournament_weapon_no_horse, slot_town_tournament_weapon_1),
-      (party_set_slot, ":town", slot_town_tournament_weapon_1, "itm_w_bastard_sword_a"),
-      (party_set_slot, ":town", slot_town_tournament_weapon_2, "itm_w_twohanded_sword_messer"),
-      (party_set_slot, ":town", slot_town_tournament_weapon_3, "itm_w_mace_knobbed"),
-      (party_set_slot, ":town", slot_town_tournament_weapon_4, "itm_w_halberd_1"),
+      (party_set_slot, ":town", slot_town_tournament_weapon_1, "itm_arena_sword"),
+      (party_set_slot, ":town", slot_town_tournament_weapon_2, "itm_arena_sword_two_handed"),
+      (party_set_slot, ":town", slot_town_tournament_weapon_3, "itm_arena_axe"),
+      (party_set_slot, ":town", slot_town_tournament_weapon_4, "itm_practice_spear"),
     (try_end),
 
 	]),
@@ -16808,7 +16812,7 @@ scripts = [
             (set_trigger_result, 0xFFFFFF),
         (else_try),
             (eq, ":extra_text_id", 4),
-            (neg|is_between, ":item_no", food_begin, food_end),
+            (neg|is_between, ":item_no", trade_goods_begin, trade_goods_end),
             
             (try_begin),
                 (neq, ":damage", 0),
@@ -41425,11 +41429,13 @@ scripts = [
           (party_get_num_prisoners, ":prisoner_count", ":town_no"),
           (gt, ":prisoner_count", 0),
           (party_set_slot, ":town_no", slot_center_ransom_broker, ":troop_no"),
+          (troop_set_slot, ":troop_no", slot_troop_cur_center, ":town_no"), ### DAC Seek: Test
           (assign, ":limit", 0), #loop breaker
        (try_end),
        (eq, ":limit", 20), #none found
        (store_random_in_range, ":town_no", towns_begin, towns_end),
        (party_set_slot, ":town_no", slot_center_ransom_broker, ":troop_no"),
+       (troop_set_slot, ":troop_no", slot_troop_cur_center, ":town_no"), ### DAC Seek: Test
      (try_end),
 
      #(party_set_slot,"p_french_town_2",slot_center_ransom_broker,"trp_ramun_the_slave_trader"), DAC Kham: Remove Ramun
@@ -68283,16 +68289,16 @@ scripts = [
 		#Example usage: "I want to be able to {swing my sword} with a good conscience."
         (eq, ":context", DPLMC_CULTURAL_TERM_USE_MY_WEAPON),
         (try_begin),
-           (eq, ":speaker_faction", "fac_kingdom_4"),#Nords
-           (eq, ":speaker_faction", "fac_kingdom_2"),#Vaegirs
-           (str_store_string, ":string_register", "@swing my axe"),
+           # (eq, ":speaker_faction", "fac_kingdom_4"),#Nords
+           # (eq, ":speaker_faction", "fac_kingdom_2"),#Vaegirs
+           # (str_store_string, ":string_register", "@swing my axe"),
         # (else_try),
            # (eq, ":speaker_faction", "fac_kingdom_5"),#Rhodoks
            # (str_store_string, ":string_register", "@lift my spear"),
-        (else_try),
-           (eq, ":speaker_faction", "fac_kingdom_3"),#Khergits
-           (str_store_string, ":string_register", "@loose my arrows"),
-        (else_try),
+        # (else_try),
+           # (eq, ":speaker_faction", "fac_kingdom_3"),#Khergits
+           # (str_store_string, ":string_register", "@loose my arrows"),
+        # (else_try),
 			#Default: Swadia, Sarranid, others
            (str_store_string, ":string_register", "@swing my sword"),
         (try_end),
@@ -68301,10 +68307,11 @@ scripts = [
 		(this_or_next|eq, ":context", DPLMC_CULTURAL_TERM_KING_FEMALE),
 		(eq, ":context", DPLMC_CULTURAL_TERM_KING),
 		(try_begin),
-		   (eq, ":speaker_faction", "fac_kingdom_3"),#Khergit
-		   (str_store_string, ":string_register", "str_khan"),
+		   (this_or_next|eq, ":speaker_faction", "fac_kingdom_3"),#Burgundy
+		   (eq, ":speaker_faction", "fac_kingdom_4"),#Brittany
+		   (str_store_string, ":string_register", "@Duke"),
 		# (else_try),
-		   # (eq, ":speaker_faction", "fac_kingdom_6"),#Sarranid
+		   # (eq, ":speaker_faction", "fac_kingdom_4"),#Sarranid
 		   # (str_store_string, ":string_register", "@sultan"),
 		(else_try),
 		   #Default: Swadia, Rhodok, Nord, Vaegir, others
@@ -68316,14 +68323,12 @@ scripts = [
 		#equivalent to lowercase "kings"
 		(eq, ":context", DPLMC_CULTURAL_TERM_KING_PLURAL),
 		(try_begin),
-		   (eq, ":speaker_faction", "fac_kingdom_3"),#Khergit
-		   (str_store_string, ":string_register", "@khans"),
-		# (else_try),
-		   # (eq, ":speaker_faction", "fac_kingdom_6"),#Sarranid
-		   # (str_store_string, ":string_register", "@sultans"),
+		   (this_or_next|eq, ":speaker_faction", "fac_kingdom_3"),#Burgundy
+		   (eq, ":speaker_faction", "fac_kingdom_4"),# Brittany
+		   (str_store_string, ":string_register", "@Dukes"),
 		(else_try),
  		   #Default: Swadia, Rhodok, Nord, Vaegir, others
-		   (str_store_string, ":string_register", "@kings"),
+		   (str_store_string, ":string_register", "@Kings"),
 		(try_end),
 	(else_try),
 		#equivalent to lowercase "lord"
@@ -71715,6 +71720,8 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (store_script_param, ":begin", 1),
       (store_script_param, ":end", 2),
       (store_script_param, ":slot_no", 3),
+      
+      (str_clear, s11),
 
       (assign, ":num_towns", 0),
       (try_for_range, ":troop_no", ":begin", ":end"),
@@ -71735,20 +71742,20 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
         (else_try),
           (str_store_string, s51, "str_s50_comma_s51"),
         (try_end),
-
-        (try_begin), #list false tavern npcs
-          (call_script, "script_cf_find_alternative_town_for_taverngoers", ":town_no", -9),
-          (assign, ":alternative_town", reg0),
-          (neg|party_slot_ge, ":alternative_town", ":slot_no", ":begin"),
-          (val_add, ":num_towns", 1),
-          (str_store_party_name_link, s52, ":alternative_town"),
-          (try_begin), #this is at least the second town in the string
-            (eq, ":num_towns", 2),
-            (str_store_string, s51, "str_s52_and_s51"),
-          (else_try),
-            (str_store_string, s51, "str_s52_comma_s51"),
-          (try_end),
-        (try_end),
+### WTF DOES THAT DO BELOW???
+        # (try_begin), #list false tavern npcs
+          # (call_script, "script_cf_find_alternative_town_for_taverngoers", ":town_no", -9),
+          # (assign, ":alternative_town", reg0),
+          # (neg|party_slot_ge, ":alternative_town", ":slot_no", ":begin"),
+          # (val_add, ":num_towns", 1),
+          # (str_store_party_name_link, s52, ":alternative_town"),
+          # (try_begin), #this is at least the second town in the string
+            # (eq, ":num_towns", 2),
+            # (str_store_string, s51, "str_s52_and_s51"),
+          # (else_try),
+            # (str_store_string, s51, "str_s52_comma_s51"),
+          # (try_end),
+        # (try_end),
         # (display_message, "@{s51}"),
       (try_end),
       (str_store_troop_name_plural, s10, ":begin"), #default titles "book_merchant" "ransom_broker" etc
@@ -74216,10 +74223,10 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 
     #other tavern npc based on location
       (try_for_range, ":town_no", towns_begin, towns_end),
-        (try_for_range, ":slot_no", slot_center_ransom_broker, slot_center_tavern_minstrel + 1),
+        (try_for_range, ":slot_no", slot_center_ransom_broker, slot_center_tavern_tailor + 1), ### DAC Seek Updated
           (neq, ":slot_no", slot_center_traveler_info_faction),
           (party_get_slot, ":npc", ":town_no", ":slot_no"),
-          (is_between, ":npc", ransom_brokers_begin, tavern_minstrels_end),
+          (is_between, ":npc", ransom_brokers_begin, tavern_tailors_end), ### DAC Seek: Updated range
           (troop_set_slot, ":npc", slot_troop_cur_center, ":town_no"),
         (try_end),
       (try_end),
@@ -79601,18 +79608,12 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 	# (call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_1_bascinet_visor_5_mail_collar"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_1_bascinet_visor_5_mail_aventail"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_1_bascinet_visor_5_mail_collar_bevor"),
-	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_1_transitional_visor_open_mail_aventail"),
-	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_1_transitional_visor_open_mail_collar_bevor"),
 	# (call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_2_bascinet_visor_5_mail_collar"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_2_bascinet_visor_5_mail_aventail"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_2_bascinet_visor_5_mail_collar_bevor"),
-	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_2_transitional_visor_open_mail_aventail"),
-	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_2_transitional_visor_open_mail_collar_bevor"),
 	# (call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_3_bascinet_visor_5_mail_collar"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_3_bascinet_visor_5_mail_aventail"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_3_bascinet_visor_5_mail_collar_bevor"),
-	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_3_transitional_visor_open_mail_aventail"),
-	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_3_transitional_visor_open_mail_collar_bevor"),
 
 
     
