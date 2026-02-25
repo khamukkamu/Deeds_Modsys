@@ -33328,7 +33328,8 @@ scripts = [
         # (val_sub, ":scene_to_use", 1), # can leave, must be small battlefield
       (else_try),
         (eq, ":terrain_type", rt_steppe), ### Roads
-        (assign, ":scene_to_use", "scn_battlefield_road_1"),      
+        (store_random_in_range, ":random_scene", "scn_battlefield_road_1", "scn_battlefield_road_3"),
+        (assign, ":scene_to_use", ":random_scene"),      
       (else_try), # forests
         (is_between, ":terrain_type", rt_mountain_forest, rt_forest+1),
         (val_add, ":scene_to_use", "$g_random_scene_size_forests"),
@@ -44792,28 +44793,39 @@ scripts = [
   # Output: none (can fail)
   ("cf_check_hero_can_escape_from_player",
     [
-      (store_script_param_1, ":troop_no"),
-      (assign, ":quest_target", 0),
-      (try_begin),
+    (store_script_param_1, ":troop_no"),
+    (assign, ":quest_target", 0),
+    (try_begin),
         (check_quest_active, "qst_persuade_lords_to_make_peace"),
         (this_or_next|quest_slot_eq, "qst_persuade_lords_to_make_peace", slot_quest_target_troop, ":troop_no"),
         (quest_slot_eq, "qst_persuade_lords_to_make_peace", slot_quest_object_troop, ":troop_no"),
         (assign, ":quest_target", 1),
-      (else_try),
+    (else_try),
         (is_between, ":troop_no", "trp_sea_raider_leader", "trp_bandit_leaders_end"),
         (try_begin),
-          (check_quest_active, "qst_learn_where_merchant_brother_is"),
-          (assign, ":quest_target", 1), #always catched
+            (check_quest_active, "qst_learn_where_merchant_brother_is"),
+            (assign, ":quest_target", 1), #always catched
         (else_try),
-          (assign, ":quest_target", -1), #always run.
+            (assign, ":quest_target", -1), #always run.
         (try_end),
-      (try_end),
+    (try_end),
+      
+    (assign, ":escape_chance", hero_escape_after_defeat_chance), ### DAC Seek: Prisoner management
+    (party_get_skill_level, ":prisoner_management", "p_main_party", "skl_prisoner_management"),
+       
+    (try_begin),
+        (gt, ":prisoner_management", 0),
+        (val_mul, ":prisoner_management", 5),
+        (val_sub, ":escape_chance", ":prisoner_management"),
+        (val_min, ":escape_chance", 20), ### Still afford them a 20% chance
+    (try_end),
 
       (assign, ":continue", 0),
       (try_begin),
         (eq, ":quest_target", 0), #if not quest target
         (store_random_in_range, ":rand", 0, 100),
-        (lt, ":rand", hero_escape_after_defeat_chance),
+        # (lt, ":rand", hero_escape_after_defeat_chance), # DAC Seek: Passed to a var
+        (lt, ":rand", ":escape_chance"),
         (assign, ":continue", 1),
       (else_try),
         (eq, ":quest_target", -1), #if (always run) quest target
@@ -76586,6 +76598,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (call_script, "script_give_center_to_faction_aux", "p_english_castle_23", "fac_kingdom_2"),
       (call_script, "script_give_center_to_faction_aux", "p_english_castle_24", "fac_kingdom_2"),
       (call_script, "script_give_center_to_faction_aux", "p_english_castle_25", "fac_kingdom_2"),
+      (call_script, "script_give_center_to_faction_aux", "p_english_castle_26", "fac_kingdom_2"),
     
 ### Burgundian Castles      
       (call_script, "script_give_center_to_faction_aux", "p_burgundian_castle_1", "fac_kingdom_3"),
@@ -76806,6 +76819,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (call_script, "script_give_center_to_lord", "p_english_castle_23", "trp_knight_2_7", 0), # Château de Harcourt - Thomas Beaufort, Count of Perche
       (call_script, "script_give_center_to_lord", "p_english_castle_24", "trp_knight_2_39", 0), # Château de Arques-la-Bataille - Henry Bourchier, Count of Eu
       (call_script, "script_give_center_to_lord", "p_english_castle_25", "trp_knight_2_7", 0), # Château_de_Saint_Jean - Thomas Beaufort, Count of Perche
+      (call_script, "script_give_center_to_lord", "p_english_castle_26", "trp_knight_2_45", 0), # Château_de_Blanquefort - Jean-Gaillard de Durfort
   
 ### Burgundian Castles    
       (call_script, "script_give_center_to_lord", "p_burgundian_castle_1", "trp_kingdom_3_lord", 0), # Château_d'Étaples - Philippe Le Bon
@@ -79614,8 +79628,13 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 	# (call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_3_bascinet_visor_5_mail_collar"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_3_bascinet_visor_5_mail_aventail"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_3_bascinet_visor_5_mail_collar_bevor"),
-
-
+    
+	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_1_transitional_visor_mail_aventail"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_1_transitional_visor_mail_collar_bevor"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_2_transitional_visor_mail_aventail"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_2_transitional_visor_mail_collar_bevor"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_3_transitional_visor_mail_aventail"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_h_transitional_sallet_3_transitional_visor_mail_collar_bevor"),
     
 	(call_script, "script_item_weapon_switch_with_next", "itm_h_eyeslot_kettlehat_1_mail_aventail"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_h_eyeslot_kettlehat_2_mail_aventail"),

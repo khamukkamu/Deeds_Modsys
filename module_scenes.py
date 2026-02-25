@@ -2755,6 +2755,14 @@ scenes = [
     ["exit"],["english_castle_25_seneschal"]),
   ("english_castle_25_prison",sf_indoors,"interior_prison_a", "bo_interior_prison_a", (-100,-100),(100,100),-100,"0",
     [],[]),
+    
+#  Château de Blanquefort
+  ("english_castle_26_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000130000500000761da00003e3f000034b400002490",
+    [],[],"outer_terrain_hills_far"),
+  ("english_castle_26_interior",sf_indoors, "interior_castle_o", "bo_interior_castle_o", (-100,-100),(100,100),-100,"0",
+    ["exit"],["english_castle_26_seneschal"]),
+  ("english_castle_26_prison",sf_indoors,"interior_prison_a", "bo_interior_prison_a", (-100,-100),(100,100),-100,"0",
+    [],[]),
 
 #### Burgundian Castles
   ("burgundian_castle_1_exterior",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000012002cd900005314c00001f6d00006d7700003493",
@@ -3243,6 +3251,7 @@ scenes = [
   ("english_village_76",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000004300005008005b57000004e31800017d80000754b",[],[],"outer_terrain_plain"),
   ("english_village_77",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000004300005008005b57000004e31800017d80000754b",[],[],"outer_terrain_plain"),
   ("english_village_78",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000230000000000fffff000041ef00005ae800003c55",[],[],"outer_terrain_plain"),
+  ("english_village_79",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000230000000000fffff000041ef00005ae800003c55",[],[],"outer_terrain_plain"),
         
 # Burgundian Villages
   ("burgundian_village_1",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000013003e5990005fd78000069670000446c00007476",[],[],"outer_terrain_plain"),
@@ -3520,4 +3529,6 @@ scenes = [
 ("raided_village_1",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000130000703000cdda500007d7300002acf00005f72",[],[],"outer_terrain_plain"),
 
 ("battlefield_road_1",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300187060008be3200005ba7000045b200005708",[],[],"outer_terrain_plain"),
+("battlefield_road_2",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000005e6ad00005b750000615b000006ab",[],[],"outer_terrain_plain"),
+("battlefield_road_3",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000013000050000094ec30000505c00000f4000002736",[],[],"outer_terrain_plain"),
 ]

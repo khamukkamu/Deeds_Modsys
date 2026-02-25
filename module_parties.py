@@ -236,6 +236,7 @@ parties = [
   ("english_castle_23","Château_de_Harcourt",icon_castle_c_southern_2|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(0.34, 92.12),[],45), #[swycartographr] prev. coords: (-73.59, 31.3) #[swycartographr] prev. coords: (0.49, 91.89)
   ("english_castle_24","Château_d'Arques-la-Bataille",icon_castle_d_breton|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(16.02, 122.06),[],45),  #[swycartographr] prev. coords: (0.49, 91.89) #[swycartographr] prev. coords: (15.87, 122.11)
   ("english_castle_25","Château_de_Saint-Jean",icon_castle_d|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-2.61, 55.46),[],45),   #[swycartographr] prev. coords: (15.87, 122.11)
+  ("english_castle_26","Château_de_Blanquefort",icon_castle_d|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-47.77, -87.44),[],45),   #[swycartographr] prev. coords: (15.87, 122.11)
 
 ### DAC Burgundian Castles  
   ("burgundian_castle_1","Château_d'Étaples",icon_castle_b|pf_castle, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(28.81, 148.33),[],353), #[swycartographr] prev. coords: (100.35, 41.61) #[swycartographr] prev. coords: (95.01, 24.01) #[swycartographr] prev. coords: (95.34, 38.04) #[swycartographr] prev. coords: (96.78, 32.15)
@@ -397,7 +398,7 @@ parties = [
   ("english_village_7", "Rochechouart",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(1.81, -52.99),[], 119),  #[swycartographr] prev. coords: (-8.97, -55.21)
   ("english_village_8", "Couzeix",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(6.01, -48.23),[], 335),       #[swycartographr] prev. coords: (-3.52, -48.47)
   ("english_village_9", "Mérignac",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-51.88, -91.4),[], 60),    #[swycartographr] prev. coords: (-48.97, -105.03) #[swycartographr] prev. coords: (-50.53, -90.37)
-  ("english_village_10", "La Teste",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-53.48, -107.59),[], 135),      #[swycartographr] prev. coords: (-47.93, -87.02) #[swycartographr] prev. coords: (-49.31, -95.2) #[swycartographr] prev. coords: (-49.21, -95.08)
+  ("english_village_10", "La Teste",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-61.16, -104.21),[], 135),      #[swycartographr] prev. coords: (-47.93, -87.02) #[swycartographr] prev. coords: (-49.31, -95.2) #[swycartographr] prev. coords: (-49.21, -95.08)
 
   ("english_village_11", "Vignoles",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-49.12, -122.1),[], 22),   #[swycartographr] prev. coords: (-52.6, -126.52) #[swycartographr] prev. coords: (-50.97, -125.76) #[swycartographr] prev. coords: (-51, -126.13) #[swycartographr] prev. coords: (-30.37, -64.6) #[swycartographr] prev. coords: (-49.17, -122.33) #[swycartographr] prev. coords: (-47.71, -120.98)
   ("english_village_12", "Blaye",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-46.24, -79.79),[], 295),      #[swycartographr] prev. coords: (-45.64, -72.23)
@@ -473,6 +474,7 @@ parties = [
   ("english_village_76", "Saint Hélène d'Estang",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-56.71, -81.96),[], 269),   #[swycartographr] prev. coords: (-5.3, 93.18) rot: 46 #[swycartographr] prev. coords: (-56.84, -82.03)
   ("english_village_77", "Nogent-le-Rotrou",  icon_village_b|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(0.16, 55.01),[], 269),   #[swycartographr] prev. coords: (-5.3, 93.18) rot: 46 #[swycartographr] prev. coords: (-56.84, -82.03) #[swycartographr] prev. coords: (-0.03, 54.94)
   ("english_village_78", "Saint-Germain",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(42.83, 77.3),[], 357),   #[swycartographr] prev. coords: (-0.03, 54.94) #[swycartographr] prev. coords: (42.83, 77.3) rot: 269
+  ("english_village_79", "Arès",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-61.84, -94.35),[], 357),   #[swycartographr] prev. coords: (-0.03, 54.94) #[swycartographr] prev. coords: (42.83, 77.3) rot: 269
 
 ### DAC Burgundian Villages
   ("burgundian_village_1", "Dole",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(143.92, -4.44),[], 84),   #[swycartographr] prev. coords: (110.6, 18.14) #[swycartographr] prev. coords: (128.52, 13.34)
@@ -557,7 +559,7 @@ parties = [
   ("breton_village_19", "Beaumanoir",  icon_village_b|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-85.44, 54.27),[], 235),   #[swycartographr] prev. coords: (-81.89, 59.78)
   ("breton_village_20", "Romagné",  icon_village_b|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-61.14, 60.23),[], 89),      #[swycartographr] prev. coords: (-59.16, 55.72)
   
-  ("breton_village_21", "Rouge",  icon_village_b|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-66.25, 37.41),[], 56),         #[swycartographr] prev. coords: (-59.33, 30.98)
+  ("breton_village_21", "Rougé",  icon_village_b|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-66.25, 37.41),[], 56),         #[swycartographr] prev. coords: (-59.33, 30.98)
   ("breton_village_22", "Vallet",  icon_village_b|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-66.97, 7.26),[], 20),
   ("breton_village_23", "Hélléan",  icon_village_b|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-85.78, 35.22),[], 318),    #[swycartographr] prev. coords: (-83.92, 45.59) #[swycartographr] prev. coords: (-91.68, 46.43) #[swycartographr] prev. coords: (-81.78, 46.09) #[swycartographr] prev. coords: (-91.46, 45.58) #[swycartographr] prev. coords: (-85.06, 43.87)
   ("breton_village_24", "Landerneau",  icon_village_b|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-147.14, 71.12),[], 196),  #[swycartographr] prev. coords: (-137.28, 62.05) #[swycartographr] prev. coords: (-137.44, 60.95) #[swycartographr] prev. coords: (-143.29, 73.85) #[swycartographr] prev. coords: (-146.96, 69.99) #[swycartographr] prev. coords: (-146.86, 70.05)
