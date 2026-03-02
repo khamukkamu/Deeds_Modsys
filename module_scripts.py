@@ -16630,7 +16630,7 @@ scripts = [
             
             (try_begin),
                 (eq, ":extra_text_id", 0),
-                (str_store_string, s1, "@Can be given to certain noble units to turn into Bannermen ^Bannermen increase the morale of troops."),
+                (str_store_string, s1, "@Can be given to squires to turn into Bannermen who increase party morale."),
                 (set_result_string, "@{s1}"),
                 (set_trigger_result, color_good_news),
             (try_end),
@@ -16648,7 +16648,7 @@ scripts = [
             (eq, ":item_no", "itm_w_bishop_mace"),
             (try_begin),
                 (eq, ":extra_text_id", 0),
-                (str_store_string, s1, "@An elaborate mace with 'Lord's Mercy' inscribed^this weapon will never inflict casualties"),
+                (str_store_string, s1, "@An elaborate mace with 'Lord's Mercy' inscribed, this weapon will never inflict casualties"),
                 (set_result_string, "@{s1}"),
                 (set_trigger_result, color_good_news),
             (try_end),
@@ -16657,7 +16657,7 @@ scripts = [
             (eq, ":item_no", "itm_w_onehanded_sword_kingmaker_jeanne"),
             (try_begin),
                 (eq, ":extra_text_id", 0),
-                (str_store_string, s1, "@An elegant sword with a fleur-de-lys engraved in the pommel^used to belong to Jeanne"),
+                (str_store_string, s1, "@An elegant sword with a fleur-de-lys engraved in the pommel"),
                 (set_result_string, "@{s1}"),
                 (set_trigger_result, color_good_news),
             (try_end),         
@@ -33328,8 +33328,9 @@ scripts = [
         # (val_sub, ":scene_to_use", 1), # can leave, must be small battlefield
       (else_try),
         (eq, ":terrain_type", rt_steppe), ### Roads
-        (store_random_in_range, ":random_scene", "scn_battlefield_road_1", "scn_battlefield_road_3"),
+        (store_random_in_range, ":random_scene", "scn_battlefield_road_1", "scn_battlefield_road_4"),
         (assign, ":scene_to_use", ":random_scene"),      
+        # (assign, ":scene_to_use", "scn_battlefield_road_4"),      
       (else_try), # forests
         (is_between, ":terrain_type", rt_mountain_forest, rt_forest+1),
         (val_add, ":scene_to_use", "$g_random_scene_size_forests"),
@@ -76069,6 +76070,10 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 
 ("initialize_center_data",[ 
 
+    (party_set_slot, "p_burgundian_village_48", slot_village_bound_center, "p_burgundian_castle_20"), ### Rambouillet -> Château de Dourdan
+    (party_set_slot, "p_english_village_23", slot_village_bound_center, "p_english_town_3"), ### Chailly -> Nemours
+    (party_set_slot, "p_english_village_24", slot_village_bound_center, "p_english_town_3"), ### Melun -> Nemours
+
 # fill_village_bound_centers
     #pass 1: Give one village to each castle
       (try_for_range, ":cur_center", castles_begin, castles_end),
@@ -76907,7 +76912,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (call_script, "script_give_center_to_lord", "p_french_village_77", "trp_knight_1_10", 0), # Le Lude - Jean V de Bueil, Seigneur de Bueil
       (call_script, "script_give_center_to_lord", "p_french_village_79", "trp_knight_1_45", 0), # Sully-sur-Loire - Georges de la Tremoille
 
-### English Villages  
+### English Villages  initialize_center_data
       (call_script, "script_give_center_to_lord", "p_english_village_23", "trp_knight_2_48", 0), # Chailly - Sir John de la Pole
       (call_script, "script_give_center_to_lord", "p_english_village_24", "trp_knight_2_49", 0), # Ury - Sir Alexander de la Pole
       (call_script, "script_give_center_to_lord", "p_english_village_25", "trp_knight_2_50", 0), # Gasville - Sir Thomas de la Pole
@@ -79446,12 +79451,18 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
     (call_script, "script_item_weapon_switch_with_next", "itm_w_twohanded_war_axe_03_red"),
 	  
 ### Warhammers
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_warhammer_long"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_warhammer_long_brown"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_warhammer_long_ebony"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_w_warhammer_1"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_w_warhammer_1_brown"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_w_warhammer_1_red"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_w_warhammer_2"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_w_warhammer_2_brown"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_w_warhammer_2_red"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_warhammer_3"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_warhammer_3_brown"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_warhammer_3_red"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_w_knight_warhammer_1"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_w_knight_warhammer_1_brown"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_w_knight_warhammer_1_ebony"),
@@ -79461,6 +79472,9 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 	(call_script, "script_item_weapon_switch_with_next", "itm_w_knight_warhammer_3"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_w_knight_warhammer_3_brown"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_w_knight_warhammer_3_ebony"),	  
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_warhammer_italian"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_warhammer_italian_brown"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_w_warhammer_italian_ebony"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_w_kriegshammer"),	  
 	(call_script, "script_item_weapon_switch_with_next", "itm_w_kriegshammer_brown"),	  
 	(call_script, "script_item_weapon_switch_with_next", "itm_w_kriegshammer_ebony"),	  
@@ -79575,6 +79589,12 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 	(call_script, "script_item_weapon_switch_with_next", "itm_h_great_bascinet_continental_visor_c_gilded"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_h_great_bascinet_continental_visor_c_strip"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_h_great_bascinet_continental_1430_visor_gilded"),
+    
+	(call_script, "script_item_weapon_switch_with_next", "itm_h_bicoque_visor"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_h_armet_fiore_visor"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_h_armet_1410_visor"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_h_armet_pointy_visor_a"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_h_armet_pointy_visor_b"),
     
 	(call_script, "script_item_weapon_switch_with_next", "itm_h_pigface_klappvisor"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_h_pigface_klappvisor_plated"),

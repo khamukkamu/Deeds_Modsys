@@ -137,7 +137,7 @@ Mercenary recruitment and upkeep is significantly reduced ^\
 Factions are more likely to provide you with mercenary contracts, rewards are increased ^^\
 Cons: ^\
 » Villainous Lot: ^\
-Mercenaries are often compromising of veterans, deserters, bandits and naïve recruits who don't always go along. Base morale is lower and suffer higher morale penalties from events, such as lack of food, retreat or defeat.^\
+Mercenaries are often comprised of veterans, deserters, bandits and naïve recruits who don't always get along. The base morale for your party is below average and most negative events such as retreating from battle, being defeated and starvation will impact your morale more harshly.^\
 » Lofty Ambitions: ^\
 Nobles are very suspicious towards your true loyalties, requirements to join a faction are higher and should you try to form a kingdom of your own, neutral factions are likely to declare war on you."),
 
@@ -234,7 +234,7 @@ You can dispose of your prisoners at taverns by speaking to Tavern Keepers, they
 Cons: ^\
 » Noble Disdain: ^\
 Increased relation penalties from capturing nobles."),
-("dac_background_class_desc_investor",            "Investors specialize in buying and running bussinesses, creating an ever increasing network of merchandise. ^^\
+("dac_background_class_desc_investor",            "Investors specialize in buying and running businesses, creating an ever increasing network of merchandise. ^^\
 Pros: ^\
 » Deep Pockets: ^\
 Merchants have more gold available when trading with you ^\

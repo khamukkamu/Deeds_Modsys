@@ -150,7 +150,7 @@ sounds = [
  ("mp_arrow_hit_target",sf_2d|sf_priority_15|sf_vol_9, ["mp_arrow_hit_target.ogg"]),
  ("blunt_hit",sf_priority_5|sf_vol_9, ["horse_charge_01.ogg","horse_charge_02.ogg","horse_charge_03.ogg","horse_charge_04.ogg","horse_charge_05.ogg","horse_charge_06.ogg","horse_charge_07.ogg","horse_charge_08.ogg"]),
  ("player_hit_by_arrow",sf_priority_10|sf_vol_10, ["missile_flesh_07.ogg"]),
- ("pistol_shot",sf_priority_10|sf_vol_10, ["fl_pistol.wav"]),
+ ("pistol_shot",sf_priority_10|sf_vol_10, ["musket_shot01.wav","musket_shot02.wav","musket_shot03.wav","musket_shot04.wav"]),
  ("man_grunt",sf_priority_6|sf_vol_4, ["man_excercise_01.ogg","man_excercise_02.ogg","man_excercise_03.ogg","man_excercise_04.ogg","man_grunt_22.mp3","man_grunt_23.mp3","man_grunt_24.mp3"]),
  ("man_breath_hard",sf_priority_3|sf_vol_8, ["man_ugh_1.ogg","man_ugh_2.ogg","man_ugh_4.ogg","man_ugh_7.ogg","man_ugh_12.ogg","man_ugh_13.ogg","man_ugh_17.ogg","man_grunt_22.mp3","man_grunt_23.mp3","man_grunt_24.mp3"]),
  ("man_stun",sf_priority_3|sf_vol_8, ["man_stun_1.ogg"]),

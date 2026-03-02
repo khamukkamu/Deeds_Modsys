@@ -641,8 +641,10 @@ mercenary_company_troops = [
     itm_h_transitional_sallet_2_mail_aventail,
     itm_h_transitional_sallet_3_mail_aventail,
     
-    itm_a_pistoia_breastplate_half_mail_sleeves,
-    itm_a_pistoia_breastplate_half_mail_sleeves_jackchain,
+    itm_a_brigandine_asher_a_mail_custom,
+    itm_a_brigandine_asher_b_mail_custom,
+    
+    itm_g_gauntlets_mailed,
     
     itm_b_leg_harness_1,
     itm_b_leg_harness_2,
@@ -683,14 +685,12 @@ mercenary_company_troops = [
     itm_h_oliphant_eyeslot_kettlehat_mail_aventail,
     itm_h_martinus_kettlehat_3_mail_aventail,
     
-    itm_a_pistoia_mail_a_mail_sleeves_plate_spaulders_1,
-    itm_a_pistoia_mail_b_mail_sleeves_plate_spaulders_1,
-    itm_a_pistoia_mail_a_mail_sleeves_plate_spaulders_2,
-    itm_a_pistoia_mail_b_mail_sleeves_plate_spaulders_2,
-    itm_a_pistoia_mail_a_mail_sleeves_plate_spaulders_3,
-    itm_a_pistoia_mail_b_mail_sleeves_plate_spaulders_3,
-    itm_a_pistoia_breastplate_half_mail_sleeves,
-    itm_a_pistoia_breastplate_half_mail_sleeves_jackchain,
+    itm_a_brigandine_asher_a_mail_custom,
+    itm_a_brigandine_asher_b_mail_custom,
+    itm_a_brigandine_asher_a_mail_jackchain_custom,
+    itm_a_brigandine_asher_b_mail_jackchain_custom,
+    
+    itm_g_gauntlets_mailed,
     
     itm_b_leg_harness_1,
     itm_b_leg_harness_2,
@@ -731,12 +731,112 @@ mercenary_company_troops = [
     
     ], def_attrib|level(1),wp(60),knows_common|knows_inventory_management_10,0],
     
+### Vanguard
+    
+  ["custom_merc_vanguard","Company Vanguard","Company Vanguard",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm,0,0,fac_player_faction,[],
+    level(25)|str_20|agi_20, 
+    wpe(160,180,180,100), 
+    knows_ironflesh_6|knows_power_strike_5|knows_shield_1|knows_athletics_5|knows_weapon_master_5,
+    mercenary_face_1, mercenary_face_2],
+  
+  ["custom_merc_vanguard_equip","Company Vanguard","Company Vanguard",tf_hero|tf_inactive,0,0,fac_player_faction,
+   # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
+   [ 
+    itm_h_eyeslot_kettlehat_1_mail_aventail,
+    itm_h_eyeslot_kettlehat_2_mail_aventail,
+    itm_h_eyeslot_kettlehat_3_mail_aventail,
+    itm_h_oliphant_eyeslot_kettlehat_mail_aventail,
+    itm_h_martinus_kettlehat_3_mail_aventail,
+    
+    itm_a_pistoia_mail_a_mail_sleeves_plate_spaulders_1,
+    itm_a_pistoia_mail_b_mail_sleeves_plate_spaulders_1,
+    itm_a_pistoia_mail_a_mail_sleeves_plate_spaulders_2,
+    itm_a_pistoia_mail_b_mail_sleeves_plate_spaulders_2,
+    itm_a_pistoia_mail_a_mail_sleeves_plate_spaulders_3,
+    itm_a_pistoia_mail_b_mail_sleeves_plate_spaulders_3,
+    
+    itm_g_gauntlets_mailed,
+    
+    itm_b_leg_harness_1,
+    itm_b_leg_harness_2,
+    itm_b_leg_harness_3,
+    
+
+    itm_w_bardiche_4,
+    itm_w_bardiche_4_brown,
+    itm_w_bardiche_4_red,
+    itm_w_awlpike_1,
+    itm_w_awlpike_2,
+    itm_w_awlpike_3,
+    itm_w_glaive_4_brown,
+    itm_w_glaive_4_ebony,
+    itm_w_morgenstern_brown,
+   ], def_attrib|level(1), wp(60),knows_common,0
+  ],
+  
+  ["custom_merc_vanguard_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
+    [ #Inventory Matters here. This is what they CAN BE ASKED to equip. Our system gives this troop weapons through dialogues.
+
+    itm_h_transitional_sallet_1_mail_aventail,
+    itm_h_transitional_sallet_2_mail_aventail,
+    itm_h_transitional_sallet_3_mail_aventail,
+    itm_h_bascinet_1_mail_aventail,
+    itm_h_bascinet_2_mail_aventail,
+    itm_h_bascinet_3_mail_aventail,
+    itm_h_bascinet_4_mail_aventail,
+    itm_h_eyeslot_kettlehat_1_mail_aventail,
+    itm_h_eyeslot_kettlehat_2_mail_aventail,
+    itm_h_eyeslot_kettlehat_3_mail_aventail,
+    itm_h_oliphant_eyeslot_kettlehat_mail_aventail,
+    itm_h_martinus_kettlehat_3_mail_aventail,
+    
+    itm_a_pistoia_mail_a_mail_sleeves_plate_spaulders_1,
+    itm_a_pistoia_mail_b_mail_sleeves_plate_spaulders_1,
+    itm_a_pistoia_mail_a_mail_sleeves_plate_spaulders_2,
+    itm_a_pistoia_mail_b_mail_sleeves_plate_spaulders_2,
+    itm_a_pistoia_mail_a_mail_sleeves_plate_spaulders_3,
+    itm_a_pistoia_mail_b_mail_sleeves_plate_spaulders_3,
+    itm_a_pistoia_breastplate_half_mail_sleeves,
+    itm_a_pistoia_breastplate_half_mail_sleeves_jackchain,
+    
+    itm_g_gauntlets_mailed,
+    
+    itm_b_leg_harness_1,
+    itm_b_leg_harness_2,
+    itm_b_leg_harness_3,
+    
+    itm_w_twohanded_sword_talhoffer,
+    itm_w_twohanded_sword_steward,
+    itm_w_twohanded_sword_earl,
+    itm_w_twohanded_war_axe_01,
+    itm_w_twohanded_war_axe_01_brown,
+    itm_w_twohanded_war_axe_01_red,
+    itm_w_bardiche_4,
+    itm_w_bardiche_4_brown,
+    itm_w_bardiche_4_red,
+    itm_w_awlpike_1,
+    itm_w_awlpike_2,
+    itm_w_awlpike_3,
+    itm_w_awlpike_4,
+    itm_w_awlpike_5,
+    itm_w_awlpike_6,
+    itm_w_awlpike_7,
+    itm_w_glaive_4,
+    itm_w_glaive_4_brown,
+    itm_w_glaive_4_ebony,
+    itm_w_morgenstern,
+    itm_w_morgenstern_brown,
+    itm_w_morgenstern_ebony,
+    
+    
+    ], def_attrib|level(1),wp(60),knows_common|knows_inventory_management_10,0],
+    
 ##################################################################################################################################################################################################################################################################################################################
 ###################################################################################################### DAC CUSTOM TROOPS RANGED ##########################################################################################################################################################################################
 ##################################################################################################################################################################################################################################################################################################################
 
   ["custom_merc_skirmisher","Company Skirmisher","Company Skirmishers", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm|tf_guarantee_ranged,0,0,fac_player_faction,[],
-    level(12)|str_10|agi_14, 
+    level(15)|str_10|agi_14, 
     wpexf(110,110,110,140,140,140,140),  
     knows_ironflesh_1|knows_power_strike_1|knows_power_draw_2|knows_power_throw_2|knows_athletics_4|knows_weapon_master_1,
     mercenary_face_1, mercenary_face_2],
@@ -761,8 +861,8 @@ mercenary_company_troops = [
     itm_w_archer_hatchet,
     itm_w_archers_maul,
     
-    itm_w_short_bow_ash,
-    itm_w_short_bow_elm,
+    itm_w_hunting_bow_ash,
+    itm_w_hunting_bow_elm,
     
     itm_w_arrow_triangular,
    ], def_attrib|level(1), wp(60),knows_common,0
@@ -811,9 +911,9 @@ mercenary_company_troops = [
     itm_w_archers_maul_brown,
     itm_w_archers_maul_red,
     
-    itm_w_short_bow_ash,
-    itm_w_short_bow_elm,
-    itm_w_short_bow_oak,
+    itm_w_hunting_bow_ash,
+    itm_w_hunting_bow_elm,
+    itm_w_hunting_bow_oak,
     itm_w_crossbow_hunting,
     itm_w_crossbow_light,
     
@@ -823,7 +923,7 @@ mercenary_company_troops = [
     ], def_attrib|level(1),wp(60),knows_common|knows_inventory_management_10,0], 
     
   ["custom_merc_ranger","Company Ranger","Company Rangers", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm|tf_guarantee_ranged,0,0,fac_player_faction,[],
-    level(16)|str_12|agi_16, 
+    level(20)|str_12|agi_16, 
     wpexf(130,130,130,160,160,160,160),
     knows_ironflesh_2|knows_power_draw_3|knows_power_throw_3|knows_power_strike_2|knows_athletics_4|knows_weapon_master_2,
     mercenary_face_1, mercenary_face_2],
@@ -838,6 +938,8 @@ mercenary_company_troops = [
 
     itm_a_light_gambeson_long_sleeves_custom,
     itm_a_light_gambeson_long_sleeves_diamond_custom,
+    
+    itm_g_leather_gauntlet,
 
     itm_b_turnshoes_1,
     itm_b_turnshoes_2,
@@ -850,8 +952,9 @@ mercenary_company_troops = [
     itm_w_dagger_baselard,
     itm_w_dagger_rondel,
 
-    itm_w_hunting_bow_ash,
-    itm_w_hunting_bow_elm,
+    itm_w_war_bow_ash,
+    itm_w_war_bow_elm,
+    itm_w_war_bow_oak,
 
     itm_w_arrow_triangular,
    ], def_attrib|level(1), wp(60),knows_common,0
@@ -876,6 +979,8 @@ mercenary_company_troops = [
     itm_a_light_gambeson_long_sleeves_diamond_custom,
     itm_a_gambeson_grande_assiette_custom,
     itm_a_simple_gambeson_custom,
+    
+    itm_g_leather_gauntlet,
 
     itm_b_turnshoes_1,
     itm_b_turnshoes_2,
@@ -902,9 +1007,9 @@ mercenary_company_troops = [
     itm_w_dagger_baselard,
     itm_w_dagger_rondel,
 
-    itm_w_hunting_bow_ash,
-    itm_w_hunting_bow_elm,
-    itm_w_hunting_bow_oak,
+    itm_w_war_bow_ash,
+    itm_w_war_bow_elm,
+    itm_w_war_bow_oak,
     itm_w_crossbow_cavalry,
     itm_w_crossbow_medium,
 
@@ -914,8 +1019,8 @@ mercenary_company_troops = [
     ], def_attrib|level(1),wp(60),knows_common|knows_inventory_management_10,0], 
     
   ["custom_merc_marksman","Company Marksman","Company Marksmen", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm|tf_guarantee_ranged,0,0,fac_player_faction,[],
-    level(20)|str_14|agi_18, 
-    wpexf(150,150,150,180,180,180,180), 
+    level(25)|str_14|agi_18, 
+    wpexf(140,140,140,200,200,200,200), 
     knows_ironflesh_3|knows_power_draw_4|knows_power_throw_4|knows_power_strike_2|knows_athletics_4|knows_weapon_master_3,
     mercenary_face_1, mercenary_face_2],
    
@@ -938,9 +1043,8 @@ mercenary_company_troops = [
     itm_w_onehanded_falchion_a,
     itm_w_onehanded_falchion_b,
     
-    itm_w_war_bow_ash,
-    itm_w_war_bow_elm,
-    itm_w_war_bow_oak,
+    itm_w_long_bow_ash,
+    itm_w_long_bow_elm,
 
     itm_w_arrow_triangular_large,
    ], def_attrib|level(1), wp(60),knows_common,0
@@ -989,6 +1093,106 @@ mercenary_company_troops = [
     itm_w_onehanded_falchion_b,
     
     itm_w_crossbow_heavy,
+    itm_w_long_bow_ash,
+    itm_w_long_bow_elm,
+    itm_w_long_bow_oak,
+    
+    itm_w_bolt_triangular_large,
+    itm_w_bolt_broadhead,
+    itm_w_arrow_triangular_large,
+    ], def_attrib|level(1),wp(60),knows_common|knows_inventory_management_10,0], 
+    
+    
+    
+  ["custom_merc_defender","Company Defender","Company Defender", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm|tf_guarantee_ranged,0,0,fac_player_faction,[],
+    level(28)|str_16|agi_16, 
+    wpexf(160,160,160,180,180,180,180), 
+    knows_ironflesh_4|knows_power_strike_3|knows_power_draw_3|knows_power_throw_3|knows_athletics_4|knows_weapon_master_3|knows_shield_2,
+    mercenary_face_1, mercenary_face_2],
+   
+  ["custom_merc_defender_equip","Company Defender","Company Defenders",tf_hero|tf_inactive,0,0,fac_player_faction,
+   # Inventory Matters here. This is what they will be carrying first if not yet customized / given a weapon.
+   [ 
+    itm_h_transitional_sallet_1_mail_collar_bevor,
+    itm_h_transitional_sallet_2_mail_collar_bevor,
+    itm_h_transitional_sallet_3_mail_collar_bevor,
+    itm_h_bascinet_1_mail_aventail,
+    itm_h_bascinet_2_mail_aventail,
+    
+    itm_a_pistoia_mail_a_mail_sleeves_plate_spaulders_1,
+    itm_a_pistoia_mail_a_mail_sleeves_plate_spaulders_2,
+    itm_a_pistoia_mail_a_mail_sleeves_plate_spaulders_3,
+    
+    itm_g_finger_gauntlets,
+    
+    itm_b_leg_harness_1,
+    itm_b_leg_harness_2,
+    
+    itm_w_warhammer_1_brown,
+    itm_w_warhammer_2_brown,
+    itm_w_onehanded_war_axe_01_brown,
+    itm_w_onehanded_sword_squire,
+    itm_w_onehanded_falchion_a,
+    
+    itm_s_pavise_breton_2,
+    itm_s_pavise_burgundian_4,
+    itm_s_pavise_flemish_1,
+    itm_s_pavise_flemish_2,
+    
+    itm_w_crossbow_siege,
+    
+    itm_w_bolt_triangular_large,
+   ], def_attrib|level(1), wp(60),knows_common,0
+  ],
+  
+  ["custom_merc_defender_selection","{!}na","{!}na",tf_hero|tf_inactive,0,0,fac_player_faction,
+    [ #Inventory Matters here. This is what they CAN BE ASKED to equip. Our system gives this troop weapons through dialogues.
+    itm_h_transitional_sallet_1_mail_collar_bevor,
+    itm_h_transitional_sallet_2_mail_collar_bevor,
+    itm_h_transitional_sallet_3_mail_collar_bevor,
+    itm_h_bascinet_1_mail_aventail,
+    itm_h_bascinet_2_mail_aventail,
+    itm_h_bascinet_3_mail_aventail,
+    itm_h_bascinet_4_mail_aventail,
+    itm_h_barbuta_nooxy_1_mail_collar,
+    itm_h_barbuta_nooxy_2_mail_collar,
+    itm_h_barbuta_nooxy_3,
+    itm_h_barbuta_1_mail_collar,
+    itm_h_barbuta_2_mail_collar,
+    
+    itm_a_pistoia_mail_a_mail_sleeves_plate_spaulders_1,
+    itm_a_pistoia_mail_a_mail_sleeves_plate_spaulders_2,
+    itm_a_pistoia_mail_a_mail_sleeves_plate_spaulders_3,
+    itm_a_pistoia_breastplate_half_mail_sleeves,
+    itm_a_pistoia_breastplate_half_mail_sleeves_jackchain,
+    
+    itm_g_finger_gauntlets,
+    
+    itm_b_leg_harness_1,
+    itm_b_leg_harness_2,
+    itm_b_leg_harness_3,
+    
+    itm_w_warhammer_1,
+    itm_w_warhammer_1_brown,
+    itm_w_warhammer_1_red,
+    itm_w_warhammer_2,
+    itm_w_warhammer_2_brown,
+    itm_w_warhammer_2_red,
+    itm_w_onehanded_war_axe_01,
+    itm_w_onehanded_war_axe_01_brown,
+    itm_w_onehanded_war_axe_01_red,
+    itm_w_onehanded_sword_squire,
+    itm_w_onehanded_sword_martyr,
+    itm_w_onehanded_sword_laird,
+    itm_w_onehanded_falchion_a,
+    itm_w_onehanded_falchion_b,
+    
+    itm_s_pavise_breton_2,
+    itm_s_pavise_burgundian_4,
+    itm_s_pavise_flemish_1,
+    itm_s_pavise_flemish_2,
+    
+    itm_w_crossbow_siege,
     itm_w_war_bow_ash,
     itm_w_war_bow_elm,
     itm_w_war_bow_oak,
@@ -1005,9 +1209,9 @@ mercenary_company_troops = [
 
 ### Tier 3
   ["custom_merc_scout","Company Scout","Company Scouts", tf_guarantee_all|tf_mounted|tf_guarantee_polearm,0,0,fac_player_faction,[],
-    level(15)|str_16|agi_16,  
-    wp_melee(120), 
-    knows_ironflesh_3|knows_power_strike_3|knows_shield_1|knows_athletics_3|knows_weapon_master_3|knows_riding_2,
+    level(20)|str_16|agi_16,  
+    wpe(130,110,110,110), 
+    knows_ironflesh_3|knows_power_strike_3|knows_power_throw_3|knows_horse_archery_3|knows_shield_1|knows_athletics_3|knows_weapon_master_3|knows_riding_2,
     mercenary_face_1, mercenary_face_2],
     
   ["custom_merc_scout_equip","Company Scout","Company Scouts",tf_hero|tf_inactive,0,0,fac_player_faction,
@@ -1022,6 +1226,8 @@ mercenary_company_troops = [
 
     itm_a_pistoia_mail_a_mail_sleeves_short,
     itm_a_pistoia_mail_b_mail_sleeves_short,
+    
+    itm_g_demi_gauntlets,
 
     itm_b_high_boots_1,
     itm_b_high_boots_2,
@@ -1072,6 +1278,8 @@ mercenary_company_troops = [
     itm_a_pistoia_mail_b_mail_sleeves,
     itm_a_pistoia_mail_a_mail_sleeves_jackchains,
     itm_a_pistoia_mail_b_mail_sleeves_jackchains,
+    
+    itm_g_demi_gauntlets,
 
     itm_b_high_boots_1,
     itm_b_high_boots_2,
@@ -1122,8 +1330,8 @@ mercenary_company_troops = [
     
   ["custom_merc_mounted_sergeant","Company Mounted Sergeant","Company Mounted Sergeants", tf_guarantee_all|tf_mounted|tf_guarantee_polearm,0,0,fac_player_faction,[],
     level(25)|str_20|agi_20,  
-    wp_melee(180), 
-    knows_ironflesh_5|knows_power_strike_5|knows_shield_3|knows_athletics_4|knows_weapon_master_5|knows_riding_4,
+    wpe(160,140,140,140), 
+    knows_ironflesh_5|knows_power_strike_5|knows_shield_3|knows_power_throw_4|knows_horse_archery_4|knows_athletics_4|knows_weapon_master_5|knows_riding_4,
     mercenary_face_1, mercenary_face_2],
     
   ["custom_merc_mounted_sergeant_equip","Company Mounted Sergeant","Company Mounted Sergeants",tf_hero|tf_inactive,0,0,fac_player_faction,
@@ -1140,6 +1348,8 @@ mercenary_company_troops = [
     itm_a_padded_over_mail_alt_3_custom,
     itm_a_padded_over_mail_alt_4_custom,
     itm_a_padded_over_mail_alt_5_custom,
+    
+    itm_g_finger_gauntlets,
     
     itm_b_leg_harness_1,
     itm_b_leg_harness_2,
@@ -1192,6 +1402,8 @@ mercenary_company_troops = [
     itm_a_padded_over_mail_alt_3_custom,
     itm_a_padded_over_mail_alt_4_custom,
     itm_a_padded_over_mail_alt_5_custom,
+    
+    itm_g_finger_gauntlets,
     
     itm_b_leg_harness_1,
     itm_b_leg_harness_2,

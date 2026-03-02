@@ -3133,6 +3133,7 @@ TOTAL:  {reg5}"),
     ("genoese",[],"Genoese Crossbowmen", [(party_add_members,"p_main_party","trp_genoese_light_crossbowman", 20),(display_message,"@Received Genoese Mercs"),]),
     ("italian",[],"Italian Troops", [(party_add_members,"p_main_party","trp_italian_light_infantry", 20),(display_message,"@Received Italian Mercs"),]),
     ("germans",[],"German Knights", [(party_add_members,"p_main_party","trp_mercenary_german_dismounted_knight", 20),(display_message,"@Received German Knights"),]),
+    ("italian_knights",[],"Italian Knights", [(party_add_members,"p_main_party","trp_italian_knight", 20),(display_message,"@Received Italian Knights"),]),
     ("mercs",[],"Watchmen", [(party_add_members,"p_main_party","trp_watchman", 20),(display_message,"@Received German Knights"),]),
     ("return",[],"Go back.",[(jump_to_menu, "mnu_dac_test_menu")]), 
  ]),
@@ -3990,21 +3991,21 @@ TOTAL:  {reg5}"),
     (set_background_mesh, "mesh_pic_cattle"),
    ],
     [
-      ("cattle_drive_away",[],"Drive the cattle onward.",
-       [
-        (party_set_slot, "$g_encountered_party", slot_cattle_driven_by_player, 1),
-        (party_set_ai_behavior, "$g_encountered_party", ai_bhvr_driven_by_party),
-        (party_set_ai_object,"$g_encountered_party", "p_main_party"),
-        (party_set_extra_text, "$g_encountered_party", "str_ai_bhvr_driven_by_party"),
-        (change_screen_return),
-        ]
-       ),
+      # ("cattle_drive_away",[],"Drive the cattle onward.",
+       # [
+        # (party_set_slot, "$g_encountered_party", slot_cattle_driven_by_player, 1),
+        # (party_set_ai_behavior, "$g_encountered_party", ai_bhvr_driven_by_party),
+        # (party_set_ai_object,"$g_encountered_party", "p_main_party"),
+        # (party_set_extra_text, "$g_encountered_party", "str_ai_bhvr_driven_by_party"),
+        # (change_screen_return),
+        # ]
+       # ),
        
        #SB : cattle tweaks
       ("cattle_drag_with",[
-       (call_script, "script_party_count_members_with_full_health", "p_main_party"),
-       (party_stack_get_size, ":num_cattle", "$g_encountered_party", 0),
-       (ge, reg0, ":num_cattle"),
+       # (call_script, "script_party_count_members_with_full_health", "p_main_party"),
+       # (party_stack_get_size, ":num_cattle", "$g_encountered_party", 0),
+       # (ge, reg0, ":num_cattle"),
       ],"Drag the cattle with you.",
        [
         (party_set_slot, "$g_encountered_party", slot_cattle_driven_by_player, 1),
@@ -7609,7 +7610,11 @@ TOTAL:  {reg5}"),
          (store_current_hours, ":cur_hours"),
          (ge, ":cur_hours",  "$g_siege_method_finish_hours"),
          ],
-       "Order your soldiers to attack while you stay back...", [(assign, "$cant_talk_to_enemy", 0),(jump_to_menu,"mnu_castle_attack_walls_simulate")]),
+       "Order your soldiers to attack while you stay back...", [
+       (assign, "$cant_talk_to_enemy", 0),
+       (assign, "$g_siege_final_menu", "mnu_castle_besiege"), ### Hopefully fixes the issue of being thrown out the game
+       (jump_to_menu,"mnu_castle_attack_walls_simulate")
+       ]),
 
       ("build_ladders",[(party_slot_eq, "$current_town", slot_center_siege_with_belfry, 0),(eq, "$g_siege_method", 0)],
        "Prepare ladders to attack the walls.", [(jump_to_menu,"mnu_construct_ladders")]),
@@ -9811,23 +9816,23 @@ TOTAL:  {reg5}"),
 
       ("village_wait",
        [
-        (str_clear, s1),
+        (str_clear, s11),
         (assign, ":continue", 0),
 
         (try_begin), ### DAC Seek
             (eq, "$background_type", cb_peasant),
-            (str_store_string, s1, "@[Peasant] Find a place to sleep"),
+            (str_store_string, s11, "@[Peasant] Find a place to sleep"),
             (assign, ":continue", 1),
         (else_try),
             (party_slot_eq, "$current_town", slot_center_has_manor, 1),
             (party_slot_eq, "$current_town", slot_town_lord, "trp_player"),
-            (str_store_string, s1, "@Rest in your Manor"),
+            (str_store_string, s11, "@Rest in your Manor"),
             (assign, ":continue", 1),
         (try_end),
         
         (eq, ":continue", 1),
         ],
-         "{s1}.",
+         "{s11}.",
          [
            (assign,"$auto_enter_town","$current_town"),
            (assign, "$g_last_rest_center", "$current_town"),

@@ -4751,7 +4751,7 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
 [anyone, "start", [
 (is_between, "$g_talk_troop", companions_begin, companions_end),
 (neg|troop_slot_eq, "$g_talk_troop", slot_troop_occupation, slto_kingdom_hero),
-
+(neq, "$talk_context", tc_court_talk), ### DAC Seek: If he happens to show in court
 (troop_get_slot, ":prison_center", "$g_talk_troop", slot_troop_prisoner_of_party),
 (lt, ":prison_center", centers_begin),
 ], "So... Do you want me back yet?", "companion_rehire",
@@ -16985,8 +16985,41 @@ Here, take this purse of {reg3} crowns, as I promised. I hope we can travel toge
 ]],
 
 [anyone|plyr,"defeat_lord_answer", [(eq, "$g_talk_troop", "trp_knight_1_5"),], ### DAC Seek Jeanne meets her end, I blame Charles de Tonkin
-"[Execute] Prepare to burn witch.", "defeat_jeanne",
+"[Execute] Prepare to burn witch.", "defeat_jeanne_check",
 []],
+
+[anyone,"defeat_jeanne_check", [],
+"Is that a threat you intend to carry? An execution without trial? Have you no concern for the salvation of your eternal soul? ^^(Executing Jeanne will permanently remove her from the game and have negative repercussions)", "defeat_jeanne_check_decision",
+[]],
+
+[anyone|plyr,"defeat_jeanne_check_decision", [],
+"[Capture] I shall decide your fate later", "defeat_lord_answer_1",
+[
+    (troop_set_slot, "$g_talk_troop", slot_troop_prisoner_of_party, "p_main_party"),
+    (party_force_add_prisoners, "p_main_party", "$g_talk_troop", 1),#take prisoner
+    
+    ### DAC Seek, penalty for the slave merchant
+    (try_begin),
+        (eq, "$class_type", cc_merchant_slave),
+        (assign, ":relation_penalty", -5),
+    (else_try), 
+        (assign, ":relation_penalty", -3),
+    (try_end),
+
+    (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", ":relation_penalty"),
+    (call_script, "script_change_player_relation_with_faction_ex", "$g_talk_troop_faction", ":relation_penalty"),
+    (call_script, "script_event_hero_taken_prisoner_by_player", "$g_talk_troop"),
+    (call_script, "script_add_log_entry", logent_lord_captured_by_player, "trp_player",  -1, "$g_talk_troop", "$g_talk_troop_faction"),
+]],
+
+[anyone|plyr,"defeat_jeanne_check_decision", [],
+"[Execute] You shall meet your end here and now", "defeat_jeanne",
+[]],
+
+[anyone|plyr,"defeat_jeanne_check_decision", [],
+"[Release] We shall meet again, begone now", "defeat_lord_answer_2",
+[]],
+
 
 [anyone,"defeat_jeanne", [],
 "May God have mercy on your soul.", "close_window", [
@@ -17010,6 +17043,8 @@ Here, take this purse of {reg3} crowns, as I promised. I hope we can travel toge
         (call_script, "script_give_center_to_faction", ":settlement", "$g_talk_troop_faction"),
     (try_end),
     
+    (val_sub, "$player_honor", 30),
+    (call_script, "script_change_troop_renown", "trp_player", 75),
 
     (call_script, "script_change_player_relation_with_faction_ex", "$g_talk_troop_faction", -100),
     (troop_set_slot, "$g_talk_troop", slot_troop_leaded_party, -1),
@@ -17018,10 +17053,10 @@ Here, take this purse of {reg3} crowns, as I promised. I hope we can travel toge
     (call_script, "script_change_troop_faction", "$g_talk_troop", "fac_outlaws"), ### So the notes show up correctly
     # (call_script, "script_add_log_entry", logent_lord_captured_by_player, "trp_player",  -1, "$g_talk_troop", "$g_talk_troop_faction"),
     
-        (try_begin),
-            (party_is_active, "$g_encountered_party"),
-            (remove_party, "$g_encountered_party"),
-        (try_end),
+        # (try_begin),
+            # (party_is_active, "$g_encountered_party"),
+            # (remove_party, "$g_encountered_party"),
+        # (try_end),
 ]],
 
 [anyone|plyr,"defeat_lord_answer", [],

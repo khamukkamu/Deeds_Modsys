@@ -1052,4 +1052,110 @@ particle_systems = [
     25,                     #rotation speed
     0.15                       #rotation damping
     ),
+    
+### WFaS Particles
+        ("oim_musket_smoke", psf_billboard_3d|psf_randomize_size|psf_randomize_rotation|psf_next_effect_is_lod, "prtcl_dust_a",
+     80, 5, 20, 0, 3, 80,     #num_particles, life, damping, gravity_strength, turbulance_size, turbulance_strength
+     (0.0, 0.9), (0.75, 0.5),       #alpha keys
+     (0.0, 0.90), (1, 0.90),          #red keys
+     (0.0, 0.95),(1, 0.95),           #green keys
+     (0.0, 1), (1, 1),          #blue keys
+     (0, 5),   (1, 14.0),     #scale keys
+     (0, 0.5, 0),                 #emit box size
+     (0, 50, 0),                 #emit velocity
+     0.5,                        #emit dir randomness
+     50,                        #rotation speed
+     0.3                        #rotation damping
+    ),
+	
+        ("oim_musket_smoke_far", psf_billboard_3d|psf_randomize_size, "prtcl_dust_a",
+     80, 5, 20, 0, 1, 65,     #num_particles, life, damping, gravity_strength, turbulance_size, turbulance_strength
+     (0.0, 1), (0.75, 0.85),       #alpha keys
+     (0.0, 0.90), (1, 0.90),          #red keys
+     (0.0, 0.95),(1, 0.95),           #green keys
+     (0.0, 1), (1, 1),          #blue keys
+     (0, 8),   (1, 14.0),     #scale keys
+     (0, 0.5, 0),                 #emit box size
+     (0, 50, 0),                 #emit velocity
+     0.5,                        #emit dir randomness
+     50,                        #rotation speed
+     0.3                        #rotation damping
+    ),
+    
+        ("oim_musket_fire", psf_billboard_3d|psf_randomize_size|psf_randomize_rotation|psf_next_effect_is_lod, "prt_mesh_fire_1",
+        40, 0.5, 0.7, 0, 5.0, 0.5, #num_particles, life, damping, gravity_strength, turbulance_size, turbulance_strength
+       (0.0, 0.5), (0.75, 0.4), #alpha keys
+      (0.0, 0.3), (1, 0.3), #red keys
+      (0.0, 0.1),(1, 0.2),  #green keys
+      (0.0, 0.05), (1, 0.05),   #blue keys
+      (0.2, 0.5), (0.0, 0.2),   #scale keys
+      (0.1, 0.1, 0.1),          #emit box size
+      (0, 2, 0),                #emit velocity
+      0.05,                     #emit dir randomness
+      50,                       #rotation speed
+      0.2                       #rotation damping
+      ),
+            ("oim_musket_fire_far", psf_billboard_3d|psf_randomize_size|psf_randomize_rotation, "prt_mesh_fire_1",
+        40, 0, 0.7, 0, 5.0, 0.5, #num_particles, life, damping, gravity_strength, turbulance_size, turbulance_strength
+       (0.0, 0.5), (0.75, 0.4), #alpha keys
+      (0.0, 0.3), (1, 0.3), #red keys
+      (0.0, 0.1),(1, 0.2),  #green keys
+      (0.0, 0.05), (1, 0.05),   #blue keys
+      (0.2, 0.5), (0.0, 0.2),   #scale keys
+      (0.1, 0.1, 0.1),          #emit box size
+      (0, 2, 0),                #emit velocity
+      0.05,                     #emit dir randomness
+      50,                       #rotation speed
+      0.2                       #rotation damping
+      ),
+
+            ("oim_musket_spark", psf_billboard_3d|psf_randomize_size|psf_next_effect_is_lod, "prt_sparks_mesh_1",
+         900, 0.3, 0.6, 0, 10.0, 0.5, #num_particles, life, damping, gravity_strength, turbulance_size, turbulance_strength
+        (0.0, 0.75), (0.7, 0.2), #alpha keys
+        (0.0, 0.75), (1, 0.75), #red keys
+        (0.0, 0.5),(1, 0.5),  #green keys
+        (0.0, 0.0), (1, 0.0),   #blue keys
+        (0.3, 2), (1, 0), #scale keys
+        (0.0, 0.1, 0.1), #emit box size
+        (0, 2, 0), #emit velocity
+        0.0 #emit dir randomness
+        ),
+                ("oim_musket_spark_far", psf_billboard_3d|psf_randomize_size, "prt_sparks_mesh_1",
+         900, 0.3, 0.6, 0, 10.0, 0.5, #num_particles, life, damping, gravity_strength, turbulance_size, turbulance_strength
+        (0.0, 0.75), (0.7, 0.2), #alpha keys
+        (0.0, 0.75), (1, 0.75), #red keys
+        (0.0, 0.5),(1, 0.5),  #green keys
+        (0.0, 0.0), (1, 0.0),   #blue keys
+        (0.3, 2), (1, 0), #scale keys
+        (0.0, 0.1, 0.1), #emit box size
+        (0, 2, 0), #emit velocity
+        0.0 #emit dir randomness
+        ),
+        
+            ("oim_musket_powder_a", psf_billboard_3d|psf_randomize_size|psf_next_effect_is_lod, "prtcl_dust_a",
+        500, 4, 17, 0, 5, 40, #num_particles, life, damping, gravity_strength, turbulance_size, turbulance_strength
+        (0.0, 0.9), (0.75, 0.75),     #alpha keys
+        (0.0, 0.95), (1, 0.95),          #red keys
+        (0.0, 0.95),(1, 0.95),           #green keys
+        (0.0, 1), (1, 1),          #blue keys
+        (0, 1), (1, 5),  #scale keys
+        (0, 0, 0),         #emit box size
+        (-10, 0, 5),               #emit velocity
+        0.0,                      #emit dir randomness
+        100,                     #rotation speed
+        0.2                       #rotation damping
+        ),
+                ("oim_musket_powder_a_far", psf_billboard_3d|psf_randomize_size, "prtcl_dust_a",
+        500, 4, 17, 0, 5, 40, #num_particles, life, damping, gravity_strength, turbulance_size, turbulance_strength
+        (0.0, 1), (0.75, 0.75),     #alpha keys
+        (0.0, 0.95), (1, 0.95),          #red keys
+        (0.0, 0.95),(1, 0.95),           #green keys
+        (0.0, 1), (1, 1),          #blue keys
+        (0, 1), (1, 5),  #scale keys
+        (0, 0, 0),         #emit box size
+        (-10, 0, 5),               #emit velocity
+        0.0,                      #emit dir randomness
+        100,                     #rotation speed
+        0.2                       #rotation damping
+        ),
 ]

@@ -363,7 +363,9 @@ character_creation_menus = [
             (troop_add_item, "trp_custom_merc_ranger_selection", "itm_w_handgonne_1"),
             (troop_add_item, "trp_custom_merc_ranger_selection", "itm_cartridges"),
             (troop_add_item, "trp_custom_merc_marksman_selection", "itm_w_handgonne_2"),
+            (troop_add_item, "trp_custom_merc_defender_selection", "itm_w_handgonne_2"),
             (troop_add_item, "trp_custom_merc_marksman_selection", "itm_cartridges"),
+            (troop_add_item, "trp_custom_merc_defender_selection", "itm_cartridges"),
         (try_end),
         
         (try_begin),

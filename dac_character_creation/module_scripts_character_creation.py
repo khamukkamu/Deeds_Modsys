@@ -1371,7 +1371,7 @@ character_creation_scripts = [
     (else_try),
         (eq, ":class", cc_soldier_scout),   
         (troop_add_item, "trp_player","itm_w_onehanded_sword_a_long"),
-        (troop_add_item, "trp_player","itm_w_lance_2"),
+        (troop_add_item, "trp_player","itm_w_native_spear_f"),
         (troop_add_item, "trp_player","itm_s_heater_shield_burgundian_1"),
         (troop_add_item, "trp_player","itm_h_makeshift_kettle_strap"),
         (troop_add_item, "trp_player","itm_a_light_gambeson_long_sleeves_custom"),

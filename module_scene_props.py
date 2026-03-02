@@ -4927,6 +4927,10 @@ scene_props = [
     agent_spawner("trp_custom_merc_sergeant")
    ]),
    
+  ("spawn_camp_vanguard",sokf_invisible,"entry_arrow",0,    [
+    agent_spawner("trp_custom_merc_vanguard")
+   ]),
+   
   ("spawn_camp_skirmisher",sokf_invisible,"entry_arrow",0,    [
     agent_spawner("trp_custom_merc_skirmisher")
    ]),
@@ -4937,6 +4941,10 @@ scene_props = [
    
   ("spawn_camp_marksman",sokf_invisible,"entry_arrow",0,    [
     agent_spawner("trp_custom_merc_marksman")
+   ]),
+   
+  ("spawn_camp_defender",sokf_invisible,"entry_arrow",0,    [
+    agent_spawner("trp_custom_merc_defender")
    ]),
    
   ("spawn_camp_scout",sokf_invisible,"entry_arrow",0,    [
