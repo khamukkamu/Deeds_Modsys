@@ -36,7 +36,7 @@ mercenary_company_party_templates = [
 [(trp_flemish_militia_pikeman,2,6),(trp_flemish_pikeman,2,4),(trp_flemish_halberdier,2,4),(trp_flemish_heavy_pikeman,1,2),(trp_flemish_heavy_halberdier,1,2)]),
 
 ("mercenary_company_flemish_ranged", "Mercenary Company Flemish Ranged", 0, 0, fac_commoners, 0, 
-[(trp_flemish_peasant_crossbowman,2,6),(trp_flemish_militia_crossbowman,2,4),(trp_flemish_crossbowman,1,3),(trp_flemish_heavy_crossbowman,1,2)]),
+[(trp_flemish_peasant_crossbowman,1,5),(trp_flemish_militia_crossbowman,1,4),(trp_flemish_crossbowman,1,3),(trp_flemish_heavy_crossbowman,1,1),(trp_flemish_handgonner,1,1)]),
 
 ("mercenary_company_german_knight", "Mercenary Company German Foot-Knight", 0, 0, fac_commoners, 0, 
 [(trp_mercenary_german_knight,1,3),]),

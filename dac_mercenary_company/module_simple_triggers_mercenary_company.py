@@ -12,26 +12,27 @@ from compiler import *
 mercenary_company_simple_triggers = [
 
   # Camp upgrades
-  (12,
+  (1,
    [
    
-    # Piggyback for CT Smith - DAC Kham
+    # Piggyback for CT Smith - DAC Kham ### DAC Seek: Converted to hourly
     (try_begin),
-        (neg|troop_slot_eq, "trp_merc_company_smith", slot_camp_smith_days_til_finished, -1),
+        (neg|troop_slot_eq, "trp_merc_company_smith", slot_camp_smith_hours_til_finished, -1),
         (troop_get_slot, ":item", "trp_merc_company_smith", slot_camp_smith_creating_item),
-        (troop_get_slot, ":days_til_finished", "trp_merc_company_smith", slot_camp_smith_days_til_finished),
-        (store_current_day, ":days"),
+        (troop_get_slot, ":hours_til_finished", "trp_merc_company_smith", slot_camp_smith_hours_til_finished),
 
         (try_begin),
-            (gt, ":days", ":days_til_finished"),
-            (display_message, "@Your Smith has procured your requested items and have added it to your armoury", color_good_news),
+            (le, ":hours_til_finished", 0),
+            (str_store_item_name, s1, ":item"),
+            (str_store_troop_name, s2, "$g_target_troop_name"),
+            (display_message, "str_dac_player_camp_smith_item_finished", color_good_news),
             # (call_script, "script_dac_add_item_to_custom_troop", ":item"),
             (troop_add_item, "$g_target_new_item", ":item"),
             (troop_set_slot, "trp_merc_company_smith", slot_camp_smith_creating_item, -1),
-            (troop_set_slot, "trp_merc_company_smith", slot_camp_smith_days_til_finished, -1),
+            (troop_set_slot, "trp_merc_company_smith", slot_camp_smith_hours_til_finished, -1),
         (else_try),
-            (val_sub, ":days_til_finished", ":days"),
-            (troop_set_slot, "trp_merc_company_smith", slot_camp_smith_days_til_finished, ":days_til_finished"),
+            (val_sub, ":hours_til_finished", 1),
+            (troop_set_slot, "trp_merc_company_smith", slot_camp_smith_hours_til_finished, ":hours_til_finished"),
         (try_end),
     (try_end),
     

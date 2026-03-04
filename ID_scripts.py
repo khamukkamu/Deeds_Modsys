@@ -1001,3 +1001,4 @@ script_player_camp_get_improvement_details = 999
 script_refresh_mercenary_camp_troops = 1000
 script_refresh_mercenary_camp_merchant_inventory = 1001
 script_player_camp_set_props = 1002
+script_dac_get_item_commission_hours = 1003

@@ -5614,71 +5614,60 @@ scripts = [
   # Output: reg0
   ("game_get_prisoner_price",
     [
-      (store_script_param_1, ":troop_id"),
-      (store_character_level, ":troop_level", ":troop_id"),
-      (store_troop_faction, ":broker_faction", "$g_talk_troop"),
+    (store_script_param_1, ":troop_id"),
+    (store_character_level, ":troop_level", ":troop_id"),
+    # (store_troop_faction, ":broker_faction", "$g_talk_troop"),
+    
+    ### ( ( troop_level + charisma )^2 / divisor ) * ( (5 * (sum(trade, prisoner_management, persuasion) + 100 ) ) / 100 )
+    ### 
+    
+    (store_attribute_level, ":charisma", "trp_player", ca_charisma),
+    (val_add, ":troop_level", ":charisma"),
+    (val_mul, ":troop_level", ":troop_level"),
+    
+    (assign, ":ransom_amount", ":troop_level"),
 
-      (try_begin),
-        (ge, ":troop_level", 29),
-        (store_mul, ":ransom_max", ":troop_level", 5),
-      (else_try),
-        (is_between, ":troop_level", 23, 29),
-        (store_mul, ":ransom_max", ":troop_level", 3),
-        (val_add, ":ransom_max", 5),
-      (else_try),
-        (this_or_next|eq, ":troop_id", "trp_farmer"),
-        # (this_or_next|eq, ":troop_id", "trp_follower_woman"),
-        (eq, ":troop_id", "trp_peasant_woman"),
-        (store_mul, ":ransom_max", ":troop_level", 2),
-        (val_add, ":ransom_max", 3),
-      (else_try),
-        (neq, ":troop_id", "trp_farmer"),
-        # (neq, ":troop_id", "trp_follower_woman"),
-        (neq, ":troop_id", "trp_peasant_woman"),
-        (store_mul, ":ransom_max", ":troop_level", 5),
-        (val_div, ":ransom_max", 2),
-        (val_add, ":ransom_max", 5),
-      (try_end),
-      (try_begin),
-        (eq, ":broker_faction", "fac_slavers"),
-        (assign, ":ransom_amount", 50),
-      (else_try),
-        (assign, ":ransom_amount", ":troop_level"),
-      (try_end),
-      (store_attribute_level, ":charisma", "trp_player", ca_charisma),
-      (store_skill_level, ":trade", "skl_trade", "trp_player"),
-      (val_sub, ":charisma", 12),
-      (val_div, ":trade", 3),
-      (val_add, ":ransom_amount", ":charisma"),
-      (val_add, ":ransom_amount", ":trade"),
-      (val_mul, ":ransom_amount", ":ransom_amount"),
-      (try_begin),
+    (party_get_skill_level, ":trade_skill", "p_main_party", "skl_trade"),
+    (party_get_skill_level, ":prisoner_management_skill", "p_main_party", "skl_prisoner_management"),
+    (store_skill_level, ":persuasion_skill", "skl_persuasion", "trp_player"),
+    
+    (store_add, ":skill_sum", ":trade_skill", ":prisoner_management_skill"),
+    (val_add, ":skill_sum", ":persuasion_skill"),
+    (val_mul, ":skill_sum", 5),
+    (val_add, ":skill_sum", 100),
+    (val_div, ":skill_sum", 100),
+    
+    (val_mul, ":ransom_amount", ":skill_sum"),
+    
+    (try_begin),
+        (this_or_next|eq, "$class_type", cc_merchant_slave),
+        (eq, "$class_type", cc_hunter_manhunter),
+        (val_mul, ":ransom_amount", 115),
+        (val_div, ":ransom_amount", 100),
+    (try_end), 
+    
+    (try_begin),
         (lt, "$player_honor", -30),
         (val_mul, ":ransom_amount", 115),
         (val_div, ":ransom_amount", 100),
-      (try_end),
-      (try_begin),
+    (try_end),
+      
+    (try_begin),
         (is_between, "$g_talk_troop", ransom_brokers_begin, ransom_brokers_end),
-        (val_div, ":ransom_amount", 8),
-      (else_try),
-        (is_between, "$g_talk_troop", tavernkeepers_begin, tavernkeepers_end), ### DAC Seek: added option to sell to tavernkeepers, less profit than ransom brokers
-        (val_div, ":ransom_amount", 10),
-      (else_try),
-        (val_div, ":ransom_amount", 12),
-      (try_end),
+        (assign, ":divisor", 8),
+    (else_try),
+        (this_or_next|eq, "$g_talk_troop", "trp_merc_company_ransom_broker"),
+        (this_or_next|eq, "$g_talk_troop", "trp_hideout_merchant"),
+        (is_between, "$g_talk_troop", tavernkeepers_begin, tavernkeepers_end),
+        (assign, ":divisor", 10),
+    (else_try),
+        (assign, ":divisor", 12),
+    (try_end),
 
-      (val_add, ":ransom_max", 1), #ajust high prices
-      (val_clamp, ":ransom_amount", 15,":ransom_max"),
-      #(val_min, ":ransom_amount", ":ransom_max"),
+    (val_div, ":ransom_amount", ":divisor"),
 
-      #(try_begin),
-      #  (faction_slot_eq, "$g_encountered_party_faction", slot_faction_prison_guard_troop, "$g_talk_troop"),
-      #  (faction_slot_eq, "$g_encountered_party_faction", slot_faction_bandit_troop, ":troop_id"),
-      #  (val_mul, ":ransom_amount", 2), # Prison Guards pay double for local bandits
-      #(try_end),
-
-      (assign, reg0, ":ransom_amount"),
-      (set_trigger_result, reg0),
+    (assign, reg0, ":ransom_amount"),
+    (set_trigger_result, reg0),
   ]),
 
 
@@ -44670,12 +44659,12 @@ scripts = [
   ("calculate_ransom_amount_for_troop",
     [(store_script_param, ":troop_no", 1),
      (store_troop_faction, ":faction_no", ":troop_no"),
-     (assign, ":ransom_amount", 400),
+     (assign, ":ransom_amount", 1500),
 
 	 (assign, ":male_relative", -9), #for kingdom ladies, otherwise a number otherwise unused in slot_town_lord
      (try_begin),
        (faction_slot_eq, ":faction_no", slot_faction_leader, ":troop_no"),
-       (val_add, ":ransom_amount", 4000),
+       (val_add, ":ransom_amount", 13500),
 	 (else_try),
        (troop_slot_eq, ":troop_no", slot_troop_occupation, slto_kingdom_lady),
        (val_add, ":ransom_amount", 2500), #as though a renown of 1250 -- therefore significantly higher than for roughly equivalent lords
@@ -76070,6 +76059,9 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 
 ("initialize_center_data",[ 
 
+    (party_set_slot, "p_english_village_37", slot_village_bound_center, "p_english_town_1"), ### St Denis -> Paris
+    (party_set_slot, "p_english_village_38", slot_village_bound_center, "p_english_town_1"), ### St Marcel -> Paris
+    (party_set_slot, "p_english_village_78", slot_village_bound_center, "p_english_town_1"), ### St Germain -> Paris
     (party_set_slot, "p_burgundian_village_48", slot_village_bound_center, "p_burgundian_castle_20"), ### Rambouillet -> Château de Dourdan
     (party_set_slot, "p_english_village_23", slot_village_bound_center, "p_english_town_3"), ### Chailly -> Nemours
     (party_set_slot, "p_english_village_24", slot_village_bound_center, "p_english_town_3"), ### Melun -> Nemours
@@ -76077,6 +76069,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 # fill_village_bound_centers
     #pass 1: Give one village to each castle
       (try_for_range, ":cur_center", castles_begin, castles_end),
+        (neq, ":cur_center", "p_burgundian_castle_20"),
         (assign, ":min_dist", 999999),
         (assign, ":min_dist_village", -1),
         (try_for_range, ":cur_village", villages_begin, villages_end),

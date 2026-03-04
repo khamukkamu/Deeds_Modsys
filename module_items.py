@@ -3266,13 +3266,13 @@ itp_type_polearm| itp_two_handed|itp_primary|itp_no_blur|itp_offset_musket, itc_
 77 , weight(1.6)|difficulty(0)|spd_rtng(99) | weapon_length(73)|swing_damage(20 , blunt) | thrust_damage(0 ,  pierce),imodbits_none ],
 
 ["w_wooden_mallet",         "Wooden Mallet", [("w_wooden_mallet",0)], itp_type_one_handed_wpn|itp_merchandise| itp_primary|itp_no_blur|itp_wooden_parry|itp_wooden_attack, itc_scimitar|itcf_carry_mace_left_hip,
-89 , weight(1.9)|difficulty(0)|spd_rtng(95) | weapon_length(63)|swing_damage(21 , blunt) | thrust_damage(0 ,  pierce),imodbits_none ],
+89 , weight(1.9)|difficulty(0)|spd_rtng(95) | weapon_length(59)|swing_damage(21 , blunt) | thrust_damage(0 ,  pierce),imodbits_none ],
 ["w_wooden_mallet_dark",   "Wooden Mallet", [("w_wooden_mallet_dark",0)], itp_type_one_handed_wpn|itp_merchandise| itp_primary|itp_no_blur|itp_wooden_parry|itp_wooden_attack, itc_scimitar|itcf_carry_mace_left_hip,
-89 , weight(1.9)|difficulty(0)|spd_rtng(95) | weapon_length(63)|swing_damage(21 , blunt) | thrust_damage(0 ,  pierce),imodbits_none ],
+89 , weight(1.9)|difficulty(0)|spd_rtng(95) | weapon_length(59)|swing_damage(21 , blunt) | thrust_damage(0 ,  pierce),imodbits_none ],
 ["w_wooden_mallet_2",        "Wooden Mallet", [("w_wooden_mallet_2",0)], itp_type_one_handed_wpn|itp_merchandise| itp_primary|itp_no_blur|itp_wooden_parry|itp_wooden_attack, itc_scimitar|itcf_carry_mace_left_hip,
-94 , weight(2.2)|difficulty(0)|spd_rtng(93) | weapon_length(69)|swing_damage(22 , blunt) | thrust_damage(0 ,  pierce),imodbits_none ],
+94 , weight(2.2)|difficulty(0)|spd_rtng(93) | weapon_length(65)|swing_damage(22 , blunt) | thrust_damage(0 ,  pierce),imodbits_none ],
 ["w_wooden_mallet_2_dark",  "Wooden Mallet", [("w_wooden_mallet_2_dark",0)], itp_type_one_handed_wpn|itp_merchandise| itp_primary|itp_no_blur|itp_wooden_parry|itp_wooden_attack, itc_scimitar|itcf_carry_mace_left_hip,
-94 , weight(2.2)|difficulty(0)|spd_rtng(93) | weapon_length(69)|swing_damage(22 , blunt) | thrust_damage(0 ,  pierce),imodbits_none ],
+94 , weight(2.2)|difficulty(0)|spd_rtng(93) | weapon_length(65)|swing_damage(22 , blunt) | thrust_damage(0 ,  pierce),imodbits_none ],
 
 ["w_mace_knobbed",         "Knobbed_Mace", [("w_mace_knobbed",0)], itp_type_one_handed_wpn|itp_can_knock_down|itp_merchandise| itp_primary|itp_no_blur|itp_wooden_parry, itc_scimitar|itcf_carry_mace_left_hip, 
 124 , weight(2.5)|difficulty(0)|spd_rtng(98) | weapon_length(70)|swing_damage(24 , blunt) | thrust_damage(0 ,  pierce),imodbits_mace ],
@@ -3282,11 +3282,11 @@ itp_type_polearm| itp_two_handed|itp_primary|itp_no_blur|itp_offset_musket, itc_
 124 , weight(2.5)|difficulty(0)|spd_rtng(98) | weapon_length(70)|swing_damage(24 , blunt) | thrust_damage(0 ,  pierce),imodbits_mace ],
 
 ["w_small_hammer",         "Hammer", [("w_small_hammer",0)], itp_type_one_handed_wpn|itp_can_knock_down|itp_merchandise| itp_primary|itp_no_blur|itp_wooden_parry, itc_scimitar|itcf_carry_mace_left_hip, 
-188 , weight(2.75)|difficulty(0)|spd_rtng(98) | weapon_length(71)|swing_damage(25 , blunt) | thrust_damage(0 ,  pierce),imodbits_mace ],
+188 , weight(2.75)|difficulty(0)|spd_rtng(98) | weapon_length(58)|swing_damage(25 , blunt) | thrust_damage(0 ,  pierce),imodbits_mace ],
 ["w_small_hammer_brown",         "Hammer", [("w_small_hammer_brown",0)], itp_type_one_handed_wpn|itp_can_knock_down|itp_merchandise| itp_primary|itp_no_blur|itp_wooden_parry, itc_scimitar|itcf_carry_mace_left_hip, 
-188 , weight(2.75)|difficulty(0)|spd_rtng(98) | weapon_length(71)|swing_damage(25 , blunt) | thrust_damage(0 ,  pierce),imodbits_mace ],
+188 , weight(2.75)|difficulty(0)|spd_rtng(98) | weapon_length(58)|swing_damage(25 , blunt) | thrust_damage(0 ,  pierce),imodbits_mace ],
 ["w_small_hammer_dark",         "Hammer", [("w_small_hammer_dark",0)], itp_type_one_handed_wpn|itp_can_knock_down|itp_merchandise| itp_primary|itp_no_blur|itp_wooden_parry, itc_scimitar|itcf_carry_mace_left_hip, 
-188 , weight(2.75)|difficulty(0)|spd_rtng(98) | weapon_length(71)|swing_damage(25 , blunt) | thrust_damage(0 ,  pierce),imodbits_mace ],
+188 , weight(2.75)|difficulty(0)|spd_rtng(98) | weapon_length(58)|swing_damage(25 , blunt) | thrust_damage(0 ,  pierce),imodbits_mace ],
 
 ["w_mace_spiked",         "Spiked Mace", [("w_mace_spiked",0)], itp_type_one_handed_wpn|itp_can_knock_down|itp_merchandise| itp_primary|itp_no_blur|itp_wooden_parry, itc_scimitar|itcf_carry_mace_left_hip, 
 188 , weight(2.75)|difficulty(0)|spd_rtng(98) | weapon_length(71)|swing_damage(25 , blunt) | thrust_damage(0 ,  pierce),imodbits_mace ],

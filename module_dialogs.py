@@ -17060,7 +17060,7 @@ Here, take this purse of {reg3} crowns, as I promised. I hope we can travel toge
 ]],
 
 [anyone|plyr,"defeat_lord_answer", [],
-"You are my prisoner now.", "defeat_lord_answer_1",
+"[Capture] You are my prisoner now.", "defeat_lord_answer_1",
 [
     #(troop_set_slot, "$g_talk_troop", slot_troop_is_prisoner, 1),
     (troop_set_slot, "$g_talk_troop", slot_troop_prisoner_of_party, "p_main_party"),
@@ -17083,8 +17083,103 @@ Here, take this purse of {reg3} crowns, as I promised. I hope we can travel toge
 [anyone,"defeat_lord_answer_1", [],
 "I am at your mercy.", "close_window", []],
 
+###### DAC Seek: Ransom lord
 [anyone|plyr,"defeat_lord_answer", [],
-"You have fought well. You are free to go.", "defeat_lord_answer_2",
+"[Ransom] What is your freedom worth?", "defeat_lord_answer_3",
+[]],
+
+[anyone,"defeat_lord_answer_3", [
+    (call_script, "script_calculate_ransom_amount_for_troop", "$g_talk_troop"),
+    (assign, ":ransom_amount", reg0),
+    (val_mul, ":ransom_amount", 60),
+    (val_div, ":ransom_amount", 100),
+    
+    (try_begin),
+        (this_or_next|eq, "$class_type", cc_merchant_slave),
+        (eq, "$class_type", cc_hunter_manhunter),
+        (val_mul, ":ransom_amount", 115),
+        (val_div, ":ransom_amount", 100),
+    (try_end), 
+    
+    (try_begin),
+        (lt, "$player_honor", -30),
+        (val_mul, ":ransom_amount", 115),
+        (val_div, ":ransom_amount", 100),
+    (try_end),
+      
+    (assign, reg11, ":ransom_amount"),
+],
+"I'm willing to pay {reg11} gold for my immediate release.", "defeat_lord_ransom",
+[]],
+
+[anyone|plyr,"defeat_lord_ransom", [],
+"[Accept] That is acceptable to me, you are free to go.", "defeat_lord_answer_2",
+[
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 2),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 1),
+    (try_end),
+    (call_script, "script_change_player_honor", 1),
+    (call_script, "script_add_log_entry", logent_lord_defeated_but_let_go_by_player, "trp_player",  -1, "$g_talk_troop", "$g_talk_troop_faction"),
+    (troop_add_gold, "trp_player", reg11),
+]],
+
+[anyone|plyr,"defeat_lord_ransom", [],
+"[Capture] Pitiful, hopefully some time in captivity will bring a better offer.", "defeat_lord_answer_1",
+[
+    #(troop_set_slot, "$g_talk_troop", slot_troop_is_prisoner, 1),
+    (troop_set_slot, "$g_talk_troop", slot_troop_prisoner_of_party, "p_main_party"),
+    (party_force_add_prisoners, "p_main_party", "$g_talk_troop", 1),#take prisoner
+    
+    ### DAC Seek, penalty for the slave merchant
+    (try_begin),
+        (eq, "$class_type", cc_merchant_slave),
+        (assign, ":relation_penalty", -5),
+    (else_try), 
+        (assign, ":relation_penalty", -3),
+    (try_end),
+
+    (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", ":relation_penalty"),
+    (call_script, "script_change_player_relation_with_faction_ex", "$g_talk_troop_faction", ":relation_penalty"),
+    (call_script, "script_event_hero_taken_prisoner_by_player", "$g_talk_troop"),
+    (call_script, "script_add_log_entry", logent_lord_captured_by_player, "trp_player",  -1, "$g_talk_troop", "$g_talk_troop_faction"),
+]],
+
+[anyone|plyr,"defeat_lord_ransom", [],
+"[Release] On second thought, I'll let you go free of ransom.", "defeat_lord_answer_2",
+[
+### DAC Seek: Governor Relation bonus
+    (try_begin), 
+        (eq, "$class_type", cc_noble_governor),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 6),
+        (display_message, "@Governor's Courtly Manners +1 relations", color_good_news),
+    (else_try),
+        (call_script, "script_change_player_relation_with_troop", "$g_talk_troop", 5),
+    (try_end),
+(call_script, "script_change_player_honor", 3),
+(call_script, "script_add_log_entry", logent_lord_defeated_but_let_go_by_player, "trp_player",  -1, "$g_talk_troop", "$g_talk_troop_faction")]],
+
+[anyone,"defeat_lord_answer_2", [],
+"{s43}", "close_window", [
+(call_script, "script_lord_comment_to_s43", "$g_talk_troop", "str_prisoner_released_default"),
+ ]],
+
+
+
+
+
+
+
+
+
+
+
+[anyone|plyr,"defeat_lord_answer", [],
+"[Release] You have fought well. You are free to go.", "defeat_lord_answer_2",
 [
 ### DAC Seek: Governor Relation bonus
     (try_begin), 
@@ -46186,15 +46281,15 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
     [
     (neg|troop_slot_eq, "trp_merc_company_smith", slot_camp_smith_creating_item, -1),
     (troop_get_slot, ":item", "trp_merc_company_smith", slot_camp_smith_creating_item),
-    (troop_get_slot, ":days_til_complete", "trp_merc_company_smith", slot_camp_smith_days_til_finished),
-    (store_current_day, ":cur_day"),
-    (store_sub, reg40, ":days_til_complete", ":cur_day"),
+    (troop_get_slot, ":hours_til_complete", "trp_merc_company_smith", slot_camp_smith_hours_til_finished),
+    (store_current_hours, ":cur_hours"),
+    (store_sub, reg40, ":hours_til_complete", ":cur_hours"),
     (str_store_item_name, s15, ":item"),
     (try_begin),
       (gt, reg40, 1),
-      (str_store_string, s16, "@{reg40} days."),
+      (str_store_string, s16, "@{reg40} hours."),
     (else_try),
-      (str_store_string, s16, "@one more day."),
+      (str_store_string, s16, "@one more hour."),
     (try_end),
     ], 
       "We are still procuring the {s15}, and it will take {s16}", "camp_smith_start",

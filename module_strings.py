@@ -5732,6 +5732,9 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("camp_soldier_line_5", "Greetings m'{lord/lady}"),
 ("camp_soldier_line_end", "none"),
 
+("dac_player_camp_note", "{reg1?She:He} is the leader of {s1}"),  
+("dac_player_camp_smith_item_finished", "Your Smith has procured {s1} for {s2}."),  
+
 ### DAC Seek: Tournament Plays Quest Strings
 ("qp1_quest_desc_tournament_invited_by_s9_to_s13", "You have been invited by {s9} to attend the tournament being held in {s13}.  Turning down this invitation would be frowned upon."),
 ("qp1_quest_desc_tournament_held_by_s9_to_s13", "You heard of a tournament being hosted by {s9} in the town of {s13}.  This would prove an excellent opportunity to prove your worth in these lands."),
@@ -5745,7 +5748,7 @@ Even in the last case, the player can make formations up to four lines by orderi
   ("bandit_intro_friendly_4", "Your money or your... Stay your hands men, 'tis not someone to mess with. A shame really but we may work something out."),
   ("bandit_intro_friendly_end", "none"),
 
-("dac_player_camp_note", "{reg1?She:He} is the leader of {s1}"),  
+
 
 #utility for skill names
 ]+[

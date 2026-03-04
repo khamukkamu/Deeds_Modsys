@@ -199,132 +199,6 @@ mercenary_company_presentations = [
       ] #+ coord_helper 
         + prsnt_escape_close),
 
-("dac_ct_view_armoury_buggy",0,mesh_load_window,[
-      (ti_on_presentation_load,
-       [(set_fixed_point_multiplier, 1000),
-        (assign, "$g_target_armoury", 0),
-
-        (str_store_string, s1, "@Smith"),
-        (create_text_overlay, "$g_presentation_obj_name_kingdom_1", s1, tf_center_justify),
-        (position_set_x, pos1, 450),
-        (position_set_y, pos1, 620),
-        (overlay_set_position, "$g_presentation_obj_name_kingdom_1", pos1),
-      
-        #DAC Kham: Set up Inventories.
-        (store_add, "$g_target_armoury", "$g_target_name_change", 2),
-        (call_script, "script_custom_troop_detail_inventory_left", "$g_target_armoury"),
-        (call_script, "script_custom_troop_detail_inventory_right", "trp_player"),
-        
-
-        (try_begin),
-          (eq, "$g_presentation_state", 1),
-          (is_between, "$g_item_to_scrap", "itm_heraldic_mail_with_surcoat_for_tableau", "itm_items_end"), 
-          (str_store_string, s2, "@Selling this item for scrap^will cost {reg75} crowns"),
-          (create_text_overlay, "$g_multiplayer_poll_to_show", s2, tf_center_justify),
-          (position_set_x, pos1, 500),
-          (position_set_y, pos1, 500),
-          (overlay_set_position, "$g_multiplayer_poll_to_show", pos1),
-          
-          (str_store_string, s3, "@Sell"),
-          (create_button_overlay, "$g_presentation_obj_1", s3, tf_center_justify), #SB : continue str
-          (position_set_x, pos1, 500),
-          (position_set_y, pos1, 450),
-          (overlay_set_position, "$g_presentation_obj_1", pos1),
-        (else_try),
-          (eq, "$g_presentation_state", 2),
-          (is_between, "$g_item_to_buy", "itm_heraldic_mail_with_surcoat_for_tableau", "itm_items_end"), 
-          (val_mul, reg75, 25), 
-          (store_skill_level, ":trade_skill", skl_trade, "trp_player"),
-          (try_begin),
-            (ge, ":trade_skill", 1),
-            (store_sub, ":multiplier", 25, ":trade_skill"),
-            (store_mul, ":discounted_price", reg75, ":multiplier"),
-            (assign, reg76, ":discounted_price"),
-            (str_store_string, s3, "@, however you have been making good contacts with some tradesmen and will actually cost you {reg76} crowns"),
-          (else_try),
-            (str_store_string,s3, "@."),
-          (try_end),
-          (str_store_string, s2, "@Buying this item ^will cost {reg75} crowns{s3}"),
-          (create_text_overlay, "$g_multiplayer_poll_to_show", s2, tf_center_justify),
-          (position_set_x, pos1, 500),
-          (position_set_y, pos1, 500),
-          (overlay_set_position, "$g_multiplayer_poll_to_show", pos1),
-          
-          (str_store_string, s4, "@Buy"),
-          (create_button_overlay, "$g_presentation_obj_2", s4, tf_center_justify), #SB : continue str
-          (position_set_x, pos1, 500),
-          (position_set_y, pos1, 450),
-          (overlay_set_position, "$g_presentation_obj_2", pos1),
-        (try_end),
-
-        (create_button_overlay, "$g_presentation_obj_name_kingdom_2", "str_continue_dot", tf_center_justify), #SB : continue str
-        (position_set_x, pos1, 450),
-        (position_set_y, pos1, 75),
-        (overlay_set_position, "$g_presentation_obj_name_kingdom_2", pos1),
-
-        (presentation_set_duration, 999999),
-        ]),
-
-      (hover,[
-        (call_script, "script_custom_troop_detail_inventory_tooltip"),
-        (call_script, "script_custom_troop_detail_inventory_tooltip_right"),
-      ]),
-
-    (click,
-    [
-      (store_trigger_param_1, ":object_id"),
-      (store_trigger_param_2, ":mouse_state"),
-
-        (try_begin),
-          (neq, ":mouse_state", 1),
-          (eq, "$g_presentation_state", 0),
-          (call_script, "script_custom_troop_detail_remove_item_from_troop", "$g_target_armoury", ":object_id"),
-        (else_try),
-          (eq, ":mouse_state", 1), #Right Click
-          (call_script, "script_custom_troop_detail_select_item_for_scrap",":object_id"),
-          (display_message, "@Right Click, Select For Scrap"),
-        (else_try),
-          (call_script, "script_custom_troop_detail_select_item_for_buying", ":object_id"),
-          (display_message, "@Left Click, Select For Buy"),
-        (else_try),
-          (eq, "$g_presentation_state", 1),
-          (eq, ":object_id", "$g_presentation_obj_1"),
-          (troop_remove_item,"$g_target_armoury", "$g_item_to_scrap"),
-          (troop_add_gold, "trp_player", reg75),
-          (str_store_item_name, s7, "$g_item_to_scrap"),
-          (display_message, "@{s7} scrapped for {reg75} crowns", color_good_news),
-          (assign, "$g_presentation_state", 0),
-          (start_presentation, "prsnt_dac_ct_view_armoury"),
-        (else_try),
-          (eq, "$g_presentation_state", 2),
-          (eq, ":object_id", "$g_presentation_obj_2"),
-          (troop_add_item,"$g_target_armoury", "$g_item_to_buy"),
-          (str_store_item_name, s7, "$g_item_to_buy"),
-          (store_skill_level, ":trade_skill", skl_trade, "trp_player"),
-          (try_begin),
-            (ge, ":trade_skill", 1),
-            (troop_remove_gold, "trp_player", reg76),
-            (display_message, "@{s7} bought for the armoury for {reg76} crowns", color_good_news),
-          (else_try),
-            (troop_remove_gold, "trp_player", reg75),
-            (display_message, "@{s7} bought for the armoury for {reg75} crowns", color_good_news),
-          (try_end),
-          (assign, "$g_presentation_state", 0),
-          (display_message, "@Left Click, Buy"),
-          (start_presentation, "prsnt_dac_ct_view_armoury"),
-        (else_try),
-          (eq, ":object_id", "$g_presentation_obj_name_kingdom_2"), # Continue
-          (assign, "$g_presentation_state", 0),
-          (presentation_set_duration, 0),
-          (jump_to_menu, "mnu_dac_name_troops_2"),
-        (try_end),
-    ]),
-
-
-      ] #+ coord_helper 
-        + prsnt_escape_close),
-
-
 ("dac_ct_view_armoury",0,mesh_load_window,[
       (ti_on_presentation_load,
        [(set_fixed_point_multiplier, 1000),
@@ -333,7 +207,7 @@ mercenary_company_presentations = [
         (str_store_string, s1, "@Armoury"),
         (create_text_overlay, "$g_presentation_obj_name_kingdom_1", s1, tf_center_justify),
         (position_set_x, pos1, 450),
-        (position_set_y, pos1, 650),
+        (position_set_y, pos1, 660),
         (overlay_set_position, "$g_presentation_obj_name_kingdom_1", pos1),
         (position_set_x, pos1, 1250),
         (position_set_y, pos1, 1250),
@@ -357,26 +231,26 @@ mercenary_company_presentations = [
           (eq, "$g_presentation_state", 1),
           (is_between, "$g_item_to_scrap", "itm_heraldic_mail_with_surcoat_for_tableau", "itm_items_end"), 
           (str_store_item_name, s7, "$g_item_to_scrap"),
-          (str_store_string, s2, "@Selected: {s7}^Selling this item for scrap^will recoup {reg75} crowns"),
+          (str_store_string, s2, "@Selected: ^{s7}^Selling this item for scrap^will recoup {reg75} crowns"),
           (create_text_overlay, "$g_multiplayer_poll_to_show", s2, tf_center_justify),
           (position_set_x, pos1, 770),
           (position_set_y, pos1, 500),
           (overlay_set_position, "$g_multiplayer_poll_to_show", pos1),
           
           (str_store_string, s3, "@Sell"),
-          (create_button_overlay, "$g_presentation_obj_1", s3, tf_center_justify), #SB : continue str
+          (create_game_button_overlay, "$g_presentation_obj_1", s3, tf_center_justify), #SB : continue str
           (position_set_x, pos1, 770),
           (position_set_y, pos1, 430),
           (overlay_set_position, "$g_presentation_obj_1", pos1),
         (try_end),
 
-        (create_button_overlay, "$g_presentation_obj_name_kingdom_2", "str_continue_dot", tf_center_justify), #SB : continue str
+        (create_game_button_overlay, "$g_presentation_obj_name_kingdom_2", "str_continue_dot", tf_center_justify), #SB : continue str
         (position_set_x, pos1, 650),
         (position_set_y, pos1, 75),
         (overlay_set_position, "$g_presentation_obj_name_kingdom_2", pos1),
 
-        (str_store_string, s11, "@Smith"),
-        (create_button_overlay, "$g_presentation_obj_name_kingdom_1", s11, tf_center_justify), #SB : continue str
+        (str_store_string, s11, "@Commission Items"),
+        (create_game_button_overlay, "$g_presentation_obj_name_kingdom_1", s11, tf_center_justify), #SB : continue str
         (position_set_x, pos1, 450),
         (position_set_y, pos1, 75),
         (overlay_set_position, "$g_presentation_obj_name_kingdom_1", pos1),
@@ -441,7 +315,7 @@ mercenary_company_presentations = [
         (str_store_string, s1, "@Smith"),
         (create_text_overlay, "$g_presentation_obj_name_kingdom_1", s1, tf_center_justify),
         (position_set_x, pos1, 450),
-        (position_set_y, pos1, 650),
+        (position_set_y, pos1, 660),
         (overlay_set_position, "$g_presentation_obj_name_kingdom_1", pos1),
         (position_set_x, pos1, 1250),
         (position_set_y, pos1, 1250),
@@ -490,52 +364,11 @@ mercenary_company_presentations = [
           (position_set_y, pos1, 500),
           (overlay_set_position, "$g_multiplayer_poll_to_show", pos1),
           
-          (item_get_type, ":type", "$g_item_to_scrap"),
-          
-          (try_begin), ### Setting the commission values based on item type
-            (this_or_next|eq, ":type", itp_type_hand_armor),
-            (this_or_next|eq, ":type", itp_type_one_handed_wpn),
-            (this_or_next|eq, ":type", itp_type_arrows),
-            (this_or_next|eq, ":type", itp_type_bolts),
-            (this_or_next|eq, ":type", itp_type_bullets),
-            (this_or_next|eq, ":type", itp_type_shield),
-            (this_or_next|eq, ":type", itp_type_thrown),
-            (eq, ":type", itp_type_polearm),
-            (val_add, reg85, 2),
-          (else_try),
-            (this_or_next|eq, ":type", itp_type_head_armor),
-            (this_or_next|eq, ":type", itp_type_foot_armor),
-            (this_or_next|eq, ":type", itp_type_two_handed_wpn),
-            (this_or_next|eq, ":type", itp_type_bow),
-            (eq, ":type", itp_type_crossbow),
-            (val_add, reg85, 3),
-          (else_try),
-            (this_or_next|eq, ":type", itp_type_body_armor),
-            (eq, ":type", itp_type_musket),
-            (val_add, reg85, 5),
-          (else_try),
-            (eq, ":type", itp_type_horse),
-            (val_add, reg85, 7),
-          (else_try),
-            (val_add, reg85, 2),
-          (try_end),
-          
-          (try_begin),
-            (eq, "$class_type", cc_peasant_smith),
-            (try_begin),
-                (gt, reg85, 2), # more than 2 days 
-                (val_sub, reg85, 2),
-            (else_try),
-                (val_sub, reg85, 1),
-            (try_end),
-          (try_end),
-          
-          (try_begin),
-            (eq, "$class_type", cc_mercenary_flemish),   
-            (val_sub, reg85, 1),
-          (try_end),
+         
+          (call_script, "script_dac_get_item_commission_hours", "$g_item_to_scrap"),
+          (assign, reg85, reg0),
 
-          (str_store_string, s4, "@These will also take {reg85} days to make."),
+          (str_store_string, s4, "@It will take {reg85} hours to make."),
           (create_text_overlay, "$g_presentation_obj_1", s4, tf_center_justify), #SB : continue str
           (position_set_x, pos1, 770),
           (position_set_y, pos1, 430),
@@ -552,19 +385,19 @@ mercenary_company_presentations = [
           (else_try),
             (str_store_string, s5, "@Not Enough Crowns"),
           (try_end),
-          (create_button_overlay, "$g_presentation_obj_2", s5, tf_center_justify), #SB : continue str
+          (create_game_button_overlay, "$g_presentation_obj_2", s5, tf_center_justify),
           (position_set_x, pos1, 770),
           (position_set_y, pos1, 330),
           (overlay_set_position, "$g_presentation_obj_2", pos1), 
         (try_end),
 
-        (create_button_overlay, "$g_presentation_obj_name_kingdom_2", "str_continue_dot", tf_center_justify), #SB : continue str
+        (create_game_button_overlay, "$g_presentation_obj_name_kingdom_2", "str_continue_dot", tf_center_justify), #SB : continue str
         (position_set_x, pos1, 650),
         (position_set_y, pos1, 75),
         (overlay_set_position, "$g_presentation_obj_name_kingdom_2", pos1),
 
-        (str_store_string, s11, "@Armoury"),
-        (create_button_overlay, "$g_presentation_obj_name_kingdom_1", s11, tf_center_justify), #SB : continue str
+        (str_store_string, s11, "@Scrap Items"),
+        (create_game_button_overlay, "$g_presentation_obj_name_kingdom_1", s11, tf_center_justify), #SB : continue str
         (position_set_x, pos1, 450),
         (position_set_y, pos1, 75),
         (overlay_set_position, "$g_presentation_obj_name_kingdom_1", pos1),
@@ -589,57 +422,60 @@ mercenary_company_presentations = [
 
     (click,
     [
-      (store_trigger_param_1, ":object_id"),
+    (store_trigger_param_1, ":object_id"),
 
+    (try_begin),
+        (eq, ":object_id", "$g_presentation_obj_name_kingdom_2"), # Continue
+        (assign, "$g_presentation_state", 0),
+        (presentation_set_duration, 0),
+        (jump_to_menu, "mnu_dac_name_troops_3"),
+    (else_try),
+        (eq, ":object_id", "$g_presentation_obj_name_kingdom_1"), # Quartermaster
+        (assign, "$g_presentation_state", 0),
+        (start_presentation, "prsnt_dac_ct_view_armoury"),
+    (else_try),
+        (neq, ":object_id", "$g_presentation_obj_2"),
+        (call_script, "script_custom_troop_detail_select_item_for_scrap", ":object_id"),
+    (else_try),
+        (eq, "$g_presentation_state", 1),
+        (eq, ":object_id", "$g_presentation_obj_2"),
+        (str_store_item_name, s7, "$g_item_to_scrap"),
+        (store_skill_level, ":trade_skill", skl_trade, "trp_player"),
+        (store_troop_gold, ":gold", "trp_player"),
+        
+        (assign, ":continue", 0),
+          
         (try_begin),
-          (eq, ":object_id", "$g_presentation_obj_name_kingdom_2"), # Continue
-          (assign, "$g_presentation_state", 0),
-          (presentation_set_duration, 0),
-          (jump_to_menu, "mnu_dac_name_troops_3"),
-        (else_try),
-          (eq, ":object_id", "$g_presentation_obj_name_kingdom_1"), # Quartermaster
-          (assign, "$g_presentation_state", 0),
-          (start_presentation, "prsnt_dac_ct_view_armoury"),
-        (else_try),
-          (neq, ":object_id", "$g_presentation_obj_2"),
-          (call_script, "script_custom_troop_detail_select_item_for_scrap", ":object_id"),
-        (else_try),
-          (eq, "$g_presentation_state", 1),
-          (eq, ":object_id", "$g_presentation_obj_2"),
-          (str_store_item_name, s7, "$g_item_to_scrap"),
-          (store_skill_level, ":trade_skill", skl_trade, "trp_player"),
-          (store_troop_gold, ":gold", "trp_player"),
-          (try_begin),
             (ge, ":trade_skill", 1),
             (ge, ":gold", reg81),
             (troop_remove_gold, "trp_player", reg81),
-            (display_message, "@{s7} will be made for the armoury for {reg81} crowns and will take {reg85} days.", color_good_news),
-            (store_current_day, ":cur_day"),
-            (store_add, ":days_til_completed", ":cur_day", reg85),
-            (troop_set_slot, "trp_merc_company_smith", slot_camp_smith_days_til_finished, ":days_til_completed"),
-            (troop_set_slot, "trp_merc_company_smith", slot_camp_smith_creating_item, "$g_item_to_scrap"),
-            (assign, "$g_target_new_item", "$g_target_armoury"),
-            (assign, "$g_presentation_state", 0),
-            (presentation_set_duration, 0),
-            (jump_to_menu, "mnu_dac_name_troops_3"),
-          (else_try),
+            (display_message, "@{s7} will be made for the armoury for {reg81} crowns and will take {reg85} hour(s).", color_good_news),
+            (assign, ":continue", 1),
+        (else_try),
             (ge, ":gold", reg80),
             (troop_remove_gold, "trp_player", reg80),
-            (display_message, "@{s7} bought for the armoury for {reg80} crowns and will take {reg85} days", color_good_news),
-            (store_current_day, ":cur_day"),
-            (store_add, ":days_til_completed", ":cur_day", reg85),
-            (troop_set_slot, "trp_merc_company_smith", slot_camp_smith_days_til_finished, ":days_til_completed"),
+            (display_message, "@{s7} bought for the armoury for {reg80} crowns and will take {reg85} hour(s)", color_good_news),
+            (assign, ":continue", 1),
+        (try_end),
+        
+        (try_begin),
+            (eq, ":continue", 1),
+            (assign, "$g_target_troop_name", "$g_target_name_change"),
+            (assign, ":hours_til_completed", reg85),
+            (troop_set_slot, "trp_merc_company_smith", slot_camp_smith_hours_til_finished, ":hours_til_completed"),
             (troop_set_slot, "trp_merc_company_smith", slot_camp_smith_creating_item, "$g_item_to_scrap"),
             (assign, "$g_target_new_item", "$g_target_armoury"),
             (assign, "$g_presentation_state", 0),
             (presentation_set_duration, 0),
             (jump_to_menu, "mnu_dac_name_troops_3"),
-          (else_try),
+        (else_try),
             (display_message, "@Not Enough Crowns", color_bad_news),
-          (try_end),
-          (assign, "$g_presentation_state", 0),
-          (start_presentation, "prsnt_dac_ct_buy_items_for_armoury"),
         (try_end),
+          
+          
+        (assign, "$g_presentation_state", 0),
+        (start_presentation, "prsnt_dac_ct_buy_items_for_armoury"),
+    (try_end),
     ]),
 
 

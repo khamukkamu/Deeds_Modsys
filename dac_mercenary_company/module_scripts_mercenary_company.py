@@ -36,7 +36,7 @@ mercenary_company_scripts = [
     (party_set_slot, "p_player_camp", slot_player_camp_relocation_project, -1),    
     # Custom Troops
     (troop_set_slot, "trp_merc_company_smith", slot_camp_smith_creating_item, -1),
-    (troop_set_slot, "trp_merc_company_smith", slot_camp_smith_days_til_finished, -1),
+    (troop_set_slot, "trp_merc_company_smith", slot_camp_smith_hours_til_finished, -1),
     (call_script, "script_initialize_item_tiers"),
     (call_script, "script_initialize_custom_troop_tiers"),
   ]),  
@@ -732,7 +732,7 @@ mercenary_company_scripts = [
       
       (try_begin),
         (is_presentation_active, "prsnt_dac_ct_view_armoury"),
-        (str_store_string, s57, "@The Armoury contains all the items the current troop has access to^Left Click to select and view details"),
+        (str_store_string, s57, "@The Armoury contains all the items the current troop has access to^In this menu you can sell items you no longer need while in the 'Commission Items' screen you purchase items for your troop^Left Click to select and view details"),
       (else_try),
         (str_store_string, s57, "@This is your personal inventory^You can only reproduce items that are the same tier or lower than the troop.^Left Click to select an item for the armoury."),
       (try_end),
@@ -1526,7 +1526,69 @@ mercenary_company_scripts = [
     (try_end),
 
   ]),  
+  
+### script_dac_get_item_commission_hours
+### DAC Seek: Returns how many hours it will take the smith to finish an item
+("dac_get_item_commission_hours", [
+    (store_script_param_1, ":item_no"),
+    
+    (item_get_type, ":item_type", ":item_no"),
+    (item_get_value, ":item_price", ":item_no"),
+    
+    (assign, ":total", 0),
+    (assign, ":divisor", 0),
+    
+    (try_begin),
+        (this_or_next|eq, ":item_type", itp_type_head_armor),
+        (this_or_next|eq, ":item_type", itp_type_body_armor),
+        (this_or_next|eq, ":item_type", itp_type_foot_armor),
+        (eq, ":item_type", itp_type_hand_armor),
+        (item_get_head_armor, ":head_armor", ":item_no"),
+        (item_get_body_armor, ":body_armor", ":item_no"),
+        (item_get_leg_armor,  ":leg_armor", ":item_no"),
+        (val_add, ":total", ":head_armor"),
+        (val_add, ":total", ":body_armor"),
+        (val_add, ":total", ":leg_armor"),
+        (assign, ":divisor", 100),
+    (else_try),
+        (this_or_next|eq, ":item_type", itp_type_horse),    
+        (eq, ":item_type", itp_type_shield),    
+        (item_get_hit_points, ":hit_points", ":item_no"),
+        (item_get_body_armor, ":body_armor", ":item_no"),
+        (val_add, ":total", ":body_armor"),
+        (val_add, ":total", ":hit_points"),
+        (assign, ":divisor", 100),       
+    (else_try),
+        (item_get_thrust_damage, ":thrust_damage", ":item_no"),
+        (item_get_swing_damage,  ":swing_damage",  ":item_no"),
+        
+        (try_begin),
+            (eq, ":thrust_damage", 0),
+            (assign, ":thrust_damage", ":swing_damage"),
+        (else_try),
+            (eq, ":swing_damage", 0),
+            (assign, ":swing_damage", ":thrust_damage"),
+        (try_end),
+        
+        (val_add, ":total", ":thrust_damage"),
+        (val_add, ":total", ":swing_damage"),
+        (assign, ":divisor", 200),     
+    (try_end),
+    
+    (val_mul, ":total", ":total"),
+    (val_add, ":total", ":item_price"),
+    (val_div, ":total", ":divisor"),
+    
+    (try_begin),
+        (this_or_next|eq, "$class_type", cc_mercenary_flemish),
+        (eq, "$class_type", cc_peasant_smith),
+        (val_mul, ":total", 20),
+        (val_div, ":total", 30),
+    (try_end),
 
-
+    (val_max, ":total", 1),
+    
+    (assign, reg0, ":total"),
+]),
 
 ]
