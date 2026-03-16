@@ -17523,7 +17523,7 @@ presentations = [
   (assign, "$troop_tree_counter", -1),
   
   # Kingdom
-  (create_text_overlay, reg1, "@Kingdom: ", tf_right_align),
+  (create_text_overlay, reg1, "@Faction: ", tf_right_align),
   (position_set_x, pos1, Screen_Width/2-250), #250
   #(position_set_y, pos1, Screen_Title_Height-Screen_Text_Height),
   (position_set_y, pos1, 700),

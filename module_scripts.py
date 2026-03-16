@@ -402,10 +402,10 @@ scripts = [
         (try_end),
         (party_set_slot, ":center_no", slot_town_wealth, ":initial_wealth"),
 
-        (assign, ":garrison_strength", 15),
+        (assign, ":garrison_strength", 14), ### DAC Seek: Slightly lowered from 15
         (try_begin),
           (party_slot_eq, ":center_no", slot_party_type, spt_town),
-          (assign, ":garrison_strength", 40),
+          (assign, ":garrison_strength", 38), ### DAC Seek: Slightly lowered from 40
         (try_end),
         (try_for_range, ":unused", 0, ":garrison_strength"),
           (call_script, "script_cf_reinforce_party", ":center_no"),
@@ -511,7 +511,7 @@ scripts = [
       ##diplomacy end+
 
 	  #do about 5 years' worth of political history (assuming 3 random checks a day)
-	  (try_for_range, ":unused", 0, 5000),
+	  (try_for_range, ":unused", 0, 3000), ### DAC Seek, let's do less, 3 years
 		(call_script, "script_cf_random_political_event"),
 	  (try_end),
 	  (assign, "$total_random_quarrel_changes", 0),
@@ -2983,14 +2983,19 @@ scripts = [
         (faction_set_slot, "fac_player_supporters_faction",  slot_faction_culture, ":player_faction_culture"),
         (faction_set_slot, "fac_player_faction",  slot_faction_culture, ":player_faction_culture"),
 
-        (store_random_in_range, ":destination", training_grounds_begin, training_grounds_end),
-        (party_set_flags, ":destination", pf_always_visible, 1),
-
+        (try_begin),
+            (eq, "$background_type", cb_mercenary),
+            (store_random_in_range, ":destination", player_camp_spawn_points_begin, player_camp_spawn_points_end),
+        (else_try),
+            (store_random_in_range, ":destination", training_grounds_begin, training_grounds_end),
+            (party_set_flags, ":destination", pf_always_visible, 1),
+        (try_end),
+        
         (party_relocate_near_party, "p_main_party", ":destination", 5),
 
         (try_begin),
-            (eq, "$class_type", cc_mercenary_condottiero),
-            (party_relocate_near_party, "p_player_camp", "p_main_party"),
+            (eq, "$background_type", cb_mercenary),
+            (party_relocate_near_party, "p_player_camp", "p_main_party", 2),
             (enable_party, "p_player_camp"),
             ### Notes
             (party_set_note_available, "p_player_camp", 1),
@@ -3000,10 +3005,21 @@ scripts = [
             (assign, reg1, reg0),
             (add_troop_note_from_sreg, "trp_player", 2, "str_dac_player_camp_note"),
             ### Scripts
-            (party_set_slot, "p_player_camp", slot_player_camp_level, 2),
+            (try_begin),
+                (eq, "$class_type", cc_mercenary_condottiero),
+                (party_set_slot, "p_player_camp", slot_player_camp_level, 2),
+                (call_script, "script_dac_upgrade_player_camp"),
+            (else_try),
+                (eq, "$class_type", cc_mercenary_flemish),
+                (party_set_slot, "p_player_camp", slot_player_camp_level, 1),
+                (party_set_slot, "p_player_camp", slot_player_camp_smithy, 1),
+            (else_try),
+                (eq, "$class_type", cc_mercenary_scottish),
+                (party_set_slot, "p_player_camp", slot_player_camp_level, 1),
+                (party_set_slot, "p_player_camp", slot_player_camp_archery_range, 1),
+            (try_end),
             (assign, "$player_camp_built", 1),
             (call_script, "script_refresh_mercenary_camp_troops"),
-            (call_script, "script_dac_upgrade_player_camp"),
             (assign, "$g_player_banner_granted", 1),
         (try_end),    
       
@@ -3936,7 +3952,7 @@ scripts = [
           (eq, ":party_faction", "$players_kingdom"),
           (party_get_slot, ":target_party", ":root_defeated_party", slot_party_orders_object),
           (str_store_party_name, s13, ":target_party"),
-          (display_log_message, "@A scout trying to gather information about {s13} has been slain{s10}!", message_defeated),
+          # (display_log_message, "@A scout trying to gather information about {s13} has been slain{s10}!", message_defeated),
         (else_try), #SB : reinforcements
           (eq, ":type", spt_reinforcement),
           (store_faction_of_party, ":party_faction", ":root_defeated_party"),
@@ -3945,7 +3961,7 @@ scripts = [
           (party_get_slot, ":target_party", ":home_village", slot_village_bound_center),
           (str_store_party_name_link, s12, ":home_village"),
           (str_store_party_name_link, s13, ":target_party"),
-          (display_log_message, "@Reinforcements from {s12} intended for {s13} have been intercepted{s10}!", message_defeated),
+          # (display_log_message, "@Reinforcements from {s12} intended for {s13} have been intercepted{s10}!", message_defeated),
         (try_end),
       (try_end),
 ##diplomacy end
@@ -4317,6 +4333,11 @@ scripts = [
                        (troop_slot_eq, ":party_leader", slot_lord_reputation_type, lrep_custodian),
                        (assign, reg2, 3),
                        (store_random_in_range, ":random_percentage", 50, 60), #average 55%
+                      (else_try), ### DAC Seek: Player is Marshall
+                       (eq, ":party_leader", "trp_player"),
+                       (faction_slot_eq, "$players_kingdom", slot_faction_marshall, "trp_player"),
+                       (assign, reg2, 0), ### WTF DOES IT DO?
+                       (store_random_in_range, ":random_percentage", 40, 50), #average 45%
                      (try_end),
 
                      (val_min, ":random_percentage", 100),
@@ -4345,8 +4366,10 @@ scripts = [
 			     (val_add, "$newglob_total_prosperity_from_townloot", -5),
 			   (try_end),
                (call_script, "script_order_best_besieger_party_to_guard_center", ":root_defeated_party", ":winner_faction"),
-               (call_script, "script_cf_reinforce_party", ":root_defeated_party"),
-               (call_script, "script_cf_reinforce_party", ":root_defeated_party"),
+               ### DAC Seek: Have more troops garrisoned
+               (try_for_range, ":unused", 0, 4),
+                    (call_script, "script_cf_reinforce_party", ":root_defeated_party"),
+               (try_end),
                (party_get_slot, ":food_stores", ":root_defeated_party", slot_party_food_store),
                (call_script, "script_center_get_food_store_limit", ":root_defeated_party"),
                (val_min, ":food_stores", reg0),
@@ -9594,19 +9617,50 @@ scripts = [
 	# (troop_set_slot, "trp_banner_background_color_array", 123, 0xFF24293c),
 	# (troop_set_slot, "trp_banner_background_color_array", 124, 0xFF5d6966),
 	# (troop_set_slot, "trp_banner_background_color_array", 125, 0xFFbd9631),
-	
-#Kindgom Banners	
-	(troop_set_slot, "trp_banner_background_color_array", 112, color_banner_blue),
-	(troop_set_slot, "trp_banner_background_color_array", 113, color_banner_red),
-	(troop_set_slot, "trp_banner_background_color_array", 114, color_banner_yellow),
+    
+# color_banner_white  
+# color_banner_blue   
+# color_banner_red    
+# color_banner_green  
+# color_banner_black  
+# color_banner_yellow 
+# color_banner_purple 
+# Banners G
+	(troop_set_slot, "trp_banner_background_color_array", 112, color_banner_yellow),
+	(troop_set_slot, "trp_banner_background_color_array", 113, color_banner_yellow),
+	(troop_set_slot, "trp_banner_background_color_array", 114, color_banner_white),
 	(troop_set_slot, "trp_banner_background_color_array", 115, color_banner_white),
+	(troop_set_slot, "trp_banner_background_color_array", 116, color_banner_blue),
+	(troop_set_slot, "trp_banner_background_color_array", 117, color_banner_white),
+	(troop_set_slot, "trp_banner_background_color_array", 118, color_banner_blue),
+	
+	(troop_set_slot, "trp_banner_background_color_array", 119, color_banner_red),
+	(troop_set_slot, "trp_banner_background_color_array", 120, color_banner_yellow),
+	(troop_set_slot, "trp_banner_background_color_array", 121, color_banner_white),
+	(troop_set_slot, "trp_banner_background_color_array", 122, color_banner_white),
+	(troop_set_slot, "trp_banner_background_color_array", 123, color_banner_white),
+	(troop_set_slot, "trp_banner_background_color_array", 124, color_banner_white),
+	(troop_set_slot, "trp_banner_background_color_array", 125, color_banner_white),
+    
+	(troop_set_slot, "trp_banner_background_color_array", 126, color_banner_white),
+	(troop_set_slot, "trp_banner_background_color_array", 127, color_banner_black),
+	(troop_set_slot, "trp_banner_background_color_array", 128, color_banner_yellow),
+	(troop_set_slot, "trp_banner_background_color_array", 129, color_banner_white),
+	(troop_set_slot, "trp_banner_background_color_array", 130, color_banner_white),
+	(troop_set_slot, "trp_banner_background_color_array", 131, color_banner_blue),
+	(troop_set_slot, "trp_banner_background_color_array", 132, color_banner_red),
+#Kindgom Banners	
+	(troop_set_slot, "trp_banner_background_color_array", 133, color_banner_blue),
+	(troop_set_slot, "trp_banner_background_color_array", 134, color_banner_red),
+	(troop_set_slot, "trp_banner_background_color_array", 135, color_banner_yellow),
+	(troop_set_slot, "trp_banner_background_color_array", 136, color_banner_white),
 
 #Default banners
-	(troop_set_slot, "trp_banner_background_color_array", 116, color_banner_red),
-	(troop_set_slot, "trp_banner_background_color_array", 117, color_banner_black),
-	(troop_set_slot, "trp_banner_background_color_array", 118, color_banner_blue),
-	(troop_set_slot, "trp_banner_background_color_array", 119, color_banner_black),
-	(troop_set_slot, "trp_banner_background_color_array", 120, color_banner_red),
+	(troop_set_slot, "trp_banner_background_color_array", 137, color_banner_red),
+	(troop_set_slot, "trp_banner_background_color_array", 138, color_banner_black),
+	(troop_set_slot, "trp_banner_background_color_array", 139, color_banner_blue),
+	(troop_set_slot, "trp_banner_background_color_array", 140, color_banner_black),
+	(troop_set_slot, "trp_banner_background_color_array", 141, color_banner_red),
 ]),
 
 
@@ -33317,7 +33371,7 @@ scripts = [
         # (val_sub, ":scene_to_use", 1), # can leave, must be small battlefield
       (else_try),
         (eq, ":terrain_type", rt_steppe), ### Roads
-        (store_random_in_range, ":random_scene", "scn_battlefield_road_1", "scn_battlefield_road_4"),
+        (store_random_in_range, ":random_scene", "scn_battlefield_road_1", "scn_battlefield_road_5"),
         (assign, ":scene_to_use", ":random_scene"),      
         # (assign, ":scene_to_use", "scn_battlefield_road_4"),      
       (else_try), # forests
@@ -77178,6 +77232,11 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (item_set_slot, "itm_a_churburg_13_asher_brass_custom", slot_item_materials_end, "str_a_churburg_13_asher_guilded_end"),
       (item_set_slot, "itm_a_churburg_13_asher_brass_custom", slot_item_num_components, 1), 
       
+## Breastplate over Gambeson
+      (item_set_slot, "itm_a_breastplate_over_gambeson_custom", slot_item_materials_begin, "str_a_breastplate_over_gambeson_blue"),
+      (item_set_slot, "itm_a_breastplate_over_gambeson_custom", slot_item_materials_end, "str_a_breastplate_over_gambeson_end"),
+      (item_set_slot, "itm_a_breastplate_over_gambeson_custom", slot_item_num_components, 1), 
+      
 ## German Plate with Covered Fauld
       (item_set_slot, "itm_a_plate_german_covered_fauld_custom", slot_item_materials_begin, "str_a_plate_german_covered_fauld_black"),
       (item_set_slot, "itm_a_plate_german_covered_fauld_custom", slot_item_materials_end, "str_a_plate_german_covered_fauld_end"),
@@ -77207,7 +77266,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (item_set_slot, "itm_a_corrazina_spina_custom", slot_item_burgundy_materials_end, "str_a_corrazina_spina_breton"),    
 # Brittany    
       (item_set_slot, "itm_a_corrazina_spina_custom", slot_item_breton_materials_begin, "str_a_corrazina_spina_breton"),
-      (item_set_slot, "itm_a_corrazina_spina_custom", slot_item_breton_materials_end, "str_a_corrazina_spina_end"),   
+      (item_set_slot, "itm_a_corrazina_spina_custom", slot_item_breton_materials_end, "str_a_corrazina_spina_green_alt"),   
       (item_set_slot, "itm_a_corrazina_spina_custom", slot_item_num_components, 1),   
 
 ## Corrazina Capwell

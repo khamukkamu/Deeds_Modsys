@@ -756,6 +756,14 @@ parties = [
 ## DAC Seek: Player Camp
   ("player_camp", "Mercenary Company",  icon_camp|pf_disabled|pf_is_static|pf_always_visible|pf_label_medium, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(10, -100),[], 0),
   ("player_bandit_hideout", "Hideout",  icon_bandit_lair|pf_disabled|pf_is_static|pf_always_visible|pf_label_medium, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(10, -100),[], 0),
+
+  ("player_camp_spawn_point_1"  ,"Camp Spawn Point",pf_disabled|pf_is_static, no_menu, pt_none, fac_commoners,0,ai_bhvr_hold,0,(-29.80, -73),[]),
+  ("player_camp_spawn_point_2"  ,"Camp Spawn Point",pf_disabled|pf_is_static, no_menu, pt_none, fac_commoners,0,ai_bhvr_hold,0,(-52.46, 37.73),[]),
+  ("player_camp_spawn_point_3"  ,"Camp Spawn Point",pf_disabled|pf_is_static, no_menu, pt_none, fac_commoners,0,ai_bhvr_hold,0,(119.22, -24.63),[]),
+  ("player_camp_spawn_point_4"  ,"Camp Spawn Point",pf_disabled|pf_is_static, no_menu, pt_none, fac_commoners,0,ai_bhvr_hold,0,(20.69, 46.27),[]),
+  ("player_camp_spawn_point_5"  ,"Camp Spawn Point",pf_disabled|pf_is_static, no_menu, pt_none, fac_commoners,0,ai_bhvr_hold,0,(21.65, 101.87),[]),
+  ("player_camp_spawn_point_end"  ,"Camp Spawn Point",pf_disabled|pf_is_static, no_menu, pt_none, fac_commoners,0,ai_bhvr_hold,0,(-6.5, 87),[]),
+
 ## DAC Seek: Player Camp End
 
 ## DAC Seek: Player relocation

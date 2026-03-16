@@ -44,4 +44,13 @@ mercenary_company_party_templates = [
 ("mercenary_company_german_cavalry", "Mercenary Company German Knight", 0, 0, fac_commoners, 0, 
 [(trp_mercenary_german_knight,1,3),]),
 
+("mercenary_company_scottish_infantry", "Mercenary Company Scottish Infantry", 0, 0, fac_commoners, 0, 
+[(trp_scottish_poor_spearman,2,6),(trp_scottish_spearman,2,4),(trp_scottish_rich_spearman,2,4),]),
+
+("mercenary_company_scottish_noble_infantry", "Mercenary Company Scottish Noble Infantry", 0, 0, fac_commoners, 0, 
+[(trp_scottish_footman_at_arms,1,3),(trp_scottish_dismounted_squire,1,2),(trp_scottish_dismounted_knight,1,1)]),
+
+("mercenary_company_scottish_ranged", "Mercenary Company Scottish Ranged", 0, 0, fac_commoners, 0, 
+[(trp_scottish_poor_archer,2,6),(trp_scottish_archer,2,4),(trp_scottish_rich_archer,1,3)]),
+
 ]

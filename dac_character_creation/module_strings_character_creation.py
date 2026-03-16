@@ -134,7 +134,7 @@ Pros: ^\
 » Contracts and Contacts: ^\
 Mercenary recruitment and upkeep is significantly reduced ^\
 » Grand Company: ^\
-Factions are more likely to provide you with mercenary contracts, rewards are increased ^^\
+Start with a mercenary camp. Factions are more likely to provide you with mercenary contracts and its rewards are increased ^^\
 Cons: ^\
 » Villainous Lot: ^\
 Mercenaries are often comprised of veterans, deserters, bandits and naïve recruits who don't always get along. The base morale for your party is below average and most negative events such as retreating from battle, being defeated and starvation will impact your morale more harshly.^\
@@ -322,23 +322,22 @@ Your troops have acquired some expensive tastes while campaigning in Italy and d
 ("dac_background_class_desc_flemish",             "Flemish mercenaries start venturing into France as the French lead some reprisal campaigns and as the Duchy of Burgundy expands ^^\
 Pros: ^\
 » Flemish Smiths: ^\
-Commissioning items for your retinue will take 1 day less^\
+Start with the smith already built. Commissioning items for your retinue is 30% faster by default.^\
 » Flemish Ties: ^\
 Can recruit Flemish mercenaries in your camp ^^\
 Cons: ^\
 » Noble Disdain: ^\
 You didn't offer any quarters in the past and none will be offered to you in the present, impossible to negotiate your way out of a battle against enemy lords"),
-("dac_background_class_desc_scottish",            "[WIP] ^\
-The Scottish were one of the main allies of France during the Hundred Years War, united by common hatred of the English crown, many have fallen fighting to the bitter end in France. ^^\
+("dac_background_class_desc_scottish",            "The Scottish were one of the main allies of France during the Hundred Years War, united by common hatred of the English crown, many have fallen fighting to the bitter end in France. ^^\
 Pros: ^\
 » Auld Alliance: ^\
 Start with good relations with the Kingdom of France and negates the effects of Villainous Lot ^\
-[WIP] » Kinsmen: ^\
-Can recruit Scottish troops at a special location, enhanced stats for Scottish troops ^^\
+» Kinsmen: ^\
+Start with the archery range already built. Can recruit Scottish troops at your camp. ^^\
 Cons: ^\
 » Last Stand: ^\
-[WIP] Scottish troops fight to the bitter end, should you retreat from a battle, they will be wiped out ^\
-» Bitter Enemies: ^\
+Scottish troops fight to the bitter end, they are more likely to fall dead in battle.^\
+» Old Enemies: ^\
 Start with bad relations with the Kingdom of England"),   
       
 ("dac_background_class_desc_farmer",              "Farmers are simple folk that live off the land, toiling away to feed themselves, their family and the real. War comes even to those that bother none, turmoil has reached and razed your village. Bandits, nobles, doesn't matter, you have nothing left here and must start life anew. ^^\

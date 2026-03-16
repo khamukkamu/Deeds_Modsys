@@ -221,6 +221,13 @@ mercenary_company_presentations = [
         (position_set_y, pos1, 600),
         (overlay_set_position, reg5, pos1),
         
+        (store_troop_gold, ":player_gold", "trp_player"),
+        (assign, reg11, ":player_gold"),
+        (create_text_overlay, reg0, "str_dac_player_camp_smith_available_gold", tf_left_align),
+        (position_set_x, pos1, 620),
+        (position_set_y, pos1, 620),
+        (overlay_set_position, reg0, pos1),
+        
       
         #DAC Kham: Set up Inventories.
         (store_add, "$g_target_armoury", "$g_target_name_change", 2),
@@ -334,16 +341,23 @@ mercenary_company_presentations = [
         (position_set_y, pos1, 600),
         (overlay_set_position, reg5, pos1),
         
+        (store_troop_gold, ":player_gold", "trp_player"),
+        (assign, reg11, ":player_gold"),
+        (create_text_overlay, reg0, "str_dac_player_camp_smith_available_gold", tf_left_align),
+        (position_set_x, pos1, 620),
+        (position_set_y, pos1, 620),
+        (overlay_set_position, reg0, pos1),
+        
 
         (try_begin),
           (eq, "$g_presentation_state", 1),
-          (is_between, "$g_item_to_scrap", "itm_heraldic_mail_with_surcoat_for_tableau", "itm_items_end"), 
+          (is_between, "$g_item_to_scrap", "itm_ho_sumpter_1", "itm_items_end"), 
           (call_script, "script_cf_custom_troop_has_access_to_item","$g_target_name_change", "$g_item_to_scrap"), ### DAC Seek
           (try_begin),
             (eq, "$class_type", cc_peasant_smith),
-            (store_mul, ":base_price", reg75, 4), 
+            (store_mul, ":base_price", reg75, 3), 
           (else_try),
-            (store_mul, ":base_price", reg75, 5), 
+            (store_mul, ":base_price", reg75, 4), 
           (try_end),
           (assign, reg80, ":base_price"),
           (store_skill_level, ":trade_skill", skl_trade, "trp_player"),
@@ -368,7 +382,7 @@ mercenary_company_presentations = [
           (call_script, "script_dac_get_item_commission_hours", "$g_item_to_scrap"),
           (assign, reg85, reg0),
 
-          (str_store_string, s4, "@It will take {reg85} hours to make."),
+          (str_store_string, s4, "@It will take {reg85} hour(s) to make."),
           (create_text_overlay, "$g_presentation_obj_1", s4, tf_center_justify), #SB : continue str
           (position_set_x, pos1, 770),
           (position_set_y, pos1, 430),
@@ -439,6 +453,7 @@ mercenary_company_presentations = [
     (else_try),
         (eq, "$g_presentation_state", 1),
         (eq, ":object_id", "$g_presentation_obj_2"),
+        (neq, "$g_item_to_scrap", "itm_no_item"),
         (str_store_item_name, s7, "$g_item_to_scrap"),
         (store_skill_level, ":trade_skill", skl_trade, "trp_player"),
         (store_troop_gold, ":gold", "trp_player"),

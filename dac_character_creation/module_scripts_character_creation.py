@@ -387,9 +387,10 @@ character_creation_scripts = [
 
     (assign, "$g_invite_offered_center", ":capital"),
 
-    (str_store_troop_name, s10, ":troop"),
-    (troop_set_name, "trp_player", s10),
-    (troop_set_plural_name, "trp_player", s10),
+    (str_store_troop_name, s5, ":troop"),
+    (troop_set_name, "trp_player", s5),
+    (troop_set_plural_name, "trp_player", s5),
+    (party_set_name, "p_main_party", "str_s5_s_party"),
 
     (troop_get_type, ":type", ":troop"),
     (try_begin),
@@ -1622,10 +1623,12 @@ character_creation_scripts = [
         (eq, ":class", cc_mercenary_condottiero),   
         (troop_add_item, "trp_player","itm_w_light_lance"),
         (troop_add_item, "trp_player","itm_w_onehanded_sword_italian"),
+        (troop_add_item, "trp_player","itm_s_steel_buckler"),
         (troop_add_item, "trp_player","itm_h_barbuta_nooxy_1_mail_collar"),
         (troop_add_item, "trp_player","itm_a_pistoia_mail_a_mail_sleeves_short_plate_1"),
         (troop_add_item, "trp_player","itm_b_high_boots_1"),
         (troop_add_item, "trp_player","itm_g_leather_gauntlet"),	
+        (troop_add_item, "trp_player","itm_ho_rouncey_3"),	
         
         (troop_add_item, "trp_player","itm_wine"),	
         (troop_add_item, "trp_player","itm_sausages"),	

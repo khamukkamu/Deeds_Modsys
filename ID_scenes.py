@@ -1320,4 +1320,5 @@ scn_battlefield_road_1 = 1317
 scn_battlefield_road_2 = 1318
 scn_battlefield_road_3 = 1319
 scn_battlefield_road_4 = 1320
+scn_battlefield_road_5 = 1321
 scn_exit = 100000

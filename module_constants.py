@@ -1719,6 +1719,9 @@ scenes_end = "scn_french_castle_1_exterior"
 spawn_points_begin = "p_zendar"
 spawn_points_end = "p_spawn_points_end"
 
+player_camp_spawn_points_begin = "p_player_camp_spawn_point_1"
+player_camp_spawn_points_end = "p_player_camp_spawn_point_end"
+
 regular_troops_begin       = "trp_novice_fighter"
 regular_troops_end         = "trp_tournament_master"
 

@@ -3131,10 +3131,13 @@ TOTAL:  {reg5}"),
     [],
     [
     ("genoese",[],"Genoese Crossbowmen", [(party_add_members,"p_main_party","trp_genoese_light_crossbowman", 20),(display_message,"@Received Genoese Mercs"),]),
-    ("italian",[],"Italian Troops", [(party_add_members,"p_main_party","trp_italian_light_infantry", 20),(display_message,"@Received Italian Mercs"),]),
+    ("italian",[],"Lombard Troops", [(party_add_members,"p_main_party","trp_italian_light_infantry", 20),(display_message,"@Received Italian Mercs"),]),
     ("germans",[],"German Knights", [(party_add_members,"p_main_party","trp_mercenary_german_dismounted_knight", 20),(display_message,"@Received German Knights"),]),
-    ("italian_knights",[],"Italian Knights", [(party_add_members,"p_main_party","trp_italian_knight", 20),(display_message,"@Received Italian Knights"),]),
-    ("mercs",[],"Watchmen", [(party_add_members,"p_main_party","trp_watchman", 20),(display_message,"@Received German Knights"),]),
+    ("italian_knights",[],"Milanese Knights", [(party_add_members,"p_main_party","trp_italian_knight", 20),(display_message,"@Received Italian Knights"),]),
+    ("scottish_knights",[],"Scottish Knights", [(party_add_members,"p_main_party","trp_scottish_footman_at_arms", 20),(display_message,"@Received Scottish Knights"),]),
+    ("scottish_archers",[],"Scottish Archers", [(party_add_members,"p_main_party","trp_scottish_poor_archer", 20),(display_message,"@Received Scottish Archers"),]),
+    ("scottish_infantry",[],"Scottish Infantry", [(party_add_members,"p_main_party","trp_scottish_poor_spearman", 20),(display_message,"@Received Scottish Infantry"),]),
+    ("mercs",[],"Watchmen", [(party_add_members,"p_main_party","trp_watchman", 20),(display_message,"@Received Watchmen"),]),
     ("return",[],"Go back.",[(jump_to_menu, "mnu_dac_test_menu")]), 
  ]),
 
@@ -3149,6 +3152,7 @@ TOTAL:  {reg5}"),
     ("retondeur_test",[],"Test Retondeur Bandit Scene", [(set_jump_entry, 1),(set_jump_mission, "mt_camp_test"),(jump_to_scene, "scn_bandit_camp_retondeur"),(change_screen_mission),]),
     ("tard_venu_test",[],"Test Tard-Venu Bandit Scene", [(set_jump_entry, 1),(set_jump_mission, "mt_camp_test"),(jump_to_scene, "scn_bandit_camp_tard_venu"),(change_screen_mission),]),
     ("peasants_test",[],"Test Rebellious Peasants Scene", [(set_jump_entry, 1),(set_jump_mission, "mt_camp_test"),(jump_to_scene, "scn_bandit_camp_peasant_bandit"),(change_screen_mission),]),
+    ("battlefield_road_5",[],"Test Road 5", [(set_jump_entry, 1),(set_jump_mission, "mt_camp_test"),(jump_to_scene, "scn_battlefield_road_5"),(change_screen_mission),]),
     ("return",[],"Go back.",[(jump_to_menu, "mnu_dac_test_menu")]), 
  ]),
  
@@ -8197,7 +8201,8 @@ TOTAL:  {reg5}"),
          (try_end),
          (call_script, "script_change_player_honor", -3),
          (assign, "$auto_enter_town", "$g_encountered_party"),
-         (change_screen_return),
+         # (change_screen_return),
+        (jump_to_menu, "mnu_dac_captured_center_garrison"),
         ]),
       ("dplmc_spoils_accompanying_vassals",
       [
@@ -8317,7 +8322,8 @@ TOTAL:  {reg5}"),
          (call_script, "script_change_center_prosperity", "$g_encountered_party", -8),
          (call_script, "script_change_player_honor", -1),
          (assign, "$auto_enter_town", "$g_encountered_party"),
-         (change_screen_return),
+         # (change_screen_return),
+        (jump_to_menu, "mnu_dac_captured_center_garrison"),
         ]),
       ("dplmc_spoils_all_vassals",
         [
@@ -8413,7 +8419,8 @@ TOTAL:  {reg5}"),
          (try_end),
          (call_script, "script_change_center_prosperity", "$g_encountered_party", -8),
          (assign, "$auto_enter_town", "$g_encountered_party"),
-         (change_screen_return),
+         # (change_screen_return),
+         (jump_to_menu, "mnu_dac_captured_center_garrison"),
         ]),
 ##diplomacy end
       ("continue",[],"Continue...",
@@ -8422,10 +8429,164 @@ TOTAL:  {reg5}"),
          (call_script, "script_change_center_prosperity", "$g_encountered_party", -3),
          ##diplomacy end
          (assign, "$auto_enter_town", "$g_encountered_party"),
-         (change_screen_return),
+         # (change_screen_return),
+         (jump_to_menu, "mnu_dac_captured_center_garrison"),
         ]),
     ],
   ),
+  
+  (
+    "dac_captured_center_garrison",0,
+    "Now that {s3} is under control you need to decide how to garrison it. You can press locals into service, hire mercenaries, hire troops from your faction or garrison your own troops.",
+    "none",
+    [
+        (str_store_party_name, s3, "$g_encountered_party"),
+        (try_begin),
+            (is_between, "$g_encountered_party", towns_begin, towns_end),
+            (set_background_mesh, "mesh_pic_town1"),
+        (else_try),
+            (set_background_mesh, "mesh_pic_castle1"),
+        (try_end),
+    ],
+    [ 
+        ("dac_captured_center_garrison_faction",
+           [
+           (store_troop_gold, ":cur_gold", "trp_player"),
+           
+            (try_begin),
+                (party_slot_eq, "$g_encountered_party", slot_party_type, spt_castle),
+                (assign, ":cost", 4000),
+            (else_try),
+                (assign, ":cost", 6000),
+            (try_end),
+           
+           (try_begin),
+                (faction_slot_eq, "$players_kingdom", slot_faction_marshall, "trp_player"),
+                (val_mul, ":cost", 9),
+                (val_div, ":cost", 10),
+            (try_end),
+            
+            (try_begin),
+                (eq, "$players_kingdom", "fac_player_supporters_faction"),
+                (faction_slot_eq, "$players_kingdom", slot_faction_leader, "trp_player"),
+                (val_mul, ":cost", 8),
+                (val_div, ":cost", 10),
+            (try_end),
+            
+            (try_begin), ### Leadership bonus
+                (store_skill_level, ":leadership_level", "skl_leadership", "trp_player"),
+                (store_mul, ":leadership_bonus", 5, ":leadership_level"),
+                (store_sub, ":leadership_factor", 100, ":leadership_bonus"),
+                (val_mul, ":cost", ":leadership_factor"),  #cost = cost * (100 - 5*leadership)/100
+                (val_div, ":cost", 100),
+            (try_end),
+            
+           (troop_get_slot, ":renown", "trp_player", slot_troop_renown),
+           (val_min, ":renown", 1000),
+           (val_sub, ":cost", ":renown"),
+           
+           (ge, ":cur_gold", ":cost"),
+           (assign, reg1, ":cost"),
+           
+           (str_store_string, s11, "str_dac_garrison_faction_troops"),
+           (set_tooltip_text, s11),
+           ],
+        "[{reg1} Crowns] Hire Troops from your faction.",[
+            (try_begin),
+                (party_slot_eq, "$g_encountered_party", slot_party_type, spt_castle),
+                (assign, ":end", 7),
+            (else_try),
+                (assign, ":end", 10),
+            (try_end),
+            
+            (try_for_range, ":unused", 0, ":end"),
+                (call_script, "script_cf_reinforce_party", "$g_encountered_party"),
+            (try_end),
+            
+            (troop_remove_gold, "trp_player", reg1),
+            (change_screen_return),
+        ]),  
+        
+        ("dac_captured_center_garrison_locals",
+           [
+           (str_store_string, s12, "str_dac_garrison_force_local"),
+           (set_tooltip_text, s12),
+           ],
+        "[Force] Press locals into service.",[
+            (try_begin),
+                (party_slot_eq, "$g_encountered_party", slot_party_type, spt_castle),
+                (assign, ":end", 7),
+            (else_try),
+                (assign, ":end", 10),
+            (try_end),
+            
+            (try_for_range, ":unused", 0, ":end"),
+                (call_script, "script_cf_reinforce_party", "$g_encountered_party"),
+            (try_end),
+            
+            (call_script, "script_change_player_honor", -3),
+            (call_script, "script_change_player_relation_with_center", "$g_encountered_party", -3),
+            (call_script, "script_change_center_prosperity", "$g_encountered_party", -20),
+            (change_screen_return),
+        ]),  
+        
+        ("dac_captured_center_garrison_mercenaries",
+           [
+            (store_troop_gold, ":cur_gold", "trp_player"),
+            
+            (try_begin),
+                (party_slot_eq, "$g_encountered_party", slot_party_type, spt_castle),
+                (assign, ":cost", 3000),
+            (else_try),
+                (assign, ":cost", 5000),
+            (try_end),
+            
+            (try_begin),
+                (eq, "$background_type", cb_mercenary),
+                (val_mul, ":cost", 8),
+                (val_div, ":cost", 10),
+            (try_end),
+
+            (try_begin), ### Trade bonus
+                (store_skill_level, ":trade", "skl_trade", "trp_player"),
+                (store_mul, ":trade_bonus", 5, ":trade"),
+                (store_sub, ":trade_factor", 100, ":trade_bonus"),
+                (val_mul, ":cost", ":trade_factor"),  #cost = cost * (100 - 5*trade)/100
+                (val_div, ":cost", 100),
+            (try_end),
+
+            (ge, ":cur_gold", ":cost"),
+            (assign, reg2, ":cost"),
+            
+           (str_store_string, s13, "str_dac_garrison_hire_mercenaries"),
+           (set_tooltip_text, s13),
+           ],
+        "[{reg2} Crowns] Hire Mercenaries.",[
+        
+            (try_begin),
+                (party_slot_eq, "$g_encountered_party", slot_party_type, spt_castle),
+                (party_add_template, "$g_encountered_party", "pt_mercenary_garrison"),
+            (else_try),
+                (party_add_template, "$g_encountered_party", "pt_mercenary_garrison"),
+                (party_add_template, "$g_encountered_party", "pt_mercenary_garrison"),
+            (try_end),
+            
+            (troop_remove_gold, "trp_player", reg2),
+            (change_screen_return),
+        ]),  
+        
+        ("dac_captured_center_garrison_return",
+           [],
+        "[Leave] I will sort it out myself.",[
+            (change_screen_return),
+        ]),  
+  ]),
+  
+  
+  
+  
+  
+  
   (
     "castle_taken_2",mnf_disable_all_keys,
     "{s3} has fallen to your troops, and you now have full control of the castle.\
@@ -8460,7 +8621,8 @@ TOTAL:  {reg5}"),
         (assign, "$g_castle_requested_by_player", "$current_town"),
 		(assign, "$g_castle_requested_for_troop", "trp_player"),
         (assign, "$auto_enter_town", "$g_encountered_party"),
-        (change_screen_return),
+        (jump_to_menu, "mnu_dac_captured_center_garrison"),
+        # (change_screen_return),
         ]),
 
 		("castle_taken_claim_2",[
@@ -8477,7 +8639,8 @@ TOTAL:  {reg5}"),
 		(troop_get_slot, ":spouse", "trp_player", slot_troop_spouse),
 		(assign, "$g_castle_requested_for_troop", ":spouse"),
         (assign, "$auto_enter_town", "$g_encountered_party"),
-        (change_screen_return),
+        # (change_screen_return),
+         (jump_to_menu, "mnu_dac_captured_center_garrison"),
         ]),
 
 
@@ -8486,7 +8649,8 @@ TOTAL:  {reg5}"),
        [
         (party_set_slot, "$g_encountered_party", slot_center_last_taken_by_troop, -1),
         (assign, "$auto_enter_town", "$g_encountered_party"),
-        (change_screen_return),
+        # (change_screen_return),
+         (jump_to_menu, "mnu_dac_captured_center_garrison"),
 #        (jump_to_menu, "mnu_town"),
         ]),
     ],
@@ -11759,8 +11923,8 @@ TOTAL:  {reg5}"),
             (ge, ":center_lord", 0),
             (str_store_string,s11,"@ You see the banner of {s7} over the castle gate."),
           (else_try),
-    ##            (str_store_string,s11,"@ This castle seems to belong to no one."),
-            (str_store_string,s11,"@ This castle has no garrison."),
+            (str_store_string,s11,"@ This castle seems to belong to no one."),
+            # (str_store_string,s11,"@ This castle has no garrison."),
           (try_end),
         (else_try),
           (try_begin),

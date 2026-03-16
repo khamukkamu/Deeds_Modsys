@@ -3528,8 +3528,11 @@ scenes = [
 
 ("raided_village_1",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000130000703000cdda500007d7300002acf00005f72",[],[],"outer_terrain_plain"),
 
+# EZCK890
 ("battlefield_road_1",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300187060008be3200005ba7000045b200005708",[],[],"outer_terrain_plain"),
-("battlefield_road_2",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000005e6ad00005b750000615b000006ab",[],[],"outer_terrain_plain"),
-("battlefield_road_3",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000013000050000094ec30000505c00000f4000002736",[],[],"outer_terrain_plain"),
+("battlefield_road_2",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000300005000005e6ad00005b750000615b000006ab",[],[],"outer_terrain_plain_2"),
+("battlefield_road_3",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000013000050000094ec30000505c00000f4000002736",[],[],"outer_terrain_plain_3"),
 ("battlefield_road_4",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000034e00557800d23480000127b00001f5300006aee",[],[],"outer_terrain_plain"),
+# Seek
+("battlefield_road_5",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000023341088a00075dd9000050c6000042700000415d",[],[],"outer_terrain_plain_2"),
 ]

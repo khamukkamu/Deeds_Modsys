@@ -173,5 +173,7 @@ party_templates = [
 
   ("inquisition_army","Inquisition Army",icon_dac_routier|carries_goods(2),0,fac_commoners,bandit_personality,[(trp_church_inquisitor,1,1),(trp_routier_knight,10,15),(trp_italian_light_infantry,20,25),(trp_italian_infantry,15,20),(trp_genoese_light_crossbowman,15,20),(trp_genoese_crossbowman,10,15),]),
 
+  ("mercenary_garrison","Band of Mercenaries",icon_dac_routier|carries_goods(2),0,fac_commoners,bandit_personality,[(trp_hired_blade,1,5),(trp_mercenary_pavise_spearman,10,20),(trp_mercenary_archer,10,15),(trp_mercenary_longbowman,5,10),(trp_mercenary_swordsman,10,15),(trp_routier_crossbowman,10,15),]),
+
 ]
 party_templates = party_templates + mercenary_company_party_templates

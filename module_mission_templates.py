@@ -670,6 +670,13 @@ dac_agent_lives_or_dies = (ti_on_agent_killed_or_wounded, 0, 0, [],
                     (try_end),
                 (try_end),
                 
+                ### Scottish troops often suffered high casualties in battle
+                (try_begin),
+                    (eq, "$class_type", cc_mercenary_scottish),
+                    (is_between, ":dead_agent_troop_id", "trp_scottish_poor_archer", "trp_mercenaries_end"),
+                    (val_sub, ":surgery_skill", 25),
+                (try_end),
+                
                 (try_begin),
                     (eq, "$class_type", cc_healer_surgeon), ### Higher base for all
                     (val_add, ":surgery_skill", 10),
