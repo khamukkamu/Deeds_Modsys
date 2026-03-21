@@ -7454,7 +7454,7 @@ presentations = [
           (eq, "$g_presentation_state", rename_kingdom), #carried over
           (eq, ":object", "$g_presentation_obj_banner_selection_1"),
           (assign, "$g_presentation_state", recolor_kingdom), #not the same variable
-          (assign, "$temp", 9), #player kingdom
+          (assign, "$temp", 7), #player kingdom
           (assign, "$g_presentation_next_presentation", "prsnt_name_kingdom"),
           (faction_set_name, "fac_player_supporters_faction", s7), #save the current name
           # (assign, "$g_presentation_state", recolor_kingdom), #carried over

@@ -9980,6 +9980,9 @@ TOTAL:  {reg5}"),
 
       ("village_wait",
        [
+        (party_slot_eq, "$current_town", slot_village_state, svs_normal),
+        (neg|party_slot_ge, "$current_town", slot_village_infested_by_bandits, 1),
+       
         (str_clear, s11),
         (assign, ":continue", 0),
 

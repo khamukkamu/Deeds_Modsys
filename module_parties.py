@@ -140,7 +140,7 @@ parties = [
 
  ### DAC Burgundian Towns
     ("burgundian_town_1","Dijon", icon_town_a_southern|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(125.39, 14.07),[], 242),     
-    ("burgundian_town_2","Besançon", icon_town_a_southern_2|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(156.25, -0.21),[], 2),  
+    ("burgundian_town_2","Dole", icon_town_a_southern_2|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(143.92, -4.44),[], 84),
     ("burgundian_town_3","Nevers", icon_town_a_southern_2|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(70.5, -6.3),[], 91),      
     ("burgundian_town_4","Auxerre", icon_town_a_southern_2|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(83.02, 29.22),[], 128),  
     ("burgundian_town_5","Troyes", icon_town_a_southern_2|pf_town, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(101.07, 57.03),[], 51),   
@@ -477,7 +477,7 @@ parties = [
   ("english_village_79", "Arès",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(-61.84, -94.35),[], 357),   #[swycartographr] prev. coords: (-0.03, 54.94) #[swycartographr] prev. coords: (42.83, 77.3) rot: 269
 
 ### DAC Burgundian Villages
-  ("burgundian_village_1", "Dole",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(143.92, -4.44),[], 84),   #[swycartographr] prev. coords: (110.6, 18.14) #[swycartographr] prev. coords: (128.52, 13.34)
+  ("burgundian_village_1", "Besançon",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(156.25, -0.21),[], 2),   #[swycartographr] prev. coords: (110.6, 18.14) #[swycartographr] prev. coords: (128.52, 13.34)
   ("burgundian_village_2", "Cravant",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(88.65, 24.15),[], 281),     #[swycartographr] prev. coords: (85.23, 18.71) #[swycartographr] prev. coords: (88.07, 24.43) #[swycartographr] prev. coords: (89.06, 30.37)
   ("burgundian_village_3", "Charbuy",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(76.9, 32.23),[], 357),     #[swycartographr] prev. coords: (80.84, 23.07)
   ("burgundian_village_4", "Macey",  icon_village_a|pf_village, no_menu, pt_none, fac_neutral,0,ai_bhvr_hold,0,(89.12, 54.56),[], 18),       #[swycartographr] prev. coords: (89.08, 59.12)

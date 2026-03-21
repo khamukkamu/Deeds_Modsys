@@ -4346,6 +4346,13 @@ itp_type_polearm| itp_two_handed|itp_primary|itp_no_blur|itp_offset_musket, itc_
 ["s_hand_pavise_german_2", "Hand-Pavise Shield",   [("s_hand_pavise_a_11" ,0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_kite_shield,
 420 , weight(3.5)|hit_points(380)|body_armor(30)|spd_rtng(86)|shield_width(45)|shield_height(85),imodbits_shield],
 
+### Bouche
+["s_bouche_shield_lombard_a", "Lombard Bouche Shield",   [("s_bouche_shield_lombard_a" ,0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_kite_shield,
+440 , weight(2)|hit_points(260)|body_armor(26)|spd_rtng(90)|shield_width(40)|shield_height(65),imodbits_shield,],
+["s_bouche_shield_lombard_b", "Lombard Bouche Shield",   [("s_bouche_shield_lombard_b" ,0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_kite_shield,
+440 , weight(2)|hit_points(260)|body_armor(26)|spd_rtng(90)|shield_width(40)|shield_height(65),imodbits_shield,],
+
+
 
 #################################### Heater Shields
 ["s_heraldic_shield_french_1", "Heraldic Shield",   [("s_heraldic_shield_french_1" ,0)], itp_merchandise|itp_type_shield|itp_wooden_parry, itcf_carry_kite_shield,

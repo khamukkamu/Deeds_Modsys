@@ -8217,7 +8217,7 @@ scripts = [
     #Burgandian Towns
     #Dijon
     (call_script, "script_set_trade_route_between_centers","p_burgundian_town_1","p_burgundian_town_2"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_1","p_french_town_9"), (call_script, "script_set_trade_route_between_centers","p_burgundian_town_1","p_french_town_7"), (call_script, "script_set_trade_route_between_centers","p_burgundian_town_1","p_burgundian_town_3"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_1","p_french_town_21"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_1","p_burgundian_town_4"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_1","p_burgundian_town_5"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_1","p_burgundian_town_12"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_1","p_burgundian_town_10"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_1","p_french_town_1"),
-    #Besançon
+    #Dole
     (call_script, "script_set_trade_route_between_centers","p_burgundian_town_2","p_french_town_9"), (call_script, "script_set_trade_route_between_centers","p_burgundian_town_2","p_burgundian_town_5"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_2","p_burgundian_town_9"),              
     #Nevers
     (call_script, "script_set_trade_route_between_centers","p_burgundian_town_3","p_french_town_1"), (call_script, "script_set_trade_route_between_centers","p_burgundian_town_3","p_french_town_21"),  (call_script, "script_set_trade_route_between_centers","p_burgundian_town_3","p_french_town_7"),             
@@ -41056,7 +41056,17 @@ scripts = [
     (store_script_param, ":center_no", 1),
     (party_get_slot, ":player_relation", ":center_no", slot_center_player_relation),
     (store_faction_of_party, ":faction", ":center_no"),
-    (faction_get_slot, ":culture", ":faction", slot_faction_culture),
+    
+    (try_begin),
+        (eq, ":faction", "fac_player_supporters_faction"),
+        (gt, "$g_player_culture", 0),
+        (assign, ":culture", "$g_player_culture"),
+    (else_try),
+        (faction_get_slot, ":culture", ":faction", slot_faction_culture),    
+    (try_end),
+
+    
+    
     
     (try_begin),
         (party_slot_eq, ":center_no", slot_party_type, spt_town),
@@ -43671,7 +43681,6 @@ scripts = [
     [(store_faction_of_party, ":town_faction", "$current_town"),
       (party_get_slot, ":center_relation", "$current_town", slot_center_player_relation),
       (store_relation, ":town_faction_relation", ":town_faction", "fac_player_faction"),
-      (ge, ":center_relation", 0),
       (this_or_next|ge, ":center_relation", 5),
       (this_or_next|eq, ":town_faction", "$players_kingdom"),
       (this_or_next|ge, ":town_faction_relation", 0),
@@ -76773,7 +76782,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
     
 # Burgundian Towns
       (call_script, "script_give_center_to_lord", "p_burgundian_town_1",  "trp_kingdom_3_lord", 0), # Dijon - Philippe the Good, Duke of Burgundy
-      (call_script, "script_give_center_to_lord", "p_burgundian_town_2",  "trp_knight_3_20", 0), # Besançon - Thibaud VI de Rougemont, Vicomte de Besançon et Seigneur de Rougemont
+      (call_script, "script_give_center_to_lord", "p_burgundian_town_2",  "trp_kingdom_3_lord", 0), # Dole - Philippe the Good, Duke of Burgundy 
       (call_script, "script_give_center_to_lord", "p_burgundian_town_3",  "trp_knight_3_21", 0), # Nevers - Claude de Beauvoir
       (call_script, "script_give_center_to_lord", "p_burgundian_town_4",  "trp_knight_3_21", 0), # Auxerre - Claude de Beauvoir
       (call_script, "script_give_center_to_lord", "p_burgundian_town_5",  "trp_kingdom_3_lord", 0), # Troyes - Philippe the Good, Duke of Burgundy
@@ -76984,7 +76993,9 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 
 ### Burgundian Villages 
 
+      (call_script, "script_give_center_to_lord", "p_burgundian_village_1", "trp_knight_3_20", 0), # Besançon - Thibaud VI de Rougemont, Vicomte de Besançon et Seigneur de Rougemont
       (call_script, "script_give_center_to_lord", "p_burgundian_village_5", "trp_knight_3_13", 0), # Chaumont - Jean de La Tremoille
+      (call_script, "script_give_center_to_lord", "p_burgundian_village_6", "trp_knight_3_20", 0), # Rougemont - Thibaud VI de Rougemont, Vicomte de Besançon et Seigneur de Rougemont
       (call_script, "script_give_center_to_lord", "p_burgundian_village_20", "trp_knight_3_3", 0), # Rethel - Guy de Bourgogne
       (call_script, "script_give_center_to_lord", "p_burgundian_village_29", "trp_knight_3_21", 0), # Avallon - Claude de Beauvoir
       (call_script, "script_give_center_to_lord", "p_burgundian_village_33", "trp_knight_3_13", 0), # Jonvelle - Jean de La Tremoille
