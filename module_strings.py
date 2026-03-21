@@ -550,7 +550,7 @@ strings = [
 
 # meet_spy_in_enemy_town quest secret sentences
   ("secret_sign_1",  "The armoire dances at midnight..."),
-  ("secret_sign_2",  "I am selling these fine Khergit tapestries. Would you like to buy some?"),
+  ("secret_sign_2",  "I am selling these fine Flemish tapestries. Would you like to buy some?"),
   ("secret_sign_3",  "The friend of a friend sent me..."),
   ("secret_sign_4",  "The wind blows hard from the east and the river runs red..."),
 
@@ -5469,6 +5469,10 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("a_corrazina_spina_breton",    "{!}a_corrazina_spina_breton"),
 ("a_corrazina_spina_blue_alt",  "{!}a_corrazina_spina_blue"),
 ("a_corrazina_spina_green_alt", "{!}a_corrazina_spina_green"),
+# Mercs
+("a_corrazina_spina_blue_m",      "{!}a_corrazina_spina_blue"),  
+("a_corrazina_spina_green_m",      "{!}a_corrazina_spina_green"),  
+("a_corrazina_spina_english_m",      "{!}a_corrazina_spina_english"),  
 ("a_corrazina_spina_end",       "{!}a_corrazina_spina_end"),
 
 ## Corrazina Capwell

@@ -77277,7 +77277,10 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (item_set_slot, "itm_a_corrazina_spina_custom", slot_item_burgundy_materials_end, "str_a_corrazina_spina_breton"),    
 # Brittany    
       (item_set_slot, "itm_a_corrazina_spina_custom", slot_item_breton_materials_begin, "str_a_corrazina_spina_breton"),
-      (item_set_slot, "itm_a_corrazina_spina_custom", slot_item_breton_materials_end, "str_a_corrazina_spina_green_alt"),   
+      (item_set_slot, "itm_a_corrazina_spina_custom", slot_item_breton_materials_end, "str_a_corrazina_spina_blue_m"),   
+# Mercenaries    
+      (item_set_slot, "itm_a_corrazina_spina_custom", slot_item_mercenary_materials_begin, "str_a_corrazina_spina_blue_m"),
+      (item_set_slot, "itm_a_corrazina_spina_custom", slot_item_mercenary_materials_end, "str_a_corrazina_capwell_end"),   
       (item_set_slot, "itm_a_corrazina_spina_custom", slot_item_num_components, 1),   
 
 ## Corrazina Capwell
