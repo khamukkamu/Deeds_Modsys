@@ -5009,20 +5009,20 @@ Only you know exactly what caused you to give up your old life and become an adv
   #dckplmc 
 
   ("faction_leader_title_male_player", "King {s0}"),
-  ("faction_leader_title_male_1", "King {s0}"),
-  ("faction_leader_title_male_2", "King {s0}"),
-  ("faction_leader_title_male_3", "Duke {s0}"),
-  ("faction_leader_title_male_4", "Duke {s0}"),
-  ("faction_leader_title_male_5", "King {s0}"),
-  ("faction_leader_title_male_6", "King {s0}"),
+  ("faction_leader_title_male_1", "Lord {s0}"),
+  ("faction_leader_title_male_2", "Lord {s0}"),
+  ("faction_leader_title_male_3", "Lord {s0}"),
+  ("faction_leader_title_male_4", "Lord {s0}"),
+  ("faction_leader_title_male_5", "Lord {s0}"),
+  ("faction_leader_title_male_6", "Lord {s0}"),
 
   ("faction_leader_title_female_player", "Queen {s0}"),
-  ("faction_leader_title_female_1", "Queen {s0}"),
-  ("faction_leader_title_female_2", "Queen {s0}"),
-  ("faction_leader_title_female_3", "Duchess {s0}"),
-  ("faction_leader_title_female_4", "Duchess {s0}"),
-  ("faction_leader_title_female_5", "Queen {s0}"),
-  ("faction_leader_title_female_6", "Queen {s0}"),
+  ("faction_leader_title_female_1", "Lady {s0}"),
+  ("faction_leader_title_female_2", "Lady {s0}"),
+  ("faction_leader_title_female_3", "Lady {s0}"),
+  ("faction_leader_title_female_4", "Lady {s0}"),
+  ("faction_leader_title_female_5", "Lady {s0}"),
+  ("faction_leader_title_female_6", "Lady {s0}"),
   
   #settings
   ("dplmc_setting_2", "High"),
@@ -5751,6 +5751,12 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("dac_player_camp_smith_available_gold", "You currently have {reg11} crowns."),  
 ("dac_player_camp_smith_item_finished", "Your Smith has procured {s1} for {s2}."),  
 
+("dac_player_camp_recruitment",                 "Troop List"),  
+("dac_player_camp_requirements",                "Troop Requirements"),  
+("dac_player_camp_party_info",                  "Party Information"),  
+("dac_player_camp_player_info",                 "Player Information"),  
+("dac_player_camp_player_info_registers",       "Gold: {reg13} ^Renown: {reg14} ^Honor: {reg15} ^Party Size: {reg16}/{reg17}"),  
+
 ### DAC Seek: Tournament Plays Quest Strings
 ("qp1_quest_desc_tournament_invited_by_s9_to_s13", "You have been invited by {s9} to attend the tournament being held in {s13}.  Turning down this invitation would be frowned upon."),
 ("qp1_quest_desc_tournament_held_by_s9_to_s13", "You heard of a tournament being hosted by {s9} in the town of {s13}.  This would prove an excellent opportunity to prove your worth in these lands."),
@@ -5758,11 +5764,11 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("qp1_tournaments_held_by_s8_in_s12", "During your day's travel, you come across a lone warrior traveling towards {s12}.  From him you learn that there will be a tournament held in the town by {s8}."),
 
 ### DAC Seek: Friendly bandits
-  ("bandit_intro_friendly_1", "Greetings {sirrah/ma'am}, we have no quarrel with thee."),
-  ("bandit_intro_friendly_2", "We have heard of you, word is to leave you be so that is what we will be doing unless you draw steel first."),
-  ("bandit_intro_friendly_3", "Make way lads, this fine {gentleman/lady} is said to be off limits to our generous unburdening of wares."),
-  ("bandit_intro_friendly_4", "Your money or your... Stay your hands men, 'tis not someone to mess with. A shame really but we may work something out."),
-  ("bandit_intro_friendly_end", "{!}none"),
+("bandit_intro_friendly_1", "Greetings {sirrah/ma'am}, we have no quarrel with thee."),
+("bandit_intro_friendly_2", "We have heard of you, word is to leave you be so that is what we will be doing unless you draw steel first."),
+("bandit_intro_friendly_3", "Make way lads, this fine {gentleman/lady} is said to be off limits to our generous unburdening of wares."),
+("bandit_intro_friendly_4", "Your money or your... Stay your hands men, 'tis not someone to mess with. A shame really but we may work something out."),
+("bandit_intro_friendly_end", "{!}none"),
 
 ### DAC Seek: Garrison strings
 ("dac_garrison_faction_troops",     "A decent sized band of troops. Loyal troops will improve relations slightly. ^Lower cost based on leadership, being marshal or faction leader."),

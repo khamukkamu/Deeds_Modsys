@@ -2525,6 +2525,7 @@ Still I am sorry that I'll leave you soon. You must promise me, you'll come visi
    (this_or_next|troop_slot_eq, "trp_player", slot_troop_spouse, "$g_talk_troop"),
    (troop_slot_eq, "$g_talk_troop", slot_troop_spouse, "trp_player"),
    (troop_get_slot, ":cur_center", "$g_talk_troop", slot_troop_cur_center), #household
+   (gt, ":cur_center", -1),
    (try_begin), #court
      (is_between, "$g_player_court", centers_begin, centers_end), #court has to exists
      (assign, ":cur_center", "$g_player_court"),
@@ -17755,10 +17756,10 @@ Such oaths to a usurper are of course invalid, and we can expect some of the {s0
       (str_store_string, s1, ":adjective_string"),
 
       (faction_set_name, "fac_player_supporters_faction", "@{s1} Rebels"),
-      # (faction_set_color, "fac_player_supporters_faction", 0xFF0000),
-      (faction_get_color, ":color", "$supported_pretender_old_faction"), #SB : change color
-      (store_sub, ":color", 0xFFFFFF, ":color"),#we get the opposite color
-      (faction_set_color, "fac_player_supporters_faction", ":color"),
+      (faction_set_color, "fac_player_supporters_faction", 0x65CF65),
+      # (faction_get_color, ":color", "$supported_pretender_old_faction"), #SB : change color
+      # (store_sub, ":color", 0xFFFFFF, ":color"),#we get the opposite color
+      # (faction_set_color, "fac_player_supporters_faction", ":color"),
 
 ## Let us handle relation with other kingdoms later.
 ##            (try_for_range, ":existing_kingdom", kingdoms_begin, kingdoms_end),
@@ -18998,7 +18999,7 @@ You certainly earned your reward. Here, take it, with my compliments.", "lord_ge
  (quest_get_slot, ":village", "qst_deal_with_bandits_at_lords_village", slot_quest_target_center),
  (str_store_party_name, s5, ":village"),
  (quest_get_slot, reg14, "qst_deal_with_bandits_at_lords_village", slot_quest_gold_reward),
- (call_script, "script_finish_quest", "qst_deal_with_bandits_at_lords_village"),
+ (call_script, "script_finish_quest", "qst_deal_with_bandits_at_lords_village", 100),
  ]],
 
 [anyone|plyr, "lord_deal_with_bandits_completed", [],
@@ -22826,11 +22827,11 @@ I'll send some men to take him to our prison with due haste.", "lord_pretalk", [
    # (str_store_string, s47, "str_queen"),
  # (try_end),
 
- (try_begin),
-   (eq, ":recruitment_candidate", "$supported_pretender"),
-   (eq, "$supported_pretender_old_faction", "fac_kingdom_3"),
-   (str_store_string, s47, "str_khan"),
- (try_end),
+ # (try_begin),
+   # (eq, ":recruitment_candidate", "$supported_pretender"),
+   # (eq, "$supported_pretender_old_faction", "fac_kingdom_3"),
+   # (str_store_string, s47, "str_khan"),
+ # (try_end),
 
  (try_begin),
    (eq, ":recruitment_candidate", "trp_player"),
@@ -24423,22 +24424,22 @@ and perhaps I shall be able to repay the debt I owe you.", "lord_rescue_by_repla
     (quest_get_slot, ":prisoner", "qst_rescue_prisoner", slot_quest_target_troop),
     (str_store_troop_name, s10, ":prisoner"),
 
-    (try_begin), #if we're in the prisoner town, talk to released prisoner immediately
-      (quest_slot_eq, "qst_rescue_prisoner", slot_quest_target_center, "$current_town"),
-      (assign, "$talk_context", tc_hero_freed),
+    # (try_begin), #if we're in the prisoner town, talk to released prisoner immediately
+      # (quest_slot_eq, "qst_rescue_prisoner", slot_quest_target_center, "$current_town"),
+      # (assign, "$talk_context", tc_hero_freed),
       # (call_script, "script_setup_troop_meeting", ":prisoner", -1),
-      (assign, "$castle_meeting_selected_troop", ":prisoner"),
-      (jump_to_menu, "mnu_castle_meeting_selected"),
-      (troop_set_slot, ":prisoner", slot_troop_mission_participation, -1),
-      (party_remove_prisoners, "$current_town", ":prisoner", 1),
-    (else_try), #if we do this remotely, do not setup conversation
+      # (assign, "$castle_meeting_selected_troop", ":prisoner"),
+      # (jump_to_menu, "mnu_castle_meeting_selected"),
+      # (troop_set_slot, ":prisoner", slot_troop_mission_participation, -1),
+      # (party_remove_prisoners, "$current_town", ":prisoner", 1),
+    # (else_try), #if we do this remotely, do not setup conversation
       (call_script, "script_succeed_quest", "qst_rescue_prisoner"),
       (assign, "$do_not_cancel_quest", 1),
       (call_script, "script_remove_troop_from_prison", ":prisoner"),
       (assign, "$do_not_cancel_quest", 0),
       (call_script, "script_change_player_honor", 1), #this is to compensate for missing freed_lord_answer rewards
       (assign, "$g_leave_encounter", 1),
-    (try_end),
+    # (try_end),
     
     # (assign, "$g_leave_encounter", 1),
   ]
@@ -46283,8 +46284,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
     (neg|troop_slot_eq, "trp_merc_company_smith", slot_camp_smith_creating_item, -1),
     (troop_get_slot, ":item", "trp_merc_company_smith", slot_camp_smith_creating_item),
     (troop_get_slot, ":hours_til_complete", "trp_merc_company_smith", slot_camp_smith_hours_til_finished),
-    (store_current_hours, ":cur_hours"),
-    (store_sub, reg40, ":hours_til_complete", ":cur_hours"),
+    (assign, reg40, ":hours_til_complete"),
     (str_store_item_name, s15, ":item"),
     (try_begin),
       (gt, reg40, 1),
@@ -46293,7 +46293,43 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
       (str_store_string, s16, "@one more hour."),
     (try_end),
     ], 
-      "We are still procuring the {s15}, and it will take {s16}", "camp_smith_start",
+      "We are still procuring the {s15}, and it will take {s16}", "camp_smith_armoury_procuring_item",
+    []],
+  
+    [anyone|plyr,"camp_smith_armoury_procuring_item", 
+    [], 
+      "I wish to cancel the order.", "camp_smith_armoury_procuring_item_cancel",
+    []],
+    
+    [anyone|plyr,"camp_smith_armoury_procuring_item", 
+    [], 
+      "Carry on.", "camp_smith_start",
+    []],
+    
+    [anyone,"camp_smith_armoury_procuring_item_cancel", 
+    [], 
+      "I have already invested most of the funds for production, I can only refund part of it.", "camp_smith_armoury_procuring_item_cancel_confirm",
+    []],
+    
+    [anyone|plyr,"camp_smith_armoury_procuring_item_cancel_confirm", 
+    [], 
+      "Cancel it please.", "camp_smith_armoury_procuring_item_cancel_final",
+    [
+        (troop_get_slot, ":item", "trp_merc_company_smith", slot_camp_smith_creating_item),
+        (item_get_value, ":value", ":item"),
+        (troop_add_gold, "trp_player", ":value"),
+        (troop_set_slot, "trp_merc_company_smith", slot_camp_smith_creating_item, -1),
+        (troop_set_slot, "trp_merc_company_smith", slot_camp_smith_hours_til_finished, -1),
+    ]],
+    
+    [anyone|plyr,"camp_smith_armoury_procuring_item_cancel_confirm", 
+    [], 
+      "Nevermind then.", "camp_smith_start",
+    []],
+    
+    [anyone,"camp_smith_armoury_procuring_item_cancel_final", 
+    [], 
+      "Very well, order cancelled. We're ready to resume work if there is anything else that you wish.", "camp_smith_start",
     []],
     
 ### DAC Seek: Customize armour
@@ -46683,33 +46719,6 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
     (assign,"$encountered_party_friendly",0),  
     (assign,"$cant_leave_encounter", 1),
   ]],
-
-# DAC Seek: Questions
-  
-  [anyone|plyr,"hideout_recruiter_start", [], "I have some questions for you.", "hideout_recruiter_question_start",[]],
-  [anyone,"hideout_recruiter_question_start", [], "Mhm.", "hideout_recruiter_questions",[]],
-  
-  [anyone|plyr,"hideout_recruiter_questions", [], "How did you get your name?", "hideout_recruiter_question_name",[]],
-  [anyone,"hideout_recruiter_question_name", [], "I help poor souls find their way, for a fee. Seemed fitting to me.", "hideout_recruiter_questions",[]],
-
-  [anyone|plyr,"hideout_recruiter_questions", [], "How do I get access to more troops?", "hideout_recruiter_question_troops",[]],
-  [anyone,"hideout_recruiter_question_troops", [], "Same way you took over this spot 'boss', find the other bandit leaders hideout and wipe them out, the rest will fall in line and find their way to me.", "hideout_recruiter_questions",[]],
-  
-  [anyone|plyr,"hideout_recruiter_questions", [], "How can I get new equipment for my troops?", "hideout_recruiter_question_equipment",[]],
-  [anyone,"hideout_recruiter_question_equipment", [], "They're huh, bandits. They'll manage just fine by themselves, why would you even bother?", "hideout_recruiter_questions",[]],
-  
-  [anyone|plyr,"hideout_recruiter_questions", [], "That's all I have to ask.", "hideout_recruiter_back",[]],
-
-# DAC Seek: End Dialog
-  [anyone|plyr,"hideout_recruiter_start", [], "Nothing today. Carry on.", "hideout_recruiter_back",[]],
-  [anyone,"hideout_recruiter_back", [], "Very well.", "close_window",
-  [
-  # (change_screen_map),
-  (jump_to_menu, "mnu_player_hideout_encounter"),
-  ]],
-  
-  
-  
   
   
 # Arena Dialogs

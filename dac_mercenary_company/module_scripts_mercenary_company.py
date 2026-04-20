@@ -1,4 +1,4 @@
-from header_common import *
+﻿from header_common import *
 from header_operations import *
 from module_constants import *
 from header_mission_templates import *
@@ -1304,106 +1304,297 @@ mercenary_company_scripts = [
     (try_end),
 ]),
 
+  # script_dac_list_player_camp_improvements_to_s11
+  # Input: none
+  # Output: s11
+  ("dac_list_player_camp_improvements_to_s11",
+    [
+            (str_clear, s3),
+            (str_clear, s4),
+            (party_get_slot, ":player_camp_level", "p_player_camp", slot_player_camp_level),
+            
+            (try_begin),
+                (eq, ":player_camp_level", 1),
+                (str_store_string, s3, "@Camp"),
+            (else_try),
+                (eq, ":player_camp_level", 2),
+                (str_store_string, s3, "@Outpost"),
+            (else_try),
+                (eq, ":player_camp_level", 3),
+                (str_store_string, s3, "@Manor"),
+            (else_try),
+                (str_store_string, s3, "@Fort"),
+            (try_end),
+            
+            (assign, ":num_improvements", 0),
+
+            (try_for_range, ":improvement_no", slot_player_camp_smithy, slot_player_camp_level),
+                (party_slot_ge, "p_player_camp", ":improvement_no", 1),
+                (val_add,  ":num_improvements", 1),
+                (call_script, "script_player_camp_get_improvement_details", ":improvement_no"), ### Uses s0 and s1
+                (try_begin),
+                    (eq,  ":num_improvements", 1),
+                    (str_store_string_reg, s4, s0),
+                (else_try),
+                    (str_store_string, s4, "@{!}{s4}^ » {s0}"),
+                (try_end),
+            (try_end),
+
+            (try_begin),
+                (eq,  ":num_improvements", 0),
+                (str_store_string, s11, "@The {s3} has no improvements."),
+            (else_try),
+                (str_store_string, s11, "@The {s3} has the following improvements: ^^ » {s4}."),
+            (try_end),  
+  ]),
+  
+  # script_dac_player_camp_troop_recruitment_requirement
+  # Input: none
+  # Output: none
+  ("dac_player_camp_troop_recruitment_requirement",
+    [
+
+    (troop_set_slot, "trp_custom_merc_recruit",             slot_troop_recruit_class,           TROOP_CLASS_RECRUIT),
+    (troop_set_slot, "trp_custom_merc_footman",             slot_troop_recruit_class,           TROOP_CLASS_RECRUIT),
+    (troop_set_slot, "trp_custom_merc_veteran",             slot_troop_recruit_class,           TROOP_CLASS_VETERAN),
+    (troop_set_slot, "trp_custom_merc_sergeant",            slot_troop_recruit_class,           TROOP_CLASS_VETERAN),
+    (troop_set_slot, "trp_custom_merc_vanguard",            slot_troop_recruit_class,           TROOP_CLASS_VETERAN),
+                
+    (troop_set_slot, "trp_custom_merc_skirmisher",          slot_troop_recruit_class,           TROOP_CLASS_RECRUIT),
+    (troop_set_slot, "trp_custom_merc_skirmisher",          slot_troop_building_req_1,          TROOP_REQ_BUILDING_RANGE),
+    (troop_set_slot, "trp_custom_merc_ranger",              slot_troop_recruit_class,           TROOP_CLASS_RECRUIT),
+    (troop_set_slot, "trp_custom_merc_ranger",              slot_troop_building_req_1,          TROOP_REQ_BUILDING_RANGE),
+    (troop_set_slot, "trp_custom_merc_marksman",            slot_troop_recruit_class,           TROOP_CLASS_VETERAN),
+    (troop_set_slot, "trp_custom_merc_marksman",            slot_troop_building_req_1,          TROOP_REQ_BUILDING_RANGE),
+    (troop_set_slot, "trp_custom_merc_defender",            slot_troop_recruit_class,           TROOP_CLASS_VETERAN),
+    (troop_set_slot, "trp_custom_merc_defender",            slot_troop_building_req_1,          TROOP_REQ_BUILDING_RANGE),
+    
+    (troop_set_slot, "trp_custom_merc_scout",               slot_troop_recruit_class,           TROOP_CLASS_RECRUIT),
+    (troop_set_slot, "trp_custom_merc_scout",               slot_troop_building_req_1,          TROOP_REQ_BUILDING_CORRAL),
+    (troop_set_slot, "trp_custom_merc_scout",               slot_troop_resource_requirement,    TROOP_REQ_RESOURCE_HORSE),
+
+    (troop_set_slot, "trp_custom_merc_mounted_sergeant",    slot_troop_recruit_class,           TROOP_CLASS_VETERAN),
+    (troop_set_slot, "trp_custom_merc_mounted_sergeant",    slot_troop_building_req_1,          TROOP_REQ_BUILDING_CORRAL),
+    (troop_set_slot, "trp_custom_merc_mounted_sergeant",    slot_troop_resource_requirement,    TROOP_REQ_RESOURCE_HORSE),
+
+    (troop_set_slot, "trp_custom_merc_foot_squire",         slot_troop_recruit_class,           TROOP_CLASS_NOBLE),
+    (troop_set_slot, "trp_custom_merc_foot_squire",         slot_troop_building_req_1,          TROOP_REQ_BUILDING_CHAPTERHOUSE),
+
+    (troop_set_slot, "trp_custom_merc_footman_at_arms",     slot_troop_recruit_class,           TROOP_CLASS_NOBLE),
+    (troop_set_slot, "trp_custom_merc_footman_at_arms",     slot_troop_building_req_1,          TROOP_REQ_BUILDING_CHAPTERHOUSE),
+
+    (troop_set_slot, "trp_custom_merc_dismounted_knight",   slot_troop_recruit_class,           TROOP_CLASS_NOBLE),
+    (troop_set_slot, "trp_custom_merc_dismounted_knight",   slot_troop_building_req_1,          TROOP_REQ_BUILDING_CHAPTERHOUSE),
+
+    (troop_set_slot, "trp_custom_merc_squire",              slot_troop_recruit_class,           TROOP_CLASS_NOBLE),
+    (troop_set_slot, "trp_custom_merc_squire",              slot_troop_building_req_1,          TROOP_REQ_BUILDING_CHAPTERHOUSE),
+    (troop_set_slot, "trp_custom_merc_squire",              slot_troop_building_req_2,          TROOP_REQ_BUILDING_CORRAL),
+    (troop_set_slot, "trp_custom_merc_squire",              slot_troop_resource_requirement,    TROOP_REQ_RESOURCE_HORSE),
+    
+    (troop_set_slot, "trp_custom_merc_man_at_arms",         slot_troop_recruit_class,           TROOP_CLASS_NOBLE),
+    (troop_set_slot, "trp_custom_merc_man_at_arms",         slot_troop_building_req_1,          TROOP_REQ_BUILDING_CHAPTERHOUSE),
+    (troop_set_slot, "trp_custom_merc_man_at_arms",         slot_troop_building_req_2,          TROOP_REQ_BUILDING_CORRAL),
+    (troop_set_slot, "trp_custom_merc_man_at_arms",         slot_troop_resource_requirement,    TROOP_REQ_RESOURCE_HORSE),
+
+    (troop_set_slot, "trp_custom_merc_knight",              slot_troop_recruit_class,           TROOP_CLASS_NOBLE),
+    (troop_set_slot, "trp_custom_merc_knight",              slot_troop_building_req_1,          TROOP_REQ_BUILDING_CHAPTERHOUSE),
+    (troop_set_slot, "trp_custom_merc_knight",              slot_troop_building_req_2,          TROOP_REQ_BUILDING_CORRAL),
+    (troop_set_slot, "trp_custom_merc_knight",              slot_troop_resource_requirement,    TROOP_REQ_RESOURCE_HORSE),
+
+
+
+    (try_for_range, ":troop_no", customizable_troops_begin,  customizable_troops_end),
+        (neg|troop_is_hero, ":troop_no"),
+        (troop_get_slot, ":troop_tier", ":troop_no", slot_troop_tier_custom_troop),
+        (troop_set_slot, ":troop_no", slot_troop_manpower_cost, ":troop_tier"),
+    (try_end),
+  ]),
+  
+  # dac_player_camp_recruit_requirement_met
+  # Input: troop_id
+  # Output: reg0
+  ("dac_player_camp_recruit_requirement_met",
+    [
+    # (store_script_param_1, ":troop"),
+    # (store_script_param_1, ":troop_amount"),
+    
+    # (assign, ":can_be_recruited", -1),
+    
+    # (party_get_slot, ":manpower_amount",    "p_player_camp", slot_player_camp_manpower_amount),    
+    # (party_get_slot, ":recruit_amount",     "p_player_camp", slot_player_camp_recruit_amount),    
+    # (party_get_slot, ":veteran_amount",     "p_player_camp", slot_player_camp_veteran_amount),    
+    # (party_get_slot, ":noble_amount",       "p_player_camp", slot_player_camp_noble_amount),    
+    
+    # (try_begin),
+        # (this_or_next|eq, ":troop", "trp_custom_merc_recruit"),
+        # (eq, ":troop", "trp_custom_merc_footman"),
+        # (gt, ":manpower_amount", 
+    # (try_end),
+ 
+  ]),
+  
+  
+  
+  # script_dac_list_player_camp_improvements_to_s11
+  # Input: none
+  # Output: s10
+  ("dac_list_player_camp_available_troops_to_s10",
+    [
+    (str_clear, s10),
+    
+    (party_get_slot, ":manpower_amount",    "p_player_camp", slot_player_camp_manpower_amount),    
+    (party_get_slot, ":recruit_amount",     "p_player_camp", slot_player_camp_recruit_amount),    
+    (party_get_slot, ":veteran_amount",     "p_player_camp", slot_player_camp_veteran_amount),    
+    (party_get_slot, ":noble_amount",       "p_player_camp", slot_player_camp_noble_amount),    
+
+    (party_get_slot, ":manpower_limit",    "p_player_camp", slot_player_camp_manpower_limit),    
+    (party_get_slot, ":recruit_limit",     "p_player_camp", slot_player_camp_recruit_limit),    
+    (party_get_slot, ":veteran_limit",     "p_player_camp", slot_player_camp_veteran_limit),    
+    (party_get_slot, ":noble_limit",       "p_player_camp", slot_player_camp_noble_limit),   
+
+    (assign, reg30, ":manpower_amount"),
+    (assign, reg31, ":manpower_limit"),
+    (assign, reg32, ":recruit_amount"),
+    (assign, reg33, ":recruit_limit"),
+    (assign, reg34, ":veteran_amount"),
+    (assign, reg35, ":veteran_limit"),
+    (assign, reg36, ":noble_amount"),
+    (assign, reg37, ":noble_limit"),
+
+    (str_store_string, s10, "@Manpower » {reg30}/{reg31} ^^Recruits » {reg32}/{reg33} ^Veterans » {reg34}/{reg35} ^Nobles » {reg36}/{reg37}"),
+  ]),
+  
+  # script_dac_mercenary_camp_troop_limits
+  # Input: none
+  # Output: none
+  ("dac_mercenary_camp_troop_limits",
+    [
+    (party_get_slot, ":player_camp_level",  "p_player_camp", slot_player_camp_level),    
+    (store_mul, ":manpower_limit",  ":player_camp_level", 10),
+    (store_mul, ":recruit_limit",   ":player_camp_level", 10),
+    (store_mul, ":veteran_limit",   ":player_camp_level", 5),
+    (store_mul, ":noble_limit",     ":player_camp_level", 2),
+    
+    (try_begin),
+        (party_slot_eq, "p_player_camp", slot_player_camp_archery_range, 1),
+        (val_add, ":manpower_limit",    5),
+        (val_add, ":recruit_limit",     4),
+        (val_add, ":veteran_limit",     2),
+    (try_end),
+    
+    (try_begin),
+        (party_slot_eq, "p_player_camp", slot_player_camp_corral, 1),
+        (val_add, ":manpower_limit",    5),
+        (val_add, ":recruit_limit",     4),
+        (val_add, ":veteran_limit",     2),
+        (val_add, ":noble_limit",       2),
+    (try_end),
+    
+    (try_begin),
+        (party_slot_eq, "p_player_camp", slot_player_camp_chapterhouse, 1),
+        (val_add, ":manpower_limit",    5),
+        (val_add, ":noble_limit",       4),
+    (try_end),
+    
+    (try_begin),
+        (eq, "$background_type",        cb_mercenary),
+        (val_add, ":manpower_limit",    10),
+        (val_add, ":recruit_limit",     5),
+        (val_add, ":veteran_limit",     3),
+        (val_add, ":noble_limit",       2),
+    (else_try),
+        (eq, "$background_type",        cb_noble),
+        (val_add, ":manpower_limit",    10),
+        (val_add, ":noble_limit",       2),
+    (else_try),
+        (eq, "$background_type",        cb_soldier),
+        (val_add, ":manpower_limit",    10),
+        (val_add, ":recruit_limit",     5),
+        (val_add, ":veteran_limit",     3),
+        (val_add, ":noble_limit",       2),
+    (try_end),
+
+    (party_set_slot, "p_player_camp", slot_player_camp_manpower_limit, ":manpower_limit"),
+    (party_set_slot, "p_player_camp", slot_player_camp_recruit_limit, ":recruit_limit"),
+    (party_set_slot, "p_player_camp", slot_player_camp_veteran_limit, ":veteran_limit"),
+    (party_set_slot, "p_player_camp", slot_player_camp_noble_limit, ":noble_limit"),
+
+    # Debug
+    (try_begin),
+        (ge, "$cheat_mode", 1),
+        (assign, reg30, ":manpower_limit"),
+        (assign, reg31, ":recruit_limit"),
+        (assign, reg32, ":veteran_limit"),
+        (assign, reg33, ":noble_limit"),
+        (display_message, "@Player camp limit debug: Manpower {reg30}; Recruit{reg31}", color_neutral_news),
+    (try_end),  
+  ]),
+
   # script_refresh_mercenary_camp_troops
   # Input: none
   # Output: none
   ("refresh_mercenary_camp_troops",
     [
-    (party_get_slot, ":player_camp_level", "p_player_camp", slot_player_camp_level),    
-    (store_mul, ":ideal_size", ":player_camp_level", 10),
+    (call_script, "script_dac_mercenary_camp_troop_limits"),
     
-    (try_begin),
-        (party_slot_eq, "p_player_camp", slot_player_camp_archery_range, 1),
-        (val_add, ":ideal_size", 10),
-    (try_end),
-    
-    (try_begin),
-        (party_slot_eq, "p_player_camp", slot_player_camp_corral, 1),
-        (val_add, ":ideal_size", 5),
-    (try_end),
-    
-    (try_begin),
-        (party_slot_eq, "p_player_camp", slot_player_camp_chapterhouse, 1),
-        (val_add, ":ideal_size", 10),
-    (try_end),
-    
-    (try_begin),
-        (eq, "$background_type", cb_mercenary),
-        (val_add, ":ideal_size", 15),
-    (try_end),
-    # Debug
-    (assign, reg30, ":ideal_size"),
-    # (display_message, "@Player camp max size set to {reg30}"),
+    (party_get_slot, ":manpower_amount",    "p_player_camp", slot_player_camp_manpower_amount),    
+    (party_get_slot, ":recruit_amount",     "p_player_camp", slot_player_camp_recruit_amount),    
+    (party_get_slot, ":veteran_amount",     "p_player_camp", slot_player_camp_veteran_amount),    
+    (party_get_slot, ":noble_amount",       "p_player_camp", slot_player_camp_noble_amount),    
 
-    (party_get_num_companions, ":party_size", "p_player_camp"),	
+    (party_get_slot, ":manpower_limit",    "p_player_camp", slot_player_camp_manpower_limit),    
+    (party_get_slot, ":recruit_limit",     "p_player_camp", slot_player_camp_recruit_limit),    
+    (party_get_slot, ":veteran_limit",     "p_player_camp", slot_player_camp_veteran_limit),    
+    (party_get_slot, ":noble_limit",       "p_player_camp", slot_player_camp_noble_limit),    
+
+
     (try_begin),
-        (gt, ":party_size", ":ideal_size"), # We're past the ideal number of troops in the camp
-        (party_clear,"p_player_camp"), # Reset the troop pool
-    (try_end), 
-    
-    (try_begin),
-        (party_slot_eq, "p_player_camp", slot_player_camp_corral, 1),
-        (party_add_template, "p_player_camp", "pt_mercenary_company_cavalry"),	  
-        # (display_message, "@Cavalry template added to camp"),
+        (le, ":manpower_amount", ":manpower_limit"),
+        (store_div, ":increase", ":manpower_limit", 2),
+        (store_random_in_range, ":amount", 1, ":increase"),
+        (val_add, ":manpower_amount", ":amount"),
+        (val_min, ":manpower_amount", ":manpower_limit"),
+        (party_set_slot, "p_player_camp", slot_player_camp_manpower_amount, ":manpower_amount"),
     (try_end),
     
     (try_begin),
-        (party_slot_eq, "p_player_camp", slot_player_camp_archery_range, 1),
-        (party_add_template, "p_player_camp", "pt_mercenary_company_ranged"),	  
-        # (display_message, "@Ranged template added to camp"),
-        (try_begin),
-            (eq, "$class_type", cc_mercenary_condottiero),
-            (party_add_template, "p_player_camp", "pt_mercenary_company_italian_ranged"),
-        (else_try),
-            (eq, "$class_type", cc_mercenary_flemish),
-            (party_add_template, "p_player_camp", "pt_mercenary_company_flemish_ranged"),
-        (else_try),
-            (eq, "$class_type", cc_mercenary_scottish),
-            (party_add_template, "p_player_camp", "pt_mercenary_company_scottish_ranged"),            
-        (try_end),
+        (le, ":recruit_amount", ":recruit_limit"),
+        (store_div, ":increase", ":recruit_limit", 2),
+        (store_random_in_range, ":amount", 1, ":increase"),
+        (val_add, ":recruit_amount", ":amount"),
+        (val_min, ":recruit_amount", ":recruit_limit"),
+        (party_set_slot, "p_player_camp", slot_player_camp_recruit_amount, ":recruit_amount"),
     (try_end),
     
     (try_begin),
-        (party_slot_eq, "p_player_camp", slot_player_camp_chapterhouse, 1),
-        (party_add_template, "p_player_camp", "pt_mercenary_company_noble_infantry"),	 
-        (try_begin),
-            (eq, "$class_type", cc_mercenary_flemish),        
-            (party_add_template, "p_player_camp", "pt_mercenary_company_german_knight"),   
-        (else_try),
-            (eq, "$class_type", cc_mercenary_scottish),        
-            (party_add_template, "p_player_camp", "pt_mercenary_company_scottish_noble_infantry"),          
-        (try_end),
-        # (display_message, "@Noble Infantry template added to camp"),
+        (le, ":veteran_amount", ":veteran_limit"),
+        (store_div, ":increase", ":veteran_limit", 2),
+        (store_random_in_range, ":amount", 1, ":increase"),
+        (val_add, ":veteran_amount", ":amount"),
+        (val_min, ":veteran_amount", ":veteran_limit"),
+        (party_set_slot, "p_player_camp", slot_player_camp_veteran_amount, ":veteran_amount"),
     (try_end),
     
     (try_begin),
-        (party_slot_eq, "p_player_camp", slot_player_camp_corral, 1),
-        (party_slot_eq, "p_player_camp", slot_player_camp_chapterhouse, 1),
-        (party_add_template, "p_player_camp", "pt_mercenary_company_noble_cavalry"),
-        (try_begin),
-            (eq, "$class_type", cc_mercenary_condottiero),        
-            (party_add_template, "p_player_camp", "pt_mercenary_company_italian_cavalry"),
-        (else_try),
-            (eq, "$class_type", cc_mercenary_flemish),
-            (party_add_template, "p_player_camp", "pt_mercenary_company_german_cavalry"),	            
-        (try_end),
-        # (display_message, "@Noble cavalry template added to camp"),
+        (le, ":noble_amount", ":noble_limit"),
+        (store_div, ":increase", ":noble_limit", 2),
+        (store_random_in_range, ":amount", 1, ":increase"),
+        (val_add, ":noble_amount", ":amount"),
+        (val_min, ":noble_amount", ":noble_limit"),
+        (party_set_slot, "p_player_camp", slot_player_camp_noble_amount, ":noble_amount"),
     (try_end),
     
+    
+    # Debug
     (try_begin),
-        (party_add_template, "p_player_camp", "pt_mercenary_company_infantry"),		
-        # (display_message, "@Melee template added to camp"),
-        (try_begin),
-            (eq, "$class_type", cc_mercenary_condottiero),
-            (party_add_template, "p_player_camp", "pt_mercenary_company_italian_infantry"),	 
-        (else_try),
-            (eq, "$class_type", cc_mercenary_flemish),
-            (party_add_template, "p_player_camp", "pt_mercenary_company_flemish_infantry"),	
-        (else_try),
-            (eq, "$class_type", cc_mercenary_scottish),
-            (party_add_template, "p_player_camp", "pt_mercenary_company_scottish_infantry"),	
-        (try_end),
+        (ge, "$cheat_mode", 1),
+        (assign, reg30, ":manpower_amount"),
+        (assign, reg31, ":recruit_amount"),
+        (assign, reg32, ":veteran_amount"),
+        (assign, reg33, ":noble_amount"),
+        (display_message, "@Player camp value debug: Manpower {reg30}; Recruit{reg31} ", color_neutral_news),
     (try_end),
+
   ]),
   
 
@@ -1588,7 +1779,13 @@ mercenary_company_scripts = [
         
         (val_add, ":total", ":thrust_damage"),
         (val_add, ":total", ":swing_damage"),
-        (assign, ":divisor", 200),     
+        
+        (try_begin),
+            (eq, ":item_type", itp_type_musket),
+            (assign, ":divisor", 250),     
+        (else_try),
+            (assign, ":divisor", 200),  
+        (try_end),
     (try_end),
     
     (val_mul, ":total", ":total"),
@@ -1612,5 +1809,109 @@ mercenary_company_scripts = [
     
     (assign, reg0, ":total"),
 ]),
+
+
+### Old version, left in case it is of interest to anyone
+  # script_refresh_mercenary_camp_troops
+  # Input: none
+  # Output: none
+  # ("refresh_mercenary_camp_troops",
+    # [
+    # (party_get_slot, ":player_camp_level", "p_player_camp", slot_player_camp_level),    
+    # (store_mul, ":ideal_size", ":player_camp_level", 10),
+    
+    # (try_begin),
+        # (party_slot_eq, "p_player_camp", slot_player_camp_archery_range, 1),
+        # (val_add, ":ideal_size", 10),
+    # (try_end),
+    
+    # (try_begin),
+        # (party_slot_eq, "p_player_camp", slot_player_camp_corral, 1),
+        # (val_add, ":ideal_size", 5),
+    # (try_end),
+    
+    # (try_begin),
+        # (party_slot_eq, "p_player_camp", slot_player_camp_chapterhouse, 1),
+        # (val_add, ":ideal_size", 10),
+    # (try_end),
+    
+    # (try_begin),
+        # (eq, "$background_type", cb_mercenary),
+        # (val_add, ":ideal_size", 15),
+    # (try_end),
+  ##  Debug
+    # (assign, reg30, ":ideal_size"),
+  ##  (display_message, "@Player camp max size set to {reg30}"),
+
+    # (party_get_num_companions, ":party_size", "p_player_camp"),	
+    # (try_begin),
+        # (gt, ":party_size", ":ideal_size"), # We're past the ideal number of troops in the camp
+        # (party_clear,"p_player_camp"), # Reset the troop pool
+    # (try_end), 
+    
+    # (try_begin),
+        # (party_slot_eq, "p_player_camp", slot_player_camp_corral, 1),
+        # (party_add_template, "p_player_camp", "pt_mercenary_company_cavalry"),	  
+       ## (display_message, "@Cavalry template added to camp"),
+    # (try_end),
+    
+    # (try_begin),
+        # (party_slot_eq, "p_player_camp", slot_player_camp_archery_range, 1),
+        # (party_add_template, "p_player_camp", "pt_mercenary_company_ranged"),	  
+       ## (display_message, "@Ranged template added to camp"),
+        # (try_begin),
+            # (eq, "$class_type", cc_mercenary_condottiero),
+            # (party_add_template, "p_player_camp", "pt_mercenary_company_italian_ranged"),
+        # (else_try),
+            # (eq, "$class_type", cc_mercenary_flemish),
+            # (party_add_template, "p_player_camp", "pt_mercenary_company_flemish_ranged"),
+        # (else_try),
+            # (eq, "$class_type", cc_mercenary_scottish),
+            # (party_add_template, "p_player_camp", "pt_mercenary_company_scottish_ranged"),            
+        # (try_end),
+    # (try_end),
+    
+    # (try_begin),
+        # (party_slot_eq, "p_player_camp", slot_player_camp_chapterhouse, 1),
+        # (party_add_template, "p_player_camp", "pt_mercenary_company_noble_infantry"),	 
+        # (try_begin),
+            # (eq, "$class_type", cc_mercenary_flemish),        
+            # (party_add_template, "p_player_camp", "pt_mercenary_company_german_knight"),   
+        # (else_try),
+            # (eq, "$class_type", cc_mercenary_scottish),        
+            # (party_add_template, "p_player_camp", "pt_mercenary_company_scottish_noble_infantry"),          
+        # (try_end),
+       ## (display_message, "@Noble Infantry template added to camp"),
+    # (try_end),
+    
+    # (try_begin),
+        # (party_slot_eq, "p_player_camp", slot_player_camp_corral, 1),
+        # (party_slot_eq, "p_player_camp", slot_player_camp_chapterhouse, 1),
+        # (party_add_template, "p_player_camp", "pt_mercenary_company_noble_cavalry"),
+        # (try_begin),
+            # (eq, "$class_type", cc_mercenary_condottiero),        
+            # (party_add_template, "p_player_camp", "pt_mercenary_company_italian_cavalry"),
+        # (else_try),
+            # (eq, "$class_type", cc_mercenary_flemish),
+            # (party_add_template, "p_player_camp", "pt_mercenary_company_german_cavalry"),	            
+        # (try_end),
+       ## (display_message, "@Noble cavalry template added to camp"),
+    # (try_end),
+    
+    # (try_begin),
+        # (party_add_template, "p_player_camp", "pt_mercenary_company_infantry"),		
+       ## (display_message, "@Melee template added to camp"),
+        # (try_begin),
+            # (eq, "$class_type", cc_mercenary_condottiero),
+            # (party_add_template, "p_player_camp", "pt_mercenary_company_italian_infantry"),	 
+        # (else_try),
+            # (eq, "$class_type", cc_mercenary_flemish),
+            # (party_add_template, "p_player_camp", "pt_mercenary_company_flemish_infantry"),	
+        # (else_try),
+            # (eq, "$class_type", cc_mercenary_scottish),
+            # (party_add_template, "p_player_camp", "pt_mercenary_company_scottish_infantry"),	
+        # (try_end),
+    # (try_end),
+  # ]),
 
 ]

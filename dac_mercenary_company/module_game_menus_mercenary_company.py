@@ -218,6 +218,14 @@ mercenary_company_menus = [
     (try_end),
     ],
     [
+    
+    ("player_camp_recruit",
+       [(eq, reg6, 0),],
+    "Recruit Troops.",[
+    (assign, "$character_info_id", -1),
+    (start_presentation, "prsnt_dac_mercenary_camp_recruitment")
+    ]),   
+    
     ("player_camp_meet_quartermaster",
        [(eq, reg6, 0),],
     "Speak to the Quartermaster.",[

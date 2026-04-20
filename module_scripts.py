@@ -6714,46 +6714,10 @@ scripts = [
           
             (str_store_string, s2, "@{s51} belongs to {s1} of {s2}.^"),
             
-            ### DAC Seek: Clean this mess, pass it to a script or something you lazy bum
-            (str_clear, s11),
-            (party_get_slot, ":player_camp_level", "p_player_camp", slot_player_camp_level),
+            ### DAC Seek: Cleaned a bit the mess, used a script instead
+            (call_script, "script_dac_list_player_camp_improvements_to_s11"),
             
-            (try_begin),
-                (eq, ":player_camp_level", 1),
-                (str_store_string, s11, "@Camp"),
-            (else_try),
-                (eq, ":player_camp_level", 2),
-                (str_store_string, s11, "@Outpost"),
-            (else_try),
-                (eq, ":player_camp_level", 3),
-                (str_store_string, s11, "@Manor"),
-            (else_try),
-                (str_store_string, s11, "@Fort"),
-            (try_end),
-            
-            (assign, ":num_improvements", 0),
-            (str_clear, s18),  
-
-            (try_for_range, ":improvement_no", slot_player_camp_smithy, slot_player_camp_level),
-                (party_slot_ge, "p_player_camp", ":improvement_no", 1),
-                (val_add,  ":num_improvements", 1),
-                (call_script, "script_player_camp_get_improvement_details", ":improvement_no"),
-                (try_begin),
-                    (eq,  ":num_improvements", 1),
-                    (str_store_string_reg, s18, s0),
-                (else_try),
-                    (str_store_string, s18, "@{!}{s18}^ {s0}"),
-                (try_end),
-            (try_end),
-
-            (try_begin),
-                (eq,  ":num_improvements", 0),
-                (str_store_string, s19, "@The {s11} has no improvements."),
-            (else_try),
-                (str_store_string, s19, "@The {s11} has the following improvements: ^ {s18}."),
-            (try_end),   
-            
-            (str_store_string, s0, "@{s2}^{s19}"),
+            (str_store_string, s0, "@{s2}^{s11}"),
             
         (try_end),
         ### DAC Seek End
@@ -41114,6 +41078,7 @@ scripts = [
     
     (try_begin), #1%/3 honour
         (assign, ":player_honour", "$player_honor"),
+        (ge, ":player_honour", 3),
         (val_div, ":player_honour", 3),
         (val_add, ":percent", ":player_honour"),
     (try_end),
@@ -52120,7 +52085,7 @@ scripts = [
 	(assign, ":center", -1),
 	(assign, ":closest_male_relative", -1),
 	(assign, ":best_center_score", 0),
-
+    (neq, ":kingdom_lady", "trp_knight_1_1_wife"),
 	##diplomacy start+
 	##TODO: Re-implement, disabled for now.  "Don't get stuck attached to a MIA relative"
 	(try_begin),
@@ -52130,15 +52095,18 @@ scripts = [
 	(else_try),
 		(troop_slot_ge, ":kingdom_lady", slot_troop_father, 0),
 		(troop_get_slot, ":closest_male_relative", ":kingdom_lady", slot_troop_father),
+        (is_between, ":closest_male_relative", kings_begin, lords_end),
 		#(neg|troop_slot_ge, ":closest_male_relative", slot_troop_occupation, slto_retirement),#added: has not been removed from play
 	(else_try),
 		#added
 		(troop_slot_ge, ":kingdom_lady", slot_troop_mother, 0),
 		(troop_get_slot, ":closest_male_relative", ":kingdom_lady", slot_troop_mother),
+        (is_between, ":closest_male_relative", kingdom_ladies_begin, kingdom_ladies_end),
 		#(troop_slot_eq, ":closest_male_relative", slot_troop_occupation, slto_kingdom_hero), #DAC Kham - Doesnt make sense...
 	(else_try),
 		(troop_slot_ge, ":kingdom_lady", slot_troop_guardian, 0),
 		(troop_get_slot, ":closest_male_relative", ":kingdom_lady", slot_troop_guardian),
+        (is_between, ":closest_male_relative", kings_begin, kingdom_ladies_end),
 		#(neg|troop_slot_ge, ":closest_male_relative", slot_troop_occupation, slto_retirement),#added: has not been removed from play
 	(try_end),
 	##diplomacy end+
@@ -52242,7 +52210,11 @@ scripts = [
 	(assign, reg0, ":closest_male_relative"),
 	(assign, reg1, ":center"),
 
-
+    # (str_store_troop_name, s7, ":kingdom_lady"),
+    # (str_store_troop_name, s8, ":closest_male_relative"),
+    # (str_store_party_name, s9, ":center"),
+    
+    # (display_message, "@script_get_kingdom_lady_social_determinants ^Kingdom Lady: {s7} ^Closest Male Relative: {s8} ^Center: {s9}"),
 	]),
 
 
@@ -74647,6 +74619,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
         (assign, ":lady_meets_visitors", 0),
     (else_try),
         (call_script, "script_get_kingdom_lady_social_determinants", ":cur_troop"),
+        (gt, reg0, 0),
         (call_script, "script_npc_decision_checklist_male_guardian_assess_suitor", reg0, "trp_player"),
         (gt, reg0, 0),
         (assign, ":lady_meets_visitors", 1),
@@ -79662,6 +79635,12 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 	(call_script, "script_item_weapon_switch_with_next", "itm_h_armet_pointy_visor_a"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_h_armet_pointy_visor_b"),
     
+	(call_script, "script_item_weapon_switch_with_next", "itm_h_great_bascinet_1415_noooxy_frogmouth"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_h_great_bascinet_1415_noooxy_visor_a"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_h_great_bascinet_1415_noooxy_visor_b"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_h_great_bascinet_1415_noooxy_visor_a_gilded"),
+	(call_script, "script_item_weapon_switch_with_next", "itm_h_great_bascinet_1415_noooxy_visor_b_gilded"),
+    
 	(call_script, "script_item_weapon_switch_with_next", "itm_h_pigface_klappvisor"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_h_pigface_klappvisor_plated"),
 	(call_script, "script_item_weapon_switch_with_next", "itm_h_zitta_bascinet"),
@@ -81644,10 +81623,12 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
 
 #Plézan Taupin
 (call_script, "script_init_troop_age","trp_kingdom_4_lady_7",45),
+(troop_set_slot,"trp_kingdom_4_lady_7",slot_troop_spouse,"trp_knight_4_7"),
 (troop_set_slot,"trp_kingdom_4_lady_7",slot_lord_reputation_type,lrep_conventional),
 
 #Isabelle de Bretagne
 (troop_set_slot,"trp_kingdom_4_lady_8",slot_troop_father,"trp_kingdom_4_lord"),
+(troop_set_slot,"trp_kingdom_4_lady_8",slot_troop_guardian,"trp_kingdom_4_lord"),
 (troop_set_slot,"trp_kingdom_4_lady_8",slot_troop_mother,"trp_kingdom_4_lady_5"),
 (call_script, "script_init_troop_age","trp_kingdom_4_lady_8",18),
 (troop_set_slot,"trp_kingdom_4_lady_8",slot_lord_reputation_type,lrep_moralist),

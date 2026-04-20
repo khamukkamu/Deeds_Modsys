@@ -2665,6 +2665,7 @@ simple_triggers = [
              (display_message, "str_debug__s0_is_spawning_around_party__s7"),
            (try_end),
 
+           (gt, ":center_no", -1), ### DAC Seek: Possible fix
            (call_script, "script_create_kingdom_hero_party", ":troop_no", ":center_no"),
 
            (try_begin),

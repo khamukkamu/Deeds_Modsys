@@ -71,3 +71,4 @@ prsnt_name_troop = 69
 prsnt_dac_ct_view_armoury = 70
 prsnt_dac_ct_buy_items_for_armoury = 71
 prsnt_rename_company = 72
+prsnt_dac_mercenary_camp_recruitment = 73

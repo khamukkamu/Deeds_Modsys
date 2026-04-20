@@ -2646,7 +2646,10 @@ common_battle_check_victory_condition = (
   [
     (store_mission_timer_a,reg(1)),
     (ge,reg(1),10),
-    (all_enemies_defeated, 5),
+    # (all_enemies_defeated, 5),
+    ### DAC Seek: Finish battle if all enemies are routing
+    (call_script, "script_battle_count_fighting_enemies"),
+	(eq, reg0, 0),
     ##diplomacy begin
     (this_or_next|eq, "$g_dplmc_battle_continuation", 0),
     (neg|main_hero_fallen),

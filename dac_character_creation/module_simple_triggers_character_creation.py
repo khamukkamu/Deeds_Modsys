@@ -244,6 +244,14 @@ character_creation_simple_triggers = [
                     (call_script, "script_rand", 0, 100),
                     (assign, ":chance", reg0),
                     
+                    (store_attribute_level, ":charisma", "trp_player", ca_charisma),
+                    (store_skill_level, ":persuasion", skl_persuasion, "trp_player"),
+                    
+                    (store_div, ":charisma_bonus", ":charisma", 5),
+                    
+                    (val_add, ":chance", ":persuasion"),
+                    (val_add, ":chance", ":charisma_bonus"),
+                    
                     (try_begin),
                         (lt, ":chance", 5),
                         (display_message, "str_dac_debate_critical_loss", color_bad_news),

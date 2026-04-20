@@ -780,11 +780,11 @@ character_creation_menus = [
 ## DAC Seek: Player Camp Encounter
   (
     "player_hideout_encounter",0,
-    "You approach your hideout... ^{reg6?^^You are currently upgrading to: {s7}. ^The process will take {reg8} day{reg9?s:} and you won't be able to access the hideout until the work is finished.:}",
+    "You approach your hideout... ^{reg6?^^You are currently upgrading to {s7}. ^The process will take {reg8} day{reg9?s:} and you won't be able to access the hideout until the work is finished.:}",
     "none",
     [
     (set_background_mesh, "mesh_pic_camp"),
-        
+    (str_clear, s7),
     (assign, reg6, 0),
     (try_begin),
         (party_get_slot, ":cur_improvement", "p_player_bandit_hideout", slot_center_current_improvement),

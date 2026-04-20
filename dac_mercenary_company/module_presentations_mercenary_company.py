@@ -552,6 +552,228 @@ mercenary_company_presentations = [
             # (presentation_set_duration, 0),
         # ]),
       ]),
+      
+      
+("dac_mercenary_camp_recruitment",0,mesh_party_window_b,[
+      (ti_on_presentation_load,
+       [
+        (presentation_set_duration, 999999),       
+        (set_fixed_point_multiplier, 1000),
+        
+        (str_clear, s0),
+        (str_clear, s1),
+        (str_clear, s12),
+
+        (assign, ":base_scroll_y", 320),
+        (assign, ":base_scroll_size_y", 360), 
+        (assign, ":base_candidates_y", 0), 
+        
+### Text        
+# Troop List Header      
+        (create_text_overlay, reg0, "str_dac_player_camp_recruitment", tf_center_justify),
+        (position_set_x, pos1, 830),
+        (position_set_y, pos1, 715),
+        (overlay_set_position, reg0, pos1),
+        (position_set_x, pos1, 900),
+        (position_set_y, pos1, 900),
+        (overlay_set_size, reg0, pos1),
+# Troop Recruitment Requirements  
+        (create_text_overlay, reg2, "str_dac_player_camp_requirements", tf_center_justify),
+        (position_set_x, pos1, 830),
+        (position_set_y, pos1, 260),
+        (overlay_set_position, reg2, pos1),
+        (position_set_x, pos1, 900),
+        (position_set_y, pos1, 900),
+        (overlay_set_size, reg2, pos1),
+# Party Information       
+        (create_text_overlay, reg3, "str_dac_player_camp_party_info", tf_center_justify),
+        (position_set_x, pos1, 160),
+        (position_set_y, pos1, 715),
+        (overlay_set_position, reg3, pos1),
+        (position_set_x, pos1, 900),
+        (position_set_y, pos1, 900),
+        (overlay_set_size, reg3, pos1),
+# Player Information        
+        (create_text_overlay, reg4, "str_dac_player_camp_player_info", tf_center_justify),
+        (position_set_x, pos1, 160),
+        (position_set_y, pos1, 260),
+        (overlay_set_position, reg4, pos1),
+        (position_set_x, pos1, 900),
+        (position_set_y, pos1, 900),
+        (overlay_set_size, reg4, pos1),
+        
+### Player Information Panel
+        (call_script, "script_game_get_party_companion_limit"),
+        (assign, ":party_size_limit", reg0),
+        (party_get_num_companions, ":num_companions", "p_main_party"),
+        (troop_get_slot, ":renown", "trp_player", slot_troop_renown),       
+        (store_troop_gold, ":gold", "trp_player"),
+
+        (assign, reg13, ":gold"),
+        (assign, reg14, ":renown"),
+        (assign, reg15, "$player_honor"),
+        (assign, reg16, ":num_companions"),
+        (assign, reg17, ":party_size_limit"),
+
+        (create_text_overlay, reg1, "str_dac_player_camp_player_info_registers", tf_scrollable|tf_left_align),
+        (overlay_set_color, reg1, 0xFFFFFFFF),
+        (position_set_x, pos1, 1250),
+        (position_set_y, pos1, 1250),
+        (overlay_set_size, reg1, pos1),
+        (position_set_x, pos1, 35),
+        (position_set_y, pos1, 125),
+        (overlay_set_position, reg1, pos1),
+        # (position_set_x, pos1, 160),
+        # (position_set_y, pos1, 180),
+        # (overlay_set_area_size, reg1, pos1), 
+        
+### Party Information Panel
+        (call_script, "script_dac_list_player_camp_available_troops_to_s10"),
+        (call_script, "script_dac_list_player_camp_improvements_to_s11"),
+        (str_store_string, s12, "@{s10}^^{s11}"),
+        (create_text_overlay, reg1, s12, tf_scrollable_style_2|tf_left_align),
+        (overlay_set_color, reg1, 0xFFFFFFFF),
+        (position_set_x, pos1, 1000),
+        (position_set_y, pos1, 1000),
+        (overlay_set_size, reg1, pos1),
+        (position_set_x, pos1, 35),
+        (position_set_y, pos1, 320),
+        (overlay_set_position, reg1, pos1),
+        (position_set_x, pos1, 262),
+        (position_set_y, pos1, 360),
+        (overlay_set_area_size, reg1, pos1), 
+        
+### Selected Troop
+        (try_begin),
+          (neq, "$character_info_id", -1),
+          (str_store_troop_name, s1, "$character_info_id"),
+        (else_try),
+          (str_store_string, s1, "str_empty_string"),
+        (try_end),
+        (create_text_overlay, reg1, "@{s1}", tf_center_justify|tf_with_outline),
+        (overlay_set_color, reg1, 0xFFFFFFFF),
+        (position_set_x, pos1, 500), # Higher, means more toward the right
+        (position_set_y, pos1, 715), # Higher, means more toward the top
+        (overlay_set_position, reg1, pos1),
+        (position_set_x, pos1, 1000),
+        (position_set_y, pos1, 1000),
+        (overlay_set_size, reg1, pos1),
+        
+### Troop List
+        (create_text_overlay, "$g_presentation_obj_1", "str_empty_string", tf_scrollable_style_2),
+        (position_set_x, pos1, 685),
+        (position_set_y, pos1, ":base_scroll_y"),
+        (overlay_set_position, "$g_presentation_obj_1", pos1),
+        (position_set_x, pos1, 262),
+        (position_set_y, pos1, ":base_scroll_size_y"),
+        (overlay_set_area_size, "$g_presentation_obj_1", pos1),
+
+        # Fill listbox (overlay_add_item and extra storage)      
+        (assign, ":num_chars", 0),
+        (assign, ":num_slot", 0),
+        (try_for_range, ":custom_troops", customizable_troops_begin, customizable_troops_end),
+            (store_sub, ":delta", ":custom_troops", customizable_troops_begin),
+            (store_sub, ":troop", "trp_custom_merc_knight_selection", ":delta"),
+
+            (neg|troop_is_hero, ":troop"),
+
+            (store_mul, ":y_mult", ":num_chars", 16 * 1.4), # adapt y position to entry number, was 18
+            (store_add, ":line_y", ":base_candidates_y", ":y_mult"),
+
+            (set_container_overlay, "$g_presentation_obj_1"),
+            
+            (str_store_troop_name, s1, ":troop"),
+
+
+            (create_text_overlay, reg10, "@ {s1}", tf_left_align),
+            (overlay_set_color, reg10, 0xDDDDDD),
+            (position_set_x, pos1, 650 * 1.4),
+            (position_set_y, pos1, 750 * 1.4),
+            (overlay_set_size, reg10, pos1),
+            (position_set_x, pos1, 0),  
+            (position_set_y, pos1, ":line_y"),
+            (overlay_set_position, reg10, pos1),
+
+            (create_image_button_overlay, reg10, "mesh_white_plane", "mesh_white_plane"),
+            (position_set_x, pos1, 0), # 590 real, 0 scrollarea
+            (position_set_y, pos1, ":line_y"),
+            (overlay_set_position, reg10, pos1),
+            (position_set_x, pos1, 16000 * 1.4),
+            (position_set_y, pos1, 750 * 1.4),
+            (overlay_set_size, reg10, pos1),
+            (overlay_set_alpha, reg10, 0),
+            (overlay_set_color, reg10, 0xDDDDDD),
+
+            (try_begin),
+                (eq, ":troop", "$character_info_id"),
+                (overlay_set_color, reg10, 0xFF6666FF),
+                (overlay_set_alpha, reg10, 0x44),
+            (try_end),
+
+            (troop_set_slot, "trp_temp_array_a", ":num_slot", reg10),
+            (troop_set_slot, "trp_temp_array_b", ":num_slot", ":troop"),
+            (val_add, ":num_chars", 1),
+            (val_add, ":num_slot", 1),
+
+            (set_container_overlay, -1),
+        (try_end),
+        
+### Troop Mesh + Inventory Box
+        (try_begin),
+            (neq, "$character_info_id", -1),
+            
+            # (call_script, "script_custom_troop_detail_inventory_left", "$character_info_id"), ### Troop Inventory Box
+            (store_mul, reg30, "$character_info_id", 2),
+            (create_mesh_overlay_with_tableau_material, "$g_multiplayer_poll_to_show", -1, "tableau_troop_tree_pic", reg30),
+            (position_set_x, pos1, 260),
+            (position_set_y, pos1, 100),
+            (overlay_set_position, "$g_multiplayer_poll_to_show", pos1),
+            (position_set_x, pos1, 700),
+            (position_set_y, pos1, 700),
+            (overlay_set_size, "$g_multiplayer_poll_to_show", pos1),
+        (try_end),
+
+###  Quit
+        (create_in_game_button_overlay, "$g_presentation_obj_2", "str_continue_dot", tf_left_align), #SB : continue str
+        (position_set_x, pos1, 500),
+        (position_set_y, pos1, 25),
+        (overlay_set_color, "$g_presentation_obj_2", 0xFFFFFFFF),
+        (overlay_set_position, "$g_presentation_obj_2", pos1),
+        ]),
+
+      (hover,[
+        (call_script, "script_custom_troop_detail_inventory_tooltip"),
+      ]),
+
+    (click,
+    [
+      (store_trigger_param_1, ":object_id"),
+      # (store_trigger_param_2, ":state"),
+        (try_begin),
+            (eq, ":object_id", "$g_presentation_obj_2"), # Continue
+            (presentation_set_duration, 0),
+            (jump_to_menu, "mnu_dac_name_troops_2"),
+        (else_try),
+            (eq, ":object_id", "$g_presentation_obj_1"),
+            (start_presentation, "prsnt_dac_mercenary_camp_recruitment"),
+      (else_try),
+            (store_sub, ":num_troops", customizable_troops_end, customizable_troops_begin),
+            # (val_div, ":num_troops", 3),
+            # (val_add, ":num_troops", 1),
+            (try_for_range, ":i", 0, ":num_troops"),
+                (troop_get_slot, ":control", "trp_temp_array_a", ":i"),
+                (eq, ":control", ":object_id"),
+                (troop_get_slot, "$character_info_id", "trp_temp_array_b", ":i"),
+                (start_presentation, "prsnt_dac_mercenary_camp_recruitment"),
+                (assign, ":num_troops", 0),
+            (try_end),
+        (try_end),
+    ]),
+
+
+      ] 
+        + coord_helper 
+        + prsnt_escape_close),
 
 
 

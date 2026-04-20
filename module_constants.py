@@ -2912,6 +2912,16 @@ slot_player_camp_chapterhouse = 355
 # Camp level 1-4
 slot_player_camp_level = 356
 slot_player_camp_relocation_project = 357
+# Camp Recruitment
+slot_player_camp_manpower_limit = 358
+slot_player_camp_recruit_limit = 359
+slot_player_camp_veteran_limit = 360
+slot_player_camp_noble_limit = 361
+slot_player_camp_manpower_amount = 362
+slot_player_camp_recruit_amount = 363
+slot_player_camp_veteran_amount = 364
+slot_player_camp_noble_amount = 365
+
 # Item slots
 slot_item_armor_tier = 120
 slot_item_footwear_tier = 121
@@ -2938,6 +2948,24 @@ slot_item_tiers_end = 139
 # Troop Slots
 slot_troop_tier_custom_troop = 180
 slot_troop_custom_can_use_item = 181
+
+slot_troop_recruit_class = 182
+TROOP_CLASS_RECRUIT = 0
+TROOP_CLASS_VETERAN = 1
+TROOP_CLASS_NOBLE = 2
+
+slot_troop_manpower_cost = 183
+
+slot_troop_building_req_1 = 184
+slot_troop_building_req_2 = 185
+TROOP_REQ_BUILDING_RANGE        = 1
+TROOP_REQ_BUILDING_CORRAL       = 2
+TROOP_REQ_BUILDING_CHAPTERHOUSE = 3
+
+slot_troop_resource_requirement = 186
+TROOP_REQ_RESOURCE_HORSE = 1
+TROOP_REQ_RESOURCE_FIREARM = 2
+TROOP_REQ_RESOURCE_BANNER = 3
 ## DAC Custom Troops (Merc Company Feature) End
 
 #MORALE DEBUGGING & TWEAKING
