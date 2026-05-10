@@ -33903,8 +33903,8 @@ scripts = [
         (try_end),
         #(this_or_next|lt, ":rand", 20),
         (eq, ":continue", 1),
-		(store_faction_of_party, ":enemy_faction_no", "$g_enemy_party"),
-		(neq, ":enemy_faction_no", "fac_kingdom_3"), #don't let khergits use battle tactics
+		# (store_faction_of_party, ":enemy_faction_no", "$g_enemy_party"),
+		# (neq, ":enemy_faction_no", "fac_kingdom_3"), #don't let khergits use battle tactics
         (try_begin),
           (eq, ":defense_not_an_option", 0),
           (gt, ":ai_perc_archers", 50),
@@ -74366,7 +74366,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
     (try_end),
     (party_set_slot, ":party_no", slot_party_temp_slot_1, ":continue"),
     (try_begin),
-      (ge, "$cheat_mode", 1),
+      # (ge, "$cheat_mode", 1),
       (eq, ":continue", 0),
       # (str_store_party_name, s0, ":party_no"),
       (str_store_party_name, s0, ":party_no"),

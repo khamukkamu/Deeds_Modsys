@@ -697,7 +697,7 @@ real_deployment = [ #3 triggers
       (try_begin),
         (eq, "$g_division_order_processing", 1),  #division_order_processing inits are done
         (gt, "$fplayer_team_no", -1),
-        
+        (neg|party_slot_eq, "p_main_party", slot_party_prebattle_plan, 1), ### DAC Seek: Disable if PBOD have been issued
         #place divisions
         (set_fixed_point_multiplier, 100),
         (call_script, "script_division_reset_places"),
@@ -892,6 +892,7 @@ real_deployment = [ #3 triggers
   # Trigger file: real_deployment_end
   (0, 0, ti_once, [
       (eq, "$battle_phase", BP_Deploy),
+            # (display_message, "@Trigger real_deployment_end"),
       # (this_or_next|eq, "$g_battle_command_presentation", bcp_state_off),
       # (neg|team_slot_ge, 6, slot_team_mv_temp_placement_counter, 1),
       ],[
@@ -1182,7 +1183,8 @@ AI_triggers = [
   #if AI to take over for mods with post-player battle action
   (0, 0, ti_once, [
       (main_hero_fallen),
-      (eq, AI_Replace_Dead_Player, 1),
+      # (eq, AI_Replace_Dead_Player, 1),
+      (eq, "$FormAI_AI_Control_Troops", 1), ### DAC Seek: Fix?
       ], [
       (set_show_messages, 0),
       #undo special player commands

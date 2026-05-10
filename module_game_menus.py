@@ -110,6 +110,7 @@ game_menus = [
           # (assign, "$background_answer_2", 0),
             (assign, "$background_type", cb_mercenary),
             (assign, "$class_type", cc_mercenary_condottiero),
+            (call_script, "script_dac_commoner_start_equipment", "$class_type"),
           (assign, "$cheat_mode", 1),
           (jump_to_menu, "mnu_dac_choose_skill"),
         (else_try),
@@ -2581,6 +2582,14 @@ TOTAL:  {reg5}"),
            (change_screen_return),
         ]
        ),
+       
+	  ## PreBattle Orders & Deployment Begin
+	  ("action_prebattle_custom_divisions",[],
+		"Manage Split Troop Assignments.",
+       [(start_presentation, "prsnt_prebattle_custom_divisions")]
+      ), 
+	  ## PreBattle Orders & Deployment End
+       
       ("camp_cheat",
        [(ge, "$cheat_mode", 1)
         ], "CHEAT MENU!",
@@ -3058,6 +3067,9 @@ TOTAL:  {reg5}"),
 		
       ("dac_test_print_aristocracy",[],"Aristocracy Debug Menu", [
           (jump_to_menu, "mnu_camp_print_aristocracy")]),  
+          
+      ("dac_test_print_troops",[],"Troop Debug Menu", [
+          (jump_to_menu, "mnu_camp_print_troop_debug")]),  
 
       ("camp_troops_cheat",[],"Give Troops", [
           (jump_to_menu, "mnu_camp_give_troops")]),	 
@@ -3249,6 +3261,35 @@ TOTAL:  {reg5}"),
 
 
 
+  ("camp_print_troop_debug", 0,
+    "DEBUG for Troops having too many items", "none", [],
+    [
+    ("dac_print_troops", [], "Print Troops with too many items", [
+        (try_for_range, ":troop", regular_troops_begin, extra_ladies_begin),
+            # (assign, ":stop", 0),
+            
+            # (try_for_range, ":i", 0, 64),
+                # (neq, ":stop", 1),
+                (troop_get_inventory_slot, ":item", ":troop", 65),
+                (neq, ":item", -1),
+                # (assign, ":stop", 1),
+            # (try_end),
+            
+            # (try_begin),
+                # (eq, ":stop", 0),
+                (assign, reg0, ":troop"),
+                (str_store_troop_name, s2, ":troop"),
+                (display_log_message, "@{s2} with ID: {reg0} has too many items!", color_bad_news),
+            # (try_end),
+          # (store_free_inventory_capacity, ":free_cap", ":troop"),
+          # (le, ":free_cap", 0),
+          # (str_store_troop_name, s2, ":troop"),
+          # (display_log_message, "@{s2} has too many items", color_bad_news),
+        (try_end),]), 
+        
+    ("dac_print_troops_return",[],"Return.",[(change_screen_return),]),
+  ]),
+    
   ("camp_print_aristocracy", 0,
     "DEBUG for Aristocracy Scripts", "none", [],
     [
@@ -4299,9 +4340,13 @@ TOTAL:  {reg5}"),
 
   (
     "simple_encounter",mnf_enable_hot_keys|mnf_scale_picture,
-    "{s2} ^You have {reg10} troops fit for battle against their {reg11}. ^^The battle will take place on a {s3}{s4}.",
+    "{s2} ^You have {reg10} troops fit for battle against their {reg11}. {s4} ^^The battle will take place on a {s5}{s6}.",
     "none",
     [
+    (str_clear, s4),
+    (str_clear, s5),
+    (str_clear, s6),
+    
     ### DAC SEEK: Check Terrain Type
         (party_get_current_terrain, ":terrain_type", "p_main_party"),
         (assign, ":scene_size", -1),
@@ -4316,33 +4361,33 @@ TOTAL:  {reg5}"),
                 (assign, ":found", 1),
             (try_end),
             (eq, ":found", 1),
-            (str_store_string, s4, "@Looted Village"),
+            (str_store_string, s6, "@Looted Village"),
         (else_try),
             (eq, ":terrain_type", rt_steppe),
-            (str_store_string, s4, "@Road"),
+            (str_store_string, s6, "@Road"),
         (else_try),
             (is_between, ":terrain_type", rt_mountain_forest, rt_forest+1),
             (assign, ":scene_size", "$g_random_scene_size_forests"),
-            (str_store_string, s4, "@Forest"),
+            (str_store_string, s6, "@Forest"),
         (else_try),
             (assign, ":scene_size", "$g_random_scene_size"),        
-            (str_store_string, s4, "@Plain"),
+            (str_store_string, s6, "@Plain"),
         (try_end),
         
         (try_begin),
             (eq, ":scene_size", 0),
-            (str_store_string, s3, "@Small "),
+            (str_store_string, s5, "@Small "),
         (else_try),
             (eq, ":scene_size", 1),
-            (str_store_string, s3, "@Medium "),
+            (str_store_string, s5, "@Medium "),
         (else_try),
             (eq, ":scene_size", 2),
-            (str_store_string, s3, "@Large "),
+            (str_store_string, s5, "@Large "),
         (else_try),
             (eq, ":scene_size", 3),
-            (str_store_string, s3, "@Huge "),
+            (str_store_string, s5, "@Huge "),
         (else_try),
-            (str_store_string, s3, "@Custom "),
+            (str_store_string, s5, "@Custom "),
         (try_end),
 ### DAC SEEK END
         
@@ -4552,13 +4597,170 @@ TOTAL:  {reg5}"),
             # (set_background_mesh, "mesh_pic_sarranid_encounter"),
 		  (try_end),
         (try_end),
+        
+		## PreBattle Orders & Deployment Begin
+		(try_begin),
+		    (party_slot_eq, "p_main_party", slot_party_prebattle_customized_deployment, 1),
+			(str_store_string, s4, "@{s4}^^The troops you selected are ready to join you in battle."),
+		(else_try),			
+			(str_store_string, s4, "@{s4}^^Your captains will deal with troop assignments."),
+		(try_end),
+		(try_begin),
+            (party_slot_eq, "p_main_party", slot_party_prebattle_plan, 1),
+			(str_store_string, s4, "@{s4}^^Your orders have been sent to your captains."),
+		(else_try),
+			(str_store_string, s4, "@{s4}^^There is no tactical plan in place."),
+		(try_end),
+		## PreBattle Orders & Deployment End
+        
     ],
     [
+    
+	## PreBattle Orders & Deployment Begin
+	  ("encounter_attack_deployment",
+      [
+        (eq, "$encountered_party_friendly", 0),
+        (neg|troop_is_wounded, "trp_player"),
+		(party_get_skill_level, ":tactics", "p_main_party", skl_tactics),
+		(ge, ":tactics", 3),
+		
+		(call_script, "script_party_count_fit_for_battle", "p_collective_friends"),
+		(assign, ":friend_count", reg0),
+		(call_script, "script_party_count_fit_for_battle", "p_collective_enemy"),
+		(assign, ":enemy_count", reg0),
+		(store_add, ":total_combatants", ":friend_count", ":enemy_count"),
+		(party_get_slot, ":battle_size", "p_main_party", slot_party_prebattle_battle_size),
+		(gt, ":total_combatants", ":battle_size"),
+      ],
+      "Choose who will join you in battle.",
+      [
+  		(assign, "$g_next_menu", "mnu_simple_encounter"),
+		(start_presentation, "prsnt_prebattle_custom_deployment"),
+      ]),
+	  
+	  ("encounter_attack_plan",
+      [
+        (eq, "$encountered_party_friendly", 0),
+        (neg|troop_is_wounded, "trp_player"),
+		(neq, "$g_encounter_type", enctype_fighting_against_village_raid),
+		(neq, "$g_encounter_type", enctype_catched_during_village_raid),
+		(party_get_skill_level, ":tactics", "p_main_party", skl_tactics),
+		(ge, ":tactics", 3),
+      ],
+      "Plan your battle with the enemy.",
+      [
+  		(assign, "$g_next_menu", "mnu_simple_encounter"),		
+		(start_presentation, "prsnt_prebattle_orders"),
+      ]),
+	  
+	  
+	  ("encounter_attack_do_plan",
+      [
+        (party_slot_eq, "p_main_party", slot_party_prebattle_plan, 1),
+      ],
+      "Enough planning. To battle!",
+      [
+	    (party_set_slot, "p_main_party", slot_party_prebattle_plan, 0),
+	  
+        (assign, "$g_battle_result", 0),
+        (assign, "$g_engaged_enemy", 1),
+        
+        (party_get_template_id, ":encountered_party_template", "$g_encountered_party"),		
+        (try_begin),
+		  (eq, ":encountered_party_template", "pt_village_farmers"),
+		  (unlock_achievement, ACHIEVEMENT_HELP_HELP_IM_BEING_REPRESSED),
+		(try_end),     
+     
+        (call_script, "script_calculate_renown_value"),
+		##diplomacy start+
+		(try_begin),
+			#Call this to properly set cached values for strength
+			(eq, "$g_dplmc_terrain_advantage", DPLMC_TERRAIN_ADVANTAGE_ENABLE),
+			(assign, ":terrain_code", dplmc_terrain_code_none),#defined in header_terrain_types.py
+			(try_begin),
+				(this_or_next|eq, "$g_encounter_type", enctype_fighting_against_village_raid),
+					(eq, "$g_encounter_type", enctype_catched_during_village_raid),
+				(assign, ":terrain_code", dplmc_terrain_code_village),#defined in header_terrain_types.py
+			(else_try),
+				(encountered_party_is_attacker),
+				(call_script, "script_dplmc_get_terrain_code_for_battle", "$g_encountered_party", "p_main_party"),
+				(assign, ":terrain_code", reg0),
+			(else_try),
+				(call_script, "script_dplmc_get_terrain_code_for_battle", "p_main_party", "$g_encountered_party"),
+				(assign, ":terrain_code", reg0),
+			(try_end),
+			(neq, ":terrain_code", dplmc_terrain_code_none),
+			(call_script, "script_dplmc_party_calculate_strength_in_terrain", "p_main_party", ":terrain_code", 0, 1),
+			(call_script, "script_dplmc_party_calculate_strength_in_terrain", "$g_encountered_party", ":terrain_code", 0, 1),
+		(try_end),
+		##diplomacy end+
+        (call_script, "script_calculate_battle_advantage"),
+        (set_battle_advantage, reg0),
+		
+		(set_party_battle_mode),
+		(try_begin),
+          (eq, "$g_encounter_type", enctype_fighting_against_village_raid),
+          (assign, "$g_village_raid_evil", 0),
+          (set_jump_mission,"mt_village_raid"),
+          (party_get_slot, ":scene_to_use", "$g_encounter_is_in_village", slot_castle_exterior),
+          (jump_to_scene, ":scene_to_use"),
+        (else_try),
+          (eq, "$g_encounter_type", enctype_catched_during_village_raid),
+          (assign, "$g_village_raid_evil", 0),
+          (set_jump_mission,"mt_village_raid"),
+          (party_get_slot, ":scene_to_use", "$g_encounter_is_in_village", slot_castle_exterior),
+          (jump_to_scene, ":scene_to_use"),
+        # DAC Seek: Fighting near looted villages
+        (else_try),
+            (assign, ":found", 0),
+            (try_for_range, ":village", villages_begin, villages_end),
+                (neq, ":found", 1),
+                (party_slot_eq, ":village", slot_village_state, svs_looted),
+                (store_distance_to_party_from_party, ":dist", ":village", "p_main_party"),
+                (lt, ":dist", 3), ### DAC Seek reduced from 5
+                (assign, ":found", 1),
+            (try_end),
+            (eq, ":found", 1),
+            (set_jump_mission, "mt_lead_charge"),
+            (jump_to_scene, "scn_raided_village_1"),
+        # End
+        (else_try),
+          (set_jump_mission,"mt_lead_charge"),
+          (call_script, "script_setup_random_scene"),
+        (try_end),
+        (assign, "$g_next_menu", "mnu_simple_encounter"),
+        (jump_to_menu, "mnu_battle_debrief"),
+        (change_screen_mission),
+      ]),
+	  
+	  ("encounter_attack_clear_plan",
+      [
+         (this_or_next|party_slot_eq, "p_main_party", slot_party_prebattle_customized_deployment, 1),
+		 (party_slot_eq, "p_main_party", slot_party_prebattle_plan, 1),
+      ],
+      "Re-assess the situation.",
+      [
+        (try_begin),
+		    (party_slot_eq, "p_main_party", slot_party_prebattle_customized_deployment, 1),
+		    (party_set_slot, "p_main_party", slot_party_prebattle_customized_deployment, 0),
+		(try_end),
+	    (try_begin),
+		    (party_slot_eq, "p_main_party", slot_party_prebattle_plan, 1),
+			(party_set_slot, "p_main_party", slot_party_prebattle_plan, 0),
+		    (party_set_slot, "p_main_party", slot_party_prebattle_num_orders, 0),
+		(try_end),
+		
+        (jump_to_menu, "mnu_simple_encounter"),
+      ]),
+## PreBattle Orders & Deployment End
     
       ("encounter_attack",
       [
         (eq, "$encountered_party_friendly", 0),
         (neg|troop_is_wounded, "trp_player"),
+		## PreBattle Orders & Deployment Begin
+		(party_slot_eq, "p_main_party", slot_party_prebattle_plan, 0),
+		## PreBattle Orders & Deployment End
         (str_clear, s50),
 
         (try_begin),
@@ -4646,6 +4848,9 @@ TOTAL:  {reg5}"),
       ("encounter_order_attack",
       [
         (eq, "$encountered_party_friendly", 0),
+        ## PreBattle Orders & Deployment Begin
+		(party_slot_eq, "p_main_party", slot_party_prebattle_plan, 0),
+		## PreBattle Orders & Deployment End
         (call_script, "script_party_count_members_with_full_health", "p_main_party"),(ge, reg0, 4),
       ],
       "Order your troops to attack without you.",
@@ -4665,6 +4870,9 @@ TOTAL:  {reg5}"),
 
       ("encounter_leave",[
           (eq,"$cant_leave_encounter", 0),
+		  ## PreBattle Orders & Deployment Begin
+		  (party_slot_eq, "p_main_party", slot_party_prebattle_plan, 0),
+		  ## PreBattle Orders & Deployment End
           ],"Leave.",[
 
 ###NPC companion changes begin
@@ -4707,10 +4915,16 @@ TOTAL:  {reg5}"),
          (call_script, "script_party_count_fit_regulars", "p_main_party"),
          (assign, ":player_count", reg0),
          (ge, ":player_count", ":enemy_party_strength"),
+		  ## PreBattle Orders & Deployment Begin
+		  (party_slot_eq, "p_main_party", slot_party_prebattle_plan, 0),
+		  ## PreBattle Orders & Deployment End
          ],"Pull back, leaving some soldiers behind to cover your retreat.",[(jump_to_menu, "mnu_encounter_retreat_confirm"),]),
 
       ("encounter_surrender",[
          (eq,"$cant_leave_encounter", 1),
+		  ## PreBattle Orders & Deployment Begin
+		  (party_slot_eq, "p_main_party", slot_party_prebattle_plan, 0),
+		  ## PreBattle Orders & Deployment End
           ],"Surrender.",[
           ### DAC Seek: Surrendering to the inquisition
           (try_begin),
@@ -5963,7 +6177,7 @@ TOTAL:  {reg5}"),
 
   (#SB : pic hotkeys
     "join_battle",mnf_enable_hot_keys,
-    "You are helping the {s2} against the {s1}. You have {reg10} troops fit for battle against the enemy's {reg11}. ^^The battle will take place on a {s3}{s4}.",
+    "You are helping the {s2} against the {s1}. You have {reg10} troops fit for battle against the enemy's {reg11}. {s4} ^^The battle will take place on a {s5}{s6}.",
     "none",
     [
     
@@ -5972,26 +6186,26 @@ TOTAL:  {reg5}"),
             (party_get_current_terrain, ":terrain_type", "p_main_party"),
             (is_between, ":terrain_type", rt_mountain_forest, rt_forest+1),
             (assign, ":scene_size", "$g_random_scene_size_forests"),
-            (str_store_string, s4, "@Forest"),
+            (str_store_string, s6, "@Forest"),
         (else_try),
             (assign, ":scene_size", "$g_random_scene_size"),        
-            (str_store_string, s4, "@Plain"),
+            (str_store_string, s6, "@Plain"),
         (try_end),
         
         (try_begin),
             (eq, ":scene_size", 0),
-            (str_store_string, s3, "@Small "),
+            (str_store_string, s5, "@Small "),
         (else_try),
             (eq, ":scene_size", 1),
-            (str_store_string, s3, "@Medium "),
+            (str_store_string, s5, "@Medium "),
         (else_try),
             (eq, ":scene_size", 2),
-            (str_store_string, s3, "@Large "),
+            (str_store_string, s5, "@Large "),
         (else_try),
             (eq, ":scene_size", 3),
-            (str_store_string, s3, "@Huge "),
+            (str_store_string, s5, "@Huge "),
         (else_try),
-            (str_store_string, s3, "@Custom "),
+            (str_store_string, s5, "@Custom "),
         (try_end),
 ### DAC SEEK END
 
@@ -6053,12 +6267,105 @@ TOTAL:  {reg5}"),
         #SB : re-do strings at bottom, hopefully globals aren't clobbered
         (str_store_party_name, s1, "$g_enemy_party"),
         (str_store_party_name, s2, "$g_ally_party"),
+        
+		## PreBattle Orders & Deployment Begin
+		(try_begin),
+		    (party_slot_eq, "p_main_party", slot_party_prebattle_customized_deployment, 1),
+			(str_store_string, s4, "@{s4}^^The troops you selected are ready to join you in battle."),
+		(else_try),			
+			(str_store_string, s4, "@{s4}^^Your captains will deal with troop assignments."),
+		(try_end),
+		(try_begin),
+            (party_slot_eq, "p_main_party", slot_party_prebattle_plan, 1),
+			(str_store_string, s4, "@{s4}^^Your orders have been sent to your captains."),
+		(else_try),
+			(str_store_string, s4, "@{s4}^^There is no tactical plan in place."),
+		(try_end),
+		## PreBattle Orders & Deployment End
       ],
     [
+	## PreBattle Orders & Deployment Begin
+	  ("join_attack_deployment",
+      [
+        (neg|troop_is_wounded, "trp_player"),
+		(party_get_skill_level, ":tactics", "p_main_party", skl_tactics),
+		(ge, ":tactics", 3),
+		
+		(call_script, "script_party_count_fit_for_battle", "p_collective_friends"),
+		(assign, ":friend_count", reg0),
+		(call_script, "script_party_count_fit_for_battle", "p_collective_enemy"),
+		(assign, ":enemy_count", reg0),
+		(store_add, ":total_combatants", ":friend_count", ":enemy_count"),
+		(party_get_slot, ":battle_size", "p_main_party", slot_party_prebattle_battle_size),
+		(gt, ":total_combatants", ":battle_size"),
+      ],
+	   "Choose who will join you in battle.",
+      [
+  		(assign, "$g_next_menu", "mnu_join_battle"),	
+		(start_presentation, "prsnt_prebattle_custom_deployment"),
+      ]),
+	  
+	  ("join_attack_plan",
+      [
+        (neg|troop_is_wounded, "trp_player"),
+		(party_get_skill_level, ":tactics", "p_main_party", skl_tactics),
+		(ge, ":tactics", 3),
+      ],
+	   "Plan your attack on the enemy.",
+      [
+  		(assign, "$g_next_menu", "mnu_join_battle"),	
+		(start_presentation, "prsnt_prebattle_orders"),
+      ]),
+	  
+	  ("join_attack_do_plan",
+      [
+        (party_slot_eq, "p_main_party", slot_party_prebattle_plan, 1),
+      ],
+      "Enough planning. To battle!",
+      [
+	    (party_set_slot, "p_main_party", slot_party_prebattle_plan, 0),
+	  
+        (assign, "$g_joined_battle_to_help", 1),
+        (party_set_next_battle_simulation_time, "$g_encountered_party", -1),
+        (assign, "$g_battle_result", 0),
+        (call_script, "script_calculate_renown_value"),
+        (call_script, "script_calculate_battle_advantage"),
+        (set_battle_advantage, reg0),
+        (set_party_battle_mode),
+        (set_jump_mission,"mt_lead_charge"),
+        (call_script, "script_setup_random_scene"),
+        (assign, "$g_next_menu", "mnu_join_battle"),
+        (jump_to_menu, "mnu_battle_debrief"),
+        (change_screen_mission),
+      ]),
+	  
+	  ("join_attack_clear_plan",
+      [
+        (this_or_next|party_slot_eq, "p_main_party", slot_party_prebattle_customized_deployment, 1),
+      	(party_slot_eq, "p_main_party", slot_party_prebattle_plan, 1),
+      ],
+      "Re-assess the situation.",
+      [
+        (try_begin),
+		    (party_slot_eq, "p_main_party", slot_party_prebattle_customized_deployment, 1),
+		    (party_set_slot, "p_main_party", slot_party_prebattle_customized_deployment, 0),
+		(try_end),
+	    (try_begin),
+		    (party_slot_eq, "p_main_party", slot_party_prebattle_plan, 1),
+			(party_set_slot, "p_main_party", slot_party_prebattle_plan, 0),
+		    (party_set_slot, "p_main_party", slot_party_prebattle_num_orders, 0),
+		(try_end),
+		
+        (jump_to_menu, "mnu_join_battle"),
+      ]),
+	## PreBattle Orders & Deployment End
+    
       ("join_attack",
       [
         (neg|troop_is_wounded, "trp_player"),
-
+		## PreBattle Orders & Deployment Begin
+		(party_slot_eq, "p_main_party", slot_party_prebattle_plan, 0),
+		## PreBattle Orders & Deployment End
         (str_clear, s50),
 
         (try_begin),
@@ -6090,6 +6397,9 @@ TOTAL:  {reg5}"),
       [
         (call_script, "script_party_count_members_with_full_health", "p_main_party"),
         (ge, reg0, 3),
+		## PreBattle Orders & Deployment Begin
+		(party_slot_eq, "p_main_party", slot_party_prebattle_plan, 0),
+		## PreBattle Orders & Deployment End
       ],
       "Order your troops to attack with your allies while you stay back.",
       [
@@ -6107,7 +6417,11 @@ TOTAL:  {reg5}"),
       ]
       ),
       
-      ("join_leave",[],"Leave.",
+      ("join_leave",[
+		## PreBattle Orders & Deployment Begin
+		(party_slot_eq, "p_main_party", slot_party_prebattle_plan, 0),
+		## PreBattle Orders & Deployment End
+      ],"Leave.",
       [
         (try_begin),
            (neg|troop_is_wounded, "trp_player"),
@@ -6367,7 +6681,7 @@ TOTAL:  {reg5}"),
   ( #SB : pic hotkeys
     "besiegers_camp_with_allies",mnf_enable_hot_keys,
     "{s1} remains under siege. The banners of {s2} fly above the camp of the besiegers,\
- where you and your men are welcomed.",
+ where you and your men are welcomed. ^^{s4}", ## PreBattle Orders & Deployment adds {s4}
     "none",
     [
         (str_store_party_name, s1, "$g_encountered_party"),
@@ -6475,6 +6789,22 @@ TOTAL:  {reg5}"),
           (leave_encounter),
           (change_screen_return),
         (try_end),
+        
+		## PreBattle Orders & Deployment Begin
+		(try_begin),
+		    (party_slot_eq, "p_main_party", slot_party_prebattle_customized_deployment, 1),
+			(str_store_string, s4, "@{s4}^^The troops you selected are ready to join you in battle."),
+		(else_try),			
+			(str_store_string, s4, "@{s4}^^Your captains will deal with troop assignments."),
+		(try_end),
+		(try_begin),
+            (party_slot_eq, "p_main_party", slot_party_prebattle_plan, 1),
+			(str_store_string, s4, "@{s4}^^Your orders have been sent to your captains."),
+		(else_try),
+			(str_store_string, s4, "@{s4}^^There is no tactical plan in place."),
+		(try_end),
+		## PreBattle Orders & Deployment End
+        
         ],
     [
       ("talk_to_siege_commander",[]," Request a meeting with the commander.",[
@@ -6488,8 +6818,49 @@ TOTAL:  {reg5}"),
                                 (jump_to_scene,":meeting_scene"),
                                 (assign, "$talk_context", tc_siege_commander),
                                 (change_screen_map_conversation, ":siege_leader_id")]),
+                                
+	## PreBattle Orders & Deployment Begin							
+     ("siege_attack_deployment",
+      [
+        (neg|troop_is_wounded, "trp_player"),
+		(party_get_skill_level, ":tactics", "p_main_party", skl_tactics),
+		(ge, ":tactics", 3),
+		
+		(call_script, "script_party_count_fit_for_battle", "p_collective_friends"),
+		(assign, ":friend_count", reg0),
+		(call_script, "script_party_count_fit_for_battle", "p_collective_enemy"),
+		(assign, ":enemy_count", reg0),
+		(store_add, ":total_combatants", ":friend_count", ":enemy_count"),
+		(party_get_slot, ":battle_size", "p_main_party", slot_party_prebattle_battle_size),
+		(gt, ":total_combatants", ":battle_size"),
+      ],
+      "Choose who will join you in battle.",
+      [
+  		(assign, "$g_next_menu", "mnu_besiegers_camp_with_allies"),
+		(start_presentation, "prsnt_prebattle_custom_deployment"),
+      ]),
+	 
+	 ("siege_attack_plan",
+      [
+        (neg|troop_is_wounded, "trp_player"),
+		(party_get_skill_level, ":tactics", "p_main_party", skl_tactics),
+		(ge, ":tactics", 3),
+      ],
+      "Plan your assault.",
+      [
+  		(assign, "$g_next_menu", "mnu_besiegers_camp_with_allies"),		
+		(start_presentation, "prsnt_prebattle_orders"),
+      ]),
+     ## PreBattle Orders & Deployment End
+                                
       ("join_siege_with_allies",[(neg|troop_is_wounded, "trp_player")], "Join the next assault.",
        [
+	       ## PreBattle Orders & Deployment Begin
+		   (try_begin),
+			(party_slot_eq, "p_main_party", slot_party_prebattle_plan, 1),
+			(party_set_slot, "p_main_party", slot_party_prebattle_plan, 0),
+		   (try_end),
+		   ## PreBattle Orders & Deployment End
            (assign, "$g_joined_battle_to_help", 1),
            (party_set_next_battle_simulation_time, "$g_encountered_party", -1),
            (try_begin),
@@ -7354,7 +7725,7 @@ TOTAL:  {reg5}"),
 
    ( #SB : pic hotkeys
     "castle_besiege",mnf_scale_picture|mnf_enable_hot_keys,
-    "You are laying siege to {s1}. {s2} {s3}",
+    "You are laying siege to {s1}. {s2} {s3}^^{s4}", ## PreBattle Orders & Deployment adds {s4}
     "none",
     [
           ##diplomacy start+ test gender with script
@@ -7509,6 +7880,30 @@ TOTAL:  {reg5}"),
           (assign, "$g_next_menu", "mnu_captivity_start_castle_defeat"),
           (jump_to_menu, "mnu_total_defeat"),
         (try_end),
+        
+		## PreBattle Orders & Deployment Begin
+		(try_begin),
+		 (ge, "$g_siege_method", 1),
+         (gt, "$g_friend_fit_for_battle", 3),
+         (store_current_hours, ":cur_hours"),
+         (ge, ":cur_hours", "$g_siege_method_finish_hours"),
+		 (try_begin),
+		    (party_slot_eq, "p_main_party", slot_party_prebattle_customized_deployment, 1),
+			(str_store_string, s4, "@^^^^The troops you selected are ready to join you in battle."),
+		 (else_try),			
+			(str_store_string, s4, "@^^^^Your captains will deal with troop assignments."),
+		 (try_end),
+		 (try_begin),
+            (party_slot_eq, "p_main_party", slot_party_prebattle_plan, 1),
+			(str_store_string, s4, "@{s4}^^Your orders have been sent to your captains."),
+		 (else_try),
+			(str_store_string, s4, "@{s4}^^There is no tactical plan in place."),
+		 (try_end),
+		(else_try),
+		 (str_clear, s4),
+		(try_end),
+		## PreBattle Orders & Deployment End
+        
     ],
     [
       ("siege_request_meeting",[(eq, "$cant_talk_to_enemy", 0)],"Call for a meeting with the castle commander.", [
@@ -7542,6 +7937,51 @@ TOTAL:  {reg5}"),
           (change_screen_return),
           ]),
 
+	## PreBattle Orders & Deployment Begin	
+	 ("siege_attack_deployment",
+      [
+        (neg|troop_is_wounded, "trp_player"),
+		
+		(ge, "$g_siege_method", 1),
+        (gt, "$g_friend_fit_for_battle", 3),
+        (store_current_hours, ":cur_hours"),
+        (ge, ":cur_hours", "$g_siege_method_finish_hours"),
+		
+		(party_get_skill_level, ":tactics", "p_main_party", skl_tactics),
+		(ge, ":tactics", 2),
+		
+		(call_script, "script_party_count_fit_for_battle", "p_collective_friends"),
+		(assign, ":friend_count", reg0),
+		(call_script, "script_party_count_fit_for_battle", "p_collective_enemy"),
+		(assign, ":enemy_count", reg0),
+		(store_add, ":total_combatants", ":friend_count", ":enemy_count"),
+		(party_get_slot, ":battle_size", "p_main_party", slot_party_prebattle_battle_size),
+		(gt, ":total_combatants", ":battle_size"),
+      ],
+      "Choose who will join you in battle.",
+      [
+  		(assign, "$g_next_menu", "mnu_castle_besiege"),
+		(start_presentation, "prsnt_prebattle_custom_deployment"),
+      ]),
+	
+     ("siege_attack_plan",
+      [
+        (neg|troop_is_wounded, "trp_player"),
+		
+		(ge, "$g_siege_method", 1),
+        (gt, "$g_friend_fit_for_battle", 3),
+        (store_current_hours, ":cur_hours"),
+        (ge, ":cur_hours", "$g_siege_method_finish_hours"),
+		
+		(party_get_skill_level, ":tactics", "p_main_party", skl_tactics),
+		(ge, ":tactics", 2),
+      ],
+      "Plan your assault.",
+      [
+  		(assign, "$g_next_menu", "mnu_castle_besiege"),		
+		(start_presentation, "prsnt_prebattle_orders"),
+      ]),
+     ## PreBattle Orders & Deployment End
 
       ("castle_lead_attack",
        [
@@ -7553,6 +7993,14 @@ TOTAL:  {reg5}"),
        ],
        "Lead your soldiers in an assault.",
        [
+       
+	   	   ## PreBattle Orders & Deployment Begin
+		   (try_begin),
+			(party_slot_eq, "p_main_party", slot_party_prebattle_plan, 1),
+			(party_set_slot, "p_main_party", slot_party_prebattle_plan, 0),
+		   (try_end),
+		   ## PreBattle Orders & Deployment End
+       
            (try_begin),
              (party_slot_eq, "$g_encountered_party", slot_party_type, spt_town),
              (party_get_slot, ":battle_scene", "$g_encountered_party", slot_town_walls),
@@ -9111,7 +9559,7 @@ TOTAL:  {reg5}"),
 
   ( #SB : pic hotkeys
     "siege_started_defender",mnf_enable_hot_keys,
-    "{s1} is launching an assault against the walls of {s2}. You have {reg10} troops fit for battle against the enemy's {reg11}. You decide to...",
+    "{s1} is launching an assault against the walls of {s2}. You have {reg10} troops fit for battle against the enemy's {reg11}. You decide to...{s4}", ## PreBattle Orders & Deployment adds {s4}
     "none",
     [
         (select_enemy,1),
@@ -9224,6 +9672,21 @@ TOTAL:  {reg5}"),
         (try_end),
         (assign, "$g_siege_first_encounter", 0),
         (assign, "$new_encounter", 0),
+        
+		## PreBattle Orders & Deployment Begin
+		(try_begin),
+		    (party_slot_eq, "p_main_party", slot_party_prebattle_customized_deployment, 1),
+			(str_store_string, s4, "@^^^^The troops you selected are ready to join you in battle."),
+		(else_try),			
+			(str_store_string, s4, "@^^^^Your captains will deal with troop assignments."),
+		(try_end),
+		(try_begin),
+            (party_slot_eq, "p_main_party", slot_party_prebattle_plan, 1),
+			(str_store_string, s4, "@{s4}^^Your orders have been sent to your captains."),
+		(else_try),
+			(str_store_string, s4, "@{s4}^^There is no tactical plan in place."),
+		(try_end),
+		## PreBattle Orders & Deployment End
         ],
     [
      ##diplomacy begin
@@ -9237,11 +9700,55 @@ TOTAL:  {reg5}"),
         (jump_to_menu, "mnu_dplmc_negotiate_besieger"),
         ]),
      ##diplomacy end
+     
+     ## PreBattle Orders & Deployment Begin	
+	  ("siege_defender_deployment",
+      [
+        (neg|troop_is_wounded, "trp_player"),
+		(party_get_skill_level, ":tactics", "p_main_party", skl_tactics),
+		(ge, ":tactics", 3),
+		
+		(call_script, "script_party_count_fit_for_battle", "p_collective_friends"),
+		(assign, ":friend_count", reg0),
+		(call_script, "script_party_count_fit_for_battle", "p_collective_enemy"),
+		(assign, ":enemy_count", reg0),
+		(store_add, ":total_combatants", ":friend_count", ":enemy_count"),
+		(party_get_slot, ":battle_size", "p_main_party", slot_party_prebattle_battle_size),
+		(gt, ":total_combatants", ":battle_size"),
+      ],
+      "Choose who will join you in battle.",
+      [
+  		(assign, "$g_next_menu", "mnu_siege_started_defender"),
+		(start_presentation, "prsnt_prebattle_custom_deployment"),
+      ]),
+	 
+     ("siege_defender_plan",
+      [
+        (neg|troop_is_wounded, "trp_player"),
+	  	
+		(party_get_skill_level, ":tactics", "p_main_party", skl_tactics),
+		(ge, ":tactics", 3),
+      ],
+      "Plan your defense.",
+      [
+  		(assign, "$g_next_menu", "mnu_siege_started_defender"),		
+		(start_presentation, "prsnt_prebattle_orders"),
+      ]),	  
+     ## PreBattle Orders & Deployment End
+     
       ("siege_defender_join_battle",
        [
          (neg|troop_is_wounded, "trp_player"),
          ],
           "Join the battle.",[
+          
+	   	   ## PreBattle Orders & Deployment Begin
+		   (try_begin),
+			(party_slot_eq, "p_main_party", slot_party_prebattle_plan, 1),
+			(party_set_slot, "p_main_party", slot_party_prebattle_plan, 0),
+		   (try_end),
+		   ## PreBattle Orders & Deployment End
+          
         (party_set_next_battle_simulation_time, "$g_encountered_party", -1),
         (assign, "$g_battle_result", 0),
         

@@ -48,6 +48,402 @@ bard_disguise = [itm_h_highlander_beret_green_2,itm_a_noble_shirt_green,itm_b_tu
 af_castle_lord = af_override_horse | af_override_weapons| af_require_civilian
 af_prisoner       = af_override_horse | af_override_weapons | af_override_head | af_override_gloves | af_override_gloves | af_override_foot
 
+## Prebattle Orders & Deployment Begin
+common_pbod_triggers = [ #collapse caba_order_triggers into this?
+ #init_player_global_variables
+ #(ti_after_mission_start, 0, 0, [], [  
+ (0, 0, ti_once, [(get_player_agent_no, "$fplayer_agent_no"),(ge, "$fplayer_agent_no", 0)], [
+	#(get_player_agent_no, "$fplayer_agent_no"),
+	(agent_get_team, "$fplayer_team_no", "$fplayer_agent_no"),		
+	(agent_get_horse, ":horse", "$fplayer_agent_no"),
+	(agent_set_slot, "$fplayer_agent_no", slot_agent_horse, ":horse"),   
+  ]),
+  
+  #Fix for setting divisions, duplicated in formations code, so disabled in mst_lead_charge
+  (ti_on_agent_spawn, 0, 0, [(neq, "$g_next_menu", "mnu_simple_encounter"),(neq, "$g_next_menu", "mnu_join_battle")], [(store_trigger_param_1, ":agent"),(call_script, "script_prebattle_agent_fix_division", ":agent")]),
+  (0.5, 0, 0, [(neq, "$g_next_menu", "mnu_simple_encounter"), #not mst_lead_charge
+			   (neq, "$g_next_menu", "mnu_join_battle"),
+			   (store_mission_timer_a, reg0),(gt, reg0, 4)], 
+   #Prior conditions: (this_or_next|party_slot_eq, "p_main_party", slot_party_prebattle_customized_divisions, 1),(this_or_next|neg|party_slot_eq, "p_main_party", slot_party_pref_div_no_ammo, 9),(neg|party_slot_eq, "p_main_party", slot_party_pref_div_dehorse, 9)
+   [
+    (try_for_agents, ":agent"),
+		(agent_is_alive, ":agent"),
+		(agent_slot_ge, ":agent", slot_agent_new_division, 0),
+	    (agent_get_division, ":division", ":agent"),
+		(neg|agent_slot_eq, ":agent", slot_agent_new_division, ":division"),
+		(agent_get_slot, ":new_div", ":agent", slot_agent_new_division),
+		(agent_set_division, ":agent", ":new_div"),
+	(try_end),	
+   ]),   
+ ] 
+		
+prebattle_deployment_triggers  = [
+ (ti_before_mission_start, 0, 0, [(party_slot_eq, "p_main_party", slot_party_prebattle_customized_deployment, 1)], [
+	#Find the number of soldiers in each troop-stack that are ready to upgrade by upgrading the party and finding
+	#the changes in troops after the upgrade, then storing the number upgraded in a troop slot.
+	(call_script, "script_party_copy", "p_temp_party", "p_main_party"),
+	(party_upgrade_with_xp, "p_main_party", 1, 1),
+
+	(party_get_num_companion_stacks, ":previous_num_of_stacks", "p_temp_party"),
+	(try_for_range, ":i", 0, ":previous_num_of_stacks"), 
+		(party_stack_get_troop_id, ":troop_id", "p_temp_party", ":i"),
+		(neg|troop_is_hero, ":troop_id"),
+        (troop_set_slot, ":troop_id", slot_troop_prebattle_preupgrade_check, 0),
+		(troop_set_slot, ":troop_id",  slot_troop_prebattle_num_upgrade, 0),
+	(try_end),
+	
+	(try_for_range, ":i", 0, ":previous_num_of_stacks"), 
+		(party_stack_get_troop_id, ":troop_id", "p_temp_party", ":i"),
+		(neg|troop_is_hero, ":troop_id"),
+		(troop_slot_eq, ":troop_id", slot_troop_prebattle_preupgrade_check, 0),
+		
+		(try_for_range, ":down_upgrade_array", slot_party_prebattle_customized_deployment, slot_party_prebattle_customized_deployment + 7),
+		    (party_set_slot, "p_main_party_backup", ":down_upgrade_array", 0), #Create an Array of 6 variables to hold current troop's down/upgrade path
+		(try_end),
+		(assign, ":troop", ":troop_id"),
+		(assign, ":end", 7),
+     	(try_for_range, ":unused", 0, ":end"),		
+			(assign, ":stacks", ":previous_num_of_stacks"),
+		    (try_for_range, ":n", 0, ":stacks"), #Find another troop that upgrades to the current troop in the party
+			    (party_stack_get_troop_id, ":troop_to_upgrade", "p_temp_party", ":n"),
+		        (neg|troop_is_hero, ":troop_to_upgrade"),
+				(neq, ":troop_to_upgrade", ":troop"),
+			    (troop_get_upgrade_troop, ":upgrade_troop", ":troop_to_upgrade", 0),
+			    (eq, ":upgrade_troop", ":troop"),
+			    (assign, ":stacks", 0),
+		    (try_end),
+		    (try_begin),
+		        (neq, ":upgrade_troop", ":troop"), #nothing in the party upgrades to this troop
+				(assign, ":end", 0), #Break 'Find Downgrades' Loop
+				(troop_slot_eq, ":troop", slot_troop_prebattle_preupgrade_check, 0),
+				(party_count_members_of_type, ":pre_upgrade", "p_temp_party", ":troop"),
+		        (party_count_members_of_type, ":post_upgrade", "p_main_party", ":troop"),
+			    (store_sub, ":difference", ":pre_upgrade", ":post_upgrade"),
+                (val_max, ":difference", 0), #don't let it be negative
+			    (troop_set_slot, ":troop", slot_troop_prebattle_num_upgrade, ":difference"),
+				(troop_set_slot, ":troop", slot_troop_prebattle_preupgrade_check, 1),
+		    (else_try),
+		    #something upgrades to this troop in the party; record that upgrade_troop, then loop again to check if anything upgrades to THAT troop
+			    (assign, ":array_begin", slot_party_prebattle_customized_deployment),
+				(try_for_range_backwards, ":downgrade_array", ":array_begin", slot_party_prebattle_customized_deployment + 7),
+				    (party_slot_eq, "p_main_party_backup", ":downgrade_array", 0),
+					(party_set_slot, "p_main_party_backup", ":downgrade_array", ":troop_to_upgrade"),
+					(assign, ":array_begin", slot_party_prebattle_customized_deployment + 7),
+				(try_end),
+				(assign, ":troop", ":troop_to_upgrade"),
+			(try_end), #Does anything upgrade to this troop? If-Then-Else
+		(try_end), #Downgrade Do...Loop
+		
+		(troop_slot_eq, ":troop_id", slot_troop_prebattle_preupgrade_check, 0), 
+		#If this troop was finished above (nothing upgrades to it, so it isn't mid/end of a continuous tree) no need to continue
+		
+		(assign, ":troop", ":troop_id"),
+		(assign, ":end", 7),
+     	(try_for_range, ":unused", 0, ":end"),	
+			(troop_get_upgrade_troop, ":upgrade_troop", ":troop", 0),
+			(party_count_members_of_type, ":num_upgrade", "p_main_party", ":upgrade_troop"),
+			(try_begin),
+			    (gt, ":num_upgrade", 0),
+			    (assign, ":array_end", slot_party_prebattle_customized_deployment + 7),
+			    (try_for_range, ":upgrade_array", slot_party_prebattle_customized_deployment, ":array_end"),
+				    (party_slot_eq, "p_main_party_backup", ":upgrade_array", 0),
+				    (party_set_slot, "p_main_party_backup", ":upgrade_array", ":upgrade_troop"),
+			        (assign, ":array_end", slot_party_prebattle_customized_deployment),
+	            (try_end),
+			    (assign, ":troop", ":upgrade_troop"),
+			(else_try),
+			    (assign, ":end", 0),
+			(try_end),
+		(try_end), #Upgrade Do...Loop
+
+		#Use Upgrade and 'Downgrade' paths to calculate upgrade numbers for a continuous troop tree.
+		(assign, ":end", slot_party_prebattle_customized_deployment + 7),
+		(try_for_range, ":down_upgrade_array", slot_party_prebattle_customized_deployment, ":end"), 
+		    (party_get_slot, ":troop", "p_main_party_backup", ":down_upgrade_array"),
+			(gt, ":troop", 0),
+			(troop_slot_eq, ":troop", slot_troop_prebattle_preupgrade_check, 1), #Find "Beginning" of Upgrade Path	
+			
+			(assign, ":begin_upgrade_tree", ":down_upgrade_array"),
+			(assign, ":previous_num_upgraded", 0),
+			(try_for_range_backwards, ":upgrade_array", slot_party_prebattle_customized_deployment, ":begin_upgrade_tree"),
+			    (party_get_slot, ":top_troop", "p_main_party_backup", ":upgrade_array"),
+				(gt, ":top_troop", 0),
+				(party_count_members_of_type, ":pre_upgrade", "p_temp_party", ":top_troop"),
+		        (party_count_members_of_type, ":post_upgrade", "p_main_party", ":top_troop"),
+			    (store_sub, ":difference", ":post_upgrade", ":pre_upgrade"),
+				(val_add, ":difference", ":previous_num_upgraded"),
+                (val_max, ":difference", 0), #don't let it be negative
+				(assign, ":previous_num_upgraded", ":difference"),
+				
+				(store_sub, ":prior_troop_slot", ":upgrade_array", 1),
+				(try_begin),
+			        (ge, ":prior_troop_slot", slot_party_prebattle_customized_deployment),
+					(party_get_slot, ":prior_troop", "p_main_party_backup", ":prior_troop_slot"),
+				(else_try),
+				    (eq, ":prior_troop_slot", slot_party_prebattle_customized_deployment - 1),
+					(assign, ":prior_troop", ":troop_id"),
+                (try_end),
+				(gt, ":prior_troop", 0),
+				(troop_slot_eq, ":prior_troop", slot_troop_prebattle_preupgrade_check, 0),
+			    (troop_set_slot, ":prior_troop", slot_troop_prebattle_num_upgrade, ":difference"),
+				(troop_set_slot, ":top_troop", slot_troop_prebattle_preupgrade_check, 1),
+			(try_end), #Upgrade Backwards Loop
+			
+			(troop_set_slot, ":troop_id", slot_troop_prebattle_preupgrade_check, 1),
+			
+			(assign, ":previous_num_upgraded", 0),
+			(try_for_range, ":downgrade_array", ":begin_upgrade_tree", ":end"),
+				(party_get_slot, ":bottom_troop", "p_main_party_backup", ":downgrade_array"),
+				(gt, ":bottom_troop", 0),
+				
+				(try_begin),
+				    (troop_slot_eq, ":bottom_troop", slot_troop_prebattle_preupgrade_check, 1),
+					(troop_get_slot, ":previous_num_upgraded", ":bottom_troop", slot_troop_prebattle_num_upgrade),
+				(else_try),
+				    (troop_slot_eq, ":bottom_troop", slot_troop_prebattle_preupgrade_check, 0),				
+					(party_count_members_of_type, ":pre_upgrade", "p_temp_party", ":bottom_troop"),
+		            (party_count_members_of_type, ":post_upgrade", "p_main_party", ":bottom_troop"),
+			        (store_sub, ":difference", ":post_upgrade", ":pre_upgrade"),
+				    (val_add, ":difference", ":previous_num_upgraded"),
+                    (val_max, ":difference", 0), #don't let it be negative
+        			(assign, ":previous_num_upgraded", ":difference"),
+			        (troop_set_slot, ":bottom_troop", slot_troop_prebattle_num_upgrade, ":difference"),
+				    (troop_set_slot, ":bottom_troop", slot_troop_prebattle_preupgrade_check, 1),
+                (try_end),
+			(try_end), #Downgrade Loop
+			(assign, ":end", slot_party_prebattle_customized_deployment), #Break Loop
+		(try_end), #Locate "Beginning"/End of Upgrade Path 'Loop'
+	(try_end), #Party Stack Loop
+				
+    (call_script, "script_party_copy", "p_main_party", "p_temp_party"), #Return party to pre-upgrade state
+	
+	(troop_set_slot, "trp_player", slot_troop_prebattle_first_round, 1),
+	
+    #REMOVE 'EXTRA' SOLDIERS FROM THE PARTY, TO ENSURE CORRECT SPAWN
+	(party_get_num_companion_stacks, ":num_of_stacks", "p_main_party"),
+	(val_add, ":num_of_stacks", 1),
+	(try_for_range_backwards, ":i", 0, ":num_of_stacks"),
+		(party_stack_get_troop_id, ":troop_id", "p_main_party", ":i"),
+		#(neq, ":troop_id", "trp_player"),
+		(troop_get_slot, ":num_of_agents", ":troop_id", slot_troop_prebattle_first_round),
+		(party_stack_get_size, ":stack_size", "p_main_party", ":i"),
+		(store_sub, ":difference", ":stack_size", ":num_of_agents"),
+		(gt, ":difference", 0),
+	    (party_remove_members_wounded_first, "p_main_party", ":troop_id", ":difference"),
+	(try_end),
+    ]),
+	
+ (ti_after_mission_start, 0, 0, [(party_slot_eq, "p_main_party", slot_party_prebattle_customized_deployment, 1)], [
+    #Add people back to the party 
+	(party_get_num_companion_stacks, ":target_num_of_stacks", "p_temp_party"),
+	(try_for_range, ":i", 0, ":target_num_of_stacks"),
+		(party_stack_get_troop_id, ":target_stack_troop", "p_temp_party", ":i"),
+		(neq, ":target_stack_troop", "trp_player"),
+		(party_stack_get_size, ":target_stack_size", "p_temp_party", ":i"),
+		
+		(party_get_num_companion_stacks, ":num_of_stacks", "p_main_party"),
+		(assign, ":cur_stack_size", 0),
+		(assign, ":cur_num_wounded", 0),
+		(try_for_range, ":n", 0, ":num_of_stacks"),
+			(party_stack_get_troop_id, ":stack_troop", "p_main_party", ":n"),
+			(eq, ":stack_troop", ":target_stack_troop"),
+			(party_stack_get_size, ":cur_stack_size", "p_main_party", ":n"),
+			(party_stack_get_num_wounded, ":cur_num_wounded", "p_main_party", ":n"),
+			(assign, ":num_of_stacks", 0),
+		(try_end),
+		
+        (store_sub, ":difference", ":target_stack_size", ":cur_stack_size"),
+
+		(try_begin),
+		    (gt, ":difference", 0),
+            (party_add_members, "p_main_party", ":target_stack_troop", ":difference"),
+            (party_stack_get_num_wounded, ":target_num_wounded", "p_temp_party", ":i"),
+		    (val_sub, ":target_num_wounded", ":cur_num_wounded"),
+		    (gt, ":target_num_wounded", 0),
+            (party_wound_members, "p_main_party", ":stack_troop", ":target_num_wounded"),
+		(try_end),
+		
+		#Re-apply XP so troops that were ready to upgrade are still ready to upgrade
+		(neg|troop_is_hero, ":target_stack_troop"),
+		(troop_get_slot, ":num_to_upgrade", ":target_stack_troop", slot_troop_prebattle_num_upgrade),
+		(gt, ":num_to_upgrade", 0),
+		(call_script, "script_game_get_upgrade_xp", ":target_stack_troop"),
+		(store_mul, ":xp_to_add", ":num_to_upgrade", reg0),
+		(party_get_num_companion_stacks, ":num_of_stacks", "p_main_party"),
+		(try_for_range, ":n", 0, ":num_of_stacks"),
+			(party_stack_get_troop_id, ":stack_troop", "p_main_party", ":n"),
+			(eq, ":stack_troop", ":target_stack_troop"),
+            (party_add_xp_to_stack, "p_main_party", ":n", ":xp_to_add"),
+			(assign, ":num_of_stacks", 0),
+		(try_end),
+	(try_end), #Backup party stack loop
+	(party_set_slot, "p_main_party", slot_party_prebattle_customized_deployment, 0),
+    ]),
+	
+ #Split Troop Divisions Triggers
+ (ti_after_mission_start, 0, 0, [(party_slot_eq, "p_main_party", slot_party_prebattle_customized_divisions, 1)], [
+	(call_script, "script_prebattle_split_troop_divisions"),
+	(party_set_slot, "p_main_party_backup", slot_party_reinforcement_stage, 0),
+   ]),
+ (1, 0, 0, [(party_slot_eq, "p_main_party", slot_party_prebattle_customized_divisions, 1)], [
+    (try_begin),
+		(this_or_next|eq, "$fplayer_team_no", 0),
+		(eq, "$fplayer_team_no", 2),
+		(assign, ":reinforcement_stage", "$defender_reinforcement_stage"),
+	(else_try),
+		(assign, ":reinforcement_stage", "$attacker_reinforcement_stage"),
+	(try_end),
+	(neg|party_slot_eq, "p_main_party_backup", slot_party_reinforcement_stage, ":reinforcement_stage"),
+	
+	(call_script, "script_prebattle_split_troop_divisions"),
+	
+	(party_set_slot, "p_main_party_backup", slot_party_reinforcement_stage, ":reinforcement_stage"),
+   ]),
+ ]
+ 
+prebattle_orders_triggers = [
+ (0, 0.6, 2, [(party_slot_ge, "p_main_party", slot_party_prebattle_num_orders, 1)], [ #was ti_once, adjusted to conditions failure to work around engine problems
+		(party_get_slot, ":num_of_orders", "p_main_party", slot_party_prebattle_num_orders),
+		(party_set_slot, "p_main_party", slot_party_prebattle_num_orders, 0), #fix test
+		(set_show_messages, 0),	 
+		(assign, ":delay_count", 0),		
+        (try_for_range, ":i", 0, ":num_of_orders"),    
+		    (store_add, ":ith_order_slot", ":i", slot_party_prebattle_order_array_begin),
+            (party_get_slot, ":order_index", "p_main_party", ":ith_order_slot"),
+			(ge, ":order_index", 10), 
+			
+			#Take 3 digit order index and get component parts: group, type, order
+			(store_div, ":ith_order_group", ":order_index", 100),
+			(store_mul, ":ith_order_type", ":ith_order_group", 100),
+			(val_sub, ":order_index", ":ith_order_type"),
+			(store_div, ":ith_order_type", ":order_index", 10),
+			(store_mul, ":ith_order", ":ith_order_type", 10),
+			(store_sub, ":ith_order", ":order_index", ":ith_order"),
+
+			#Turn type and order into Native order
+			(assign, ":delay_order", 0),
+			(try_begin),
+			    (eq, ":ith_order_type", 1), #Start Position: hold, follow, charge; mordr_ 0-2; 3=11 stand ground
+				(eq, ":ith_order", 3), 
+				(assign, ":ith_order", 11), #Stand Ground
+			(else_try),
+			    (eq, ":ith_order_type", 2), #Other movement orders: mordr_ 3-8, 
+				(is_between, ":ith_order", 5, 9), #5 - 8; Forward/Back 10 Paces, Stand Closer/Spread Out
+				(assign, ":delay_order", 1), #To fix bugs with these orders, and to accomodate formations
+				(val_add, ":delay_count", 1), #they are delayed 1-2 seconds
+			(else_try), 
+			    (eq, ":ith_order_type", 3), #Native Weapon Use orders: mordr_ 9,10,12,13
+				(try_begin),
+				    (eq, ":ith_order", 0),
+					(assign, ":ith_order", 10), #Use Any Weapon
+				(else_try),
+				    (eq, ":ith_order", 2),
+					(assign, ":ith_order", 12), #Hold Fire
+				(else_try),
+				    (eq, ":ith_order", 3),
+					(assign, ":ith_order", 13), #Fire at Will
+				(try_end),
+			(else_try),
+			    (eq, ":ith_order_type", 4), #Formations
+				(set_show_messages, 0),
+				(call_script, "script_player_attempt_formation", ":ith_order_group", ":ith_order", 0),
+			# (else_try),
+				# (is_between, ":ith_order_type", 5, 7), #5 or 6; Caba Weapon and Shield orders
+				# (val_add, ":delay_count", 1), #To fix bugs with these orders, they are delayed 1-2 seconds
+			# (else_try),
+			    # (eq, ":ith_order_type", 7), #Caba Skirmish
+				# (eq, ":ith_order", 1), #Begin Skirmish, any other value would be an error
+				# (team_set_order_listener, "$fplayer_team_no", ":ith_order_group"),
+				# (call_script, "script_order_skirmish_begin_end", begin, "$fplayer_team_no"),
+				# (team_set_order_listener, "$fplayer_team_no", -1),
+			(try_end),
+            (try_begin),
+			    (is_between, ":ith_order_type", 1, 4),
+				(neq, ":delay_order", 1),
+				(team_give_order, "$fplayer_team_no", ":ith_order_group", ":ith_order"),
+			(try_end),			
+		(try_end), #End Order Slot Loop	
+        (team_set_order_listener, "$fplayer_team_no", grc_everyone), #Reset	
+        (set_show_messages, 1),
+		(display_message, "@Everyone, you know what to do. To your positions!", 0xFFDDDD66),
+		(try_begin),
+		    (eq, ":num_of_orders", 1),
+			(party_get_slot, ":first_order", "p_main_party_backup", slot_party_prebattle_order_array_begin),
+			(party_set_slot, "p_main_party", slot_party_prebattle_order_array_begin, ":first_order"),
+			(party_set_slot, "p_main_party_backup", slot_party_prebattle_order_array_begin, 0),
+		(try_end),	
+        # (try_begin),
+            # (eq, ":delay_count", 0),
+            # (party_set_slot, "p_main_party", slot_party_prebattle_num_orders, 0),
+		# (try_end),
+	]),
+	
+ (0, 1, 2, [(party_slot_ge, "p_main_party_backup", slot_party_prebattle_num_orders, 1)], [ #was ti_once, adjusted to conditions failure to work around engine problems
+        #To fix bugs with Move Forward/Back 10 Paces and Caba Weapon orders
+		#these orders are applied separately, after other orders
+		(party_get_slot, ":num_of_orders", "p_main_party_backup", slot_party_prebattle_num_orders), #change to _backup, fix test
+		(party_set_slot, "p_main_party_backup", slot_party_prebattle_num_orders, 0), #change to _backup, fix test
+		(set_show_messages, 0),	 
+        (try_for_range, ":i", 0, ":num_of_orders"),    
+		    (store_add, ":ith_order_slot", ":i", slot_party_prebattle_order_array_begin),
+            (party_get_slot, ":order_index", "p_main_party", ":ith_order_slot"),
+			(ge, ":order_index", 10), 
+
+			#Take 3 digit order index and get component parts: group, type, order
+			(store_div, ":ith_order_group", ":order_index", 100),
+			(store_mul, ":ith_order_type", ":ith_order_group", 100),
+			(val_sub, ":order_index", ":ith_order_type"),
+			(store_div, ":ith_order_type", ":order_index", 10),
+			(this_or_next|is_between, ":ith_order_type", 5, 7), # 5 or 6; Caba Weapon and Shield orders
+			(eq, ":ith_order_type", 2), #Movement Orders
+			(store_mul, ":ith_order", ":ith_order_type", 10),
+			(store_sub, ":ith_order", ":order_index", ":ith_order"),
+			
+			(try_begin),
+                (eq, ":ith_order_type", 2),			
+                (is_between, ":ith_order", 5, 9), #5 - 8; Forward/Back 10 Paces, Stand Closer/Spread Out	
+			    (store_add, ":ith_repeat_slot", ":ith_order_slot", 70), #30 for partial version
+			    (party_get_slot, ":num_repeats", "p_main_party", ":ith_repeat_slot"),
+			    (val_max, ":num_repeats", 1),
+			    (try_for_range, ":unused", 0, ":num_repeats"),
+				    (try_begin),
+					    (store_add, ":slot", slot_team_d0_formation, ":ith_order_group"),
+			            (neg|team_slot_eq, "$fplayer_team_no", ":slot", formation_none),
+						(team_set_order_listener, "$fplayer_team_no", ":ith_order_group"),
+				        (call_script, "script_player_order_formations", ":ith_order"),
+				        (team_set_order_listener, "$fplayer_team_no", -1), #Reset
+					(else_try),
+				        (team_give_order, "$fplayer_team_no", ":ith_order_group", ":ith_order"),
+					(try_end),
+			    (try_end),
+			# (else_try),
+			    # (eq, ":ith_order_type", 4), #Formations
+				# (set_show_messages, 0),
+				# (call_script, "script_player_attempt_formation", ":ith_order_group", ":ith_order"),
+			# (else_try),
+			    # (is_between, ":ith_order_type", 5, 7), #5 or 6; Caba Weapon and Shield orders
+				# (team_set_order_listener, "$fplayer_team_no", ":ith_order_group"),
+				# (call_script, "script_order_weapon_type_switch", ":ith_order", "$fplayer_team_no"),
+				# (team_set_order_listener, "$fplayer_team_no", -1), #Reset
+			(try_end),	
+		(try_end),		
+        (team_set_order_listener, "$fplayer_team_no", grc_everyone), #Reset			
+        (set_show_messages, 1),
+	]),
+    
+  (0, 0, 3, [(key_clicked, key_j)], [   #call_horse_trigger
+      (agent_get_slot, ":horse", "$fplayer_agent_no", slot_agent_horse),
+      (gt, ":horse", 0),
+      (agent_is_active, ":horse"),      
+      #(agent_play_sound, "$fplayer_agent_no", "snd_whistle"),
+	  (agent_play_sound, "$fplayer_agent_no", "snd_man_breath_hard"),
+      (display_message,"@You whistle for your horse."),
+      (agent_is_alive,":horse"),
+      (agent_get_position, pos1, "$fplayer_agent_no"),
+      (agent_set_scripted_destination, ":horse", pos1, 0),
+     ]),
+ ]
+
 
 ## TRIGGER: BODYSLIDING (1 OF 2)
 bodysliding_1 = (
@@ -1697,6 +2093,9 @@ deeds_common_battle_scripts = [
   quartermaster_refill_ammo,
   dac_agent_lives_or_dies,
   tactical_camera,
+  # caba_order_triggers,
+  
+  
   ] + battle_panel_triggers + utility_triggers + extended_battle_menu + common_division_data + division_order_processing + real_deployment + formations_triggers + AI_triggers
 
 deeds_common_siege_scripts = [
@@ -1721,7 +2120,11 @@ deeds_common_siege_scripts = [
   dac_footstep_sounds,
   dac_guarantee_legs,
   dac_agent_lives_or_dies,
-  ] + battle_panel_triggers + utility_triggers
+  # common_pbod_triggers,
+  # prebattle_orders_triggers,
+  # prebattle_deployment_triggers,
+  # caba_order_triggers,
+  ] + battle_panel_triggers + utility_triggers + common_pbod_triggers + prebattle_orders_triggers + prebattle_deployment_triggers
 
 ##SB : new camera triggers
 dplmc_battle_mode_triggers = [
@@ -1732,7 +2135,7 @@ dplmc_battle_mode_triggers = [
     custom_commander_camera, deathcam_cycle_forwards, deathcam_cycle_backwards,
     dplmc_death_camera,
     dac_agent_weapons_switching,
-  ] + deeds_common_battle_scripts
+  ] + deeds_common_battle_scripts + common_pbod_triggers + prebattle_orders_triggers + prebattle_deployment_triggers
 ##diplomacy end
 
 multiplayer_server_check_belfry_movement = (

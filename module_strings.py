@@ -5755,7 +5755,7 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("dac_player_camp_requirements",                "Troop Requirements"),  
 ("dac_player_camp_party_info",                  "Party Information"),  
 ("dac_player_camp_player_info",                 "Player Information"),  
-("dac_player_camp_player_info_registers",       "Gold: {reg13} ^Renown: {reg14} ^Honor: {reg15} ^Party Size: {reg16}/{reg17}"),  
+("dac_player_camp_player_info_registers",       "Crowns: {reg13} ^Renown: {reg14} ^Honor: {reg15} ^Party Size: {reg16}/{reg17}"),  
 
 ### DAC Seek: Tournament Plays Quest Strings
 ("qp1_quest_desc_tournament_invited_by_s9_to_s13", "You have been invited by {s9} to attend the tournament being held in {s13}.  Turning down this invitation would be frowned upon."),

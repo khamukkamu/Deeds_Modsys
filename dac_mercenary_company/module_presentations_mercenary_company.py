@@ -645,11 +645,12 @@ mercenary_company_presentations = [
         
 ### Selected Troop
         (try_begin),
-          (neq, "$character_info_id", -1),
-          (str_store_troop_name, s1, "$character_info_id"),
+            (neq, "$character_info_id", -1),
+            (str_store_troop_name, s1, "$character_info_id"),
         (else_try),
-          (str_store_string, s1, "str_empty_string"),
+            (str_store_string, s1, "str_empty_string"),
         (try_end),
+        
         (create_text_overlay, reg1, "@{s1}", tf_center_justify|tf_with_outline),
         (overlay_set_color, reg1, 0xFFFFFFFF),
         (position_set_x, pos1, 500), # Higher, means more toward the right
@@ -658,6 +659,189 @@ mercenary_company_presentations = [
         (position_set_x, pos1, 1000),
         (position_set_y, pos1, 1000),
         (overlay_set_size, reg1, pos1),
+        
+### Selected Troop Requirements
+        (try_begin),
+            (neq, "$character_info_id", -1),
+            
+### Container Overlay
+            (create_text_overlay, "$g_presentation_credits_obj_10", "str_empty_string", tf_scrollable_style_2),
+            (position_set_x, pos1, 685),
+            (position_set_y, pos1, 120),
+            (overlay_set_position, "$g_presentation_credits_obj_10", pos1),
+            (position_set_x, pos1, 262),
+            (position_set_y, pos1, 115),
+            (overlay_set_area_size, "$g_presentation_credits_obj_10", pos1),
+            
+            
+        # (create_text_overlay, "$g_presentation_obj_1", "str_empty_string", tf_scrollable_style_2),
+        # (position_set_x, pos1, 685),
+        # (position_set_y, pos1, 320),
+        # (overlay_set_position, "$g_presentation_obj_1", pos1),
+        # (position_set_x, pos1, 262),
+        # (position_set_y, pos1, 360),
+        # (overlay_set_area_size, "$g_presentation_obj_1", pos1),
+            
+### Variable initialization
+            (assign, ":y_value", 180),
+            (assign, ":overlay_colour", color_neutral_news),
+            
+            (str_clear, s13),
+            (str_clear, s14),
+            (str_clear, s15),
+            (str_clear, s16),
+            (str_clear, s17),
+            
+            (troop_get_slot, ":manpower_cost", "$character_info_id", slot_troop_manpower_cost),
+            (troop_get_slot, ":troop_class", "$character_info_id", slot_troop_recruit_class),
+            (call_script, "script_game_get_join_cost", "$character_info_id"),
+            (assign, ":join_cost", reg0),
+            
+            ### Set container
+            (set_container_overlay, "$g_presentation_credits_obj_10"),
+            
+            ### Hiring Cost
+            (assign, reg18, ":join_cost"),
+            (str_store_string, s17, "@Cost: {reg18}"),
+            
+            (try_begin),
+                (ge, ":gold", ":join_cost"),
+                (assign, ":overlay_colour", color_good_news),
+            (else_try),
+                (assign, ":overlay_colour", color_bad_news),
+            (try_end),
+            
+            (create_text_overlay, "$g_presentation_credits_obj_1", s17, tf_left_align),
+            (overlay_set_color, "$g_presentation_credits_obj_1", ":overlay_colour"),
+            (position_set_x, pos1, 1000),
+            (position_set_y, pos1, 1000),
+            (overlay_set_size, "$g_presentation_credits_obj_1", pos1),
+            (position_set_x, pos1, 0),
+            (position_set_y, pos1, ":y_value"),
+            (overlay_set_position, "$g_presentation_credits_obj_1", pos1),
+            
+            ### Manpower
+            (assign, reg19, ":manpower_cost"),
+            (str_store_string, s13, "@Manpower: {reg19}"),
+            (val_sub, ":y_value", 20),
+            
+            (try_begin),
+                (party_slot_ge, "p_player_camp", slot_player_camp_manpower_amount, ":manpower_cost"),
+                (assign, ":overlay_colour", color_good_news),
+            (else_try),
+                (assign, ":overlay_colour", color_bad_news),
+            (try_end),            
+            
+            (create_text_overlay, "$g_presentation_credits_obj_2", s13, tf_left_align),
+            (overlay_set_color, "$g_presentation_credits_obj_2", ":overlay_colour"),
+            (position_set_x, pos1, 1000),
+            (position_set_y, pos1, 1000),
+            (overlay_set_size, "$g_presentation_credits_obj_2", pos1),
+            (position_set_x, pos1, 0),
+            (position_set_y, pos1, ":y_value"),
+            (overlay_set_position, "$g_presentation_credits_obj_2", pos1),
+            
+            (assign, ":overlay_colour", color_bad_news),
+            ### Troop Type
+            (try_begin),
+                (eq, ":troop_class", TROOP_CLASS_RECRUIT),
+                (str_store_string, s14, "@Recruit: 1"),
+                (try_begin),
+                    (party_slot_ge, "p_player_camp", slot_player_camp_recruit_amount, 1),
+                    (assign, ":overlay_colour", color_good_news),
+                (try_end),
+            (else_try),
+                (eq, ":troop_class", TROOP_CLASS_VETERAN),
+                (str_store_string, s14, "@Veteran: 1"),            
+                (try_begin),
+                    (party_slot_ge, "p_player_camp", slot_player_camp_veteran_amount, 1),
+                    (assign, ":overlay_colour", color_good_news),
+                (try_end),
+            (else_try),
+                (eq, ":troop_class", TROOP_CLASS_NOBLE),
+                (str_store_string, s14, "@Noble: 1"),   
+                (try_begin),
+                    (party_slot_ge, "p_player_camp", slot_player_camp_noble_amount, 1),
+                    (assign, ":overlay_colour", color_good_news),
+                (try_end),                
+            (try_end),
+            
+            (val_sub, ":y_value", 20),
+            
+            (create_text_overlay, "$g_presentation_credits_obj_3", s14, tf_left_align),
+            (overlay_set_color, "$g_presentation_credits_obj_3", ":overlay_colour"),
+            (position_set_x, pos1, 1000),
+            (position_set_y, pos1, 1000),
+            (overlay_set_size, "$g_presentation_credits_obj_3", pos1),
+            (position_set_x, pos1, 0),
+            (position_set_y, pos1, ":y_value"),
+            (overlay_set_position, "$g_presentation_credits_obj_3", pos1),
+            
+            ### Building 1
+            (assign, ":overlay_colour", color_bad_news),
+            
+            (try_begin),
+                (troop_slot_eq, "$character_info_id", slot_troop_building_req_1, TROOP_REQ_BUILDING_CORRAL), 
+                (str_store_string, s15, "@Building: ^Corral"),
+                (val_sub, ":y_value", 40),
+                (try_begin),
+                    (party_slot_eq, "p_player_camp", slot_player_camp_corral, 1),
+                    (assign, ":overlay_colour", color_good_news),
+                (try_end),
+            (else_try),
+                (troop_slot_eq, "$character_info_id", slot_troop_building_req_1, TROOP_REQ_BUILDING_RANGE), 
+                (str_store_string, s15, "@Building: ^Archery Range"),
+                (val_sub, ":y_value", 40),
+                (try_begin),
+                    (party_slot_eq, "p_player_camp", slot_player_camp_archery_range, 1),
+                    (assign, ":overlay_colour", color_good_news),
+                (try_end),
+            (else_try),
+                (troop_slot_eq, "$character_info_id", slot_troop_building_req_1, TROOP_REQ_BUILDING_CHAPTERHOUSE), 
+                (str_store_string, s15, "@Building: ^Chapterhouse"),
+                (try_begin),
+                    (party_slot_eq, "p_player_camp", slot_player_camp_chapterhouse, 1),
+                    (assign, ":overlay_colour", color_good_news),
+                (try_end),
+                (val_sub, ":y_value", 40),
+            (else_try),
+                (str_store_string, s15, "str_empty_string"),            
+            (try_end),
+            
+            (create_text_overlay, "$g_presentation_credits_obj_4", s15, tf_left_align),
+            (overlay_set_color, "$g_presentation_credits_obj_4", ":overlay_colour"),
+            (position_set_x, pos1, 1000),
+            (position_set_y, pos1, 1000),
+            (overlay_set_size, "$g_presentation_credits_obj_4", pos1),
+            (position_set_x, pos1, 0),
+            (position_set_y, pos1, ":y_value"),
+            (overlay_set_position, "$g_presentation_credits_obj_4", pos1),
+
+            ### Building 2
+            (assign, ":overlay_colour", color_bad_news),
+            (try_begin),
+                (troop_slot_eq, "$character_info_id", slot_troop_building_req_2, TROOP_REQ_BUILDING_CORRAL), 
+                (str_store_string, s16, "@Building: ^Corral"),
+                (val_sub, ":y_value", 40),
+                (try_begin),
+                    (party_slot_eq, "p_player_camp", slot_player_camp_corral, 1),
+                    (assign, ":overlay_colour", color_good_news),
+                (try_end),
+            (else_try),
+                (str_store_string, s16, "str_empty_string"),            
+            (try_end),
+
+            (create_text_overlay, "$g_presentation_credits_obj_5", s16, tf_left_align),
+            (overlay_set_color, "$g_presentation_credits_obj_5", ":overlay_colour"),
+            (position_set_x, pos1, 1000),
+            (position_set_y, pos1, 1000),
+            (overlay_set_size, "$g_presentation_credits_obj_5", pos1),
+            (position_set_x, pos1, 0),
+            (position_set_y, pos1, ":y_value"),
+            (overlay_set_position, "$g_presentation_credits_obj_5", pos1),
+
+            (set_container_overlay, -1),
+        (try_end),
         
 ### Troop List
         (create_text_overlay, "$g_presentation_obj_1", "str_empty_string", tf_scrollable_style_2),
@@ -671,10 +855,30 @@ mercenary_company_presentations = [
         # Fill listbox (overlay_add_item and extra storage)      
         (assign, ":num_chars", 0),
         (assign, ":num_slot", 0),
-        (try_for_range, ":custom_troops", customizable_troops_begin, customizable_troops_end),
-            (store_sub, ":delta", ":custom_troops", customizable_troops_begin),
+        (try_for_range, ":recruit", mercenary_troops_begin, customizable_troops_end),
+            (store_sub, ":delta", ":recruit", mercenary_troops_begin),
             (store_sub, ":troop", "trp_custom_merc_knight_selection", ":delta"),
-
+            
+            (try_begin),
+                (eq, "$class_type", cc_mercenary_condottiero),
+                (assign, ":troop_start", "trp_italian_light_infantry"),
+                (assign, ":troop_end", "trp_scottish_poor_archer"),
+            (else_try),
+                (eq, "$class_type", cc_mercenary_flemish),
+                (assign, ":troop_start", "trp_flemish_peasant_crossbowman"),
+                (assign, ":troop_end", "trp_italian_light_infantry"),
+            (else_try),
+                (eq, "$class_type", cc_mercenary_scottish),
+                (assign, ":troop_start", "trp_scottish_poor_archer"),
+                (assign, ":troop_end", "trp_mercenaries_end"),
+            (else_try),
+                (assign, ":troop_start", customizable_troops_begin),
+                (assign, ":troop_end",   customizable_troops_end),            
+            (try_end),
+            
+            (this_or_next|is_between, ":troop", ":troop_start", ":troop_end"),
+            (is_between, ":troop", customizable_troops_begin, customizable_troops_end),            
+            
             (neg|troop_is_hero, ":troop"),
 
             (store_mul, ":y_mult", ":num_chars", 16 * 1.4), # adapt y position to entry number, was 18
@@ -722,17 +926,70 @@ mercenary_company_presentations = [
         (try_begin),
             (neq, "$character_info_id", -1),
             
+            (try_begin),
+                (troop_is_guarantee_horse, "$character_info_id"),
+                (assign, ":char_y", 200),
+            (else_try),
+                (assign, ":char_y", 180),            
+            (try_end),
+            
             # (call_script, "script_custom_troop_detail_inventory_left", "$character_info_id"), ### Troop Inventory Box
             (store_mul, reg30, "$character_info_id", 2),
             (create_mesh_overlay_with_tableau_material, "$g_multiplayer_poll_to_show", -1, "tableau_troop_tree_pic", reg30),
             (position_set_x, pos1, 260),
-            (position_set_y, pos1, 100),
+            (position_set_y, pos1, ":char_y"),
             (overlay_set_position, "$g_multiplayer_poll_to_show", pos1),
             (position_set_x, pos1, 700),
             (position_set_y, pos1, 700),
             (overlay_set_size, "$g_multiplayer_poll_to_show", pos1),
         (try_end),
+        
+### Slider
+        (try_begin),
+            (neq, "$character_info_id", -1),
+            (call_script, "script_dac_player_camp_recruit_requirement_met", "$character_info_id"),
+            (assign, ":can_recruit", reg0),
+            (assign, ":max_amount", reg1),
+            (gt, ":can_recruit", 0),
+            (ge, ":max_amount", 1),
+            
+            (create_slider_overlay, "$g_presentation_obj_sliders_1", 1, ":max_amount"),
+            (position_set_x, pos1, 500),
+            (position_set_y, pos1, 140),   
+            (overlay_set_position, "$g_presentation_obj_sliders_1", pos1),            
+            (position_set_x, pos1, 900),
+            (position_set_y, pos1, 1000),
+            (overlay_set_size, "$g_presentation_obj_sliders_1", pos1),
+            
+            (overlay_set_val, "$g_presentation_obj_sliders_1", 1),
+            (assign, "$g_presentation_obj_sliders_1_val", 1),
+            
+            (assign, reg1, "$g_presentation_obj_sliders_1_val"),
+            (call_script, "script_game_get_join_cost", "$character_info_id"),
+            (assign, ":join_cost", reg0),
+            (val_mul, ":join_cost", "$g_presentation_obj_sliders_1_val"),
+            (assign, reg2, ":join_cost"),
+            
+            (create_text_overlay, "$g_presentation_obj_sliders_2", "@Amount: {reg1}", tf_center_justify),
+            (position_set_x, pos1, 500),
+            (position_set_y, pos1, 175),   
+            (overlay_set_position, "$g_presentation_obj_sliders_2", pos1),            
+            (position_set_x, pos1, 1000),
+            (position_set_y, pos1, 1000),
+            (overlay_set_size, "$g_presentation_obj_sliders_2", pos1),
+            (overlay_set_color, "$g_presentation_obj_sliders_2", 0xFFFFFFFF),
+            
+###  Hire
+        (create_in_game_button_overlay, "$g_presentation_obj_3", "@Hire {reg1} for {reg2} Crowns", tf_left_align), #SB : continue str
+        (position_set_x, pos1, 830),
+        (position_set_y, pos1, 25),
+        (overlay_set_color, "$g_presentation_obj_3", 0xFFFFFFFF),
+        (overlay_set_position, "$g_presentation_obj_3", pos1),
+        
+        (try_end),
+        
 
+        
 ###  Quit
         (create_in_game_button_overlay, "$g_presentation_obj_2", "str_continue_dot", tf_left_align), #SB : continue str
         (position_set_x, pos1, 500),
@@ -745,19 +1002,49 @@ mercenary_company_presentations = [
         (call_script, "script_custom_troop_detail_inventory_tooltip"),
       ]),
 
+      (event,[
+        (store_trigger_param_1, ":object"),
+        (store_trigger_param_2, ":value"),
+        (assign, ":val_changed", 0),
+
+        (try_begin),
+            (eq, ":object", "$g_presentation_obj_sliders_1"),
+            (try_begin),
+                (neq, "$g_presentation_obj_sliders_1_val", ":value"),
+                (assign, "$g_presentation_obj_sliders_1_val", ":value"),
+                (assign, ":val_changed", 1),
+            (try_end),
+            (eq, ":val_changed", 1),
+            (assign, reg1, "$g_presentation_obj_sliders_1_val"),
+            (str_store_string, s1, "@Amount: {reg1}"),
+            (overlay_set_text, "$g_presentation_obj_sliders_2", s1), 
+            
+            (call_script, "script_game_get_join_cost", "$character_info_id"),
+            (assign, ":join_cost", reg0),
+            (val_mul, ":join_cost", "$g_presentation_obj_sliders_1_val"),
+            (assign, reg2, ":join_cost"),
+            (str_store_string, s2, "@Hire {reg1} for {reg2} Crowns"),
+            (overlay_set_text, "$g_presentation_obj_3", s2),   
+        (try_end),
+      ]),
+
     (click,
     [
       (store_trigger_param_1, ":object_id"),
       # (store_trigger_param_2, ":state"),
         (try_begin),
+            (eq, ":object_id", "$g_presentation_obj_3"), # Hire
+            (call_script, "script_dac_player_camp_recruit_troop", "$character_info_id", "$g_presentation_obj_sliders_1_val"), # param1 troop, param2 amount
+            (start_presentation, "prsnt_dac_mercenary_camp_recruitment"),
+        (else_try),
             (eq, ":object_id", "$g_presentation_obj_2"), # Continue
             (presentation_set_duration, 0),
-            (jump_to_menu, "mnu_dac_name_troops_2"),
+            (jump_to_menu, "mnu_player_camp_encounter"),
         (else_try),
             (eq, ":object_id", "$g_presentation_obj_1"),
             (start_presentation, "prsnt_dac_mercenary_camp_recruitment"),
       (else_try),
-            (store_sub, ":num_troops", customizable_troops_end, customizable_troops_begin),
+            (store_sub, ":num_troops", customizable_troops_end, mercenary_troops_begin),
             # (val_div, ":num_troops", 3),
             # (val_add, ":num_troops", 1),
             (try_for_range, ":i", 0, ":num_troops"),
@@ -767,13 +1054,24 @@ mercenary_company_presentations = [
                 (start_presentation, "prsnt_dac_mercenary_camp_recruitment"),
                 (assign, ":num_troops", 0),
             (try_end),
+            # (assign, "$g_presentation_obj_sliders_1_val", 1),
+            # (assign, reg1, "$g_presentation_obj_sliders_1_val"),
+            # (str_store_string, s1, "@Amount: {reg1}"),
+            # (overlay_set_text, "$g_presentation_obj_sliders_2", s1),
+        # (else_try),
+            # (overlay_set_val, "$g_presentation_obj_sliders_1", 1),
+            # (assign, "$g_presentation_obj_sliders_1_val", 1),
+            # (assign, reg1, "$g_presentation_obj_sliders_1_val"),
+            # (str_store_string, s1, "@Amount: {reg1}"),
+            # (overlay_set_text, "$g_presentation_obj_sliders_2", s1),    
         (try_end),
     ]),
 
 
       ] 
-        + coord_helper 
-        + prsnt_escape_close),
+        # + coord_helper 
+        # + prsnt_escape_close
+        ),
 
 
 

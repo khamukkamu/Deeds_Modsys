@@ -713,4 +713,14 @@ meshes = [
 ("choose_icon_burgandy",   0, "icon_burgandy_arms",   0, 0, 0, 0, 0, 0, 1, 1, 1), 
 ("choose_icon_breton",   0, "icon_breton_arms",   0, 0, 0, 0, 0, 0, 1, 1, 1), 
 
+## Prebatle Orders & Deployment Begin
+("note_window_bottom", 0, "note_window", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+# ("order_frame", 0, "order_frame", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+("flag4", 0, "flag4", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+("flag5", 0, "flag5", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+("flag6", 0, "flag6", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+("flag7", 0, "flag7", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+("flag8", 0, "flag8", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+("flag9", 0, "flag9", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+## Prebattle Orders & Deployment End
 ]

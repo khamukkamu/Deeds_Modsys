@@ -39,6 +39,7 @@ mercenary_company_scripts = [
     (troop_set_slot, "trp_merc_company_smith", slot_camp_smith_hours_til_finished, -1),
     (call_script, "script_initialize_item_tiers"),
     (call_script, "script_initialize_custom_troop_tiers"),
+    (call_script, "script_dac_player_camp_troop_set_recruitment_requirements"),
   ]),  
 
   ("start_customizing", [
@@ -1348,12 +1349,119 @@ mercenary_company_scripts = [
             (try_end),  
   ]),
   
-  # script_dac_player_camp_troop_recruitment_requirement
+  # script_dac_player_camp_troop_set_recruitment_requirements
   # Input: none
   # Output: none
-  ("dac_player_camp_troop_recruitment_requirement",
+  ("dac_player_camp_troop_set_recruitment_requirements",
     [
+### Mercenaries
+# Flemish
+    (troop_set_slot, "trp_flemish_militia_pikeman",         slot_troop_recruit_class,           TROOP_CLASS_RECRUIT),
+    (troop_set_slot, "trp_flemish_militia_pikeman",         slot_troop_manpower_cost,           1),
+    
+    (troop_set_slot, "trp_flemish_pikeman",                 slot_troop_recruit_class,           TROOP_CLASS_RECRUIT),
+    (troop_set_slot, "trp_flemish_pikeman",                 slot_troop_manpower_cost,           2),
+    
+    (troop_set_slot, "trp_flemish_heavy_pikeman",           slot_troop_recruit_class,           TROOP_CLASS_VETERAN),
+    (troop_set_slot, "trp_flemish_heavy_pikeman",           slot_troop_manpower_cost,           3),
+    
+    (troop_set_slot, "trp_flemish_halberdier",              slot_troop_recruit_class,           TROOP_CLASS_RECRUIT),
+    (troop_set_slot, "trp_flemish_halberdier",              slot_troop_manpower_cost,           2),
+    
+    (troop_set_slot, "trp_flemish_heavy_halberdier",        slot_troop_recruit_class,           TROOP_CLASS_VETERAN),
+    (troop_set_slot, "trp_flemish_heavy_halberdier",        slot_troop_manpower_cost,           3),
 
+    (troop_set_slot, "trp_mercenary_german_dismounted_knight",  slot_troop_recruit_class,       TROOP_CLASS_NOBLE),
+    (troop_set_slot, "trp_mercenary_german_dismounted_knight",  slot_troop_manpower_cost,       5),
+    (troop_set_slot, "trp_mercenary_german_dismounted_knight",  slot_troop_building_req_1,      TROOP_REQ_BUILDING_CHAPTERHOUSE),
+    
+    (troop_set_slot, "trp_mercenary_german_knight",         slot_troop_recruit_class,           TROOP_CLASS_NOBLE),
+    (troop_set_slot, "trp_mercenary_german_knight",         slot_troop_manpower_cost,           5),
+    (troop_set_slot, "trp_mercenary_german_knight",         slot_troop_building_req_1,          TROOP_REQ_BUILDING_CHAPTERHOUSE),
+    (troop_set_slot, "trp_mercenary_german_knight",         slot_troop_building_req_2,          TROOP_REQ_BUILDING_CORRAL),
+
+    (troop_set_slot, "trp_flemish_peasant_crossbowman",     slot_troop_recruit_class,           TROOP_CLASS_RECRUIT),
+    (troop_set_slot, "trp_flemish_peasant_crossbowman",     slot_troop_manpower_cost,           1),
+    (troop_set_slot, "trp_flemish_peasant_crossbowman",     slot_troop_building_req_1,          TROOP_REQ_BUILDING_RANGE),
+    
+    (troop_set_slot, "trp_flemish_militia_crossbowman",     slot_troop_recruit_class,           TROOP_CLASS_RECRUIT),
+    (troop_set_slot, "trp_flemish_militia_crossbowman",     slot_troop_manpower_cost,           2),
+    (troop_set_slot, "trp_flemish_militia_crossbowman",     slot_troop_building_req_1,          TROOP_REQ_BUILDING_RANGE),
+    
+    (troop_set_slot, "trp_flemish_crossbowman",             slot_troop_recruit_class,           TROOP_CLASS_VETERAN),
+    (troop_set_slot, "trp_flemish_crossbowman",             slot_troop_manpower_cost,           3),
+    (troop_set_slot, "trp_flemish_crossbowman",             slot_troop_building_req_1,          TROOP_REQ_BUILDING_RANGE),
+    
+    (troop_set_slot, "trp_flemish_heavy_crossbowman",       slot_troop_recruit_class,           TROOP_CLASS_VETERAN),
+    (troop_set_slot, "trp_flemish_heavy_crossbowman",       slot_troop_manpower_cost,           4),
+    (troop_set_slot, "trp_flemish_heavy_crossbowman",       slot_troop_building_req_1,          TROOP_REQ_BUILDING_RANGE),
+    
+    (troop_set_slot, "trp_flemish_handgonner",              slot_troop_recruit_class,           TROOP_CLASS_VETERAN),
+    (troop_set_slot, "trp_flemish_handgonner",              slot_troop_manpower_cost,           4),
+    (troop_set_slot, "trp_flemish_handgonner",              slot_troop_building_req_1,          TROOP_REQ_BUILDING_RANGE),
+
+# Italian
+    (troop_set_slot, "trp_italian_light_infantry",          slot_troop_recruit_class,           TROOP_CLASS_RECRUIT),
+    (troop_set_slot, "trp_italian_light_infantry",          slot_troop_manpower_cost,           2),
+    
+    (troop_set_slot, "trp_italian_infantry",                slot_troop_recruit_class,           TROOP_CLASS_RECRUIT),
+    (troop_set_slot, "trp_italian_infantry",                slot_troop_manpower_cost,           3),
+    
+    (troop_set_slot, "trp_italian_heavy_infantry",          slot_troop_recruit_class,           TROOP_CLASS_VETERAN),
+    (troop_set_slot, "trp_italian_heavy_infantry",          slot_troop_manpower_cost,           4),
+
+    (troop_set_slot, "trp_genoese_light_crossbowman",       slot_troop_recruit_class,           TROOP_CLASS_RECRUIT),
+    (troop_set_slot, "trp_genoese_light_crossbowman",       slot_troop_manpower_cost,           2),
+    (troop_set_slot, "trp_genoese_light_crossbowman",       slot_troop_building_req_1,          TROOP_REQ_BUILDING_RANGE),
+    
+    (troop_set_slot, "trp_genoese_crossbowman",             slot_troop_recruit_class,           TROOP_CLASS_RECRUIT),
+    (troop_set_slot, "trp_genoese_crossbowman",             slot_troop_manpower_cost,           3),
+    (troop_set_slot, "trp_genoese_crossbowman",             slot_troop_building_req_1,          TROOP_REQ_BUILDING_RANGE),
+    
+    (troop_set_slot, "trp_genoese_heavy_crossbowman",       slot_troop_recruit_class,           TROOP_CLASS_VETERAN),
+    (troop_set_slot, "trp_genoese_heavy_crossbowman",       slot_troop_manpower_cost,           4),
+    (troop_set_slot, "trp_genoese_heavy_crossbowman",       slot_troop_building_req_1,          TROOP_REQ_BUILDING_RANGE),
+
+    (troop_set_slot, "trp_italian_knight",                  slot_troop_recruit_class,           TROOP_CLASS_NOBLE),
+    (troop_set_slot, "trp_italian_knight",                  slot_troop_manpower_cost,           6),
+    (troop_set_slot, "trp_italian_knight",                  slot_troop_building_req_1,          TROOP_REQ_BUILDING_CHAPTERHOUSE),
+    (troop_set_slot, "trp_italian_knight",                  slot_troop_building_req_2,          TROOP_REQ_BUILDING_CORRAL),
+
+# Scottish
+    (troop_set_slot, "trp_scottish_poor_archer",            slot_troop_recruit_class,           TROOP_CLASS_RECRUIT),
+    (troop_set_slot, "trp_scottish_poor_archer",            slot_troop_manpower_cost,           2),
+    (troop_set_slot, "trp_scottish_poor_archer",            slot_troop_building_req_1,          TROOP_REQ_BUILDING_RANGE),
+    
+    (troop_set_slot, "trp_scottish_archer",                 slot_troop_recruit_class,           TROOP_CLASS_RECRUIT),
+    (troop_set_slot, "trp_scottish_archer",                 slot_troop_manpower_cost,           3),
+    (troop_set_slot, "trp_scottish_archer",                 slot_troop_building_req_1,          TROOP_REQ_BUILDING_RANGE),
+    
+    (troop_set_slot, "trp_scottish_rich_archer",            slot_troop_recruit_class,           TROOP_CLASS_VETERAN),
+    (troop_set_slot, "trp_scottish_rich_archer",            slot_troop_manpower_cost,           4),
+    (troop_set_slot, "trp_scottish_rich_archer",            slot_troop_building_req_1,          TROOP_REQ_BUILDING_RANGE),
+
+    (troop_set_slot, "trp_scottish_poor_spearman",          slot_troop_recruit_class,           TROOP_CLASS_RECRUIT),
+    (troop_set_slot, "trp_scottish_poor_spearman",          slot_troop_manpower_cost,           2),
+    
+    (troop_set_slot, "trp_scottish_spearman",               slot_troop_recruit_class,           TROOP_CLASS_RECRUIT),
+    (troop_set_slot, "trp_scottish_spearman",               slot_troop_manpower_cost,           3),
+    
+    (troop_set_slot, "trp_scottish_rich_spearman",          slot_troop_recruit_class,           TROOP_CLASS_VETERAN),
+    (troop_set_slot, "trp_scottish_rich_spearman",          slot_troop_manpower_cost,           4),
+
+    (troop_set_slot, "trp_scottish_footman_at_arms",        slot_troop_recruit_class,           TROOP_CLASS_VETERAN),
+    (troop_set_slot, "trp_scottish_footman_at_arms",        slot_troop_manpower_cost,           4),
+    (troop_set_slot, "trp_scottish_footman_at_arms",        slot_troop_building_req_1,          TROOP_REQ_BUILDING_CHAPTERHOUSE),
+    
+    (troop_set_slot, "trp_scottish_dismounted_squire",      slot_troop_recruit_class,           TROOP_CLASS_NOBLE),
+    (troop_set_slot, "trp_scottish_dismounted_squire",      slot_troop_manpower_cost,           5),
+    (troop_set_slot, "trp_scottish_dismounted_squire",      slot_troop_building_req_1,          TROOP_REQ_BUILDING_CHAPTERHOUSE),
+    
+    (troop_set_slot, "trp_scottish_dismounted_knight",      slot_troop_recruit_class,           TROOP_CLASS_NOBLE),
+    (troop_set_slot, "trp_scottish_dismounted_knight",      slot_troop_manpower_cost,           6),
+    (troop_set_slot, "trp_scottish_dismounted_knight",      slot_troop_building_req_1,          TROOP_REQ_BUILDING_CHAPTERHOUSE),
+
+### Custom Troops
     (troop_set_slot, "trp_custom_merc_recruit",             slot_troop_recruit_class,           TROOP_CLASS_RECRUIT),
     (troop_set_slot, "trp_custom_merc_footman",             slot_troop_recruit_class,           TROOP_CLASS_RECRUIT),
     (troop_set_slot, "trp_custom_merc_veteran",             slot_troop_recruit_class,           TROOP_CLASS_VETERAN),
@@ -1410,32 +1518,170 @@ mercenary_company_scripts = [
     (try_end),
   ]),
   
+  # script_dac_list_player_camp_available_troops_to_s12
+  # Input: none
+  # Output: s10
+  # ("dac_list_player_camp_troop_requirements_to_s12",
+    # [
+    # (str_clear, s12),
+    
+    # (troop_get_slot, ":manpower_cost", ":troop", slot_troop_manpower_cost),
+    # (troop_get_slot, ":troop_class", ":troop", slot_troop_recruit_class),
+    # (troop_get_slot, ":building_req_1", ":troop", slot_troop_building_req_1),
+    # (troop_get_slot, ":building_req_2", ":troop", slot_troop_building_req_2),
+    # (troop_get_slot, ":resource_req", ":troop", slot_troop_resource_requirement),
+
+    # (assign, reg30, ":manpower_amount"),
+    # (assign, reg31, ":manpower_limit"),
+    # (assign, reg32, ":recruit_amount"),
+    # (assign, reg33, ":recruit_limit"),
+    # (assign, reg34, ":veteran_amount"),
+    # (assign, reg35, ":veteran_limit"),
+    # (assign, reg36, ":noble_amount"),
+    # (assign, reg37, ":noble_limit"),
+
+    # (str_store_string, s12, "@Manpower » {reg30}/{reg31} ^^Recruits » {reg32}/{reg33} ^Veterans » {reg34}/{reg35} ^Nobles » {reg36}/{reg37}"),
+  # ]),
+  
   # dac_player_camp_recruit_requirement_met
   # Input: troop_id
   # Output: reg0
   ("dac_player_camp_recruit_requirement_met",
     [
-    # (store_script_param_1, ":troop"),
-    # (store_script_param_1, ":troop_amount"),
+    (store_script_param_1, ":troop"),
     
-    # (assign, ":can_be_recruited", -1),
+    (assign, ":can_be_recruited", -1),
+    (assign, ":max_amount", -1),
     
-    # (party_get_slot, ":manpower_amount",    "p_player_camp", slot_player_camp_manpower_amount),    
-    # (party_get_slot, ":recruit_amount",     "p_player_camp", slot_player_camp_recruit_amount),    
-    # (party_get_slot, ":veteran_amount",     "p_player_camp", slot_player_camp_veteran_amount),    
-    # (party_get_slot, ":noble_amount",       "p_player_camp", slot_player_camp_noble_amount),    
+    (party_get_slot, ":manpower_amount",    "p_player_camp", slot_player_camp_manpower_amount),    
+    (party_get_slot, ":recruit_amount",     "p_player_camp", slot_player_camp_recruit_amount),    
+    (party_get_slot, ":veteran_amount",     "p_player_camp", slot_player_camp_veteran_amount),    
+    (party_get_slot, ":noble_amount",       "p_player_camp", slot_player_camp_noble_amount),      
     
-    # (try_begin),
-        # (this_or_next|eq, ":troop", "trp_custom_merc_recruit"),
-        # (eq, ":troop", "trp_custom_merc_footman"),
-        # (gt, ":manpower_amount", 
-    # (try_end),
- 
+# troop_set_slot                           =  500  # (troop_set_slot, <troop_id>, <slot_no>, <value>),
+# troop_get_slot                           =  520  # (troop_get_slot, <destination>, <troop_id>, <slot_no>),
+# troop_slot_eq                            =  540  # (troop_slot_eq, <troop_id>, <slot_no>, <value>),
+# troop_slot_ge                            =  560  # (troop_slot_ge, <troop_id>, <slot_no>, <value>),
+    
+    (troop_get_slot, ":troop_class", ":troop", slot_troop_recruit_class),
+    (troop_get_slot, ":manpower_cost", ":troop", slot_troop_manpower_cost),
+    # (troop_get_slot, ":building_req_1", ":troop", slot_troop_building_req_1),
+    # (troop_get_slot, ":building_req_2", ":troop", slot_troop_building_req_2),
+    # (troop_get_slot, ":resource_req", ":troop", slot_troop_resource_requirement),
+    
+    # Set max to troop class limit
+    (try_begin),
+        (eq, ":troop_class", TROOP_CLASS_RECRUIT),
+        (val_max, ":max_amount", ":recruit_amount"),
+    (else_try),
+        (eq, ":troop_class", TROOP_CLASS_VETERAN),
+        (val_max, ":max_amount", ":veteran_amount"),
+    (else_try),
+        (eq, ":troop_class", TROOP_CLASS_NOBLE),
+        (val_max, ":max_amount", ":noble_amount"),
+    (try_end),
+    
+    # set max to free party capacity
+    (party_get_free_companions_capacity, ":free_capacity", "p_main_party"),
+    (val_min, ":max_amount", ":free_capacity"),
+    
+    # set max to manpower limit
+    (store_div, ":manpower_factor", ":manpower_amount", ":manpower_cost"), ### MP Factor = MP Total / MP Cost
+    (val_min, ":max_amount", ":manpower_factor"), ### Which is lowest Class limit or Manpower factor
+    
+    # set max to gold limit
+    (store_troop_gold, ":gold", "trp_player"),
+    (call_script, "script_game_get_join_cost", ":troop"),
+    (assign, ":join_cost", reg0),    
+    (store_div, ":max_recruit_gold_factor", ":gold", ":join_cost"),
+    (val_min, ":max_amount", ":max_recruit_gold_factor"),
+    
+    (try_begin),
+        (troop_slot_eq, ":troop", slot_troop_building_req_1, TROOP_REQ_BUILDING_CORRAL),
+        (party_slot_eq, "p_player_camp", slot_player_camp_corral, 1),
+        (assign, ":can_be_recruited", 1),
+    (else_try),
+        (troop_slot_eq, ":troop", slot_troop_building_req_1, TROOP_REQ_BUILDING_RANGE),
+        (party_slot_eq, "p_player_camp", slot_player_camp_archery_range, 1),        
+        (assign, ":can_be_recruited", 1),
+    (else_try),
+        (troop_slot_eq, ":troop", slot_troop_building_req_1, TROOP_REQ_BUILDING_CHAPTERHOUSE),
+        (troop_slot_eq, ":troop", slot_troop_building_req_2, TROOP_REQ_BUILDING_CORRAL),
+        (party_slot_eq, "p_player_camp", slot_player_camp_chapterhouse, 1),
+        (party_slot_eq, "p_player_camp", slot_player_camp_corral, 1),
+        (assign, ":can_be_recruited", 1),
+    (else_try),
+        (troop_slot_eq, ":troop", slot_troop_building_req_1, TROOP_REQ_BUILDING_CHAPTERHOUSE),
+        (neg|troop_slot_eq, ":troop", slot_troop_building_req_2, TROOP_REQ_BUILDING_CORRAL),
+        (party_slot_eq, "p_player_camp", slot_player_camp_chapterhouse, 1),
+        (assign, ":can_be_recruited", 1),
+    (else_try),
+        (troop_slot_eq, ":troop", slot_troop_building_req_1, 0),
+        (troop_slot_eq, ":troop", slot_troop_building_req_2, 0),        
+        (assign, ":can_be_recruited", 1),        
+    (try_end),
+    
+    (try_begin),
+        (eq, ":can_be_recruited", 1),
+        (lt, ":max_amount", 1),
+        (assign, ":can_be_recruited", -1),
+    (try_end),
+    
+    (assign, reg0, ":can_be_recruited"),
+    (assign, reg1, ":max_amount"),
+    
+    (assign, reg30, ":can_be_recruited"),
+    (assign, reg31, ":max_amount"),
+    (assign, reg32, ":manpower_factor"),
+    
+    (display_message, "@CBR is {reg30} Max Amount is {reg31} Factor is {reg32}"),
+  ]),
+  
+  # dac_player_camp_recruit_troop
+  # Input: troop_id, amount
+  # Output: reg0
+  ("dac_player_camp_recruit_troop",
+    [
+    (store_script_param_1, ":troop"),
+    (store_script_param_2, ":amount"),
+    
+    (party_get_slot, ":manpower_amount",    "p_player_camp", slot_player_camp_manpower_amount),    
+    (party_get_slot, ":recruit_amount",     "p_player_camp", slot_player_camp_recruit_amount),    
+    (party_get_slot, ":veteran_amount",     "p_player_camp", slot_player_camp_veteran_amount),    
+    (party_get_slot, ":noble_amount",       "p_player_camp", slot_player_camp_noble_amount),      
+    
+    (troop_get_slot, ":troop_class", ":troop", slot_troop_recruit_class),
+    (troop_get_slot, ":manpower_cost", ":troop", slot_troop_manpower_cost),
+    
+    (try_begin),
+        (eq, ":troop_class", TROOP_CLASS_RECRUIT),
+        (val_sub, ":recruit_amount", ":amount"),
+        (party_set_slot, "p_player_camp", slot_player_camp_recruit_amount, ":recruit_amount"),
+    (else_try),
+        (eq, ":troop_class", TROOP_CLASS_VETERAN),
+        (val_sub, ":veteran_amount", ":amount"),
+        (party_set_slot, "p_player_camp", slot_player_camp_veteran_amount, ":veteran_amount"),
+    (else_try),
+        (eq, ":troop_class", TROOP_CLASS_NOBLE),
+        (val_sub, ":noble_amount", ":amount"),
+        (party_set_slot, "p_player_camp", slot_player_camp_noble_amount, ":noble_amount"),
+    (try_end),
+    
+    (val_mul, ":manpower_cost", ":amount"),
+    (val_sub, ":manpower_amount", ":manpower_cost"),
+    (party_set_slot, "p_player_camp", slot_player_camp_manpower_amount, ":manpower_amount"),
+    
+    # set max to gold limit
+    (call_script, "script_game_get_join_cost", ":troop"),
+    (assign, ":join_cost", reg0),    
+    (val_mul, ":join_cost", ":amount"),
+    
+    (party_add_members, "p_main_party", ":troop", ":amount"),
+    (troop_remove_gold, "trp_player", ":join_cost"),
   ]),
   
   
-  
-  # script_dac_list_player_camp_improvements_to_s11
+  # script_dac_list_player_camp_available_troops_to_s10
   # Input: none
   # Output: s10
   ("dac_list_player_camp_available_troops_to_s10",
@@ -1526,7 +1772,7 @@ mercenary_company_scripts = [
         (assign, reg31, ":recruit_limit"),
         (assign, reg32, ":veteran_limit"),
         (assign, reg33, ":noble_limit"),
-        (display_message, "@Player camp limit debug: Manpower {reg30}; Recruit{reg31}", color_neutral_news),
+        (display_message, "@Player camp limit debug: Manpower {reg30}; Recruit {reg31} ^Veteran {reg32} Noble {reg33}", color_neutral_news),
     (try_end),  
   ]),
 
@@ -1550,8 +1796,9 @@ mercenary_company_scripts = [
 
     (try_begin),
         (le, ":manpower_amount", ":manpower_limit"),
-        (store_div, ":increase", ":manpower_limit", 2),
-        (store_random_in_range, ":amount", 1, ":increase"),
+        (store_div, ":max_increase", ":manpower_limit", 2),
+        (store_div, ":min_increase", ":manpower_limit", 4),
+        (store_random_in_range, ":amount", ":min_increase", ":max_increase"),
         (val_add, ":manpower_amount", ":amount"),
         (val_min, ":manpower_amount", ":manpower_limit"),
         (party_set_slot, "p_player_camp", slot_player_camp_manpower_amount, ":manpower_amount"),
@@ -1559,8 +1806,9 @@ mercenary_company_scripts = [
     
     (try_begin),
         (le, ":recruit_amount", ":recruit_limit"),
-        (store_div, ":increase", ":recruit_limit", 2),
-        (store_random_in_range, ":amount", 1, ":increase"),
+        (store_div, ":max_increase", ":manpower_limit", 2),
+        (store_div, ":min_increase", ":manpower_limit", 4),
+        (store_random_in_range, ":amount", ":min_increase", ":max_increase"),
         (val_add, ":recruit_amount", ":amount"),
         (val_min, ":recruit_amount", ":recruit_limit"),
         (party_set_slot, "p_player_camp", slot_player_camp_recruit_amount, ":recruit_amount"),
@@ -1568,8 +1816,9 @@ mercenary_company_scripts = [
     
     (try_begin),
         (le, ":veteran_amount", ":veteran_limit"),
-        (store_div, ":increase", ":veteran_limit", 2),
-        (store_random_in_range, ":amount", 1, ":increase"),
+        (store_div, ":max_increase", ":manpower_limit", 2),
+        (store_div, ":min_increase", ":manpower_limit", 4),
+        (store_random_in_range, ":amount", ":min_increase", ":max_increase"),
         (val_add, ":veteran_amount", ":amount"),
         (val_min, ":veteran_amount", ":veteran_limit"),
         (party_set_slot, "p_player_camp", slot_player_camp_veteran_amount, ":veteran_amount"),
@@ -1577,8 +1826,9 @@ mercenary_company_scripts = [
     
     (try_begin),
         (le, ":noble_amount", ":noble_limit"),
-        (store_div, ":increase", ":noble_limit", 2),
-        (store_random_in_range, ":amount", 1, ":increase"),
+        (store_div, ":max_increase", ":manpower_limit", 2),
+        (store_div, ":min_increase", ":manpower_limit", 4),
+        (store_random_in_range, ":amount", ":min_increase", ":max_increase"),
         (val_add, ":noble_amount", ":amount"),
         (val_min, ":noble_amount", ":noble_limit"),
         (party_set_slot, "p_player_camp", slot_player_camp_noble_amount, ":noble_amount"),
@@ -1592,7 +1842,7 @@ mercenary_company_scripts = [
         (assign, reg31, ":recruit_amount"),
         (assign, reg32, ":veteran_amount"),
         (assign, reg33, ":noble_amount"),
-        (display_message, "@Player camp value debug: Manpower {reg30}; Recruit{reg31} ", color_neutral_news),
+        (display_message, "@Player camp value debug: Manpower {reg30}; Recruit {reg31} ^Veteran {reg32}; Noble {reg33}", color_neutral_news),
     (try_end),
 
   ]),

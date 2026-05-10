@@ -3013,3 +3013,91 @@ MERC_CAMP_TROOP_REQ = 15
 MERC_CAMP_GOLD_REQ = 1000
 MERC_CAMP_TOOLS_REQ = 2
 MERC_CAMP_WOOL_REQ = 5
+
+
+
+## Prebattle Orders & Deployment Begin
+max_battle_size = 1000 #RESET if you've modded the battlesize
+skirmish_min_distance = 1500 #Min distance you wish maintained, in cm. Where agent will retreat
+skirmish_max_distance = 2500 #Max distance to maintain, in cm. Where agent will stop retreating
+
+#PBOD General
+current_version = 900
+slot_party_pbod_mod_version           = 46  #slot_village_player_can_not_steal_cattle
+#Deployment
+slot_troop_prebattle_first_round      = 37  #slot_lady_no_messages 
+#slot_troop_prebattle_array            = 38  #slot_lady_last_suitor 
+slot_troop_prebattle_num_upgrade      = 52  #slot_lord_reputation_type  
+slot_troop_prebattle_preupgrade_check = 39  #slot_troop_betrothal_time   
+slot_party_prebattle_customized_deployment = 47  #slot_center_accumulated_rents  
+slot_party_prebattle_battle_size           = 48  #slot_center_accumulated_tariffs 
+slot_party_prebattle_size_in_battle        = 49  #slot_town_wealth  
+slot_party_prebattle_in_battle_count       = 50  #slot_town_prosperity
+#Split Divisions
+slot_party_prebattle_customized_divisions  = 51  #slot_town_player_odds 
+slot_party_reinforcement_stage 		       = 107 #for main_party_backup
+slot_troop_prebattle_alt_division          = 48  #slot_troop_set_decision_seed
+slot_troop_prebattle_alt_division_percent  = 49  #slot_troop_temp_decision_seed 
+slot_troop_prebattle_alt_division_amount   = 50  #slot_troop_recruitment_random 
+#Troop slots--for soldiers (non-heros, non-lords, non-player) only
+#Party slots--for the main party and main party backup only
+#Orders
+slot_party_prebattle_plan                  = 231 #slot_center_shipyards
+slot_party_prebattle_num_orders            = 232 #slot_center_household_gardens 
+slot_party_prebattle_order_array_begin     = 250 #slot_town_trade_good_prices_begin 
+#Party slots--for the main party only--up to 320 used in this version
+#reg()s from 6-50 used in this version (only during order presentation)
+#Weather Prof Decrease
+slot_troop_proficiency_modified  = 335
+slot_troop_orig_wpt_archery      = 336
+slot_troop_orig_wpt_crossbow     = 337
+slot_troop_orig_wpt_throwing     = 338
+#Agent Slots
+slot_agent_lance         = 33
+slot_agent_horsebow      = 34
+slot_agent_spear         = 35
+slot_agent_horse         = 36
+slot_agent_volley_fire   = 37
+slot_agent_spearwall     = 38
+slot_agent_player_braced = 39
+slot_agent_alt_div_check = 40
+#slot_agent_new_division  = 41
+#Team Slots (so high to allow for formations)
+slot_team_d0_order_weapon     = 300 #plus 8 more for the other divisions
+slot_team_d0_order_shield     = 309 #plus 8 more for the other divisions
+slot_team_d0_order_skirmish   = 318 #plus 8 more for the other divisions
+slot_team_d0_order_volley     = 327 #plus 8 more for the other divisions
+slot_team_d0_order_sp_brace   = 336 #plus 8 more for the other divisions
+
+slot_team_d0_formation_to_resume = 349
+
+#PBOD Preference Slots (used for p_main_party; available 72 - 108)
+slot_party_pref_prefs_set    = 72
+slot_party_pref_div_dehorse  = slot_town_village_product         #76
+slot_party_pref_div_no_ammo  = slot_town_rebellion_readiness     #77
+slot_party_pref_wu_lance     = slot_town_arena_melee_mission_tpl #78
+slot_party_pref_wu_harcher   = slot_town_arena_torny_mission_tpl #79
+slot_party_pref_wu_spear     = slot_town_arena_melee_1_num_teams #80
+slot_party_pref_dmg_tweaks   = slot_town_arena_melee_1_team_size #81
+slot_party_pref_spear_brace  = slot_town_arena_melee_2_num_teams #82
+slot_party_pref_formations   = slot_town_arena_melee_2_team_size #83
+slot_party_pref_bodyguard    = slot_town_arena_melee_3_num_teams #84
+slot_party_pref_bc_continue  = slot_town_arena_melee_3_team_size #85
+slot_party_pref_bc_charge_ko = slot_town_arena_melee_cur_tier    #86
+slot_party_pref_wp_prof_decrease = 87
+
+#Order Tracking
+slot_party_gk_order          = 108
+slot_party_gk_order_hold_over_there = slot_party_gk_order #for party #2 at the moment, also used for backup_party
+
+#Order Constants
+ranged    = 0
+onehand   = 1
+twohands  = 2
+polearm   = 3
+shield    = 4
+noshield  = 5
+free      = 6 #shield
+clear     = -1
+begin     = 1
+end       = 0

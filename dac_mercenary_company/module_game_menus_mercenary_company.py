@@ -226,6 +226,12 @@ mercenary_company_menus = [
     (start_presentation, "prsnt_dac_mercenary_camp_recruitment")
     ]),   
     
+    # ("sliders_test",
+       # [(eq, reg6, 0),],
+    # "Test Sliders.",[
+    # (start_presentation, "prsnt_sliders")
+    # ]),   
+    
     ("player_camp_meet_quartermaster",
        [(eq, reg6, 0),],
     "Speak to the Quartermaster.",[
