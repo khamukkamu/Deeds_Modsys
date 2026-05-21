@@ -5754,8 +5754,21 @@ Even in the last case, the player can make formations up to four lines by orderi
 ("dac_player_camp_recruitment",                 "Troop List"),  
 ("dac_player_camp_requirements",                "Troop Requirements"),  
 ("dac_player_camp_party_info",                  "Party Information"),  
+("dac_player_camp_troop_info",                  "Troop Information"),  
+("dac_player_camp_troop_inv",                   "Troop Inventory"),  
 ("dac_player_camp_player_info",                 "Player Information"),  
 ("dac_player_camp_player_info_registers",       "Crowns: {reg13} ^Renown: {reg14} ^Honor: {reg15} ^Party Size: {reg16}/{reg17}"),  
+# ("dac_player_camp_party_info_text",             "Manpower:^Recruits:^Veterans:^Nobles:"),  
+("dac_player_camp_manpower",                    "Manpower:"),  
+("dac_player_camp_recruits",                    "Recruits:"),  
+("dac_player_camp_veterans",                    "Veterans:"),  
+("dac_player_camp_nobles",                      "Nobles:"),  
+
+("dac_player_camp_contracted_generic",          "We currently have a contract with mercenaries with no particular identity. Would you like to change that?"),  
+("dac_player_camp_contracted_italian",          "We currently have a contract with mercenaries from Italy. Would you like to change that?"),  
+("dac_player_camp_contracted_flemish",          "We currently have a contract with Flemish mercenaries. Would you like to change that?"),  
+("dac_player_camp_contracted_scottish",         "We currently have a contract with Scottish mercenaries. Would you like to change that?"),  
+("dac_player_camp_contracted_none",             "Very well, we currently have no contracted mercenaries."),  
 
 ### DAC Seek: Tournament Plays Quest Strings
 ("qp1_quest_desc_tournament_invited_by_s9_to_s13", "You have been invited by {s9} to attend the tournament being held in {s13}.  Turning down this invitation would be frowned upon."),

@@ -683,6 +683,8 @@ meshes = [
   ("drop_button_child_hl", 0, "button_drop_child_hl", 0, 0, 0, 0, 0, 0, 1.0, 0.5, 0.5),
   
   ("inventory_equipment_panel", 0, "inventory_equipment_panel", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("mp_ui_profile", 0, "mp_ui_profile", 0, 0, 0, 0, 0, 0, 1, 1, 1),
+  ("mp_ui_bg", 0, "mp_ui_bg", 0, 0, 0, 0, 0, 0, 1, 1, 1),
 ##diplomacy start+
     #old pictures
   ("pic_mb_warrior_2", 0, "ini_pic_mb_warrior_2", 0, 0, 0, 0, 0, 0, 0.8, 1, 1),
@@ -693,8 +695,19 @@ meshes = [
   ("icon_morningstar", 0, "ico_morningstar", 0, 0, 0, 0, 0, 0, 0.3, 0.3, 0.3),
   ("icon_lance", 0, "ico_couchedlance", 0, 0, 0, 0, 0, 0, 0.3, 0.3, 0.3),
   ("icon_spear", 0, "ico_spear", 0, 0, 0, 0, 0, 0, 0.3, 0.3, 0.3),
-  ("icon_bardiche", 0, "ico_axetwo", 0, 0, 0, 0, 0, 0, 0.3, 0.3, 0.3),
-
+  ("icon_bardiche", 0, "ico_axetwo", 0, 0, 0, 0, 0, 0, 0.25, 0.3, 0.3),
+### DAC Seek: Need more for presentations
+  ("icon_bow", 0, "ico_bow", 0, 0, 0, 0, 0, 0, 0.6, 0.4, 0.4),
+  ("icon_crossbow", 0, "ico_crossbow", 0, 0, 0, 0, 0, 0, 0.3, 0.3, 0.3),
+  ("icon_sword", 0, "ico_swordone", 0, 0, 0, 0, 0, 0, 0.25, 0.3, 0.3),
+  ("icon_sword_twohanded", 0, "ico_swordtwo", 0, 0, 0, 0, 0, 0, 0.2, 0.28, 0.3),
+  ("icon_dagger", 0, "ico_dagger", 0, 0, 0, 0, 0, 0, 0.3, 0.3, 0.3),
+  ("icon_blunt", 0, "ico_blunt", 0, 0, 0, 0, 0, 0, 0.3, 0.3, 0.3),
+  ("icon_axe", 0, "ico_axeone", 0, 0, 0, 0, 0, 0, 0.3, 0.3, 0.3),
+  ("icon_musket", 0, "ico_musket", 0, 0, 0, 0, 0, 0, 0.15, 0.25, 0.3),
+  ("icon_gold", 0, "mp_ico_gold", 0, 0, 0, 0, 0, 0, 0.3, 0.3, 0.3),
+  ("icon_horse", 0, "ico_couchedlance", 0, 0, 0, 0, 0, 0, 0.35, 0.3, 0.3),
+  
   ("order_frame", 0, "mp_ui_order_button", 0, 0, 0, 0, 0, 0, 1, 1, 1),
   ("flag_spears", 0, "flag_infantry", 0, 0, 0, 0, 0, 0, 1, 1, 1),
   ("flag_skirmishers", 0, "flag_archers", 0, 0, 0, 0, 0, 0, 1, 1, 1),

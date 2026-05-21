@@ -2900,27 +2900,38 @@ center_list = [
 customizable_troops_begin = "trp_custom_merc_recruit"
 customizable_troops_end = "trp_custom_mercs_end"
 slot_camp_smith_hours_til_finished = slot_troop_home #Piggyback on this slot.
+slot_camp_smith_hours_til_finished_2 = slot_troop_2ary_morality_type #Piggyback on this slot.
+slot_camp_smith_hours_til_finished_3 = slot_troop_2ary_morality_value #Piggyback on this slot.
 slot_camp_smith_creating_item = slot_troop_first_encountered #piggyback on this slot
+slot_camp_smith_creating_item_2 = slot_troop_morality_state #piggyback on this slot
+slot_camp_smith_creating_item_3 = slot_troop_morality_type #piggyback on this slot
 #Party Slots
 # Camp buildings
-slot_player_camp_smithy = 350
-slot_player_camp_archery_range = 351
-slot_player_camp_corral = 352
-slot_player_camp_market = 353
-slot_player_camp_gaol = 354
-slot_player_camp_chapterhouse = 355
+slot_player_camp_smithy             = 350
+slot_player_camp_archery_range      = 351
+slot_player_camp_corral             = 352
+slot_player_camp_market             = 353
+slot_player_camp_gaol               = 354
+slot_player_camp_chapterhouse       = 355
 # Camp level 1-4
 slot_player_camp_level = 356
 slot_player_camp_relocation_project = 357
 # Camp Recruitment
-slot_player_camp_manpower_limit = 358
-slot_player_camp_recruit_limit = 359
-slot_player_camp_veteran_limit = 360
-slot_player_camp_noble_limit = 361
-slot_player_camp_manpower_amount = 362
-slot_player_camp_recruit_amount = 363
-slot_player_camp_veteran_amount = 364
-slot_player_camp_noble_amount = 365
+slot_player_camp_manpower_limit     = 358
+slot_player_camp_recruit_limit      = 359
+slot_player_camp_veteran_limit      = 360
+slot_player_camp_noble_limit        = 361
+slot_player_camp_manpower_amount    = 362
+slot_player_camp_recruit_amount     = 363
+slot_player_camp_veteran_amount     = 364
+slot_player_camp_noble_amount       = 365
+
+slot_player_camp_contracted_mercs   = 366
+
+contracted_mercs_generic = 1
+contracted_mercs_italian = 2
+contracted_mercs_flemish = 3
+contracted_mercs_scottish = 4
 
 # Item slots
 slot_item_armor_tier = 120
@@ -2966,6 +2977,8 @@ slot_troop_resource_requirement = 186
 TROOP_REQ_RESOURCE_HORSE = 1
 TROOP_REQ_RESOURCE_FIREARM = 2
 TROOP_REQ_RESOURCE_BANNER = 3
+
+slot_troop_recruitment_icon = 187
 ## DAC Custom Troops (Merc Company Feature) End
 
 #MORALE DEBUGGING & TWEAKING

@@ -34,6 +34,7 @@ mercenary_company_scripts = [
     (party_set_slot, "p_player_camp", slot_player_camp_gaol, -1),    
     (party_set_slot, "p_player_camp", slot_player_camp_chapterhouse, -1),    
     (party_set_slot, "p_player_camp", slot_player_camp_relocation_project, -1),    
+    (party_set_slot, "p_player_camp", slot_player_camp_contracted_mercs, -1),    
     # Custom Troops
     (troop_set_slot, "trp_merc_company_smith", slot_camp_smith_creating_item, -1),
     (troop_set_slot, "trp_merc_company_smith", slot_camp_smith_hours_til_finished, -1),
@@ -611,9 +612,9 @@ mercenary_company_scripts = [
 
       (store_script_param_1, ":troop_id"),
       (create_text_overlay, ":gear_container", "str_empty_string", tf_scrollable),
-      (position_set_x, pos1, 80),(position_set_y, pos1, 190),
+      (position_set_x, pos1, 96),(position_set_y, pos1, 180),
       (overlay_set_position, ":gear_container", pos1),
-      (position_set_x, pos1, 470),(position_set_y, pos1, 380),
+      (position_set_x, pos1, 303),(position_set_y, pos1, 420),
       (overlay_set_area_size, ":gear_container", pos1),
       (set_container_overlay, ":gear_container"),
       
@@ -623,14 +624,14 @@ mercenary_company_scripts = [
       (store_sub, ":num_items", ":num_slots", ":num_free_slots"),
       #(val_sub, ":num_items", 10),
       
-      (store_div, ":y_max", ":num_items", 4),
+      (store_div, ":y_max", ":num_items", 3),
       
-      (assign, ":box_incr", 115),
+      (assign, ":box_incr", 90),
       (val_max, ":y_max", 1),
       (val_mul, ":y_max", ":box_incr"),
       
-      (assign, ":x_item", 60),
-      (store_add, ":y_item", ":y_max", 60),
+      (assign, ":x_item", 50),
+      (store_add, ":y_item", ":y_max", 55),
       (assign, ":count", 0),
       (assign, ":x_box", 0),
       (assign, ":y_box", ":y_max"),
@@ -698,25 +699,25 @@ mercenary_company_scripts = [
           (create_mesh_overlay, reg1, "mesh_mp_inventory_choose"),
           (position_set_x, pos1, ":x_box"),(position_set_y, pos1, ":y_box"),
           (overlay_set_position, reg1, pos1),
-          (position_set_x, pos1, 900),(position_set_y, pos1, 900),
+          (position_set_x, pos1, 800),(position_set_y, pos1, 800),
           (overlay_set_size, reg1, pos1),
           (overlay_set_alpha, reg1, 0xFF),
           
           (create_mesh_overlay_with_item_id, reg1, ":item"),
           (position_set_x, pos1, ":x_item"),(position_set_y, pos1, ":y_item"),
           (overlay_set_position, reg1, pos1),
-          (position_set_x, pos1, 1250),(position_set_y, pos1, 1250),
+          (position_set_x, pos1, 1000),(position_set_y, pos1, 1000),
           (overlay_set_size, reg1, pos1),
           
-          (val_add, ":x_item", 115),
-          (val_add, ":x_box", 115),
+          (val_add, ":x_item", 100),
+          (val_add, ":x_box", 100),
           
           (try_begin),# next row items
-            (store_mod, ":mod", ":count", 4),
+            (store_mod, ":mod", ":count", 3),
             (eq, ":mod", 0),
-            (val_sub, ":y_item", 115),
-            (val_sub, ":y_box", 115),
-            (assign, ":x_item", 60),
+            (val_sub, ":y_item", 100),
+            (val_sub, ":y_box", 100),
+            (assign, ":x_item", 50),
             (assign, ":x_box", 0),
           (try_end),
           
@@ -731,23 +732,23 @@ mercenary_company_scripts = [
       (assign, "$temp2", ":count"),
       (set_container_overlay, -1),
       
-      (try_begin),
-        (is_presentation_active, "prsnt_dac_ct_view_armoury"),
-        (str_store_string, s57, "@The Armoury contains all the items the current troop has access to^In this menu you can sell items you no longer need while in the 'Commission Items' screen you purchase items for your troop^Left Click to select and view details"),
-      (else_try),
-        (str_store_string, s57, "@This is your personal inventory^You can only reproduce items that are the same tier or lower than the troop.^Left Click to select an item for the armoury."),
-      (try_end),
-      # Text about troop inventory
-      (try_begin),
-        (create_text_overlay, reg1,
-          s57,
-        tf_left_align),
-        (position_set_x, pos1, 85),(position_set_y, pos1, 140),
-        (overlay_set_position, reg1, pos1),
-        (position_set_x, pos1, font_small),(position_set_y, pos1, font_small),
-        (overlay_set_size, reg1, pos1),
-        (overlay_set_color, reg1, 0x000000),
-      (try_end),
+      # (try_begin),
+        # (is_presentation_active, "prsnt_dac_ct_view_armoury"),
+        # (str_store_string, s57, "@The Armoury contains all the items the current troop has access to^In this menu you can sell items you no longer need while in the 'Commission Items' screen you purchase items for your troop^Left Click to select and view details"),
+      # (else_try),
+        # (str_store_string, s57, "@This is your personal inventory^You can only reproduce items that are the same tier or lower than the troop.^Left Click to select an item for the armoury."),
+      # (try_end),
+      ## Text about troop inventory
+      # (try_begin),
+        # (create_text_overlay, reg1,
+          # s57,
+        # tf_left_align),
+        # (position_set_x, pos1, 85),(position_set_y, pos1, 140),
+        # (overlay_set_position, reg1, pos1),
+        # (position_set_x, pos1, font_small),(position_set_y, pos1, font_small),
+        # (overlay_set_size, reg1, pos1),
+        # (overlay_set_color, reg1, 0x000000),
+      # (try_end),
   ]),
 
 ("initialize_item_tiers", [
@@ -1312,6 +1313,8 @@ mercenary_company_scripts = [
     [
             (str_clear, s3),
             (str_clear, s4),
+            (str_clear, s11),
+            
             (party_get_slot, ":player_camp_level", "p_player_camp", slot_player_camp_level),
             
             (try_begin),
@@ -1355,159 +1358,269 @@ mercenary_company_scripts = [
   ("dac_player_camp_troop_set_recruitment_requirements",
     [
 ### Mercenaries
+# Generic
+    (troop_set_slot, "trp_watchman",                        slot_troop_recruit_class,           TROOP_CLASS_RECRUIT),
+    (troop_set_slot, "trp_watchman",                        slot_troop_manpower_cost,           1),
+    (troop_set_slot, "trp_watchman",                        slot_troop_recruitment_icon,        "mesh_icon_blunt"),
+
+    (troop_set_slot, "trp_caravan_guard",                   slot_troop_recruit_class,           TROOP_CLASS_RECRUIT),
+    (troop_set_slot, "trp_caravan_guard",                   slot_troop_manpower_cost,           2),
+    (troop_set_slot, "trp_caravan_guard",                   slot_troop_recruitment_icon,        "mesh_icon_blunt"),
+
+    (troop_set_slot, "trp_mercenary_swordsman",             slot_troop_recruit_class,           TROOP_CLASS_RECRUIT),
+    (troop_set_slot, "trp_mercenary_swordsman",             slot_troop_manpower_cost,           3),
+    (troop_set_slot, "trp_mercenary_swordsman",             slot_troop_recruitment_icon,        "mesh_icon_sword"),
+
+    (troop_set_slot, "trp_mercenary_spearman",              slot_troop_recruit_class,           TROOP_CLASS_RECRUIT),
+    (troop_set_slot, "trp_mercenary_spearman",              slot_troop_manpower_cost,           3),
+    (troop_set_slot, "trp_mercenary_spearman",              slot_troop_recruitment_icon,        "mesh_icon_spear"),
+
+    (troop_set_slot, "trp_hired_blade",                     slot_troop_recruit_class,           TROOP_CLASS_VETERAN),
+    (troop_set_slot, "trp_hired_blade",                     slot_troop_manpower_cost,           4),
+    (troop_set_slot, "trp_hired_blade",                     slot_troop_recruitment_icon,        "mesh_icon_sword"),
+
+    (troop_set_slot, "trp_mercenary_pavise_spearman",       slot_troop_recruit_class,           TROOP_CLASS_VETERAN),
+    (troop_set_slot, "trp_mercenary_pavise_spearman",       slot_troop_manpower_cost,           4),
+    (troop_set_slot, "trp_mercenary_pavise_spearman",       slot_troop_recruitment_icon,        "mesh_icon_spear"),
+    
+    (troop_set_slot, "trp_mercenary_bowman",                slot_troop_recruit_class,           TROOP_CLASS_RECRUIT),
+    (troop_set_slot, "trp_mercenary_bowman",                slot_troop_manpower_cost,           1),
+    (troop_set_slot, "trp_mercenary_bowman",                slot_troop_building_req_1,          TROOP_REQ_BUILDING_RANGE),
+    (troop_set_slot, "trp_mercenary_bowman",                slot_troop_recruitment_icon,        "mesh_icon_bow"),
+
+    (troop_set_slot, "trp_mercenary_archer",                slot_troop_recruit_class,           TROOP_CLASS_RECRUIT),
+    (troop_set_slot, "trp_mercenary_archer",                slot_troop_manpower_cost,           2),
+    (troop_set_slot, "trp_mercenary_archer",                slot_troop_building_req_1,          TROOP_REQ_BUILDING_RANGE),
+    (troop_set_slot, "trp_mercenary_archer",                slot_troop_recruitment_icon,        "mesh_icon_bow"),
+
+    (troop_set_slot, "trp_mercenary_longbowman",            slot_troop_recruit_class,           TROOP_CLASS_VETERAN),
+    (troop_set_slot, "trp_mercenary_longbowman",            slot_troop_manpower_cost,           3),
+    (troop_set_slot, "trp_mercenary_longbowman",            slot_troop_building_req_1,          TROOP_REQ_BUILDING_RANGE),
+    (troop_set_slot, "trp_mercenary_longbowman",            slot_troop_recruitment_icon,        "mesh_icon_bow"),
+
+    (troop_set_slot, "trp_mercenary_scout",                 slot_troop_recruit_class,           TROOP_CLASS_RECRUIT),
+    (troop_set_slot, "trp_mercenary_scout",                 slot_troop_manpower_cost,           2),
+    (troop_set_slot, "trp_mercenary_scout",                 slot_troop_building_req_1,          TROOP_REQ_BUILDING_CORRAL),
+    (troop_set_slot, "trp_mercenary_scout",                 slot_troop_resource_requirement,    TROOP_REQ_RESOURCE_HORSE),
+    (troop_set_slot, "trp_mercenary_scout",                 slot_troop_recruitment_icon,        "mesh_icon_horse"),
+
+    (troop_set_slot, "trp_mercenary_light_cavalry",         slot_troop_recruit_class,           TROOP_CLASS_VETERAN),
+    (troop_set_slot, "trp_mercenary_light_cavalry",         slot_troop_manpower_cost,           3),
+    (troop_set_slot, "trp_mercenary_light_cavalry",         slot_troop_building_req_1,          TROOP_REQ_BUILDING_CORRAL),
+    (troop_set_slot, "trp_mercenary_light_cavalry",         slot_troop_resource_requirement,    TROOP_REQ_RESOURCE_HORSE),
+    (troop_set_slot, "trp_mercenary_light_cavalry",         slot_troop_recruitment_icon,        "mesh_icon_horse"),
+
+    (troop_set_slot, "trp_mercenary_cavalry",               slot_troop_recruit_class,           TROOP_CLASS_VETERAN),
+    (troop_set_slot, "trp_mercenary_cavalry",               slot_troop_manpower_cost,           4),
+    (troop_set_slot, "trp_mercenary_cavalry",               slot_troop_building_req_1,          TROOP_REQ_BUILDING_CORRAL),
+    (troop_set_slot, "trp_mercenary_cavalry",               slot_troop_resource_requirement,    TROOP_REQ_RESOURCE_HORSE),
+    (troop_set_slot, "trp_mercenary_cavalry",               slot_troop_recruitment_icon,        "mesh_icon_horse"),
+
 # Flemish
     (troop_set_slot, "trp_flemish_militia_pikeman",         slot_troop_recruit_class,           TROOP_CLASS_RECRUIT),
     (troop_set_slot, "trp_flemish_militia_pikeman",         slot_troop_manpower_cost,           1),
+    (troop_set_slot, "trp_flemish_militia_pikeman",         slot_troop_recruitment_icon,        "mesh_icon_spear"),
     
     (troop_set_slot, "trp_flemish_pikeman",                 slot_troop_recruit_class,           TROOP_CLASS_RECRUIT),
     (troop_set_slot, "trp_flemish_pikeman",                 slot_troop_manpower_cost,           2),
+    (troop_set_slot, "trp_flemish_pikeman",                 slot_troop_recruitment_icon,        "mesh_icon_spear"),
     
     (troop_set_slot, "trp_flemish_heavy_pikeman",           slot_troop_recruit_class,           TROOP_CLASS_VETERAN),
     (troop_set_slot, "trp_flemish_heavy_pikeman",           slot_troop_manpower_cost,           3),
+    (troop_set_slot, "trp_flemish_heavy_pikeman",           slot_troop_recruitment_icon,        "mesh_icon_spear"),
     
     (troop_set_slot, "trp_flemish_halberdier",              slot_troop_recruit_class,           TROOP_CLASS_RECRUIT),
     (troop_set_slot, "trp_flemish_halberdier",              slot_troop_manpower_cost,           2),
+    (troop_set_slot, "trp_flemish_halberdier",              slot_troop_recruitment_icon,        "mesh_icon_bardiche"),
     
     (troop_set_slot, "trp_flemish_heavy_halberdier",        slot_troop_recruit_class,           TROOP_CLASS_VETERAN),
     (troop_set_slot, "trp_flemish_heavy_halberdier",        slot_troop_manpower_cost,           3),
+    (troop_set_slot, "trp_flemish_heavy_halberdier",        slot_troop_recruitment_icon,        "mesh_icon_bardiche"),
 
     (troop_set_slot, "trp_mercenary_german_dismounted_knight",  slot_troop_recruit_class,       TROOP_CLASS_NOBLE),
     (troop_set_slot, "trp_mercenary_german_dismounted_knight",  slot_troop_manpower_cost,       5),
     (troop_set_slot, "trp_mercenary_german_dismounted_knight",  slot_troop_building_req_1,      TROOP_REQ_BUILDING_CHAPTERHOUSE),
+    (troop_set_slot, "trp_mercenary_german_dismounted_knight",  slot_troop_recruitment_icon,    "mesh_icon_sword_twohanded"),
     
     (troop_set_slot, "trp_mercenary_german_knight",         slot_troop_recruit_class,           TROOP_CLASS_NOBLE),
     (troop_set_slot, "trp_mercenary_german_knight",         slot_troop_manpower_cost,           5),
     (troop_set_slot, "trp_mercenary_german_knight",         slot_troop_building_req_1,          TROOP_REQ_BUILDING_CHAPTERHOUSE),
     (troop_set_slot, "trp_mercenary_german_knight",         slot_troop_building_req_2,          TROOP_REQ_BUILDING_CORRAL),
+    (troop_set_slot, "trp_mercenary_german_knight",         slot_troop_recruitment_icon,        "mesh_icon_horse"),
 
     (troop_set_slot, "trp_flemish_peasant_crossbowman",     slot_troop_recruit_class,           TROOP_CLASS_RECRUIT),
     (troop_set_slot, "trp_flemish_peasant_crossbowman",     slot_troop_manpower_cost,           1),
     (troop_set_slot, "trp_flemish_peasant_crossbowman",     slot_troop_building_req_1,          TROOP_REQ_BUILDING_RANGE),
+    (troop_set_slot, "trp_flemish_peasant_crossbowman",     slot_troop_recruitment_icon,        "mesh_icon_crossbow"),
     
     (troop_set_slot, "trp_flemish_militia_crossbowman",     slot_troop_recruit_class,           TROOP_CLASS_RECRUIT),
     (troop_set_slot, "trp_flemish_militia_crossbowman",     slot_troop_manpower_cost,           2),
     (troop_set_slot, "trp_flemish_militia_crossbowman",     slot_troop_building_req_1,          TROOP_REQ_BUILDING_RANGE),
+    (troop_set_slot, "trp_flemish_militia_crossbowman",     slot_troop_recruitment_icon,        "mesh_icon_crossbow"),
     
     (troop_set_slot, "trp_flemish_crossbowman",             slot_troop_recruit_class,           TROOP_CLASS_VETERAN),
     (troop_set_slot, "trp_flemish_crossbowman",             slot_troop_manpower_cost,           3),
     (troop_set_slot, "trp_flemish_crossbowman",             slot_troop_building_req_1,          TROOP_REQ_BUILDING_RANGE),
+    (troop_set_slot, "trp_flemish_crossbowman",             slot_troop_recruitment_icon,        "mesh_icon_crossbow"),
     
     (troop_set_slot, "trp_flemish_heavy_crossbowman",       slot_troop_recruit_class,           TROOP_CLASS_VETERAN),
     (troop_set_slot, "trp_flemish_heavy_crossbowman",       slot_troop_manpower_cost,           4),
     (troop_set_slot, "trp_flemish_heavy_crossbowman",       slot_troop_building_req_1,          TROOP_REQ_BUILDING_RANGE),
+    (troop_set_slot, "trp_flemish_heavy_crossbowman",       slot_troop_recruitment_icon,        "mesh_icon_crossbow"),
     
     (troop_set_slot, "trp_flemish_handgonner",              slot_troop_recruit_class,           TROOP_CLASS_VETERAN),
     (troop_set_slot, "trp_flemish_handgonner",              slot_troop_manpower_cost,           4),
     (troop_set_slot, "trp_flemish_handgonner",              slot_troop_building_req_1,          TROOP_REQ_BUILDING_RANGE),
+    (troop_set_slot, "trp_flemish_handgonner",              slot_troop_recruitment_icon,        "mesh_icon_musket"),
 
 # Italian
     (troop_set_slot, "trp_italian_light_infantry",          slot_troop_recruit_class,           TROOP_CLASS_RECRUIT),
     (troop_set_slot, "trp_italian_light_infantry",          slot_troop_manpower_cost,           2),
+    (troop_set_slot, "trp_italian_light_infantry",          slot_troop_recruitment_icon,        "mesh_icon_sword"),
     
     (troop_set_slot, "trp_italian_infantry",                slot_troop_recruit_class,           TROOP_CLASS_RECRUIT),
     (troop_set_slot, "trp_italian_infantry",                slot_troop_manpower_cost,           3),
+    (troop_set_slot, "trp_italian_infantry",                slot_troop_recruitment_icon,        "mesh_icon_sword"),
     
     (troop_set_slot, "trp_italian_heavy_infantry",          slot_troop_recruit_class,           TROOP_CLASS_VETERAN),
     (troop_set_slot, "trp_italian_heavy_infantry",          slot_troop_manpower_cost,           4),
+    (troop_set_slot, "trp_italian_heavy_infantry",          slot_troop_recruitment_icon,        "mesh_icon_sword"),
 
     (troop_set_slot, "trp_genoese_light_crossbowman",       slot_troop_recruit_class,           TROOP_CLASS_RECRUIT),
     (troop_set_slot, "trp_genoese_light_crossbowman",       slot_troop_manpower_cost,           2),
     (troop_set_slot, "trp_genoese_light_crossbowman",       slot_troop_building_req_1,          TROOP_REQ_BUILDING_RANGE),
+    (troop_set_slot, "trp_genoese_light_crossbowman",       slot_troop_recruitment_icon,        "mesh_icon_crossbow"),
     
     (troop_set_slot, "trp_genoese_crossbowman",             slot_troop_recruit_class,           TROOP_CLASS_RECRUIT),
     (troop_set_slot, "trp_genoese_crossbowman",             slot_troop_manpower_cost,           3),
     (troop_set_slot, "trp_genoese_crossbowman",             slot_troop_building_req_1,          TROOP_REQ_BUILDING_RANGE),
+    (troop_set_slot, "trp_genoese_crossbowman",             slot_troop_recruitment_icon,        "mesh_icon_crossbow"),
     
     (troop_set_slot, "trp_genoese_heavy_crossbowman",       slot_troop_recruit_class,           TROOP_CLASS_VETERAN),
     (troop_set_slot, "trp_genoese_heavy_crossbowman",       slot_troop_manpower_cost,           4),
     (troop_set_slot, "trp_genoese_heavy_crossbowman",       slot_troop_building_req_1,          TROOP_REQ_BUILDING_RANGE),
+    (troop_set_slot, "trp_genoese_heavy_crossbowman",       slot_troop_recruitment_icon,        "mesh_icon_crossbow"),
 
     (troop_set_slot, "trp_italian_knight",                  slot_troop_recruit_class,           TROOP_CLASS_NOBLE),
     (troop_set_slot, "trp_italian_knight",                  slot_troop_manpower_cost,           6),
     (troop_set_slot, "trp_italian_knight",                  slot_troop_building_req_1,          TROOP_REQ_BUILDING_CHAPTERHOUSE),
     (troop_set_slot, "trp_italian_knight",                  slot_troop_building_req_2,          TROOP_REQ_BUILDING_CORRAL),
+    (troop_set_slot, "trp_italian_knight",                  slot_troop_recruitment_icon,        "mesh_icon_horse"),
 
 # Scottish
     (troop_set_slot, "trp_scottish_poor_archer",            slot_troop_recruit_class,           TROOP_CLASS_RECRUIT),
     (troop_set_slot, "trp_scottish_poor_archer",            slot_troop_manpower_cost,           2),
     (troop_set_slot, "trp_scottish_poor_archer",            slot_troop_building_req_1,          TROOP_REQ_BUILDING_RANGE),
+    (troop_set_slot, "trp_scottish_poor_archer",            slot_troop_recruitment_icon,        "mesh_icon_bow"),
     
     (troop_set_slot, "trp_scottish_archer",                 slot_troop_recruit_class,           TROOP_CLASS_RECRUIT),
     (troop_set_slot, "trp_scottish_archer",                 slot_troop_manpower_cost,           3),
     (troop_set_slot, "trp_scottish_archer",                 slot_troop_building_req_1,          TROOP_REQ_BUILDING_RANGE),
+    (troop_set_slot, "trp_scottish_archer",                 slot_troop_recruitment_icon,        "mesh_icon_bow"),
     
     (troop_set_slot, "trp_scottish_rich_archer",            slot_troop_recruit_class,           TROOP_CLASS_VETERAN),
     (troop_set_slot, "trp_scottish_rich_archer",            slot_troop_manpower_cost,           4),
     (troop_set_slot, "trp_scottish_rich_archer",            slot_troop_building_req_1,          TROOP_REQ_BUILDING_RANGE),
+    (troop_set_slot, "trp_scottish_rich_archer",            slot_troop_recruitment_icon,        "mesh_icon_bow"),
 
     (troop_set_slot, "trp_scottish_poor_spearman",          slot_troop_recruit_class,           TROOP_CLASS_RECRUIT),
     (troop_set_slot, "trp_scottish_poor_spearman",          slot_troop_manpower_cost,           2),
+    (troop_set_slot, "trp_scottish_poor_spearman",          slot_troop_recruitment_icon,        "mesh_icon_spear"),
     
     (troop_set_slot, "trp_scottish_spearman",               slot_troop_recruit_class,           TROOP_CLASS_RECRUIT),
     (troop_set_slot, "trp_scottish_spearman",               slot_troop_manpower_cost,           3),
+    (troop_set_slot, "trp_scottish_spearman",               slot_troop_recruitment_icon,        "mesh_icon_spear"),
     
     (troop_set_slot, "trp_scottish_rich_spearman",          slot_troop_recruit_class,           TROOP_CLASS_VETERAN),
     (troop_set_slot, "trp_scottish_rich_spearman",          slot_troop_manpower_cost,           4),
+    (troop_set_slot, "trp_scottish_rich_spearman",          slot_troop_recruitment_icon,        "mesh_icon_spear"),
 
     (troop_set_slot, "trp_scottish_footman_at_arms",        slot_troop_recruit_class,           TROOP_CLASS_VETERAN),
     (troop_set_slot, "trp_scottish_footman_at_arms",        slot_troop_manpower_cost,           4),
     (troop_set_slot, "trp_scottish_footman_at_arms",        slot_troop_building_req_1,          TROOP_REQ_BUILDING_CHAPTERHOUSE),
+    (troop_set_slot, "trp_scottish_footman_at_arms",        slot_troop_recruitment_icon,        "mesh_icon_sword_twohanded"),
     
     (troop_set_slot, "trp_scottish_dismounted_squire",      slot_troop_recruit_class,           TROOP_CLASS_NOBLE),
     (troop_set_slot, "trp_scottish_dismounted_squire",      slot_troop_manpower_cost,           5),
     (troop_set_slot, "trp_scottish_dismounted_squire",      slot_troop_building_req_1,          TROOP_REQ_BUILDING_CHAPTERHOUSE),
+    (troop_set_slot, "trp_scottish_dismounted_squire",      slot_troop_recruitment_icon,        "mesh_icon_sword_twohanded"),
     
     (troop_set_slot, "trp_scottish_dismounted_knight",      slot_troop_recruit_class,           TROOP_CLASS_NOBLE),
     (troop_set_slot, "trp_scottish_dismounted_knight",      slot_troop_manpower_cost,           6),
     (troop_set_slot, "trp_scottish_dismounted_knight",      slot_troop_building_req_1,          TROOP_REQ_BUILDING_CHAPTERHOUSE),
+    (troop_set_slot, "trp_scottish_dismounted_knight",      slot_troop_recruitment_icon,        "mesh_icon_sword_twohanded"),
 
 ### Custom Troops
     (troop_set_slot, "trp_custom_merc_recruit",             slot_troop_recruit_class,           TROOP_CLASS_RECRUIT),
+    (troop_set_slot, "trp_custom_merc_recruit",             slot_troop_recruitment_icon,        "mesh_icon_sword"),
+    
     (troop_set_slot, "trp_custom_merc_footman",             slot_troop_recruit_class,           TROOP_CLASS_RECRUIT),
+    (troop_set_slot, "trp_custom_merc_footman",             slot_troop_recruitment_icon,        "mesh_icon_sword"),
+    
     (troop_set_slot, "trp_custom_merc_veteran",             slot_troop_recruit_class,           TROOP_CLASS_VETERAN),
+    (troop_set_slot, "trp_custom_merc_veteran",             slot_troop_recruitment_icon,        "mesh_icon_sword"),
+    
     (troop_set_slot, "trp_custom_merc_sergeant",            slot_troop_recruit_class,           TROOP_CLASS_VETERAN),
+    (troop_set_slot, "trp_custom_merc_sergeant",            slot_troop_recruitment_icon,        "mesh_icon_sword"),
+    
     (troop_set_slot, "trp_custom_merc_vanguard",            slot_troop_recruit_class,           TROOP_CLASS_VETERAN),
+    (troop_set_slot, "trp_custom_merc_vanguard",            slot_troop_recruitment_icon,        "mesh_icon_bardiche"),
                 
     (troop_set_slot, "trp_custom_merc_skirmisher",          slot_troop_recruit_class,           TROOP_CLASS_RECRUIT),
     (troop_set_slot, "trp_custom_merc_skirmisher",          slot_troop_building_req_1,          TROOP_REQ_BUILDING_RANGE),
+    (troop_set_slot, "trp_custom_merc_skirmisher",          slot_troop_recruitment_icon,        "mesh_icon_bow"),
+    
     (troop_set_slot, "trp_custom_merc_ranger",              slot_troop_recruit_class,           TROOP_CLASS_RECRUIT),
     (troop_set_slot, "trp_custom_merc_ranger",              slot_troop_building_req_1,          TROOP_REQ_BUILDING_RANGE),
+    (troop_set_slot, "trp_custom_merc_ranger",              slot_troop_recruitment_icon,        "mesh_icon_bow"),
+    
     (troop_set_slot, "trp_custom_merc_marksman",            slot_troop_recruit_class,           TROOP_CLASS_VETERAN),
     (troop_set_slot, "trp_custom_merc_marksman",            slot_troop_building_req_1,          TROOP_REQ_BUILDING_RANGE),
+    (troop_set_slot, "trp_custom_merc_marksman",            slot_troop_recruitment_icon,        "mesh_icon_bow"),
+    
     (troop_set_slot, "trp_custom_merc_defender",            slot_troop_recruit_class,           TROOP_CLASS_VETERAN),
     (troop_set_slot, "trp_custom_merc_defender",            slot_troop_building_req_1,          TROOP_REQ_BUILDING_RANGE),
+    (troop_set_slot, "trp_custom_merc_defender",            slot_troop_recruitment_icon,        "mesh_icon_crossbow"),
     
     (troop_set_slot, "trp_custom_merc_scout",               slot_troop_recruit_class,           TROOP_CLASS_RECRUIT),
     (troop_set_slot, "trp_custom_merc_scout",               slot_troop_building_req_1,          TROOP_REQ_BUILDING_CORRAL),
     (troop_set_slot, "trp_custom_merc_scout",               slot_troop_resource_requirement,    TROOP_REQ_RESOURCE_HORSE),
+    (troop_set_slot, "trp_custom_merc_scout",               slot_troop_recruitment_icon,        "mesh_icon_horse"),
 
     (troop_set_slot, "trp_custom_merc_mounted_sergeant",    slot_troop_recruit_class,           TROOP_CLASS_VETERAN),
     (troop_set_slot, "trp_custom_merc_mounted_sergeant",    slot_troop_building_req_1,          TROOP_REQ_BUILDING_CORRAL),
     (troop_set_slot, "trp_custom_merc_mounted_sergeant",    slot_troop_resource_requirement,    TROOP_REQ_RESOURCE_HORSE),
+    (troop_set_slot, "trp_custom_merc_mounted_sergeant",    slot_troop_recruitment_icon,        "mesh_icon_horse"),
 
     (troop_set_slot, "trp_custom_merc_foot_squire",         slot_troop_recruit_class,           TROOP_CLASS_NOBLE),
     (troop_set_slot, "trp_custom_merc_foot_squire",         slot_troop_building_req_1,          TROOP_REQ_BUILDING_CHAPTERHOUSE),
+    (troop_set_slot, "trp_custom_merc_foot_squire",         slot_troop_recruitment_icon,        "mesh_icon_sword_twohanded"),
 
     (troop_set_slot, "trp_custom_merc_footman_at_arms",     slot_troop_recruit_class,           TROOP_CLASS_NOBLE),
     (troop_set_slot, "trp_custom_merc_footman_at_arms",     slot_troop_building_req_1,          TROOP_REQ_BUILDING_CHAPTERHOUSE),
+    (troop_set_slot, "trp_custom_merc_footman_at_arms",     slot_troop_recruitment_icon,        "mesh_icon_sword_twohanded"),
 
     (troop_set_slot, "trp_custom_merc_dismounted_knight",   slot_troop_recruit_class,           TROOP_CLASS_NOBLE),
     (troop_set_slot, "trp_custom_merc_dismounted_knight",   slot_troop_building_req_1,          TROOP_REQ_BUILDING_CHAPTERHOUSE),
+    (troop_set_slot, "trp_custom_merc_dismounted_knight",   slot_troop_recruitment_icon,        "mesh_icon_sword_twohanded"),
 
     (troop_set_slot, "trp_custom_merc_squire",              slot_troop_recruit_class,           TROOP_CLASS_NOBLE),
     (troop_set_slot, "trp_custom_merc_squire",              slot_troop_building_req_1,          TROOP_REQ_BUILDING_CHAPTERHOUSE),
     (troop_set_slot, "trp_custom_merc_squire",              slot_troop_building_req_2,          TROOP_REQ_BUILDING_CORRAL),
     (troop_set_slot, "trp_custom_merc_squire",              slot_troop_resource_requirement,    TROOP_REQ_RESOURCE_HORSE),
+    (troop_set_slot, "trp_custom_merc_squire",              slot_troop_recruitment_icon,        "mesh_icon_horse"),
     
     (troop_set_slot, "trp_custom_merc_man_at_arms",         slot_troop_recruit_class,           TROOP_CLASS_NOBLE),
     (troop_set_slot, "trp_custom_merc_man_at_arms",         slot_troop_building_req_1,          TROOP_REQ_BUILDING_CHAPTERHOUSE),
     (troop_set_slot, "trp_custom_merc_man_at_arms",         slot_troop_building_req_2,          TROOP_REQ_BUILDING_CORRAL),
     (troop_set_slot, "trp_custom_merc_man_at_arms",         slot_troop_resource_requirement,    TROOP_REQ_RESOURCE_HORSE),
+    (troop_set_slot, "trp_custom_merc_man_at_arms",         slot_troop_recruitment_icon,        "mesh_icon_horse"),
 
     (troop_set_slot, "trp_custom_merc_knight",              slot_troop_recruit_class,           TROOP_CLASS_NOBLE),
     (troop_set_slot, "trp_custom_merc_knight",              slot_troop_building_req_1,          TROOP_REQ_BUILDING_CHAPTERHOUSE),
     (troop_set_slot, "trp_custom_merc_knight",              slot_troop_building_req_2,          TROOP_REQ_BUILDING_CORRAL),
     (troop_set_slot, "trp_custom_merc_knight",              slot_troop_resource_requirement,    TROOP_REQ_RESOURCE_HORSE),
+    (troop_set_slot, "trp_custom_merc_knight",              slot_troop_recruitment_icon,        "mesh_icon_horse"),
 
 
 
@@ -1630,14 +1743,15 @@ mercenary_company_scripts = [
     (assign, reg0, ":can_be_recruited"),
     (assign, reg1, ":max_amount"),
     
-    (assign, reg30, ":can_be_recruited"),
-    (assign, reg31, ":max_amount"),
-    (assign, reg32, ":manpower_factor"),
+    ### Debug stuff
+    # (assign, reg30, ":can_be_recruited"),
+    # (assign, reg31, ":max_amount"),
+    # (assign, reg32, ":manpower_factor"),
     
-    (display_message, "@CBR is {reg30} Max Amount is {reg31} Factor is {reg32}"),
+    # (display_message, "@CBR is {reg30} Max Amount is {reg31} Factor is {reg32}"),
   ]),
   
-  # dac_player_camp_recruit_troop
+  # script_dac_player_camp_recruit_troop
   # Input: troop_id, amount
   # Output: reg0
   ("dac_player_camp_recruit_troop",
@@ -1678,36 +1792,62 @@ mercenary_company_scripts = [
     
     (party_add_members, "p_main_party", ":troop", ":amount"),
     (troop_remove_gold, "trp_player", ":join_cost"),
+    
+    (assign, reg1, ":amount"),
+    (try_begin),
+        (gt, ":amount", 1),
+        (str_store_troop_name_plural, s1, ":troop"),
+    (else_try),
+        (str_store_troop_name, s1, ":troop"),
+    (try_end),
+        
+    (display_message, "@{reg1} {s1} join your party", color_good_news),
   ]),
   
   
-  # script_dac_list_player_camp_available_troops_to_s10
-  # Input: none
-  # Output: s10
-  ("dac_list_player_camp_available_troops_to_s10",
+  # script_dac_player_camp_troop_can_be_recruited
+  # Input: troop_id
+  # Output: reg0
+  ("dac_player_camp_troop_can_be_recruited",
     [
-    (str_clear, s10),
+    (store_script_param_1, ":troop"),
     
-    (party_get_slot, ":manpower_amount",    "p_player_camp", slot_player_camp_manpower_amount),    
-    (party_get_slot, ":recruit_amount",     "p_player_camp", slot_player_camp_recruit_amount),    
-    (party_get_slot, ":veteran_amount",     "p_player_camp", slot_player_camp_veteran_amount),    
-    (party_get_slot, ":noble_amount",       "p_player_camp", slot_player_camp_noble_amount),    
+    (assign, ":can_be_recruited", -1),
+   
+    (try_begin),
+        (try_begin),
+            (party_slot_eq, "p_player_camp", slot_player_camp_contracted_mercs, contracted_mercs_generic),
+            (assign, ":troop_start", mercenary_troops_begin),
+            (assign, ":troop_end", "trp_flemish_peasant_crossbowman"),
+        (else_try),
+            (party_slot_eq, "p_player_camp", slot_player_camp_contracted_mercs, contracted_mercs_italian),
+            (assign, ":troop_start", "trp_italian_light_infantry"),
+            (assign, ":troop_end", "trp_scottish_poor_archer"),
+        (else_try),
+            (party_slot_eq, "p_player_camp", slot_player_camp_contracted_mercs, contracted_mercs_flemish),
+            (assign, ":troop_start", "trp_flemish_peasant_crossbowman"),
+            (assign, ":troop_end", "trp_italian_light_infantry"),
+        (else_try),
+            (party_slot_eq, "p_player_camp", slot_player_camp_contracted_mercs, contracted_mercs_scottish),
+            (assign, ":troop_start", "trp_scottish_poor_archer"),
+            (assign, ":troop_end", "trp_mercenaries_end"),
+        (else_try),
+            (assign, ":troop_start", customizable_troops_begin),
+            (assign, ":troop_end",   customizable_troops_end),            
+        (try_end),
+        
+        (this_or_next|is_between, ":troop", ":troop_start", ":troop_end"),
+        (is_between, ":troop", customizable_troops_begin, customizable_troops_end),            
+        
+        (neg|troop_is_hero, ":troop"),
+        
+        (assign, ":can_be_recruited", 1),
+    (else_try),
+        (assign, ":can_be_recruited", -1),
+    (try_end),
 
-    (party_get_slot, ":manpower_limit",    "p_player_camp", slot_player_camp_manpower_limit),    
-    (party_get_slot, ":recruit_limit",     "p_player_camp", slot_player_camp_recruit_limit),    
-    (party_get_slot, ":veteran_limit",     "p_player_camp", slot_player_camp_veteran_limit),    
-    (party_get_slot, ":noble_limit",       "p_player_camp", slot_player_camp_noble_limit),   
-
-    (assign, reg30, ":manpower_amount"),
-    (assign, reg31, ":manpower_limit"),
-    (assign, reg32, ":recruit_amount"),
-    (assign, reg33, ":recruit_limit"),
-    (assign, reg34, ":veteran_amount"),
-    (assign, reg35, ":veteran_limit"),
-    (assign, reg36, ":noble_amount"),
-    (assign, reg37, ":noble_limit"),
-
-    (str_store_string, s10, "@Manpower » {reg30}/{reg31} ^^Recruits » {reg32}/{reg33} ^Veterans » {reg34}/{reg35} ^Nobles » {reg36}/{reg37}"),
+    (assign, reg0, ":can_be_recruited"),    
+    
   ]),
   
   # script_dac_mercenary_camp_troop_limits

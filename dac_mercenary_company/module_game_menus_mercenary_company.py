@@ -54,6 +54,15 @@ mercenary_company_menus = [
     "none",
     [(start_presentation, "prsnt_customize_armor")],[]
  ),
+ 
+( "dac_player_camp_recruit_presentation",0,
+    "This menu automatically returns to caller.",
+    "none",
+    [
+    (assign, "$character_info_id", -1),
+    (start_presentation, "prsnt_dac_mercenary_camp_recruitment"),
+    ],[]
+ ),
 
 ## DAC Seek: Player Camp Notification
   (
@@ -222,8 +231,7 @@ mercenary_company_menus = [
     ("player_camp_recruit",
        [(eq, reg6, 0),],
     "Recruit Troops.",[
-    (assign, "$character_info_id", -1),
-    (start_presentation, "prsnt_dac_mercenary_camp_recruitment")
+        (jump_to_menu, "mnu_dac_player_camp_recruit_presentation"),
     ]),   
     
     # ("sliders_test",

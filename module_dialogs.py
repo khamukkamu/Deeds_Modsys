@@ -46084,6 +46084,8 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 
   [anyone|plyr,"camp_quartermaster_start", [], "I wish to enlist some troops.", "camp_quartermaster_recruit",[]],
   
+  [anyone|plyr,"camp_quartermaster_start", [], "I would like to contract another group of mercenaries.", "camp_quartermaster_contract_mercenaries",[]],
+  
   # [anyone|plyr,"camp_quartermaster_start", [], "I would like to change the color scheme of our troops.", "camp_quartermaster_color_scheme",[]],
   
   # [anyone,"camp_quartermaster_color_scheme", [
@@ -46121,11 +46123,107 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
   
   # [anyone,"camp_quartermaster_color_scheme_end", [], "Very well {Sir/Madam}, it shall be as you desire.", "camp_quartermaster_nevermind",[]],
 
-  [anyone,"camp_quartermaster_recruit", [], "Certainly, let's see if there's some available.", "camp_quartermaster_nevermind",
+  [anyone,"camp_quartermaster_recruit", [], "Certainly, let's see if there's some available.", "close_window",
   [
-  (set_mercenary_source_party,"$g_talk_troop_party"),
-  (change_screen_buy_mercenaries)  
+  # (set_mercenary_source_party,"$g_talk_troop_party"),
+  # (change_screen_buy_mercenaries)  
+  (jump_to_menu, "mnu_dac_player_camp_recruit_presentation"),
   ]],
+  
+  [anyone,"camp_quartermaster_contract_mercenaries", [
+
+    (try_begin),
+        (party_slot_eq, "p_player_camp", slot_player_camp_contracted_mercs, contracted_mercs_generic),
+        (str_store_string, s1, "str_dac_player_camp_contracted_generic"),
+    (else_try),
+        (party_slot_eq, "p_player_camp", slot_player_camp_contracted_mercs, contracted_mercs_italian),
+        (str_store_string, s1, "str_dac_player_camp_contracted_italian"),
+    (else_try),
+        (party_slot_eq, "p_player_camp", slot_player_camp_contracted_mercs, contracted_mercs_flemish),
+        (str_store_string, s1, "str_dac_player_camp_contracted_flemish"),
+    (else_try),
+        (party_slot_eq, "p_player_camp", slot_player_camp_contracted_mercs, contracted_mercs_scottish),
+        (str_store_string, s1, "str_dac_player_camp_contracted_scottish"),
+    (else_try),
+        (str_store_string, s1, "str_dac_player_camp_contracted_none"),
+    (try_end),
+  ], "{s1}", "camp_quartermaster_contract_mercenaries_select",
+  []],
+  
+  [anyone|plyr,"camp_quartermaster_contract_mercenaries_select", [
+
+    (neg|party_slot_eq, "p_player_camp", slot_player_camp_contracted_mercs, contracted_mercs_generic),
+
+  ], "I would like to contract generic mercenaries.", "camp_quartermaster_contract_mercenaries_select_finalize",
+  [
+    (assign, reg9, contracted_mercs_generic),
+  ]],
+  
+  [anyone|plyr,"camp_quartermaster_contract_mercenaries_select", [
+
+    (neg|party_slot_eq, "p_player_camp", slot_player_camp_contracted_mercs, contracted_mercs_italian),
+
+  ], "I would like to contract mercenaries from Italy.", "camp_quartermaster_contract_mercenaries_select_finalize",
+  [
+    (assign, reg9, contracted_mercs_italian),
+  ]],
+  
+  [anyone|plyr,"camp_quartermaster_contract_mercenaries_select", [
+
+    (neg|party_slot_eq, "p_player_camp", slot_player_camp_contracted_mercs, contracted_mercs_flemish),
+
+  ], "I would like to contract Flemish mercenaries.", "camp_quartermaster_contract_mercenaries_select_finalize",
+  [
+    (assign, reg9, contracted_mercs_flemish),
+  ]],
+  
+  [anyone|plyr,"camp_quartermaster_contract_mercenaries_select", [
+
+    (neg|party_slot_eq, "p_player_camp", slot_player_camp_contracted_mercs, contracted_mercs_scottish),
+
+  ], "I would like to contract Scottish mercenaries.", "camp_quartermaster_contract_mercenaries_select_finalize",
+  [
+    (assign, reg9, contracted_mercs_scottish),
+  ]],
+  
+  [anyone|plyr,"camp_quartermaster_contract_mercenaries_select", [], 
+  "Forget it.", "camp_quartermaster_nevermind",
+  []],
+  
+  [anyone,"camp_quartermaster_contract_mercenaries_select_finalize", [
+
+    (try_begin),
+        (eq, reg9, contracted_mercs_generic),
+        (assign, reg10, 1000),
+    (else_try),
+        (assign, reg10, 1500),
+    (try_end),
+  ], "I reckon we could set up a contract with them for {reg10} crowns.", "camp_quartermaster_contract_mercenaries_hire",
+  []],
+  
+  [anyone|plyr,"camp_quartermaster_contract_mercenaries_hire", [
+    (store_troop_gold, ":gold", "trp_player"),
+    (ge, ":gold", reg10),
+    
+  ], "Here's the crowns, set up the contract.", "camp_quartermaster_nevermind",
+  [
+    (troop_remove_gold, "trp_player", reg10),
+    (party_set_slot, "p_player_camp", slot_player_camp_contracted_mercs, reg9),
+  ]],
+  
+  [anyone|plyr,"camp_quartermaster_contract_mercenaries_hire", [
+    (store_troop_gold, ":gold", "trp_player"),
+    (lt, ":gold", reg10),
+    
+  ], "I can't afford the costs at the time.", "camp_quartermaster_nevermind",
+  [
+  ]],
+  
+  [anyone|plyr,"camp_quartermaster_contract_mercenaries_hire", [
+  ], "Another time perhaps.", "camp_quartermaster_nevermind",
+  []],
+  
+  
 
   [anyone|plyr,"camp_quartermaster_start", 
     [
