@@ -2905,6 +2905,16 @@ slot_camp_smith_hours_til_finished_3 = slot_troop_2ary_morality_value #Piggyback
 slot_camp_smith_creating_item = slot_troop_first_encountered #piggyback on this slot
 slot_camp_smith_creating_item_2 = slot_troop_morality_state #piggyback on this slot
 slot_camp_smith_creating_item_3 = slot_troop_morality_type #piggyback on this slot
+slot_camp_smith_item_target = slot_troop_town_with_contacts #piggyback on this slot
+slot_camp_smith_item_target_2 = slot_troop_town_contact_type #piggyback on this slot
+slot_camp_smith_item_target_3 = slot_troop_morality_penalties #piggyback on this slot
+
+CAMP_SMITH_ITEM_TARGET_INFANTRY         = 1
+CAMP_SMITH_ITEM_TARGET_RANGED           = 2
+CAMP_SMITH_ITEM_TARGET_CAVALRY          = 3
+CAMP_SMITH_ITEM_TARGET_NOBLE_FOOT       = 4
+CAMP_SMITH_ITEM_TARGET_NOBLE_MOUNT      = 5
+CAMP_SMITH_ITEM_TARGET_NOBLE_EVERYONE   = 6
 #Party Slots
 # Camp buildings
 slot_player_camp_smithy             = 350

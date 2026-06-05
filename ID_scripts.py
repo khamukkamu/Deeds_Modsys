@@ -1021,3 +1021,5 @@ script_refresh_mercenary_camp_troops = 1019
 script_refresh_mercenary_camp_merchant_inventory = 1020
 script_player_camp_set_props = 1021
 script_dac_get_item_commission_hours = 1022
+script_dac_print_item_commission_targets_to_s2 = 1023
+script_dac_print_item_commission_targets_to_s2_add_item = 1024

@@ -60,6 +60,11 @@ mercenary_company_menus = [
     "none",
     [
     (assign, "$character_info_id", -1),
+    (try_for_range, ":slot", 0, "trp_custom_mercs_end"), # clear the arrays
+        (troop_set_slot, "trp_temp_array_a", ":slot", -1),
+        (troop_set_slot, "trp_temp_array_b", ":slot", -1),
+        (troop_set_slot, "trp_temp_array_c", ":slot", -1),
+    (try_end),
     (start_presentation, "prsnt_dac_mercenary_camp_recruitment"),
     ],[]
  ),

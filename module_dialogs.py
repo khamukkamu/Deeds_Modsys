@@ -46084,8 +46084,6 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 
   [anyone|plyr,"camp_quartermaster_start", [], "I wish to enlist some troops.", "camp_quartermaster_recruit",[]],
   
-  [anyone|plyr,"camp_quartermaster_start", [], "I would like to contract another group of mercenaries.", "camp_quartermaster_contract_mercenaries",[]],
-  
   # [anyone|plyr,"camp_quartermaster_start", [], "I would like to change the color scheme of our troops.", "camp_quartermaster_color_scheme",[]],
   
   # [anyone,"camp_quartermaster_color_scheme", [
@@ -46297,7 +46295,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
     "Alright then. Anything else?", "camp_quartermaster_start",
   []],
 
-
+  [anyone|plyr,"camp_quartermaster_start", [], "I would like to contract another group of mercenaries.", "camp_quartermaster_contract_mercenaries",[]],
   
 # DAC Seek: Questions
   
@@ -46368,7 +46366,9 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 
   [anyone,"camp_smith_armoury", 
     [
-    (troop_slot_eq, "trp_merc_company_smith", slot_camp_smith_creating_item, -1),
+    # (this_or_next|troop_slot_eq, "trp_merc_company_smith", slot_camp_smith_creating_item, -1),
+    # (this_or_next|troop_slot_eq, "trp_merc_company_smith", slot_camp_smith_creating_item_2, -1),
+    # (troop_slot_eq, "trp_merc_company_smith", slot_camp_smith_creating_item_3, -1),
     ], 
       "This is all this unit has available in the armoury, you can commission new equipment for it but don't forget to talk with the quartermaster to outfit them.", "close_window",
     [
@@ -46377,9 +46377,27 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
          (jump_to_menu, "mnu_dac_view_armoury"),
     ]],
 
-    [anyone,"camp_smith_armoury", 
+    # [anyone,"camp_smith_armoury", 
+    # [
+    # (neg|troop_slot_eq, "trp_merc_company_smith", slot_camp_smith_creating_item, -1),
+    # (neg|troop_slot_eq, "trp_merc_company_smith", slot_camp_smith_creating_item_2, -1),
+    # (neg|troop_slot_eq, "trp_merc_company_smith", slot_camp_smith_creating_item_3, -1),
+    # ], 
+      # "{sir/madam}, with respect, we are at capacity. We can't work on anything else at the moment unless you cancel an order.", "camp_smith_armoury_procuring_item",
+    # []],
+  
+    [anyone|plyr,"camp_smith_armoury_procuring_item", 
+    [], 
+      "Remind me, what are you working on at the moment?", "camp_smith_armoury_procuring_item_cancel_list",
+    []],
+    
+    [anyone|plyr,"camp_smith_armoury_procuring_item", 
+    [], 
+      "Carry on then.", "camp_smith_start",
+    []],
+    
+    [anyone,"camp_smith_armoury_procuring_item_cancel_list", 
     [
-    (neg|troop_slot_eq, "trp_merc_company_smith", slot_camp_smith_creating_item, -1),
     (troop_get_slot, ":item", "trp_merc_company_smith", slot_camp_smith_creating_item),
     (troop_get_slot, ":hours_til_complete", "trp_merc_company_smith", slot_camp_smith_hours_til_finished),
     (assign, reg40, ":hours_til_complete"),
@@ -46390,26 +46408,91 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
     (else_try),
       (str_store_string, s16, "@one more hour."),
     (try_end),
+    
+    (call_script, "script_dac_print_item_commission_targets_to_s2", 1, ":item"),
+    
     ], 
-      "We are still procuring the {s15}, and it will take {s16}", "camp_smith_armoury_procuring_item",
-    []],
-  
-    [anyone|plyr,"camp_smith_armoury_procuring_item", 
-    [], 
-      "I wish to cancel the order.", "camp_smith_armoury_procuring_item_cancel",
+      "First order is a {s15} for {s2}. It will take {s16}", "camp_smith_armoury_procuring_item_cancel_list_part_2",
     []],
     
-    [anyone|plyr,"camp_smith_armoury_procuring_item", 
-    [], 
-      "Carry on.", "camp_smith_start",
+    [anyone,"camp_smith_armoury_procuring_item_cancel_list_part_2", 
+    [
+    (troop_get_slot, ":item", "trp_merc_company_smith", slot_camp_smith_creating_item_2),
+    (troop_get_slot, ":hours_til_complete", "trp_merc_company_smith", slot_camp_smith_hours_til_finished_2),
+    (assign, reg40, ":hours_til_complete"),
+    (str_store_item_name, s15, ":item"),
+    (try_begin),
+      (gt, reg40, 1),
+      (str_store_string, s16, "@{reg40} hours."),
+    (else_try),
+      (str_store_string, s16, "@one more hour."),
+    (try_end),
+    
+    (call_script, "script_dac_print_item_commission_targets_to_s2", 2, ":item"),
+    
+    ], 
+      "Second order is a {s15} for {s2}. It will take {s16}", "camp_smith_armoury_procuring_item_cancel_list_part_3",
+    []],    
+    
+    [anyone,"camp_smith_armoury_procuring_item_cancel_list_part_3", 
+    [
+    (troop_get_slot, ":item", "trp_merc_company_smith", slot_camp_smith_creating_item_3),
+    (troop_get_slot, ":hours_til_complete", "trp_merc_company_smith", slot_camp_smith_hours_til_finished_3),
+    (assign, reg40, ":hours_til_complete"),
+    (str_store_item_name, s15, ":item"),
+    (try_begin),
+      (gt, reg40, 1),
+      (str_store_string, s16, "@{reg40} hours."),
+    (else_try),
+      (str_store_string, s16, "@one more hour."),
+    (try_end),
+    
+    (call_script, "script_dac_print_item_commission_targets_to_s2", 3, ":item"),
+    
+    ], 
+      "Third and last order is a {s15} for {s2}. It will take {s16}", "camp_smith_armoury_procuring_item_cancel_select",
+    []],  
+    
+    [anyone|plyr,"camp_smith_armoury_procuring_item_cancel_select", 
+    [
+    (troop_get_slot, ":item", "trp_merc_company_smith", slot_camp_smith_creating_item),
+    (str_store_item_name, s15, ":item"),
+    ], 
+      "Cancel the first order of the {s15}.", "camp_smith_armoury_procuring_item_cancel_selected_1",
     []],
     
-    [anyone,"camp_smith_armoury_procuring_item_cancel", 
-    [], 
-      "I have already invested most of the funds for production, I can only refund part of it.", "camp_smith_armoury_procuring_item_cancel_confirm",
+    [anyone|plyr,"camp_smith_armoury_procuring_item_cancel_select", 
+    [
+    (troop_get_slot, ":item", "trp_merc_company_smith", slot_camp_smith_creating_item_2),
+    (str_store_item_name, s15, ":item"),
+    ], 
+      "Cancel the second order of the {s15}.", "camp_smith_armoury_procuring_item_cancel_selected_2",
     []],
     
-    [anyone|plyr,"camp_smith_armoury_procuring_item_cancel_confirm", 
+    [anyone|plyr,"camp_smith_armoury_procuring_item_cancel_select", 
+    [
+    (troop_get_slot, ":item", "trp_merc_company_smith", slot_camp_smith_creating_item_3),
+    (str_store_item_name, s15, ":item"),
+    ], 
+      "Cancel the third order of the {s15}.", "camp_smith_armoury_procuring_item_cancel_selected_3",
+    []],
+    
+    [anyone|plyr,"camp_smith_armoury_procuring_item_cancel_select", 
+    [], 
+      "Go through the list again please.", "camp_smith_armoury_procuring_item_cancel_list",
+    []],
+
+    [anyone|plyr,"camp_smith_armoury_procuring_item_cancel_select", 
+    [], 
+      "On second thought, don't cancel anything yet.", "camp_smith_start",
+    []],
+      
+    [anyone,"camp_smith_armoury_procuring_item_cancel_selected_1", 
+    [], 
+      "I have already invested most of the funds for production, I can only refund part of it.", "camp_smith_armoury_procuring_item_cancel_selected_1_confirm",
+    []],
+    
+    [anyone|plyr,"camp_smith_armoury_procuring_item_cancel_selected_1_confirm", 
     [], 
       "Cancel it please.", "camp_smith_armoury_procuring_item_cancel_final",
     [
@@ -46420,10 +46503,53 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
         (troop_set_slot, "trp_merc_company_smith", slot_camp_smith_hours_til_finished, -1),
     ]],
     
-    [anyone|plyr,"camp_smith_armoury_procuring_item_cancel_confirm", 
+    [anyone|plyr,"camp_smith_armoury_procuring_item_cancel_selected_1_confirm", 
     [], 
       "Nevermind then.", "camp_smith_start",
     []],
+    
+    [anyone,"camp_smith_armoury_procuring_item_cancel_selected_2", 
+    [], 
+      "I have already invested most of the funds for production, I can only refund part of it.", "camp_smith_armoury_procuring_item_cancel_selected_2_confirm",
+    []],
+    
+    [anyone|plyr,"camp_smith_armoury_procuring_item_cancel_selected_2_confirm", 
+    [], 
+      "Cancel it please.", "camp_smith_armoury_procuring_item_cancel_final",
+    [
+        (troop_get_slot, ":item", "trp_merc_company_smith", slot_camp_smith_creating_item_2),
+        (item_get_value, ":value", ":item"),
+        (troop_add_gold, "trp_player", ":value"),
+        (troop_set_slot, "trp_merc_company_smith", slot_camp_smith_creating_item_2, -1),
+        (troop_set_slot, "trp_merc_company_smith", slot_camp_smith_hours_til_finished_2, -1),
+    ]],
+    
+    [anyone|plyr,"camp_smith_armoury_procuring_item_cancel_selected_2_confirm", 
+    [], 
+      "Nevermind then.", "camp_smith_start",
+    []],
+    
+    [anyone,"camp_smith_armoury_procuring_item_cancel_selected_3", 
+    [], 
+      "I have already invested most of the funds for production, I can only refund part of it.", "camp_smith_armoury_procuring_item_cancel_selected_3_confirm",
+    []],
+    
+    [anyone|plyr,"camp_smith_armoury_procuring_item_cancel_selected_3_confirm", 
+    [], 
+      "Cancel it please.", "camp_smith_armoury_procuring_item_cancel_final",
+    [
+        (troop_get_slot, ":item", "trp_merc_company_smith", slot_camp_smith_creating_item_3),
+        (item_get_value, ":value", ":item"),
+        (troop_add_gold, "trp_player", ":value"),
+        (troop_set_slot, "trp_merc_company_smith", slot_camp_smith_creating_item_3, -1),
+        (troop_set_slot, "trp_merc_company_smith", slot_camp_smith_hours_til_finished_3, -1),
+    ]],
+    
+    [anyone|plyr,"camp_smith_armoury_procuring_item_cancel_selected_3_confirm", 
+    [], 
+      "Nevermind then.", "camp_smith_start",
+    []],
+    
     
     [anyone,"camp_smith_armoury_procuring_item_cancel_final", 
     [], 
