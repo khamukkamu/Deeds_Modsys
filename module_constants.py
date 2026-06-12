@@ -1716,6 +1716,9 @@ training_grounds_end     = "p_Bridge_1"
 scenes_begin = "scn_french_town_1_center"
 scenes_end = "scn_french_castle_1_exterior"
 
+road_scenes_begin = "scn_battlefield_road_1"
+road_scenes_end = "scn_battlefield_road_end"
+
 spawn_points_begin = "p_zendar"
 spawn_points_end = "p_spawn_points_end"
 

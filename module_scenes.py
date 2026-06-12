@@ -3535,4 +3535,10 @@ scenes = [
 ("battlefield_road_4",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000034e00557800d23480000127b00001f5300006aee",[],[],"outer_terrain_plain"),
 # Seek
 ("battlefield_road_5",sf_generate,"none", "none", (0,0),(100,100),-100,"0x000000023341088a00075dd9000050c6000042700000415d",[],[],"outer_terrain_plain_2"),
+# EZCK890
+("battlefield_road_6",sf_generate,"none", "none", (0,0),(100,100),-100,"0x0000000030000500000d21fd00000e4d00001f5000001513",[],[],"outer_terrain_plain_3"),
+("battlefield_road_7",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000b9200680000d23480000611000005c190000543c",[],[],"outer_terrain_steppe"),
+("battlefield_road_8",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000001b12005e3000d234800001e310000461a0000391e",[],[],"outer_terrain_steppe_3"),
+# End
+("battlefield_road_end",sf_generate,"none", "none", (0,0),(100,100),-100,"0x00000000b00511d98004b12e0000039f00004e6300005c7d",[],[],"outer_terrain_plain"),
 ]

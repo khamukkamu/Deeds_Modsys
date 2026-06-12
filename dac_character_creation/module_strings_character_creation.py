@@ -421,6 +421,7 @@ There is always a chance for your experiments to backfire, causing you harm"),
 ### DAC Forage
 ("dac_successfully_foraged_s1", "You successfully foraged some {s1}"),
 ("dac_successfully_earned_s1", "The local farmers gift you some {s1} for your hard labour"),
+("dac_xp_earned_reg1", "You earned {reg1} Experience from your efforts."),
 ("dac_peasant_feast", "Your party rejoices at the abundance of food provided"),
 ### DAC Mercenaries Happiness
 ("dac_mercs_happy", "Your party is satisfied with the wine and food variety"),

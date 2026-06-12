@@ -305,12 +305,22 @@ character_creation_simple_triggers = [
                     (store_div, ":half_payment", ":payment", 2),
                     (store_random_in_range, ":payment", ":half_payment", ":double_payment"),
                     (call_script, "script_troop_add_gold", "trp_player", ":payment"),
+                    (store_random_in_range, ":xp_reward", ":half_payment", ":double_payment"),
+                    (add_xp_as_reward, ":xp_reward"),
+                    (assign, reg1, ":xp_reward"),
+                    (display_message, "str_dac_xp_earned_reg1", color_good_news),
                 (try_end),
                 
             (else_try),
                 (troop_get_slot, ":payment", "trp_player", slot_troop_player_workday_payment),
                 (call_script, "script_troop_add_gold", "trp_player", ":payment"),
-                
+                (store_mul, ":double_payment", ":payment", 2),
+                (store_div, ":half_payment", ":payment", 2),
+                (store_random_in_range, ":xp_reward", ":half_payment", ":double_payment"),
+                (add_xp_as_reward, ":xp_reward"),
+                (assign, reg1, ":xp_reward"),
+                (display_message, "str_dac_xp_earned_reg1", color_good_news),
+                    
                 (call_script, "script_rand", 0, 100),
                 (assign, ":random", reg0),
                 

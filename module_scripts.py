@@ -33338,7 +33338,7 @@ scripts = [
         # (val_sub, ":scene_to_use", 1), # can leave, must be small battlefield
       (else_try),
         (eq, ":terrain_type", rt_steppe), ### Roads
-        (store_random_in_range, ":random_scene", "scn_battlefield_road_1", "scn_battlefield_road_5"),
+        (store_random_in_range, ":random_scene", road_scenes_begin, road_scenes_end),
         (assign, ":scene_to_use", ":random_scene"),      
         # (assign, ":scene_to_use", "scn_battlefield_road_4"),      
       (else_try), # forests
