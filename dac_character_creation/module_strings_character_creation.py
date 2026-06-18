@@ -336,7 +336,7 @@ Start with good relations with the Kingdom of France and negates the effects of 
 Start with the archery range already built. Can recruit Scottish troops at your camp. ^^\
 Cons: ^\
 » Last Stand: ^\
-Scottish troops fight to the bitter end, they are more likely to fall dead in battle.^\
+Scottish troops fight to the bitter end, they are more likely to fall dead in battle. Does not apply to non-Scottish troops.^\
 » Old Enemies: ^\
 Start with bad relations with the Kingdom of England"),   
       

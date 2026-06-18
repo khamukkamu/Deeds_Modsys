@@ -1718,7 +1718,14 @@ mercenary_company_troops = [
     itm_h_great_bascinet_continental_visor_b_open,
     itm_h_great_bascinet_continental_visor_c,
     itm_h_great_bascinet_continental_visor_c_open,
-
+    itm_h_great_bascinet_1415_noooxy,
+    itm_h_great_bascinet_1415_noooxy_frogmouth,
+    itm_h_great_bascinet_1415_noooxy_frogmouth_open,
+    itm_h_great_bascinet_1415_noooxy_visor_a,
+    itm_h_great_bascinet_1415_noooxy_visor_a_open,
+    itm_h_great_bascinet_1415_noooxy_visor_b,
+    itm_h_great_bascinet_1415_noooxy_visor_b_open,
+    
     itm_a_plate_kastenbrust_a,
     itm_a_plate_kastenbrust_b,
     itm_a_plate_kastenbrust_c,
@@ -2073,7 +2080,14 @@ mercenary_company_troops = [
     itm_h_great_bascinet_continental_visor_b_open,
     itm_h_great_bascinet_continental_visor_c,
     itm_h_great_bascinet_continental_visor_c_open,
-
+    itm_h_great_bascinet_1415_noooxy,
+    itm_h_great_bascinet_1415_noooxy_frogmouth,
+    itm_h_great_bascinet_1415_noooxy_frogmouth_open,
+    itm_h_great_bascinet_1415_noooxy_visor_a,
+    itm_h_great_bascinet_1415_noooxy_visor_a_open,
+    itm_h_great_bascinet_1415_noooxy_visor_b,
+    itm_h_great_bascinet_1415_noooxy_visor_b_open,
+    
     itm_a_plate_kastenbrust_a,
     itm_a_plate_kastenbrust_b,
     itm_a_plate_kastenbrust_c,
