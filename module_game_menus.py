@@ -5462,7 +5462,10 @@ TOTAL:  {reg5}"),
      (try_end),
      ],
     [
-      ("continue",[],"Continue...",[(jump_to_menu, "$g_next_menu"),]),
+      ("continue",[],"Continue...",[
+      ### DAC Seek: Reset orders
+      (party_set_slot, "p_main_party", slot_party_prebattle_plan, 0),
+      (jump_to_menu, "$g_next_menu"),]),
     ]
   ),
 

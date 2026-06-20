@@ -11983,7 +11983,7 @@ presentations = [
           (assign, reg0, ":net_profit"),
 
           #SB : color up here
-          (assign, ":color", 0xFF0000),
+          # (assign, ":color", 0xFF0000),
           #Enterprise revenue strings
           (try_begin),
             (store_faction_of_party, ":faction_no", ":center_no"),
@@ -12118,9 +12118,10 @@ presentations = [
         (position_set_x, pos1, 900),
         (position_set_y, pos1, 900),
         (overlay_set_size, reg1, pos1),
-        #SB : colorize by faction
-        (faction_get_color, ":color", "$players_kingdom"),
-        (overlay_set_color, reg1, ":color"),
+        #SB : colorize by faction ### DAC Seek: Disabled
+        # (faction_get_color, ":color", "$players_kingdom"),
+        # (overlay_set_color, reg1, ":color"),
+        (overlay_set_color, reg1, 0x00AA00),
         (position_set_x, pos1, 500),
         (position_set_y, pos1, ":cur_y"),
         (overlay_set_position, reg1, pos1),
