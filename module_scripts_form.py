@@ -616,18 +616,39 @@ formAI_scripts = [
                 (try_end),
               (try_end),
               
-              #reassemble if too scattered
-              (try_begin),
-                (call_script, "script_get_distance_to_battlegroup", ":team_no", grc_infantry, pos60),	#we're using enemy troop as a reference
-                (val_sub, reg0, ":distance_to_enemy_troop"),
-                (gt, reg0, 1500),	#division center too far from where it should be (probably because of
-                #reinforcing troops)
-                (position_copy_origin, pos1, Infantry_Pos),	#gather at average position
-                (call_script, "script_battlegroup_dist_center_to_front", ":team_no", grc_infantry),
-                (assign, ":distance_to_move", reg0),
-                (store_mul, reg0, 350, formation_reform_interval),
-                (val_add, ":distance_to_move", reg0),	#one interval movement
-                (position_move_y, pos1, ":distance_to_move"),	#keep rear moving forward
+              #reassemble if too scattered # Original
+              # (try_begin),
+                # (call_script, "script_get_distance_to_battlegroup", ":team_no", grc_infantry, pos60),	#we're using enemy troop as a reference
+                # (val_sub, reg0, ":distance_to_enemy_troop"),
+                # (gt, reg0, 1500),	#division center too far from where it should be (probably because of
+                ##reinforcing troops)
+                # (position_copy_origin, pos1, Infantry_Pos),	#gather at average position
+                # (call_script, "script_battlegroup_dist_center_to_front", ":team_no", grc_infantry),
+                # (assign, ":distance_to_move", reg0),
+                # (store_mul, reg0, 350, formation_reform_interval),
+                # (val_add, ":distance_to_move", reg0),	#one interval movement
+                # (position_move_y, pos1, ":distance_to_move"),	#keep rear moving forward
+                
+                #reassemble if too scattered # Fix by Vetrogor: https://discord.com/channels/411286129317249035/411291053702774784/1537546769062166692
+                (try_begin),
+                    (call_script, "script_get_distance_to_battlegroup", ":team_no", grc_infantry, pos60), #we're using enemy troop as a reference
+                    (gt, ":distance_to_enemy_troop", AI_charge_distance),
+                    (val_sub, reg0, ":distance_to_enemy_troop"),
+                    (gt, reg0, 1500), #division center too far from where it should be (probably because of
+                    #reinforcing troops)
+                    (set_fixed_point_multiplier, 100),
+                    (get_angle_between_positions, ":z_rot", Infantry_Pos, pos1),
+                    (try_begin),
+                        (is_between, ":z_rot", -1500, 1500), #only if target is in front we can move a large distance
+                        (call_script, "script_battlegroup_dist_center_to_front", ":team_no", grc_infantry),
+                        (assign, ":distance_to_move", reg0),
+                        (store_mul, reg0, 350, formation_reform_interval),
+                        (val_add, ":distance_to_move", reg0), #one interval movement
+                    (else_try), #reassemble with rotation, 2meters just in case - short distances are working poor
+                        (assign, ":distance_to_move", 200),
+                    (try_end),
+                    (position_copy_origin, pos1, Infantry_Pos), #gather at average position
+                    (position_move_y, pos1, ":distance_to_move"), #keep rear moving forward
                 
               #attack leader if is closest troop
               (else_try),

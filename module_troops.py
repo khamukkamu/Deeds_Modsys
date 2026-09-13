@@ -1176,7 +1176,7 @@ knows_ironflesh_4|knows_power_strike_3|knows_athletics_3|knows_weapon_master_3, 
  itm_b_turnshoes_1,itm_b_turnshoes_2,itm_b_turnshoes_4,itm_b_turnshoes_5,itm_b_turnshoes_8,itm_b_turnshoes_9,
  itm_w_fauchard_2,itm_w_fauchard_3,itm_w_fauchard_4,
 ], 
-level(15)|str_16|agi_12, wpex(100,100,150,100,100,100), knows_ironflesh_4|knows_power_strike_3|knows_athletics_3|knows_weapon_master_2, english_face_young_1, english_face_middle_2 ],
+level(15)|str_16|agi_12, wpex(100,100,130,100,100,100), knows_ironflesh_3|knows_power_strike_2|knows_athletics_3|knows_weapon_master_1, english_face_young_1, english_face_middle_2 ],
 ["english_footman", "English Poor Spearman", "English Poor Spearmen", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_polearm, no_scene, reserved, fac_kingdom_2, 
 [
  itm_h_chapel_de_fer_strap,itm_h_makeshift_kettle_strap,itm_h_german_kettlehat_1_strap,itm_h_german_kettlehat_4_strap,itm_h_cervelliere_strap,itm_h_simple_cervelliere_strap,itm_h_simple_cervelliere_2_strap,itm_h_skullcap_strap,
@@ -1185,7 +1185,7 @@ level(15)|str_16|agi_12, wpex(100,100,150,100,100,100), knows_ironflesh_4|knows_
  itm_b_turnshoes_1,itm_b_turnshoes_2,itm_b_turnshoes_4,itm_b_turnshoes_5,itm_b_turnshoes_8,itm_b_turnshoes_9,
  itm_w_fauchard_1,itm_w_fauchard_2,itm_w_fauchard_3,itm_w_fauchard_4,
 ], 
-level(20)|str_18|agi_15, wpex(100,100,180,100,100,100), knows_warrior_basic2|knows_ironflesh_5|knows_power_strike_4|knows_athletics_3|knows_weapon_master_3, english_face_middle_1, english_face_mature_2 ],
+level(20)|str_18|agi_15, wpex(100,100,150,100,100,100), knows_ironflesh_4|knows_power_strike_3|knows_athletics_3|knows_weapon_master_2, english_face_middle_1, english_face_mature_2 ],
 ["english_heavy_footman", "English Spearman", "English Spearmen", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield, no_scene, reserved, fac_kingdom_2, 
 [
  itm_h_bascinet_1_mail_aventail,itm_h_bascinet_2_mail_aventail,itm_h_simple_cervelliere_mail_aventail,itm_h_simple_cervelliere_2_mail_aventail,itm_h_skullcap_mail_aventail,
@@ -1194,7 +1194,7 @@ level(20)|str_18|agi_15, wpex(100,100,180,100,100,100), knows_warrior_basic2|kno
  itm_b_high_boots_1,itm_b_high_boots_2,itm_b_high_boots_4,itm_b_high_boots_5,itm_b_high_boots_8,itm_b_high_boots_9,
  itm_w_bill_1,itm_w_bill_4,
 ], 
-level(20)|str_16|agi_16, wpex(160,100,100,100,100,100), knows_ironflesh_4|knows_power_strike_4|knows_shield_3|knows_athletics_3|knows_weapon_master_2, english_face_middle_1, english_face_mature_2 ],
+level(25)|str_20|agi_16, wpex(100,100,180,100,100,100), knows_ironflesh_4|knows_power_strike_4|knows_athletics_4|knows_weapon_master_3, english_face_middle_1, english_face_mature_2 ],
 ["english_sergeant", "English Rich Spearman", "English Rich Spearmen", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_polearm, no_scene, reserved, fac_kingdom_2, 
 [
  itm_h_bascinet_1_mail_aventail,itm_h_bascinet_2_mail_aventail,
@@ -1203,7 +1203,7 @@ level(20)|str_16|agi_16, wpex(160,100,100,100,100,100), knows_ironflesh_4|knows_
  itm_g_gauntlets_mailed,
  itm_w_bill_2,itm_w_bill_3,
 ], 
-level(25)|str_20|agi_20, wpex(100,100,200,100,100,100), knows_ironflesh_5|knows_power_strike_5|knows_athletics_4|knows_weapon_master_4, english_face_mature_1, english_face_old_2 ],
+level(30)|str_24|agi_18, wpex(100,100,200,100,100,100), knows_ironflesh_5|knows_power_strike_5|knows_athletics_4|knows_weapon_master_4, english_face_mature_1, english_face_old_2 ],
 
 ### Ranged Line
 ["english_yeoman_archer", "English Yeoman Archer", "English Yeomen Archers", tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_ranged, no_scene, reserved, fac_kingdom_2, 
@@ -2542,6 +2542,12 @@ def_attrib, wp(50), knows_warrior_basic, bandit_face1, bandit_face2 ],
  itm_a_monk_robe_brown,itm_b_turnshoes_1,
 ]
 ,str_7|agi_11|int_8|cha_7|level(2),wp(80),knows_healer_npc|knows_power_throw_3|knows_athletics_2|knows_power_strike_1,0x00000000000040060558b239244d94d100000000001d98e30000000000000000],
+
+# ["npc17", "Morgane Lann", "Morgane Lann", tf_hero|tf_unmoveable_in_party_window|tf_female|tf_guarantee_boots|tf_guarantee_armor, no_scene, reserved, fac_kingdom_4,
+# [
+ # itm_a_woman_common_dress_1_custom,itm_b_turnshoes_2,itm_w_dagger_quillon,
+# ]
+# ,str_9|agi_9|int_12|cha_6|level(6),wp(70),knows_warrior_npc|knows_power_strike_1|knows_tactics_4|knows_first_aid_2|knows_athletics_1|knows_riding_2,0x00000004790c400147156b33ed29e3620000000000114b1b0000000000000000],
 
 #NPC system changes end
 

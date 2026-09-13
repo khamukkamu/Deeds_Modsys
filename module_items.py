@@ -911,7 +911,7 @@ items = [
 
 # ["h_bicoque", "Bicoque", [("h_bicoque",0)], itp_merchandise|itp_type_head_armor| itp_attach_armature   ,0, 
 # 2400 , weight(5)|abundance(100)|head_armor(56)|body_armor(12)|leg_armor(0)|difficulty(10) ,imodbits_plate],
-["h_bicoque_visor", "Bicoque", [("h_bicoque",0)], itp_merchandise|itp_type_head_armor| itp_attach_armature   ,0, 
+["h_bicoque_visor", "Bicoque", [("h_bicoque",0)], itp_merchandise|itp_type_head_armor|itp_covers_beard| itp_attach_armature   ,0, 
 4900 , weight(5.8)|abundance(100)|head_armor(66)|body_armor(12)|leg_armor(0)|difficulty(10) ,imodbits_plate,[add_mesh("@{!}h_bicoque_visor"),],],
 ["h_bicoque_open", "Bicoque", [("h_bicoque",0)], itp_merchandise|itp_type_head_armor| itp_attach_armature   ,0, 
 4900 , weight(5.8)|abundance(100)|head_armor(66)|body_armor(12)|leg_armor(0)|difficulty(10) ,imodbits_plate,[add_mesh("@{!}h_bicoque_visor_open"),],],
@@ -1858,7 +1858,7 @@ items = [
 
 ### Continental Plate with Long mail sleeves
 ["a_continental_plate_mail_a", "Plate Armour", [("a_english_plate_1415",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 
-4900 , weight(22)|abundance(100)|head_armor(0)|body_armor(50)|leg_armor(20)|difficulty(14) ,imodbits_armor ,[add_mesh("@{!}a_pistoia_mail_arms_light_nostrap"),add_mesh("@{!}a_pistoia_mail_arms_plate"),]],
+4900 , weight(22)|abundance(100)|head_armor(0)|body_armor(50)|leg_armor(20)|difficulty(14) ,imodbits_armor ,[add_mesh("@{!}a_pistoia_mail_arms_plate"),]],
 
 ### Continental Plate with Spaulders
 ["a_continental_plate_a", "Plate Armour", [("a_english_plate_1415",0)], itp_merchandise| itp_type_body_armor  |itp_covers_legs ,0, 
@@ -3547,9 +3547,9 @@ itp_type_polearm| itp_two_handed|itp_primary|itp_no_blur|itp_offset_musket, itc_
 ["w_fauchard_4", "Fauchard", [("w_fauchard_4",0)], itp_type_polearm|itp_merchandise|itp_two_handed|itp_primary|itp_no_blur|itp_cant_use_on_horseback, itc_voulge, 
 188, weight(2.4)|difficulty(9)|spd_rtng(86)|weapon_length(160)|swing_damage(33,cut), imodbits_polearm ],
 
-["w_fork_1", "Pitch Fork", [("w_fork_1",0)], itp_type_polearm|itp_merchandise|itp_wooden_parry|itp_primary|itp_no_blur|itp_penalty_with_shield|itp_has_upper_stab, itc_spear_upstab, 
+["w_fork_1", "Pitch Fork", [("w_fork_1",0)], itp_type_polearm|itp_merchandise|itp_wooden_parry|itp_primary|itp_no_blur|itp_penalty_with_shield|itp_has_upper_stab, itc_pike_upstab, 
 87, weight(1.5)|difficulty(0)|spd_rtng(87)|weapon_length(135)|thrust_damage(22,pierce), imodbits_polearm ],
-["w_fork_2", "Pitch Fork", [("w_fork_2",0)], itp_type_polearm|itp_merchandise|itp_wooden_parry|itp_primary|itp_no_blur|itp_penalty_with_shield|itp_has_upper_stab, itc_spear_upstab, 
+["w_fork_2", "Pitch Fork", [("w_fork_2",0)], itp_type_polearm|itp_merchandise|itp_wooden_parry|itp_primary|itp_no_blur|itp_penalty_with_shield|itp_has_upper_stab, itc_pike_upstab, 
 83, weight(1.4)|difficulty(0)|spd_rtng(88)|weapon_length(126)|thrust_damage(22,pierce), imodbits_polearm ],
 
 ["w_glaive_1", "Glaive", [("w_glaive_1",0)], itp_type_polearm|itp_merchandise|itp_two_handed|itp_primary|itp_no_blur|itp_cant_use_on_horseback|itp_is_pike, itc_poleaxe, 

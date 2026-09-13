@@ -2138,8 +2138,6 @@ mercenary_company_presentations = [
             (call_script, "script_dac_player_camp_recruit_requirement_met", "$character_info_id"),
             (assign, ":can_recruit", reg0),
             (assign, ":max_amount", reg1),
-            (gt, ":can_recruit", 0),
-            (ge, ":max_amount", 1),
             
             (create_slider_overlay, "$g_presentation_obj_sliders_1", 1, ":max_amount"),
             (position_set_x, pos1, 500),
@@ -2157,7 +2155,7 @@ mercenary_company_presentations = [
             (assign, ":join_cost", reg0),
             (val_mul, ":join_cost", "$g_presentation_obj_sliders_1_val"),
             (assign, reg2, ":join_cost"),
-            
+                
             (create_text_overlay, "$g_presentation_obj_sliders_2", "@Amount: {reg1}", tf_center_justify),
             (position_set_x, pos1, 500),
             (position_set_y, pos1, 175),   
@@ -2173,6 +2171,24 @@ mercenary_company_presentations = [
             (position_set_y, pos1, 25),
             (overlay_set_color, "$g_presentation_obj_3", 0xFFFFFFFF),
             (overlay_set_position, "$g_presentation_obj_3", pos1),
+            
+            (try_begin),
+                (gt, ":can_recruit", 0),
+                (ge, ":max_amount", 2),
+                (overlay_set_display, "$g_presentation_obj_sliders_1", 1),      
+            (else_try),
+                (overlay_set_display, "$g_presentation_obj_sliders_1", 0),               
+            (try_end),
+            
+            (try_begin),
+                (gt, ":can_recruit", 0),
+                (ge, ":max_amount", 1),
+                (overlay_set_display, "$g_presentation_obj_sliders_2", 1),  
+                (overlay_set_display, "$g_presentation_obj_3", 1),  
+            (else_try),
+                (overlay_set_display, "$g_presentation_obj_sliders_2", 0),  
+                (overlay_set_display, "$g_presentation_obj_3", 0),  
+            (try_end),
         
         (try_end),
         
@@ -2271,6 +2287,20 @@ mercenary_company_presentations = [
         (try_begin),
             (eq, ":object_id", "$g_presentation_obj_3"), # Hire
             (call_script, "script_dac_player_camp_recruit_troop", "$character_info_id", "$g_presentation_obj_sliders_1_val"), # param1 troop, param2 amount
+            
+            (call_script, "script_dac_player_camp_recruit_requirement_met", "$character_info_id"),
+            (assign, ":can_recruit", reg0),
+            (assign, ":max_amount", reg1),
+            (try_begin),
+                (gt, ":can_recruit", 0),
+                (ge, ":max_amount", 1),
+                (overlay_set_val, "$g_presentation_obj_sliders_1", 1),
+                (assign, "$g_presentation_obj_sliders_1_val", 1),
+            (else_try),
+                (overlay_set_val, "$g_presentation_obj_sliders_1", 0),
+                (assign, "$g_presentation_obj_sliders_1_val", 0),            
+            (try_end),
+            
             (start_presentation, "prsnt_dac_mercenary_camp_recruitment"),
         (else_try),
             (eq, ":object_id", "$g_presentation_obj_2"), # Continue

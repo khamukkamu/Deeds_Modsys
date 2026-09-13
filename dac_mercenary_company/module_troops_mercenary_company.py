@@ -735,7 +735,7 @@ mercenary_company_troops = [
     
   ["custom_merc_vanguard","Company Vanguard","Company Vanguard",tf_guarantee_boots|tf_guarantee_armor|tf_guarantee_helmet|tf_guarantee_gloves|tf_guarantee_shield|tf_guarantee_polearm,0,0,fac_player_faction,[],
     level(25)|str_20|agi_20, 
-    wpe(160,180,180,100), 
+    wpe(165,100,100,180), 
     knows_ironflesh_6|knows_power_strike_5|knows_shield_1|knows_athletics_5|knows_weapon_master_5,
     mercenary_face_1, mercenary_face_2],
   

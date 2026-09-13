@@ -16613,12 +16613,12 @@ scripts = [
 ### DAC Seek: Display item tiers
         (else_try),
         
-            (this_or_next|is_presentation_active, "prsnt_dac_ct_view_armoury"),
-            (this_or_next|is_presentation_active, "prsnt_name_troop"),
-            (is_presentation_active, "prsnt_dac_ct_buy_items_for_armoury"),
+            # (this_or_next|is_presentation_active, "prsnt_dac_ct_view_armoury"),
+            # (this_or_next|is_presentation_active, "prsnt_name_troop"),
+            # (is_presentation_active, "prsnt_dac_ct_buy_items_for_armoury"),
         
             (try_begin),
-                (eq, ":extra_text_id", 0),
+                (eq, ":extra_text_id", 6),
                 (assign, ":continue", 0),
                 
                 (try_for_range, ":slot", slot_item_tiers_begin, slot_item_tiers_end),
@@ -33759,6 +33759,13 @@ scripts = [
 	  (set_visitor, ":cur_pos", ":lady_no"),
 
       (assign, "$talk_context", tc_garden),
+      
+      #VC-2404
+      (try_begin),
+        (call_script, "script_cf_player_use_second_outfit"),#is using second outfit?
+        (call_script, "script_init_second_outfit", "mt_visit_town_castle", 0),
+        (mission_tpl_entry_set_override_flags, "mt_visit_town_castle", 0, af_override_outfit_1|af_override_horse),
+      (try_end),
 
       (jump_to_scene,":castle_scene"),
       (scene_set_slot, ":castle_scene", slot_scene_visited, 1),
@@ -77256,7 +77263,7 @@ Born at {s43}^Contact in {s44} of the {s45}.^\
       (item_set_slot, "itm_a_corrazina_spina_custom", slot_item_breton_materials_end, "str_a_corrazina_spina_blue_m"),   
 # Mercenaries    
       (item_set_slot, "itm_a_corrazina_spina_custom", slot_item_mercenary_materials_begin, "str_a_corrazina_spina_blue_m"),
-      (item_set_slot, "itm_a_corrazina_spina_custom", slot_item_mercenary_materials_end, "str_a_corrazina_capwell_end"),   
+      (item_set_slot, "itm_a_corrazina_spina_custom", slot_item_mercenary_materials_end, "str_a_corrazina_spina_end"),   
       (item_set_slot, "itm_a_corrazina_spina_custom", slot_item_num_components, 1),   
 
 ## Corrazina Capwell

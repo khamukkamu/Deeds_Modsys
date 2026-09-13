@@ -20775,6 +20775,11 @@ I'll send some men to take him to our prison with due haste.", "lord_pretalk", [
 
 ##diplomacy start+ add case for when player supports another lord, and other lord supports that one
 [anyone,"lord_internal_politics_cur_stance", [
+### DAC Seek: Just in case, clear strings
+(str_clear, s0),
+(str_clear, s1),
+(str_clear, s4),
+
 (troop_get_slot, ":player_choice", "trp_player", slot_troop_stance_on_faction_issue),
 (troop_slot_eq, "$g_talk_troop", slot_troop_stance_on_faction_issue, ":player_choice"),
 (gt, ":player_choice", -1),
@@ -46064,7 +46069,7 @@ I suppose there are plenty of bounty hunters around to get the job done . . .", 
 										(party_remove_members, "p_main_party", "$g_talk_troop", reg1),
 										(party_add_members, "p_main_party", ":upgrade_troop", reg1),
 									   ]],
-  [anyone|plyr,"regular_member_give_item_confirm", [], "Never mind.", "regular_member_pretalk",[]],
+  [anyone|plyr,"regular_member_give_item_confirm", [], "Never mind.", "close_window",[]],
 
   [anyone|plyr,"regular_member_talk", [], "Nothing. Keep moving.", "close_window",[]],
 
